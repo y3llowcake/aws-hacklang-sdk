@@ -2,63 +2,33 @@
 namespace slack\aws\cur;
 
 interface Cost and Usage Report Service {
-  public function PutReportDefinition(PutReportDefinitionRequest) Awaitable<Errors\Result<PutReportDefinitionResponse>>;
   public function DeleteReportDefinition(DeleteReportDefinitionRequest) Awaitable<Errors\Result<DeleteReportDefinitionResponse>>;
   public function DescribeReportDefinitions(DescribeReportDefinitionsRequest) Awaitable<Errors\Result<DescribeReportDefinitionsResponse>>;
   public function ModifyReportDefinition(ModifyReportDefinitionRequest) Awaitable<Errors\Result<ModifyReportDefinitionResponse>>;
-}
-
-class PutReportDefinitionResponse {
-}
-
-class ReportDefinition {
-  public ReportFormat $format;
-  public S3Bucket $s_3_bucket;
-  public S3Prefix $s_3_prefix;
-  public AWSRegion $s_3_region;
-  public ReportName $report_name;
-  public TimeUnit $time_unit;
-  public CompressionFormat $compression;
-  public SchemaElementList $additional_schema_elements;
-  public AdditionalArtifactList $additional_artifacts;
-  public RefreshClosedReports $refresh_closed_reports;
-  public ReportVersioning $report_versioning;
-}
-
-class ReportFormat {
-}
-
-class ErrorMessage {
-}
-
-class ReportVersioning {
-}
-
-class SchemaElementList {
-}
-
-class TimeUnit {
+  public function PutReportDefinition(PutReportDefinitionRequest) Awaitable<Errors\Result<PutReportDefinitionResponse>>;
 }
 
 class AWSRegion {
+}
+
+class AdditionalArtifact {
+}
+
+class AdditionalArtifactList {
+}
+
+class CompressionFormat {
+}
+
+class DeleteReportDefinitionRequest {
+  public ReportName $report_name;
 }
 
 class DeleteReportDefinitionResponse {
   public DeleteResponseMessage $response_message;
 }
 
-class DuplicateReportNameException {
-  public ErrorMessage $message;
-}
-
-class GenericString {
-}
-
-class InternalErrorException {
-  public ErrorMessage $message;
-}
-
-class RefreshClosedReports {
+class DeleteResponseMessage {
 }
 
 class DescribeReportDefinitionsRequest {
@@ -71,51 +41,59 @@ class DescribeReportDefinitionsResponse {
   public ReportDefinitionList $report_definitions;
 }
 
-class ReportDefinitionList {
+class DuplicateReportNameException {
+  public ErrorMessage $message;
 }
 
-class SchemaElement {
+class ErrorMessage {
 }
 
-class AdditionalArtifactList {
+class GenericString {
 }
 
-class ModifyReportDefinitionResponse {
-}
-
-class S3Bucket {
-}
-
-class AdditionalArtifact {
+class InternalErrorException {
+  public ErrorMessage $message;
 }
 
 class MaxResults {
+}
+
+class ModifyReportDefinitionRequest {
+  public ReportDefinition $report_definition;
+  public ReportName $report_name;
+}
+
+class ModifyReportDefinitionResponse {
 }
 
 class PutReportDefinitionRequest {
   public ReportDefinition $report_definition;
 }
 
-class S3Prefix {
+class PutReportDefinitionResponse {
 }
 
-class CompressionFormat {
+class RefreshClosedReports {
 }
 
-class ModifyReportDefinitionRequest {
+class ReportDefinition {
+  public AdditionalArtifactList $additional_artifacts;
+  public SchemaElementList $additional_schema_elements;
+  public CompressionFormat $compression;
+  public ReportFormat $format;
+  public RefreshClosedReports $refresh_closed_reports;
   public ReportName $report_name;
-  public ReportDefinition $report_definition;
+  public ReportVersioning $report_versioning;
+  public S3Bucket $s_3_bucket;
+  public S3Prefix $s_3_prefix;
+  public AWSRegion $s_3_region;
+  public TimeUnit $time_unit;
 }
 
-class ValidationException {
-  public ErrorMessage $message;
+class ReportDefinitionList {
 }
 
-class DeleteReportDefinitionRequest {
-  public ReportName $report_name;
-}
-
-class DeleteResponseMessage {
+class ReportFormat {
 }
 
 class ReportLimitReachedException {
@@ -123,5 +101,27 @@ class ReportLimitReachedException {
 }
 
 class ReportName {
+}
+
+class ReportVersioning {
+}
+
+class S3Bucket {
+}
+
+class S3Prefix {
+}
+
+class SchemaElement {
+}
+
+class SchemaElementList {
+}
+
+class TimeUnit {
+}
+
+class ValidationException {
+  public ErrorMessage $message;
 }
 

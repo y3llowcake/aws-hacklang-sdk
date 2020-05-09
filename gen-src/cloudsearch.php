@@ -2,48 +2,38 @@
 namespace slack\aws\cloudsearch;
 
 interface CloudSearch {
+  public function BuildSuggesters(BuildSuggestersRequest) Awaitable<Errors\Result<BuildSuggestersResponse>>;
   public function CreateDomain(CreateDomainRequest) Awaitable<Errors\Result<CreateDomainResponse>>;
-  public function DeleteDomain(DeleteDomainRequest) Awaitable<Errors\Result<DeleteDomainResponse>>;
-  public function DescribeAnalysisSchemes(DescribeAnalysisSchemesRequest) Awaitable<Errors\Result<DescribeAnalysisSchemesResponse>>;
-  public function DescribeExpressions(DescribeExpressionsRequest) Awaitable<Errors\Result<DescribeExpressionsResponse>>;
-  public function IndexDocuments(IndexDocumentsRequest) Awaitable<Errors\Result<IndexDocumentsResponse>>;
-  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
+  public function DefineAnalysisScheme(DefineAnalysisSchemeRequest) Awaitable<Errors\Result<DefineAnalysisSchemeResponse>>;
   public function DefineExpression(DefineExpressionRequest) Awaitable<Errors\Result<DefineExpressionResponse>>;
-  public function DeleteAnalysisScheme(DeleteAnalysisSchemeRequest) Awaitable<Errors\Result<DeleteAnalysisSchemeResponse>>;
-  public function DeleteSuggester(DeleteSuggesterRequest) Awaitable<Errors\Result<DeleteSuggesterResponse>>;
-  public function DescribeAvailabilityOptions(DescribeAvailabilityOptionsRequest) Awaitable<Errors\Result<DescribeAvailabilityOptionsResponse>>;
-  public function DescribeServiceAccessPolicies(DescribeServiceAccessPoliciesRequest) Awaitable<Errors\Result<DescribeServiceAccessPoliciesResponse>>;
-  public function DescribeSuggesters(DescribeSuggestersRequest) Awaitable<Errors\Result<DescribeSuggestersResponse>>;
   public function DefineIndexField(DefineIndexFieldRequest) Awaitable<Errors\Result<DefineIndexFieldResponse>>;
   public function DefineSuggester(DefineSuggesterRequest) Awaitable<Errors\Result<DefineSuggesterResponse>>;
-  public function DeleteIndexField(DeleteIndexFieldRequest) Awaitable<Errors\Result<DeleteIndexFieldResponse>>;
-  public function DescribeIndexFields(DescribeIndexFieldsRequest) Awaitable<Errors\Result<DescribeIndexFieldsResponse>>;
-  public function DescribeScalingParameters(DescribeScalingParametersRequest) Awaitable<Errors\Result<DescribeScalingParametersResponse>>;
-  public function UpdateDomainEndpointOptions(UpdateDomainEndpointOptionsRequest) Awaitable<Errors\Result<UpdateDomainEndpointOptionsResponse>>;
-  public function UpdateScalingParameters(UpdateScalingParametersRequest) Awaitable<Errors\Result<UpdateScalingParametersResponse>>;
-  public function BuildSuggesters(BuildSuggestersRequest) Awaitable<Errors\Result<BuildSuggestersResponse>>;
-  public function DefineAnalysisScheme(DefineAnalysisSchemeRequest) Awaitable<Errors\Result<DefineAnalysisSchemeResponse>>;
+  public function DeleteAnalysisScheme(DeleteAnalysisSchemeRequest) Awaitable<Errors\Result<DeleteAnalysisSchemeResponse>>;
+  public function DeleteDomain(DeleteDomainRequest) Awaitable<Errors\Result<DeleteDomainResponse>>;
   public function DeleteExpression(DeleteExpressionRequest) Awaitable<Errors\Result<DeleteExpressionResponse>>;
+  public function DeleteIndexField(DeleteIndexFieldRequest) Awaitable<Errors\Result<DeleteIndexFieldResponse>>;
+  public function DeleteSuggester(DeleteSuggesterRequest) Awaitable<Errors\Result<DeleteSuggesterResponse>>;
+  public function DescribeAnalysisSchemes(DescribeAnalysisSchemesRequest) Awaitable<Errors\Result<DescribeAnalysisSchemesResponse>>;
+  public function DescribeAvailabilityOptions(DescribeAvailabilityOptionsRequest) Awaitable<Errors\Result<DescribeAvailabilityOptionsResponse>>;
   public function DescribeDomainEndpointOptions(DescribeDomainEndpointOptionsRequest) Awaitable<Errors\Result<DescribeDomainEndpointOptionsResponse>>;
   public function DescribeDomains(DescribeDomainsRequest) Awaitable<Errors\Result<DescribeDomainsResponse>>;
+  public function DescribeExpressions(DescribeExpressionsRequest) Awaitable<Errors\Result<DescribeExpressionsResponse>>;
+  public function DescribeIndexFields(DescribeIndexFieldsRequest) Awaitable<Errors\Result<DescribeIndexFieldsResponse>>;
+  public function DescribeScalingParameters(DescribeScalingParametersRequest) Awaitable<Errors\Result<DescribeScalingParametersResponse>>;
+  public function DescribeServiceAccessPolicies(DescribeServiceAccessPoliciesRequest) Awaitable<Errors\Result<DescribeServiceAccessPoliciesResponse>>;
+  public function DescribeSuggesters(DescribeSuggestersRequest) Awaitable<Errors\Result<DescribeSuggestersResponse>>;
+  public function IndexDocuments(IndexDocumentsRequest) Awaitable<Errors\Result<IndexDocumentsResponse>>;
+  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
   public function UpdateAvailabilityOptions(UpdateAvailabilityOptionsRequest) Awaitable<Errors\Result<UpdateAvailabilityOptionsResponse>>;
+  public function UpdateDomainEndpointOptions(UpdateDomainEndpointOptionsRequest) Awaitable<Errors\Result<UpdateDomainEndpointOptionsResponse>>;
+  public function UpdateScalingParameters(UpdateScalingParametersRequest) Awaitable<Errors\Result<UpdateScalingParametersResponse>>;
   public function UpdateServiceAccessPolicies(UpdateServiceAccessPoliciesRequest) Awaitable<Errors\Result<UpdateServiceAccessPoliciesResponse>>;
 }
 
-class BuildSuggestersResponse {
-  public FieldNameList $field_names;
+class APIVersion {
 }
 
-class CreateDomainResponse {
-  public DomainStatus $domain_status;
-}
-
-class DomainNameList {
-}
-
-class Suggester {
-  public StandardName $suggester_name;
-  public DocumentSuggesterOptions $document_suggester_options;
+class ARN {
 }
 
 class AccessPoliciesStatus {
@@ -51,7 +41,37 @@ class AccessPoliciesStatus {
   public OptionStatus $status;
 }
 
+class AlgorithmicStemming {
+}
+
+class AnalysisOptions {
+  public AlgorithmicStemming $algorithmic_stemming;
+  public string $japanese_tokenization_dictionary;
+  public string $stemming_dictionary;
+  public string $stopwords;
+  public string $synonyms;
+}
+
+class AnalysisScheme {
+  public AnalysisOptions $analysis_options;
+  public AnalysisSchemeLanguage $analysis_scheme_language;
+  public StandardName $analysis_scheme_name;
+}
+
 class AnalysisSchemeLanguage {
+}
+
+class AnalysisSchemeStatus {
+  public AnalysisScheme $options;
+  public OptionStatus $status;
+}
+
+class AnalysisSchemeStatusList {
+}
+
+class AvailabilityOptionsStatus {
+  public MultiAZ $options;
+  public OptionStatus $status;
 }
 
 class BaseException {
@@ -59,54 +79,93 @@ class BaseException {
   public ErrorMessage $message;
 }
 
+class Boolean {
+}
+
+class BuildSuggestersRequest {
+  public DomainName $domain_name;
+}
+
+class BuildSuggestersResponse {
+  public FieldNameList $field_names;
+}
+
+class CreateDomainRequest {
+  public DomainName $domain_name;
+}
+
+class CreateDomainResponse {
+  public DomainStatus $domain_status;
+}
+
+class DateArrayOptions {
+  public FieldValue $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public FieldNameCommaList $source_fields;
+}
+
+class DateOptions {
+  public FieldValue $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class DefineAnalysisSchemeRequest {
+  public AnalysisScheme $analysis_scheme;
+  public DomainName $domain_name;
+}
+
+class DefineAnalysisSchemeResponse {
+  public AnalysisSchemeStatus $analysis_scheme;
+}
+
+class DefineExpressionRequest {
+  public DomainName $domain_name;
+  public Expression $expression;
+}
+
 class DefineExpressionResponse {
   public ExpressionStatus $expression;
 }
 
-class DocumentSuggesterOptions {
-  public FieldName $source_field;
-  public SuggesterFuzzyMatching $fuzzy_matching;
-  public string $sort_expression;
-}
-
-class DomainStatus {
-  public boolean $created;
-  public boolean $deleted;
-  public boolean $processing;
-  public InstanceCount $search_instance_count;
-  public DomainId $domain_id;
+class DefineIndexFieldRequest {
   public DomainName $domain_name;
-  public ARN $arn;
-  public ServiceEndpoint $doc_service;
-  public ServiceEndpoint $search_service;
-  public boolean $requires_index_documents;
-  public SearchInstanceType $search_instance_type;
-  public PartitionCount $search_partition_count;
-  public Limits $limits;
+  public IndexField $index_field;
 }
 
-class ExpressionStatusList {
+class DefineIndexFieldResponse {
+  public IndexFieldStatus $index_field;
 }
 
-class PolicyDocument {
+class DefineSuggesterRequest {
+  public DomainName $domain_name;
+  public Suggester $suggester;
 }
 
-class ResourceNotFoundException {
+class DefineSuggesterResponse {
+  public SuggesterStatus $suggester;
 }
 
-class ScalingParameters {
-  public UIntValue $desired_replication_count;
-  public UIntValue $desired_partition_count;
-  public PartitionInstanceType $desired_instance_type;
-}
-
-class SuggesterStatus {
-  public Suggester $options;
-  public OptionStatus $status;
+class DeleteAnalysisSchemeRequest {
+  public StandardName $analysis_scheme_name;
+  public DomainName $domain_name;
 }
 
 class DeleteAnalysisSchemeResponse {
   public AnalysisSchemeStatus $analysis_scheme;
+}
+
+class DeleteDomainRequest {
+  public DomainName $domain_name;
+}
+
+class DeleteDomainResponse {
+  public DomainStatus $domain_status;
 }
 
 class DeleteExpressionRequest {
@@ -114,29 +173,13 @@ class DeleteExpressionRequest {
   public StandardName $expression_name;
 }
 
-class DynamicFieldName {
+class DeleteExpressionResponse {
+  public ExpressionStatus $expression;
 }
 
-class PartitionCount {
-}
-
-class UpdateAvailabilityOptionsResponse {
-  public AvailabilityOptionsStatus $availability_options;
-}
-
-class CreateDomainRequest {
+class DeleteIndexFieldRequest {
   public DomainName $domain_name;
-}
-
-class DescribeAvailabilityOptionsRequest {
-  public DomainName $domain_name;
-  public boolean $deployed;
-}
-
-class Double {
-}
-
-class IndexFieldStatusList {
+  public DynamicFieldName $index_field_name;
 }
 
 class DeleteIndexFieldResponse {
@@ -148,165 +191,100 @@ class DeleteSuggesterRequest {
   public StandardName $suggester_name;
 }
 
-class DescribeExpressionsResponse {
-  public ExpressionStatusList $expressions;
-}
-
-class ErrorCode {
-}
-
-class FieldValue {
-}
-
-class String {
-}
-
-class DefineIndexFieldRequest {
-  public IndexField $index_field;
-  public DomainName $domain_name;
-}
-
-class DefineSuggesterRequest {
-  public DomainName $domain_name;
-  public Suggester $suggester;
-}
-
-class DescribeDomainEndpointOptionsResponse {
-  public DomainEndpointOptionsStatus $domain_endpoint_options;
-}
-
-class DescribeServiceAccessPoliciesResponse {
-  public AccessPoliciesStatus $access_policies;
-}
-
-class MaximumReplicationCount {
-}
-
-class TextOptions {
-  public FieldName $source_field;
-  public boolean $return_enabled;
-  public boolean $sort_enabled;
-  public boolean $highlight_enabled;
-  public Word $analysis_scheme;
-  public FieldValue $default_value;
-}
-
-class Word {
-}
-
-class ARN {
-}
-
-class DomainStatusList {
-}
-
-class IntOptions {
-  public boolean $return_enabled;
-  public boolean $sort_enabled;
-  public Long $default_value;
-  public FieldName $source_field;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-}
-
-class StandardName {
-}
-
-class DescribeAnalysisSchemesRequest {
-  public DomainName $domain_name;
-  public StandardNameList $analysis_scheme_names;
-  public boolean $deployed;
-}
-
-class DoubleArrayOptions {
-  public boolean $return_enabled;
-  public Double $default_value;
-  public FieldNameCommaList $source_fields;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-}
-
-class DeleteAnalysisSchemeRequest {
-  public DomainName $domain_name;
-  public StandardName $analysis_scheme_name;
-}
-
-class DescribeDomainsRequest {
-  public DomainNameList $domain_names;
-}
-
-class UpdateTimestamp {
-}
-
 class DeleteSuggesterResponse {
   public SuggesterStatus $suggester;
 }
 
-class IndexFieldType {
-}
-
-class InstanceCount {
-}
-
-class LimitExceededException {
-}
-
-class ValidationException {
-}
-
-class DescribeSuggestersResponse {
-  public SuggesterStatusList $suggesters;
+class DescribeAnalysisSchemesRequest {
+  public StandardNameList $analysis_scheme_names;
+  public boolean $deployed;
+  public DomainName $domain_name;
 }
 
 class DescribeAnalysisSchemesResponse {
   public AnalysisSchemeStatusList $analysis_schemes;
 }
 
-class StandardNameList {
-}
-
-class UpdateDomainEndpointOptionsRequest {
+class DescribeAvailabilityOptionsRequest {
+  public boolean $deployed;
   public DomainName $domain_name;
-  public DomainEndpointOptions $domain_endpoint_options;
 }
 
-class DoubleOptions {
-  public Double $default_value;
+class DescribeAvailabilityOptionsResponse {
+  public AvailabilityOptionsStatus $availability_options;
+}
+
+class DescribeDomainEndpointOptionsRequest {
+  public boolean $deployed;
+  public DomainName $domain_name;
+}
+
+class DescribeDomainEndpointOptionsResponse {
+  public DomainEndpointOptionsStatus $domain_endpoint_options;
+}
+
+class DescribeDomainsRequest {
+  public DomainNameList $domain_names;
+}
+
+class DescribeDomainsResponse {
+  public DomainStatusList $domain_status_list;
+}
+
+class DescribeExpressionsRequest {
+  public boolean $deployed;
+  public DomainName $domain_name;
+  public StandardNameList $expression_names;
+}
+
+class DescribeExpressionsResponse {
+  public ExpressionStatusList $expressions;
+}
+
+class DescribeIndexFieldsRequest {
+  public boolean $deployed;
+  public DomainName $domain_name;
+  public DynamicFieldNameList $field_names;
+}
+
+class DescribeIndexFieldsResponse {
+  public IndexFieldStatusList $index_fields;
+}
+
+class DescribeScalingParametersRequest {
+  public DomainName $domain_name;
+}
+
+class DescribeScalingParametersResponse {
+  public ScalingParametersStatus $scaling_parameters;
+}
+
+class DescribeServiceAccessPoliciesRequest {
+  public boolean $deployed;
+  public DomainName $domain_name;
+}
+
+class DescribeServiceAccessPoliciesResponse {
+  public AccessPoliciesStatus $access_policies;
+}
+
+class DescribeSuggestersRequest {
+  public boolean $deployed;
+  public DomainName $domain_name;
+  public StandardNameList $suggester_names;
+}
+
+class DescribeSuggestersResponse {
+  public SuggesterStatusList $suggesters;
+}
+
+class DisabledOperationException {
+}
+
+class DocumentSuggesterOptions {
+  public SuggesterFuzzyMatching $fuzzy_matching;
+  public string $sort_expression;
   public FieldName $source_field;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-  public boolean $return_enabled;
-  public boolean $sort_enabled;
-}
-
-class ExpressionStatus {
-  public Expression $options;
-  public OptionStatus $status;
-}
-
-class OptionStatus {
-  public UpdateTimestamp $update_date;
-  public UIntValue $update_version;
-  public OptionState $state;
-  public boolean $pending_deletion;
-  public UpdateTimestamp $creation_date;
-}
-
-class SuggesterStatusList {
-}
-
-class MaximumPartitionCount {
-}
-
-class ServiceEndpoint {
-  public ServiceUrl $endpoint;
-}
-
-class TLSSecurityPolicy {
-}
-
-class DefineSuggesterResponse {
-  public SuggesterStatus $suggester;
 }
 
 class DomainEndpointOptions {
@@ -314,105 +292,88 @@ class DomainEndpointOptions {
   public TLSSecurityPolicy $tls_security_policy;
 }
 
-class InvalidTypeException {
-}
-
-class DescribeIndexFieldsResponse {
-  public IndexFieldStatusList $index_fields;
-}
-
-class Limits {
-  public MaximumReplicationCount $maximum_replication_count;
-  public MaximumPartitionCount $maximum_partition_count;
-}
-
-class Long {
-}
-
-class UpdateServiceAccessPoliciesRequest {
-  public DomainName $domain_name;
-  public PolicyDocument $access_policies;
+class DomainEndpointOptionsStatus {
+  public DomainEndpointOptions $options;
+  public OptionStatus $status;
 }
 
 class DomainId {
 }
 
+class DomainName {
+}
+
+class DomainNameList {
+}
+
+class DomainNameMap {
+}
+
+class DomainStatus {
+  public ARN $arn;
+  public boolean $created;
+  public boolean $deleted;
+  public ServiceEndpoint $doc_service;
+  public DomainId $domain_id;
+  public DomainName $domain_name;
+  public Limits $limits;
+  public boolean $processing;
+  public boolean $requires_index_documents;
+  public InstanceCount $search_instance_count;
+  public SearchInstanceType $search_instance_type;
+  public PartitionCount $search_partition_count;
+  public ServiceEndpoint $search_service;
+}
+
+class DomainStatusList {
+}
+
+class Double {
+}
+
+class DoubleArrayOptions {
+  public Double $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public FieldNameCommaList $source_fields;
+}
+
+class DoubleOptions {
+  public Double $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class DynamicFieldName {
+}
+
 class DynamicFieldNameList {
 }
 
-class IndexDocumentsResponse {
-  public FieldNameList $field_names;
+class ErrorCode {
 }
 
-class IndexFieldStatus {
-  public IndexField $options;
+class ErrorMessage {
+}
+
+class Expression {
+  public StandardName $expression_name;
+  public ExpressionValue $expression_value;
+}
+
+class ExpressionStatus {
+  public Expression $options;
   public OptionStatus $status;
 }
 
-class SearchInstanceType {
+class ExpressionStatusList {
 }
 
-class UpdateServiceAccessPoliciesResponse {
-  public AccessPoliciesStatus $access_policies;
-}
-
-class AlgorithmicStemming {
-}
-
-class DefineExpressionRequest {
-  public DomainName $domain_name;
-  public Expression $expression;
-}
-
-class DescribeScalingParametersRequest {
-  public DomainName $domain_name;
-}
-
-class LatLonOptions {
-  public boolean $return_enabled;
-  public boolean $sort_enabled;
-  public FieldValue $default_value;
-  public FieldName $source_field;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-}
-
-class SuggesterFuzzyMatching {
-}
-
-class TextArrayOptions {
-  public FieldValue $default_value;
-  public FieldNameCommaList $source_fields;
-  public boolean $return_enabled;
-  public boolean $highlight_enabled;
-  public Word $analysis_scheme;
-}
-
-class UpdateAvailabilityOptionsRequest {
-  public DomainName $domain_name;
-  public boolean $multi_az;
-}
-
-class AnalysisScheme {
-  public AnalysisSchemeLanguage $analysis_scheme_language;
-  public AnalysisOptions $analysis_options;
-  public StandardName $analysis_scheme_name;
-}
-
-class DateOptions {
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-  public boolean $return_enabled;
-  public boolean $sort_enabled;
-  public FieldValue $default_value;
-  public FieldName $source_field;
-}
-
-class DescribeAvailabilityOptionsResponse {
-  public AvailabilityOptionsStatus $availability_options;
-}
-
-class DisabledOperationException {
+class ExpressionValue {
 }
 
 class FieldName {
@@ -421,89 +382,150 @@ class FieldName {
 class FieldNameCommaList {
 }
 
-class InternalException {
+class FieldNameList {
 }
 
-class ServiceUrl {
-}
-
-class Boolean {
-}
-
-class DefineIndexFieldResponse {
-  public IndexFieldStatus $index_field;
-}
-
-class DescribeIndexFieldsRequest {
-  public DomainName $domain_name;
-  public DynamicFieldNameList $field_names;
-  public boolean $deployed;
-}
-
-class DescribeScalingParametersResponse {
-  public ScalingParametersStatus $scaling_parameters;
-}
-
-class DomainName {
-}
-
-class UIntValue {
-}
-
-class BuildSuggestersRequest {
-  public DomainName $domain_name;
+class FieldValue {
 }
 
 class IndexDocumentsRequest {
   public DomainName $domain_name;
 }
 
-class AnalysisSchemeStatusList {
+class IndexDocumentsResponse {
+  public FieldNameList $field_names;
+}
+
+class IndexField {
+  public DateArrayOptions $date_array_options;
+  public DateOptions $date_options;
+  public DoubleArrayOptions $double_array_options;
+  public DoubleOptions $double_options;
+  public DynamicFieldName $index_field_name;
+  public IndexFieldType $index_field_type;
+  public IntArrayOptions $int_array_options;
+  public IntOptions $int_options;
+  public LatLonOptions $lat_lon_options;
+  public LiteralArrayOptions $literal_array_options;
+  public LiteralOptions $literal_options;
+  public TextArrayOptions $text_array_options;
+  public TextOptions $text_options;
+}
+
+class IndexFieldStatus {
+  public IndexField $options;
+  public OptionStatus $status;
+}
+
+class IndexFieldStatusList {
+}
+
+class IndexFieldType {
+}
+
+class InstanceCount {
+}
+
+class IntArrayOptions {
+  public Long $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public FieldNameCommaList $source_fields;
+}
+
+class IntOptions {
+  public Long $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class InternalException {
+}
+
+class InvalidTypeException {
+}
+
+class LatLonOptions {
+  public FieldValue $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class LimitExceededException {
+}
+
+class Limits {
+  public MaximumPartitionCount $maximum_partition_count;
+  public MaximumReplicationCount $maximum_replication_count;
+}
+
+class ListDomainNamesResponse {
+  public DomainNameMap $domain_names;
+}
+
+class LiteralArrayOptions {
+  public FieldValue $default_value;
+  public boolean $facet_enabled;
+  public boolean $return_enabled;
+  public boolean $search_enabled;
+  public FieldNameCommaList $source_fields;
 }
 
 class LiteralOptions {
   public FieldValue $default_value;
-  public FieldName $source_field;
   public boolean $facet_enabled;
-  public boolean $search_enabled;
   public boolean $return_enabled;
+  public boolean $search_enabled;
   public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class Long {
+}
+
+class MaximumPartitionCount {
+}
+
+class MaximumReplicationCount {
+}
+
+class MultiAZ {
 }
 
 class OptionState {
 }
 
-class DescribeDomainEndpointOptionsRequest {
-  public DomainName $domain_name;
-  public boolean $deployed;
+class OptionStatus {
+  public UpdateTimestamp $creation_date;
+  public boolean $pending_deletion;
+  public OptionState $state;
+  public UpdateTimestamp $update_date;
+  public UIntValue $update_version;
 }
 
-class UpdateScalingParametersResponse {
-  public ScalingParametersStatus $scaling_parameters;
+class PartitionCount {
 }
 
-class AnalysisOptions {
-  public AlgorithmicStemming $algorithmic_stemming;
-  public string $synonyms;
-  public string $stopwords;
-  public string $stemming_dictionary;
-  public string $japanese_tokenization_dictionary;
+class PartitionInstanceType {
 }
 
-class DefineAnalysisSchemeRequest {
-  public DomainName $domain_name;
-  public AnalysisScheme $analysis_scheme;
+class PolicyDocument {
 }
 
-class DefineAnalysisSchemeResponse {
-  public AnalysisSchemeStatus $analysis_scheme;
+class ResourceNotFoundException {
 }
 
-class DeleteExpressionResponse {
-  public ExpressionStatus $expression;
-}
-
-class ExpressionValue {
+class ScalingParameters {
+  public PartitionInstanceType $desired_instance_type;
+  public UIntValue $desired_partition_count;
+  public UIntValue $desired_replication_count;
 }
 
 class ScalingParametersStatus {
@@ -511,128 +533,106 @@ class ScalingParametersStatus {
   public OptionStatus $status;
 }
 
-class UpdateScalingParametersRequest {
-  public DomainName $domain_name;
-  public ScalingParameters $scaling_parameters;
+class SearchInstanceType {
 }
 
-class AnalysisSchemeStatus {
+class ServiceEndpoint {
+  public ServiceUrl $endpoint;
+}
+
+class ServiceUrl {
+}
+
+class StandardName {
+}
+
+class StandardNameList {
+}
+
+class String {
+}
+
+class Suggester {
+  public DocumentSuggesterOptions $document_suggester_options;
+  public StandardName $suggester_name;
+}
+
+class SuggesterFuzzyMatching {
+}
+
+class SuggesterStatus {
+  public Suggester $options;
   public OptionStatus $status;
-  public AnalysisScheme $options;
+}
+
+class SuggesterStatusList {
+}
+
+class TLSSecurityPolicy {
+}
+
+class TextArrayOptions {
+  public Word $analysis_scheme;
+  public FieldValue $default_value;
+  public boolean $highlight_enabled;
+  public boolean $return_enabled;
+  public FieldNameCommaList $source_fields;
+}
+
+class TextOptions {
+  public Word $analysis_scheme;
+  public FieldValue $default_value;
+  public boolean $highlight_enabled;
+  public boolean $return_enabled;
+  public boolean $sort_enabled;
+  public FieldName $source_field;
+}
+
+class UIntValue {
+}
+
+class UpdateAvailabilityOptionsRequest {
+  public DomainName $domain_name;
+  public boolean $multi_az;
+}
+
+class UpdateAvailabilityOptionsResponse {
+  public AvailabilityOptionsStatus $availability_options;
+}
+
+class UpdateDomainEndpointOptionsRequest {
+  public DomainEndpointOptions $domain_endpoint_options;
+  public DomainName $domain_name;
 }
 
 class UpdateDomainEndpointOptionsResponse {
   public DomainEndpointOptionsStatus $domain_endpoint_options;
 }
 
-class DeleteDomainResponse {
-  public DomainStatus $domain_status;
-}
-
-class DescribeExpressionsRequest {
+class UpdateScalingParametersRequest {
   public DomainName $domain_name;
-  public StandardNameList $expression_names;
-  public boolean $deployed;
+  public ScalingParameters $scaling_parameters;
 }
 
-class DescribeSuggestersRequest {
-  public DomainName $domain_name;
-  public StandardNameList $suggester_names;
-  public boolean $deployed;
+class UpdateScalingParametersResponse {
+  public ScalingParametersStatus $scaling_parameters;
 }
 
-class DomainEndpointOptionsStatus {
-  public DomainEndpointOptions $options;
-  public OptionStatus $status;
-}
-
-class DomainNameMap {
-}
-
-class IntArrayOptions {
-  public boolean $search_enabled;
-  public boolean $return_enabled;
-  public Long $default_value;
-  public FieldNameCommaList $source_fields;
-  public boolean $facet_enabled;
-}
-
-class MultiAZ {
-}
-
-class DateArrayOptions {
-  public FieldValue $default_value;
-  public FieldNameCommaList $source_fields;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-  public boolean $return_enabled;
-}
-
-class DeleteIndexFieldRequest {
-  public DomainName $domain_name;
-  public DynamicFieldName $index_field_name;
-}
-
-class ErrorMessage {
-}
-
-class LiteralArrayOptions {
-  public FieldValue $default_value;
-  public FieldNameCommaList $source_fields;
-  public boolean $facet_enabled;
-  public boolean $search_enabled;
-  public boolean $return_enabled;
-}
-
-class PartitionInstanceType {
-}
-
-class DeleteDomainRequest {
+class UpdateServiceAccessPoliciesRequest {
+  public PolicyDocument $access_policies;
   public DomainName $domain_name;
 }
 
-class AvailabilityOptionsStatus {
-  public MultiAZ $options;
-  public OptionStatus $status;
+class UpdateServiceAccessPoliciesResponse {
+  public AccessPoliciesStatus $access_policies;
 }
 
-class DescribeDomainsResponse {
-  public DomainStatusList $domain_status_list;
+class UpdateTimestamp {
 }
 
-class DescribeServiceAccessPoliciesRequest {
-  public boolean $deployed;
-  public DomainName $domain_name;
+class ValidationException {
 }
 
-class FieldNameList {
-}
-
-class APIVersion {
-}
-
-class Expression {
-  public StandardName $expression_name;
-  public ExpressionValue $expression_value;
-}
-
-class IndexField {
-  public TextOptions $text_options;
-  public DateOptions $date_options;
-  public DoubleArrayOptions $double_array_options;
-  public TextArrayOptions $text_array_options;
-  public DynamicFieldName $index_field_name;
-  public IndexFieldType $index_field_type;
-  public DoubleOptions $double_options;
-  public IntArrayOptions $int_array_options;
-  public LiteralArrayOptions $literal_array_options;
-  public DateArrayOptions $date_array_options;
-  public IntOptions $int_options;
-  public LiteralOptions $literal_options;
-  public LatLonOptions $lat_lon_options;
-}
-
-class ListDomainNamesResponse {
-  public DomainNameMap $domain_names;
+class Word {
 }
 

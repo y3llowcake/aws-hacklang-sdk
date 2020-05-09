@@ -2,141 +2,107 @@
 namespace slack\aws\elastictranscoder;
 
 interface Elastic Transcoder {
-  public function ListJobsByStatus(ListJobsByStatusRequest) Awaitable<Errors\Result<ListJobsByStatusResponse>>;
   public function CancelJob(CancelJobRequest) Awaitable<Errors\Result<CancelJobResponse>>;
+  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResponse>>;
+  public function CreatePipeline(CreatePipelineRequest) Awaitable<Errors\Result<CreatePipelineResponse>>;
+  public function CreatePreset(CreatePresetRequest) Awaitable<Errors\Result<CreatePresetResponse>>;
+  public function DeletePipeline(DeletePipelineRequest) Awaitable<Errors\Result<DeletePipelineResponse>>;
   public function DeletePreset(DeletePresetRequest) Awaitable<Errors\Result<DeletePresetResponse>>;
   public function ListJobsByPipeline(ListJobsByPipelineRequest) Awaitable<Errors\Result<ListJobsByPipelineResponse>>;
+  public function ListJobsByStatus(ListJobsByStatusRequest) Awaitable<Errors\Result<ListJobsByStatusResponse>>;
+  public function ListPipelines(ListPipelinesRequest) Awaitable<Errors\Result<ListPipelinesResponse>>;
+  public function ListPresets(ListPresetsRequest) Awaitable<Errors\Result<ListPresetsResponse>>;
+  public function ReadJob(ReadJobRequest) Awaitable<Errors\Result<ReadJobResponse>>;
+  public function ReadPipeline(ReadPipelineRequest) Awaitable<Errors\Result<ReadPipelineResponse>>;
+  public function ReadPreset(ReadPresetRequest) Awaitable<Errors\Result<ReadPresetResponse>>;
+  public function TestRole(TestRoleRequest) Awaitable<Errors\Result<TestRoleResponse>>;
   public function UpdatePipeline(UpdatePipelineRequest) Awaitable<Errors\Result<UpdatePipelineResponse>>;
   public function UpdatePipelineNotifications(UpdatePipelineNotificationsRequest) Awaitable<Errors\Result<UpdatePipelineNotificationsResponse>>;
   public function UpdatePipelineStatus(UpdatePipelineStatusRequest) Awaitable<Errors\Result<UpdatePipelineStatusResponse>>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResponse>>;
-  public function CreatePreset(CreatePresetRequest) Awaitable<Errors\Result<CreatePresetResponse>>;
-  public function TestRole(TestRoleRequest) Awaitable<Errors\Result<TestRoleResponse>>;
-  public function ListPresets(ListPresetsRequest) Awaitable<Errors\Result<ListPresetsResponse>>;
-  public function ReadPipeline(ReadPipelineRequest) Awaitable<Errors\Result<ReadPipelineResponse>>;
-  public function ReadJob(ReadJobRequest) Awaitable<Errors\Result<ReadJobResponse>>;
-  public function ReadPreset(ReadPresetRequest) Awaitable<Errors\Result<ReadPresetResponse>>;
-  public function CreatePipeline(CreatePipelineRequest) Awaitable<Errors\Result<CreatePipelineResponse>>;
-  public function DeletePipeline(DeletePipelineRequest) Awaitable<Errors\Result<DeletePipelineResponse>>;
-  public function ListPipelines(ListPipelinesRequest) Awaitable<Errors\Result<ListPipelinesResponse>>;
 }
 
-class Resolution {
+class AccessControl {
+}
+
+class AccessControls {
+}
+
+class AccessDeniedException {
+}
+
+class Artwork {
+  public JpgOrPng $album_art_format;
+  public Encryption $encryption;
+  public WatermarkKey $input_key;
+  public DigitsOrAuto $max_height;
+  public DigitsOrAuto $max_width;
+  public PaddingPolicy $padding_policy;
+  public SizingPolicy $sizing_policy;
+}
+
+class Artworks {
+}
+
+class Ascending {
+}
+
+class AspectRatio {
 }
 
 class AudioBitDepth {
 }
 
-class MaxFrameRate {
-}
-
-class NonEmptyBase64EncodedString {
-}
-
-class CreatePresetRequest {
-  public Thumbnails $thumbnails;
-  public Name $name;
-  public Description $description;
-  public PresetContainer $container;
-  public VideoParameters $video;
-  public AudioParameters $audio;
-}
-
-class JobContainer {
-}
-
-class KeyStoragePolicy {
-}
-
-class Target {
+class AudioBitOrder {
 }
 
 class AudioBitRate {
 }
 
+class AudioChannels {
+}
+
+class AudioCodec {
+}
+
+class AudioCodecOptions {
+  public AudioBitDepth $bit_depth;
+  public AudioBitOrder $bit_order;
+  public AudioCodecProfile $profile;
+  public AudioSigned $signed;
+}
+
 class AudioCodecProfile {
+}
+
+class AudioPackingMode {
+}
+
+class AudioParameters {
+  public AudioPackingMode $audio_packing_mode;
+  public AudioBitRate $bit_rate;
+  public AudioChannels $channels;
+  public AudioCodec $codec;
+  public AudioCodecOptions $codec_options;
+  public AudioSampleRate $sample_rate;
+}
+
+class AudioSampleRate {
+}
+
+class AudioSigned {
 }
 
 class Base64EncodedString {
 }
 
-class JobWatermark {
-  public WatermarkKey $input_key;
-  public Encryption $encryption;
-  public PresetWatermarkId $preset_watermark_id;
-}
-
-class JpgOrPng {
-}
-
-class LimitExceededException {
-}
-
-class LongKey {
-}
-
-class Permissions {
+class BucketName {
 }
 
 class CancelJobRequest {
   public Id $id;
 }
 
-class CaptionMergePolicy {
-}
-
-class CreateJobRequest {
-  public CreateJobOutput $output;
-  public CreateJobOutputs $outputs;
-  public Key $output_key_prefix;
-  public CreateJobPlaylists $playlists;
-  public UserMetadata $user_metadata;
-  public Id $pipeline_id;
-  public JobInput $input;
-  public JobInputs $inputs;
-}
-
-class ResourceNotFoundException {
-}
-
-class Role {
-}
-
-class JobOutputs {
-}
-
-class Pipeline {
-  public PipelineOutputConfig $thumbnail_config;
-  public Name $name;
-  public BucketName $input_bucket;
-  public BucketName $output_bucket;
-  public KeyArn $aws_kms_key_arn;
-  public Notifications $notifications;
-  public Id $id;
-  public string $arn;
-  public PipelineStatus $status;
-  public Role $role;
-  public PipelineOutputConfig $content_config;
-}
-
-class TestRoleRequest {
-  public Role $role;
-  public BucketName $input_bucket;
-  public BucketName $output_bucket;
-  public SnsTopics $topics;
-}
-
-class TestRoleResponse {
-  public Success $success;
-  public ExceptionMessages $messages;
-}
-
-class TimeSpan {
-  public Time $start_time;
-  public Time $duration;
-}
-
-class Ascending {
+class CancelJobResponse {
 }
 
 class CaptionFormat {
@@ -148,65 +114,111 @@ class CaptionFormat {
 class CaptionFormatFormat {
 }
 
-class Playlists {
+class CaptionFormatPattern {
 }
 
-class Presets {
+class CaptionFormats {
 }
 
-class Thumbnails {
-  public DigitsOrAuto $max_height;
-  public SizingPolicy $sizing_policy;
-  public PaddingPolicy $padding_policy;
-  public JpgOrPng $format;
-  public Digits $interval;
-  public ThumbnailResolution $resolution;
-  public AspectRatio $aspect_ratio;
-  public DigitsOrAuto $max_width;
+class CaptionMergePolicy {
 }
 
-class UpdatePipelineStatusResponse {
-  public Pipeline $pipeline;
+class CaptionSource {
+  public Encryption $encryption;
+  public LongKey $key;
+  public Name $label;
+  public Key $language;
+  public TimeOffset $time_offset;
+}
+
+class CaptionSources {
+}
+
+class Captions {
+  public CaptionFormats $caption_formats;
+  public CaptionSources $caption_sources;
+  public CaptionMergePolicy $merge_policy;
+}
+
+class Clip {
+  public TimeSpan $time_span;
+}
+
+class CodecOption {
+}
+
+class CodecOptions {
 }
 
 class Composition {
 }
 
-class GranteeType {
+class CreateJobOutput {
+  public JobAlbumArt $album_art;
+  public Captions $captions;
+  public Composition $composition;
+  public Encryption $encryption;
+  public Key $key;
+  public Id $preset_id;
+  public Rotate $rotate;
+  public FloatString $segment_duration;
+  public Encryption $thumbnail_encryption;
+  public ThumbnailPattern $thumbnail_pattern;
+  public JobWatermarks $watermarks;
 }
 
-class ListPresetsResponse {
-  public Presets $presets;
-  public Id $next_page_token;
+class CreateJobOutputs {
 }
 
-class ReadPipelineResponse {
-  public Pipeline $pipeline;
-  public Warnings $warnings;
-}
-
-class AudioParameters {
-  public AudioChannels $channels;
-  public AudioPackingMode $audio_packing_mode;
-  public AudioCodecOptions $codec_options;
-  public AudioCodec $codec;
-  public AudioSampleRate $sample_rate;
-  public AudioBitRate $bit_rate;
+class CreateJobPlaylist {
+  public PlaylistFormat $format;
+  public HlsContentProtection $hls_content_protection;
+  public Filename $name;
+  public OutputKeys $output_keys;
+  public PlayReadyDrm $play_ready_drm;
 }
 
 class CreateJobPlaylists {
 }
 
-class JobStatus {
+class CreateJobRequest {
+  public JobInput $input;
+  public JobInputs $inputs;
+  public CreateJobOutput $output;
+  public Key $output_key_prefix;
+  public CreateJobOutputs $outputs;
+  public Id $pipeline_id;
+  public CreateJobPlaylists $playlists;
+  public UserMetadata $user_metadata;
 }
 
-class Permission {
-  public GranteeType $grantee_type;
-  public Grantee $grantee;
-  public AccessControls $access;
+class CreateJobResponse {
+  public Job $job;
 }
 
-class VideoBitRate {
+class CreatePipelineRequest {
+  public KeyArn $aws_kms_key_arn;
+  public PipelineOutputConfig $content_config;
+  public BucketName $input_bucket;
+  public Name $name;
+  public Notifications $notifications;
+  public BucketName $output_bucket;
+  public Role $role;
+  public PipelineOutputConfig $thumbnail_config;
+}
+
+class CreatePipelineResponse {
+  public Pipeline $pipeline;
+  public Warnings $warnings;
+}
+
+class CreatePresetRequest {
+  public AudioParameters $audio;
+  public PresetContainer $container;
+  public Description $description;
+  public Name $name;
+  public Thumbnails $thumbnails;
+  public VideoParameters $video;
 }
 
 class CreatePresetResponse {
@@ -214,236 +226,173 @@ class CreatePresetResponse {
   public string $warning;
 }
 
-class JobOutput {
-  public NullableLong $duration_millis;
-  public Captions $captions;
-  public string $id;
-  public Id $preset_id;
-  public NullableLong $file_size;
-  public JobWatermarks $watermarks;
-  public Encryption $encryption;
-  public Key $key;
-  public NullableInteger $width;
-  public FloatString $frame_rate;
-  public NullableLong $duration;
-  public NullableInteger $height;
-  public JobAlbumArt $album_art;
-  public string $applied_color_space_conversion;
-  public ThumbnailPattern $thumbnail_pattern;
-  public Encryption $thumbnail_encryption;
-  public JobStatus $status;
-  public Composition $composition;
-  public Rotate $rotate;
-  public FloatString $segment_duration;
-  public Description $status_detail;
-}
-
-class OneTo512String {
-}
-
-class KeyArn {
-}
-
-class ListJobsByStatusResponse {
-  public Jobs $jobs;
-  public Id $next_page_token;
-}
-
-class ReadPipelineRequest {
+class DeletePipelineRequest {
   public Id $id;
 }
 
-class WatermarkSizingPolicy {
+class DeletePipelineResponse {
 }
 
-class CancelJobResponse {
-}
-
-class CodecOptions {
-}
-
-class Description {
-}
-
-class HlsContentProtection {
-  public ZeroTo255String $initialization_vector;
-  public ZeroTo512String $license_acquisition_url;
-  public KeyStoragePolicy $key_storage_policy;
-  public HlsContentProtectionMethod $method;
-  public Base64EncodedString $key;
-  public Base64EncodedString $key_md_5;
-}
-
-class HorizontalAlign {
-}
-
-class ThumbnailPattern {
-}
-
-class PresetContainer {
-}
-
-class Job {
-  public JobStatus $status;
-  public Id $pipeline_id;
-  public JobInput $input;
-  public JobInputs $inputs;
-  public JobOutput $output;
-  public JobOutputs $outputs;
-  public Key $output_key_prefix;
-  public Playlists $playlists;
-  public UserMetadata $user_metadata;
+class DeletePresetRequest {
   public Id $id;
-  public string $arn;
-  public Timing $timing;
-}
-
-class JobInput {
-  public DetectedProperties $detected_properties;
-  public LongKey $key;
-  public AspectRatio $aspect_ratio;
-  public Encryption $encryption;
-  public TimeSpan $time_span;
-  public InputCaptions $input_captions;
-  public FrameRate $frame_rate;
-  public Resolution $resolution;
-  public Interlaced $interlaced;
-  public JobContainer $container;
-}
-
-class NullableInteger {
-}
-
-class SnsTopic {
-}
-
-class WatermarkKey {
-}
-
-class DigitsOrAuto {
-}
-
-class EncryptionMode {
-}
-
-class HlsContentProtectionMethod {
-}
-
-class InternalServiceException {
-}
-
-class ListJobsByPipelineRequest {
-  public Ascending $ascending;
-  public Id $page_token;
-  public Id $pipeline_id;
-}
-
-class PaddingPolicy {
 }
 
 class DeletePresetResponse {
 }
 
-class String {
+class Description {
 }
 
-class CaptionFormatPattern {
+class DetectedProperties {
+  public NullableLong $duration_millis;
+  public NullableLong $file_size;
+  public FloatString $frame_rate;
+  public NullableInteger $height;
+  public NullableInteger $width;
 }
 
-class CodecOption {
+class Digits {
 }
 
-class ListPresetsRequest {
-  public Ascending $ascending;
-  public Id $page_token;
+class DigitsOrAuto {
 }
 
-class Name {
-}
-
-class PlayReadyDrm {
-  public PlayReadyDrmFormatString $format;
-  public NonEmptyBase64EncodedString $key;
-  public NonEmptyBase64EncodedString $key_md_5;
-  public KeyIdGuid $key_id;
+class Encryption {
   public ZeroTo255String $initialization_vector;
-  public OneTo512String $license_acquisition_url;
+  public Base64EncodedString $key;
+  public Base64EncodedString $key_md_5;
+  public EncryptionMode $mode;
 }
 
-class AspectRatio {
+class EncryptionMode {
 }
 
-class AudioBitOrder {
+class ExceptionMessages {
 }
 
-class AudioSigned {
+class Filename {
 }
 
-class UpdatePipelineResponse {
-  public Pipeline $pipeline;
-  public Warnings $warnings;
+class FixedGOP {
 }
 
-class ListPipelinesResponse {
-  public Pipelines $pipelines;
-  public Id $next_page_token;
+class FloatString {
 }
 
-class UpdatePipelineStatusRequest {
-  public Id $id;
-  public PipelineStatus $status;
+class FrameRate {
 }
 
-class VideoParameters {
-  public DigitsOrAuto $max_height;
-  public AspectRatio $display_aspect_ratio;
-  public Resolution $resolution;
-  public FixedGOP $fixed_gop;
-  public MaxFrameRate $max_frame_rate;
-  public SizingPolicy $sizing_policy;
-  public PresetWatermarks $watermarks;
-  public FrameRate $frame_rate;
-  public DigitsOrAuto $max_width;
-  public KeyframesMaxDist $keyframes_max_dist;
-  public VideoBitRate $bit_rate;
-  public AspectRatio $aspect_ratio;
-  public PaddingPolicy $padding_policy;
-  public VideoCodec $codec;
-  public CodecOptions $codec_options;
+class Grantee {
 }
 
-class Rotate {
+class GranteeType {
 }
 
-class Timing {
-  public NullableLong $submit_time_millis;
-  public NullableLong $start_time_millis;
-  public NullableLong $finish_time_millis;
+class HlsContentProtection {
+  public ZeroTo255String $initialization_vector;
+  public Base64EncodedString $key;
+  public Base64EncodedString $key_md_5;
+  public KeyStoragePolicy $key_storage_policy;
+  public ZeroTo512String $license_acquisition_url;
+  public HlsContentProtectionMethod $method;
 }
 
-class UpdatePipelineNotificationsResponse {
-  public Pipeline $pipeline;
+class HlsContentProtectionMethod {
 }
 
-class CreateJobOutput {
-  public Encryption $thumbnail_encryption;
-  public Id $preset_id;
-  public JobWatermarks $watermarks;
-  public Composition $composition;
-  public Encryption $encryption;
-  public Key $key;
-  public ThumbnailPattern $thumbnail_pattern;
-  public Rotate $rotate;
-  public FloatString $segment_duration;
-  public JobAlbumArt $album_art;
-  public Captions $captions;
+class HorizontalAlign {
+}
+
+class Id {
 }
 
 class IncompatibleVersionException {
 }
 
-class ReadJobRequest {
+class InputCaptions {
+  public CaptionSources $caption_sources;
+  public CaptionMergePolicy $merge_policy;
+}
+
+class Interlaced {
+}
+
+class InternalServiceException {
+}
+
+class Job {
+  public string $arn;
   public Id $id;
+  public JobInput $input;
+  public JobInputs $inputs;
+  public JobOutput $output;
+  public Key $output_key_prefix;
+  public JobOutputs $outputs;
+  public Id $pipeline_id;
+  public Playlists $playlists;
+  public JobStatus $status;
+  public Timing $timing;
+  public UserMetadata $user_metadata;
+}
+
+class JobAlbumArt {
+  public Artworks $artwork;
+  public MergePolicy $merge_policy;
+}
+
+class JobContainer {
+}
+
+class JobInput {
+  public AspectRatio $aspect_ratio;
+  public JobContainer $container;
+  public DetectedProperties $detected_properties;
+  public Encryption $encryption;
+  public FrameRate $frame_rate;
+  public InputCaptions $input_captions;
+  public Interlaced $interlaced;
+  public LongKey $key;
+  public Resolution $resolution;
+  public TimeSpan $time_span;
+}
+
+class JobInputs {
+}
+
+class JobOutput {
+  public JobAlbumArt $album_art;
+  public string $applied_color_space_conversion;
+  public Captions $captions;
+  public Composition $composition;
+  public NullableLong $duration;
+  public NullableLong $duration_millis;
+  public Encryption $encryption;
+  public NullableLong $file_size;
+  public FloatString $frame_rate;
+  public NullableInteger $height;
+  public string $id;
+  public Key $key;
+  public Id $preset_id;
+  public Rotate $rotate;
+  public FloatString $segment_duration;
+  public JobStatus $status;
+  public Description $status_detail;
+  public Encryption $thumbnail_encryption;
+  public ThumbnailPattern $thumbnail_pattern;
+  public JobWatermarks $watermarks;
+  public NullableInteger $width;
+}
+
+class JobOutputs {
+}
+
+class JobStatus {
+}
+
+class JobWatermark {
+  public Encryption $encryption;
+  public WatermarkKey $input_key;
+  public PresetWatermarkId $preset_watermark_id;
 }
 
 class JobWatermarks {
@@ -452,72 +401,136 @@ class JobWatermarks {
 class Jobs {
 }
 
-class ValidationException {
+class JpgOrPng {
 }
 
-class BucketName {
+class Key {
 }
 
-class ExceptionMessages {
+class KeyArn {
 }
 
-class Grantee {
+class KeyIdGuid {
 }
 
-class DetectedProperties {
-  public NullableInteger $width;
-  public NullableInteger $height;
-  public FloatString $frame_rate;
-  public NullableLong $file_size;
-  public NullableLong $duration_millis;
+class KeyStoragePolicy {
 }
 
-class Id {
+class KeyframesMaxDist {
 }
 
-class PresetWatermark {
-  public VerticalAlign $vertical_align;
-  public Target $target;
-  public WatermarkSizingPolicy $sizing_policy;
-  public PixelsOrPercent $horizontal_offset;
-  public PixelsOrPercent $max_height;
-  public HorizontalAlign $horizontal_align;
-  public PixelsOrPercent $vertical_offset;
-  public Opacity $opacity;
-  public PresetWatermarkId $id;
-  public PixelsOrPercent $max_width;
+class LimitExceededException {
 }
 
-class UserMetadata {
+class ListJobsByPipelineRequest {
+  public Ascending $ascending;
+  public Id $page_token;
+  public Id $pipeline_id;
 }
 
-class AccessControl {
+class ListJobsByPipelineResponse {
+  public Jobs $jobs;
+  public Id $next_page_token;
 }
 
-class AudioChannels {
+class ListJobsByStatusRequest {
+  public Ascending $ascending;
+  public Id $page_token;
+  public JobStatus $status;
 }
 
-class CaptionFormats {
+class ListJobsByStatusResponse {
+  public Jobs $jobs;
+  public Id $next_page_token;
 }
 
-class ReadJobResponse {
-  public Job $job;
+class ListPipelinesRequest {
+  public Ascending $ascending;
+  public Id $page_token;
 }
 
-class Warning {
-  public string $code;
-  public string $message;
+class ListPipelinesResponse {
+  public Id $next_page_token;
+  public Pipelines $pipelines;
 }
 
-class CreatePipelineRequest {
+class ListPresetsRequest {
+  public Ascending $ascending;
+  public Id $page_token;
+}
+
+class ListPresetsResponse {
+  public Id $next_page_token;
+  public Presets $presets;
+}
+
+class LongKey {
+}
+
+class MaxFrameRate {
+}
+
+class MergePolicy {
+}
+
+class Name {
+}
+
+class NonEmptyBase64EncodedString {
+}
+
+class Notifications {
+  public SnsTopic $completed;
+  public SnsTopic $error;
+  public SnsTopic $progressing;
+  public SnsTopic $warning;
+}
+
+class NullableInteger {
+}
+
+class NullableLong {
+}
+
+class OneTo512String {
+}
+
+class Opacity {
+}
+
+class OutputKeys {
+}
+
+class PaddingPolicy {
+}
+
+class Permission {
+  public AccessControls $access;
+  public Grantee $grantee;
+  public GranteeType $grantee_type;
+}
+
+class Permissions {
+}
+
+class Pipeline {
+  public string $arn;
+  public KeyArn $aws_kms_key_arn;
+  public PipelineOutputConfig $content_config;
+  public Id $id;
   public BucketName $input_bucket;
+  public Name $name;
+  public Notifications $notifications;
   public BucketName $output_bucket;
   public Role $role;
-  public KeyArn $aws_kms_key_arn;
-  public Notifications $notifications;
-  public PipelineOutputConfig $content_config;
+  public PipelineStatus $status;
   public PipelineOutputConfig $thumbnail_config;
-  public Name $name;
+}
+
+class PipelineOutputConfig {
+  public BucketName $bucket;
+  public Permissions $permissions;
+  public StorageClass $storage_class;
 }
 
 class PipelineStatus {
@@ -526,123 +539,165 @@ class PipelineStatus {
 class Pipelines {
 }
 
-class JobInputs {
+class PixelsOrPercent {
 }
 
-class Key {
+class PlayReadyDrm {
+  public PlayReadyDrmFormatString $format;
+  public ZeroTo255String $initialization_vector;
+  public NonEmptyBase64EncodedString $key;
+  public KeyIdGuid $key_id;
+  public NonEmptyBase64EncodedString $key_md_5;
+  public OneTo512String $license_acquisition_url;
 }
 
-class Artwork {
-  public WatermarkKey $input_key;
-  public DigitsOrAuto $max_width;
-  public DigitsOrAuto $max_height;
-  public SizingPolicy $sizing_policy;
-  public PaddingPolicy $padding_policy;
-  public JpgOrPng $album_art_format;
-  public Encryption $encryption;
+class PlayReadyDrmFormatString {
 }
 
-class Clip {
-  public TimeSpan $time_span;
-}
-
-class FloatString {
-}
-
-class FixedGOP {
+class Playlist {
+  public PlaylistFormat $format;
+  public HlsContentProtection $hls_content_protection;
+  public Filename $name;
+  public OutputKeys $output_keys;
+  public PlayReadyDrm $play_ready_drm;
+  public JobStatus $status;
+  public Description $status_detail;
 }
 
 class PlaylistFormat {
 }
 
-class SnsTopics {
+class Playlists {
 }
 
-class CreateJobPlaylist {
-  public HlsContentProtection $hls_content_protection;
-  public PlayReadyDrm $play_ready_drm;
-  public Filename $name;
-  public PlaylistFormat $format;
-  public OutputKeys $output_keys;
+class Preset {
+  public string $arn;
+  public AudioParameters $audio;
+  public PresetContainer $container;
+  public Description $description;
+  public Id $id;
+  public Name $name;
+  public Thumbnails $thumbnails;
+  public PresetType $type;
+  public VideoParameters $video;
 }
 
-class DeletePipelineRequest {
+class PresetContainer {
+}
+
+class PresetType {
+}
+
+class PresetWatermark {
+  public HorizontalAlign $horizontal_align;
+  public PixelsOrPercent $horizontal_offset;
+  public PresetWatermarkId $id;
+  public PixelsOrPercent $max_height;
+  public PixelsOrPercent $max_width;
+  public Opacity $opacity;
+  public WatermarkSizingPolicy $sizing_policy;
+  public Target $target;
+  public VerticalAlign $vertical_align;
+  public PixelsOrPercent $vertical_offset;
+}
+
+class PresetWatermarkId {
+}
+
+class PresetWatermarks {
+}
+
+class Presets {
+}
+
+class ReadJobRequest {
   public Id $id;
 }
 
-class Digits {
+class ReadJobResponse {
+  public Job $job;
 }
 
-class SizingPolicy {
-}
-
-class VideoCodec {
-}
-
-class ZeroTo512String {
-}
-
-class AudioPackingMode {
-}
-
-class PipelineOutputConfig {
-  public StorageClass $storage_class;
-  public Permissions $permissions;
-  public BucketName $bucket;
-}
-
-class ReadPresetResponse {
-  public Preset $preset;
-}
-
-class AudioSampleRate {
-}
-
-class Playlist {
-  public OutputKeys $output_keys;
-  public HlsContentProtection $hls_content_protection;
-  public PlayReadyDrm $play_ready_drm;
-  public JobStatus $status;
-  public Description $status_detail;
-  public Filename $name;
-  public PlaylistFormat $format;
-}
-
-class Filename {
-}
-
-class UpdatePipelineNotificationsRequest {
-  public Id $id;
-  public Notifications $notifications;
-}
-
-class CaptionSource {
-  public LongKey $key;
-  public Key $language;
-  public TimeOffset $time_offset;
-  public Name $label;
-  public Encryption $encryption;
-}
-
-class DeletePresetRequest {
+class ReadPipelineRequest {
   public Id $id;
 }
 
-class Encryption {
-  public Base64EncodedString $key_md_5;
-  public ZeroTo255String $initialization_vector;
-  public EncryptionMode $mode;
-  public Base64EncodedString $key;
-}
-
-class PlayReadyDrmFormatString {
+class ReadPipelineResponse {
+  public Pipeline $pipeline;
+  public Warnings $warnings;
 }
 
 class ReadPresetRequest {
   public Id $id;
 }
 
+class ReadPresetResponse {
+  public Preset $preset;
+}
+
+class Resolution {
+}
+
+class ResourceInUseException {
+}
+
+class ResourceNotFoundException {
+}
+
+class Role {
+}
+
+class Rotate {
+}
+
+class SizingPolicy {
+}
+
+class SnsTopic {
+}
+
+class SnsTopics {
+}
+
+class StorageClass {
+}
+
+class String {
+}
+
+class Success {
+}
+
+class Target {
+}
+
+class TestRoleRequest {
+  public BucketName $input_bucket;
+  public BucketName $output_bucket;
+  public Role $role;
+  public SnsTopics $topics;
+}
+
+class TestRoleResponse {
+  public ExceptionMessages $messages;
+  public Success $success;
+}
+
+class ThumbnailPattern {
+}
+
 class ThumbnailResolution {
+}
+
+class Thumbnails {
+  public AspectRatio $aspect_ratio;
+  public JpgOrPng $format;
+  public Digits $interval;
+  public DigitsOrAuto $max_height;
+  public DigitsOrAuto $max_width;
+  public PaddingPolicy $padding_policy;
+  public ThumbnailResolution $resolution;
+  public SizingPolicy $sizing_policy;
 }
 
 class Time {
@@ -651,156 +706,101 @@ class Time {
 class TimeOffset {
 }
 
-class AccessDeniedException {
+class TimeSpan {
+  public Time $duration;
+  public Time $start_time;
 }
 
-class CaptionSources {
+class Timing {
+  public NullableLong $finish_time_millis;
+  public NullableLong $start_time_millis;
+  public NullableLong $submit_time_millis;
 }
 
-class DeletePipelineResponse {
+class UpdatePipelineNotificationsRequest {
+  public Id $id;
+  public Notifications $notifications;
 }
 
-class Notifications {
-  public SnsTopic $progressing;
-  public SnsTopic $completed;
-  public SnsTopic $warning;
-  public SnsTopic $error;
+class UpdatePipelineNotificationsResponse {
+  public Pipeline $pipeline;
 }
 
-class Opacity {
+class UpdatePipelineRequest {
+  public KeyArn $aws_kms_key_arn;
+  public PipelineOutputConfig $content_config;
+  public Id $id;
+  public BucketName $input_bucket;
+  public Name $name;
+  public Notifications $notifications;
+  public Role $role;
+  public PipelineOutputConfig $thumbnail_config;
 }
 
-class PresetWatermarkId {
+class UpdatePipelineResponse {
+  public Pipeline $pipeline;
+  public Warnings $warnings;
 }
 
-class Success {
+class UpdatePipelineStatusRequest {
+  public Id $id;
+  public PipelineStatus $status;
 }
 
-class FrameRate {
+class UpdatePipelineStatusResponse {
+  public Pipeline $pipeline;
 }
 
-class JobAlbumArt {
-  public MergePolicy $merge_policy;
-  public Artworks $artwork;
+class UserMetadata {
 }
 
-class ListPipelinesRequest {
-  public Ascending $ascending;
-  public Id $page_token;
+class ValidationException {
 }
 
 class VerticalAlign {
 }
 
-class CreatePipelineResponse {
-  public Pipeline $pipeline;
-  public Warnings $warnings;
+class VideoBitRate {
 }
 
-class PresetType {
+class VideoCodec {
 }
 
-class UpdatePipelineRequest {
-  public Notifications $notifications;
-  public PipelineOutputConfig $content_config;
-  public PipelineOutputConfig $thumbnail_config;
-  public Id $id;
-  public Name $name;
-  public BucketName $input_bucket;
-  public Role $role;
-  public KeyArn $aws_kms_key_arn;
+class VideoParameters {
+  public AspectRatio $aspect_ratio;
+  public VideoBitRate $bit_rate;
+  public VideoCodec $codec;
+  public CodecOptions $codec_options;
+  public AspectRatio $display_aspect_ratio;
+  public FixedGOP $fixed_gop;
+  public FrameRate $frame_rate;
+  public KeyframesMaxDist $keyframes_max_dist;
+  public MaxFrameRate $max_frame_rate;
+  public DigitsOrAuto $max_height;
+  public DigitsOrAuto $max_width;
+  public PaddingPolicy $padding_policy;
+  public Resolution $resolution;
+  public SizingPolicy $sizing_policy;
+  public PresetWatermarks $watermarks;
 }
 
-class InputCaptions {
-  public CaptionMergePolicy $merge_policy;
-  public CaptionSources $caption_sources;
-}
-
-class KeyIdGuid {
-}
-
-class PresetWatermarks {
-}
-
-class ResourceInUseException {
-}
-
-class ListJobsByStatusRequest {
-  public JobStatus $status;
-  public Ascending $ascending;
-  public Id $page_token;
-}
-
-class MergePolicy {
-}
-
-class PixelsOrPercent {
-}
-
-class KeyframesMaxDist {
-}
-
-class ListJobsByPipelineResponse {
-  public Jobs $jobs;
-  public Id $next_page_token;
-}
-
-class NullableLong {
-}
-
-class OutputKeys {
-}
-
-class StorageClass {
-}
-
-class AudioCodecOptions {
-  public AudioCodecProfile $profile;
-  public AudioBitDepth $bit_depth;
-  public AudioBitOrder $bit_order;
-  public AudioSigned $signed;
-}
-
-class CreateJobResponse {
-  public Job $job;
-}
-
-class Interlaced {
+class Warning {
+  public string $code;
+  public string $message;
 }
 
 class Warnings {
 }
 
+class WatermarkKey {
+}
+
+class WatermarkSizingPolicy {
+}
+
 class ZeroTo255String {
 }
 
-class Captions {
-  public CaptionMergePolicy $merge_policy;
-  public CaptionSources $caption_sources;
-  public CaptionFormats $caption_formats;
-}
-
-class CreateJobOutputs {
-}
-
-class Preset {
-  public string $arn;
-  public Description $description;
-  public AudioParameters $audio;
-  public VideoParameters $video;
-  public Id $id;
-  public PresetContainer $container;
-  public Thumbnails $thumbnails;
-  public PresetType $type;
-  public Name $name;
-}
-
-class AccessControls {
-}
-
-class Artworks {
-}
-
-class AudioCodec {
+class ZeroTo512String {
 }
 

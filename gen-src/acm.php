@@ -2,147 +2,133 @@
 namespace slack\aws\acm;
 
 interface ACM {
-  public function RequestCertificate(RequestCertificateRequest) Awaitable<Errors\Result<RequestCertificateResponse>>;
-  public function UpdateCertificateOptions(UpdateCertificateOptionsRequest) Awaitable<Errors\Error>;
   public function AddTagsToCertificate(AddTagsToCertificateRequest) Awaitable<Errors\Error>;
   public function DeleteCertificate(DeleteCertificateRequest) Awaitable<Errors\Error>;
+  public function DescribeCertificate(DescribeCertificateRequest) Awaitable<Errors\Result<DescribeCertificateResponse>>;
   public function ExportCertificate(ExportCertificateRequest) Awaitable<Errors\Result<ExportCertificateResponse>>;
   public function GetCertificate(GetCertificateRequest) Awaitable<Errors\Result<GetCertificateResponse>>;
-  public function ListCertificates(ListCertificatesRequest) Awaitable<Errors\Result<ListCertificatesResponse>>;
-  public function ResendValidationEmail(ResendValidationEmailRequest) Awaitable<Errors\Error>;
-  public function DescribeCertificate(DescribeCertificateRequest) Awaitable<Errors\Result<DescribeCertificateResponse>>;
   public function ImportCertificate(ImportCertificateRequest) Awaitable<Errors\Result<ImportCertificateResponse>>;
+  public function ListCertificates(ListCertificatesRequest) Awaitable<Errors\Result<ListCertificatesResponse>>;
   public function ListTagsForCertificate(ListTagsForCertificateRequest) Awaitable<Errors\Result<ListTagsForCertificateResponse>>;
   public function RemoveTagsFromCertificate(RemoveTagsFromCertificateRequest) Awaitable<Errors\Error>;
   public function RenewCertificate(RenewCertificateRequest) Awaitable<Errors\Error>;
+  public function RequestCertificate(RequestCertificateRequest) Awaitable<Errors\Result<RequestCertificateResponse>>;
+  public function ResendValidationEmail(ResendValidationEmailRequest) Awaitable<Errors\Error>;
+  public function UpdateCertificateOptions(UpdateCertificateOptionsRequest) Awaitable<Errors\Error>;
 }
 
-class DeleteCertificateRequest {
+class AddTagsToCertificateRequest {
   public Arn $certificate_arn;
-}
-
-class ImportCertificateRequest {
-  public Arn $certificate_arn;
-  public CertificateBodyBlob $certificate;
-  public PrivateKeyBlob $private_key;
-  public CertificateChainBlob $certificate_chain;
   public TagList $tags;
-}
-
-class String {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class TStamp {
 }
 
 class Arn {
 }
 
-class FailureReason {
+class CertificateBody {
 }
 
-class InvalidDomainValidationOptionsException {
-  public string $message;
+class CertificateBodyBlob {
 }
 
-class RenewalEligibility {
-}
-
-class ResourceNotFoundException {
-  public string $message;
-}
-
-class CertificateType {
-}
-
-class InvalidArnException {
-  public string $message;
-}
-
-class ListTagsForCertificateResponse {
-  public TagList $tags;
-}
-
-class PassphraseBlob {
-}
-
-class LimitExceededException {
-  public string $message;
-}
-
-class RenewCertificateRequest {
-  public Arn $certificate_arn;
-}
-
-class DomainValidationOptionList {
-}
-
-class ExtendedKeyUsageList {
-}
-
-class InUseList {
-}
-
-class InvalidTagException {
-  public string $message;
-}
-
-class KeyUsageName {
-}
-
-class AddTagsToCertificateRequest {
-  public TagList $tags;
-  public Arn $certificate_arn;
+class CertificateChain {
 }
 
 class CertificateChainBlob {
+}
+
+class CertificateDetail {
+  public Arn $certificate_arn;
+  public Arn $certificate_authority_arn;
+  public TStamp $created_at;
+  public DomainNameString $domain_name;
+  public DomainValidationList $domain_validation_options;
+  public ExtendedKeyUsageList $extended_key_usages;
+  public FailureReason $failure_reason;
+  public TStamp $imported_at;
+  public InUseList $in_use_by;
+  public TStamp $issued_at;
+  public string $issuer;
+  public KeyAlgorithm $key_algorithm;
+  public KeyUsageList $key_usages;
+  public TStamp $not_after;
+  public TStamp $not_before;
+  public CertificateOptions $options;
+  public RenewalEligibility $renewal_eligibility;
+  public RenewalSummary $renewal_summary;
+  public RevocationReason $revocation_reason;
+  public TStamp $revoked_at;
+  public string $serial;
+  public string $signature_algorithm;
+  public CertificateStatus $status;
+  public string $subject;
+  public DomainList $subject_alternative_names;
+  public CertificateType $type;
 }
 
 class CertificateOptions {
   public CertificateTransparencyLoggingPreference $certificate_transparency_logging_preference;
 }
 
-class IdempotencyToken {
+class CertificateStatus {
 }
 
-class RequestCertificateResponse {
+class CertificateStatuses {
+}
+
+class CertificateSummary {
   public Arn $certificate_arn;
-}
-
-class CertificateChain {
+  public DomainNameString $domain_name;
 }
 
 class CertificateSummaryList {
 }
 
-class ExportCertificateResponse {
-  public PrivateKey $private_key;
-  public CertificateBody $certificate;
-  public CertificateChain $certificate_chain;
+class CertificateTransparencyLoggingPreference {
 }
 
-class TagList {
+class CertificateType {
 }
 
-class UpdateCertificateOptionsRequest {
-  public Arn $certificate_arn;
-  public CertificateOptions $options;
-}
-
-class ListTagsForCertificateRequest {
+class DeleteCertificateRequest {
   public Arn $certificate_arn;
 }
 
-class TagPolicyException {
-  public string $message;
+class DescribeCertificateRequest {
+  public Arn $certificate_arn;
+}
+
+class DescribeCertificateResponse {
+  public CertificateDetail $certificate;
+}
+
+class DomainList {
 }
 
 class DomainNameString {
+}
+
+class DomainStatus {
+}
+
+class DomainValidation {
+  public DomainNameString $domain_name;
+  public ResourceRecord $resource_record;
+  public DomainNameString $validation_domain;
+  public ValidationEmailList $validation_emails;
+  public ValidationMethod $validation_method;
+  public DomainStatus $validation_status;
+}
+
+class DomainValidationList {
+}
+
+class DomainValidationOption {
+  public DomainNameString $domain_name;
+  public DomainNameString $validation_domain;
+}
+
+class DomainValidationOptionList {
 }
 
 class ExportCertificateRequest {
@@ -150,39 +136,33 @@ class ExportCertificateRequest {
   public PassphraseBlob $passphrase;
 }
 
-class KeyAlgorithm {
+class ExportCertificateResponse {
+  public CertificateBody $certificate;
+  public CertificateChain $certificate_chain;
+  public PrivateKey $private_key;
 }
 
-class KeyAlgorithmList {
+class ExtendedKeyUsage {
+  public ExtendedKeyUsageName $name;
+  public string $oid;
 }
 
-class ListCertificatesRequest {
-  public CertificateStatuses $certificate_statuses;
-  public Filters $includes;
-  public NextToken $next_token;
-  public MaxItems $max_items;
+class ExtendedKeyUsageFilterList {
 }
 
-class ResourceRecord {
-  public string $name;
-  public RecordType $type;
-  public string $value;
+class ExtendedKeyUsageList {
 }
 
-class ImportCertificateResponse {
-  public Arn $certificate_arn;
+class ExtendedKeyUsageName {
 }
 
-class KeyUsageList {
+class FailureReason {
 }
 
-class MaxItems {
-}
-
-class NextToken {
-}
-
-class PrivateKeyBlob {
+class Filters {
+  public ExtendedKeyUsageFilterList $extended_key_usage;
+  public KeyAlgorithmList $key_types;
+  public KeyUsageFilterList $key_usage;
 }
 
 class GetCertificateRequest {
@@ -194,32 +174,148 @@ class GetCertificateResponse {
   public CertificateChain $certificate_chain;
 }
 
-class RemoveTagsFromCertificateRequest {
+class IdempotencyToken {
+}
+
+class ImportCertificateRequest {
+  public CertificateBodyBlob $certificate;
   public Arn $certificate_arn;
+  public CertificateChainBlob $certificate_chain;
+  public PrivateKeyBlob $private_key;
   public TagList $tags;
 }
 
-class RequestInProgressException {
-  public string $message;
+class ImportCertificateResponse {
+  public Arn $certificate_arn;
 }
 
-class CertificateStatus {
-}
-
-class DomainValidationOption {
-  public DomainNameString $domain_name;
-  public DomainNameString $validation_domain;
+class InUseList {
 }
 
 class InvalidArgsException {
   public string $message;
 }
 
+class InvalidArnException {
+  public string $message;
+}
+
+class InvalidDomainValidationOptionsException {
+  public string $message;
+}
+
+class InvalidParameterException {
+  public string $message;
+}
+
+class InvalidStateException {
+  public string $message;
+}
+
+class InvalidTagException {
+  public string $message;
+}
+
+class KeyAlgorithm {
+}
+
+class KeyAlgorithmList {
+}
+
+class KeyUsage {
+  public KeyUsageName $name;
+}
+
+class KeyUsageFilterList {
+}
+
+class KeyUsageList {
+}
+
+class KeyUsageName {
+}
+
+class LimitExceededException {
+  public string $message;
+}
+
+class ListCertificatesRequest {
+  public CertificateStatuses $certificate_statuses;
+  public Filters $includes;
+  public MaxItems $max_items;
+  public NextToken $next_token;
+}
+
+class ListCertificatesResponse {
+  public CertificateSummaryList $certificate_summary_list;
+  public NextToken $next_token;
+}
+
+class ListTagsForCertificateRequest {
+  public Arn $certificate_arn;
+}
+
+class ListTagsForCertificateResponse {
+  public TagList $tags;
+}
+
+class MaxItems {
+}
+
+class NextToken {
+}
+
+class PassphraseBlob {
+}
+
+class PrivateKey {
+}
+
+class PrivateKeyBlob {
+}
+
+class RecordType {
+}
+
+class RemoveTagsFromCertificateRequest {
+  public Arn $certificate_arn;
+  public TagList $tags;
+}
+
+class RenewCertificateRequest {
+  public Arn $certificate_arn;
+}
+
+class RenewalEligibility {
+}
+
+class RenewalStatus {
+}
+
 class RenewalSummary {
+  public DomainValidationList $domain_validation_options;
+  public RenewalStatus $renewal_status;
   public FailureReason $renewal_status_reason;
   public TStamp $updated_at;
-  public RenewalStatus $renewal_status;
-  public DomainValidationList $domain_validation_options;
+}
+
+class RequestCertificateRequest {
+  public Arn $certificate_authority_arn;
+  public DomainNameString $domain_name;
+  public DomainValidationOptionList $domain_validation_options;
+  public IdempotencyToken $idempotency_token;
+  public CertificateOptions $options;
+  public DomainList $subject_alternative_names;
+  public TagList $tags;
+  public ValidationMethod $validation_method;
+}
+
+class RequestCertificateResponse {
+  public Arn $certificate_arn;
+}
+
+class RequestInProgressException {
+  public string $message;
 }
 
 class ResendValidationEmailRequest {
@@ -228,139 +324,42 @@ class ResendValidationEmailRequest {
   public DomainNameString $validation_domain;
 }
 
-class CertificateDetail {
-  public FailureReason $failure_reason;
-  public InUseList $in_use_by;
-  public DomainValidationList $domain_validation_options;
-  public string $serial;
-  public TStamp $created_at;
-  public TStamp $imported_at;
-  public RevocationReason $revocation_reason;
-  public TStamp $not_after;
-  public string $signature_algorithm;
-  public DomainList $subject_alternative_names;
-  public CertificateStatus $status;
-  public TStamp $revoked_at;
-  public KeyAlgorithm $key_algorithm;
-  public CertificateType $type;
-  public KeyUsageList $key_usages;
-  public Arn $certificate_authority_arn;
-  public string $subject;
-  public DomainNameString $domain_name;
-  public string $issuer;
-  public TStamp $issued_at;
-  public TStamp $not_before;
-  public RenewalSummary $renewal_summary;
-  public ExtendedKeyUsageList $extended_key_usages;
-  public RenewalEligibility $renewal_eligibility;
-  public Arn $certificate_arn;
-  public CertificateOptions $options;
-}
-
-class CertificateSummary {
-  public Arn $certificate_arn;
-  public DomainNameString $domain_name;
-}
-
-class DomainStatus {
-}
-
-class InvalidStateException {
-  public string $message;
-}
-
-class ListCertificatesResponse {
-  public NextToken $next_token;
-  public CertificateSummaryList $certificate_summary_list;
-}
-
-class PrivateKey {
-}
-
-class RequestCertificateRequest {
-  public TagList $tags;
-  public DomainNameString $domain_name;
-  public ValidationMethod $validation_method;
-  public DomainList $subject_alternative_names;
-  public IdempotencyToken $idempotency_token;
-  public DomainValidationOptionList $domain_validation_options;
-  public CertificateOptions $options;
-  public Arn $certificate_authority_arn;
-}
-
 class ResourceInUseException {
   public string $message;
 }
 
-class CertificateBodyBlob {
+class ResourceNotFoundException {
+  public string $message;
 }
 
-class CertificateTransparencyLoggingPreference {
-}
-
-class DescribeCertificateResponse {
-  public CertificateDetail $certificate;
-}
-
-class DomainValidation {
-  public DomainStatus $validation_status;
-  public ResourceRecord $resource_record;
-  public ValidationMethod $validation_method;
-  public DomainNameString $domain_name;
-  public ValidationEmailList $validation_emails;
-  public DomainNameString $validation_domain;
-}
-
-class DomainValidationList {
-}
-
-class ValidationMethod {
-}
-
-class TagKey {
-}
-
-class ValidationEmailList {
-}
-
-class ExtendedKeyUsage {
-  public ExtendedKeyUsageName $name;
-  public string $oid;
-}
-
-class ExtendedKeyUsageFilterList {
-}
-
-class ExtendedKeyUsageName {
-}
-
-class KeyUsage {
-  public KeyUsageName $name;
-}
-
-class RecordType {
+class ResourceRecord {
+  public string $name;
+  public RecordType $type;
+  public string $value;
 }
 
 class RevocationReason {
 }
 
-class CertificateBody {
+class String {
 }
 
-class CertificateStatuses {
+class TStamp {
 }
 
-class DescribeCertificateRequest {
-  public Arn $certificate_arn;
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
 }
 
-class DomainList {
+class TagKey {
 }
 
-class RenewalStatus {
+class TagList {
 }
 
-class KeyUsageFilterList {
+class TagPolicyException {
+  public string $message;
 }
 
 class TagValue {
@@ -370,13 +369,14 @@ class TooManyTagsException {
   public string $message;
 }
 
-class Filters {
-  public ExtendedKeyUsageFilterList $extended_key_usage;
-  public KeyUsageFilterList $key_usage;
-  public KeyAlgorithmList $key_types;
+class UpdateCertificateOptionsRequest {
+  public Arn $certificate_arn;
+  public CertificateOptions $options;
 }
 
-class InvalidParameterException {
-  public string $message;
+class ValidationEmailList {
+}
+
+class ValidationMethod {
 }
 

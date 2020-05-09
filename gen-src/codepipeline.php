@@ -2,127 +2,58 @@
 namespace slack\aws\codepipeline;
 
 interface CodePipeline {
-  public function CreateCustomActionType(CreateCustomActionTypeInput) Awaitable<Errors\Result<CreateCustomActionTypeOutput>>;
-  public function DeleteCustomActionType(DeleteCustomActionTypeInput) Awaitable<Errors\Error>;
-  public function DeregisterWebhookWithThirdParty(DeregisterWebhookWithThirdPartyInput) Awaitable<Errors\Result<DeregisterWebhookWithThirdPartyOutput>>;
-  public function GetPipeline(GetPipelineInput) Awaitable<Errors\Result<GetPipelineOutput>>;
-  public function GetPipelineExecution(GetPipelineExecutionInput) Awaitable<Errors\Result<GetPipelineExecutionOutput>>;
-  public function ListWebhooks(ListWebhooksInput) Awaitable<Errors\Result<ListWebhooksOutput>>;
-  public function PutActionRevision(PutActionRevisionInput) Awaitable<Errors\Result<PutActionRevisionOutput>>;
-  public function PutThirdPartyJobSuccessResult(PutThirdPartyJobSuccessResultInput) Awaitable<Errors\Error>;
-  public function RegisterWebhookWithThirdParty(RegisterWebhookWithThirdPartyInput) Awaitable<Errors\Result<RegisterWebhookWithThirdPartyOutput>>;
-  public function RetryStageExecution(RetryStageExecutionInput) Awaitable<Errors\Result<RetryStageExecutionOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
-  public function GetPipelineState(GetPipelineStateInput) Awaitable<Errors\Result<GetPipelineStateOutput>>;
-  public function ListActionTypes(ListActionTypesInput) Awaitable<Errors\Result<ListActionTypesOutput>>;
-  public function PutApprovalResult(PutApprovalResultInput) Awaitable<Errors\Result<PutApprovalResultOutput>>;
-  public function PutJobSuccessResult(PutJobSuccessResultInput) Awaitable<Errors\Error>;
-  public function DeleteWebhook(DeleteWebhookInput) Awaitable<Errors\Result<DeleteWebhookOutput>>;
-  public function ListPipelines(ListPipelinesInput) Awaitable<Errors\Result<ListPipelinesOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function StopPipelineExecution(StopPipelineExecutionInput) Awaitable<Errors\Result<StopPipelineExecutionOutput>>;
   public function AcknowledgeJob(AcknowledgeJobInput) Awaitable<Errors\Result<AcknowledgeJobOutput>>;
-  public function ListActionExecutions(ListActionExecutionsInput) Awaitable<Errors\Result<ListActionExecutionsOutput>>;
-  public function PutJobFailureResult(PutJobFailureResultInput) Awaitable<Errors\Error>;
-  public function PutThirdPartyJobFailureResult(PutThirdPartyJobFailureResultInput) Awaitable<Errors\Error>;
   public function AcknowledgeThirdPartyJob(AcknowledgeThirdPartyJobInput) Awaitable<Errors\Result<AcknowledgeThirdPartyJobOutput>>;
-  public function PutWebhook(PutWebhookInput) Awaitable<Errors\Result<PutWebhookOutput>>;
-  public function DisableStageTransition(DisableStageTransitionInput) Awaitable<Errors\Error>;
-  public function GetThirdPartyJobDetails(GetThirdPartyJobDetailsInput) Awaitable<Errors\Result<GetThirdPartyJobDetailsOutput>>;
-  public function ListPipelineExecutions(ListPipelineExecutionsInput) Awaitable<Errors\Result<ListPipelineExecutionsOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
+  public function CreateCustomActionType(CreateCustomActionTypeInput) Awaitable<Errors\Result<CreateCustomActionTypeOutput>>;
   public function CreatePipeline(CreatePipelineInput) Awaitable<Errors\Result<CreatePipelineOutput>>;
+  public function DeleteCustomActionType(DeleteCustomActionTypeInput) Awaitable<Errors\Error>;
   public function DeletePipeline(DeletePipelineInput) Awaitable<Errors\Error>;
-  public function PollForThirdPartyJobs(PollForThirdPartyJobsInput) Awaitable<Errors\Result<PollForThirdPartyJobsOutput>>;
+  public function DeleteWebhook(DeleteWebhookInput) Awaitable<Errors\Result<DeleteWebhookOutput>>;
+  public function DeregisterWebhookWithThirdParty(DeregisterWebhookWithThirdPartyInput) Awaitable<Errors\Result<DeregisterWebhookWithThirdPartyOutput>>;
+  public function DisableStageTransition(DisableStageTransitionInput) Awaitable<Errors\Error>;
   public function EnableStageTransition(EnableStageTransitionInput) Awaitable<Errors\Error>;
   public function GetJobDetails(GetJobDetailsInput) Awaitable<Errors\Result<GetJobDetailsOutput>>;
+  public function GetPipeline(GetPipelineInput) Awaitable<Errors\Result<GetPipelineOutput>>;
+  public function GetPipelineExecution(GetPipelineExecutionInput) Awaitable<Errors\Result<GetPipelineExecutionOutput>>;
+  public function GetPipelineState(GetPipelineStateInput) Awaitable<Errors\Result<GetPipelineStateOutput>>;
+  public function GetThirdPartyJobDetails(GetThirdPartyJobDetailsInput) Awaitable<Errors\Result<GetThirdPartyJobDetailsOutput>>;
+  public function ListActionExecutions(ListActionExecutionsInput) Awaitable<Errors\Result<ListActionExecutionsOutput>>;
+  public function ListActionTypes(ListActionTypesInput) Awaitable<Errors\Result<ListActionTypesOutput>>;
+  public function ListPipelineExecutions(ListPipelineExecutionsInput) Awaitable<Errors\Result<ListPipelineExecutionsOutput>>;
+  public function ListPipelines(ListPipelinesInput) Awaitable<Errors\Result<ListPipelinesOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function ListWebhooks(ListWebhooksInput) Awaitable<Errors\Result<ListWebhooksOutput>>;
   public function PollForJobs(PollForJobsInput) Awaitable<Errors\Result<PollForJobsOutput>>;
+  public function PollForThirdPartyJobs(PollForThirdPartyJobsInput) Awaitable<Errors\Result<PollForThirdPartyJobsOutput>>;
+  public function PutActionRevision(PutActionRevisionInput) Awaitable<Errors\Result<PutActionRevisionOutput>>;
+  public function PutApprovalResult(PutApprovalResultInput) Awaitable<Errors\Result<PutApprovalResultOutput>>;
+  public function PutJobFailureResult(PutJobFailureResultInput) Awaitable<Errors\Error>;
+  public function PutJobSuccessResult(PutJobSuccessResultInput) Awaitable<Errors\Error>;
+  public function PutThirdPartyJobFailureResult(PutThirdPartyJobFailureResultInput) Awaitable<Errors\Error>;
+  public function PutThirdPartyJobSuccessResult(PutThirdPartyJobSuccessResultInput) Awaitable<Errors\Error>;
+  public function PutWebhook(PutWebhookInput) Awaitable<Errors\Result<PutWebhookOutput>>;
+  public function RegisterWebhookWithThirdParty(RegisterWebhookWithThirdPartyInput) Awaitable<Errors\Result<RegisterWebhookWithThirdPartyOutput>>;
+  public function RetryStageExecution(RetryStageExecutionInput) Awaitable<Errors\Result<RetryStageExecutionOutput>>;
   public function StartPipelineExecution(StartPipelineExecutionInput) Awaitable<Errors\Result<StartPipelineExecutionOutput>>;
+  public function StopPipelineExecution(StopPipelineExecutionInput) Awaitable<Errors\Result<StopPipelineExecutionOutput>>;
+  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
   public function UpdatePipeline(UpdatePipelineInput) Awaitable<Errors\Result<UpdatePipelineOutput>>;
-}
-
-class JobId {
-}
-
-class S3Bucket {
-}
-
-class S3Key {
-}
-
-class Url {
 }
 
 class AWSRegionName {
 }
 
-class BlockerDeclaration {
-  public BlockerName $name;
-  public BlockerType $type;
+class AWSSessionCredentials {
+  public AccessKeyId $access_key_id;
+  public SecretAccessKey $secret_access_key;
+  public SessionToken $session_token;
 }
 
-class CreatePipelineInput {
-  public PipelineDeclaration $pipeline;
-  public TagList $tags;
+class AccessKeyId {
 }
 
-class SessionToken {
-}
-
-class DeleteWebhookInput {
-  public WebhookName $name;
-}
-
-class LimitExceededException {
-}
-
-class OutputVariablesSizeExceededException {
-  public Message $message;
-}
-
-class SourceRevisionList {
-}
-
-class TagKey {
-}
-
-class UntagResourceOutput {
-}
-
-class ValidationException {
-}
-
-class AcknowledgeThirdPartyJobInput {
-  public ThirdPartyJobId $job_id;
-  public Nonce $nonce;
-  public ClientToken $client_token;
-}
-
-class AcknowledgeThirdPartyJobOutput {
-  public JobStatus $status;
-}
-
-class ApprovalResult {
-  public ApprovalSummary $summary;
-  public ApprovalStatus $status;
-}
-
-class Enabled {
-}
-
-class PollForThirdPartyJobsOutput {
-  public ThirdPartyJobList $jobs;
-}
-
-class StageTransitionType {
-}
-
-class ListActionTypesOutput {
-  public ActionTypeList $action_types;
-  public NextToken $next_token;
-}
-
-class PipelineNameInUseException {
+class AccountId {
 }
 
 class AcknowledgeJobInput {
@@ -130,530 +61,189 @@ class AcknowledgeJobInput {
   public Nonce $nonce;
 }
 
-class CreatePipelineOutput {
-  public TagList $tags;
-  public PipelineDeclaration $pipeline;
+class AcknowledgeJobOutput {
+  public JobStatus $status;
 }
 
-class ExecutionId {
+class AcknowledgeThirdPartyJobInput {
+  public ClientToken $client_token;
+  public ThirdPartyJobId $job_id;
+  public Nonce $nonce;
 }
 
-class StopPipelineExecutionOutput {
-  public PipelineExecutionId $pipeline_execution_id;
-}
-
-class ArtifactName {
-}
-
-class DisabledReason {
-}
-
-class PutActionRevisionInput {
-  public PipelineName $pipeline_name;
-  public StageName $stage_name;
-  public ActionName $action_name;
-  public ActionRevision $action_revision;
-}
-
-class StageDeclaration {
-  public StageBlockerDeclarationList $blockers;
-  public StageActionDeclarationList $actions;
-  public StageName $name;
+class AcknowledgeThirdPartyJobOutput {
+  public JobStatus $status;
 }
 
 class ActionCategory {
 }
 
-class LastUpdatedBy {
-}
-
-class PipelineExecutionNotStoppableException {
-  public Message $message;
-}
-
-class LastChangedAt {
-}
-
-class MaximumArtifactCount {
-}
-
-class Message {
-}
-
-class PipelineExecutionId {
-}
-
-class TriggerDetail {
-}
-
-class ActionDeclaration {
-  public OutputArtifactList $output_artifacts;
-  public ActionNamespace $namespace;
-  public ActionName $name;
-  public ActionRunOrder $run_order;
+class ActionConfiguration {
   public ActionConfigurationMap $configuration;
-  public AWSRegionName $region;
-  public ActionTypeId $action_type_id;
-  public InputArtifactList $input_artifacts;
-  public RoleArn $role_arn;
 }
 
-class GetPipelineExecutionInput {
-  public PipelineName $pipeline_name;
-  public PipelineExecutionId $pipeline_execution_id;
+class ActionConfigurationKey {
 }
 
-class InvalidJobStateException {
-}
-
-class WebhookAuthConfiguration {
-  public WebhookAuthConfigurationAllowedIPRange $allowed_ip_range;
-  public WebhookAuthConfigurationSecretToken $secret_token;
-}
-
-class EncryptionKeyType {
-}
-
-class GetJobDetailsInput {
-  public JobId $job_id;
-}
-
-class InvalidStageDeclarationException {
-}
-
-class StageBlockerDeclarationList {
-}
-
-class StopPipelineExecutionReason {
+class ActionConfigurationMap {
 }
 
 class ActionConfigurationProperty {
-  public boolean $queryable;
   public Description $description;
-  public ActionConfigurationPropertyType $type;
-  public ActionConfigurationKey $name;
-  public boolean $required;
   public boolean $key;
+  public ActionConfigurationKey $name;
+  public boolean $queryable;
+  public boolean $required;
   public boolean $secret;
+  public ActionConfigurationPropertyType $type;
 }
 
-class ArtifactStore {
-  public ArtifactStoreType $type;
-  public ArtifactStoreLocation $location;
-  public EncryptionKey $encryption_key;
+class ActionConfigurationPropertyList {
 }
 
-class BlockerName {
-}
-
-class S3ArtifactLocation {
-  public S3BucketName $bucket_name;
-  public S3ObjectKey $object_key;
-}
-
-class StageActionDeclarationList {
-}
-
-class TagList {
-}
-
-class UpdatePipelineInput {
-  public PipelineDeclaration $pipeline;
-}
-
-class InvalidClientTokenException {
-}
-
-class ListPipelinesOutput {
-  public PipelineList $pipelines;
-  public NextToken $next_token;
-}
-
-class PipelineVersion {
-}
-
-class ArtifactRevision {
-  public ArtifactName $name;
-  public Revision $revision_id;
-  public RevisionChangeIdentifier $revision_change_identifier;
-  public RevisionSummary $revision_summary;
-  public Timestamp $created;
-  public Url $revision_url;
-}
-
-class ListWebhooksOutput {
-  public WebhookList $webhooks;
-  public NextToken $next_token;
-}
-
-class ApprovalToken {
-}
-
-class InputArtifactList {
-}
-
-class InvalidNonceException {
-}
-
-class WebhookErrorMessage {
-}
-
-class EnableStageTransitionInput {
-  public PipelineName $pipeline_name;
-  public StageName $stage_name;
-  public StageTransitionType $transition_type;
-}
-
-class NextToken {
-}
-
-class StartPipelineExecutionInput {
-  public PipelineName $name;
-  public ClientRequestToken $client_request_token;
-}
-
-class ArtifactStoreLocation {
-}
-
-class PipelineExecution {
-  public PipelineName $pipeline_name;
-  public PipelineVersion $pipeline_version;
-  public PipelineExecutionId $pipeline_execution_id;
-  public PipelineExecutionStatus $status;
-  public ArtifactRevisionList $artifact_revisions;
-}
-
-class PutJobFailureResultInput {
-  public JobId $job_id;
-  public FailureDetails $failure_details;
-}
-
-class ActionContext {
-  public ActionName $name;
-  public ActionExecutionId $action_execution_id;
-}
-
-class PipelineContext {
-  public PipelineName $pipeline_name;
-  public StageContext $stage;
-  public ActionContext $action;
-  public PipelineArn $pipeline_arn;
-  public PipelineExecutionId $pipeline_execution_id;
-}
-
-class PutActionRevisionOutput {
-  public boolean $new_revision;
-  public PipelineExecutionId $pipeline_execution_id;
-}
-
-class ActionConfigurationValue {
-}
-
-class InvalidTagsException {
-  public Message $message;
-}
-
-class StartPipelineExecutionOutput {
-  public PipelineExecutionId $pipeline_execution_id;
-}
-
-class AccountId {
-}
-
-class InputArtifact {
-  public ArtifactName $name;
-}
-
-class InvalidStructureException {
-}
-
-class PipelineVersionNotFoundException {
-}
-
-class PutApprovalResultOutput {
-  public Timestamp $approved_at;
-}
-
-class RoleArn {
-}
-
-class TransitionState {
-  public Enabled $enabled;
-  public LastChangedBy $last_changed_by;
-  public LastChangedAt $last_changed_at;
-  public DisabledReason $disabled_reason;
-}
-
-class WebhookUrl {
-}
-
-class ActionNamespace {
-}
-
-class ArtifactDetailList {
-}
-
-class CreateCustomActionTypeOutput {
-  public ActionType $action_type;
-  public TagList $tags;
-}
-
-class StageStateList {
-}
-
-class TooManyTagsException {
-  public Message $message;
-}
-
-class ArtifactStoreMap {
-}
-
-class DisableStageTransitionInput {
-  public PipelineName $pipeline_name;
-  public StageName $stage_name;
-  public StageTransitionType $transition_type;
-  public DisabledReason $reason;
-}
-
-class PipelineDeclaration {
-  public PipelineStageDeclarationList $stages;
-  public PipelineVersion $version;
-  public PipelineName $name;
-  public RoleArn $role_arn;
-  public ArtifactStore $artifact_store;
-  public ArtifactStoreMap $artifact_stores;
-}
-
-class PipelineName {
-}
-
-class PipelineStageDeclarationList {
+class ActionConfigurationPropertyType {
 }
 
 class ActionConfigurationQueryableValue {
 }
 
-class ArtifactList {
+class ActionConfigurationValue {
 }
 
-class Description {
-}
-
-class ContinuationToken {
-}
-
-class ActionOwner {
-}
-
-class ActionStateList {
-}
-
-class ClientToken {
-}
-
-class TagResourceInput {
-  public ResourceArn $resource_arn;
-  public TagList $tags;
-}
-
-class ActionExecutionDetail {
-  public ActionExecutionStatus $status;
-  public ActionExecutionOutput $output;
-  public PipelineExecutionId $pipeline_execution_id;
+class ActionContext {
   public ActionExecutionId $action_execution_id;
-  public PipelineVersion $pipeline_version;
-  public Timestamp $last_update_time;
-  public ActionExecutionInput $input;
-  public StageName $stage_name;
-  public ActionName $action_name;
-  public Timestamp $start_time;
+  public ActionName $name;
 }
 
-class SourceRevision {
-  public Url $revision_url;
-  public ActionName $action_name;
-  public Revision $revision_id;
-  public RevisionSummary $revision_summary;
-}
-
-class StageName {
-}
-
-class PipelineSummary {
-  public Timestamp $created;
-  public Timestamp $updated;
-  public PipelineName $name;
-  public PipelineVersion $version;
-}
-
-class PutWebhookOutput {
-  public ListWebhookItem $webhook;
-}
-
-class ClientId {
-}
-
-class DeregisterWebhookWithThirdPartyOutput {
-}
-
-class JobDetails {
-  public JobId $id;
-  public JobData $data;
-  public AccountId $account_id;
-}
-
-class LastChangedBy {
-}
-
-class ActionName {
-}
-
-class ApprovalAlreadyCompletedException {
-}
-
-class Code {
+class ActionDeclaration {
+  public ActionTypeId $action_type_id;
+  public ActionConfigurationMap $configuration;
+  public InputArtifactList $input_artifacts;
+  public ActionName $name;
+  public ActionNamespace $namespace;
+  public OutputArtifactList $output_artifacts;
+  public AWSRegionName $region;
+  public RoleArn $role_arn;
+  public ActionRunOrder $run_order;
 }
 
 class ActionExecution {
-  public ActionExecutionToken $token;
   public ErrorDetails $error_details;
-  public ActionExecutionStatus $status;
-  public Timestamp $last_status_change;
-  public LastUpdatedBy $last_updated_by;
   public ExecutionId $external_execution_id;
   public Url $external_execution_url;
+  public Timestamp $last_status_change;
+  public LastUpdatedBy $last_updated_by;
   public Percentage $percent_complete;
+  public ActionExecutionStatus $status;
   public ExecutionSummary $summary;
+  public ActionExecutionToken $token;
 }
 
-class GetPipelineStateOutput {
-  public PipelineName $pipeline_name;
+class ActionExecutionDetail {
+  public ActionExecutionId $action_execution_id;
+  public ActionName $action_name;
+  public ActionExecutionInput $input;
+  public Timestamp $last_update_time;
+  public ActionExecutionOutput $output;
+  public PipelineExecutionId $pipeline_execution_id;
   public PipelineVersion $pipeline_version;
-  public StageStateList $stage_states;
-  public Timestamp $created;
-  public Timestamp $updated;
+  public StageName $stage_name;
+  public Timestamp $start_time;
+  public ActionExecutionStatus $status;
 }
 
-class PipelineExecutionStatus {
-}
-
-class RevisionSummary {
-}
-
-class String {
-}
-
-class ActionProvider {
-}
-
-class ApprovalStatus {
-}
-
-class ExecutionDetails {
-  public Percentage $percent_complete;
-  public ExecutionSummary $summary;
-  public ExecutionId $external_execution_id;
-}
-
-class ListPipelineExecutionsOutput {
-  public PipelineExecutionSummaryList $pipeline_execution_summaries;
-  public NextToken $next_token;
-}
-
-class PollForJobsOutput {
-  public JobList $jobs;
-}
-
-class WebhookName {
+class ActionExecutionDetailList {
 }
 
 class ActionExecutionFilter {
   public PipelineExecutionId $pipeline_execution_id;
 }
 
-class DeletePipelineInput {
-  public PipelineName $name;
-}
-
-class DeregisterWebhookWithThirdPartyInput {
-  public WebhookName $webhook_name;
-}
-
-class ApprovalSummary {
-}
-
-class WebhookAuthConfigurationAllowedIPRange {
-}
-
-class TriggerType {
-}
-
-class Boolean {
-}
-
-class ErrorDetails {
-  public Code $code;
-  public Message $message;
-}
-
-class ResolvedActionConfigurationMap {
-}
-
-class InvalidJobException {
-}
-
-class RevisionChangeIdentifier {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class WebhookNotFoundException {
-}
-
-class ArtifactDetail {
-  public S3Location $s_3_location;
-  public ArtifactName $name;
-}
-
-class ClientRequestToken {
-}
-
-class NotLatestPipelineExecutionException {
-}
-
-class PipelineNotFoundException {
-}
-
 class ActionExecutionId {
 }
 
-class ListPipelineExecutionsInput {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public PipelineName $pipeline_name;
+class ActionExecutionInput {
+  public ActionTypeId $action_type_id;
+  public ActionConfigurationMap $configuration;
+  public ArtifactDetailList $input_artifacts;
+  public ActionNamespace $namespace;
+  public AWSRegionName $region;
+  public ResolvedActionConfigurationMap $resolved_configuration;
+  public RoleArn $role_arn;
 }
 
-class MaxBatchSize {
+class ActionExecutionOutput {
+  public ActionExecutionResult $execution_result;
+  public ArtifactDetailList $output_artifacts;
+  public OutputVariablesMap $output_variables;
 }
 
-class WebhookFilterRule {
-  public JsonPath $json_path;
-  public MatchEquals $match_equals;
+class ActionExecutionResult {
+  public ExternalExecutionId $external_execution_id;
+  public ExternalExecutionSummary $external_execution_summary;
+  public Url $external_execution_url;
 }
 
-class JobStatus {
+class ActionExecutionStatus {
 }
 
-class PipelineArn {
+class ActionExecutionToken {
 }
 
-class StageNotRetryableException {
+class ActionName {
 }
 
-class InvalidActionDeclarationException {
+class ActionNamespace {
+}
+
+class ActionNotFoundException {
+}
+
+class ActionOwner {
+}
+
+class ActionProvider {
+}
+
+class ActionRevision {
+  public Timestamp $created;
+  public RevisionChangeIdentifier $revision_change_id;
+  public Revision $revision_id;
+}
+
+class ActionRunOrder {
+}
+
+class ActionState {
+  public ActionName $action_name;
+  public ActionRevision $current_revision;
+  public Url $entity_url;
+  public ActionExecution $latest_execution;
+  public Url $revision_url;
+}
+
+class ActionStateList {
+}
+
+class ActionType {
+  public ActionConfigurationPropertyList $action_configuration_properties;
+  public ActionTypeId $id;
+  public ArtifactDetails $input_artifact_details;
+  public ArtifactDetails $output_artifact_details;
+  public ActionTypeSettings $settings;
+}
+
+class ActionTypeId {
+  public ActionCategory $category;
+  public ActionOwner $owner;
+  public ActionProvider $provider;
+  public Version $version;
+}
+
+class ActionTypeList {
+}
+
+class ActionTypeNotFoundException {
 }
 
 class ActionTypeSettings {
@@ -663,74 +253,147 @@ class ActionTypeSettings {
   public Url $third_party_configuration_url;
 }
 
+class ApprovalAlreadyCompletedException {
+}
+
+class ApprovalResult {
+  public ApprovalStatus $status;
+  public ApprovalSummary $summary;
+}
+
+class ApprovalStatus {
+}
+
+class ApprovalSummary {
+}
+
+class ApprovalToken {
+}
+
+class Artifact {
+  public ArtifactLocation $location;
+  public ArtifactName $name;
+  public Revision $revision;
+}
+
+class ArtifactDetail {
+  public ArtifactName $name;
+  public S3Location $s_3_location;
+}
+
+class ArtifactDetailList {
+}
+
+class ArtifactDetails {
+  public MaximumArtifactCount $maximum_count;
+  public MinimumArtifactCount $minimum_count;
+}
+
+class ArtifactList {
+}
+
+class ArtifactLocation {
+  public S3ArtifactLocation $s_3_location;
+  public ArtifactLocationType $type;
+}
+
 class ArtifactLocationType {
 }
 
-class GetPipelineInput {
-  public PipelineName $name;
-  public PipelineVersion $version;
+class ArtifactName {
 }
 
-class PipelineList {
+class ArtifactRevision {
+  public Timestamp $created;
+  public ArtifactName $name;
+  public RevisionChangeIdentifier $revision_change_identifier;
+  public Revision $revision_id;
+  public RevisionSummary $revision_summary;
+  public Url $revision_url;
 }
 
-class S3ObjectKey {
+class ArtifactRevisionList {
 }
 
-class StopExecutionTrigger {
-  public StopPipelineExecutionReason $reason;
+class ArtifactStore {
+  public EncryptionKey $encryption_key;
+  public ArtifactStoreLocation $location;
+  public ArtifactStoreType $type;
 }
 
-class InvalidWebhookAuthenticationParametersException {
+class ArtifactStoreLocation {
 }
 
-class Nonce {
+class ArtifactStoreMap {
 }
 
-class PipelineExecutionSummaryList {
+class ArtifactStoreType {
 }
 
-class TagResourceOutput {
+class BlockerDeclaration {
+  public BlockerName $name;
+  public BlockerType $type;
 }
 
-class InvalidWebhookFilterPatternException {
+class BlockerName {
 }
 
-class RegisterWebhookWithThirdPartyOutput {
+class BlockerType {
 }
 
-class StageContext {
-  public StageName $name;
+class Boolean {
 }
 
-class GetJobDetailsOutput {
-  public JobDetails $job_details;
+class ClientId {
 }
 
-class InvalidBlockerDeclarationException {
+class ClientRequestToken {
 }
 
-class GetPipelineStateInput {
-  public PipelineName $name;
+class ClientToken {
 }
 
-class GetThirdPartyJobDetailsInput {
-  public ThirdPartyJobId $job_id;
-  public ClientToken $client_token;
+class Code {
 }
 
-class JobList {
+class ConcurrentModificationException {
+  public Message $message;
 }
 
-class PutApprovalResultInput {
-  public PipelineName $pipeline_name;
-  public StageName $stage_name;
-  public ActionName $action_name;
-  public ApprovalResult $result;
-  public ApprovalToken $token;
+class ContinuationToken {
 }
 
-class ActionTypeList {
+class CreateCustomActionTypeInput {
+  public ActionCategory $category;
+  public ActionConfigurationPropertyList $configuration_properties;
+  public ArtifactDetails $input_artifact_details;
+  public ArtifactDetails $output_artifact_details;
+  public ActionProvider $provider;
+  public ActionTypeSettings $settings;
+  public TagList $tags;
+  public Version $version;
+}
+
+class CreateCustomActionTypeOutput {
+  public ActionType $action_type;
+  public TagList $tags;
+}
+
+class CreatePipelineInput {
+  public PipelineDeclaration $pipeline;
+  public TagList $tags;
+}
+
+class CreatePipelineOutput {
+  public PipelineDeclaration $pipeline;
+  public TagList $tags;
+}
+
+class CurrentRevision {
+  public RevisionChangeIdentifier $change_identifier;
+  public Time $created;
+  public Revision $revision;
+  public RevisionSummary $revision_summary;
 }
 
 class DeleteCustomActionTypeInput {
@@ -739,184 +402,253 @@ class DeleteCustomActionTypeInput {
   public Version $version;
 }
 
-class GetPipelineOutput {
-  public PipelineDeclaration $pipeline;
-  public PipelineMetadata $metadata;
+class DeletePipelineInput {
+  public PipelineName $name;
 }
 
-class ActionConfigurationMap {
+class DeleteWebhookInput {
+  public WebhookName $name;
 }
 
-class PutThirdPartyJobFailureResultInput {
-  public ThirdPartyJobId $job_id;
-  public ClientToken $client_token;
-  public FailureDetails $failure_details;
+class DeleteWebhookOutput {
 }
 
-class ThirdPartyJobList {
+class DeregisterWebhookWithThirdPartyInput {
+  public WebhookName $webhook_name;
 }
 
-class TagValue {
+class DeregisterWebhookWithThirdPartyOutput {
 }
 
-class UpdatePipelineOutput {
-  public PipelineDeclaration $pipeline;
+class Description {
 }
 
-class ArtifactStoreType {
+class DisableStageTransitionInput {
+  public PipelineName $pipeline_name;
+  public DisabledReason $reason;
+  public StageName $stage_name;
+  public StageTransitionType $transition_type;
 }
 
-class CurrentRevision {
-  public Revision $revision;
-  public RevisionChangeIdentifier $change_identifier;
-  public Time $created;
-  public RevisionSummary $revision_summary;
+class DisabledReason {
 }
 
-class GetThirdPartyJobDetailsOutput {
-  public ThirdPartyJobDetails $job_details;
-}
-
-class ConcurrentModificationException {
+class DuplicatedStopRequestException {
   public Message $message;
 }
 
-class ListActionTypesInput {
-  public ActionOwner $action_owner_filter;
-  public NextToken $next_token;
-}
-
-class ListTagsForResourceInput {
-  public NextToken $next_token;
-  public MaxResults $max_results;
-  public ResourceArn $resource_arn;
-}
-
-class RetryStageExecutionOutput {
-  public PipelineExecutionId $pipeline_execution_id;
-}
-
-class WebhookAuthenticationType {
-}
-
-class AcknowledgeJobOutput {
-  public JobStatus $status;
-}
-
-class ActionExecutionToken {
-}
-
-class ActionType {
-  public ArtifactDetails $input_artifact_details;
-  public ArtifactDetails $output_artifact_details;
-  public ActionTypeId $id;
-  public ActionTypeSettings $settings;
-  public ActionConfigurationPropertyList $action_configuration_properties;
-}
-
-class Artifact {
-  public ArtifactName $name;
-  public Revision $revision;
-  public ArtifactLocation $location;
-}
-
-class BlockerType {
-}
-
-class TagKeyList {
-}
-
-class MaxResults {
-}
-
-class S3Location {
-  public S3Bucket $bucket;
-  public S3Key $key;
-}
-
-class Timestamp {
-}
-
-class ActionExecutionResult {
-  public ExternalExecutionId $external_execution_id;
-  public ExternalExecutionSummary $external_execution_summary;
-  public Url $external_execution_url;
-}
-
-class ArtifactRevisionList {
-}
-
-class JobNotFoundException {
-}
-
-class S3BucketName {
-}
-
-class StageRetryMode {
-}
-
-class StageState {
+class EnableStageTransitionInput {
+  public PipelineName $pipeline_name;
   public StageName $stage_name;
-  public TransitionState $inbound_transition_state;
-  public ActionStateList $action_states;
-  public StageExecution $latest_execution;
+  public StageTransitionType $transition_type;
+}
+
+class Enabled {
+}
+
+class EncryptionKey {
+  public EncryptionKeyId $id;
+  public EncryptionKeyType $type;
+}
+
+class EncryptionKeyId {
+}
+
+class EncryptionKeyType {
+}
+
+class ErrorDetails {
+  public Code $code;
+  public Message $message;
+}
+
+class ExecutionDetails {
+  public ExecutionId $external_execution_id;
+  public Percentage $percent_complete;
+  public ExecutionSummary $summary;
+}
+
+class ExecutionId {
+}
+
+class ExecutionSummary {
+}
+
+class ExecutionTrigger {
+  public TriggerDetail $trigger_detail;
+  public TriggerType $trigger_type;
+}
+
+class ExternalExecutionId {
+}
+
+class ExternalExecutionSummary {
+}
+
+class FailureDetails {
+  public ExecutionId $external_execution_id;
+  public Message $message;
+  public FailureType $type;
+}
+
+class FailureType {
+}
+
+class GetJobDetailsInput {
+  public JobId $job_id;
+}
+
+class GetJobDetailsOutput {
+  public JobDetails $job_details;
+}
+
+class GetPipelineExecutionInput {
+  public PipelineExecutionId $pipeline_execution_id;
+  public PipelineName $pipeline_name;
 }
 
 class GetPipelineExecutionOutput {
   public PipelineExecution $pipeline_execution;
 }
 
-class OutputVariablesKey {
+class GetPipelineInput {
+  public PipelineName $name;
+  public PipelineVersion $version;
 }
 
-class ResourceArn {
+class GetPipelineOutput {
+  public PipelineMetadata $metadata;
+  public PipelineDeclaration $pipeline;
+}
+
+class GetPipelineStateInput {
+  public PipelineName $name;
+}
+
+class GetPipelineStateOutput {
+  public Timestamp $created;
+  public PipelineName $pipeline_name;
+  public PipelineVersion $pipeline_version;
+  public StageStateList $stage_states;
+  public Timestamp $updated;
+}
+
+class GetThirdPartyJobDetailsInput {
+  public ClientToken $client_token;
+  public ThirdPartyJobId $job_id;
+}
+
+class GetThirdPartyJobDetailsOutput {
+  public ThirdPartyJobDetails $job_details;
+}
+
+class InputArtifact {
+  public ArtifactName $name;
+}
+
+class InputArtifactList {
+}
+
+class InvalidActionDeclarationException {
+}
+
+class InvalidApprovalTokenException {
+}
+
+class InvalidArnException {
+  public Message $message;
+}
+
+class InvalidBlockerDeclarationException {
+}
+
+class InvalidClientTokenException {
+}
+
+class InvalidJobException {
+}
+
+class InvalidJobStateException {
+}
+
+class InvalidNextTokenException {
+}
+
+class InvalidNonceException {
+}
+
+class InvalidStageDeclarationException {
+}
+
+class InvalidStructureException {
+}
+
+class InvalidTagsException {
+  public Message $message;
+}
+
+class InvalidWebhookAuthenticationParametersException {
+}
+
+class InvalidWebhookFilterPatternException {
+}
+
+class Job {
+  public AccountId $account_id;
+  public JobData $data;
+  public JobId $id;
+  public Nonce $nonce;
 }
 
 class JobData {
-  public ActionTypeId $action_type_id;
   public ActionConfiguration $action_configuration;
-  public PipelineContext $pipeline_context;
-  public ArtifactList $input_artifacts;
-  public ArtifactList $output_artifacts;
+  public ActionTypeId $action_type_id;
   public AWSSessionCredentials $artifact_credentials;
   public ContinuationToken $continuation_token;
   public EncryptionKey $encryption_key;
+  public ArtifactList $input_artifacts;
+  public ArtifactList $output_artifacts;
+  public PipelineContext $pipeline_context;
 }
 
-class ListTagsForResourceOutput {
-  public TagList $tags;
+class JobDetails {
+  public AccountId $account_id;
+  public JobData $data;
+  public JobId $id;
+}
+
+class JobId {
+}
+
+class JobList {
+}
+
+class JobNotFoundException {
+}
+
+class JobStatus {
+}
+
+class JsonPath {
+}
+
+class LastChangedAt {
+}
+
+class LastChangedBy {
+}
+
+class LastUpdatedBy {
+}
+
+class LimitExceededException {
+}
+
+class ListActionExecutionsInput {
+  public ActionExecutionFilter $filter;
+  public MaxResults $max_results;
   public NextToken $next_token;
-}
-
-class StopPipelineExecutionInput {
   public PipelineName $pipeline_name;
-  public PipelineExecutionId $pipeline_execution_id;
-  public boolean $abandon;
-  public StopPipelineExecutionReason $reason;
-}
-
-class ListPipelinesInput {
-  public NextToken $next_token;
-}
-
-class OutputArtifactList {
-}
-
-class Percentage {
-}
-
-class Version {
-}
-
-class WebhookFilters {
-}
-
-class AccessKeyId {
-}
-
-class ArtifactLocation {
-  public ArtifactLocationType $type;
-  public S3ArtifactLocation $s_3_location;
 }
 
 class ListActionExecutionsOutput {
@@ -924,112 +656,203 @@ class ListActionExecutionsOutput {
   public NextToken $next_token;
 }
 
-class StageNotFoundException {
+class ListActionTypesInput {
+  public ActionOwner $action_owner_filter;
+  public NextToken $next_token;
+}
+
+class ListActionTypesOutput {
+  public ActionTypeList $action_types;
+  public NextToken $next_token;
+}
+
+class ListPipelineExecutionsInput {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public PipelineName $pipeline_name;
+}
+
+class ListPipelineExecutionsOutput {
+  public NextToken $next_token;
+  public PipelineExecutionSummaryList $pipeline_execution_summaries;
+}
+
+class ListPipelinesInput {
+  public NextToken $next_token;
+}
+
+class ListPipelinesOutput {
+  public NextToken $next_token;
+  public PipelineList $pipelines;
+}
+
+class ListTagsForResourceInput {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public ResourceArn $resource_arn;
+}
+
+class ListTagsForResourceOutput {
+  public NextToken $next_token;
+  public TagList $tags;
+}
+
+class ListWebhookItem {
+  public WebhookArn $arn;
+  public WebhookDefinition $definition;
+  public WebhookErrorCode $error_code;
+  public WebhookErrorMessage $error_message;
+  public WebhookLastTriggered $last_triggered;
+  public TagList $tags;
+  public WebhookUrl $url;
+}
+
+class ListWebhooksInput {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListWebhooksOutput {
+  public NextToken $next_token;
+  public WebhookList $webhooks;
 }
 
 class MatchEquals {
 }
 
+class MaxBatchSize {
+}
+
+class MaxResults {
+}
+
+class MaximumArtifactCount {
+}
+
+class Message {
+}
+
+class MinimumArtifactCount {
+}
+
+class NextToken {
+}
+
+class Nonce {
+}
+
+class NotLatestPipelineExecutionException {
+}
+
+class OutputArtifact {
+  public ArtifactName $name;
+}
+
+class OutputArtifactList {
+}
+
+class OutputVariablesKey {
+}
+
 class OutputVariablesMap {
 }
 
-class RetryStageExecutionInput {
-  public PipelineName $pipeline_name;
-  public StageName $stage_name;
+class OutputVariablesSizeExceededException {
+  public Message $message;
+}
+
+class OutputVariablesValue {
+}
+
+class Percentage {
+}
+
+class PipelineArn {
+}
+
+class PipelineContext {
+  public ActionContext $action;
+  public PipelineArn $pipeline_arn;
   public PipelineExecutionId $pipeline_execution_id;
-  public StageRetryMode $retry_mode;
+  public PipelineName $pipeline_name;
+  public StageContext $stage;
 }
 
-class InvalidNextTokenException {
+class PipelineDeclaration {
+  public ArtifactStore $artifact_store;
+  public ArtifactStoreMap $artifact_stores;
+  public PipelineName $name;
+  public RoleArn $role_arn;
+  public PipelineStageDeclarationList $stages;
+  public PipelineVersion $version;
 }
 
-class ThirdPartyJobData {
-  public PipelineContext $pipeline_context;
-  public ArtifactList $input_artifacts;
-  public ArtifactList $output_artifacts;
-  public AWSSessionCredentials $artifact_credentials;
-  public ContinuationToken $continuation_token;
-  public EncryptionKey $encryption_key;
-  public ActionTypeId $action_type_id;
-  public ActionConfiguration $action_configuration;
+class PipelineExecution {
+  public ArtifactRevisionList $artifact_revisions;
+  public PipelineExecutionId $pipeline_execution_id;
+  public PipelineName $pipeline_name;
+  public PipelineVersion $pipeline_version;
+  public PipelineExecutionStatus $status;
 }
 
-class ThirdPartyJobDetails {
-  public ThirdPartyJobId $id;
-  public ThirdPartyJobData $data;
-  public Nonce $nonce;
+class PipelineExecutionId {
 }
 
-class ThirdPartyJobId {
+class PipelineExecutionNotFoundException {
 }
 
-class WebhookDefinition {
-  public WebhookName $name;
-  public PipelineName $target_pipeline;
-  public ActionName $target_action;
-  public WebhookFilters $filters;
-  public WebhookAuthenticationType $authentication;
-  public WebhookAuthConfiguration $authentication_configuration;
+class PipelineExecutionNotStoppableException {
+  public Message $message;
 }
 
-class ActionConfigurationKey {
-}
-
-class ActionConfigurationPropertyList {
-}
-
-class ExecutionTrigger {
-  public TriggerType $trigger_type;
-  public TriggerDetail $trigger_detail;
-}
-
-class UntagResourceInput {
-  public ResourceArn $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class AWSSessionCredentials {
-  public AccessKeyId $access_key_id;
-  public SecretAccessKey $secret_access_key;
-  public SessionToken $session_token;
-}
-
-class PollForThirdPartyJobsInput {
-  public ActionTypeId $action_type_id;
-  public MaxBatchSize $max_batch_size;
-}
-
-class Revision {
-}
-
-class ActionConfiguration {
-  public ActionConfigurationMap $configuration;
-}
-
-class ActionRevision {
-  public Revision $revision_id;
-  public RevisionChangeIdentifier $revision_change_id;
-  public Timestamp $created;
-}
-
-class StageExecutionStatus {
-}
-
-class Job {
-  public JobId $id;
-  public JobData $data;
-  public Nonce $nonce;
-  public AccountId $account_id;
+class PipelineExecutionStatus {
 }
 
 class PipelineExecutionSummary {
-  public PipelineExecutionId $pipeline_execution_id;
-  public PipelineExecutionStatus $status;
-  public Timestamp $start_time;
   public Timestamp $last_update_time;
+  public PipelineExecutionId $pipeline_execution_id;
   public SourceRevisionList $source_revisions;
-  public ExecutionTrigger $trigger;
+  public Timestamp $start_time;
+  public PipelineExecutionStatus $status;
   public StopExecutionTrigger $stop_trigger;
+  public ExecutionTrigger $trigger;
+}
+
+class PipelineExecutionSummaryList {
+}
+
+class PipelineList {
+}
+
+class PipelineMetadata {
+  public Timestamp $created;
+  public PipelineArn $pipeline_arn;
+  public Timestamp $updated;
+}
+
+class PipelineName {
+}
+
+class PipelineNameInUseException {
+}
+
+class PipelineNotFoundException {
+}
+
+class PipelineStageDeclarationList {
+}
+
+class PipelineSummary {
+  public Timestamp $created;
+  public PipelineName $name;
+  public Timestamp $updated;
+  public PipelineVersion $version;
+}
+
+class PipelineVersion {
+}
+
+class PipelineVersionNotFoundException {
 }
 
 class PollForJobsInput {
@@ -1038,90 +861,261 @@ class PollForJobsInput {
   public QueryParamMap $query_param;
 }
 
+class PollForJobsOutput {
+  public JobList $jobs;
+}
+
+class PollForThirdPartyJobsInput {
+  public ActionTypeId $action_type_id;
+  public MaxBatchSize $max_batch_size;
+}
+
+class PollForThirdPartyJobsOutput {
+  public ThirdPartyJobList $jobs;
+}
+
+class PutActionRevisionInput {
+  public ActionName $action_name;
+  public ActionRevision $action_revision;
+  public PipelineName $pipeline_name;
+  public StageName $stage_name;
+}
+
+class PutActionRevisionOutput {
+  public boolean $new_revision;
+  public PipelineExecutionId $pipeline_execution_id;
+}
+
+class PutApprovalResultInput {
+  public ActionName $action_name;
+  public PipelineName $pipeline_name;
+  public ApprovalResult $result;
+  public StageName $stage_name;
+  public ApprovalToken $token;
+}
+
+class PutApprovalResultOutput {
+  public Timestamp $approved_at;
+}
+
+class PutJobFailureResultInput {
+  public FailureDetails $failure_details;
+  public JobId $job_id;
+}
+
+class PutJobSuccessResultInput {
+  public ContinuationToken $continuation_token;
+  public CurrentRevision $current_revision;
+  public ExecutionDetails $execution_details;
+  public JobId $job_id;
+  public OutputVariablesMap $output_variables;
+}
+
+class PutThirdPartyJobFailureResultInput {
+  public ClientToken $client_token;
+  public FailureDetails $failure_details;
+  public ThirdPartyJobId $job_id;
+}
+
+class PutThirdPartyJobSuccessResultInput {
+  public ClientToken $client_token;
+  public ContinuationToken $continuation_token;
+  public CurrentRevision $current_revision;
+  public ExecutionDetails $execution_details;
+  public ThirdPartyJobId $job_id;
+}
+
+class PutWebhookInput {
+  public TagList $tags;
+  public WebhookDefinition $webhook;
+}
+
+class PutWebhookOutput {
+  public ListWebhookItem $webhook;
+}
+
+class QueryParamMap {
+}
+
+class RegisterWebhookWithThirdPartyInput {
+  public WebhookName $webhook_name;
+}
+
+class RegisterWebhookWithThirdPartyOutput {
+}
+
+class ResolvedActionConfigurationMap {
+}
+
+class ResourceArn {
+}
+
+class ResourceNotFoundException {
+}
+
+class RetryStageExecutionInput {
+  public PipelineExecutionId $pipeline_execution_id;
+  public PipelineName $pipeline_name;
+  public StageRetryMode $retry_mode;
+  public StageName $stage_name;
+}
+
+class RetryStageExecutionOutput {
+  public PipelineExecutionId $pipeline_execution_id;
+}
+
+class Revision {
+}
+
+class RevisionChangeIdentifier {
+}
+
+class RevisionSummary {
+}
+
+class RoleArn {
+}
+
+class S3ArtifactLocation {
+  public S3BucketName $bucket_name;
+  public S3ObjectKey $object_key;
+}
+
+class S3Bucket {
+}
+
+class S3BucketName {
+}
+
+class S3Key {
+}
+
+class S3Location {
+  public S3Bucket $bucket;
+  public S3Key $key;
+}
+
+class S3ObjectKey {
+}
+
+class SecretAccessKey {
+}
+
+class SessionToken {
+}
+
+class SourceRevision {
+  public ActionName $action_name;
+  public Revision $revision_id;
+  public RevisionSummary $revision_summary;
+  public Url $revision_url;
+}
+
+class SourceRevisionList {
+}
+
+class StageActionDeclarationList {
+}
+
+class StageBlockerDeclarationList {
+}
+
+class StageContext {
+  public StageName $name;
+}
+
+class StageDeclaration {
+  public StageActionDeclarationList $actions;
+  public StageBlockerDeclarationList $blockers;
+  public StageName $name;
+}
+
 class StageExecution {
   public PipelineExecutionId $pipeline_execution_id;
   public StageExecutionStatus $status;
 }
 
-class WebhookAuthConfigurationSecretToken {
+class StageExecutionStatus {
 }
 
-class ActionExecutionOutput {
-  public OutputVariablesMap $output_variables;
-  public ArtifactDetailList $output_artifacts;
-  public ActionExecutionResult $execution_result;
+class StageName {
 }
 
-class ActionRunOrder {
+class StageNotFoundException {
 }
 
-class CreateCustomActionTypeInput {
+class StageNotRetryableException {
+}
+
+class StageRetryMode {
+}
+
+class StageState {
+  public ActionStateList $action_states;
+  public TransitionState $inbound_transition_state;
+  public StageExecution $latest_execution;
+  public StageName $stage_name;
+}
+
+class StageStateList {
+}
+
+class StageTransitionType {
+}
+
+class StartPipelineExecutionInput {
+  public ClientRequestToken $client_request_token;
+  public PipelineName $name;
+}
+
+class StartPipelineExecutionOutput {
+  public PipelineExecutionId $pipeline_execution_id;
+}
+
+class StopExecutionTrigger {
+  public StopPipelineExecutionReason $reason;
+}
+
+class StopPipelineExecutionInput {
+  public boolean $abandon;
+  public PipelineExecutionId $pipeline_execution_id;
+  public PipelineName $pipeline_name;
+  public StopPipelineExecutionReason $reason;
+}
+
+class StopPipelineExecutionOutput {
+  public PipelineExecutionId $pipeline_execution_id;
+}
+
+class StopPipelineExecutionReason {
+}
+
+class String {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeyList {
+}
+
+class TagList {
+}
+
+class TagResourceInput {
+  public ResourceArn $resource_arn;
   public TagList $tags;
-  public ActionCategory $category;
-  public ActionProvider $provider;
-  public Version $version;
-  public ActionTypeSettings $settings;
-  public ActionConfigurationPropertyList $configuration_properties;
-  public ArtifactDetails $input_artifact_details;
-  public ArtifactDetails $output_artifact_details;
 }
 
-class ActionExecutionStatus {
+class TagResourceOutput {
 }
 
-class PutWebhookInput {
-  public WebhookDefinition $webhook;
-  public TagList $tags;
-}
-
-class PutThirdPartyJobSuccessResultInput {
-  public ClientToken $client_token;
-  public CurrentRevision $current_revision;
-  public ContinuationToken $continuation_token;
-  public ExecutionDetails $execution_details;
-  public ThirdPartyJobId $job_id;
-}
-
-class WebhookList {
-}
-
-class ActionConfigurationPropertyType {
-}
-
-class ExecutionSummary {
-}
-
-class ListWebhooksInput {
-  public NextToken $next_token;
-  public MaxResults $max_results;
-}
-
-class EncryptionKey {
-  public EncryptionKeyId $id;
-  public EncryptionKeyType $type;
-}
-
-class WebhookLastTriggered {
-}
-
-class FailureDetails {
-  public FailureType $type;
-  public Message $message;
-  public ExecutionId $external_execution_id;
-}
-
-class ListWebhookItem {
-  public WebhookErrorCode $error_code;
-  public WebhookLastTriggered $last_triggered;
-  public WebhookArn $arn;
-  public TagList $tags;
-  public WebhookDefinition $definition;
-  public WebhookUrl $url;
-  public WebhookErrorMessage $error_message;
-}
-
-class OutputArtifact {
-  public ArtifactName $name;
+class TagValue {
 }
 
 class ThirdPartyJob {
@@ -1129,126 +1123,132 @@ class ThirdPartyJob {
   public JobId $job_id;
 }
 
-class ActionState {
-  public Url $entity_url;
-  public Url $revision_url;
-  public ActionName $action_name;
-  public ActionRevision $current_revision;
-  public ActionExecution $latest_execution;
-}
-
-class ActionTypeId {
-  public ActionOwner $owner;
-  public ActionProvider $provider;
-  public Version $version;
-  public ActionCategory $category;
-}
-
-class ExternalExecutionSummary {
-}
-
-class ActionTypeNotFoundException {
-}
-
-class PipelineExecutionNotFoundException {
-}
-
-class PipelineMetadata {
-  public PipelineArn $pipeline_arn;
-  public Timestamp $created;
-  public Timestamp $updated;
-}
-
-class PutJobSuccessResultInput {
-  public ExecutionDetails $execution_details;
-  public OutputVariablesMap $output_variables;
-  public JobId $job_id;
-  public CurrentRevision $current_revision;
+class ThirdPartyJobData {
+  public ActionConfiguration $action_configuration;
+  public ActionTypeId $action_type_id;
+  public AWSSessionCredentials $artifact_credentials;
   public ContinuationToken $continuation_token;
+  public EncryptionKey $encryption_key;
+  public ArtifactList $input_artifacts;
+  public ArtifactList $output_artifacts;
+  public PipelineContext $pipeline_context;
 }
 
-class RegisterWebhookWithThirdPartyInput {
-  public WebhookName $webhook_name;
+class ThirdPartyJobDetails {
+  public ThirdPartyJobData $data;
+  public ThirdPartyJobId $id;
+  public Nonce $nonce;
+}
+
+class ThirdPartyJobId {
+}
+
+class ThirdPartyJobList {
 }
 
 class Time {
 }
 
-class ActionExecutionInput {
-  public ActionNamespace $namespace;
-  public ActionTypeId $action_type_id;
-  public ActionConfigurationMap $configuration;
-  public ResolvedActionConfigurationMap $resolved_configuration;
-  public RoleArn $role_arn;
-  public AWSRegionName $region;
-  public ArtifactDetailList $input_artifacts;
+class Timestamp {
 }
 
-class DuplicatedStopRequestException {
+class TooManyTagsException {
   public Message $message;
 }
 
-class InvalidApprovalTokenException {
+class TransitionState {
+  public DisabledReason $disabled_reason;
+  public Enabled $enabled;
+  public LastChangedAt $last_changed_at;
+  public LastChangedBy $last_changed_by;
 }
 
-class DeleteWebhookOutput {
+class TriggerDetail {
 }
 
-class OutputVariablesValue {
+class TriggerType {
 }
 
-class QueryParamMap {
+class UntagResourceInput {
+  public ResourceArn $resource_arn;
+  public TagKeyList $tag_keys;
 }
 
-class ResourceNotFoundException {
+class UntagResourceOutput {
+}
+
+class UpdatePipelineInput {
+  public PipelineDeclaration $pipeline;
+}
+
+class UpdatePipelineOutput {
+  public PipelineDeclaration $pipeline;
+}
+
+class Url {
 }
 
 class UrlTemplate {
 }
 
-class ActionExecutionDetailList {
+class ValidationException {
 }
 
-class InvalidArnException {
-  public Message $message;
-}
-
-class MinimumArtifactCount {
-}
-
-class WebhookErrorCode {
-}
-
-class ArtifactDetails {
-  public MinimumArtifactCount $minimum_count;
-  public MaximumArtifactCount $maximum_count;
-}
-
-class SecretAccessKey {
+class Version {
 }
 
 class WebhookArn {
 }
 
-class ListActionExecutionsInput {
-  public PipelineName $pipeline_name;
-  public ActionExecutionFilter $filter;
-  public MaxResults $max_results;
-  public NextToken $next_token;
+class WebhookAuthConfiguration {
+  public WebhookAuthConfigurationAllowedIPRange $allowed_ip_range;
+  public WebhookAuthConfigurationSecretToken $secret_token;
 }
 
-class EncryptionKeyId {
+class WebhookAuthConfigurationAllowedIPRange {
 }
 
-class ExternalExecutionId {
+class WebhookAuthConfigurationSecretToken {
 }
 
-class FailureType {
+class WebhookAuthenticationType {
 }
 
-class ActionNotFoundException {
+class WebhookDefinition {
+  public WebhookAuthenticationType $authentication;
+  public WebhookAuthConfiguration $authentication_configuration;
+  public WebhookFilters $filters;
+  public WebhookName $name;
+  public ActionName $target_action;
+  public PipelineName $target_pipeline;
 }
 
-class JsonPath {
+class WebhookErrorCode {
+}
+
+class WebhookErrorMessage {
+}
+
+class WebhookFilterRule {
+  public JsonPath $json_path;
+  public MatchEquals $match_equals;
+}
+
+class WebhookFilters {
+}
+
+class WebhookLastTriggered {
+}
+
+class WebhookList {
+}
+
+class WebhookName {
+}
+
+class WebhookNotFoundException {
+}
+
+class WebhookUrl {
 }
 

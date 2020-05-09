@@ -2,278 +2,64 @@
 namespace slack\aws\iotanalytics;
 
 interface IoTAnalytics {
-  public function CreateDatasetContent(CreateDatasetContentRequest) Awaitable<Errors\Result<CreateDatasetContentResponse>>;
-  public function CreateDatastore(CreateDatastoreRequest) Awaitable<Errors\Result<CreateDatastoreResponse>>;
-  public function DeleteChannel(DeleteChannelRequest) Awaitable<Errors\Error>;
-  public function ListPipelines(ListPipelinesRequest) Awaitable<Errors\Result<ListPipelinesResponse>>;
-  public function DescribeDatastore(DescribeDatastoreRequest) Awaitable<Errors\Result<DescribeDatastoreResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function UpdateDatastore(UpdateDatastoreRequest) Awaitable<Errors\Error>;
-  public function DescribeDataset(DescribeDatasetRequest) Awaitable<Errors\Result<DescribeDatasetResponse>>;
-  public function DescribePipeline(DescribePipelineRequest) Awaitable<Errors\Result<DescribePipelineResponse>>;
-  public function SampleChannelData(SampleChannelDataRequest) Awaitable<Errors\Result<SampleChannelDataResponse>>;
-  public function DeleteDatasetContent(DeleteDatasetContentRequest) Awaitable<Errors\Error>;
-  public function ListDatasetContents(ListDatasetContentsRequest) Awaitable<Errors\Result<ListDatasetContentsResponse>>;
-  public function StartPipelineReprocessing(StartPipelineReprocessingRequest) Awaitable<Errors\Result<StartPipelineReprocessingResponse>>;
-  public function CreateDataset(CreateDatasetRequest) Awaitable<Errors\Result<CreateDatasetResponse>>;
-  public function DescribeLoggingOptions(DescribeLoggingOptionsRequest) Awaitable<Errors\Result<DescribeLoggingOptionsResponse>>;
-  public function ListChannels(ListChannelsRequest) Awaitable<Errors\Result<ListChannelsResponse>>;
-  public function PutLoggingOptions(PutLoggingOptionsRequest) Awaitable<Errors\Error>;
-  public function UpdateDataset(UpdateDatasetRequest) Awaitable<Errors\Error>;
-  public function CreateChannel(CreateChannelRequest) Awaitable<Errors\Result<CreateChannelResponse>>;
-  public function CreatePipeline(CreatePipelineRequest) Awaitable<Errors\Result<CreatePipelineResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function DescribeChannel(DescribeChannelRequest) Awaitable<Errors\Result<DescribeChannelResponse>>;
-  public function GetDatasetContent(GetDatasetContentRequest) Awaitable<Errors\Result<GetDatasetContentResponse>>;
-  public function ListDatasets(ListDatasetsRequest) Awaitable<Errors\Result<ListDatasetsResponse>>;
-  public function ListDatastores(ListDatastoresRequest) Awaitable<Errors\Result<ListDatastoresResponse>>;
-  public function RunPipelineActivity(RunPipelineActivityRequest) Awaitable<Errors\Result<RunPipelineActivityResponse>>;
   public function BatchPutMessage(BatchPutMessageRequest) Awaitable<Errors\Result<BatchPutMessageResponse>>;
   public function CancelPipelineReprocessing(CancelPipelineReprocessingRequest) Awaitable<Errors\Result<CancelPipelineReprocessingResponse>>;
+  public function CreateChannel(CreateChannelRequest) Awaitable<Errors\Result<CreateChannelResponse>>;
+  public function CreateDataset(CreateDatasetRequest) Awaitable<Errors\Result<CreateDatasetResponse>>;
+  public function CreateDatasetContent(CreateDatasetContentRequest) Awaitable<Errors\Result<CreateDatasetContentResponse>>;
+  public function CreateDatastore(CreateDatastoreRequest) Awaitable<Errors\Result<CreateDatastoreResponse>>;
+  public function CreatePipeline(CreatePipelineRequest) Awaitable<Errors\Result<CreatePipelineResponse>>;
+  public function DeleteChannel(DeleteChannelRequest) Awaitable<Errors\Error>;
   public function DeleteDataset(DeleteDatasetRequest) Awaitable<Errors\Error>;
+  public function DeleteDatasetContent(DeleteDatasetContentRequest) Awaitable<Errors\Error>;
   public function DeleteDatastore(DeleteDatastoreRequest) Awaitable<Errors\Error>;
   public function DeletePipeline(DeletePipelineRequest) Awaitable<Errors\Error>;
+  public function DescribeChannel(DescribeChannelRequest) Awaitable<Errors\Result<DescribeChannelResponse>>;
+  public function DescribeDataset(DescribeDatasetRequest) Awaitable<Errors\Result<DescribeDatasetResponse>>;
+  public function DescribeDatastore(DescribeDatastoreRequest) Awaitable<Errors\Result<DescribeDatastoreResponse>>;
+  public function DescribeLoggingOptions(DescribeLoggingOptionsRequest) Awaitable<Errors\Result<DescribeLoggingOptionsResponse>>;
+  public function DescribePipeline(DescribePipelineRequest) Awaitable<Errors\Result<DescribePipelineResponse>>;
+  public function GetDatasetContent(GetDatasetContentRequest) Awaitable<Errors\Result<GetDatasetContentResponse>>;
+  public function ListChannels(ListChannelsRequest) Awaitable<Errors\Result<ListChannelsResponse>>;
+  public function ListDatasetContents(ListDatasetContentsRequest) Awaitable<Errors\Result<ListDatasetContentsResponse>>;
+  public function ListDatasets(ListDatasetsRequest) Awaitable<Errors\Result<ListDatasetsResponse>>;
+  public function ListDatastores(ListDatastoresRequest) Awaitable<Errors\Result<ListDatastoresResponse>>;
+  public function ListPipelines(ListPipelinesRequest) Awaitable<Errors\Result<ListPipelinesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutLoggingOptions(PutLoggingOptionsRequest) Awaitable<Errors\Error>;
+  public function RunPipelineActivity(RunPipelineActivityRequest) Awaitable<Errors\Result<RunPipelineActivityResponse>>;
+  public function SampleChannelData(SampleChannelDataRequest) Awaitable<Errors\Result<SampleChannelDataResponse>>;
+  public function StartPipelineReprocessing(StartPipelineReprocessingRequest) Awaitable<Errors\Result<StartPipelineReprocessingResponse>>;
   public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
   public function UpdateChannel(UpdateChannelRequest) Awaitable<Errors\Error>;
+  public function UpdateDataset(UpdateDatasetRequest) Awaitable<Errors\Error>;
+  public function UpdateDatastore(UpdateDatastoreRequest) Awaitable<Errors\Error>;
   public function UpdatePipeline(UpdatePipelineRequest) Awaitable<Errors\Error>;
-}
-
-class ChannelStorageSummary {
-  public ServiceManagedChannelS3StorageSummary $service_managed_s_3;
-  public CustomerManagedChannelS3StorageSummary $customer_managed_s_3;
-}
-
-class ListTagsForResourceRequest {
-  public ResourceArn $resource_arn;
-}
-
-class MathExpression {
-}
-
-class SampleChannelDataResponse {
-  public MessagePayloads $payloads;
-}
-
-class DatasetContentDeliveryRule {
-  public EntryName $entry_name;
-  public DatasetContentDeliveryDestination $destination;
-}
-
-class DescribeLoggingOptionsResponse {
-  public LoggingOptions $logging_options;
-}
-
-class QueryFilter {
-  public DeltaTime $delta_time;
-}
-
-class InternalFailureException {
-  public errorMessage $message;
-}
-
-class VolumeSizeInGB {
-}
-
-class CreatePipelineRequest {
-  public PipelineName $pipeline_name;
-  public PipelineActivities $pipeline_activities;
-  public TagList $tags;
-}
-
-class DatasetActionSummary {
-  public DatasetActionName $action_name;
-  public DatasetActionType $action_type;
-}
-
-class DescribeLoggingOptionsRequest {
-}
-
-class ErrorCode {
-}
-
-class ListDatasetContentsRequest {
-  public DatasetName $dataset_name;
-  public NextToken $next_token;
-  public MaxResults $max_results;
-  public Timestamp $scheduled_on_or_after;
-  public Timestamp $scheduled_before;
-}
-
-class MaxVersions {
 }
 
 class ActivityBatchSize {
 }
 
-class DatasetContentState {
-}
-
-class StartPipelineReprocessingResponse {
-  public ReprocessingId $reprocessing_id;
-}
-
-class Dataset {
-  public DatasetName $name;
-  public DatasetArn $arn;
-  public DatasetTriggers $triggers;
-  public DatasetContentDeliveryRules $content_delivery_rules;
-  public DatasetStatus $status;
-  public Timestamp $last_update_time;
-  public RetentionPeriod $retention_period;
-  public DatasetActions $actions;
-  public Timestamp $creation_time;
-  public VersioningConfiguration $versioning_configuration;
-}
-
-class InvalidRequestException {
-  public errorMessage $message;
-}
-
-class LoggingLevel {
-}
-
-class UntagResourceResponse {
-}
-
-class CustomerManagedDatastoreS3Storage {
-  public BucketName $bucket;
-  public S3KeyPrefix $key_prefix;
-  public RoleArn $role_arn;
-}
-
-class DatasetContentVersion {
-}
-
-class RemoveAttributesActivity {
-  public ActivityName $name;
-  public AttributeNames $attributes;
-  public ActivityName $next;
-}
-
-class DatastoreStorage {
-  public ServiceManagedDatastoreS3Storage $service_managed_s_3;
-  public CustomerManagedDatastoreS3Storage $customer_managed_s_3;
-}
-
-class RoleArn {
-}
-
-class PutLoggingOptionsRequest {
-  public LoggingOptions $logging_options;
-}
-
-class CreateChannelResponse {
-  public ChannelName $channel_name;
-  public ChannelArn $channel_arn;
-  public RetentionPeriod $retention_period;
-}
-
-class TagValue {
-}
-
 class ActivityName {
 }
 
-class ErrorMessage {
-}
-
-class DatasetActionName {
-}
-
-class DatasetActionType {
-}
-
-class S3DestinationConfiguration {
-  public GlueConfiguration $glue_configuration;
-  public RoleArn $role_arn;
-  public BucketName $bucket;
-  public BucketKeyExpression $key;
-}
-
-class UntagResourceRequest {
-  public ResourceArn $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class UnlimitedVersioning {
-}
-
-class StringValue {
-}
-
-class TimeExpression {
-}
-
-class BatchPutMessageResponse {
-  public BatchPutMessageErrorEntries $batch_put_message_error_entries;
-}
-
-class CreateDatasetResponse {
-  public DatasetName $dataset_name;
-  public DatasetArn $dataset_arn;
-  public RetentionPeriod $retention_period;
-}
-
-class Reason {
-}
-
-class ScheduleExpression {
-}
-
-class DeltaTime {
-  public OffsetSeconds $offset_seconds;
-  public TimeExpression $time_expression;
-}
-
-class LoggingOptions {
-  public LoggingEnabled $enabled;
-  public RoleArn $role_arn;
-  public LoggingLevel $level;
-}
-
-class PipelineName {
-}
-
-class TagKeyList {
-}
-
-class Channel {
-  public ChannelName $name;
-  public ChannelStorage $storage;
-  public ChannelArn $arn;
-  public ChannelStatus $status;
-  public RetentionPeriod $retention_period;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-}
-
-class ListChannelsResponse {
-  public ChannelSummaries $channel_summaries;
-  public NextToken $next_token;
-}
-
-class StartTime {
-}
-
-class GlueDatabaseName {
-}
-
-class DatasetActionSummaries {
-}
-
-class Image {
-}
-
-class LambdaActivity {
-  public LambdaName $lambda_name;
-  public ActivityBatchSize $batch_size;
-  public ActivityName $next;
+class AddAttributesActivity {
+  public AttributeNameMapping $attributes;
   public ActivityName $name;
+  public ActivityName $next;
 }
 
-class ResourceConfiguration {
-  public ComputeType $compute_type;
-  public VolumeSizeInGB $volume_size_in_gb;
+class AttributeName {
+}
+
+class AttributeNameMapping {
+}
+
+class AttributeNames {
+}
+
+class BatchPutMessageErrorEntries {
 }
 
 class BatchPutMessageErrorEntry {
@@ -282,52 +68,19 @@ class BatchPutMessageErrorEntry {
   public MessageId $message_id;
 }
 
-class CreateDatasetContentRequest {
-  public DatasetName $dataset_name;
+class BatchPutMessageRequest {
+  public ChannelName $channel_name;
+  public Messages $messages;
 }
 
-class DatasetSummary {
-  public DatasetActionSummaries $actions;
-  public DatasetName $dataset_name;
-  public DatasetStatus $status;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public DatasetTriggers $triggers;
+class BatchPutMessageResponse {
+  public BatchPutMessageErrorEntries $batch_put_message_error_entries;
 }
 
 class BucketKeyExpression {
 }
 
-class LimitExceededException {
-  public errorMessage $message;
-}
-
-class PipelineSummary {
-  public PipelineName $pipeline_name;
-  public ReprocessingSummaries $reprocessing_summaries;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-}
-
-class RetentionPeriodInDays {
-}
-
-class ThrottlingException {
-  public errorMessage $message;
-}
-
-class UpdatePipelineRequest {
-  public PipelineName $pipeline_name;
-  public PipelineActivities $pipeline_activities;
-}
-
-class TagResourceResponse {
-}
-
-class CustomerManagedChannelS3StorageSummary {
-  public BucketName $bucket;
-  public S3KeyPrefix $key_prefix;
-  public RoleArn $role_arn;
+class BucketName {
 }
 
 class CancelPipelineReprocessingRequest {
@@ -335,171 +88,67 @@ class CancelPipelineReprocessingRequest {
   public ReprocessingId $reprocessing_id;
 }
 
-class CreateDatasetContentResponse {
-  public DatasetContentVersion $version_id;
+class CancelPipelineReprocessingResponse {
 }
 
-class ListDatasetContentsResponse {
-  public DatasetContentSummaries $dataset_content_summaries;
-  public NextToken $next_token;
-}
-
-class LogResult {
-}
-
-class DatasetAction {
-  public DatasetActionName $action_name;
-  public SqlQueryDatasetAction $query_action;
-  public ContainerDatasetAction $container_action;
-}
-
-class MessagePayload {
-}
-
-class TagResourceRequest {
-  public ResourceArn $resource_arn;
-  public TagList $tags;
-}
-
-class VariableName {
-}
-
-class DescribeChannelResponse {
-  public Channel $channel;
-  public ChannelStatistics $statistics;
-}
-
-class S3KeyPrefix {
-}
-
-class CreateDatasetRequest {
-  public DatasetName $dataset_name;
-  public DatasetActions $actions;
-  public DatasetTriggers $triggers;
-  public DatasetContentDeliveryRules $content_delivery_rules;
+class Channel {
+  public ChannelArn $arn;
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public ChannelName $name;
   public RetentionPeriod $retention_period;
-  public VersioningConfiguration $versioning_configuration;
-  public TagList $tags;
+  public ChannelStatus $status;
+  public ChannelStorage $storage;
 }
 
-class DeviceShadowEnrichActivity {
-  public RoleArn $role_arn;
-  public ActivityName $next;
+class ChannelActivity {
+  public ChannelName $channel_name;
   public ActivityName $name;
-  public AttributeName $attribute;
-  public AttributeName $thing_name;
+  public ActivityName $next;
 }
 
-class ServiceManagedChannelS3Storage {
+class ChannelArn {
 }
 
-class TagList {
+class ChannelName {
+}
+
+class ChannelStatistics {
+  public EstimatedResourceSize $size;
+}
+
+class ChannelStatus {
+}
+
+class ChannelStorage {
+  public CustomerManagedChannelS3Storage $customer_managed_s_3;
+  public ServiceManagedChannelS3Storage $service_managed_s_3;
+}
+
+class ChannelStorageSummary {
+  public CustomerManagedChannelS3StorageSummary $customer_managed_s_3;
+  public ServiceManagedChannelS3StorageSummary $service_managed_s_3;
 }
 
 class ChannelSummaries {
 }
 
-class DatastoreArn {
-}
-
-class DescribePipelineResponse {
-  public Pipeline $pipeline;
-}
-
-class Schedule {
-  public ScheduleExpression $expression;
-}
-
-class NextToken {
-}
-
-class ServiceManagedDatastoreS3StorageSummary {
-}
-
-class UpdateDatasetRequest {
-  public RetentionPeriod $retention_period;
-  public VersioningConfiguration $versioning_configuration;
-  public DatasetName $dataset_name;
-  public DatasetActions $actions;
-  public DatasetTriggers $triggers;
-  public DatasetContentDeliveryRules $content_delivery_rules;
-}
-
-class CreatePipelineResponse {
-  public PipelineName $pipeline_name;
-  public PipelineArn $pipeline_arn;
-}
-
-class DatasetArn {
-}
-
-class DatasetName {
-}
-
-class IotEventsDestinationConfiguration {
-  public IotEventsInputName $input_name;
-  public RoleArn $role_arn;
-}
-
-class IncludeStatisticsFlag {
-}
-
-class MessageId {
-}
-
-class ResourceNotFoundException {
-  public errorMessage $message;
-}
-
-class ServiceManagedChannelS3StorageSummary {
-}
-
-class SizeInBytes {
-}
-
-class AttributeNames {
-}
-
-class BucketName {
+class ChannelSummary {
+  public ChannelName $channel_name;
+  public ChannelStorageSummary $channel_storage;
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public ChannelStatus $status;
 }
 
 class ComputeType {
 }
 
-class GetDatasetContentResponse {
-  public DatasetEntries $entries;
-  public Timestamp $timestamp;
-  public DatasetContentStatus $status;
-}
-
 class ContainerDatasetAction {
+  public RoleArn $execution_role_arn;
+  public Image $image;
   public ResourceConfiguration $resource_configuration;
   public Variables $variables;
-  public Image $image;
-  public RoleArn $execution_role_arn;
-}
-
-class CreateDatastoreResponse {
-  public DatastoreName $datastore_name;
-  public DatastoreArn $datastore_arn;
-  public RetentionPeriod $retention_period;
-}
-
-class DatastoreSummaries {
-}
-
-class resourceArn {
-}
-
-class ListPipelinesRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class ReprocessingSummary {
-  public ReprocessingId $id;
-  public ReprocessingStatus $status;
-  public Timestamp $creation_time;
 }
 
 class CreateChannelRequest {
@@ -509,371 +158,34 @@ class CreateChannelRequest {
   public TagList $tags;
 }
 
-class EstimatedResourceSize {
-  public Timestamp $estimated_on;
-  public SizeInBytes $estimated_size_in_bytes;
-}
-
-class RunPipelineActivityRequest {
-  public PipelineActivity $pipeline_activity;
-  public MessagePayloads $payloads;
-}
-
-class SelectAttributesActivity {
-  public ActivityName $next;
-  public ActivityName $name;
-  public AttributeNames $attributes;
-}
-
-class SqlQuery {
-}
-
-class DescribeDatastoreResponse {
-  public Datastore $datastore;
-  public DatastoreStatistics $statistics;
-}
-
-class errorMessage {
-}
-
-class DeleteDatasetRequest {
-  public DatasetName $dataset_name;
-}
-
-class ListDatasetsRequest {
-  public NextToken $next_token;
-  public MaxResults $max_results;
-}
-
-class OutputFileName {
-}
-
-class PipelineActivity {
-  public SelectAttributesActivity $select_attributes;
-  public FilterActivity $filter;
-  public DeviceRegistryEnrichActivity $device_registry_enrich;
-  public DeviceShadowEnrichActivity $device_shadow_enrich;
-  public ChannelActivity $channel;
-  public DatastoreActivity $datastore;
-  public RemoveAttributesActivity $remove_attributes;
-  public LambdaActivity $lambda;
-  public AddAttributesActivity $add_attributes;
-  public MathActivity $math;
-}
-
-class ReprocessingSummaries {
-}
-
-class AttributeNameMapping {
-}
-
-class DatastoreStatus {
-}
-
-class DatastoreSummary {
-  public DatastoreName $datastore_name;
-  public DatastoreStorageSummary $datastore_storage;
-  public DatastoreStatus $status;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-}
-
-class SampleChannelDataRequest {
+class CreateChannelResponse {
+  public ChannelArn $channel_arn;
   public ChannelName $channel_name;
-  public MaxMessages $max_messages;
-  public StartTime $start_time;
-  public EndTime $end_time;
-}
-
-class UpdateChannelRequest {
-  public ChannelName $channel_name;
-  public ChannelStorage $channel_storage;
   public RetentionPeriod $retention_period;
 }
 
-class MathActivity {
-  public ActivityName $name;
-  public AttributeName $attribute;
-  public MathExpression $math;
-  public ActivityName $next;
-}
-
-class MaxResults {
-}
-
-class MessagePayloads {
-}
-
-class DatasetContentStatus {
-  public DatasetContentState $state;
-  public Reason $reason;
-}
-
-class DatastoreActivity {
-  public ActivityName $name;
-  public DatastoreName $datastore_name;
-}
-
-class GetDatasetContentRequest {
+class CreateDatasetContentRequest {
   public DatasetName $dataset_name;
+}
+
+class CreateDatasetContentResponse {
   public DatasetContentVersion $version_id;
 }
 
-class ResourceArn {
-}
-
-class ChannelStorage {
-  public ServiceManagedChannelS3Storage $service_managed_s_3;
-  public CustomerManagedChannelS3Storage $customer_managed_s_3;
-}
-
-class DatasetActions {
-}
-
-class ServiceUnavailableException {
-  public errorMessage $message;
-}
-
-class resourceId {
-}
-
-class DatastoreName {
-}
-
-class DeleteChannelRequest {
-  public ChannelName $channel_name;
-}
-
-class GlueConfiguration {
-  public GlueTableName $table_name;
-  public GlueDatabaseName $database_name;
-}
-
-class ChannelStatistics {
-  public EstimatedResourceSize $size;
-}
-
-class DatasetSummaries {
-}
-
-class ListDatastoresResponse {
-  public DatastoreSummaries $datastore_summaries;
-  public NextToken $next_token;
-}
-
-class AttributeName {
-}
-
-class FilterActivity {
-  public ActivityName $name;
-  public FilterExpression $filter;
-  public ActivityName $next;
-}
-
-class Datastore {
-  public DatastoreArn $arn;
-  public DatastoreStatus $status;
+class CreateDatasetRequest {
+  public DatasetActions $actions;
+  public DatasetContentDeliveryRules $content_delivery_rules;
+  public DatasetName $dataset_name;
   public RetentionPeriod $retention_period;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public DatastoreName $name;
-  public DatastoreStorage $storage;
+  public TagList $tags;
+  public DatasetTriggers $triggers;
+  public VersioningConfiguration $versioning_configuration;
 }
 
-class DatastoreStatistics {
-  public EstimatedResourceSize $size;
-}
-
-class DeleteDatasetContentRequest {
+class CreateDatasetResponse {
+  public DatasetArn $dataset_arn;
   public DatasetName $dataset_name;
-  public DatasetContentVersion $version_id;
-}
-
-class Message {
-  public MessageId $message_id;
-  public MessagePayload $payload;
-}
-
-class DatasetStatus {
-}
-
-class DatasetTriggers {
-}
-
-class OffsetSeconds {
-}
-
-class FilterExpression {
-}
-
-class Timestamp {
-}
-
-class TriggeringDataset {
-  public DatasetName $name;
-}
-
-class VersioningConfiguration {
-  public UnlimitedVersioning $unlimited;
-  public MaxVersions $max_versions;
-}
-
-class BatchPutMessageRequest {
-  public ChannelName $channel_name;
-  public Messages $messages;
-}
-
-class DeleteDatastoreRequest {
-  public DatastoreName $datastore_name;
-}
-
-class PresignedURI {
-}
-
-class ListPipelinesResponse {
-  public PipelineSummaries $pipeline_summaries;
-  public NextToken $next_token;
-}
-
-class CustomerManagedChannelS3Storage {
-  public RoleArn $role_arn;
-  public BucketName $bucket;
-  public S3KeyPrefix $key_prefix;
-}
-
-class DatasetContentDeliveryRules {
-}
-
-class DescribeChannelRequest {
-  public ChannelName $channel_name;
-  public IncludeStatisticsFlag $include_statistics;
-}
-
-class DatasetEntries {
-}
-
-class DatasetEntry {
-  public EntryName $entry_name;
-  public PresignedURI $data_uri;
-}
-
-class DoubleValue {
-}
-
-class OutputFileUriValue {
-  public OutputFileName $file_name;
-}
-
-class UnlimitedRetentionPeriod {
-}
-
-class ReprocessingId {
-}
-
-class ResourceAlreadyExistsException {
-  public errorMessage $message;
-  public resourceId $resource_id;
-  public resourceArn $resource_arn;
-}
-
-class ChannelActivity {
-  public ActivityName $name;
-  public ChannelName $channel_name;
-  public ActivityName $next;
-}
-
-class RetentionPeriod {
-  public UnlimitedRetentionPeriod $unlimited;
-  public RetentionPeriodInDays $number_of_days;
-}
-
-class DatasetContentVersionValue {
-  public DatasetName $dataset_name;
-}
-
-class DescribeDatasetRequest {
-  public DatasetName $dataset_name;
-}
-
-class DatasetContentDeliveryDestination {
-  public IotEventsDestinationConfiguration $iot_events_destination_configuration;
-  public S3DestinationConfiguration $s_3_destination_configuration;
-}
-
-class DescribePipelineRequest {
-  public PipelineName $pipeline_name;
-}
-
-class TagKey {
-}
-
-class UpdateDatastoreRequest {
-  public DatastoreName $datastore_name;
   public RetentionPeriod $retention_period;
-  public DatastoreStorage $datastore_storage;
-}
-
-class LoggingEnabled {
-}
-
-class Messages {
-}
-
-class QueryFilters {
-}
-
-class AddAttributesActivity {
-  public ActivityName $name;
-  public AttributeNameMapping $attributes;
-  public ActivityName $next;
-}
-
-class DatasetContentSummary {
-  public DatasetContentVersion $version;
-  public DatasetContentStatus $status;
-  public Timestamp $creation_time;
-  public Timestamp $schedule_time;
-  public Timestamp $completion_time;
-}
-
-class DeletePipelineRequest {
-  public PipelineName $pipeline_name;
-}
-
-class Variable {
-  public VariableName $name;
-  public StringValue $string_value;
-  public DoubleValue $double_value;
-  public DatasetContentVersionValue $dataset_content_version_value;
-  public OutputFileUriValue $output_file_uri_value;
-}
-
-class ChannelArn {
-}
-
-class ChannelSummary {
-  public ChannelName $channel_name;
-  public ChannelStorageSummary $channel_storage;
-  public ChannelStatus $status;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-}
-
-class IotEventsInputName {
-}
-
-class ListDatastoresRequest {
-  public NextToken $next_token;
-  public MaxResults $max_results;
-}
-
-class ReprocessingStatus {
-}
-
-class StartPipelineReprocessingRequest {
-  public PipelineName $pipeline_name;
-  public StartTime $start_time;
-  public EndTime $end_time;
 }
 
 class CreateDatastoreRequest {
@@ -883,66 +195,246 @@ class CreateDatastoreRequest {
   public TagList $tags;
 }
 
-class EndTime {
+class CreateDatastoreResponse {
+  public DatastoreArn $datastore_arn;
+  public DatastoreName $datastore_name;
+  public RetentionPeriod $retention_period;
 }
 
-class ListChannelsRequest {
-  public NextToken $next_token;
-  public MaxResults $max_results;
-}
-
-class SqlQueryDatasetAction {
-  public SqlQuery $sql_query;
-  public QueryFilters $filters;
-}
-
-class MaxMessages {
-}
-
-class PipelineActivities {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class CancelPipelineReprocessingResponse {
-}
-
-class CustomerManagedDatastoreS3StorageSummary {
-  public RoleArn $role_arn;
-  public BucketName $bucket;
-  public S3KeyPrefix $key_prefix;
-}
-
-class GlueTableName {
-}
-
-class ListTagsForResourceResponse {
+class CreatePipelineRequest {
+  public PipelineActivities $pipeline_activities;
+  public PipelineName $pipeline_name;
   public TagList $tags;
 }
 
-class RunPipelineActivityResponse {
-  public MessagePayloads $payloads;
-  public LogResult $log_result;
+class CreatePipelineResponse {
+  public PipelineArn $pipeline_arn;
+  public PipelineName $pipeline_name;
 }
 
-class ServiceManagedDatastoreS3Storage {
+class CustomerManagedChannelS3Storage {
+  public BucketName $bucket;
+  public S3KeyPrefix $key_prefix;
+  public RoleArn $role_arn;
 }
 
-class EntryName {
+class CustomerManagedChannelS3StorageSummary {
+  public BucketName $bucket;
+  public S3KeyPrefix $key_prefix;
+  public RoleArn $role_arn;
 }
 
-class Variables {
+class CustomerManagedDatastoreS3Storage {
+  public BucketName $bucket;
+  public S3KeyPrefix $key_prefix;
+  public RoleArn $role_arn;
 }
 
-class BatchPutMessageErrorEntries {
+class CustomerManagedDatastoreS3StorageSummary {
+  public BucketName $bucket;
+  public S3KeyPrefix $key_prefix;
+  public RoleArn $role_arn;
+}
+
+class Dataset {
+  public DatasetActions $actions;
+  public DatasetArn $arn;
+  public DatasetContentDeliveryRules $content_delivery_rules;
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public DatasetName $name;
+  public RetentionPeriod $retention_period;
+  public DatasetStatus $status;
+  public DatasetTriggers $triggers;
+  public VersioningConfiguration $versioning_configuration;
+}
+
+class DatasetAction {
+  public DatasetActionName $action_name;
+  public ContainerDatasetAction $container_action;
+  public SqlQueryDatasetAction $query_action;
+}
+
+class DatasetActionName {
+}
+
+class DatasetActionSummaries {
+}
+
+class DatasetActionSummary {
+  public DatasetActionName $action_name;
+  public DatasetActionType $action_type;
+}
+
+class DatasetActionType {
+}
+
+class DatasetActions {
+}
+
+class DatasetArn {
+}
+
+class DatasetContentDeliveryDestination {
+  public IotEventsDestinationConfiguration $iot_events_destination_configuration;
+  public S3DestinationConfiguration $s_3_destination_configuration;
+}
+
+class DatasetContentDeliveryRule {
+  public DatasetContentDeliveryDestination $destination;
+  public EntryName $entry_name;
+}
+
+class DatasetContentDeliveryRules {
+}
+
+class DatasetContentState {
+}
+
+class DatasetContentStatus {
+  public Reason $reason;
+  public DatasetContentState $state;
+}
+
+class DatasetContentSummaries {
+}
+
+class DatasetContentSummary {
+  public Timestamp $completion_time;
+  public Timestamp $creation_time;
+  public Timestamp $schedule_time;
+  public DatasetContentStatus $status;
+  public DatasetContentVersion $version;
+}
+
+class DatasetContentVersion {
+}
+
+class DatasetContentVersionValue {
+  public DatasetName $dataset_name;
+}
+
+class DatasetEntries {
+}
+
+class DatasetEntry {
+  public PresignedURI $data_uri;
+  public EntryName $entry_name;
+}
+
+class DatasetName {
+}
+
+class DatasetStatus {
+}
+
+class DatasetSummaries {
+}
+
+class DatasetSummary {
+  public DatasetActionSummaries $actions;
+  public Timestamp $creation_time;
+  public DatasetName $dataset_name;
+  public Timestamp $last_update_time;
+  public DatasetStatus $status;
+  public DatasetTriggers $triggers;
 }
 
 class DatasetTrigger {
-  public Schedule $schedule;
   public TriggeringDataset $dataset;
+  public Schedule $schedule;
+}
+
+class DatasetTriggers {
+}
+
+class Datastore {
+  public DatastoreArn $arn;
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public DatastoreName $name;
+  public RetentionPeriod $retention_period;
+  public DatastoreStatus $status;
+  public DatastoreStorage $storage;
+}
+
+class DatastoreActivity {
+  public DatastoreName $datastore_name;
+  public ActivityName $name;
+}
+
+class DatastoreArn {
+}
+
+class DatastoreName {
+}
+
+class DatastoreStatistics {
+  public EstimatedResourceSize $size;
+}
+
+class DatastoreStatus {
+}
+
+class DatastoreStorage {
+  public CustomerManagedDatastoreS3Storage $customer_managed_s_3;
+  public ServiceManagedDatastoreS3Storage $service_managed_s_3;
+}
+
+class DatastoreStorageSummary {
+  public CustomerManagedDatastoreS3StorageSummary $customer_managed_s_3;
+  public ServiceManagedDatastoreS3StorageSummary $service_managed_s_3;
+}
+
+class DatastoreSummaries {
+}
+
+class DatastoreSummary {
+  public Timestamp $creation_time;
+  public DatastoreName $datastore_name;
+  public DatastoreStorageSummary $datastore_storage;
+  public Timestamp $last_update_time;
+  public DatastoreStatus $status;
+}
+
+class DeleteChannelRequest {
+  public ChannelName $channel_name;
+}
+
+class DeleteDatasetContentRequest {
+  public DatasetName $dataset_name;
+  public DatasetContentVersion $version_id;
+}
+
+class DeleteDatasetRequest {
+  public DatasetName $dataset_name;
+}
+
+class DeleteDatastoreRequest {
+  public DatastoreName $datastore_name;
+}
+
+class DeletePipelineRequest {
+  public PipelineName $pipeline_name;
+}
+
+class DeltaTime {
+  public OffsetSeconds $offset_seconds;
+  public TimeExpression $time_expression;
+}
+
+class DescribeChannelRequest {
+  public ChannelName $channel_name;
+  public IncludeStatisticsFlag $include_statistics;
+}
+
+class DescribeChannelResponse {
+  public Channel $channel;
+  public ChannelStatistics $statistics;
+}
+
+class DescribeDatasetRequest {
+  public DatasetName $dataset_name;
 }
 
 class DescribeDatasetResponse {
@@ -954,48 +446,556 @@ class DescribeDatastoreRequest {
   public IncludeStatisticsFlag $include_statistics;
 }
 
-class Pipeline {
-  public PipelineName $name;
-  public PipelineArn $arn;
-  public PipelineActivities $activities;
-  public ReprocessingSummaries $reprocessing_summaries;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
+class DescribeDatastoreResponse {
+  public Datastore $datastore;
+  public DatastoreStatistics $statistics;
 }
 
-class DatastoreStorageSummary {
-  public ServiceManagedDatastoreS3StorageSummary $service_managed_s_3;
-  public CustomerManagedDatastoreS3StorageSummary $customer_managed_s_3;
+class DescribeLoggingOptionsRequest {
 }
 
-class PipelineArn {
+class DescribeLoggingOptionsResponse {
+  public LoggingOptions $logging_options;
 }
 
-class PipelineSummaries {
+class DescribePipelineRequest {
+  public PipelineName $pipeline_name;
 }
 
-class ChannelStatus {
+class DescribePipelineResponse {
+  public Pipeline $pipeline;
 }
 
-class DatasetContentSummaries {
+class DeviceRegistryEnrichActivity {
+  public AttributeName $attribute;
+  public ActivityName $name;
+  public ActivityName $next;
+  public RoleArn $role_arn;
+  public AttributeName $thing_name;
+}
+
+class DeviceShadowEnrichActivity {
+  public AttributeName $attribute;
+  public ActivityName $name;
+  public ActivityName $next;
+  public RoleArn $role_arn;
+  public AttributeName $thing_name;
+}
+
+class DoubleValue {
+}
+
+class EndTime {
+}
+
+class EntryName {
+}
+
+class ErrorCode {
+}
+
+class ErrorMessage {
+}
+
+class EstimatedResourceSize {
+  public Timestamp $estimated_on;
+  public SizeInBytes $estimated_size_in_bytes;
+}
+
+class FilterActivity {
+  public FilterExpression $filter;
+  public ActivityName $name;
+  public ActivityName $next;
+}
+
+class FilterExpression {
+}
+
+class GetDatasetContentRequest {
+  public DatasetName $dataset_name;
+  public DatasetContentVersion $version_id;
+}
+
+class GetDatasetContentResponse {
+  public DatasetEntries $entries;
+  public DatasetContentStatus $status;
+  public Timestamp $timestamp;
+}
+
+class GlueConfiguration {
+  public GlueDatabaseName $database_name;
+  public GlueTableName $table_name;
+}
+
+class GlueDatabaseName {
+}
+
+class GlueTableName {
+}
+
+class Image {
+}
+
+class IncludeStatisticsFlag {
+}
+
+class InternalFailureException {
+  public errorMessage $message;
+}
+
+class InvalidRequestException {
+  public errorMessage $message;
+}
+
+class IotEventsDestinationConfiguration {
+  public IotEventsInputName $input_name;
+  public RoleArn $role_arn;
+}
+
+class IotEventsInputName {
+}
+
+class LambdaActivity {
+  public ActivityBatchSize $batch_size;
+  public LambdaName $lambda_name;
+  public ActivityName $name;
+  public ActivityName $next;
 }
 
 class LambdaName {
 }
 
-class ListDatasetsResponse {
+class LimitExceededException {
+  public errorMessage $message;
+}
+
+class ListChannelsRequest {
+  public MaxResults $max_results;
   public NextToken $next_token;
+}
+
+class ListChannelsResponse {
+  public ChannelSummaries $channel_summaries;
+  public NextToken $next_token;
+}
+
+class ListDatasetContentsRequest {
+  public DatasetName $dataset_name;
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public Timestamp $scheduled_before;
+  public Timestamp $scheduled_on_or_after;
+}
+
+class ListDatasetContentsResponse {
+  public DatasetContentSummaries $dataset_content_summaries;
+  public NextToken $next_token;
+}
+
+class ListDatasetsRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListDatasetsResponse {
   public DatasetSummaries $dataset_summaries;
+  public NextToken $next_token;
 }
 
-class ChannelName {
+class ListDatastoresRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
 }
 
-class DeviceRegistryEnrichActivity {
-  public ActivityName $name;
-  public AttributeName $attribute;
-  public AttributeName $thing_name;
+class ListDatastoresResponse {
+  public DatastoreSummaries $datastore_summaries;
+  public NextToken $next_token;
+}
+
+class ListPipelinesRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListPipelinesResponse {
+  public NextToken $next_token;
+  public PipelineSummaries $pipeline_summaries;
+}
+
+class ListTagsForResourceRequest {
+  public ResourceArn $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public TagList $tags;
+}
+
+class LogResult {
+}
+
+class LoggingEnabled {
+}
+
+class LoggingLevel {
+}
+
+class LoggingOptions {
+  public LoggingEnabled $enabled;
+  public LoggingLevel $level;
   public RoleArn $role_arn;
+}
+
+class MathActivity {
+  public AttributeName $attribute;
+  public MathExpression $math;
+  public ActivityName $name;
   public ActivityName $next;
+}
+
+class MathExpression {
+}
+
+class MaxMessages {
+}
+
+class MaxResults {
+}
+
+class MaxVersions {
+}
+
+class Message {
+  public MessageId $message_id;
+  public MessagePayload $payload;
+}
+
+class MessageId {
+}
+
+class MessagePayload {
+}
+
+class MessagePayloads {
+}
+
+class Messages {
+}
+
+class NextToken {
+}
+
+class OffsetSeconds {
+}
+
+class OutputFileName {
+}
+
+class OutputFileUriValue {
+  public OutputFileName $file_name;
+}
+
+class Pipeline {
+  public PipelineActivities $activities;
+  public PipelineArn $arn;
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public PipelineName $name;
+  public ReprocessingSummaries $reprocessing_summaries;
+}
+
+class PipelineActivities {
+}
+
+class PipelineActivity {
+  public AddAttributesActivity $add_attributes;
+  public ChannelActivity $channel;
+  public DatastoreActivity $datastore;
+  public DeviceRegistryEnrichActivity $device_registry_enrich;
+  public DeviceShadowEnrichActivity $device_shadow_enrich;
+  public FilterActivity $filter;
+  public LambdaActivity $lambda;
+  public MathActivity $math;
+  public RemoveAttributesActivity $remove_attributes;
+  public SelectAttributesActivity $select_attributes;
+}
+
+class PipelineArn {
+}
+
+class PipelineName {
+}
+
+class PipelineSummaries {
+}
+
+class PipelineSummary {
+  public Timestamp $creation_time;
+  public Timestamp $last_update_time;
+  public PipelineName $pipeline_name;
+  public ReprocessingSummaries $reprocessing_summaries;
+}
+
+class PresignedURI {
+}
+
+class PutLoggingOptionsRequest {
+  public LoggingOptions $logging_options;
+}
+
+class QueryFilter {
+  public DeltaTime $delta_time;
+}
+
+class QueryFilters {
+}
+
+class Reason {
+}
+
+class RemoveAttributesActivity {
+  public AttributeNames $attributes;
+  public ActivityName $name;
+  public ActivityName $next;
+}
+
+class ReprocessingId {
+}
+
+class ReprocessingStatus {
+}
+
+class ReprocessingSummaries {
+}
+
+class ReprocessingSummary {
+  public Timestamp $creation_time;
+  public ReprocessingId $id;
+  public ReprocessingStatus $status;
+}
+
+class ResourceAlreadyExistsException {
+  public errorMessage $message;
+  public resourceArn $resource_arn;
+  public resourceId $resource_id;
+}
+
+class ResourceArn {
+}
+
+class ResourceConfiguration {
+  public ComputeType $compute_type;
+  public VolumeSizeInGB $volume_size_in_gb;
+}
+
+class ResourceNotFoundException {
+  public errorMessage $message;
+}
+
+class RetentionPeriod {
+  public RetentionPeriodInDays $number_of_days;
+  public UnlimitedRetentionPeriod $unlimited;
+}
+
+class RetentionPeriodInDays {
+}
+
+class RoleArn {
+}
+
+class RunPipelineActivityRequest {
+  public MessagePayloads $payloads;
+  public PipelineActivity $pipeline_activity;
+}
+
+class RunPipelineActivityResponse {
+  public LogResult $log_result;
+  public MessagePayloads $payloads;
+}
+
+class S3DestinationConfiguration {
+  public BucketName $bucket;
+  public GlueConfiguration $glue_configuration;
+  public BucketKeyExpression $key;
+  public RoleArn $role_arn;
+}
+
+class S3KeyPrefix {
+}
+
+class SampleChannelDataRequest {
+  public ChannelName $channel_name;
+  public EndTime $end_time;
+  public MaxMessages $max_messages;
+  public StartTime $start_time;
+}
+
+class SampleChannelDataResponse {
+  public MessagePayloads $payloads;
+}
+
+class Schedule {
+  public ScheduleExpression $expression;
+}
+
+class ScheduleExpression {
+}
+
+class SelectAttributesActivity {
+  public AttributeNames $attributes;
+  public ActivityName $name;
+  public ActivityName $next;
+}
+
+class ServiceManagedChannelS3Storage {
+}
+
+class ServiceManagedChannelS3StorageSummary {
+}
+
+class ServiceManagedDatastoreS3Storage {
+}
+
+class ServiceManagedDatastoreS3StorageSummary {
+}
+
+class ServiceUnavailableException {
+  public errorMessage $message;
+}
+
+class SizeInBytes {
+}
+
+class SqlQuery {
+}
+
+class SqlQueryDatasetAction {
+  public QueryFilters $filters;
+  public SqlQuery $sql_query;
+}
+
+class StartPipelineReprocessingRequest {
+  public EndTime $end_time;
+  public PipelineName $pipeline_name;
+  public StartTime $start_time;
+}
+
+class StartPipelineReprocessingResponse {
+  public ReprocessingId $reprocessing_id;
+}
+
+class StartTime {
+}
+
+class StringValue {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeyList {
+}
+
+class TagList {
+}
+
+class TagResourceRequest {
+  public ResourceArn $resource_arn;
+  public TagList $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class ThrottlingException {
+  public errorMessage $message;
+}
+
+class TimeExpression {
+}
+
+class Timestamp {
+}
+
+class TriggeringDataset {
+  public DatasetName $name;
+}
+
+class UnlimitedRetentionPeriod {
+}
+
+class UnlimitedVersioning {
+}
+
+class UntagResourceRequest {
+  public ResourceArn $resource_arn;
+  public TagKeyList $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class UpdateChannelRequest {
+  public ChannelName $channel_name;
+  public ChannelStorage $channel_storage;
+  public RetentionPeriod $retention_period;
+}
+
+class UpdateDatasetRequest {
+  public DatasetActions $actions;
+  public DatasetContentDeliveryRules $content_delivery_rules;
+  public DatasetName $dataset_name;
+  public RetentionPeriod $retention_period;
+  public DatasetTriggers $triggers;
+  public VersioningConfiguration $versioning_configuration;
+}
+
+class UpdateDatastoreRequest {
+  public DatastoreName $datastore_name;
+  public DatastoreStorage $datastore_storage;
+  public RetentionPeriod $retention_period;
+}
+
+class UpdatePipelineRequest {
+  public PipelineActivities $pipeline_activities;
+  public PipelineName $pipeline_name;
+}
+
+class Variable {
+  public DatasetContentVersionValue $dataset_content_version_value;
+  public DoubleValue $double_value;
+  public VariableName $name;
+  public OutputFileUriValue $output_file_uri_value;
+  public StringValue $string_value;
+}
+
+class VariableName {
+}
+
+class Variables {
+}
+
+class VersioningConfiguration {
+  public MaxVersions $max_versions;
+  public UnlimitedVersioning $unlimited;
+}
+
+class VolumeSizeInGB {
+}
+
+class errorMessage {
+}
+
+class resourceArn {
+}
+
+class resourceId {
 }
 

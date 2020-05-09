@@ -2,32 +2,163 @@
 namespace slack\aws\data.iotevents;
 
 interface IoT Events Data {
+  public function BatchPutMessage(BatchPutMessageRequest) Awaitable<Errors\Result<BatchPutMessageResponse>>;
   public function BatchUpdateDetector(BatchUpdateDetectorRequest) Awaitable<Errors\Result<BatchUpdateDetectorResponse>>;
   public function DescribeDetector(DescribeDetectorRequest) Awaitable<Errors\Result<DescribeDetectorResponse>>;
   public function ListDetectors(ListDetectorsRequest) Awaitable<Errors\Result<ListDetectorsResponse>>;
-  public function BatchPutMessage(BatchPutMessageRequest) Awaitable<Errors\Result<BatchPutMessageResponse>>;
 }
 
-class Timestamp {
+class BatchPutMessageErrorEntries {
 }
 
-class UpdateDetectorRequests {
+class BatchPutMessageErrorEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public MessageId $message_id;
 }
 
-class VariableValue {
+class BatchPutMessageRequest {
+  public Messages $messages;
+}
+
+class BatchPutMessageResponse {
+  public BatchPutMessageErrorEntries $batch_put_message_error_entries;
+}
+
+class BatchUpdateDetectorErrorEntries {
+}
+
+class BatchUpdateDetectorErrorEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public MessageId $message_id;
+}
+
+class BatchUpdateDetectorRequest {
+  public UpdateDetectorRequests $detectors;
+}
+
+class BatchUpdateDetectorResponse {
+  public BatchUpdateDetectorErrorEntries $batch_update_detector_error_entries;
+}
+
+class DescribeDetectorRequest {
+  public DetectorModelName $detector_model_name;
+  public KeyValue $key_value;
 }
 
 class DescribeDetectorResponse {
   public Detector $detector;
 }
 
+class Detector {
+  public Timestamp $creation_time;
+  public DetectorModelName $detector_model_name;
+  public DetectorModelVersion $detector_model_version;
+  public KeyValue $key_value;
+  public Timestamp $last_update_time;
+  public DetectorState $state;
+}
+
+class DetectorModelName {
+}
+
+class DetectorModelVersion {
+}
+
 class DetectorState {
   public StateName $state_name;
-  public Variables $variables;
   public Timers $timers;
+  public Variables $variables;
+}
+
+class DetectorStateDefinition {
+  public StateName $state_name;
+  public TimerDefinitions $timers;
+  public VariableDefinitions $variables;
+}
+
+class DetectorStateSummary {
+  public StateName $state_name;
+}
+
+class DetectorSummaries {
+}
+
+class DetectorSummary {
+  public Timestamp $creation_time;
+  public DetectorModelName $detector_model_name;
+  public DetectorModelVersion $detector_model_version;
+  public KeyValue $key_value;
+  public Timestamp $last_update_time;
+  public DetectorStateSummary $state;
+}
+
+class ErrorCode {
+}
+
+class ErrorMessage {
 }
 
 class InputName {
+}
+
+class InternalFailureException {
+  public errorMessage $message;
+}
+
+class InvalidRequestException {
+  public errorMessage $message;
+}
+
+class KeyValue {
+}
+
+class ListDetectorsRequest {
+  public DetectorModelName $detector_model_name;
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public StateName $state_name;
+}
+
+class ListDetectorsResponse {
+  public DetectorSummaries $detector_summaries;
+  public NextToken $next_token;
+}
+
+class MaxResults {
+}
+
+class Message {
+  public InputName $input_name;
+  public MessageId $message_id;
+  public Payload $payload;
+}
+
+class MessageId {
+}
+
+class Messages {
+}
+
+class NextToken {
+}
+
+class Payload {
+}
+
+class ResourceNotFoundException {
+  public errorMessage $message;
+}
+
+class Seconds {
+}
+
+class ServiceUnavailableException {
+  public errorMessage $message;
+}
+
+class StateName {
 }
 
 class ThrottlingException {
@@ -39,139 +170,41 @@ class Timer {
   public Timestamp $timestamp;
 }
 
-class VariableDefinition {
-  public VariableName $name;
-  public VariableValue $value;
-}
-
-class InvalidRequestException {
-  public errorMessage $message;
-}
-
-class ListDetectorsRequest {
-  public MaxResults $max_results;
-  public DetectorModelName $detector_model_name;
-  public StateName $state_name;
-  public NextToken $next_token;
-}
-
-class Message {
-  public InputName $input_name;
-  public Payload $payload;
-  public MessageId $message_id;
-}
-
-class NextToken {
-}
-
-class ResourceNotFoundException {
-  public errorMessage $message;
-}
-
-class BatchPutMessageErrorEntry {
-  public MessageId $message_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class BatchUpdateDetectorErrorEntries {
-}
-
-class Payload {
+class TimerDefinition {
+  public TimerName $name;
+  public Seconds $seconds;
 }
 
 class TimerDefinitions {
 }
 
-class ServiceUnavailableException {
-  public errorMessage $message;
-}
-
-class StateName {
-}
-
-class Variables {
-}
-
-class BatchPutMessageErrorEntries {
-}
-
-class BatchPutMessageRequest {
-  public Messages $messages;
-}
-
-class DescribeDetectorRequest {
-  public DetectorModelName $detector_model_name;
-  public KeyValue $key_value;
-}
-
-class ErrorMessage {
-}
-
-class MaxResults {
-}
-
-class errorMessage {
-}
-
-class BatchUpdateDetectorErrorEntry {
-  public MessageId $message_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class DetectorModelName {
-}
-
-class DetectorStateDefinition {
-  public StateName $state_name;
-  public VariableDefinitions $variables;
-  public TimerDefinitions $timers;
-}
-
-class ListDetectorsResponse {
-  public DetectorSummaries $detector_summaries;
-  public NextToken $next_token;
-}
-
-class UpdateDetectorRequest {
-  public MessageId $message_id;
-  public DetectorModelName $detector_model_name;
-  public KeyValue $key_value;
-  public DetectorStateDefinition $state;
-}
-
-class KeyValue {
-}
-
-class Messages {
+class TimerName {
 }
 
 class Timers {
 }
 
-class BatchUpdateDetectorRequest {
-  public UpdateDetectorRequests $detectors;
+class Timestamp {
 }
 
-class Detector {
-  public Timestamp $last_update_time;
+class UpdateDetectorRequest {
   public DetectorModelName $detector_model_name;
   public KeyValue $key_value;
-  public DetectorModelVersion $detector_model_version;
-  public DetectorState $state;
-  public Timestamp $creation_time;
+  public MessageId $message_id;
+  public DetectorStateDefinition $state;
 }
 
-class DetectorModelVersion {
+class UpdateDetectorRequests {
 }
 
-class DetectorStateSummary {
-  public StateName $state_name;
+class Variable {
+  public VariableName $name;
+  public VariableValue $value;
 }
 
-class InternalFailureException {
-  public errorMessage $message;
+class VariableDefinition {
+  public VariableName $name;
+  public VariableValue $value;
 }
 
 class VariableDefinitions {
@@ -180,45 +213,12 @@ class VariableDefinitions {
 class VariableName {
 }
 
-class MessageId {
+class VariableValue {
 }
 
-class Seconds {
+class Variables {
 }
 
-class TimerDefinition {
-  public TimerName $name;
-  public Seconds $seconds;
-}
-
-class TimerName {
-}
-
-class Variable {
-  public VariableName $name;
-  public VariableValue $value;
-}
-
-class BatchPutMessageResponse {
-  public BatchPutMessageErrorEntries $batch_put_message_error_entries;
-}
-
-class BatchUpdateDetectorResponse {
-  public BatchUpdateDetectorErrorEntries $batch_update_detector_error_entries;
-}
-
-class DetectorSummaries {
-}
-
-class DetectorSummary {
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public DetectorModelName $detector_model_name;
-  public KeyValue $key_value;
-  public DetectorModelVersion $detector_model_version;
-  public DetectorStateSummary $state;
-}
-
-class ErrorCode {
+class errorMessage {
 }
 

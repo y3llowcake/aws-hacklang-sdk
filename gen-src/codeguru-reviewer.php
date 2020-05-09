@@ -2,80 +2,95 @@
 namespace slack\aws\codeguru-reviewer;
 
 interface CodeGuru Reviewer {
-  public function DisassociateRepository(DisassociateRepositoryRequest) Awaitable<Errors\Result<DisassociateRepositoryResponse>>;
-  public function ListCodeReviews(ListCodeReviewsRequest) Awaitable<Errors\Result<ListCodeReviewsResponse>>;
-  public function ListRecommendationFeedback(ListRecommendationFeedbackRequest) Awaitable<Errors\Result<ListRecommendationFeedbackResponse>>;
-  public function PutRecommendationFeedback(PutRecommendationFeedbackRequest) Awaitable<Errors\Result<PutRecommendationFeedbackResponse>>;
   public function AssociateRepository(AssociateRepositoryRequest) Awaitable<Errors\Result<AssociateRepositoryResponse>>;
   public function DescribeCodeReview(DescribeCodeReviewRequest) Awaitable<Errors\Result<DescribeCodeReviewResponse>>;
   public function DescribeRecommendationFeedback(DescribeRecommendationFeedbackRequest) Awaitable<Errors\Result<DescribeRecommendationFeedbackResponse>>;
   public function DescribeRepositoryAssociation(DescribeRepositoryAssociationRequest) Awaitable<Errors\Result<DescribeRepositoryAssociationResponse>>;
+  public function DisassociateRepository(DisassociateRepositoryRequest) Awaitable<Errors\Result<DisassociateRepositoryResponse>>;
+  public function ListCodeReviews(ListCodeReviewsRequest) Awaitable<Errors\Result<ListCodeReviewsResponse>>;
+  public function ListRecommendationFeedback(ListRecommendationFeedbackRequest) Awaitable<Errors\Result<ListRecommendationFeedbackResponse>>;
   public function ListRecommendations(ListRecommendationsRequest) Awaitable<Errors\Result<ListRecommendationsResponse>>;
   public function ListRepositoryAssociations(ListRepositoryAssociationsRequest) Awaitable<Errors\Result<ListRepositoryAssociationsResponse>>;
+  public function PutRecommendationFeedback(PutRecommendationFeedbackRequest) Awaitable<Errors\Result<PutRecommendationFeedbackResponse>>;
 }
 
-class LineNumber {
+class AccessDeniedException {
+  public ErrorMessage $message;
 }
 
-class ListRecommendationFeedbackRequest {
+class Arn {
+}
+
+class AssociateRepositoryRequest {
+  public ClientRequestToken $client_request_token;
+  public Repository $repository;
+}
+
+class AssociateRepositoryResponse {
+  public RepositoryAssociation $repository_association;
+}
+
+class AssociationId {
+}
+
+class ClientRequestToken {
+}
+
+class CodeCommitRepository {
+  public Name $name;
+}
+
+class CodeReview {
   public Arn $code_review_arn;
-  public UserIds $user_ids;
-  public RecommendationIds $recommendation_ids;
-  public NextToken $next_token;
-  public MaxResults $max_results;
+  public TimeStamp $created_time_stamp;
+  public TimeStamp $last_updated_time_stamp;
+  public Metrics $metrics;
+  public Name $name;
+  public Owner $owner;
+  public ProviderType $provider_type;
+  public PullRequestId $pull_request_id;
+  public Name $repository_name;
+  public SourceCodeType $source_code_type;
+  public JobState $state;
+  public StateReason $state_reason;
+  public Type $type;
 }
 
-class ProviderType {
+class CodeReviewSummaries {
 }
 
-class ProviderTypes {
+class CodeReviewSummary {
+  public Arn $code_review_arn;
+  public TimeStamp $created_time_stamp;
+  public TimeStamp $last_updated_time_stamp;
+  public MetricsSummary $metrics_summary;
+  public Name $name;
+  public Owner $owner;
+  public ProviderType $provider_type;
+  public PullRequestId $pull_request_id;
+  public Name $repository_name;
+  public JobState $state;
+  public Type $type;
 }
 
-class RecommendationSummary {
-  public FilePath $file_path;
-  public RecommendationId $recommendation_id;
-  public LineNumber $start_line;
-  public LineNumber $end_line;
-  public Text $description;
+class CommitDiffSourceCodeType {
+  public CommitId $destination_commit;
+  public CommitId $source_commit;
+}
+
+class CommitId {
 }
 
 class ConflictException {
   public ErrorMessage $message;
 }
 
-class FilePath {
-}
-
-class ListRecommendationsRequest {
-  public NextToken $next_token;
-  public MaxResults $max_results;
+class DescribeCodeReviewRequest {
   public Arn $code_review_arn;
 }
 
-class PutRecommendationFeedbackRequest {
-  public Arn $code_review_arn;
-  public RecommendationId $recommendation_id;
-  public Reactions $reactions;
-}
-
-class UserId {
-}
-
-class CommitId {
-}
-
-class RecommendationFeedbackSummaries {
-}
-
-class Name {
-}
-
-class ThrottlingException {
-  public ErrorMessage $message;
-}
-
-class DisassociateRepositoryRequest {
-  public Arn $association_arn;
+class DescribeCodeReviewResponse {
+  public CodeReview $code_review;
 }
 
 class DescribeRecommendationFeedbackRequest {
@@ -84,56 +99,58 @@ class DescribeRecommendationFeedbackRequest {
   public UserId $user_id;
 }
 
-class InternalServerException {
-  public ErrorMessage $message;
+class DescribeRecommendationFeedbackResponse {
+  public RecommendationFeedback $recommendation_feedback;
 }
 
-class Names {
-}
-
-class Repository {
-  public CodeCommitRepository $code_commit;
-}
-
-class RepositoryAssociation {
-  public AssociationId $association_id;
-  public Name $name;
-  public Owner $owner;
-  public StateReason $state_reason;
+class DescribeRepositoryAssociationRequest {
   public Arn $association_arn;
-  public ProviderType $provider_type;
-  public RepositoryAssociationState $state;
-  public TimeStamp $last_updated_time_stamp;
-  public TimeStamp $created_time_stamp;
 }
 
-class RepositoryAssociationState {
+class DescribeRepositoryAssociationResponse {
+  public RepositoryAssociation $repository_association;
 }
 
-class RepositoryNames {
+class DisassociateRepositoryRequest {
+  public Arn $association_arn;
 }
 
-class DescribeCodeReviewResponse {
-  public CodeReview $code_review;
+class DisassociateRepositoryResponse {
+  public RepositoryAssociation $repository_association;
 }
 
-class RecommendationSummaries {
+class ErrorMessage {
 }
 
-class ResourceNotFoundException {
-  public ErrorMessage $message;
+class FilePath {
 }
 
 class FindingsCount {
 }
 
-class Reactions {
+class InternalServerException {
+  public ErrorMessage $message;
 }
 
-class RecommendationIds {
+class JobState {
 }
 
-class RepositoryAssociationStates {
+class JobStates {
+}
+
+class LineNumber {
+}
+
+class ListCodeReviewsMaxResults {
+}
+
+class ListCodeReviewsRequest {
+  public ListCodeReviewsMaxResults $max_results;
+  public NextToken $next_token;
+  public ProviderTypes $provider_types;
+  public RepositoryNames $repository_names;
+  public JobStates $states;
+  public Type $type;
 }
 
 class ListCodeReviewsResponse {
@@ -141,210 +158,71 @@ class ListCodeReviewsResponse {
   public NextToken $next_token;
 }
 
-class ListRecommendationsResponse {
-  public RecommendationSummaries $recommendation_summaries;
+class ListRecommendationFeedbackRequest {
+  public Arn $code_review_arn;
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public RecommendationIds $recommendation_ids;
+  public UserIds $user_ids;
+}
+
+class ListRecommendationFeedbackResponse {
+  public NextToken $next_token;
+  public RecommendationFeedbackSummaries $recommendation_feedback_summaries;
+}
+
+class ListRecommendationsRequest {
+  public Arn $code_review_arn;
+  public MaxResults $max_results;
   public NextToken $next_token;
 }
 
-class MeteredLinesOfCodeCount {
+class ListRecommendationsResponse {
+  public NextToken $next_token;
+  public RecommendationSummaries $recommendation_summaries;
 }
 
-class NextToken {
-}
-
-class RecommendationFeedbackSummary {
-  public RecommendationId $recommendation_id;
-  public Reactions $reactions;
-  public UserId $user_id;
-}
-
-class RecommendationId {
-}
-
-class Text {
-}
-
-class ValidationException {
-  public ErrorMessage $message;
-}
-
-class DescribeCodeReviewRequest {
-  public Arn $code_review_arn;
-}
-
-class DescribeRepositoryAssociationRequest {
-  public Arn $association_arn;
-}
-
-class Reaction {
-}
-
-class AssociateRepositoryResponse {
-  public RepositoryAssociation $repository_association;
+class ListRepositoryAssociationsRequest {
+  public MaxResults $max_results;
+  public Names $names;
+  public NextToken $next_token;
+  public Owners $owners;
+  public ProviderTypes $provider_types;
+  public RepositoryAssociationStates $states;
 }
 
 class ListRepositoryAssociationsResponse {
-  public RepositoryAssociationSummaries $repository_association_summaries;
   public NextToken $next_token;
-}
-
-class Metrics {
-  public MeteredLinesOfCodeCount $metered_lines_of_code_count;
-  public FindingsCount $findings_count;
-}
-
-class NotFoundException {
-  public ErrorMessage $message;
-}
-
-class PutRecommendationFeedbackResponse {
-}
-
-class Type {
-}
-
-class ListCodeReviewsMaxResults {
-}
-
-class AssociationId {
-}
-
-class CodeCommitRepository {
-  public Name $name;
-}
-
-class DisassociateRepositoryResponse {
-  public RepositoryAssociation $repository_association;
+  public RepositoryAssociationSummaries $repository_association_summaries;
 }
 
 class MaxResults {
 }
 
-class SourceCodeType {
-  public CommitDiffSourceCodeType $commit_diff;
+class MeteredLinesOfCodeCount {
 }
 
-class Arn {
-}
-
-class CommitDiffSourceCodeType {
-  public CommitId $destination_commit;
-  public CommitId $source_commit;
-}
-
-class DescribeRecommendationFeedbackResponse {
-  public RecommendationFeedback $recommendation_feedback;
-}
-
-class ErrorMessage {
-}
-
-class RepositoryAssociationSummary {
-  public Owner $owner;
-  public ProviderType $provider_type;
-  public RepositoryAssociationState $state;
-  public Arn $association_arn;
-  public TimeStamp $last_updated_time_stamp;
-  public AssociationId $association_id;
-  public Name $name;
-}
-
-class UserIds {
-}
-
-class CodeReviewSummaries {
-}
-
-class ListRecommendationFeedbackResponse {
-  public RecommendationFeedbackSummaries $recommendation_feedback_summaries;
-  public NextToken $next_token;
-}
-
-class RecommendationFeedback {
-  public RecommendationId $recommendation_id;
-  public Reactions $reactions;
-  public UserId $user_id;
-  public TimeStamp $created_time_stamp;
-  public TimeStamp $last_updated_time_stamp;
-  public Arn $code_review_arn;
-}
-
-class DescribeRepositoryAssociationResponse {
-  public RepositoryAssociation $repository_association;
-}
-
-class JobStates {
-}
-
-class ListCodeReviewsRequest {
-  public JobStates $states;
-  public RepositoryNames $repository_names;
-  public Type $type;
-  public ListCodeReviewsMaxResults $max_results;
-  public NextToken $next_token;
-  public ProviderTypes $provider_types;
-}
-
-class ListRepositoryAssociationsRequest {
-  public Names $names;
-  public Owners $owners;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public ProviderTypes $provider_types;
-  public RepositoryAssociationStates $states;
-}
-
-class RepositoryAssociationSummaries {
-}
-
-class StateReason {
-}
-
-class AssociateRepositoryRequest {
-  public Repository $repository;
-  public ClientRequestToken $client_request_token;
-}
-
-class CodeReviewSummary {
-  public TimeStamp $last_updated_time_stamp;
-  public Type $type;
-  public PullRequestId $pull_request_id;
-  public MetricsSummary $metrics_summary;
-  public Name $repository_name;
-  public Owner $owner;
-  public JobState $state;
-  public TimeStamp $created_time_stamp;
-  public Name $name;
-  public Arn $code_review_arn;
-  public ProviderType $provider_type;
-}
-
-class AccessDeniedException {
-  public ErrorMessage $message;
-}
-
-class CodeReview {
-  public TimeStamp $created_time_stamp;
-  public SourceCodeType $source_code_type;
-  public Metrics $metrics;
-  public Name $name;
-  public Name $repository_name;
-  public ProviderType $provider_type;
-  public JobState $state;
-  public Type $type;
-  public PullRequestId $pull_request_id;
-  public Arn $code_review_arn;
-  public Owner $owner;
-  public StateReason $state_reason;
-  public TimeStamp $last_updated_time_stamp;
-}
-
-class JobState {
+class Metrics {
+  public FindingsCount $findings_count;
+  public MeteredLinesOfCodeCount $metered_lines_of_code_count;
 }
 
 class MetricsSummary {
-  public MeteredLinesOfCodeCount $metered_lines_of_code_count;
   public FindingsCount $findings_count;
+  public MeteredLinesOfCodeCount $metered_lines_of_code_count;
+}
+
+class Name {
+}
+
+class Names {
+}
+
+class NextToken {
+}
+
+class NotFoundException {
+  public ErrorMessage $message;
 }
 
 class Owner {
@@ -353,12 +231,134 @@ class Owner {
 class Owners {
 }
 
+class ProviderType {
+}
+
+class ProviderTypes {
+}
+
 class PullRequestId {
+}
+
+class PutRecommendationFeedbackRequest {
+  public Arn $code_review_arn;
+  public Reactions $reactions;
+  public RecommendationId $recommendation_id;
+}
+
+class PutRecommendationFeedbackResponse {
+}
+
+class Reaction {
+}
+
+class Reactions {
+}
+
+class RecommendationFeedback {
+  public Arn $code_review_arn;
+  public TimeStamp $created_time_stamp;
+  public TimeStamp $last_updated_time_stamp;
+  public Reactions $reactions;
+  public RecommendationId $recommendation_id;
+  public UserId $user_id;
+}
+
+class RecommendationFeedbackSummaries {
+}
+
+class RecommendationFeedbackSummary {
+  public Reactions $reactions;
+  public RecommendationId $recommendation_id;
+  public UserId $user_id;
+}
+
+class RecommendationId {
+}
+
+class RecommendationIds {
+}
+
+class RecommendationSummaries {
+}
+
+class RecommendationSummary {
+  public Text $description;
+  public LineNumber $end_line;
+  public FilePath $file_path;
+  public RecommendationId $recommendation_id;
+  public LineNumber $start_line;
+}
+
+class Repository {
+  public CodeCommitRepository $code_commit;
+}
+
+class RepositoryAssociation {
+  public Arn $association_arn;
+  public AssociationId $association_id;
+  public TimeStamp $created_time_stamp;
+  public TimeStamp $last_updated_time_stamp;
+  public Name $name;
+  public Owner $owner;
+  public ProviderType $provider_type;
+  public RepositoryAssociationState $state;
+  public StateReason $state_reason;
+}
+
+class RepositoryAssociationState {
+}
+
+class RepositoryAssociationStates {
+}
+
+class RepositoryAssociationSummaries {
+}
+
+class RepositoryAssociationSummary {
+  public Arn $association_arn;
+  public AssociationId $association_id;
+  public TimeStamp $last_updated_time_stamp;
+  public Name $name;
+  public Owner $owner;
+  public ProviderType $provider_type;
+  public RepositoryAssociationState $state;
+}
+
+class RepositoryNames {
+}
+
+class ResourceNotFoundException {
+  public ErrorMessage $message;
+}
+
+class SourceCodeType {
+  public CommitDiffSourceCodeType $commit_diff;
+}
+
+class StateReason {
+}
+
+class Text {
+}
+
+class ThrottlingException {
+  public ErrorMessage $message;
 }
 
 class TimeStamp {
 }
 
-class ClientRequestToken {
+class Type {
+}
+
+class UserId {
+}
+
+class UserIds {
+}
+
+class ValidationException {
+  public ErrorMessage $message;
 }
 

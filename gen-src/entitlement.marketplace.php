@@ -5,14 +5,55 @@ interface  {
   public function GetEntitlements(GetEntitlementsRequest) Awaitable<Errors\Result<GetEntitlementsResult>>;
 }
 
-class ThrottlingException {
-  public ErrorMessage $message;
+class Boolean {
+}
+
+class Double {
+}
+
+class Entitlement {
+  public NonEmptyString $customer_identifier;
+  public NonEmptyString $dimension;
+  public Timestamp $expiration_date;
+  public ProductCode $product_code;
+  public EntitlementValue $value;
+}
+
+class EntitlementList {
+}
+
+class EntitlementValue {
+  public boolean $boolean_value;
+  public Double $double_value;
+  public int $integer_value;
+  public string $string_value;
+}
+
+class ErrorMessage {
+}
+
+class FilterValue {
+}
+
+class FilterValueList {
 }
 
 class GetEntitlementFilterName {
 }
 
 class GetEntitlementFilters {
+}
+
+class GetEntitlementsRequest {
+  public GetEntitlementFilters $filter;
+  public int $max_results;
+  public NonEmptyString $next_token;
+  public ProductCode $product_code;
+}
+
+class GetEntitlementsResult {
+  public EntitlementList $entitlements;
+  public NonEmptyString $next_token;
 }
 
 class Integer {
@@ -22,44 +63,6 @@ class InternalServiceErrorException {
   public ErrorMessage $message;
 }
 
-class GetEntitlementsResult {
-  public EntitlementList $entitlements;
-  public NonEmptyString $next_token;
-}
-
-class String {
-}
-
-class Boolean {
-}
-
-class Double {
-}
-
-class ErrorMessage {
-}
-
-class FilterValue {
-}
-
-class ProductCode {
-}
-
-class Entitlement {
-  public ProductCode $product_code;
-  public NonEmptyString $dimension;
-  public NonEmptyString $customer_identifier;
-  public EntitlementValue $value;
-  public Timestamp $expiration_date;
-}
-
-class EntitlementValue {
-  public int $integer_value;
-  public Double $double_value;
-  public boolean $boolean_value;
-  public string $string_value;
-}
-
 class InvalidParameterException {
   public ErrorMessage $message;
 }
@@ -67,17 +70,14 @@ class InvalidParameterException {
 class NonEmptyString {
 }
 
-class EntitlementList {
+class ProductCode {
 }
 
-class FilterValueList {
+class String {
 }
 
-class GetEntitlementsRequest {
-  public NonEmptyString $next_token;
-  public int $max_results;
-  public ProductCode $product_code;
-  public GetEntitlementFilters $filter;
+class ThrottlingException {
+  public ErrorMessage $message;
 }
 
 class Timestamp {

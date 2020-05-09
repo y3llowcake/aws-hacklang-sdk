@@ -7,6 +7,7 @@ import (
 	"io"
 	"io/ioutil"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/iancoleman/strcase"
@@ -30,17 +31,25 @@ func main() {
 		buf := bytes.NewBuffer(nil)
 		w := &writer{buf, 0}
 		genModel(m, w)
-		fname := fmt.Sprintf("./gen-src/%s.php", m.Metadata["endpointPrefix"])
+		fname := fmt.Sprintf("./gen-src/%s.php", m.Metadata.EndpointPrefix)
 		check(ioutil.WriteFile(fname, buf.Bytes(), 0660))
 	}
 }
 
 func genModel(m *Model, w *writer) {
 	w.p("<?hh // strict")
-	w.p("namespace slack\\aws\\%s;", m.Metadata["endpointPrefix"])
+	w.p("namespace slack\\aws\\%s;", m.Metadata.EndpointPrefix)
 	w.ln()
-	w.p("interface %s {", m.Metadata["serviceId"])
-	for _, op := range m.Operations {
+	w.p("interface %s {", m.Metadata.ServiceID)
+
+	sorted := []string{}
+	for k, _ := range m.Operations {
+		sorted = append(sorted, k)
+	}
+	sort.Strings(sorted)
+
+	for _, k := range sorted {
+		op := m.Operations[k]
 		out := op.Output.Shape
 		if out == "" {
 			out = "Awaitable<Errors\\Error>"
@@ -51,47 +60,48 @@ func genModel(m *Model, w *writer) {
 	}
 	w.p("}")
 	w.ln()
-	for name, shape := range m.Shapes {
-		w.p("class %s {", name)
-		for mname, member := range shape.Members {
-			ttype := member.Shape
-			switch member.Shape {
-			case "String":
-				ttype = "string"
-			case "Boolean":
-				ttype = "boolean"
-			case "Integer":
-				ttype = "int"
-			default:
-			}
-			mname = strcase.ToSnake(mname)
-			w.p("public %s $%s;", ttype, mname)
-		}
-		w.p("}")
+
+	sorted = []string{}
+	for k, _ := range m.Shapes {
+		sorted = append(sorted, k)
+	}
+	sort.Strings(sorted)
+
+	for _, name := range sorted {
+		shape := m.Shapes[name]
+		genTopLevelShape(name, shape, w)
 		w.ln()
 	}
 }
 
-type Model struct {
-	Metadata   map[string]string `json:"metadata"`
-	Operations map[string]struct {
-		Name string `json:"name"`
-		Http struct {
-			Method     string `json:"method"`
-			RequestURI string `json:"requestUri"`
-		} `json:"http"`
-		Input struct {
-			Shape string `json:"shape"`
-		} `json:"input"`
-		Output struct {
-			Shape         string `json:"shape"`
-			ResultWrapper string `json:"resultWrapper"`
-		} `json:"output"`
-		Errors []struct {
-			Shape string `json:"shape"`
-		} `json:"errors"`
-	} `json:"operations"`
-	Shapes map[string]struct {
+func genTopLevelShape(name string, s Shape, w *writer) {
+	w.p("class %s {", name)
+	sorted := []string{}
+	for k, _ := range s.Members {
+		sorted = append(sorted, k)
+	}
+	sort.Strings(sorted)
+
+	for _, mname := range sorted {
+		member := s.Members[mname]
+		ttype := member.Shape
+		switch member.Shape {
+		case "String":
+			ttype = "string"
+		case "Boolean":
+			ttype = "boolean"
+		case "Integer":
+			ttype = "int"
+		default:
+		}
+		mname := strcase.ToSnake(mname)
+		w.p("public %s $%s;", ttype, mname)
+	}
+	w.p("}")
+}
+
+type (
+	Shape struct {
 		Type     string   `json:"type"`
 		Required []string `json:"required"`
 		Member   struct {
@@ -108,8 +118,33 @@ type Model struct {
 		} `json:"error"`
 		Flattened bool `json:"flattened"`
 		Exception bool `json:"exception"`
-	} `json:"shapes"`
-}
+	}
+
+	Model struct {
+		Metadata struct {
+			EndpointPrefix string `json:"endpointPrefix"`
+			ServiceID      string `json:"serviceId"`
+		} `json:"metadata"`
+		Operations map[string]struct {
+			Name string `json:"name"`
+			Http struct {
+				Method     string `json:"method"`
+				RequestURI string `json:"requestUri"`
+			} `json:"http"`
+			Input struct {
+				Shape string `json:"shape"`
+			} `json:"input"`
+			Output struct {
+				Shape         string `json:"shape"`
+				ResultWrapper string `json:"resultWrapper"`
+			} `json:"output"`
+			Errors []struct {
+				Shape string `json:"shape"`
+			} `json:"errors"`
+		} `json:"operations"`
+		Shapes map[string]Shape `json:"shapes"`
+	}
+)
 
 const genDebug = false
 

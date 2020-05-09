@@ -3,33 +3,182 @@ namespace slack\aws\eks;
 
 interface EKS {
   public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResponse>>;
+  public function CreateFargateProfile(CreateFargateProfileRequest) Awaitable<Errors\Result<CreateFargateProfileResponse>>;
   public function CreateNodegroup(CreateNodegroupRequest) Awaitable<Errors\Result<CreateNodegroupResponse>>;
   public function DeleteCluster(DeleteClusterRequest) Awaitable<Errors\Result<DeleteClusterResponse>>;
+  public function DeleteFargateProfile(DeleteFargateProfileRequest) Awaitable<Errors\Result<DeleteFargateProfileResponse>>;
+  public function DeleteNodegroup(DeleteNodegroupRequest) Awaitable<Errors\Result<DeleteNodegroupResponse>>;
+  public function DescribeCluster(DescribeClusterRequest) Awaitable<Errors\Result<DescribeClusterResponse>>;
+  public function DescribeFargateProfile(DescribeFargateProfileRequest) Awaitable<Errors\Result<DescribeFargateProfileResponse>>;
   public function DescribeNodegroup(DescribeNodegroupRequest) Awaitable<Errors\Result<DescribeNodegroupResponse>>;
   public function DescribeUpdate(DescribeUpdateRequest) Awaitable<Errors\Result<DescribeUpdateResponse>>;
+  public function ListClusters(ListClustersRequest) Awaitable<Errors\Result<ListClustersResponse>>;
+  public function ListFargateProfiles(ListFargateProfilesRequest) Awaitable<Errors\Result<ListFargateProfilesResponse>>;
+  public function ListNodegroups(ListNodegroupsRequest) Awaitable<Errors\Result<ListNodegroupsResponse>>;
   public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
   public function ListUpdates(ListUpdatesRequest) Awaitable<Errors\Result<ListUpdatesResponse>>;
-  public function DescribeFargateProfile(DescribeFargateProfileRequest) Awaitable<Errors\Result<DescribeFargateProfileResponse>>;
-  public function ListFargateProfiles(ListFargateProfilesRequest) Awaitable<Errors\Result<ListFargateProfilesResponse>>;
-  public function UpdateClusterConfig(UpdateClusterConfigRequest) Awaitable<Errors\Result<UpdateClusterConfigResponse>>;
-  public function UpdateNodegroupVersion(UpdateNodegroupVersionRequest) Awaitable<Errors\Result<UpdateNodegroupVersionResponse>>;
-  public function CreateFargateProfile(CreateFargateProfileRequest) Awaitable<Errors\Result<CreateFargateProfileResponse>>;
-  public function DeleteFargateProfile(DeleteFargateProfileRequest) Awaitable<Errors\Result<DeleteFargateProfileResponse>>;
-  public function DescribeCluster(DescribeClusterRequest) Awaitable<Errors\Result<DescribeClusterResponse>>;
-  public function ListClusters(ListClustersRequest) Awaitable<Errors\Result<ListClustersResponse>>;
-  public function ListNodegroups(ListNodegroupsRequest) Awaitable<Errors\Result<ListNodegroupsResponse>>;
-  public function UpdateClusterVersion(UpdateClusterVersionRequest) Awaitable<Errors\Result<UpdateClusterVersionResponse>>;
-  public function DeleteNodegroup(DeleteNodegroupRequest) Awaitable<Errors\Result<DeleteNodegroupResponse>>;
   public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
   public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateClusterConfig(UpdateClusterConfigRequest) Awaitable<Errors\Result<UpdateClusterConfigResponse>>;
+  public function UpdateClusterVersion(UpdateClusterVersionRequest) Awaitable<Errors\Result<UpdateClusterVersionResponse>>;
   public function UpdateNodegroupConfig(UpdateNodegroupConfigRequest) Awaitable<Errors\Result<UpdateNodegroupConfigResponse>>;
+  public function UpdateNodegroupVersion(UpdateNodegroupVersionRequest) Awaitable<Errors\Result<UpdateNodegroupVersionResponse>>;
 }
 
-class IssueList {
+class AMITypes {
 }
 
-class ServerException {
+class AutoScalingGroup {
+  public string $name;
+}
+
+class AutoScalingGroupList {
+}
+
+class BadRequestException {
   public string $message;
+}
+
+class Boolean {
+}
+
+class BoxedBoolean {
+}
+
+class BoxedInteger {
+}
+
+class Capacity {
+}
+
+class Certificate {
+  public string $data;
+}
+
+class ClientException {
+  public string $cluster_name;
+  public string $message;
+  public string $nodegroup_name;
+}
+
+class Cluster {
+  public string $arn;
+  public Certificate $certificate_authority;
+  public string $client_request_token;
+  public Timestamp $created_at;
+  public EncryptionConfigList $encryption_config;
+  public string $endpoint;
+  public Identity $identity;
+  public Logging $logging;
+  public string $name;
+  public string $platform_version;
+  public VpcConfigResponse $resources_vpc_config;
+  public string $role_arn;
+  public ClusterStatus $status;
+  public TagMap $tags;
+  public string $version;
+}
+
+class ClusterName {
+}
+
+class ClusterStatus {
+}
+
+class CreateClusterRequest {
+  public string $client_request_token;
+  public EncryptionConfigList $encryption_config;
+  public Logging $logging;
+  public ClusterName $name;
+  public VpcConfigRequest $resources_vpc_config;
+  public string $role_arn;
+  public TagMap $tags;
+  public string $version;
+}
+
+class CreateClusterResponse {
+  public Cluster $cluster;
+}
+
+class CreateFargateProfileRequest {
+  public string $client_request_token;
+  public string $cluster_name;
+  public string $fargate_profile_name;
+  public string $pod_execution_role_arn;
+  public FargateProfileSelectors $selectors;
+  public StringList $subnets;
+  public TagMap $tags;
+}
+
+class CreateFargateProfileResponse {
+  public FargateProfile $fargate_profile;
+}
+
+class CreateNodegroupRequest {
+  public AMITypes $ami_type;
+  public string $client_request_token;
+  public string $cluster_name;
+  public BoxedInteger $disk_size;
+  public StringList $instance_types;
+  public labelsMap $labels;
+  public string $node_role;
+  public string $nodegroup_name;
+  public string $release_version;
+  public RemoteAccessConfig $remote_access;
+  public NodegroupScalingConfig $scaling_config;
+  public StringList $subnets;
+  public TagMap $tags;
+  public string $version;
+}
+
+class CreateNodegroupResponse {
+  public Nodegroup $nodegroup;
+}
+
+class DeleteClusterRequest {
+  public string $name;
+}
+
+class DeleteClusterResponse {
+  public Cluster $cluster;
+}
+
+class DeleteFargateProfileRequest {
+  public string $cluster_name;
+  public string $fargate_profile_name;
+}
+
+class DeleteFargateProfileResponse {
+  public FargateProfile $fargate_profile;
+}
+
+class DeleteNodegroupRequest {
+  public string $cluster_name;
+  public string $nodegroup_name;
+}
+
+class DeleteNodegroupResponse {
+  public Nodegroup $nodegroup;
+}
+
+class DescribeClusterRequest {
+  public string $name;
+}
+
+class DescribeClusterResponse {
+  public Cluster $cluster;
+}
+
+class DescribeFargateProfileRequest {
+  public string $cluster_name;
+  public string $fargate_profile_name;
+}
+
+class DescribeFargateProfileResponse {
+  public FargateProfile $fargate_profile;
+}
+
+class DescribeNodegroupRequest {
   public string $cluster_name;
   public string $nodegroup_name;
 }
@@ -38,294 +187,49 @@ class DescribeNodegroupResponse {
   public Nodegroup $nodegroup;
 }
 
-class FargateProfileLabel {
-}
-
-class ListNodegroupsRequest {
-  public string $cluster_name;
-  public ListNodegroupsRequestMaxResults $max_results;
-  public string $next_token;
-}
-
-class ResourceNotFoundException {
-  public string $cluster_name;
-  public string $nodegroup_name;
-  public string $fargate_profile_name;
-  public string $message;
-}
-
-class ServiceUnavailableException {
-  public string $message;
-}
-
-class UntagResourceResponse {
-}
-
-class AMITypes {
-}
-
-class BadRequestException {
-  public string $message;
-}
-
-class TagResourceRequest {
-  public TagMap $tags;
-  public string $resource_arn;
-}
-
-class BoxedInteger {
-}
-
-class CreateFargateProfileResponse {
-  public FargateProfile $fargate_profile;
-}
-
-class CreateNodegroupRequest {
-  public string $nodegroup_name;
-  public AMITypes $ami_type;
-  public string $node_role;
-  public string $release_version;
-  public NodegroupScalingConfig $scaling_config;
-  public BoxedInteger $disk_size;
-  public labelsMap $labels;
-  public string $client_request_token;
-  public TagMap $tags;
-  public string $version;
-  public string $cluster_name;
-  public StringList $subnets;
-  public StringList $instance_types;
-  public RemoteAccessConfig $remote_access;
-}
-
-class UpdateClusterConfigRequest {
+class DescribeUpdateRequest {
   public string $name;
-  public VpcConfigRequest $resources_vpc_config;
-  public Logging $logging;
-  public string $client_request_token;
+  public string $nodegroup_name;
+  public string $update_id;
 }
 
-class UpdateParamType {
+class DescribeUpdateResponse {
+  public Update $update;
+}
+
+class EncryptionConfig {
+  public Provider $provider;
+  public StringList $resources;
 }
 
 class EncryptionConfigList {
 }
 
-class TagKey {
+class ErrorCode {
 }
 
-class Timestamp {
+class ErrorDetail {
+  public ErrorCode $error_code;
+  public string $error_message;
+  public StringList $resource_ids;
 }
 
-class UpdateClusterVersionResponse {
-  public Update $update;
-}
-
-class Identity {
-  public OIDC $oidc;
-}
-
-class ListNodegroupsRequestMaxResults {
-}
-
-class NotFoundException {
-  public string $message;
-}
-
-class UpdateClusterVersionRequest {
-  public string $version;
-  public string $client_request_token;
-  public string $name;
-}
-
-class Certificate {
-  public string $data;
-}
-
-class NodegroupHealth {
-  public IssueList $issues;
-}
-
-class ResourceLimitExceededException {
-  public string $nodegroup_name;
-  public string $message;
-  public string $cluster_name;
-}
-
-class String {
-}
-
-class TagValue {
-}
-
-class labelsKeyList {
-}
-
-class DescribeFargateProfileRequest {
-  public string $cluster_name;
-  public string $fargate_profile_name;
-}
-
-class ListClustersResponse {
-  public StringList $clusters;
-  public string $next_token;
-}
-
-class UpdateNodegroupVersionResponse {
-  public Update $update;
-}
-
-class UpdateParams {
-}
-
-class BoxedBoolean {
-}
-
-class CreateFargateProfileRequest {
-  public FargateProfileSelectors $selectors;
-  public string $client_request_token;
-  public TagMap $tags;
-  public string $fargate_profile_name;
-  public string $cluster_name;
-  public string $pod_execution_role_arn;
-  public StringList $subnets;
-}
-
-class ListFargateProfilesRequest {
-  public string $cluster_name;
-  public FargateProfilesRequestMaxResults $max_results;
-  public string $next_token;
-}
-
-class LogSetups {
-}
-
-class Nodegroup {
-  public BoxedInteger $disk_size;
-  public NodegroupHealth $health;
-  public string $nodegroup_arn;
-  public NodegroupStatus $status;
-  public RemoteAccessConfig $remote_access;
-  public AMITypes $ami_type;
-  public string $node_role;
-  public labelsMap $labels;
-  public string $nodegroup_name;
-  public string $cluster_name;
-  public string $version;
-  public Timestamp $created_at;
-  public StringList $instance_types;
-  public TagMap $tags;
-  public Timestamp $modified_at;
-  public NodegroupResources $resources;
-  public string $release_version;
-  public NodegroupScalingConfig $scaling_config;
-  public StringList $subnets;
-}
-
-class RemoteAccessConfig {
-  public string $ec_2_ssh_key;
-  public StringList $source_security_groups;
-}
-
-class UpdateLabelsPayload {
-  public labelsMap $add_or_update_labels;
-  public labelsKeyList $remove_labels;
-}
-
-class UpdateNodegroupConfigRequest {
-  public UpdateLabelsPayload $labels;
-  public NodegroupScalingConfig $scaling_config;
-  public string $client_request_token;
-  public string $cluster_name;
-  public string $nodegroup_name;
-}
-
-class Cluster {
-  public VpcConfigResponse $resources_vpc_config;
-  public Identity $identity;
-  public EncryptionConfigList $encryption_config;
-  public string $version;
-  public Certificate $certificate_authority;
-  public string $arn;
-  public Timestamp $created_at;
-  public string $endpoint;
-  public Logging $logging;
-  public string $client_request_token;
-  public string $platform_version;
-  public TagMap $tags;
-  public string $name;
-  public ClusterStatus $status;
-  public string $role_arn;
-}
-
-class ListTagsForResourceRequest {
-  public string $resource_arn;
-}
-
-class TagKeyList {
-}
-
-class DeleteNodegroupRequest {
-  public string $cluster_name;
-  public string $nodegroup_name;
-}
-
-class DescribeClusterResponse {
-  public Cluster $cluster;
-}
-
-class DescribeClusterRequest {
-  public string $name;
-}
-
-class InvalidRequestException {
-  public string $message;
-  public string $cluster_name;
-  public string $nodegroup_name;
-}
-
-class VpcConfigRequest {
-  public StringList $subnet_ids;
-  public StringList $security_group_ids;
-  public BoxedBoolean $endpoint_public_access;
-  public BoxedBoolean $endpoint_private_access;
-  public StringList $public_access_cidrs;
+class ErrorDetails {
 }
 
 class FargateProfile {
-  public string $fargate_profile_arn;
-  public Timestamp $created_at;
-  public StringList $subnets;
-  public FargateProfileSelectors $selectors;
-  public TagMap $tags;
-  public string $fargate_profile_name;
   public string $cluster_name;
-  public string $pod_execution_role_arn;
-  public FargateProfileStatus $status;
-}
-
-class UpdateClusterConfigResponse {
-  public Update $update;
-}
-
-class Update {
-  public string $id;
-  public UpdateStatus $status;
-  public UpdateType $type;
-  public UpdateParams $params;
   public Timestamp $created_at;
-  public ErrorDetails $errors;
+  public string $fargate_profile_arn;
+  public string $fargate_profile_name;
+  public string $pod_execution_role_arn;
+  public FargateProfileSelectors $selectors;
+  public FargateProfileStatus $status;
+  public StringList $subnets;
+  public TagMap $tags;
 }
 
-class ListClustersRequest {
-  public string $next_token;
-  public ListClustersRequestMaxResults $max_results;
-}
-
-class NodegroupStatus {
-}
-
-class CreateClusterResponse {
-  public Cluster $cluster;
+class FargateProfileLabel {
 }
 
 class FargateProfileSelector {
@@ -333,148 +237,30 @@ class FargateProfileSelector {
   public string $namespace;
 }
 
-class ClusterStatus {
-}
-
-class DeleteClusterResponse {
-  public Cluster $cluster;
-}
-
-class ListUpdatesRequest {
-  public string $name;
-  public string $nodegroup_name;
-  public string $next_token;
-  public ListUpdatesRequestMaxResults $max_results;
-}
-
-class LogType {
-}
-
-class UpdateNodegroupConfigResponse {
-  public Update $update;
-}
-
-class UpdateType {
-}
-
-class DeleteNodegroupResponse {
-  public Nodegroup $nodegroup;
-}
-
-class ListTagsForResourceResponse {
-  public TagMap $tags;
-}
-
-class TagResourceResponse {
-}
-
-class ListNodegroupsResponse {
-  public StringList $nodegroups;
-  public string $next_token;
-}
-
-class TagMap {
-}
-
-class DeleteFargateProfileResponse {
-  public FargateProfile $fargate_profile;
-}
-
-class Logging {
-  public LogSetups $cluster_logging;
-}
-
-class Boolean {
-}
-
-class DeleteFargateProfileRequest {
-  public string $cluster_name;
-  public string $fargate_profile_name;
-}
-
-class FargateProfilesRequestMaxResults {
-}
-
-class NodegroupScalingConfig {
-  public Capacity $min_size;
-  public Capacity $max_size;
-  public Capacity $desired_size;
-}
-
-class labelValue {
-}
-
-class ErrorDetail {
-  public StringList $resource_ids;
-  public ErrorCode $error_code;
-  public string $error_message;
+class FargateProfileSelectors {
 }
 
 class FargateProfileStatus {
 }
 
-class DescribeUpdateRequest {
-  public string $nodegroup_name;
-  public string $name;
-  public string $update_id;
+class FargateProfilesRequestMaxResults {
 }
 
-class LogSetup {
-  public LogTypes $types;
-  public BoxedBoolean $enabled;
+class Identity {
+  public OIDC $oidc;
 }
 
-class UntagResourceRequest {
-  public string $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class UpdateStatus {
-}
-
-class VpcConfigResponse {
-  public string $vpc_id;
-  public boolean $endpoint_public_access;
-  public boolean $endpoint_private_access;
-  public StringList $public_access_cidrs;
-  public StringList $subnet_ids;
-  public StringList $security_group_ids;
-  public string $cluster_security_group_id;
-}
-
-class Capacity {
-}
-
-class CreateClusterRequest {
-  public string $client_request_token;
-  public TagMap $tags;
-  public EncryptionConfigList $encryption_config;
-  public ClusterName $name;
-  public string $version;
-  public string $role_arn;
-  public VpcConfigRequest $resources_vpc_config;
-  public Logging $logging;
-}
-
-class UpdateParam {
-  public UpdateParamType $type;
-  public string $value;
-}
-
-class DescribeUpdateResponse {
-  public Update $update;
-}
-
-class UpdateNodegroupVersionRequest {
-  public string $release_version;
-  public boolean $force;
-  public string $client_request_token;
+class InvalidParameterException {
   public string $cluster_name;
+  public string $fargate_profile_name;
+  public string $message;
   public string $nodegroup_name;
-  public string $version;
 }
 
-class ErrorDetails {
+class InvalidRequestException {
+  public string $cluster_name;
+  public string $message;
+  public string $nodegroup_name;
 }
 
 class Issue {
@@ -483,45 +269,133 @@ class Issue {
   public StringList $resource_ids;
 }
 
-class ListUpdatesRequestMaxResults {
+class IssueList {
 }
 
-class ListUpdatesResponse {
-  public StringList $update_ids;
+class ListClustersRequest {
+  public ListClustersRequestMaxResults $max_results;
   public string $next_token;
 }
 
-class DescribeFargateProfileResponse {
-  public FargateProfile $fargate_profile;
+class ListClustersRequestMaxResults {
 }
 
-class EncryptionConfig {
-  public StringList $resources;
-  public Provider $provider;
+class ListClustersResponse {
+  public StringList $clusters;
+  public string $next_token;
 }
 
-class ErrorCode {
-}
-
-class FargateProfileSelectors {
-}
-
-class labelKey {
-}
-
-class labelsMap {
-}
-
-class ClusterName {
-}
-
-class CreateNodegroupResponse {
-  public Nodegroup $nodegroup;
+class ListFargateProfilesRequest {
+  public string $cluster_name;
+  public FargateProfilesRequestMaxResults $max_results;
+  public string $next_token;
 }
 
 class ListFargateProfilesResponse {
   public StringList $fargate_profile_names;
   public string $next_token;
+}
+
+class ListNodegroupsRequest {
+  public string $cluster_name;
+  public ListNodegroupsRequestMaxResults $max_results;
+  public string $next_token;
+}
+
+class ListNodegroupsRequestMaxResults {
+}
+
+class ListNodegroupsResponse {
+  public string $next_token;
+  public StringList $nodegroups;
+}
+
+class ListTagsForResourceRequest {
+  public string $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public TagMap $tags;
+}
+
+class ListUpdatesRequest {
+  public ListUpdatesRequestMaxResults $max_results;
+  public string $name;
+  public string $next_token;
+  public string $nodegroup_name;
+}
+
+class ListUpdatesRequestMaxResults {
+}
+
+class ListUpdatesResponse {
+  public string $next_token;
+  public StringList $update_ids;
+}
+
+class LogSetup {
+  public BoxedBoolean $enabled;
+  public LogTypes $types;
+}
+
+class LogSetups {
+}
+
+class LogType {
+}
+
+class LogTypes {
+}
+
+class Logging {
+  public LogSetups $cluster_logging;
+}
+
+class Nodegroup {
+  public AMITypes $ami_type;
+  public string $cluster_name;
+  public Timestamp $created_at;
+  public BoxedInteger $disk_size;
+  public NodegroupHealth $health;
+  public StringList $instance_types;
+  public labelsMap $labels;
+  public Timestamp $modified_at;
+  public string $node_role;
+  public string $nodegroup_arn;
+  public string $nodegroup_name;
+  public string $release_version;
+  public RemoteAccessConfig $remote_access;
+  public NodegroupResources $resources;
+  public NodegroupScalingConfig $scaling_config;
+  public NodegroupStatus $status;
+  public StringList $subnets;
+  public TagMap $tags;
+  public string $version;
+}
+
+class NodegroupHealth {
+  public IssueList $issues;
+}
+
+class NodegroupIssueCode {
+}
+
+class NodegroupResources {
+  public AutoScalingGroupList $auto_scaling_groups;
+  public string $remote_access_security_group;
+}
+
+class NodegroupScalingConfig {
+  public Capacity $desired_size;
+  public Capacity $max_size;
+  public Capacity $min_size;
+}
+
+class NodegroupStatus {
+}
+
+class NotFoundException {
+  public string $message;
 }
 
 class OIDC {
@@ -532,62 +406,188 @@ class Provider {
   public string $key_arn;
 }
 
+class RemoteAccessConfig {
+  public string $ec_2_ssh_key;
+  public StringList $source_security_groups;
+}
+
 class ResourceInUseException {
   public string $cluster_name;
+  public string $message;
   public string $nodegroup_name;
+}
+
+class ResourceLimitExceededException {
+  public string $cluster_name;
+  public string $message;
+  public string $nodegroup_name;
+}
+
+class ResourceNotFoundException {
+  public string $cluster_name;
+  public string $fargate_profile_name;
+  public string $message;
+  public string $nodegroup_name;
+}
+
+class ServerException {
+  public string $cluster_name;
+  public string $message;
+  public string $nodegroup_name;
+}
+
+class ServiceUnavailableException {
   public string $message;
 }
 
-class DescribeNodegroupRequest {
-  public string $cluster_name;
-  public string $nodegroup_name;
+class String {
 }
 
-class ListClustersRequestMaxResults {
+class StringList {
 }
 
-class LogTypes {
+class TagKey {
 }
 
-class NodegroupIssueCode {
+class TagKeyList {
+}
+
+class TagMap {
+}
+
+class TagResourceRequest {
+  public string $resource_arn;
+  public TagMap $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class Timestamp {
 }
 
 class UnsupportedAvailabilityZoneException {
-  public string $message;
   public string $cluster_name;
+  public string $message;
   public string $nodegroup_name;
   public StringList $valid_zones;
 }
 
-class AutoScalingGroup {
+class UntagResourceRequest {
+  public string $resource_arn;
+  public TagKeyList $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class Update {
+  public Timestamp $created_at;
+  public ErrorDetails $errors;
+  public string $id;
+  public UpdateParams $params;
+  public UpdateStatus $status;
+  public UpdateType $type;
+}
+
+class UpdateClusterConfigRequest {
+  public string $client_request_token;
+  public Logging $logging;
   public string $name;
+  public VpcConfigRequest $resources_vpc_config;
 }
 
-class InvalidParameterException {
-  public string $cluster_name;
-  public string $nodegroup_name;
-  public string $fargate_profile_name;
-  public string $message;
+class UpdateClusterConfigResponse {
+  public Update $update;
 }
 
-class DeleteClusterRequest {
+class UpdateClusterVersionRequest {
+  public string $client_request_token;
   public string $name;
+  public string $version;
 }
 
-class NodegroupResources {
-  public AutoScalingGroupList $auto_scaling_groups;
-  public string $remote_access_security_group;
+class UpdateClusterVersionResponse {
+  public Update $update;
 }
 
-class ClientException {
-  public string $message;
+class UpdateLabelsPayload {
+  public labelsMap $add_or_update_labels;
+  public labelsKeyList $remove_labels;
+}
+
+class UpdateNodegroupConfigRequest {
+  public string $client_request_token;
   public string $cluster_name;
+  public UpdateLabelsPayload $labels;
   public string $nodegroup_name;
+  public NodegroupScalingConfig $scaling_config;
 }
 
-class AutoScalingGroupList {
+class UpdateNodegroupConfigResponse {
+  public Update $update;
 }
 
-class StringList {
+class UpdateNodegroupVersionRequest {
+  public string $client_request_token;
+  public string $cluster_name;
+  public boolean $force;
+  public string $nodegroup_name;
+  public string $release_version;
+  public string $version;
+}
+
+class UpdateNodegroupVersionResponse {
+  public Update $update;
+}
+
+class UpdateParam {
+  public UpdateParamType $type;
+  public string $value;
+}
+
+class UpdateParamType {
+}
+
+class UpdateParams {
+}
+
+class UpdateStatus {
+}
+
+class UpdateType {
+}
+
+class VpcConfigRequest {
+  public BoxedBoolean $endpoint_private_access;
+  public BoxedBoolean $endpoint_public_access;
+  public StringList $public_access_cidrs;
+  public StringList $security_group_ids;
+  public StringList $subnet_ids;
+}
+
+class VpcConfigResponse {
+  public string $cluster_security_group_id;
+  public boolean $endpoint_private_access;
+  public boolean $endpoint_public_access;
+  public StringList $public_access_cidrs;
+  public StringList $security_group_ids;
+  public StringList $subnet_ids;
+  public string $vpc_id;
+}
+
+class labelKey {
+}
+
+class labelValue {
+}
+
+class labelsKeyList {
+}
+
+class labelsMap {
 }
 

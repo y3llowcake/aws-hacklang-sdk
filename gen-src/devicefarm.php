@@ -2,89 +2,778 @@
 namespace slack\aws\devicefarm;
 
 interface Device Farm {
-  public function CreateTestGridUrl(CreateTestGridUrlRequest) Awaitable<Errors\Result<CreateTestGridUrlResult>>;
-  public function DeleteRun(DeleteRunRequest) Awaitable<Errors\Result<DeleteRunResult>>;
-  public function GetDevicePool(GetDevicePoolRequest) Awaitable<Errors\Result<GetDevicePoolResult>>;
-  public function ListArtifacts(ListArtifactsRequest) Awaitable<Errors\Result<ListArtifactsResult>>;
-  public function ScheduleRun(ScheduleRunRequest) Awaitable<Errors\Result<ScheduleRunResult>>;
-  public function UpdateUpload(UpdateUploadRequest) Awaitable<Errors\Result<UpdateUploadResult>>;
-  public function GetDeviceInstance(GetDeviceInstanceRequest) Awaitable<Errors\Result<GetDeviceInstanceResult>>;
-  public function GetTestGridProject(GetTestGridProjectRequest) Awaitable<Errors\Result<GetTestGridProjectResult>>;
-  public function ListSuites(ListSuitesRequest) Awaitable<Errors\Result<ListSuitesResult>>;
-  public function RenewOffering(RenewOfferingRequest) Awaitable<Errors\Result<RenewOfferingResult>>;
-  public function DeleteProject(DeleteProjectRequest) Awaitable<Errors\Result<DeleteProjectResult>>;
-  public function GetDevice(GetDeviceRequest) Awaitable<Errors\Result<GetDeviceResult>>;
-  public function ListDevices(ListDevicesRequest) Awaitable<Errors\Result<ListDevicesResult>>;
-  public function ListOfferings(ListOfferingsRequest) Awaitable<Errors\Result<ListOfferingsResult>>;
-  public function ListTestGridSessionActions(ListTestGridSessionActionsRequest) Awaitable<Errors\Result<ListTestGridSessionActionsResult>>;
-  public function ListUploads(ListUploadsRequest) Awaitable<Errors\Result<ListUploadsResult>>;
-  public function UpdateNetworkProfile(UpdateNetworkProfileRequest) Awaitable<Errors\Result<UpdateNetworkProfileResult>>;
-  public function CreateTestGridProject(CreateTestGridProjectRequest) Awaitable<Errors\Result<CreateTestGridProjectResult>>;
-  public function GetInstanceProfile(GetInstanceProfileRequest) Awaitable<Errors\Result<GetInstanceProfileResult>>;
-  public function GetSuite(GetSuiteRequest) Awaitable<Errors\Result<GetSuiteResult>>;
-  public function ListDeviceInstances(ListDeviceInstancesRequest) Awaitable<Errors\Result<ListDeviceInstancesResult>>;
-  public function ListSamples(ListSamplesRequest) Awaitable<Errors\Result<ListSamplesResult>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function ListDevicePools(ListDevicePoolsRequest) Awaitable<Errors\Result<ListDevicePoolsResult>>;
-  public function ListTestGridProjects(ListTestGridProjectsRequest) Awaitable<Errors\Result<ListTestGridProjectsResult>>;
-  public function DeleteNetworkProfile(DeleteNetworkProfileRequest) Awaitable<Errors\Result<DeleteNetworkProfileResult>>;
-  public function GetNetworkProfile(GetNetworkProfileRequest) Awaitable<Errors\Result<GetNetworkProfileResult>>;
-  public function InstallToRemoteAccessSession(InstallToRemoteAccessSessionRequest) Awaitable<Errors\Result<InstallToRemoteAccessSessionResult>>;
-  public function ListVPCEConfigurations(ListVPCEConfigurationsRequest) Awaitable<Errors\Result<ListVPCEConfigurationsResult>>;
-  public function UpdateDevicePool(UpdateDevicePoolRequest) Awaitable<Errors\Result<UpdateDevicePoolResult>>;
-  public function StopJob(StopJobRequest) Awaitable<Errors\Result<StopJobResult>>;
   public function CreateDevicePool(CreateDevicePoolRequest) Awaitable<Errors\Result<CreateDevicePoolResult>>;
-  public function DeleteRemoteAccessSession(DeleteRemoteAccessSessionRequest) Awaitable<Errors\Result<DeleteRemoteAccessSessionResult>>;
-  public function GetTest(GetTestRequest) Awaitable<Errors\Result<GetTestResult>>;
-  public function GetVPCEConfiguration(GetVPCEConfigurationRequest) Awaitable<Errors\Result<GetVPCEConfigurationResult>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function CreateUpload(CreateUploadRequest) Awaitable<Errors\Result<CreateUploadResult>>;
-  public function ListOfferingPromotions(ListOfferingPromotionsRequest) Awaitable<Errors\Result<ListOfferingPromotionsResult>>;
-  public function ListTestGridSessionArtifacts(ListTestGridSessionArtifactsRequest) Awaitable<Errors\Result<ListTestGridSessionArtifactsResult>>;
-  public function UpdateProject(UpdateProjectRequest) Awaitable<Errors\Result<UpdateProjectResult>>;
-  public function UpdateVPCEConfiguration(UpdateVPCEConfigurationRequest) Awaitable<Errors\Result<UpdateVPCEConfigurationResult>>;
-  public function GetOfferingStatus(GetOfferingStatusRequest) Awaitable<Errors\Result<GetOfferingStatusResult>>;
-  public function GetTestGridSession(GetTestGridSessionRequest) Awaitable<Errors\Result<GetTestGridSessionResult>>;
-  public function ListNetworkProfiles(ListNetworkProfilesRequest) Awaitable<Errors\Result<ListNetworkProfilesResult>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function UpdateTestGridProject(UpdateTestGridProjectRequest) Awaitable<Errors\Result<UpdateTestGridProjectResult>>;
+  public function CreateInstanceProfile(CreateInstanceProfileRequest) Awaitable<Errors\Result<CreateInstanceProfileResult>>;
   public function CreateNetworkProfile(CreateNetworkProfileRequest) Awaitable<Errors\Result<CreateNetworkProfileResult>>;
   public function CreateProject(CreateProjectRequest) Awaitable<Errors\Result<CreateProjectResult>>;
+  public function CreateRemoteAccessSession(CreateRemoteAccessSessionRequest) Awaitable<Errors\Result<CreateRemoteAccessSessionResult>>;
+  public function CreateTestGridProject(CreateTestGridProjectRequest) Awaitable<Errors\Result<CreateTestGridProjectResult>>;
+  public function CreateTestGridUrl(CreateTestGridUrlRequest) Awaitable<Errors\Result<CreateTestGridUrlResult>>;
+  public function CreateUpload(CreateUploadRequest) Awaitable<Errors\Result<CreateUploadResult>>;
+  public function CreateVPCEConfiguration(CreateVPCEConfigurationRequest) Awaitable<Errors\Result<CreateVPCEConfigurationResult>>;
   public function DeleteDevicePool(DeleteDevicePoolRequest) Awaitable<Errors\Result<DeleteDevicePoolResult>>;
+  public function DeleteInstanceProfile(DeleteInstanceProfileRequest) Awaitable<Errors\Result<DeleteInstanceProfileResult>>;
+  public function DeleteNetworkProfile(DeleteNetworkProfileRequest) Awaitable<Errors\Result<DeleteNetworkProfileResult>>;
+  public function DeleteProject(DeleteProjectRequest) Awaitable<Errors\Result<DeleteProjectResult>>;
+  public function DeleteRemoteAccessSession(DeleteRemoteAccessSessionRequest) Awaitable<Errors\Result<DeleteRemoteAccessSessionResult>>;
+  public function DeleteRun(DeleteRunRequest) Awaitable<Errors\Result<DeleteRunResult>>;
+  public function DeleteTestGridProject(DeleteTestGridProjectRequest) Awaitable<Errors\Result<DeleteTestGridProjectResult>>;
+  public function DeleteUpload(DeleteUploadRequest) Awaitable<Errors\Result<DeleteUploadResult>>;
+  public function DeleteVPCEConfiguration(DeleteVPCEConfigurationRequest) Awaitable<Errors\Result<DeleteVPCEConfigurationResult>>;
+  public function GetAccountSettings(GetAccountSettingsRequest) Awaitable<Errors\Result<GetAccountSettingsResult>>;
+  public function GetDevice(GetDeviceRequest) Awaitable<Errors\Result<GetDeviceResult>>;
+  public function GetDeviceInstance(GetDeviceInstanceRequest) Awaitable<Errors\Result<GetDeviceInstanceResult>>;
+  public function GetDevicePool(GetDevicePoolRequest) Awaitable<Errors\Result<GetDevicePoolResult>>;
+  public function GetDevicePoolCompatibility(GetDevicePoolCompatibilityRequest) Awaitable<Errors\Result<GetDevicePoolCompatibilityResult>>;
+  public function GetInstanceProfile(GetInstanceProfileRequest) Awaitable<Errors\Result<GetInstanceProfileResult>>;
+  public function GetJob(GetJobRequest) Awaitable<Errors\Result<GetJobResult>>;
+  public function GetNetworkProfile(GetNetworkProfileRequest) Awaitable<Errors\Result<GetNetworkProfileResult>>;
+  public function GetOfferingStatus(GetOfferingStatusRequest) Awaitable<Errors\Result<GetOfferingStatusResult>>;
   public function GetProject(GetProjectRequest) Awaitable<Errors\Result<GetProjectResult>>;
   public function GetRemoteAccessSession(GetRemoteAccessSessionRequest) Awaitable<Errors\Result<GetRemoteAccessSessionResult>>;
-  public function ListRemoteAccessSessions(ListRemoteAccessSessionsRequest) Awaitable<Errors\Result<ListRemoteAccessSessionsResult>>;
-  public function StopRemoteAccessSession(StopRemoteAccessSessionRequest) Awaitable<Errors\Result<StopRemoteAccessSessionResult>>;
-  public function CreateInstanceProfile(CreateInstanceProfileRequest) Awaitable<Errors\Result<CreateInstanceProfileResult>>;
-  public function DeleteInstanceProfile(DeleteInstanceProfileRequest) Awaitable<Errors\Result<DeleteInstanceProfileResult>>;
-  public function ListProjects(ListProjectsRequest) Awaitable<Errors\Result<ListProjectsResult>>;
-  public function ListRuns(ListRunsRequest) Awaitable<Errors\Result<ListRunsResult>>;
-  public function CreateRemoteAccessSession(CreateRemoteAccessSessionRequest) Awaitable<Errors\Result<CreateRemoteAccessSessionResult>>;
-  public function DeleteUpload(DeleteUploadRequest) Awaitable<Errors\Result<DeleteUploadResult>>;
-  public function GetAccountSettings(GetAccountSettingsRequest) Awaitable<Errors\Result<GetAccountSettingsResult>>;
-  public function PurchaseOffering(PurchaseOfferingRequest) Awaitable<Errors\Result<PurchaseOfferingResult>>;
-  public function GetDevicePoolCompatibility(GetDevicePoolCompatibilityRequest) Awaitable<Errors\Result<GetDevicePoolCompatibilityResult>>;
   public function GetRun(GetRunRequest) Awaitable<Errors\Result<GetRunResult>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResult>>;
-  public function ListOfferingTransactions(ListOfferingTransactionsRequest) Awaitable<Errors\Result<ListOfferingTransactionsResult>>;
-  public function StopRun(StopRunRequest) Awaitable<Errors\Result<StopRunResult>>;
-  public function CreateVPCEConfiguration(CreateVPCEConfigurationRequest) Awaitable<Errors\Result<CreateVPCEConfigurationResult>>;
-  public function ListTestGridSessions(ListTestGridSessionsRequest) Awaitable<Errors\Result<ListTestGridSessionsResult>>;
-  public function UpdateDeviceInstance(UpdateDeviceInstanceRequest) Awaitable<Errors\Result<UpdateDeviceInstanceResult>>;
-  public function DeleteTestGridProject(DeleteTestGridProjectRequest) Awaitable<Errors\Result<DeleteTestGridProjectResult>>;
-  public function DeleteVPCEConfiguration(DeleteVPCEConfigurationRequest) Awaitable<Errors\Result<DeleteVPCEConfigurationResult>>;
-  public function GetJob(GetJobRequest) Awaitable<Errors\Result<GetJobResult>>;
+  public function GetSuite(GetSuiteRequest) Awaitable<Errors\Result<GetSuiteResult>>;
+  public function GetTest(GetTestRequest) Awaitable<Errors\Result<GetTestResult>>;
+  public function GetTestGridProject(GetTestGridProjectRequest) Awaitable<Errors\Result<GetTestGridProjectResult>>;
+  public function GetTestGridSession(GetTestGridSessionRequest) Awaitable<Errors\Result<GetTestGridSessionResult>>;
   public function GetUpload(GetUploadRequest) Awaitable<Errors\Result<GetUploadResult>>;
+  public function GetVPCEConfiguration(GetVPCEConfigurationRequest) Awaitable<Errors\Result<GetVPCEConfigurationResult>>;
+  public function InstallToRemoteAccessSession(InstallToRemoteAccessSessionRequest) Awaitable<Errors\Result<InstallToRemoteAccessSessionResult>>;
+  public function ListArtifacts(ListArtifactsRequest) Awaitable<Errors\Result<ListArtifactsResult>>;
+  public function ListDeviceInstances(ListDeviceInstancesRequest) Awaitable<Errors\Result<ListDeviceInstancesResult>>;
+  public function ListDevicePools(ListDevicePoolsRequest) Awaitable<Errors\Result<ListDevicePoolsResult>>;
+  public function ListDevices(ListDevicesRequest) Awaitable<Errors\Result<ListDevicesResult>>;
   public function ListInstanceProfiles(ListInstanceProfilesRequest) Awaitable<Errors\Result<ListInstanceProfilesResult>>;
+  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResult>>;
+  public function ListNetworkProfiles(ListNetworkProfilesRequest) Awaitable<Errors\Result<ListNetworkProfilesResult>>;
+  public function ListOfferingPromotions(ListOfferingPromotionsRequest) Awaitable<Errors\Result<ListOfferingPromotionsResult>>;
+  public function ListOfferingTransactions(ListOfferingTransactionsRequest) Awaitable<Errors\Result<ListOfferingTransactionsResult>>;
+  public function ListOfferings(ListOfferingsRequest) Awaitable<Errors\Result<ListOfferingsResult>>;
+  public function ListProjects(ListProjectsRequest) Awaitable<Errors\Result<ListProjectsResult>>;
+  public function ListRemoteAccessSessions(ListRemoteAccessSessionsRequest) Awaitable<Errors\Result<ListRemoteAccessSessionsResult>>;
+  public function ListRuns(ListRunsRequest) Awaitable<Errors\Result<ListRunsResult>>;
+  public function ListSamples(ListSamplesRequest) Awaitable<Errors\Result<ListSamplesResult>>;
+  public function ListSuites(ListSuitesRequest) Awaitable<Errors\Result<ListSuitesResult>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTestGridProjects(ListTestGridProjectsRequest) Awaitable<Errors\Result<ListTestGridProjectsResult>>;
+  public function ListTestGridSessionActions(ListTestGridSessionActionsRequest) Awaitable<Errors\Result<ListTestGridSessionActionsResult>>;
+  public function ListTestGridSessionArtifacts(ListTestGridSessionArtifactsRequest) Awaitable<Errors\Result<ListTestGridSessionArtifactsResult>>;
+  public function ListTestGridSessions(ListTestGridSessionsRequest) Awaitable<Errors\Result<ListTestGridSessionsResult>>;
   public function ListTests(ListTestsRequest) Awaitable<Errors\Result<ListTestsResult>>;
   public function ListUniqueProblems(ListUniqueProblemsRequest) Awaitable<Errors\Result<ListUniqueProblemsResult>>;
+  public function ListUploads(ListUploadsRequest) Awaitable<Errors\Result<ListUploadsResult>>;
+  public function ListVPCEConfigurations(ListVPCEConfigurationsRequest) Awaitable<Errors\Result<ListVPCEConfigurationsResult>>;
+  public function PurchaseOffering(PurchaseOfferingRequest) Awaitable<Errors\Result<PurchaseOfferingResult>>;
+  public function RenewOffering(RenewOfferingRequest) Awaitable<Errors\Result<RenewOfferingResult>>;
+  public function ScheduleRun(ScheduleRunRequest) Awaitable<Errors\Result<ScheduleRunResult>>;
+  public function StopJob(StopJobRequest) Awaitable<Errors\Result<StopJobResult>>;
+  public function StopRemoteAccessSession(StopRemoteAccessSessionRequest) Awaitable<Errors\Result<StopRemoteAccessSessionResult>>;
+  public function StopRun(StopRunRequest) Awaitable<Errors\Result<StopRunResult>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateDeviceInstance(UpdateDeviceInstanceRequest) Awaitable<Errors\Result<UpdateDeviceInstanceResult>>;
+  public function UpdateDevicePool(UpdateDevicePoolRequest) Awaitable<Errors\Result<UpdateDevicePoolResult>>;
   public function UpdateInstanceProfile(UpdateInstanceProfileRequest) Awaitable<Errors\Result<UpdateInstanceProfileResult>>;
+  public function UpdateNetworkProfile(UpdateNetworkProfileRequest) Awaitable<Errors\Result<UpdateNetworkProfileResult>>;
+  public function UpdateProject(UpdateProjectRequest) Awaitable<Errors\Result<UpdateProjectResult>>;
+  public function UpdateTestGridProject(UpdateTestGridProjectRequest) Awaitable<Errors\Result<UpdateTestGridProjectResult>>;
+  public function UpdateUpload(UpdateUploadRequest) Awaitable<Errors\Result<UpdateUploadResult>>;
+  public function UpdateVPCEConfiguration(UpdateVPCEConfigurationRequest) Awaitable<Errors\Result<UpdateVPCEConfigurationResult>>;
 }
 
-class RuleOperator {
+class AWSAccountNumber {
+}
+
+class AccountSettings {
+  public AWSAccountNumber $aws_account_number;
+  public JobTimeoutMinutes $default_job_timeout_minutes;
+  public JobTimeoutMinutes $max_job_timeout_minutes;
+  public MaxSlotMap $max_slots;
+  public SkipAppResign $skip_app_resign;
+  public TrialMinutes $trial_minutes;
+  public PurchasedDevicesMap $unmetered_devices;
+  public PurchasedDevicesMap $unmetered_remote_access_devices;
+}
+
+class AccountsCleanup {
+}
+
+class AmazonResourceName {
+}
+
+class AmazonResourceNames {
+}
+
+class AndroidPaths {
+}
+
+class AppPackagesCleanup {
+}
+
+class ArgumentException {
+  public Message $message;
+}
+
+class Artifact {
+  public AmazonResourceName $arn;
+  public string $extension;
+  public Name $name;
+  public ArtifactType $type;
+  public URL $url;
+}
+
+class ArtifactCategory {
+}
+
+class ArtifactType {
+}
+
+class Artifacts {
+}
+
+class BillingMethod {
+}
+
+class Boolean {
+}
+
+class CPU {
+  public string $architecture;
+  public Double $clock;
+  public string $frequency;
+}
+
+class CannotDeleteException {
+  public Message $message;
+}
+
+class ClientId {
+}
+
+class ContentType {
+}
+
+class Counters {
+  public int $errored;
+  public int $failed;
+  public int $passed;
+  public int $skipped;
+  public int $stopped;
+  public int $total;
+  public int $warned;
+}
+
+class CreateDevicePoolRequest {
+  public Message $description;
+  public int $max_devices;
+  public Name $name;
+  public AmazonResourceName $project_arn;
+  public Rules $rules;
+}
+
+class CreateDevicePoolResult {
+  public DevicePool $device_pool;
+}
+
+class CreateInstanceProfileRequest {
+  public Message $description;
+  public PackageIds $exclude_app_packages_from_cleanup;
+  public Name $name;
+  public boolean $package_cleanup;
+  public boolean $reboot_after_use;
+}
+
+class CreateInstanceProfileResult {
+  public InstanceProfile $instance_profile;
+}
+
+class CreateNetworkProfileRequest {
+  public Message $description;
+  public Long $downlink_bandwidth_bits;
+  public Long $downlink_delay_ms;
+  public Long $downlink_jitter_ms;
+  public PercentInteger $downlink_loss_percent;
+  public Name $name;
+  public AmazonResourceName $project_arn;
+  public NetworkProfileType $type;
+  public Long $uplink_bandwidth_bits;
+  public Long $uplink_delay_ms;
+  public Long $uplink_jitter_ms;
+  public PercentInteger $uplink_loss_percent;
+}
+
+class CreateNetworkProfileResult {
+  public NetworkProfile $network_profile;
+}
+
+class CreateProjectRequest {
+  public JobTimeoutMinutes $default_job_timeout_minutes;
+  public Name $name;
+}
+
+class CreateProjectResult {
+  public Project $project;
+}
+
+class CreateRemoteAccessSessionConfiguration {
+  public BillingMethod $billing_method;
+  public AmazonResourceNames $vpce_configuration_arns;
+}
+
+class CreateRemoteAccessSessionRequest {
+  public ClientId $client_id;
+  public CreateRemoteAccessSessionConfiguration $configuration;
+  public AmazonResourceName $device_arn;
+  public AmazonResourceName $instance_arn;
+  public InteractionMode $interaction_mode;
+  public Name $name;
+  public AmazonResourceName $project_arn;
+  public boolean $remote_debug_enabled;
+  public AmazonResourceName $remote_record_app_arn;
+  public boolean $remote_record_enabled;
+  public boolean $skip_app_resign;
+  public SshPublicKey $ssh_public_key;
+}
+
+class CreateRemoteAccessSessionResult {
+  public RemoteAccessSession $remote_access_session;
+}
+
+class CreateTestGridProjectRequest {
+  public ResourceDescription $description;
+  public ResourceName $name;
+}
+
+class CreateTestGridProjectResult {
+  public TestGridProject $test_grid_project;
+}
+
+class CreateTestGridUrlRequest {
+  public TestGridUrlExpiresInSecondsInput $expires_in_seconds;
+  public DeviceFarmArn $project_arn;
+}
+
+class CreateTestGridUrlResult {
+  public DateTime $expires;
+  public string $url;
+}
+
+class CreateUploadRequest {
+  public ContentType $content_type;
+  public Name $name;
+  public AmazonResourceName $project_arn;
+  public UploadType $type;
+}
+
+class CreateUploadResult {
+  public Upload $upload;
+}
+
+class CreateVPCEConfigurationRequest {
+  public ServiceDnsName $service_dns_name;
+  public VPCEConfigurationDescription $vpce_configuration_description;
+  public VPCEConfigurationName $vpce_configuration_name;
+  public VPCEServiceName $vpce_service_name;
+}
+
+class CreateVPCEConfigurationResult {
+  public VPCEConfiguration $vpce_configuration;
+}
+
+class CurrencyCode {
+}
+
+class CustomerArtifactPaths {
+  public AndroidPaths $android_paths;
+  public DeviceHostPaths $device_host_paths;
+  public IosPaths $ios_paths;
+}
+
+class DateTime {
+}
+
+class DeleteDevicePoolRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteDevicePoolResult {
+}
+
+class DeleteInstanceProfileRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteInstanceProfileResult {
+}
+
+class DeleteNetworkProfileRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteNetworkProfileResult {
+}
+
+class DeleteProjectRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteProjectResult {
+}
+
+class DeleteRemoteAccessSessionRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteRemoteAccessSessionResult {
+}
+
+class DeleteRunRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteRunResult {
+}
+
+class DeleteTestGridProjectRequest {
+  public DeviceFarmArn $project_arn;
+}
+
+class DeleteTestGridProjectResult {
+}
+
+class DeleteUploadRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteUploadResult {
+}
+
+class DeleteVPCEConfigurationRequest {
+  public AmazonResourceName $arn;
+}
+
+class DeleteVPCEConfigurationResult {
+}
+
+class Device {
+  public AmazonResourceName $arn;
+  public DeviceAvailability $availability;
+  public string $carrier;
+  public CPU $cpu;
+  public string $fleet_name;
+  public string $fleet_type;
+  public DeviceFormFactor $form_factor;
+  public Long $heap_size;
+  public string $image;
+  public DeviceInstances $instances;
+  public string $manufacturer;
+  public Long $memory;
+  public string $model;
+  public string $model_id;
+  public Name $name;
+  public string $os;
+  public DevicePlatform $platform;
+  public string $radio;
+  public boolean $remote_access_enabled;
+  public boolean $remote_debug_enabled;
+  public Resolution $resolution;
+}
+
+class DeviceAttribute {
 }
 
 class DeviceAvailability {
+}
+
+class DeviceFarmArn {
+}
+
+class DeviceFilter {
+  public DeviceFilterAttribute $attribute;
+  public RuleOperator $operator;
+  public DeviceFilterValues $values;
+}
+
+class DeviceFilterAttribute {
+}
+
+class DeviceFilterValues {
+}
+
+class DeviceFilters {
+}
+
+class DeviceFormFactor {
+}
+
+class DeviceHostPaths {
+}
+
+class DeviceInstance {
+  public AmazonResourceName $arn;
+  public AmazonResourceName $device_arn;
+  public InstanceProfile $instance_profile;
+  public InstanceLabels $labels;
+  public InstanceStatus $status;
+  public string $udid;
+}
+
+class DeviceInstances {
+}
+
+class DeviceMinutes {
+  public Double $metered;
+  public Double $total;
+  public Double $unmetered;
+}
+
+class DevicePlatform {
+}
+
+class DevicePool {
+  public AmazonResourceName $arn;
+  public Message $description;
+  public int $max_devices;
+  public Name $name;
+  public Rules $rules;
+  public DevicePoolType $type;
+}
+
+class DevicePoolCompatibilityResult {
+  public boolean $compatible;
+  public Device $device;
+  public IncompatibilityMessages $incompatibility_messages;
+}
+
+class DevicePoolCompatibilityResults {
+}
+
+class DevicePoolType {
+}
+
+class DevicePools {
+}
+
+class DeviceSelectionConfiguration {
+  public DeviceFilters $filters;
+  public int $max_devices;
+}
+
+class DeviceSelectionResult {
+  public DeviceFilters $filters;
+  public int $matched_devices_count;
+  public int $max_devices;
+}
+
+class Devices {
+}
+
+class Double {
+}
+
+class ExceptionMessage {
+}
+
+class ExecutionConfiguration {
+  public AccountsCleanup $accounts_cleanup;
+  public AppPackagesCleanup $app_packages_cleanup;
+  public JobTimeoutMinutes $job_timeout_minutes;
+  public SkipAppResign $skip_app_resign;
+  public VideoCapture $video_capture;
+}
+
+class ExecutionResult {
+}
+
+class ExecutionResultCode {
+}
+
+class ExecutionStatus {
+}
+
+class Filter {
+}
+
+class GetAccountSettingsRequest {
+}
+
+class GetAccountSettingsResult {
+  public AccountSettings $account_settings;
+}
+
+class GetDeviceInstanceRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetDeviceInstanceResult {
+  public DeviceInstance $device_instance;
+}
+
+class GetDevicePoolCompatibilityRequest {
+  public AmazonResourceName $app_arn;
+  public ScheduleRunConfiguration $configuration;
+  public AmazonResourceName $device_pool_arn;
+  public ScheduleRunTest $test;
+  public TestType $test_type;
+}
+
+class GetDevicePoolCompatibilityResult {
+  public DevicePoolCompatibilityResults $compatible_devices;
+  public DevicePoolCompatibilityResults $incompatible_devices;
+}
+
+class GetDevicePoolRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetDevicePoolResult {
+  public DevicePool $device_pool;
+}
+
+class GetDeviceRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetDeviceResult {
+  public Device $device;
+}
+
+class GetInstanceProfileRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetInstanceProfileResult {
+  public InstanceProfile $instance_profile;
+}
+
+class GetJobRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetJobResult {
+  public Job $job;
+}
+
+class GetNetworkProfileRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetNetworkProfileResult {
+  public NetworkProfile $network_profile;
+}
+
+class GetOfferingStatusRequest {
+  public PaginationToken $next_token;
+}
+
+class GetOfferingStatusResult {
+  public OfferingStatusMap $current;
+  public OfferingStatusMap $next_period;
+  public PaginationToken $next_token;
+}
+
+class GetProjectRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetProjectResult {
+  public Project $project;
+}
+
+class GetRemoteAccessSessionRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetRemoteAccessSessionResult {
+  public RemoteAccessSession $remote_access_session;
+}
+
+class GetRunRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetRunResult {
+  public Run $run;
+}
+
+class GetSuiteRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetSuiteResult {
+  public Suite $suite;
+}
+
+class GetTestGridProjectRequest {
+  public DeviceFarmArn $project_arn;
+}
+
+class GetTestGridProjectResult {
+  public TestGridProject $test_grid_project;
+}
+
+class GetTestGridSessionRequest {
+  public DeviceFarmArn $project_arn;
+  public DeviceFarmArn $session_arn;
+  public ResourceId $session_id;
+}
+
+class GetTestGridSessionResult {
+  public TestGridSession $test_grid_session;
+}
+
+class GetTestRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetTestResult {
+  public Test $test;
+}
+
+class GetUploadRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetUploadResult {
+  public Upload $upload;
+}
+
+class GetVPCEConfigurationRequest {
+  public AmazonResourceName $arn;
+}
+
+class GetVPCEConfigurationResult {
+  public VPCEConfiguration $vpce_configuration;
+}
+
+class HostAddress {
+}
+
+class IdempotencyException {
+  public Message $message;
+}
+
+class IncompatibilityMessage {
+  public Message $message;
+  public DeviceAttribute $type;
+}
+
+class IncompatibilityMessages {
+}
+
+class InstallToRemoteAccessSessionRequest {
+  public AmazonResourceName $app_arn;
+  public AmazonResourceName $remote_access_session_arn;
+}
+
+class InstallToRemoteAccessSessionResult {
+  public Upload $app_upload;
+}
+
+class InstanceLabels {
+}
+
+class InstanceProfile {
+  public AmazonResourceName $arn;
+  public Message $description;
+  public PackageIds $exclude_app_packages_from_cleanup;
+  public Name $name;
+  public boolean $package_cleanup;
+  public boolean $reboot_after_use;
+}
+
+class InstanceProfiles {
+}
+
+class InstanceStatus {
+}
+
+class Integer {
+}
+
+class InteractionMode {
+}
+
+class InternalServiceException {
+  public Message $message;
+}
+
+class InvalidOperationException {
+  public Message $message;
+}
+
+class IosPaths {
+}
+
+class Job {
+  public AmazonResourceName $arn;
+  public Counters $counters;
+  public DateTime $created;
+  public Device $device;
+  public DeviceMinutes $device_minutes;
+  public AmazonResourceName $instance_arn;
+  public Message $message;
+  public Name $name;
+  public ExecutionResult $result;
+  public DateTime $started;
+  public ExecutionStatus $status;
+  public DateTime $stopped;
+  public TestType $type;
+  public VideoCapture $video_capture;
+  public string $video_endpoint;
+}
+
+class JobTimeoutMinutes {
+}
+
+class Jobs {
+}
+
+class LimitExceededException {
+  public Message $message;
+}
+
+class ListArtifactsRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+  public ArtifactCategory $type;
+}
+
+class ListArtifactsResult {
+  public Artifacts $artifacts;
+  public PaginationToken $next_token;
+}
+
+class ListDeviceInstancesRequest {
+  public int $max_results;
+  public PaginationToken $next_token;
+}
+
+class ListDeviceInstancesResult {
+  public DeviceInstances $device_instances;
+  public PaginationToken $next_token;
+}
+
+class ListDevicePoolsRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+  public DevicePoolType $type;
+}
+
+class ListDevicePoolsResult {
+  public DevicePools $device_pools;
+  public PaginationToken $next_token;
+}
+
+class ListDevicesRequest {
+  public AmazonResourceName $arn;
+  public DeviceFilters $filters;
+  public PaginationToken $next_token;
+}
+
+class ListDevicesResult {
+  public Devices $devices;
+  public PaginationToken $next_token;
 }
 
 class ListInstanceProfilesRequest {
@@ -92,17 +781,148 @@ class ListInstanceProfilesRequest {
   public PaginationToken $next_token;
 }
 
-class ListTestsRequest {
+class ListInstanceProfilesResult {
+  public InstanceProfiles $instance_profiles;
+  public PaginationToken $next_token;
+}
+
+class ListJobsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
 }
 
-class RecurringCharge {
-  public MonetaryAmount $cost;
-  public RecurringChargeFrequency $frequency;
+class ListJobsResult {
+  public Jobs $jobs;
+  public PaginationToken $next_token;
 }
 
-class UploadStatus {
+class ListNetworkProfilesRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+  public NetworkProfileType $type;
+}
+
+class ListNetworkProfilesResult {
+  public NetworkProfiles $network_profiles;
+  public PaginationToken $next_token;
+}
+
+class ListOfferingPromotionsRequest {
+  public PaginationToken $next_token;
+}
+
+class ListOfferingPromotionsResult {
+  public PaginationToken $next_token;
+  public OfferingPromotions $offering_promotions;
+}
+
+class ListOfferingTransactionsRequest {
+  public PaginationToken $next_token;
+}
+
+class ListOfferingTransactionsResult {
+  public PaginationToken $next_token;
+  public OfferingTransactions $offering_transactions;
+}
+
+class ListOfferingsRequest {
+  public PaginationToken $next_token;
+}
+
+class ListOfferingsResult {
+  public PaginationToken $next_token;
+  public Offerings $offerings;
+}
+
+class ListProjectsRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+}
+
+class ListProjectsResult {
+  public PaginationToken $next_token;
+  public Projects $projects;
+}
+
+class ListRemoteAccessSessionsRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+}
+
+class ListRemoteAccessSessionsResult {
+  public PaginationToken $next_token;
+  public RemoteAccessSessions $remote_access_sessions;
+}
+
+class ListRunsRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+}
+
+class ListRunsResult {
+  public PaginationToken $next_token;
+  public Runs $runs;
+}
+
+class ListSamplesRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+}
+
+class ListSamplesResult {
+  public PaginationToken $next_token;
+  public Samples $samples;
+}
+
+class ListSuitesRequest {
+  public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+}
+
+class ListSuitesResult {
+  public PaginationToken $next_token;
+  public Suites $suites;
+}
+
+class ListTagsForResourceRequest {
+  public DeviceFarmArn $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public TagList $tags;
+}
+
+class ListTestGridProjectsRequest {
+  public MaxPageSize $max_result;
+  public PaginationToken $next_token;
+}
+
+class ListTestGridProjectsResult {
+  public PaginationToken $next_token;
+  public TestGridProjects $test_grid_projects;
+}
+
+class ListTestGridSessionActionsRequest {
+  public MaxPageSize $max_result;
+  public PaginationToken $next_token;
+  public DeviceFarmArn $session_arn;
+}
+
+class ListTestGridSessionActionsResult {
+  public TestGridSessionActions $actions;
+  public PaginationToken $next_token;
+}
+
+class ListTestGridSessionArtifactsRequest {
+  public MaxPageSize $max_result;
+  public PaginationToken $next_token;
+  public DeviceFarmArn $session_arn;
+  public TestGridSessionArtifactCategory $type;
+}
+
+class ListTestGridSessionArtifactsResult {
+  public TestGridSessionArtifacts $artifacts;
+  public PaginationToken $next_token;
 }
 
 class ListTestGridSessionsRequest {
@@ -116,555 +936,19 @@ class ListTestGridSessionsRequest {
   public TestGridSessionStatus $status;
 }
 
-class ListUploadsRequest {
-  public AmazonResourceName $arn;
-  public UploadType $type;
+class ListTestGridSessionsResult {
   public PaginationToken $next_token;
+  public TestGridSessions $test_grid_sessions;
 }
 
-class ScheduleRunResult {
-  public Run $run;
-}
-
-class UpdateUploadRequest {
-  public AmazonResourceName $arn;
-  public Name $name;
-  public ContentType $content_type;
-  public boolean $edit_content;
-}
-
-class GetJobRequest {
-  public AmazonResourceName $arn;
-}
-
-class OfferingType {
-}
-
-class SkipAppResign {
-}
-
-class TestGridSession {
-  public string $selenium_properties;
-  public DeviceFarmArn $arn;
-  public TestGridSessionStatus $status;
-  public DateTime $created;
-  public DateTime $ended;
-  public Double $billing_minutes;
-}
-
-class CreateInstanceProfileResult {
-  public InstanceProfile $instance_profile;
-}
-
-class DeleteDevicePoolResult {
-}
-
-class DeleteProjectResult {
-}
-
-class DeviceInstance {
-  public AmazonResourceName $arn;
-  public AmazonResourceName $device_arn;
-  public InstanceLabels $labels;
-  public InstanceStatus $status;
-  public string $udid;
-  public InstanceProfile $instance_profile;
-}
-
-class UpdateInstanceProfileResult {
-  public InstanceProfile $instance_profile;
-}
-
-class GetAccountSettingsResult {
-  public AccountSettings $account_settings;
-}
-
-class ScheduleRunTest {
-  public TestType $type;
-  public AmazonResourceName $test_package_arn;
-  public AmazonResourceName $test_spec_arn;
-  public Filter $filter;
-  public TestParameters $parameters;
-}
-
-class TrialMinutes {
-  public Double $total;
-  public Double $remaining;
-}
-
-class AmazonResourceNames {
-}
-
-class DeleteTestGridProjectResult {
-}
-
-class DeleteUploadRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListOfferingPromotionsResult {
-  public OfferingPromotions $offering_promotions;
-  public PaginationToken $next_token;
-}
-
-class SampleType {
-}
-
-class TagResourceRequest {
-  public DeviceFarmArn $resource_arn;
-  public TagList $tags;
-}
-
-class VideoCapture {
-}
-
-class CreateRemoteAccessSessionConfiguration {
-  public BillingMethod $billing_method;
-  public AmazonResourceNames $vpce_configuration_arns;
-}
-
-class InstanceStatus {
-}
-
-class ListDevicesRequest {
-  public DeviceFilters $filters;
+class ListTestsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
 }
 
-class ListUniqueProblemsResult {
-  public UniqueProblemsByExecutionResultMap $unique_problems;
+class ListTestsResult {
   public PaginationToken $next_token;
-}
-
-class MaxSlotMap {
-}
-
-class DeleteDevicePoolRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListNetworkProfilesResult {
-  public NetworkProfiles $network_profiles;
-  public PaginationToken $next_token;
-}
-
-class ListRemoteAccessSessionsRequest {
-  public PaginationToken $next_token;
-  public AmazonResourceName $arn;
-}
-
-class ListUploadsResult {
-  public Uploads $uploads;
-  public PaginationToken $next_token;
-}
-
-class TestGridSessionStatus {
-}
-
-class TestGridSessionAction {
-  public string $action;
-  public DateTime $started;
-  public Long $duration;
-  public string $status_code;
-  public string $request_method;
-}
-
-class DeleteRunResult {
-}
-
-class GetRemoteAccessSessionRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListOfferingsRequest {
-  public PaginationToken $next_token;
-}
-
-class Offerings {
-}
-
-class ContentType {
-}
-
-class ListDevicesResult {
-  public PaginationToken $next_token;
-  public Devices $devices;
-}
-
-class CreateUploadResult {
-  public Upload $upload;
-}
-
-class ListSuitesResult {
-  public Suites $suites;
-  public PaginationToken $next_token;
-}
-
-class TestParameters {
-}
-
-class UniqueProblemsByExecutionResultMap {
-}
-
-class UntagResourceRequest {
-  public TagKeyList $tag_keys;
-  public DeviceFarmArn $resource_arn;
-}
-
-class IncompatibilityMessages {
-}
-
-class ListNetworkProfilesRequest {
-  public AmazonResourceName $arn;
-  public NetworkProfileType $type;
-  public PaginationToken $next_token;
-}
-
-class PurchasedDevicesMap {
-}
-
-class UniqueProblems {
-}
-
-class Suites {
-}
-
-class TagOperationException {
-  public ExceptionMessage $message;
-  public AmazonResourceName $resource_name;
-}
-
-class AndroidPaths {
-}
-
-class DevicePoolType {
-}
-
-class MonetaryAmount {
-  public Double $amount;
-  public CurrencyCode $currency_code;
-}
-
-class ScheduleRunRequest {
-  public AmazonResourceName $app_arn;
-  public AmazonResourceName $device_pool_arn;
-  public DeviceSelectionConfiguration $device_selection_configuration;
-  public Name $name;
-  public ScheduleRunTest $test;
-  public ScheduleRunConfiguration $configuration;
-  public ExecutionConfiguration $execution_configuration;
-  public AmazonResourceName $project_arn;
-}
-
-class Rule {
-  public RuleOperator $operator;
-  public string $value;
-  public DeviceAttribute $attribute;
-}
-
-class UpdateNetworkProfileRequest {
-  public Long $uplink_delay_ms;
-  public PercentInteger $uplink_loss_percent;
-  public PercentInteger $downlink_loss_percent;
-  public NetworkProfileType $type;
-  public Long $uplink_bandwidth_bits;
-  public Message $description;
-  public Long $downlink_bandwidth_bits;
-  public Long $downlink_delay_ms;
-  public Long $uplink_jitter_ms;
-  public Long $downlink_jitter_ms;
-  public AmazonResourceName $arn;
-  public Name $name;
-}
-
-class AppPackagesCleanup {
-}
-
-class CreateNetworkProfileRequest {
-  public Long $uplink_delay_ms;
-  public Long $uplink_jitter_ms;
-  public NetworkProfileType $type;
-  public Long $uplink_bandwidth_bits;
-  public Long $downlink_bandwidth_bits;
-  public Long $downlink_delay_ms;
-  public Long $downlink_jitter_ms;
-  public AmazonResourceName $project_arn;
-  public Name $name;
-  public Message $description;
-  public PercentInteger $uplink_loss_percent;
-  public PercentInteger $downlink_loss_percent;
-}
-
-class DeviceSelectionResult {
-  public DeviceFilters $filters;
-  public int $matched_devices_count;
-  public int $max_devices;
-}
-
-class NetworkProfile {
-  public Long $uplink_bandwidth_bits;
-  public Long $downlink_bandwidth_bits;
-  public Long $uplink_delay_ms;
-  public Long $downlink_delay_ms;
-  public Long $uplink_jitter_ms;
-  public PercentInteger $uplink_loss_percent;
-  public AmazonResourceName $arn;
-  public NetworkProfileType $type;
-  public PercentInteger $downlink_loss_percent;
-  public Long $downlink_jitter_ms;
-  public Name $name;
-  public Message $description;
-}
-
-class InstanceProfile {
-  public AmazonResourceName $arn;
-  public boolean $package_cleanup;
-  public PackageIds $exclude_app_packages_from_cleanup;
-  public boolean $reboot_after_use;
-  public Name $name;
-  public Message $description;
-}
-
-class ListTestGridSessionActionsRequest {
-  public DeviceFarmArn $session_arn;
-  public MaxPageSize $max_result;
-  public PaginationToken $next_token;
-}
-
-class Uploads {
-}
-
-class AmazonResourceName {
-}
-
-class ArtifactType {
-}
-
-class GetAccountSettingsRequest {
-}
-
-class ListOfferingTransactionsResult {
-  public OfferingTransactions $offering_transactions;
-  public PaginationToken $next_token;
-}
-
-class Jobs {
-}
-
-class OfferingTransactions {
-}
-
-class TagKey {
-}
-
-class ListDevicePoolsRequest {
-  public AmazonResourceName $arn;
-  public DevicePoolType $type;
-  public PaginationToken $next_token;
-}
-
-class ListSamplesRequest {
-  public AmazonResourceName $arn;
-  public PaginationToken $next_token;
-}
-
-class ListSamplesResult {
-  public Samples $samples;
-  public PaginationToken $next_token;
-}
-
-class ResourceDescription {
-}
-
-class DeviceAttribute {
-}
-
-class DevicePool {
-  public AmazonResourceName $arn;
-  public Name $name;
-  public Message $description;
-  public DevicePoolType $type;
-  public Rules $rules;
-  public int $max_devices;
-}
-
-class IosPaths {
-}
-
-class JobTimeoutMinutes {
-}
-
-class TestGridSessionArtifacts {
-}
-
-class PaginationToken {
-}
-
-class DevicePlatform {
-}
-
-class Devices {
-}
-
-class ListOfferingsResult {
-  public Offerings $offerings;
-  public PaginationToken $next_token;
-}
-
-class NetworkProfileType {
-}
-
-class InvalidOperationException {
-  public Message $message;
-}
-
-class Resolution {
-  public int $width;
-  public int $height;
-}
-
-class TestGridUrlExpiresInSecondsInput {
-}
-
-class CreateInstanceProfileRequest {
-  public Name $name;
-  public Message $description;
-  public boolean $package_cleanup;
-  public PackageIds $exclude_app_packages_from_cleanup;
-  public boolean $reboot_after_use;
-}
-
-class CustomerArtifactPaths {
-  public IosPaths $ios_paths;
-  public AndroidPaths $android_paths;
-  public DeviceHostPaths $device_host_paths;
-}
-
-class DeleteNetworkProfileResult {
-}
-
-class InstanceProfiles {
-}
-
-class GetDeviceRequest {
-  public AmazonResourceName $arn;
-}
-
-class GetNetworkProfileRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListRunsRequest {
-  public AmazonResourceName $arn;
-  public PaginationToken $next_token;
-}
-
-class ListVPCEConfigurationsResult {
-  public VPCEConfigurations $vpce_configurations;
-  public PaginationToken $next_token;
-}
-
-class CreateVPCEConfigurationResult {
-  public VPCEConfiguration $vpce_configuration;
-}
-
-class Device {
-  public CPU $cpu;
-  public Resolution $resolution;
-  public string $fleet_name;
-  public DeviceAvailability $availability;
-  public AmazonResourceName $arn;
-  public DeviceFormFactor $form_factor;
-  public string $os;
-  public boolean $remote_access_enabled;
-  public DeviceInstances $instances;
-  public DevicePlatform $platform;
-  public Long $heap_size;
-  public string $carrier;
-  public string $fleet_type;
-  public Name $name;
-  public string $manufacturer;
-  public string $model;
-  public string $radio;
-  public boolean $remote_debug_enabled;
-  public string $model_id;
-  public Long $memory;
-  public string $image;
-}
-
-class ExceptionMessage {
-}
-
-class GetDeviceInstanceResult {
-  public DeviceInstance $device_instance;
-}
-
-class RenewOfferingRequest {
-  public OfferingIdentifier $offering_id;
-  public int $quantity;
-}
-
-class TestGridProject {
-  public DeviceFarmArn $arn;
-  public string $name;
-  public string $description;
-  public DateTime $created;
-}
-
-class TestGridSessionActions {
-}
-
-class UploadType {
-}
-
-class ExecutionResultCode {
-}
-
-class GetSuiteRequest {
-  public AmazonResourceName $arn;
-}
-
-class InstanceLabels {
-}
-
-class ListTestGridSessionArtifactsRequest {
-  public MaxPageSize $max_result;
-  public PaginationToken $next_token;
-  public DeviceFarmArn $session_arn;
-  public TestGridSessionArtifactCategory $type;
-}
-
-class GetVPCEConfigurationResult {
-  public VPCEConfiguration $vpce_configuration;
-}
-
-class ListJobsResult {
-  public PaginationToken $next_token;
-  public Jobs $jobs;
-}
-
-class Samples {
-}
-
-class VPCEConfigurationName {
-}
-
-class VPCEServiceName {
-}
-
-class BillingMethod {
-}
-
-class GetTestResult {
-  public Test $test;
-}
-
-class ListTagsForResourceRequest {
-  public DeviceFarmArn $resource_arn;
-}
-
-class RecurringCharges {
+  public Tests $tests;
 }
 
 class ListUniqueProblemsRequest {
@@ -672,171 +956,366 @@ class ListUniqueProblemsRequest {
   public PaginationToken $next_token;
 }
 
-class OfferingPromotion {
-  public OfferingPromotionIdentifier $id;
-  public Message $description;
+class ListUniqueProblemsResult {
+  public PaginationToken $next_token;
+  public UniqueProblemsByExecutionResultMap $unique_problems;
 }
 
-class DeleteInstanceProfileResult {
-}
-
-class GetTestGridSessionRequest {
-  public ResourceId $session_id;
-  public DeviceFarmArn $session_arn;
-  public DeviceFarmArn $project_arn;
-}
-
-class GetTestRequest {
+class ListUploadsRequest {
   public AmazonResourceName $arn;
+  public PaginationToken $next_token;
+  public UploadType $type;
 }
 
-class LimitExceededException {
-  public Message $message;
+class ListUploadsResult {
+  public PaginationToken $next_token;
+  public Uploads $uploads;
 }
 
-class GetInstanceProfileResult {
-  public InstanceProfile $instance_profile;
-}
-
-class GetTestGridProjectResult {
-  public TestGridProject $test_grid_project;
-}
-
-class UntagResourceResponse {
-}
-
-class TestGridSessionArtifactType {
-}
-
-class UpdateTestGridProjectRequest {
-  public ResourceName $name;
-  public ResourceDescription $description;
-  public DeviceFarmArn $project_arn;
-}
-
-class Artifact {
-  public URL $url;
-  public AmazonResourceName $arn;
-  public Name $name;
-  public ArtifactType $type;
-  public string $extension;
-}
-
-class Counters {
-  public int $errored;
-  public int $stopped;
-  public int $skipped;
-  public int $total;
-  public int $passed;
-  public int $failed;
-  public int $warned;
-}
-
-class DeviceFilterAttribute {
-}
-
-class GetTestGridProjectRequest {
-  public DeviceFarmArn $project_arn;
-}
-
-class Integer {
-}
-
-class ListInstanceProfilesResult {
-  public InstanceProfiles $instance_profiles;
+class ListVPCEConfigurationsRequest {
+  public int $max_results;
   public PaginationToken $next_token;
 }
 
-class Radios {
-  public boolean $gps;
-  public boolean $wifi;
-  public boolean $bluetooth;
-  public boolean $nfc;
+class ListVPCEConfigurationsResult {
+  public PaginationToken $next_token;
+  public VPCEConfigurations $vpce_configurations;
 }
 
-class RemoteAccessSession {
+class Location {
+  public Double $latitude;
+  public Double $longitude;
+}
+
+class Long {
+}
+
+class MaxPageSize {
+}
+
+class MaxSlotMap {
+}
+
+class Message {
+}
+
+class Metadata {
+}
+
+class MonetaryAmount {
+  public Double $amount;
+  public CurrencyCode $currency_code;
+}
+
+class Name {
+}
+
+class NetworkProfile {
   public AmazonResourceName $arn;
-  public boolean $remote_record_enabled;
-  public HostAddress $host_address;
-  public ClientId $client_id;
-  public BillingMethod $billing_method;
-  public InteractionMode $interaction_mode;
-  public DeviceMinutes $device_minutes;
-  public SkipAppResign $skip_app_resign;
-  public DateTime $created;
-  public ExecutionResult $result;
-  public Message $message;
-  public DateTime $started;
-  public DateTime $stopped;
-  public AmazonResourceName $remote_record_app_arn;
+  public Message $description;
+  public Long $downlink_bandwidth_bits;
+  public Long $downlink_delay_ms;
+  public Long $downlink_jitter_ms;
+  public PercentInteger $downlink_loss_percent;
   public Name $name;
-  public Device $device;
-  public ExecutionStatus $status;
-  public AmazonResourceName $instance_arn;
-  public boolean $remote_debug_enabled;
-  public string $endpoint;
-  public string $device_udid;
+  public NetworkProfileType $type;
+  public Long $uplink_bandwidth_bits;
+  public Long $uplink_delay_ms;
+  public Long $uplink_jitter_ms;
+  public PercentInteger $uplink_loss_percent;
 }
 
-class Boolean {
+class NetworkProfileType {
 }
 
-class DeleteProjectRequest {
-  public AmazonResourceName $arn;
+class NetworkProfiles {
+}
+
+class NotEligibleException {
+  public Message $message;
+}
+
+class NotFoundException {
+  public Message $message;
+}
+
+class Offering {
+  public Message $description;
+  public OfferingIdentifier $id;
+  public DevicePlatform $platform;
+  public RecurringCharges $recurring_charges;
+  public OfferingType $type;
+}
+
+class OfferingIdentifier {
+}
+
+class OfferingPromotion {
+  public Message $description;
+  public OfferingPromotionIdentifier $id;
+}
+
+class OfferingPromotionIdentifier {
+}
+
+class OfferingPromotions {
+}
+
+class OfferingStatus {
+  public DateTime $effective_on;
+  public Offering $offering;
+  public int $quantity;
+  public OfferingTransactionType $type;
+}
+
+class OfferingStatusMap {
+}
+
+class OfferingTransaction {
+  public MonetaryAmount $cost;
+  public DateTime $created_on;
+  public OfferingPromotionIdentifier $offering_promotion_id;
+  public OfferingStatus $offering_status;
+  public TransactionIdentifier $transaction_id;
+}
+
+class OfferingTransactionType {
+}
+
+class OfferingTransactions {
+}
+
+class OfferingType {
+}
+
+class Offerings {
+}
+
+class PackageIds {
+}
+
+class PaginationToken {
 }
 
 class PercentInteger {
 }
 
-class UpdateProjectResult {
-  public Project $project;
+class Problem {
+  public Device $device;
+  public ProblemDetail $job;
+  public Message $message;
+  public ExecutionResult $result;
+  public ProblemDetail $run;
+  public ProblemDetail $suite;
+  public ProblemDetail $test;
 }
 
-class CreateProjectResult {
-  public Project $project;
-}
-
-class DeleteUploadResult {
-}
-
-class UpdateVPCEConfigurationRequest {
+class ProblemDetail {
   public AmazonResourceName $arn;
-  public VPCEConfigurationName $vpce_configuration_name;
-  public VPCEServiceName $vpce_service_name;
-  public ServiceDnsName $service_dns_name;
-  public VPCEConfigurationDescription $vpce_configuration_description;
+  public Name $name;
 }
 
-class GetOfferingStatusRequest {
-  public PaginationToken $next_token;
+class Problems {
 }
 
-class ListArtifactsRequest {
+class Project {
   public AmazonResourceName $arn;
-  public ArtifactCategory $type;
-  public PaginationToken $next_token;
-}
-
-class ListProjectsRequest {
-  public PaginationToken $next_token;
-  public AmazonResourceName $arn;
-}
-
-class String {
-}
-
-class AWSAccountNumber {
-}
-
-class AccountSettings {
-  public JobTimeoutMinutes $max_job_timeout_minutes;
-  public TrialMinutes $trial_minutes;
-  public MaxSlotMap $max_slots;
+  public DateTime $created;
   public JobTimeoutMinutes $default_job_timeout_minutes;
+  public Name $name;
+}
+
+class Projects {
+}
+
+class PurchaseOfferingRequest {
+  public OfferingIdentifier $offering_id;
+  public OfferingPromotionIdentifier $offering_promotion_id;
+  public int $quantity;
+}
+
+class PurchaseOfferingResult {
+  public OfferingTransaction $offering_transaction;
+}
+
+class PurchasedDevicesMap {
+}
+
+class Radios {
+  public boolean $bluetooth;
+  public boolean $gps;
+  public boolean $nfc;
+  public boolean $wifi;
+}
+
+class RecurringCharge {
+  public MonetaryAmount $cost;
+  public RecurringChargeFrequency $frequency;
+}
+
+class RecurringChargeFrequency {
+}
+
+class RecurringCharges {
+}
+
+class RemoteAccessSession {
+  public AmazonResourceName $arn;
+  public BillingMethod $billing_method;
+  public ClientId $client_id;
+  public DateTime $created;
+  public Device $device;
+  public DeviceMinutes $device_minutes;
+  public string $device_udid;
+  public string $endpoint;
+  public HostAddress $host_address;
+  public AmazonResourceName $instance_arn;
+  public InteractionMode $interaction_mode;
+  public Message $message;
+  public Name $name;
+  public boolean $remote_debug_enabled;
+  public AmazonResourceName $remote_record_app_arn;
+  public boolean $remote_record_enabled;
+  public ExecutionResult $result;
   public SkipAppResign $skip_app_resign;
-  public AWSAccountNumber $aws_account_number;
-  public PurchasedDevicesMap $unmetered_devices;
-  public PurchasedDevicesMap $unmetered_remote_access_devices;
+  public DateTime $started;
+  public ExecutionStatus $status;
+  public DateTime $stopped;
+}
+
+class RemoteAccessSessions {
+}
+
+class RenewOfferingRequest {
+  public OfferingIdentifier $offering_id;
+  public int $quantity;
+}
+
+class RenewOfferingResult {
+  public OfferingTransaction $offering_transaction;
+}
+
+class Resolution {
+  public int $height;
+  public int $width;
+}
+
+class ResourceDescription {
+}
+
+class ResourceId {
+}
+
+class ResourceName {
+}
+
+class Rule {
+  public DeviceAttribute $attribute;
+  public RuleOperator $operator;
+  public string $value;
+}
+
+class RuleOperator {
+}
+
+class Rules {
+}
+
+class Run {
+  public AmazonResourceName $app_upload;
+  public AmazonResourceName $arn;
+  public BillingMethod $billing_method;
+  public int $completed_jobs;
+  public Counters $counters;
+  public DateTime $created;
+  public CustomerArtifactPaths $customer_artifact_paths;
+  public DeviceMinutes $device_minutes;
+  public AmazonResourceName $device_pool_arn;
+  public DeviceSelectionResult $device_selection_result;
+  public int $event_count;
+  public JobTimeoutMinutes $job_timeout_minutes;
+  public string $locale;
+  public Location $location;
+  public Message $message;
+  public Name $name;
+  public NetworkProfile $network_profile;
+  public string $parsing_result_url;
+  public DevicePlatform $platform;
+  public Radios $radios;
+  public ExecutionResult $result;
+  public ExecutionResultCode $result_code;
+  public int $seed;
+  public SkipAppResign $skip_app_resign;
+  public DateTime $started;
+  public ExecutionStatus $status;
+  public DateTime $stopped;
+  public AmazonResourceName $test_spec_arn;
+  public int $total_jobs;
+  public TestType $type;
+  public string $web_url;
+}
+
+class Runs {
+}
+
+class Sample {
+  public AmazonResourceName $arn;
+  public SampleType $type;
+  public URL $url;
+}
+
+class SampleType {
+}
+
+class Samples {
+}
+
+class ScheduleRunConfiguration {
+  public AmazonResourceNames $auxiliary_apps;
+  public BillingMethod $billing_method;
+  public CustomerArtifactPaths $customer_artifact_paths;
+  public AmazonResourceName $extra_data_package_arn;
+  public string $locale;
+  public Location $location;
+  public AmazonResourceName $network_profile_arn;
+  public Radios $radios;
+  public AmazonResourceNames $vpce_configuration_arns;
+}
+
+class ScheduleRunRequest {
+  public AmazonResourceName $app_arn;
+  public ScheduleRunConfiguration $configuration;
+  public AmazonResourceName $device_pool_arn;
+  public DeviceSelectionConfiguration $device_selection_configuration;
+  public ExecutionConfiguration $execution_configuration;
+  public Name $name;
+  public AmazonResourceName $project_arn;
+  public ScheduleRunTest $test;
+}
+
+class ScheduleRunResult {
+  public Run $run;
+}
+
+class ScheduleRunTest {
+  public Filter $filter;
+  public TestParameters $parameters;
+  public AmazonResourceName $test_package_arn;
+  public AmazonResourceName $test_spec_arn;
+  public TestType $type;
+}
+
+class ServiceAccountException {
+  public Message $message;
+}
+
+class ServiceDnsName {
+}
+
+class SkipAppResign {
+}
+
+class SshPublicKey {
 }
 
 class StopJobRequest {
@@ -847,226 +1326,119 @@ class StopJobResult {
   public Job $job;
 }
 
+class StopRemoteAccessSessionRequest {
+  public AmazonResourceName $arn;
+}
+
+class StopRemoteAccessSessionResult {
+  public RemoteAccessSession $remote_access_session;
+}
+
 class StopRunRequest {
   public AmazonResourceName $arn;
-}
-
-class DeviceFarmArn {
-}
-
-class DevicePoolCompatibilityResult {
-  public Device $device;
-  public boolean $compatible;
-  public IncompatibilityMessages $incompatibility_messages;
-}
-
-class ListTestGridProjectsResult {
-  public TestGridProjects $test_grid_projects;
-  public PaginationToken $next_token;
-}
-
-class OfferingPromotionIdentifier {
-}
-
-class DeleteInstanceProfileRequest {
-  public AmazonResourceName $arn;
-}
-
-class GetDevicePoolCompatibilityResult {
-  public DevicePoolCompatibilityResults $incompatible_devices;
-  public DevicePoolCompatibilityResults $compatible_devices;
-}
-
-class OfferingStatusMap {
-}
-
-class UpdateDevicePoolRequest {
-  public AmazonResourceName $arn;
-  public Name $name;
-  public Message $description;
-  public Rules $rules;
-  public int $max_devices;
-  public boolean $clear_max_devices;
-}
-
-class UpdateVPCEConfigurationResult {
-  public VPCEConfiguration $vpce_configuration;
-}
-
-class ListTestsResult {
-  public PaginationToken $next_token;
-  public Tests $tests;
-}
-
-class Long {
-}
-
-class OfferingTransactionType {
-}
-
-class UpdateDeviceInstanceRequest {
-  public AmazonResourceName $arn;
-  public AmazonResourceName $profile_arn;
-  public InstanceLabels $labels;
-}
-
-class GetRunRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListTestGridSessionActionsResult {
-  public TestGridSessionActions $actions;
-  public PaginationToken $next_token;
-}
-
-class NotEligibleException {
-  public Message $message;
-}
-
-class UploadCategory {
-}
-
-class Run {
-  public AmazonResourceName $arn;
-  public int $completed_jobs;
-  public BillingMethod $billing_method;
-  public string $web_url;
-  public SkipAppResign $skip_app_resign;
-  public int $seed;
-  public JobTimeoutMinutes $job_timeout_minutes;
-  public DeviceMinutes $device_minutes;
-  public ExecutionResultCode $result_code;
-  public Radios $radios;
-  public CustomerArtifactPaths $customer_artifact_paths;
-  public DeviceSelectionResult $device_selection_result;
-  public DateTime $stopped;
-  public int $total_jobs;
-  public int $event_count;
-  public string $locale;
-  public Name $name;
-  public Counters $counters;
-  public Message $message;
-  public NetworkProfile $network_profile;
-  public AmazonResourceName $app_upload;
-  public Location $location;
-  public DateTime $created;
-  public ExecutionResult $result;
-  public DateTime $started;
-  public string $parsing_result_url;
-  public AmazonResourceName $device_pool_arn;
-  public AmazonResourceName $test_spec_arn;
-  public TestType $type;
-  public DevicePlatform $platform;
-  public ExecutionStatus $status;
-}
-
-class Sample {
-  public AmazonResourceName $arn;
-  public SampleType $type;
-  public URL $url;
-}
-
-class CreateTestGridUrlResult {
-  public string $url;
-  public DateTime $expires;
-}
-
-class DeleteNetworkProfileRequest {
-  public AmazonResourceName $arn;
-}
-
-class DeviceHostPaths {
-}
-
-class Double {
-}
-
-class Problems {
-}
-
-class TagValue {
-}
-
-class ClientId {
-}
-
-class GetUploadResult {
-  public Upload $upload;
-}
-
-class GetVPCEConfigurationRequest {
-  public AmazonResourceName $arn;
-}
-
-class Offering {
-  public OfferingIdentifier $id;
-  public Message $description;
-  public OfferingType $type;
-  public DevicePlatform $platform;
-  public RecurringCharges $recurring_charges;
-}
-
-class GetDevicePoolCompatibilityRequest {
-  public ScheduleRunTest $test;
-  public ScheduleRunConfiguration $configuration;
-  public AmazonResourceName $device_pool_arn;
-  public AmazonResourceName $app_arn;
-  public TestType $test_type;
-}
-
-class GetDeviceResult {
-  public Device $device;
-}
-
-class ListTestGridProjectsRequest {
-  public MaxPageSize $max_result;
-  public PaginationToken $next_token;
-}
-
-class TestType {
-}
-
-class ListVPCEConfigurationsRequest {
-  public PaginationToken $next_token;
-  public int $max_results;
-}
-
-class OfferingTransaction {
-  public OfferingStatus $offering_status;
-  public TransactionIdentifier $transaction_id;
-  public OfferingPromotionIdentifier $offering_promotion_id;
-  public DateTime $created_on;
-  public MonetaryAmount $cost;
-}
-
-class Runs {
 }
 
 class StopRunResult {
   public Run $run;
 }
 
-class RecurringChargeFrequency {
+class String {
+}
+
+class Suite {
+  public AmazonResourceName $arn;
+  public Counters $counters;
+  public DateTime $created;
+  public DeviceMinutes $device_minutes;
+  public Message $message;
+  public Name $name;
+  public ExecutionResult $result;
+  public DateTime $started;
+  public ExecutionStatus $status;
+  public DateTime $stopped;
+  public TestType $type;
+}
+
+class Suites {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeyList {
 }
 
 class TagList {
 }
 
-class ArgumentException {
+class TagOperationException {
+  public ExceptionMessage $message;
+  public AmazonResourceName $resource_name;
+}
+
+class TagPolicyException {
+  public ExceptionMessage $message;
+  public AmazonResourceName $resource_name;
+}
+
+class TagResourceRequest {
+  public DeviceFarmArn $resource_arn;
+  public TagList $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class Test {
+  public AmazonResourceName $arn;
+  public Counters $counters;
+  public DateTime $created;
+  public DeviceMinutes $device_minutes;
   public Message $message;
+  public Name $name;
+  public ExecutionResult $result;
+  public DateTime $started;
+  public ExecutionStatus $status;
+  public DateTime $stopped;
+  public TestType $type;
 }
 
-class CreateRemoteAccessSessionResult {
-  public RemoteAccessSession $remote_access_session;
+class TestGridProject {
+  public DeviceFarmArn $arn;
+  public DateTime $created;
+  public string $description;
+  public string $name;
 }
 
-class HostAddress {
+class TestGridProjects {
 }
 
-class Message {
+class TestGridSession {
+  public DeviceFarmArn $arn;
+  public Double $billing_minutes;
+  public DateTime $created;
+  public DateTime $ended;
+  public string $selenium_properties;
+  public TestGridSessionStatus $status;
 }
 
-class SshPublicKey {
+class TestGridSessionAction {
+  public string $action;
+  public Long $duration;
+  public string $request_method;
+  public DateTime $started;
+  public string $status_code;
+}
+
+class TestGridSessionActions {
 }
 
 class TestGridSessionArtifact {
@@ -1075,446 +1447,31 @@ class TestGridSessionArtifact {
   public string $url;
 }
 
-class ExecutionStatus {
+class TestGridSessionArtifactCategory {
 }
 
-class IdempotencyException {
-  public Message $message;
+class TestGridSessionArtifactType {
 }
 
-class ListOfferingPromotionsRequest {
-  public PaginationToken $next_token;
+class TestGridSessionArtifacts {
 }
 
-class ServiceDnsName {
-}
-
-class InternalServiceException {
-  public Message $message;
-}
-
-class Problem {
-  public ProblemDetail $run;
-  public ProblemDetail $job;
-  public ProblemDetail $suite;
-  public ProblemDetail $test;
-  public Device $device;
-  public ExecutionResult $result;
-  public Message $message;
-}
-
-class TestGridProjects {
-}
-
-class URL {
-}
-
-class GetOfferingStatusResult {
-  public OfferingStatusMap $current;
-  public OfferingStatusMap $next_period;
-  public PaginationToken $next_token;
-}
-
-class PurchaseOfferingResult {
-  public OfferingTransaction $offering_transaction;
-}
-
-class RenewOfferingResult {
-  public OfferingTransaction $offering_transaction;
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class TagKeyList {
-}
-
-class AccountsCleanup {
-}
-
-class GetRunResult {
-  public Run $run;
-}
-
-class ListRunsResult {
-  public Runs $runs;
-  public PaginationToken $next_token;
-}
-
-class PurchaseOfferingRequest {
-  public int $quantity;
-  public OfferingPromotionIdentifier $offering_promotion_id;
-  public OfferingIdentifier $offering_id;
-}
-
-class Project {
-  public AmazonResourceName $arn;
-  public Name $name;
-  public JobTimeoutMinutes $default_job_timeout_minutes;
-  public DateTime $created;
+class TestGridSessionStatus {
 }
 
 class TestGridSessions {
 }
 
-class TransactionIdentifier {
+class TestGridUrlExpiresInSecondsInput {
 }
 
-class CreateTestGridProjectResult {
-  public TestGridProject $test_grid_project;
+class TestParameters {
 }
 
-class DeviceMinutes {
-  public Double $unmetered;
-  public Double $total;
-  public Double $metered;
-}
-
-class IncompatibilityMessage {
-  public Message $message;
-  public DeviceAttribute $type;
-}
-
-class OfferingIdentifier {
-}
-
-class ServiceAccountException {
-  public Message $message;
-}
-
-class Suite {
-  public Name $name;
-  public DateTime $created;
-  public ExecutionStatus $status;
-  public ExecutionResult $result;
-  public Counters $counters;
-  public AmazonResourceName $arn;
-  public DateTime $started;
-  public DateTime $stopped;
-  public Message $message;
-  public DeviceMinutes $device_minutes;
-  public TestType $type;
-}
-
-class UniqueProblem {
-  public Message $message;
-  public Problems $problems;
-}
-
-class CreateVPCEConfigurationRequest {
-  public VPCEConfigurationName $vpce_configuration_name;
-  public VPCEServiceName $vpce_service_name;
-  public ServiceDnsName $service_dns_name;
-  public VPCEConfigurationDescription $vpce_configuration_description;
-}
-
-class DeleteVPCEConfigurationResult {
-}
-
-class InteractionMode {
-}
-
-class RemoteAccessSessions {
-}
-
-class ResourceId {
-}
-
-class CreateUploadRequest {
-  public AmazonResourceName $project_arn;
-  public Name $name;
-  public UploadType $type;
-  public ContentType $content_type;
-}
-
-class DeviceSelectionConfiguration {
-  public DeviceFilters $filters;
-  public int $max_devices;
-}
-
-class ExecutionConfiguration {
-  public SkipAppResign $skip_app_resign;
-  public JobTimeoutMinutes $job_timeout_minutes;
-  public AccountsCleanup $accounts_cleanup;
-  public AppPackagesCleanup $app_packages_cleanup;
-  public VideoCapture $video_capture;
-}
-
-class MaxPageSize {
-}
-
-class GetProjectRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListArtifactsResult {
-  public Artifacts $artifacts;
-  public PaginationToken $next_token;
+class TestType {
 }
 
 class Tests {
-}
-
-class DeviceFormFactor {
-}
-
-class ExecutionResult {
-}
-
-class Projects {
-}
-
-class TagPolicyException {
-  public ExceptionMessage $message;
-  public AmazonResourceName $resource_name;
-}
-
-class DevicePoolCompatibilityResults {
-}
-
-class InstallToRemoteAccessSessionRequest {
-  public AmazonResourceName $remote_access_session_arn;
-  public AmazonResourceName $app_arn;
-}
-
-class ListTestGridSessionsResult {
-  public TestGridSessions $test_grid_sessions;
-  public PaginationToken $next_token;
-}
-
-class VPCEConfigurationDescription {
-}
-
-class GetUploadRequest {
-  public AmazonResourceName $arn;
-}
-
-class CreateDevicePoolRequest {
-  public Name $name;
-  public Message $description;
-  public Rules $rules;
-  public int $max_devices;
-  public AmazonResourceName $project_arn;
-}
-
-class CreateDevicePoolResult {
-  public DevicePool $device_pool;
-}
-
-class DeviceFilterValues {
-}
-
-class GetDevicePoolResult {
-  public DevicePool $device_pool;
-}
-
-class Filter {
-}
-
-class GetNetworkProfileResult {
-  public NetworkProfile $network_profile;
-}
-
-class UpdateTestGridProjectResult {
-  public TestGridProject $test_grid_project;
-}
-
-class UpdateUploadResult {
-  public Upload $upload;
-}
-
-class DeleteRunRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListSuitesRequest {
-  public AmazonResourceName $arn;
-  public PaginationToken $next_token;
-}
-
-class ListTestGridSessionArtifactsResult {
-  public PaginationToken $next_token;
-  public TestGridSessionArtifacts $artifacts;
-}
-
-class NetworkProfiles {
-}
-
-class ScheduleRunConfiguration {
-  public AmazonResourceName $network_profile_arn;
-  public string $locale;
-  public AmazonResourceNames $vpce_configuration_arns;
-  public CustomerArtifactPaths $customer_artifact_paths;
-  public Radios $radios;
-  public AmazonResourceName $extra_data_package_arn;
-  public Location $location;
-  public AmazonResourceNames $auxiliary_apps;
-  public BillingMethod $billing_method;
-}
-
-class UpdateDeviceInstanceResult {
-  public DeviceInstance $device_instance;
-}
-
-class VPCEConfigurations {
-}
-
-class CreateNetworkProfileResult {
-  public NetworkProfile $network_profile;
-}
-
-class DeviceFilters {
-}
-
-class GetRemoteAccessSessionResult {
-  public RemoteAccessSession $remote_access_session;
-}
-
-class Rules {
-}
-
-class GetJobResult {
-  public Job $job;
-}
-
-class Location {
-  public Double $latitude;
-  public Double $longitude;
-}
-
-class CPU {
-  public string $frequency;
-  public string $architecture;
-  public Double $clock;
-}
-
-class CreateProjectRequest {
-  public Name $name;
-  public JobTimeoutMinutes $default_job_timeout_minutes;
-}
-
-class CurrencyCode {
-}
-
-class Test {
-  public Message $message;
-  public DeviceMinutes $device_minutes;
-  public AmazonResourceName $arn;
-  public TestType $type;
-  public ExecutionResult $result;
-  public DateTime $started;
-  public DateTime $stopped;
-  public Name $name;
-  public DateTime $created;
-  public ExecutionStatus $status;
-  public Counters $counters;
-}
-
-class GetInstanceProfileRequest {
-  public AmazonResourceName $arn;
-}
-
-class ListJobsRequest {
-  public AmazonResourceName $arn;
-  public PaginationToken $next_token;
-}
-
-class Metadata {
-}
-
-class UpdateDevicePoolResult {
-  public DevicePool $device_pool;
-}
-
-class DeleteTestGridProjectRequest {
-  public DeviceFarmArn $project_arn;
-}
-
-class DevicePools {
-}
-
-class GetDeviceInstanceRequest {
-  public AmazonResourceName $arn;
-}
-
-class GetDevicePoolRequest {
-  public AmazonResourceName $arn;
-}
-
-class UpdateNetworkProfileResult {
-  public NetworkProfile $network_profile;
-}
-
-class ListDeviceInstancesResult {
-  public DeviceInstances $device_instances;
-  public PaginationToken $next_token;
-}
-
-class ListDevicePoolsResult {
-  public DevicePools $device_pools;
-  public PaginationToken $next_token;
-}
-
-class StopRemoteAccessSessionRequest {
-  public AmazonResourceName $arn;
-}
-
-class UpdateProjectRequest {
-  public AmazonResourceName $arn;
-  public Name $name;
-  public JobTimeoutMinutes $default_job_timeout_minutes;
-}
-
-class ArtifactCategory {
-}
-
-class CannotDeleteException {
-  public Message $message;
-}
-
-class DeleteRemoteAccessSessionRequest {
-  public AmazonResourceName $arn;
-}
-
-class GetProjectResult {
-  public Project $project;
-}
-
-class Upload {
-  public Name $name;
-  public DateTime $created;
-  public UploadType $type;
-  public UploadStatus $status;
-  public Metadata $metadata;
-  public ContentType $content_type;
-  public Message $message;
-  public UploadCategory $category;
-  public AmazonResourceName $arn;
-  public URL $url;
-}
-
-class StopRemoteAccessSessionResult {
-  public RemoteAccessSession $remote_access_session;
-}
-
-class DeviceInstances {
-}
-
-class GetSuiteResult {
-  public Suite $suite;
-}
-
-class Name {
-}
-
-class OfferingPromotions {
-}
-
-class ListRemoteAccessSessionsResult {
-  public RemoteAccessSessions $remote_access_sessions;
-  public PaginationToken $next_token;
 }
 
 class TooManyTagsException {
@@ -1522,136 +1479,179 @@ class TooManyTagsException {
   public AmazonResourceName $resource_name;
 }
 
-class UpdateInstanceProfileRequest {
-  public boolean $package_cleanup;
-  public PackageIds $exclude_app_packages_from_cleanup;
-  public boolean $reboot_after_use;
-  public AmazonResourceName $arn;
-  public Name $name;
-  public Message $description;
+class TransactionIdentifier {
 }
 
-class CreateRemoteAccessSessionRequest {
-  public AmazonResourceName $project_arn;
-  public boolean $remote_debug_enabled;
-  public AmazonResourceName $remote_record_app_arn;
-  public Name $name;
-  public boolean $skip_app_resign;
-  public InteractionMode $interaction_mode;
-  public AmazonResourceName $device_arn;
-  public AmazonResourceName $instance_arn;
-  public SshPublicKey $ssh_public_key;
-  public boolean $remote_record_enabled;
-  public ClientId $client_id;
-  public CreateRemoteAccessSessionConfiguration $configuration;
+class TrialMinutes {
+  public Double $remaining;
+  public Double $total;
 }
 
-class CreateTestGridUrlRequest {
-  public DeviceFarmArn $project_arn;
-  public TestGridUrlExpiresInSecondsInput $expires_in_seconds;
+class URL {
 }
 
-class DateTime {
-}
-
-class ListDeviceInstancesRequest {
-  public int $max_results;
-  public PaginationToken $next_token;
-}
-
-class Job {
-  public Counters $counters;
+class UniqueProblem {
   public Message $message;
-  public DateTime $created;
-  public AmazonResourceName $instance_arn;
-  public DeviceMinutes $device_minutes;
-  public string $video_endpoint;
-  public VideoCapture $video_capture;
-  public ExecutionResult $result;
-  public DateTime $stopped;
-  public TestType $type;
-  public ExecutionStatus $status;
-  public DateTime $started;
-  public Device $device;
+  public Problems $problems;
+}
+
+class UniqueProblems {
+}
+
+class UniqueProblemsByExecutionResultMap {
+}
+
+class UntagResourceRequest {
+  public DeviceFarmArn $resource_arn;
+  public TagKeyList $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class UpdateDeviceInstanceRequest {
   public AmazonResourceName $arn;
+  public InstanceLabels $labels;
+  public AmazonResourceName $profile_arn;
+}
+
+class UpdateDeviceInstanceResult {
+  public DeviceInstance $device_instance;
+}
+
+class UpdateDevicePoolRequest {
+  public AmazonResourceName $arn;
+  public boolean $clear_max_devices;
+  public Message $description;
+  public int $max_devices;
+  public Name $name;
+  public Rules $rules;
+}
+
+class UpdateDevicePoolResult {
+  public DevicePool $device_pool;
+}
+
+class UpdateInstanceProfileRequest {
+  public AmazonResourceName $arn;
+  public Message $description;
+  public PackageIds $exclude_app_packages_from_cleanup;
+  public Name $name;
+  public boolean $package_cleanup;
+  public boolean $reboot_after_use;
+}
+
+class UpdateInstanceProfileResult {
+  public InstanceProfile $instance_profile;
+}
+
+class UpdateNetworkProfileRequest {
+  public AmazonResourceName $arn;
+  public Message $description;
+  public Long $downlink_bandwidth_bits;
+  public Long $downlink_delay_ms;
+  public Long $downlink_jitter_ms;
+  public PercentInteger $downlink_loss_percent;
+  public Name $name;
+  public NetworkProfileType $type;
+  public Long $uplink_bandwidth_bits;
+  public Long $uplink_delay_ms;
+  public Long $uplink_jitter_ms;
+  public PercentInteger $uplink_loss_percent;
+}
+
+class UpdateNetworkProfileResult {
+  public NetworkProfile $network_profile;
+}
+
+class UpdateProjectRequest {
+  public AmazonResourceName $arn;
+  public JobTimeoutMinutes $default_job_timeout_minutes;
   public Name $name;
 }
 
-class TestGridSessionArtifactCategory {
+class UpdateProjectResult {
+  public Project $project;
 }
 
-class DeviceFilter {
-  public RuleOperator $operator;
-  public DeviceFilterValues $values;
-  public DeviceFilterAttribute $attribute;
-}
-
-class InstallToRemoteAccessSessionResult {
-  public Upload $app_upload;
-}
-
-class ProblemDetail {
-  public AmazonResourceName $arn;
-  public Name $name;
-}
-
-class GetTestGridSessionResult {
-  public TestGridSession $test_grid_session;
-}
-
-class ListOfferingTransactionsRequest {
-  public PaginationToken $next_token;
-}
-
-class ListProjectsResult {
-  public Projects $projects;
-  public PaginationToken $next_token;
-}
-
-class ListTagsForResourceResponse {
-  public TagList $tags;
-}
-
-class Artifacts {
-}
-
-class CreateTestGridProjectRequest {
-  public ResourceName $name;
+class UpdateTestGridProjectRequest {
   public ResourceDescription $description;
+  public ResourceName $name;
+  public DeviceFarmArn $project_arn;
 }
 
-class DeleteRemoteAccessSessionResult {
+class UpdateTestGridProjectResult {
+  public TestGridProject $test_grid_project;
 }
 
-class DeleteVPCEConfigurationRequest {
+class UpdateUploadRequest {
   public AmazonResourceName $arn;
+  public ContentType $content_type;
+  public boolean $edit_content;
+  public Name $name;
 }
 
-class TagResourceResponse {
+class UpdateUploadResult {
+  public Upload $upload;
+}
+
+class UpdateVPCEConfigurationRequest {
+  public AmazonResourceName $arn;
+  public ServiceDnsName $service_dns_name;
+  public VPCEConfigurationDescription $vpce_configuration_description;
+  public VPCEConfigurationName $vpce_configuration_name;
+  public VPCEServiceName $vpce_service_name;
+}
+
+class UpdateVPCEConfigurationResult {
+  public VPCEConfiguration $vpce_configuration;
+}
+
+class Upload {
+  public AmazonResourceName $arn;
+  public UploadCategory $category;
+  public ContentType $content_type;
+  public DateTime $created;
+  public Message $message;
+  public Metadata $metadata;
+  public Name $name;
+  public UploadStatus $status;
+  public UploadType $type;
+  public URL $url;
+}
+
+class UploadCategory {
+}
+
+class UploadStatus {
+}
+
+class UploadType {
+}
+
+class Uploads {
 }
 
 class VPCEConfiguration {
   public AmazonResourceName $arn;
-  public VPCEConfigurationName $vpce_configuration_name;
-  public VPCEServiceName $vpce_service_name;
   public ServiceDnsName $service_dns_name;
   public VPCEConfigurationDescription $vpce_configuration_description;
+  public VPCEConfigurationName $vpce_configuration_name;
+  public VPCEServiceName $vpce_service_name;
 }
 
-class NotFoundException {
-  public Message $message;
+class VPCEConfigurationDescription {
 }
 
-class OfferingStatus {
-  public OfferingTransactionType $type;
-  public Offering $offering;
-  public int $quantity;
-  public DateTime $effective_on;
+class VPCEConfigurationName {
 }
 
-class PackageIds {
+class VPCEConfigurations {
 }
 
-class ResourceName {
+class VPCEServiceName {
+}
+
+class VideoCapture {
 }
 

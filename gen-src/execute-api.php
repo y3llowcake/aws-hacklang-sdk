@@ -10,31 +10,15 @@ interface ApiGatewayManagementApi {
 class Data {
 }
 
-class GetConnectionRequest {
-  public __string $connection_id;
-}
-
-class Identity {
-  public __string $source_ip;
-  public __string $user_agent;
-}
-
-class PostToConnectionRequest {
-  public Data $data;
-  public __string $connection_id;
-}
-
-class LimitExceededException {
-}
-
-class __string {
-}
-
 class DeleteConnectionRequest {
   public __string $connection_id;
 }
 
 class ForbiddenException {
+}
+
+class GetConnectionRequest {
+  public __string $connection_id;
 }
 
 class GetConnectionResponse {
@@ -46,8 +30,24 @@ class GetConnectionResponse {
 class GoneException {
 }
 
+class Identity {
+  public __string $source_ip;
+  public __string $user_agent;
+}
+
+class LimitExceededException {
+}
+
 class PayloadTooLargeException {
   public __string $message;
+}
+
+class PostToConnectionRequest {
+  public __string $connection_id;
+  public Data $data;
+}
+
+class __string {
 }
 
 class __timestampIso8601 {

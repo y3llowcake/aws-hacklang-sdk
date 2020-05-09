@@ -2,71 +2,254 @@
 namespace slack\aws\application-autoscaling;
 
 interface Application Auto Scaling {
-  public function DescribeScalingActivities(DescribeScalingActivitiesRequest) Awaitable<Errors\Result<DescribeScalingActivitiesResponse>>;
-  public function DescribeScalingPolicies(DescribeScalingPoliciesRequest) Awaitable<Errors\Result<DescribeScalingPoliciesResponse>>;
-  public function PutScalingPolicy(PutScalingPolicyRequest) Awaitable<Errors\Result<PutScalingPolicyResponse>>;
-  public function PutScheduledAction(PutScheduledActionRequest) Awaitable<Errors\Result<PutScheduledActionResponse>>;
   public function DeleteScalingPolicy(DeleteScalingPolicyRequest) Awaitable<Errors\Result<DeleteScalingPolicyResponse>>;
+  public function DeleteScheduledAction(DeleteScheduledActionRequest) Awaitable<Errors\Result<DeleteScheduledActionResponse>>;
   public function DeregisterScalableTarget(DeregisterScalableTargetRequest) Awaitable<Errors\Result<DeregisterScalableTargetResponse>>;
   public function DescribeScalableTargets(DescribeScalableTargetsRequest) Awaitable<Errors\Result<DescribeScalableTargetsResponse>>;
+  public function DescribeScalingActivities(DescribeScalingActivitiesRequest) Awaitable<Errors\Result<DescribeScalingActivitiesResponse>>;
+  public function DescribeScalingPolicies(DescribeScalingPoliciesRequest) Awaitable<Errors\Result<DescribeScalingPoliciesResponse>>;
   public function DescribeScheduledActions(DescribeScheduledActionsRequest) Awaitable<Errors\Result<DescribeScheduledActionsResponse>>;
+  public function PutScalingPolicy(PutScalingPolicyRequest) Awaitable<Errors\Result<PutScalingPolicyResponse>>;
+  public function PutScheduledAction(PutScheduledActionRequest) Awaitable<Errors\Result<PutScheduledActionResponse>>;
   public function RegisterScalableTarget(RegisterScalableTargetRequest) Awaitable<Errors\Result<RegisterScalableTargetResponse>>;
-  public function DeleteScheduledAction(DeleteScheduledActionRequest) Awaitable<Errors\Result<DeleteScheduledActionResponse>>;
 }
 
 class AdjustmentType {
 }
 
-class DescribeScalableTargetsRequest {
-  public XmlString $next_token;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdsMaxLen1600 $resource_ids;
-  public ScalableDimension $scalable_dimension;
-  public MaxResults $max_results;
+class Alarm {
+  public ResourceId $alarm_arn;
+  public ResourceId $alarm_name;
 }
 
-class DescribeScalingActivitiesResponse {
-  public ScalingActivities $scaling_activities;
-  public XmlString $next_token;
+class Alarms {
 }
 
-class ScalingPolicies {
+class ConcurrentUpdateException {
+  public ErrorMessage $message;
 }
 
-class StepScalingPolicyConfiguration {
-  public MetricAggregationType $metric_aggregation_type;
-  public AdjustmentType $adjustment_type;
-  public StepAdjustments $step_adjustments;
-  public MinAdjustmentMagnitude $min_adjustment_magnitude;
-  public Cooldown $cooldown;
+class Cooldown {
 }
 
-class ScalingActivities {
+class CustomizedMetricSpecification {
+  public MetricDimensions $dimensions;
+  public MetricName $metric_name;
+  public MetricNamespace $namespace;
+  public MetricStatistic $statistic;
+  public MetricUnit $unit;
 }
 
-class ScalingPolicy {
-  public PolicyName $policy_name;
-  public ServiceNamespace $service_namespace;
-  public ScalableDimension $scalable_dimension;
-  public TimestampType $creation_time;
-  public ResourceIdMaxLen1600 $policy_arn;
+class DeleteScalingPolicyRequest {
+  public ResourceIdMaxLen1600 $policy_name;
   public ResourceIdMaxLen1600 $resource_id;
-  public PolicyType $policy_type;
-  public StepScalingPolicyConfiguration $step_scaling_policy_configuration;
-  public TargetTrackingScalingPolicyConfiguration $target_tracking_scaling_policy_configuration;
-  public Alarms $alarms;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
 }
 
-class ScheduledActions {
+class DeleteScalingPolicyResponse {
+}
+
+class DeleteScheduledActionRequest {
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ResourceIdMaxLen1600 $scheduled_action_name;
+  public ServiceNamespace $service_namespace;
+}
+
+class DeleteScheduledActionResponse {
 }
 
 class DeregisterScalableTargetRequest {
-  public ServiceNamespace $service_namespace;
   public ResourceIdMaxLen1600 $resource_id;
   public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+}
+
+class DeregisterScalableTargetResponse {
+}
+
+class DescribeScalableTargetsRequest {
+  public MaxResults $max_results;
+  public XmlString $next_token;
+  public ResourceIdsMaxLen1600 $resource_ids;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+}
+
+class DescribeScalableTargetsResponse {
+  public XmlString $next_token;
+  public ScalableTargets $scalable_targets;
+}
+
+class DescribeScalingActivitiesRequest {
+  public MaxResults $max_results;
+  public XmlString $next_token;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+}
+
+class DescribeScalingActivitiesResponse {
+  public XmlString $next_token;
+  public ScalingActivities $scaling_activities;
+}
+
+class DescribeScalingPoliciesRequest {
+  public MaxResults $max_results;
+  public XmlString $next_token;
+  public ResourceIdsMaxLen1600 $policy_names;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+}
+
+class DescribeScalingPoliciesResponse {
+  public XmlString $next_token;
+  public ScalingPolicies $scaling_policies;
+}
+
+class DescribeScheduledActionsRequest {
+  public MaxResults $max_results;
+  public XmlString $next_token;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ResourceIdsMaxLen1600 $scheduled_action_names;
+  public ServiceNamespace $service_namespace;
+}
+
+class DescribeScheduledActionsResponse {
+  public XmlString $next_token;
+  public ScheduledActions $scheduled_actions;
+}
+
+class DisableScaleIn {
+}
+
+class ErrorMessage {
+}
+
+class FailedResourceAccessException {
+  public ErrorMessage $message;
+}
+
+class InternalServiceException {
+  public ErrorMessage $message;
+}
+
+class InvalidNextTokenException {
+  public ErrorMessage $message;
+}
+
+class LimitExceededException {
+  public ErrorMessage $message;
+}
+
+class MaxResults {
+}
+
+class MetricAggregationType {
+}
+
+class MetricDimension {
+  public MetricDimensionName $name;
+  public MetricDimensionValue $value;
+}
+
+class MetricDimensionName {
+}
+
+class MetricDimensionValue {
+}
+
+class MetricDimensions {
+}
+
+class MetricName {
+}
+
+class MetricNamespace {
+}
+
+class MetricScale {
 }
 
 class MetricStatistic {
+}
+
+class MetricType {
+}
+
+class MetricUnit {
+}
+
+class MinAdjustmentMagnitude {
+}
+
+class ObjectNotFoundException {
+  public ErrorMessage $message;
+}
+
+class PolicyName {
+}
+
+class PolicyType {
+}
+
+class PredefinedMetricSpecification {
+  public MetricType $predefined_metric_type;
+  public ResourceLabel $resource_label;
+}
+
+class PutScalingPolicyRequest {
+  public PolicyName $policy_name;
+  public PolicyType $policy_type;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+  public StepScalingPolicyConfiguration $step_scaling_policy_configuration;
+  public TargetTrackingScalingPolicyConfiguration $target_tracking_scaling_policy_configuration;
+}
+
+class PutScalingPolicyResponse {
+  public Alarms $alarms;
+  public ResourceIdMaxLen1600 $policy_arn;
+}
+
+class PutScheduledActionRequest {
+  public TimestampType $end_time;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ScalableTargetAction $scalable_target_action;
+  public ResourceIdMaxLen1600 $schedule;
+  public ScheduledActionName $scheduled_action_name;
+  public ServiceNamespace $service_namespace;
+  public TimestampType $start_time;
+}
+
+class PutScheduledActionResponse {
+}
+
+class RegisterScalableTargetRequest {
+  public ResourceCapacity $max_capacity;
+  public ResourceCapacity $min_capacity;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ResourceIdMaxLen1600 $role_arn;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+  public SuspendedState $suspended_state;
+}
+
+class RegisterScalableTargetResponse {
+}
+
+class ResourceCapacity {
+}
+
+class ResourceId {
+}
+
+class ResourceIdMaxLen1600 {
 }
 
 class ResourceIdsMaxLen1600 {
@@ -78,30 +261,84 @@ class ResourceLabel {
 class ScalableDimension {
 }
 
-class DescribeScheduledActionsResponse {
-  public ScheduledActions $scheduled_actions;
-  public XmlString $next_token;
+class ScalableTarget {
+  public TimestampType $creation_time;
+  public ResourceCapacity $max_capacity;
+  public ResourceCapacity $min_capacity;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ResourceIdMaxLen1600 $role_arn;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+  public SuspendedState $suspended_state;
 }
 
-class DisableScaleIn {
+class ScalableTargetAction {
+  public ResourceCapacity $max_capacity;
+  public ResourceCapacity $min_capacity;
 }
 
-class MetricScale {
+class ScalableTargets {
 }
 
-class MetricUnit {
+class ScalingActivities {
 }
 
-class DescribeScalableTargetsResponse {
-  public ScalableTargets $scalable_targets;
-  public XmlString $next_token;
+class ScalingActivity {
+  public ResourceId $activity_id;
+  public XmlString $cause;
+  public XmlString $description;
+  public XmlString $details;
+  public TimestampType $end_time;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+  public TimestampType $start_time;
+  public ScalingActivityStatusCode $status_code;
+  public XmlString $status_message;
 }
 
-class FailedResourceAccessException {
-  public ErrorMessage $message;
+class ScalingActivityStatusCode {
 }
 
-class PolicyName {
+class ScalingAdjustment {
+}
+
+class ScalingPolicies {
+}
+
+class ScalingPolicy {
+  public Alarms $alarms;
+  public TimestampType $creation_time;
+  public ResourceIdMaxLen1600 $policy_arn;
+  public PolicyName $policy_name;
+  public PolicyType $policy_type;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ServiceNamespace $service_namespace;
+  public StepScalingPolicyConfiguration $step_scaling_policy_configuration;
+  public TargetTrackingScalingPolicyConfiguration $target_tracking_scaling_policy_configuration;
+}
+
+class ScalingSuspended {
+}
+
+class ScheduledAction {
+  public TimestampType $creation_time;
+  public TimestampType $end_time;
+  public ResourceIdMaxLen1600 $resource_id;
+  public ScalableDimension $scalable_dimension;
+  public ScalableTargetAction $scalable_target_action;
+  public ResourceIdMaxLen1600 $schedule;
+  public ResourceIdMaxLen1600 $scheduled_action_arn;
+  public ScheduledActionName $scheduled_action_name;
+  public ServiceNamespace $service_namespace;
+  public TimestampType $start_time;
+}
+
+class ScheduledActionName {
+}
+
+class ScheduledActions {
 }
 
 class ServiceNamespace {
@@ -113,276 +350,39 @@ class StepAdjustment {
   public ScalingAdjustment $scaling_adjustment;
 }
 
-class MaxResults {
-}
-
-class MetricDimensionName {
-}
-
-class MetricDimensionValue {
-}
-
-class ScalableTarget {
-  public SuspendedState $suspended_state;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public ResourceCapacity $min_capacity;
-  public ResourceCapacity $max_capacity;
-  public ResourceIdMaxLen1600 $role_arn;
-  public TimestampType $creation_time;
-}
-
-class ScalingAdjustment {
-}
-
-class DescribeScalingPoliciesResponse {
-  public ScalingPolicies $scaling_policies;
-  public XmlString $next_token;
-}
-
-class MetricDimension {
-  public MetricDimensionName $name;
-  public MetricDimensionValue $value;
-}
-
-class PutScalingPolicyRequest {
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public PolicyType $policy_type;
-  public StepScalingPolicyConfiguration $step_scaling_policy_configuration;
-  public TargetTrackingScalingPolicyConfiguration $target_tracking_scaling_policy_configuration;
-  public PolicyName $policy_name;
-}
-
-class TimestampType {
-}
-
-class LimitExceededException {
-  public ErrorMessage $message;
-}
-
-class MetricDimensions {
-}
-
-class PutScheduledActionRequest {
-  public TimestampType $start_time;
-  public TimestampType $end_time;
-  public ScalableTargetAction $scalable_target_action;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $schedule;
-  public ScheduledActionName $scheduled_action_name;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-}
-
-class Alarm {
-  public ResourceId $alarm_name;
-  public ResourceId $alarm_arn;
-}
-
-class Alarms {
-}
-
-class DeleteScheduledActionRequest {
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $scheduled_action_name;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-}
-
-class DescribeScalingPoliciesRequest {
-  public ScalableDimension $scalable_dimension;
-  public MaxResults $max_results;
-  public XmlString $next_token;
-  public ResourceIdsMaxLen1600 $policy_names;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-}
-
-class InvalidNextTokenException {
-  public ErrorMessage $message;
-}
-
-class ScalableTargetAction {
-  public ResourceCapacity $min_capacity;
-  public ResourceCapacity $max_capacity;
-}
-
-class InternalServiceException {
-  public ErrorMessage $message;
-}
-
-class MetricAggregationType {
-}
-
-class ScalingActivity {
-  public ResourceId $activity_id;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public ScalingActivityStatusCode $status_code;
-  public XmlString $status_message;
-  public XmlString $details;
-  public ServiceNamespace $service_namespace;
-  public XmlString $description;
-  public XmlString $cause;
-  public TimestampType $start_time;
-  public TimestampType $end_time;
-}
-
-class ScheduledActionName {
-}
-
-class SuspendedState {
-  public ScalingSuspended $scheduled_scaling_suspended;
-  public ScalingSuspended $dynamic_scaling_in_suspended;
-  public ScalingSuspended $dynamic_scaling_out_suspended;
-}
-
-class MetricNamespace {
-}
-
-class ObjectNotFoundException {
-  public ErrorMessage $message;
-}
-
-class PutScheduledActionResponse {
-}
-
-class RegisterScalableTargetResponse {
-}
-
-class XmlString {
-}
-
-class Cooldown {
-}
-
-class DeregisterScalableTargetResponse {
-}
-
-class DescribeScheduledActionsRequest {
-  public ResourceIdsMaxLen1600 $scheduled_action_names;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public MaxResults $max_results;
-  public XmlString $next_token;
-}
-
-class MetricType {
-}
-
-class PutScalingPolicyResponse {
-  public ResourceIdMaxLen1600 $policy_arn;
-  public Alarms $alarms;
-}
-
-class ConcurrentUpdateException {
-  public ErrorMessage $message;
-}
-
-class PolicyType {
-}
-
-class ResourceCapacity {
-}
-
-class ResourceIdMaxLen1600 {
-}
-
-class ScheduledAction {
-  public TimestampType $end_time;
-  public ScalableTargetAction $scalable_target_action;
-  public ScheduledActionName $scheduled_action_name;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public TimestampType $start_time;
-  public TimestampType $creation_time;
-  public ResourceIdMaxLen1600 $scheduled_action_arn;
-  public ResourceIdMaxLen1600 $schedule;
-}
-
-class DeleteScalingPolicyRequest {
-  public ResourceIdMaxLen1600 $policy_name;
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-}
-
-class MinAdjustmentMagnitude {
-}
-
-class CustomizedMetricSpecification {
-  public MetricName $metric_name;
-  public MetricNamespace $namespace;
-  public MetricDimensions $dimensions;
-  public MetricStatistic $statistic;
-  public MetricUnit $unit;
-}
-
-class MetricName {
-}
-
-class PredefinedMetricSpecification {
-  public MetricType $predefined_metric_type;
-  public ResourceLabel $resource_label;
-}
-
 class StepAdjustments {
 }
 
-class ErrorMessage {
+class StepScalingPolicyConfiguration {
+  public AdjustmentType $adjustment_type;
+  public Cooldown $cooldown;
+  public MetricAggregationType $metric_aggregation_type;
+  public MinAdjustmentMagnitude $min_adjustment_magnitude;
+  public StepAdjustments $step_adjustments;
 }
 
-class ScalingSuspended {
+class SuspendedState {
+  public ScalingSuspended $dynamic_scaling_in_suspended;
+  public ScalingSuspended $dynamic_scaling_out_suspended;
+  public ScalingSuspended $scheduled_scaling_suspended;
 }
 
-class DescribeScalingActivitiesRequest {
-  public ServiceNamespace $service_namespace;
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public MaxResults $max_results;
-  public XmlString $next_token;
+class TargetTrackingScalingPolicyConfiguration {
+  public CustomizedMetricSpecification $customized_metric_specification;
+  public DisableScaleIn $disable_scale_in;
+  public PredefinedMetricSpecification $predefined_metric_specification;
+  public Cooldown $scale_in_cooldown;
+  public Cooldown $scale_out_cooldown;
+  public MetricScale $target_value;
 }
 
-class ScalableTargets {
-}
-
-class ScalingActivityStatusCode {
+class TimestampType {
 }
 
 class ValidationException {
   public ErrorMessage $message;
 }
 
-class DeleteScalingPolicyResponse {
-}
-
-class DeleteScheduledActionResponse {
-}
-
-class RegisterScalableTargetRequest {
-  public ResourceIdMaxLen1600 $resource_id;
-  public ScalableDimension $scalable_dimension;
-  public ResourceCapacity $min_capacity;
-  public ResourceCapacity $max_capacity;
-  public ResourceIdMaxLen1600 $role_arn;
-  public SuspendedState $suspended_state;
-  public ServiceNamespace $service_namespace;
-}
-
-class ResourceId {
-}
-
-class TargetTrackingScalingPolicyConfiguration {
-  public Cooldown $scale_in_cooldown;
-  public DisableScaleIn $disable_scale_in;
-  public MetricScale $target_value;
-  public PredefinedMetricSpecification $predefined_metric_specification;
-  public CustomizedMetricSpecification $customized_metric_specification;
-  public Cooldown $scale_out_cooldown;
+class XmlString {
 }
 

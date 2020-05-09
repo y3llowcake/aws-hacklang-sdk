@@ -2,159 +2,139 @@
 namespace slack\aws\connect;
 
 interface Connect {
-  public function GetCurrentMetricData(GetCurrentMetricDataRequest) Awaitable<Errors\Result<GetCurrentMetricDataResponse>>;
-  public function ListHoursOfOperations(ListHoursOfOperationsRequest) Awaitable<Errors\Result<ListHoursOfOperationsResponse>>;
-  public function ListRoutingProfiles(ListRoutingProfilesRequest) Awaitable<Errors\Result<ListRoutingProfilesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function CreateUser(CreateUserRequest) Awaitable<Errors\Result<CreateUserResponse>>;
   public function DeleteUser(DeleteUserRequest) Awaitable<Errors\Error>;
+  public function DescribeUser(DescribeUserRequest) Awaitable<Errors\Result<DescribeUserResponse>>;
+  public function DescribeUserHierarchyGroup(DescribeUserHierarchyGroupRequest) Awaitable<Errors\Result<DescribeUserHierarchyGroupResponse>>;
+  public function DescribeUserHierarchyStructure(DescribeUserHierarchyStructureRequest) Awaitable<Errors\Result<DescribeUserHierarchyStructureResponse>>;
   public function GetContactAttributes(GetContactAttributesRequest) Awaitable<Errors\Result<GetContactAttributesResponse>>;
-  public function UpdateUserPhoneConfig(UpdateUserPhoneConfigRequest) Awaitable<Errors\Error>;
+  public function GetCurrentMetricData(GetCurrentMetricDataRequest) Awaitable<Errors\Result<GetCurrentMetricDataResponse>>;
+  public function GetFederationToken(GetFederationTokenRequest) Awaitable<Errors\Result<GetFederationTokenResponse>>;
+  public function GetMetricData(GetMetricDataRequest) Awaitable<Errors\Result<GetMetricDataResponse>>;
+  public function ListContactFlows(ListContactFlowsRequest) Awaitable<Errors\Result<ListContactFlowsResponse>>;
+  public function ListHoursOfOperations(ListHoursOfOperationsRequest) Awaitable<Errors\Result<ListHoursOfOperationsResponse>>;
+  public function ListPhoneNumbers(ListPhoneNumbersRequest) Awaitable<Errors\Result<ListPhoneNumbersResponse>>;
   public function ListQueues(ListQueuesRequest) Awaitable<Errors\Result<ListQueuesResponse>>;
+  public function ListRoutingProfiles(ListRoutingProfilesRequest) Awaitable<Errors\Result<ListRoutingProfilesResponse>>;
+  public function ListSecurityProfiles(ListSecurityProfilesRequest) Awaitable<Errors\Result<ListSecurityProfilesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUserHierarchyGroups(ListUserHierarchyGroupsRequest) Awaitable<Errors\Result<ListUserHierarchyGroupsResponse>>;
+  public function ListUsers(ListUsersRequest) Awaitable<Errors\Result<ListUsersResponse>>;
   public function StartChatContact(StartChatContactRequest) Awaitable<Errors\Result<StartChatContactResponse>>;
+  public function StartOutboundVoiceContact(StartOutboundVoiceContactRequest) Awaitable<Errors\Result<StartOutboundVoiceContactResponse>>;
+  public function StopContact(StopContactRequest) Awaitable<Errors\Result<StopContactResponse>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
+  public function UpdateContactAttributes(UpdateContactAttributesRequest) Awaitable<Errors\Result<UpdateContactAttributesResponse>>;
   public function UpdateUserHierarchy(UpdateUserHierarchyRequest) Awaitable<Errors\Error>;
   public function UpdateUserIdentityInfo(UpdateUserIdentityInfoRequest) Awaitable<Errors\Error>;
-  public function ListSecurityProfiles(ListSecurityProfilesRequest) Awaitable<Errors\Result<ListSecurityProfilesResponse>>;
-  public function StartOutboundVoiceContact(StartOutboundVoiceContactRequest) Awaitable<Errors\Result<StartOutboundVoiceContactResponse>>;
-  public function DescribeUserHierarchyStructure(DescribeUserHierarchyStructureRequest) Awaitable<Errors\Result<DescribeUserHierarchyStructureResponse>>;
-  public function GetFederationToken(GetFederationTokenRequest) Awaitable<Errors\Result<GetFederationTokenResponse>>;
-  public function ListContactFlows(ListContactFlowsRequest) Awaitable<Errors\Result<ListContactFlowsResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function CreateUser(CreateUserRequest) Awaitable<Errors\Result<CreateUserResponse>>;
-  public function DescribeUser(DescribeUserRequest) Awaitable<Errors\Result<DescribeUserResponse>>;
-  public function ListUsers(ListUsersRequest) Awaitable<Errors\Result<ListUsersResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateContactAttributes(UpdateContactAttributesRequest) Awaitable<Errors\Result<UpdateContactAttributesResponse>>;
+  public function UpdateUserPhoneConfig(UpdateUserPhoneConfigRequest) Awaitable<Errors\Error>;
   public function UpdateUserRoutingProfile(UpdateUserRoutingProfileRequest) Awaitable<Errors\Error>;
-  public function DescribeUserHierarchyGroup(DescribeUserHierarchyGroupRequest) Awaitable<Errors\Result<DescribeUserHierarchyGroupResponse>>;
-  public function ListUserHierarchyGroups(ListUserHierarchyGroupsRequest) Awaitable<Errors\Result<ListUserHierarchyGroupsResponse>>;
-  public function StopContact(StopContactRequest) Awaitable<Errors\Result<StopContactResponse>>;
   public function UpdateUserSecurityProfiles(UpdateUserSecurityProfilesRequest) Awaitable<Errors\Error>;
-  public function GetMetricData(GetMetricDataRequest) Awaitable<Errors\Result<GetMetricDataResponse>>;
-  public function ListPhoneNumbers(ListPhoneNumbersRequest) Awaitable<Errors\Result<ListPhoneNumbersResponse>>;
-}
-
-class GetCurrentMetricDataRequest {
-  public Filters $filters;
-  public Groupings $groupings;
-  public CurrentMetrics $current_metrics;
-  public NextToken $next_token;
-  public MaxResult100 $max_results;
-  public InstanceId $instance_id;
-}
-
-class Groupings {
-}
-
-class HierarchyLevelId {
-}
-
-class ListQueuesRequest {
-  public QueueTypes $queue_types;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
-  public InstanceId $instance_id;
-}
-
-class ParticipantDetails {
-  public DisplayName $display_name;
-}
-
-class SecurityProfileId {
 }
 
 class ARN {
 }
 
-class ClientToken {
+class AfterContactWorkTimeLimit {
 }
 
-class TagMap {
+class AgentFirstName {
 }
 
-class UpdateUserHierarchyRequest {
-  public HierarchyGroupId $hierarchy_group_id;
-  public UserId $user_id;
-  public InstanceId $instance_id;
+class AgentLastName {
 }
 
-class HierarchyStructure {
-  public HierarchyLevel $level_one;
-  public HierarchyLevel $level_two;
-  public HierarchyLevel $level_three;
-  public HierarchyLevel $level_four;
-  public HierarchyLevel $level_five;
+class AgentUsername {
 }
 
-class ListHoursOfOperationsResponse {
-  public HoursOfOperationSummaryList $hours_of_operation_summary_list;
-  public NextToken $next_token;
+class AttributeName {
 }
 
-class MaxResult1000 {
+class AttributeValue {
 }
 
-class UpdateContactAttributesRequest {
-  public ContactId $initial_contact_id;
-  public InstanceId $instance_id;
-  public Attributes $attributes;
+class Attributes {
 }
 
 class AutoAccept {
 }
 
-class DescribeUserHierarchyGroupResponse {
-  public HierarchyGroup $hierarchy_group;
+class Channel {
 }
 
-class PhoneNumber {
+class Channels {
 }
 
-class PhoneNumberTypes {
+class ChatContent {
 }
 
-class StartOutboundVoiceContactResponse {
-  public ContactId $contact_id;
+class ChatContentType {
 }
 
-class User {
-  public AgentUsername $username;
+class ChatMessage {
+  public ChatContent $content;
+  public ChatContentType $content_type;
+}
+
+class ClientToken {
+}
+
+class Comparison {
+}
+
+class ContactFlowId {
+}
+
+class ContactFlowName {
+}
+
+class ContactFlowSummary {
+  public ARN $arn;
+  public ContactFlowType $contact_flow_type;
+  public ContactFlowId $id;
+  public ContactFlowName $name;
+}
+
+class ContactFlowSummaryList {
+}
+
+class ContactFlowType {
+}
+
+class ContactFlowTypes {
+}
+
+class ContactId {
+}
+
+class ContactNotFoundException {
+  public Message $message;
+}
+
+class CreateUserRequest {
   public DirectoryUserId $directory_user_id;
   public HierarchyGroupId $hierarchy_group_id;
-  public TagMap $tags;
-  public UserId $id;
-  public ARN $arn;
   public UserIdentityInfo $identity_info;
+  public InstanceId $instance_id;
+  public Password $password;
   public UserPhoneConfig $phone_config;
-  public SecurityProfileIds $security_profile_ids;
   public RoutingProfileId $routing_profile_id;
-}
-
-class UserSummary {
-  public UserId $id;
-  public ARN $arn;
+  public SecurityProfileIds $security_profile_ids;
+  public TagMap $tags;
   public AgentUsername $username;
 }
 
-class CurrentMetrics {
+class CreateUserResponse {
+  public ARN $user_arn;
+  public UserId $user_id;
 }
 
-class DirectoryUserId {
-}
-
-class HoursOfOperationSummaryList {
-}
-
-class PhoneNumberSummary {
-  public PhoneNumberId $id;
-  public ARN $arn;
-  public PhoneNumber $phone_number;
-  public PhoneNumberType $phone_number_type;
-  public PhoneNumberCountryCode $phone_number_country_code;
-}
-
-class TagResourceRequest {
-  public ARN $resource_arn;
-  public TagMap $tags;
+class Credentials {
+  public SecurityToken $access_token;
+  public timestamp $access_token_expiration;
+  public SecurityToken $refresh_token;
+  public timestamp $refresh_token_expiration;
 }
 
 class CurrentMetric {
@@ -162,71 +142,31 @@ class CurrentMetric {
   public Unit $unit;
 }
 
-class HistoricalMetricResult {
+class CurrentMetricData {
+  public CurrentMetric $metric;
+  public Value $value;
+}
+
+class CurrentMetricDataCollections {
+}
+
+class CurrentMetricName {
+}
+
+class CurrentMetricResult {
+  public CurrentMetricDataCollections $collections;
   public Dimensions $dimensions;
-  public HistoricalMetricDataCollections $collections;
 }
 
-class PhoneNumberType {
+class CurrentMetricResults {
 }
 
-class Unit {
+class CurrentMetrics {
 }
 
-class UpdateUserSecurityProfilesRequest {
-  public SecurityProfileIds $security_profile_ids;
+class DeleteUserRequest {
+  public InstanceId $instance_id;
   public UserId $user_id;
-  public InstanceId $instance_id;
-}
-
-class HierarchyLevelName {
-}
-
-class Message {
-}
-
-class ListSecurityProfilesRequest {
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
-  public InstanceId $instance_id;
-}
-
-class ParticipantToken {
-}
-
-class HierarchyGroupName {
-}
-
-class HoursOfOperationId {
-}
-
-class ListContactFlowsResponse {
-  public NextToken $next_token;
-  public ContactFlowSummaryList $contact_flow_summary_list;
-}
-
-class SecurityProfileName {
-}
-
-class DescribeUserRequest {
-  public UserId $user_id;
-  public InstanceId $instance_id;
-}
-
-class Email {
-}
-
-class InstanceId {
-}
-
-class OutboundContactNotPermittedException {
-  public Message $message;
-}
-
-class RoutingProfileName {
-}
-
-class AgentLastName {
 }
 
 class DescribeUserHierarchyGroupRequest {
@@ -234,284 +174,76 @@ class DescribeUserHierarchyGroupRequest {
   public InstanceId $instance_id;
 }
 
-class GetMetricDataResponse {
-  public HistoricalMetricResults $metric_results;
-  public NextToken $next_token;
+class DescribeUserHierarchyGroupResponse {
+  public HierarchyGroup $hierarchy_group;
 }
 
-class HistoricalMetricName {
-}
-
-class InternalServiceException {
-  public Message $message;
-}
-
-class ListRoutingProfilesRequest {
+class DescribeUserHierarchyStructureRequest {
   public InstanceId $instance_id;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
-}
-
-class AgentFirstName {
-}
-
-class CurrentMetricData {
-  public CurrentMetric $metric;
-  public Value $value;
-}
-
-class StartChatContactRequest {
-  public Attributes $attributes;
-  public ParticipantDetails $participant_details;
-  public ChatMessage $initial_message;
-  public ClientToken $client_token;
-  public InstanceId $instance_id;
-  public ContactFlowId $contact_flow_id;
-}
-
-class ListTagsForResourceResponse {
-  public TagMap $tags;
-}
-
-class MaxResult100 {
-}
-
-class Dimensions {
-  public QueueReference $queue;
-  public Channel $channel;
-}
-
-class GetContactAttributesResponse {
-  public Attributes $attributes;
-}
-
-class StartOutboundVoiceContactRequest {
-  public PhoneNumber $destination_phone_number;
-  public ContactFlowId $contact_flow_id;
-  public InstanceId $instance_id;
-  public ClientToken $client_token;
-  public PhoneNumber $source_phone_number;
-  public QueueId $queue_id;
-  public Attributes $attributes;
-}
-
-class ContactFlowType {
-}
-
-class DestinationNotAllowedException {
-  public Message $message;
-}
-
-class ListPhoneNumbersResponse {
-  public PhoneNumberSummaryList $phone_number_summary_list;
-  public NextToken $next_token;
-}
-
-class ListQueuesResponse {
-  public QueueSummaryList $queue_summary_list;
-  public NextToken $next_token;
-}
-
-class ListUsersResponse {
-  public UserSummaryList $user_summary_list;
-  public NextToken $next_token;
-}
-
-class Password {
-}
-
-class PhoneNumberSummaryList {
-}
-
-class DeleteUserRequest {
-  public UserId $user_id;
-  public InstanceId $instance_id;
-}
-
-class Grouping {
-}
-
-class HierarchyGroupId {
-}
-
-class InvalidRequestException {
-  public Message $message;
-}
-
-class RoutingProfileSummaryList {
-}
-
-class UntagResourceRequest {
-  public ARN $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class UserId {
-}
-
-class AttributeValue {
-}
-
-class GetContactAttributesRequest {
-  public InstanceId $instance_id;
-  public ContactId $initial_contact_id;
-}
-
-class CurrentMetricResults {
-}
-
-class HierarchyGroup {
-  public HierarchyGroupId $id;
-  public ARN $arn;
-  public HierarchyGroupName $name;
-  public HierarchyLevelId $level_id;
-  public HierarchyPath $hierarchy_path;
-}
-
-class PhoneNumberCountryCode {
-}
-
-class UserSummaryList {
-}
-
-class ContactFlowId {
-}
-
-class CreateUserRequest {
-  public InstanceId $instance_id;
-  public AgentUsername $username;
-  public Password $password;
-  public UserPhoneConfig $phone_config;
-  public DirectoryUserId $directory_user_id;
-  public RoutingProfileId $routing_profile_id;
-  public HierarchyGroupId $hierarchy_group_id;
-  public UserIdentityInfo $identity_info;
-  public SecurityProfileIds $security_profile_ids;
-  public TagMap $tags;
-}
-
-class ListUserHierarchyGroupsResponse {
-  public HierarchyGroupSummaryList $user_hierarchy_group_summary_list;
-  public NextToken $next_token;
-}
-
-class Queues {
-}
-
-class AfterContactWorkTimeLimit {
-}
-
-class HistoricalMetricDataCollections {
-}
-
-class HistoricalMetric {
-  public HistoricalMetricName $name;
-  public Threshold $threshold;
-  public Statistic $statistic;
-  public Unit $unit;
-}
-
-class QueueReference {
-  public QueueId $id;
-  public ARN $arn;
-}
-
-class UpdateUserPhoneConfigRequest {
-  public UserPhoneConfig $phone_config;
-  public UserId $user_id;
-  public InstanceId $instance_id;
-}
-
-class Channel {
 }
 
 class DescribeUserHierarchyStructureResponse {
   public HierarchyStructure $hierarchy_structure;
 }
 
-class UserIdentityInfo {
-  public AgentFirstName $first_name;
-  public AgentLastName $last_name;
-  public Email $email;
-}
-
-class NextToken {
-}
-
-class PhoneNumberCountryCodes {
-}
-
-class ListSecurityProfilesResponse {
-  public SecurityProfileSummaryList $security_profile_summary_list;
-  public NextToken $next_token;
-}
-
-class QueueSummaryList {
-}
-
-class SecurityToken {
-}
-
-class StopContactRequest {
-  public ContactId $contact_id;
+class DescribeUserRequest {
   public InstanceId $instance_id;
+  public UserId $user_id;
 }
 
-class ContactFlowSummary {
-  public ContactFlowId $id;
-  public ARN $arn;
-  public ContactFlowName $name;
-  public ContactFlowType $contact_flow_type;
+class DescribeUserResponse {
+  public User $user;
 }
 
-class HierarchyGroupSummary {
-  public HierarchyGroupId $id;
-  public ARN $arn;
-  public HierarchyGroupName $name;
+class DestinationNotAllowedException {
+  public Message $message;
 }
 
-class HierarchyPath {
-  public HierarchyGroupSummary $level_two;
-  public HierarchyGroupSummary $level_three;
-  public HierarchyGroupSummary $level_four;
-  public HierarchyGroupSummary $level_five;
-  public HierarchyGroupSummary $level_one;
+class Dimensions {
+  public Channel $channel;
+  public QueueReference $queue;
 }
 
-class ListUsersRequest {
-  public InstanceId $instance_id;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
+class DirectoryUserId {
 }
 
-class TagValue {
+class DisplayName {
 }
 
-class Threshold {
-  public Comparison $comparison;
-  public ThresholdValue $threshold_value;
+class DuplicateResourceException {
+  public Message $message;
 }
 
-class ChatContentType {
-}
-
-class GetMetricDataRequest {
-  public Filters $filters;
-  public Groupings $groupings;
-  public HistoricalMetrics $historical_metrics;
-  public NextToken $next_token;
-  public MaxResult100 $max_results;
-  public InstanceId $instance_id;
-  public timestamp $start_time;
-  public timestamp $end_time;
-}
-
-class SecurityProfileIds {
+class Email {
 }
 
 class Filters {
-  public Queues $queues;
   public Channels $channels;
+  public Queues $queues;
+}
+
+class GetContactAttributesRequest {
+  public ContactId $initial_contact_id;
+  public InstanceId $instance_id;
+}
+
+class GetContactAttributesResponse {
+  public Attributes $attributes;
+}
+
+class GetCurrentMetricDataRequest {
+  public CurrentMetrics $current_metrics;
+  public Filters $filters;
+  public Groupings $groupings;
+  public InstanceId $instance_id;
+  public MaxResult100 $max_results;
+  public NextToken $next_token;
+}
+
+class GetCurrentMetricDataResponse {
+  public timestamp $data_snapshot_time;
+  public CurrentMetricResults $metric_results;
+  public NextToken $next_token;
 }
 
 class GetFederationTokenRequest {
@@ -522,27 +254,135 @@ class GetFederationTokenResponse {
   public Credentials $credentials;
 }
 
+class GetMetricDataRequest {
+  public timestamp $end_time;
+  public Filters $filters;
+  public Groupings $groupings;
+  public HistoricalMetrics $historical_metrics;
+  public InstanceId $instance_id;
+  public MaxResult100 $max_results;
+  public NextToken $next_token;
+  public timestamp $start_time;
+}
+
+class GetMetricDataResponse {
+  public HistoricalMetricResults $metric_results;
+  public NextToken $next_token;
+}
+
+class Grouping {
+}
+
+class Groupings {
+}
+
+class HierarchyGroup {
+  public ARN $arn;
+  public HierarchyPath $hierarchy_path;
+  public HierarchyGroupId $id;
+  public HierarchyLevelId $level_id;
+  public HierarchyGroupName $name;
+}
+
+class HierarchyGroupId {
+}
+
+class HierarchyGroupName {
+}
+
+class HierarchyGroupSummary {
+  public ARN $arn;
+  public HierarchyGroupId $id;
+  public HierarchyGroupName $name;
+}
+
+class HierarchyGroupSummaryList {
+}
+
+class HierarchyLevel {
+  public ARN $arn;
+  public HierarchyLevelId $id;
+  public HierarchyLevelName $name;
+}
+
+class HierarchyLevelId {
+}
+
+class HierarchyLevelName {
+}
+
+class HierarchyPath {
+  public HierarchyGroupSummary $level_five;
+  public HierarchyGroupSummary $level_four;
+  public HierarchyGroupSummary $level_one;
+  public HierarchyGroupSummary $level_three;
+  public HierarchyGroupSummary $level_two;
+}
+
+class HierarchyStructure {
+  public HierarchyLevel $level_five;
+  public HierarchyLevel $level_four;
+  public HierarchyLevel $level_one;
+  public HierarchyLevel $level_three;
+  public HierarchyLevel $level_two;
+}
+
+class HistoricalMetric {
+  public HistoricalMetricName $name;
+  public Statistic $statistic;
+  public Threshold $threshold;
+  public Unit $unit;
+}
+
+class HistoricalMetricData {
+  public HistoricalMetric $metric;
+  public Value $value;
+}
+
+class HistoricalMetricDataCollections {
+}
+
+class HistoricalMetricName {
+}
+
+class HistoricalMetricResult {
+  public HistoricalMetricDataCollections $collections;
+  public Dimensions $dimensions;
+}
+
+class HistoricalMetricResults {
+}
+
 class HistoricalMetrics {
 }
 
-class ListTagsForResourceRequest {
-  public ARN $resource_arn;
+class HoursOfOperationId {
 }
 
-class Credentials {
-  public SecurityToken $refresh_token;
-  public timestamp $refresh_token_expiration;
-  public SecurityToken $access_token;
-  public timestamp $access_token_expiration;
+class HoursOfOperationName {
 }
 
-class CurrentMetricDataCollections {
+class HoursOfOperationSummary {
+  public ARN $arn;
+  public HoursOfOperationId $id;
+  public HoursOfOperationName $name;
 }
 
-class TagKeyList {
+class HoursOfOperationSummaryList {
 }
 
-class ThrottlingException {
+class InstanceId {
+}
+
+class InternalServiceException {
+  public Message $message;
+}
+
+class InvalidParameterException {
+  public Message $message;
+}
+
+class InvalidRequestException {
   public Message $message;
 }
 
@@ -550,78 +390,244 @@ class LimitExceededException {
   public Message $message;
 }
 
-class RoutingProfileSummary {
-  public RoutingProfileId $id;
-  public ARN $arn;
-  public RoutingProfileName $name;
-}
-
-class Comparison {
-}
-
-class ContactFlowName {
-}
-
-class ContactId {
-}
-
-class CurrentMetricResult {
-  public Dimensions $dimensions;
-  public CurrentMetricDataCollections $collections;
-}
-
-class HierarchyGroupSummaryList {
-}
-
-class HoursOfOperationSummary {
-  public HoursOfOperationId $id;
-  public ARN $arn;
-  public HoursOfOperationName $name;
-}
-
-class AgentUsername {
-}
-
-class ChatContent {
-}
-
-class UserPhoneConfig {
-  public AutoAccept $auto_accept;
-  public AfterContactWorkTimeLimit $after_contact_work_time_limit;
-  public PhoneNumber $desk_phone_number;
-  public PhoneType $phone_type;
-}
-
-class QueueSummary {
-  public QueueId $id;
-  public ARN $arn;
-  public QueueName $name;
-  public QueueType $queue_type;
-}
-
-class UpdateUserIdentityInfoRequest {
+class ListContactFlowsRequest {
+  public ContactFlowTypes $contact_flow_types;
   public InstanceId $instance_id;
-  public UserIdentityInfo $identity_info;
-  public UserId $user_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
 }
 
-class SecurityProfileSummaryList {
+class ListContactFlowsResponse {
+  public ContactFlowSummaryList $contact_flow_summary_list;
+  public NextToken $next_token;
 }
 
-class StopContactResponse {
+class ListHoursOfOperationsRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
 }
 
-class Value {
+class ListHoursOfOperationsResponse {
+  public HoursOfOperationSummaryList $hours_of_operation_summary_list;
+  public NextToken $next_token;
 }
 
-class InvalidParameterException {
+class ListPhoneNumbersRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+  public PhoneNumberCountryCodes $phone_number_country_codes;
+  public PhoneNumberTypes $phone_number_types;
+}
+
+class ListPhoneNumbersResponse {
+  public NextToken $next_token;
+  public PhoneNumberSummaryList $phone_number_summary_list;
+}
+
+class ListQueuesRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+  public QueueTypes $queue_types;
+}
+
+class ListQueuesResponse {
+  public NextToken $next_token;
+  public QueueSummaryList $queue_summary_list;
+}
+
+class ListRoutingProfilesRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+}
+
+class ListRoutingProfilesResponse {
+  public NextToken $next_token;
+  public RoutingProfileSummaryList $routing_profile_summary_list;
+}
+
+class ListSecurityProfilesRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+}
+
+class ListSecurityProfilesResponse {
+  public NextToken $next_token;
+  public SecurityProfileSummaryList $security_profile_summary_list;
+}
+
+class ListTagsForResourceRequest {
+  public ARN $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public TagMap $tags;
+}
+
+class ListUserHierarchyGroupsRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+}
+
+class ListUserHierarchyGroupsResponse {
+  public NextToken $next_token;
+  public HierarchyGroupSummaryList $user_hierarchy_group_summary_list;
+}
+
+class ListUsersRequest {
+  public InstanceId $instance_id;
+  public MaxResult1000 $max_results;
+  public NextToken $next_token;
+}
+
+class ListUsersResponse {
+  public NextToken $next_token;
+  public UserSummaryList $user_summary_list;
+}
+
+class MaxResult100 {
+}
+
+class MaxResult1000 {
+}
+
+class Message {
+}
+
+class NextToken {
+}
+
+class OutboundContactNotPermittedException {
   public Message $message;
+}
+
+class ParticipantDetails {
+  public DisplayName $display_name;
+}
+
+class ParticipantId {
+}
+
+class ParticipantToken {
+}
+
+class Password {
+}
+
+class PhoneNumber {
+}
+
+class PhoneNumberCountryCode {
+}
+
+class PhoneNumberCountryCodes {
+}
+
+class PhoneNumberId {
+}
+
+class PhoneNumberSummary {
+  public ARN $arn;
+  public PhoneNumberId $id;
+  public PhoneNumber $phone_number;
+  public PhoneNumberCountryCode $phone_number_country_code;
+  public PhoneNumberType $phone_number_type;
+}
+
+class PhoneNumberSummaryList {
+}
+
+class PhoneNumberType {
+}
+
+class PhoneNumberTypes {
+}
+
+class PhoneType {
+}
+
+class QueueId {
 }
 
 class QueueName {
 }
 
+class QueueReference {
+  public ARN $arn;
+  public QueueId $id;
+}
+
+class QueueSummary {
+  public ARN $arn;
+  public QueueId $id;
+  public QueueName $name;
+  public QueueType $queue_type;
+}
+
+class QueueSummaryList {
+}
+
+class QueueType {
+}
+
+class QueueTypes {
+}
+
+class Queues {
+}
+
+class ResourceNotFoundException {
+  public Message $message;
+}
+
 class RoutingProfileId {
+}
+
+class RoutingProfileName {
+}
+
+class RoutingProfileSummary {
+  public ARN $arn;
+  public RoutingProfileId $id;
+  public RoutingProfileName $name;
+}
+
+class RoutingProfileSummaryList {
+}
+
+class SecurityProfileId {
+}
+
+class SecurityProfileIds {
+}
+
+class SecurityProfileName {
+}
+
+class SecurityProfileSummary {
+  public ARN $arn;
+  public SecurityProfileId $id;
+  public SecurityProfileName $name;
+}
+
+class SecurityProfileSummaryList {
+}
+
+class SecurityToken {
+}
+
+class StartChatContactRequest {
+  public Attributes $attributes;
+  public ClientToken $client_token;
+  public ContactFlowId $contact_flow_id;
+  public ChatMessage $initial_message;
+  public InstanceId $instance_id;
+  public ParticipantDetails $participant_details;
 }
 
 class StartChatContactResponse {
@@ -630,158 +636,152 @@ class StartChatContactResponse {
   public ParticipantToken $participant_token;
 }
 
+class StartOutboundVoiceContactRequest {
+  public Attributes $attributes;
+  public ClientToken $client_token;
+  public ContactFlowId $contact_flow_id;
+  public PhoneNumber $destination_phone_number;
+  public InstanceId $instance_id;
+  public QueueId $queue_id;
+  public PhoneNumber $source_phone_number;
+}
+
+class StartOutboundVoiceContactResponse {
+  public ContactId $contact_id;
+}
+
 class Statistic {
+}
+
+class StopContactRequest {
+  public ContactId $contact_id;
+  public InstanceId $instance_id;
+}
+
+class StopContactResponse {
 }
 
 class TagKey {
 }
 
-class HistoricalMetricData {
-  public HistoricalMetric $metric;
-  public Value $value;
+class TagKeyList {
 }
 
-class ListRoutingProfilesResponse {
-  public RoutingProfileSummaryList $routing_profile_summary_list;
-  public NextToken $next_token;
+class TagMap {
 }
 
-class DescribeUserResponse {
-  public User $user;
+class TagResourceRequest {
+  public ARN $resource_arn;
+  public TagMap $tags;
 }
 
-class ListUserHierarchyGroupsRequest {
-  public InstanceId $instance_id;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
+class TagValue {
 }
 
-class ParticipantId {
+class Threshold {
+  public Comparison $comparison;
+  public ThresholdValue $threshold_value;
 }
 
-class UpdateUserRoutingProfileRequest {
-  public RoutingProfileId $routing_profile_id;
-  public UserId $user_id;
-  public InstanceId $instance_id;
+class ThresholdValue {
 }
 
-class ChatMessage {
-  public ChatContentType $content_type;
-  public ChatContent $content;
-}
-
-class ContactNotFoundException {
+class ThrottlingException {
   public Message $message;
 }
 
-class ResourceNotFoundException {
-  public Message $message;
+class Unit {
 }
 
-class SecurityProfileSummary {
-  public SecurityProfileId $id;
-  public ARN $arn;
-  public SecurityProfileName $name;
+class UntagResourceRequest {
+  public ARN $resource_arn;
+  public TagKeyList $tag_keys;
 }
 
-class CreateUserResponse {
-  public UserId $user_id;
-  public ARN $user_arn;
-}
-
-class ListHoursOfOperationsRequest {
+class UpdateContactAttributesRequest {
+  public Attributes $attributes;
+  public ContactId $initial_contact_id;
   public InstanceId $instance_id;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
-}
-
-class CurrentMetricName {
-}
-
-class PhoneType {
-}
-
-class QueueTypes {
-}
-
-class timestamp {
-}
-
-class ContactFlowSummaryList {
-}
-
-class ContactFlowTypes {
-}
-
-class ListPhoneNumbersRequest {
-  public MaxResult1000 $max_results;
-  public InstanceId $instance_id;
-  public PhoneNumberTypes $phone_number_types;
-  public PhoneNumberCountryCodes $phone_number_country_codes;
-  public NextToken $next_token;
 }
 
 class UpdateContactAttributesResponse {
 }
 
-class Channels {
+class UpdateUserHierarchyRequest {
+  public HierarchyGroupId $hierarchy_group_id;
+  public InstanceId $instance_id;
+  public UserId $user_id;
 }
 
-class DuplicateResourceException {
-  public Message $message;
+class UpdateUserIdentityInfoRequest {
+  public UserIdentityInfo $identity_info;
+  public InstanceId $instance_id;
+  public UserId $user_id;
 }
 
-class HierarchyLevel {
-  public HierarchyLevelId $id;
+class UpdateUserPhoneConfigRequest {
+  public InstanceId $instance_id;
+  public UserPhoneConfig $phone_config;
+  public UserId $user_id;
+}
+
+class UpdateUserRoutingProfileRequest {
+  public InstanceId $instance_id;
+  public RoutingProfileId $routing_profile_id;
+  public UserId $user_id;
+}
+
+class UpdateUserSecurityProfilesRequest {
+  public InstanceId $instance_id;
+  public SecurityProfileIds $security_profile_ids;
+  public UserId $user_id;
+}
+
+class User {
   public ARN $arn;
-  public HierarchyLevelName $name;
+  public DirectoryUserId $directory_user_id;
+  public HierarchyGroupId $hierarchy_group_id;
+  public UserId $id;
+  public UserIdentityInfo $identity_info;
+  public UserPhoneConfig $phone_config;
+  public RoutingProfileId $routing_profile_id;
+  public SecurityProfileIds $security_profile_ids;
+  public TagMap $tags;
+  public AgentUsername $username;
 }
 
-class Attributes {
+class UserId {
 }
 
-class DescribeUserHierarchyStructureRequest {
-  public InstanceId $instance_id;
-}
-
-class HistoricalMetricResults {
-}
-
-class HoursOfOperationName {
-}
-
-class ListContactFlowsRequest {
-  public InstanceId $instance_id;
-  public ContactFlowTypes $contact_flow_types;
-  public NextToken $next_token;
-  public MaxResult1000 $max_results;
-}
-
-class QueueId {
+class UserIdentityInfo {
+  public Email $email;
+  public AgentFirstName $first_name;
+  public AgentLastName $last_name;
 }
 
 class UserNotFoundException {
   public Message $message;
 }
 
-class AttributeName {
+class UserPhoneConfig {
+  public AfterContactWorkTimeLimit $after_contact_work_time_limit;
+  public AutoAccept $auto_accept;
+  public PhoneNumber $desk_phone_number;
+  public PhoneType $phone_type;
 }
 
-class DisplayName {
+class UserSummary {
+  public ARN $arn;
+  public UserId $id;
+  public AgentUsername $username;
 }
 
-class QueueType {
+class UserSummaryList {
 }
 
-class ThresholdValue {
+class Value {
 }
 
-class GetCurrentMetricDataResponse {
-  public NextToken $next_token;
-  public CurrentMetricResults $metric_results;
-  public timestamp $data_snapshot_time;
-}
-
-class PhoneNumberId {
+class timestamp {
 }
 

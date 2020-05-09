@@ -2,90 +2,238 @@
 namespace slack\aws\comprehend;
 
 interface Comprehend {
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function DescribeDocumentClassifier(DescribeDocumentClassifierRequest) Awaitable<Errors\Result<DescribeDocumentClassifierResponse>>;
-  public function DescribeEndpoint(DescribeEndpointRequest) Awaitable<Errors\Result<DescribeEndpointResponse>>;
-  public function DetectSyntax(DetectSyntaxRequest) Awaitable<Errors\Result<DetectSyntaxResponse>>;
-  public function ListKeyPhrasesDetectionJobs(ListKeyPhrasesDetectionJobsRequest) Awaitable<Errors\Result<ListKeyPhrasesDetectionJobsResponse>>;
-  public function ClassifyDocument(ClassifyDocumentRequest) Awaitable<Errors\Result<ClassifyDocumentResponse>>;
-  public function ListDocumentClassificationJobs(ListDocumentClassificationJobsRequest) Awaitable<Errors\Result<ListDocumentClassificationJobsResponse>>;
-  public function StopKeyPhrasesDetectionJob(StopKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<StopKeyPhrasesDetectionJobResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function DetectSentiment(DetectSentimentRequest) Awaitable<Errors\Result<DetectSentimentResponse>>;
-  public function ListDominantLanguageDetectionJobs(ListDominantLanguageDetectionJobsRequest) Awaitable<Errors\Result<ListDominantLanguageDetectionJobsResponse>>;
-  public function ListEntitiesDetectionJobs(ListEntitiesDetectionJobsRequest) Awaitable<Errors\Result<ListEntitiesDetectionJobsResponse>>;
-  public function StartDocumentClassificationJob(StartDocumentClassificationJobRequest) Awaitable<Errors\Result<StartDocumentClassificationJobResponse>>;
+  public function BatchDetectDominantLanguage(BatchDetectDominantLanguageRequest) Awaitable<Errors\Result<BatchDetectDominantLanguageResponse>>;
   public function BatchDetectEntities(BatchDetectEntitiesRequest) Awaitable<Errors\Result<BatchDetectEntitiesResponse>>;
+  public function BatchDetectKeyPhrases(BatchDetectKeyPhrasesRequest) Awaitable<Errors\Result<BatchDetectKeyPhrasesResponse>>;
+  public function BatchDetectSentiment(BatchDetectSentimentRequest) Awaitable<Errors\Result<BatchDetectSentimentResponse>>;
+  public function BatchDetectSyntax(BatchDetectSyntaxRequest) Awaitable<Errors\Result<BatchDetectSyntaxResponse>>;
+  public function ClassifyDocument(ClassifyDocumentRequest) Awaitable<Errors\Result<ClassifyDocumentResponse>>;
+  public function CreateDocumentClassifier(CreateDocumentClassifierRequest) Awaitable<Errors\Result<CreateDocumentClassifierResponse>>;
+  public function CreateEndpoint(CreateEndpointRequest) Awaitable<Errors\Result<CreateEndpointResponse>>;
   public function CreateEntityRecognizer(CreateEntityRecognizerRequest) Awaitable<Errors\Result<CreateEntityRecognizerResponse>>;
   public function DeleteDocumentClassifier(DeleteDocumentClassifierRequest) Awaitable<Errors\Result<DeleteDocumentClassifierResponse>>;
-  public function DescribeTopicsDetectionJob(DescribeTopicsDetectionJobRequest) Awaitable<Errors\Result<DescribeTopicsDetectionJobResponse>>;
-  public function StartDominantLanguageDetectionJob(StartDominantLanguageDetectionJobRequest) Awaitable<Errors\Result<StartDominantLanguageDetectionJobResponse>>;
-  public function StartEntitiesDetectionJob(StartEntitiesDetectionJobRequest) Awaitable<Errors\Result<StartEntitiesDetectionJobResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function StopTrainingEntityRecognizer(StopTrainingEntityRecognizerRequest) Awaitable<Errors\Result<StopTrainingEntityRecognizerResponse>>;
-  public function BatchDetectDominantLanguage(BatchDetectDominantLanguageRequest) Awaitable<Errors\Result<BatchDetectDominantLanguageResponse>>;
-  public function DescribeKeyPhrasesDetectionJob(DescribeKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<DescribeKeyPhrasesDetectionJobResponse>>;
-  public function ListEndpoints(ListEndpointsRequest) Awaitable<Errors\Result<ListEndpointsResponse>>;
-  public function StartTopicsDetectionJob(StartTopicsDetectionJobRequest) Awaitable<Errors\Result<StartTopicsDetectionJobResponse>>;
-  public function StartKeyPhrasesDetectionJob(StartKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<StartKeyPhrasesDetectionJobResponse>>;
-  public function DescribeDocumentClassificationJob(DescribeDocumentClassificationJobRequest) Awaitable<Errors\Result<DescribeDocumentClassificationJobResponse>>;
-  public function DescribeEntityRecognizer(DescribeEntityRecognizerRequest) Awaitable<Errors\Result<DescribeEntityRecognizerResponse>>;
-  public function DetectDominantLanguage(DetectDominantLanguageRequest) Awaitable<Errors\Result<DetectDominantLanguageResponse>>;
-  public function ListTopicsDetectionJobs(ListTopicsDetectionJobsRequest) Awaitable<Errors\Result<ListTopicsDetectionJobsResponse>>;
-  public function StopSentimentDetectionJob(StopSentimentDetectionJobRequest) Awaitable<Errors\Result<StopSentimentDetectionJobResponse>>;
-  public function BatchDetectSentiment(BatchDetectSentimentRequest) Awaitable<Errors\Result<BatchDetectSentimentResponse>>;
-  public function CreateEndpoint(CreateEndpointRequest) Awaitable<Errors\Result<CreateEndpointResponse>>;
-  public function ListDocumentClassifiers(ListDocumentClassifiersRequest) Awaitable<Errors\Result<ListDocumentClassifiersResponse>>;
-  public function StopEntitiesDetectionJob(StopEntitiesDetectionJobRequest) Awaitable<Errors\Result<StopEntitiesDetectionJobResponse>>;
-  public function DescribeEntitiesDetectionJob(DescribeEntitiesDetectionJobRequest) Awaitable<Errors\Result<DescribeEntitiesDetectionJobResponse>>;
-  public function StartSentimentDetectionJob(StartSentimentDetectionJobRequest) Awaitable<Errors\Result<StartSentimentDetectionJobResponse>>;
-  public function StopDominantLanguageDetectionJob(StopDominantLanguageDetectionJobRequest) Awaitable<Errors\Result<StopDominantLanguageDetectionJobResponse>>;
-  public function StopTrainingDocumentClassifier(StopTrainingDocumentClassifierRequest) Awaitable<Errors\Result<StopTrainingDocumentClassifierResponse>>;
-  public function BatchDetectSyntax(BatchDetectSyntaxRequest) Awaitable<Errors\Result<BatchDetectSyntaxResponse>>;
-  public function CreateDocumentClassifier(CreateDocumentClassifierRequest) Awaitable<Errors\Result<CreateDocumentClassifierResponse>>;
   public function DeleteEndpoint(DeleteEndpointRequest) Awaitable<Errors\Result<DeleteEndpointResponse>>;
   public function DeleteEntityRecognizer(DeleteEntityRecognizerRequest) Awaitable<Errors\Result<DeleteEntityRecognizerResponse>>;
-  public function DetectKeyPhrases(DetectKeyPhrasesRequest) Awaitable<Errors\Result<DetectKeyPhrasesResponse>>;
-  public function ListEntityRecognizers(ListEntityRecognizersRequest) Awaitable<Errors\Result<ListEntityRecognizersResponse>>;
-  public function ListSentimentDetectionJobs(ListSentimentDetectionJobsRequest) Awaitable<Errors\Result<ListSentimentDetectionJobsResponse>>;
-  public function UpdateEndpoint(UpdateEndpointRequest) Awaitable<Errors\Result<UpdateEndpointResponse>>;
-  public function BatchDetectKeyPhrases(BatchDetectKeyPhrasesRequest) Awaitable<Errors\Result<BatchDetectKeyPhrasesResponse>>;
+  public function DescribeDocumentClassificationJob(DescribeDocumentClassificationJobRequest) Awaitable<Errors\Result<DescribeDocumentClassificationJobResponse>>;
+  public function DescribeDocumentClassifier(DescribeDocumentClassifierRequest) Awaitable<Errors\Result<DescribeDocumentClassifierResponse>>;
   public function DescribeDominantLanguageDetectionJob(DescribeDominantLanguageDetectionJobRequest) Awaitable<Errors\Result<DescribeDominantLanguageDetectionJobResponse>>;
+  public function DescribeEndpoint(DescribeEndpointRequest) Awaitable<Errors\Result<DescribeEndpointResponse>>;
+  public function DescribeEntitiesDetectionJob(DescribeEntitiesDetectionJobRequest) Awaitable<Errors\Result<DescribeEntitiesDetectionJobResponse>>;
+  public function DescribeEntityRecognizer(DescribeEntityRecognizerRequest) Awaitable<Errors\Result<DescribeEntityRecognizerResponse>>;
+  public function DescribeKeyPhrasesDetectionJob(DescribeKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<DescribeKeyPhrasesDetectionJobResponse>>;
   public function DescribeSentimentDetectionJob(DescribeSentimentDetectionJobRequest) Awaitable<Errors\Result<DescribeSentimentDetectionJobResponse>>;
+  public function DescribeTopicsDetectionJob(DescribeTopicsDetectionJobRequest) Awaitable<Errors\Result<DescribeTopicsDetectionJobResponse>>;
+  public function DetectDominantLanguage(DetectDominantLanguageRequest) Awaitable<Errors\Result<DetectDominantLanguageResponse>>;
   public function DetectEntities(DetectEntitiesRequest) Awaitable<Errors\Result<DetectEntitiesResponse>>;
+  public function DetectKeyPhrases(DetectKeyPhrasesRequest) Awaitable<Errors\Result<DetectKeyPhrasesResponse>>;
+  public function DetectSentiment(DetectSentimentRequest) Awaitable<Errors\Result<DetectSentimentResponse>>;
+  public function DetectSyntax(DetectSyntaxRequest) Awaitable<Errors\Result<DetectSyntaxResponse>>;
+  public function ListDocumentClassificationJobs(ListDocumentClassificationJobsRequest) Awaitable<Errors\Result<ListDocumentClassificationJobsResponse>>;
+  public function ListDocumentClassifiers(ListDocumentClassifiersRequest) Awaitable<Errors\Result<ListDocumentClassifiersResponse>>;
+  public function ListDominantLanguageDetectionJobs(ListDominantLanguageDetectionJobsRequest) Awaitable<Errors\Result<ListDominantLanguageDetectionJobsResponse>>;
+  public function ListEndpoints(ListEndpointsRequest) Awaitable<Errors\Result<ListEndpointsResponse>>;
+  public function ListEntitiesDetectionJobs(ListEntitiesDetectionJobsRequest) Awaitable<Errors\Result<ListEntitiesDetectionJobsResponse>>;
+  public function ListEntityRecognizers(ListEntityRecognizersRequest) Awaitable<Errors\Result<ListEntityRecognizersResponse>>;
+  public function ListKeyPhrasesDetectionJobs(ListKeyPhrasesDetectionJobsRequest) Awaitable<Errors\Result<ListKeyPhrasesDetectionJobsResponse>>;
+  public function ListSentimentDetectionJobs(ListSentimentDetectionJobsRequest) Awaitable<Errors\Result<ListSentimentDetectionJobsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTopicsDetectionJobs(ListTopicsDetectionJobsRequest) Awaitable<Errors\Result<ListTopicsDetectionJobsResponse>>;
+  public function StartDocumentClassificationJob(StartDocumentClassificationJobRequest) Awaitable<Errors\Result<StartDocumentClassificationJobResponse>>;
+  public function StartDominantLanguageDetectionJob(StartDominantLanguageDetectionJobRequest) Awaitable<Errors\Result<StartDominantLanguageDetectionJobResponse>>;
+  public function StartEntitiesDetectionJob(StartEntitiesDetectionJobRequest) Awaitable<Errors\Result<StartEntitiesDetectionJobResponse>>;
+  public function StartKeyPhrasesDetectionJob(StartKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<StartKeyPhrasesDetectionJobResponse>>;
+  public function StartSentimentDetectionJob(StartSentimentDetectionJobRequest) Awaitable<Errors\Result<StartSentimentDetectionJobResponse>>;
+  public function StartTopicsDetectionJob(StartTopicsDetectionJobRequest) Awaitable<Errors\Result<StartTopicsDetectionJobResponse>>;
+  public function StopDominantLanguageDetectionJob(StopDominantLanguageDetectionJobRequest) Awaitable<Errors\Result<StopDominantLanguageDetectionJobResponse>>;
+  public function StopEntitiesDetectionJob(StopEntitiesDetectionJobRequest) Awaitable<Errors\Result<StopEntitiesDetectionJobResponse>>;
+  public function StopKeyPhrasesDetectionJob(StopKeyPhrasesDetectionJobRequest) Awaitable<Errors\Result<StopKeyPhrasesDetectionJobResponse>>;
+  public function StopSentimentDetectionJob(StopSentimentDetectionJobRequest) Awaitable<Errors\Result<StopSentimentDetectionJobResponse>>;
+  public function StopTrainingDocumentClassifier(StopTrainingDocumentClassifierRequest) Awaitable<Errors\Result<StopTrainingDocumentClassifierResponse>>;
+  public function StopTrainingEntityRecognizer(StopTrainingEntityRecognizerRequest) Awaitable<Errors\Result<StopTrainingEntityRecognizerResponse>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateEndpoint(UpdateEndpointRequest) Awaitable<Errors\Result<UpdateEndpointResponse>>;
 }
 
-class DominantLanguageDetectionJobPropertiesList {
+class AnyLengthString {
 }
 
-class EntityRecognizerDocuments {
-  public S3Uri $s_3_uri;
+class BatchDetectDominantLanguageItemResult {
+  public int $index;
+  public ListOfDominantLanguages $languages;
 }
 
-class ListDocumentClassifiersResponse {
-  public DocumentClassifierPropertiesList $document_classifier_properties_list;
-  public string $next_token;
+class BatchDetectDominantLanguageRequest {
+  public StringList $text_list;
 }
 
-class ListEntitiesDetectionJobsRequest {
-  public EntitiesDetectionJobFilter $filter;
-  public string $next_token;
-  public MaxResultsInteger $max_results;
+class BatchDetectDominantLanguageResponse {
+  public BatchItemErrorList $error_list;
+  public ListOfDetectDominantLanguageResult $result_list;
 }
 
-class ListEntityRecognizersRequest {
-  public EntityRecognizerFilter $filter;
-  public string $next_token;
-  public MaxResultsInteger $max_results;
+class BatchDetectEntitiesItemResult {
+  public ListOfEntities $entities;
+  public int $index;
 }
 
-class OutputDataConfig {
-  public S3Uri $s_3_uri;
-  public KmsKeyId $kms_key_id;
+class BatchDetectEntitiesRequest {
+  public LanguageCode $language_code;
+  public StringList $text_list;
 }
 
-class TextSizeLimitExceededException {
+class BatchDetectEntitiesResponse {
+  public BatchItemErrorList $error_list;
+  public ListOfDetectEntitiesResult $result_list;
+}
+
+class BatchDetectKeyPhrasesItemResult {
+  public int $index;
+  public ListOfKeyPhrases $key_phrases;
+}
+
+class BatchDetectKeyPhrasesRequest {
+  public LanguageCode $language_code;
+  public StringList $text_list;
+}
+
+class BatchDetectKeyPhrasesResponse {
+  public BatchItemErrorList $error_list;
+  public ListOfDetectKeyPhrasesResult $result_list;
+}
+
+class BatchDetectSentimentItemResult {
+  public int $index;
+  public SentimentType $sentiment;
+  public SentimentScore $sentiment_score;
+}
+
+class BatchDetectSentimentRequest {
+  public LanguageCode $language_code;
+  public StringList $text_list;
+}
+
+class BatchDetectSentimentResponse {
+  public BatchItemErrorList $error_list;
+  public ListOfDetectSentimentResult $result_list;
+}
+
+class BatchDetectSyntaxItemResult {
+  public int $index;
+  public ListOfSyntaxTokens $syntax_tokens;
+}
+
+class BatchDetectSyntaxRequest {
+  public SyntaxLanguageCode $language_code;
+  public StringList $text_list;
+}
+
+class BatchDetectSyntaxResponse {
+  public BatchItemErrorList $error_list;
+  public ListOfDetectSyntaxResult $result_list;
+}
+
+class BatchItemError {
+  public string $error_code;
+  public string $error_message;
+  public int $index;
+}
+
+class BatchItemErrorList {
+}
+
+class BatchSizeLimitExceededException {
   public string $message;
+}
+
+class ClassifierEvaluationMetrics {
+  public Double $accuracy;
+  public Double $f_1_score;
+  public Double $hamming_loss;
+  public Double $micro_f_1_score;
+  public Double $micro_precision;
+  public Double $micro_recall;
+  public Double $precision;
+  public Double $recall;
+}
+
+class ClassifierMetadata {
+  public ClassifierEvaluationMetrics $evaluation_metrics;
+  public int $number_of_labels;
+  public int $number_of_test_documents;
+  public int $number_of_trained_documents;
+}
+
+class ClassifyDocumentRequest {
+  public DocumentClassifierEndpointArn $endpoint_arn;
+  public string $text;
+}
+
+class ClassifyDocumentResponse {
+  public ListOfClasses $classes;
+  public ListOfLabels $labels;
+}
+
+class ClientRequestTokenString {
+}
+
+class ComprehendArn {
+}
+
+class ComprehendArnName {
+}
+
+class ComprehendEndpointArn {
+}
+
+class ComprehendEndpointName {
+}
+
+class ComprehendModelArn {
+}
+
+class ConcurrentModificationException {
+  public string $message;
+}
+
+class CreateDocumentClassifierRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public ComprehendArnName $document_classifier_name;
+  public DocumentClassifierInputDataConfig $input_data_config;
+  public LanguageCode $language_code;
+  public DocumentClassifierMode $mode;
+  public DocumentClassifierOutputDataConfig $output_data_config;
+  public TagList $tags;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class CreateDocumentClassifierResponse {
+  public DocumentClassifierArn $document_classifier_arn;
+}
+
+class CreateEndpointRequest {
+  public ClientRequestTokenString $client_request_token;
+  public InferenceUnitsInteger $desired_inference_units;
+  public ComprehendEndpointName $endpoint_name;
+  public ComprehendModelArn $model_arn;
+  public TagList $tags;
+}
+
+class CreateEndpointResponse {
+  public ComprehendEndpointArn $endpoint_arn;
+}
+
+class CreateEntityRecognizerRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public EntityRecognizerInputDataConfig $input_data_config;
+  public LanguageCode $language_code;
+  public ComprehendArnName $recognizer_name;
+  public TagList $tags;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
 }
 
 class CreateEntityRecognizerResponse {
@@ -96,661 +244,124 @@ class DeleteDocumentClassifierRequest {
   public DocumentClassifierArn $document_classifier_arn;
 }
 
-class DominantLanguageDetectionJobFilter {
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class SentimentDetectionJobPropertiesList {
-}
-
-class BatchDetectEntitiesItemResult {
-  public int $index;
-  public ListOfEntities $entities;
-}
-
-class TooManyRequestsException {
-  public string $message;
+class DeleteDocumentClassifierResponse {
 }
 
 class DeleteEndpointRequest {
   public ComprehendEndpointArn $endpoint_arn;
 }
 
-class DescribeEndpointRequest {
-  public ComprehendEndpointArn $endpoint_arn;
-}
-
-class DocumentClassifierPropertiesList {
-}
-
-class ResourceNotFoundException {
-  public string $message;
-}
-
-class BatchDetectSentimentRequest {
-  public StringList $text_list;
-  public LanguageCode $language_code;
-}
-
-class TagKey {
-}
-
-class EntitiesDetectionJobFilter {
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class StartDocumentClassificationJobRequest {
-  public IamRoleArn $data_access_role_arn;
-  public ClientRequestTokenString $client_request_token;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public JobName $job_name;
-  public DocumentClassifierArn $document_classifier_arn;
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
-}
-
-class TagList {
-}
-
 class DeleteEndpointResponse {
-}
-
-class DescribeEntitiesDetectionJobRequest {
-  public JobId $job_id;
-}
-
-class TagKeyList {
-}
-
-class DescribeDominantLanguageDetectionJobResponse {
-  public DominantLanguageDetectionJobProperties $dominant_language_detection_job_properties;
-}
-
-class ListOfSyntaxTokens {
-}
-
-class BatchSizeLimitExceededException {
-  public string $message;
-}
-
-class ComprehendArn {
-}
-
-class ListEntityRecognizersResponse {
-  public EntityRecognizerPropertiesList $entity_recognizer_properties_list;
-  public string $next_token;
-}
-
-class EntityTypesList {
-}
-
-class StopSentimentDetectionJobRequest {
-  public JobId $job_id;
-}
-
-class TagValue {
-}
-
-class DetectDominantLanguageResponse {
-  public ListOfDominantLanguages $languages;
-}
-
-class EntityRecognizerEntityList {
-  public S3Uri $s_3_uri;
-}
-
-class KmsKeyId {
-}
-
-class UnsupportedLanguageException {
-  public string $message;
-}
-
-class BatchDetectEntitiesResponse {
-  public ListOfDetectEntitiesResult $result_list;
-  public BatchItemErrorList $error_list;
-}
-
-class IamRoleArn {
-}
-
-class LabelDelimiter {
-}
-
-class ListOfDetectSyntaxResult {
-}
-
-class String {
-}
-
-class SyntaxToken {
-  public int $token_id;
-  public string $text;
-  public int $begin_offset;
-  public int $end_offset;
-  public PartOfSpeechTag $part_of_speech;
-}
-
-class TooManyTagKeysException {
-  public string $message;
-}
-
-class BatchDetectKeyPhrasesRequest {
-  public StringList $text_list;
-  public LanguageCode $language_code;
-}
-
-class BatchDetectSyntaxResponse {
-  public ListOfDetectSyntaxResult $result_list;
-  public BatchItemErrorList $error_list;
-}
-
-class StartSentimentDetectionJobRequest {
-  public LanguageCode $language_code;
-  public ClientRequestTokenString $client_request_token;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
-  public IamRoleArn $data_access_role_arn;
-  public JobName $job_name;
-}
-
-class StopTrainingDocumentClassifierResponse {
-}
-
-class BatchDetectSentimentItemResult {
-  public int $index;
-  public SentimentType $sentiment;
-  public SentimentScore $sentiment_score;
-}
-
-class ClassifierEvaluationMetrics {
-  public Double $micro_recall;
-  public Double $micro_f_1_score;
-  public Double $hamming_loss;
-  public Double $accuracy;
-  public Double $precision;
-  public Double $recall;
-  public Double $f_1_score;
-  public Double $micro_precision;
-}
-
-class CreateEndpointResponse {
-  public ComprehendEndpointArn $endpoint_arn;
-}
-
-class EntityTypesListItem {
-  public EntityTypeName $type;
-}
-
-class LanguageCode {
-}
-
-class ListEndpointsResponse {
-  public EndpointPropertiesList $endpoint_properties_list;
-  public string $next_token;
-}
-
-class ListOfDetectEntitiesResult {
-}
-
-class BatchDetectKeyPhrasesResponse {
-  public ListOfDetectKeyPhrasesResult $result_list;
-  public BatchItemErrorList $error_list;
-}
-
-class DescribeKeyPhrasesDetectionJobResponse {
-  public KeyPhrasesDetectionJobProperties $key_phrases_detection_job_properties;
-}
-
-class DocumentClassifierArn {
-}
-
-class DeleteDocumentClassifierResponse {
-}
-
-class DescribeEntityRecognizerRequest {
-  public EntityRecognizerArn $entity_recognizer_arn;
-}
-
-class DocumentClass {
-  public string $name;
-  public Float $score;
-}
-
-class DocumentClassifierFilter {
-  public ModelStatus $status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class KeyPhrasesDetectionJobPropertiesList {
-}
-
-class DescribeDominantLanguageDetectionJobRequest {
-  public JobId $job_id;
-}
-
-class DetectSentimentRequest {
-  public string $text;
-  public LanguageCode $language_code;
-}
-
-class PartOfSpeechTagType {
-}
-
-class ClassifierMetadata {
-  public ClassifierEvaluationMetrics $evaluation_metrics;
-  public int $number_of_labels;
-  public int $number_of_trained_documents;
-  public int $number_of_test_documents;
-}
-
-class ClassifyDocumentResponse {
-  public ListOfClasses $classes;
-  public ListOfLabels $labels;
-}
-
-class EntityRecognizerAnnotations {
-  public S3Uri $s_3_uri;
-}
-
-class NumberOfTopicsInteger {
-}
-
-class StartDocumentClassificationJobResponse {
-  public JobId $job_id;
-  public JobStatus $job_status;
-}
-
-class TopicsDetectionJobPropertiesList {
-}
-
-class BatchDetectSentimentResponse {
-  public ListOfDetectSentimentResult $result_list;
-  public BatchItemErrorList $error_list;
-}
-
-class ListOfLabels {
-}
-
-class SentimentScore {
-  public Float $mixed;
-  public Float $positive;
-  public Float $negative;
-  public Float $neutral;
-}
-
-class DetectDominantLanguageRequest {
-  public string $text;
-}
-
-class DetectSyntaxResponse {
-  public ListOfSyntaxTokens $syntax_tokens;
-}
-
-class InferenceUnitsInteger {
-}
-
-class InvalidFilterException {
-  public string $message;
-}
-
-class ListSentimentDetectionJobsRequest {
-  public string $next_token;
-  public MaxResultsInteger $max_results;
-  public SentimentDetectionJobFilter $filter;
-}
-
-class StopKeyPhrasesDetectionJobResponse {
-  public JobId $job_id;
-  public JobStatus $job_status;
-}
-
-class DescribeKeyPhrasesDetectionJobRequest {
-  public JobId $job_id;
-}
-
-class EntityRecognizerProperties {
-  public ModelStatus $status;
-  public KmsKeyId $volume_kms_key_id;
-  public AnyLengthString $message;
-  public Timestamp $submit_time;
-  public Timestamp $end_time;
-  public Timestamp $training_start_time;
-  public Timestamp $training_end_time;
-  public EntityRecognizerInputDataConfig $input_data_config;
-  public EntityRecognizerArn $entity_recognizer_arn;
-  public LanguageCode $language_code;
-  public VpcConfig $vpc_config;
-  public EntityRecognizerMetadata $recognizer_metadata;
-  public IamRoleArn $data_access_role_arn;
-}
-
-class StringList {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class TooManyTagsException {
-  public string $message;
-}
-
-class ListOfEntities {
-}
-
-class EntitiesDetectionJobProperties {
-  public EntityRecognizerArn $entity_recognizer_arn;
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
-  public LanguageCode $language_code;
-  public IamRoleArn $data_access_role_arn;
-  public KmsKeyId $volume_kms_key_id;
-  public JobId $job_id;
-  public JobStatus $job_status;
-  public Timestamp $submit_time;
-  public Timestamp $end_time;
-  public VpcConfig $vpc_config;
-  public JobName $job_name;
-  public AnyLengthString $message;
-}
-
-class KmsKeyValidationException {
-  public string $message;
-}
-
-class EntityType {
-}
-
-class KeyPhrasesDetectionJobFilter {
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class ResourceUnavailableException {
-  public string $message;
-}
-
-class SentimentType {
-}
-
-class StopSentimentDetectionJobResponse {
-  public JobStatus $job_status;
-  public JobId $job_id;
-}
-
-class DocumentClassificationJobFilter {
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-  public JobName $job_name;
-}
-
-class DocumentClassificationJobPropertiesList {
-}
-
-class EntityRecognizerInputDataConfig {
-  public EntityTypesList $entity_types;
-  public EntityRecognizerDocuments $documents;
-  public EntityRecognizerAnnotations $annotations;
-  public EntityRecognizerEntityList $entity_list;
-}
-
-class SentimentDetectionJobFilter {
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class UntagResourceRequest {
-  public ComprehendArn $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class BatchItemErrorList {
 }
 
 class DeleteEntityRecognizerRequest {
   public EntityRecognizerArn $entity_recognizer_arn;
 }
 
-class EntityRecognizerMetadataEntityTypesList {
-}
-
-class KeyPhrase {
-  public Float $score;
-  public string $text;
-  public int $begin_offset;
-  public int $end_offset;
-}
-
-class StartDominantLanguageDetectionJobResponse {
-  public JobStatus $job_status;
-  public JobId $job_id;
-}
-
-class CreateDocumentClassifierResponse {
-  public DocumentClassifierArn $document_classifier_arn;
-}
-
-class StartTopicsDetectionJobResponse {
-  public JobId $job_id;
-  public JobStatus $job_status;
-}
-
-class EndpointStatus {
-}
-
-class EntityRecognizerEvaluationMetrics {
-  public Double $precision;
-  public Double $recall;
-  public Double $f_1_score;
-}
-
-class InvalidRequestException {
-  public string $message;
-}
-
-class TopicsDetectionJobFilter {
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class TopicsDetectionJobProperties {
-  public Timestamp $end_time;
-  public OutputDataConfig $output_data_config;
-  public KmsKeyId $volume_kms_key_id;
-  public JobId $job_id;
-  public JobName $job_name;
-  public Timestamp $submit_time;
-  public InputDataConfig $input_data_config;
-  public int $number_of_topics;
-  public IamRoleArn $data_access_role_arn;
-  public VpcConfig $vpc_config;
-  public JobStatus $job_status;
-  public AnyLengthString $message;
-}
-
-class DocumentClassifierEndpointArn {
-}
-
-class EntityRecognizerMetadataEntityTypesListItem {
-  public AnyLengthString $type;
-  public EntityTypesEvaluationMetrics $evaluation_metrics;
-  public int $number_of_train_mentions;
-}
-
-class EntityTypesEvaluationMetrics {
-  public Double $precision;
-  public Double $recall;
-  public Double $f_1_score;
-}
-
-class StopDominantLanguageDetectionJobResponse {
-  public JobId $job_id;
-  public JobStatus $job_status;
-}
-
-class BatchDetectSyntaxItemResult {
-  public int $index;
-  public ListOfSyntaxTokens $syntax_tokens;
-}
-
-class ComprehendModelArn {
-}
-
 class DeleteEntityRecognizerResponse {
 }
 
-class DocumentClassifierMode {
-}
-
-class DocumentClassifierOutputDataConfig {
-  public S3Uri $s_3_uri;
-  public KmsKeyId $kms_key_id;
-}
-
-class ListTopicsDetectionJobsRequest {
-  public TopicsDetectionJobFilter $filter;
-  public string $next_token;
-  public MaxResultsInteger $max_results;
-}
-
-class ResourceLimitExceededException {
-  public string $message;
-}
-
-class StopEntitiesDetectionJobResponse {
-  public JobId $job_id;
-  public JobStatus $job_status;
-}
-
-class CreateEntityRecognizerRequest {
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public ComprehendArnName $recognizer_name;
-  public IamRoleArn $data_access_role_arn;
-  public TagList $tags;
-  public EntityRecognizerInputDataConfig $input_data_config;
-  public ClientRequestTokenString $client_request_token;
-  public LanguageCode $language_code;
-}
-
-class DocumentClassifierInputDataConfig {
-  public S3Uri $s_3_uri;
-  public LabelDelimiter $label_delimiter;
-}
-
-class BatchDetectDominantLanguageRequest {
-  public StringList $text_list;
-}
-
-class DescribeTopicsDetectionJobRequest {
+class DescribeDocumentClassificationJobRequest {
   public JobId $job_id;
 }
 
-class EndpointPropertiesList {
+class DescribeDocumentClassificationJobResponse {
+  public DocumentClassificationJobProperties $document_classification_job_properties;
 }
 
-class StartDominantLanguageDetectionJobRequest {
-  public OutputDataConfig $output_data_config;
-  public IamRoleArn $data_access_role_arn;
-  public JobName $job_name;
-  public ClientRequestTokenString $client_request_token;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public InputDataConfig $input_data_config;
-}
-
-class DocumentClassifierProperties {
+class DescribeDocumentClassifierRequest {
   public DocumentClassifierArn $document_classifier_arn;
-  public AnyLengthString $message;
-  public DocumentClassifierInputDataConfig $input_data_config;
-  public DocumentClassifierOutputDataConfig $output_data_config;
-  public KmsKeyId $volume_kms_key_id;
-  public Timestamp $end_time;
-  public DocumentClassifierMode $mode;
-  public IamRoleArn $data_access_role_arn;
-  public VpcConfig $vpc_config;
-  public LanguageCode $language_code;
-  public ModelStatus $status;
-  public Timestamp $submit_time;
-  public Timestamp $training_start_time;
-  public Timestamp $training_end_time;
-  public ClassifierMetadata $classifier_metadata;
 }
 
-class Float {
+class DescribeDocumentClassifierResponse {
+  public DocumentClassifierProperties $document_classifier_properties;
 }
 
-class ListTopicsDetectionJobsResponse {
-  public TopicsDetectionJobPropertiesList $topics_detection_job_properties_list;
-  public string $next_token;
+class DescribeDominantLanguageDetectionJobRequest {
+  public JobId $job_id;
 }
 
-class SyntaxLanguageCode {
+class DescribeDominantLanguageDetectionJobResponse {
+  public DominantLanguageDetectionJobProperties $dominant_language_detection_job_properties;
 }
 
-class CreateEndpointRequest {
-  public ComprehendEndpointName $endpoint_name;
-  public ComprehendModelArn $model_arn;
-  public InferenceUnitsInteger $desired_inference_units;
-  public ClientRequestTokenString $client_request_token;
-  public TagList $tags;
+class DescribeEndpointRequest {
+  public ComprehendEndpointArn $endpoint_arn;
 }
 
 class DescribeEndpointResponse {
   public EndpointProperties $endpoint_properties;
 }
 
-class DetectEntitiesRequest {
-  public string $text;
-  public LanguageCode $language_code;
+class DescribeEntitiesDetectionJobRequest {
+  public JobId $job_id;
 }
 
-class StopTrainingEntityRecognizerRequest {
+class DescribeEntitiesDetectionJobResponse {
+  public EntitiesDetectionJobProperties $entities_detection_job_properties;
+}
+
+class DescribeEntityRecognizerRequest {
   public EntityRecognizerArn $entity_recognizer_arn;
+}
+
+class DescribeEntityRecognizerResponse {
+  public EntityRecognizerProperties $entity_recognizer_properties;
+}
+
+class DescribeKeyPhrasesDetectionJobRequest {
+  public JobId $job_id;
+}
+
+class DescribeKeyPhrasesDetectionJobResponse {
+  public KeyPhrasesDetectionJobProperties $key_phrases_detection_job_properties;
+}
+
+class DescribeSentimentDetectionJobRequest {
+  public JobId $job_id;
 }
 
 class DescribeSentimentDetectionJobResponse {
   public SentimentDetectionJobProperties $sentiment_detection_job_properties;
 }
 
-class ListOfDominantLanguages {
-}
-
-class ResourceInUseException {
-  public string $message;
-}
-
-class StartKeyPhrasesDetectionJobResponse {
+class DescribeTopicsDetectionJobRequest {
   public JobId $job_id;
-  public JobStatus $job_status;
 }
 
-class UpdateEndpointRequest {
-  public ComprehendEndpointArn $endpoint_arn;
-  public InferenceUnitsInteger $desired_inference_units;
+class DescribeTopicsDetectionJobResponse {
+  public TopicsDetectionJobProperties $topics_detection_job_properties;
 }
 
-class DescribeDocumentClassificationJobResponse {
-  public DocumentClassificationJobProperties $document_classification_job_properties;
+class DetectDominantLanguageRequest {
+  public string $text;
+}
+
+class DetectDominantLanguageResponse {
+  public ListOfDominantLanguages $languages;
+}
+
+class DetectEntitiesRequest {
+  public LanguageCode $language_code;
+  public string $text;
+}
+
+class DetectEntitiesResponse {
+  public ListOfEntities $entities;
+}
+
+class DetectKeyPhrasesRequest {
+  public LanguageCode $language_code;
+  public string $text;
+}
+
+class DetectKeyPhrasesResponse {
+  public ListOfKeyPhrases $key_phrases;
+}
+
+class DetectSentimentRequest {
+  public LanguageCode $language_code;
+  public string $text;
 }
 
 class DetectSentimentResponse {
@@ -758,244 +369,368 @@ class DetectSentimentResponse {
   public SentimentScore $sentiment_score;
 }
 
-class EntityRecognizerArn {
+class DetectSyntaxRequest {
+  public SyntaxLanguageCode $language_code;
+  public string $text;
 }
 
-class ListDocumentClassifiersRequest {
-  public DocumentClassifierFilter $filter;
-  public string $next_token;
-  public MaxResultsInteger $max_results;
+class DetectSyntaxResponse {
+  public ListOfSyntaxTokens $syntax_tokens;
 }
 
-class BatchDetectDominantLanguageResponse {
-  public ListOfDetectDominantLanguageResult $result_list;
-  public BatchItemErrorList $error_list;
+class DocumentClass {
+  public string $name;
+  public Float $score;
+}
+
+class DocumentClassificationJobFilter {
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class DocumentClassificationJobProperties {
+  public IamRoleArn $data_access_role_arn;
+  public DocumentClassifierArn $document_classifier_arn;
+  public Timestamp $end_time;
+  public InputDataConfig $input_data_config;
+  public JobId $job_id;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public AnyLengthString $message;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class DocumentClassificationJobPropertiesList {
+}
+
+class DocumentClassifierArn {
+}
+
+class DocumentClassifierEndpointArn {
+}
+
+class DocumentClassifierFilter {
+  public ModelStatus $status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class DocumentClassifierInputDataConfig {
+  public LabelDelimiter $label_delimiter;
+  public S3Uri $s_3_uri;
+}
+
+class DocumentClassifierMode {
+}
+
+class DocumentClassifierOutputDataConfig {
+  public KmsKeyId $kms_key_id;
+  public S3Uri $s_3_uri;
+}
+
+class DocumentClassifierProperties {
+  public ClassifierMetadata $classifier_metadata;
+  public IamRoleArn $data_access_role_arn;
+  public DocumentClassifierArn $document_classifier_arn;
+  public Timestamp $end_time;
+  public DocumentClassifierInputDataConfig $input_data_config;
+  public LanguageCode $language_code;
+  public AnyLengthString $message;
+  public DocumentClassifierMode $mode;
+  public DocumentClassifierOutputDataConfig $output_data_config;
+  public ModelStatus $status;
+  public Timestamp $submit_time;
+  public Timestamp $training_end_time;
+  public Timestamp $training_start_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class DocumentClassifierPropertiesList {
+}
+
+class DocumentLabel {
+  public string $name;
+  public Float $score;
+}
+
+class DominantLanguage {
+  public string $language_code;
+  public Float $score;
+}
+
+class DominantLanguageDetectionJobFilter {
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class DominantLanguageDetectionJobProperties {
+  public IamRoleArn $data_access_role_arn;
+  public Timestamp $end_time;
+  public InputDataConfig $input_data_config;
+  public JobId $job_id;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public AnyLengthString $message;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class DominantLanguageDetectionJobPropertiesList {
+}
+
+class Double {
+}
+
+class EndpointFilter {
+  public Timestamp $creation_time_after;
+  public Timestamp $creation_time_before;
+  public ComprehendModelArn $model_arn;
+  public EndpointStatus $status;
+}
+
+class EndpointProperties {
+  public Timestamp $creation_time;
+  public InferenceUnitsInteger $current_inference_units;
+  public InferenceUnitsInteger $desired_inference_units;
+  public ComprehendEndpointArn $endpoint_arn;
+  public Timestamp $last_modified_time;
+  public AnyLengthString $message;
+  public ComprehendModelArn $model_arn;
+  public EndpointStatus $status;
+}
+
+class EndpointPropertiesList {
+}
+
+class EndpointStatus {
+}
+
+class EntitiesDetectionJobFilter {
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class EntitiesDetectionJobProperties {
+  public IamRoleArn $data_access_role_arn;
+  public Timestamp $end_time;
+  public EntityRecognizerArn $entity_recognizer_arn;
+  public InputDataConfig $input_data_config;
+  public JobId $job_id;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public LanguageCode $language_code;
+  public AnyLengthString $message;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
 }
 
 class EntitiesDetectionJobPropertiesList {
 }
 
-class StopKeyPhrasesDetectionJobRequest {
-  public JobId $job_id;
+class Entity {
+  public int $begin_offset;
+  public int $end_offset;
+  public Float $score;
+  public string $text;
+  public EntityType $type;
 }
 
-class DescribeDocumentClassifierRequest {
-  public DocumentClassifierArn $document_classifier_arn;
+class EntityRecognizerAnnotations {
+  public S3Uri $s_3_uri;
 }
 
-class DescribeTopicsDetectionJobResponse {
-  public TopicsDetectionJobProperties $topics_detection_job_properties;
+class EntityRecognizerArn {
+}
+
+class EntityRecognizerDocuments {
+  public S3Uri $s_3_uri;
+}
+
+class EntityRecognizerEntityList {
+  public S3Uri $s_3_uri;
+}
+
+class EntityRecognizerEvaluationMetrics {
+  public Double $f_1_score;
+  public Double $precision;
+  public Double $recall;
+}
+
+class EntityRecognizerFilter {
+  public ModelStatus $status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class EntityRecognizerInputDataConfig {
+  public EntityRecognizerAnnotations $annotations;
+  public EntityRecognizerDocuments $documents;
+  public EntityRecognizerEntityList $entity_list;
+  public EntityTypesList $entity_types;
+}
+
+class EntityRecognizerMetadata {
+  public EntityRecognizerMetadataEntityTypesList $entity_types;
+  public EntityRecognizerEvaluationMetrics $evaluation_metrics;
+  public int $number_of_test_documents;
+  public int $number_of_trained_documents;
+}
+
+class EntityRecognizerMetadataEntityTypesList {
+}
+
+class EntityRecognizerMetadataEntityTypesListItem {
+  public EntityTypesEvaluationMetrics $evaluation_metrics;
+  public int $number_of_train_mentions;
+  public AnyLengthString $type;
+}
+
+class EntityRecognizerProperties {
+  public IamRoleArn $data_access_role_arn;
+  public Timestamp $end_time;
+  public EntityRecognizerArn $entity_recognizer_arn;
+  public EntityRecognizerInputDataConfig $input_data_config;
+  public LanguageCode $language_code;
+  public AnyLengthString $message;
+  public EntityRecognizerMetadata $recognizer_metadata;
+  public ModelStatus $status;
+  public Timestamp $submit_time;
+  public Timestamp $training_end_time;
+  public Timestamp $training_start_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
 }
 
 class EntityRecognizerPropertiesList {
 }
 
-class SecurityGroupIds {
+class EntityType {
 }
 
-class StartTopicsDetectionJobRequest {
-  public NumberOfTopicsInteger $number_of_topics;
-  public ClientRequestTokenString $client_request_token;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
-  public IamRoleArn $data_access_role_arn;
-  public JobName $job_name;
+class EntityTypeName {
+}
+
+class EntityTypesEvaluationMetrics {
+  public Double $f_1_score;
+  public Double $precision;
+  public Double $recall;
+}
+
+class EntityTypesList {
+}
+
+class EntityTypesListItem {
+  public EntityTypeName $type;
+}
+
+class Float {
+}
+
+class IamRoleArn {
+}
+
+class InferenceUnitsInteger {
+}
+
+class InputDataConfig {
+  public InputFormat $input_format;
+  public S3Uri $s_3_uri;
+}
+
+class InputFormat {
+}
+
+class Integer {
+}
+
+class InternalServerException {
+  public string $message;
+}
+
+class InvalidFilterException {
+  public string $message;
+}
+
+class InvalidRequestException {
+  public string $message;
+}
+
+class JobId {
+}
+
+class JobName {
 }
 
 class JobNotFoundException {
   public string $message;
 }
 
-class ListKeyPhrasesDetectionJobsRequest {
-  public KeyPhrasesDetectionJobFilter $filter;
-  public string $next_token;
-  public MaxResultsInteger $max_results;
+class JobStatus {
 }
 
-class ListOfKeyPhrases {
+class KeyPhrase {
+  public int $begin_offset;
+  public int $end_offset;
+  public Float $score;
+  public string $text;
+}
+
+class KeyPhrasesDetectionJobFilter {
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
 }
 
 class KeyPhrasesDetectionJobProperties {
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
   public IamRoleArn $data_access_role_arn;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public JobId $job_id;
-  public JobStatus $job_status;
-  public AnyLengthString $message;
-  public Timestamp $submit_time;
-  public Timestamp $end_time;
-  public LanguageCode $language_code;
-  public JobName $job_name;
-}
-
-class ListOfDetectSentimentResult {
-}
-
-class S3Uri {
-}
-
-class SentimentDetectionJobProperties {
-  public IamRoleArn $data_access_role_arn;
-  public KmsKeyId $volume_kms_key_id;
-  public VpcConfig $vpc_config;
-  public JobId $job_id;
-  public JobName $job_name;
-  public JobStatus $job_status;
-  public AnyLengthString $message;
-  public LanguageCode $language_code;
-  public Timestamp $submit_time;
   public Timestamp $end_time;
   public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
-}
-
-class ListDominantLanguageDetectionJobsResponse {
-  public string $next_token;
-  public DominantLanguageDetectionJobPropertiesList $dominant_language_detection_job_properties_list;
-}
-
-class PartOfSpeechTag {
-  public PartOfSpeechTagType $tag;
-  public Float $score;
-}
-
-class StartEntitiesDetectionJobRequest {
-  public InputDataConfig $input_data_config;
-  public JobName $job_name;
-  public EntityRecognizerArn $entity_recognizer_arn;
-  public ClientRequestTokenString $client_request_token;
-  public VpcConfig $vpc_config;
-  public OutputDataConfig $output_data_config;
-  public IamRoleArn $data_access_role_arn;
-  public LanguageCode $language_code;
-  public KmsKeyId $volume_kms_key_id;
-}
-
-class InputFormat {
-}
-
-class ModelStatus {
-}
-
-class BatchDetectKeyPhrasesItemResult {
-  public int $index;
-  public ListOfKeyPhrases $key_phrases;
-}
-
-class DetectEntitiesResponse {
-  public ListOfEntities $entities;
-}
-
-class ListTagsForResourceResponse {
-  public ComprehendArn $resource_arn;
-  public TagList $tags;
-}
-
-class StartEntitiesDetectionJobResponse {
-  public JobStatus $job_status;
   public JobId $job_id;
-}
-
-class TagResourceResponse {
-}
-
-class BatchItemError {
-  public int $index;
-  public string $error_code;
-  public string $error_message;
-}
-
-class ListEntitiesDetectionJobsResponse {
-  public EntitiesDetectionJobPropertiesList $entities_detection_job_properties_list;
-  public string $next_token;
-}
-
-class ListOfDetectDominantLanguageResult {
-}
-
-class UntagResourceResponse {
-}
-
-class Double {
-}
-
-class EntityRecognizerFilter {
-  public ModelStatus $status;
-  public Timestamp $submit_time_before;
-  public Timestamp $submit_time_after;
-}
-
-class ComprehendEndpointArn {
-}
-
-class EndpointProperties {
-  public InferenceUnitsInteger $current_inference_units;
-  public Timestamp $creation_time;
-  public Timestamp $last_modified_time;
-  public ComprehendEndpointArn $endpoint_arn;
-  public EndpointStatus $status;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public LanguageCode $language_code;
   public AnyLengthString $message;
-  public ComprehendModelArn $model_arn;
-  public InferenceUnitsInteger $desired_inference_units;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
 }
 
-class EntityTypeName {
+class KeyPhrasesDetectionJobPropertiesList {
 }
 
-class StopTrainingDocumentClassifierRequest {
-  public DocumentClassifierArn $document_classifier_arn;
+class KmsKeyId {
 }
 
-class UpdateEndpointResponse {
+class KmsKeyValidationException {
+  public string $message;
 }
 
-class BatchDetectDominantLanguageItemResult {
-  public ListOfDominantLanguages $languages;
-  public int $index;
+class LabelDelimiter {
 }
 
-class ClassifyDocumentRequest {
-  public string $text;
-  public DocumentClassifierEndpointArn $endpoint_arn;
+class LanguageCode {
 }
 
-class DocumentLabel {
-  public Float $score;
-  public string $name;
-}
-
-class MaxResultsInteger {
-}
-
-class JobId {
-}
-
-class SubnetId {
-}
-
-class DetectSyntaxRequest {
-  public string $text;
-  public SyntaxLanguageCode $language_code;
-}
-
-class DominantLanguage {
-  public Float $score;
-  public string $language_code;
-}
-
-class Entity {
-  public Float $score;
-  public EntityType $type;
-  public string $text;
-  public int $begin_offset;
-  public int $end_offset;
-}
-
-class Integer {
+class ListDocumentClassificationJobsRequest {
+  public DocumentClassificationJobFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
 }
 
 class ListDocumentClassificationJobsResponse {
@@ -1003,107 +738,65 @@ class ListDocumentClassificationJobsResponse {
   public string $next_token;
 }
 
+class ListDocumentClassifiersRequest {
+  public DocumentClassifierFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
+}
+
+class ListDocumentClassifiersResponse {
+  public DocumentClassifierPropertiesList $document_classifier_properties_list;
+  public string $next_token;
+}
+
 class ListDominantLanguageDetectionJobsRequest {
   public DominantLanguageDetectionJobFilter $filter;
-  public string $next_token;
   public MaxResultsInteger $max_results;
-}
-
-class ListSentimentDetectionJobsResponse {
-  public SentimentDetectionJobPropertiesList $sentiment_detection_job_properties_list;
   public string $next_token;
 }
 
-class BatchDetectEntitiesRequest {
-  public StringList $text_list;
-  public LanguageCode $language_code;
-}
-
-class BatchDetectSyntaxRequest {
-  public StringList $text_list;
-  public SyntaxLanguageCode $language_code;
-}
-
-class DescribeSentimentDetectionJobRequest {
-  public JobId $job_id;
-}
-
-class InternalServerException {
-  public string $message;
-}
-
-class DescribeDocumentClassificationJobRequest {
-  public JobId $job_id;
-}
-
-class DetectKeyPhrasesRequest {
-  public string $text;
-  public LanguageCode $language_code;
-}
-
-class ListDocumentClassificationJobsRequest {
+class ListDominantLanguageDetectionJobsResponse {
+  public DominantLanguageDetectionJobPropertiesList $dominant_language_detection_job_properties_list;
   public string $next_token;
-  public MaxResultsInteger $max_results;
-  public DocumentClassificationJobFilter $filter;
-}
-
-class Subnets {
-}
-
-class TagResourceRequest {
-  public ComprehendArn $resource_arn;
-  public TagList $tags;
-}
-
-class ComprehendEndpointName {
-}
-
-class DetectKeyPhrasesResponse {
-  public ListOfKeyPhrases $key_phrases;
-}
-
-class EndpointFilter {
-  public ComprehendModelArn $model_arn;
-  public EndpointStatus $status;
-  public Timestamp $creation_time_before;
-  public Timestamp $creation_time_after;
-}
-
-class ListTagsForResourceRequest {
-  public ComprehendArn $resource_arn;
-}
-
-class SecurityGroupId {
-}
-
-class CreateDocumentClassifierRequest {
-  public TagList $tags;
-  public ClientRequestTokenString $client_request_token;
-  public VpcConfig $vpc_config;
-  public DocumentClassifierMode $mode;
-  public ComprehendArnName $document_classifier_name;
-  public IamRoleArn $data_access_role_arn;
-  public DocumentClassifierInputDataConfig $input_data_config;
-  public DocumentClassifierOutputDataConfig $output_data_config;
-  public LanguageCode $language_code;
-  public KmsKeyId $volume_kms_key_id;
 }
 
 class ListEndpointsRequest {
   public EndpointFilter $filter;
-  public string $next_token;
   public MaxResultsInteger $max_results;
+  public string $next_token;
 }
 
-class ComprehendArnName {
+class ListEndpointsResponse {
+  public EndpointPropertiesList $endpoint_properties_list;
+  public string $next_token;
 }
 
-class ConcurrentModificationException {
-  public string $message;
+class ListEntitiesDetectionJobsRequest {
+  public EntitiesDetectionJobFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
 }
 
-class DescribeEntityRecognizerResponse {
-  public EntityRecognizerProperties $entity_recognizer_properties;
+class ListEntitiesDetectionJobsResponse {
+  public EntitiesDetectionJobPropertiesList $entities_detection_job_properties_list;
+  public string $next_token;
+}
+
+class ListEntityRecognizersRequest {
+  public EntityRecognizerFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
+}
+
+class ListEntityRecognizersResponse {
+  public EntityRecognizerPropertiesList $entity_recognizer_properties_list;
+  public string $next_token;
+}
+
+class ListKeyPhrasesDetectionJobsRequest {
+  public KeyPhrasesDetectionJobFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
 }
 
 class ListKeyPhrasesDetectionJobsResponse {
@@ -1111,105 +804,412 @@ class ListKeyPhrasesDetectionJobsResponse {
   public string $next_token;
 }
 
-class JobName {
+class ListOfClasses {
 }
 
-class JobStatus {
+class ListOfDetectDominantLanguageResult {
+}
+
+class ListOfDetectEntitiesResult {
 }
 
 class ListOfDetectKeyPhrasesResult {
 }
 
-class StopTrainingEntityRecognizerResponse {
+class ListOfDetectSentimentResult {
 }
 
-class VpcConfig {
-  public Subnets $subnets;
-  public SecurityGroupIds $security_group_ids;
+class ListOfDetectSyntaxResult {
 }
 
-class DescribeEntitiesDetectionJobResponse {
-  public EntitiesDetectionJobProperties $entities_detection_job_properties;
+class ListOfDominantLanguages {
 }
 
-class AnyLengthString {
+class ListOfEntities {
 }
 
-class DominantLanguageDetectionJobProperties {
-  public Timestamp $submit_time;
-  public KmsKeyId $volume_kms_key_id;
+class ListOfKeyPhrases {
+}
+
+class ListOfLabels {
+}
+
+class ListOfSyntaxTokens {
+}
+
+class ListSentimentDetectionJobsRequest {
+  public SentimentDetectionJobFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
+}
+
+class ListSentimentDetectionJobsResponse {
+  public string $next_token;
+  public SentimentDetectionJobPropertiesList $sentiment_detection_job_properties_list;
+}
+
+class ListTagsForResourceRequest {
+  public ComprehendArn $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public ComprehendArn $resource_arn;
+  public TagList $tags;
+}
+
+class ListTopicsDetectionJobsRequest {
+  public TopicsDetectionJobFilter $filter;
+  public MaxResultsInteger $max_results;
+  public string $next_token;
+}
+
+class ListTopicsDetectionJobsResponse {
+  public string $next_token;
+  public TopicsDetectionJobPropertiesList $topics_detection_job_properties_list;
+}
+
+class MaxResultsInteger {
+}
+
+class ModelStatus {
+}
+
+class NumberOfTopicsInteger {
+}
+
+class OutputDataConfig {
+  public KmsKeyId $kms_key_id;
+  public S3Uri $s_3_uri;
+}
+
+class PartOfSpeechTag {
+  public Float $score;
+  public PartOfSpeechTagType $tag;
+}
+
+class PartOfSpeechTagType {
+}
+
+class ResourceInUseException {
+  public string $message;
+}
+
+class ResourceLimitExceededException {
+  public string $message;
+}
+
+class ResourceNotFoundException {
+  public string $message;
+}
+
+class ResourceUnavailableException {
+  public string $message;
+}
+
+class S3Uri {
+}
+
+class SecurityGroupId {
+}
+
+class SecurityGroupIds {
+}
+
+class SentimentDetectionJobFilter {
   public JobName $job_name;
   public JobStatus $job_status;
-  public AnyLengthString $message;
-  public OutputDataConfig $output_data_config;
-  public IamRoleArn $data_access_role_arn;
-  public VpcConfig $vpc_config;
-  public JobId $job_id;
-  public Timestamp $end_time;
-  public InputDataConfig $input_data_config;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
 }
 
-class EntityRecognizerMetadata {
-  public int $number_of_trained_documents;
-  public int $number_of_test_documents;
-  public EntityRecognizerEvaluationMetrics $evaluation_metrics;
-  public EntityRecognizerMetadataEntityTypesList $entity_types;
+class SentimentDetectionJobProperties {
+  public IamRoleArn $data_access_role_arn;
+  public Timestamp $end_time;
+  public InputDataConfig $input_data_config;
+  public JobId $job_id;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public LanguageCode $language_code;
+  public AnyLengthString $message;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class SentimentDetectionJobPropertiesList {
+}
+
+class SentimentScore {
+  public Float $mixed;
+  public Float $negative;
+  public Float $neutral;
+  public Float $positive;
+}
+
+class SentimentType {
+}
+
+class StartDocumentClassificationJobRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public DocumentClassifierArn $document_classifier_arn;
+  public InputDataConfig $input_data_config;
+  public JobName $job_name;
+  public OutputDataConfig $output_data_config;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class StartDocumentClassificationJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StartDominantLanguageDetectionJobRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public InputDataConfig $input_data_config;
+  public JobName $job_name;
+  public OutputDataConfig $output_data_config;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class StartDominantLanguageDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StartEntitiesDetectionJobRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public EntityRecognizerArn $entity_recognizer_arn;
+  public InputDataConfig $input_data_config;
+  public JobName $job_name;
+  public LanguageCode $language_code;
+  public OutputDataConfig $output_data_config;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class StartEntitiesDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
 }
 
 class StartKeyPhrasesDetectionJobRequest {
+  public ClientRequestTokenString $client_request_token;
   public IamRoleArn $data_access_role_arn;
+  public InputDataConfig $input_data_config;
   public JobName $job_name;
   public LanguageCode $language_code;
-  public ClientRequestTokenString $client_request_token;
+  public OutputDataConfig $output_data_config;
   public KmsKeyId $volume_kms_key_id;
   public VpcConfig $vpc_config;
+}
+
+class StartKeyPhrasesDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StartSentimentDetectionJobRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
   public InputDataConfig $input_data_config;
+  public JobName $job_name;
+  public LanguageCode $language_code;
   public OutputDataConfig $output_data_config;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class StartSentimentDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StartTopicsDetectionJobRequest {
+  public ClientRequestTokenString $client_request_token;
+  public IamRoleArn $data_access_role_arn;
+  public InputDataConfig $input_data_config;
+  public JobName $job_name;
+  public NumberOfTopicsInteger $number_of_topics;
+  public OutputDataConfig $output_data_config;
+  public KmsKeyId $volume_kms_key_id;
+  public VpcConfig $vpc_config;
+}
+
+class StartTopicsDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StopDominantLanguageDetectionJobRequest {
+  public JobId $job_id;
+}
+
+class StopDominantLanguageDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
 }
 
 class StopEntitiesDetectionJobRequest {
   public JobId $job_id;
 }
 
+class StopEntitiesDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StopKeyPhrasesDetectionJobRequest {
+  public JobId $job_id;
+}
+
+class StopKeyPhrasesDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StopSentimentDetectionJobRequest {
+  public JobId $job_id;
+}
+
+class StopSentimentDetectionJobResponse {
+  public JobId $job_id;
+  public JobStatus $job_status;
+}
+
+class StopTrainingDocumentClassifierRequest {
+  public DocumentClassifierArn $document_classifier_arn;
+}
+
+class StopTrainingDocumentClassifierResponse {
+}
+
+class StopTrainingEntityRecognizerRequest {
+  public EntityRecognizerArn $entity_recognizer_arn;
+}
+
+class StopTrainingEntityRecognizerResponse {
+}
+
+class String {
+}
+
+class StringList {
+}
+
+class SubnetId {
+}
+
+class Subnets {
+}
+
+class SyntaxLanguageCode {
+}
+
+class SyntaxToken {
+  public int $begin_offset;
+  public int $end_offset;
+  public PartOfSpeechTag $part_of_speech;
+  public string $text;
+  public int $token_id;
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeyList {
+}
+
+class TagList {
+}
+
+class TagResourceRequest {
+  public ComprehendArn $resource_arn;
+  public TagList $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class TextSizeLimitExceededException {
+  public string $message;
+}
+
 class Timestamp {
 }
 
-class ClientRequestTokenString {
+class TooManyRequestsException {
+  public string $message;
 }
 
-class DescribeDocumentClassifierResponse {
-  public DocumentClassifierProperties $document_classifier_properties;
+class TooManyTagKeysException {
+  public string $message;
 }
 
-class DocumentClassificationJobProperties {
-  public JobStatus $job_status;
-  public InputDataConfig $input_data_config;
-  public OutputDataConfig $output_data_config;
+class TooManyTagsException {
+  public string $message;
+}
+
+class TopicsDetectionJobFilter {
   public JobName $job_name;
-  public AnyLengthString $message;
-  public Timestamp $submit_time;
-  public Timestamp $end_time;
-  public DocumentClassifierArn $document_classifier_arn;
+  public JobStatus $job_status;
+  public Timestamp $submit_time_after;
+  public Timestamp $submit_time_before;
+}
+
+class TopicsDetectionJobProperties {
   public IamRoleArn $data_access_role_arn;
+  public Timestamp $end_time;
+  public InputDataConfig $input_data_config;
+  public JobId $job_id;
+  public JobName $job_name;
+  public JobStatus $job_status;
+  public AnyLengthString $message;
+  public int $number_of_topics;
+  public OutputDataConfig $output_data_config;
+  public Timestamp $submit_time;
   public KmsKeyId $volume_kms_key_id;
   public VpcConfig $vpc_config;
-  public JobId $job_id;
 }
 
-class InputDataConfig {
-  public S3Uri $s_3_uri;
-  public InputFormat $input_format;
+class TopicsDetectionJobPropertiesList {
 }
 
-class ListOfClasses {
+class UnsupportedLanguageException {
+  public string $message;
 }
 
-class StartSentimentDetectionJobResponse {
-  public JobStatus $job_status;
-  public JobId $job_id;
+class UntagResourceRequest {
+  public ComprehendArn $resource_arn;
+  public TagKeyList $tag_keys;
 }
 
-class StopDominantLanguageDetectionJobRequest {
-  public JobId $job_id;
+class UntagResourceResponse {
+}
+
+class UpdateEndpointRequest {
+  public InferenceUnitsInteger $desired_inference_units;
+  public ComprehendEndpointArn $endpoint_arn;
+}
+
+class UpdateEndpointResponse {
+}
+
+class VpcConfig {
+  public SecurityGroupIds $security_group_ids;
+  public Subnets $subnets;
 }
 

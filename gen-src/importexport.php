@@ -2,43 +2,15 @@
 namespace slack\aws\importexport;
 
 interface  {
-  public function UpdateJob(UpdateJobInput) Awaitable<Errors\Result<UpdateJobOutput>>;
   public function CancelJob(CancelJobInput) Awaitable<Errors\Result<CancelJobOutput>>;
   public function CreateJob(CreateJobInput) Awaitable<Errors\Result<CreateJobOutput>>;
   public function GetShippingLabel(GetShippingLabelInput) Awaitable<Errors\Result<GetShippingLabelOutput>>;
   public function GetStatus(GetStatusInput) Awaitable<Errors\Result<GetStatusOutput>>;
   public function ListJobs(ListJobsInput) Awaitable<Errors\Result<ListJobsOutput>>;
-}
-
-class street3 {
+  public function UpdateJob(UpdateJobInput) Awaitable<Errors\Result<UpdateJobOutput>>;
 }
 
 class APIVersion {
-}
-
-class BucketPermissionException {
-  public ErrorMessage $message;
-}
-
-class CanceledJobIdException {
-  public ErrorMessage $message;
-}
-
-class Job {
-  public JobId $job_id;
-  public CreationDate $creation_date;
-  public IsCanceled $is_canceled;
-  public JobType $job_type;
-}
-
-class JobId {
-}
-
-class Manifest {
-}
-
-class MissingManifestFieldException {
-  public ErrorMessage $message;
 }
 
 class Artifact {
@@ -46,135 +18,27 @@ class Artifact {
   public URL $url;
 }
 
+class ArtifactList {
+}
+
+class BucketPermissionException {
+  public ErrorMessage $message;
+}
+
 class CancelJobInput {
+  public APIVersion $api_version;
   public JobId $job_id;
-  public APIVersion $api_version;
-}
-
-class InvalidVersionException {
-  public ErrorMessage $message;
-}
-
-class ListJobsInput {
-  public APIVersion $api_version;
-  public MaxJobs $max_jobs;
-  public Marker $marker;
-}
-
-class MissingCustomsException {
-  public ErrorMessage $message;
-}
-
-class UnableToUpdateJobIdException {
-  public ErrorMessage $message;
-}
-
-class stateOrProvince {
-}
-
-class CreateJobQuotaExceededException {
-  public ErrorMessage $message;
-}
-
-class GetStatusInput {
-  public JobId $job_id;
-  public APIVersion $api_version;
-}
-
-class InvalidAddressException {
-  public ErrorMessage $message;
-}
-
-class InvalidFileSystemException {
-  public ErrorMessage $message;
-}
-
-class JobsList {
-}
-
-class ErrorCount {
-}
-
-class Marker {
-}
-
-class postalCode {
-}
-
-class street1 {
-}
-
-class InvalidManifestFieldException {
-  public ErrorMessage $message;
-}
-
-class UnableToCancelJobIdException {
-  public ErrorMessage $message;
-}
-
-class UpdateJobOutput {
-  public WarningMessage $warning_message;
-  public ArtifactList $artifact_list;
-  public Success $success;
 }
 
 class CancelJobOutput {
   public Success $success;
 }
 
-class InvalidJobIdException {
+class CanceledJobIdException {
   public ErrorMessage $message;
-}
-
-class MissingParameterException {
-  public ErrorMessage $message;
-}
-
-class NoSuchBucketException {
-  public ErrorMessage $message;
-}
-
-class ProgressMessage {
-}
-
-class ArtifactList {
 }
 
 class Carrier {
-}
-
-class CreationDate {
-}
-
-class ExpiredJobIdException {
-  public ErrorMessage $message;
-}
-
-class GetShippingLabelInput {
-  public postalCode $postal_code;
-  public street2 $street_2;
-  public APIVersion $api_version;
-  public name $name;
-  public company $company;
-  public country $country;
-  public city $city;
-  public street3 $street_3;
-  public JobIdList $job_ids;
-  public phoneNumber $phone_number;
-  public stateOrProvince $state_or_province;
-  public street1 $street_1;
-}
-
-class JobIdList {
-}
-
-class LogKey {
-}
-
-class WarningMessage {
-}
-
-class city {
 }
 
 class CreateJobInput {
@@ -186,15 +50,53 @@ class CreateJobInput {
 }
 
 class CreateJobOutput {
-  public Signature $signature;
-  public SignatureFileContents $signature_file_contents;
-  public WarningMessage $warning_message;
   public ArtifactList $artifact_list;
   public JobId $job_id;
   public JobType $job_type;
+  public Signature $signature;
+  public SignatureFileContents $signature_file_contents;
+  public WarningMessage $warning_message;
+}
+
+class CreateJobQuotaExceededException {
+  public ErrorMessage $message;
+}
+
+class CreationDate {
 }
 
 class CurrentManifest {
+}
+
+class Description {
+}
+
+class ErrorCount {
+}
+
+class ErrorMessage {
+}
+
+class ExpiredJobIdException {
+  public ErrorMessage $message;
+}
+
+class GenericString {
+}
+
+class GetShippingLabelInput {
+  public APIVersion $api_version;
+  public city $city;
+  public company $company;
+  public country $country;
+  public JobIdList $job_ids;
+  public name $name;
+  public phoneNumber $phone_number;
+  public postalCode $postal_code;
+  public stateOrProvince $state_or_province;
+  public street1 $street_1;
+  public street2 $street_2;
+  public street3 $street_3;
 }
 
 class GetShippingLabelOutput {
@@ -202,124 +104,222 @@ class GetShippingLabelOutput {
   public GenericString $warning;
 }
 
-class InvalidParameterException {
-  public ErrorMessage $message;
-}
-
-class ListJobsOutput {
-  public JobsList $jobs;
-  public IsTruncated $is_truncated;
-}
-
-class UpdateJobInput {
+class GetStatusInput {
   public APIVersion $api_version;
   public JobId $job_id;
-  public Manifest $manifest;
+}
+
+class GetStatusOutput {
+  public ArtifactList $artifact_list;
+  public Carrier $carrier;
+  public CreationDate $creation_date;
+  public CurrentManifest $current_manifest;
+  public ErrorCount $error_count;
+  public JobId $job_id;
   public JobType $job_type;
-  public ValidateOnly $validate_only;
-}
-
-class ErrorMessage {
-}
-
-class IsTruncated {
-}
-
-class ManifestAddendum {
-}
-
-class JobType {
-}
-
-class LocationMessage {
-}
-
-class MaxJobs {
-}
-
-class Signature {
-}
-
-class TrackingNumber {
-}
-
-class street2 {
-}
-
-class Description {
-}
-
-class MultipleRegionsException {
-  public ErrorMessage $message;
-}
-
-class ProgressCode {
-}
-
-class Success {
-}
-
-class company {
-}
-
-class phoneNumber {
-}
-
-class GenericString {
+  public LocationCode $location_code;
+  public LocationMessage $location_message;
+  public LogBucket $log_bucket;
+  public LogKey $log_key;
+  public ProgressCode $progress_code;
+  public ProgressMessage $progress_message;
+  public Signature $signature;
+  public Signature $signature_file_contents;
+  public TrackingNumber $tracking_number;
 }
 
 class InvalidAccessKeyIdException {
   public ErrorMessage $message;
 }
 
-class IsCanceled {
-}
-
-class MalformedManifestException {
+class InvalidAddressException {
   public ErrorMessage $message;
-}
-
-class URL {
-}
-
-class LogBucket {
-}
-
-class SignatureFileContents {
-}
-
-class ValidateOnly {
-}
-
-class name {
-}
-
-class GetStatusOutput {
-  public JobId $job_id;
-  public JobType $job_type;
-  public ErrorCount $error_count;
-  public ProgressCode $progress_code;
-  public LogKey $log_key;
-  public Signature $signature_file_contents;
-  public LocationCode $location_code;
-  public LocationMessage $location_message;
-  public ProgressMessage $progress_message;
-  public LogBucket $log_bucket;
-  public Signature $signature;
-  public CreationDate $creation_date;
-  public Carrier $carrier;
-  public TrackingNumber $tracking_number;
-  public CurrentManifest $current_manifest;
-  public ArtifactList $artifact_list;
 }
 
 class InvalidCustomsException {
   public ErrorMessage $message;
 }
 
+class InvalidFileSystemException {
+  public ErrorMessage $message;
+}
+
+class InvalidJobIdException {
+  public ErrorMessage $message;
+}
+
+class InvalidManifestFieldException {
+  public ErrorMessage $message;
+}
+
+class InvalidParameterException {
+  public ErrorMessage $message;
+}
+
+class InvalidVersionException {
+  public ErrorMessage $message;
+}
+
+class IsCanceled {
+}
+
+class IsTruncated {
+}
+
+class Job {
+  public CreationDate $creation_date;
+  public IsCanceled $is_canceled;
+  public JobId $job_id;
+  public JobType $job_type;
+}
+
+class JobId {
+}
+
+class JobIdList {
+}
+
+class JobType {
+}
+
+class JobsList {
+}
+
+class ListJobsInput {
+  public APIVersion $api_version;
+  public Marker $marker;
+  public MaxJobs $max_jobs;
+}
+
+class ListJobsOutput {
+  public IsTruncated $is_truncated;
+  public JobsList $jobs;
+}
+
 class LocationCode {
 }
 
+class LocationMessage {
+}
+
+class LogBucket {
+}
+
+class LogKey {
+}
+
+class MalformedManifestException {
+  public ErrorMessage $message;
+}
+
+class Manifest {
+}
+
+class ManifestAddendum {
+}
+
+class Marker {
+}
+
+class MaxJobs {
+}
+
+class MissingCustomsException {
+  public ErrorMessage $message;
+}
+
+class MissingManifestFieldException {
+  public ErrorMessage $message;
+}
+
+class MissingParameterException {
+  public ErrorMessage $message;
+}
+
+class MultipleRegionsException {
+  public ErrorMessage $message;
+}
+
+class NoSuchBucketException {
+  public ErrorMessage $message;
+}
+
+class ProgressCode {
+}
+
+class ProgressMessage {
+}
+
+class Signature {
+}
+
+class SignatureFileContents {
+}
+
+class Success {
+}
+
+class TrackingNumber {
+}
+
+class URL {
+}
+
+class UnableToCancelJobIdException {
+  public ErrorMessage $message;
+}
+
+class UnableToUpdateJobIdException {
+  public ErrorMessage $message;
+}
+
+class UpdateJobInput {
+  public APIVersion $api_version;
+  public JobId $job_id;
+  public JobType $job_type;
+  public Manifest $manifest;
+  public ValidateOnly $validate_only;
+}
+
+class UpdateJobOutput {
+  public ArtifactList $artifact_list;
+  public Success $success;
+  public WarningMessage $warning_message;
+}
+
+class ValidateOnly {
+}
+
+class WarningMessage {
+}
+
+class city {
+}
+
+class company {
+}
+
 class country {
+}
+
+class name {
+}
+
+class phoneNumber {
+}
+
+class postalCode {
+}
+
+class stateOrProvince {
+}
+
+class street1 {
+}
+
+class street2 {
+}
+
+class street3 {
 }
 

@@ -2,190 +2,100 @@
 namespace slack\aws\fsx;
 
 interface FSx {
-  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<UpdateFileSystemResponse>>;
-  public function DescribeBackups(DescribeBackupsRequest) Awaitable<Errors\Result<DescribeBackupsResponse>>;
+  public function CancelDataRepositoryTask(CancelDataRepositoryTaskRequest) Awaitable<Errors\Result<CancelDataRepositoryTaskResponse>>;
+  public function CreateBackup(CreateBackupRequest) Awaitable<Errors\Result<CreateBackupResponse>>;
+  public function CreateDataRepositoryTask(CreateDataRepositoryTaskRequest) Awaitable<Errors\Result<CreateDataRepositoryTaskResponse>>;
   public function CreateFileSystem(CreateFileSystemRequest) Awaitable<Errors\Result<CreateFileSystemResponse>>;
+  public function CreateFileSystemFromBackup(CreateFileSystemFromBackupRequest) Awaitable<Errors\Result<CreateFileSystemFromBackupResponse>>;
   public function DeleteBackup(DeleteBackupRequest) Awaitable<Errors\Result<DeleteBackupResponse>>;
   public function DeleteFileSystem(DeleteFileSystemRequest) Awaitable<Errors\Result<DeleteFileSystemResponse>>;
-  public function CreateDataRepositoryTask(CreateDataRepositoryTaskRequest) Awaitable<Errors\Result<CreateDataRepositoryTaskResponse>>;
-  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function CancelDataRepositoryTask(CancelDataRepositoryTaskRequest) Awaitable<Errors\Result<CancelDataRepositoryTaskResponse>>;
-  public function CreateFileSystemFromBackup(CreateFileSystemFromBackupRequest) Awaitable<Errors\Result<CreateFileSystemFromBackupResponse>>;
+  public function DescribeBackups(DescribeBackupsRequest) Awaitable<Errors\Result<DescribeBackupsResponse>>;
   public function DescribeDataRepositoryTasks(DescribeDataRepositoryTasksRequest) Awaitable<Errors\Result<DescribeDataRepositoryTasksResponse>>;
+  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
   public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
   public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function CreateBackup(CreateBackupRequest) Awaitable<Errors\Result<CreateBackupResponse>>;
-}
-
-class DataRepositoryConfiguration {
-  public Megabytes $imported_file_chunk_size;
-  public ArchivePath $import_path;
-  public ArchivePath $export_path;
-}
-
-class FileSystemId {
-}
-
-class KmsKeyId {
-}
-
-class BackupId {
-}
-
-class LustreFileSystemConfiguration {
-  public PerUnitStorageThroughput $per_unit_storage_throughput;
-  public LustreFileSystemMountName $mount_name;
-  public WeeklyTime $weekly_maintenance_start_time;
-  public DataRepositoryConfiguration $data_repository_configuration;
-  public LustreDeploymentType $deployment_type;
-}
-
-class TagKeys {
-}
-
-class TagValue {
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<UpdateFileSystemResponse>>;
 }
 
 class AWSAccountId {
 }
 
-class SelfManagedActiveDirectoryConfigurationUpdates {
-  public DirectoryUserName $user_name;
-  public DirectoryPassword $password;
-  public DnsIps $dns_ips;
+class ActiveDirectoryBackupAttributes {
+  public DirectoryId $active_directory_id;
+  public ActiveDirectoryFullyQualifiedName $domain_name;
 }
 
-class UntagResourceResponse {
-}
-
-class CreateDataRepositoryTaskResponse {
-  public DataRepositoryTask $data_repository_task;
-}
-
-class ServiceLimitExceeded {
-  public ServiceLimit $limit;
+class ActiveDirectoryError {
+  public DirectoryId $active_directory_id;
   public ErrorMessage $message;
+  public ActiveDirectoryErrorType $type;
 }
 
-class CreateFileSystemRequest {
-  public StorageCapacity $storage_capacity;
-  public StorageType $storage_type;
-  public SubnetIds $subnet_ids;
-  public KmsKeyId $kms_key_id;
-  public FileSystemType $file_system_type;
-  public SecurityGroupIds $security_group_ids;
-  public Tags $tags;
-  public CreateFileSystemWindowsConfiguration $windows_configuration;
-  public CreateFileSystemLustreConfiguration $lustre_configuration;
-  public ClientRequestToken $client_request_token;
-}
-
-class DescribeBackupsResponse {
-  public Backups $backups;
-  public NextToken $next_token;
-}
-
-class NetworkInterfaceId {
-}
-
-class ReportScope {
+class ActiveDirectoryErrorType {
 }
 
 class ActiveDirectoryFullyQualifiedName {
 }
 
-class DirectoryId {
+class ArchivePath {
 }
 
-class DirectoryPassword {
+class AutomaticBackupRetentionDays {
 }
 
-class MissingFileSystemConfiguration {
+class Backup {
+  public BackupId $backup_id;
+  public CreationTime $creation_time;
+  public ActiveDirectoryBackupAttributes $directory_information;
+  public BackupFailureDetails $failure_details;
+  public FileSystem $file_system;
+  public KmsKeyId $kms_key_id;
+  public BackupLifecycle $lifecycle;
+  public ProgressPercent $progress_percent;
+  public ResourceARN $resource_arn;
+  public Tags $tags;
+  public BackupType $type;
+}
+
+class BackupFailureDetails {
   public ErrorMessage $message;
 }
 
-class WindowsDeploymentType {
+class BackupId {
 }
 
-class DNSName {
+class BackupIds {
 }
 
-class DescribeFileSystemsResponse {
-  public FileSystems $file_systems;
-  public NextToken $next_token;
+class BackupInProgress {
+  public ErrorMessage $message;
 }
 
-class FileSystemIds {
+class BackupLifecycle {
 }
 
-class FileSystemLifecycle {
+class BackupNotFound {
+  public ErrorMessage $message;
 }
 
-class FilterValue {
+class BackupRestoring {
+  public FileSystemId $file_system_id;
+  public ErrorMessage $message;
 }
 
-class ResourceARN {
+class BackupType {
 }
 
-class UpdateFileSystemLustreConfiguration {
-  public WeeklyTime $weekly_maintenance_start_time;
+class Backups {
+}
+
+class BadRequest {
+  public ErrorMessage $message;
 }
 
 class CancelDataRepositoryTaskRequest {
   public TaskId $task_id;
-}
-
-class IpAddress {
-}
-
-class LastUpdatedTime {
-}
-
-class Tag {
-  public TagValue $value;
-  public TagKey $key;
-}
-
-class UpdateFileSystemResponse {
-  public FileSystem $file_system;
-}
-
-class Parameter {
-}
-
-class SubnetId {
-}
-
-class DescribeBackupsRequest {
-  public Filters $filters;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public BackupIds $backup_ids;
-}
-
-class FileSystemMaintenanceOperations {
-}
-
-class FileSystemNotFound {
-  public ErrorMessage $message;
-}
-
-class FilterName {
-}
-
-class StorageCapacity {
-}
-
-class TagKey {
-}
-
-class TagResourceResponse {
-}
-
-class ActiveDirectoryBackupAttributes {
-  public ActiveDirectoryFullyQualifiedName $domain_name;
-  public DirectoryId $active_directory_id;
 }
 
 class CancelDataRepositoryTaskResponse {
@@ -193,76 +103,175 @@ class CancelDataRepositoryTaskResponse {
   public TaskId $task_id;
 }
 
-class CreateFileSystemFromBackupResponse {
-  public FileSystem $file_system;
+class ClientRequestToken {
 }
 
-class UntagResourceRequest {
-  public ResourceARN $resource_arn;
-  public TagKeys $tag_keys;
+class CompletionReport {
+  public Flag $enabled;
+  public ReportFormat $format;
+  public ArchivePath $path;
+  public ReportScope $scope;
+}
+
+class CreateBackupRequest {
+  public ClientRequestToken $client_request_token;
+  public FileSystemId $file_system_id;
+  public Tags $tags;
 }
 
 class CreateBackupResponse {
   public Backup $backup;
 }
 
-class DeleteFileSystemWindowsConfiguration {
-  public Flag $skip_final_backup;
-  public Tags $final_backup_tags;
-}
-
-class SecurityGroupIds {
-}
-
-class SelfManagedActiveDirectoryAttributes {
-  public ActiveDirectoryFullyQualifiedName $domain_name;
-  public OrganizationalUnitDistinguishedName $organizational_unit_distinguished_name;
-  public FileSystemAdministratorsGroupName $file_system_administrators_group;
-  public DirectoryUserName $user_name;
-  public DnsIps $dns_ips;
-}
-
-class TagResourceRequest {
-  public ResourceARN $resource_arn;
-  public Tags $tags;
-}
-
-class TaskIds {
-}
-
-class UpdateFileSystemRequest {
-  public FileSystemId $file_system_id;
+class CreateDataRepositoryTaskRequest {
   public ClientRequestToken $client_request_token;
-  public UpdateFileSystemWindowsConfiguration $windows_configuration;
-  public UpdateFileSystemLustreConfiguration $lustre_configuration;
+  public FileSystemId $file_system_id;
+  public DataRepositoryTaskPaths $paths;
+  public CompletionReport $report;
+  public Tags $tags;
+  public DataRepositoryTaskType $type;
 }
 
-class AutomaticBackupRetentionDays {
+class CreateDataRepositoryTaskResponse {
+  public DataRepositoryTask $data_repository_task;
 }
 
-class BadRequest {
+class CreateFileSystemFromBackupRequest {
+  public BackupId $backup_id;
+  public ClientRequestToken $client_request_token;
+  public SecurityGroupIds $security_group_ids;
+  public StorageType $storage_type;
+  public SubnetIds $subnet_ids;
+  public Tags $tags;
+  public CreateFileSystemWindowsConfiguration $windows_configuration;
+}
+
+class CreateFileSystemFromBackupResponse {
+  public FileSystem $file_system;
+}
+
+class CreateFileSystemLustreConfiguration {
+  public LustreDeploymentType $deployment_type;
+  public ArchivePath $export_path;
+  public ArchivePath $import_path;
+  public Megabytes $imported_file_chunk_size;
+  public PerUnitStorageThroughput $per_unit_storage_throughput;
+  public WeeklyTime $weekly_maintenance_start_time;
+}
+
+class CreateFileSystemRequest {
+  public ClientRequestToken $client_request_token;
+  public FileSystemType $file_system_type;
+  public KmsKeyId $kms_key_id;
+  public CreateFileSystemLustreConfiguration $lustre_configuration;
+  public SecurityGroupIds $security_group_ids;
+  public StorageCapacity $storage_capacity;
+  public StorageType $storage_type;
+  public SubnetIds $subnet_ids;
+  public Tags $tags;
+  public CreateFileSystemWindowsConfiguration $windows_configuration;
+}
+
+class CreateFileSystemResponse {
+  public FileSystem $file_system;
+}
+
+class CreateFileSystemWindowsConfiguration {
+  public DirectoryId $active_directory_id;
+  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
+  public Flag $copy_tags_to_backups;
+  public DailyTime $daily_automatic_backup_start_time;
+  public WindowsDeploymentType $deployment_type;
+  public SubnetId $preferred_subnet_id;
+  public SelfManagedActiveDirectoryConfiguration $self_managed_active_directory_configuration;
+  public MegabytesPerSecond $throughput_capacity;
+  public WeeklyTime $weekly_maintenance_start_time;
+}
+
+class CreationTime {
+}
+
+class DNSName {
+}
+
+class DailyTime {
+}
+
+class DataRepositoryConfiguration {
+  public ArchivePath $export_path;
+  public ArchivePath $import_path;
+  public Megabytes $imported_file_chunk_size;
+}
+
+class DataRepositoryTask {
+  public CreationTime $creation_time;
+  public EndTime $end_time;
+  public DataRepositoryTaskFailureDetails $failure_details;
+  public FileSystemId $file_system_id;
+  public DataRepositoryTaskLifecycle $lifecycle;
+  public DataRepositoryTaskPaths $paths;
+  public CompletionReport $report;
+  public ResourceARN $resource_arn;
+  public StartTime $start_time;
+  public DataRepositoryTaskStatus $status;
+  public Tags $tags;
+  public TaskId $task_id;
+  public DataRepositoryTaskType $type;
+}
+
+class DataRepositoryTaskEnded {
   public ErrorMessage $message;
 }
 
-class CreateBackupRequest {
-  public FileSystemId $file_system_id;
-  public ClientRequestToken $client_request_token;
-  public Tags $tags;
+class DataRepositoryTaskExecuting {
+  public ErrorMessage $message;
 }
 
-class DirectoryUserName {
+class DataRepositoryTaskFailureDetails {
+  public ErrorMessage $message;
 }
 
-class DnsIps {
+class DataRepositoryTaskFilter {
+  public DataRepositoryTaskFilterName $name;
+  public DataRepositoryTaskFilterValues $values;
 }
 
-class ListTagsForResourceRequest {
-  public ResourceARN $resource_arn;
-  public MaxResults $max_results;
-  public NextToken $next_token;
+class DataRepositoryTaskFilterName {
 }
 
-class SucceededCount {
+class DataRepositoryTaskFilterValue {
+}
+
+class DataRepositoryTaskFilterValues {
+}
+
+class DataRepositoryTaskFilters {
+}
+
+class DataRepositoryTaskLifecycle {
+}
+
+class DataRepositoryTaskNotFound {
+  public ErrorMessage $message;
+}
+
+class DataRepositoryTaskPath {
+}
+
+class DataRepositoryTaskPaths {
+}
+
+class DataRepositoryTaskStatus {
+  public FailedCount $failed_count;
+  public LastUpdatedTime $last_updated_time;
+  public SucceededCount $succeeded_count;
+  public TotalCount $total_count;
+}
+
+class DataRepositoryTaskType {
+}
+
+class DataRepositoryTasks {
 }
 
 class DeleteBackupRequest {
@@ -270,106 +279,15 @@ class DeleteBackupRequest {
   public ClientRequestToken $client_request_token;
 }
 
-class DeleteFileSystemRequest {
-  public ClientRequestToken $client_request_token;
-  public DeleteFileSystemWindowsConfiguration $windows_configuration;
-  public FileSystemId $file_system_id;
-}
-
-class Filters {
-}
-
-class MegabytesPerSecond {
-}
-
-class ClientRequestToken {
-}
-
-class DataRepositoryTaskPaths {
-}
-
-class FileSystems {
-}
-
-class MaxResults {
-}
-
-class SubnetIds {
-}
-
-class LustreDeploymentType {
-}
-
-class BackupFailureDetails {
-  public ErrorMessage $message;
-}
-
-class BackupNotFound {
-  public ErrorMessage $message;
-}
-
-class DataRepositoryTaskEnded {
-  public ErrorMessage $message;
-}
-
-class DataRepositoryTaskNotFound {
-  public ErrorMessage $message;
-}
-
 class DeleteBackupResponse {
   public BackupId $backup_id;
   public BackupLifecycle $lifecycle;
 }
 
-class InvalidImportPath {
-  public ErrorMessage $message;
-}
-
-class InvalidNetworkSettings {
-  public ErrorMessage $message;
-  public SubnetId $invalid_subnet_id;
-  public SecurityGroupId $invalid_security_group_id;
-}
-
-class CreateFileSystemResponse {
-  public FileSystem $file_system;
-}
-
-class DataRepositoryTaskFilterValues {
-}
-
-class InvalidPerUnitStorageThroughput {
-  public ErrorMessage $message;
-}
-
-class Megabytes {
-}
-
-class Tags {
-}
-
-class ArchivePath {
-}
-
-class DataRepositoryTaskType {
-}
-
-class FileSystemType {
-}
-
-class FilterValues {
-}
-
-class ListTagsForResourceResponse {
-  public NextToken $next_token;
-  public Tags $tags;
-}
-
-class UpdateFileSystemWindowsConfiguration {
-  public WeeklyTime $weekly_maintenance_start_time;
-  public DailyTime $daily_automatic_backup_start_time;
-  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
-  public SelfManagedActiveDirectoryConfigurationUpdates $self_managed_active_directory_configuration;
+class DeleteFileSystemRequest {
+  public ClientRequestToken $client_request_token;
+  public FileSystemId $file_system_id;
+  public DeleteFileSystemWindowsConfiguration $windows_configuration;
 }
 
 class DeleteFileSystemResponse {
@@ -378,76 +296,33 @@ class DeleteFileSystemResponse {
   public DeleteFileSystemWindowsResponse $windows_response;
 }
 
-class FileSystemFailureDetails {
-  public ErrorMessage $message;
+class DeleteFileSystemWindowsConfiguration {
+  public Tags $final_backup_tags;
+  public Flag $skip_final_backup;
 }
 
-class ActiveDirectoryError {
-  public DirectoryId $active_directory_id;
-  public ActiveDirectoryErrorType $type;
-  public ErrorMessage $message;
+class DeleteFileSystemWindowsResponse {
+  public BackupId $final_backup_id;
+  public Tags $final_backup_tags;
 }
 
-class DataRepositoryTaskStatus {
-  public FailedCount $failed_count;
-  public LastUpdatedTime $last_updated_time;
-  public TotalCount $total_count;
-  public SucceededCount $succeeded_count;
+class DescribeBackupsRequest {
+  public BackupIds $backup_ids;
+  public Filters $filters;
+  public MaxResults $max_results;
+  public NextToken $next_token;
 }
 
-class FileSystemAdministratorsGroupName {
+class DescribeBackupsResponse {
+  public Backups $backups;
+  public NextToken $next_token;
 }
 
-class ResourceNotFound {
-  public ResourceARN $resource_arn;
-  public ErrorMessage $message;
-}
-
-class CreateDataRepositoryTaskRequest {
-  public Tags $tags;
-  public DataRepositoryTaskType $type;
-  public DataRepositoryTaskPaths $paths;
-  public FileSystemId $file_system_id;
-  public CompletionReport $report;
-  public ClientRequestToken $client_request_token;
-}
-
-class CreateFileSystemWindowsConfiguration {
-  public DirectoryId $active_directory_id;
-  public DailyTime $daily_automatic_backup_start_time;
-  public Flag $copy_tags_to_backups;
-  public MegabytesPerSecond $throughput_capacity;
-  public WeeklyTime $weekly_maintenance_start_time;
-  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
-  public SelfManagedActiveDirectoryConfiguration $self_managed_active_directory_configuration;
-  public WindowsDeploymentType $deployment_type;
-  public SubnetId $preferred_subnet_id;
-}
-
-class DataRepositoryTaskFilter {
-  public DataRepositoryTaskFilterName $name;
-  public DataRepositoryTaskFilterValues $values;
-}
-
-class InvalidExportPath {
-  public ErrorMessage $message;
-}
-
-class CreateFileSystemFromBackupRequest {
-  public BackupId $backup_id;
-  public ClientRequestToken $client_request_token;
-  public SubnetIds $subnet_ids;
-  public SecurityGroupIds $security_group_ids;
-  public Tags $tags;
-  public CreateFileSystemWindowsConfiguration $windows_configuration;
-  public StorageType $storage_type;
-}
-
-class DataRepositoryTaskExecuting {
-  public ErrorMessage $message;
-}
-
-class DataRepositoryTaskLifecycle {
+class DescribeDataRepositoryTasksRequest {
+  public DataRepositoryTaskFilters $filters;
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public TaskIds $task_ids;
 }
 
 class DescribeDataRepositoryTasksResponse {
@@ -461,57 +336,179 @@ class DescribeFileSystemsRequest {
   public NextToken $next_token;
 }
 
-class OrganizationalUnitDistinguishedName {
+class DescribeFileSystemsResponse {
+  public FileSystems $file_systems;
+  public NextToken $next_token;
 }
 
-class WindowsFileSystemConfiguration {
-  public MegabytesPerSecond $throughput_capacity;
-  public WeeklyTime $weekly_maintenance_start_time;
-  public SelfManagedActiveDirectoryAttributes $self_managed_active_directory_configuration;
-  public SubnetId $preferred_subnet_id;
-  public IpAddress $preferred_file_server_ip;
-  public FileSystemMaintenanceOperations $maintenance_operations_in_progress;
-  public DailyTime $daily_automatic_backup_start_time;
-  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
-  public Flag $copy_tags_to_backups;
-  public DirectoryId $active_directory_id;
-  public WindowsDeploymentType $deployment_type;
-  public DNSName $remote_administration_endpoint;
+class DirectoryId {
 }
 
-class DataRepositoryTaskFilters {
+class DirectoryPassword {
 }
 
-class FileSystemMaintenanceOperation {
+class DirectoryUserName {
 }
 
-class WeeklyTime {
+class DnsIps {
 }
 
-class BackupIds {
-}
-
-class CompletionReport {
-  public ArchivePath $path;
-  public ReportFormat $format;
-  public ReportScope $scope;
-  public Flag $enabled;
-}
-
-class DataRepositoryTaskFilterName {
+class EndTime {
 }
 
 class ErrorMessage {
 }
 
-class SecurityGroupId {
+class FailedCount {
 }
 
-class TotalCount {
+class FileSystem {
+  public CreationTime $creation_time;
+  public DNSName $dns_name;
+  public FileSystemFailureDetails $failure_details;
+  public FileSystemId $file_system_id;
+  public FileSystemType $file_system_type;
+  public KmsKeyId $kms_key_id;
+  public FileSystemLifecycle $lifecycle;
+  public LustreFileSystemConfiguration $lustre_configuration;
+  public NetworkInterfaceIds $network_interface_ids;
+  public AWSAccountId $owner_id;
+  public ResourceARN $resource_arn;
+  public StorageCapacity $storage_capacity;
+  public StorageType $storage_type;
+  public SubnetIds $subnet_ids;
+  public Tags $tags;
+  public VpcId $vpc_id;
+  public WindowsFileSystemConfiguration $windows_configuration;
 }
 
-class BackupInProgress {
+class FileSystemAdministratorsGroupName {
+}
+
+class FileSystemFailureDetails {
   public ErrorMessage $message;
+}
+
+class FileSystemId {
+}
+
+class FileSystemIds {
+}
+
+class FileSystemLifecycle {
+}
+
+class FileSystemMaintenanceOperation {
+}
+
+class FileSystemMaintenanceOperations {
+}
+
+class FileSystemNotFound {
+  public ErrorMessage $message;
+}
+
+class FileSystemType {
+}
+
+class FileSystems {
+}
+
+class Filter {
+  public FilterName $name;
+  public FilterValues $values;
+}
+
+class FilterName {
+}
+
+class FilterValue {
+}
+
+class FilterValues {
+}
+
+class Filters {
+}
+
+class Flag {
+}
+
+class IncompatibleParameterError {
+  public ErrorMessage $message;
+  public Parameter $parameter;
+}
+
+class InternalServerError {
+  public ErrorMessage $message;
+}
+
+class InvalidExportPath {
+  public ErrorMessage $message;
+}
+
+class InvalidImportPath {
+  public ErrorMessage $message;
+}
+
+class InvalidNetworkSettings {
+  public SecurityGroupId $invalid_security_group_id;
+  public SubnetId $invalid_subnet_id;
+  public ErrorMessage $message;
+}
+
+class InvalidPerUnitStorageThroughput {
+  public ErrorMessage $message;
+}
+
+class IpAddress {
+}
+
+class KmsKeyId {
+}
+
+class LastUpdatedTime {
+}
+
+class ListTagsForResourceRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+  public ResourceARN $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public NextToken $next_token;
+  public Tags $tags;
+}
+
+class LustreDeploymentType {
+}
+
+class LustreFileSystemConfiguration {
+  public DataRepositoryConfiguration $data_repository_configuration;
+  public LustreDeploymentType $deployment_type;
+  public LustreFileSystemMountName $mount_name;
+  public PerUnitStorageThroughput $per_unit_storage_throughput;
+  public WeeklyTime $weekly_maintenance_start_time;
+}
+
+class LustreFileSystemMountName {
+}
+
+class MaxResults {
+}
+
+class Megabytes {
+}
+
+class MegabytesPerSecond {
+}
+
+class MissingFileSystemConfiguration {
+  public ErrorMessage $message;
+}
+
+class NetworkInterfaceId {
 }
 
 class NetworkInterfaceIds {
@@ -520,110 +517,15 @@ class NetworkInterfaceIds {
 class NextToken {
 }
 
-class SelfManagedActiveDirectoryConfiguration {
-  public DirectoryPassword $password;
-  public DnsIps $dns_ips;
-  public ActiveDirectoryFullyQualifiedName $domain_name;
-  public OrganizationalUnitDistinguishedName $organizational_unit_distinguished_name;
-  public FileSystemAdministratorsGroupName $file_system_administrators_group;
-  public DirectoryUserName $user_name;
-}
-
-class Backup {
-  public BackupType $type;
-  public ProgressPercent $progress_percent;
-  public CreationTime $creation_time;
-  public Tags $tags;
-  public FileSystem $file_system;
-  public ActiveDirectoryBackupAttributes $directory_information;
-  public BackupId $backup_id;
-  public BackupLifecycle $lifecycle;
-  public BackupFailureDetails $failure_details;
-  public KmsKeyId $kms_key_id;
+class NotServiceResourceError {
+  public ErrorMessage $message;
   public ResourceARN $resource_arn;
 }
 
-class BackupType {
+class OrganizationalUnitDistinguishedName {
 }
 
-class DataRepositoryTaskPath {
-}
-
-class DescribeDataRepositoryTasksRequest {
-  public DataRepositoryTaskFilters $filters;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public TaskIds $task_ids;
-}
-
-class EndTime {
-}
-
-class Filter {
-  public FilterName $name;
-  public FilterValues $values;
-}
-
-class ReportFormat {
-}
-
-class StartTime {
-}
-
-class TaskId {
-}
-
-class BackupRestoring {
-  public ErrorMessage $message;
-  public FileSystemId $file_system_id;
-}
-
-class IncompatibleParameterError {
-  public Parameter $parameter;
-  public ErrorMessage $message;
-}
-
-class VpcId {
-}
-
-class ActiveDirectoryErrorType {
-}
-
-class CreateFileSystemLustreConfiguration {
-  public Megabytes $imported_file_chunk_size;
-  public LustreDeploymentType $deployment_type;
-  public PerUnitStorageThroughput $per_unit_storage_throughput;
-  public WeeklyTime $weekly_maintenance_start_time;
-  public ArchivePath $import_path;
-  public ArchivePath $export_path;
-}
-
-class CreationTime {
-}
-
-class DeleteFileSystemWindowsResponse {
-  public BackupId $final_backup_id;
-  public Tags $final_backup_tags;
-}
-
-class FileSystem {
-  public AWSAccountId $owner_id;
-  public CreationTime $creation_time;
-  public StorageCapacity $storage_capacity;
-  public NetworkInterfaceIds $network_interface_ids;
-  public KmsKeyId $kms_key_id;
-  public ResourceARN $resource_arn;
-  public Tags $tags;
-  public FileSystemId $file_system_id;
-  public FileSystemLifecycle $lifecycle;
-  public FileSystemFailureDetails $failure_details;
-  public StorageType $storage_type;
-  public LustreFileSystemConfiguration $lustre_configuration;
-  public SubnetIds $subnet_ids;
-  public DNSName $dns_name;
-  public WindowsFileSystemConfiguration $windows_configuration;
-  public FileSystemType $file_system_type;
-  public VpcId $vpc_id;
+class Parameter {
 }
 
 class PerUnitStorageThroughput {
@@ -632,71 +534,169 @@ class PerUnitStorageThroughput {
 class ProgressPercent {
 }
 
-class BackupLifecycle {
+class ReportFormat {
 }
 
-class Backups {
+class ReportScope {
 }
 
-class DataRepositoryTask {
-  public CreationTime $creation_time;
-  public FileSystemId $file_system_id;
-  public DataRepositoryTaskStatus $status;
-  public CompletionReport $report;
-  public EndTime $end_time;
-  public ResourceARN $resource_arn;
-  public Tags $tags;
-  public DataRepositoryTaskPaths $paths;
-  public TaskId $task_id;
-  public DataRepositoryTaskLifecycle $lifecycle;
-  public DataRepositoryTaskType $type;
-  public StartTime $start_time;
-  public DataRepositoryTaskFailureDetails $failure_details;
-}
-
-class FailedCount {
-}
-
-class Flag {
-}
-
-class LustreFileSystemMountName {
-}
-
-class NotServiceResourceError {
-  public ResourceARN $resource_arn;
-  public ErrorMessage $message;
-}
-
-class DataRepositoryTaskFilterValue {
-}
-
-class DailyTime {
+class ResourceARN {
 }
 
 class ResourceDoesNotSupportTagging {
+  public ErrorMessage $message;
   public ResourceARN $resource_arn;
-  public ErrorMessage $message;
 }
 
-class DataRepositoryTaskFailureDetails {
+class ResourceNotFound {
   public ErrorMessage $message;
+  public ResourceARN $resource_arn;
 }
 
-class DataRepositoryTasks {
+class SecurityGroupId {
 }
 
-class InternalServerError {
-  public ErrorMessage $message;
+class SecurityGroupIds {
+}
+
+class SelfManagedActiveDirectoryAttributes {
+  public DnsIps $dns_ips;
+  public ActiveDirectoryFullyQualifiedName $domain_name;
+  public FileSystemAdministratorsGroupName $file_system_administrators_group;
+  public OrganizationalUnitDistinguishedName $organizational_unit_distinguished_name;
+  public DirectoryUserName $user_name;
+}
+
+class SelfManagedActiveDirectoryConfiguration {
+  public DnsIps $dns_ips;
+  public ActiveDirectoryFullyQualifiedName $domain_name;
+  public FileSystemAdministratorsGroupName $file_system_administrators_group;
+  public OrganizationalUnitDistinguishedName $organizational_unit_distinguished_name;
+  public DirectoryPassword $password;
+  public DirectoryUserName $user_name;
+}
+
+class SelfManagedActiveDirectoryConfigurationUpdates {
+  public DnsIps $dns_ips;
+  public DirectoryPassword $password;
+  public DirectoryUserName $user_name;
 }
 
 class ServiceLimit {
 }
 
+class ServiceLimitExceeded {
+  public ServiceLimit $limit;
+  public ErrorMessage $message;
+}
+
+class StartTime {
+}
+
+class StorageCapacity {
+}
+
 class StorageType {
+}
+
+class SubnetId {
+}
+
+class SubnetIds {
+}
+
+class SucceededCount {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeys {
+}
+
+class TagResourceRequest {
+  public ResourceARN $resource_arn;
+  public Tags $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class Tags {
+}
+
+class TaskId {
+}
+
+class TaskIds {
+}
+
+class TotalCount {
 }
 
 class UnsupportedOperation {
   public ErrorMessage $message;
+}
+
+class UntagResourceRequest {
+  public ResourceARN $resource_arn;
+  public TagKeys $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class UpdateFileSystemLustreConfiguration {
+  public WeeklyTime $weekly_maintenance_start_time;
+}
+
+class UpdateFileSystemRequest {
+  public ClientRequestToken $client_request_token;
+  public FileSystemId $file_system_id;
+  public UpdateFileSystemLustreConfiguration $lustre_configuration;
+  public UpdateFileSystemWindowsConfiguration $windows_configuration;
+}
+
+class UpdateFileSystemResponse {
+  public FileSystem $file_system;
+}
+
+class UpdateFileSystemWindowsConfiguration {
+  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
+  public DailyTime $daily_automatic_backup_start_time;
+  public SelfManagedActiveDirectoryConfigurationUpdates $self_managed_active_directory_configuration;
+  public WeeklyTime $weekly_maintenance_start_time;
+}
+
+class VpcId {
+}
+
+class WeeklyTime {
+}
+
+class WindowsDeploymentType {
+}
+
+class WindowsFileSystemConfiguration {
+  public DirectoryId $active_directory_id;
+  public AutomaticBackupRetentionDays $automatic_backup_retention_days;
+  public Flag $copy_tags_to_backups;
+  public DailyTime $daily_automatic_backup_start_time;
+  public WindowsDeploymentType $deployment_type;
+  public FileSystemMaintenanceOperations $maintenance_operations_in_progress;
+  public IpAddress $preferred_file_server_ip;
+  public SubnetId $preferred_subnet_id;
+  public DNSName $remote_administration_endpoint;
+  public SelfManagedActiveDirectoryAttributes $self_managed_active_directory_configuration;
+  public MegabytesPerSecond $throughput_capacity;
+  public WeeklyTime $weekly_maintenance_start_time;
 }
 

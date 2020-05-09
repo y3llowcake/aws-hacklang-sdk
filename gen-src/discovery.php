@@ -2,44 +2,59 @@
 namespace slack\aws\discovery;
 
 interface Application Discovery Service {
-  public function CreateTags(CreateTagsRequest) Awaitable<Errors\Result<CreateTagsResponse>>;
-  public function DeleteApplications(DeleteApplicationsRequest) Awaitable<Errors\Result<DeleteApplicationsResponse>>;
-  public function DescribeConfigurations(DescribeConfigurationsRequest) Awaitable<Errors\Result<DescribeConfigurationsResponse>>;
-  public function DescribeImportTasks(DescribeImportTasksRequest) Awaitable<Errors\Result<DescribeImportTasksResponse>>;
-  public function GetDiscoverySummary(GetDiscoverySummaryRequest) Awaitable<Errors\Result<GetDiscoverySummaryResponse>>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
   public function AssociateConfigurationItemsToApplication(AssociateConfigurationItemsToApplicationRequest) Awaitable<Errors\Result<AssociateConfigurationItemsToApplicationResponse>>;
-  public function DescribeExportConfigurations(DescribeExportConfigurationsRequest) Awaitable<Errors\Result<DescribeExportConfigurationsResponse>>;
-  public function StartExportTask(StartExportTaskRequest) Awaitable<Errors\Result<StartExportTaskResponse>>;
-  public function StopDataCollectionByAgentIds(StopDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StopDataCollectionByAgentIdsResponse>>;
   public function BatchDeleteImportData(BatchDeleteImportDataRequest) Awaitable<Errors\Result<BatchDeleteImportDataResponse>>;
   public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateTags(CreateTagsRequest) Awaitable<Errors\Result<CreateTagsResponse>>;
+  public function DeleteApplications(DeleteApplicationsRequest) Awaitable<Errors\Result<DeleteApplicationsResponse>>;
   public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Result<DeleteTagsResponse>>;
+  public function DescribeAgents(DescribeAgentsRequest) Awaitable<Errors\Result<DescribeAgentsResponse>>;
+  public function DescribeConfigurations(DescribeConfigurationsRequest) Awaitable<Errors\Result<DescribeConfigurationsResponse>>;
   public function DescribeContinuousExports(DescribeContinuousExportsRequest) Awaitable<Errors\Result<DescribeContinuousExportsResponse>>;
+  public function DescribeExportConfigurations(DescribeExportConfigurationsRequest) Awaitable<Errors\Result<DescribeExportConfigurationsResponse>>;
   public function DescribeExportTasks(DescribeExportTasksRequest) Awaitable<Errors\Result<DescribeExportTasksResponse>>;
+  public function DescribeImportTasks(DescribeImportTasksRequest) Awaitable<Errors\Result<DescribeImportTasksResponse>>;
+  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
   public function DisassociateConfigurationItemsFromApplication(DisassociateConfigurationItemsFromApplicationRequest) Awaitable<Errors\Result<DisassociateConfigurationItemsFromApplicationResponse>>;
   public function ExportConfigurations() Awaitable<Errors\Result<ExportConfigurationsResponse>>;
-  public function ListServerNeighbors(ListServerNeighborsRequest) Awaitable<Errors\Result<ListServerNeighborsResponse>>;
-  public function StartDataCollectionByAgentIds(StartDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StartDataCollectionByAgentIdsResponse>>;
-  public function StartImportTask(StartImportTaskRequest) Awaitable<Errors\Result<StartImportTaskResponse>>;
-  public function DescribeAgents(DescribeAgentsRequest) Awaitable<Errors\Result<DescribeAgentsResponse>>;
-  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
+  public function GetDiscoverySummary(GetDiscoverySummaryRequest) Awaitable<Errors\Result<GetDiscoverySummaryResponse>>;
   public function ListConfigurations(ListConfigurationsRequest) Awaitable<Errors\Result<ListConfigurationsResponse>>;
+  public function ListServerNeighbors(ListServerNeighborsRequest) Awaitable<Errors\Result<ListServerNeighborsResponse>>;
   public function StartContinuousExport(StartContinuousExportRequest) Awaitable<Errors\Result<StartContinuousExportResponse>>;
+  public function StartDataCollectionByAgentIds(StartDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StartDataCollectionByAgentIdsResponse>>;
+  public function StartExportTask(StartExportTaskRequest) Awaitable<Errors\Result<StartExportTaskResponse>>;
+  public function StartImportTask(StartImportTaskRequest) Awaitable<Errors\Result<StartImportTaskResponse>>;
   public function StopContinuousExport(StopContinuousExportRequest) Awaitable<Errors\Result<StopContinuousExportResponse>>;
+  public function StopDataCollectionByAgentIds(StopDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StopDataCollectionByAgentIdsResponse>>;
+  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
 }
 
-class StartImportTaskRequest {
-  public ClientRequestToken $client_request_token;
-  public ImportTaskName $name;
-  public ImportURL $import_url;
+class AgentConfigurationStatus {
+  public string $agent_id;
+  public string $description;
+  public boolean $operation_succeeded;
 }
 
-class StopDataCollectionByAgentIdsResponse {
-  public AgentConfigurationStatusList $agents_configuration_status;
+class AgentConfigurationStatusList {
+}
+
+class AgentId {
 }
 
 class AgentIds {
+}
+
+class AgentInfo {
+  public AgentId $agent_id;
+  public AgentNetworkInfoList $agent_network_info_list;
+  public string $agent_type;
+  public string $collection_status;
+  public string $connector_id;
+  public AgentStatus $health;
+  public string $host_name;
+  public string $last_health_ping_time;
+  public string $registered_time;
+  public string $version;
 }
 
 class AgentNetworkInfo {
@@ -47,89 +62,92 @@ class AgentNetworkInfo {
   public string $mac_address;
 }
 
+class AgentNetworkInfoList {
+}
+
+class AgentStatus {
+}
+
 class AgentsInfo {
 }
 
-class DescribeConfigurationsAttribute {
+class ApplicationId {
 }
 
-class ListConfigurationsResponse {
-  public Configurations $configurations;
-  public NextToken $next_token;
+class ApplicationIdsList {
 }
 
-class StartExportTaskRequest {
-  public ExportDataFormats $export_data_format;
-  public ExportFilters $filters;
-  public TimeStamp $start_time;
-  public TimeStamp $end_time;
+class AssociateConfigurationItemsToApplicationRequest {
+  public ApplicationId $application_configuration_id;
+  public ConfigurationIdList $configuration_ids;
 }
 
-class S3PresignedUrl {
+class AssociateConfigurationItemsToApplicationResponse {
 }
 
-class StartDataCollectionByAgentIdsRequest {
-  public AgentIds $agent_ids;
+class AuthorizationErrorException {
+  public Message $message;
+}
+
+class BatchDeleteImportDataError {
+  public BatchDeleteImportDataErrorCode $error_code;
+  public BatchDeleteImportDataErrorDescription $error_description;
+  public ImportTaskIdentifier $import_task_id;
+}
+
+class BatchDeleteImportDataErrorCode {
+}
+
+class BatchDeleteImportDataErrorDescription {
+}
+
+class BatchDeleteImportDataErrorList {
+}
+
+class BatchDeleteImportDataRequest {
+  public ToDeleteIdentifierList $import_task_ids;
+}
+
+class BatchDeleteImportDataResponse {
+  public BatchDeleteImportDataErrorList $errors;
+}
+
+class Boolean {
+}
+
+class BoxedInteger {
+}
+
+class ClientRequestToken {
+}
+
+class Condition {
+}
+
+class Configuration {
+}
+
+class ConfigurationId {
+}
+
+class ConfigurationIdList {
 }
 
 class ConfigurationItemType {
 }
 
 class ConfigurationTag {
-  public TimeStamp $time_of_creation;
-  public ConfigurationItemType $configuration_type;
   public ConfigurationId $configuration_id;
+  public ConfigurationItemType $configuration_type;
   public TagKey $key;
+  public TimeStamp $time_of_creation;
   public TagValue $value;
 }
 
+class ConfigurationTagSet {
+}
+
 class Configurations {
-}
-
-class CustomerConnectorInfo {
-  public int $unknown_connectors;
-  public int $active_connectors;
-  public int $healthy_connectors;
-  public int $black_listed_connectors;
-  public int $shutdown_connectors;
-  public int $unhealthy_connectors;
-  public int $total_connectors;
-}
-
-class TagFilters {
-}
-
-class BatchDeleteImportDataError {
-  public ImportTaskIdentifier $import_task_id;
-  public BatchDeleteImportDataErrorCode $error_code;
-  public BatchDeleteImportDataErrorDescription $error_description;
-}
-
-class DisassociateConfigurationItemsFromApplicationRequest {
-  public ApplicationId $application_configuration_id;
-  public ConfigurationIdList $configuration_ids;
-}
-
-class StopContinuousExportRequest {
-  public ConfigurationsExportId $export_id;
-}
-
-class DescribeExportConfigurationsResponse {
-  public ExportsInfo $exports_info;
-  public NextToken $next_token;
-}
-
-class StopDataCollectionByAgentIdsRequest {
-  public AgentIds $agent_ids;
-}
-
-class ContinuousExportIds {
-}
-
-class DescribeContinuousExportsMaxResults {
-}
-
-class TagKey {
 }
 
 class ConfigurationsDownloadUrl {
@@ -142,70 +160,74 @@ class ConflictErrorException {
   public Message $message;
 }
 
-class DeleteTagsResponse {
-}
-
-class OrderByList {
-}
-
-class ApplicationId {
-}
-
 class ContinuousExportDescription {
+  public DataSource $data_source;
   public ConfigurationsExportId $export_id;
+  public S3Bucket $s_3_bucket;
+  public SchemaStorageConfig $schema_storage_config;
+  public TimeStamp $start_time;
   public ContinuousExportStatus $status;
   public StringMax255 $status_detail;
-  public S3Bucket $s_3_bucket;
-  public TimeStamp $start_time;
   public TimeStamp $stop_time;
-  public DataSource $data_source;
-  public SchemaStorageConfig $schema_storage_config;
 }
 
-class DescribeImportTasksMaxResults {
+class ContinuousExportDescriptions {
 }
 
-class Long {
+class ContinuousExportIds {
 }
 
-class StartDataCollectionByAgentIdsResponse {
-  public AgentConfigurationStatusList $agents_configuration_status;
+class ContinuousExportStatus {
 }
 
-class AgentConfigurationStatus {
-  public string $agent_id;
-  public boolean $operation_succeeded;
+class CreateApplicationRequest {
   public string $description;
-}
-
-class Configuration {
-}
-
-class Message {
-}
-
-class TagSet {
-}
-
-class BatchDeleteImportDataErrorDescription {
+  public string $name;
 }
 
 class CreateApplicationResponse {
   public string $configuration_id;
 }
 
-class DescribeTagsRequest {
-  public int $max_results;
-  public NextToken $next_token;
-  public TagFilters $filters;
+class CreateTagsRequest {
+  public ConfigurationIdList $configuration_ids;
+  public TagSet $tags;
 }
 
-class InvalidParameterException {
-  public Message $message;
+class CreateTagsResponse {
 }
 
-class ResourceNotFoundException {
-  public Message $message;
+class CustomerAgentInfo {
+  public int $active_agents;
+  public int $black_listed_agents;
+  public int $healthy_agents;
+  public int $shutdown_agents;
+  public int $total_agents;
+  public int $unhealthy_agents;
+  public int $unknown_agents;
+}
+
+class CustomerConnectorInfo {
+  public int $active_connectors;
+  public int $black_listed_connectors;
+  public int $healthy_connectors;
+  public int $shutdown_connectors;
+  public int $total_connectors;
+  public int $unhealthy_connectors;
+  public int $unknown_connectors;
+}
+
+class DataSource {
+}
+
+class DatabaseName {
+}
+
+class DeleteApplicationsRequest {
+  public ApplicationIdsList $configuration_ids;
+}
+
+class DeleteApplicationsResponse {
 }
 
 class DeleteTagsRequest {
@@ -213,164 +235,65 @@ class DeleteTagsRequest {
   public TagSet $tags;
 }
 
-class ExportRequestTime {
+class DeleteTagsResponse {
 }
 
-class FilterName {
+class DescribeAgentsRequest {
+  public AgentIds $agent_ids;
+  public Filters $filters;
+  public int $max_results;
+  public NextToken $next_token;
 }
 
-class NeighborConnectionDetail {
-  public Long $connections_count;
-  public ConfigurationId $source_server_id;
-  public ConfigurationId $destination_server_id;
-  public BoxedInteger $destination_port;
-  public string $transport_protocol;
+class DescribeAgentsResponse {
+  public AgentsInfo $agents_info;
+  public NextToken $next_token;
 }
 
-class AgentId {
+class DescribeConfigurationsAttribute {
 }
 
-class BatchDeleteImportDataResponse {
-  public BatchDeleteImportDataErrorList $errors;
+class DescribeConfigurationsAttributes {
 }
 
-class ContinuousExportStatus {
+class DescribeConfigurationsRequest {
+  public ConfigurationIdList $configuration_ids;
 }
 
-class CustomerAgentInfo {
-  public int $total_agents;
-  public int $unknown_agents;
-  public int $active_agents;
-  public int $healthy_agents;
-  public int $black_listed_agents;
-  public int $shutdown_agents;
-  public int $unhealthy_agents;
+class DescribeConfigurationsResponse {
+  public DescribeConfigurationsAttributes $configurations;
 }
 
-class GetDiscoverySummaryResponse {
-  public Long $servers;
-  public Long $applications;
-  public Long $servers_mapped_to_applications;
-  public Long $servers_mappedto_tags;
-  public CustomerAgentInfo $agent_summary;
-  public CustomerConnectorInfo $connector_summary;
+class DescribeContinuousExportsMaxResults {
 }
 
-class BatchDeleteImportDataErrorCode {
+class DescribeContinuousExportsRequest {
+  public ContinuousExportIds $export_ids;
+  public DescribeContinuousExportsMaxResults $max_results;
+  public NextToken $next_token;
 }
 
-class BatchDeleteImportDataRequest {
-  public ToDeleteIdentifierList $import_task_ids;
+class DescribeContinuousExportsResponse {
+  public ContinuousExportDescriptions $descriptions;
+  public NextToken $next_token;
 }
 
-class ConfigurationTagSet {
+class DescribeExportConfigurationsRequest {
+  public ExportIds $export_ids;
+  public int $max_results;
+  public NextToken $next_token;
 }
 
-class DatabaseName {
+class DescribeExportConfigurationsResponse {
+  public ExportsInfo $exports_info;
+  public NextToken $next_token;
 }
 
-class ExportDataFormat {
-}
-
-class StartImportTaskResponse {
-  public ImportTask $task;
-}
-
-class CreateTagsResponse {
-}
-
-class DisassociateConfigurationItemsFromApplicationResponse {
-}
-
-class ExportsInfo {
-}
-
-class ImportTaskList {
-}
-
-class TimeStamp {
-}
-
-class UpdateApplicationRequest {
-  public string $name;
-  public string $description;
-  public ApplicationId $configuration_id;
-}
-
-class InvalidParameterValueException {
-  public Message $message;
-}
-
-class ContinuousExportDescriptions {
-}
-
-class ExportConfigurationsResponse {
-  public ConfigurationsExportId $export_id;
-}
-
-class ImportStatus {
-}
-
-class ImportTaskFilter {
-  public ImportTaskFilterName $name;
-  public ImportTaskFilterValueList $values;
-}
-
-class ImportTaskIdentifier {
-}
-
-class Integer {
-}
-
-class ServerInternalErrorException {
-  public Message $message;
-}
-
-class StopContinuousExportResponse {
-  public TimeStamp $start_time;
-  public TimeStamp $stop_time;
-}
-
-class AgentConfigurationStatusList {
-}
-
-class AgentStatus {
-}
-
-class ExportDataFormats {
-}
-
-class ExportFilter {
-  public FilterName $name;
-  public FilterValues $values;
-  public Condition $condition;
-}
-
-class Filter {
-  public string $name;
-  public FilterValues $values;
-  public Condition $condition;
-}
-
-class ListServerNeighborsResponse {
-  public Long $known_dependency_count;
-  public NeighborDetailsList $neighbors;
-  public string $next_token;
-}
-
-class ConfigurationIdList {
-}
-
-class NeighborDetailsList {
-}
-
-class UpdateApplicationResponse {
-}
-
-class TagValue {
-}
-
-class Condition {
+class DescribeExportTasksRequest {
+  public ExportIds $export_ids;
+  public ExportFilters $filters;
+  public int $max_results;
+  public NextToken $next_token;
 }
 
 class DescribeExportTasksResponse {
@@ -381,130 +304,12 @@ class DescribeExportTasksResponse {
 class DescribeImportTasksFilterList {
 }
 
-class ExportStatusMessage {
+class DescribeImportTasksMaxResults {
 }
 
-class FilterValue {
-}
-
-class Filters {
-}
-
-class DescribeAgentsResponse {
-  public AgentsInfo $agents_info;
-  public NextToken $next_token;
-}
-
-class ListServerNeighborsRequest {
-  public string $next_token;
-  public ConfigurationId $configuration_id;
-  public boolean $port_information_needed;
-  public ConfigurationIdList $neighbor_configuration_ids;
-  public int $max_results;
-}
-
-class StartContinuousExportResponse {
-  public SchemaStorageConfig $schema_storage_config;
-  public ConfigurationsExportId $export_id;
-  public S3Bucket $s_3_bucket;
-  public TimeStamp $start_time;
-  public DataSource $data_source;
-}
-
-class ToDeleteIdentifierList {
-}
-
-class FilterValues {
-}
-
-class ImportTaskName {
-}
-
-class BatchDeleteImportDataErrorList {
-}
-
-class ConfigurationId {
-}
-
-class DescribeConfigurationsAttributes {
-}
-
-class DescribeConfigurationsResponse {
-  public DescribeConfigurationsAttributes $configurations;
-}
-
-class DescribeExportConfigurationsRequest {
-  public ExportIds $export_ids;
-  public int $max_results;
-  public NextToken $next_token;
-}
-
-class AgentInfo {
-  public AgentStatus $health;
-  public string $host_name;
-  public AgentNetworkInfoList $agent_network_info_list;
-  public string $connector_id;
-  public string $collection_status;
-  public string $agent_type;
-  public string $registered_time;
-  public AgentId $agent_id;
-  public string $version;
-  public string $last_health_ping_time;
-}
-
-class AssociateConfigurationItemsToApplicationRequest {
-  public ApplicationId $application_configuration_id;
-  public ConfigurationIdList $configuration_ids;
-}
-
-class CreateApplicationRequest {
-  public string $name;
-  public string $description;
-}
-
-class ImportTaskFilterValueList {
-}
-
-class orderString {
-}
-
-class AgentNetworkInfoList {
-}
-
-class GetDiscoverySummaryRequest {
-}
-
-class HomeRegionNotSetException {
-  public Message $message;
-}
-
-class StartContinuousExportRequest {
-}
-
-class StartExportTaskResponse {
-  public ConfigurationsExportId $export_id;
-}
-
-class String {
-}
-
-class CreateTagsRequest {
-  public ConfigurationIdList $configuration_ids;
-  public TagSet $tags;
-}
-
-class DescribeConfigurationsRequest {
-  public ConfigurationIdList $configuration_ids;
-}
-
-class ImportTaskFilterValue {
-}
-
-class AssociateConfigurationItemsToApplicationResponse {
-}
-
-class DescribeContinuousExportsResponse {
-  public ContinuousExportDescriptions $descriptions;
+class DescribeImportTasksRequest {
+  public DescribeImportTasksFilterList $filters;
+  public DescribeImportTasksMaxResults $max_results;
   public NextToken $next_token;
 }
 
@@ -513,18 +318,158 @@ class DescribeImportTasksResponse {
   public ImportTaskList $tasks;
 }
 
-class OrderByElement {
-  public string $field_name;
-  public orderString $sort_order;
+class DescribeTagsRequest {
+  public TagFilters $filters;
+  public int $max_results;
+  public NextToken $next_token;
 }
 
-class ApplicationIdsList {
+class DescribeTagsResponse {
+  public NextToken $next_token;
+  public ConfigurationTagSet $tags;
+}
+
+class DisassociateConfigurationItemsFromApplicationRequest {
+  public ApplicationId $application_configuration_id;
+  public ConfigurationIdList $configuration_ids;
+}
+
+class DisassociateConfigurationItemsFromApplicationResponse {
+}
+
+class ExportConfigurationsResponse {
+  public ConfigurationsExportId $export_id;
+}
+
+class ExportDataFormat {
+}
+
+class ExportDataFormats {
+}
+
+class ExportFilter {
+  public Condition $condition;
+  public FilterName $name;
+  public FilterValues $values;
+}
+
+class ExportFilters {
 }
 
 class ExportIds {
 }
 
+class ExportInfo {
+  public ConfigurationsDownloadUrl $configurations_download_url;
+  public ConfigurationsExportId $export_id;
+  public ExportRequestTime $export_request_time;
+  public ExportStatus $export_status;
+  public boolean $is_truncated;
+  public TimeStamp $requested_end_time;
+  public TimeStamp $requested_start_time;
+  public ExportStatusMessage $status_message;
+}
+
+class ExportRequestTime {
+}
+
+class ExportStatus {
+}
+
+class ExportStatusMessage {
+}
+
+class ExportsInfo {
+}
+
+class Filter {
+  public Condition $condition;
+  public string $name;
+  public FilterValues $values;
+}
+
+class FilterName {
+}
+
+class FilterValue {
+}
+
+class FilterValues {
+}
+
+class Filters {
+}
+
+class GetDiscoverySummaryRequest {
+}
+
+class GetDiscoverySummaryResponse {
+  public CustomerAgentInfo $agent_summary;
+  public Long $applications;
+  public CustomerConnectorInfo $connector_summary;
+  public Long $servers;
+  public Long $servers_mapped_to_applications;
+  public Long $servers_mappedto_tags;
+}
+
+class HomeRegionNotSetException {
+  public Message $message;
+}
+
+class ImportStatus {
+}
+
+class ImportTask {
+  public int $application_import_failure;
+  public int $application_import_success;
+  public ClientRequestToken $client_request_token;
+  public S3PresignedUrl $errors_and_failed_entries_zip;
+  public TimeStamp $import_completion_time;
+  public TimeStamp $import_deleted_time;
+  public TimeStamp $import_request_time;
+  public ImportTaskIdentifier $import_task_id;
+  public ImportURL $import_url;
+  public ImportTaskName $name;
+  public int $server_import_failure;
+  public int $server_import_success;
+  public ImportStatus $status;
+}
+
+class ImportTaskFilter {
+  public ImportTaskFilterName $name;
+  public ImportTaskFilterValueList $values;
+}
+
 class ImportTaskFilterName {
+}
+
+class ImportTaskFilterValue {
+}
+
+class ImportTaskFilterValueList {
+}
+
+class ImportTaskIdentifier {
+}
+
+class ImportTaskList {
+}
+
+class ImportTaskName {
+}
+
+class ImportURL {
+}
+
+class Integer {
+}
+
+class InvalidParameterException {
+  public Message $message;
+}
+
+class InvalidParameterValueException {
+  public Message $message;
 }
 
 class ListConfigurationsRequest {
@@ -535,20 +480,139 @@ class ListConfigurationsRequest {
   public OrderByList $order_by;
 }
 
+class ListConfigurationsResponse {
+  public Configurations $configurations;
+  public NextToken $next_token;
+}
+
+class ListServerNeighborsRequest {
+  public ConfigurationId $configuration_id;
+  public int $max_results;
+  public ConfigurationIdList $neighbor_configuration_ids;
+  public string $next_token;
+  public boolean $port_information_needed;
+}
+
+class ListServerNeighborsResponse {
+  public Long $known_dependency_count;
+  public NeighborDetailsList $neighbors;
+  public string $next_token;
+}
+
+class Long {
+}
+
+class Message {
+}
+
+class NeighborConnectionDetail {
+  public Long $connections_count;
+  public BoxedInteger $destination_port;
+  public ConfigurationId $destination_server_id;
+  public ConfigurationId $source_server_id;
+  public string $transport_protocol;
+}
+
+class NeighborDetailsList {
+}
+
+class NextToken {
+}
+
+class OperationNotPermittedException {
+  public Message $message;
+}
+
+class OrderByElement {
+  public string $field_name;
+  public orderString $sort_order;
+}
+
+class OrderByList {
+}
+
+class ResourceInUseException {
+  public Message $message;
+}
+
+class ResourceNotFoundException {
+  public Message $message;
+}
+
 class S3Bucket {
+}
+
+class S3PresignedUrl {
 }
 
 class SchemaStorageConfig {
 }
 
-class BoxedInteger {
-}
-
-class ClientRequestToken {
-}
-
-class OperationNotPermittedException {
+class ServerInternalErrorException {
   public Message $message;
+}
+
+class StartContinuousExportRequest {
+}
+
+class StartContinuousExportResponse {
+  public DataSource $data_source;
+  public ConfigurationsExportId $export_id;
+  public S3Bucket $s_3_bucket;
+  public SchemaStorageConfig $schema_storage_config;
+  public TimeStamp $start_time;
+}
+
+class StartDataCollectionByAgentIdsRequest {
+  public AgentIds $agent_ids;
+}
+
+class StartDataCollectionByAgentIdsResponse {
+  public AgentConfigurationStatusList $agents_configuration_status;
+}
+
+class StartExportTaskRequest {
+  public TimeStamp $end_time;
+  public ExportDataFormats $export_data_format;
+  public ExportFilters $filters;
+  public TimeStamp $start_time;
+}
+
+class StartExportTaskResponse {
+  public ConfigurationsExportId $export_id;
+}
+
+class StartImportTaskRequest {
+  public ClientRequestToken $client_request_token;
+  public ImportURL $import_url;
+  public ImportTaskName $name;
+}
+
+class StartImportTaskResponse {
+  public ImportTask $task;
+}
+
+class StopContinuousExportRequest {
+  public ConfigurationsExportId $export_id;
+}
+
+class StopContinuousExportResponse {
+  public TimeStamp $start_time;
+  public TimeStamp $stop_time;
+}
+
+class StopDataCollectionByAgentIdsRequest {
+  public AgentIds $agent_ids;
+}
+
+class StopDataCollectionByAgentIdsResponse {
+  public AgentConfigurationStatusList $agents_configuration_status;
+}
+
+class String {
+}
+
+class StringMax255 {
 }
 
 class Tag {
@@ -556,102 +620,38 @@ class Tag {
   public TagValue $value;
 }
 
-class DataSource {
-}
-
-class DescribeImportTasksRequest {
-  public DescribeImportTasksFilterList $filters;
-  public DescribeImportTasksMaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class ExportFilters {
-}
-
-class ImportURL {
-}
-
-class AuthorizationErrorException {
-  public Message $message;
-}
-
-class Boolean {
-}
-
-class DescribeExportTasksRequest {
-  public int $max_results;
-  public NextToken $next_token;
-  public ExportIds $export_ids;
-  public ExportFilters $filters;
-}
-
-class DescribeTagsResponse {
-  public ConfigurationTagSet $tags;
-  public NextToken $next_token;
-}
-
-class ExportInfo {
-  public ConfigurationsExportId $export_id;
-  public ExportStatus $export_status;
-  public ExportStatusMessage $status_message;
-  public ConfigurationsDownloadUrl $configurations_download_url;
-  public ExportRequestTime $export_request_time;
-  public boolean $is_truncated;
-  public TimeStamp $requested_start_time;
-  public TimeStamp $requested_end_time;
-}
-
-class ImportTask {
-  public ClientRequestToken $client_request_token;
-  public ImportTaskName $name;
-  public ImportStatus $status;
-  public TimeStamp $import_request_time;
-  public int $application_import_success;
-  public ImportTaskIdentifier $import_task_id;
-  public ImportURL $import_url;
-  public TimeStamp $import_completion_time;
-  public TimeStamp $import_deleted_time;
-  public int $server_import_success;
-  public int $server_import_failure;
-  public int $application_import_failure;
-  public S3PresignedUrl $errors_and_failed_entries_zip;
-}
-
-class StringMax255 {
-}
-
-class DeleteApplicationsRequest {
-  public ApplicationIdsList $configuration_ids;
-}
-
-class DescribeAgentsRequest {
-  public AgentIds $agent_ids;
-  public Filters $filters;
-  public int $max_results;
-  public NextToken $next_token;
-}
-
-class DescribeContinuousExportsRequest {
-  public ContinuousExportIds $export_ids;
-  public DescribeContinuousExportsMaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class ExportStatus {
-}
-
-class NextToken {
-}
-
-class ResourceInUseException {
-  public Message $message;
-}
-
-class DeleteApplicationsResponse {
-}
-
 class TagFilter {
   public FilterName $name;
   public FilterValues $values;
+}
+
+class TagFilters {
+}
+
+class TagKey {
+}
+
+class TagSet {
+}
+
+class TagValue {
+}
+
+class TimeStamp {
+}
+
+class ToDeleteIdentifierList {
+}
+
+class UpdateApplicationRequest {
+  public ApplicationId $configuration_id;
+  public string $description;
+  public string $name;
+}
+
+class UpdateApplicationResponse {
+}
+
+class orderString {
 }
 

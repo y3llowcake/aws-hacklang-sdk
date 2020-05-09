@@ -8,14 +8,36 @@ interface CodeStar connections {
   public function ListConnections(ListConnectionsInput) Awaitable<Errors\Result<ListConnectionsOutput>>;
 }
 
-class GetConnectionInput {
-  public ConnectionArn $connection_arn;
+class AccountId {
 }
 
-class MaxResults {
+class Connection {
+  public ConnectionArn $connection_arn;
+  public ConnectionName $connection_name;
+  public ConnectionStatus $connection_status;
+  public AccountId $owner_account_id;
+  public ProviderType $provider_type;
 }
 
 class ConnectionArn {
+}
+
+class ConnectionList {
+}
+
+class ConnectionName {
+}
+
+class ConnectionStatus {
+}
+
+class CreateConnectionInput {
+  public ConnectionName $connection_name;
+  public ProviderType $provider_type;
+}
+
+class CreateConnectionOutput {
+  public ConnectionArn $connection_arn;
 }
 
 class DeleteConnectionInput {
@@ -25,22 +47,25 @@ class DeleteConnectionInput {
 class DeleteConnectionOutput {
 }
 
-class CreateConnectionInput {
-  public ProviderType $provider_type;
-  public ConnectionName $connection_name;
-}
-
-class CreateConnectionOutput {
-  public ConnectionArn $connection_arn;
-}
-
 class ErrorMessage {
 }
 
+class GetConnectionInput {
+  public ConnectionArn $connection_arn;
+}
+
+class GetConnectionOutput {
+  public Connection $connection;
+}
+
+class LimitExceededException {
+  public ErrorMessage $message;
+}
+
 class ListConnectionsInput {
-  public ProviderType $provider_type_filter;
   public MaxResults $max_results;
   public NextToken $next_token;
+  public ProviderType $provider_type_filter;
 }
 
 class ListConnectionsOutput {
@@ -48,25 +73,10 @@ class ListConnectionsOutput {
   public NextToken $next_token;
 }
 
-class Connection {
-  public ConnectionName $connection_name;
-  public ConnectionArn $connection_arn;
-  public ProviderType $provider_type;
-  public AccountId $owner_account_id;
-  public ConnectionStatus $connection_status;
+class MaxResults {
 }
 
-class ConnectionName {
-}
-
-class ConnectionStatus {
-}
-
-class ConnectionList {
-}
-
-class LimitExceededException {
-  public ErrorMessage $message;
+class NextToken {
 }
 
 class ProviderType {
@@ -74,15 +84,5 @@ class ProviderType {
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
-}
-
-class AccountId {
-}
-
-class GetConnectionOutput {
-  public Connection $connection;
-}
-
-class NextToken {
 }
 

@@ -2,460 +2,60 @@
 namespace slack\aws\iotevents;
 
 interface IoT Events {
-  public function DescribeDetectorModel(DescribeDetectorModelRequest) Awaitable<Errors\Result<DescribeDetectorModelResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function UpdateInput(UpdateInputRequest) Awaitable<Errors\Result<UpdateInputResponse>>;
   public function CreateDetectorModel(CreateDetectorModelRequest) Awaitable<Errors\Result<CreateDetectorModelResponse>>;
+  public function CreateInput(CreateInputRequest) Awaitable<Errors\Result<CreateInputResponse>>;
   public function DeleteDetectorModel(DeleteDetectorModelRequest) Awaitable<Errors\Result<DeleteDetectorModelResponse>>;
   public function DeleteInput(DeleteInputRequest) Awaitable<Errors\Result<DeleteInputResponse>>;
-  public function ListDetectorModelVersions(ListDetectorModelVersionsRequest) Awaitable<Errors\Result<ListDetectorModelVersionsResponse>>;
-  public function PutLoggingOptions(PutLoggingOptionsRequest) Awaitable<Errors\Error>;
-  public function VerifyResourcesExistForTagris(TagrisVerifyResourcesExistInput) Awaitable<Errors\Result<TagrisVerifyResourcesExistOutput>>;
+  public function DescribeDetectorModel(DescribeDetectorModelRequest) Awaitable<Errors\Result<DescribeDetectorModelResponse>>;
   public function DescribeInput(DescribeInputRequest) Awaitable<Errors\Result<DescribeInputResponse>>;
-  public function ListInputs(ListInputsRequest) Awaitable<Errors\Result<ListInputsResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function CreateInput(CreateInputRequest) Awaitable<Errors\Result<CreateInputResponse>>;
   public function DescribeLoggingOptions(DescribeLoggingOptionsRequest) Awaitable<Errors\Result<DescribeLoggingOptionsResponse>>;
+  public function ListDetectorModelVersions(ListDetectorModelVersionsRequest) Awaitable<Errors\Result<ListDetectorModelVersionsResponse>>;
   public function ListDetectorModels(ListDetectorModelsRequest) Awaitable<Errors\Result<ListDetectorModelsResponse>>;
+  public function ListInputs(ListInputsRequest) Awaitable<Errors\Result<ListInputsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutLoggingOptions(PutLoggingOptionsRequest) Awaitable<Errors\Error>;
   public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
   public function UpdateDetectorModel(UpdateDetectorModelRequest) Awaitable<Errors\Result<UpdateDetectorModelResponse>>;
+  public function UpdateInput(UpdateInputRequest) Awaitable<Errors\Result<UpdateInputResponse>>;
+  public function VerifyResourcesExistForTagris(TagrisVerifyResourcesExistInput) Awaitable<Errors\Result<TagrisVerifyResourcesExistOutput>>;
 }
 
-class AssetPropertyDoubleValue {
-}
-
-class Event {
-  public EventName $event_name;
-  public Condition $condition;
-  public Actions $actions;
-}
-
-class TagrisInvalidArnException {
-  public TagrisExceptionMessage $message;
-  public TagrisSweepListItem $sweep_list_item;
-}
-
-class TagrisStatus {
-}
-
-class TagrisSweepListItem {
-  public TagrisAmazonResourceName $tagris_amazon_resource_name;
-  public TagrisInternalId $tagris_internal_id;
-  public TagrisVersion $tagris_version;
-  public TagrisAccountId $tagris_account_id;
-}
-
-class ListTagsForResourceResponse {
-  public Tags $tags;
-}
-
-class Payload {
-  public PayloadType $type;
-  public ContentExpression $content_expression;
-}
-
-class ResourceAlreadyExistsException {
-  public errorMessage $message;
-  public resourceId $resource_id;
-  public resourceArn $resource_arn;
-}
-
-class TagrisAccessDeniedException {
-  public TagrisExceptionMessage $message;
-}
-
-class AssetPropertyEntryId {
-}
-
-class FirehoseSeparator {
-}
-
-class ListTagsForResourceRequest {
-  public AmazonResourceName $resource_arn;
-}
-
-class UseBase64 {
-}
-
-class DetectorModelName {
-}
-
-class Events {
-}
-
-class ListDetectorModelsResponse {
-  public DetectorModelSummaries $detector_model_summaries;
-  public NextToken $next_token;
-}
-
-class DescribeDetectorModelRequest {
-  public DetectorModelName $detector_model_name;
-  public DetectorModelVersion $detector_model_version;
-}
-
-class LimitExceededException {
-  public errorMessage $message;
-}
-
-class MaxResults {
-}
-
-class UpdateInputResponse {
-  public InputConfiguration $input_configuration;
-}
-
-class OnEnterLifecycle {
-  public Events $events;
-}
-
-class TagrisInternalServiceException {
-  public TagrisExceptionMessage $message;
-}
-
-class Attributes {
-}
-
-class CreateDetectorModelRequest {
-  public EvaluationMethod $evaluation_method;
-  public DetectorModelName $detector_model_name;
-  public DetectorModelDefinition $detector_model_definition;
-  public DetectorModelDescription $detector_model_description;
-  public AttributeJsonPath $key;
-  public AmazonResourceName $role_arn;
-  public Tags $tags;
-}
-
-class DescribeInputResponse {
-  public Input $input;
-}
-
-class LoggingOptions {
-  public AmazonResourceName $role_arn;
-  public LoggingLevel $level;
-  public LoggingEnabled $enabled;
-  public DetectorDebugOptions $detector_debug_options;
-}
-
-class AmazonResourceName {
-}
-
-class AssetPropertyOffsetInNanos {
-}
-
-class SqsAction {
-  public QueueUrl $queue_url;
-  public UseBase64 $use_base_64;
-  public Payload $payload;
-}
-
-class TransitionEvent {
-  public Condition $condition;
-  public Actions $actions;
-  public StateName $next_state;
-  public EventName $event_name;
-}
-
-class ServiceUnavailableException {
-  public errorMessage $message;
-}
-
-class SetTimerAction {
-  public TimerName $timer_name;
-  public Seconds $seconds;
-  public VariableValue $duration_expression;
-}
-
-class SetVariableAction {
-  public VariableName $variable_name;
-  public VariableValue $value;
-}
-
-class Tags {
-}
-
-class ContentExpression {
-}
-
-class CreateInputRequest {
-  public InputDefinition $input_definition;
-  public Tags $tags;
-  public InputName $input_name;
-  public InputDescription $input_description;
-}
-
-class DeleteDetectorModelResponse {
-}
-
-class DetectorDebugOption {
-  public KeyValue $key_value;
-  public DetectorModelName $detector_model_name;
-}
-
-class Attribute {
-  public AttributeJsonPath $json_path;
-}
-
-class DescribeInputRequest {
-  public InputName $input_name;
-}
-
-class EvaluationMethod {
-}
-
-class TagrisExceptionMessage {
-}
-
-class AssetPropertyTimestamp {
-  public AssetPropertyTimeInSeconds $time_in_seconds;
-  public AssetPropertyOffsetInNanos $offset_in_nanos;
-}
-
-class DynamoTableName {
-}
-
-class IotSiteWiseAction {
-  public AssetPropertyEntryId $entry_id;
-  public AssetId $asset_id;
-  public AssetPropertyId $property_id;
-  public AssetPropertyAlias $property_alias;
-  public AssetPropertyValue $property_value;
-}
-
-class PutLoggingOptionsRequest {
-  public LoggingOptions $logging_options;
-}
-
-class VariableName {
-}
-
-class DetectorModelSummaries {
-}
-
-class IotTopicPublishAction {
-  public Payload $payload;
-  public MQTTTopic $mqtt_topic;
-}
-
-class UnsupportedOperationException {
-  public errorMessage $message;
-}
-
-class UpdateInputRequest {
-  public InputName $input_name;
-  public InputDescription $input_description;
-  public InputDefinition $input_definition;
-}
-
-class AssetPropertyAlias {
-}
-
-class DeleteInputResponse {
-}
-
-class UpdateDetectorModelResponse {
-  public DetectorModelConfiguration $detector_model_configuration;
-}
-
-class TagrisPartialResourcesExistResultsException {
-  public TagrisExceptionMessage $message;
-  public TagrisSweepListResult $resource_existence_information;
-}
-
-class TagKey {
-}
-
-class resourceArn {
+class Action {
+  public ClearTimerAction $clear_timer;
+  public DynamoDBAction $dynamo_db;
+  public DynamoDBv2Action $dynamo_d_bv_2;
+  public FirehoseAction $firehose;
+  public IotEventsAction $iot_events;
+  public IotSiteWiseAction $iot_site_wise;
+  public IotTopicPublishAction $iot_topic_publish;
+  public LambdaAction $lambda;
+  public ResetTimerAction $reset_timer;
+  public SetTimerAction $set_timer;
+  public SetVariableAction $set_variable;
+  public SNSTopicPublishAction $sns;
+  public SqsAction $sqs;
 }
 
 class Actions {
 }
 
-class AttributeJsonPath {
+class AmazonResourceName {
 }
 
-class InputName {
+class AssetId {
 }
 
-class IotEventsAction {
-  public InputName $input_name;
-  public Payload $payload;
+class AssetPropertyAlias {
 }
 
-class TagrisAmazonResourceName {
+class AssetPropertyBooleanValue {
 }
 
-class TagrisVerifyResourcesExistInput {
-  public TagrisSweepList $tagris_sweep_list;
+class AssetPropertyDoubleValue {
 }
 
-class UpdateDetectorModelRequest {
-  public AmazonResourceName $role_arn;
-  public EvaluationMethod $evaluation_method;
-  public DetectorModelName $detector_model_name;
-  public DetectorModelDefinition $detector_model_definition;
-  public DetectorModelDescription $detector_model_description;
-}
-
-class InputDescription {
-}
-
-class LambdaAction {
-  public AmazonResourceName $function_arn;
-  public Payload $payload;
-}
-
-class OnInputLifecycle {
-  public TransitionEvents $transition_events;
-  public Events $events;
-}
-
-class ResetTimerAction {
-  public TimerName $timer_name;
-}
-
-class Action {
-  public ResetTimerAction $reset_timer;
-  public IotEventsAction $iot_events;
-  public SqsAction $sqs;
-  public FirehoseAction $firehose;
-  public DynamoDBAction $dynamo_db;
-  public DynamoDBv2Action $dynamo_d_bv_2;
-  public IotTopicPublishAction $iot_topic_publish;
-  public SNSTopicPublishAction $sns;
-  public SetTimerAction $set_timer;
-  public ClearTimerAction $clear_timer;
-  public LambdaAction $lambda;
-  public IotSiteWiseAction $iot_site_wise;
-  public SetVariableAction $set_variable;
-}
-
-class CreateDetectorModelResponse {
-  public DetectorModelConfiguration $detector_model_configuration;
-}
-
-class DynamoKeyType {
-}
-
-class DynamoOperation {
-}
-
-class Seconds {
-}
-
-class State {
-  public StateName $state_name;
-  public OnInputLifecycle $on_input;
-  public OnEnterLifecycle $on_enter;
-  public OnExitLifecycle $on_exit;
-}
-
-class TagrisAccountId {
-}
-
-class DescribeLoggingOptionsResponse {
-  public LoggingOptions $logging_options;
-}
-
-class DynamoKeyValue {
-}
-
-class KeyValue {
-}
-
-class ListDetectorModelVersionsResponse {
-  public DetectorModelVersionSummaries $detector_model_version_summaries;
-  public NextToken $next_token;
-}
-
-class DynamoDBAction {
-  public DynamoKeyField $hash_key_field;
-  public DynamoKeyValue $hash_key_value;
-  public DynamoKeyField $payload_field;
-  public DynamoTableName $table_name;
-  public DynamoKeyType $hash_key_type;
-  public DynamoKeyType $range_key_type;
-  public DynamoKeyField $range_key_field;
-  public DynamoKeyValue $range_key_value;
-  public DynamoOperation $operation;
-  public Payload $payload;
-}
-
-class EventName {
-}
-
-class PayloadType {
-}
-
-class TagrisSweepListResult {
-}
-
-class AssetPropertyValue {
-  public AssetPropertyVariant $value;
-  public AssetPropertyTimestamp $timestamp;
-  public AssetPropertyQuality $quality;
-}
-
-class DeleteInputRequest {
-  public InputName $input_name;
-}
-
-class DetectorModelArn {
-}
-
-class DetectorModelVersion {
-}
-
-class AssetPropertyStringValue {
-}
-
-class TagrisInternalId {
-}
-
-class StateName {
-}
-
-class ThrottlingException {
-  public errorMessage $message;
-}
-
-class errorMessage {
-}
-
-class TagrisSweepList {
-}
-
-class Timestamp {
-}
-
-class DetectorModelDefinition {
-  public StateName $initial_state_name;
-  public States $states;
-}
-
-class InputConfiguration {
-  public InputName $input_name;
-  public InputDescription $input_description;
-  public InputArn $input_arn;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public InputStatus $status;
-}
-
-class InputStatus {
-}
-
-class TagKeys {
-}
-
-class TagrisInvalidParameterException {
-  public TagrisExceptionMessage $message;
-}
-
-class TagrisThrottledException {
-  public TagrisExceptionMessage $message;
-}
-
-class resourceId {
+class AssetPropertyEntryId {
 }
 
 class AssetPropertyId {
@@ -464,62 +64,202 @@ class AssetPropertyId {
 class AssetPropertyIntegerValue {
 }
 
-class LoggingEnabled {
+class AssetPropertyOffsetInNanos {
 }
 
-class ResourceNotFoundException {
-  public errorMessage $message;
+class AssetPropertyQuality {
 }
 
-class ResourceInUseException {
-  public errorMessage $message;
+class AssetPropertyStringValue {
+}
+
+class AssetPropertyTimeInSeconds {
+}
+
+class AssetPropertyTimestamp {
+  public AssetPropertyOffsetInNanos $offset_in_nanos;
+  public AssetPropertyTimeInSeconds $time_in_seconds;
+}
+
+class AssetPropertyValue {
+  public AssetPropertyQuality $quality;
+  public AssetPropertyTimestamp $timestamp;
+  public AssetPropertyVariant $value;
+}
+
+class AssetPropertyVariant {
+  public AssetPropertyBooleanValue $boolean_value;
+  public AssetPropertyDoubleValue $double_value;
+  public AssetPropertyIntegerValue $integer_value;
+  public AssetPropertyStringValue $string_value;
+}
+
+class Attribute {
+  public AttributeJsonPath $json_path;
+}
+
+class AttributeJsonPath {
+}
+
+class Attributes {
+}
+
+class ClearTimerAction {
+  public TimerName $timer_name;
+}
+
+class Condition {
+}
+
+class ContentExpression {
+}
+
+class CreateDetectorModelRequest {
+  public DetectorModelDefinition $detector_model_definition;
+  public DetectorModelDescription $detector_model_description;
+  public DetectorModelName $detector_model_name;
+  public EvaluationMethod $evaluation_method;
+  public AttributeJsonPath $key;
+  public AmazonResourceName $role_arn;
+  public Tags $tags;
+}
+
+class CreateDetectorModelResponse {
+  public DetectorModelConfiguration $detector_model_configuration;
+}
+
+class CreateInputRequest {
+  public InputDefinition $input_definition;
+  public InputDescription $input_description;
+  public InputName $input_name;
+  public Tags $tags;
+}
+
+class CreateInputResponse {
+  public InputConfiguration $input_configuration;
 }
 
 class DeleteDetectorModelRequest {
   public DetectorModelName $detector_model_name;
 }
 
-class DetectorModelVersionSummary {
-  public DetectorModelArn $detector_model_arn;
-  public AmazonResourceName $role_arn;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public DetectorModelVersionStatus $status;
-  public EvaluationMethod $evaluation_method;
+class DeleteDetectorModelResponse {
+}
+
+class DeleteInputRequest {
+  public InputName $input_name;
+}
+
+class DeleteInputResponse {
+}
+
+class DeliveryStreamName {
+}
+
+class DescribeDetectorModelRequest {
   public DetectorModelName $detector_model_name;
   public DetectorModelVersion $detector_model_version;
 }
 
-class InputSummaries {
+class DescribeDetectorModelResponse {
+  public DetectorModel $detector_model;
 }
 
-class InvalidRequestException {
-  public errorMessage $message;
+class DescribeInputRequest {
+  public InputName $input_name;
 }
 
-class LoggingLevel {
+class DescribeInputResponse {
+  public Input $input;
 }
 
-class MQTTTopic {
+class DescribeLoggingOptionsRequest {
 }
 
-class ListInputsResponse {
-  public InputSummaries $input_summaries;
-  public NextToken $next_token;
+class DescribeLoggingOptionsResponse {
+  public LoggingOptions $logging_options;
 }
 
-class TagResourceRequest {
-  public AmazonResourceName $resource_arn;
-  public Tags $tags;
+class DetectorDebugOption {
+  public DetectorModelName $detector_model_name;
+  public KeyValue $key_value;
 }
 
-class AssetPropertyBooleanValue {
+class DetectorDebugOptions {
+}
+
+class DetectorModel {
+  public DetectorModelConfiguration $detector_model_configuration;
+  public DetectorModelDefinition $detector_model_definition;
+}
+
+class DetectorModelArn {
+}
+
+class DetectorModelConfiguration {
+  public Timestamp $creation_time;
+  public DetectorModelArn $detector_model_arn;
+  public DetectorModelDescription $detector_model_description;
+  public DetectorModelName $detector_model_name;
+  public DetectorModelVersion $detector_model_version;
+  public EvaluationMethod $evaluation_method;
+  public AttributeJsonPath $key;
+  public Timestamp $last_update_time;
+  public AmazonResourceName $role_arn;
+  public DetectorModelVersionStatus $status;
+}
+
+class DetectorModelDefinition {
+  public StateName $initial_state_name;
+  public States $states;
+}
+
+class DetectorModelDescription {
+}
+
+class DetectorModelName {
+}
+
+class DetectorModelSummaries {
 }
 
 class DetectorModelSummary {
-  public DetectorModelName $detector_model_name;
-  public DetectorModelDescription $detector_model_description;
   public Timestamp $creation_time;
+  public DetectorModelDescription $detector_model_description;
+  public DetectorModelName $detector_model_name;
+}
+
+class DetectorModelVersion {
+}
+
+class DetectorModelVersionStatus {
+}
+
+class DetectorModelVersionSummaries {
+}
+
+class DetectorModelVersionSummary {
+  public Timestamp $creation_time;
+  public DetectorModelArn $detector_model_arn;
+  public DetectorModelName $detector_model_name;
+  public DetectorModelVersion $detector_model_version;
+  public EvaluationMethod $evaluation_method;
+  public Timestamp $last_update_time;
+  public AmazonResourceName $role_arn;
+  public DetectorModelVersionStatus $status;
+}
+
+class DynamoDBAction {
+  public DynamoKeyField $hash_key_field;
+  public DynamoKeyType $hash_key_type;
+  public DynamoKeyValue $hash_key_value;
+  public DynamoOperation $operation;
+  public Payload $payload;
+  public DynamoKeyField $payload_field;
+  public DynamoKeyField $range_key_field;
+  public DynamoKeyType $range_key_type;
+  public DynamoKeyValue $range_key_value;
+  public DynamoTableName $table_name;
 }
 
 class DynamoDBv2Action {
@@ -527,17 +267,43 @@ class DynamoDBv2Action {
   public DynamoTableName $table_name;
 }
 
-class InternalFailureException {
-  public errorMessage $message;
+class DynamoKeyField {
 }
 
-class TagrisVersion {
+class DynamoKeyType {
 }
 
-class VariableValue {
+class DynamoKeyValue {
 }
 
-class DetectorDebugOptions {
+class DynamoOperation {
+}
+
+class DynamoTableName {
+}
+
+class EvaluationMethod {
+}
+
+class Event {
+  public Actions $actions;
+  public Condition $condition;
+  public EventName $event_name;
+}
+
+class EventName {
+}
+
+class Events {
+}
+
+class FirehoseAction {
+  public DeliveryStreamName $delivery_stream_name;
+  public Payload $payload;
+  public FirehoseSeparator $separator;
+}
+
+class FirehoseSeparator {
 }
 
 class Input {
@@ -545,9 +311,228 @@ class Input {
   public InputDefinition $input_definition;
 }
 
-class ListDetectorModelsRequest {
-  public NextToken $next_token;
+class InputArn {
+}
+
+class InputConfiguration {
+  public Timestamp $creation_time;
+  public InputArn $input_arn;
+  public InputDescription $input_description;
+  public InputName $input_name;
+  public Timestamp $last_update_time;
+  public InputStatus $status;
+}
+
+class InputDefinition {
+  public Attributes $attributes;
+}
+
+class InputDescription {
+}
+
+class InputName {
+}
+
+class InputStatus {
+}
+
+class InputSummaries {
+}
+
+class InputSummary {
+  public Timestamp $creation_time;
+  public InputArn $input_arn;
+  public InputDescription $input_description;
+  public InputName $input_name;
+  public Timestamp $last_update_time;
+  public InputStatus $status;
+}
+
+class InternalFailureException {
+  public errorMessage $message;
+}
+
+class InvalidRequestException {
+  public errorMessage $message;
+}
+
+class IotEventsAction {
+  public InputName $input_name;
+  public Payload $payload;
+}
+
+class IotSiteWiseAction {
+  public AssetId $asset_id;
+  public AssetPropertyEntryId $entry_id;
+  public AssetPropertyAlias $property_alias;
+  public AssetPropertyId $property_id;
+  public AssetPropertyValue $property_value;
+}
+
+class IotTopicPublishAction {
+  public MQTTTopic $mqtt_topic;
+  public Payload $payload;
+}
+
+class KeyValue {
+}
+
+class LambdaAction {
+  public AmazonResourceName $function_arn;
+  public Payload $payload;
+}
+
+class LimitExceededException {
+  public errorMessage $message;
+}
+
+class ListDetectorModelVersionsRequest {
+  public DetectorModelName $detector_model_name;
   public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListDetectorModelVersionsResponse {
+  public DetectorModelVersionSummaries $detector_model_version_summaries;
+  public NextToken $next_token;
+}
+
+class ListDetectorModelsRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListDetectorModelsResponse {
+  public DetectorModelSummaries $detector_model_summaries;
+  public NextToken $next_token;
+}
+
+class ListInputsRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
+}
+
+class ListInputsResponse {
+  public InputSummaries $input_summaries;
+  public NextToken $next_token;
+}
+
+class ListTagsForResourceRequest {
+  public AmazonResourceName $resource_arn;
+}
+
+class ListTagsForResourceResponse {
+  public Tags $tags;
+}
+
+class LoggingEnabled {
+}
+
+class LoggingLevel {
+}
+
+class LoggingOptions {
+  public DetectorDebugOptions $detector_debug_options;
+  public LoggingEnabled $enabled;
+  public LoggingLevel $level;
+  public AmazonResourceName $role_arn;
+}
+
+class MQTTTopic {
+}
+
+class MaxResults {
+}
+
+class NextToken {
+}
+
+class OnEnterLifecycle {
+  public Events $events;
+}
+
+class OnExitLifecycle {
+  public Events $events;
+}
+
+class OnInputLifecycle {
+  public Events $events;
+  public TransitionEvents $transition_events;
+}
+
+class Payload {
+  public ContentExpression $content_expression;
+  public PayloadType $type;
+}
+
+class PayloadType {
+}
+
+class PutLoggingOptionsRequest {
+  public LoggingOptions $logging_options;
+}
+
+class QueueUrl {
+}
+
+class ResetTimerAction {
+  public TimerName $timer_name;
+}
+
+class ResourceAlreadyExistsException {
+  public errorMessage $message;
+  public resourceArn $resource_arn;
+  public resourceId $resource_id;
+}
+
+class ResourceInUseException {
+  public errorMessage $message;
+}
+
+class ResourceNotFoundException {
+  public errorMessage $message;
+}
+
+class SNSTopicPublishAction {
+  public Payload $payload;
+  public AmazonResourceName $target_arn;
+}
+
+class Seconds {
+}
+
+class ServiceUnavailableException {
+  public errorMessage $message;
+}
+
+class SetTimerAction {
+  public VariableValue $duration_expression;
+  public Seconds $seconds;
+  public TimerName $timer_name;
+}
+
+class SetVariableAction {
+  public VariableValue $value;
+  public VariableName $variable_name;
+}
+
+class SqsAction {
+  public Payload $payload;
+  public QueueUrl $queue_url;
+  public UseBase64 $use_base_64;
+}
+
+class State {
+  public OnEnterLifecycle $on_enter;
+  public OnExitLifecycle $on_exit;
+  public OnInputLifecycle $on_input;
+  public StateName $state_name;
+}
+
+class StateName {
+}
+
+class States {
 }
 
 class Tag {
@@ -555,75 +540,113 @@ class Tag {
   public TagValue $value;
 }
 
-class TimerName {
+class TagKey {
 }
 
-class AssetPropertyVariant {
-  public AssetPropertyStringValue $string_value;
-  public AssetPropertyIntegerValue $integer_value;
-  public AssetPropertyDoubleValue $double_value;
-  public AssetPropertyBooleanValue $boolean_value;
+class TagKeys {
 }
 
-class ClearTimerAction {
-  public TimerName $timer_name;
-}
-
-class InputSummary {
-  public InputArn $input_arn;
-  public Timestamp $creation_time;
-  public Timestamp $last_update_time;
-  public InputStatus $status;
-  public InputName $input_name;
-  public InputDescription $input_description;
-}
-
-class States {
-}
-
-class DescribeLoggingOptionsRequest {
-}
-
-class DetectorModelVersionSummaries {
+class TagResourceRequest {
+  public AmazonResourceName $resource_arn;
+  public Tags $tags;
 }
 
 class TagResourceResponse {
 }
 
-class DynamoKeyField {
-}
-
-class InputArn {
-}
-
-class InputDefinition {
-  public Attributes $attributes;
-}
-
 class TagValue {
 }
 
-class AssetPropertyQuality {
+class TagrisAccessDeniedException {
+  public TagrisExceptionMessage $message;
 }
 
-class AssetPropertyTimeInSeconds {
+class TagrisAccountId {
 }
 
-class CreateInputResponse {
-  public InputConfiguration $input_configuration;
+class TagrisAmazonResourceName {
 }
 
-class DetectorModelConfiguration {
-  public Timestamp $creation_time;
-  public DetectorModelVersionStatus $status;
-  public DetectorModelName $detector_model_name;
-  public DetectorModelDescription $detector_model_description;
-  public AmazonResourceName $role_arn;
-  public AttributeJsonPath $key;
-  public EvaluationMethod $evaluation_method;
-  public DetectorModelVersion $detector_model_version;
-  public DetectorModelArn $detector_model_arn;
-  public Timestamp $last_update_time;
+class TagrisExceptionMessage {
+}
+
+class TagrisInternalId {
+}
+
+class TagrisInternalServiceException {
+  public TagrisExceptionMessage $message;
+}
+
+class TagrisInvalidArnException {
+  public TagrisExceptionMessage $message;
+  public TagrisSweepListItem $sweep_list_item;
+}
+
+class TagrisInvalidParameterException {
+  public TagrisExceptionMessage $message;
+}
+
+class TagrisPartialResourcesExistResultsException {
+  public TagrisExceptionMessage $message;
+  public TagrisSweepListResult $resource_existence_information;
+}
+
+class TagrisStatus {
+}
+
+class TagrisSweepList {
+}
+
+class TagrisSweepListItem {
+  public TagrisAccountId $tagris_account_id;
+  public TagrisAmazonResourceName $tagris_amazon_resource_name;
+  public TagrisInternalId $tagris_internal_id;
+  public TagrisVersion $tagris_version;
+}
+
+class TagrisSweepListResult {
+}
+
+class TagrisThrottledException {
+  public TagrisExceptionMessage $message;
+}
+
+class TagrisVerifyResourcesExistInput {
+  public TagrisSweepList $tagris_sweep_list;
+}
+
+class TagrisVerifyResourcesExistOutput {
+  public TagrisSweepListResult $tagris_sweep_list_result;
+}
+
+class TagrisVersion {
+}
+
+class Tags {
+}
+
+class ThrottlingException {
+  public errorMessage $message;
+}
+
+class TimerName {
+}
+
+class Timestamp {
+}
+
+class TransitionEvent {
+  public Actions $actions;
+  public Condition $condition;
+  public EventName $event_name;
+  public StateName $next_state;
+}
+
+class TransitionEvents {
+}
+
+class UnsupportedOperationException {
+  public errorMessage $message;
 }
 
 class UntagResourceRequest {
@@ -634,66 +657,43 @@ class UntagResourceRequest {
 class UntagResourceResponse {
 }
 
-class DescribeDetectorModelResponse {
-  public DetectorModel $detector_model;
-}
-
-class ListInputsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class OnExitLifecycle {
-  public Events $events;
-}
-
-class SNSTopicPublishAction {
-  public AmazonResourceName $target_arn;
-  public Payload $payload;
-}
-
-class QueueUrl {
-}
-
-class AssetId {
-}
-
-class Condition {
-}
-
-class DetectorModel {
+class UpdateDetectorModelRequest {
   public DetectorModelDefinition $detector_model_definition;
+  public DetectorModelDescription $detector_model_description;
+  public DetectorModelName $detector_model_name;
+  public EvaluationMethod $evaluation_method;
+  public AmazonResourceName $role_arn;
+}
+
+class UpdateDetectorModelResponse {
   public DetectorModelConfiguration $detector_model_configuration;
 }
 
-class FirehoseAction {
-  public FirehoseSeparator $separator;
-  public Payload $payload;
-  public DeliveryStreamName $delivery_stream_name;
+class UpdateInputRequest {
+  public InputDefinition $input_definition;
+  public InputDescription $input_description;
+  public InputName $input_name;
 }
 
-class NextToken {
+class UpdateInputResponse {
+  public InputConfiguration $input_configuration;
 }
 
-class TagrisVerifyResourcesExistOutput {
-  public TagrisSweepListResult $tagris_sweep_list_result;
+class UseBase64 {
 }
 
-class TransitionEvents {
+class VariableName {
 }
 
-class DeliveryStreamName {
+class VariableValue {
 }
 
-class DetectorModelDescription {
+class errorMessage {
 }
 
-class DetectorModelVersionStatus {
+class resourceArn {
 }
 
-class ListDetectorModelVersionsRequest {
-  public MaxResults $max_results;
-  public DetectorModelName $detector_model_name;
-  public NextToken $next_token;
+class resourceId {
 }
 

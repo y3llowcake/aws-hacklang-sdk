@@ -2,36 +2,204 @@
 namespace slack\aws\applicationinsights;
 
 interface Application Insights {
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
   public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateComponent(CreateComponentRequest) Awaitable<Errors\Result<CreateComponentResponse>>;
+  public function CreateLogPattern(CreateLogPatternRequest) Awaitable<Errors\Result<CreateLogPatternResponse>>;
+  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Result<DeleteApplicationResponse>>;
+  public function DeleteComponent(DeleteComponentRequest) Awaitable<Errors\Result<DeleteComponentResponse>>;
   public function DeleteLogPattern(DeleteLogPatternRequest) Awaitable<Errors\Result<DeleteLogPatternResponse>>;
-  public function ListComponents(ListComponentsRequest) Awaitable<Errors\Result<ListComponentsResponse>>;
+  public function DescribeApplication(DescribeApplicationRequest) Awaitable<Errors\Result<DescribeApplicationResponse>>;
+  public function DescribeComponent(DescribeComponentRequest) Awaitable<Errors\Result<DescribeComponentResponse>>;
+  public function DescribeComponentConfiguration(DescribeComponentConfigurationRequest) Awaitable<Errors\Result<DescribeComponentConfigurationResponse>>;
   public function DescribeComponentConfigurationRecommendation(DescribeComponentConfigurationRecommendationRequest) Awaitable<Errors\Result<DescribeComponentConfigurationRecommendationResponse>>;
-  public function ListProblems(ListProblemsRequest) Awaitable<Errors\Result<ListProblemsResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateComponentConfiguration(UpdateComponentConfigurationRequest) Awaitable<Errors\Result<UpdateComponentConfigurationResponse>>;
-  public function UpdateLogPattern(UpdateLogPatternRequest) Awaitable<Errors\Result<UpdateLogPatternResponse>>;
+  public function DescribeLogPattern(DescribeLogPatternRequest) Awaitable<Errors\Result<DescribeLogPatternResponse>>;
+  public function DescribeObservation(DescribeObservationRequest) Awaitable<Errors\Result<DescribeObservationResponse>>;
+  public function DescribeProblem(DescribeProblemRequest) Awaitable<Errors\Result<DescribeProblemResponse>>;
   public function DescribeProblemObservations(DescribeProblemObservationsRequest) Awaitable<Errors\Result<DescribeProblemObservationsResponse>>;
   public function ListApplications(ListApplicationsRequest) Awaitable<Errors\Result<ListApplicationsResponse>>;
+  public function ListComponents(ListComponentsRequest) Awaitable<Errors\Result<ListComponentsResponse>>;
   public function ListConfigurationHistory(ListConfigurationHistoryRequest) Awaitable<Errors\Result<ListConfigurationHistoryResponse>>;
-  public function ListLogPatterns(ListLogPatternsRequest) Awaitable<Errors\Result<ListLogPatternsResponse>>;
-  public function DescribeComponentConfiguration(DescribeComponentConfigurationRequest) Awaitable<Errors\Result<DescribeComponentConfigurationResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function DescribeApplication(DescribeApplicationRequest) Awaitable<Errors\Result<DescribeApplicationResponse>>;
-  public function DescribeObservation(DescribeObservationRequest) Awaitable<Errors\Result<DescribeObservationResponse>>;
-  public function DescribeLogPattern(DescribeLogPatternRequest) Awaitable<Errors\Result<DescribeLogPatternResponse>>;
-  public function DescribeProblem(DescribeProblemRequest) Awaitable<Errors\Result<DescribeProblemResponse>>;
   public function ListLogPatternSets(ListLogPatternSetsRequest) Awaitable<Errors\Result<ListLogPatternSetsResponse>>;
-  public function CreateComponent(CreateComponentRequest) Awaitable<Errors\Result<CreateComponentResponse>>;
-  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Result<DeleteApplicationResponse>>;
-  public function DescribeComponent(DescribeComponentRequest) Awaitable<Errors\Result<DescribeComponentResponse>>;
+  public function ListLogPatterns(ListLogPatternsRequest) Awaitable<Errors\Result<ListLogPatternsResponse>>;
+  public function ListProblems(ListProblemsRequest) Awaitable<Errors\Result<ListProblemsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
   public function UpdateComponent(UpdateComponentRequest) Awaitable<Errors\Result<UpdateComponentResponse>>;
-  public function CreateLogPattern(CreateLogPatternRequest) Awaitable<Errors\Result<CreateLogPatternResponse>>;
-  public function DeleteComponent(DeleteComponentRequest) Awaitable<Errors\Result<DeleteComponentResponse>>;
+  public function UpdateComponentConfiguration(UpdateComponentConfigurationRequest) Awaitable<Errors\Result<UpdateComponentConfigurationResponse>>;
+  public function UpdateLogPattern(UpdateLogPatternRequest) Awaitable<Errors\Result<UpdateLogPatternResponse>>;
+}
+
+class AffectedResource {
+}
+
+class AmazonResourceName {
+}
+
+class ApplicationComponent {
+  public ComponentName $component_name;
+  public Monitor $monitor;
+  public ResourceType $resource_type;
+  public Tier $tier;
 }
 
 class ApplicationComponentList {
+}
+
+class ApplicationInfo {
+  public CWEMonitorEnabled $cwe_monitor_enabled;
+  public LifeCycle $life_cycle;
+  public OpsCenterEnabled $ops_center_enabled;
+  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
+  public Remarks $remarks;
+  public ResourceGroupName $resource_group_name;
+}
+
+class ApplicationInfoList {
+}
+
+class BadRequestException {
+  public ErrorMsg $message;
+}
+
+class CWEMonitorEnabled {
+}
+
+class CloudWatchEventDetailType {
+}
+
+class CloudWatchEventId {
+}
+
+class CloudWatchEventSource {
+}
+
+class CodeDeployApplication {
+}
+
+class CodeDeployDeploymentGroup {
+}
+
+class CodeDeployDeploymentId {
+}
+
+class CodeDeployInstanceGroupId {
+}
+
+class CodeDeployState {
+}
+
+class ComponentConfiguration {
+}
+
+class ComponentName {
+}
+
+class ConfigurationEvent {
+  public ConfigurationEventDetail $event_detail;
+  public ConfigurationEventResourceName $event_resource_name;
+  public ConfigurationEventResourceType $event_resource_type;
+  public ConfigurationEventStatus $event_status;
+  public ConfigurationEventTime $event_time;
+  public ConfigurationEventMonitoredResourceARN $monitored_resource_arn;
+}
+
+class ConfigurationEventDetail {
+}
+
+class ConfigurationEventList {
+}
+
+class ConfigurationEventMonitoredResourceARN {
+}
+
+class ConfigurationEventResourceName {
+}
+
+class ConfigurationEventResourceType {
+}
+
+class ConfigurationEventStatus {
+}
+
+class ConfigurationEventTime {
+}
+
+class CreateApplicationRequest {
+  public CWEMonitorEnabled $cwe_monitor_enabled;
+  public OpsCenterEnabled $ops_center_enabled;
+  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
+  public ResourceGroupName $resource_group_name;
+  public TagList $tags;
+}
+
+class CreateApplicationResponse {
+  public ApplicationInfo $application_info;
+}
+
+class CreateComponentRequest {
+  public ComponentName $component_name;
+  public ResourceGroupName $resource_group_name;
+  public ResourceList $resource_list;
+}
+
+class CreateComponentResponse {
+}
+
+class CreateLogPatternRequest {
+  public LogPatternRegex $pattern;
+  public LogPatternName $pattern_name;
+  public LogPatternSetName $pattern_set_name;
+  public LogPatternRank $rank;
+  public ResourceGroupName $resource_group_name;
+}
+
+class CreateLogPatternResponse {
+  public LogPattern $log_pattern;
+  public ResourceGroupName $resource_group_name;
+}
+
+class DeleteApplicationRequest {
+  public ResourceGroupName $resource_group_name;
+}
+
+class DeleteApplicationResponse {
+}
+
+class DeleteComponentRequest {
+  public ComponentName $component_name;
+  public ResourceGroupName $resource_group_name;
+}
+
+class DeleteComponentResponse {
+}
+
+class DeleteLogPatternRequest {
+  public LogPatternName $pattern_name;
+  public LogPatternSetName $pattern_set_name;
+  public ResourceGroupName $resource_group_name;
+}
+
+class DeleteLogPatternResponse {
+}
+
+class DescribeApplicationRequest {
+  public ResourceGroupName $resource_group_name;
+}
+
+class DescribeApplicationResponse {
+  public ApplicationInfo $application_info;
+}
+
+class DescribeComponentConfigurationRecommendationRequest {
+  public ComponentName $component_name;
+  public ResourceGroupName $resource_group_name;
+  public Tier $tier;
+}
+
+class DescribeComponentConfigurationRecommendationResponse {
+  public ComponentConfiguration $component_configuration;
 }
 
 class DescribeComponentConfigurationRequest {
@@ -39,63 +207,109 @@ class DescribeComponentConfigurationRequest {
   public ResourceGroupName $resource_group_name;
 }
 
-class ListTagsForResourceRequest {
-  public AmazonResourceName $resource_arn;
+class DescribeComponentConfigurationResponse {
+  public ComponentConfiguration $component_configuration;
+  public Monitor $monitor;
+  public Tier $tier;
 }
 
-class PaginationToken {
-}
-
-class Tier {
-}
-
-class DeleteComponentResponse {
-}
-
-class RelatedObservations {
-  public ObservationList $observation_list;
-}
-
-class StartTime {
-}
-
-class TagResourceResponse {
-}
-
-class ValidationException {
-  public ErrorMsg $message;
-}
-
-class XRayFaultPercent {
-}
-
-class CodeDeployApplication {
-}
-
-class ListLogPatternSetsResponse {
+class DescribeComponentRequest {
+  public ComponentName $component_name;
   public ResourceGroupName $resource_group_name;
-  public LogPatternSetList $log_pattern_sets;
-  public PaginationToken $next_token;
 }
 
-class Problem {
-  public Insights $insights;
-  public AffectedResource $affected_resource;
-  public SeverityLevel $severity_level;
+class DescribeComponentResponse {
+  public ApplicationComponent $application_component;
+  public ResourceList $resource_list;
+}
+
+class DescribeLogPatternRequest {
+  public LogPatternName $pattern_name;
+  public LogPatternSetName $pattern_set_name;
   public ResourceGroupName $resource_group_name;
-  public Feedback $feedback;
-  public ProblemId $id;
-  public Title $title;
-  public Status $status;
-  public StartTime $start_time;
-  public EndTime $end_time;
 }
 
-class ProblemId {
+class DescribeLogPatternResponse {
+  public LogPattern $log_pattern;
+  public ResourceGroupName $resource_group_name;
+}
+
+class DescribeObservationRequest {
+  public ObservationId $observation_id;
+}
+
+class DescribeObservationResponse {
+  public Observation $observation;
+}
+
+class DescribeProblemObservationsRequest {
+  public ProblemId $problem_id;
 }
 
 class DescribeProblemObservationsResponse {
   public RelatedObservations $related_observations;
+}
+
+class DescribeProblemRequest {
+  public ProblemId $problem_id;
+}
+
+class DescribeProblemResponse {
+  public Problem $problem;
+}
+
+class Ec2State {
+}
+
+class EndTime {
+}
+
+class ErrorMsg {
+}
+
+class ExceptionMessage {
+}
+
+class Feedback {
+}
+
+class FeedbackKey {
+}
+
+class FeedbackValue {
+}
+
+class HealthEventArn {
+}
+
+class HealthEventDescription {
+}
+
+class HealthEventTypeCategory {
+}
+
+class HealthEventTypeCode {
+}
+
+class HealthService {
+}
+
+class Insights {
+}
+
+class InternalServerException {
+  public ErrorMsg $message;
+}
+
+class LifeCycle {
+}
+
+class LineTime {
+}
+
+class ListApplicationsRequest {
+  public MaxEntities $max_results;
+  public PaginationToken $next_token;
 }
 
 class ListApplicationsResponse {
@@ -103,39 +317,54 @@ class ListApplicationsResponse {
   public PaginationToken $next_token;
 }
 
-class LogFilter {
-}
-
-class ResourceARN {
-}
-
-class ResourceList {
-}
-
-class CloudWatchEventDetailType {
-}
-
-class DeleteApplicationRequest {
+class ListComponentsRequest {
+  public MaxEntities $max_results;
+  public PaginationToken $next_token;
   public ResourceGroupName $resource_group_name;
 }
 
-class ObservationList {
+class ListComponentsResponse {
+  public ApplicationComponentList $application_component_list;
+  public PaginationToken $next_token;
 }
 
-class SourceARN {
+class ListConfigurationHistoryRequest {
+  public EndTime $end_time;
+  public ConfigurationEventStatus $event_status;
+  public MaxEntities $max_results;
+  public PaginationToken $next_token;
+  public ResourceGroupName $resource_group_name;
+  public StartTime $start_time;
 }
 
-class UpdateComponentResponse {
+class ListConfigurationHistoryResponse {
+  public ConfigurationEventList $event_list;
+  public PaginationToken $next_token;
 }
 
-class ConfigurationEventResourceType {
+class ListLogPatternSetsRequest {
+  public MaxEntities $max_results;
+  public PaginationToken $next_token;
+  public ResourceGroupName $resource_group_name;
+}
+
+class ListLogPatternSetsResponse {
+  public LogPatternSetList $log_pattern_sets;
+  public PaginationToken $next_token;
+  public ResourceGroupName $resource_group_name;
 }
 
 class ListLogPatternsRequest {
-  public ResourceGroupName $resource_group_name;
-  public LogPatternSetName $pattern_set_name;
   public MaxEntities $max_results;
   public PaginationToken $next_token;
+  public LogPatternSetName $pattern_set_name;
+  public ResourceGroupName $resource_group_name;
+}
+
+class ListLogPatternsResponse {
+  public LogPatternList $log_patterns;
+  public PaginationToken $next_token;
+  public ResourceGroupName $resource_group_name;
 }
 
 class ListProblemsRequest {
@@ -146,447 +375,182 @@ class ListProblemsRequest {
   public StartTime $start_time;
 }
 
-class Unit {
-}
-
-class Value {
-}
-
-class CloudWatchEventSource {
-}
-
-class DeleteLogPatternResponse {
-}
-
-class DescribeLogPatternResponse {
-  public ResourceGroupName $resource_group_name;
-  public LogPattern $log_pattern;
-}
-
-class Ec2State {
-}
-
-class HealthEventTypeCategory {
-}
-
-class DescribeObservationResponse {
-  public Observation $observation;
-}
-
-class ListLogPatternsResponse {
-  public ResourceGroupName $resource_group_name;
-  public LogPatternList $log_patterns;
+class ListProblemsResponse {
   public PaginationToken $next_token;
+  public ProblemList $problem_list;
 }
 
-class LogGroup {
-}
-
-class SourceType {
-}
-
-class CodeDeployState {
-}
-
-class DescribeComponentRequest {
-  public ResourceGroupName $resource_group_name;
-  public ComponentName $component_name;
-}
-
-class HealthEventArn {
-}
-
-class RemoveSNSTopic {
-}
-
-class ResourceType {
-}
-
-class TagsAlreadyExistException {
-  public ExceptionMessage $message;
-}
-
-class CodeDeployInstanceGroupId {
-}
-
-class LogPatternList {
-}
-
-class MetricNamespace {
-}
-
-class NewComponentName {
-}
-
-class OpsItemSNSTopicArn {
-}
-
-class AmazonResourceName {
-}
-
-class CloudWatchEventId {
-}
-
-class CreateComponentRequest {
-  public ResourceList $resource_list;
-  public ResourceGroupName $resource_group_name;
-  public ComponentName $component_name;
-}
-
-class DescribeComponentConfigurationRecommendationResponse {
-  public ComponentConfiguration $component_configuration;
-}
-
-class Monitor {
-}
-
-class ConfigurationEventTime {
-}
-
-class LogPattern {
-  public LogPatternSetName $pattern_set_name;
-  public LogPatternName $pattern_name;
-  public LogPatternRegex $pattern;
-  public LogPatternRank $rank;
-}
-
-class Title {
-}
-
-class CodeDeployDeploymentGroup {
-}
-
-class DeleteComponentRequest {
-  public ComponentName $component_name;
-  public ResourceGroupName $resource_group_name;
-}
-
-class LifeCycle {
-}
-
-class Remarks {
-}
-
-class ConfigurationEventResourceName {
-}
-
-class LogText {
-}
-
-class DescribeProblemObservationsRequest {
-  public ProblemId $problem_id;
-}
-
-class ErrorMsg {
-}
-
-class ExceptionMessage {
-}
-
-class HealthEventTypeCode {
-}
-
-class ListApplicationsRequest {
-  public PaginationToken $next_token;
-  public MaxEntities $max_results;
-}
-
-class TagResourceRequest {
+class ListTagsForResourceRequest {
   public AmazonResourceName $resource_arn;
-  public TagList $tags;
-}
-
-class XRayNodeType {
-}
-
-class ConfigurationEventList {
-}
-
-class ConfigurationEventStatus {
-}
-
-class LogPatternSetList {
-}
-
-class ResourceGroupName {
-}
-
-class UpdateLogPatternResponse {
-  public ResourceGroupName $resource_group_name;
-  public LogPattern $log_pattern;
-}
-
-class ApplicationInfoList {
 }
 
 class ListTagsForResourceResponse {
   public TagList $tags;
 }
 
-class LogPatternSetName {
+class LogFilter {
 }
 
-class XRayThrottlePercent {
+class LogGroup {
 }
 
-class AffectedResource {
+class LogPattern {
+  public LogPatternRegex $pattern;
+  public LogPatternName $pattern_name;
+  public LogPatternSetName $pattern_set_name;
+  public LogPatternRank $rank;
 }
 
-class BadRequestException {
-  public ErrorMsg $message;
-}
-
-class HealthService {
-}
-
-class ListLogPatternSetsRequest {
-  public MaxEntities $max_results;
-  public PaginationToken $next_token;
-  public ResourceGroupName $resource_group_name;
-}
-
-class LogPatternRegex {
-}
-
-class TagList {
-}
-
-class XRayNodeName {
-}
-
-class CodeDeployDeploymentId {
-}
-
-class LineTime {
-}
-
-class UpdateComponentRequest {
-  public ResourceList $resource_list;
-  public ResourceGroupName $resource_group_name;
-  public ComponentName $component_name;
-  public NewComponentName $new_component_name;
-}
-
-class UpdateComponentConfigurationRequest {
-  public ResourceGroupName $resource_group_name;
-  public ComponentName $component_name;
-  public Monitor $monitor;
-  public Tier $tier;
-  public ComponentConfiguration $component_configuration;
-}
-
-class CWEMonitorEnabled {
-}
-
-class CreateComponentResponse {
-}
-
-class DescribeProblemRequest {
-  public ProblemId $problem_id;
-}
-
-class InternalServerException {
-  public ErrorMsg $message;
-}
-
-class LogPatternRank {
-}
-
-class MetricName {
-}
-
-class ConfigurationEventDetail {
-}
-
-class CreateApplicationRequest {
-  public TagList $tags;
-  public ResourceGroupName $resource_group_name;
-  public OpsCenterEnabled $ops_center_enabled;
-  public CWEMonitorEnabled $cwe_monitor_enabled;
-  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
-}
-
-class DescribeApplicationResponse {
-  public ApplicationInfo $application_info;
-}
-
-class DescribeObservationRequest {
-  public ObservationId $observation_id;
-}
-
-class HealthEventDescription {
-}
-
-class ListProblemsResponse {
-  public ProblemList $problem_list;
-  public PaginationToken $next_token;
+class LogPatternList {
 }
 
 class LogPatternName {
 }
 
-class XRayErrorPercent {
+class LogPatternRank {
 }
 
-class CreateLogPatternResponse {
-  public LogPattern $log_pattern;
-  public ResourceGroupName $resource_group_name;
+class LogPatternRegex {
 }
 
-class Feedback {
+class LogPatternSetList {
 }
 
-class ResourceNotFoundException {
-  public ErrorMsg $message;
+class LogPatternSetName {
 }
 
-class Status {
-}
-
-class UntagResourceResponse {
-}
-
-class UpdateLogPatternRequest {
-  public LogPatternRegex $pattern;
-  public LogPatternRank $rank;
-  public ResourceGroupName $resource_group_name;
-  public LogPatternSetName $pattern_set_name;
-  public LogPatternName $pattern_name;
-}
-
-class ComponentConfiguration {
-}
-
-class DescribeComponentConfigurationRecommendationRequest {
-  public ResourceGroupName $resource_group_name;
-  public ComponentName $component_name;
-  public Tier $tier;
-}
-
-class Insights {
-}
-
-class ListConfigurationHistoryResponse {
-  public ConfigurationEventList $event_list;
-  public PaginationToken $next_token;
+class LogText {
 }
 
 class MaxEntities {
 }
 
-class UpdateApplicationRequest {
-  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
-  public RemoveSNSTopic $remove_sns_topic;
-  public ResourceGroupName $resource_group_name;
-  public OpsCenterEnabled $ops_center_enabled;
-  public CWEMonitorEnabled $cwe_monitor_enabled;
+class MetricName {
 }
 
-class DescribeApplicationRequest {
-  public ResourceGroupName $resource_group_name;
+class MetricNamespace {
 }
 
-class DescribeComponentConfigurationResponse {
-  public Monitor $monitor;
-  public Tier $tier;
-  public ComponentConfiguration $component_configuration;
+class Monitor {
 }
 
-class DescribeComponentResponse {
-  public ApplicationComponent $application_component;
-  public ResourceList $resource_list;
+class NewComponentName {
 }
 
-class DescribeProblemResponse {
-  public Problem $problem;
+class Observation {
+  public CloudWatchEventDetailType $cloud_watch_event_detail_type;
+  public CloudWatchEventId $cloud_watch_event_id;
+  public CloudWatchEventSource $cloud_watch_event_source;
+  public CodeDeployApplication $code_deploy_application;
+  public CodeDeployDeploymentGroup $code_deploy_deployment_group;
+  public CodeDeployDeploymentId $code_deploy_deployment_id;
+  public CodeDeployInstanceGroupId $code_deploy_instance_group_id;
+  public CodeDeployState $code_deploy_state;
+  public Ec2State $ec_2_state;
+  public EndTime $end_time;
+  public HealthEventArn $health_event_arn;
+  public HealthEventDescription $health_event_description;
+  public HealthEventTypeCategory $health_event_type_category;
+  public HealthEventTypeCode $health_event_type_code;
+  public HealthService $health_service;
+  public ObservationId $id;
+  public LineTime $line_time;
+  public LogFilter $log_filter;
+  public LogGroup $log_group;
+  public LogText $log_text;
+  public MetricName $metric_name;
+  public MetricNamespace $metric_namespace;
+  public SourceARN $source_arn;
+  public SourceType $source_type;
+  public StartTime $start_time;
+  public Unit $unit;
+  public Value $value;
+  public XRayErrorPercent $x_ray_error_percent;
+  public XRayFaultPercent $x_ray_fault_percent;
+  public XRayNodeName $x_ray_node_name;
+  public XRayNodeType $x_ray_node_type;
+  public XRayRequestAverageLatency $x_ray_request_average_latency;
+  public XRayRequestCount $x_ray_request_count;
+  public XRayThrottlePercent $x_ray_throttle_percent;
 }
 
-class UntagResourceRequest {
-  public AmazonResourceName $resource_arn;
-  public TagKeyList $tag_keys;
+class ObservationId {
 }
 
-class UpdateApplicationResponse {
-  public ApplicationInfo $application_info;
-}
-
-class XRayRequestCount {
-}
-
-class DeleteLogPatternRequest {
-  public ResourceGroupName $resource_group_name;
-  public LogPatternSetName $pattern_set_name;
-  public LogPatternName $pattern_name;
+class ObservationList {
 }
 
 class OpsCenterEnabled {
+}
+
+class OpsItemSNSTopicArn {
+}
+
+class PaginationToken {
+}
+
+class Problem {
+  public AffectedResource $affected_resource;
+  public EndTime $end_time;
+  public Feedback $feedback;
+  public ProblemId $id;
+  public Insights $insights;
+  public ResourceGroupName $resource_group_name;
+  public SeverityLevel $severity_level;
+  public StartTime $start_time;
+  public Status $status;
+  public Title $title;
+}
+
+class ProblemId {
+}
+
+class ProblemList {
+}
+
+class RelatedObservations {
+  public ObservationList $observation_list;
+}
+
+class Remarks {
+}
+
+class RemoveSNSTopic {
+}
+
+class ResourceARN {
+}
+
+class ResourceGroupName {
 }
 
 class ResourceInUseException {
   public ErrorMsg $message;
 }
 
-class TagValue {
+class ResourceList {
 }
 
-class FeedbackKey {
+class ResourceNotFoundException {
+  public ErrorMsg $message;
 }
 
-class TooManyTagsException {
-  public ExceptionMessage $message;
-  public AmazonResourceName $resource_name;
-}
-
-class ApplicationInfo {
-  public ResourceGroupName $resource_group_name;
-  public LifeCycle $life_cycle;
-  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
-  public OpsCenterEnabled $ops_center_enabled;
-  public CWEMonitorEnabled $cwe_monitor_enabled;
-  public Remarks $remarks;
-}
-
-class CreateApplicationResponse {
-  public ApplicationInfo $application_info;
-}
-
-class DeleteApplicationResponse {
-}
-
-class ListComponentsRequest {
-  public MaxEntities $max_results;
-  public PaginationToken $next_token;
-  public ResourceGroupName $resource_group_name;
-}
-
-class ListConfigurationHistoryRequest {
-  public ConfigurationEventStatus $event_status;
-  public MaxEntities $max_results;
-  public PaginationToken $next_token;
-  public ResourceGroupName $resource_group_name;
-  public StartTime $start_time;
-  public EndTime $end_time;
-}
-
-class ObservationId {
-}
-
-class XRayRequestAverageLatency {
-}
-
-class ConfigurationEvent {
-  public ConfigurationEventMonitoredResourceARN $monitored_resource_arn;
-  public ConfigurationEventStatus $event_status;
-  public ConfigurationEventResourceType $event_resource_type;
-  public ConfigurationEventTime $event_time;
-  public ConfigurationEventDetail $event_detail;
-  public ConfigurationEventResourceName $event_resource_name;
-}
-
-class FeedbackValue {
+class ResourceType {
 }
 
 class SeverityLevel {
+}
+
+class SourceARN {
+}
+
+class SourceType {
+}
+
+class StartTime {
+}
+
+class Status {
 }
 
 class Tag {
@@ -594,87 +558,123 @@ class Tag {
   public TagValue $value;
 }
 
+class TagKey {
+}
+
 class TagKeyList {
 }
 
-class ComponentName {
+class TagList {
 }
 
-class DescribeLogPatternRequest {
-  public LogPatternName $pattern_name;
+class TagResourceRequest {
+  public AmazonResourceName $resource_arn;
+  public TagList $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class TagsAlreadyExistException {
+  public ExceptionMessage $message;
+}
+
+class Tier {
+}
+
+class Title {
+}
+
+class TooManyTagsException {
+  public ExceptionMessage $message;
+  public AmazonResourceName $resource_name;
+}
+
+class Unit {
+}
+
+class UntagResourceRequest {
+  public AmazonResourceName $resource_arn;
+  public TagKeyList $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class UpdateApplicationRequest {
+  public CWEMonitorEnabled $cwe_monitor_enabled;
+  public OpsCenterEnabled $ops_center_enabled;
+  public OpsItemSNSTopicArn $ops_item_sns_topic_arn;
+  public RemoveSNSTopic $remove_sns_topic;
   public ResourceGroupName $resource_group_name;
-  public LogPatternSetName $pattern_set_name;
 }
 
-class EndTime {
+class UpdateApplicationResponse {
+  public ApplicationInfo $application_info;
 }
 
-class ListComponentsResponse {
-  public ApplicationComponentList $application_component_list;
-  public PaginationToken $next_token;
-}
-
-class ProblemList {
-}
-
-class TagKey {
+class UpdateComponentConfigurationRequest {
+  public ComponentConfiguration $component_configuration;
+  public ComponentName $component_name;
+  public Monitor $monitor;
+  public ResourceGroupName $resource_group_name;
+  public Tier $tier;
 }
 
 class UpdateComponentConfigurationResponse {
 }
 
-class ApplicationComponent {
+class UpdateComponentRequest {
   public ComponentName $component_name;
-  public ResourceType $resource_type;
-  public Tier $tier;
-  public Monitor $monitor;
-}
-
-class ConfigurationEventMonitoredResourceARN {
-}
-
-class CreateLogPatternRequest {
+  public NewComponentName $new_component_name;
   public ResourceGroupName $resource_group_name;
-  public LogPatternSetName $pattern_set_name;
-  public LogPatternName $pattern_name;
-  public LogPatternRegex $pattern;
-  public LogPatternRank $rank;
+  public ResourceList $resource_list;
 }
 
-class Observation {
-  public Unit $unit;
-  public CodeDeployApplication $code_deploy_application;
-  public StartTime $start_time;
-  public Value $value;
-  public CloudWatchEventDetailType $cloud_watch_event_detail_type;
-  public HealthService $health_service;
-  public CodeDeployInstanceGroupId $code_deploy_instance_group_id;
-  public LineTime $line_time;
-  public CodeDeployState $code_deploy_state;
-  public XRayRequestCount $x_ray_request_count;
-  public XRayRequestAverageLatency $x_ray_request_average_latency;
-  public XRayNodeName $x_ray_node_name;
-  public LogText $log_text;
-  public XRayNodeType $x_ray_node_type;
-  public LogGroup $log_group;
-  public CodeDeployDeploymentId $code_deploy_deployment_id;
-  public Ec2State $ec_2_state;
-  public XRayErrorPercent $x_ray_error_percent;
-  public CloudWatchEventId $cloud_watch_event_id;
-  public LogFilter $log_filter;
-  public CloudWatchEventSource $cloud_watch_event_source;
-  public HealthEventArn $health_event_arn;
-  public HealthEventTypeCode $health_event_type_code;
-  public HealthEventTypeCategory $health_event_type_category;
-  public SourceARN $source_arn;
-  public MetricNamespace $metric_namespace;
-  public MetricName $metric_name;
-  public HealthEventDescription $health_event_description;
-  public CodeDeployDeploymentGroup $code_deploy_deployment_group;
-  public XRayFaultPercent $x_ray_fault_percent;
-  public XRayThrottlePercent $x_ray_throttle_percent;
-  public SourceType $source_type;
-  public EndTime $end_time;
-  public ObservationId $id;
+class UpdateComponentResponse {
+}
+
+class UpdateLogPatternRequest {
+  public LogPatternRegex $pattern;
+  public LogPatternName $pattern_name;
+  public LogPatternSetName $pattern_set_name;
+  public LogPatternRank $rank;
+  public ResourceGroupName $resource_group_name;
+}
+
+class UpdateLogPatternResponse {
+  public LogPattern $log_pattern;
+  public ResourceGroupName $resource_group_name;
+}
+
+class ValidationException {
+  public ErrorMsg $message;
+}
+
+class Value {
+}
+
+class XRayErrorPercent {
+}
+
+class XRayFaultPercent {
+}
+
+class XRayNodeName {
+}
+
+class XRayNodeType {
+}
+
+class XRayRequestAverageLatency {
+}
+
+class XRayRequestCount {
+}
+
+class XRayThrottlePercent {
 }
 

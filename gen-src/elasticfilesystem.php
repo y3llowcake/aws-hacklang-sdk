@@ -2,97 +2,147 @@
 namespace slack\aws\elasticfilesystem;
 
 interface EFS {
-  public function DescribeAccessPoints(DescribeAccessPointsRequest) Awaitable<Errors\Result<DescribeAccessPointsResponse>>;
-  public function DescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
-  public function DescribeMountTargets(DescribeMountTargetsRequest) Awaitable<Errors\Result<DescribeMountTargetsResponse>>;
-  public function PutLifecycleConfiguration(PutLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<FileSystemDescription>>;
+  public function CreateAccessPoint(CreateAccessPointRequest) Awaitable<Errors\Result<AccessPointDescription>>;
   public function CreateFileSystem(CreateFileSystemRequest) Awaitable<Errors\Result<FileSystemDescription>>;
-  public function DeleteFileSystem(DeleteFileSystemRequest) Awaitable<Errors\Error>;
-  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
-  public function DeleteFileSystemPolicy(DeleteFileSystemPolicyRequest) Awaitable<Errors\Error>;
-  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
-  public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Error>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function DeleteAccessPoint(DeleteAccessPointRequest) Awaitable<Errors\Error>;
-  public function DeleteMountTarget(DeleteMountTargetRequest) Awaitable<Errors\Error>;
+  public function CreateMountTarget(CreateMountTargetRequest) Awaitable<Errors\Result<MountTargetDescription>>;
   public function CreateTags(CreateTagsRequest) Awaitable<Errors\Error>;
+  public function DeleteAccessPoint(DeleteAccessPointRequest) Awaitable<Errors\Error>;
+  public function DeleteFileSystem(DeleteFileSystemRequest) Awaitable<Errors\Error>;
+  public function DeleteFileSystemPolicy(DeleteFileSystemPolicyRequest) Awaitable<Errors\Error>;
+  public function DeleteMountTarget(DeleteMountTargetRequest) Awaitable<Errors\Error>;
+  public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Error>;
+  public function DescribeAccessPoints(DescribeAccessPointsRequest) Awaitable<Errors\Result<DescribeAccessPointsResponse>>;
   public function DescribeFileSystemPolicy(DescribeFileSystemPolicyRequest) Awaitable<Errors\Result<FileSystemPolicyDescription>>;
+  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
+  public function DescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
   public function DescribeMountTargetSecurityGroups(DescribeMountTargetSecurityGroupsRequest) Awaitable<Errors\Result<DescribeMountTargetSecurityGroupsResponse>>;
+  public function DescribeMountTargets(DescribeMountTargetsRequest) Awaitable<Errors\Result<DescribeMountTargetsResponse>>;
+  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
   public function ModifyMountTargetSecurityGroups(ModifyMountTargetSecurityGroupsRequest) Awaitable<Errors\Error>;
   public function PutFileSystemPolicy(PutFileSystemPolicyRequest) Awaitable<Errors\Result<FileSystemPolicyDescription>>;
-  public function CreateAccessPoint(CreateAccessPointRequest) Awaitable<Errors\Result<AccessPointDescription>>;
-  public function CreateMountTarget(CreateMountTargetRequest) Awaitable<Errors\Result<MountTargetDescription>>;
+  public function PutLifecycleConfiguration(PutLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
+  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<FileSystemDescription>>;
 }
 
-class LifeCycleState {
+class AccessPointAlreadyExists {
+  public AccessPointId $access_point_id;
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class AccessPointArn {
+}
+
+class AccessPointDescription {
+  public AccessPointArn $access_point_arn;
+  public AccessPointId $access_point_id;
+  public ClientToken $client_token;
+  public FileSystemId $file_system_id;
+  public LifeCycleState $life_cycle_state;
+  public Name $name;
+  public AwsAccountId $owner_id;
+  public PosixUser $posix_user;
+  public RootDirectory $root_directory;
+  public Tags $tags;
+}
+
+class AccessPointDescriptions {
+}
+
+class AccessPointId {
+}
+
+class AccessPointLimitExceeded {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class AccessPointNotFound {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class AvailabilityZoneId {
+}
+
+class AvailabilityZoneName {
+}
+
+class AwsAccountId {
+}
+
+class BadRequest {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
 }
 
 class BypassPolicyLockoutSafetyCheck {
 }
 
-class ThroughputMode {
+class ClientToken {
 }
 
-class PosixUser {
-  public Uid $uid;
-  public Gid $gid;
-  public SecondaryGids $secondary_gids;
+class CreateAccessPointRequest {
+  public ClientToken $client_token;
+  public FileSystemId $file_system_id;
+  public PosixUser $posix_user;
+  public RootDirectory $root_directory;
+  public Tags $tags;
 }
 
-class TooManyRequests {
-  public ErrorMessage $message;
-  public ErrorCode $error_code;
+class CreateFileSystemRequest {
+  public CreationToken $creation_token;
+  public Encrypted $encrypted;
+  public KmsKeyId $kms_key_id;
+  public PerformanceMode $performance_mode;
+  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
+  public Tags $tags;
+  public ThroughputMode $throughput_mode;
+}
+
+class CreateMountTargetRequest {
+  public FileSystemId $file_system_id;
+  public IpAddress $ip_address;
+  public SecurityGroups $security_groups;
+  public SubnetId $subnet_id;
+}
+
+class CreateTagsRequest {
+  public FileSystemId $file_system_id;
+  public Tags $tags;
+}
+
+class CreationInfo {
+  public OwnerGid $owner_gid;
+  public OwnerUid $owner_uid;
+  public Permissions $permissions;
+}
+
+class CreationToken {
+}
+
+class DeleteAccessPointRequest {
+  public AccessPointId $access_point_id;
+}
+
+class DeleteFileSystemPolicyRequest {
+  public FileSystemId $file_system_id;
 }
 
 class DeleteFileSystemRequest {
   public FileSystemId $file_system_id;
 }
 
-class MaxItems {
-}
-
-class ErrorMessage {
-}
-
-class SubnetNotFound {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class FileSystemPolicyDescription {
-  public FileSystemId $file_system_id;
-  public Policy $policy;
-}
-
-class IpAddressInUse {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class ListTagsForResourceResponse {
-  public Tags $tags;
-  public Token $next_token;
-}
-
-class MountTargetDescription {
+class DeleteMountTargetRequest {
   public MountTargetId $mount_target_id;
-  public FileSystemId $file_system_id;
-  public LifeCycleState $life_cycle_state;
-  public NetworkInterfaceId $network_interface_id;
-  public AvailabilityZoneId $availability_zone_id;
-  public AvailabilityZoneName $availability_zone_name;
-  public AwsAccountId $owner_id;
-  public SubnetId $subnet_id;
-  public IpAddress $ip_address;
 }
 
-class AccessPointAlreadyExists {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-  public AccessPointId $access_point_id;
+class DeleteTagsRequest {
+  public FileSystemId $file_system_id;
+  public TagKeys $tag_keys;
 }
 
 class DependencyTimeout {
@@ -100,178 +150,53 @@ class DependencyTimeout {
   public ErrorMessage $message;
 }
 
-class ModifyMountTargetSecurityGroupsRequest {
-  public MountTargetId $mount_target_id;
-  public SecurityGroups $security_groups;
+class DescribeAccessPointsRequest {
+  public AccessPointId $access_point_id;
+  public FileSystemId $file_system_id;
+  public MaxResults $max_results;
+  public Token $next_token;
+}
+
+class DescribeAccessPointsResponse {
+  public AccessPointDescriptions $access_points;
+  public Token $next_token;
 }
 
 class DescribeFileSystemPolicyRequest {
   public FileSystemId $file_system_id;
 }
 
-class Encrypted {
-}
-
-class DeleteFileSystemPolicyRequest {
+class DescribeFileSystemsRequest {
+  public CreationToken $creation_token;
   public FileSystemId $file_system_id;
+  public Marker $marker;
+  public MaxItems $max_items;
 }
 
-class MaxResults {
+class DescribeFileSystemsResponse {
+  public FileSystemDescriptions $file_systems;
+  public Marker $marker;
+  public Marker $next_marker;
 }
 
-class AccessPointLimitExceeded {
-  public ErrorMessage $message;
-  public ErrorCode $error_code;
-}
-
-class CreateAccessPointRequest {
+class DescribeLifecycleConfigurationRequest {
   public FileSystemId $file_system_id;
-  public PosixUser $posix_user;
-  public RootDirectory $root_directory;
-  public ClientToken $client_token;
-  public Tags $tags;
-}
-
-class IpAddress {
-}
-
-class NetworkInterfaceId {
-}
-
-class TagResourceRequest {
-  public ResourceId $resource_id;
-  public Tags $tags;
 }
 
 class DescribeMountTargetSecurityGroupsRequest {
   public MountTargetId $mount_target_id;
 }
 
-class FileSystemInUse {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class Name {
-}
-
-class Permissions {
-}
-
-class ProvisionedThroughputInMibps {
-}
-
-class Token {
-}
-
-class AccessPointDescription {
-  public AccessPointArn $access_point_arn;
-  public RootDirectory $root_directory;
-  public LifeCycleState $life_cycle_state;
-  public Tags $tags;
-  public Name $name;
-  public AccessPointId $access_point_id;
-  public FileSystemId $file_system_id;
-  public PosixUser $posix_user;
-  public AwsAccountId $owner_id;
-  public ClientToken $client_token;
-}
-
-class DeleteAccessPointRequest {
-  public AccessPointId $access_point_id;
-}
-
-class AccessPointDescriptions {
-}
-
-class FileSystemDescriptions {
-}
-
-class InvalidPolicyException {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class LifecycleConfigurationDescription {
-  public LifecyclePolicies $lifecycle_policies;
-}
-
-class OwnerUid {
-}
-
-class SecondaryGids {
-}
-
-class UntagResourceRequest {
-  public TagKeys $tag_keys;
-  public ResourceId $resource_id;
-}
-
-class ClientToken {
+class DescribeMountTargetSecurityGroupsResponse {
+  public SecurityGroups $security_groups;
 }
 
 class DescribeMountTargetsRequest {
-  public MaxItems $max_items;
-  public Marker $marker;
-  public FileSystemId $file_system_id;
-  public MountTargetId $mount_target_id;
   public AccessPointId $access_point_id;
-}
-
-class AwsAccountId {
-}
-
-class Timestamp {
-}
-
-class InsufficientThroughputCapacity {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class KmsKeyId {
-}
-
-class ThroughputLimitExceeded {
-  public ErrorMessage $message;
-  public ErrorCode $error_code;
-}
-
-class FileSystemAlreadyExists {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
   public FileSystemId $file_system_id;
-}
-
-class IncorrectFileSystemLifeCycleState {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class FileSystemId {
-}
-
-class Gid {
-}
-
-class LifecyclePolicy {
-  public TransitionToIARules $transition_to_ia;
-}
-
-class AccessPointArn {
-}
-
-class AvailabilityZoneName {
-}
-
-class TagKey {
-}
-
-class DescribeFileSystemsRequest {
-  public MaxItems $max_items;
   public Marker $marker;
-  public CreationToken $creation_token;
-  public FileSystemId $file_system_id;
+  public MaxItems $max_items;
+  public MountTargetId $mount_target_id;
 }
 
 class DescribeMountTargetsResponse {
@@ -280,75 +205,62 @@ class DescribeMountTargetsResponse {
   public Marker $next_marker;
 }
 
-class FileSystemLimitExceeded {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class ListTagsForResourceRequest {
-  public ResourceId $resource_id;
-  public MaxResults $max_results;
-  public Token $next_token;
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class BadRequest {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class DeleteMountTargetRequest {
-  public MountTargetId $mount_target_id;
-}
-
-class InternalServerError {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class MountTargetId {
-}
-
-class ResourceId {
-}
-
-class Uid {
-}
-
-class CreateTagsRequest {
-  public Tags $tags;
+class DescribeTagsRequest {
   public FileSystemId $file_system_id;
+  public Marker $marker;
+  public MaxItems $max_items;
 }
 
-class FileSystemSize {
-  public FileSystemSizeValue $value;
-  public Timestamp $timestamp;
-  public FileSystemNullableSizeValue $value_in_ia;
-  public FileSystemNullableSizeValue $value_in_standard;
+class DescribeTagsResponse {
+  public Marker $marker;
+  public Marker $next_marker;
+  public Tags $tags;
 }
 
-class SubnetId {
+class Encrypted {
 }
 
-class PerformanceMode {
+class ErrorCode {
 }
 
-class Policy {
+class ErrorMessage {
 }
 
-class MountTargetNotFound {
+class FileSystemAlreadyExists {
+  public ErrorCode $error_code;
+  public FileSystemId $file_system_id;
+  public ErrorMessage $message;
+}
+
+class FileSystemDescription {
+  public Timestamp $creation_time;
+  public CreationToken $creation_token;
+  public Encrypted $encrypted;
+  public FileSystemId $file_system_id;
+  public KmsKeyId $kms_key_id;
+  public LifeCycleState $life_cycle_state;
+  public TagValue $name;
+  public MountTargetCount $number_of_mount_targets;
+  public AwsAccountId $owner_id;
+  public PerformanceMode $performance_mode;
+  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
+  public FileSystemSize $size_in_bytes;
+  public Tags $tags;
+  public ThroughputMode $throughput_mode;
+}
+
+class FileSystemDescriptions {
+}
+
+class FileSystemId {
+}
+
+class FileSystemInUse {
   public ErrorCode $error_code;
   public ErrorMessage $message;
 }
 
-class OwnerGid {
-}
-
-class PolicyNotFound {
+class FileSystemLimitExceeded {
   public ErrorCode $error_code;
   public ErrorMessage $message;
 }
@@ -358,147 +270,30 @@ class FileSystemNotFound {
   public ErrorMessage $message;
 }
 
-class LifecyclePolicies {
-}
-
-class DeleteTagsRequest {
-  public FileSystemId $file_system_id;
-  public TagKeys $tag_keys;
-}
-
-class MountTargetDescriptions {
-}
-
-class Path {
-}
-
-class SecurityGroupLimitExceeded {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class DescribeTagsResponse {
-  public Marker $marker;
-  public Tags $tags;
-  public Marker $next_marker;
-}
-
-class ErrorCode {
-}
-
-class Tags {
-}
-
-class CreationInfo {
-  public OwnerUid $owner_uid;
-  public OwnerGid $owner_gid;
-  public Permissions $permissions;
-}
-
-class NoFreeAddressesInSubnet {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class DescribeLifecycleConfigurationRequest {
-  public FileSystemId $file_system_id;
-}
-
-class DescribeTagsRequest {
-  public FileSystemId $file_system_id;
-  public MaxItems $max_items;
-  public Marker $marker;
-}
-
-class SecurityGroupNotFound {
-  public ErrorMessage $message;
-  public ErrorCode $error_code;
-}
-
-class AvailabilityZoneId {
-}
-
-class DescribeFileSystemsResponse {
-  public Marker $marker;
-  public FileSystemDescriptions $file_systems;
-  public Marker $next_marker;
-}
-
 class FileSystemNullableSizeValue {
+}
+
+class FileSystemPolicyDescription {
+  public FileSystemId $file_system_id;
+  public Policy $policy;
+}
+
+class FileSystemSize {
+  public Timestamp $timestamp;
+  public FileSystemSizeValue $value;
+  public FileSystemNullableSizeValue $value_in_ia;
+  public FileSystemNullableSizeValue $value_in_standard;
 }
 
 class FileSystemSizeValue {
 }
 
-class RootDirectory {
-  public Path $path;
-  public CreationInfo $creation_info;
+class Gid {
 }
 
-class CreateMountTargetRequest {
-  public FileSystemId $file_system_id;
-  public SubnetId $subnet_id;
-  public IpAddress $ip_address;
-  public SecurityGroups $security_groups;
-}
-
-class CreationToken {
-}
-
-class DescribeMountTargetSecurityGroupsResponse {
-  public SecurityGroups $security_groups;
-}
-
-class TagValue {
-}
-
-class NetworkInterfaceLimitExceeded {
+class IncorrectFileSystemLifeCycleState {
   public ErrorCode $error_code;
   public ErrorMessage $message;
-}
-
-class SecurityGroup {
-}
-
-class UnsupportedAvailabilityZone {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class UpdateFileSystemRequest {
-  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
-  public FileSystemId $file_system_id;
-  public ThroughputMode $throughput_mode;
-}
-
-class AccessPointNotFound {
-  public ErrorCode $error_code;
-  public ErrorMessage $message;
-}
-
-class MountTargetCount {
-}
-
-class PutFileSystemPolicyRequest {
-  public Policy $policy;
-  public BypassPolicyLockoutSafetyCheck $bypass_policy_lockout_safety_check;
-  public FileSystemId $file_system_id;
-}
-
-class SecurityGroups {
-}
-
-class TagKeys {
-}
-
-class TransitionToIARules {
-}
-
-class DescribeAccessPointsRequest {
-  public FileSystemId $file_system_id;
-  public MaxResults $max_results;
-  public Token $next_token;
-  public AccessPointId $access_point_id;
 }
 
 class IncorrectMountTargetState {
@@ -506,9 +301,154 @@ class IncorrectMountTargetState {
   public ErrorMessage $message;
 }
 
+class InsufficientThroughputCapacity {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class InternalServerError {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class InvalidPolicyException {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class IpAddress {
+}
+
+class IpAddressInUse {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class KmsKeyId {
+}
+
+class LifeCycleState {
+}
+
+class LifecycleConfigurationDescription {
+  public LifecyclePolicies $lifecycle_policies;
+}
+
+class LifecyclePolicies {
+}
+
+class LifecyclePolicy {
+  public TransitionToIARules $transition_to_ia;
+}
+
+class ListTagsForResourceRequest {
+  public MaxResults $max_results;
+  public Token $next_token;
+  public ResourceId $resource_id;
+}
+
+class ListTagsForResourceResponse {
+  public Token $next_token;
+  public Tags $tags;
+}
+
+class Marker {
+}
+
+class MaxItems {
+}
+
+class MaxResults {
+}
+
+class ModifyMountTargetSecurityGroupsRequest {
+  public MountTargetId $mount_target_id;
+  public SecurityGroups $security_groups;
+}
+
 class MountTargetConflict {
   public ErrorCode $error_code;
   public ErrorMessage $message;
+}
+
+class MountTargetCount {
+}
+
+class MountTargetDescription {
+  public AvailabilityZoneId $availability_zone_id;
+  public AvailabilityZoneName $availability_zone_name;
+  public FileSystemId $file_system_id;
+  public IpAddress $ip_address;
+  public LifeCycleState $life_cycle_state;
+  public MountTargetId $mount_target_id;
+  public NetworkInterfaceId $network_interface_id;
+  public AwsAccountId $owner_id;
+  public SubnetId $subnet_id;
+}
+
+class MountTargetDescriptions {
+}
+
+class MountTargetId {
+}
+
+class MountTargetNotFound {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class Name {
+}
+
+class NetworkInterfaceId {
+}
+
+class NetworkInterfaceLimitExceeded {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class NoFreeAddressesInSubnet {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class OwnerGid {
+}
+
+class OwnerUid {
+}
+
+class Path {
+}
+
+class PerformanceMode {
+}
+
+class Permissions {
+}
+
+class Policy {
+}
+
+class PolicyNotFound {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class PosixUser {
+  public Gid $gid;
+  public SecondaryGids $secondary_gids;
+  public Uid $uid;
+}
+
+class ProvisionedThroughputInMibps {
+}
+
+class PutFileSystemPolicyRequest {
+  public BypassPolicyLockoutSafetyCheck $bypass_policy_lockout_safety_check;
+  public FileSystemId $file_system_id;
+  public Policy $policy;
 }
 
 class PutLifecycleConfigurationRequest {
@@ -516,41 +456,101 @@ class PutLifecycleConfigurationRequest {
   public LifecyclePolicies $lifecycle_policies;
 }
 
-class AccessPointId {
+class ResourceId {
 }
 
-class CreateFileSystemRequest {
-  public CreationToken $creation_token;
-  public PerformanceMode $performance_mode;
-  public Encrypted $encrypted;
-  public KmsKeyId $kms_key_id;
-  public ThroughputMode $throughput_mode;
-  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
+class RootDirectory {
+  public CreationInfo $creation_info;
+  public Path $path;
+}
+
+class SecondaryGids {
+}
+
+class SecurityGroup {
+}
+
+class SecurityGroupLimitExceeded {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class SecurityGroupNotFound {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class SecurityGroups {
+}
+
+class SubnetId {
+}
+
+class SubnetNotFound {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeys {
+}
+
+class TagResourceRequest {
+  public ResourceId $resource_id;
   public Tags $tags;
 }
 
-class Marker {
+class TagValue {
 }
 
-class DescribeAccessPointsResponse {
-  public AccessPointDescriptions $access_points;
-  public Token $next_token;
+class Tags {
 }
 
-class FileSystemDescription {
-  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
-  public AwsAccountId $owner_id;
-  public MountTargetCount $number_of_mount_targets;
-  public FileSystemSize $size_in_bytes;
-  public ThroughputMode $throughput_mode;
-  public CreationToken $creation_token;
-  public Encrypted $encrypted;
-  public LifeCycleState $life_cycle_state;
-  public TagValue $name;
-  public PerformanceMode $performance_mode;
+class ThroughputLimitExceeded {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class ThroughputMode {
+}
+
+class Timestamp {
+}
+
+class Token {
+}
+
+class TooManyRequests {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class TransitionToIARules {
+}
+
+class Uid {
+}
+
+class UnsupportedAvailabilityZone {
+  public ErrorCode $error_code;
+  public ErrorMessage $message;
+}
+
+class UntagResourceRequest {
+  public ResourceId $resource_id;
+  public TagKeys $tag_keys;
+}
+
+class UpdateFileSystemRequest {
   public FileSystemId $file_system_id;
-  public Timestamp $creation_time;
-  public KmsKeyId $kms_key_id;
-  public Tags $tags;
+  public ProvisionedThroughputInMibps $provisioned_throughput_in_mibps;
+  public ThroughputMode $throughput_mode;
 }
 

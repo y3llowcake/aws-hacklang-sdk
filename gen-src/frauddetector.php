@@ -2,138 +2,139 @@
 namespace slack\aws\frauddetector;
 
 interface FraudDetector {
+  public function BatchCreateVariable(BatchCreateVariableRequest) Awaitable<Errors\Result<BatchCreateVariableResult>>;
   public function BatchGetVariable(BatchGetVariableRequest) Awaitable<Errors\Result<BatchGetVariableResult>>;
-  public function GetDetectorVersion(GetDetectorVersionRequest) Awaitable<Errors\Result<GetDetectorVersionResult>>;
-  public function UpdateDetectorVersionMetadata(UpdateDetectorVersionMetadataRequest) Awaitable<Errors\Result<UpdateDetectorVersionMetadataResult>>;
-  public function GetVariables(GetVariablesRequest) Awaitable<Errors\Result<GetVariablesResult>>;
-  public function UpdateDetectorVersion(UpdateDetectorVersionRequest) Awaitable<Errors\Result<UpdateDetectorVersionResult>>;
+  public function CreateDetectorVersion(CreateDetectorVersionRequest) Awaitable<Errors\Result<CreateDetectorVersionResult>>;
+  public function CreateModelVersion(CreateModelVersionRequest) Awaitable<Errors\Result<CreateModelVersionResult>>;
   public function CreateRule(CreateRuleRequest) Awaitable<Errors\Result<CreateRuleResult>>;
   public function CreateVariable(CreateVariableRequest) Awaitable<Errors\Result<CreateVariableResult>>;
-  public function DeleteRuleVersion(DeleteRuleVersionRequest) Awaitable<Errors\Result<DeleteRuleVersionResult>>;
-  public function GetModelVersion(GetModelVersionRequest) Awaitable<Errors\Result<GetModelVersionResult>>;
-  public function CreateDetectorVersion(CreateDetectorVersionRequest) Awaitable<Errors\Result<CreateDetectorVersionResult>>;
-  public function DescribeDetector(DescribeDetectorRequest) Awaitable<Errors\Result<DescribeDetectorResult>>;
-  public function PutModel(PutModelRequest) Awaitable<Errors\Result<PutModelResult>>;
-  public function PutOutcome(PutOutcomeRequest) Awaitable<Errors\Result<PutOutcomeResult>>;
-  public function CreateModelVersion(CreateModelVersionRequest) Awaitable<Errors\Result<CreateModelVersionResult>>;
-  public function GetRules(GetRulesRequest) Awaitable<Errors\Result<GetRulesResult>>;
-  public function UpdateRuleVersion(UpdateRuleVersionRequest) Awaitable<Errors\Result<UpdateRuleVersionResult>>;
-  public function GetExternalModels(GetExternalModelsRequest) Awaitable<Errors\Result<GetExternalModelsResult>>;
-  public function GetOutcomes(GetOutcomesRequest) Awaitable<Errors\Result<GetOutcomesResult>>;
-  public function BatchCreateVariable(BatchCreateVariableRequest) Awaitable<Errors\Result<BatchCreateVariableResult>>;
   public function DeleteDetector(DeleteDetectorRequest) Awaitable<Errors\Result<DeleteDetectorResult>>;
   public function DeleteDetectorVersion(DeleteDetectorVersionRequest) Awaitable<Errors\Result<DeleteDetectorVersionResult>>;
+  public function DeleteEvent(DeleteEventRequest) Awaitable<Errors\Result<DeleteEventResult>>;
+  public function DeleteRuleVersion(DeleteRuleVersionRequest) Awaitable<Errors\Result<DeleteRuleVersionResult>>;
+  public function DescribeDetector(DescribeDetectorRequest) Awaitable<Errors\Result<DescribeDetectorResult>>;
+  public function DescribeModelVersions(DescribeModelVersionsRequest) Awaitable<Errors\Result<DescribeModelVersionsResult>>;
+  public function GetDetectorVersion(GetDetectorVersionRequest) Awaitable<Errors\Result<GetDetectorVersionResult>>;
   public function GetDetectors(GetDetectorsRequest) Awaitable<Errors\Result<GetDetectorsResult>>;
+  public function GetExternalModels(GetExternalModelsRequest) Awaitable<Errors\Result<GetExternalModelsResult>>;
+  public function GetModelVersion(GetModelVersionRequest) Awaitable<Errors\Result<GetModelVersionResult>>;
+  public function GetModels(GetModelsRequest) Awaitable<Errors\Result<GetModelsResult>>;
+  public function GetOutcomes(GetOutcomesRequest) Awaitable<Errors\Result<GetOutcomesResult>>;
+  public function GetPrediction(GetPredictionRequest) Awaitable<Errors\Result<GetPredictionResult>>;
+  public function GetRules(GetRulesRequest) Awaitable<Errors\Result<GetRulesResult>>;
+  public function GetVariables(GetVariablesRequest) Awaitable<Errors\Result<GetVariablesResult>>;
   public function PutDetector(PutDetectorRequest) Awaitable<Errors\Result<PutDetectorResult>>;
+  public function PutExternalModel(PutExternalModelRequest) Awaitable<Errors\Result<PutExternalModelResult>>;
+  public function PutModel(PutModelRequest) Awaitable<Errors\Result<PutModelResult>>;
+  public function PutOutcome(PutOutcomeRequest) Awaitable<Errors\Result<PutOutcomeResult>>;
+  public function UpdateDetectorVersion(UpdateDetectorVersionRequest) Awaitable<Errors\Result<UpdateDetectorVersionResult>>;
+  public function UpdateDetectorVersionMetadata(UpdateDetectorVersionMetadataRequest) Awaitable<Errors\Result<UpdateDetectorVersionMetadataResult>>;
   public function UpdateDetectorVersionStatus(UpdateDetectorVersionStatusRequest) Awaitable<Errors\Result<UpdateDetectorVersionStatusResult>>;
   public function UpdateModelVersion(UpdateModelVersionRequest) Awaitable<Errors\Result<UpdateModelVersionResult>>;
-  public function DeleteEvent(DeleteEventRequest) Awaitable<Errors\Result<DeleteEventResult>>;
-  public function GetModels(GetModelsRequest) Awaitable<Errors\Result<GetModelsResult>>;
-  public function GetPrediction(GetPredictionRequest) Awaitable<Errors\Result<GetPredictionResult>>;
   public function UpdateRuleMetadata(UpdateRuleMetadataRequest) Awaitable<Errors\Result<UpdateRuleMetadataResult>>;
-  public function DescribeModelVersions(DescribeModelVersionsRequest) Awaitable<Errors\Result<DescribeModelVersionsResult>>;
-  public function PutExternalModel(PutExternalModelRequest) Awaitable<Errors\Result<PutExternalModelResult>>;
+  public function UpdateRuleVersion(UpdateRuleVersionRequest) Awaitable<Errors\Result<UpdateRuleVersionResult>>;
   public function UpdateVariable(UpdateVariableRequest) Awaitable<Errors\Result<UpdateVariableResult>>;
 }
 
-class UpdateDetectorVersionStatusRequest {
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-  public DetectorVersionStatus $status;
+class BatchCreateVariableError {
+  public integer $code;
+  public string $message;
+  public string $name;
+}
+
+class BatchCreateVariableErrorList {
+}
+
+class BatchCreateVariableRequest {
+  public VariableEntryList $variable_entries;
+}
+
+class BatchCreateVariableResult {
+  public BatchCreateVariableErrorList $errors;
+}
+
+class BatchGetVariableError {
+  public integer $code;
+  public string $message;
+  public string $name;
 }
 
 class BatchGetVariableErrorList {
 }
 
-class CreateVariableRequest {
-  public DataSource $data_source;
-  public string $default_value;
-  public string $description;
-  public string $variable_type;
-  public string $name;
-  public DataType $data_type;
+class BatchGetVariableRequest {
+  public NameList $names;
 }
 
-class DataType {
-}
-
-class DescribeDetectorRequest {
-  public DetectorVersionMaxResults $max_results;
-  public identifier $detector_id;
-  public string $next_token;
-}
-
-class GetVariablesRequest {
-  public string $name;
-  public string $next_token;
-  public VariablesMaxResults $max_results;
-}
-
-class ListOfStrings {
-}
-
-class PutModelRequest {
-  public LabelSchema $label_schema;
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public description $description;
-  public TrainingDataSource $training_data_source;
-  public ModelVariablesList $model_variables;
-}
-
-class UpdateModelVersionRequest {
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public nonEmptyString $model_version_number;
-  public description $description;
-  public ModelVersionStatus $status;
-}
-
-class UpdateVariableRequest {
-  public string $variable_type;
-  public string $name;
-  public string $default_value;
-  public string $description;
+class BatchGetVariableResult {
+  public BatchGetVariableErrorList $errors;
+  public VariableList $variables;
 }
 
 class ConflictException {
   public string $message;
 }
 
-class MaxResults {
-}
-
-class ModelOutputDataFormat {
-}
-
-class Outcome {
-  public time $last_updated_time;
-  public time $created_time;
-  public identifier $name;
+class CreateDetectorVersionRequest {
   public description $description;
+  public identifier $detector_id;
+  public ListOfStrings $external_model_endpoints;
+  public ListOfModelVersions $model_versions;
+  public RuleExecutionMode $rule_execution_mode;
+  public RuleList $rules;
 }
 
-class UpdateRuleVersionRequest {
-  public Language $language;
-  public NonEmptyListOfStrings $outcomes;
-  public Rule $rule;
+class CreateDetectorVersionResult {
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+  public DetectorVersionStatus $status;
+}
+
+class CreateModelVersionRequest {
   public description $description;
-  public ruleExpression $expression;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
 }
 
-class ExternalModelsMaxResults {
-}
-
-class LabelMapper {
-}
-
-class ModelVersion {
+class CreateModelVersionResult {
+  public identifier $model_id;
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
-  public identifier $model_id;
+  public string $status;
 }
 
-class attributeValue {
+class CreateRuleRequest {
+  public description $description;
+  public identifier $detector_id;
+  public ruleExpression $expression;
+  public Language $language;
+  public NonEmptyListOfStrings $outcomes;
+  public identifier $rule_id;
+}
+
+class CreateRuleResult {
+  public Rule $rule;
+}
+
+class CreateVariableRequest {
+  public DataSource $data_source;
+  public DataType $data_type;
+  public string $default_value;
+  public string $description;
+  public string $name;
+  public string $variable_type;
+}
+
+class CreateVariableResult {
+}
+
+class CsvIndexToVariableMap {
+}
+
+class DataSource {
+}
+
+class DataType {
 }
 
 class DeleteDetectorRequest {
@@ -143,29 +144,145 @@ class DeleteDetectorRequest {
 class DeleteDetectorResult {
 }
 
-class ListOfModelVersions {
+class DeleteDetectorVersionRequest {
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
 }
 
-class contentType {
+class DeleteDetectorVersionResult {
 }
 
-class description {
+class DeleteEventRequest {
+  public string $event_id;
 }
 
-class BatchGetVariableRequest {
-  public NameList $names;
+class DeleteEventResult {
 }
 
-class VariableList {
+class DeleteRuleVersionRequest {
+  public identifier $detector_id;
+  public identifier $rule_id;
+  public nonEmptyString $rule_version;
+}
+
+class DeleteRuleVersionResult {
+}
+
+class DescribeDetectorRequest {
+  public identifier $detector_id;
+  public DetectorVersionMaxResults $max_results;
+  public string $next_token;
 }
 
 class DescribeDetectorResult {
-  public string $next_token;
   public identifier $detector_id;
   public DetectorVersionSummaryList $detector_version_summaries;
+  public string $next_token;
+}
+
+class DescribeModelVersionsRequest {
+  public MaxResults $max_results;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public nonEmptyString $model_version_number;
+  public string $next_token;
+}
+
+class DescribeModelVersionsResult {
+  public ModelVersionDetailList $model_version_details;
+  public string $next_token;
+}
+
+class Detector {
+  public time $created_time;
+  public description $description;
+  public identifier $detector_id;
+  public time $last_updated_time;
+}
+
+class DetectorList {
+}
+
+class DetectorVersionMaxResults {
+}
+
+class DetectorVersionStatus {
+}
+
+class DetectorVersionSummary {
+  public description $description;
+  public nonEmptyString $detector_version_id;
+  public time $last_updated_time;
+  public DetectorVersionStatus $status;
+}
+
+class DetectorVersionSummaryList {
+}
+
+class DetectorsMaxResults {
 }
 
 class EventAttributeMap {
+}
+
+class ExternalModel {
+  public time $created_time;
+  public ModelInputConfiguration $input_configuration;
+  public time $last_updated_time;
+  public string $model_endpoint;
+  public ModelEndpointStatus $model_endpoint_status;
+  public ModelSource $model_source;
+  public ModelOutputConfiguration $output_configuration;
+  public Role $role;
+}
+
+class ExternalModelEndpointDataBlobMap {
+}
+
+class ExternalModelList {
+}
+
+class ExternalModelsMaxResults {
+}
+
+class GetDetectorVersionRequest {
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+}
+
+class GetDetectorVersionResult {
+  public time $created_time;
+  public description $description;
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+  public ListOfStrings $external_model_endpoints;
+  public time $last_updated_time;
+  public ListOfModelVersions $model_versions;
+  public RuleExecutionMode $rule_execution_mode;
+  public RuleList $rules;
+  public DetectorVersionStatus $status;
+}
+
+class GetDetectorsRequest {
+  public identifier $detector_id;
+  public DetectorsMaxResults $max_results;
+  public string $next_token;
+}
+
+class GetDetectorsResult {
+  public DetectorList $detectors;
+  public string $next_token;
+}
+
+class GetExternalModelsRequest {
+  public ExternalModelsMaxResults $max_results;
+  public string $model_endpoint;
+  public string $next_token;
+}
+
+class GetExternalModelsResult {
+  public ExternalModelList $external_models;
+  public string $next_token;
 }
 
 class GetModelVersionRequest {
@@ -174,205 +291,73 @@ class GetModelVersionRequest {
   public nonEmptyString $model_version_number;
 }
 
-class RulesMaxResults {
-}
-
-class blob {
-}
-
-class GetExternalModelsRequest {
-  public string $model_endpoint;
-  public string $next_token;
-  public ExternalModelsMaxResults $max_results;
-}
-
-class Language {
-}
-
-class float {
-}
-
-class BatchCreateVariableError {
-  public string $name;
-  public integer $code;
-  public string $message;
-}
-
-class CreateRuleRequest {
-  public NonEmptyListOfStrings $outcomes;
-  public identifier $rule_id;
-  public identifier $detector_id;
+class GetModelVersionResult {
   public description $description;
-  public ruleExpression $expression;
-  public Language $language;
-}
-
-class DescribeModelVersionsResult {
-  public ModelVersionDetailList $model_version_details;
-  public string $next_token;
-}
-
-class ListOfRuleResults {
-}
-
-class NameList {
-}
-
-class PutDetectorResult {
-}
-
-class identifier {
-}
-
-class DescribeModelVersionsRequest {
   public identifier $model_id;
-  public nonEmptyString $model_version_number;
   public ModelTypeEnum $model_type;
-  public string $next_token;
-  public MaxResults $max_results;
-}
-
-class ExternalModel {
-  public Role $role;
-  public ModelInputConfiguration $input_configuration;
-  public ModelOutputConfiguration $output_configuration;
-  public ModelEndpointStatus $model_endpoint_status;
-  public time $last_updated_time;
-  public time $created_time;
-  public string $model_endpoint;
-  public ModelSource $model_source;
-}
-
-class JsonKeyToVariableMap {
-}
-
-class OutcomesMaxResults {
-}
-
-class RuleExecutionMode {
-}
-
-class Variable {
-  public DataType $data_type;
-  public DataSource $data_source;
-  public string $default_value;
-  public string $description;
-  public string $variable_type;
-  public time $last_updated_time;
-  public time $created_time;
-  public string $name;
-}
-
-class ruleExpression {
+  public nonEmptyString $model_version_number;
+  public string $status;
 }
 
 class GetModelsRequest {
-  public ModelTypeEnum $model_type;
-  public identifier $model_id;
-  public string $next_token;
   public MaxResults $max_results;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public string $next_token;
 }
 
-class ModelList {
+class GetModelsResult {
+  public ModelList $models;
+  public string $next_token;
 }
 
-class DetectorVersionSummaryList {
+class GetOutcomesRequest {
+  public OutcomesMaxResults $max_results;
+  public identifier $name;
+  public string $next_token;
 }
 
 class GetOutcomesResult {
+  public string $next_token;
   public OutcomeList $outcomes;
+}
+
+class GetPredictionRequest {
+  public string $detector_id;
+  public string $detector_version_id;
+  public EventAttributeMap $event_attributes;
+  public string $event_id;
+  public ExternalModelEndpointDataBlobMap $external_model_endpoint_data_blobs;
+}
+
+class GetPredictionResult {
+  public ListOfModelScores $model_scores;
+  public ListOfStrings $outcomes;
+  public ListOfRuleResults $rule_results;
+}
+
+class GetRulesRequest {
+  public identifier $detector_id;
+  public RulesMaxResults $max_results;
+  public string $next_token;
+  public identifier $rule_id;
+  public nonEmptyString $rule_version;
+}
+
+class GetRulesResult {
+  public string $next_token;
+  public RuleDetailList $rule_details;
+}
+
+class GetVariablesRequest {
+  public VariablesMaxResults $max_results;
+  public string $name;
   public string $next_token;
 }
 
-class UpdateDetectorVersionMetadataResult {
-}
-
-class UpdateDetectorVersionRequest {
-  public ListOfStrings $external_model_endpoints;
-  public RuleList $rules;
-  public description $description;
-  public ListOfModelVersions $model_versions;
-  public RuleExecutionMode $rule_execution_mode;
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-}
-
-class UpdateVariableResult {
-}
-
-class attributeKey {
-}
-
-class GetDetectorsRequest {
-  public DetectorsMaxResults $max_results;
-  public identifier $detector_id;
+class GetVariablesResult {
   public string $next_token;
-}
-
-class UpdateDetectorVersionResult {
-}
-
-class VariablesMaxResults {
-}
-
-class CreateDetectorVersionRequest {
-  public ListOfModelVersions $model_versions;
-  public RuleExecutionMode $rule_execution_mode;
-  public identifier $detector_id;
-  public description $description;
-  public ListOfStrings $external_model_endpoints;
-  public RuleList $rules;
-}
-
-class Detector {
-  public identifier $detector_id;
-  public description $description;
-  public time $last_updated_time;
-  public time $created_time;
-}
-
-class GetDetectorVersionResult {
-  public RuleList $rules;
-  public DetectorVersionStatus $status;
-  public RuleExecutionMode $rule_execution_mode;
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-  public description $description;
-  public ListOfModelVersions $model_versions;
-  public ListOfStrings $external_model_endpoints;
-  public time $last_updated_time;
-  public time $created_time;
-}
-
-class MetricsMap {
-}
-
-class UpdateModelVersionResult {
-}
-
-class DeleteEventResult {
-}
-
-class DetectorVersionStatus {
-}
-
-class iamRoleArn {
-}
-
-class DetectorList {
-}
-
-class UpdateDetectorVersionMetadataRequest {
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-  public description $description;
-}
-
-class UpdateRuleVersionResult {
-  public Rule $rule;
-}
-
-class DetectorVersionMaxResults {
+  public VariableList $variables;
 }
 
 class InternalServerException {
@@ -382,169 +367,10 @@ class InternalServerException {
 class IsOpaque {
 }
 
-class ModelVariablesList {
+class JsonKeyToVariableMap {
 }
 
-class PutOutcomeRequest {
-  public identifier $name;
-  public description $description;
-}
-
-class GetDetectorVersionRequest {
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-}
-
-class ModelEndpointDataBlob {
-  public blob $byte_buffer;
-  public contentType $content_type;
-}
-
-class ModelVersionDetail {
-  public description $description;
-  public TrainingDataSource $training_data_source;
-  public LabelSchema $label_schema;
-  public MetricsMap $validation_metrics;
-  public time $created_time;
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public ModelVariablesList $model_variables;
-  public MetricsMap $training_metrics;
-  public time $last_updated_time;
-  public nonEmptyString $model_version_number;
-  public string $status;
-}
-
-class time {
-}
-
-class ExternalModelEndpointDataBlobMap {
-}
-
-class GetPredictionRequest {
-  public string $detector_id;
-  public string $detector_version_id;
-  public string $event_id;
-  public EventAttributeMap $event_attributes;
-  public ExternalModelEndpointDataBlobMap $external_model_endpoint_data_blobs;
-}
-
-class ModelTypeEnum {
-}
-
-class ModelVariableIndex {
-}
-
-class ModelVersionDetailList {
-}
-
-class RuleDetail {
-  public nonEmptyString $rule_version;
-  public ruleExpression $expression;
-  public time $created_time;
-  public identifier $rule_id;
-  public description $description;
-  public identifier $detector_id;
-  public Language $language;
-  public NonEmptyListOfStrings $outcomes;
-  public time $last_updated_time;
-}
-
-class BatchCreateVariableResult {
-  public BatchCreateVariableErrorList $errors;
-}
-
-class CreateDetectorVersionResult {
-  public nonEmptyString $detector_version_id;
-  public DetectorVersionStatus $status;
-  public identifier $detector_id;
-}
-
-class CreateRuleResult {
-  public Rule $rule;
-}
-
-class DeleteRuleVersionRequest {
-  public nonEmptyString $rule_version;
-  public identifier $detector_id;
-  public identifier $rule_id;
-}
-
-class ExternalModelList {
-}
-
-class GetVariablesResult {
-  public string $next_token;
-  public VariableList $variables;
-}
-
-class ModelScores {
-  public ModelVersion $model_version;
-  public ModelPredictionMap $scores;
-}
-
-class RuleResult {
-  public string $rule_id;
-  public ListOfStrings $outcomes;
-}
-
-class CreateModelVersionRequest {
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public description $description;
-}
-
-class CreateModelVersionResult {
-  public ModelTypeEnum $model_type;
-  public nonEmptyString $model_version_number;
-  public string $status;
-  public identifier $model_id;
-}
-
-class DetectorsMaxResults {
-}
-
-class GetModelVersionResult {
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public nonEmptyString $model_version_number;
-  public description $description;
-  public string $status;
-}
-
-class GetOutcomesRequest {
-  public identifier $name;
-  public string $next_token;
-  public OutcomesMaxResults $max_results;
-}
-
-class GetRulesResult {
-  public RuleDetailList $rule_details;
-  public string $next_token;
-}
-
-class s3BucketLocation {
-}
-
-class BatchCreateVariableErrorList {
-}
-
-class CreateVariableResult {
-}
-
-class NonEmptyListOfStrings {
-}
-
-class ValidationException {
-  public string $message;
-}
-
-class integer {
-}
-
-class GetModelsResult {
-  public ModelList $models;
-  public string $next_token;
+class LabelMapper {
 }
 
 class LabelSchema {
@@ -552,178 +378,57 @@ class LabelSchema {
   public LabelMapper $label_mapper;
 }
 
-class ThrottlingException {
-  public string $message;
-}
-
-class UpdateRuleMetadataRequest {
-  public Rule $rule;
-  public description $description;
-}
-
-class VariableEntry {
-  public string $variable_type;
-  public string $name;
-  public string $data_type;
-  public string $data_source;
-  public string $default_value;
-  public string $description;
-}
-
-class string {
-}
-
-class Model {
-  public time $created_time;
-  public identifier $model_id;
-  public ModelTypeEnum $model_type;
-  public description $description;
-  public TrainingDataSource $training_data_source;
-  public ModelVariablesList $model_variables;
-  public LabelSchema $label_schema;
-  public time $last_updated_time;
-}
-
-class ModelEndpointStatus {
-}
-
-class ModelVariable {
-  public ModelVariableIndex $index;
-  public string $name;
-}
-
-class PutDetectorRequest {
-  public identifier $detector_id;
-  public description $description;
-}
-
-class UpdateDetectorVersionStatusResult {
-}
-
-class CsvIndexToVariableMap {
-}
-
-class DeleteDetectorVersionResult {
-}
-
-class DetectorVersionSummary {
-  public nonEmptyString $detector_version_id;
-  public DetectorVersionStatus $status;
-  public description $description;
-  public time $last_updated_time;
-}
-
-class GetRulesRequest {
-  public identifier $rule_id;
-  public identifier $detector_id;
-  public nonEmptyString $rule_version;
-  public string $next_token;
-  public RulesMaxResults $max_results;
-}
-
-class ModelInputDataFormat {
-}
-
-class PutOutcomeResult {
-}
-
-class RuleList {
-}
-
-class ModelPredictionMap {
-}
-
-class PutModelResult {
-}
-
-class Role {
-  public string $arn;
-  public string $name;
-}
-
-class BatchCreateVariableRequest {
-  public VariableEntryList $variable_entries;
-}
-
-class BatchGetVariableError {
-  public string $name;
-  public integer $code;
-  public string $message;
-}
-
-class PutExternalModelRequest {
-  public Role $role;
-  public ModelInputConfiguration $input_configuration;
-  public ModelOutputConfiguration $output_configuration;
-  public ModelEndpointStatus $model_endpoint_status;
-  public string $model_endpoint;
-  public ModelSource $model_source;
-}
-
-class Rule {
-  public identifier $detector_id;
-  public identifier $rule_id;
-  public nonEmptyString $rule_version;
-}
-
-class RuleDetailList {
-}
-
-class VariableEntryList {
-}
-
-class nonEmptyString {
-}
-
-class DeleteDetectorVersionRequest {
-  public identifier $detector_id;
-  public nonEmptyString $detector_version_id;
-}
-
-class DeleteEventRequest {
-  public string $event_id;
-}
-
-class DeleteRuleVersionResult {
+class Language {
 }
 
 class ListOfModelScores {
 }
 
-class ModelVersionStatus {
+class ListOfModelVersions {
 }
 
-class OutcomeList {
+class ListOfRuleResults {
 }
 
-class PutExternalModelResult {
+class ListOfStrings {
 }
 
-class UpdateRuleMetadataResult {
+class MaxResults {
 }
 
-class BatchGetVariableResult {
-  public VariableList $variables;
-  public BatchGetVariableErrorList $errors;
+class MetricsMap {
 }
 
-class DataSource {
+class Model {
+  public time $created_time;
+  public description $description;
+  public LabelSchema $label_schema;
+  public time $last_updated_time;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public ModelVariablesList $model_variables;
+  public TrainingDataSource $training_data_source;
 }
 
-class GetDetectorsResult {
-  public DetectorList $detectors;
-  public string $next_token;
+class ModelEndpointDataBlob {
+  public blob $byte_buffer;
+  public contentType $content_type;
 }
 
-class GetExternalModelsResult {
-  public ExternalModelList $external_models;
-  public string $next_token;
+class ModelEndpointStatus {
 }
 
-class GetPredictionResult {
-  public ListOfStrings $outcomes;
-  public ListOfModelScores $model_scores;
-  public ListOfRuleResults $rule_results;
+class ModelInputConfiguration {
+  public string $csv_input_template;
+  public ModelInputDataFormat $format;
+  public IsOpaque $is_opaque;
+  public string $json_input_template;
+}
+
+class ModelInputDataFormat {
+}
+
+class ModelList {
 }
 
 class ModelOutputConfiguration {
@@ -732,22 +437,317 @@ class ModelOutputConfiguration {
   public JsonKeyToVariableMap $json_key_to_variable_map;
 }
 
-class TrainingDataSource {
-  public iamRoleArn $data_access_role_arn;
-  public s3BucketLocation $data_location;
+class ModelOutputDataFormat {
 }
 
-class ModelInputConfiguration {
-  public string $json_input_template;
-  public string $csv_input_template;
-  public ModelInputDataFormat $format;
-  public IsOpaque $is_opaque;
+class ModelPredictionMap {
+}
+
+class ModelScores {
+  public ModelVersion $model_version;
+  public ModelPredictionMap $scores;
 }
 
 class ModelSource {
 }
 
+class ModelTypeEnum {
+}
+
+class ModelVariable {
+  public ModelVariableIndex $index;
+  public string $name;
+}
+
+class ModelVariableIndex {
+}
+
+class ModelVariablesList {
+}
+
+class ModelVersion {
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public nonEmptyString $model_version_number;
+}
+
+class ModelVersionDetail {
+  public time $created_time;
+  public description $description;
+  public LabelSchema $label_schema;
+  public time $last_updated_time;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public ModelVariablesList $model_variables;
+  public nonEmptyString $model_version_number;
+  public string $status;
+  public TrainingDataSource $training_data_source;
+  public MetricsMap $training_metrics;
+  public MetricsMap $validation_metrics;
+}
+
+class ModelVersionDetailList {
+}
+
+class ModelVersionStatus {
+}
+
+class NameList {
+}
+
+class NonEmptyListOfStrings {
+}
+
+class Outcome {
+  public time $created_time;
+  public description $description;
+  public time $last_updated_time;
+  public identifier $name;
+}
+
+class OutcomeList {
+}
+
+class OutcomesMaxResults {
+}
+
+class PutDetectorRequest {
+  public description $description;
+  public identifier $detector_id;
+}
+
+class PutDetectorResult {
+}
+
+class PutExternalModelRequest {
+  public ModelInputConfiguration $input_configuration;
+  public string $model_endpoint;
+  public ModelEndpointStatus $model_endpoint_status;
+  public ModelSource $model_source;
+  public ModelOutputConfiguration $output_configuration;
+  public Role $role;
+}
+
+class PutExternalModelResult {
+}
+
+class PutModelRequest {
+  public description $description;
+  public LabelSchema $label_schema;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public ModelVariablesList $model_variables;
+  public TrainingDataSource $training_data_source;
+}
+
+class PutModelResult {
+}
+
+class PutOutcomeRequest {
+  public description $description;
+  public identifier $name;
+}
+
+class PutOutcomeResult {
+}
+
 class ResourceNotFoundException {
   public string $message;
+}
+
+class Role {
+  public string $arn;
+  public string $name;
+}
+
+class Rule {
+  public identifier $detector_id;
+  public identifier $rule_id;
+  public nonEmptyString $rule_version;
+}
+
+class RuleDetail {
+  public time $created_time;
+  public description $description;
+  public identifier $detector_id;
+  public ruleExpression $expression;
+  public Language $language;
+  public time $last_updated_time;
+  public NonEmptyListOfStrings $outcomes;
+  public identifier $rule_id;
+  public nonEmptyString $rule_version;
+}
+
+class RuleDetailList {
+}
+
+class RuleExecutionMode {
+}
+
+class RuleList {
+}
+
+class RuleResult {
+  public ListOfStrings $outcomes;
+  public string $rule_id;
+}
+
+class RulesMaxResults {
+}
+
+class ThrottlingException {
+  public string $message;
+}
+
+class TrainingDataSource {
+  public iamRoleArn $data_access_role_arn;
+  public s3BucketLocation $data_location;
+}
+
+class UpdateDetectorVersionMetadataRequest {
+  public description $description;
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+}
+
+class UpdateDetectorVersionMetadataResult {
+}
+
+class UpdateDetectorVersionRequest {
+  public description $description;
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+  public ListOfStrings $external_model_endpoints;
+  public ListOfModelVersions $model_versions;
+  public RuleExecutionMode $rule_execution_mode;
+  public RuleList $rules;
+}
+
+class UpdateDetectorVersionResult {
+}
+
+class UpdateDetectorVersionStatusRequest {
+  public identifier $detector_id;
+  public nonEmptyString $detector_version_id;
+  public DetectorVersionStatus $status;
+}
+
+class UpdateDetectorVersionStatusResult {
+}
+
+class UpdateModelVersionRequest {
+  public description $description;
+  public identifier $model_id;
+  public ModelTypeEnum $model_type;
+  public nonEmptyString $model_version_number;
+  public ModelVersionStatus $status;
+}
+
+class UpdateModelVersionResult {
+}
+
+class UpdateRuleMetadataRequest {
+  public description $description;
+  public Rule $rule;
+}
+
+class UpdateRuleMetadataResult {
+}
+
+class UpdateRuleVersionRequest {
+  public description $description;
+  public ruleExpression $expression;
+  public Language $language;
+  public NonEmptyListOfStrings $outcomes;
+  public Rule $rule;
+}
+
+class UpdateRuleVersionResult {
+  public Rule $rule;
+}
+
+class UpdateVariableRequest {
+  public string $default_value;
+  public string $description;
+  public string $name;
+  public string $variable_type;
+}
+
+class UpdateVariableResult {
+}
+
+class ValidationException {
+  public string $message;
+}
+
+class Variable {
+  public time $created_time;
+  public DataSource $data_source;
+  public DataType $data_type;
+  public string $default_value;
+  public string $description;
+  public time $last_updated_time;
+  public string $name;
+  public string $variable_type;
+}
+
+class VariableEntry {
+  public string $data_source;
+  public string $data_type;
+  public string $default_value;
+  public string $description;
+  public string $name;
+  public string $variable_type;
+}
+
+class VariableEntryList {
+}
+
+class VariableList {
+}
+
+class VariablesMaxResults {
+}
+
+class attributeKey {
+}
+
+class attributeValue {
+}
+
+class blob {
+}
+
+class contentType {
+}
+
+class description {
+}
+
+class float {
+}
+
+class iamRoleArn {
+}
+
+class identifier {
+}
+
+class integer {
+}
+
+class nonEmptyString {
+}
+
+class ruleExpression {
+}
+
+class s3BucketLocation {
+}
+
+class string {
+}
+
+class time {
 }
 

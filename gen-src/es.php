@@ -3,50 +3,78 @@ namespace slack\aws\es;
 
 interface Elasticsearch Service {
   public function AddTags(AddTagsRequest) Awaitable<Errors\Error>;
-  public function DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainResponse>>;
-  public function StartElasticsearchServiceSoftwareUpdate(StartElasticsearchServiceSoftwareUpdateRequest) Awaitable<Errors\Result<StartElasticsearchServiceSoftwareUpdateResponse>>;
+  public function AssociatePackage(AssociatePackageRequest) Awaitable<Errors\Result<AssociatePackageResponse>>;
   public function CancelElasticsearchServiceSoftwareUpdate(CancelElasticsearchServiceSoftwareUpdateRequest) Awaitable<Errors\Result<CancelElasticsearchServiceSoftwareUpdateResponse>>;
-  public function GetUpgradeHistory(GetUpgradeHistoryRequest) Awaitable<Errors\Result<GetUpgradeHistoryResponse>>;
-  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
-  public function ListElasticsearchVersions(ListElasticsearchVersionsRequest) Awaitable<Errors\Result<ListElasticsearchVersionsResponse>>;
-  public function UpgradeElasticsearchDomain(UpgradeElasticsearchDomainRequest) Awaitable<Errors\Result<UpgradeElasticsearchDomainResponse>>;
-  public function DeletePackage(DeletePackageRequest) Awaitable<Errors\Result<DeletePackageResponse>>;
-  public function DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainConfigResponse>>;
-  public function DescribeReservedElasticsearchInstanceOfferings(DescribeReservedElasticsearchInstanceOfferingsRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstanceOfferingsResponse>>;
-  public function ListPackagesForDomain(ListPackagesForDomainRequest) Awaitable<Errors\Result<ListPackagesForDomainResponse>>;
-  public function UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest) Awaitable<Errors\Result<UpdateElasticsearchDomainConfigResponse>>;
   public function CreateElasticsearchDomain(CreateElasticsearchDomainRequest) Awaitable<Errors\Result<CreateElasticsearchDomainResponse>>;
   public function CreatePackage(CreatePackageRequest) Awaitable<Errors\Result<CreatePackageResponse>>;
-  public function ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest) Awaitable<Errors\Result<ListElasticsearchInstanceTypesResponse>>;
-  public function AssociatePackage(AssociatePackageRequest) Awaitable<Errors\Result<AssociatePackageResponse>>;
-  public function GetUpgradeStatus(GetUpgradeStatusRequest) Awaitable<Errors\Result<GetUpgradeStatusResponse>>;
-  public function ListDomainsForPackage(ListDomainsForPackageRequest) Awaitable<Errors\Result<ListDomainsForPackageResponse>>;
-  public function RemoveTags(RemoveTagsRequest) Awaitable<Errors\Error>;
-  public function DescribeReservedElasticsearchInstances(DescribeReservedElasticsearchInstancesRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstancesResponse>>;
-  public function DissociatePackage(DissociatePackageRequest) Awaitable<Errors\Result<DissociatePackageResponse>>;
-  public function GetCompatibleElasticsearchVersions(GetCompatibleElasticsearchVersionsRequest) Awaitable<Errors\Result<GetCompatibleElasticsearchVersionsResponse>>;
   public function DeleteElasticsearchDomain(DeleteElasticsearchDomainRequest) Awaitable<Errors\Result<DeleteElasticsearchDomainResponse>>;
   public function DeleteElasticsearchServiceRole() Awaitable<Errors\Error>;
+  public function DeletePackage(DeletePackageRequest) Awaitable<Errors\Result<DeletePackageResponse>>;
+  public function DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainResponse>>;
+  public function DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainConfigResponse>>;
   public function DescribeElasticsearchDomains(DescribeElasticsearchDomainsRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainsResponse>>;
   public function DescribeElasticsearchInstanceTypeLimits(DescribeElasticsearchInstanceTypeLimitsRequest) Awaitable<Errors\Result<DescribeElasticsearchInstanceTypeLimitsResponse>>;
   public function DescribePackages(DescribePackagesRequest) Awaitable<Errors\Result<DescribePackagesResponse>>;
+  public function DescribeReservedElasticsearchInstanceOfferings(DescribeReservedElasticsearchInstanceOfferingsRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstanceOfferingsResponse>>;
+  public function DescribeReservedElasticsearchInstances(DescribeReservedElasticsearchInstancesRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstancesResponse>>;
+  public function DissociatePackage(DissociatePackageRequest) Awaitable<Errors\Result<DissociatePackageResponse>>;
+  public function GetCompatibleElasticsearchVersions(GetCompatibleElasticsearchVersionsRequest) Awaitable<Errors\Result<GetCompatibleElasticsearchVersionsResponse>>;
+  public function GetUpgradeHistory(GetUpgradeHistoryRequest) Awaitable<Errors\Result<GetUpgradeHistoryResponse>>;
+  public function GetUpgradeStatus(GetUpgradeStatusRequest) Awaitable<Errors\Result<GetUpgradeStatusResponse>>;
+  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
+  public function ListDomainsForPackage(ListDomainsForPackageRequest) Awaitable<Errors\Result<ListDomainsForPackageResponse>>;
+  public function ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest) Awaitable<Errors\Result<ListElasticsearchInstanceTypesResponse>>;
+  public function ListElasticsearchVersions(ListElasticsearchVersionsRequest) Awaitable<Errors\Result<ListElasticsearchVersionsResponse>>;
+  public function ListPackagesForDomain(ListPackagesForDomainRequest) Awaitable<Errors\Result<ListPackagesForDomainResponse>>;
   public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
   public function PurchaseReservedElasticsearchInstanceOffering(PurchaseReservedElasticsearchInstanceOfferingRequest) Awaitable<Errors\Result<PurchaseReservedElasticsearchInstanceOfferingResponse>>;
+  public function RemoveTags(RemoveTagsRequest) Awaitable<Errors\Error>;
+  public function StartElasticsearchServiceSoftwareUpdate(StartElasticsearchServiceSoftwareUpdateRequest) Awaitable<Errors\Result<StartElasticsearchServiceSoftwareUpdateResponse>>;
+  public function UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest) Awaitable<Errors\Result<UpdateElasticsearchDomainConfigResponse>>;
+  public function UpgradeElasticsearchDomain(UpgradeElasticsearchDomainRequest) Awaitable<Errors\Result<UpgradeElasticsearchDomainResponse>>;
 }
 
-class DomainPackageStatus {
+class ARN {
 }
 
-class ListElasticsearchInstanceTypesResponse {
-  public ElasticsearchInstanceTypeList $elasticsearch_instance_types;
-  public NextToken $next_token;
+class AccessDeniedException {
 }
 
-class UpgradeStepItem {
-  public UpgradeStep $upgrade_step;
-  public UpgradeStatus $upgrade_step_status;
-  public Issues $issues;
-  public Double $progress_percent;
+class AccessPoliciesStatus {
+  public PolicyDocument $options;
+  public OptionStatus $status;
+}
+
+class AddTagsRequest {
+  public ARN $arn;
+  public TagList $tag_list;
+}
+
+class AdditionalLimit {
+  public LimitName $limit_name;
+  public LimitValueList $limit_values;
+}
+
+class AdditionalLimitList {
+}
+
+class AdvancedOptions {
+}
+
+class AdvancedOptionsStatus {
+  public AdvancedOptions $options;
+  public OptionStatus $status;
+}
+
+class AdvancedSecurityOptions {
+  public boolean $enabled;
+  public boolean $internal_user_database_enabled;
+}
+
+class AdvancedSecurityOptionsInput {
+  public boolean $enabled;
+  public boolean $internal_user_database_enabled;
+  public MasterUserOptions $master_user_options;
 }
 
 class AdvancedSecurityOptionsStatus {
@@ -54,11 +82,162 @@ class AdvancedSecurityOptionsStatus {
   public OptionStatus $status;
 }
 
+class AssociatePackageRequest {
+  public DomainName $domain_name;
+  public PackageID $package_id;
+}
+
+class AssociatePackageResponse {
+  public DomainPackageDetails $domain_package_details;
+}
+
+class BaseException {
+  public ErrorMessage $message;
+}
+
+class Boolean {
+}
+
+class CancelElasticsearchServiceSoftwareUpdateRequest {
+  public DomainName $domain_name;
+}
+
+class CancelElasticsearchServiceSoftwareUpdateResponse {
+  public ServiceSoftwareOptions $service_software_options;
+}
+
+class CloudWatchLogsLogGroupArn {
+}
+
+class CognitoOptions {
+  public boolean $enabled;
+  public IdentityPoolId $identity_pool_id;
+  public RoleArn $role_arn;
+  public UserPoolId $user_pool_id;
+}
+
+class CognitoOptionsStatus {
+  public CognitoOptions $options;
+  public OptionStatus $status;
+}
+
+class CompatibleElasticsearchVersionsList {
+}
+
+class CompatibleVersionsMap {
+  public ElasticsearchVersionString $source_version;
+  public ElasticsearchVersionList $target_versions;
+}
+
+class ConflictException {
+}
+
+class CreateElasticsearchDomainRequest {
+  public PolicyDocument $access_policies;
+  public AdvancedOptions $advanced_options;
+  public AdvancedSecurityOptionsInput $advanced_security_options;
+  public CognitoOptions $cognito_options;
+  public DomainEndpointOptions $domain_endpoint_options;
+  public DomainName $domain_name;
+  public EBSOptions $ebs_options;
+  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
+  public ElasticsearchVersionString $elasticsearch_version;
+  public EncryptionAtRestOptions $encryption_at_rest_options;
+  public LogPublishingOptions $log_publishing_options;
+  public NodeToNodeEncryptionOptions $node_to_node_encryption_options;
+  public SnapshotOptions $snapshot_options;
+  public VPCOptions $vpc_options;
+}
+
+class CreateElasticsearchDomainResponse {
+  public ElasticsearchDomainStatus $domain_status;
+}
+
+class CreatePackageRequest {
+  public PackageDescription $package_description;
+  public PackageName $package_name;
+  public PackageSource $package_source;
+  public PackageType $package_type;
+}
+
+class CreatePackageResponse {
+  public PackageDetails $package_details;
+}
+
 class CreatedAt {
+}
+
+class DeleteElasticsearchDomainRequest {
+  public DomainName $domain_name;
+}
+
+class DeleteElasticsearchDomainResponse {
+  public ElasticsearchDomainStatus $domain_status;
+}
+
+class DeletePackageRequest {
+  public PackageID $package_id;
+}
+
+class DeletePackageResponse {
+  public PackageDetails $package_details;
+}
+
+class DeploymentCloseDateTimeStamp {
+}
+
+class DeploymentStatus {
 }
 
 class DescribeElasticsearchDomainConfigRequest {
   public DomainName $domain_name;
+}
+
+class DescribeElasticsearchDomainConfigResponse {
+  public ElasticsearchDomainConfig $domain_config;
+}
+
+class DescribeElasticsearchDomainRequest {
+  public DomainName $domain_name;
+}
+
+class DescribeElasticsearchDomainResponse {
+  public ElasticsearchDomainStatus $domain_status;
+}
+
+class DescribeElasticsearchDomainsRequest {
+  public DomainNameList $domain_names;
+}
+
+class DescribeElasticsearchDomainsResponse {
+  public ElasticsearchDomainStatusList $domain_status_list;
+}
+
+class DescribeElasticsearchInstanceTypeLimitsRequest {
+  public DomainName $domain_name;
+  public ElasticsearchVersionString $elasticsearch_version;
+  public ESPartitionInstanceType $instance_type;
+}
+
+class DescribeElasticsearchInstanceTypeLimitsResponse {
+  public LimitsByRole $limits_by_role;
+}
+
+class DescribePackagesFilter {
+  public DescribePackagesFilterName $name;
+  public DescribePackagesFilterValues $value;
+}
+
+class DescribePackagesFilterList {
+}
+
+class DescribePackagesFilterName {
+}
+
+class DescribePackagesFilterValue {
+}
+
+class DescribePackagesFilterValues {
 }
 
 class DescribePackagesRequest {
@@ -67,174 +246,48 @@ class DescribePackagesRequest {
   public NextToken $next_token;
 }
 
-class ErrorMessage {
+class DescribePackagesResponse {
+  public string $next_token;
+  public PackageDetailsList $package_details_list;
 }
 
-class LimitValueList {
-}
-
-class PackageStatus {
-}
-
-class ServiceSoftwareOptions {
-  public string $new_version;
-  public boolean $update_available;
-  public boolean $cancellable;
-  public DeploymentStatus $update_status;
-  public string $description;
-  public DeploymentCloseDateTimeStamp $automated_update_date;
-  public boolean $optional_deployment;
-  public string $current_version;
-}
-
-class BaseException {
-  public ErrorMessage $message;
-}
-
-class CloudWatchLogsLogGroupArn {
-}
-
-class VPCDerivedInfoStatus {
-  public VPCDerivedInfo $options;
-  public OptionStatus $status;
-}
-
-class CognitoOptions {
-  public boolean $enabled;
-  public UserPoolId $user_pool_id;
-  public IdentityPoolId $identity_pool_id;
-  public RoleArn $role_arn;
-}
-
-class GetUpgradeStatusRequest {
-  public DomainName $domain_name;
-}
-
-class LimitExceededException {
-}
-
-class ListPackagesForDomainRequest {
-  public NextToken $next_token;
-  public DomainName $domain_name;
+class DescribeReservedElasticsearchInstanceOfferingsRequest {
   public MaxResults $max_results;
-}
-
-class PolicyDocument {
-}
-
-class ReservedElasticsearchInstanceOffering {
-  public RecurringChargeList $recurring_charges;
+  public NextToken $next_token;
   public GUID $reserved_elasticsearch_instance_offering_id;
-  public ESPartitionInstanceType $elasticsearch_instance_type;
-  public int $duration;
-  public Double $fixed_price;
-  public Double $usage_price;
-  public string $currency_code;
-  public ReservedElasticsearchInstancePaymentOption $payment_option;
 }
 
-class StorageType {
-  public StorageTypeName $storage_type_name;
-  public StorageSubTypeName $storage_sub_type_name;
-  public StorageTypeLimitList $storage_type_limits;
-}
-
-class UpgradeElasticsearchDomainRequest {
-  public DomainName $domain_name;
-  public ElasticsearchVersionString $target_version;
-  public boolean $perform_check_only;
-}
-
-class CompatibleElasticsearchVersionsList {
-}
-
-class DeletePackageResponse {
-  public PackageDetails $package_details;
-}
-
-class PackageID {
-}
-
-class ReservedElasticsearchInstanceOfferingList {
-}
-
-class TLSSecurityPolicy {
-}
-
-class Tag {
-  public TagValue $value;
-  public TagKey $key;
-}
-
-class DomainPackageDetails {
-  public DomainName $domain_name;
-  public DomainPackageStatus $domain_package_status;
-  public ReferencePath $reference_path;
-  public ErrorDetails $error_details;
-  public PackageID $package_id;
-  public PackageName $package_name;
-  public PackageType $package_type;
-  public LastUpdated $last_updated;
-}
-
-class InstanceRole {
-}
-
-class DomainInfo {
-  public DomainName $domain_name;
-}
-
-class DomainName {
-}
-
-class ElasticsearchDomainStatusList {
-}
-
-class ElasticsearchVersionList {
-}
-
-class EncryptionAtRestOptionsStatus {
-  public EncryptionAtRestOptions $options;
-  public OptionStatus $status;
-}
-
-class ErrorType {
-}
-
-class ConflictException {
+class DescribeReservedElasticsearchInstanceOfferingsResponse {
+  public NextToken $next_token;
+  public ReservedElasticsearchInstanceOfferingList $reserved_elasticsearch_instance_offerings;
 }
 
 class DescribeReservedElasticsearchInstancesRequest {
-  public GUID $reserved_elasticsearch_instance_id;
   public MaxResults $max_results;
   public NextToken $next_token;
+  public GUID $reserved_elasticsearch_instance_id;
 }
 
-class StartElasticsearchServiceSoftwareUpdateResponse {
-  public ServiceSoftwareOptions $service_software_options;
+class DescribeReservedElasticsearchInstancesResponse {
+  public string $next_token;
+  public ReservedElasticsearchInstanceList $reserved_elasticsearch_instances;
 }
 
-class VolumeType {
+class DisabledOperationException {
 }
 
-class ListElasticsearchVersionsResponse {
-  public ElasticsearchVersionList $elasticsearch_versions;
-  public NextToken $next_token;
+class DissociatePackageRequest {
+  public DomainName $domain_name;
+  public PackageID $package_id;
 }
 
-class OptionStatus {
-  public boolean $pending_deletion;
-  public UpdateTimestamp $creation_date;
-  public UpdateTimestamp $update_date;
-  public UIntValue $update_version;
-  public OptionState $state;
+class DissociatePackageResponse {
+  public DomainPackageDetails $domain_package_details;
 }
 
-class DescribeElasticsearchDomainsResponse {
-  public ElasticsearchDomainStatusList $domain_status_list;
-}
-
-class DescribePackagesFilterValue {
+class DomainEndpointOptions {
+  public boolean $enforce_https;
+  public TLSSecurityPolicy $tls_security_policy;
 }
 
 class DomainEndpointOptionsStatus {
@@ -242,30 +295,135 @@ class DomainEndpointOptionsStatus {
   public OptionStatus $status;
 }
 
-class ElasticsearchVersionString {
-}
-
-class MaxResults {
-}
-
-class ResourceNotFoundException {
-}
-
-class Boolean {
-}
-
-class DeletePackageRequest {
-  public PackageID $package_id;
-}
-
-class UpgradeName {
-}
-
-class ZoneAwarenessConfig {
-  public IntegerClass $availability_zone_count;
-}
-
 class DomainId {
+}
+
+class DomainInfo {
+  public DomainName $domain_name;
+}
+
+class DomainInfoList {
+}
+
+class DomainName {
+}
+
+class DomainNameList {
+}
+
+class DomainPackageDetails {
+  public DomainName $domain_name;
+  public DomainPackageStatus $domain_package_status;
+  public ErrorDetails $error_details;
+  public LastUpdated $last_updated;
+  public PackageID $package_id;
+  public PackageName $package_name;
+  public PackageType $package_type;
+  public ReferencePath $reference_path;
+}
+
+class DomainPackageDetailsList {
+}
+
+class DomainPackageStatus {
+}
+
+class Double {
+}
+
+class EBSOptions {
+  public boolean $ebs_enabled;
+  public IntegerClass $iops;
+  public IntegerClass $volume_size;
+  public VolumeType $volume_type;
+}
+
+class EBSOptionsStatus {
+  public EBSOptions $options;
+  public OptionStatus $status;
+}
+
+class ESPartitionInstanceType {
+}
+
+class ESWarmPartitionInstanceType {
+}
+
+class ElasticsearchClusterConfig {
+  public IntegerClass $dedicated_master_count;
+  public boolean $dedicated_master_enabled;
+  public ESPartitionInstanceType $dedicated_master_type;
+  public IntegerClass $instance_count;
+  public ESPartitionInstanceType $instance_type;
+  public IntegerClass $warm_count;
+  public boolean $warm_enabled;
+  public ESWarmPartitionInstanceType $warm_type;
+  public ZoneAwarenessConfig $zone_awareness_config;
+  public boolean $zone_awareness_enabled;
+}
+
+class ElasticsearchClusterConfigStatus {
+  public ElasticsearchClusterConfig $options;
+  public OptionStatus $status;
+}
+
+class ElasticsearchDomainConfig {
+  public AccessPoliciesStatus $access_policies;
+  public AdvancedOptionsStatus $advanced_options;
+  public AdvancedSecurityOptionsStatus $advanced_security_options;
+  public CognitoOptionsStatus $cognito_options;
+  public DomainEndpointOptionsStatus $domain_endpoint_options;
+  public EBSOptionsStatus $ebs_options;
+  public ElasticsearchClusterConfigStatus $elasticsearch_cluster_config;
+  public ElasticsearchVersionStatus $elasticsearch_version;
+  public EncryptionAtRestOptionsStatus $encryption_at_rest_options;
+  public LogPublishingOptionsStatus $log_publishing_options;
+  public NodeToNodeEncryptionOptionsStatus $node_to_node_encryption_options;
+  public SnapshotOptionsStatus $snapshot_options;
+  public VPCDerivedInfoStatus $vpc_options;
+}
+
+class ElasticsearchDomainStatus {
+  public ARN $arn;
+  public PolicyDocument $access_policies;
+  public AdvancedOptions $advanced_options;
+  public AdvancedSecurityOptions $advanced_security_options;
+  public CognitoOptions $cognito_options;
+  public boolean $created;
+  public boolean $deleted;
+  public DomainEndpointOptions $domain_endpoint_options;
+  public DomainId $domain_id;
+  public DomainName $domain_name;
+  public EBSOptions $ebs_options;
+  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
+  public ElasticsearchVersionString $elasticsearch_version;
+  public EncryptionAtRestOptions $encryption_at_rest_options;
+  public ServiceUrl $endpoint;
+  public EndpointsMap $endpoints;
+  public LogPublishingOptions $log_publishing_options;
+  public NodeToNodeEncryptionOptions $node_to_node_encryption_options;
+  public boolean $processing;
+  public ServiceSoftwareOptions $service_software_options;
+  public SnapshotOptions $snapshot_options;
+  public boolean $upgrade_processing;
+  public VPCDerivedInfo $vpc_options;
+}
+
+class ElasticsearchDomainStatusList {
+}
+
+class ElasticsearchInstanceTypeList {
+}
+
+class ElasticsearchVersionList {
+}
+
+class ElasticsearchVersionStatus {
+  public ElasticsearchVersionString $options;
+  public OptionStatus $status;
+}
+
+class ElasticsearchVersionString {
 }
 
 class EncryptionAtRestOptions {
@@ -273,104 +431,34 @@ class EncryptionAtRestOptions {
   public KmsKeyId $kms_key_id;
 }
 
-class Limits {
-  public StorageTypeList $storage_types;
-  public InstanceLimits $instance_limits;
-  public AdditionalLimitList $additional_limits;
-}
-
-class OptionState {
-}
-
-class PurchaseReservedElasticsearchInstanceOfferingResponse {
-  public GUID $reserved_elasticsearch_instance_id;
-  public ReservationToken $reservation_name;
-}
-
-class StorageTypeLimit {
-  public LimitName $limit_name;
-  public LimitValueList $limit_values;
-}
-
-class AdditionalLimitList {
-}
-
-class DeleteElasticsearchDomainRequest {
-  public DomainName $domain_name;
-}
-
-class MasterUserOptions {
-  public ARN $master_user_arn;
-  public Username $master_user_name;
-  public Password $master_user_password;
-}
-
-class PackageDetailsList {
-}
-
-class ReferencePath {
-}
-
-class S3BucketName {
-}
-
-class DissociatePackageRequest {
-  public PackageID $package_id;
-  public DomainName $domain_name;
-}
-
-class GetUpgradeStatusResponse {
-  public UpgradeStep $upgrade_step;
-  public UpgradeStatus $step_status;
-  public UpgradeName $upgrade_name;
-}
-
-class GUID {
-}
-
-class IdentityPoolId {
-}
-
-class AdvancedSecurityOptionsInput {
-  public MasterUserOptions $master_user_options;
-  public boolean $enabled;
-  public boolean $internal_user_database_enabled;
+class EncryptionAtRestOptionsStatus {
+  public EncryptionAtRestOptions $options;
+  public OptionStatus $status;
 }
 
 class EndpointsMap {
 }
 
-class DomainPackageDetailsList {
+class ErrorDetails {
+  public ErrorMessage $error_message;
+  public ErrorType $error_type;
 }
 
-class TagList {
+class ErrorMessage {
 }
 
-class UpgradeHistory {
-  public UpgradeStepsList $steps_list;
-  public UpgradeName $upgrade_name;
-  public StartTimestamp $start_timestamp;
-  public UpgradeStatus $upgrade_status;
+class ErrorType {
 }
 
-class AdvancedOptions {
+class GUID {
 }
 
-class CreateElasticsearchDomainRequest {
-  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
-  public PolicyDocument $access_policies;
-  public NodeToNodeEncryptionOptions $node_to_node_encryption_options;
-  public AdvancedSecurityOptionsInput $advanced_security_options;
-  public DomainEndpointOptions $domain_endpoint_options;
+class GetCompatibleElasticsearchVersionsRequest {
   public DomainName $domain_name;
-  public ElasticsearchVersionString $elasticsearch_version;
-  public EBSOptions $ebs_options;
-  public CognitoOptions $cognito_options;
-  public AdvancedOptions $advanced_options;
-  public LogPublishingOptions $log_publishing_options;
-  public SnapshotOptions $snapshot_options;
-  public VPCOptions $vpc_options;
-  public EncryptionAtRestOptions $encryption_at_rest_options;
+}
+
+class GetCompatibleElasticsearchVersionsResponse {
+  public CompatibleElasticsearchVersionsList $compatible_elasticsearch_versions;
 }
 
 class GetUpgradeHistoryRequest {
@@ -379,294 +467,92 @@ class GetUpgradeHistoryRequest {
   public NextToken $next_token;
 }
 
-class Issue {
+class GetUpgradeHistoryResponse {
+  public string $next_token;
+  public UpgradeHistoryList $upgrade_histories;
 }
 
-class LogPublishingOptions {
-}
-
-class NodeToNodeEncryptionOptionsStatus {
-  public NodeToNodeEncryptionOptions $options;
-  public OptionStatus $status;
-}
-
-class PackageDetails {
-  public PackageDescription $package_description;
-  public PackageStatus $package_status;
-  public CreatedAt $created_at;
-  public ErrorDetails $error_details;
-  public PackageID $package_id;
-  public PackageName $package_name;
-  public PackageType $package_type;
-}
-
-class Username {
-}
-
-class AddTagsRequest {
-  public ARN $arn;
-  public TagList $tag_list;
-}
-
-class DescribeElasticsearchDomainConfigResponse {
-  public ElasticsearchDomainConfig $domain_config;
-}
-
-class StartTimestamp {
-}
-
-class UIntValue {
-}
-
-class UpgradeElasticsearchDomainResponse {
+class GetUpgradeStatusRequest {
   public DomainName $domain_name;
-  public ElasticsearchVersionString $target_version;
-  public boolean $perform_check_only;
 }
 
-class UpgradeHistoryList {
+class GetUpgradeStatusResponse {
+  public UpgradeStatus $step_status;
+  public UpgradeName $upgrade_name;
+  public UpgradeStep $upgrade_step;
 }
 
-class MaximumInstanceCount {
+class IdentityPoolId {
 }
 
-class S3Key {
+class InstanceCount {
+}
+
+class InstanceCountLimits {
+  public MaximumInstanceCount $maximum_instance_count;
+  public MinimumInstanceCount $minimum_instance_count;
 }
 
 class InstanceLimits {
   public InstanceCountLimits $instance_count_limits;
 }
 
-class InternalException {
-}
-
-class LimitValue {
-}
-
-class PackageDescription {
-}
-
-class ValidationException {
-}
-
-class DeleteElasticsearchDomainResponse {
-  public ElasticsearchDomainStatus $domain_status;
-}
-
-class InstanceCountLimits {
-  public MinimumInstanceCount $minimum_instance_count;
-  public MaximumInstanceCount $maximum_instance_count;
-}
-
-class StartElasticsearchServiceSoftwareUpdateRequest {
-  public DomainName $domain_name;
-}
-
-class PurchaseReservedElasticsearchInstanceOfferingRequest {
-  public GUID $reserved_elasticsearch_instance_offering_id;
-  public ReservationToken $reservation_name;
-  public InstanceCount $instance_count;
-}
-
-class StorageTypeLimitList {
-}
-
-class DescribeReservedElasticsearchInstanceOfferingsResponse {
-  public NextToken $next_token;
-  public ReservedElasticsearchInstanceOfferingList $reserved_elasticsearch_instance_offerings;
+class InstanceRole {
 }
 
 class Integer {
 }
 
-class LogPublishingOption {
-  public CloudWatchLogsLogGroupArn $cloud_watch_logs_log_group_arn;
-  public boolean $enabled;
+class IntegerClass {
 }
 
-class UpgradeStatus {
+class InternalException {
+}
+
+class InvalidTypeException {
+}
+
+class Issue {
+}
+
+class Issues {
+}
+
+class KmsKeyId {
+}
+
+class LastUpdated {
+}
+
+class LimitExceededException {
+}
+
+class LimitName {
+}
+
+class LimitValue {
+}
+
+class LimitValueList {
+}
+
+class Limits {
+  public AdditionalLimitList $additional_limits;
+  public InstanceLimits $instance_limits;
+  public StorageTypeList $storage_types;
+}
+
+class LimitsByRole {
 }
 
 class ListDomainNamesResponse {
   public DomainInfoList $domain_names;
 }
 
-class ListElasticsearchInstanceTypesRequest {
+class ListDomainsForPackageRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
-  public ElasticsearchVersionString $elasticsearch_version;
-  public DomainName $domain_name;
-}
-
-class ElasticsearchClusterConfig {
-  public ESPartitionInstanceType $instance_type;
-  public IntegerClass $instance_count;
-  public boolean $dedicated_master_enabled;
-  public ESPartitionInstanceType $dedicated_master_type;
-  public boolean $warm_enabled;
-  public IntegerClass $warm_count;
-  public boolean $zone_awareness_enabled;
-  public ZoneAwarenessConfig $zone_awareness_config;
-  public IntegerClass $dedicated_master_count;
-  public ESWarmPartitionInstanceType $warm_type;
-}
-
-class RecurringCharge {
-  public string $recurring_charge_frequency;
-  public Double $recurring_charge_amount;
-}
-
-class UpgradeStep {
-}
-
-class DeploymentCloseDateTimeStamp {
-}
-
-class EBSOptionsStatus {
-  public EBSOptions $options;
-  public OptionStatus $status;
-}
-
-class ReservedElasticsearchInstance {
-  public GUID $reserved_elasticsearch_instance_id;
-  public ESPartitionInstanceType $elasticsearch_instance_type;
-  public string $state;
-  public ReservationToken $reservation_name;
-  public UpdateTimestamp $start_time;
-  public int $duration;
-  public Double $fixed_price;
-  public Double $usage_price;
-  public string $currency_code;
-  public int $elasticsearch_instance_count;
-  public ReservedElasticsearchInstancePaymentOption $payment_option;
-  public string $reserved_elasticsearch_instance_offering_id;
-  public RecurringChargeList $recurring_charges;
-}
-
-class ElasticsearchVersionStatus {
-  public ElasticsearchVersionString $options;
-  public OptionStatus $status;
-}
-
-class NodeToNodeEncryptionOptions {
-  public boolean $enabled;
-}
-
-class Password {
-}
-
-class AdvancedSecurityOptions {
-  public boolean $enabled;
-  public boolean $internal_user_database_enabled;
-}
-
-class InvalidTypeException {
-}
-
-class ESWarmPartitionInstanceType {
-}
-
-class ErrorDetails {
-  public ErrorType $error_type;
-  public ErrorMessage $error_message;
-}
-
-class DescribePackagesFilterList {
-}
-
-class DomainNameList {
-}
-
-class DescribeElasticsearchDomainResponse {
-  public ElasticsearchDomainStatus $domain_status;
-}
-
-class DescribePackagesResponse {
-  public PackageDetailsList $package_details_list;
-  public string $next_token;
-}
-
-class DescribeReservedElasticsearchInstanceOfferingsRequest {
-  public GUID $reserved_elasticsearch_instance_offering_id;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class EBSOptions {
-  public boolean $ebs_enabled;
-  public VolumeType $volume_type;
-  public IntegerClass $volume_size;
-  public IntegerClass $iops;
-}
-
-class GetCompatibleElasticsearchVersionsResponse {
-  public CompatibleElasticsearchVersionsList $compatible_elasticsearch_versions;
-}
-
-class InstanceCount {
-}
-
-class CognitoOptionsStatus {
-  public CognitoOptions $options;
-  public OptionStatus $status;
-}
-
-class CompatibleVersionsMap {
-  public ElasticsearchVersionString $source_version;
-  public ElasticsearchVersionList $target_versions;
-}
-
-class LogType {
-}
-
-class ReservedElasticsearchInstanceList {
-}
-
-class StorageTypeList {
-}
-
-class KmsKeyId {
-}
-
-class ListTagsResponse {
-  public TagList $tag_list;
-}
-
-class ElasticsearchInstanceTypeList {
-}
-
-class ListElasticsearchVersionsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-}
-
-class ResourceAlreadyExistsException {
-}
-
-class AccessPoliciesStatus {
-  public PolicyDocument $options;
-  public OptionStatus $status;
-}
-
-class DescribeElasticsearchDomainsRequest {
-  public DomainNameList $domain_names;
-}
-
-class DeploymentStatus {
-}
-
-class DescribeElasticsearchInstanceTypeLimitsRequest {
-  public DomainName $domain_name;
-  public ESPartitionInstanceType $instance_type;
-  public ElasticsearchVersionString $elasticsearch_version;
-}
-
-class DisabledOperationException {
-}
-
-class GetUpgradeHistoryResponse {
-  public UpgradeHistoryList $upgrade_histories;
-  public string $next_token;
+  public PackageID $package_id;
 }
 
 class ListDomainsForPackageResponse {
@@ -674,122 +560,30 @@ class ListDomainsForPackageResponse {
   public string $next_token;
 }
 
-class MinimumInstanceCount {
-}
-
-class AssociatePackageResponse {
-  public DomainPackageDetails $domain_package_details;
-}
-
-class CreatePackageRequest {
-  public PackageSource $package_source;
-  public PackageName $package_name;
-  public PackageType $package_type;
-  public PackageDescription $package_description;
-}
-
-class UpdateTimestamp {
-}
-
-class SnapshotOptionsStatus {
-  public SnapshotOptions $options;
-  public OptionStatus $status;
-}
-
-class StorageSubTypeName {
-}
-
-class DomainInfoList {
-}
-
-class Double {
-}
-
-class IntegerClass {
-}
-
-class RecurringChargeList {
-}
-
-class ReservedElasticsearchInstancePaymentOption {
-}
-
-class ServiceUrl {
-}
-
-class DescribePackagesFilterName {
-}
-
-class DescribeReservedElasticsearchInstancesResponse {
-  public string $next_token;
-  public ReservedElasticsearchInstanceList $reserved_elasticsearch_instances;
-}
-
-class StringList {
-}
-
-class TagValue {
-}
-
-class UpdateElasticsearchDomainConfigResponse {
-  public ElasticsearchDomainConfig $domain_config;
-}
-
-class UserPoolId {
-}
-
-class AdvancedOptionsStatus {
-  public AdvancedOptions $options;
-  public OptionStatus $status;
-}
-
-class PackageName {
-}
-
-class DescribePackagesFilterValues {
-}
-
-class DissociatePackageResponse {
-  public DomainPackageDetails $domain_package_details;
-}
-
-class NextToken {
-}
-
-class VPCDerivedInfo {
-  public StringList $security_group_ids;
-  public string $vpc_id;
-  public StringList $subnet_ids;
-  public StringList $availability_zones;
-}
-
-class AssociatePackageRequest {
-  public PackageID $package_id;
+class ListElasticsearchInstanceTypesRequest {
   public DomainName $domain_name;
+  public ElasticsearchVersionString $elasticsearch_version;
+  public MaxResults $max_results;
+  public NextToken $next_token;
 }
 
-class CancelElasticsearchServiceSoftwareUpdateResponse {
-  public ServiceSoftwareOptions $service_software_options;
+class ListElasticsearchInstanceTypesResponse {
+  public ElasticsearchInstanceTypeList $elasticsearch_instance_types;
+  public NextToken $next_token;
 }
 
-class ElasticsearchDomainConfig {
-  public AdvancedOptionsStatus $advanced_options;
-  public LogPublishingOptionsStatus $log_publishing_options;
-  public AdvancedSecurityOptionsStatus $advanced_security_options;
-  public SnapshotOptionsStatus $snapshot_options;
-  public VPCDerivedInfoStatus $vpc_options;
-  public EncryptionAtRestOptionsStatus $encryption_at_rest_options;
-  public AccessPoliciesStatus $access_policies;
-  public CognitoOptionsStatus $cognito_options;
-  public NodeToNodeEncryptionOptionsStatus $node_to_node_encryption_options;
-  public DomainEndpointOptionsStatus $domain_endpoint_options;
-  public ElasticsearchVersionStatus $elasticsearch_version;
-  public ElasticsearchClusterConfigStatus $elasticsearch_cluster_config;
-  public EBSOptionsStatus $ebs_options;
+class ListElasticsearchVersionsRequest {
+  public MaxResults $max_results;
+  public NextToken $next_token;
 }
 
-class ListDomainsForPackageRequest {
-  public PackageID $package_id;
+class ListElasticsearchVersionsResponse {
+  public ElasticsearchVersionList $elasticsearch_versions;
+  public NextToken $next_token;
+}
+
+class ListPackagesForDomainRequest {
+  public DomainName $domain_name;
   public MaxResults $max_results;
   public NextToken $next_token;
 }
@@ -799,48 +593,20 @@ class ListPackagesForDomainResponse {
   public string $next_token;
 }
 
-class SnapshotOptions {
-  public IntegerClass $automated_snapshot_start_hour;
-}
-
-class UpgradeStepsList {
-}
-
-class AccessDeniedException {
-}
-
-class DomainEndpointOptions {
-  public boolean $enforce_https;
-  public TLSSecurityPolicy $tls_security_policy;
-}
-
-class ElasticsearchDomainStatus {
-  public SnapshotOptions $snapshot_options;
-  public NodeToNodeEncryptionOptions $node_to_node_encryption_options;
-  public AdvancedOptions $advanced_options;
-  public DomainId $domain_id;
-  public boolean $created;
-  public boolean $deleted;
-  public ServiceUrl $endpoint;
-  public EndpointsMap $endpoints;
-  public DomainEndpointOptions $domain_endpoint_options;
-  public AdvancedSecurityOptions $advanced_security_options;
+class ListTagsRequest {
   public ARN $arn;
-  public boolean $upgrade_processing;
-  public EBSOptions $ebs_options;
-  public LogPublishingOptions $log_publishing_options;
-  public EncryptionAtRestOptions $encryption_at_rest_options;
-  public DomainName $domain_name;
-  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
-  public PolicyDocument $access_policies;
-  public VPCDerivedInfo $vpc_options;
-  public CognitoOptions $cognito_options;
-  public boolean $processing;
-  public ElasticsearchVersionString $elasticsearch_version;
-  public ServiceSoftwareOptions $service_software_options;
 }
 
-class LastUpdated {
+class ListTagsResponse {
+  public TagList $tag_list;
+}
+
+class LogPublishingOption {
+  public CloudWatchLogsLogGroupArn $cloud_watch_logs_log_group_arn;
+  public boolean $enabled;
+}
+
+class LogPublishingOptions {
 }
 
 class LogPublishingOptionsStatus {
@@ -848,93 +614,106 @@ class LogPublishingOptionsStatus {
   public OptionStatus $status;
 }
 
+class LogType {
+}
+
+class MasterUserOptions {
+  public ARN $master_user_arn;
+  public Username $master_user_name;
+  public Password $master_user_password;
+}
+
+class MaxResults {
+}
+
+class MaximumInstanceCount {
+}
+
+class MinimumInstanceCount {
+}
+
+class NextToken {
+}
+
+class NodeToNodeEncryptionOptions {
+  public boolean $enabled;
+}
+
+class NodeToNodeEncryptionOptionsStatus {
+  public NodeToNodeEncryptionOptions $options;
+  public OptionStatus $status;
+}
+
+class OptionState {
+}
+
+class OptionStatus {
+  public UpdateTimestamp $creation_date;
+  public boolean $pending_deletion;
+  public OptionState $state;
+  public UpdateTimestamp $update_date;
+  public UIntValue $update_version;
+}
+
+class PackageDescription {
+}
+
+class PackageDetails {
+  public CreatedAt $created_at;
+  public ErrorDetails $error_details;
+  public PackageDescription $package_description;
+  public PackageID $package_id;
+  public PackageName $package_name;
+  public PackageStatus $package_status;
+  public PackageType $package_type;
+}
+
+class PackageDetailsList {
+}
+
+class PackageID {
+}
+
+class PackageName {
+}
+
 class PackageSource {
   public S3BucketName $s_3_bucket_name;
   public S3Key $s_3_key;
 }
 
-class StorageTypeName {
-}
-
-class UpdateElasticsearchDomainConfigRequest {
-  public AdvancedOptions $advanced_options;
-  public LogPublishingOptions $log_publishing_options;
-  public DomainEndpointOptions $domain_endpoint_options;
-  public AdvancedSecurityOptionsInput $advanced_security_options;
-  public DomainName $domain_name;
-  public SnapshotOptions $snapshot_options;
-  public CognitoOptions $cognito_options;
-  public PolicyDocument $access_policies;
-  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
-  public EBSOptions $ebs_options;
-  public VPCOptions $vpc_options;
-}
-
-class ARN {
-}
-
-class ESPartitionInstanceType {
-}
-
-class CreateElasticsearchDomainResponse {
-  public ElasticsearchDomainStatus $domain_status;
-}
-
-class CreatePackageResponse {
-  public PackageDetails $package_details;
-}
-
-class DescribeElasticsearchInstanceTypeLimitsResponse {
-  public LimitsByRole $limits_by_role;
-}
-
-class GetCompatibleElasticsearchVersionsRequest {
-  public DomainName $domain_name;
+class PackageStatus {
 }
 
 class PackageType {
 }
 
-class ReservationToken {
+class Password {
 }
 
-class AdditionalLimit {
-  public LimitName $limit_name;
-  public LimitValueList $limit_values;
+class PolicyDocument {
 }
 
-class CancelElasticsearchServiceSoftwareUpdateRequest {
-  public DomainName $domain_name;
+class PurchaseReservedElasticsearchInstanceOfferingRequest {
+  public InstanceCount $instance_count;
+  public ReservationToken $reservation_name;
+  public GUID $reserved_elasticsearch_instance_offering_id;
 }
 
-class VPCOptions {
-  public StringList $subnet_ids;
-  public StringList $security_group_ids;
+class PurchaseReservedElasticsearchInstanceOfferingResponse {
+  public ReservationToken $reservation_name;
+  public GUID $reserved_elasticsearch_instance_id;
 }
 
-class ListTagsRequest {
-  public ARN $arn;
+class RecurringCharge {
+  public Double $recurring_charge_amount;
+  public string $recurring_charge_frequency;
 }
 
-class String {
+class RecurringChargeList {
 }
 
-class TagKey {
-}
-
-class DescribeElasticsearchDomainRequest {
-  public DomainName $domain_name;
-}
-
-class ElasticsearchClusterConfigStatus {
-  public ElasticsearchClusterConfig $options;
-  public OptionStatus $status;
-}
-
-class LimitName {
-}
-
-class LimitsByRole {
+class ReferencePath {
 }
 
 class RemoveTagsRequest {
@@ -942,14 +721,235 @@ class RemoveTagsRequest {
   public StringList $tag_keys;
 }
 
+class ReservationToken {
+}
+
+class ReservedElasticsearchInstance {
+  public string $currency_code;
+  public int $duration;
+  public int $elasticsearch_instance_count;
+  public ESPartitionInstanceType $elasticsearch_instance_type;
+  public Double $fixed_price;
+  public ReservedElasticsearchInstancePaymentOption $payment_option;
+  public RecurringChargeList $recurring_charges;
+  public ReservationToken $reservation_name;
+  public GUID $reserved_elasticsearch_instance_id;
+  public string $reserved_elasticsearch_instance_offering_id;
+  public UpdateTimestamp $start_time;
+  public string $state;
+  public Double $usage_price;
+}
+
+class ReservedElasticsearchInstanceList {
+}
+
+class ReservedElasticsearchInstanceOffering {
+  public string $currency_code;
+  public int $duration;
+  public ESPartitionInstanceType $elasticsearch_instance_type;
+  public Double $fixed_price;
+  public ReservedElasticsearchInstancePaymentOption $payment_option;
+  public RecurringChargeList $recurring_charges;
+  public GUID $reserved_elasticsearch_instance_offering_id;
+  public Double $usage_price;
+}
+
+class ReservedElasticsearchInstanceOfferingList {
+}
+
+class ReservedElasticsearchInstancePaymentOption {
+}
+
+class ResourceAlreadyExistsException {
+}
+
+class ResourceNotFoundException {
+}
+
 class RoleArn {
 }
 
-class DescribePackagesFilter {
-  public DescribePackagesFilterValues $value;
-  public DescribePackagesFilterName $name;
+class S3BucketName {
 }
 
-class Issues {
+class S3Key {
+}
+
+class ServiceSoftwareOptions {
+  public DeploymentCloseDateTimeStamp $automated_update_date;
+  public boolean $cancellable;
+  public string $current_version;
+  public string $description;
+  public string $new_version;
+  public boolean $optional_deployment;
+  public boolean $update_available;
+  public DeploymentStatus $update_status;
+}
+
+class ServiceUrl {
+}
+
+class SnapshotOptions {
+  public IntegerClass $automated_snapshot_start_hour;
+}
+
+class SnapshotOptionsStatus {
+  public SnapshotOptions $options;
+  public OptionStatus $status;
+}
+
+class StartElasticsearchServiceSoftwareUpdateRequest {
+  public DomainName $domain_name;
+}
+
+class StartElasticsearchServiceSoftwareUpdateResponse {
+  public ServiceSoftwareOptions $service_software_options;
+}
+
+class StartTimestamp {
+}
+
+class StorageSubTypeName {
+}
+
+class StorageType {
+  public StorageSubTypeName $storage_sub_type_name;
+  public StorageTypeLimitList $storage_type_limits;
+  public StorageTypeName $storage_type_name;
+}
+
+class StorageTypeLimit {
+  public LimitName $limit_name;
+  public LimitValueList $limit_values;
+}
+
+class StorageTypeLimitList {
+}
+
+class StorageTypeList {
+}
+
+class StorageTypeName {
+}
+
+class String {
+}
+
+class StringList {
+}
+
+class TLSSecurityPolicy {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagList {
+}
+
+class TagValue {
+}
+
+class UIntValue {
+}
+
+class UpdateElasticsearchDomainConfigRequest {
+  public PolicyDocument $access_policies;
+  public AdvancedOptions $advanced_options;
+  public AdvancedSecurityOptionsInput $advanced_security_options;
+  public CognitoOptions $cognito_options;
+  public DomainEndpointOptions $domain_endpoint_options;
+  public DomainName $domain_name;
+  public EBSOptions $ebs_options;
+  public ElasticsearchClusterConfig $elasticsearch_cluster_config;
+  public LogPublishingOptions $log_publishing_options;
+  public SnapshotOptions $snapshot_options;
+  public VPCOptions $vpc_options;
+}
+
+class UpdateElasticsearchDomainConfigResponse {
+  public ElasticsearchDomainConfig $domain_config;
+}
+
+class UpdateTimestamp {
+}
+
+class UpgradeElasticsearchDomainRequest {
+  public DomainName $domain_name;
+  public boolean $perform_check_only;
+  public ElasticsearchVersionString $target_version;
+}
+
+class UpgradeElasticsearchDomainResponse {
+  public DomainName $domain_name;
+  public boolean $perform_check_only;
+  public ElasticsearchVersionString $target_version;
+}
+
+class UpgradeHistory {
+  public StartTimestamp $start_timestamp;
+  public UpgradeStepsList $steps_list;
+  public UpgradeName $upgrade_name;
+  public UpgradeStatus $upgrade_status;
+}
+
+class UpgradeHistoryList {
+}
+
+class UpgradeName {
+}
+
+class UpgradeStatus {
+}
+
+class UpgradeStep {
+}
+
+class UpgradeStepItem {
+  public Issues $issues;
+  public Double $progress_percent;
+  public UpgradeStep $upgrade_step;
+  public UpgradeStatus $upgrade_step_status;
+}
+
+class UpgradeStepsList {
+}
+
+class UserPoolId {
+}
+
+class Username {
+}
+
+class VPCDerivedInfo {
+  public StringList $availability_zones;
+  public StringList $security_group_ids;
+  public StringList $subnet_ids;
+  public string $vpc_id;
+}
+
+class VPCDerivedInfoStatus {
+  public VPCDerivedInfo $options;
+  public OptionStatus $status;
+}
+
+class VPCOptions {
+  public StringList $security_group_ids;
+  public StringList $subnet_ids;
+}
+
+class ValidationException {
+}
+
+class VolumeType {
+}
+
+class ZoneAwarenessConfig {
+  public IntegerClass $availability_zone_count;
 }
 

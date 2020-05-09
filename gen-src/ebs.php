@@ -8,8 +8,8 @@ interface EBS {
 }
 
 class Block {
-  public BlockToken $block_token;
   public BlockIndex $block_index;
+  public BlockToken $block_token;
 }
 
 class BlockData {
@@ -18,29 +18,7 @@ class BlockData {
 class BlockIndex {
 }
 
-class GetSnapshotBlockRequest {
-  public SnapshotId $snapshot_id;
-  public BlockIndex $block_index;
-  public BlockToken $block_token;
-}
-
-class PageToken {
-}
-
-class ValidationException {
-  public ErrorMessage $message;
-  public ValidationExceptionReason $reason;
-}
-
-class ListChangedBlocksResponse {
-  public ChangedBlocks $changed_blocks;
-  public TimeStamp $expiry_time;
-  public VolumeSize $volume_size;
-  public BlockSize $block_size;
-  public PageToken $next_token;
-}
-
-class SnapshotId {
+class BlockSize {
 }
 
 class BlockToken {
@@ -61,59 +39,81 @@ class ChangedBlocks {
 class Checksum {
 }
 
-class GetSnapshotBlockResponse {
-  public DataLength $data_length;
-  public BlockData $block_data;
-  public Checksum $checksum;
-  public ChecksumAlgorithm $checksum_algorithm;
-}
-
-class ValidationExceptionReason {
-}
-
-class BlockSize {
-}
-
 class ChecksumAlgorithm {
 }
 
 class DataLength {
 }
 
+class ErrorMessage {
+}
+
+class GetSnapshotBlockRequest {
+  public BlockIndex $block_index;
+  public BlockToken $block_token;
+  public SnapshotId $snapshot_id;
+}
+
+class GetSnapshotBlockResponse {
+  public BlockData $block_data;
+  public Checksum $checksum;
+  public ChecksumAlgorithm $checksum_algorithm;
+  public DataLength $data_length;
+}
+
 class ListChangedBlocksRequest {
   public SnapshotId $first_snapshot_id;
-  public SnapshotId $second_snapshot_id;
-  public PageToken $next_token;
   public MaxResults $max_results;
+  public PageToken $next_token;
+  public SnapshotId $second_snapshot_id;
   public BlockIndex $starting_block_index;
+}
+
+class ListChangedBlocksResponse {
+  public BlockSize $block_size;
+  public ChangedBlocks $changed_blocks;
+  public TimeStamp $expiry_time;
+  public PageToken $next_token;
+  public VolumeSize $volume_size;
+}
+
+class ListSnapshotBlocksRequest {
+  public MaxResults $max_results;
+  public PageToken $next_token;
+  public SnapshotId $snapshot_id;
+  public BlockIndex $starting_block_index;
+}
+
+class ListSnapshotBlocksResponse {
+  public BlockSize $block_size;
+  public Blocks $blocks;
+  public TimeStamp $expiry_time;
+  public PageToken $next_token;
+  public VolumeSize $volume_size;
 }
 
 class MaxResults {
 }
 
-class TimeStamp {
-}
-
-class ErrorMessage {
-}
-
-class ListSnapshotBlocksRequest {
-  public SnapshotId $snapshot_id;
-  public PageToken $next_token;
-  public MaxResults $max_results;
-  public BlockIndex $starting_block_index;
-}
-
-class ListSnapshotBlocksResponse {
-  public Blocks $blocks;
-  public TimeStamp $expiry_time;
-  public VolumeSize $volume_size;
-  public BlockSize $block_size;
-  public PageToken $next_token;
+class PageToken {
 }
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
+}
+
+class SnapshotId {
+}
+
+class TimeStamp {
+}
+
+class ValidationException {
+  public ErrorMessage $message;
+  public ValidationExceptionReason $reason;
+}
+
+class ValidationExceptionReason {
 }
 
 class VolumeSize {

@@ -2,426 +2,35 @@
 namespace slack\aws\firehose;
 
 interface Firehose {
+  public function CreateDeliveryStream(CreateDeliveryStreamInput) Awaitable<Errors\Result<CreateDeliveryStreamOutput>>;
+  public function DeleteDeliveryStream(DeleteDeliveryStreamInput) Awaitable<Errors\Result<DeleteDeliveryStreamOutput>>;
   public function DescribeDeliveryStream(DescribeDeliveryStreamInput) Awaitable<Errors\Result<DescribeDeliveryStreamOutput>>;
+  public function ListDeliveryStreams(ListDeliveryStreamsInput) Awaitable<Errors\Result<ListDeliveryStreamsOutput>>;
+  public function ListTagsForDeliveryStream(ListTagsForDeliveryStreamInput) Awaitable<Errors\Result<ListTagsForDeliveryStreamOutput>>;
   public function PutRecord(PutRecordInput) Awaitable<Errors\Result<PutRecordOutput>>;
   public function PutRecordBatch(PutRecordBatchInput) Awaitable<Errors\Result<PutRecordBatchOutput>>;
+  public function StartDeliveryStreamEncryption(StartDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StartDeliveryStreamEncryptionOutput>>;
+  public function StopDeliveryStreamEncryption(StopDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StopDeliveryStreamEncryptionOutput>>;
   public function TagDeliveryStream(TagDeliveryStreamInput) Awaitable<Errors\Result<TagDeliveryStreamOutput>>;
   public function UntagDeliveryStream(UntagDeliveryStreamInput) Awaitable<Errors\Result<UntagDeliveryStreamOutput>>;
   public function UpdateDestination(UpdateDestinationInput) Awaitable<Errors\Result<UpdateDestinationOutput>>;
-  public function CreateDeliveryStream(CreateDeliveryStreamInput) Awaitable<Errors\Result<CreateDeliveryStreamOutput>>;
-  public function ListDeliveryStreams(ListDeliveryStreamsInput) Awaitable<Errors\Result<ListDeliveryStreamsOutput>>;
-  public function ListTagsForDeliveryStream(ListTagsForDeliveryStreamInput) Awaitable<Errors\Result<ListTagsForDeliveryStreamOutput>>;
-  public function StartDeliveryStreamEncryption(StartDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StartDeliveryStreamEncryptionOutput>>;
-  public function StopDeliveryStreamEncryption(StopDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StopDeliveryStreamEncryptionOutput>>;
-  public function DeleteDeliveryStream(DeleteDeliveryStreamInput) Awaitable<Errors\Result<DeleteDeliveryStreamOutput>>;
 }
 
-class ListDeliveryStreamsOutput {
-  public DeliveryStreamNameList $delivery_stream_names;
-  public BooleanObject $has_more_delivery_streams;
-}
-
-class PutRecordBatchOutput {
-  public NonNegativeIntegerObject $failed_put_count;
-  public BooleanObject $encrypted;
-  public PutRecordBatchResponseEntryList $request_responses;
-}
-
-class ResourceNotFoundException {
-  public ErrorMessage $message;
-}
-
-class SplunkDestinationConfiguration {
-  public HECToken $hec_token;
-  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
-  public SplunkRetryOptions $retry_options;
-  public SplunkS3BackupMode $s_3_backup_mode;
-  public S3DestinationConfiguration $s_3_configuration;
-  public ProcessingConfiguration $processing_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public HECEndpoint $hec_endpoint;
-  public HECEndpointType $hec_endpoint_type;
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class CopyCommand {
-  public DataTableName $data_table_name;
-  public DataTableColumns $data_table_columns;
-  public CopyOptions $copy_options;
-}
-
-class ElasticsearchDomainARN {
-}
-
-class ElasticsearchIndexName {
-}
-
-class ElasticsearchRetryOptions {
-  public ElasticsearchRetryDurationInSeconds $duration_in_seconds;
-}
-
-class SplunkDestinationDescription {
-  public SplunkS3BackupMode $s_3_backup_mode;
-  public S3DestinationDescription $s_3_destination_description;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
-  public HECEndpointType $hec_endpoint_type;
-  public HECToken $hec_token;
-  public SplunkRetryOptions $retry_options;
-  public ProcessingConfiguration $processing_configuration;
-  public HECEndpoint $hec_endpoint;
-}
-
-class SplunkDestinationUpdate {
-  public S3DestinationUpdate $s_3_update;
-  public HECEndpoint $hec_endpoint;
-  public HECEndpointType $hec_endpoint_type;
-  public SplunkS3BackupMode $s_3_backup_mode;
-  public ProcessingConfiguration $processing_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public HECToken $hec_token;
-  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
-  public SplunkRetryOptions $retry_options;
-}
-
-class TagDeliveryStreamOutput {
+class AWSKMSKeyARN {
 }
 
 class BlockSizeBytes {
 }
 
-class CompressionFormat {
+class BooleanObject {
 }
 
-class CreateDeliveryStreamInput {
-  public SplunkDestinationConfiguration $splunk_destination_configuration;
-  public DeliveryStreamName $delivery_stream_name;
-  public DeliveryStreamType $delivery_stream_type;
-  public DeliveryStreamEncryptionConfigurationInput $delivery_stream_encryption_configuration_input;
-  public ExtendedS3DestinationConfiguration $extended_s_3_destination_configuration;
-  public RedshiftDestinationConfiguration $redshift_destination_configuration;
-  public ElasticsearchDestinationConfiguration $elasticsearch_destination_configuration;
-  public KinesisStreamSourceConfiguration $kinesis_stream_source_configuration;
-  public S3DestinationConfiguration $s_3_destination_configuration;
-  public TagDeliveryStreamInputTagList $tags;
+class BucketARN {
 }
 
-class ElasticsearchS3BackupMode {
-}
-
-class RedshiftDestinationDescription {
-  public RoleARN $role_arn;
-  public ClusterJDBCURL $cluster_jdbcurl;
-  public RedshiftRetryOptions $retry_options;
-  public RedshiftS3BackupMode $s_3_backup_mode;
-  public CopyCommand $copy_command;
-  public Username $username;
-  public S3DestinationDescription $s_3_destination_description;
-  public ProcessingConfiguration $processing_configuration;
-  public S3DestinationDescription $s_3_backup_description;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-}
-
-class StopDeliveryStreamEncryptionOutput {
-}
-
-class HECEndpoint {
-}
-
-class NonEmptyString {
-}
-
-class ResourceInUseException {
-  public ErrorMessage $message;
-}
-
-class UpdateDestinationOutput {
-}
-
-class DeliveryStreamNameList {
-}
-
-class DescribeDeliveryStreamOutput {
-  public DeliveryStreamDescription $delivery_stream_description;
-}
-
-class ElasticsearchIndexRotationPeriod {
-}
-
-class S3BackupMode {
-}
-
-class ElasticsearchBufferingHints {
-  public ElasticsearchBufferingSizeInMBs $size_in_m_bs;
-  public ElasticsearchBufferingIntervalInSeconds $interval_in_seconds;
-}
-
-class ElasticsearchClusterEndpoint {
-}
-
-class InputFormatConfiguration {
-  public Deserializer $deserializer;
-}
-
-class ListTagsForDeliveryStreamOutput {
-  public ListTagsForDeliveryStreamOutputTagList $tags;
-  public BooleanObject $has_more_tags;
-}
-
-class SchemaConfiguration {
-  public NonEmptyStringWithoutWhitespace $catalog_id;
-  public NonEmptyStringWithoutWhitespace $database_name;
-  public NonEmptyStringWithoutWhitespace $table_name;
-  public NonEmptyStringWithoutWhitespace $region;
-  public NonEmptyStringWithoutWhitespace $version_id;
-  public NonEmptyStringWithoutWhitespace $role_arn;
-}
-
-class StartDeliveryStreamEncryptionInput {
-  public DeliveryStreamName $delivery_stream_name;
-  public DeliveryStreamEncryptionConfigurationInput $delivery_stream_encryption_configuration_input;
-}
-
-class UpdateDestinationInput {
-  public SplunkDestinationUpdate $splunk_destination_update;
-  public DeliveryStreamName $delivery_stream_name;
-  public DeliveryStreamVersionId $current_delivery_stream_version_id;
-  public DestinationId $destination_id;
-  public S3DestinationUpdate $s_3_destination_update;
-  public ExtendedS3DestinationUpdate $extended_s_3_destination_update;
-  public RedshiftDestinationUpdate $redshift_destination_update;
-  public ElasticsearchDestinationUpdate $elasticsearch_destination_update;
-}
-
-class ElasticsearchDestinationDescription {
-  public ElasticsearchIndexRotationPeriod $index_rotation_period;
-  public ElasticsearchS3BackupMode $s_3_backup_mode;
-  public ProcessingConfiguration $processing_configuration;
-  public VpcConfigurationDescription $vpc_configuration_description;
-  public ElasticsearchBufferingHints $buffering_hints;
-  public ElasticsearchRetryOptions $retry_options;
-  public S3DestinationDescription $s_3_destination_description;
-  public RoleARN $role_arn;
-  public ElasticsearchDomainARN $domain_arn;
-  public ElasticsearchClusterEndpoint $cluster_endpoint;
-  public ElasticsearchIndexName $index_name;
-  public ElasticsearchTypeName $type_name;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-}
-
-class KinesisStreamARN {
-}
-
-class ListTagsForDeliveryStreamInput {
-  public DeliveryStreamName $delivery_stream_name;
-  public TagKey $exclusive_start_tag_key;
-  public ListTagsForDeliveryStreamInputLimit $limit;
-}
-
-class OrcCompression {
-}
-
-class ProcessorParameterList {
-}
-
-class SplunkRetryDurationInSeconds {
-}
-
-class StopDeliveryStreamEncryptionInput {
-  public DeliveryStreamName $delivery_stream_name;
-}
-
-class DeliveryStartTimestamp {
-}
-
-class DeliveryStreamEncryptionConfigurationInput {
-  public AWSKMSKeyARN $key_arn;
-  public KeyType $key_type;
-}
-
-class ExtendedS3DestinationDescription {
-  public RoleARN $role_arn;
-  public BufferingHints $buffering_hints;
-  public CompressionFormat $compression_format;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public S3DestinationDescription $s_3_backup_description;
-  public DataFormatConversionConfiguration $data_format_conversion_configuration;
-  public BucketARN $bucket_arn;
-  public Prefix $prefix;
-  public ErrorOutputPrefix $error_output_prefix;
-  public EncryptionConfiguration $encryption_configuration;
-  public ProcessingConfiguration $processing_configuration;
-  public S3BackupMode $s_3_backup_mode;
-}
-
-class ProcessorList {
-}
-
-class RedshiftRetryOptions {
-  public RedshiftRetryDurationInSeconds $duration_in_seconds;
-}
-
-class Username {
-}
-
-class DestinationDescriptionList {
-}
-
-class ErrorOutputPrefix {
-}
-
-class KeyType {
-}
-
-class ProcessorParameterValue {
-}
-
-class PutRecordBatchResponseEntryList {
-}
-
-class ListDeliveryStreamsInputLimit {
-}
-
-class OrcSerDe {
-  public Proportion $padding_tolerance;
-  public ListOfNonEmptyStringsWithoutWhitespace $bloom_filter_columns;
-  public Proportion $bloom_filter_false_positive_probability;
-  public OrcStripeSizeBytes $stripe_size_bytes;
-  public OrcRowIndexStride $row_index_stride;
-  public OrcCompression $compression;
-  public Proportion $dictionary_key_threshold;
-  public OrcFormatVersion $format_version;
-  public BlockSizeBytes $block_size_bytes;
-  public BooleanObject $enable_padding;
-}
-
-class ParquetSerDe {
-  public BlockSizeBytes $block_size_bytes;
-  public ParquetPageSizeBytes $page_size_bytes;
-  public ParquetCompression $compression;
-  public BooleanObject $enable_dictionary_compression;
-  public NonNegativeIntegerObject $max_padding_bytes;
-  public ParquetWriterVersion $writer_version;
-}
-
-class PutRecordBatchInput {
-  public PutRecordBatchRequestEntryList $records;
-  public DeliveryStreamName $delivery_stream_name;
-}
-
-class S3DestinationDescription {
-  public CompressionFormat $compression_format;
-  public EncryptionConfiguration $encryption_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public RoleARN $role_arn;
-  public BucketARN $bucket_arn;
-  public Prefix $prefix;
-  public ErrorOutputPrefix $error_output_prefix;
-  public BufferingHints $buffering_hints;
-}
-
-class DataTableName {
-}
-
-class DeliveryStreamEncryptionConfiguration {
-  public KeyType $key_type;
-  public DeliveryStreamEncryptionStatus $status;
-  public FailureDescription $failure_description;
-  public AWSKMSKeyARN $key_arn;
-}
-
-class DeliveryStreamType {
-}
-
-class ServiceUnavailableException {
-  public ErrorMessage $message;
-}
-
-class VpcConfiguration {
-  public SubnetIdList $subnet_ids;
-  public RoleARN $role_arn;
-  public SecurityGroupIdList $security_group_ids;
-}
-
-class StartDeliveryStreamEncryptionOutput {
-}
-
-class ColumnToJsonKeyMappings {
-}
-
-class ElasticsearchBufferingSizeInMBs {
-}
-
-class ParquetWriterVersion {
-}
-
-class ExtendedS3DestinationUpdate {
-  public ProcessingConfiguration $processing_configuration;
-  public S3BackupMode $s_3_backup_mode;
-  public RoleARN $role_arn;
-  public ErrorOutputPrefix $error_output_prefix;
-  public BufferingHints $buffering_hints;
-  public CompressionFormat $compression_format;
-  public S3DestinationUpdate $s_3_backup_update;
-  public DataFormatConversionConfiguration $data_format_conversion_configuration;
-  public BucketARN $bucket_arn;
-  public Prefix $prefix;
-  public EncryptionConfiguration $encryption_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-}
-
-class ListTagsForDeliveryStreamOutputTagList {
-}
-
-class SecurityGroupIdList {
-}
-
-class TagKeyList {
-}
-
-class UntagDeliveryStreamInput {
-  public TagKeyList $tag_keys;
-  public DeliveryStreamName $delivery_stream_name;
-}
-
-class DescribeDeliveryStreamInput {
-  public DescribeDeliveryStreamInputLimit $limit;
-  public DestinationId $exclusive_start_destination_id;
-  public DeliveryStreamName $delivery_stream_name;
-}
-
-class Deserializer {
-  public OpenXJsonSerDe $open_x_json_ser_de;
-  public HiveJsonSerDe $hive_json_ser_de;
-}
-
-class EncryptionConfiguration {
-  public NoEncryptionConfig $no_encryption_config;
-  public KMSEncryptionConfig $kms_encryption_config;
-}
-
-class DeliveryStreamEncryptionStatus {
-}
-
-class HECAcknowledgmentTimeoutInSeconds {
-}
-
-class ListOfNonEmptyStringsWithoutWhitespace {
-}
-
-class NoEncryptionConfig {
-}
-
-class PutRecordOutput {
-  public BooleanObject $encrypted;
-  public PutResponseRecordId $record_id;
-}
-
-class Timestamp {
+class BufferingHints {
+  public IntervalInSeconds $interval_in_seconds;
+  public SizeInMBs $size_in_m_bs;
 }
 
 class CloudWatchLoggingOptions {
@@ -430,203 +39,59 @@ class CloudWatchLoggingOptions {
   public LogStreamName $log_stream_name;
 }
 
-class Data {
+class ClusterJDBCURL {
 }
 
-class DestinationId {
+class ColumnToJsonKeyMappings {
 }
 
-class PutRecordBatchResponseEntry {
-  public PutResponseRecordId $record_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class CreateDeliveryStreamOutput {
-  public DeliveryStreamARN $delivery_stream_arn;
-}
-
-class DestinationDescription {
-  public RedshiftDestinationDescription $redshift_destination_description;
-  public ElasticsearchDestinationDescription $elasticsearch_destination_description;
-  public SplunkDestinationDescription $splunk_destination_description;
-  public DestinationId $destination_id;
-  public S3DestinationDescription $s_3_destination_description;
-  public ExtendedS3DestinationDescription $extended_s_3_destination_description;
-}
-
-class FailureDescription {
-  public DeliveryStreamFailureType $type;
-  public NonEmptyString $details;
-}
-
-class Proportion {
-}
-
-class PutRecordInput {
-  public DeliveryStreamName $delivery_stream_name;
-  public Record $record;
+class CompressionFormat {
 }
 
 class ConcurrentModificationException {
   public ErrorMessage $message;
 }
 
-class ElasticsearchDestinationConfiguration {
-  public ElasticsearchRetryOptions $retry_options;
-  public S3DestinationConfiguration $s_3_configuration;
-  public ProcessingConfiguration $processing_configuration;
-  public RoleARN $role_arn;
-  public ElasticsearchDomainARN $domain_arn;
-  public ElasticsearchIndexName $index_name;
-  public ElasticsearchIndexRotationPeriod $index_rotation_period;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public VpcConfiguration $vpc_configuration;
-  public ElasticsearchClusterEndpoint $cluster_endpoint;
-  public ElasticsearchTypeName $type_name;
-  public ElasticsearchBufferingHints $buffering_hints;
-  public ElasticsearchS3BackupMode $s_3_backup_mode;
-}
-
-class ProcessorParameter {
-  public ProcessorParameterValue $parameter_value;
-  public ProcessorParameterName $parameter_name;
-}
-
-class HiveJsonSerDe {
-  public ListOfNonEmptyStrings $timestamp_formats;
-}
-
-class KinesisStreamSourceDescription {
-  public KinesisStreamARN $kinesis_stream_arn;
-  public RoleARN $role_arn;
-  public DeliveryStartTimestamp $delivery_start_timestamp;
-}
-
-class LimitExceededException {
-  public ErrorMessage $message;
-}
-
-class RedshiftRetryDurationInSeconds {
-}
-
-class DataFormatConversionConfiguration {
-  public SchemaConfiguration $schema_configuration;
-  public InputFormatConfiguration $input_format_configuration;
-  public OutputFormatConfiguration $output_format_configuration;
-  public BooleanObject $enabled;
-}
-
-class DeliveryStreamName {
-}
-
-class DescribeDeliveryStreamInputLimit {
-}
-
-class TagDeliveryStreamInput {
-  public DeliveryStreamName $delivery_stream_name;
-  public TagDeliveryStreamInputTagList $tags;
-}
-
-class BucketARN {
-}
-
-class HECToken {
-}
-
-class Processor {
-  public ProcessorType $type;
-  public ProcessorParameterList $parameters;
-}
-
-class DataTableColumns {
-}
-
-class DeliveryStreamDescription {
-  public DeliveryStreamType $delivery_stream_type;
-  public DeliveryStreamVersionId $version_id;
-  public Timestamp $last_update_timestamp;
-  public SourceDescription $source;
-  public BooleanObject $has_more_destinations;
-  public DeliveryStreamARN $delivery_stream_arn;
-  public FailureDescription $failure_description;
-  public DeliveryStreamEncryptionConfiguration $delivery_stream_encryption_configuration;
-  public DestinationDescriptionList $destinations;
-  public DeliveryStreamName $delivery_stream_name;
-  public DeliveryStreamStatus $delivery_stream_status;
-  public Timestamp $create_timestamp;
-}
-
-class ElasticsearchBufferingIntervalInSeconds {
-}
-
-class KMSEncryptionConfig {
-  public AWSKMSKeyARN $awskms_key_arn;
-}
-
-class NonNegativeIntegerObject {
-}
-
-class SourceDescription {
-  public KinesisStreamSourceDescription $kinesis_stream_source_description;
+class CopyCommand {
+  public CopyOptions $copy_options;
+  public DataTableColumns $data_table_columns;
+  public DataTableName $data_table_name;
 }
 
 class CopyOptions {
 }
 
-class DeleteDeliveryStreamOutput {
+class CreateDeliveryStreamInput {
+  public DeliveryStreamEncryptionConfigurationInput $delivery_stream_encryption_configuration_input;
+  public DeliveryStreamName $delivery_stream_name;
+  public DeliveryStreamType $delivery_stream_type;
+  public ElasticsearchDestinationConfiguration $elasticsearch_destination_configuration;
+  public ExtendedS3DestinationConfiguration $extended_s_3_destination_configuration;
+  public KinesisStreamSourceConfiguration $kinesis_stream_source_configuration;
+  public RedshiftDestinationConfiguration $redshift_destination_configuration;
+  public S3DestinationConfiguration $s_3_destination_configuration;
+  public SplunkDestinationConfiguration $splunk_destination_configuration;
+  public TagDeliveryStreamInputTagList $tags;
 }
 
-class ExtendedS3DestinationConfiguration {
-  public RoleARN $role_arn;
-  public BucketARN $bucket_arn;
-  public Prefix $prefix;
-  public ProcessingConfiguration $processing_configuration;
-  public S3BackupMode $s_3_backup_mode;
-  public S3DestinationConfiguration $s_3_backup_configuration;
-  public ErrorOutputPrefix $error_output_prefix;
-  public BufferingHints $buffering_hints;
-  public CompressionFormat $compression_format;
-  public EncryptionConfiguration $encryption_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public DataFormatConversionConfiguration $data_format_conversion_configuration;
+class CreateDeliveryStreamOutput {
+  public DeliveryStreamARN $delivery_stream_arn;
 }
 
-class SizeInMBs {
+class Data {
 }
 
-class VpcConfigurationDescription {
-  public SubnetIdList $subnet_ids;
-  public RoleARN $role_arn;
-  public SecurityGroupIdList $security_group_ids;
-  public NonEmptyStringWithoutWhitespace $vpc_id;
+class DataFormatConversionConfiguration {
+  public BooleanObject $enabled;
+  public InputFormatConfiguration $input_format_configuration;
+  public OutputFormatConfiguration $output_format_configuration;
+  public SchemaConfiguration $schema_configuration;
 }
 
-class BooleanObject {
+class DataTableColumns {
 }
 
-class KinesisStreamSourceConfiguration {
-  public KinesisStreamARN $kinesis_stream_arn;
-  public RoleARN $role_arn;
-}
-
-class PutRecordBatchRequestEntryList {
-}
-
-class S3DestinationConfiguration {
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-  public RoleARN $role_arn;
-  public BucketARN $bucket_arn;
-  public Prefix $prefix;
-  public ErrorOutputPrefix $error_output_prefix;
-  public BufferingHints $buffering_hints;
-  public CompressionFormat $compression_format;
-  public EncryptionConfiguration $encryption_configuration;
-}
-
-class Serializer {
-  public ParquetSerDe $parquet_ser_de;
-  public OrcSerDe $orc_ser_de;
+class DataTableName {
 }
 
 class DeleteDeliveryStreamInput {
@@ -634,120 +99,411 @@ class DeleteDeliveryStreamInput {
   public DeliveryStreamName $delivery_stream_name;
 }
 
-class ErrorCode {
+class DeleteDeliveryStreamOutput {
 }
 
-class RedshiftS3BackupMode {
+class DeliveryStartTimestamp {
 }
 
-class NonEmptyStringWithoutWhitespace {
+class DeliveryStreamARN {
 }
 
-class OrcFormatVersion {
+class DeliveryStreamDescription {
+  public Timestamp $create_timestamp;
+  public DeliveryStreamARN $delivery_stream_arn;
+  public DeliveryStreamEncryptionConfiguration $delivery_stream_encryption_configuration;
+  public DeliveryStreamName $delivery_stream_name;
+  public DeliveryStreamStatus $delivery_stream_status;
+  public DeliveryStreamType $delivery_stream_type;
+  public DestinationDescriptionList $destinations;
+  public FailureDescription $failure_description;
+  public BooleanObject $has_more_destinations;
+  public Timestamp $last_update_timestamp;
+  public SourceDescription $source;
+  public DeliveryStreamVersionId $version_id;
 }
 
-class ParquetCompression {
+class DeliveryStreamEncryptionConfiguration {
+  public FailureDescription $failure_description;
+  public AWSKMSKeyARN $key_arn;
+  public KeyType $key_type;
+  public DeliveryStreamEncryptionStatus $status;
 }
 
-class Record {
-  public Data $data;
+class DeliveryStreamEncryptionConfigurationInput {
+  public AWSKMSKeyARN $key_arn;
+  public KeyType $key_type;
 }
 
-class RedshiftDestinationUpdate {
-  public ClusterJDBCURL $cluster_jdbcurl;
-  public CopyCommand $copy_command;
-  public Username $username;
-  public Password $password;
-  public S3DestinationUpdate $s_3_update;
-  public ProcessingConfiguration $processing_configuration;
-  public RedshiftS3BackupMode $s_3_backup_mode;
-  public RoleARN $role_arn;
-  public RedshiftRetryOptions $retry_options;
-  public S3DestinationUpdate $s_3_backup_update;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
-}
-
-class AWSKMSKeyARN {
-}
-
-class DeliveryStreamVersionId {
-}
-
-class ElasticsearchTypeName {
-}
-
-class SplunkRetryOptions {
-  public SplunkRetryDurationInSeconds $duration_in_seconds;
-}
-
-class IntervalInSeconds {
-}
-
-class ListTagsForDeliveryStreamInputLimit {
-}
-
-class LogGroupName {
-}
-
-class RoleARN {
-}
-
-class SplunkS3BackupMode {
+class DeliveryStreamEncryptionStatus {
 }
 
 class DeliveryStreamFailureType {
 }
 
+class DeliveryStreamName {
+}
+
+class DeliveryStreamNameList {
+}
+
 class DeliveryStreamStatus {
 }
 
-class ParquetPageSizeBytes {
+class DeliveryStreamType {
 }
 
-class BufferingHints {
-  public SizeInMBs $size_in_m_bs;
-  public IntervalInSeconds $interval_in_seconds;
+class DeliveryStreamVersionId {
+}
+
+class DescribeDeliveryStreamInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public DestinationId $exclusive_start_destination_id;
+  public DescribeDeliveryStreamInputLimit $limit;
+}
+
+class DescribeDeliveryStreamInputLimit {
+}
+
+class DescribeDeliveryStreamOutput {
+  public DeliveryStreamDescription $delivery_stream_description;
+}
+
+class Deserializer {
+  public HiveJsonSerDe $hive_json_ser_de;
+  public OpenXJsonSerDe $open_x_json_ser_de;
+}
+
+class DestinationDescription {
+  public DestinationId $destination_id;
+  public ElasticsearchDestinationDescription $elasticsearch_destination_description;
+  public ExtendedS3DestinationDescription $extended_s_3_destination_description;
+  public RedshiftDestinationDescription $redshift_destination_description;
+  public S3DestinationDescription $s_3_destination_description;
+  public SplunkDestinationDescription $splunk_destination_description;
+}
+
+class DestinationDescriptionList {
+}
+
+class DestinationId {
+}
+
+class ElasticsearchBufferingHints {
+  public ElasticsearchBufferingIntervalInSeconds $interval_in_seconds;
+  public ElasticsearchBufferingSizeInMBs $size_in_m_bs;
+}
+
+class ElasticsearchBufferingIntervalInSeconds {
+}
+
+class ElasticsearchBufferingSizeInMBs {
+}
+
+class ElasticsearchClusterEndpoint {
+}
+
+class ElasticsearchDestinationConfiguration {
+  public ElasticsearchBufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ElasticsearchClusterEndpoint $cluster_endpoint;
+  public ElasticsearchDomainARN $domain_arn;
+  public ElasticsearchIndexName $index_name;
+  public ElasticsearchIndexRotationPeriod $index_rotation_period;
+  public ProcessingConfiguration $processing_configuration;
+  public ElasticsearchRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public ElasticsearchS3BackupMode $s_3_backup_mode;
+  public S3DestinationConfiguration $s_3_configuration;
+  public ElasticsearchTypeName $type_name;
+  public VpcConfiguration $vpc_configuration;
+}
+
+class ElasticsearchDestinationDescription {
+  public ElasticsearchBufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ElasticsearchClusterEndpoint $cluster_endpoint;
+  public ElasticsearchDomainARN $domain_arn;
+  public ElasticsearchIndexName $index_name;
+  public ElasticsearchIndexRotationPeriod $index_rotation_period;
+  public ProcessingConfiguration $processing_configuration;
+  public ElasticsearchRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public ElasticsearchS3BackupMode $s_3_backup_mode;
+  public S3DestinationDescription $s_3_destination_description;
+  public ElasticsearchTypeName $type_name;
+  public VpcConfigurationDescription $vpc_configuration_description;
+}
+
+class ElasticsearchDestinationUpdate {
+  public ElasticsearchBufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ElasticsearchClusterEndpoint $cluster_endpoint;
+  public ElasticsearchDomainARN $domain_arn;
+  public ElasticsearchIndexName $index_name;
+  public ElasticsearchIndexRotationPeriod $index_rotation_period;
+  public ProcessingConfiguration $processing_configuration;
+  public ElasticsearchRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public S3DestinationUpdate $s_3_update;
+  public ElasticsearchTypeName $type_name;
+}
+
+class ElasticsearchDomainARN {
+}
+
+class ElasticsearchIndexName {
+}
+
+class ElasticsearchIndexRotationPeriod {
+}
+
+class ElasticsearchRetryDurationInSeconds {
+}
+
+class ElasticsearchRetryOptions {
+  public ElasticsearchRetryDurationInSeconds $duration_in_seconds;
+}
+
+class ElasticsearchS3BackupMode {
+}
+
+class ElasticsearchTypeName {
+}
+
+class EncryptionConfiguration {
+  public KMSEncryptionConfig $kms_encryption_config;
+  public NoEncryptionConfig $no_encryption_config;
+}
+
+class ErrorCode {
+}
+
+class ErrorMessage {
+}
+
+class ErrorOutputPrefix {
+}
+
+class ExtendedS3DestinationConfiguration {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public DataFormatConversionConfiguration $data_format_conversion_configuration;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public ProcessingConfiguration $processing_configuration;
+  public RoleARN $role_arn;
+  public S3DestinationConfiguration $s_3_backup_configuration;
+  public S3BackupMode $s_3_backup_mode;
+}
+
+class ExtendedS3DestinationDescription {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public DataFormatConversionConfiguration $data_format_conversion_configuration;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public ProcessingConfiguration $processing_configuration;
+  public RoleARN $role_arn;
+  public S3DestinationDescription $s_3_backup_description;
+  public S3BackupMode $s_3_backup_mode;
+}
+
+class ExtendedS3DestinationUpdate {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public DataFormatConversionConfiguration $data_format_conversion_configuration;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public ProcessingConfiguration $processing_configuration;
+  public RoleARN $role_arn;
+  public S3BackupMode $s_3_backup_mode;
+  public S3DestinationUpdate $s_3_backup_update;
+}
+
+class FailureDescription {
+  public NonEmptyString $details;
+  public DeliveryStreamFailureType $type;
+}
+
+class HECAcknowledgmentTimeoutInSeconds {
+}
+
+class HECEndpoint {
+}
+
+class HECEndpointType {
+}
+
+class HECToken {
+}
+
+class HiveJsonSerDe {
+  public ListOfNonEmptyStrings $timestamp_formats;
+}
+
+class InputFormatConfiguration {
+  public Deserializer $deserializer;
+}
+
+class IntervalInSeconds {
 }
 
 class InvalidArgumentException {
   public ErrorMessage $message;
 }
 
-class ProcessorType {
+class InvalidKMSResourceException {
+  public ErrorCode $code;
+  public ErrorMessage $message;
 }
 
-class S3DestinationUpdate {
-  public Prefix $prefix;
-  public ErrorOutputPrefix $error_output_prefix;
-  public BufferingHints $buffering_hints;
-  public CompressionFormat $compression_format;
-  public EncryptionConfiguration $encryption_configuration;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+class KMSEncryptionConfig {
+  public AWSKMSKeyARN $awskms_key_arn;
+}
+
+class KeyType {
+}
+
+class KinesisStreamARN {
+}
+
+class KinesisStreamSourceConfiguration {
+  public KinesisStreamARN $kinesis_stream_arn;
   public RoleARN $role_arn;
-  public BucketARN $bucket_arn;
 }
 
-class TagValue {
-}
-
-class UntagDeliveryStreamOutput {
-}
-
-class ElasticsearchDestinationUpdate {
-  public ElasticsearchClusterEndpoint $cluster_endpoint;
-  public ElasticsearchTypeName $type_name;
-  public ElasticsearchBufferingHints $buffering_hints;
-  public S3DestinationUpdate $s_3_update;
-  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+class KinesisStreamSourceDescription {
+  public DeliveryStartTimestamp $delivery_start_timestamp;
+  public KinesisStreamARN $kinesis_stream_arn;
   public RoleARN $role_arn;
-  public ElasticsearchDomainARN $domain_arn;
-  public ElasticsearchRetryOptions $retry_options;
-  public ProcessingConfiguration $processing_configuration;
-  public ElasticsearchIndexName $index_name;
-  public ElasticsearchIndexRotationPeriod $index_rotation_period;
 }
 
-class HECEndpointType {
+class LimitExceededException {
+  public ErrorMessage $message;
+}
+
+class ListDeliveryStreamsInput {
+  public DeliveryStreamType $delivery_stream_type;
+  public DeliveryStreamName $exclusive_start_delivery_stream_name;
+  public ListDeliveryStreamsInputLimit $limit;
+}
+
+class ListDeliveryStreamsInputLimit {
+}
+
+class ListDeliveryStreamsOutput {
+  public DeliveryStreamNameList $delivery_stream_names;
+  public BooleanObject $has_more_delivery_streams;
+}
+
+class ListOfNonEmptyStrings {
+}
+
+class ListOfNonEmptyStringsWithoutWhitespace {
+}
+
+class ListTagsForDeliveryStreamInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public TagKey $exclusive_start_tag_key;
+  public ListTagsForDeliveryStreamInputLimit $limit;
+}
+
+class ListTagsForDeliveryStreamInputLimit {
+}
+
+class ListTagsForDeliveryStreamOutput {
+  public BooleanObject $has_more_tags;
+  public ListTagsForDeliveryStreamOutputTagList $tags;
+}
+
+class ListTagsForDeliveryStreamOutputTagList {
+}
+
+class LogGroupName {
+}
+
+class LogStreamName {
+}
+
+class NoEncryptionConfig {
+}
+
+class NonEmptyString {
+}
+
+class NonEmptyStringWithoutWhitespace {
+}
+
+class NonNegativeIntegerObject {
+}
+
+class OpenXJsonSerDe {
+  public BooleanObject $case_insensitive;
+  public ColumnToJsonKeyMappings $column_to_json_key_mappings;
+  public BooleanObject $convert_dots_in_json_keys_to_underscores;
+}
+
+class OrcCompression {
+}
+
+class OrcFormatVersion {
+}
+
+class OrcRowIndexStride {
+}
+
+class OrcSerDe {
+  public BlockSizeBytes $block_size_bytes;
+  public ListOfNonEmptyStringsWithoutWhitespace $bloom_filter_columns;
+  public Proportion $bloom_filter_false_positive_probability;
+  public OrcCompression $compression;
+  public Proportion $dictionary_key_threshold;
+  public BooleanObject $enable_padding;
+  public OrcFormatVersion $format_version;
+  public Proportion $padding_tolerance;
+  public OrcRowIndexStride $row_index_stride;
+  public OrcStripeSizeBytes $stripe_size_bytes;
+}
+
+class OrcStripeSizeBytes {
+}
+
+class OutputFormatConfiguration {
+  public Serializer $serializer;
+}
+
+class ParquetCompression {
+}
+
+class ParquetPageSizeBytes {
+}
+
+class ParquetSerDe {
+  public BlockSizeBytes $block_size_bytes;
+  public ParquetCompression $compression;
+  public BooleanObject $enable_dictionary_compression;
+  public NonNegativeIntegerObject $max_padding_bytes;
+  public ParquetPageSizeBytes $page_size_bytes;
+  public ParquetWriterVersion $writer_version;
+}
+
+class ParquetWriterVersion {
+}
+
+class Password {
+}
+
+class Prefix {
 }
 
 class ProcessingConfiguration {
@@ -755,83 +511,327 @@ class ProcessingConfiguration {
   public ProcessorList $processors;
 }
 
-class TagDeliveryStreamInputTagList {
+class Processor {
+  public ProcessorParameterList $parameters;
+  public ProcessorType $type;
 }
 
-class LogStreamName {
+class ProcessorList {
+}
+
+class ProcessorParameter {
+  public ProcessorParameterName $parameter_name;
+  public ProcessorParameterValue $parameter_value;
+}
+
+class ProcessorParameterList {
 }
 
 class ProcessorParameterName {
 }
 
+class ProcessorParameterValue {
+}
+
+class ProcessorType {
+}
+
+class Proportion {
+}
+
+class PutRecordBatchInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public PutRecordBatchRequestEntryList $records;
+}
+
+class PutRecordBatchOutput {
+  public BooleanObject $encrypted;
+  public NonNegativeIntegerObject $failed_put_count;
+  public PutRecordBatchResponseEntryList $request_responses;
+}
+
+class PutRecordBatchRequestEntryList {
+}
+
+class PutRecordBatchResponseEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public PutResponseRecordId $record_id;
+}
+
+class PutRecordBatchResponseEntryList {
+}
+
+class PutRecordInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public Record $record;
+}
+
+class PutRecordOutput {
+  public BooleanObject $encrypted;
+  public PutResponseRecordId $record_id;
+}
+
 class PutResponseRecordId {
 }
 
+class Record {
+  public Data $data;
+}
+
 class RedshiftDestinationConfiguration {
-  public RoleARN $role_arn;
-  public ClusterJDBCURL $cluster_jdbcurl;
-  public RedshiftS3BackupMode $s_3_backup_mode;
-  public S3DestinationConfiguration $s_3_backup_configuration;
   public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ClusterJDBCURL $cluster_jdbcurl;
   public CopyCommand $copy_command;
-  public Username $username;
   public Password $password;
-  public RedshiftRetryOptions $retry_options;
-  public S3DestinationConfiguration $s_3_configuration;
   public ProcessingConfiguration $processing_configuration;
+  public RedshiftRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public S3DestinationConfiguration $s_3_backup_configuration;
+  public RedshiftS3BackupMode $s_3_backup_mode;
+  public S3DestinationConfiguration $s_3_configuration;
+  public Username $username;
 }
 
-class ClusterJDBCURL {
+class RedshiftDestinationDescription {
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ClusterJDBCURL $cluster_jdbcurl;
+  public CopyCommand $copy_command;
+  public ProcessingConfiguration $processing_configuration;
+  public RedshiftRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public S3DestinationDescription $s_3_backup_description;
+  public RedshiftS3BackupMode $s_3_backup_mode;
+  public S3DestinationDescription $s_3_destination_description;
+  public Username $username;
 }
 
-class OutputFormatConfiguration {
-  public Serializer $serializer;
+class RedshiftDestinationUpdate {
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public ClusterJDBCURL $cluster_jdbcurl;
+  public CopyCommand $copy_command;
+  public Password $password;
+  public ProcessingConfiguration $processing_configuration;
+  public RedshiftRetryOptions $retry_options;
+  public RoleARN $role_arn;
+  public RedshiftS3BackupMode $s_3_backup_mode;
+  public S3DestinationUpdate $s_3_backup_update;
+  public S3DestinationUpdate $s_3_update;
+  public Username $username;
 }
 
-class Password {
+class RedshiftRetryDurationInSeconds {
 }
 
-class OrcStripeSizeBytes {
+class RedshiftRetryOptions {
+  public RedshiftRetryDurationInSeconds $duration_in_seconds;
+}
+
+class RedshiftS3BackupMode {
+}
+
+class ResourceInUseException {
+  public ErrorMessage $message;
+}
+
+class ResourceNotFoundException {
+  public ErrorMessage $message;
+}
+
+class RoleARN {
+}
+
+class S3BackupMode {
+}
+
+class S3DestinationConfiguration {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public RoleARN $role_arn;
+}
+
+class S3DestinationDescription {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public RoleARN $role_arn;
+}
+
+class S3DestinationUpdate {
+  public BucketARN $bucket_arn;
+  public BufferingHints $buffering_hints;
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public CompressionFormat $compression_format;
+  public EncryptionConfiguration $encryption_configuration;
+  public ErrorOutputPrefix $error_output_prefix;
+  public Prefix $prefix;
+  public RoleARN $role_arn;
+}
+
+class SchemaConfiguration {
+  public NonEmptyStringWithoutWhitespace $catalog_id;
+  public NonEmptyStringWithoutWhitespace $database_name;
+  public NonEmptyStringWithoutWhitespace $region;
+  public NonEmptyStringWithoutWhitespace $role_arn;
+  public NonEmptyStringWithoutWhitespace $table_name;
+  public NonEmptyStringWithoutWhitespace $version_id;
+}
+
+class SecurityGroupIdList {
+}
+
+class Serializer {
+  public OrcSerDe $orc_ser_de;
+  public ParquetSerDe $parquet_ser_de;
+}
+
+class ServiceUnavailableException {
+  public ErrorMessage $message;
+}
+
+class SizeInMBs {
+}
+
+class SourceDescription {
+  public KinesisStreamSourceDescription $kinesis_stream_source_description;
+}
+
+class SplunkDestinationConfiguration {
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
+  public HECEndpoint $hec_endpoint;
+  public HECEndpointType $hec_endpoint_type;
+  public HECToken $hec_token;
+  public ProcessingConfiguration $processing_configuration;
+  public SplunkRetryOptions $retry_options;
+  public SplunkS3BackupMode $s_3_backup_mode;
+  public S3DestinationConfiguration $s_3_configuration;
+}
+
+class SplunkDestinationDescription {
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
+  public HECEndpoint $hec_endpoint;
+  public HECEndpointType $hec_endpoint_type;
+  public HECToken $hec_token;
+  public ProcessingConfiguration $processing_configuration;
+  public SplunkRetryOptions $retry_options;
+  public SplunkS3BackupMode $s_3_backup_mode;
+  public S3DestinationDescription $s_3_destination_description;
+}
+
+class SplunkDestinationUpdate {
+  public CloudWatchLoggingOptions $cloud_watch_logging_options;
+  public HECAcknowledgmentTimeoutInSeconds $hec_acknowledgment_timeout_in_seconds;
+  public HECEndpoint $hec_endpoint;
+  public HECEndpointType $hec_endpoint_type;
+  public HECToken $hec_token;
+  public ProcessingConfiguration $processing_configuration;
+  public SplunkRetryOptions $retry_options;
+  public SplunkS3BackupMode $s_3_backup_mode;
+  public S3DestinationUpdate $s_3_update;
+}
+
+class SplunkRetryDurationInSeconds {
+}
+
+class SplunkRetryOptions {
+  public SplunkRetryDurationInSeconds $duration_in_seconds;
+}
+
+class SplunkS3BackupMode {
+}
+
+class StartDeliveryStreamEncryptionInput {
+  public DeliveryStreamEncryptionConfigurationInput $delivery_stream_encryption_configuration_input;
+  public DeliveryStreamName $delivery_stream_name;
+}
+
+class StartDeliveryStreamEncryptionOutput {
+}
+
+class StopDeliveryStreamEncryptionInput {
+  public DeliveryStreamName $delivery_stream_name;
+}
+
+class StopDeliveryStreamEncryptionOutput {
 }
 
 class SubnetIdList {
 }
 
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagDeliveryStreamInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public TagDeliveryStreamInputTagList $tags;
+}
+
+class TagDeliveryStreamInputTagList {
+}
+
+class TagDeliveryStreamOutput {
+}
+
 class TagKey {
 }
 
-class DeliveryStreamARN {
+class TagKeyList {
 }
 
-class ListDeliveryStreamsInput {
-  public ListDeliveryStreamsInputLimit $limit;
-  public DeliveryStreamType $delivery_stream_type;
-  public DeliveryStreamName $exclusive_start_delivery_stream_name;
+class TagValue {
 }
 
-class ListOfNonEmptyStrings {
+class Timestamp {
 }
 
-class OpenXJsonSerDe {
-  public BooleanObject $convert_dots_in_json_keys_to_underscores;
-  public BooleanObject $case_insensitive;
-  public ColumnToJsonKeyMappings $column_to_json_key_mappings;
+class UntagDeliveryStreamInput {
+  public DeliveryStreamName $delivery_stream_name;
+  public TagKeyList $tag_keys;
 }
 
-class OrcRowIndexStride {
+class UntagDeliveryStreamOutput {
 }
 
-class Prefix {
+class UpdateDestinationInput {
+  public DeliveryStreamVersionId $current_delivery_stream_version_id;
+  public DeliveryStreamName $delivery_stream_name;
+  public DestinationId $destination_id;
+  public ElasticsearchDestinationUpdate $elasticsearch_destination_update;
+  public ExtendedS3DestinationUpdate $extended_s_3_destination_update;
+  public RedshiftDestinationUpdate $redshift_destination_update;
+  public S3DestinationUpdate $s_3_destination_update;
+  public SplunkDestinationUpdate $splunk_destination_update;
 }
 
-class ElasticsearchRetryDurationInSeconds {
+class UpdateDestinationOutput {
 }
 
-class ErrorMessage {
+class Username {
 }
 
-class InvalidKMSResourceException {
-  public ErrorCode $code;
-  public ErrorMessage $message;
+class VpcConfiguration {
+  public RoleARN $role_arn;
+  public SecurityGroupIdList $security_group_ids;
+  public SubnetIdList $subnet_ids;
+}
+
+class VpcConfigurationDescription {
+  public RoleARN $role_arn;
+  public SecurityGroupIdList $security_group_ids;
+  public SubnetIdList $subnet_ids;
+  public NonEmptyStringWithoutWhitespace $vpc_id;
 }
 

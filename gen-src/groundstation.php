@@ -2,34 +2,116 @@
 namespace slack\aws\groundstation;
 
 interface GroundStation {
-  public function UpdateMissionProfile(UpdateMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
+  public function CancelContact(CancelContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
   public function CreateConfig(CreateConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
-  public function ListConfigs(ListConfigsRequest) Awaitable<Errors\Result<ListConfigsResponse>>;
-  public function ListDataflowEndpointGroups(ListDataflowEndpointGroupsRequest) Awaitable<Errors\Result<ListDataflowEndpointGroupsResponse>>;
-  public function ListGroundStations(ListGroundStationsRequest) Awaitable<Errors\Result<ListGroundStationsResponse>>;
-  public function ReserveContact(ReserveContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UpdateConfig(UpdateConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function CreateDataflowEndpointGroup(CreateDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
   public function CreateMissionProfile(CreateMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
   public function DeleteConfig(DeleteConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function DeleteDataflowEndpointGroup(DeleteDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
   public function DeleteMissionProfile(DeleteMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
+  public function DescribeContact(DescribeContactRequest) Awaitable<Errors\Result<DescribeContactResponse>>;
+  public function GetConfig(GetConfigRequest) Awaitable<Errors\Result<GetConfigResponse>>;
   public function GetDataflowEndpointGroup(GetDataflowEndpointGroupRequest) Awaitable<Errors\Result<GetDataflowEndpointGroupResponse>>;
+  public function GetMinuteUsage(GetMinuteUsageRequest) Awaitable<Errors\Result<GetMinuteUsageResponse>>;
+  public function GetMissionProfile(GetMissionProfileRequest) Awaitable<Errors\Result<GetMissionProfileResponse>>;
+  public function GetSatellite(GetSatelliteRequest) Awaitable<Errors\Result<GetSatelliteResponse>>;
+  public function ListConfigs(ListConfigsRequest) Awaitable<Errors\Result<ListConfigsResponse>>;
+  public function ListContacts(ListContactsRequest) Awaitable<Errors\Result<ListContactsResponse>>;
+  public function ListDataflowEndpointGroups(ListDataflowEndpointGroupsRequest) Awaitable<Errors\Result<ListDataflowEndpointGroupsResponse>>;
+  public function ListGroundStations(ListGroundStationsRequest) Awaitable<Errors\Result<ListGroundStationsResponse>>;
   public function ListMissionProfiles(ListMissionProfilesRequest) Awaitable<Errors\Result<ListMissionProfilesResponse>>;
   public function ListSatellites(ListSatellitesRequest) Awaitable<Errors\Result<ListSatellitesResponse>>;
   public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function CancelContact(CancelContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
-  public function DeleteDataflowEndpointGroup(DeleteDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
-  public function GetConfig(GetConfigRequest) Awaitable<Errors\Result<GetConfigResponse>>;
-  public function GetMissionProfile(GetMissionProfileRequest) Awaitable<Errors\Result<GetMissionProfileResponse>>;
+  public function ReserveContact(ReserveContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
   public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function CreateDataflowEndpointGroup(CreateDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
-  public function DescribeContact(DescribeContactRequest) Awaitable<Errors\Result<DescribeContactResponse>>;
-  public function GetMinuteUsage(GetMinuteUsageRequest) Awaitable<Errors\Result<GetMinuteUsageResponse>>;
-  public function GetSatellite(GetSatelliteRequest) Awaitable<Errors\Result<GetSatelliteResponse>>;
-  public function ListContacts(ListContactsRequest) Awaitable<Errors\Result<ListContactsResponse>>;
+  public function UpdateConfig(UpdateConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function UpdateMissionProfile(UpdateMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
+}
+
+class AngleUnits {
+}
+
+class AntennaDownlinkConfig {
+  public SpectrumConfig $spectrum_config;
+}
+
+class AntennaDownlinkDemodDecodeConfig {
+  public DecodeConfig $decode_config;
+  public DemodulationConfig $demodulation_config;
+  public SpectrumConfig $spectrum_config;
+}
+
+class AntennaUplinkConfig {
+  public UplinkSpectrumConfig $spectrum_config;
+  public Eirp $target_eirp;
+}
+
+class BandwidthUnits {
+}
+
+class Boolean {
+}
+
+class CancelContactRequest {
+  public string $contact_id;
+}
+
+class ConfigArn {
 }
 
 class ConfigCapabilityType {
+}
+
+class ConfigIdResponse {
+  public ConfigArn $config_arn;
+  public string $config_id;
+  public ConfigCapabilityType $config_type;
+}
+
+class ConfigList {
+}
+
+class ConfigListItem {
+  public ConfigArn $config_arn;
+  public string $config_id;
+  public ConfigCapabilityType $config_type;
+  public string $name;
+}
+
+class ConfigTypeData {
+  public AntennaDownlinkConfig $antenna_downlink_config;
+  public AntennaDownlinkDemodDecodeConfig $antenna_downlink_demod_decode_config;
+  public AntennaUplinkConfig $antenna_uplink_config;
+  public DataflowEndpointConfig $dataflow_endpoint_config;
+  public TrackingConfig $tracking_config;
+  public UplinkEchoConfig $uplink_echo_config;
+}
+
+class ContactData {
+  public string $contact_id;
+  public ContactStatus $contact_status;
+  public Timestamp $end_time;
+  public string $error_message;
+  public string $ground_station;
+  public Elevation $maximum_elevation;
+  public MissionProfileArn $mission_profile_arn;
+  public Timestamp $post_pass_end_time;
+  public Timestamp $pre_pass_start_time;
+  public string $region;
+  public satelliteArn $satellite_arn;
+  public Timestamp $start_time;
+  public TagsMap $tags;
+}
+
+class ContactIdResponse {
+  public string $contact_id;
+}
+
+class ContactList {
+}
+
+class ContactStatus {
 }
 
 class CreateConfigRequest {
@@ -38,49 +120,28 @@ class CreateConfigRequest {
   public TagsMap $tags;
 }
 
-class EndpointStatus {
+class CreateDataflowEndpointGroupRequest {
+  public EndpointDetailsList $endpoint_details;
+  public TagsMap $tags;
 }
 
-class ListGroundStationsResponse {
-  public GroundStationList $ground_station_list;
-  public string $next_token;
-}
-
-class ListSatellitesResponse {
-  public string $next_token;
-  public SatelliteList $satellites;
-}
-
-class SpectrumConfig {
-  public FrequencyBandwidth $bandwidth;
-  public Frequency $center_frequency;
-  public Polarization $polarization;
+class CreateMissionProfileRequest {
+  public DurationInSeconds $contact_post_pass_duration_seconds;
+  public DurationInSeconds $contact_pre_pass_duration_seconds;
+  public DataflowEdgeList $dataflow_edges;
+  public DurationInSeconds $minimum_viable_contact_duration_seconds;
+  public SafeName $name;
+  public TagsMap $tags;
+  public ConfigArn $tracking_config_arn;
 }
 
 class Criticality {
 }
 
-class Eirp {
-  public EirpUnits $units;
-  public Double $value;
+class DataflowEdge {
 }
 
-class GetSatelliteResponse {
-  public Uuid $satellite_id;
-  public GroundStationIdList $ground_stations;
-  public noradSatelliteID $norad_satellite_id;
-  public satelliteArn $satellite_arn;
-}
-
-class ListSatellitesRequest {
-  public int $max_results;
-  public string $next_token;
-}
-
-class SecurityGroupIdList {
-}
-
-class TagKeys {
+class DataflowEdgeList {
 }
 
 class DataflowEndpoint {
@@ -89,9 +150,45 @@ class DataflowEndpoint {
   public EndpointStatus $status;
 }
 
+class DataflowEndpointConfig {
+  public string $dataflow_endpoint_name;
+  public string $dataflow_endpoint_region;
+}
+
+class DataflowEndpointGroupArn {
+}
+
+class DataflowEndpointGroupIdResponse {
+  public string $dataflow_endpoint_group_id;
+}
+
+class DataflowEndpointGroupList {
+}
+
+class DataflowEndpointListItem {
+  public DataflowEndpointGroupArn $dataflow_endpoint_group_arn;
+  public string $dataflow_endpoint_group_id;
+}
+
+class DecodeConfig {
+  public JsonString $unvalidated_json;
+}
+
 class DeleteConfigRequest {
   public string $config_id;
   public ConfigCapabilityType $config_type;
+}
+
+class DeleteDataflowEndpointGroupRequest {
+  public string $dataflow_endpoint_group_id;
+}
+
+class DeleteMissionProfileRequest {
+  public string $mission_profile_id;
+}
+
+class DemodulationConfig {
+  public JsonString $unvalidated_json;
 }
 
 class DependencyException {
@@ -99,12 +196,72 @@ class DependencyException {
   public string $parameter_name;
 }
 
-class InvalidParameterException {
-  public string $message;
-  public string $parameter_name;
+class DescribeContactRequest {
+  public string $contact_id;
+}
+
+class DescribeContactResponse {
+  public string $contact_id;
+  public ContactStatus $contact_status;
+  public Timestamp $end_time;
+  public string $error_message;
+  public string $ground_station;
+  public Elevation $maximum_elevation;
+  public MissionProfileArn $mission_profile_arn;
+  public Timestamp $post_pass_end_time;
+  public Timestamp $pre_pass_start_time;
+  public string $region;
+  public satelliteArn $satellite_arn;
+  public Timestamp $start_time;
+  public TagsMap $tags;
+}
+
+class Double {
+}
+
+class DurationInSeconds {
+}
+
+class Eirp {
+  public EirpUnits $units;
+  public Double $value;
 }
 
 class EirpUnits {
+}
+
+class Elevation {
+  public AngleUnits $unit;
+  public Double $value;
+}
+
+class EndpointDetails {
+  public DataflowEndpoint $endpoint;
+  public SecurityDetails $security_details;
+}
+
+class EndpointDetailsList {
+}
+
+class EndpointStatus {
+}
+
+class Frequency {
+  public FrequencyUnits $units;
+  public Double $value;
+}
+
+class FrequencyBandwidth {
+  public BandwidthUnits $units;
+  public Double $value;
+}
+
+class FrequencyUnits {
+}
+
+class GetConfigRequest {
+  public string $config_id;
+  public ConfigCapabilityType $config_type;
 }
 
 class GetConfigResponse {
@@ -116,239 +273,20 @@ class GetConfigResponse {
   public TagsMap $tags;
 }
 
-class ListContactsRequest {
-  public satelliteArn $satellite_arn;
-  public Timestamp $start_time;
-  public StatusList $status_list;
-  public Timestamp $end_time;
-  public string $ground_station;
-  public int $max_results;
-  public MissionProfileArn $mission_profile_arn;
-  public string $next_token;
+class GetDataflowEndpointGroupRequest {
+  public string $dataflow_endpoint_group_id;
 }
 
-class ReserveContactRequest {
-  public Timestamp $start_time;
+class GetDataflowEndpointGroupResponse {
+  public DataflowEndpointGroupArn $dataflow_endpoint_group_arn;
+  public string $dataflow_endpoint_group_id;
+  public EndpointDetailsList $endpoints_details;
   public TagsMap $tags;
-  public Timestamp $end_time;
-  public string $ground_station;
-  public MissionProfileArn $mission_profile_arn;
-  public satelliteArn $satellite_arn;
-}
-
-class GroundStationIdList {
-}
-
-class UntagResourceResponse {
-}
-
-class AntennaDownlinkDemodDecodeConfig {
-  public DecodeConfig $decode_config;
-  public DemodulationConfig $demodulation_config;
-  public SpectrumConfig $spectrum_config;
-}
-
-class ConfigIdResponse {
-  public ConfigArn $config_arn;
-  public string $config_id;
-  public ConfigCapabilityType $config_type;
-}
-
-class ListConfigsResponse {
-  public ConfigList $config_list;
-  public string $next_token;
-}
-
-class MissionProfileListItem {
-  public string $name;
-  public string $region;
-  public MissionProfileArn $mission_profile_arn;
-  public string $mission_profile_id;
-}
-
-class SocketAddress {
-  public string $name;
-  public int $port;
-}
-
-class DecodeConfig {
-  public JsonString $unvalidated_json;
-}
-
-class GetMissionProfileRequest {
-  public string $mission_profile_id;
-}
-
-class String {
-}
-
-class satelliteArn {
-}
-
-class CreateMissionProfileRequest {
-  public SafeName $name;
-  public TagsMap $tags;
-  public ConfigArn $tracking_config_arn;
-  public DurationInSeconds $contact_post_pass_duration_seconds;
-  public DurationInSeconds $contact_pre_pass_duration_seconds;
-  public DataflowEdgeList $dataflow_edges;
-  public DurationInSeconds $minimum_viable_contact_duration_seconds;
-}
-
-class Elevation {
-  public Double $value;
-  public AngleUnits $unit;
-}
-
-class ConfigList {
-}
-
-class DataflowEndpointConfig {
-  public string $dataflow_endpoint_name;
-  public string $dataflow_endpoint_region;
-}
-
-class JsonString {
-}
-
-class UplinkSpectrumConfig {
-  public Frequency $center_frequency;
-  public Polarization $polarization;
-}
-
-class noradSatelliteID {
-}
-
-class AntennaUplinkConfig {
-  public UplinkSpectrumConfig $spectrum_config;
-  public Eirp $target_eirp;
-}
-
-class CancelContactRequest {
-  public string $contact_id;
-}
-
-class ConfigTypeData {
-  public DataflowEndpointConfig $dataflow_endpoint_config;
-  public TrackingConfig $tracking_config;
-  public UplinkEchoConfig $uplink_echo_config;
-  public AntennaDownlinkConfig $antenna_downlink_config;
-  public AntennaDownlinkDemodDecodeConfig $antenna_downlink_demod_decode_config;
-  public AntennaUplinkConfig $antenna_uplink_config;
-}
-
-class Integer {
-}
-
-class ListGroundStationsRequest {
-  public string $satellite_id;
-  public int $max_results;
-  public string $next_token;
-}
-
-class MissionProfileList {
-}
-
-class DescribeContactRequest {
-  public string $contact_id;
-}
-
-class GetSatelliteRequest {
-  public string $satellite_id;
-}
-
-class ListContactsResponse {
-  public ContactList $contact_list;
-  public string $next_token;
-}
-
-class UpdateConfigRequest {
-  public ConfigTypeData $config_data;
-  public string $config_id;
-  public ConfigCapabilityType $config_type;
-  public SafeName $name;
-}
-
-class GetConfigRequest {
-  public string $config_id;
-  public ConfigCapabilityType $config_type;
-}
-
-class ConfigArn {
-}
-
-class ContactStatus {
-}
-
-class Double {
-}
-
-class TagsMap {
-}
-
-class ListConfigsRequest {
-  public int $max_results;
-  public string $next_token;
-}
-
-class AngleUnits {
 }
 
 class GetMinuteUsageRequest {
   public int $month;
   public int $year;
-}
-
-class Boolean {
-}
-
-class ResourceNotFoundException {
-  public string $message;
-}
-
-class StatusList {
-}
-
-class ListDataflowEndpointGroupsRequest {
-  public int $max_results;
-  public string $next_token;
-}
-
-class ListMissionProfilesResponse {
-  public MissionProfileList $mission_profile_list;
-  public string $next_token;
-}
-
-class MissionProfileArn {
-}
-
-class SatelliteList {
-}
-
-class SatelliteListItem {
-  public Uuid $satellite_id;
-  public GroundStationIdList $ground_stations;
-  public noradSatelliteID $norad_satellite_id;
-  public satelliteArn $satellite_arn;
-}
-
-class TrackingConfig {
-  public Criticality $autotrack;
-}
-
-class Frequency {
-  public FrequencyUnits $units;
-  public Double $value;
-}
-
-class ResourceLimitExceededException {
-  public string $message;
-  public string $parameter_name;
-}
-
-class UplinkEchoConfig {
-  public ConfigArn $antenna_uplink_config_arn;
-  public boolean $enabled;
 }
 
 class GetMinuteUsageResponse {
@@ -359,99 +297,86 @@ class GetMinuteUsageResponse {
   public int $upcoming_minutes_scheduled;
 }
 
-class TagResourceResponse {
-}
-
-class ConfigListItem {
-  public string $config_id;
-  public ConfigCapabilityType $config_type;
-  public string $name;
-  public ConfigArn $config_arn;
-}
-
-class ContactIdResponse {
-  public string $contact_id;
-}
-
-class DataflowEdgeList {
-}
-
-class DataflowEndpointGroupIdResponse {
-  public string $dataflow_endpoint_group_id;
-}
-
-class DataflowEndpointListItem {
-  public DataflowEndpointGroupArn $dataflow_endpoint_group_arn;
-  public string $dataflow_endpoint_group_id;
-}
-
-class DemodulationConfig {
-  public JsonString $unvalidated_json;
-}
-
-class DescribeContactResponse {
-  public string $ground_station;
-  public Timestamp $post_pass_end_time;
-  public Timestamp $pre_pass_start_time;
-  public string $region;
-  public Timestamp $start_time;
-  public string $contact_id;
-  public Timestamp $end_time;
-  public Elevation $maximum_elevation;
-  public MissionProfileArn $mission_profile_arn;
-  public satelliteArn $satellite_arn;
-  public TagsMap $tags;
-  public ContactStatus $contact_status;
-  public string $error_message;
-}
-
-class DurationInSeconds {
-}
-
-class FrequencyUnits {
-}
-
-class EndpointDetailsList {
-}
-
-class TagResourceRequest {
-  public string $resource_arn;
-  public TagsMap $tags;
-}
-
-class ContactData {
-  public Timestamp $pre_pass_start_time;
-  public satelliteArn $satellite_arn;
-  public TagsMap $tags;
-  public string $contact_id;
-  public Elevation $maximum_elevation;
-  public MissionProfileArn $mission_profile_arn;
-  public string $ground_station;
-  public Timestamp $post_pass_end_time;
-  public string $region;
-  public Timestamp $start_time;
-  public ContactStatus $contact_status;
-  public Timestamp $end_time;
-  public string $error_message;
+class GetMissionProfileRequest {
+  public string $mission_profile_id;
 }
 
 class GetMissionProfileResponse {
-  public DataflowEdgeList $dataflow_edges;
-  public DurationInSeconds $minimum_viable_contact_duration_seconds;
-  public string $mission_profile_id;
-  public ConfigArn $tracking_config_arn;
   public DurationInSeconds $contact_post_pass_duration_seconds;
   public DurationInSeconds $contact_pre_pass_duration_seconds;
+  public DataflowEdgeList $dataflow_edges;
+  public DurationInSeconds $minimum_viable_contact_duration_seconds;
   public MissionProfileArn $mission_profile_arn;
+  public string $mission_profile_id;
   public string $name;
   public string $region;
   public TagsMap $tags;
+  public ConfigArn $tracking_config_arn;
+}
+
+class GetSatelliteRequest {
+  public string $satellite_id;
+}
+
+class GetSatelliteResponse {
+  public GroundStationIdList $ground_stations;
+  public noradSatelliteID $norad_satellite_id;
+  public satelliteArn $satellite_arn;
+  public Uuid $satellite_id;
 }
 
 class GroundStationData {
+  public string $ground_station_id;
   public string $ground_station_name;
   public string $region;
-  public string $ground_station_id;
+}
+
+class GroundStationIdList {
+}
+
+class GroundStationList {
+}
+
+class Integer {
+}
+
+class InvalidParameterException {
+  public string $message;
+  public string $parameter_name;
+}
+
+class JsonString {
+}
+
+class ListConfigsRequest {
+  public int $max_results;
+  public string $next_token;
+}
+
+class ListConfigsResponse {
+  public ConfigList $config_list;
+  public string $next_token;
+}
+
+class ListContactsRequest {
+  public Timestamp $end_time;
+  public string $ground_station;
+  public int $max_results;
+  public MissionProfileArn $mission_profile_arn;
+  public string $next_token;
+  public satelliteArn $satellite_arn;
+  public Timestamp $start_time;
+  public StatusList $status_list;
+}
+
+class ListContactsResponse {
+  public ContactList $contact_list;
+  public string $next_token;
+}
+
+class ListDataflowEndpointGroupsRequest {
+  public int $max_results;
+  public string $next_token;
 }
 
 class ListDataflowEndpointGroupsResponse {
@@ -459,63 +384,81 @@ class ListDataflowEndpointGroupsResponse {
   public string $next_token;
 }
 
-class Uuid {
+class ListGroundStationsRequest {
+  public int $max_results;
+  public string $next_token;
+  public string $satellite_id;
 }
 
-class ContactList {
+class ListGroundStationsResponse {
+  public GroundStationList $ground_station_list;
+  public string $next_token;
 }
 
-class DataflowEndpointGroupArn {
+class ListMissionProfilesRequest {
+  public int $max_results;
+  public string $next_token;
 }
 
-class FrequencyBandwidth {
-  public BandwidthUnits $units;
-  public Double $value;
+class ListMissionProfilesResponse {
+  public MissionProfileList $mission_profile_list;
+  public string $next_token;
 }
 
-class SubnetList {
+class ListSatellitesRequest {
+  public int $max_results;
+  public string $next_token;
 }
 
-class UntagResourceRequest {
+class ListSatellitesResponse {
+  public string $next_token;
+  public SatelliteList $satellites;
+}
+
+class ListTagsForResourceRequest {
   public string $resource_arn;
-  public TagKeys $tag_keys;
-}
-
-class DeleteDataflowEndpointGroupRequest {
-  public string $dataflow_endpoint_group_id;
-}
-
-class DeleteMissionProfileRequest {
-  public string $mission_profile_id;
-}
-
-class GetDataflowEndpointGroupRequest {
-  public string $dataflow_endpoint_group_id;
-}
-
-class SecurityDetails {
-  public RoleArn $role_arn;
-  public SecurityGroupIdList $security_group_ids;
-  public SubnetList $subnet_ids;
-}
-
-class DataflowEdge {
-}
-
-class EndpointDetails {
-  public DataflowEndpoint $endpoint;
-  public SecurityDetails $security_details;
-}
-
-class GroundStationList {
 }
 
 class ListTagsForResourceResponse {
   public TagsMap $tags;
 }
 
+class MissionProfileArn {
+}
+
 class MissionProfileIdResponse {
   public string $mission_profile_id;
+}
+
+class MissionProfileList {
+}
+
+class MissionProfileListItem {
+  public MissionProfileArn $mission_profile_arn;
+  public string $mission_profile_id;
+  public string $name;
+  public string $region;
+}
+
+class Polarization {
+}
+
+class ReserveContactRequest {
+  public Timestamp $end_time;
+  public string $ground_station;
+  public MissionProfileArn $mission_profile_arn;
+  public satelliteArn $satellite_arn;
+  public Timestamp $start_time;
+  public TagsMap $tags;
+}
+
+class ResourceLimitExceededException {
+  public string $message;
+  public string $parameter_name;
+}
+
+class ResourceNotFoundException {
+  public string $message;
 }
 
 class RoleArn {
@@ -524,50 +467,107 @@ class RoleArn {
 class SafeName {
 }
 
-class UpdateMissionProfileRequest {
-  public SafeName $name;
-  public ConfigArn $tracking_config_arn;
-  public DurationInSeconds $contact_post_pass_duration_seconds;
-  public DurationInSeconds $contact_pre_pass_duration_seconds;
-  public DataflowEdgeList $dataflow_edges;
-  public DurationInSeconds $minimum_viable_contact_duration_seconds;
-  public string $mission_profile_id;
+class SatelliteList {
 }
 
-class BandwidthUnits {
+class SatelliteListItem {
+  public GroundStationIdList $ground_stations;
+  public noradSatelliteID $norad_satellite_id;
+  public satelliteArn $satellite_arn;
+  public Uuid $satellite_id;
 }
 
-class CreateDataflowEndpointGroupRequest {
-  public EndpointDetailsList $endpoint_details;
+class SecurityDetails {
+  public RoleArn $role_arn;
+  public SecurityGroupIdList $security_group_ids;
+  public SubnetList $subnet_ids;
+}
+
+class SecurityGroupIdList {
+}
+
+class SocketAddress {
+  public string $name;
+  public int $port;
+}
+
+class SpectrumConfig {
+  public FrequencyBandwidth $bandwidth;
+  public Frequency $center_frequency;
+  public Polarization $polarization;
+}
+
+class StatusList {
+}
+
+class String {
+}
+
+class SubnetList {
+}
+
+class TagKeys {
+}
+
+class TagResourceRequest {
+  public string $resource_arn;
   public TagsMap $tags;
 }
 
-class DataflowEndpointGroupList {
+class TagResourceResponse {
 }
 
-class ListTagsForResourceRequest {
-  public string $resource_arn;
-}
-
-class ListMissionProfilesRequest {
-  public int $max_results;
-  public string $next_token;
+class TagsMap {
 }
 
 class Timestamp {
 }
 
-class AntennaDownlinkConfig {
-  public SpectrumConfig $spectrum_config;
+class TrackingConfig {
+  public Criticality $autotrack;
 }
 
-class GetDataflowEndpointGroupResponse {
-  public DataflowEndpointGroupArn $dataflow_endpoint_group_arn;
-  public string $dataflow_endpoint_group_id;
-  public EndpointDetailsList $endpoints_details;
-  public TagsMap $tags;
+class UntagResourceRequest {
+  public string $resource_arn;
+  public TagKeys $tag_keys;
 }
 
-class Polarization {
+class UntagResourceResponse {
+}
+
+class UpdateConfigRequest {
+  public ConfigTypeData $config_data;
+  public string $config_id;
+  public ConfigCapabilityType $config_type;
+  public SafeName $name;
+}
+
+class UpdateMissionProfileRequest {
+  public DurationInSeconds $contact_post_pass_duration_seconds;
+  public DurationInSeconds $contact_pre_pass_duration_seconds;
+  public DataflowEdgeList $dataflow_edges;
+  public DurationInSeconds $minimum_viable_contact_duration_seconds;
+  public string $mission_profile_id;
+  public SafeName $name;
+  public ConfigArn $tracking_config_arn;
+}
+
+class UplinkEchoConfig {
+  public ConfigArn $antenna_uplink_config_arn;
+  public boolean $enabled;
+}
+
+class UplinkSpectrumConfig {
+  public Frequency $center_frequency;
+  public Polarization $polarization;
+}
+
+class Uuid {
+}
+
+class noradSatelliteID {
+}
+
+class satelliteArn {
 }
 

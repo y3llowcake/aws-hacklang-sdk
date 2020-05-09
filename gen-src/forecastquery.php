@@ -5,8 +5,13 @@ interface forecastquery {
   public function QueryForecast(QueryForecastRequest) Awaitable<Errors\Result<QueryForecastResponse>>;
 }
 
-class ResourceNotFoundException {
-  public ErrorMessage $message;
+class Arn {
+}
+
+class AttributeName {
+}
+
+class AttributeValue {
 }
 
 class DataPoint {
@@ -17,32 +22,43 @@ class DataPoint {
 class DateTime {
 }
 
+class Double {
+}
+
+class ErrorMessage {
+}
+
+class Filters {
+}
+
 class Forecast {
   public Predictions $predictions;
 }
 
-class Predictions {
+class InvalidInputException {
+  public ErrorMessage $message;
 }
 
-class AttributeName {
-}
-
-class Double {
-}
-
-class Timestamp {
+class InvalidNextTokenException {
+  public ErrorMessage $message;
 }
 
 class LimitExceededException {
   public ErrorMessage $message;
 }
 
+class NextToken {
+}
+
+class Predictions {
+}
+
 class QueryForecastRequest {
-  public Filters $filters;
-  public NextToken $next_token;
-  public Arn $forecast_arn;
-  public DateTime $start_date;
   public DateTime $end_date;
+  public Filters $filters;
+  public Arn $forecast_arn;
+  public NextToken $next_token;
+  public DateTime $start_date;
 }
 
 class QueryForecastResponse {
@@ -53,32 +69,16 @@ class ResourceInUseException {
   public ErrorMessage $message;
 }
 
-class Arn {
-}
-
-class ErrorMessage {
-}
-
-class Filters {
-}
-
-class InvalidInputException {
+class ResourceNotFoundException {
   public ErrorMessage $message;
 }
 
 class Statistic {
 }
 
-class AttributeValue {
-}
-
-class InvalidNextTokenException {
-  public ErrorMessage $message;
-}
-
-class NextToken {
-}
-
 class TimeSeries {
+}
+
+class Timestamp {
 }
 

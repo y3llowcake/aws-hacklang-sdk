@@ -3,53 +3,173 @@ namespace slack\aws\mgh;
 
 interface Migration Hub {
   public function AssociateCreatedArtifact(AssociateCreatedArtifactRequest) Awaitable<Errors\Result<AssociateCreatedArtifactResult>>;
-  public function ListCreatedArtifacts(ListCreatedArtifactsRequest) Awaitable<Errors\Result<ListCreatedArtifactsResult>>;
-  public function ListMigrationTasks(ListMigrationTasksRequest) Awaitable<Errors\Result<ListMigrationTasksResult>>;
+  public function AssociateDiscoveredResource(AssociateDiscoveredResourceRequest) Awaitable<Errors\Result<AssociateDiscoveredResourceResult>>;
+  public function CreateProgressUpdateStream(CreateProgressUpdateStreamRequest) Awaitable<Errors\Result<CreateProgressUpdateStreamResult>>;
   public function DeleteProgressUpdateStream(DeleteProgressUpdateStreamRequest) Awaitable<Errors\Result<DeleteProgressUpdateStreamResult>>;
   public function DescribeApplicationState(DescribeApplicationStateRequest) Awaitable<Errors\Result<DescribeApplicationStateResult>>;
-  public function ListDiscoveredResources(ListDiscoveredResourcesRequest) Awaitable<Errors\Result<ListDiscoveredResourcesResult>>;
-  public function AssociateDiscoveredResource(AssociateDiscoveredResourceRequest) Awaitable<Errors\Result<AssociateDiscoveredResourceResult>>;
-  public function ImportMigrationTask(ImportMigrationTaskRequest) Awaitable<Errors\Result<ImportMigrationTaskResult>>;
-  public function ListProgressUpdateStreams(ListProgressUpdateStreamsRequest) Awaitable<Errors\Result<ListProgressUpdateStreamsResult>>;
-  public function PutResourceAttributes(PutResourceAttributesRequest) Awaitable<Errors\Result<PutResourceAttributesResult>>;
-  public function CreateProgressUpdateStream(CreateProgressUpdateStreamRequest) Awaitable<Errors\Result<CreateProgressUpdateStreamResult>>;
   public function DescribeMigrationTask(DescribeMigrationTaskRequest) Awaitable<Errors\Result<DescribeMigrationTaskResult>>;
   public function DisassociateCreatedArtifact(DisassociateCreatedArtifactRequest) Awaitable<Errors\Result<DisassociateCreatedArtifactResult>>;
   public function DisassociateDiscoveredResource(DisassociateDiscoveredResourceRequest) Awaitable<Errors\Result<DisassociateDiscoveredResourceResult>>;
+  public function ImportMigrationTask(ImportMigrationTaskRequest) Awaitable<Errors\Result<ImportMigrationTaskResult>>;
   public function ListApplicationStates(ListApplicationStatesRequest) Awaitable<Errors\Result<ListApplicationStatesResult>>;
+  public function ListCreatedArtifacts(ListCreatedArtifactsRequest) Awaitable<Errors\Result<ListCreatedArtifactsResult>>;
+  public function ListDiscoveredResources(ListDiscoveredResourcesRequest) Awaitable<Errors\Result<ListDiscoveredResourcesResult>>;
+  public function ListMigrationTasks(ListMigrationTasksRequest) Awaitable<Errors\Result<ListMigrationTasksResult>>;
+  public function ListProgressUpdateStreams(ListProgressUpdateStreamsRequest) Awaitable<Errors\Result<ListProgressUpdateStreamsResult>>;
   public function NotifyApplicationState(NotifyApplicationStateRequest) Awaitable<Errors\Result<NotifyApplicationStateResult>>;
   public function NotifyMigrationTaskState(NotifyMigrationTaskStateRequest) Awaitable<Errors\Result<NotifyMigrationTaskStateResult>>;
+  public function PutResourceAttributes(PutResourceAttributesRequest) Awaitable<Errors\Result<PutResourceAttributesResult>>;
+}
+
+class AccessDeniedException {
+  public ErrorMessage $message;
+}
+
+class ApplicationId {
+}
+
+class ApplicationIds {
+}
+
+class ApplicationState {
+  public ApplicationId $application_id;
+  public ApplicationStatus $application_status;
+  public UpdateDateTime $last_updated_time;
+}
+
+class ApplicationStateList {
+}
+
+class ApplicationStatus {
+}
+
+class AssociateCreatedArtifactRequest {
+  public CreatedArtifact $created_artifact;
+  public DryRun $dry_run;
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class AssociateCreatedArtifactResult {
+}
+
+class AssociateDiscoveredResourceRequest {
+  public DiscoveredResource $discovered_resource;
+  public DryRun $dry_run;
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
 }
 
 class AssociateDiscoveredResourceResult {
 }
 
+class ConfigurationId {
+}
+
 class CreateProgressUpdateStreamRequest {
-  public ProgressUpdateStream $progress_update_stream_name;
   public DryRun $dry_run;
+  public ProgressUpdateStream $progress_update_stream_name;
+}
+
+class CreateProgressUpdateStreamResult {
+}
+
+class CreatedArtifact {
+  public CreatedArtifactDescription $description;
+  public CreatedArtifactName $name;
+}
+
+class CreatedArtifactDescription {
 }
 
 class CreatedArtifactList {
 }
 
+class CreatedArtifactName {
+}
+
+class DeleteProgressUpdateStreamRequest {
+  public DryRun $dry_run;
+  public ProgressUpdateStream $progress_update_stream_name;
+}
+
+class DeleteProgressUpdateStreamResult {
+}
+
+class DescribeApplicationStateRequest {
+  public ApplicationId $application_id;
+}
+
+class DescribeApplicationStateResult {
+  public ApplicationStatus $application_status;
+  public UpdateDateTime $last_updated_time;
+}
+
 class DescribeMigrationTaskRequest {
-  public ProgressUpdateStream $progress_update_stream;
   public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class DescribeMigrationTaskResult {
+  public MigrationTask $migration_task;
+}
+
+class DisassociateCreatedArtifactRequest {
+  public CreatedArtifactName $created_artifact_name;
+  public DryRun $dry_run;
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class DisassociateCreatedArtifactResult {
+}
+
+class DisassociateDiscoveredResourceRequest {
+  public ConfigurationId $configuration_id;
+  public DryRun $dry_run;
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class DisassociateDiscoveredResourceResult {
+}
+
+class DiscoveredResource {
+  public ConfigurationId $configuration_id;
+  public DiscoveredResourceDescription $description;
+}
+
+class DiscoveredResourceDescription {
+}
+
+class DiscoveredResourceList {
+}
+
+class DryRun {
 }
 
 class DryRunOperation {
   public ErrorMessage $message;
 }
 
-class ListMigrationTasksResult {
-  public Token $next_token;
-  public MigrationTaskSummaryList $migration_task_summary_list;
+class ErrorMessage {
 }
 
-class ProgressUpdateStreamSummaryList {
+class HomeRegionNotSetException {
+  public ErrorMessage $message;
 }
 
-class PutResourceAttributesResult {
+class ImportMigrationTaskRequest {
+  public DryRun $dry_run;
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class ImportMigrationTaskResult {
+}
+
+class InternalServerError {
+  public ErrorMessage $message;
 }
 
 class InvalidInputException {
@@ -59,21 +179,10 @@ class InvalidInputException {
 class LatestResourceAttributeList {
 }
 
-class PutResourceAttributesRequest {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public ResourceAttributeList $resource_attribute_list;
-  public DryRun $dry_run;
-}
-
-class ApplicationIds {
-}
-
-class DeleteProgressUpdateStreamResult {
-}
-
-class InternalServerError {
-  public ErrorMessage $message;
+class ListApplicationStatesRequest {
+  public ApplicationIds $application_ids;
+  public MaxResults $max_results;
+  public Token $next_token;
 }
 
 class ListApplicationStatesResult {
@@ -81,269 +190,147 @@ class ListApplicationStatesResult {
   public Token $next_token;
 }
 
-class ListCreatedArtifactsResult {
+class ListCreatedArtifactsRequest {
+  public MaxResultsCreatedArtifacts $max_results;
+  public MigrationTaskName $migration_task_name;
   public Token $next_token;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class ListCreatedArtifactsResult {
   public CreatedArtifactList $created_artifact_list;
+  public Token $next_token;
+}
+
+class ListDiscoveredResourcesRequest {
+  public MaxResultsResources $max_results;
+  public MigrationTaskName $migration_task_name;
+  public Token $next_token;
+  public ProgressUpdateStream $progress_update_stream;
+}
+
+class ListDiscoveredResourcesResult {
+  public DiscoveredResourceList $discovered_resource_list;
+  public Token $next_token;
 }
 
 class ListMigrationTasksRequest {
-  public Token $next_token;
   public MaxResults $max_results;
+  public Token $next_token;
   public ResourceName $resource_name;
+}
+
+class ListMigrationTasksResult {
+  public MigrationTaskSummaryList $migration_task_summary_list;
+  public Token $next_token;
+}
+
+class ListProgressUpdateStreamsRequest {
+  public MaxResults $max_results;
+  public Token $next_token;
+}
+
+class ListProgressUpdateStreamsResult {
+  public Token $next_token;
+  public ProgressUpdateStreamSummaryList $progress_update_stream_summary_list;
+}
+
+class MaxResults {
+}
+
+class MaxResultsCreatedArtifacts {
+}
+
+class MaxResultsResources {
+}
+
+class MigrationTask {
+  public MigrationTaskName $migration_task_name;
+  public ProgressUpdateStream $progress_update_stream;
+  public LatestResourceAttributeList $resource_attribute_list;
+  public Task $task;
+  public UpdateDateTime $update_date_time;
 }
 
 class MigrationTaskName {
 }
 
-class CreatedArtifactDescription {
+class MigrationTaskSummary {
+  public MigrationTaskName $migration_task_name;
+  public ProgressPercent $progress_percent;
+  public ProgressUpdateStream $progress_update_stream;
+  public Status $status;
+  public StatusDetail $status_detail;
+  public UpdateDateTime $update_date_time;
 }
 
-class DiscoveredResourceDescription {
+class MigrationTaskSummaryList {
 }
 
-class DiscoveredResourceList {
+class NextUpdateSeconds {
 }
 
-class ImportMigrationTaskResult {
+class NotifyApplicationStateRequest {
+  public ApplicationId $application_id;
+  public DryRun $dry_run;
+  public ApplicationStatus $status;
+  public UpdateDateTime $update_date_time;
 }
 
 class NotifyApplicationStateResult {
 }
 
-class NotifyMigrationTaskStateResult {
-}
-
-class ProgressUpdateStreamSummary {
-  public ProgressUpdateStream $progress_update_stream_name;
-}
-
-class Task {
-  public Status $status;
-  public StatusDetail $status_detail;
-  public ProgressPercent $progress_percent;
-}
-
-class UpdateDateTime {
-}
-
-class ConfigurationId {
-}
-
-class CreatedArtifact {
-  public CreatedArtifactName $name;
-  public CreatedArtifactDescription $description;
-}
-
-class DescribeApplicationStateRequest {
-  public ApplicationId $application_id;
-}
-
-class ListCreatedArtifactsRequest {
-  public Token $next_token;
-  public MaxResultsCreatedArtifacts $max_results;
-  public ProgressUpdateStream $progress_update_stream;
+class NotifyMigrationTaskStateRequest {
+  public DryRun $dry_run;
   public MigrationTaskName $migration_task_name;
+  public NextUpdateSeconds $next_update_seconds;
+  public ProgressUpdateStream $progress_update_stream;
+  public Task $task;
+  public UpdateDateTime $update_date_time;
+}
+
+class NotifyMigrationTaskStateResult {
 }
 
 class PolicyErrorException {
   public ErrorMessage $message;
 }
 
-class StatusDetail {
-}
-
-class ErrorMessage {
-}
-
-class ImportMigrationTaskRequest {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public DryRun $dry_run;
-}
-
-class MigrationTaskSummaryList {
-}
-
-class NotifyMigrationTaskStateRequest {
-  public Task $task;
-  public UpdateDateTime $update_date_time;
-  public NextUpdateSeconds $next_update_seconds;
-  public DryRun $dry_run;
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-}
-
-class ResourceAttributeValue {
-}
-
-class ThrottlingException {
-  public ErrorMessage $message;
-  public RetryAfterSeconds $retry_after_seconds;
-}
-
-class UnauthorizedOperation {
-  public ErrorMessage $message;
-}
-
-class ApplicationStateList {
-}
-
-class AssociateCreatedArtifactRequest {
-  public MigrationTaskName $migration_task_name;
-  public CreatedArtifact $created_artifact;
-  public DryRun $dry_run;
-  public ProgressUpdateStream $progress_update_stream;
-}
-
-class CreateProgressUpdateStreamResult {
-}
-
-class HomeRegionNotSetException {
-  public ErrorMessage $message;
+class ProgressPercent {
 }
 
 class ProgressUpdateStream {
 }
 
-class Token {
-}
-
-class ApplicationStatus {
-}
-
-class AssociateDiscoveredResourceRequest {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public DiscoveredResource $discovered_resource;
-  public DryRun $dry_run;
-}
-
-class DescribeMigrationTaskResult {
-  public MigrationTask $migration_task;
-}
-
-class MigrationTask {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public Task $task;
-  public UpdateDateTime $update_date_time;
-  public LatestResourceAttributeList $resource_attribute_list;
-}
-
-class Status {
-}
-
-class ApplicationId {
-}
-
-class NextUpdateSeconds {
-}
-
-class DeleteProgressUpdateStreamRequest {
+class ProgressUpdateStreamSummary {
   public ProgressUpdateStream $progress_update_stream_name;
+}
+
+class ProgressUpdateStreamSummaryList {
+}
+
+class PutResourceAttributesRequest {
   public DryRun $dry_run;
-}
-
-class DiscoveredResource {
-  public DiscoveredResourceDescription $description;
-  public ConfigurationId $configuration_id;
-}
-
-class ListProgressUpdateStreamsRequest {
-  public Token $next_token;
-  public MaxResults $max_results;
-}
-
-class MaxResultsResources {
-}
-
-class AccessDeniedException {
-  public ErrorMessage $message;
-}
-
-class DryRun {
-}
-
-class ListApplicationStatesRequest {
-  public ApplicationIds $application_ids;
-  public Token $next_token;
-  public MaxResults $max_results;
-}
-
-class ServiceUnavailableException {
-  public ErrorMessage $message;
-}
-
-class ApplicationState {
-  public ApplicationId $application_id;
-  public ApplicationStatus $application_status;
-  public UpdateDateTime $last_updated_time;
-}
-
-class AssociateCreatedArtifactResult {
-}
-
-class CreatedArtifactName {
-}
-
-class DisassociateDiscoveredResourceRequest {
-  public DryRun $dry_run;
-  public ProgressUpdateStream $progress_update_stream;
   public MigrationTaskName $migration_task_name;
-  public ConfigurationId $configuration_id;
-}
-
-class DisassociateDiscoveredResourceResult {
-}
-
-class ListDiscoveredResourcesRequest {
   public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public Token $next_token;
-  public MaxResultsResources $max_results;
+  public ResourceAttributeList $resource_attribute_list;
 }
 
-class MaxResultsCreatedArtifacts {
+class PutResourceAttributesResult {
 }
 
-class MigrationTaskSummary {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public Status $status;
-  public ProgressPercent $progress_percent;
-  public StatusDetail $status_detail;
-  public UpdateDateTime $update_date_time;
-}
-
-class NotifyApplicationStateRequest {
-  public DryRun $dry_run;
-  public ApplicationId $application_id;
-  public ApplicationStatus $status;
-  public UpdateDateTime $update_date_time;
+class ResourceAttribute {
+  public ResourceAttributeType $type;
+  public ResourceAttributeValue $value;
 }
 
 class ResourceAttributeList {
 }
 
-class DisassociateCreatedArtifactRequest {
-  public ProgressUpdateStream $progress_update_stream;
-  public MigrationTaskName $migration_task_name;
-  public CreatedArtifactName $created_artifact_name;
-  public DryRun $dry_run;
-}
-
-class RetryAfterSeconds {
-}
-
-class ListProgressUpdateStreamsResult {
-  public ProgressUpdateStreamSummaryList $progress_update_stream_summary_list;
-  public Token $next_token;
-}
-
-class MaxResults {
-}
-
 class ResourceAttributeType {
+}
+
+class ResourceAttributeValue {
 }
 
 class ResourceName {
@@ -353,24 +340,37 @@ class ResourceNotFoundException {
   public ErrorMessage $message;
 }
 
-class DescribeApplicationStateResult {
-  public ApplicationStatus $application_status;
-  public UpdateDateTime $last_updated_time;
+class RetryAfterSeconds {
 }
 
-class DisassociateCreatedArtifactResult {
+class ServiceUnavailableException {
+  public ErrorMessage $message;
 }
 
-class ListDiscoveredResourcesResult {
-  public Token $next_token;
-  public DiscoveredResourceList $discovered_resource_list;
+class Status {
 }
 
-class ProgressPercent {
+class StatusDetail {
 }
 
-class ResourceAttribute {
-  public ResourceAttributeValue $value;
-  public ResourceAttributeType $type;
+class Task {
+  public ProgressPercent $progress_percent;
+  public Status $status;
+  public StatusDetail $status_detail;
+}
+
+class ThrottlingException {
+  public ErrorMessage $message;
+  public RetryAfterSeconds $retry_after_seconds;
+}
+
+class Token {
+}
+
+class UnauthorizedOperation {
+  public ErrorMessage $message;
+}
+
+class UpdateDateTime {
 }
 

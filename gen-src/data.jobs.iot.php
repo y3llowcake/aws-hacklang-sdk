@@ -8,35 +8,107 @@ interface IoT Jobs Data Plane {
   public function UpdateJobExecution(UpdateJobExecutionRequest) Awaitable<Errors\Result<UpdateJobExecutionResponse>>;
 }
 
-class IncludeJobDocument {
+class ApproximateSecondsBeforeTimedOut {
 }
 
-class ServiceUnavailableException {
+class BinaryBlob {
+}
+
+class CertificateValidationException {
   public errorMessage $message;
 }
 
-class StartNextPendingJobExecutionResponse {
+class DescribeJobExecutionJobId {
+}
+
+class DescribeJobExecutionRequest {
+  public ExecutionNumber $execution_number;
+  public IncludeJobDocument $include_job_document;
+  public DescribeJobExecutionJobId $job_id;
+  public ThingName $thing_name;
+}
+
+class DescribeJobExecutionResponse {
   public JobExecution $execution;
 }
 
-class UpdateJobExecutionResponse {
-  public JobDocument $job_document;
-  public JobExecutionState $execution_state;
+class DetailsKey {
 }
 
 class DetailsMap {
 }
 
+class DetailsValue {
+}
+
+class ExecutionNumber {
+}
+
 class ExpectedVersion {
 }
 
-class JobExecutionSummary {
+class GetPendingJobExecutionsRequest {
+  public ThingName $thing_name;
+}
+
+class GetPendingJobExecutionsResponse {
+  public JobExecutionSummaryList $in_progress_jobs;
+  public JobExecutionSummaryList $queued_jobs;
+}
+
+class IncludeExecutionState {
+}
+
+class IncludeJobDocument {
+}
+
+class InvalidRequestException {
+  public errorMessage $message;
+}
+
+class InvalidStateTransitionException {
+  public errorMessage $message;
+}
+
+class JobDocument {
+}
+
+class JobExecution {
+  public ApproximateSecondsBeforeTimedOut $approximate_seconds_before_timed_out;
+  public ExecutionNumber $execution_number;
+  public JobDocument $job_document;
   public JobId $job_id;
+  public LastUpdatedAt $last_updated_at;
   public QueuedAt $queued_at;
   public StartedAt $started_at;
-  public LastUpdatedAt $last_updated_at;
+  public JobExecutionStatus $status;
+  public DetailsMap $status_details;
+  public ThingName $thing_name;
   public VersionNumber $version_number;
+}
+
+class JobExecutionState {
+  public JobExecutionStatus $status;
+  public DetailsMap $status_details;
+  public VersionNumber $version_number;
+}
+
+class JobExecutionStatus {
+}
+
+class JobExecutionSummary {
   public ExecutionNumber $execution_number;
+  public JobId $job_id;
+  public LastUpdatedAt $last_updated_at;
+  public QueuedAt $queued_at;
+  public StartedAt $started_at;
+  public VersionNumber $version_number;
+}
+
+class JobExecutionSummaryList {
+}
+
+class JobId {
 }
 
 class LastUpdatedAt {
@@ -49,68 +121,31 @@ class ResourceNotFoundException {
   public errorMessage $message;
 }
 
-class UpdateJobExecutionRequest {
-  public IncludeJobDocument $include_job_document;
-  public ThingName $thing_name;
-  public JobExecutionStatus $status;
+class ServiceUnavailableException {
+  public errorMessage $message;
+}
+
+class StartNextPendingJobExecutionRequest {
+  public DetailsMap $status_details;
   public StepTimeoutInMinutes $step_timeout_in_minutes;
-  public IncludeExecutionState $include_job_execution_state;
-  public ExecutionNumber $execution_number;
-  public JobId $job_id;
-  public DetailsMap $status_details;
-  public ExpectedVersion $expected_version;
+  public ThingName $thing_name;
 }
 
-class CertificateValidationException {
-  public errorMessage $message;
-}
-
-class IncludeExecutionState {
-}
-
-class InvalidRequestException {
-  public errorMessage $message;
-}
-
-class JobExecutionState {
-  public JobExecutionStatus $status;
-  public DetailsMap $status_details;
-  public VersionNumber $version_number;
+class StartNextPendingJobExecutionResponse {
+  public JobExecution $execution;
 }
 
 class StartedAt {
 }
 
-class DescribeJobExecutionRequest {
-  public DescribeJobExecutionJobId $job_id;
-  public ThingName $thing_name;
-  public IncludeJobDocument $include_job_document;
-  public ExecutionNumber $execution_number;
+class StepTimeoutInMinutes {
 }
 
-class JobExecution {
-  public StartedAt $started_at;
-  public ApproximateSecondsBeforeTimedOut $approximate_seconds_before_timed_out;
-  public VersionNumber $version_number;
-  public LastUpdatedAt $last_updated_at;
-  public ExecutionNumber $execution_number;
-  public JobDocument $job_document;
-  public JobId $job_id;
-  public ThingName $thing_name;
-  public JobExecutionStatus $status;
-  public DetailsMap $status_details;
-  public QueuedAt $queued_at;
+class TerminalStateException {
+  public errorMessage $message;
 }
 
-class JobExecutionStatus {
-}
-
-class DetailsValue {
-}
-
-class GetPendingJobExecutionsResponse {
-  public JobExecutionSummaryList $in_progress_jobs;
-  public JobExecutionSummaryList $queued_jobs;
+class ThingName {
 }
 
 class ThrottlingException {
@@ -118,61 +153,26 @@ class ThrottlingException {
   public BinaryBlob $payload;
 }
 
-class errorMessage {
+class UpdateJobExecutionRequest {
+  public ExecutionNumber $execution_number;
+  public ExpectedVersion $expected_version;
+  public IncludeJobDocument $include_job_document;
+  public IncludeExecutionState $include_job_execution_state;
+  public JobId $job_id;
+  public JobExecutionStatus $status;
+  public DetailsMap $status_details;
+  public StepTimeoutInMinutes $step_timeout_in_minutes;
+  public ThingName $thing_name;
 }
 
-class ApproximateSecondsBeforeTimedOut {
-}
-
-class DescribeJobExecutionJobId {
-}
-
-class DescribeJobExecutionResponse {
-  public JobExecution $execution;
-}
-
-class ExecutionNumber {
-}
-
-class JobExecutionSummaryList {
-}
-
-class JobId {
+class UpdateJobExecutionResponse {
+  public JobExecutionState $execution_state;
+  public JobDocument $job_document;
 }
 
 class VersionNumber {
 }
 
-class TerminalStateException {
-  public errorMessage $message;
-}
-
-class BinaryBlob {
-}
-
-class DetailsKey {
-}
-
-class GetPendingJobExecutionsRequest {
-  public ThingName $thing_name;
-}
-
-class InvalidStateTransitionException {
-  public errorMessage $message;
-}
-
-class JobDocument {
-}
-
-class StartNextPendingJobExecutionRequest {
-  public StepTimeoutInMinutes $step_timeout_in_minutes;
-  public ThingName $thing_name;
-  public DetailsMap $status_details;
-}
-
-class StepTimeoutInMinutes {
-}
-
-class ThingName {
+class errorMessage {
 }
 

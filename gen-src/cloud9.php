@@ -2,56 +2,59 @@
 namespace slack\aws\cloud9;
 
 interface Cloud9 {
-  public function ListEnvironments(ListEnvironmentsRequest) Awaitable<Errors\Result<ListEnvironmentsResult>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateEnvironment(UpdateEnvironmentRequest) Awaitable<Errors\Result<UpdateEnvironmentResult>>;
-  public function UpdateEnvironmentMembership(UpdateEnvironmentMembershipRequest) Awaitable<Errors\Result<UpdateEnvironmentMembershipResult>>;
+  public function CreateEnvironmentEC2(CreateEnvironmentEC2Request) Awaitable<Errors\Result<CreateEnvironmentEC2Result>>;
   public function CreateEnvironmentMembership(CreateEnvironmentMembershipRequest) Awaitable<Errors\Result<CreateEnvironmentMembershipResult>>;
   public function DeleteEnvironment(DeleteEnvironmentRequest) Awaitable<Errors\Result<DeleteEnvironmentResult>>;
   public function DeleteEnvironmentMembership(DeleteEnvironmentMembershipRequest) Awaitable<Errors\Result<DeleteEnvironmentMembershipResult>>;
   public function DescribeEnvironmentMemberships(DescribeEnvironmentMembershipsRequest) Awaitable<Errors\Result<DescribeEnvironmentMembershipsResult>>;
   public function DescribeEnvironmentStatus(DescribeEnvironmentStatusRequest) Awaitable<Errors\Result<DescribeEnvironmentStatusResult>>;
   public function DescribeEnvironments(DescribeEnvironmentsRequest) Awaitable<Errors\Result<DescribeEnvironmentsResult>>;
+  public function ListEnvironments(ListEnvironmentsRequest) Awaitable<Errors\Result<ListEnvironmentsResult>>;
   public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
   public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function CreateEnvironmentEC2(CreateEnvironmentEC2Request) Awaitable<Errors\Result<CreateEnvironmentEC2Result>>;
+  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateEnvironment(UpdateEnvironmentRequest) Awaitable<Errors\Result<UpdateEnvironmentResult>>;
+  public function UpdateEnvironmentMembership(UpdateEnvironmentMembershipRequest) Awaitable<Errors\Result<UpdateEnvironmentMembershipResult>>;
 }
 
-class EnvironmentName {
+class AutomaticStopTimeMinutes {
 }
 
-class NotFoundException {
+class BadRequestException {
 }
 
-class String {
+class BoundedEnvironmentIdList {
 }
 
-class TooManyRequestsException {
+class ClientRequestToken {
 }
 
-class UpdateEnvironmentRequest {
-  public EnvironmentName $name;
+class ConflictException {
+}
+
+class CreateEnvironmentEC2Request {
+  public AutomaticStopTimeMinutes $automatic_stop_time_minutes;
+  public ClientRequestToken $client_request_token;
   public EnvironmentDescription $description;
+  public InstanceType $instance_type;
+  public EnvironmentName $name;
+  public UserArn $owner_arn;
+  public SubnetId $subnet_id;
+  public TagList $tags;
+}
+
+class CreateEnvironmentEC2Result {
   public EnvironmentId $environment_id;
 }
 
-class EnvironmentType {
-}
-
-class Timestamp {
+class CreateEnvironmentMembershipRequest {
+  public EnvironmentId $environment_id;
+  public MemberPermissions $permissions;
+  public UserArn $user_arn;
 }
 
 class CreateEnvironmentMembershipResult {
   public EnvironmentMember $membership;
-}
-
-class ListEnvironmentsResult {
-  public string $next_token;
-  public EnvironmentIdList $environment_ids;
-}
-
-class ListTagsForResourceRequest {
-  public EnvironmentArn $resource_arn;
 }
 
 class DeleteEnvironmentMembershipRequest {
@@ -59,8 +62,22 @@ class DeleteEnvironmentMembershipRequest {
   public UserArn $user_arn;
 }
 
+class DeleteEnvironmentMembershipResult {
+}
+
 class DeleteEnvironmentRequest {
   public EnvironmentId $environment_id;
+}
+
+class DeleteEnvironmentResult {
+}
+
+class DescribeEnvironmentMembershipsRequest {
+  public EnvironmentId $environment_id;
+  public MaxResults $max_results;
+  public string $next_token;
+  public PermissionsList $permissions;
+  public UserArn $user_arn;
 }
 
 class DescribeEnvironmentMembershipsResult {
@@ -68,126 +85,34 @@ class DescribeEnvironmentMembershipsResult {
   public string $next_token;
 }
 
-class EnvironmentLifecycle {
-  public EnvironmentLifecycleStatus $status;
-  public string $reason;
-  public string $failure_resource;
-}
-
 class DescribeEnvironmentStatusRequest {
   public EnvironmentId $environment_id;
+}
+
+class DescribeEnvironmentStatusResult {
+  public string $message;
+  public EnvironmentStatus $status;
 }
 
 class DescribeEnvironmentsRequest {
   public BoundedEnvironmentIdList $environment_ids;
 }
 
-class EnvironmentArn {
-}
-
-class LimitExceededException {
-}
-
-class ListEnvironmentsRequest {
-  public string $next_token;
-  public MaxResults $max_results;
-}
-
-class EnvironmentIdList {
-}
-
-class UntagResourceResponse {
-}
-
-class UpdateEnvironmentMembershipRequest {
-  public EnvironmentId $environment_id;
-  public UserArn $user_arn;
-  public MemberPermissions $permissions;
-}
-
-class AutomaticStopTimeMinutes {
-}
-
-class DeleteEnvironmentMembershipResult {
-}
-
-class TagList {
-}
-
-class CreateEnvironmentEC2Request {
-  public AutomaticStopTimeMinutes $automatic_stop_time_minutes;
-  public UserArn $owner_arn;
-  public TagList $tags;
-  public EnvironmentName $name;
-  public EnvironmentDescription $description;
-  public ClientRequestToken $client_request_token;
-  public InstanceType $instance_type;
-  public SubnetId $subnet_id;
-}
-
-class CreateEnvironmentEC2Result {
-  public EnvironmentId $environment_id;
-}
-
-class EnvironmentList {
-}
-
-class ForbiddenException {
-}
-
-class SubnetId {
-}
-
-class TagValue {
-}
-
 class DescribeEnvironmentsResult {
   public EnvironmentList $environments;
 }
 
-class InternalServerErrorException {
-}
-
-class BadRequestException {
-}
-
-class EnvironmentMembersList {
-}
-
-class UntagResourceRequest {
-  public EnvironmentArn $resource_arn;
-  public TagKeyList $tag_keys;
-}
-
-class ConflictException {
-}
-
 class Environment {
-  public EnvironmentId $id;
-  public EnvironmentName $name;
-  public EnvironmentDescription $description;
-  public EnvironmentType $type;
   public string $arn;
-  public string $owner_arn;
+  public EnvironmentDescription $description;
+  public EnvironmentId $id;
   public EnvironmentLifecycle $lifecycle;
+  public EnvironmentName $name;
+  public string $owner_arn;
+  public EnvironmentType $type;
 }
 
-class EnvironmentLifecycleStatus {
-}
-
-class MaxResults {
-}
-
-class MemberPermissions {
-}
-
-class TagResourceResponse {
-}
-
-class UserArn {
-}
-
-class ClientRequestToken {
+class EnvironmentArn {
 }
 
 class EnvironmentDescription {
@@ -196,8 +121,78 @@ class EnvironmentDescription {
 class EnvironmentId {
 }
 
+class EnvironmentIdList {
+}
+
+class EnvironmentLifecycle {
+  public string $failure_resource;
+  public string $reason;
+  public EnvironmentLifecycleStatus $status;
+}
+
+class EnvironmentLifecycleStatus {
+}
+
+class EnvironmentList {
+}
+
+class EnvironmentMember {
+  public EnvironmentId $environment_id;
+  public Timestamp $last_access;
+  public Permissions $permissions;
+  public UserArn $user_arn;
+  public string $user_id;
+}
+
+class EnvironmentMembersList {
+}
+
+class EnvironmentName {
+}
+
+class EnvironmentStatus {
+}
+
+class EnvironmentType {
+}
+
+class ForbiddenException {
+}
+
+class InstanceType {
+}
+
+class InternalServerErrorException {
+}
+
+class LimitExceededException {
+}
+
+class ListEnvironmentsRequest {
+  public MaxResults $max_results;
+  public string $next_token;
+}
+
+class ListEnvironmentsResult {
+  public EnvironmentIdList $environment_ids;
+  public string $next_token;
+}
+
+class ListTagsForResourceRequest {
+  public EnvironmentArn $resource_arn;
+}
+
 class ListTagsForResourceResponse {
   public TagList $tags;
+}
+
+class MaxResults {
+}
+
+class MemberPermissions {
+}
+
+class NotFoundException {
 }
 
 class Permissions {
@@ -206,9 +201,10 @@ class Permissions {
 class PermissionsList {
 }
 
-class DescribeEnvironmentStatusResult {
-  public EnvironmentStatus $status;
-  public string $message;
+class String {
+}
+
+class SubnetId {
 }
 
 class Tag {
@@ -216,13 +212,13 @@ class Tag {
   public TagValue $value;
 }
 
+class TagKey {
+}
+
 class TagKeyList {
 }
 
-class EnvironmentStatus {
-}
-
-class InstanceType {
+class TagList {
 }
 
 class TagResourceRequest {
@@ -230,41 +226,45 @@ class TagResourceRequest {
   public TagList $tags;
 }
 
-class CreateEnvironmentMembershipRequest {
-  public EnvironmentId $environment_id;
-  public UserArn $user_arn;
-  public MemberPermissions $permissions;
+class TagResourceResponse {
 }
 
-class DeleteEnvironmentResult {
+class TagValue {
+}
+
+class Timestamp {
+}
+
+class TooManyRequestsException {
+}
+
+class UntagResourceRequest {
+  public EnvironmentArn $resource_arn;
+  public TagKeyList $tag_keys;
+}
+
+class UntagResourceResponse {
+}
+
+class UpdateEnvironmentMembershipRequest {
+  public EnvironmentId $environment_id;
+  public MemberPermissions $permissions;
+  public UserArn $user_arn;
 }
 
 class UpdateEnvironmentMembershipResult {
   public EnvironmentMember $membership;
 }
 
+class UpdateEnvironmentRequest {
+  public EnvironmentDescription $description;
+  public EnvironmentId $environment_id;
+  public EnvironmentName $name;
+}
+
 class UpdateEnvironmentResult {
 }
 
-class BoundedEnvironmentIdList {
-}
-
-class DescribeEnvironmentMembershipsRequest {
-  public PermissionsList $permissions;
-  public string $next_token;
-  public MaxResults $max_results;
-  public UserArn $user_arn;
-  public EnvironmentId $environment_id;
-}
-
-class EnvironmentMember {
-  public EnvironmentId $environment_id;
-  public Timestamp $last_access;
-  public Permissions $permissions;
-  public string $user_id;
-  public UserArn $user_arn;
-}
-
-class TagKey {
+class UserArn {
 }
 

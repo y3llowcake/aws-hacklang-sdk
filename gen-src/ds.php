@@ -2,157 +2,295 @@
 namespace slack\aws\ds;
 
 interface Directory Service {
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResult>>;
-  public function RemoveIpRoutes(RemoveIpRoutesRequest) Awaitable<Errors\Result<RemoveIpRoutesResult>>;
-  public function StartSchemaExtension(StartSchemaExtensionRequest) Awaitable<Errors\Result<StartSchemaExtensionResult>>;
+  public function AcceptSharedDirectory(AcceptSharedDirectoryRequest) Awaitable<Errors\Result<AcceptSharedDirectoryResult>>;
+  public function AddIpRoutes(AddIpRoutesRequest) Awaitable<Errors\Result<AddIpRoutesResult>>;
+  public function AddTagsToResource(AddTagsToResourceRequest) Awaitable<Errors\Result<AddTagsToResourceResult>>;
+  public function CancelSchemaExtension(CancelSchemaExtensionRequest) Awaitable<Errors\Result<CancelSchemaExtensionResult>>;
+  public function ConnectDirectory(ConnectDirectoryRequest) Awaitable<Errors\Result<ConnectDirectoryResult>>;
+  public function CreateAlias(CreateAliasRequest) Awaitable<Errors\Result<CreateAliasResult>>;
+  public function CreateComputer(CreateComputerRequest) Awaitable<Errors\Result<CreateComputerResult>>;
+  public function CreateConditionalForwarder(CreateConditionalForwarderRequest) Awaitable<Errors\Result<CreateConditionalForwarderResult>>;
+  public function CreateDirectory(CreateDirectoryRequest) Awaitable<Errors\Result<CreateDirectoryResult>>;
+  public function CreateLogSubscription(CreateLogSubscriptionRequest) Awaitable<Errors\Result<CreateLogSubscriptionResult>>;
+  public function CreateMicrosoftAD(CreateMicrosoftADRequest) Awaitable<Errors\Result<CreateMicrosoftADResult>>;
+  public function CreateSnapshot(CreateSnapshotRequest) Awaitable<Errors\Result<CreateSnapshotResult>>;
+  public function CreateTrust(CreateTrustRequest) Awaitable<Errors\Result<CreateTrustResult>>;
+  public function DeleteConditionalForwarder(DeleteConditionalForwarderRequest) Awaitable<Errors\Result<DeleteConditionalForwarderResult>>;
+  public function DeleteDirectory(DeleteDirectoryRequest) Awaitable<Errors\Result<DeleteDirectoryResult>>;
+  public function DeleteLogSubscription(DeleteLogSubscriptionRequest) Awaitable<Errors\Result<DeleteLogSubscriptionResult>>;
+  public function DeleteSnapshot(DeleteSnapshotRequest) Awaitable<Errors\Result<DeleteSnapshotResult>>;
+  public function DeleteTrust(DeleteTrustRequest) Awaitable<Errors\Result<DeleteTrustResult>>;
   public function DeregisterCertificate(DeregisterCertificateRequest) Awaitable<Errors\Result<DeregisterCertificateResult>>;
+  public function DeregisterEventTopic(DeregisterEventTopicRequest) Awaitable<Errors\Result<DeregisterEventTopicResult>>;
+  public function DescribeCertificate(DescribeCertificateRequest) Awaitable<Errors\Result<DescribeCertificateResult>>;
+  public function DescribeConditionalForwarders(DescribeConditionalForwardersRequest) Awaitable<Errors\Result<DescribeConditionalForwardersResult>>;
+  public function DescribeDirectories(DescribeDirectoriesRequest) Awaitable<Errors\Result<DescribeDirectoriesResult>>;
+  public function DescribeDomainControllers(DescribeDomainControllersRequest) Awaitable<Errors\Result<DescribeDomainControllersResult>>;
+  public function DescribeEventTopics(DescribeEventTopicsRequest) Awaitable<Errors\Result<DescribeEventTopicsResult>>;
+  public function DescribeLDAPSSettings(DescribeLDAPSSettingsRequest) Awaitable<Errors\Result<DescribeLDAPSSettingsResult>>;
+  public function DescribeSharedDirectories(DescribeSharedDirectoriesRequest) Awaitable<Errors\Result<DescribeSharedDirectoriesResult>>;
   public function DescribeSnapshots(DescribeSnapshotsRequest) Awaitable<Errors\Result<DescribeSnapshotsResult>>;
+  public function DescribeTrusts(DescribeTrustsRequest) Awaitable<Errors\Result<DescribeTrustsResult>>;
   public function DisableLDAPS(DisableLDAPSRequest) Awaitable<Errors\Result<DisableLDAPSResult>>;
   public function DisableRadius(DisableRadiusRequest) Awaitable<Errors\Result<DisableRadiusResult>>;
-  public function ListCertificates(ListCertificatesRequest) Awaitable<Errors\Result<ListCertificatesResult>>;
-  public function ListLogSubscriptions(ListLogSubscriptionsRequest) Awaitable<Errors\Result<ListLogSubscriptionsResult>>;
-  public function UpdateRadius(UpdateRadiusRequest) Awaitable<Errors\Result<UpdateRadiusResult>>;
-  public function VerifyTrust(VerifyTrustRequest) Awaitable<Errors\Result<VerifyTrustResult>>;
-  public function ConnectDirectory(ConnectDirectoryRequest) Awaitable<Errors\Result<ConnectDirectoryResult>>;
-  public function DeleteConditionalForwarder(DeleteConditionalForwarderRequest) Awaitable<Errors\Result<DeleteConditionalForwarderResult>>;
-  public function DeleteTrust(DeleteTrustRequest) Awaitable<Errors\Result<DeleteTrustResult>>;
-  public function CreateAlias(CreateAliasRequest) Awaitable<Errors\Result<CreateAliasResult>>;
-  public function DescribeConditionalForwarders(DescribeConditionalForwardersRequest) Awaitable<Errors\Result<DescribeConditionalForwardersResult>>;
-  public function RejectSharedDirectory(RejectSharedDirectoryRequest) Awaitable<Errors\Result<RejectSharedDirectoryResult>>;
-  public function UpdateConditionalForwarder(UpdateConditionalForwarderRequest) Awaitable<Errors\Result<UpdateConditionalForwarderResult>>;
-  public function DeleteDirectory(DeleteDirectoryRequest) Awaitable<Errors\Result<DeleteDirectoryResult>>;
-  public function DescribeSharedDirectories(DescribeSharedDirectoriesRequest) Awaitable<Errors\Result<DescribeSharedDirectoriesResult>>;
   public function DisableSso(DisableSsoRequest) Awaitable<Errors\Result<DisableSsoResult>>;
-  public function CreateComputer(CreateComputerRequest) Awaitable<Errors\Result<CreateComputerResult>>;
-  public function CreateMicrosoftAD(CreateMicrosoftADRequest) Awaitable<Errors\Result<CreateMicrosoftADResult>>;
-  public function RemoveTagsFromResource(RemoveTagsFromResourceRequest) Awaitable<Errors\Result<RemoveTagsFromResourceResult>>;
-  public function ListIpRoutes(ListIpRoutesRequest) Awaitable<Errors\Result<ListIpRoutesResult>>;
-  public function UnshareDirectory(UnshareDirectoryRequest) Awaitable<Errors\Result<UnshareDirectoryResult>>;
-  public function RestoreFromSnapshot(RestoreFromSnapshotRequest) Awaitable<Errors\Result<RestoreFromSnapshotResult>>;
-  public function DeleteSnapshot(DeleteSnapshotRequest) Awaitable<Errors\Result<DeleteSnapshotResult>>;
-  public function DescribeDirectories(DescribeDirectoriesRequest) Awaitable<Errors\Result<DescribeDirectoriesResult>>;
   public function EnableLDAPS(EnableLDAPSRequest) Awaitable<Errors\Result<EnableLDAPSResult>>;
-  public function AddIpRoutes(AddIpRoutesRequest) Awaitable<Errors\Result<AddIpRoutesResult>>;
-  public function DescribeEventTopics(DescribeEventTopicsRequest) Awaitable<Errors\Result<DescribeEventTopicsResult>>;
-  public function EnableSso(EnableSsoRequest) Awaitable<Errors\Result<EnableSsoResult>>;
-  public function DeregisterEventTopic(DeregisterEventTopicRequest) Awaitable<Errors\Result<DeregisterEventTopicResult>>;
-  public function CreateTrust(CreateTrustRequest) Awaitable<Errors\Result<CreateTrustResult>>;
-  public function UpdateTrust(UpdateTrustRequest) Awaitable<Errors\Result<UpdateTrustResult>>;
-  public function DeleteLogSubscription(DeleteLogSubscriptionRequest) Awaitable<Errors\Result<DeleteLogSubscriptionResult>>;
-  public function RegisterEventTopic(RegisterEventTopicRequest) Awaitable<Errors\Result<RegisterEventTopicResult>>;
-  public function AddTagsToResource(AddTagsToResourceRequest) Awaitable<Errors\Result<AddTagsToResourceResult>>;
-  public function CreateLogSubscription(CreateLogSubscriptionRequest) Awaitable<Errors\Result<CreateLogSubscriptionResult>>;
-  public function CreateSnapshot(CreateSnapshotRequest) Awaitable<Errors\Result<CreateSnapshotResult>>;
-  public function ListSchemaExtensions(ListSchemaExtensionsRequest) Awaitable<Errors\Result<ListSchemaExtensionsResult>>;
-  public function CancelSchemaExtension(CancelSchemaExtensionRequest) Awaitable<Errors\Result<CancelSchemaExtensionResult>>;
-  public function DescribeCertificate(DescribeCertificateRequest) Awaitable<Errors\Result<DescribeCertificateResult>>;
-  public function DescribeLDAPSSettings(DescribeLDAPSSettingsRequest) Awaitable<Errors\Result<DescribeLDAPSSettingsResult>>;
   public function EnableRadius(EnableRadiusRequest) Awaitable<Errors\Result<EnableRadiusResult>>;
-  public function ResetUserPassword(ResetUserPasswordRequest) Awaitable<Errors\Result<ResetUserPasswordResult>>;
-  public function CreateConditionalForwarder(CreateConditionalForwarderRequest) Awaitable<Errors\Result<CreateConditionalForwarderResult>>;
-  public function DescribeTrusts(DescribeTrustsRequest) Awaitable<Errors\Result<DescribeTrustsResult>>;
-  public function GetSnapshotLimits(GetSnapshotLimitsRequest) Awaitable<Errors\Result<GetSnapshotLimitsResult>>;
+  public function EnableSso(EnableSsoRequest) Awaitable<Errors\Result<EnableSsoResult>>;
   public function GetDirectoryLimits(GetDirectoryLimitsRequest) Awaitable<Errors\Result<GetDirectoryLimitsResult>>;
+  public function GetSnapshotLimits(GetSnapshotLimitsRequest) Awaitable<Errors\Result<GetSnapshotLimitsResult>>;
+  public function ListCertificates(ListCertificatesRequest) Awaitable<Errors\Result<ListCertificatesResult>>;
+  public function ListIpRoutes(ListIpRoutesRequest) Awaitable<Errors\Result<ListIpRoutesResult>>;
+  public function ListLogSubscriptions(ListLogSubscriptionsRequest) Awaitable<Errors\Result<ListLogSubscriptionsResult>>;
+  public function ListSchemaExtensions(ListSchemaExtensionsRequest) Awaitable<Errors\Result<ListSchemaExtensionsResult>>;
+  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResult>>;
   public function RegisterCertificate(RegisterCertificateRequest) Awaitable<Errors\Result<RegisterCertificateResult>>;
+  public function RegisterEventTopic(RegisterEventTopicRequest) Awaitable<Errors\Result<RegisterEventTopicResult>>;
+  public function RejectSharedDirectory(RejectSharedDirectoryRequest) Awaitable<Errors\Result<RejectSharedDirectoryResult>>;
+  public function RemoveIpRoutes(RemoveIpRoutesRequest) Awaitable<Errors\Result<RemoveIpRoutesResult>>;
+  public function RemoveTagsFromResource(RemoveTagsFromResourceRequest) Awaitable<Errors\Result<RemoveTagsFromResourceResult>>;
+  public function ResetUserPassword(ResetUserPasswordRequest) Awaitable<Errors\Result<ResetUserPasswordResult>>;
+  public function RestoreFromSnapshot(RestoreFromSnapshotRequest) Awaitable<Errors\Result<RestoreFromSnapshotResult>>;
   public function ShareDirectory(ShareDirectoryRequest) Awaitable<Errors\Result<ShareDirectoryResult>>;
+  public function StartSchemaExtension(StartSchemaExtensionRequest) Awaitable<Errors\Result<StartSchemaExtensionResult>>;
+  public function UnshareDirectory(UnshareDirectoryRequest) Awaitable<Errors\Result<UnshareDirectoryResult>>;
+  public function UpdateConditionalForwarder(UpdateConditionalForwarderRequest) Awaitable<Errors\Result<UpdateConditionalForwarderResult>>;
   public function UpdateNumberOfDomainControllers(UpdateNumberOfDomainControllersRequest) Awaitable<Errors\Result<UpdateNumberOfDomainControllersResult>>;
-  public function AcceptSharedDirectory(AcceptSharedDirectoryRequest) Awaitable<Errors\Result<AcceptSharedDirectoryResult>>;
-  public function CreateDirectory(CreateDirectoryRequest) Awaitable<Errors\Result<CreateDirectoryResult>>;
-  public function DescribeDomainControllers(DescribeDomainControllersRequest) Awaitable<Errors\Result<DescribeDomainControllersResult>>;
+  public function UpdateRadius(UpdateRadiusRequest) Awaitable<Errors\Result<UpdateRadiusResult>>;
+  public function UpdateTrust(UpdateTrustRequest) Awaitable<Errors\Result<UpdateTrustResult>>;
+  public function VerifyTrust(VerifyTrustRequest) Awaitable<Errors\Result<VerifyTrustResult>>;
 }
 
-class CertificateCN {
+class AcceptSharedDirectoryRequest {
+  public DirectoryId $shared_directory_id;
 }
 
-class DomainController {
-  public DirectoryId $directory_id;
-  public DomainControllerId $domain_controller_id;
-  public SubnetId $subnet_id;
-  public AvailabilityZone $availability_zone;
-  public LaunchTime $launch_time;
-  public IpAddr $dns_ip_addr;
-  public VpcId $vpc_id;
-  public DomainControllerStatus $status;
-  public DomainControllerStatusReason $status_reason;
-  public LastUpdatedDateTime $status_last_updated_date_time;
+class AcceptSharedDirectoryResult {
+  public SharedDirectory $shared_directory;
 }
 
-class TagLimitExceededException {
+class AccessDeniedException {
   public ExceptionMessage $message;
   public RequestId $request_id;
 }
 
-class UnsupportedOperationException {
+class AccessUrl {
+}
+
+class AddIpRoutesRequest {
+  public DirectoryId $directory_id;
+  public IpRoutes $ip_routes;
+  public UpdateSecurityGroupForDirectoryControllers $update_security_group_for_directory_controllers;
+}
+
+class AddIpRoutesResult {
+}
+
+class AddTagsToResourceRequest {
+  public ResourceId $resource_id;
+  public Tags $tags;
+}
+
+class AddTagsToResourceResult {
+}
+
+class AddedDateTime {
+}
+
+class AliasName {
+}
+
+class Attribute {
+  public AttributeName $name;
+  public AttributeValue $value;
+}
+
+class AttributeName {
+}
+
+class AttributeValue {
+}
+
+class Attributes {
+}
+
+class AuthenticationFailedException {
   public ExceptionMessage $message;
   public RequestId $request_id;
-}
-
-class IpAddrs {
-}
-
-class RemoveTagsFromResourceResult {
-}
-
-class SchemaExtensionId {
-}
-
-class StageReason {
-}
-
-class TagKey {
-}
-
-class CreateConditionalForwarderRequest {
-  public DirectoryId $directory_id;
-  public RemoteDomainName $remote_domain_name;
-  public DnsIpAddrs $dns_ip_addrs;
-}
-
-class ExceptionMessage {
-}
-
-class ListCertificatesResult {
-  public NextToken $next_token;
-  public CertificatesInfo $certificates_info;
-}
-
-class TrustStateReason {
-}
-
-class CancelSchemaExtensionResult {
-}
-
-class DeleteLogSubscriptionRequest {
-  public DirectoryId $directory_id;
-}
-
-class DomainControllerId {
-}
-
-class IpRoutesInfo {
-}
-
-class RadiusTimeout {
-}
-
-class RemoveIpRoutesResult {
-}
-
-class SsoEnabled {
-}
-
-class SubnetId {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
 }
 
 class AvailabilityZone {
 }
 
+class AvailabilityZones {
+}
+
+class CancelSchemaExtensionRequest {
+  public DirectoryId $directory_id;
+  public SchemaExtensionId $schema_extension_id;
+}
+
+class CancelSchemaExtensionResult {
+}
+
+class Certificate {
+  public CertificateId $certificate_id;
+  public CertificateCN $common_name;
+  public CertificateExpiryDateTime $expiry_date_time;
+  public CertificateRegisteredDateTime $registered_date_time;
+  public CertificateState $state;
+  public CertificateStateReason $state_reason;
+}
+
+class CertificateAlreadyExistsException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class CertificateCN {
+}
+
+class CertificateData {
+}
+
+class CertificateDoesNotExistException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class CertificateExpiryDateTime {
+}
+
+class CertificateId {
+}
+
+class CertificateInUseException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class CertificateInfo {
+  public CertificateId $certificate_id;
+  public CertificateCN $common_name;
+  public CertificateExpiryDateTime $expiry_date_time;
+  public CertificateState $state;
+}
+
+class CertificateLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class CertificateRegisteredDateTime {
+}
+
+class CertificateState {
+}
+
+class CertificateStateReason {
+}
+
+class CertificatesInfo {
+}
+
+class CidrIp {
+}
+
+class CidrIps {
+}
+
+class ClientException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class CloudOnlyDirectoriesLimitReached {
+}
+
+class Computer {
+  public Attributes $computer_attributes;
+  public SID $computer_id;
+  public ComputerName $computer_name;
+}
+
+class ComputerName {
+}
+
+class ComputerPassword {
+}
+
+class ConditionalForwarder {
+  public DnsIpAddrs $dns_ip_addrs;
+  public RemoteDomainName $remote_domain_name;
+  public ReplicationScope $replication_scope;
+}
+
+class ConditionalForwarders {
+}
+
+class ConnectDirectoryRequest {
+  public DirectoryConnectSettings $connect_settings;
+  public Description $description;
+  public DirectoryName $name;
+  public ConnectPassword $password;
+  public DirectoryShortName $short_name;
+  public DirectorySize $size;
+  public Tags $tags;
+}
+
+class ConnectDirectoryResult {
+  public DirectoryId $directory_id;
+}
+
+class ConnectPassword {
+}
+
+class ConnectedDirectoriesLimitReached {
+}
+
+class CreateAliasRequest {
+  public AliasName $alias;
+  public DirectoryId $directory_id;
+}
+
+class CreateAliasResult {
+  public AliasName $alias;
+  public DirectoryId $directory_id;
+}
+
+class CreateComputerRequest {
+  public Attributes $computer_attributes;
+  public ComputerName $computer_name;
+  public DirectoryId $directory_id;
+  public OrganizationalUnitDN $organizational_unit_distinguished_name;
+  public ComputerPassword $password;
+}
+
+class CreateComputerResult {
+  public Computer $computer;
+}
+
+class CreateConditionalForwarderRequest {
+  public DirectoryId $directory_id;
+  public DnsIpAddrs $dns_ip_addrs;
+  public RemoteDomainName $remote_domain_name;
+}
+
 class CreateConditionalForwarderResult {
+}
+
+class CreateDirectoryRequest {
+  public Description $description;
+  public DirectoryName $name;
+  public Password $password;
+  public DirectoryShortName $short_name;
+  public DirectorySize $size;
+  public Tags $tags;
+  public DirectoryVpcSettings $vpc_settings;
+}
+
+class CreateDirectoryResult {
+  public DirectoryId $directory_id;
 }
 
 class CreateLogSubscriptionRequest {
@@ -160,9 +298,151 @@ class CreateLogSubscriptionRequest {
   public LogGroupName $log_group_name;
 }
 
+class CreateLogSubscriptionResult {
+}
+
+class CreateMicrosoftADRequest {
+  public Description $description;
+  public DirectoryEdition $edition;
+  public DirectoryName $name;
+  public Password $password;
+  public DirectoryShortName $short_name;
+  public Tags $tags;
+  public DirectoryVpcSettings $vpc_settings;
+}
+
+class CreateMicrosoftADResult {
+  public DirectoryId $directory_id;
+}
+
+class CreateSnapshotBeforeSchemaExtension {
+}
+
+class CreateSnapshotRequest {
+  public DirectoryId $directory_id;
+  public SnapshotName $name;
+}
+
+class CreateSnapshotResult {
+  public SnapshotId $snapshot_id;
+}
+
+class CreateTrustRequest {
+  public DnsIpAddrs $conditional_forwarder_ip_addrs;
+  public DirectoryId $directory_id;
+  public RemoteDomainName $remote_domain_name;
+  public SelectiveAuth $selective_auth;
+  public TrustDirection $trust_direction;
+  public TrustPassword $trust_password;
+  public TrustType $trust_type;
+}
+
+class CreateTrustResult {
+  public TrustId $trust_id;
+}
+
+class CreatedDateTime {
+}
+
+class CustomerId {
+}
+
+class CustomerUserName {
+}
+
+class DeleteAssociatedConditionalForwarder {
+}
+
+class DeleteConditionalForwarderRequest {
+  public DirectoryId $directory_id;
+  public RemoteDomainName $remote_domain_name;
+}
+
+class DeleteConditionalForwarderResult {
+}
+
+class DeleteDirectoryRequest {
+  public DirectoryId $directory_id;
+}
+
+class DeleteDirectoryResult {
+  public DirectoryId $directory_id;
+}
+
+class DeleteLogSubscriptionRequest {
+  public DirectoryId $directory_id;
+}
+
+class DeleteLogSubscriptionResult {
+}
+
+class DeleteSnapshotRequest {
+  public SnapshotId $snapshot_id;
+}
+
+class DeleteSnapshotResult {
+  public SnapshotId $snapshot_id;
+}
+
+class DeleteTrustRequest {
+  public DeleteAssociatedConditionalForwarder $delete_associated_conditional_forwarder;
+  public TrustId $trust_id;
+}
+
+class DeleteTrustResult {
+  public TrustId $trust_id;
+}
+
 class DeregisterCertificateRequest {
   public CertificateId $certificate_id;
   public DirectoryId $directory_id;
+}
+
+class DeregisterCertificateResult {
+}
+
+class DeregisterEventTopicRequest {
+  public DirectoryId $directory_id;
+  public TopicName $topic_name;
+}
+
+class DeregisterEventTopicResult {
+}
+
+class DescribeCertificateRequest {
+  public CertificateId $certificate_id;
+  public DirectoryId $directory_id;
+}
+
+class DescribeCertificateResult {
+  public Certificate $certificate;
+}
+
+class DescribeConditionalForwardersRequest {
+  public DirectoryId $directory_id;
+  public RemoteDomainNames $remote_domain_names;
+}
+
+class DescribeConditionalForwardersResult {
+  public ConditionalForwarders $conditional_forwarders;
+}
+
+class DescribeDirectoriesRequest {
+  public DirectoryIds $directory_ids;
+  public Limit $limit;
+  public NextToken $next_token;
+}
+
+class DescribeDirectoriesResult {
+  public DirectoryDescriptions $directory_descriptions;
+  public NextToken $next_token;
+}
+
+class DescribeDomainControllersRequest {
+  public DirectoryId $directory_id;
+  public DomainControllerIds $domain_controller_ids;
+  public Limit $limit;
+  public NextToken $next_token;
 }
 
 class DescribeDomainControllersResult {
@@ -170,103 +450,9 @@ class DescribeDomainControllersResult {
   public NextToken $next_token;
 }
 
-class DescribeSnapshotsResult {
-  public Snapshots $snapshots;
-  public NextToken $next_token;
-}
-
-class SnapshotType {
-}
-
-class UpdateConditionalForwarderResult {
-}
-
-class UpdateNumberOfDomainControllersResult {
-}
-
-class EnableRadiusResult {
-}
-
-class Trust {
-  public TrustType $trust_type;
-  public TrustDirection $trust_direction;
-  public CreatedDateTime $created_date_time;
-  public TrustStateReason $trust_state_reason;
-  public SelectiveAuth $selective_auth;
-  public StateLastUpdatedDateTime $state_last_updated_date_time;
+class DescribeEventTopicsRequest {
   public DirectoryId $directory_id;
-  public TrustId $trust_id;
-  public RemoteDomainName $remote_domain_name;
-  public TrustState $trust_state;
-  public LastUpdatedDateTime $last_updated_date_time;
-}
-
-class UnshareTarget {
-  public TargetId $id;
-  public TargetType $type;
-}
-
-class UpdateConditionalForwarderRequest {
-  public DirectoryId $directory_id;
-  public RemoteDomainName $remote_domain_name;
-  public DnsIpAddrs $dns_ip_addrs;
-}
-
-class AddIpRoutesResult {
-}
-
-class CreateSnapshotResult {
-  public SnapshotId $snapshot_id;
-}
-
-class CustomerUserName {
-}
-
-class DeleteDirectoryRequest {
-  public DirectoryId $directory_id;
-}
-
-class IpRouteInfo {
-  public Description $description;
-  public DirectoryId $directory_id;
-  public CidrIp $cidr_ip;
-  public IpRouteStatusMsg $ip_route_status_msg;
-  public AddedDateTime $added_date_time;
-  public IpRouteStatusReason $ip_route_status_reason;
-}
-
-class LaunchTime {
-}
-
-class CreateSnapshotRequest {
-  public SnapshotName $name;
-  public DirectoryId $directory_id;
-}
-
-class DescribeDomainControllersRequest {
-  public DomainControllerIds $domain_controller_ids;
-  public NextToken $next_token;
-  public Limit $limit;
-  public DirectoryId $directory_id;
-}
-
-class EnableSsoRequest {
-  public DirectoryId $directory_id;
-  public UserName $user_name;
-  public ConnectPassword $password;
-}
-
-class RestoreFromSnapshotRequest {
-  public SnapshotId $snapshot_id;
-}
-
-class StartTime {
-}
-
-class TrustPassword {
-}
-
-class ConditionalForwarders {
+  public TopicNames $topic_names;
 }
 
 class DescribeEventTopicsResult {
@@ -275,196 +461,9 @@ class DescribeEventTopicsResult {
 
 class DescribeLDAPSSettingsRequest {
   public DirectoryId $directory_id;
-  public LDAPSType $type;
-  public NextToken $next_token;
   public PageLimit $limit;
-}
-
-class DirectoryVpcSettingsDescription {
-  public SecurityGroupId $security_group_id;
-  public AvailabilityZones $availability_zones;
-  public VpcId $vpc_id;
-  public SubnetIds $subnet_ids;
-}
-
-class RemoteDomainName {
-}
-
-class TopicStatus {
-}
-
-class Trusts {
-}
-
-class VerifyTrustRequest {
-  public TrustId $trust_id;
-}
-
-class Attributes {
-}
-
-class CreateLogSubscriptionResult {
-}
-
-class DirectoryDescriptions {
-}
-
-class DirectorySize {
-}
-
-class DisableLDAPSResult {
-}
-
-class GetSnapshotLimitsRequest {
-  public DirectoryId $directory_id;
-}
-
-class InvalidParameterException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class ManualSnapshotsLimitReached {
-}
-
-class SelectiveAuth {
-}
-
-class CertificateState {
-}
-
-class CreateDirectoryResult {
-  public DirectoryId $directory_id;
-}
-
-class CreateSnapshotBeforeSchemaExtension {
-}
-
-class DescribeCertificateResult {
-  public Certificate $certificate;
-}
-
-class DisableRadiusRequest {
-  public DirectoryId $directory_id;
-}
-
-class IpAddr {
-}
-
-class Limit {
-}
-
-class ListTagsForResourceResult {
-  public Tags $tags;
   public NextToken $next_token;
-}
-
-class PortNumber {
-}
-
-class SchemaExtensionInfo {
-  public DirectoryId $directory_id;
-  public SchemaExtensionId $schema_extension_id;
-  public Description $description;
-  public SchemaExtensionStatus $schema_extension_status;
-  public SchemaExtensionStatusReason $schema_extension_status_reason;
-  public StartDateTime $start_date_time;
-  public EndDateTime $end_date_time;
-}
-
-class StateLastUpdatedDateTime {
-}
-
-class VpcId {
-}
-
-class CertificateExpiryDateTime {
-}
-
-class CustomerId {
-}
-
-class ListSchemaExtensionsRequest {
-  public DirectoryId $directory_id;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class ListTagsForResourceRequest {
-  public ResourceId $resource_id;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class Snapshot {
-  public DirectoryId $directory_id;
-  public SnapshotId $snapshot_id;
-  public SnapshotType $type;
-  public SnapshotName $name;
-  public SnapshotStatus $status;
-  public StartTime $start_time;
-}
-
-class SnapshotIds {
-}
-
-class CertificateData {
-}
-
-class DirectoryStage {
-}
-
-class EnableSsoResult {
-}
-
-class RemoteDomainNames {
-}
-
-class ShareDirectoryRequest {
-  public ShareTarget $share_target;
-  public ShareMethod $share_method;
-  public DirectoryId $directory_id;
-  public Notes $share_notes;
-}
-
-class TopicNames {
-}
-
-class IpRoute {
-  public Description $description;
-  public CidrIp $cidr_ip;
-}
-
-class ListIpRoutesRequest {
-  public DirectoryId $directory_id;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class Servers {
-}
-
-class Snapshots {
-}
-
-class DeleteAssociatedConditionalForwarder {
-}
-
-class UnshareDirectoryRequest {
-  public DirectoryId $directory_id;
-  public UnshareTarget $unshare_target;
-}
-
-class CertificatesInfo {
-}
-
-class RadiusAuthenticationProtocol {
-}
-
-class AddedDateTime {
-}
-
-class ConnectPassword {
+  public LDAPSType $type;
 }
 
 class DescribeLDAPSSettingsResult {
@@ -472,52 +471,216 @@ class DescribeLDAPSSettingsResult {
   public NextToken $next_token;
 }
 
+class DescribeSharedDirectoriesRequest {
+  public Limit $limit;
+  public NextToken $next_token;
+  public DirectoryId $owner_directory_id;
+  public DirectoryIds $shared_directory_ids;
+}
+
+class DescribeSharedDirectoriesResult {
+  public NextToken $next_token;
+  public SharedDirectories $shared_directories;
+}
+
+class DescribeSnapshotsRequest {
+  public DirectoryId $directory_id;
+  public Limit $limit;
+  public NextToken $next_token;
+  public SnapshotIds $snapshot_ids;
+}
+
+class DescribeSnapshotsResult {
+  public NextToken $next_token;
+  public Snapshots $snapshots;
+}
+
+class DescribeTrustsRequest {
+  public DirectoryId $directory_id;
+  public Limit $limit;
+  public NextToken $next_token;
+  public TrustIds $trust_ids;
+}
+
+class DescribeTrustsResult {
+  public NextToken $next_token;
+  public Trusts $trusts;
+}
+
+class Description {
+}
+
+class DesiredNumberOfDomainControllers {
+}
+
+class DirectoryAlreadySharedException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class DirectoryConnectSettings {
+  public DnsIpAddrs $customer_dns_ips;
+  public UserName $customer_user_name;
+  public SubnetIds $subnet_ids;
+  public VpcId $vpc_id;
+}
+
+class DirectoryConnectSettingsDescription {
+  public AvailabilityZones $availability_zones;
+  public IpAddrs $connect_ips;
+  public UserName $customer_user_name;
+  public SecurityGroupId $security_group_id;
+  public SubnetIds $subnet_ids;
+  public VpcId $vpc_id;
+}
+
+class DirectoryDescription {
+  public AccessUrl $access_url;
+  public AliasName $alias;
+  public DirectoryConnectSettingsDescription $connect_settings;
+  public Description $description;
+  public DesiredNumberOfDomainControllers $desired_number_of_domain_controllers;
+  public DirectoryId $directory_id;
+  public DnsIpAddrs $dns_ip_addrs;
+  public DirectoryEdition $edition;
+  public LaunchTime $launch_time;
+  public DirectoryName $name;
+  public OwnerDirectoryDescription $owner_directory_description;
+  public RadiusSettings $radius_settings;
+  public RadiusStatus $radius_status;
+  public ShareMethod $share_method;
+  public Notes $share_notes;
+  public ShareStatus $share_status;
+  public DirectoryShortName $short_name;
+  public DirectorySize $size;
+  public SsoEnabled $sso_enabled;
+  public DirectoryStage $stage;
+  public LastUpdatedDateTime $stage_last_updated_date_time;
+  public StageReason $stage_reason;
+  public DirectoryType $type;
+  public DirectoryVpcSettingsDescription $vpc_settings;
+}
+
+class DirectoryDescriptions {
+}
+
+class DirectoryDoesNotExistException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class DirectoryEdition {
+}
+
+class DirectoryId {
+}
+
+class DirectoryIds {
+}
+
+class DirectoryLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class DirectoryLimits {
+  public Limit $cloud_only_directories_current_count;
+  public Limit $cloud_only_directories_limit;
+  public CloudOnlyDirectoriesLimitReached $cloud_only_directories_limit_reached;
+  public Limit $cloud_only_microsoft_ad_current_count;
+  public Limit $cloud_only_microsoft_ad_limit;
+  public CloudOnlyDirectoriesLimitReached $cloud_only_microsoft_ad_limit_reached;
+  public Limit $connected_directories_current_count;
+  public Limit $connected_directories_limit;
+  public ConnectedDirectoriesLimitReached $connected_directories_limit_reached;
+}
+
+class DirectoryName {
+}
+
+class DirectoryNotSharedException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class DirectoryShortName {
+}
+
+class DirectorySize {
+}
+
+class DirectoryStage {
+}
+
+class DirectoryType {
+}
+
 class DirectoryUnavailableException {
   public ExceptionMessage $message;
   public RequestId $request_id;
 }
 
-class Tags {
+class DirectoryVpcSettings {
+  public SubnetIds $subnet_ids;
+  public VpcId $vpc_id;
 }
 
-class DeleteConditionalForwarderRequest {
+class DirectoryVpcSettingsDescription {
+  public AvailabilityZones $availability_zones;
+  public SecurityGroupId $security_group_id;
+  public SubnetIds $subnet_ids;
+  public VpcId $vpc_id;
+}
+
+class DisableLDAPSRequest {
   public DirectoryId $directory_id;
-  public RemoteDomainName $remote_domain_name;
+  public LDAPSType $type;
+}
+
+class DisableLDAPSResult {
+}
+
+class DisableRadiusRequest {
+  public DirectoryId $directory_id;
+}
+
+class DisableRadiusResult {
 }
 
 class DisableSsoRequest {
   public DirectoryId $directory_id;
-  public UserName $user_name;
   public ConnectPassword $password;
+  public UserName $user_name;
 }
 
-class LDAPSSettingsInfo {
+class DisableSsoResult {
 }
 
-class RadiusSharedSecret {
+class DnsIpAddrs {
 }
 
-class TagKeys {
+class DomainController {
+  public AvailabilityZone $availability_zone;
+  public DirectoryId $directory_id;
+  public IpAddr $dns_ip_addr;
+  public DomainControllerId $domain_controller_id;
+  public LaunchTime $launch_time;
+  public DomainControllerStatus $status;
+  public LastUpdatedDateTime $status_last_updated_date_time;
+  public DomainControllerStatusReason $status_reason;
+  public SubnetId $subnet_id;
+  public VpcId $vpc_id;
 }
 
-class TagValue {
+class DomainControllerId {
 }
 
-class AuthenticationFailedException {
+class DomainControllerIds {
+}
+
+class DomainControllerLimitExceededException {
   public ExceptionMessage $message;
   public RequestId $request_id;
-}
-
-class CreateComputerResult {
-  public Computer $computer;
-}
-
-class DescribeTrustsResult {
-  public Trusts $trusts;
-  public NextToken $next_token;
-}
-
-class DesiredNumberOfDomainControllers {
 }
 
 class DomainControllerStatus {
@@ -526,75 +689,234 @@ class DomainControllerStatus {
 class DomainControllerStatusReason {
 }
 
+class DomainControllers {
+}
+
+class EnableLDAPSRequest {
+  public DirectoryId $directory_id;
+  public LDAPSType $type;
+}
+
+class EnableLDAPSResult {
+}
+
+class EnableRadiusRequest {
+  public DirectoryId $directory_id;
+  public RadiusSettings $radius_settings;
+}
+
+class EnableRadiusResult {
+}
+
+class EnableSsoRequest {
+  public DirectoryId $directory_id;
+  public ConnectPassword $password;
+  public UserName $user_name;
+}
+
+class EnableSsoResult {
+}
+
+class EndDateTime {
+}
+
+class EntityAlreadyExistsException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class EntityDoesNotExistException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class EventTopic {
+  public CreatedDateTime $created_date_time;
+  public DirectoryId $directory_id;
+  public TopicStatus $status;
+  public TopicArn $topic_arn;
+  public TopicName $topic_name;
+}
+
+class EventTopics {
+}
+
+class ExceptionMessage {
+}
+
+class GetDirectoryLimitsRequest {
+}
+
+class GetDirectoryLimitsResult {
+  public DirectoryLimits $directory_limits;
+}
+
+class GetSnapshotLimitsRequest {
+  public DirectoryId $directory_id;
+}
+
+class GetSnapshotLimitsResult {
+  public SnapshotLimits $snapshot_limits;
+}
+
+class InsufficientPermissionsException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidCertificateException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidLDAPSStatusException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidNextTokenException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidParameterException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidPasswordException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class InvalidTargetException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class IpAddr {
+}
+
+class IpAddrs {
+}
+
+class IpRoute {
+  public CidrIp $cidr_ip;
+  public Description $description;
+}
+
+class IpRouteInfo {
+  public AddedDateTime $added_date_time;
+  public CidrIp $cidr_ip;
+  public Description $description;
+  public DirectoryId $directory_id;
+  public IpRouteStatusMsg $ip_route_status_msg;
+  public IpRouteStatusReason $ip_route_status_reason;
+}
+
+class IpRouteLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class IpRouteStatusMsg {
+}
+
+class IpRouteStatusReason {
+}
+
+class IpRoutes {
+}
+
+class IpRoutesInfo {
+}
+
 class LDAPSSettingInfo {
   public LDAPSStatus $ldaps_status;
   public LDAPSStatusReason $ldaps_status_reason;
   public LastUpdatedDateTime $last_updated_date_time;
 }
 
-class RestoreFromSnapshotResult {
+class LDAPSSettingsInfo {
 }
 
-class AttributeValue {
+class LDAPSStatus {
 }
 
-class CertificateLimitExceededException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
+class LDAPSStatusReason {
 }
 
-class ResetUserPasswordRequest {
-  public DirectoryId $directory_id;
-  public CustomerUserName $user_name;
-  public UserPassword $new_password;
-}
-
-class SharedDirectory {
-  public CreatedDateTime $created_date_time;
-  public LastUpdatedDateTime $last_updated_date_time;
-  public DirectoryId $owner_directory_id;
-  public ShareMethod $share_method;
-  public DirectoryId $shared_directory_id;
-  public ShareStatus $share_status;
-  public Notes $share_notes;
-  public CustomerId $owner_account_id;
-  public CustomerId $shared_account_id;
-}
-
-class DeleteSnapshotResult {
-  public SnapshotId $snapshot_id;
+class LDAPSType {
 }
 
 class LastUpdatedDateTime {
 }
 
-class ResetUserPasswordResult {
+class LaunchTime {
 }
 
-class ServiceException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
+class LdifContent {
 }
 
-class UpdateRadiusResult {
+class Limit {
 }
 
-class AliasName {
-}
-
-class DeregisterEventTopicResult {
-}
-
-class DescribeConditionalForwardersResult {
-  public ConditionalForwarders $conditional_forwarders;
-}
-
-class DescribeEventTopicsRequest {
-  public TopicNames $topic_names;
+class ListCertificatesRequest {
   public DirectoryId $directory_id;
+  public PageLimit $limit;
+  public NextToken $next_token;
 }
 
-class DirectoryIds {
+class ListCertificatesResult {
+  public CertificatesInfo $certificates_info;
+  public NextToken $next_token;
+}
+
+class ListIpRoutesRequest {
+  public DirectoryId $directory_id;
+  public Limit $limit;
+  public NextToken $next_token;
+}
+
+class ListIpRoutesResult {
+  public IpRoutesInfo $ip_routes_info;
+  public NextToken $next_token;
+}
+
+class ListLogSubscriptionsRequest {
+  public DirectoryId $directory_id;
+  public Limit $limit;
+  public NextToken $next_token;
+}
+
+class ListLogSubscriptionsResult {
+  public LogSubscriptions $log_subscriptions;
+  public NextToken $next_token;
+}
+
+class ListSchemaExtensionsRequest {
+  public DirectoryId $directory_id;
+  public Limit $limit;
+  public NextToken $next_token;
+}
+
+class ListSchemaExtensionsResult {
+  public NextToken $next_token;
+  public SchemaExtensionsInfo $schema_extensions_info;
+}
+
+class ListTagsForResourceRequest {
+  public Limit $limit;
+  public NextToken $next_token;
+  public ResourceId $resource_id;
+}
+
+class ListTagsForResourceResult {
+  public NextToken $next_token;
+  public Tags $tags;
+}
+
+class LogGroupName {
 }
 
 class LogSubscription {
@@ -603,68 +925,13 @@ class LogSubscription {
   public SubscriptionCreatedDateTime $subscription_created_date_time;
 }
 
-class UserName {
+class LogSubscriptions {
 }
 
-class GetDirectoryLimitsRequest {
+class ManualSnapshotsLimitReached {
 }
 
-class RejectSharedDirectoryResult {
-  public DirectoryId $shared_directory_id;
-}
-
-class UpdateSecurityGroupForDirectoryControllers {
-}
-
-class Attribute {
-  public AttributeName $name;
-  public AttributeValue $value;
-}
-
-class ConnectDirectoryResult {
-  public DirectoryId $directory_id;
-}
-
-class DirectoryConnectSettings {
-  public VpcId $vpc_id;
-  public SubnetIds $subnet_ids;
-  public DnsIpAddrs $customer_dns_ips;
-  public UserName $customer_user_name;
-}
-
-class DirectoryShortName {
-}
-
-class InvalidCertificateException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class ShareStatus {
-}
-
-class DisableSsoResult {
-}
-
-class GetSnapshotLimitsResult {
-  public SnapshotLimits $snapshot_limits;
-}
-
-class RegisterCertificateResult {
-  public CertificateId $certificate_id;
-}
-
-class ResourceId {
-}
-
-class SchemaExtensionStatusReason {
-}
-
-class VerifyTrustResult {
-  public TrustId $trust_id;
-}
-
-class EnableLDAPSResult {
+class NextToken {
 }
 
 class NoAvailableCertificateException {
@@ -672,140 +939,71 @@ class NoAvailableCertificateException {
   public RequestId $request_id;
 }
 
-class CreateAliasResult {
-  public AliasName $alias;
-  public DirectoryId $directory_id;
+class Notes {
 }
 
-class LDAPSType {
+class OrganizationalUnitDN {
 }
 
-class ReplicationScope {
-}
-
-class StartDateTime {
-}
-
-class AddTagsToResourceRequest {
-  public ResourceId $resource_id;
-  public Tags $tags;
-}
-
-class CertificateRegisteredDateTime {
-}
-
-class DirectoryVpcSettings {
-  public VpcId $vpc_id;
-  public SubnetIds $subnet_ids;
-}
-
-class IpRoutes {
-}
-
-class AcceptSharedDirectoryResult {
-  public SharedDirectory $shared_directory;
-}
-
-class DirectoryDoesNotExistException {
+class OrganizationsException {
   public ExceptionMessage $message;
   public RequestId $request_id;
 }
 
-class TrustIds {
-}
-
-class TrustType {
-}
-
-class AddTagsToResourceResult {
-}
-
-class EventTopics {
-}
-
-class ShareMethod {
-}
-
-class CertificateAlreadyExistsException {
-  public RequestId $request_id;
-  public ExceptionMessage $message;
-}
-
-class ComputerName {
-}
-
-class DescribeConditionalForwardersRequest {
+class OwnerDirectoryDescription {
+  public CustomerId $account_id;
   public DirectoryId $directory_id;
-  public RemoteDomainNames $remote_domain_names;
+  public DnsIpAddrs $dns_ip_addrs;
+  public RadiusSettings $radius_settings;
+  public RadiusStatus $radius_status;
+  public DirectoryVpcSettingsDescription $vpc_settings;
 }
 
-class DescribeSharedDirectoriesResult {
-  public SharedDirectories $shared_directories;
-  public NextToken $next_token;
+class PageLimit {
 }
 
-class UpdateTrustRequest {
-  public TrustId $trust_id;
-  public SelectiveAuth $selective_auth;
+class Password {
 }
 
-class EndDateTime {
+class PortNumber {
+}
+
+class RadiusAuthenticationProtocol {
+}
+
+class RadiusDisplayLabel {
+}
+
+class RadiusRetries {
 }
 
 class RadiusSettings {
-  public RadiusTimeout $radius_timeout;
-  public RadiusRetries $radius_retries;
-  public RadiusSharedSecret $shared_secret;
   public RadiusAuthenticationProtocol $authentication_protocol;
   public RadiusDisplayLabel $display_label;
-  public UseSameUsername $use_same_username;
-  public Servers $radius_servers;
   public PortNumber $radius_port;
+  public RadiusRetries $radius_retries;
+  public Servers $radius_servers;
+  public RadiusTimeout $radius_timeout;
+  public RadiusSharedSecret $shared_secret;
+  public UseSameUsername $use_same_username;
+}
+
+class RadiusSharedSecret {
 }
 
 class RadiusStatus {
 }
 
-class ShareTarget {
-  public TargetId $id;
-  public TargetType $type;
+class RadiusTimeout {
 }
 
-class TrustState {
-}
-
-class Computer {
-  public SID $computer_id;
-  public ComputerName $computer_name;
-  public Attributes $computer_attributes;
-}
-
-class DirectoryNotSharedException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class DomainControllerIds {
-}
-
-class InvalidPasswordException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class StartSchemaExtensionResult {
-  public SchemaExtensionId $schema_extension_id;
-}
-
-class CreateComputerRequest {
-  public Attributes $computer_attributes;
+class RegisterCertificateRequest {
+  public CertificateData $certificate_data;
   public DirectoryId $directory_id;
-  public ComputerName $computer_name;
-  public ComputerPassword $password;
-  public OrganizationalUnitDN $organizational_unit_distinguished_name;
 }
 
-class CreatedDateTime {
+class RegisterCertificateResult {
+  public CertificateId $certificate_id;
 }
 
 class RegisterEventTopicRequest {
@@ -813,420 +1011,29 @@ class RegisterEventTopicRequest {
   public TopicName $topic_name;
 }
 
-class RemoveIpRoutesRequest {
-  public CidrIps $cidr_ips;
-  public DirectoryId $directory_id;
-}
-
-class SecurityGroupId {
-}
-
-class ClientException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class Description {
-}
-
-class InvalidTargetException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class SchemaExtensionsInfo {
-}
-
-class EntityDoesNotExistException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class LDAPSStatus {
-}
-
-class DeregisterEventTopicRequest {
-  public DirectoryId $directory_id;
-  public TopicName $topic_name;
-}
-
-class IpRouteLimitExceededException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class StartSchemaExtensionRequest {
-  public DirectoryId $directory_id;
-  public CreateSnapshotBeforeSchemaExtension $create_snapshot_before_schema_extension;
-  public LdifContent $ldif_content;
-  public Description $description;
-}
-
-class CidrIps {
-}
-
-class CreateTrustRequest {
-  public DirectoryId $directory_id;
-  public RemoteDomainName $remote_domain_name;
-  public TrustPassword $trust_password;
-  public TrustDirection $trust_direction;
-  public TrustType $trust_type;
-  public DnsIpAddrs $conditional_forwarder_ip_addrs;
-  public SelectiveAuth $selective_auth;
-}
-
-class DeleteDirectoryResult {
-  public DirectoryId $directory_id;
-}
-
-class OwnerDirectoryDescription {
-  public DirectoryVpcSettingsDescription $vpc_settings;
-  public RadiusSettings $radius_settings;
-  public RadiusStatus $radius_status;
-  public DirectoryId $directory_id;
-  public CustomerId $account_id;
-  public DnsIpAddrs $dns_ip_addrs;
+class RegisterEventTopicResult {
 }
 
 class RejectSharedDirectoryRequest {
   public DirectoryId $shared_directory_id;
 }
 
-class TargetType {
-}
-
-class AttributeName {
-}
-
-class CreateTrustResult {
-  public TrustId $trust_id;
-}
-
-class DeleteTrustRequest {
-  public TrustId $trust_id;
-  public DeleteAssociatedConditionalForwarder $delete_associated_conditional_forwarder;
-}
-
-class IpRouteStatusReason {
-}
-
-class AddIpRoutesRequest {
-  public IpRoutes $ip_routes;
-  public UpdateSecurityGroupForDirectoryControllers $update_security_group_for_directory_controllers;
-  public DirectoryId $directory_id;
-}
-
-class DeleteSnapshotRequest {
-  public SnapshotId $snapshot_id;
-}
-
-class ListCertificatesRequest {
-  public DirectoryId $directory_id;
-  public NextToken $next_token;
-  public PageLimit $limit;
-}
-
-class SchemaExtensionStatus {
-}
-
-class ShareLimitExceededException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class TrustDirection {
-}
-
-class CreateDirectoryRequest {
-  public Description $description;
-  public DirectorySize $size;
-  public DirectoryVpcSettings $vpc_settings;
-  public Tags $tags;
-  public DirectoryName $name;
-  public DirectoryShortName $short_name;
-  public Password $password;
-}
-
-class CreateMicrosoftADRequest {
-  public Password $password;
-  public Description $description;
-  public DirectoryVpcSettings $vpc_settings;
-  public DirectoryEdition $edition;
-  public Tags $tags;
-  public DirectoryName $name;
-  public DirectoryShortName $short_name;
-}
-
-class DescribeSharedDirectoriesRequest {
-  public DirectoryId $owner_directory_id;
-  public DirectoryIds $shared_directory_ids;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class AccessUrl {
-}
-
-class ConnectDirectoryRequest {
-  public DirectorySize $size;
-  public DirectoryConnectSettings $connect_settings;
-  public Tags $tags;
-  public DirectoryName $name;
-  public DirectoryShortName $short_name;
-  public ConnectPassword $password;
-  public Description $description;
-}
-
-class DescribeTrustsRequest {
-  public DirectoryId $directory_id;
-  public TrustIds $trust_ids;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class DirectoryDescription {
-  public AccessUrl $access_url;
-  public Description $description;
-  public DnsIpAddrs $dns_ip_addrs;
-  public ShareMethod $share_method;
-  public Notes $share_notes;
-  public LastUpdatedDateTime $stage_last_updated_date_time;
-  public DirectoryConnectSettingsDescription $connect_settings;
-  public DirectorySize $size;
-  public DirectoryEdition $edition;
-  public RadiusStatus $radius_status;
-  public SsoEnabled $sso_enabled;
-  public OwnerDirectoryDescription $owner_directory_description;
-  public LaunchTime $launch_time;
-  public DirectoryType $type;
-  public RadiusSettings $radius_settings;
-  public StageReason $stage_reason;
-  public DesiredNumberOfDomainControllers $desired_number_of_domain_controllers;
-  public DirectoryId $directory_id;
-  public DirectoryName $name;
-  public DirectoryShortName $short_name;
-  public AliasName $alias;
-  public DirectoryStage $stage;
-  public ShareStatus $share_status;
-  public DirectoryVpcSettingsDescription $vpc_settings;
-}
-
-class DnsIpAddrs {
-}
-
-class DomainControllerLimitExceededException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class LdifContent {
-}
-
-class SnapshotLimits {
-  public Limit $manual_snapshots_limit;
-  public Limit $manual_snapshots_current_count;
-  public ManualSnapshotsLimitReached $manual_snapshots_limit_reached;
-}
-
-class DirectoryLimits {
-  public CloudOnlyDirectoriesLimitReached $cloud_only_directories_limit_reached;
-  public Limit $cloud_only_microsoft_ad_limit;
-  public Limit $connected_directories_current_count;
-  public Limit $cloud_only_directories_limit;
-  public Limit $cloud_only_directories_current_count;
-  public Limit $cloud_only_microsoft_ad_current_count;
-  public CloudOnlyDirectoriesLimitReached $cloud_only_microsoft_ad_limit_reached;
-  public Limit $connected_directories_limit;
-  public ConnectedDirectoriesLimitReached $connected_directories_limit_reached;
-}
-
-class CertificateStateReason {
-}
-
-class Notes {
-}
-
-class RegisterCertificateRequest {
-  public DirectoryId $directory_id;
-  public CertificateData $certificate_data;
-}
-
-class RequestId {
-}
-
-class UpdateTrustResult {
-  public RequestId $request_id;
-  public TrustId $trust_id;
-}
-
-class InvalidLDAPSStatusException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class OrganizationalUnitDN {
-}
-
-class SID {
-}
-
-class AvailabilityZones {
-}
-
-class CreateAliasRequest {
-  public DirectoryId $directory_id;
-  public AliasName $alias;
-}
-
-class DeregisterCertificateResult {
-}
-
-class DescribeSnapshotsRequest {
-  public DirectoryId $directory_id;
-  public SnapshotIds $snapshot_ids;
-  public NextToken $next_token;
-  public Limit $limit;
-}
-
-class InsufficientPermissionsException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class LogGroupName {
-}
-
-class PageLimit {
-}
-
-class TrustId {
-}
-
-class DescribeCertificateRequest {
-  public CertificateId $certificate_id;
-  public DirectoryId $directory_id;
-}
-
-class DirectoryId {
-}
-
-class OrganizationsException {
-  public RequestId $request_id;
-  public ExceptionMessage $message;
-}
-
-class SnapshotLimitExceededException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class SubscriptionCreatedDateTime {
-}
-
-class TopicName {
-}
-
-class CertificateDoesNotExistException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class CertificateInUseException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class DirectoryName {
-}
-
-class UnshareDirectoryResult {
+class RejectSharedDirectoryResult {
   public DirectoryId $shared_directory_id;
 }
 
-class ComputerPassword {
+class RemoteDomainName {
 }
 
-class UseSameUsername {
+class RemoteDomainNames {
 }
 
-class ConnectedDirectoriesLimitReached {
-}
-
-class IpRouteStatusMsg {
-}
-
-class RadiusDisplayLabel {
-}
-
-class SnapshotId {
-}
-
-class SubnetIds {
-}
-
-class Certificate {
-  public CertificateId $certificate_id;
-  public CertificateState $state;
-  public CertificateStateReason $state_reason;
-  public CertificateCN $common_name;
-  public CertificateRegisteredDateTime $registered_date_time;
-  public CertificateExpiryDateTime $expiry_date_time;
-}
-
-class LDAPSStatusReason {
-}
-
-class ListIpRoutesResult {
-  public IpRoutesInfo $ip_routes_info;
-  public NextToken $next_token;
-}
-
-class TopicArn {
-}
-
-class DirectoryAlreadySharedException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class EnableLDAPSRequest {
-  public DirectoryId $directory_id;
-  public LDAPSType $type;
-}
-
-class UserDoesNotExistException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
-}
-
-class UserPassword {
-}
-
-class ConditionalForwarder {
-  public RemoteDomainName $remote_domain_name;
-  public DnsIpAddrs $dns_ip_addrs;
-  public ReplicationScope $replication_scope;
-}
-
-class DisableLDAPSRequest {
-  public LDAPSType $type;
+class RemoveIpRoutesRequest {
+  public CidrIps $cidr_ips;
   public DirectoryId $directory_id;
 }
 
-class EnableRadiusRequest {
-  public DirectoryId $directory_id;
-  public RadiusSettings $radius_settings;
-}
-
-class CloudOnlyDirectoriesLimitReached {
-}
-
-class DeleteConditionalForwarderResult {
-}
-
-class DescribeDirectoriesResult {
-  public DirectoryDescriptions $directory_descriptions;
-  public NextToken $next_token;
+class RemoveIpRoutesResult {
 }
 
 class RemoveTagsFromResourceRequest {
@@ -1234,114 +1041,303 @@ class RemoveTagsFromResourceRequest {
   public TagKeys $tag_keys;
 }
 
-class DirectoryType {
+class RemoveTagsFromResourceResult {
 }
 
-class SnapshotName {
+class ReplicationScope {
 }
 
-class AccessDeniedException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
+class RequestId {
 }
 
-class DomainControllers {
+class ResetUserPasswordRequest {
+  public DirectoryId $directory_id;
+  public UserPassword $new_password;
+  public CustomerUserName $user_name;
 }
 
-class EntityAlreadyExistsException {
-  public RequestId $request_id;
-  public ExceptionMessage $message;
+class ResetUserPasswordResult {
 }
 
-class InvalidNextTokenException {
-  public ExceptionMessage $message;
-  public RequestId $request_id;
+class ResourceId {
 }
 
-class ListSchemaExtensionsResult {
-  public SchemaExtensionsInfo $schema_extensions_info;
-  public NextToken $next_token;
+class RestoreFromSnapshotRequest {
+  public SnapshotId $snapshot_id;
 }
 
-class RegisterEventTopicResult {
+class RestoreFromSnapshotResult {
+}
+
+class SID {
+}
+
+class SchemaExtensionId {
+}
+
+class SchemaExtensionInfo {
+  public Description $description;
+  public DirectoryId $directory_id;
+  public EndDateTime $end_date_time;
+  public SchemaExtensionId $schema_extension_id;
+  public SchemaExtensionStatus $schema_extension_status;
+  public SchemaExtensionStatusReason $schema_extension_status_reason;
+  public StartDateTime $start_date_time;
+}
+
+class SchemaExtensionStatus {
+}
+
+class SchemaExtensionStatusReason {
+}
+
+class SchemaExtensionsInfo {
+}
+
+class SecurityGroupId {
+}
+
+class SelectiveAuth {
 }
 
 class Server {
+}
+
+class Servers {
+}
+
+class ServiceException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class ShareDirectoryRequest {
+  public DirectoryId $directory_id;
+  public ShareMethod $share_method;
+  public Notes $share_notes;
+  public ShareTarget $share_target;
 }
 
 class ShareDirectoryResult {
   public DirectoryId $shared_directory_id;
 }
 
-class UpdateNumberOfDomainControllersRequest {
-  public DirectoryId $directory_id;
-  public DesiredNumberOfDomainControllers $desired_number;
+class ShareLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
 }
 
-class AcceptSharedDirectoryRequest {
+class ShareMethod {
+}
+
+class ShareStatus {
+}
+
+class ShareTarget {
+  public TargetId $id;
+  public TargetType $type;
+}
+
+class SharedDirectories {
+}
+
+class SharedDirectory {
+  public CreatedDateTime $created_date_time;
+  public LastUpdatedDateTime $last_updated_date_time;
+  public CustomerId $owner_account_id;
+  public DirectoryId $owner_directory_id;
+  public ShareMethod $share_method;
+  public Notes $share_notes;
+  public ShareStatus $share_status;
+  public CustomerId $shared_account_id;
   public DirectoryId $shared_directory_id;
 }
 
-class CertificateId {
-}
-
-class CidrIp {
-}
-
-class CreateMicrosoftADResult {
+class Snapshot {
   public DirectoryId $directory_id;
+  public SnapshotName $name;
+  public SnapshotId $snapshot_id;
+  public StartTime $start_time;
+  public SnapshotStatus $status;
+  public SnapshotType $type;
 }
 
-class DescribeDirectoriesRequest {
-  public DirectoryIds $directory_ids;
-  public NextToken $next_token;
-  public Limit $limit;
+class SnapshotId {
 }
 
-class DirectoryConnectSettingsDescription {
-  public SecurityGroupId $security_group_id;
-  public AvailabilityZones $availability_zones;
-  public IpAddrs $connect_ips;
-  public VpcId $vpc_id;
-  public SubnetIds $subnet_ids;
-  public UserName $customer_user_name;
+class SnapshotIds {
 }
 
-class DirectoryEdition {
+class SnapshotLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
 }
 
-class LogSubscriptions {
+class SnapshotLimits {
+  public Limit $manual_snapshots_current_count;
+  public Limit $manual_snapshots_limit;
+  public ManualSnapshotsLimitReached $manual_snapshots_limit_reached;
 }
 
-class RadiusRetries {
+class SnapshotName {
 }
 
 class SnapshotStatus {
 }
 
-class CertificateInfo {
-  public CertificateCN $common_name;
-  public CertificateState $state;
-  public CertificateExpiryDateTime $expiry_date_time;
-  public CertificateId $certificate_id;
+class SnapshotType {
 }
 
-class DeleteLogSubscriptionResult {
+class Snapshots {
 }
 
-class EventTopic {
+class SsoEnabled {
+}
+
+class StageReason {
+}
+
+class StartDateTime {
+}
+
+class StartSchemaExtensionRequest {
+  public CreateSnapshotBeforeSchemaExtension $create_snapshot_before_schema_extension;
+  public Description $description;
   public DirectoryId $directory_id;
-  public TopicName $topic_name;
-  public TopicArn $topic_arn;
+  public LdifContent $ldif_content;
+}
+
+class StartSchemaExtensionResult {
+  public SchemaExtensionId $schema_extension_id;
+}
+
+class StartTime {
+}
+
+class StateLastUpdatedDateTime {
+}
+
+class SubnetId {
+}
+
+class SubnetIds {
+}
+
+class SubscriptionCreatedDateTime {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeys {
+}
+
+class TagLimitExceededException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class TagValue {
+}
+
+class Tags {
+}
+
+class TargetId {
+}
+
+class TargetType {
+}
+
+class TopicArn {
+}
+
+class TopicName {
+}
+
+class TopicNames {
+}
+
+class TopicStatus {
+}
+
+class Trust {
   public CreatedDateTime $created_date_time;
-  public TopicStatus $status;
+  public DirectoryId $directory_id;
+  public LastUpdatedDateTime $last_updated_date_time;
+  public RemoteDomainName $remote_domain_name;
+  public SelectiveAuth $selective_auth;
+  public StateLastUpdatedDateTime $state_last_updated_date_time;
+  public TrustDirection $trust_direction;
+  public TrustId $trust_id;
+  public TrustState $trust_state;
+  public TrustStateReason $trust_state_reason;
+  public TrustType $trust_type;
 }
 
-class GetDirectoryLimitsResult {
-  public DirectoryLimits $directory_limits;
+class TrustDirection {
 }
 
-class SharedDirectories {
+class TrustId {
+}
+
+class TrustIds {
+}
+
+class TrustPassword {
+}
+
+class TrustState {
+}
+
+class TrustStateReason {
+}
+
+class TrustType {
+}
+
+class Trusts {
+}
+
+class UnshareDirectoryRequest {
+  public DirectoryId $directory_id;
+  public UnshareTarget $unshare_target;
+}
+
+class UnshareDirectoryResult {
+  public DirectoryId $shared_directory_id;
+}
+
+class UnshareTarget {
+  public TargetId $id;
+  public TargetType $type;
+}
+
+class UnsupportedOperationException {
+  public ExceptionMessage $message;
+  public RequestId $request_id;
+}
+
+class UpdateConditionalForwarderRequest {
+  public DirectoryId $directory_id;
+  public DnsIpAddrs $dns_ip_addrs;
+  public RemoteDomainName $remote_domain_name;
+}
+
+class UpdateConditionalForwarderResult {
+}
+
+class UpdateNumberOfDomainControllersRequest {
+  public DesiredNumberOfDomainControllers $desired_number;
+  public DirectoryId $directory_id;
+}
+
+class UpdateNumberOfDomainControllersResult {
 }
 
 class UpdateRadiusRequest {
@@ -1349,40 +1345,44 @@ class UpdateRadiusRequest {
   public RadiusSettings $radius_settings;
 }
 
-class CancelSchemaExtensionRequest {
-  public SchemaExtensionId $schema_extension_id;
-  public DirectoryId $directory_id;
+class UpdateRadiusResult {
 }
 
-class TargetId {
+class UpdateSecurityGroupForDirectoryControllers {
 }
 
-class DeleteTrustResult {
+class UpdateTrustRequest {
+  public SelectiveAuth $selective_auth;
   public TrustId $trust_id;
 }
 
-class DirectoryLimitExceededException {
+class UpdateTrustResult {
+  public RequestId $request_id;
+  public TrustId $trust_id;
+}
+
+class UseSameUsername {
+}
+
+class UserDoesNotExistException {
   public ExceptionMessage $message;
   public RequestId $request_id;
 }
 
-class DisableRadiusResult {
+class UserName {
 }
 
-class ListLogSubscriptionsRequest {
-  public DirectoryId $directory_id;
-  public NextToken $next_token;
-  public Limit $limit;
+class UserPassword {
 }
 
-class ListLogSubscriptionsResult {
-  public NextToken $next_token;
-  public LogSubscriptions $log_subscriptions;
+class VerifyTrustRequest {
+  public TrustId $trust_id;
 }
 
-class NextToken {
+class VerifyTrustResult {
+  public TrustId $trust_id;
 }
 
-class Password {
+class VpcId {
 }
 

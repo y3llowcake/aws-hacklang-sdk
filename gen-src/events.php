@@ -2,60 +2,105 @@
 namespace slack\aws\events;
 
 interface CloudWatch Events {
-  public function EnableRule(EnableRuleRequest) Awaitable<Errors\Error>;
-  public function ListPartnerEventSources(ListPartnerEventSourcesRequest) Awaitable<Errors\Result<ListPartnerEventSourcesResponse>>;
-  public function ListRules(ListRulesRequest) Awaitable<Errors\Result<ListRulesResponse>>;
-  public function PutTargets(PutTargetsRequest) Awaitable<Errors\Result<PutTargetsResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function ActivateEventSource(ActivateEventSourceRequest) Awaitable<Errors\Error>;
   public function CreateEventBus(CreateEventBusRequest) Awaitable<Errors\Result<CreateEventBusResponse>>;
+  public function CreatePartnerEventSource(CreatePartnerEventSourceRequest) Awaitable<Errors\Result<CreatePartnerEventSourceResponse>>;
+  public function DeactivateEventSource(DeactivateEventSourceRequest) Awaitable<Errors\Error>;
+  public function DeleteEventBus(DeleteEventBusRequest) Awaitable<Errors\Error>;
+  public function DeletePartnerEventSource(DeletePartnerEventSourceRequest) Awaitable<Errors\Error>;
+  public function DeleteRule(DeleteRuleRequest) Awaitable<Errors\Error>;
+  public function DescribeEventBus(DescribeEventBusRequest) Awaitable<Errors\Result<DescribeEventBusResponse>>;
+  public function DescribeEventSource(DescribeEventSourceRequest) Awaitable<Errors\Result<DescribeEventSourceResponse>>;
+  public function DescribePartnerEventSource(DescribePartnerEventSourceRequest) Awaitable<Errors\Result<DescribePartnerEventSourceResponse>>;
+  public function DescribeRule(DescribeRuleRequest) Awaitable<Errors\Result<DescribeRuleResponse>>;
+  public function DisableRule(DisableRuleRequest) Awaitable<Errors\Error>;
+  public function EnableRule(EnableRuleRequest) Awaitable<Errors\Error>;
   public function ListEventBuses(ListEventBusesRequest) Awaitable<Errors\Result<ListEventBusesResponse>>;
   public function ListEventSources(ListEventSourcesRequest) Awaitable<Errors\Result<ListEventSourcesResponse>>;
   public function ListPartnerEventSourceAccounts(ListPartnerEventSourceAccountsRequest) Awaitable<Errors\Result<ListPartnerEventSourceAccountsResponse>>;
-  public function ListTargetsByRule(ListTargetsByRuleRequest) Awaitable<Errors\Result<ListTargetsByRuleResponse>>;
-  public function PutRule(PutRuleRequest) Awaitable<Errors\Result<PutRuleResponse>>;
-  public function DescribeEventBus(DescribeEventBusRequest) Awaitable<Errors\Result<DescribeEventBusResponse>>;
-  public function DeleteRule(DeleteRuleRequest) Awaitable<Errors\Error>;
-  public function DescribeEventSource(DescribeEventSourceRequest) Awaitable<Errors\Result<DescribeEventSourceResponse>>;
-  public function PutPartnerEvents(PutPartnerEventsRequest) Awaitable<Errors\Result<PutPartnerEventsResponse>>;
-  public function DeactivateEventSource(DeactivateEventSourceRequest) Awaitable<Errors\Error>;
-  public function DeletePartnerEventSource(DeletePartnerEventSourceRequest) Awaitable<Errors\Error>;
-  public function DescribeRule(DescribeRuleRequest) Awaitable<Errors\Result<DescribeRuleResponse>>;
-  public function PutPermission(PutPermissionRequest) Awaitable<Errors\Error>;
-  public function RemovePermission(RemovePermissionRequest) Awaitable<Errors\Error>;
-  public function TestEventPattern(TestEventPatternRequest) Awaitable<Errors\Result<TestEventPatternResponse>>;
-  public function DeleteEventBus(DeleteEventBusRequest) Awaitable<Errors\Error>;
-  public function RemoveTargets(RemoveTargetsRequest) Awaitable<Errors\Result<RemoveTargetsResponse>>;
-  public function DescribePartnerEventSource(DescribePartnerEventSourceRequest) Awaitable<Errors\Result<DescribePartnerEventSourceResponse>>;
-  public function CreatePartnerEventSource(CreatePartnerEventSourceRequest) Awaitable<Errors\Result<CreatePartnerEventSourceResponse>>;
-  public function ActivateEventSource(ActivateEventSourceRequest) Awaitable<Errors\Error>;
+  public function ListPartnerEventSources(ListPartnerEventSourcesRequest) Awaitable<Errors\Result<ListPartnerEventSourcesResponse>>;
   public function ListRuleNamesByTarget(ListRuleNamesByTargetRequest) Awaitable<Errors\Result<ListRuleNamesByTargetResponse>>;
+  public function ListRules(ListRulesRequest) Awaitable<Errors\Result<ListRulesResponse>>;
   public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTargetsByRule(ListTargetsByRuleRequest) Awaitable<Errors\Result<ListTargetsByRuleResponse>>;
   public function PutEvents(PutEventsRequest) Awaitable<Errors\Result<PutEventsResponse>>;
+  public function PutPartnerEvents(PutPartnerEventsRequest) Awaitable<Errors\Result<PutPartnerEventsResponse>>;
+  public function PutPermission(PutPermissionRequest) Awaitable<Errors\Error>;
+  public function PutRule(PutRuleRequest) Awaitable<Errors\Result<PutRuleResponse>>;
+  public function PutTargets(PutTargetsRequest) Awaitable<Errors\Result<PutTargetsResponse>>;
+  public function RemovePermission(RemovePermissionRequest) Awaitable<Errors\Error>;
+  public function RemoveTargets(RemoveTargetsRequest) Awaitable<Errors\Result<RemoveTargetsResponse>>;
+  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
+  public function TestEventPattern(TestEventPatternRequest) Awaitable<Errors\Result<TestEventPatternResponse>>;
   public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function DisableRule(DisableRuleRequest) Awaitable<Errors\Error>;
 }
 
-class ListRuleNamesByTargetRequest {
-  public TargetArn $target_arn;
-  public EventBusName $event_bus_name;
-  public NextToken $next_token;
-  public LimitMax100 $limit;
+class AccountId {
 }
 
-class PutRuleResponse {
-  public RuleArn $rule_arn;
+class Action {
 }
 
-class DescribeRuleResponse {
-  public RuleName $name;
-  public RuleState $state;
-  public RuleDescription $description;
-  public RoleArn $role_arn;
-  public EventBusName $event_bus_name;
-  public RuleArn $arn;
-  public EventPattern $event_pattern;
-  public ScheduleExpression $schedule_expression;
-  public ManagedBy $managed_by;
+class ActivateEventSourceRequest {
+  public EventSourceName $name;
+}
+
+class Arn {
+}
+
+class AssignPublicIp {
+}
+
+class AwsVpcConfiguration {
+  public AssignPublicIp $assign_public_ip;
+  public StringList $security_groups;
+  public StringList $subnets;
+}
+
+class BatchArrayProperties {
+  public int $size;
+}
+
+class BatchParameters {
+  public BatchArrayProperties $array_properties;
+  public string $job_definition;
+  public string $job_name;
+  public BatchRetryStrategy $retry_strategy;
+}
+
+class BatchRetryStrategy {
+  public int $attempts;
+}
+
+class Boolean {
+}
+
+class ConcurrentModificationException {
+}
+
+class Condition {
+  public string $key;
+  public string $type;
+  public string $value;
+}
+
+class CreateEventBusRequest {
+  public EventSourceName $event_source_name;
+  public EventBusName $name;
+  public TagList $tags;
+}
+
+class CreateEventBusResponse {
+  public string $event_bus_arn;
+}
+
+class CreatePartnerEventSourceRequest {
+  public AccountId $account;
+  public EventSourceName $name;
+}
+
+class CreatePartnerEventSourceResponse {
+  public string $event_source_arn;
 }
 
 class DeactivateEventSourceRequest {
@@ -66,113 +111,113 @@ class DeleteEventBusRequest {
   public EventBusName $name;
 }
 
-class DescribeEventSourceResponse {
-  public Timestamp $expiration_time;
+class DeletePartnerEventSourceRequest {
+  public AccountId $account;
+  public EventSourceName $name;
+}
+
+class DeleteRuleRequest {
+  public EventBusName $event_bus_name;
+  public boolean $force;
+  public RuleName $name;
+}
+
+class DescribeEventBusRequest {
+  public EventBusName $name;
+}
+
+class DescribeEventBusResponse {
+  public string $arn;
   public string $name;
-  public EventSourceState $state;
+  public string $policy;
+}
+
+class DescribeEventSourceRequest {
+  public EventSourceName $name;
+}
+
+class DescribeEventSourceResponse {
   public string $arn;
   public string $created_by;
   public Timestamp $creation_time;
+  public Timestamp $expiration_time;
+  public string $name;
+  public EventSourceState $state;
 }
 
-class ListPartnerEventSourcesResponse {
-  public PartnerEventSourceList $partner_event_sources;
-  public NextToken $next_token;
+class DescribePartnerEventSourceRequest {
+  public EventSourceName $name;
 }
 
-class PartnerEventSource {
+class DescribePartnerEventSourceResponse {
   public string $arn;
   public string $name;
 }
 
-class BatchParameters {
-  public string $job_definition;
-  public string $job_name;
-  public BatchArrayProperties $array_properties;
-  public BatchRetryStrategy $retry_strategy;
+class DescribeRuleRequest {
+  public EventBusName $event_bus_name;
+  public RuleName $name;
 }
 
-class RuleNameList {
-}
-
-class TagList {
-}
-
-class Target {
-  public RunCommandParameters $run_command_parameters;
-  public KinesisParameters $kinesis_parameters;
-  public TargetArn $arn;
+class DescribeRuleResponse {
+  public RuleArn $arn;
+  public RuleDescription $description;
+  public EventBusName $event_bus_name;
+  public EventPattern $event_pattern;
+  public ManagedBy $managed_by;
+  public RuleName $name;
   public RoleArn $role_arn;
-  public TargetInput $input;
-  public TargetInputPath $input_path;
-  public InputTransformer $input_transformer;
-  public EcsParameters $ecs_parameters;
-  public BatchParameters $batch_parameters;
-  public TargetId $id;
-  public SqsParameters $sqs_parameters;
-}
-
-class UntagResourceRequest {
-  public TagKeyList $tag_keys;
-  public Arn $resource_arn;
-}
-
-class LaunchType {
-}
-
-class PolicyLengthExceededException {
-}
-
-class Tag {
-  public TagKey $key;
-  public TagValue $value;
-}
-
-class KinesisParameters {
-  public TargetPartitionKeyPath $partition_key_path;
-}
-
-class Principal {
-}
-
-class RunCommandTargetValues {
+  public ScheduleExpression $schedule_expression;
+  public RuleState $state;
 }
 
 class DisableRuleRequest {
-  public RuleName $name;
   public EventBusName $event_bus_name;
+  public RuleName $name;
+}
+
+class EcsParameters {
+  public string $group;
+  public LaunchType $launch_type;
+  public NetworkConfiguration $network_configuration;
+  public string $platform_version;
+  public LimitMin1 $task_count;
+  public Arn $task_definition_arn;
+}
+
+class EnableRuleRequest {
+  public EventBusName $event_bus_name;
+  public RuleName $name;
+}
+
+class ErrorCode {
+}
+
+class ErrorMessage {
+}
+
+class EventBus {
+  public string $arn;
+  public string $name;
+  public string $policy;
+}
+
+class EventBusList {
 }
 
 class EventBusName {
 }
 
-class ListEventBusesResponse {
-  public EventBusList $event_buses;
-  public NextToken $next_token;
-}
-
-class PutPartnerEventsResultEntryList {
-}
-
-class CreateEventBusRequest {
-  public EventBusName $name;
-  public EventSourceName $event_source_name;
-  public TagList $tags;
-}
-
-class ListPartnerEventSourceAccountsRequest {
-  public EventSourceName $event_source_name;
-  public NextToken $next_token;
-  public LimitMax100 $limit;
-}
-
-class RemoveTargetsResultEntryList {
-}
-
 class EventId {
 }
 
+class EventPattern {
+}
+
 class EventResource {
+}
+
+class EventResourceList {
 }
 
 class EventSource {
@@ -184,117 +229,123 @@ class EventSource {
   public EventSourceState $state;
 }
 
-class ListRuleNamesByTargetResponse {
-  public RuleNameList $rule_names;
-  public NextToken $next_token;
-}
-
-class ListTargetsByRuleResponse {
-  public TargetList $targets;
-  public NextToken $next_token;
-}
-
-class PartnerEventSourceList {
-}
-
-class String {
-}
-
-class TargetIdList {
-}
-
-class EnableRuleRequest {
-  public RuleName $name;
-  public EventBusName $event_bus_name;
-}
-
-class PutPartnerEventsRequest {
-  public PutPartnerEventsRequestEntryList $entries;
-}
-
-class RunCommandTargetKey {
-}
-
-class ScheduleExpression {
-}
-
-class TagResourceResponse {
-}
-
-class ListPartnerEventSourcesRequest {
-  public PartnerEventSourceNamePrefix $name_prefix;
-  public NextToken $next_token;
-  public LimitMax100 $limit;
-}
-
-class ErrorCode {
+class EventSourceList {
 }
 
 class EventSourceName {
 }
 
-class ManagedBy {
+class EventSourceNamePrefix {
 }
 
-class PutEventsRequestEntry {
-  public EventTime $time;
-  public string $source;
-  public EventResourceList $resources;
-  public string $detail_type;
-  public string $detail;
-  public NonPartnerEventBusName $event_bus_name;
-}
-
-class PutPartnerEventsResponse {
-  public int $failed_entry_count;
-  public PutPartnerEventsResultEntryList $entries;
-}
-
-class PutPermissionRequest {
-  public Principal $principal;
-  public StatementId $statement_id;
-  public Condition $condition;
-  public NonPartnerEventBusName $event_bus_name;
-  public Action $action;
-}
-
-class TagResourceRequest {
-  public Arn $resource_arn;
-  public TagList $tags;
-}
-
-class AwsVpcConfiguration {
-  public StringList $security_groups;
-  public AssignPublicIp $assign_public_ip;
-  public StringList $subnets;
-}
-
-class TransformerPaths {
-}
-
-class TransformerInput {
-}
-
-class NextToken {
-}
-
-class RunCommandTargets {
-}
-
-class StatementId {
-}
-
-class TagValue {
-}
-
-class ListRulesRequest {
-  public RuleName $name_prefix;
-  public EventBusName $event_bus_name;
-  public NextToken $next_token;
-  public LimitMax100 $limit;
+class EventSourceState {
 }
 
 class EventTime {
+}
+
+class InputTransformer {
+  public TransformerPaths $input_paths_map;
+  public TransformerInput $input_template;
+}
+
+class InputTransformerPathKey {
+}
+
+class Integer {
+}
+
+class InternalException {
+}
+
+class InvalidEventPatternException {
+}
+
+class InvalidStateException {
+}
+
+class KinesisParameters {
+  public TargetPartitionKeyPath $partition_key_path;
+}
+
+class LaunchType {
+}
+
+class LimitExceededException {
+}
+
+class LimitMax100 {
+}
+
+class LimitMin1 {
+}
+
+class ListEventBusesRequest {
+  public LimitMax100 $limit;
+  public EventBusName $name_prefix;
+  public NextToken $next_token;
+}
+
+class ListEventBusesResponse {
+  public EventBusList $event_buses;
+  public NextToken $next_token;
+}
+
+class ListEventSourcesRequest {
+  public LimitMax100 $limit;
+  public EventSourceNamePrefix $name_prefix;
+  public NextToken $next_token;
+}
+
+class ListEventSourcesResponse {
+  public EventSourceList $event_sources;
+  public NextToken $next_token;
+}
+
+class ListPartnerEventSourceAccountsRequest {
+  public EventSourceName $event_source_name;
+  public LimitMax100 $limit;
+  public NextToken $next_token;
+}
+
+class ListPartnerEventSourceAccountsResponse {
+  public NextToken $next_token;
+  public PartnerEventSourceAccountList $partner_event_source_accounts;
+}
+
+class ListPartnerEventSourcesRequest {
+  public LimitMax100 $limit;
+  public PartnerEventSourceNamePrefix $name_prefix;
+  public NextToken $next_token;
+}
+
+class ListPartnerEventSourcesResponse {
+  public NextToken $next_token;
+  public PartnerEventSourceList $partner_event_sources;
+}
+
+class ListRuleNamesByTargetRequest {
+  public EventBusName $event_bus_name;
+  public LimitMax100 $limit;
+  public NextToken $next_token;
+  public TargetArn $target_arn;
+}
+
+class ListRuleNamesByTargetResponse {
+  public NextToken $next_token;
+  public RuleNameList $rule_names;
+}
+
+class ListRulesRequest {
+  public EventBusName $event_bus_name;
+  public LimitMax100 $limit;
+  public RuleName $name_prefix;
+  public NextToken $next_token;
+}
+
+class ListRulesResponse {
+  public NextToken $next_token;
+  public RuleResponseList $rules;
 }
 
 class ListTagsForResourceRequest {
@@ -305,286 +356,40 @@ class ListTagsForResourceResponse {
   public TagList $tags;
 }
 
-class PartnerEventSourceAccountList {
+class ListTargetsByRuleRequest {
+  public EventBusName $event_bus_name;
+  public LimitMax100 $limit;
+  public NextToken $next_token;
+  public RuleName $rule;
 }
 
-class PutEventsResultEntryList {
+class ListTargetsByRuleResponse {
+  public NextToken $next_token;
+  public TargetList $targets;
 }
 
-class Timestamp {
-}
-
-class DescribeEventBusResponse {
-  public string $name;
-  public string $arn;
-  public string $policy;
+class ManagedBy {
 }
 
 class ManagedRuleException {
 }
 
-class PartnerEventSourceNamePrefix {
-}
-
-class PutTargetsRequest {
-  public RuleName $rule;
-  public EventBusName $event_bus_name;
-  public TargetList $targets;
-}
-
-class PutTargetsResultEntry {
-  public TargetId $target_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class TestEventPatternRequest {
-  public EventPattern $event_pattern;
-  public string $event;
-}
-
-class EventBus {
-  public string $policy;
-  public string $name;
-  public string $arn;
-}
-
-class DescribePartnerEventSourceResponse {
-  public string $name;
-  public string $arn;
-}
-
-class ListRulesResponse {
-  public RuleResponseList $rules;
-  public NextToken $next_token;
-}
-
-class PutEventsResultEntry {
-  public EventId $event_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class RemoveTargetsResultEntry {
-  public TargetId $target_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class Rule {
-  public ScheduleExpression $schedule_expression;
-  public EventBusName $event_bus_name;
-  public RoleArn $role_arn;
-  public ManagedBy $managed_by;
-  public RuleName $name;
-  public RuleArn $arn;
-  public EventPattern $event_pattern;
-  public RuleState $state;
-  public RuleDescription $description;
-}
-
-class RunCommandParameters {
-  public RunCommandTargets $run_command_targets;
-}
-
-class BatchRetryStrategy {
-  public int $attempts;
-}
-
-class ListTargetsByRuleRequest {
-  public NextToken $next_token;
-  public LimitMax100 $limit;
-  public RuleName $rule;
-  public EventBusName $event_bus_name;
-}
-
-class PutTargetsResponse {
-  public int $failed_entry_count;
-  public PutTargetsResultEntryList $failed_entries;
-}
-
-class ConcurrentModificationException {
-}
-
-class InputTransformerPathKey {
-}
-
-class ListEventBusesRequest {
-  public EventBusName $name_prefix;
-  public NextToken $next_token;
-  public LimitMax100 $limit;
-}
-
-class RuleName {
-}
-
-class RuleResponseList {
-}
-
-class TagKey {
-}
-
-class TargetId {
-}
-
-class BatchArrayProperties {
-  public int $size;
-}
-
-class PutEventsResponse {
-  public int $failed_entry_count;
-  public PutEventsResultEntryList $entries;
-}
-
-class ListEventSourcesRequest {
-  public LimitMax100 $limit;
-  public EventSourceNamePrefix $name_prefix;
-  public NextToken $next_token;
-}
-
-class NonPartnerEventBusName {
-}
-
-class TargetInputPath {
-}
-
-class DeletePartnerEventSourceRequest {
-  public EventSourceName $name;
-  public AccountId $account;
-}
-
-class DescribeEventBusRequest {
-  public EventBusName $name;
-}
-
-class EventSourceState {
-}
-
-class InternalException {
-}
-
-class PutPartnerEventsResultEntry {
-  public EventId $event_id;
-  public ErrorCode $error_code;
-  public ErrorMessage $error_message;
-}
-
-class PutRuleRequest {
-  public EventPattern $event_pattern;
-  public RuleState $state;
-  public RuleDescription $description;
-  public RoleArn $role_arn;
-  public TagList $tags;
-  public EventBusName $event_bus_name;
-  public RuleName $name;
-  public ScheduleExpression $schedule_expression;
-}
-
-class RuleDescription {
-}
-
-class TagKeyList {
-}
-
-class Condition {
-  public string $key;
-  public string $value;
-  public string $type;
-}
-
-class TargetInput {
-}
-
-class CreatePartnerEventSourceResponse {
-  public string $event_source_arn;
-}
-
-class EcsParameters {
-  public LimitMin1 $task_count;
-  public LaunchType $launch_type;
-  public NetworkConfiguration $network_configuration;
-  public string $platform_version;
-  public string $group;
-  public Arn $task_definition_arn;
-}
-
-class EventResourceList {
-}
-
-class PutEventsRequestEntryList {
-}
-
-class RunCommandTarget {
-  public RunCommandTargetKey $key;
-  public RunCommandTargetValues $values;
-}
-
-class SqsParameters {
-  public MessageGroupId $message_group_id;
-}
-
-class AccountId {
-}
-
-class EventSourceNamePrefix {
-}
-
-class Integer {
-}
-
-class InvalidStateException {
-}
-
-class LimitMin1 {
-}
-
-class RoleArn {
-}
-
-class EventSourceList {
-}
-
-class CreateEventBusResponse {
-  public string $event_bus_arn;
-}
-
-class RemovePermissionRequest {
-  public StatementId $statement_id;
-  public NonPartnerEventBusName $event_bus_name;
-}
-
-class Arn {
-}
-
-class ErrorMessage {
+class MessageGroupId {
 }
 
 class NetworkConfiguration {
   public AwsVpcConfiguration $awsvpc_configuration;
 }
 
-class AssignPublicIp {
+class NextToken {
 }
 
-class MessageGroupId {
+class NonPartnerEventBusName {
 }
 
-class PutTargetsResultEntryList {
-}
-
-class RemoveTargetsResponse {
-  public int $failed_entry_count;
-  public RemoveTargetsResultEntryList $failed_entries;
-}
-
-class CreatePartnerEventSourceRequest {
-  public EventSourceName $name;
-  public AccountId $account;
-}
-
-class DescribeRuleRequest {
-  public RuleName $name;
-  public EventBusName $event_bus_name;
+class PartnerEventSource {
+  public string $arn;
+  public string $name;
 }
 
 class PartnerEventSourceAccount {
@@ -594,113 +399,308 @@ class PartnerEventSourceAccount {
   public EventSourceState $state;
 }
 
-class DescribePartnerEventSourceRequest {
-  public EventSourceName $name;
+class PartnerEventSourceAccountList {
 }
 
-class RunCommandTargetValue {
+class PartnerEventSourceList {
 }
 
-class StringList {
+class PartnerEventSourceNamePrefix {
 }
 
-class DescribeEventSourceRequest {
-  public EventSourceName $name;
+class PolicyLengthExceededException {
 }
 
-class ActivateEventSourceRequest {
-  public EventSourceName $name;
-}
-
-class EventPattern {
-}
-
-class ListEventSourcesResponse {
-  public EventSourceList $event_sources;
-  public NextToken $next_token;
-}
-
-class RemoveTargetsRequest {
-  public RuleName $rule;
-  public EventBusName $event_bus_name;
-  public TargetIdList $ids;
-  public boolean $force;
-}
-
-class UntagResourceResponse {
-}
-
-class Action {
-}
-
-class TargetList {
+class Principal {
 }
 
 class PutEventsRequest {
   public PutEventsRequestEntryList $entries;
 }
 
-class RuleArn {
+class PutEventsRequestEntry {
+  public string $detail;
+  public string $detail_type;
+  public NonPartnerEventBusName $event_bus_name;
+  public EventResourceList $resources;
+  public string $source;
+  public EventTime $time;
 }
 
-class RuleState {
+class PutEventsRequestEntryList {
 }
 
-class TargetPartitionKeyPath {
+class PutEventsResponse {
+  public PutEventsResultEntryList $entries;
+  public int $failed_entry_count;
 }
 
-class Boolean {
+class PutEventsResultEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public EventId $event_id;
 }
 
-class ResourceNotFoundException {
+class PutEventsResultEntryList {
+}
+
+class PutPartnerEventsRequest {
+  public PutPartnerEventsRequestEntryList $entries;
+}
+
+class PutPartnerEventsRequestEntry {
+  public string $detail;
+  public string $detail_type;
+  public EventResourceList $resources;
+  public EventSourceName $source;
+  public EventTime $time;
 }
 
 class PutPartnerEventsRequestEntryList {
 }
 
-class ListPartnerEventSourceAccountsResponse {
-  public PartnerEventSourceAccountList $partner_event_source_accounts;
-  public NextToken $next_token;
+class PutPartnerEventsResponse {
+  public PutPartnerEventsResultEntryList $entries;
+  public int $failed_entry_count;
+}
+
+class PutPartnerEventsResultEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public EventId $event_id;
+}
+
+class PutPartnerEventsResultEntryList {
+}
+
+class PutPermissionRequest {
+  public Action $action;
+  public Condition $condition;
+  public NonPartnerEventBusName $event_bus_name;
+  public Principal $principal;
+  public StatementId $statement_id;
+}
+
+class PutRuleRequest {
+  public RuleDescription $description;
+  public EventBusName $event_bus_name;
+  public EventPattern $event_pattern;
+  public RuleName $name;
+  public RoleArn $role_arn;
+  public ScheduleExpression $schedule_expression;
+  public RuleState $state;
+  public TagList $tags;
+}
+
+class PutRuleResponse {
+  public RuleArn $rule_arn;
+}
+
+class PutTargetsRequest {
+  public EventBusName $event_bus_name;
+  public RuleName $rule;
+  public TargetList $targets;
+}
+
+class PutTargetsResponse {
+  public PutTargetsResultEntryList $failed_entries;
+  public int $failed_entry_count;
+}
+
+class PutTargetsResultEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public TargetId $target_id;
+}
+
+class PutTargetsResultEntryList {
+}
+
+class RemovePermissionRequest {
+  public NonPartnerEventBusName $event_bus_name;
+  public StatementId $statement_id;
+}
+
+class RemoveTargetsRequest {
+  public EventBusName $event_bus_name;
+  public boolean $force;
+  public TargetIdList $ids;
+  public RuleName $rule;
+}
+
+class RemoveTargetsResponse {
+  public RemoveTargetsResultEntryList $failed_entries;
+  public int $failed_entry_count;
+}
+
+class RemoveTargetsResultEntry {
+  public ErrorCode $error_code;
+  public ErrorMessage $error_message;
+  public TargetId $target_id;
+}
+
+class RemoveTargetsResultEntryList {
+}
+
+class ResourceAlreadyExistsException {
+}
+
+class ResourceNotFoundException {
+}
+
+class RoleArn {
+}
+
+class Rule {
+  public RuleArn $arn;
+  public RuleDescription $description;
+  public EventBusName $event_bus_name;
+  public EventPattern $event_pattern;
+  public ManagedBy $managed_by;
+  public RuleName $name;
+  public RoleArn $role_arn;
+  public ScheduleExpression $schedule_expression;
+  public RuleState $state;
+}
+
+class RuleArn {
+}
+
+class RuleDescription {
+}
+
+class RuleName {
+}
+
+class RuleNameList {
+}
+
+class RuleResponseList {
+}
+
+class RuleState {
+}
+
+class RunCommandParameters {
+  public RunCommandTargets $run_command_targets;
+}
+
+class RunCommandTarget {
+  public RunCommandTargetKey $key;
+  public RunCommandTargetValues $values;
+}
+
+class RunCommandTargetKey {
+}
+
+class RunCommandTargetValue {
+}
+
+class RunCommandTargetValues {
+}
+
+class RunCommandTargets {
+}
+
+class ScheduleExpression {
+}
+
+class SqsParameters {
+  public MessageGroupId $message_group_id;
+}
+
+class StatementId {
+}
+
+class String {
+}
+
+class StringList {
+}
+
+class Tag {
+  public TagKey $key;
+  public TagValue $value;
+}
+
+class TagKey {
+}
+
+class TagKeyList {
+}
+
+class TagList {
+}
+
+class TagResourceRequest {
+  public Arn $resource_arn;
+  public TagList $tags;
+}
+
+class TagResourceResponse {
+}
+
+class TagValue {
+}
+
+class Target {
+  public TargetArn $arn;
+  public BatchParameters $batch_parameters;
+  public EcsParameters $ecs_parameters;
+  public TargetId $id;
+  public TargetInput $input;
+  public TargetInputPath $input_path;
+  public InputTransformer $input_transformer;
+  public KinesisParameters $kinesis_parameters;
+  public RoleArn $role_arn;
+  public RunCommandParameters $run_command_parameters;
+  public SqsParameters $sqs_parameters;
 }
 
 class TargetArn {
+}
+
+class TargetId {
+}
+
+class TargetIdList {
+}
+
+class TargetInput {
+}
+
+class TargetInputPath {
+}
+
+class TargetList {
+}
+
+class TargetPartitionKeyPath {
+}
+
+class TestEventPatternRequest {
+  public string $event;
+  public EventPattern $event_pattern;
 }
 
 class TestEventPatternResponse {
   public boolean $result;
 }
 
-class DeleteRuleRequest {
-  public boolean $force;
-  public RuleName $name;
-  public EventBusName $event_bus_name;
+class Timestamp {
 }
 
-class InputTransformer {
-  public TransformerInput $input_template;
-  public TransformerPaths $input_paths_map;
+class TransformerInput {
 }
 
-class InvalidEventPatternException {
+class TransformerPaths {
 }
 
-class LimitExceededException {
+class UntagResourceRequest {
+  public Arn $resource_arn;
+  public TagKeyList $tag_keys;
 }
 
-class LimitMax100 {
-}
-
-class PutPartnerEventsRequestEntry {
-  public EventTime $time;
-  public EventSourceName $source;
-  public EventResourceList $resources;
-  public string $detail_type;
-  public string $detail;
-}
-
-class ResourceAlreadyExistsException {
-}
-
-class EventBusList {
+class UntagResourceResponse {
 }
 
