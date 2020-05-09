@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"path/filepath"
 	"strings"
 
 	"github.com/iancoleman/strcase"
@@ -18,14 +19,23 @@ func check(err error) {
 }
 
 func main() {
-	fmt.Println("good lord")
-	b, err := ioutil.ReadFile("models/apis/sqs/2012-11-05/api-2.json")
+	paths, err := filepath.Glob("./models/apis/*/*/api-2.json")
 	check(err)
-	m := &Model{}
-	check(json.Unmarshal(b, m))
-	//fmt.Println(m)
-	buf := bytes.NewBuffer(nil)
-	w := writer{buf, 0}
+	for _, path := range paths {
+		fmt.Printf("generating %s\n", path)
+		b, err := ioutil.ReadFile(path)
+		check(err)
+		m := &Model{}
+		check(json.Unmarshal(b, m))
+		buf := bytes.NewBuffer(nil)
+		w := &writer{buf, 0}
+		genModel(m, w)
+		fname := fmt.Sprintf("./gen-src/%s.php", m.Metadata["endpointPrefix"])
+		check(ioutil.WriteFile(fname, buf.Bytes(), 0660))
+	}
+}
+
+func genModel(m *Model, w *writer) {
 	w.p("<?hh // strict")
 	w.p("namespace slack\\aws\\%s;", m.Metadata["endpointPrefix"])
 	w.ln()
@@ -60,7 +70,6 @@ func main() {
 		w.p("}")
 		w.ln()
 	}
-	fmt.Println(buf.String())
 }
 
 type Model struct {
