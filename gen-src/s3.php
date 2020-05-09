@@ -138,20 +138,14 @@ class AllowQuotedRecordDelimiter {
 class AllowedHeader {
 }
 
-class AllowedHeaders {
-}
 
 class AllowedMethod {
 }
 
-class AllowedMethods {
-}
 
 class AllowedOrigin {
 }
 
-class AllowedOrigins {
-}
 
 class AnalyticsAndOperator {
   public Prefix $prefix;
@@ -164,8 +158,6 @@ class AnalyticsConfiguration {
   public StorageClassAnalysis $storage_class_analysis;
 }
 
-class AnalyticsConfigurationList {
-}
 
 class AnalyticsExportDestination {
   public AnalyticsS3BucketDestination $s_3_bucket_destination;
@@ -257,8 +249,6 @@ class CORSRule {
   public MaxAgeSeconds $max_age_seconds;
 }
 
-class CORSRules {
-}
 
 class CSVInput {
   public AllowQuotedRecordDelimiter $allow_quoted_record_delimiter;
@@ -305,8 +295,6 @@ class CommonPrefix {
   public Prefix $prefix;
 }
 
-class CommonPrefixList {
-}
 
 class CompleteMultipartUploadOutput {
   public BucketName $bucket;
@@ -337,8 +325,6 @@ class CompletedPart {
   public PartNumber $part_number;
 }
 
-class CompletedPartList {
-}
 
 class CompressionType {
 }
@@ -623,8 +609,6 @@ class DeleteMarkerReplicationStatus {
 class DeleteMarkerVersionId {
 }
 
-class DeleteMarkers {
-}
 
 class DeleteObjectOutput {
   public DeleteMarker $delete_marker;
@@ -676,8 +660,6 @@ class DeletedObject {
   public ObjectVersionId $version_id;
 }
 
-class DeletedObjects {
-}
 
 class Delimiter {
 }
@@ -737,14 +719,10 @@ class ErrorDocument {
   public ObjectKey $key;
 }
 
-class Errors {
-}
 
 class Event {
 }
 
-class EventList {
-}
 
 class ExistingObjectReplication {
   public ExistingObjectReplicationStatus $status;
@@ -768,8 +746,6 @@ class Expires {
 class ExposeHeader {
 }
 
-class ExposeHeaders {
-}
 
 class Expression {
 }
@@ -791,8 +767,6 @@ class FilterRule {
   public FilterRuleValue $value;
 }
 
-class FilterRuleList {
-}
 
 class FilterRuleName {
 }
@@ -1224,8 +1198,6 @@ class InventoryConfiguration {
   public InventorySchedule $schedule;
 }
 
-class InventoryConfigurationList {
-}
 
 class InventoryDestination {
   public InventoryS3BucketDestination $s_3_bucket_destination;
@@ -1315,8 +1287,6 @@ class LambdaFunctionConfiguration {
   public LambdaFunctionArn $lambda_function_arn;
 }
 
-class LambdaFunctionConfigurationList {
-}
 
 class LastModified {
 }
@@ -1354,8 +1324,6 @@ class LifecycleRuleFilter {
   public Tag $tag;
 }
 
-class LifecycleRules {
-}
 
 class ListBucketAnalyticsConfigurationsOutput {
   public AnalyticsConfigurationList $analytics_configuration_list;
@@ -1596,8 +1564,6 @@ class MetricsConfiguration {
   public MetricsId $id;
 }
 
-class MetricsConfigurationList {
-}
 
 class MetricsFilter {
   public MetricsAndOperator $and;
@@ -1629,8 +1595,6 @@ class MultipartUpload {
 class MultipartUploadId {
 }
 
-class MultipartUploadList {
-}
 
 class NextKeyMarker {
 }
@@ -1668,8 +1632,6 @@ class NoncurrentVersionTransition {
   public TransitionStorageClass $storage_class;
 }
 
-class NoncurrentVersionTransitionList {
-}
 
 class NotificationConfiguration {
   public LambdaFunctionConfigurationList $lambda_function_configurations;
@@ -1710,14 +1672,10 @@ class ObjectIdentifier {
   public ObjectVersionId $version_id;
 }
 
-class ObjectIdentifierList {
-}
 
 class ObjectKey {
 }
 
-class ObjectList {
-}
 
 class ObjectLockConfiguration {
   public ObjectLockEnabled $object_lock_enabled;
@@ -1778,8 +1736,6 @@ class ObjectVersion {
 class ObjectVersionId {
 }
 
-class ObjectVersionList {
-}
 
 class ObjectVersionStorageClass {
 }
@@ -1817,8 +1773,6 @@ class PartNumber {
 class PartNumberMarker {
 }
 
-class Parts {
-}
 
 class PartsCount {
 }
@@ -2114,8 +2068,6 @@ class QueueConfigurationDeprecated {
   public QueueArn $queue;
 }
 
-class QueueConfigurationList {
-}
 
 class Quiet {
 }
@@ -2192,8 +2144,6 @@ class ReplicationRuleFilter {
 class ReplicationRuleStatus {
 }
 
-class ReplicationRules {
-}
 
 class ReplicationStatus {
 }
@@ -2296,8 +2246,6 @@ class Rule {
   public Transition $transition;
 }
 
-class Rules {
-}
 
 class S3KeyFilter {
   public FilterRuleList $filter_rules;
@@ -2390,8 +2338,6 @@ class ServerSideEncryptionRule {
   public ServerSideEncryptionByDefault $apply_server_side_encryption_by_default;
 }
 
-class ServerSideEncryptionRules {
-}
 
 class Setting {
 }
@@ -2502,8 +2448,6 @@ class TopicConfigurationDeprecated {
   public TopicArn $topic;
 }
 
-class TopicConfigurationList {
-}
 
 class Transition {
   public Date $date;
@@ -2511,8 +2455,6 @@ class Transition {
   public TransitionStorageClass $storage_class;
 }
 
-class TransitionList {
-}
 
 class TransitionStorageClass {
 }

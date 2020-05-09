@@ -25,11 +25,7 @@ class AttributeDoesNotExist {
   public Float $box_usage;
 }
 
-class AttributeList {
-}
 
-class AttributeNameList {
-}
 
 class BatchDeleteAttributesRequest {
   public string $domain_name;
@@ -53,16 +49,12 @@ class DeletableAttribute {
   public string $value;
 }
 
-class DeletableAttributeList {
-}
 
 class DeletableItem {
   public DeletableAttributeList $attributes;
   public string $name;
 }
 
-class DeletableItemList {
-}
 
 class DeleteAttributesRequest {
   public DeletableAttributeList $attributes;
@@ -89,8 +81,6 @@ class DomainMetadataResult {
   public int $timestamp;
 }
 
-class DomainNameList {
-}
 
 class DuplicateItemName {
   public Float $box_usage;
@@ -139,8 +129,6 @@ class Item {
   public string $name;
 }
 
-class ItemList {
-}
 
 class ListDomainsRequest {
   public int $max_number_of_domains;
@@ -200,16 +188,12 @@ class ReplaceableAttribute {
   public string $value;
 }
 
-class ReplaceableAttributeList {
-}
 
 class ReplaceableItem {
   public ReplaceableAttributeList $attributes;
   public string $name;
 }
 
-class ReplaceableItemList {
-}
 
 class RequestTimeout {
   public Float $box_usage;

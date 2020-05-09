@@ -75,6 +75,9 @@ func genModel(m *Model, w *writer) {
 }
 
 func genTopLevelShape(name string, s Shape, w *writer) {
+	if s.Flattened {
+		return
+	}
 	w.p("class %s {", name)
 	sorted := []string{}
 	for k, _ := range s.Members {

@@ -24,11 +24,7 @@ interface SQS {
   public function UntagQueue(UntagQueueRequest): Awaitable<Errors\Error>;
 }
 
-class AWSAccountIdList {
-}
 
-class ActionNameList {
-}
 
 class AddPermissionRequest {
   public AWSAccountIdList $aws_account_ids;
@@ -37,8 +33,6 @@ class AddPermissionRequest {
   public string $queue_url;
 }
 
-class AttributeNameList {
-}
 
 class BatchEntryIdsNotDistinct {
 }
@@ -53,8 +47,6 @@ class BatchResultErrorEntry {
   public boolean $sender_fault;
 }
 
-class BatchResultErrorEntryList {
-}
 
 class Binary {
 }
@@ -76,8 +68,6 @@ class ChangeMessageVisibilityBatchRequestEntry {
   public int $visibility_timeout;
 }
 
-class ChangeMessageVisibilityBatchRequestEntryList {
-}
 
 class ChangeMessageVisibilityBatchResult {
   public BatchResultErrorEntryList $failed;
@@ -88,8 +78,6 @@ class ChangeMessageVisibilityBatchResultEntry {
   public string $id;
 }
 
-class ChangeMessageVisibilityBatchResultEntryList {
-}
 
 class ChangeMessageVisibilityRequest {
   public string $queue_url;
@@ -117,8 +105,6 @@ class DeleteMessageBatchRequestEntry {
   public string $receipt_handle;
 }
 
-class DeleteMessageBatchRequestEntryList {
-}
 
 class DeleteMessageBatchResult {
   public BatchResultErrorEntryList $failed;
@@ -129,8 +115,6 @@ class DeleteMessageBatchResultEntry {
   public string $id;
 }
 
-class DeleteMessageBatchResultEntryList {
-}
 
 class DeleteMessageRequest {
   public string $queue_url;
@@ -214,8 +198,6 @@ class Message {
 class MessageAttributeName {
 }
 
-class MessageAttributeNameList {
-}
 
 class MessageAttributeValue {
   public BinaryList $binary_list_values;
@@ -225,20 +207,12 @@ class MessageAttributeValue {
   public string $string_value;
 }
 
-class MessageBodyAttributeMap {
-}
 
-class MessageBodySystemAttributeMap {
-}
 
-class MessageList {
-}
 
 class MessageNotInflight {
 }
 
-class MessageSystemAttributeMap {
-}
 
 class MessageSystemAttributeName {
 }
@@ -264,8 +238,6 @@ class PurgeQueueRequest {
   public string $queue_url;
 }
 
-class QueueAttributeMap {
-}
 
 class QueueAttributeName {
 }
@@ -279,8 +251,6 @@ class QueueDoesNotExist {
 class QueueNameExists {
 }
 
-class QueueUrlList {
-}
 
 class ReceiptHandleIsInvalid {
 }
@@ -319,8 +289,6 @@ class SendMessageBatchRequestEntry {
   public MessageBodySystemAttributeMap $message_system_attributes;
 }
 
-class SendMessageBatchRequestEntryList {
-}
 
 class SendMessageBatchResult {
   public BatchResultErrorEntryList $failed;
@@ -336,8 +304,6 @@ class SendMessageBatchResultEntry {
   public string $sequence_number;
 }
 
-class SendMessageBatchResultEntryList {
-}
 
 class SendMessageRequest {
   public int $delay_seconds;
@@ -371,11 +337,7 @@ class StringList {
 class TagKey {
 }
 
-class TagKeyList {
-}
 
-class TagMap {
-}
 
 class TagQueueRequest {
   public string $queue_url;
