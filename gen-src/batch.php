@@ -2,22 +2,22 @@
 namespace slack\aws\batch;
 
 interface Batch {
-  public function CancelJob(CancelJobRequest) Awaitable<Errors\Result<CancelJobResponse>>;
-  public function CreateComputeEnvironment(CreateComputeEnvironmentRequest) Awaitable<Errors\Result<CreateComputeEnvironmentResponse>>;
-  public function CreateJobQueue(CreateJobQueueRequest) Awaitable<Errors\Result<CreateJobQueueResponse>>;
-  public function DeleteComputeEnvironment(DeleteComputeEnvironmentRequest) Awaitable<Errors\Result<DeleteComputeEnvironmentResponse>>;
-  public function DeleteJobQueue(DeleteJobQueueRequest) Awaitable<Errors\Result<DeleteJobQueueResponse>>;
-  public function DeregisterJobDefinition(DeregisterJobDefinitionRequest) Awaitable<Errors\Result<DeregisterJobDefinitionResponse>>;
-  public function DescribeComputeEnvironments(DescribeComputeEnvironmentsRequest) Awaitable<Errors\Result<DescribeComputeEnvironmentsResponse>>;
-  public function DescribeJobDefinitions(DescribeJobDefinitionsRequest) Awaitable<Errors\Result<DescribeJobDefinitionsResponse>>;
-  public function DescribeJobQueues(DescribeJobQueuesRequest) Awaitable<Errors\Result<DescribeJobQueuesResponse>>;
-  public function DescribeJobs(DescribeJobsRequest) Awaitable<Errors\Result<DescribeJobsResponse>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResponse>>;
-  public function RegisterJobDefinition(RegisterJobDefinitionRequest) Awaitable<Errors\Result<RegisterJobDefinitionResponse>>;
-  public function SubmitJob(SubmitJobRequest) Awaitable<Errors\Result<SubmitJobResponse>>;
-  public function TerminateJob(TerminateJobRequest) Awaitable<Errors\Result<TerminateJobResponse>>;
-  public function UpdateComputeEnvironment(UpdateComputeEnvironmentRequest) Awaitable<Errors\Result<UpdateComputeEnvironmentResponse>>;
-  public function UpdateJobQueue(UpdateJobQueueRequest) Awaitable<Errors\Result<UpdateJobQueueResponse>>;
+  public function CancelJob(CancelJobRequest): Awaitable<Errors\Result<CancelJobResponse>>;
+  public function CreateComputeEnvironment(CreateComputeEnvironmentRequest): Awaitable<Errors\Result<CreateComputeEnvironmentResponse>>;
+  public function CreateJobQueue(CreateJobQueueRequest): Awaitable<Errors\Result<CreateJobQueueResponse>>;
+  public function DeleteComputeEnvironment(DeleteComputeEnvironmentRequest): Awaitable<Errors\Result<DeleteComputeEnvironmentResponse>>;
+  public function DeleteJobQueue(DeleteJobQueueRequest): Awaitable<Errors\Result<DeleteJobQueueResponse>>;
+  public function DeregisterJobDefinition(DeregisterJobDefinitionRequest): Awaitable<Errors\Result<DeregisterJobDefinitionResponse>>;
+  public function DescribeComputeEnvironments(DescribeComputeEnvironmentsRequest): Awaitable<Errors\Result<DescribeComputeEnvironmentsResponse>>;
+  public function DescribeJobDefinitions(DescribeJobDefinitionsRequest): Awaitable<Errors\Result<DescribeJobDefinitionsResponse>>;
+  public function DescribeJobQueues(DescribeJobQueuesRequest): Awaitable<Errors\Result<DescribeJobQueuesResponse>>;
+  public function DescribeJobs(DescribeJobsRequest): Awaitable<Errors\Result<DescribeJobsResponse>>;
+  public function ListJobs(ListJobsRequest): Awaitable<Errors\Result<ListJobsResponse>>;
+  public function RegisterJobDefinition(RegisterJobDefinitionRequest): Awaitable<Errors\Result<RegisterJobDefinitionResponse>>;
+  public function SubmitJob(SubmitJobRequest): Awaitable<Errors\Result<SubmitJobResponse>>;
+  public function TerminateJob(TerminateJobRequest): Awaitable<Errors\Result<TerminateJobResponse>>;
+  public function UpdateComputeEnvironment(UpdateComputeEnvironmentRequest): Awaitable<Errors\Result<UpdateComputeEnvironmentResponse>>;
+  public function UpdateJobQueue(UpdateJobQueueRequest): Awaitable<Errors\Result<UpdateJobQueueResponse>>;
 }
 
 class ArrayJobDependency {

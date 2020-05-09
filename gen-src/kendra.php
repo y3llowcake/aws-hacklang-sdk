@@ -2,26 +2,26 @@
 namespace slack\aws\kendra;
 
 interface kendra {
-  public function BatchDeleteDocument(BatchDeleteDocumentRequest) Awaitable<Errors\Result<BatchDeleteDocumentResponse>>;
-  public function BatchPutDocument(BatchPutDocumentRequest) Awaitable<Errors\Result<BatchPutDocumentResponse>>;
-  public function CreateDataSource(CreateDataSourceRequest) Awaitable<Errors\Result<CreateDataSourceResponse>>;
-  public function CreateFaq(CreateFaqRequest) Awaitable<Errors\Result<CreateFaqResponse>>;
-  public function CreateIndex(CreateIndexRequest) Awaitable<Errors\Result<CreateIndexResponse>>;
-  public function DeleteFaq(DeleteFaqRequest) Awaitable<Errors\Error>;
-  public function DeleteIndex(DeleteIndexRequest) Awaitable<Errors\Error>;
-  public function DescribeDataSource(DescribeDataSourceRequest) Awaitable<Errors\Result<DescribeDataSourceResponse>>;
-  public function DescribeFaq(DescribeFaqRequest) Awaitable<Errors\Result<DescribeFaqResponse>>;
-  public function DescribeIndex(DescribeIndexRequest) Awaitable<Errors\Result<DescribeIndexResponse>>;
-  public function ListDataSourceSyncJobs(ListDataSourceSyncJobsRequest) Awaitable<Errors\Result<ListDataSourceSyncJobsResponse>>;
-  public function ListDataSources(ListDataSourcesRequest) Awaitable<Errors\Result<ListDataSourcesResponse>>;
-  public function ListFaqs(ListFaqsRequest) Awaitable<Errors\Result<ListFaqsResponse>>;
-  public function ListIndices(ListIndicesRequest) Awaitable<Errors\Result<ListIndicesResponse>>;
-  public function Query(QueryRequest) Awaitable<Errors\Result<QueryResult>>;
-  public function StartDataSourceSyncJob(StartDataSourceSyncJobRequest) Awaitable<Errors\Result<StartDataSourceSyncJobResponse>>;
-  public function StopDataSourceSyncJob(StopDataSourceSyncJobRequest) Awaitable<Errors\Error>;
-  public function SubmitFeedback(SubmitFeedbackRequest) Awaitable<Errors\Error>;
-  public function UpdateDataSource(UpdateDataSourceRequest) Awaitable<Errors\Error>;
-  public function UpdateIndex(UpdateIndexRequest) Awaitable<Errors\Error>;
+  public function BatchDeleteDocument(BatchDeleteDocumentRequest): Awaitable<Errors\Result<BatchDeleteDocumentResponse>>;
+  public function BatchPutDocument(BatchPutDocumentRequest): Awaitable<Errors\Result<BatchPutDocumentResponse>>;
+  public function CreateDataSource(CreateDataSourceRequest): Awaitable<Errors\Result<CreateDataSourceResponse>>;
+  public function CreateFaq(CreateFaqRequest): Awaitable<Errors\Result<CreateFaqResponse>>;
+  public function CreateIndex(CreateIndexRequest): Awaitable<Errors\Result<CreateIndexResponse>>;
+  public function DeleteFaq(DeleteFaqRequest): Awaitable<Errors\Error>;
+  public function DeleteIndex(DeleteIndexRequest): Awaitable<Errors\Error>;
+  public function DescribeDataSource(DescribeDataSourceRequest): Awaitable<Errors\Result<DescribeDataSourceResponse>>;
+  public function DescribeFaq(DescribeFaqRequest): Awaitable<Errors\Result<DescribeFaqResponse>>;
+  public function DescribeIndex(DescribeIndexRequest): Awaitable<Errors\Result<DescribeIndexResponse>>;
+  public function ListDataSourceSyncJobs(ListDataSourceSyncJobsRequest): Awaitable<Errors\Result<ListDataSourceSyncJobsResponse>>;
+  public function ListDataSources(ListDataSourcesRequest): Awaitable<Errors\Result<ListDataSourcesResponse>>;
+  public function ListFaqs(ListFaqsRequest): Awaitable<Errors\Result<ListFaqsResponse>>;
+  public function ListIndices(ListIndicesRequest): Awaitable<Errors\Result<ListIndicesResponse>>;
+  public function Query(QueryRequest): Awaitable<Errors\Result<QueryResult>>;
+  public function StartDataSourceSyncJob(StartDataSourceSyncJobRequest): Awaitable<Errors\Result<StartDataSourceSyncJobResponse>>;
+  public function StopDataSourceSyncJob(StopDataSourceSyncJobRequest): Awaitable<Errors\Error>;
+  public function SubmitFeedback(SubmitFeedbackRequest): Awaitable<Errors\Error>;
+  public function UpdateDataSource(UpdateDataSourceRequest): Awaitable<Errors\Error>;
+  public function UpdateIndex(UpdateIndexRequest): Awaitable<Errors\Error>;
 }
 
 class AccessControlListConfiguration {

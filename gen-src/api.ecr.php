@@ -2,35 +2,35 @@
 namespace slack\aws\api.ecr;
 
 interface ECR {
-  public function BatchCheckLayerAvailability(BatchCheckLayerAvailabilityRequest) Awaitable<Errors\Result<BatchCheckLayerAvailabilityResponse>>;
-  public function BatchDeleteImage(BatchDeleteImageRequest) Awaitable<Errors\Result<BatchDeleteImageResponse>>;
-  public function BatchGetImage(BatchGetImageRequest) Awaitable<Errors\Result<BatchGetImageResponse>>;
-  public function CompleteLayerUpload(CompleteLayerUploadRequest) Awaitable<Errors\Result<CompleteLayerUploadResponse>>;
-  public function CreateRepository(CreateRepositoryRequest) Awaitable<Errors\Result<CreateRepositoryResponse>>;
-  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyRequest) Awaitable<Errors\Result<DeleteLifecyclePolicyResponse>>;
-  public function DeleteRepository(DeleteRepositoryRequest) Awaitable<Errors\Result<DeleteRepositoryResponse>>;
-  public function DeleteRepositoryPolicy(DeleteRepositoryPolicyRequest) Awaitable<Errors\Result<DeleteRepositoryPolicyResponse>>;
-  public function DescribeImageScanFindings(DescribeImageScanFindingsRequest) Awaitable<Errors\Result<DescribeImageScanFindingsResponse>>;
-  public function DescribeImages(DescribeImagesRequest) Awaitable<Errors\Result<DescribeImagesResponse>>;
-  public function DescribeRepositories(DescribeRepositoriesRequest) Awaitable<Errors\Result<DescribeRepositoriesResponse>>;
-  public function GetAuthorizationToken(GetAuthorizationTokenRequest) Awaitable<Errors\Result<GetAuthorizationTokenResponse>>;
-  public function GetDownloadUrlForLayer(GetDownloadUrlForLayerRequest) Awaitable<Errors\Result<GetDownloadUrlForLayerResponse>>;
-  public function GetLifecyclePolicy(GetLifecyclePolicyRequest) Awaitable<Errors\Result<GetLifecyclePolicyResponse>>;
-  public function GetLifecyclePolicyPreview(GetLifecyclePolicyPreviewRequest) Awaitable<Errors\Result<GetLifecyclePolicyPreviewResponse>>;
-  public function GetRepositoryPolicy(GetRepositoryPolicyRequest) Awaitable<Errors\Result<GetRepositoryPolicyResponse>>;
-  public function InitiateLayerUpload(InitiateLayerUploadRequest) Awaitable<Errors\Result<InitiateLayerUploadResponse>>;
-  public function ListImages(ListImagesRequest) Awaitable<Errors\Result<ListImagesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutImage(PutImageRequest) Awaitable<Errors\Result<PutImageResponse>>;
-  public function PutImageScanningConfiguration(PutImageScanningConfigurationRequest) Awaitable<Errors\Result<PutImageScanningConfigurationResponse>>;
-  public function PutImageTagMutability(PutImageTagMutabilityRequest) Awaitable<Errors\Result<PutImageTagMutabilityResponse>>;
-  public function PutLifecyclePolicy(PutLifecyclePolicyRequest) Awaitable<Errors\Result<PutLifecyclePolicyResponse>>;
-  public function SetRepositoryPolicy(SetRepositoryPolicyRequest) Awaitable<Errors\Result<SetRepositoryPolicyResponse>>;
-  public function StartImageScan(StartImageScanRequest) Awaitable<Errors\Result<StartImageScanResponse>>;
-  public function StartLifecyclePolicyPreview(StartLifecyclePolicyPreviewRequest) Awaitable<Errors\Result<StartLifecyclePolicyPreviewResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UploadLayerPart(UploadLayerPartRequest) Awaitable<Errors\Result<UploadLayerPartResponse>>;
+  public function BatchCheckLayerAvailability(BatchCheckLayerAvailabilityRequest): Awaitable<Errors\Result<BatchCheckLayerAvailabilityResponse>>;
+  public function BatchDeleteImage(BatchDeleteImageRequest): Awaitable<Errors\Result<BatchDeleteImageResponse>>;
+  public function BatchGetImage(BatchGetImageRequest): Awaitable<Errors\Result<BatchGetImageResponse>>;
+  public function CompleteLayerUpload(CompleteLayerUploadRequest): Awaitable<Errors\Result<CompleteLayerUploadResponse>>;
+  public function CreateRepository(CreateRepositoryRequest): Awaitable<Errors\Result<CreateRepositoryResponse>>;
+  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyRequest): Awaitable<Errors\Result<DeleteLifecyclePolicyResponse>>;
+  public function DeleteRepository(DeleteRepositoryRequest): Awaitable<Errors\Result<DeleteRepositoryResponse>>;
+  public function DeleteRepositoryPolicy(DeleteRepositoryPolicyRequest): Awaitable<Errors\Result<DeleteRepositoryPolicyResponse>>;
+  public function DescribeImageScanFindings(DescribeImageScanFindingsRequest): Awaitable<Errors\Result<DescribeImageScanFindingsResponse>>;
+  public function DescribeImages(DescribeImagesRequest): Awaitable<Errors\Result<DescribeImagesResponse>>;
+  public function DescribeRepositories(DescribeRepositoriesRequest): Awaitable<Errors\Result<DescribeRepositoriesResponse>>;
+  public function GetAuthorizationToken(GetAuthorizationTokenRequest): Awaitable<Errors\Result<GetAuthorizationTokenResponse>>;
+  public function GetDownloadUrlForLayer(GetDownloadUrlForLayerRequest): Awaitable<Errors\Result<GetDownloadUrlForLayerResponse>>;
+  public function GetLifecyclePolicy(GetLifecyclePolicyRequest): Awaitable<Errors\Result<GetLifecyclePolicyResponse>>;
+  public function GetLifecyclePolicyPreview(GetLifecyclePolicyPreviewRequest): Awaitable<Errors\Result<GetLifecyclePolicyPreviewResponse>>;
+  public function GetRepositoryPolicy(GetRepositoryPolicyRequest): Awaitable<Errors\Result<GetRepositoryPolicyResponse>>;
+  public function InitiateLayerUpload(InitiateLayerUploadRequest): Awaitable<Errors\Result<InitiateLayerUploadResponse>>;
+  public function ListImages(ListImagesRequest): Awaitable<Errors\Result<ListImagesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutImage(PutImageRequest): Awaitable<Errors\Result<PutImageResponse>>;
+  public function PutImageScanningConfiguration(PutImageScanningConfigurationRequest): Awaitable<Errors\Result<PutImageScanningConfigurationResponse>>;
+  public function PutImageTagMutability(PutImageTagMutabilityRequest): Awaitable<Errors\Result<PutImageTagMutabilityResponse>>;
+  public function PutLifecyclePolicy(PutLifecyclePolicyRequest): Awaitable<Errors\Result<PutLifecyclePolicyResponse>>;
+  public function SetRepositoryPolicy(SetRepositoryPolicyRequest): Awaitable<Errors\Result<SetRepositoryPolicyResponse>>;
+  public function StartImageScan(StartImageScanRequest): Awaitable<Errors\Result<StartImageScanResponse>>;
+  public function StartLifecyclePolicyPreview(StartLifecyclePolicyPreviewRequest): Awaitable<Errors\Result<StartLifecyclePolicyPreviewResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UploadLayerPart(UploadLayerPartRequest): Awaitable<Errors\Result<UploadLayerPartResponse>>;
 }
 
 class Arn {

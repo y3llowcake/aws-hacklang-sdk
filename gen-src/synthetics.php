@@ -2,19 +2,19 @@
 namespace slack\aws\synthetics;
 
 interface synthetics {
-  public function CreateCanary(CreateCanaryRequest) Awaitable<Errors\Result<CreateCanaryResponse>>;
-  public function DeleteCanary(DeleteCanaryRequest) Awaitable<Errors\Result<DeleteCanaryResponse>>;
-  public function DescribeCanaries(DescribeCanariesRequest) Awaitable<Errors\Result<DescribeCanariesResponse>>;
-  public function DescribeCanariesLastRun(DescribeCanariesLastRunRequest) Awaitable<Errors\Result<DescribeCanariesLastRunResponse>>;
-  public function DescribeRuntimeVersions(DescribeRuntimeVersionsRequest) Awaitable<Errors\Result<DescribeRuntimeVersionsResponse>>;
-  public function GetCanary(GetCanaryRequest) Awaitable<Errors\Result<GetCanaryResponse>>;
-  public function GetCanaryRuns(GetCanaryRunsRequest) Awaitable<Errors\Result<GetCanaryRunsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function StartCanary(StartCanaryRequest) Awaitable<Errors\Result<StartCanaryResponse>>;
-  public function StopCanary(StopCanaryRequest) Awaitable<Errors\Result<StopCanaryResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateCanary(UpdateCanaryRequest) Awaitable<Errors\Result<UpdateCanaryResponse>>;
+  public function CreateCanary(CreateCanaryRequest): Awaitable<Errors\Result<CreateCanaryResponse>>;
+  public function DeleteCanary(DeleteCanaryRequest): Awaitable<Errors\Result<DeleteCanaryResponse>>;
+  public function DescribeCanaries(DescribeCanariesRequest): Awaitable<Errors\Result<DescribeCanariesResponse>>;
+  public function DescribeCanariesLastRun(DescribeCanariesLastRunRequest): Awaitable<Errors\Result<DescribeCanariesLastRunResponse>>;
+  public function DescribeRuntimeVersions(DescribeRuntimeVersionsRequest): Awaitable<Errors\Result<DescribeRuntimeVersionsResponse>>;
+  public function GetCanary(GetCanaryRequest): Awaitable<Errors\Result<GetCanaryResponse>>;
+  public function GetCanaryRuns(GetCanaryRunsRequest): Awaitable<Errors\Result<GetCanaryRunsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function StartCanary(StartCanaryRequest): Awaitable<Errors\Result<StartCanaryResponse>>;
+  public function StopCanary(StopCanaryRequest): Awaitable<Errors\Result<StopCanaryResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateCanary(UpdateCanaryRequest): Awaitable<Errors\Result<UpdateCanaryResponse>>;
 }
 
 class Arn {

@@ -2,22 +2,22 @@
 namespace slack\aws\servicequotas;
 
 interface Service Quotas {
-  public function AssociateServiceQuotaTemplate(AssociateServiceQuotaTemplateRequest) Awaitable<Errors\Result<AssociateServiceQuotaTemplateResponse>>;
-  public function DeleteServiceQuotaIncreaseRequestFromTemplate(DeleteServiceQuotaIncreaseRequestFromTemplateRequest) Awaitable<Errors\Result<DeleteServiceQuotaIncreaseRequestFromTemplateResponse>>;
-  public function DisassociateServiceQuotaTemplate(DisassociateServiceQuotaTemplateRequest) Awaitable<Errors\Result<DisassociateServiceQuotaTemplateResponse>>;
-  public function GetAWSDefaultServiceQuota(GetAWSDefaultServiceQuotaRequest) Awaitable<Errors\Result<GetAWSDefaultServiceQuotaResponse>>;
-  public function GetAssociationForServiceQuotaTemplate(GetAssociationForServiceQuotaTemplateRequest) Awaitable<Errors\Result<GetAssociationForServiceQuotaTemplateResponse>>;
-  public function GetRequestedServiceQuotaChange(GetRequestedServiceQuotaChangeRequest) Awaitable<Errors\Result<GetRequestedServiceQuotaChangeResponse>>;
-  public function GetServiceQuota(GetServiceQuotaRequest) Awaitable<Errors\Result<GetServiceQuotaResponse>>;
-  public function GetServiceQuotaIncreaseRequestFromTemplate(GetServiceQuotaIncreaseRequestFromTemplateRequest) Awaitable<Errors\Result<GetServiceQuotaIncreaseRequestFromTemplateResponse>>;
-  public function ListAWSDefaultServiceQuotas(ListAWSDefaultServiceQuotasRequest) Awaitable<Errors\Result<ListAWSDefaultServiceQuotasResponse>>;
-  public function ListRequestedServiceQuotaChangeHistory(ListRequestedServiceQuotaChangeHistoryRequest) Awaitable<Errors\Result<ListRequestedServiceQuotaChangeHistoryResponse>>;
-  public function ListRequestedServiceQuotaChangeHistoryByQuota(ListRequestedServiceQuotaChangeHistoryByQuotaRequest) Awaitable<Errors\Result<ListRequestedServiceQuotaChangeHistoryByQuotaResponse>>;
-  public function ListServiceQuotaIncreaseRequestsInTemplate(ListServiceQuotaIncreaseRequestsInTemplateRequest) Awaitable<Errors\Result<ListServiceQuotaIncreaseRequestsInTemplateResponse>>;
-  public function ListServiceQuotas(ListServiceQuotasRequest) Awaitable<Errors\Result<ListServiceQuotasResponse>>;
-  public function ListServices(ListServicesRequest) Awaitable<Errors\Result<ListServicesResponse>>;
-  public function PutServiceQuotaIncreaseRequestIntoTemplate(PutServiceQuotaIncreaseRequestIntoTemplateRequest) Awaitable<Errors\Result<PutServiceQuotaIncreaseRequestIntoTemplateResponse>>;
-  public function RequestServiceQuotaIncrease(RequestServiceQuotaIncreaseRequest) Awaitable<Errors\Result<RequestServiceQuotaIncreaseResponse>>;
+  public function AssociateServiceQuotaTemplate(AssociateServiceQuotaTemplateRequest): Awaitable<Errors\Result<AssociateServiceQuotaTemplateResponse>>;
+  public function DeleteServiceQuotaIncreaseRequestFromTemplate(DeleteServiceQuotaIncreaseRequestFromTemplateRequest): Awaitable<Errors\Result<DeleteServiceQuotaIncreaseRequestFromTemplateResponse>>;
+  public function DisassociateServiceQuotaTemplate(DisassociateServiceQuotaTemplateRequest): Awaitable<Errors\Result<DisassociateServiceQuotaTemplateResponse>>;
+  public function GetAWSDefaultServiceQuota(GetAWSDefaultServiceQuotaRequest): Awaitable<Errors\Result<GetAWSDefaultServiceQuotaResponse>>;
+  public function GetAssociationForServiceQuotaTemplate(GetAssociationForServiceQuotaTemplateRequest): Awaitable<Errors\Result<GetAssociationForServiceQuotaTemplateResponse>>;
+  public function GetRequestedServiceQuotaChange(GetRequestedServiceQuotaChangeRequest): Awaitable<Errors\Result<GetRequestedServiceQuotaChangeResponse>>;
+  public function GetServiceQuota(GetServiceQuotaRequest): Awaitable<Errors\Result<GetServiceQuotaResponse>>;
+  public function GetServiceQuotaIncreaseRequestFromTemplate(GetServiceQuotaIncreaseRequestFromTemplateRequest): Awaitable<Errors\Result<GetServiceQuotaIncreaseRequestFromTemplateResponse>>;
+  public function ListAWSDefaultServiceQuotas(ListAWSDefaultServiceQuotasRequest): Awaitable<Errors\Result<ListAWSDefaultServiceQuotasResponse>>;
+  public function ListRequestedServiceQuotaChangeHistory(ListRequestedServiceQuotaChangeHistoryRequest): Awaitable<Errors\Result<ListRequestedServiceQuotaChangeHistoryResponse>>;
+  public function ListRequestedServiceQuotaChangeHistoryByQuota(ListRequestedServiceQuotaChangeHistoryByQuotaRequest): Awaitable<Errors\Result<ListRequestedServiceQuotaChangeHistoryByQuotaResponse>>;
+  public function ListServiceQuotaIncreaseRequestsInTemplate(ListServiceQuotaIncreaseRequestsInTemplateRequest): Awaitable<Errors\Result<ListServiceQuotaIncreaseRequestsInTemplateResponse>>;
+  public function ListServiceQuotas(ListServiceQuotasRequest): Awaitable<Errors\Result<ListServiceQuotasResponse>>;
+  public function ListServices(ListServicesRequest): Awaitable<Errors\Result<ListServicesResponse>>;
+  public function PutServiceQuotaIncreaseRequestIntoTemplate(PutServiceQuotaIncreaseRequestIntoTemplateRequest): Awaitable<Errors\Result<PutServiceQuotaIncreaseRequestIntoTemplateResponse>>;
+  public function RequestServiceQuotaIncrease(RequestServiceQuotaIncreaseRequest): Awaitable<Errors\Result<RequestServiceQuotaIncreaseResponse>>;
 }
 
 class AWSServiceAccessNotEnabledException {

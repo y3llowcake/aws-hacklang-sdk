@@ -2,15 +2,15 @@
 namespace slack\aws\polly;
 
 interface Polly {
-  public function DeleteLexicon(DeleteLexiconInput) Awaitable<Errors\Result<DeleteLexiconOutput>>;
-  public function DescribeVoices(DescribeVoicesInput) Awaitable<Errors\Result<DescribeVoicesOutput>>;
-  public function GetLexicon(GetLexiconInput) Awaitable<Errors\Result<GetLexiconOutput>>;
-  public function GetSpeechSynthesisTask(GetSpeechSynthesisTaskInput) Awaitable<Errors\Result<GetSpeechSynthesisTaskOutput>>;
-  public function ListLexicons(ListLexiconsInput) Awaitable<Errors\Result<ListLexiconsOutput>>;
-  public function ListSpeechSynthesisTasks(ListSpeechSynthesisTasksInput) Awaitable<Errors\Result<ListSpeechSynthesisTasksOutput>>;
-  public function PutLexicon(PutLexiconInput) Awaitable<Errors\Result<PutLexiconOutput>>;
-  public function StartSpeechSynthesisTask(StartSpeechSynthesisTaskInput) Awaitable<Errors\Result<StartSpeechSynthesisTaskOutput>>;
-  public function SynthesizeSpeech(SynthesizeSpeechInput) Awaitable<Errors\Result<SynthesizeSpeechOutput>>;
+  public function DeleteLexicon(DeleteLexiconInput): Awaitable<Errors\Result<DeleteLexiconOutput>>;
+  public function DescribeVoices(DescribeVoicesInput): Awaitable<Errors\Result<DescribeVoicesOutput>>;
+  public function GetLexicon(GetLexiconInput): Awaitable<Errors\Result<GetLexiconOutput>>;
+  public function GetSpeechSynthesisTask(GetSpeechSynthesisTaskInput): Awaitable<Errors\Result<GetSpeechSynthesisTaskOutput>>;
+  public function ListLexicons(ListLexiconsInput): Awaitable<Errors\Result<ListLexiconsOutput>>;
+  public function ListSpeechSynthesisTasks(ListSpeechSynthesisTasksInput): Awaitable<Errors\Result<ListSpeechSynthesisTasksOutput>>;
+  public function PutLexicon(PutLexiconInput): Awaitable<Errors\Result<PutLexiconOutput>>;
+  public function StartSpeechSynthesisTask(StartSpeechSynthesisTaskInput): Awaitable<Errors\Result<StartSpeechSynthesisTaskOutput>>;
+  public function SynthesizeSpeech(SynthesizeSpeechInput): Awaitable<Errors\Result<SynthesizeSpeechOutput>>;
 }
 
 class Alphabet {

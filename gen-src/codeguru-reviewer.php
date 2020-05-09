@@ -2,16 +2,16 @@
 namespace slack\aws\codeguru-reviewer;
 
 interface CodeGuru Reviewer {
-  public function AssociateRepository(AssociateRepositoryRequest) Awaitable<Errors\Result<AssociateRepositoryResponse>>;
-  public function DescribeCodeReview(DescribeCodeReviewRequest) Awaitable<Errors\Result<DescribeCodeReviewResponse>>;
-  public function DescribeRecommendationFeedback(DescribeRecommendationFeedbackRequest) Awaitable<Errors\Result<DescribeRecommendationFeedbackResponse>>;
-  public function DescribeRepositoryAssociation(DescribeRepositoryAssociationRequest) Awaitable<Errors\Result<DescribeRepositoryAssociationResponse>>;
-  public function DisassociateRepository(DisassociateRepositoryRequest) Awaitable<Errors\Result<DisassociateRepositoryResponse>>;
-  public function ListCodeReviews(ListCodeReviewsRequest) Awaitable<Errors\Result<ListCodeReviewsResponse>>;
-  public function ListRecommendationFeedback(ListRecommendationFeedbackRequest) Awaitable<Errors\Result<ListRecommendationFeedbackResponse>>;
-  public function ListRecommendations(ListRecommendationsRequest) Awaitable<Errors\Result<ListRecommendationsResponse>>;
-  public function ListRepositoryAssociations(ListRepositoryAssociationsRequest) Awaitable<Errors\Result<ListRepositoryAssociationsResponse>>;
-  public function PutRecommendationFeedback(PutRecommendationFeedbackRequest) Awaitable<Errors\Result<PutRecommendationFeedbackResponse>>;
+  public function AssociateRepository(AssociateRepositoryRequest): Awaitable<Errors\Result<AssociateRepositoryResponse>>;
+  public function DescribeCodeReview(DescribeCodeReviewRequest): Awaitable<Errors\Result<DescribeCodeReviewResponse>>;
+  public function DescribeRecommendationFeedback(DescribeRecommendationFeedbackRequest): Awaitable<Errors\Result<DescribeRecommendationFeedbackResponse>>;
+  public function DescribeRepositoryAssociation(DescribeRepositoryAssociationRequest): Awaitable<Errors\Result<DescribeRepositoryAssociationResponse>>;
+  public function DisassociateRepository(DisassociateRepositoryRequest): Awaitable<Errors\Result<DisassociateRepositoryResponse>>;
+  public function ListCodeReviews(ListCodeReviewsRequest): Awaitable<Errors\Result<ListCodeReviewsResponse>>;
+  public function ListRecommendationFeedback(ListRecommendationFeedbackRequest): Awaitable<Errors\Result<ListRecommendationFeedbackResponse>>;
+  public function ListRecommendations(ListRecommendationsRequest): Awaitable<Errors\Result<ListRecommendationsResponse>>;
+  public function ListRepositoryAssociations(ListRepositoryAssociationsRequest): Awaitable<Errors\Result<ListRepositoryAssociationsResponse>>;
+  public function PutRecommendationFeedback(PutRecommendationFeedbackRequest): Awaitable<Errors\Result<PutRecommendationFeedbackResponse>>;
 }
 
 class AccessDeniedException {

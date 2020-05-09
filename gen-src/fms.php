@@ -2,23 +2,23 @@
 namespace slack\aws\fms;
 
 interface FMS {
-  public function AssociateAdminAccount(AssociateAdminAccountRequest) Awaitable<Errors\Error>;
-  public function DeleteNotificationChannel(DeleteNotificationChannelRequest) Awaitable<Errors\Error>;
-  public function DeletePolicy(DeletePolicyRequest) Awaitable<Errors\Error>;
-  public function DisassociateAdminAccount(DisassociateAdminAccountRequest) Awaitable<Errors\Error>;
-  public function GetAdminAccount(GetAdminAccountRequest) Awaitable<Errors\Result<GetAdminAccountResponse>>;
-  public function GetComplianceDetail(GetComplianceDetailRequest) Awaitable<Errors\Result<GetComplianceDetailResponse>>;
-  public function GetNotificationChannel(GetNotificationChannelRequest) Awaitable<Errors\Result<GetNotificationChannelResponse>>;
-  public function GetPolicy(GetPolicyRequest) Awaitable<Errors\Result<GetPolicyResponse>>;
-  public function GetProtectionStatus(GetProtectionStatusRequest) Awaitable<Errors\Result<GetProtectionStatusResponse>>;
-  public function ListComplianceStatus(ListComplianceStatusRequest) Awaitable<Errors\Result<ListComplianceStatusResponse>>;
-  public function ListMemberAccounts(ListMemberAccountsRequest) Awaitable<Errors\Result<ListMemberAccountsResponse>>;
-  public function ListPolicies(ListPoliciesRequest) Awaitable<Errors\Result<ListPoliciesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutNotificationChannel(PutNotificationChannelRequest) Awaitable<Errors\Error>;
-  public function PutPolicy(PutPolicyRequest) Awaitable<Errors\Result<PutPolicyResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function AssociateAdminAccount(AssociateAdminAccountRequest): Awaitable<Errors\Error>;
+  public function DeleteNotificationChannel(DeleteNotificationChannelRequest): Awaitable<Errors\Error>;
+  public function DeletePolicy(DeletePolicyRequest): Awaitable<Errors\Error>;
+  public function DisassociateAdminAccount(DisassociateAdminAccountRequest): Awaitable<Errors\Error>;
+  public function GetAdminAccount(GetAdminAccountRequest): Awaitable<Errors\Result<GetAdminAccountResponse>>;
+  public function GetComplianceDetail(GetComplianceDetailRequest): Awaitable<Errors\Result<GetComplianceDetailResponse>>;
+  public function GetNotificationChannel(GetNotificationChannelRequest): Awaitable<Errors\Result<GetNotificationChannelResponse>>;
+  public function GetPolicy(GetPolicyRequest): Awaitable<Errors\Result<GetPolicyResponse>>;
+  public function GetProtectionStatus(GetProtectionStatusRequest): Awaitable<Errors\Result<GetProtectionStatusResponse>>;
+  public function ListComplianceStatus(ListComplianceStatusRequest): Awaitable<Errors\Result<ListComplianceStatusResponse>>;
+  public function ListMemberAccounts(ListMemberAccountsRequest): Awaitable<Errors\Result<ListMemberAccountsResponse>>;
+  public function ListPolicies(ListPoliciesRequest): Awaitable<Errors\Result<ListPoliciesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutNotificationChannel(PutNotificationChannelRequest): Awaitable<Errors\Error>;
+  public function PutPolicy(PutPolicyRequest): Awaitable<Errors\Result<PutPolicyResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class AWSAccountId {

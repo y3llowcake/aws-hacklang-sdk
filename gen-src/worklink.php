@@ -2,36 +2,36 @@
 namespace slack\aws\worklink;
 
 interface WorkLink {
-  public function AssociateDomain(AssociateDomainRequest) Awaitable<Errors\Result<AssociateDomainResponse>>;
-  public function AssociateWebsiteAuthorizationProvider(AssociateWebsiteAuthorizationProviderRequest) Awaitable<Errors\Result<AssociateWebsiteAuthorizationProviderResponse>>;
-  public function AssociateWebsiteCertificateAuthority(AssociateWebsiteCertificateAuthorityRequest) Awaitable<Errors\Result<AssociateWebsiteCertificateAuthorityResponse>>;
-  public function CreateFleet(CreateFleetRequest) Awaitable<Errors\Result<CreateFleetResponse>>;
-  public function DeleteFleet(DeleteFleetRequest) Awaitable<Errors\Result<DeleteFleetResponse>>;
-  public function DescribeAuditStreamConfiguration(DescribeAuditStreamConfigurationRequest) Awaitable<Errors\Result<DescribeAuditStreamConfigurationResponse>>;
-  public function DescribeCompanyNetworkConfiguration(DescribeCompanyNetworkConfigurationRequest) Awaitable<Errors\Result<DescribeCompanyNetworkConfigurationResponse>>;
-  public function DescribeDevice(DescribeDeviceRequest) Awaitable<Errors\Result<DescribeDeviceResponse>>;
-  public function DescribeDevicePolicyConfiguration(DescribeDevicePolicyConfigurationRequest) Awaitable<Errors\Result<DescribeDevicePolicyConfigurationResponse>>;
-  public function DescribeDomain(DescribeDomainRequest) Awaitable<Errors\Result<DescribeDomainResponse>>;
-  public function DescribeFleetMetadata(DescribeFleetMetadataRequest) Awaitable<Errors\Result<DescribeFleetMetadataResponse>>;
-  public function DescribeIdentityProviderConfiguration(DescribeIdentityProviderConfigurationRequest) Awaitable<Errors\Result<DescribeIdentityProviderConfigurationResponse>>;
-  public function DescribeWebsiteCertificateAuthority(DescribeWebsiteCertificateAuthorityRequest) Awaitable<Errors\Result<DescribeWebsiteCertificateAuthorityResponse>>;
-  public function DisassociateDomain(DisassociateDomainRequest) Awaitable<Errors\Result<DisassociateDomainResponse>>;
-  public function DisassociateWebsiteAuthorizationProvider(DisassociateWebsiteAuthorizationProviderRequest) Awaitable<Errors\Result<DisassociateWebsiteAuthorizationProviderResponse>>;
-  public function DisassociateWebsiteCertificateAuthority(DisassociateWebsiteCertificateAuthorityRequest) Awaitable<Errors\Result<DisassociateWebsiteCertificateAuthorityResponse>>;
-  public function ListDevices(ListDevicesRequest) Awaitable<Errors\Result<ListDevicesResponse>>;
-  public function ListDomains(ListDomainsRequest) Awaitable<Errors\Result<ListDomainsResponse>>;
-  public function ListFleets(ListFleetsRequest) Awaitable<Errors\Result<ListFleetsResponse>>;
-  public function ListWebsiteAuthorizationProviders(ListWebsiteAuthorizationProvidersRequest) Awaitable<Errors\Result<ListWebsiteAuthorizationProvidersResponse>>;
-  public function ListWebsiteCertificateAuthorities(ListWebsiteCertificateAuthoritiesRequest) Awaitable<Errors\Result<ListWebsiteCertificateAuthoritiesResponse>>;
-  public function RestoreDomainAccess(RestoreDomainAccessRequest) Awaitable<Errors\Result<RestoreDomainAccessResponse>>;
-  public function RevokeDomainAccess(RevokeDomainAccessRequest) Awaitable<Errors\Result<RevokeDomainAccessResponse>>;
-  public function SignOutUser(SignOutUserRequest) Awaitable<Errors\Result<SignOutUserResponse>>;
-  public function UpdateAuditStreamConfiguration(UpdateAuditStreamConfigurationRequest) Awaitable<Errors\Result<UpdateAuditStreamConfigurationResponse>>;
-  public function UpdateCompanyNetworkConfiguration(UpdateCompanyNetworkConfigurationRequest) Awaitable<Errors\Result<UpdateCompanyNetworkConfigurationResponse>>;
-  public function UpdateDevicePolicyConfiguration(UpdateDevicePolicyConfigurationRequest) Awaitable<Errors\Result<UpdateDevicePolicyConfigurationResponse>>;
-  public function UpdateDomainMetadata(UpdateDomainMetadataRequest) Awaitable<Errors\Result<UpdateDomainMetadataResponse>>;
-  public function UpdateFleetMetadata(UpdateFleetMetadataRequest) Awaitable<Errors\Result<UpdateFleetMetadataResponse>>;
-  public function UpdateIdentityProviderConfiguration(UpdateIdentityProviderConfigurationRequest) Awaitable<Errors\Result<UpdateIdentityProviderConfigurationResponse>>;
+  public function AssociateDomain(AssociateDomainRequest): Awaitable<Errors\Result<AssociateDomainResponse>>;
+  public function AssociateWebsiteAuthorizationProvider(AssociateWebsiteAuthorizationProviderRequest): Awaitable<Errors\Result<AssociateWebsiteAuthorizationProviderResponse>>;
+  public function AssociateWebsiteCertificateAuthority(AssociateWebsiteCertificateAuthorityRequest): Awaitable<Errors\Result<AssociateWebsiteCertificateAuthorityResponse>>;
+  public function CreateFleet(CreateFleetRequest): Awaitable<Errors\Result<CreateFleetResponse>>;
+  public function DeleteFleet(DeleteFleetRequest): Awaitable<Errors\Result<DeleteFleetResponse>>;
+  public function DescribeAuditStreamConfiguration(DescribeAuditStreamConfigurationRequest): Awaitable<Errors\Result<DescribeAuditStreamConfigurationResponse>>;
+  public function DescribeCompanyNetworkConfiguration(DescribeCompanyNetworkConfigurationRequest): Awaitable<Errors\Result<DescribeCompanyNetworkConfigurationResponse>>;
+  public function DescribeDevice(DescribeDeviceRequest): Awaitable<Errors\Result<DescribeDeviceResponse>>;
+  public function DescribeDevicePolicyConfiguration(DescribeDevicePolicyConfigurationRequest): Awaitable<Errors\Result<DescribeDevicePolicyConfigurationResponse>>;
+  public function DescribeDomain(DescribeDomainRequest): Awaitable<Errors\Result<DescribeDomainResponse>>;
+  public function DescribeFleetMetadata(DescribeFleetMetadataRequest): Awaitable<Errors\Result<DescribeFleetMetadataResponse>>;
+  public function DescribeIdentityProviderConfiguration(DescribeIdentityProviderConfigurationRequest): Awaitable<Errors\Result<DescribeIdentityProviderConfigurationResponse>>;
+  public function DescribeWebsiteCertificateAuthority(DescribeWebsiteCertificateAuthorityRequest): Awaitable<Errors\Result<DescribeWebsiteCertificateAuthorityResponse>>;
+  public function DisassociateDomain(DisassociateDomainRequest): Awaitable<Errors\Result<DisassociateDomainResponse>>;
+  public function DisassociateWebsiteAuthorizationProvider(DisassociateWebsiteAuthorizationProviderRequest): Awaitable<Errors\Result<DisassociateWebsiteAuthorizationProviderResponse>>;
+  public function DisassociateWebsiteCertificateAuthority(DisassociateWebsiteCertificateAuthorityRequest): Awaitable<Errors\Result<DisassociateWebsiteCertificateAuthorityResponse>>;
+  public function ListDevices(ListDevicesRequest): Awaitable<Errors\Result<ListDevicesResponse>>;
+  public function ListDomains(ListDomainsRequest): Awaitable<Errors\Result<ListDomainsResponse>>;
+  public function ListFleets(ListFleetsRequest): Awaitable<Errors\Result<ListFleetsResponse>>;
+  public function ListWebsiteAuthorizationProviders(ListWebsiteAuthorizationProvidersRequest): Awaitable<Errors\Result<ListWebsiteAuthorizationProvidersResponse>>;
+  public function ListWebsiteCertificateAuthorities(ListWebsiteCertificateAuthoritiesRequest): Awaitable<Errors\Result<ListWebsiteCertificateAuthoritiesResponse>>;
+  public function RestoreDomainAccess(RestoreDomainAccessRequest): Awaitable<Errors\Result<RestoreDomainAccessResponse>>;
+  public function RevokeDomainAccess(RevokeDomainAccessRequest): Awaitable<Errors\Result<RevokeDomainAccessResponse>>;
+  public function SignOutUser(SignOutUserRequest): Awaitable<Errors\Result<SignOutUserResponse>>;
+  public function UpdateAuditStreamConfiguration(UpdateAuditStreamConfigurationRequest): Awaitable<Errors\Result<UpdateAuditStreamConfigurationResponse>>;
+  public function UpdateCompanyNetworkConfiguration(UpdateCompanyNetworkConfigurationRequest): Awaitable<Errors\Result<UpdateCompanyNetworkConfigurationResponse>>;
+  public function UpdateDevicePolicyConfiguration(UpdateDevicePolicyConfigurationRequest): Awaitable<Errors\Result<UpdateDevicePolicyConfigurationResponse>>;
+  public function UpdateDomainMetadata(UpdateDomainMetadataRequest): Awaitable<Errors\Result<UpdateDomainMetadataResponse>>;
+  public function UpdateFleetMetadata(UpdateFleetMetadataRequest): Awaitable<Errors\Result<UpdateFleetMetadataResponse>>;
+  public function UpdateIdentityProviderConfiguration(UpdateIdentityProviderConfigurationRequest): Awaitable<Errors\Result<UpdateIdentityProviderConfigurationResponse>>;
 }
 
 class AcmCertificateArn {

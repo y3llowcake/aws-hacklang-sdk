@@ -2,7 +2,7 @@
 namespace slack\aws\runtime.sagemaker;
 
 interface SageMaker Runtime {
-  public function InvokeEndpoint(InvokeEndpointInput) Awaitable<Errors\Result<InvokeEndpointOutput>>;
+  public function InvokeEndpoint(InvokeEndpointInput): Awaitable<Errors\Result<InvokeEndpointOutput>>;
 }
 
 class BodyBlob {

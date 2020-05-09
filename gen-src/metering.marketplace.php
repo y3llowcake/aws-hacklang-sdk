@@ -2,10 +2,10 @@
 namespace slack\aws\metering.marketplace;
 
 interface Marketplace Metering {
-  public function BatchMeterUsage(BatchMeterUsageRequest) Awaitable<Errors\Result<BatchMeterUsageResult>>;
-  public function MeterUsage(MeterUsageRequest) Awaitable<Errors\Result<MeterUsageResult>>;
-  public function RegisterUsage(RegisterUsageRequest) Awaitable<Errors\Result<RegisterUsageResult>>;
-  public function ResolveCustomer(ResolveCustomerRequest) Awaitable<Errors\Result<ResolveCustomerResult>>;
+  public function BatchMeterUsage(BatchMeterUsageRequest): Awaitable<Errors\Result<BatchMeterUsageResult>>;
+  public function MeterUsage(MeterUsageRequest): Awaitable<Errors\Result<MeterUsageResult>>;
+  public function RegisterUsage(RegisterUsageRequest): Awaitable<Errors\Result<RegisterUsageResult>>;
+  public function ResolveCustomer(ResolveCustomerRequest): Awaitable<Errors\Result<ResolveCustomerResult>>;
 }
 
 class BatchMeterUsageRequest {

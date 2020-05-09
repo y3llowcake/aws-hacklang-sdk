@@ -2,7 +2,7 @@
 namespace slack\aws\ec2-instance-connect;
 
 interface EC2 Instance Connect {
-  public function SendSSHPublicKey(SendSSHPublicKeyRequest) Awaitable<Errors\Result<SendSSHPublicKeyResponse>>;
+  public function SendSSHPublicKey(SendSSHPublicKeyRequest): Awaitable<Errors\Result<SendSSHPublicKeyResponse>>;
 }
 
 class AuthException {

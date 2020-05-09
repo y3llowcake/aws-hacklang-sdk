@@ -2,28 +2,28 @@
 namespace slack\aws\mediaconnect;
 
 interface MediaConnect {
-  public function AddFlowOutputs(AddFlowOutputsRequest) Awaitable<Errors\Result<AddFlowOutputsResponse>>;
-  public function AddFlowSources(AddFlowSourcesRequest) Awaitable<Errors\Result<AddFlowSourcesResponse>>;
-  public function AddFlowVpcInterfaces(AddFlowVpcInterfacesRequest) Awaitable<Errors\Result<AddFlowVpcInterfacesResponse>>;
-  public function CreateFlow(CreateFlowRequest) Awaitable<Errors\Result<CreateFlowResponse>>;
-  public function DeleteFlow(DeleteFlowRequest) Awaitable<Errors\Result<DeleteFlowResponse>>;
-  public function DescribeFlow(DescribeFlowRequest) Awaitable<Errors\Result<DescribeFlowResponse>>;
-  public function GrantFlowEntitlements(GrantFlowEntitlementsRequest) Awaitable<Errors\Result<GrantFlowEntitlementsResponse>>;
-  public function ListEntitlements(ListEntitlementsRequest) Awaitable<Errors\Result<ListEntitlementsResponse>>;
-  public function ListFlows(ListFlowsRequest) Awaitable<Errors\Result<ListFlowsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function RemoveFlowOutput(RemoveFlowOutputRequest) Awaitable<Errors\Result<RemoveFlowOutputResponse>>;
-  public function RemoveFlowSource(RemoveFlowSourceRequest) Awaitable<Errors\Result<RemoveFlowSourceResponse>>;
-  public function RemoveFlowVpcInterface(RemoveFlowVpcInterfaceRequest) Awaitable<Errors\Result<RemoveFlowVpcInterfaceResponse>>;
-  public function RevokeFlowEntitlement(RevokeFlowEntitlementRequest) Awaitable<Errors\Result<RevokeFlowEntitlementResponse>>;
-  public function StartFlow(StartFlowRequest) Awaitable<Errors\Result<StartFlowResponse>>;
-  public function StopFlow(StopFlowRequest) Awaitable<Errors\Result<StopFlowResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateFlow(UpdateFlowRequest) Awaitable<Errors\Result<UpdateFlowResponse>>;
-  public function UpdateFlowEntitlement(UpdateFlowEntitlementRequest) Awaitable<Errors\Result<UpdateFlowEntitlementResponse>>;
-  public function UpdateFlowOutput(UpdateFlowOutputRequest) Awaitable<Errors\Result<UpdateFlowOutputResponse>>;
-  public function UpdateFlowSource(UpdateFlowSourceRequest) Awaitable<Errors\Result<UpdateFlowSourceResponse>>;
+  public function AddFlowOutputs(AddFlowOutputsRequest): Awaitable<Errors\Result<AddFlowOutputsResponse>>;
+  public function AddFlowSources(AddFlowSourcesRequest): Awaitable<Errors\Result<AddFlowSourcesResponse>>;
+  public function AddFlowVpcInterfaces(AddFlowVpcInterfacesRequest): Awaitable<Errors\Result<AddFlowVpcInterfacesResponse>>;
+  public function CreateFlow(CreateFlowRequest): Awaitable<Errors\Result<CreateFlowResponse>>;
+  public function DeleteFlow(DeleteFlowRequest): Awaitable<Errors\Result<DeleteFlowResponse>>;
+  public function DescribeFlow(DescribeFlowRequest): Awaitable<Errors\Result<DescribeFlowResponse>>;
+  public function GrantFlowEntitlements(GrantFlowEntitlementsRequest): Awaitable<Errors\Result<GrantFlowEntitlementsResponse>>;
+  public function ListEntitlements(ListEntitlementsRequest): Awaitable<Errors\Result<ListEntitlementsResponse>>;
+  public function ListFlows(ListFlowsRequest): Awaitable<Errors\Result<ListFlowsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function RemoveFlowOutput(RemoveFlowOutputRequest): Awaitable<Errors\Result<RemoveFlowOutputResponse>>;
+  public function RemoveFlowSource(RemoveFlowSourceRequest): Awaitable<Errors\Result<RemoveFlowSourceResponse>>;
+  public function RemoveFlowVpcInterface(RemoveFlowVpcInterfaceRequest): Awaitable<Errors\Result<RemoveFlowVpcInterfaceResponse>>;
+  public function RevokeFlowEntitlement(RevokeFlowEntitlementRequest): Awaitable<Errors\Result<RevokeFlowEntitlementResponse>>;
+  public function StartFlow(StartFlowRequest): Awaitable<Errors\Result<StartFlowResponse>>;
+  public function StopFlow(StopFlowRequest): Awaitable<Errors\Result<StopFlowResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateFlow(UpdateFlowRequest): Awaitable<Errors\Result<UpdateFlowResponse>>;
+  public function UpdateFlowEntitlement(UpdateFlowEntitlementRequest): Awaitable<Errors\Result<UpdateFlowEntitlementResponse>>;
+  public function UpdateFlowOutput(UpdateFlowOutputRequest): Awaitable<Errors\Result<UpdateFlowOutputResponse>>;
+  public function UpdateFlowSource(UpdateFlowSourceRequest): Awaitable<Errors\Result<UpdateFlowSourceResponse>>;
 }
 
 class AddFlowOutputs420Exception {

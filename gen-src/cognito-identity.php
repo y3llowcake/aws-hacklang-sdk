@@ -2,27 +2,27 @@
 namespace slack\aws\cognito-identity;
 
 interface Cognito Identity {
-  public function CreateIdentityPool(CreateIdentityPoolInput) Awaitable<Errors\Result<IdentityPool>>;
-  public function DeleteIdentities(DeleteIdentitiesInput) Awaitable<Errors\Result<DeleteIdentitiesResponse>>;
-  public function DeleteIdentityPool(DeleteIdentityPoolInput) Awaitable<Errors\Error>;
-  public function DescribeIdentity(DescribeIdentityInput) Awaitable<Errors\Result<IdentityDescription>>;
-  public function DescribeIdentityPool(DescribeIdentityPoolInput) Awaitable<Errors\Result<IdentityPool>>;
-  public function GetCredentialsForIdentity(GetCredentialsForIdentityInput) Awaitable<Errors\Result<GetCredentialsForIdentityResponse>>;
-  public function GetId(GetIdInput) Awaitable<Errors\Result<GetIdResponse>>;
-  public function GetIdentityPoolRoles(GetIdentityPoolRolesInput) Awaitable<Errors\Result<GetIdentityPoolRolesResponse>>;
-  public function GetOpenIdToken(GetOpenIdTokenInput) Awaitable<Errors\Result<GetOpenIdTokenResponse>>;
-  public function GetOpenIdTokenForDeveloperIdentity(GetOpenIdTokenForDeveloperIdentityInput) Awaitable<Errors\Result<GetOpenIdTokenForDeveloperIdentityResponse>>;
-  public function ListIdentities(ListIdentitiesInput) Awaitable<Errors\Result<ListIdentitiesResponse>>;
-  public function ListIdentityPools(ListIdentityPoolsInput) Awaitable<Errors\Result<ListIdentityPoolsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function LookupDeveloperIdentity(LookupDeveloperIdentityInput) Awaitable<Errors\Result<LookupDeveloperIdentityResponse>>;
-  public function MergeDeveloperIdentities(MergeDeveloperIdentitiesInput) Awaitable<Errors\Result<MergeDeveloperIdentitiesResponse>>;
-  public function SetIdentityPoolRoles(SetIdentityPoolRolesInput) Awaitable<Errors\Error>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UnlinkDeveloperIdentity(UnlinkDeveloperIdentityInput) Awaitable<Errors\Error>;
-  public function UnlinkIdentity(UnlinkIdentityInput) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateIdentityPool(IdentityPool) Awaitable<Errors\Result<IdentityPool>>;
+  public function CreateIdentityPool(CreateIdentityPoolInput): Awaitable<Errors\Result<IdentityPool>>;
+  public function DeleteIdentities(DeleteIdentitiesInput): Awaitable<Errors\Result<DeleteIdentitiesResponse>>;
+  public function DeleteIdentityPool(DeleteIdentityPoolInput): Awaitable<Errors\Error>;
+  public function DescribeIdentity(DescribeIdentityInput): Awaitable<Errors\Result<IdentityDescription>>;
+  public function DescribeIdentityPool(DescribeIdentityPoolInput): Awaitable<Errors\Result<IdentityPool>>;
+  public function GetCredentialsForIdentity(GetCredentialsForIdentityInput): Awaitable<Errors\Result<GetCredentialsForIdentityResponse>>;
+  public function GetId(GetIdInput): Awaitable<Errors\Result<GetIdResponse>>;
+  public function GetIdentityPoolRoles(GetIdentityPoolRolesInput): Awaitable<Errors\Result<GetIdentityPoolRolesResponse>>;
+  public function GetOpenIdToken(GetOpenIdTokenInput): Awaitable<Errors\Result<GetOpenIdTokenResponse>>;
+  public function GetOpenIdTokenForDeveloperIdentity(GetOpenIdTokenForDeveloperIdentityInput): Awaitable<Errors\Result<GetOpenIdTokenForDeveloperIdentityResponse>>;
+  public function ListIdentities(ListIdentitiesInput): Awaitable<Errors\Result<ListIdentitiesResponse>>;
+  public function ListIdentityPools(ListIdentityPoolsInput): Awaitable<Errors\Result<ListIdentityPoolsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function LookupDeveloperIdentity(LookupDeveloperIdentityInput): Awaitable<Errors\Result<LookupDeveloperIdentityResponse>>;
+  public function MergeDeveloperIdentities(MergeDeveloperIdentitiesInput): Awaitable<Errors\Result<MergeDeveloperIdentitiesResponse>>;
+  public function SetIdentityPoolRoles(SetIdentityPoolRolesInput): Awaitable<Errors\Error>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UnlinkDeveloperIdentity(UnlinkDeveloperIdentityInput): Awaitable<Errors\Error>;
+  public function UnlinkIdentity(UnlinkIdentityInput): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateIdentityPool(IdentityPool): Awaitable<Errors\Result<IdentityPool>>;
 }
 
 class ARNString {

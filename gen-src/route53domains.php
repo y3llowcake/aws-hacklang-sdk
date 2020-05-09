@@ -2,34 +2,34 @@
 namespace slack\aws\route53domains;
 
 interface Route 53 Domains {
-  public function AcceptDomainTransferFromAnotherAwsAccount(AcceptDomainTransferFromAnotherAwsAccountRequest) Awaitable<Errors\Result<AcceptDomainTransferFromAnotherAwsAccountResponse>>;
-  public function CancelDomainTransferToAnotherAwsAccount(CancelDomainTransferToAnotherAwsAccountRequest) Awaitable<Errors\Result<CancelDomainTransferToAnotherAwsAccountResponse>>;
-  public function CheckDomainAvailability(CheckDomainAvailabilityRequest) Awaitable<Errors\Result<CheckDomainAvailabilityResponse>>;
-  public function CheckDomainTransferability(CheckDomainTransferabilityRequest) Awaitable<Errors\Result<CheckDomainTransferabilityResponse>>;
-  public function DeleteTagsForDomain(DeleteTagsForDomainRequest) Awaitable<Errors\Result<DeleteTagsForDomainResponse>>;
-  public function DisableDomainAutoRenew(DisableDomainAutoRenewRequest) Awaitable<Errors\Result<DisableDomainAutoRenewResponse>>;
-  public function DisableDomainTransferLock(DisableDomainTransferLockRequest) Awaitable<Errors\Result<DisableDomainTransferLockResponse>>;
-  public function EnableDomainAutoRenew(EnableDomainAutoRenewRequest) Awaitable<Errors\Result<EnableDomainAutoRenewResponse>>;
-  public function EnableDomainTransferLock(EnableDomainTransferLockRequest) Awaitable<Errors\Result<EnableDomainTransferLockResponse>>;
-  public function GetContactReachabilityStatus(GetContactReachabilityStatusRequest) Awaitable<Errors\Result<GetContactReachabilityStatusResponse>>;
-  public function GetDomainDetail(GetDomainDetailRequest) Awaitable<Errors\Result<GetDomainDetailResponse>>;
-  public function GetDomainSuggestions(GetDomainSuggestionsRequest) Awaitable<Errors\Result<GetDomainSuggestionsResponse>>;
-  public function GetOperationDetail(GetOperationDetailRequest) Awaitable<Errors\Result<GetOperationDetailResponse>>;
-  public function ListDomains(ListDomainsRequest) Awaitable<Errors\Result<ListDomainsResponse>>;
-  public function ListOperations(ListOperationsRequest) Awaitable<Errors\Result<ListOperationsResponse>>;
-  public function ListTagsForDomain(ListTagsForDomainRequest) Awaitable<Errors\Result<ListTagsForDomainResponse>>;
-  public function RegisterDomain(RegisterDomainRequest) Awaitable<Errors\Result<RegisterDomainResponse>>;
-  public function RejectDomainTransferFromAnotherAwsAccount(RejectDomainTransferFromAnotherAwsAccountRequest) Awaitable<Errors\Result<RejectDomainTransferFromAnotherAwsAccountResponse>>;
-  public function RenewDomain(RenewDomainRequest) Awaitable<Errors\Result<RenewDomainResponse>>;
-  public function ResendContactReachabilityEmail(ResendContactReachabilityEmailRequest) Awaitable<Errors\Result<ResendContactReachabilityEmailResponse>>;
-  public function RetrieveDomainAuthCode(RetrieveDomainAuthCodeRequest) Awaitable<Errors\Result<RetrieveDomainAuthCodeResponse>>;
-  public function TransferDomain(TransferDomainRequest) Awaitable<Errors\Result<TransferDomainResponse>>;
-  public function TransferDomainToAnotherAwsAccount(TransferDomainToAnotherAwsAccountRequest) Awaitable<Errors\Result<TransferDomainToAnotherAwsAccountResponse>>;
-  public function UpdateDomainContact(UpdateDomainContactRequest) Awaitable<Errors\Result<UpdateDomainContactResponse>>;
-  public function UpdateDomainContactPrivacy(UpdateDomainContactPrivacyRequest) Awaitable<Errors\Result<UpdateDomainContactPrivacyResponse>>;
-  public function UpdateDomainNameservers(UpdateDomainNameserversRequest) Awaitable<Errors\Result<UpdateDomainNameserversResponse>>;
-  public function UpdateTagsForDomain(UpdateTagsForDomainRequest) Awaitable<Errors\Result<UpdateTagsForDomainResponse>>;
-  public function ViewBilling(ViewBillingRequest) Awaitable<Errors\Result<ViewBillingResponse>>;
+  public function AcceptDomainTransferFromAnotherAwsAccount(AcceptDomainTransferFromAnotherAwsAccountRequest): Awaitable<Errors\Result<AcceptDomainTransferFromAnotherAwsAccountResponse>>;
+  public function CancelDomainTransferToAnotherAwsAccount(CancelDomainTransferToAnotherAwsAccountRequest): Awaitable<Errors\Result<CancelDomainTransferToAnotherAwsAccountResponse>>;
+  public function CheckDomainAvailability(CheckDomainAvailabilityRequest): Awaitable<Errors\Result<CheckDomainAvailabilityResponse>>;
+  public function CheckDomainTransferability(CheckDomainTransferabilityRequest): Awaitable<Errors\Result<CheckDomainTransferabilityResponse>>;
+  public function DeleteTagsForDomain(DeleteTagsForDomainRequest): Awaitable<Errors\Result<DeleteTagsForDomainResponse>>;
+  public function DisableDomainAutoRenew(DisableDomainAutoRenewRequest): Awaitable<Errors\Result<DisableDomainAutoRenewResponse>>;
+  public function DisableDomainTransferLock(DisableDomainTransferLockRequest): Awaitable<Errors\Result<DisableDomainTransferLockResponse>>;
+  public function EnableDomainAutoRenew(EnableDomainAutoRenewRequest): Awaitable<Errors\Result<EnableDomainAutoRenewResponse>>;
+  public function EnableDomainTransferLock(EnableDomainTransferLockRequest): Awaitable<Errors\Result<EnableDomainTransferLockResponse>>;
+  public function GetContactReachabilityStatus(GetContactReachabilityStatusRequest): Awaitable<Errors\Result<GetContactReachabilityStatusResponse>>;
+  public function GetDomainDetail(GetDomainDetailRequest): Awaitable<Errors\Result<GetDomainDetailResponse>>;
+  public function GetDomainSuggestions(GetDomainSuggestionsRequest): Awaitable<Errors\Result<GetDomainSuggestionsResponse>>;
+  public function GetOperationDetail(GetOperationDetailRequest): Awaitable<Errors\Result<GetOperationDetailResponse>>;
+  public function ListDomains(ListDomainsRequest): Awaitable<Errors\Result<ListDomainsResponse>>;
+  public function ListOperations(ListOperationsRequest): Awaitable<Errors\Result<ListOperationsResponse>>;
+  public function ListTagsForDomain(ListTagsForDomainRequest): Awaitable<Errors\Result<ListTagsForDomainResponse>>;
+  public function RegisterDomain(RegisterDomainRequest): Awaitable<Errors\Result<RegisterDomainResponse>>;
+  public function RejectDomainTransferFromAnotherAwsAccount(RejectDomainTransferFromAnotherAwsAccountRequest): Awaitable<Errors\Result<RejectDomainTransferFromAnotherAwsAccountResponse>>;
+  public function RenewDomain(RenewDomainRequest): Awaitable<Errors\Result<RenewDomainResponse>>;
+  public function ResendContactReachabilityEmail(ResendContactReachabilityEmailRequest): Awaitable<Errors\Result<ResendContactReachabilityEmailResponse>>;
+  public function RetrieveDomainAuthCode(RetrieveDomainAuthCodeRequest): Awaitable<Errors\Result<RetrieveDomainAuthCodeResponse>>;
+  public function TransferDomain(TransferDomainRequest): Awaitable<Errors\Result<TransferDomainResponse>>;
+  public function TransferDomainToAnotherAwsAccount(TransferDomainToAnotherAwsAccountRequest): Awaitable<Errors\Result<TransferDomainToAnotherAwsAccountResponse>>;
+  public function UpdateDomainContact(UpdateDomainContactRequest): Awaitable<Errors\Result<UpdateDomainContactResponse>>;
+  public function UpdateDomainContactPrivacy(UpdateDomainContactPrivacyRequest): Awaitable<Errors\Result<UpdateDomainContactPrivacyResponse>>;
+  public function UpdateDomainNameservers(UpdateDomainNameserversRequest): Awaitable<Errors\Result<UpdateDomainNameserversResponse>>;
+  public function UpdateTagsForDomain(UpdateTagsForDomainRequest): Awaitable<Errors\Result<UpdateTagsForDomainResponse>>;
+  public function ViewBilling(ViewBillingRequest): Awaitable<Errors\Result<ViewBillingResponse>>;
 }
 
 class AcceptDomainTransferFromAnotherAwsAccountRequest {

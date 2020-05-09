@@ -2,10 +2,10 @@
 namespace slack\aws\cur;
 
 interface Cost and Usage Report Service {
-  public function DeleteReportDefinition(DeleteReportDefinitionRequest) Awaitable<Errors\Result<DeleteReportDefinitionResponse>>;
-  public function DescribeReportDefinitions(DescribeReportDefinitionsRequest) Awaitable<Errors\Result<DescribeReportDefinitionsResponse>>;
-  public function ModifyReportDefinition(ModifyReportDefinitionRequest) Awaitable<Errors\Result<ModifyReportDefinitionResponse>>;
-  public function PutReportDefinition(PutReportDefinitionRequest) Awaitable<Errors\Result<PutReportDefinitionResponse>>;
+  public function DeleteReportDefinition(DeleteReportDefinitionRequest): Awaitable<Errors\Result<DeleteReportDefinitionResponse>>;
+  public function DescribeReportDefinitions(DescribeReportDefinitionsRequest): Awaitable<Errors\Result<DescribeReportDefinitionsResponse>>;
+  public function ModifyReportDefinition(ModifyReportDefinitionRequest): Awaitable<Errors\Result<ModifyReportDefinitionResponse>>;
+  public function PutReportDefinition(PutReportDefinitionRequest): Awaitable<Errors\Result<PutReportDefinitionResponse>>;
 }
 
 class AWSRegion {

@@ -2,23 +2,23 @@
 namespace slack\aws\iotevents;
 
 interface IoT Events {
-  public function CreateDetectorModel(CreateDetectorModelRequest) Awaitable<Errors\Result<CreateDetectorModelResponse>>;
-  public function CreateInput(CreateInputRequest) Awaitable<Errors\Result<CreateInputResponse>>;
-  public function DeleteDetectorModel(DeleteDetectorModelRequest) Awaitable<Errors\Result<DeleteDetectorModelResponse>>;
-  public function DeleteInput(DeleteInputRequest) Awaitable<Errors\Result<DeleteInputResponse>>;
-  public function DescribeDetectorModel(DescribeDetectorModelRequest) Awaitable<Errors\Result<DescribeDetectorModelResponse>>;
-  public function DescribeInput(DescribeInputRequest) Awaitable<Errors\Result<DescribeInputResponse>>;
-  public function DescribeLoggingOptions(DescribeLoggingOptionsRequest) Awaitable<Errors\Result<DescribeLoggingOptionsResponse>>;
-  public function ListDetectorModelVersions(ListDetectorModelVersionsRequest) Awaitable<Errors\Result<ListDetectorModelVersionsResponse>>;
-  public function ListDetectorModels(ListDetectorModelsRequest) Awaitable<Errors\Result<ListDetectorModelsResponse>>;
-  public function ListInputs(ListInputsRequest) Awaitable<Errors\Result<ListInputsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutLoggingOptions(PutLoggingOptionsRequest) Awaitable<Errors\Error>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateDetectorModel(UpdateDetectorModelRequest) Awaitable<Errors\Result<UpdateDetectorModelResponse>>;
-  public function UpdateInput(UpdateInputRequest) Awaitable<Errors\Result<UpdateInputResponse>>;
-  public function VerifyResourcesExistForTagris(TagrisVerifyResourcesExistInput) Awaitable<Errors\Result<TagrisVerifyResourcesExistOutput>>;
+  public function CreateDetectorModel(CreateDetectorModelRequest): Awaitable<Errors\Result<CreateDetectorModelResponse>>;
+  public function CreateInput(CreateInputRequest): Awaitable<Errors\Result<CreateInputResponse>>;
+  public function DeleteDetectorModel(DeleteDetectorModelRequest): Awaitable<Errors\Result<DeleteDetectorModelResponse>>;
+  public function DeleteInput(DeleteInputRequest): Awaitable<Errors\Result<DeleteInputResponse>>;
+  public function DescribeDetectorModel(DescribeDetectorModelRequest): Awaitable<Errors\Result<DescribeDetectorModelResponse>>;
+  public function DescribeInput(DescribeInputRequest): Awaitable<Errors\Result<DescribeInputResponse>>;
+  public function DescribeLoggingOptions(DescribeLoggingOptionsRequest): Awaitable<Errors\Result<DescribeLoggingOptionsResponse>>;
+  public function ListDetectorModelVersions(ListDetectorModelVersionsRequest): Awaitable<Errors\Result<ListDetectorModelVersionsResponse>>;
+  public function ListDetectorModels(ListDetectorModelsRequest): Awaitable<Errors\Result<ListDetectorModelsResponse>>;
+  public function ListInputs(ListInputsRequest): Awaitable<Errors\Result<ListInputsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutLoggingOptions(PutLoggingOptionsRequest): Awaitable<Errors\Error>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateDetectorModel(UpdateDetectorModelRequest): Awaitable<Errors\Result<UpdateDetectorModelResponse>>;
+  public function UpdateInput(UpdateInputRequest): Awaitable<Errors\Result<UpdateInputResponse>>;
+  public function VerifyResourcesExistForTagris(TagrisVerifyResourcesExistInput): Awaitable<Errors\Result<TagrisVerifyResourcesExistOutput>>;
 }
 
 class Action {

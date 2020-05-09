@@ -2,28 +2,28 @@
 namespace slack\aws\route53resolver;
 
 interface Route53Resolver {
-  public function AssociateResolverEndpointIpAddress(AssociateResolverEndpointIpAddressRequest) Awaitable<Errors\Result<AssociateResolverEndpointIpAddressResponse>>;
-  public function AssociateResolverRule(AssociateResolverRuleRequest) Awaitable<Errors\Result<AssociateResolverRuleResponse>>;
-  public function CreateResolverEndpoint(CreateResolverEndpointRequest) Awaitable<Errors\Result<CreateResolverEndpointResponse>>;
-  public function CreateResolverRule(CreateResolverRuleRequest) Awaitable<Errors\Result<CreateResolverRuleResponse>>;
-  public function DeleteResolverEndpoint(DeleteResolverEndpointRequest) Awaitable<Errors\Result<DeleteResolverEndpointResponse>>;
-  public function DeleteResolverRule(DeleteResolverRuleRequest) Awaitable<Errors\Result<DeleteResolverRuleResponse>>;
-  public function DisassociateResolverEndpointIpAddress(DisassociateResolverEndpointIpAddressRequest) Awaitable<Errors\Result<DisassociateResolverEndpointIpAddressResponse>>;
-  public function DisassociateResolverRule(DisassociateResolverRuleRequest) Awaitable<Errors\Result<DisassociateResolverRuleResponse>>;
-  public function GetResolverEndpoint(GetResolverEndpointRequest) Awaitable<Errors\Result<GetResolverEndpointResponse>>;
-  public function GetResolverRule(GetResolverRuleRequest) Awaitable<Errors\Result<GetResolverRuleResponse>>;
-  public function GetResolverRuleAssociation(GetResolverRuleAssociationRequest) Awaitable<Errors\Result<GetResolverRuleAssociationResponse>>;
-  public function GetResolverRulePolicy(GetResolverRulePolicyRequest) Awaitable<Errors\Result<GetResolverRulePolicyResponse>>;
-  public function ListResolverEndpointIpAddresses(ListResolverEndpointIpAddressesRequest) Awaitable<Errors\Result<ListResolverEndpointIpAddressesResponse>>;
-  public function ListResolverEndpoints(ListResolverEndpointsRequest) Awaitable<Errors\Result<ListResolverEndpointsResponse>>;
-  public function ListResolverRuleAssociations(ListResolverRuleAssociationsRequest) Awaitable<Errors\Result<ListResolverRuleAssociationsResponse>>;
-  public function ListResolverRules(ListResolverRulesRequest) Awaitable<Errors\Result<ListResolverRulesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutResolverRulePolicy(PutResolverRulePolicyRequest) Awaitable<Errors\Result<PutResolverRulePolicyResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateResolverEndpoint(UpdateResolverEndpointRequest) Awaitable<Errors\Result<UpdateResolverEndpointResponse>>;
-  public function UpdateResolverRule(UpdateResolverRuleRequest) Awaitable<Errors\Result<UpdateResolverRuleResponse>>;
+  public function AssociateResolverEndpointIpAddress(AssociateResolverEndpointIpAddressRequest): Awaitable<Errors\Result<AssociateResolverEndpointIpAddressResponse>>;
+  public function AssociateResolverRule(AssociateResolverRuleRequest): Awaitable<Errors\Result<AssociateResolverRuleResponse>>;
+  public function CreateResolverEndpoint(CreateResolverEndpointRequest): Awaitable<Errors\Result<CreateResolverEndpointResponse>>;
+  public function CreateResolverRule(CreateResolverRuleRequest): Awaitable<Errors\Result<CreateResolverRuleResponse>>;
+  public function DeleteResolverEndpoint(DeleteResolverEndpointRequest): Awaitable<Errors\Result<DeleteResolverEndpointResponse>>;
+  public function DeleteResolverRule(DeleteResolverRuleRequest): Awaitable<Errors\Result<DeleteResolverRuleResponse>>;
+  public function DisassociateResolverEndpointIpAddress(DisassociateResolverEndpointIpAddressRequest): Awaitable<Errors\Result<DisassociateResolverEndpointIpAddressResponse>>;
+  public function DisassociateResolverRule(DisassociateResolverRuleRequest): Awaitable<Errors\Result<DisassociateResolverRuleResponse>>;
+  public function GetResolverEndpoint(GetResolverEndpointRequest): Awaitable<Errors\Result<GetResolverEndpointResponse>>;
+  public function GetResolverRule(GetResolverRuleRequest): Awaitable<Errors\Result<GetResolverRuleResponse>>;
+  public function GetResolverRuleAssociation(GetResolverRuleAssociationRequest): Awaitable<Errors\Result<GetResolverRuleAssociationResponse>>;
+  public function GetResolverRulePolicy(GetResolverRulePolicyRequest): Awaitable<Errors\Result<GetResolverRulePolicyResponse>>;
+  public function ListResolverEndpointIpAddresses(ListResolverEndpointIpAddressesRequest): Awaitable<Errors\Result<ListResolverEndpointIpAddressesResponse>>;
+  public function ListResolverEndpoints(ListResolverEndpointsRequest): Awaitable<Errors\Result<ListResolverEndpointsResponse>>;
+  public function ListResolverRuleAssociations(ListResolverRuleAssociationsRequest): Awaitable<Errors\Result<ListResolverRuleAssociationsResponse>>;
+  public function ListResolverRules(ListResolverRulesRequest): Awaitable<Errors\Result<ListResolverRulesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutResolverRulePolicy(PutResolverRulePolicyRequest): Awaitable<Errors\Result<PutResolverRulePolicyResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateResolverEndpoint(UpdateResolverEndpointRequest): Awaitable<Errors\Result<UpdateResolverEndpointResponse>>;
+  public function UpdateResolverRule(UpdateResolverRuleRequest): Awaitable<Errors\Result<UpdateResolverRuleResponse>>;
 }
 
 class AccountId {

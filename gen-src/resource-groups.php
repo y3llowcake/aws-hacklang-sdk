@@ -2,18 +2,18 @@
 namespace slack\aws\resource-groups;
 
 interface Resource Groups {
-  public function CreateGroup(CreateGroupInput) Awaitable<Errors\Result<CreateGroupOutput>>;
-  public function DeleteGroup(DeleteGroupInput) Awaitable<Errors\Result<DeleteGroupOutput>>;
-  public function GetGroup(GetGroupInput) Awaitable<Errors\Result<GetGroupOutput>>;
-  public function GetGroupQuery(GetGroupQueryInput) Awaitable<Errors\Result<GetGroupQueryOutput>>;
-  public function GetTags(GetTagsInput) Awaitable<Errors\Result<GetTagsOutput>>;
-  public function ListGroupResources(ListGroupResourcesInput) Awaitable<Errors\Result<ListGroupResourcesOutput>>;
-  public function ListGroups(ListGroupsInput) Awaitable<Errors\Result<ListGroupsOutput>>;
-  public function SearchResources(SearchResourcesInput) Awaitable<Errors\Result<SearchResourcesOutput>>;
-  public function Tag(TagInput) Awaitable<Errors\Result<TagOutput>>;
-  public function Untag(UntagInput) Awaitable<Errors\Result<UntagOutput>>;
-  public function UpdateGroup(UpdateGroupInput) Awaitable<Errors\Result<UpdateGroupOutput>>;
-  public function UpdateGroupQuery(UpdateGroupQueryInput) Awaitable<Errors\Result<UpdateGroupQueryOutput>>;
+  public function CreateGroup(CreateGroupInput): Awaitable<Errors\Result<CreateGroupOutput>>;
+  public function DeleteGroup(DeleteGroupInput): Awaitable<Errors\Result<DeleteGroupOutput>>;
+  public function GetGroup(GetGroupInput): Awaitable<Errors\Result<GetGroupOutput>>;
+  public function GetGroupQuery(GetGroupQueryInput): Awaitable<Errors\Result<GetGroupQueryOutput>>;
+  public function GetTags(GetTagsInput): Awaitable<Errors\Result<GetTagsOutput>>;
+  public function ListGroupResources(ListGroupResourcesInput): Awaitable<Errors\Result<ListGroupResourcesOutput>>;
+  public function ListGroups(ListGroupsInput): Awaitable<Errors\Result<ListGroupsOutput>>;
+  public function SearchResources(SearchResourcesInput): Awaitable<Errors\Result<SearchResourcesOutput>>;
+  public function Tag(TagInput): Awaitable<Errors\Result<TagOutput>>;
+  public function Untag(UntagInput): Awaitable<Errors\Result<UntagOutput>>;
+  public function UpdateGroup(UpdateGroupInput): Awaitable<Errors\Result<UpdateGroupOutput>>;
+  public function UpdateGroupQuery(UpdateGroupQueryInput): Awaitable<Errors\Result<UpdateGroupQueryOutput>>;
 }
 
 class BadRequestException {

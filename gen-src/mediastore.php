@@ -2,27 +2,27 @@
 namespace slack\aws\mediastore;
 
 interface MediaStore {
-  public function CreateContainer(CreateContainerInput) Awaitable<Errors\Result<CreateContainerOutput>>;
-  public function DeleteContainer(DeleteContainerInput) Awaitable<Errors\Result<DeleteContainerOutput>>;
-  public function DeleteContainerPolicy(DeleteContainerPolicyInput) Awaitable<Errors\Result<DeleteContainerPolicyOutput>>;
-  public function DeleteCorsPolicy(DeleteCorsPolicyInput) Awaitable<Errors\Result<DeleteCorsPolicyOutput>>;
-  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyInput) Awaitable<Errors\Result<DeleteLifecyclePolicyOutput>>;
-  public function DeleteMetricPolicy(DeleteMetricPolicyInput) Awaitable<Errors\Result<DeleteMetricPolicyOutput>>;
-  public function DescribeContainer(DescribeContainerInput) Awaitable<Errors\Result<DescribeContainerOutput>>;
-  public function GetContainerPolicy(GetContainerPolicyInput) Awaitable<Errors\Result<GetContainerPolicyOutput>>;
-  public function GetCorsPolicy(GetCorsPolicyInput) Awaitable<Errors\Result<GetCorsPolicyOutput>>;
-  public function GetLifecyclePolicy(GetLifecyclePolicyInput) Awaitable<Errors\Result<GetLifecyclePolicyOutput>>;
-  public function GetMetricPolicy(GetMetricPolicyInput) Awaitable<Errors\Result<GetMetricPolicyOutput>>;
-  public function ListContainers(ListContainersInput) Awaitable<Errors\Result<ListContainersOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function PutContainerPolicy(PutContainerPolicyInput) Awaitable<Errors\Result<PutContainerPolicyOutput>>;
-  public function PutCorsPolicy(PutCorsPolicyInput) Awaitable<Errors\Result<PutCorsPolicyOutput>>;
-  public function PutLifecyclePolicy(PutLifecyclePolicyInput) Awaitable<Errors\Result<PutLifecyclePolicyOutput>>;
-  public function PutMetricPolicy(PutMetricPolicyInput) Awaitable<Errors\Result<PutMetricPolicyOutput>>;
-  public function StartAccessLogging(StartAccessLoggingInput) Awaitable<Errors\Result<StartAccessLoggingOutput>>;
-  public function StopAccessLogging(StopAccessLoggingInput) Awaitable<Errors\Result<StopAccessLoggingOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function CreateContainer(CreateContainerInput): Awaitable<Errors\Result<CreateContainerOutput>>;
+  public function DeleteContainer(DeleteContainerInput): Awaitable<Errors\Result<DeleteContainerOutput>>;
+  public function DeleteContainerPolicy(DeleteContainerPolicyInput): Awaitable<Errors\Result<DeleteContainerPolicyOutput>>;
+  public function DeleteCorsPolicy(DeleteCorsPolicyInput): Awaitable<Errors\Result<DeleteCorsPolicyOutput>>;
+  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyInput): Awaitable<Errors\Result<DeleteLifecyclePolicyOutput>>;
+  public function DeleteMetricPolicy(DeleteMetricPolicyInput): Awaitable<Errors\Result<DeleteMetricPolicyOutput>>;
+  public function DescribeContainer(DescribeContainerInput): Awaitable<Errors\Result<DescribeContainerOutput>>;
+  public function GetContainerPolicy(GetContainerPolicyInput): Awaitable<Errors\Result<GetContainerPolicyOutput>>;
+  public function GetCorsPolicy(GetCorsPolicyInput): Awaitable<Errors\Result<GetCorsPolicyOutput>>;
+  public function GetLifecyclePolicy(GetLifecyclePolicyInput): Awaitable<Errors\Result<GetLifecyclePolicyOutput>>;
+  public function GetMetricPolicy(GetMetricPolicyInput): Awaitable<Errors\Result<GetMetricPolicyOutput>>;
+  public function ListContainers(ListContainersInput): Awaitable<Errors\Result<ListContainersOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function PutContainerPolicy(PutContainerPolicyInput): Awaitable<Errors\Result<PutContainerPolicyOutput>>;
+  public function PutCorsPolicy(PutCorsPolicyInput): Awaitable<Errors\Result<PutCorsPolicyOutput>>;
+  public function PutLifecyclePolicy(PutLifecyclePolicyInput): Awaitable<Errors\Result<PutLifecyclePolicyOutput>>;
+  public function PutMetricPolicy(PutMetricPolicyInput): Awaitable<Errors\Result<PutMetricPolicyOutput>>;
+  public function StartAccessLogging(StartAccessLoggingInput): Awaitable<Errors\Result<StartAccessLoggingOutput>>;
+  public function StopAccessLogging(StopAccessLoggingInput): Awaitable<Errors\Result<StopAccessLoggingOutput>>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
 }
 
 class AllowedHeaders {

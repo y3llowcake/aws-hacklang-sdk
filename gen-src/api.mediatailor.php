@@ -2,13 +2,13 @@
 namespace slack\aws\api.mediatailor;
 
 interface MediaTailor {
-  public function DeletePlaybackConfiguration(DeletePlaybackConfigurationRequest) Awaitable<Errors\Result<DeletePlaybackConfigurationResponse>>;
-  public function GetPlaybackConfiguration(GetPlaybackConfigurationRequest) Awaitable<Errors\Result<GetPlaybackConfigurationResponse>>;
-  public function ListPlaybackConfigurations(ListPlaybackConfigurationsRequest) Awaitable<Errors\Result<ListPlaybackConfigurationsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutPlaybackConfiguration(PutPlaybackConfigurationRequest) Awaitable<Errors\Result<PutPlaybackConfigurationResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
+  public function DeletePlaybackConfiguration(DeletePlaybackConfigurationRequest): Awaitable<Errors\Result<DeletePlaybackConfigurationResponse>>;
+  public function GetPlaybackConfiguration(GetPlaybackConfigurationRequest): Awaitable<Errors\Result<GetPlaybackConfigurationResponse>>;
+  public function ListPlaybackConfigurations(ListPlaybackConfigurationsRequest): Awaitable<Errors\Result<ListPlaybackConfigurationsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutPlaybackConfiguration(PutPlaybackConfigurationRequest): Awaitable<Errors\Result<PutPlaybackConfigurationResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
 }
 
 class AvailSuppression {

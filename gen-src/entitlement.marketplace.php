@@ -2,7 +2,7 @@
 namespace slack\aws\entitlement.marketplace;
 
 interface  {
-  public function GetEntitlements(GetEntitlementsRequest) Awaitable<Errors\Result<GetEntitlementsResult>>;
+  public function GetEntitlements(GetEntitlementsRequest): Awaitable<Errors\Result<GetEntitlementsResult>>;
 }
 
 class Boolean {

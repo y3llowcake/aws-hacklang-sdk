@@ -2,24 +2,24 @@
 namespace slack\aws\secretsmanager;
 
 interface Secrets Manager {
-  public function CancelRotateSecret(CancelRotateSecretRequest) Awaitable<Errors\Result<CancelRotateSecretResponse>>;
-  public function CreateSecret(CreateSecretRequest) Awaitable<Errors\Result<CreateSecretResponse>>;
-  public function DeleteResourcePolicy(DeleteResourcePolicyRequest) Awaitable<Errors\Result<DeleteResourcePolicyResponse>>;
-  public function DeleteSecret(DeleteSecretRequest) Awaitable<Errors\Result<DeleteSecretResponse>>;
-  public function DescribeSecret(DescribeSecretRequest) Awaitable<Errors\Result<DescribeSecretResponse>>;
-  public function GetRandomPassword(GetRandomPasswordRequest) Awaitable<Errors\Result<GetRandomPasswordResponse>>;
-  public function GetResourcePolicy(GetResourcePolicyRequest) Awaitable<Errors\Result<GetResourcePolicyResponse>>;
-  public function GetSecretValue(GetSecretValueRequest) Awaitable<Errors\Result<GetSecretValueResponse>>;
-  public function ListSecretVersionIds(ListSecretVersionIdsRequest) Awaitable<Errors\Result<ListSecretVersionIdsResponse>>;
-  public function ListSecrets(ListSecretsRequest) Awaitable<Errors\Result<ListSecretsResponse>>;
-  public function PutResourcePolicy(PutResourcePolicyRequest) Awaitable<Errors\Result<PutResourcePolicyResponse>>;
-  public function PutSecretValue(PutSecretValueRequest) Awaitable<Errors\Result<PutSecretValueResponse>>;
-  public function RestoreSecret(RestoreSecretRequest) Awaitable<Errors\Result<RestoreSecretResponse>>;
-  public function RotateSecret(RotateSecretRequest) Awaitable<Errors\Result<RotateSecretResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateSecret(UpdateSecretRequest) Awaitable<Errors\Result<UpdateSecretResponse>>;
-  public function UpdateSecretVersionStage(UpdateSecretVersionStageRequest) Awaitable<Errors\Result<UpdateSecretVersionStageResponse>>;
+  public function CancelRotateSecret(CancelRotateSecretRequest): Awaitable<Errors\Result<CancelRotateSecretResponse>>;
+  public function CreateSecret(CreateSecretRequest): Awaitable<Errors\Result<CreateSecretResponse>>;
+  public function DeleteResourcePolicy(DeleteResourcePolicyRequest): Awaitable<Errors\Result<DeleteResourcePolicyResponse>>;
+  public function DeleteSecret(DeleteSecretRequest): Awaitable<Errors\Result<DeleteSecretResponse>>;
+  public function DescribeSecret(DescribeSecretRequest): Awaitable<Errors\Result<DescribeSecretResponse>>;
+  public function GetRandomPassword(GetRandomPasswordRequest): Awaitable<Errors\Result<GetRandomPasswordResponse>>;
+  public function GetResourcePolicy(GetResourcePolicyRequest): Awaitable<Errors\Result<GetResourcePolicyResponse>>;
+  public function GetSecretValue(GetSecretValueRequest): Awaitable<Errors\Result<GetSecretValueResponse>>;
+  public function ListSecretVersionIds(ListSecretVersionIdsRequest): Awaitable<Errors\Result<ListSecretVersionIdsResponse>>;
+  public function ListSecrets(ListSecretsRequest): Awaitable<Errors\Result<ListSecretsResponse>>;
+  public function PutResourcePolicy(PutResourcePolicyRequest): Awaitable<Errors\Result<PutResourcePolicyResponse>>;
+  public function PutSecretValue(PutSecretValueRequest): Awaitable<Errors\Result<PutSecretValueResponse>>;
+  public function RestoreSecret(RestoreSecretRequest): Awaitable<Errors\Result<RestoreSecretResponse>>;
+  public function RotateSecret(RotateSecretRequest): Awaitable<Errors\Result<RotateSecretResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateSecret(UpdateSecretRequest): Awaitable<Errors\Result<UpdateSecretResponse>>;
+  public function UpdateSecretVersionStage(UpdateSecretVersionStageRequest): Awaitable<Errors\Result<UpdateSecretVersionStageResponse>>;
 }
 
 class AutomaticallyRotateAfterDaysType {

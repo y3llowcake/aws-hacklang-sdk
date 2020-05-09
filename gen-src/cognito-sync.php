@@ -2,23 +2,23 @@
 namespace slack\aws\cognito-sync;
 
 interface  {
-  public function BulkPublish(BulkPublishRequest) Awaitable<Errors\Result<BulkPublishResponse>>;
-  public function DeleteDataset(DeleteDatasetRequest) Awaitable<Errors\Result<DeleteDatasetResponse>>;
-  public function DescribeDataset(DescribeDatasetRequest) Awaitable<Errors\Result<DescribeDatasetResponse>>;
-  public function DescribeIdentityPoolUsage(DescribeIdentityPoolUsageRequest) Awaitable<Errors\Result<DescribeIdentityPoolUsageResponse>>;
-  public function DescribeIdentityUsage(DescribeIdentityUsageRequest) Awaitable<Errors\Result<DescribeIdentityUsageResponse>>;
-  public function GetBulkPublishDetails(GetBulkPublishDetailsRequest) Awaitable<Errors\Result<GetBulkPublishDetailsResponse>>;
-  public function GetCognitoEvents(GetCognitoEventsRequest) Awaitable<Errors\Result<GetCognitoEventsResponse>>;
-  public function GetIdentityPoolConfiguration(GetIdentityPoolConfigurationRequest) Awaitable<Errors\Result<GetIdentityPoolConfigurationResponse>>;
-  public function ListDatasets(ListDatasetsRequest) Awaitable<Errors\Result<ListDatasetsResponse>>;
-  public function ListIdentityPoolUsage(ListIdentityPoolUsageRequest) Awaitable<Errors\Result<ListIdentityPoolUsageResponse>>;
-  public function ListRecords(ListRecordsRequest) Awaitable<Errors\Result<ListRecordsResponse>>;
-  public function RegisterDevice(RegisterDeviceRequest) Awaitable<Errors\Result<RegisterDeviceResponse>>;
-  public function SetCognitoEvents(SetCognitoEventsRequest) Awaitable<Errors\Error>;
-  public function SetIdentityPoolConfiguration(SetIdentityPoolConfigurationRequest) Awaitable<Errors\Result<SetIdentityPoolConfigurationResponse>>;
-  public function SubscribeToDataset(SubscribeToDatasetRequest) Awaitable<Errors\Result<SubscribeToDatasetResponse>>;
-  public function UnsubscribeFromDataset(UnsubscribeFromDatasetRequest) Awaitable<Errors\Result<UnsubscribeFromDatasetResponse>>;
-  public function UpdateRecords(UpdateRecordsRequest) Awaitable<Errors\Result<UpdateRecordsResponse>>;
+  public function BulkPublish(BulkPublishRequest): Awaitable<Errors\Result<BulkPublishResponse>>;
+  public function DeleteDataset(DeleteDatasetRequest): Awaitable<Errors\Result<DeleteDatasetResponse>>;
+  public function DescribeDataset(DescribeDatasetRequest): Awaitable<Errors\Result<DescribeDatasetResponse>>;
+  public function DescribeIdentityPoolUsage(DescribeIdentityPoolUsageRequest): Awaitable<Errors\Result<DescribeIdentityPoolUsageResponse>>;
+  public function DescribeIdentityUsage(DescribeIdentityUsageRequest): Awaitable<Errors\Result<DescribeIdentityUsageResponse>>;
+  public function GetBulkPublishDetails(GetBulkPublishDetailsRequest): Awaitable<Errors\Result<GetBulkPublishDetailsResponse>>;
+  public function GetCognitoEvents(GetCognitoEventsRequest): Awaitable<Errors\Result<GetCognitoEventsResponse>>;
+  public function GetIdentityPoolConfiguration(GetIdentityPoolConfigurationRequest): Awaitable<Errors\Result<GetIdentityPoolConfigurationResponse>>;
+  public function ListDatasets(ListDatasetsRequest): Awaitable<Errors\Result<ListDatasetsResponse>>;
+  public function ListIdentityPoolUsage(ListIdentityPoolUsageRequest): Awaitable<Errors\Result<ListIdentityPoolUsageResponse>>;
+  public function ListRecords(ListRecordsRequest): Awaitable<Errors\Result<ListRecordsResponse>>;
+  public function RegisterDevice(RegisterDeviceRequest): Awaitable<Errors\Result<RegisterDeviceResponse>>;
+  public function SetCognitoEvents(SetCognitoEventsRequest): Awaitable<Errors\Error>;
+  public function SetIdentityPoolConfiguration(SetIdentityPoolConfigurationRequest): Awaitable<Errors\Result<SetIdentityPoolConfigurationResponse>>;
+  public function SubscribeToDataset(SubscribeToDatasetRequest): Awaitable<Errors\Result<SubscribeToDatasetResponse>>;
+  public function UnsubscribeFromDataset(UnsubscribeFromDatasetRequest): Awaitable<Errors\Result<UnsubscribeFromDatasetResponse>>;
+  public function UpdateRecords(UpdateRecordsRequest): Awaitable<Errors\Result<UpdateRecordsResponse>>;
 }
 
 class AlreadyStreamedException {

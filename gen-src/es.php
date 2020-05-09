@@ -2,36 +2,36 @@
 namespace slack\aws\es;
 
 interface Elasticsearch Service {
-  public function AddTags(AddTagsRequest) Awaitable<Errors\Error>;
-  public function AssociatePackage(AssociatePackageRequest) Awaitable<Errors\Result<AssociatePackageResponse>>;
-  public function CancelElasticsearchServiceSoftwareUpdate(CancelElasticsearchServiceSoftwareUpdateRequest) Awaitable<Errors\Result<CancelElasticsearchServiceSoftwareUpdateResponse>>;
-  public function CreateElasticsearchDomain(CreateElasticsearchDomainRequest) Awaitable<Errors\Result<CreateElasticsearchDomainResponse>>;
-  public function CreatePackage(CreatePackageRequest) Awaitable<Errors\Result<CreatePackageResponse>>;
-  public function DeleteElasticsearchDomain(DeleteElasticsearchDomainRequest) Awaitable<Errors\Result<DeleteElasticsearchDomainResponse>>;
-  public function DeleteElasticsearchServiceRole() Awaitable<Errors\Error>;
-  public function DeletePackage(DeletePackageRequest) Awaitable<Errors\Result<DeletePackageResponse>>;
-  public function DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainResponse>>;
-  public function DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainConfigResponse>>;
-  public function DescribeElasticsearchDomains(DescribeElasticsearchDomainsRequest) Awaitable<Errors\Result<DescribeElasticsearchDomainsResponse>>;
-  public function DescribeElasticsearchInstanceTypeLimits(DescribeElasticsearchInstanceTypeLimitsRequest) Awaitable<Errors\Result<DescribeElasticsearchInstanceTypeLimitsResponse>>;
-  public function DescribePackages(DescribePackagesRequest) Awaitable<Errors\Result<DescribePackagesResponse>>;
-  public function DescribeReservedElasticsearchInstanceOfferings(DescribeReservedElasticsearchInstanceOfferingsRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstanceOfferingsResponse>>;
-  public function DescribeReservedElasticsearchInstances(DescribeReservedElasticsearchInstancesRequest) Awaitable<Errors\Result<DescribeReservedElasticsearchInstancesResponse>>;
-  public function DissociatePackage(DissociatePackageRequest) Awaitable<Errors\Result<DissociatePackageResponse>>;
-  public function GetCompatibleElasticsearchVersions(GetCompatibleElasticsearchVersionsRequest) Awaitable<Errors\Result<GetCompatibleElasticsearchVersionsResponse>>;
-  public function GetUpgradeHistory(GetUpgradeHistoryRequest) Awaitable<Errors\Result<GetUpgradeHistoryResponse>>;
-  public function GetUpgradeStatus(GetUpgradeStatusRequest) Awaitable<Errors\Result<GetUpgradeStatusResponse>>;
-  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
-  public function ListDomainsForPackage(ListDomainsForPackageRequest) Awaitable<Errors\Result<ListDomainsForPackageResponse>>;
-  public function ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest) Awaitable<Errors\Result<ListElasticsearchInstanceTypesResponse>>;
-  public function ListElasticsearchVersions(ListElasticsearchVersionsRequest) Awaitable<Errors\Result<ListElasticsearchVersionsResponse>>;
-  public function ListPackagesForDomain(ListPackagesForDomainRequest) Awaitable<Errors\Result<ListPackagesForDomainResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function PurchaseReservedElasticsearchInstanceOffering(PurchaseReservedElasticsearchInstanceOfferingRequest) Awaitable<Errors\Result<PurchaseReservedElasticsearchInstanceOfferingResponse>>;
-  public function RemoveTags(RemoveTagsRequest) Awaitable<Errors\Error>;
-  public function StartElasticsearchServiceSoftwareUpdate(StartElasticsearchServiceSoftwareUpdateRequest) Awaitable<Errors\Result<StartElasticsearchServiceSoftwareUpdateResponse>>;
-  public function UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest) Awaitable<Errors\Result<UpdateElasticsearchDomainConfigResponse>>;
-  public function UpgradeElasticsearchDomain(UpgradeElasticsearchDomainRequest) Awaitable<Errors\Result<UpgradeElasticsearchDomainResponse>>;
+  public function AddTags(AddTagsRequest): Awaitable<Errors\Error>;
+  public function AssociatePackage(AssociatePackageRequest): Awaitable<Errors\Result<AssociatePackageResponse>>;
+  public function CancelElasticsearchServiceSoftwareUpdate(CancelElasticsearchServiceSoftwareUpdateRequest): Awaitable<Errors\Result<CancelElasticsearchServiceSoftwareUpdateResponse>>;
+  public function CreateElasticsearchDomain(CreateElasticsearchDomainRequest): Awaitable<Errors\Result<CreateElasticsearchDomainResponse>>;
+  public function CreatePackage(CreatePackageRequest): Awaitable<Errors\Result<CreatePackageResponse>>;
+  public function DeleteElasticsearchDomain(DeleteElasticsearchDomainRequest): Awaitable<Errors\Result<DeleteElasticsearchDomainResponse>>;
+  public function DeleteElasticsearchServiceRole(): Awaitable<Errors\Error>;
+  public function DeletePackage(DeletePackageRequest): Awaitable<Errors\Result<DeletePackageResponse>>;
+  public function DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest): Awaitable<Errors\Result<DescribeElasticsearchDomainResponse>>;
+  public function DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest): Awaitable<Errors\Result<DescribeElasticsearchDomainConfigResponse>>;
+  public function DescribeElasticsearchDomains(DescribeElasticsearchDomainsRequest): Awaitable<Errors\Result<DescribeElasticsearchDomainsResponse>>;
+  public function DescribeElasticsearchInstanceTypeLimits(DescribeElasticsearchInstanceTypeLimitsRequest): Awaitable<Errors\Result<DescribeElasticsearchInstanceTypeLimitsResponse>>;
+  public function DescribePackages(DescribePackagesRequest): Awaitable<Errors\Result<DescribePackagesResponse>>;
+  public function DescribeReservedElasticsearchInstanceOfferings(DescribeReservedElasticsearchInstanceOfferingsRequest): Awaitable<Errors\Result<DescribeReservedElasticsearchInstanceOfferingsResponse>>;
+  public function DescribeReservedElasticsearchInstances(DescribeReservedElasticsearchInstancesRequest): Awaitable<Errors\Result<DescribeReservedElasticsearchInstancesResponse>>;
+  public function DissociatePackage(DissociatePackageRequest): Awaitable<Errors\Result<DissociatePackageResponse>>;
+  public function GetCompatibleElasticsearchVersions(GetCompatibleElasticsearchVersionsRequest): Awaitable<Errors\Result<GetCompatibleElasticsearchVersionsResponse>>;
+  public function GetUpgradeHistory(GetUpgradeHistoryRequest): Awaitable<Errors\Result<GetUpgradeHistoryResponse>>;
+  public function GetUpgradeStatus(GetUpgradeStatusRequest): Awaitable<Errors\Result<GetUpgradeStatusResponse>>;
+  public function ListDomainNames(): Awaitable<Errors\Result<ListDomainNamesResponse>>;
+  public function ListDomainsForPackage(ListDomainsForPackageRequest): Awaitable<Errors\Result<ListDomainsForPackageResponse>>;
+  public function ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest): Awaitable<Errors\Result<ListElasticsearchInstanceTypesResponse>>;
+  public function ListElasticsearchVersions(ListElasticsearchVersionsRequest): Awaitable<Errors\Result<ListElasticsearchVersionsResponse>>;
+  public function ListPackagesForDomain(ListPackagesForDomainRequest): Awaitable<Errors\Result<ListPackagesForDomainResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function PurchaseReservedElasticsearchInstanceOffering(PurchaseReservedElasticsearchInstanceOfferingRequest): Awaitable<Errors\Result<PurchaseReservedElasticsearchInstanceOfferingResponse>>;
+  public function RemoveTags(RemoveTagsRequest): Awaitable<Errors\Error>;
+  public function StartElasticsearchServiceSoftwareUpdate(StartElasticsearchServiceSoftwareUpdateRequest): Awaitable<Errors\Result<StartElasticsearchServiceSoftwareUpdateResponse>>;
+  public function UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest): Awaitable<Errors\Result<UpdateElasticsearchDomainConfigResponse>>;
+  public function UpgradeElasticsearchDomain(UpgradeElasticsearchDomainRequest): Awaitable<Errors\Result<UpgradeElasticsearchDomainResponse>>;
 }
 
 class ARN {

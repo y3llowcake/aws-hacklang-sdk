@@ -2,15 +2,15 @@
 namespace slack\aws\mobile;
 
 interface  {
-  public function CreateProject(CreateProjectRequest) Awaitable<Errors\Result<CreateProjectResult>>;
-  public function DeleteProject(DeleteProjectRequest) Awaitable<Errors\Result<DeleteProjectResult>>;
-  public function DescribeBundle(DescribeBundleRequest) Awaitable<Errors\Result<DescribeBundleResult>>;
-  public function DescribeProject(DescribeProjectRequest) Awaitable<Errors\Result<DescribeProjectResult>>;
-  public function ExportBundle(ExportBundleRequest) Awaitable<Errors\Result<ExportBundleResult>>;
-  public function ExportProject(ExportProjectRequest) Awaitable<Errors\Result<ExportProjectResult>>;
-  public function ListBundles(ListBundlesRequest) Awaitable<Errors\Result<ListBundlesResult>>;
-  public function ListProjects(ListProjectsRequest) Awaitable<Errors\Result<ListProjectsResult>>;
-  public function UpdateProject(UpdateProjectRequest) Awaitable<Errors\Result<UpdateProjectResult>>;
+  public function CreateProject(CreateProjectRequest): Awaitable<Errors\Result<CreateProjectResult>>;
+  public function DeleteProject(DeleteProjectRequest): Awaitable<Errors\Result<DeleteProjectResult>>;
+  public function DescribeBundle(DescribeBundleRequest): Awaitable<Errors\Result<DescribeBundleResult>>;
+  public function DescribeProject(DescribeProjectRequest): Awaitable<Errors\Result<DescribeProjectResult>>;
+  public function ExportBundle(ExportBundleRequest): Awaitable<Errors\Result<ExportBundleResult>>;
+  public function ExportProject(ExportProjectRequest): Awaitable<Errors\Result<ExportProjectResult>>;
+  public function ListBundles(ListBundlesRequest): Awaitable<Errors\Result<ListBundlesResult>>;
+  public function ListProjects(ListProjectsRequest): Awaitable<Errors\Result<ListProjectsResult>>;
+  public function UpdateProject(UpdateProjectRequest): Awaitable<Errors\Result<UpdateProjectResult>>;
 }
 
 class AccountActionRequiredException {

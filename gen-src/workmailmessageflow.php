@@ -2,7 +2,7 @@
 namespace slack\aws\workmailmessageflow;
 
 interface WorkMailMessageFlow {
-  public function GetRawMessageContent(GetRawMessageContentRequest) Awaitable<Errors\Result<GetRawMessageContentResponse>>;
+  public function GetRawMessageContent(GetRawMessageContentRequest): Awaitable<Errors\Result<GetRawMessageContentResponse>>;
 }
 
 class GetRawMessageContentRequest {

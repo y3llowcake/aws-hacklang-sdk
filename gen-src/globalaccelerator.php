@@ -2,31 +2,31 @@
 namespace slack\aws\globalaccelerator;
 
 interface Global Accelerator {
-  public function AdvertiseByoipCidr(AdvertiseByoipCidrRequest) Awaitable<Errors\Result<AdvertiseByoipCidrResponse>>;
-  public function CreateAccelerator(CreateAcceleratorRequest) Awaitable<Errors\Result<CreateAcceleratorResponse>>;
-  public function CreateEndpointGroup(CreateEndpointGroupRequest) Awaitable<Errors\Result<CreateEndpointGroupResponse>>;
-  public function CreateListener(CreateListenerRequest) Awaitable<Errors\Result<CreateListenerResponse>>;
-  public function DeleteAccelerator(DeleteAcceleratorRequest) Awaitable<Errors\Error>;
-  public function DeleteEndpointGroup(DeleteEndpointGroupRequest) Awaitable<Errors\Error>;
-  public function DeleteListener(DeleteListenerRequest) Awaitable<Errors\Error>;
-  public function DeprovisionByoipCidr(DeprovisionByoipCidrRequest) Awaitable<Errors\Result<DeprovisionByoipCidrResponse>>;
-  public function DescribeAccelerator(DescribeAcceleratorRequest) Awaitable<Errors\Result<DescribeAcceleratorResponse>>;
-  public function DescribeAcceleratorAttributes(DescribeAcceleratorAttributesRequest) Awaitable<Errors\Result<DescribeAcceleratorAttributesResponse>>;
-  public function DescribeEndpointGroup(DescribeEndpointGroupRequest) Awaitable<Errors\Result<DescribeEndpointGroupResponse>>;
-  public function DescribeListener(DescribeListenerRequest) Awaitable<Errors\Result<DescribeListenerResponse>>;
-  public function ListAccelerators(ListAcceleratorsRequest) Awaitable<Errors\Result<ListAcceleratorsResponse>>;
-  public function ListByoipCidrs(ListByoipCidrsRequest) Awaitable<Errors\Result<ListByoipCidrsResponse>>;
-  public function ListEndpointGroups(ListEndpointGroupsRequest) Awaitable<Errors\Result<ListEndpointGroupsResponse>>;
-  public function ListListeners(ListListenersRequest) Awaitable<Errors\Result<ListListenersResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ProvisionByoipCidr(ProvisionByoipCidrRequest) Awaitable<Errors\Result<ProvisionByoipCidrResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateAccelerator(UpdateAcceleratorRequest) Awaitable<Errors\Result<UpdateAcceleratorResponse>>;
-  public function UpdateAcceleratorAttributes(UpdateAcceleratorAttributesRequest) Awaitable<Errors\Result<UpdateAcceleratorAttributesResponse>>;
-  public function UpdateEndpointGroup(UpdateEndpointGroupRequest) Awaitable<Errors\Result<UpdateEndpointGroupResponse>>;
-  public function UpdateListener(UpdateListenerRequest) Awaitable<Errors\Result<UpdateListenerResponse>>;
-  public function WithdrawByoipCidr(WithdrawByoipCidrRequest) Awaitable<Errors\Result<WithdrawByoipCidrResponse>>;
+  public function AdvertiseByoipCidr(AdvertiseByoipCidrRequest): Awaitable<Errors\Result<AdvertiseByoipCidrResponse>>;
+  public function CreateAccelerator(CreateAcceleratorRequest): Awaitable<Errors\Result<CreateAcceleratorResponse>>;
+  public function CreateEndpointGroup(CreateEndpointGroupRequest): Awaitable<Errors\Result<CreateEndpointGroupResponse>>;
+  public function CreateListener(CreateListenerRequest): Awaitable<Errors\Result<CreateListenerResponse>>;
+  public function DeleteAccelerator(DeleteAcceleratorRequest): Awaitable<Errors\Error>;
+  public function DeleteEndpointGroup(DeleteEndpointGroupRequest): Awaitable<Errors\Error>;
+  public function DeleteListener(DeleteListenerRequest): Awaitable<Errors\Error>;
+  public function DeprovisionByoipCidr(DeprovisionByoipCidrRequest): Awaitable<Errors\Result<DeprovisionByoipCidrResponse>>;
+  public function DescribeAccelerator(DescribeAcceleratorRequest): Awaitable<Errors\Result<DescribeAcceleratorResponse>>;
+  public function DescribeAcceleratorAttributes(DescribeAcceleratorAttributesRequest): Awaitable<Errors\Result<DescribeAcceleratorAttributesResponse>>;
+  public function DescribeEndpointGroup(DescribeEndpointGroupRequest): Awaitable<Errors\Result<DescribeEndpointGroupResponse>>;
+  public function DescribeListener(DescribeListenerRequest): Awaitable<Errors\Result<DescribeListenerResponse>>;
+  public function ListAccelerators(ListAcceleratorsRequest): Awaitable<Errors\Result<ListAcceleratorsResponse>>;
+  public function ListByoipCidrs(ListByoipCidrsRequest): Awaitable<Errors\Result<ListByoipCidrsResponse>>;
+  public function ListEndpointGroups(ListEndpointGroupsRequest): Awaitable<Errors\Result<ListEndpointGroupsResponse>>;
+  public function ListListeners(ListListenersRequest): Awaitable<Errors\Result<ListListenersResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ProvisionByoipCidr(ProvisionByoipCidrRequest): Awaitable<Errors\Result<ProvisionByoipCidrResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateAccelerator(UpdateAcceleratorRequest): Awaitable<Errors\Result<UpdateAcceleratorResponse>>;
+  public function UpdateAcceleratorAttributes(UpdateAcceleratorAttributesRequest): Awaitable<Errors\Result<UpdateAcceleratorAttributesResponse>>;
+  public function UpdateEndpointGroup(UpdateEndpointGroupRequest): Awaitable<Errors\Result<UpdateEndpointGroupResponse>>;
+  public function UpdateListener(UpdateListenerRequest): Awaitable<Errors\Result<UpdateListenerResponse>>;
+  public function WithdrawByoipCidr(WithdrawByoipCidrRequest): Awaitable<Errors\Result<WithdrawByoipCidrResponse>>;
 }
 
 class Accelerator {

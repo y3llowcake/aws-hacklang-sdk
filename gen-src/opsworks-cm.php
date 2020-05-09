@@ -2,25 +2,25 @@
 namespace slack\aws\opsworks-cm;
 
 interface OpsWorksCM {
-  public function AssociateNode(AssociateNodeRequest) Awaitable<Errors\Result<AssociateNodeResponse>>;
-  public function CreateBackup(CreateBackupRequest) Awaitable<Errors\Result<CreateBackupResponse>>;
-  public function CreateServer(CreateServerRequest) Awaitable<Errors\Result<CreateServerResponse>>;
-  public function DeleteBackup(DeleteBackupRequest) Awaitable<Errors\Result<DeleteBackupResponse>>;
-  public function DeleteServer(DeleteServerRequest) Awaitable<Errors\Result<DeleteServerResponse>>;
-  public function DescribeAccountAttributes(DescribeAccountAttributesRequest) Awaitable<Errors\Result<DescribeAccountAttributesResponse>>;
-  public function DescribeBackups(DescribeBackupsRequest) Awaitable<Errors\Result<DescribeBackupsResponse>>;
-  public function DescribeEvents(DescribeEventsRequest) Awaitable<Errors\Result<DescribeEventsResponse>>;
-  public function DescribeNodeAssociationStatus(DescribeNodeAssociationStatusRequest) Awaitable<Errors\Result<DescribeNodeAssociationStatusResponse>>;
-  public function DescribeServers(DescribeServersRequest) Awaitable<Errors\Result<DescribeServersResponse>>;
-  public function DisassociateNode(DisassociateNodeRequest) Awaitable<Errors\Result<DisassociateNodeResponse>>;
-  public function ExportServerEngineAttribute(ExportServerEngineAttributeRequest) Awaitable<Errors\Result<ExportServerEngineAttributeResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function RestoreServer(RestoreServerRequest) Awaitable<Errors\Result<RestoreServerResponse>>;
-  public function StartMaintenance(StartMaintenanceRequest) Awaitable<Errors\Result<StartMaintenanceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateServer(UpdateServerRequest) Awaitable<Errors\Result<UpdateServerResponse>>;
-  public function UpdateServerEngineAttributes(UpdateServerEngineAttributesRequest) Awaitable<Errors\Result<UpdateServerEngineAttributesResponse>>;
+  public function AssociateNode(AssociateNodeRequest): Awaitable<Errors\Result<AssociateNodeResponse>>;
+  public function CreateBackup(CreateBackupRequest): Awaitable<Errors\Result<CreateBackupResponse>>;
+  public function CreateServer(CreateServerRequest): Awaitable<Errors\Result<CreateServerResponse>>;
+  public function DeleteBackup(DeleteBackupRequest): Awaitable<Errors\Result<DeleteBackupResponse>>;
+  public function DeleteServer(DeleteServerRequest): Awaitable<Errors\Result<DeleteServerResponse>>;
+  public function DescribeAccountAttributes(DescribeAccountAttributesRequest): Awaitable<Errors\Result<DescribeAccountAttributesResponse>>;
+  public function DescribeBackups(DescribeBackupsRequest): Awaitable<Errors\Result<DescribeBackupsResponse>>;
+  public function DescribeEvents(DescribeEventsRequest): Awaitable<Errors\Result<DescribeEventsResponse>>;
+  public function DescribeNodeAssociationStatus(DescribeNodeAssociationStatusRequest): Awaitable<Errors\Result<DescribeNodeAssociationStatusResponse>>;
+  public function DescribeServers(DescribeServersRequest): Awaitable<Errors\Result<DescribeServersResponse>>;
+  public function DisassociateNode(DisassociateNodeRequest): Awaitable<Errors\Result<DisassociateNodeResponse>>;
+  public function ExportServerEngineAttribute(ExportServerEngineAttributeRequest): Awaitable<Errors\Result<ExportServerEngineAttributeResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function RestoreServer(RestoreServerRequest): Awaitable<Errors\Result<RestoreServerResponse>>;
+  public function StartMaintenance(StartMaintenanceRequest): Awaitable<Errors\Result<StartMaintenanceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateServer(UpdateServerRequest): Awaitable<Errors\Result<UpdateServerResponse>>;
+  public function UpdateServerEngineAttributes(UpdateServerEngineAttributesRequest): Awaitable<Errors\Result<UpdateServerEngineAttributesResponse>>;
 }
 
 class AWSOpsWorksCMResourceArn {

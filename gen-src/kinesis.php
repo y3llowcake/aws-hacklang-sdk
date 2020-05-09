@@ -2,34 +2,34 @@
 namespace slack\aws\kinesis;
 
 interface Kinesis {
-  public function AddTagsToStream(AddTagsToStreamInput) Awaitable<Errors\Error>;
-  public function CreateStream(CreateStreamInput) Awaitable<Errors\Error>;
-  public function DecreaseStreamRetentionPeriod(DecreaseStreamRetentionPeriodInput) Awaitable<Errors\Error>;
-  public function DeleteStream(DeleteStreamInput) Awaitable<Errors\Error>;
-  public function DeregisterStreamConsumer(DeregisterStreamConsumerInput) Awaitable<Errors\Error>;
-  public function DescribeLimits(DescribeLimitsInput) Awaitable<Errors\Result<DescribeLimitsOutput>>;
-  public function DescribeStream(DescribeStreamInput) Awaitable<Errors\Result<DescribeStreamOutput>>;
-  public function DescribeStreamConsumer(DescribeStreamConsumerInput) Awaitable<Errors\Result<DescribeStreamConsumerOutput>>;
-  public function DescribeStreamSummary(DescribeStreamSummaryInput) Awaitable<Errors\Result<DescribeStreamSummaryOutput>>;
-  public function DisableEnhancedMonitoring(DisableEnhancedMonitoringInput) Awaitable<Errors\Result<EnhancedMonitoringOutput>>;
-  public function EnableEnhancedMonitoring(EnableEnhancedMonitoringInput) Awaitable<Errors\Result<EnhancedMonitoringOutput>>;
-  public function GetRecords(GetRecordsInput) Awaitable<Errors\Result<GetRecordsOutput>>;
-  public function GetShardIterator(GetShardIteratorInput) Awaitable<Errors\Result<GetShardIteratorOutput>>;
-  public function IncreaseStreamRetentionPeriod(IncreaseStreamRetentionPeriodInput) Awaitable<Errors\Error>;
-  public function ListShards(ListShardsInput) Awaitable<Errors\Result<ListShardsOutput>>;
-  public function ListStreamConsumers(ListStreamConsumersInput) Awaitable<Errors\Result<ListStreamConsumersOutput>>;
-  public function ListStreams(ListStreamsInput) Awaitable<Errors\Result<ListStreamsOutput>>;
-  public function ListTagsForStream(ListTagsForStreamInput) Awaitable<Errors\Result<ListTagsForStreamOutput>>;
-  public function MergeShards(MergeShardsInput) Awaitable<Errors\Error>;
-  public function PutRecord(PutRecordInput) Awaitable<Errors\Result<PutRecordOutput>>;
-  public function PutRecords(PutRecordsInput) Awaitable<Errors\Result<PutRecordsOutput>>;
-  public function RegisterStreamConsumer(RegisterStreamConsumerInput) Awaitable<Errors\Result<RegisterStreamConsumerOutput>>;
-  public function RemoveTagsFromStream(RemoveTagsFromStreamInput) Awaitable<Errors\Error>;
-  public function SplitShard(SplitShardInput) Awaitable<Errors\Error>;
-  public function StartStreamEncryption(StartStreamEncryptionInput) Awaitable<Errors\Error>;
-  public function StopStreamEncryption(StopStreamEncryptionInput) Awaitable<Errors\Error>;
-  public function SubscribeToShard(SubscribeToShardInput) Awaitable<Errors\Result<SubscribeToShardOutput>>;
-  public function UpdateShardCount(UpdateShardCountInput) Awaitable<Errors\Result<UpdateShardCountOutput>>;
+  public function AddTagsToStream(AddTagsToStreamInput): Awaitable<Errors\Error>;
+  public function CreateStream(CreateStreamInput): Awaitable<Errors\Error>;
+  public function DecreaseStreamRetentionPeriod(DecreaseStreamRetentionPeriodInput): Awaitable<Errors\Error>;
+  public function DeleteStream(DeleteStreamInput): Awaitable<Errors\Error>;
+  public function DeregisterStreamConsumer(DeregisterStreamConsumerInput): Awaitable<Errors\Error>;
+  public function DescribeLimits(DescribeLimitsInput): Awaitable<Errors\Result<DescribeLimitsOutput>>;
+  public function DescribeStream(DescribeStreamInput): Awaitable<Errors\Result<DescribeStreamOutput>>;
+  public function DescribeStreamConsumer(DescribeStreamConsumerInput): Awaitable<Errors\Result<DescribeStreamConsumerOutput>>;
+  public function DescribeStreamSummary(DescribeStreamSummaryInput): Awaitable<Errors\Result<DescribeStreamSummaryOutput>>;
+  public function DisableEnhancedMonitoring(DisableEnhancedMonitoringInput): Awaitable<Errors\Result<EnhancedMonitoringOutput>>;
+  public function EnableEnhancedMonitoring(EnableEnhancedMonitoringInput): Awaitable<Errors\Result<EnhancedMonitoringOutput>>;
+  public function GetRecords(GetRecordsInput): Awaitable<Errors\Result<GetRecordsOutput>>;
+  public function GetShardIterator(GetShardIteratorInput): Awaitable<Errors\Result<GetShardIteratorOutput>>;
+  public function IncreaseStreamRetentionPeriod(IncreaseStreamRetentionPeriodInput): Awaitable<Errors\Error>;
+  public function ListShards(ListShardsInput): Awaitable<Errors\Result<ListShardsOutput>>;
+  public function ListStreamConsumers(ListStreamConsumersInput): Awaitable<Errors\Result<ListStreamConsumersOutput>>;
+  public function ListStreams(ListStreamsInput): Awaitable<Errors\Result<ListStreamsOutput>>;
+  public function ListTagsForStream(ListTagsForStreamInput): Awaitable<Errors\Result<ListTagsForStreamOutput>>;
+  public function MergeShards(MergeShardsInput): Awaitable<Errors\Error>;
+  public function PutRecord(PutRecordInput): Awaitable<Errors\Result<PutRecordOutput>>;
+  public function PutRecords(PutRecordsInput): Awaitable<Errors\Result<PutRecordsOutput>>;
+  public function RegisterStreamConsumer(RegisterStreamConsumerInput): Awaitable<Errors\Result<RegisterStreamConsumerOutput>>;
+  public function RemoveTagsFromStream(RemoveTagsFromStreamInput): Awaitable<Errors\Error>;
+  public function SplitShard(SplitShardInput): Awaitable<Errors\Error>;
+  public function StartStreamEncryption(StartStreamEncryptionInput): Awaitable<Errors\Error>;
+  public function StopStreamEncryption(StopStreamEncryptionInput): Awaitable<Errors\Error>;
+  public function SubscribeToShard(SubscribeToShardInput): Awaitable<Errors\Result<SubscribeToShardOutput>>;
+  public function UpdateShardCount(UpdateShardCountInput): Awaitable<Errors\Result<UpdateShardCountOutput>>;
 }
 
 class AddTagsToStreamInput {

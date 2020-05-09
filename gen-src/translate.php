@@ -2,15 +2,15 @@
 namespace slack\aws\translate;
 
 interface Translate {
-  public function DeleteTerminology(DeleteTerminologyRequest) Awaitable<Errors\Error>;
-  public function DescribeTextTranslationJob(DescribeTextTranslationJobRequest) Awaitable<Errors\Result<DescribeTextTranslationJobResponse>>;
-  public function GetTerminology(GetTerminologyRequest) Awaitable<Errors\Result<GetTerminologyResponse>>;
-  public function ImportTerminology(ImportTerminologyRequest) Awaitable<Errors\Result<ImportTerminologyResponse>>;
-  public function ListTerminologies(ListTerminologiesRequest) Awaitable<Errors\Result<ListTerminologiesResponse>>;
-  public function ListTextTranslationJobs(ListTextTranslationJobsRequest) Awaitable<Errors\Result<ListTextTranslationJobsResponse>>;
-  public function StartTextTranslationJob(StartTextTranslationJobRequest) Awaitable<Errors\Result<StartTextTranslationJobResponse>>;
-  public function StopTextTranslationJob(StopTextTranslationJobRequest) Awaitable<Errors\Result<StopTextTranslationJobResponse>>;
-  public function TranslateText(TranslateTextRequest) Awaitable<Errors\Result<TranslateTextResponse>>;
+  public function DeleteTerminology(DeleteTerminologyRequest): Awaitable<Errors\Error>;
+  public function DescribeTextTranslationJob(DescribeTextTranslationJobRequest): Awaitable<Errors\Result<DescribeTextTranslationJobResponse>>;
+  public function GetTerminology(GetTerminologyRequest): Awaitable<Errors\Result<GetTerminologyResponse>>;
+  public function ImportTerminology(ImportTerminologyRequest): Awaitable<Errors\Result<ImportTerminologyResponse>>;
+  public function ListTerminologies(ListTerminologiesRequest): Awaitable<Errors\Result<ListTerminologiesResponse>>;
+  public function ListTextTranslationJobs(ListTextTranslationJobsRequest): Awaitable<Errors\Result<ListTextTranslationJobsResponse>>;
+  public function StartTextTranslationJob(StartTextTranslationJobRequest): Awaitable<Errors\Result<StartTextTranslationJobResponse>>;
+  public function StopTextTranslationJob(StopTextTranslationJobRequest): Awaitable<Errors\Result<StopTextTranslationJobResponse>>;
+  public function TranslateText(TranslateTextRequest): Awaitable<Errors\Result<TranslateTextResponse>>;
 }
 
 class AppliedTerminology {

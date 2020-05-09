@@ -2,11 +2,11 @@
 namespace slack\aws\data.mediastore;
 
 interface MediaStore Data {
-  public function DeleteObject(DeleteObjectRequest) Awaitable<Errors\Result<DeleteObjectResponse>>;
-  public function DescribeObject(DescribeObjectRequest) Awaitable<Errors\Result<DescribeObjectResponse>>;
-  public function GetObject(GetObjectRequest) Awaitable<Errors\Result<GetObjectResponse>>;
-  public function ListItems(ListItemsRequest) Awaitable<Errors\Result<ListItemsResponse>>;
-  public function PutObject(PutObjectRequest) Awaitable<Errors\Result<PutObjectResponse>>;
+  public function DeleteObject(DeleteObjectRequest): Awaitable<Errors\Result<DeleteObjectResponse>>;
+  public function DescribeObject(DescribeObjectRequest): Awaitable<Errors\Result<DescribeObjectResponse>>;
+  public function GetObject(GetObjectRequest): Awaitable<Errors\Result<GetObjectResponse>>;
+  public function ListItems(ListItemsRequest): Awaitable<Errors\Result<ListItemsResponse>>;
+  public function PutObject(PutObjectRequest): Awaitable<Errors\Result<PutObjectResponse>>;
 }
 
 class ContainerNotFoundException {

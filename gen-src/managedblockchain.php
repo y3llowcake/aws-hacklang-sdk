@@ -2,26 +2,26 @@
 namespace slack\aws\managedblockchain;
 
 interface ManagedBlockchain {
-  public function CreateMember(CreateMemberInput) Awaitable<Errors\Result<CreateMemberOutput>>;
-  public function CreateNetwork(CreateNetworkInput) Awaitable<Errors\Result<CreateNetworkOutput>>;
-  public function CreateNode(CreateNodeInput) Awaitable<Errors\Result<CreateNodeOutput>>;
-  public function CreateProposal(CreateProposalInput) Awaitable<Errors\Result<CreateProposalOutput>>;
-  public function DeleteMember(DeleteMemberInput) Awaitable<Errors\Result<DeleteMemberOutput>>;
-  public function DeleteNode(DeleteNodeInput) Awaitable<Errors\Result<DeleteNodeOutput>>;
-  public function GetMember(GetMemberInput) Awaitable<Errors\Result<GetMemberOutput>>;
-  public function GetNetwork(GetNetworkInput) Awaitable<Errors\Result<GetNetworkOutput>>;
-  public function GetNode(GetNodeInput) Awaitable<Errors\Result<GetNodeOutput>>;
-  public function GetProposal(GetProposalInput) Awaitable<Errors\Result<GetProposalOutput>>;
-  public function ListInvitations(ListInvitationsInput) Awaitable<Errors\Result<ListInvitationsOutput>>;
-  public function ListMembers(ListMembersInput) Awaitable<Errors\Result<ListMembersOutput>>;
-  public function ListNetworks(ListNetworksInput) Awaitable<Errors\Result<ListNetworksOutput>>;
-  public function ListNodes(ListNodesInput) Awaitable<Errors\Result<ListNodesOutput>>;
-  public function ListProposalVotes(ListProposalVotesInput) Awaitable<Errors\Result<ListProposalVotesOutput>>;
-  public function ListProposals(ListProposalsInput) Awaitable<Errors\Result<ListProposalsOutput>>;
-  public function RejectInvitation(RejectInvitationInput) Awaitable<Errors\Result<RejectInvitationOutput>>;
-  public function UpdateMember(UpdateMemberInput) Awaitable<Errors\Result<UpdateMemberOutput>>;
-  public function UpdateNode(UpdateNodeInput) Awaitable<Errors\Result<UpdateNodeOutput>>;
-  public function VoteOnProposal(VoteOnProposalInput) Awaitable<Errors\Result<VoteOnProposalOutput>>;
+  public function CreateMember(CreateMemberInput): Awaitable<Errors\Result<CreateMemberOutput>>;
+  public function CreateNetwork(CreateNetworkInput): Awaitable<Errors\Result<CreateNetworkOutput>>;
+  public function CreateNode(CreateNodeInput): Awaitable<Errors\Result<CreateNodeOutput>>;
+  public function CreateProposal(CreateProposalInput): Awaitable<Errors\Result<CreateProposalOutput>>;
+  public function DeleteMember(DeleteMemberInput): Awaitable<Errors\Result<DeleteMemberOutput>>;
+  public function DeleteNode(DeleteNodeInput): Awaitable<Errors\Result<DeleteNodeOutput>>;
+  public function GetMember(GetMemberInput): Awaitable<Errors\Result<GetMemberOutput>>;
+  public function GetNetwork(GetNetworkInput): Awaitable<Errors\Result<GetNetworkOutput>>;
+  public function GetNode(GetNodeInput): Awaitable<Errors\Result<GetNodeOutput>>;
+  public function GetProposal(GetProposalInput): Awaitable<Errors\Result<GetProposalOutput>>;
+  public function ListInvitations(ListInvitationsInput): Awaitable<Errors\Result<ListInvitationsOutput>>;
+  public function ListMembers(ListMembersInput): Awaitable<Errors\Result<ListMembersOutput>>;
+  public function ListNetworks(ListNetworksInput): Awaitable<Errors\Result<ListNetworksOutput>>;
+  public function ListNodes(ListNodesInput): Awaitable<Errors\Result<ListNodesOutput>>;
+  public function ListProposalVotes(ListProposalVotesInput): Awaitable<Errors\Result<ListProposalVotesOutput>>;
+  public function ListProposals(ListProposalsInput): Awaitable<Errors\Result<ListProposalsOutput>>;
+  public function RejectInvitation(RejectInvitationInput): Awaitable<Errors\Result<RejectInvitationOutput>>;
+  public function UpdateMember(UpdateMemberInput): Awaitable<Errors\Result<UpdateMemberOutput>>;
+  public function UpdateNode(UpdateNodeInput): Awaitable<Errors\Result<UpdateNodeOutput>>;
+  public function VoteOnProposal(VoteOnProposalInput): Awaitable<Errors\Result<VoteOnProposalOutput>>;
 }
 
 class AccessDeniedException {

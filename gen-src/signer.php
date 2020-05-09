@@ -2,18 +2,18 @@
 namespace slack\aws\signer;
 
 interface signer {
-  public function CancelSigningProfile(CancelSigningProfileRequest) Awaitable<Errors\Error>;
-  public function DescribeSigningJob(DescribeSigningJobRequest) Awaitable<Errors\Result<DescribeSigningJobResponse>>;
-  public function GetSigningPlatform(GetSigningPlatformRequest) Awaitable<Errors\Result<GetSigningPlatformResponse>>;
-  public function GetSigningProfile(GetSigningProfileRequest) Awaitable<Errors\Result<GetSigningProfileResponse>>;
-  public function ListSigningJobs(ListSigningJobsRequest) Awaitable<Errors\Result<ListSigningJobsResponse>>;
-  public function ListSigningPlatforms(ListSigningPlatformsRequest) Awaitable<Errors\Result<ListSigningPlatformsResponse>>;
-  public function ListSigningProfiles(ListSigningProfilesRequest) Awaitable<Errors\Result<ListSigningProfilesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function PutSigningProfile(PutSigningProfileRequest) Awaitable<Errors\Result<PutSigningProfileResponse>>;
-  public function StartSigningJob(StartSigningJobRequest) Awaitable<Errors\Result<StartSigningJobResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function CancelSigningProfile(CancelSigningProfileRequest): Awaitable<Errors\Error>;
+  public function DescribeSigningJob(DescribeSigningJobRequest): Awaitable<Errors\Result<DescribeSigningJobResponse>>;
+  public function GetSigningPlatform(GetSigningPlatformRequest): Awaitable<Errors\Result<GetSigningPlatformResponse>>;
+  public function GetSigningProfile(GetSigningProfileRequest): Awaitable<Errors\Result<GetSigningProfileResponse>>;
+  public function ListSigningJobs(ListSigningJobsRequest): Awaitable<Errors\Result<ListSigningJobsResponse>>;
+  public function ListSigningPlatforms(ListSigningPlatformsRequest): Awaitable<Errors\Result<ListSigningPlatformsResponse>>;
+  public function ListSigningProfiles(ListSigningProfilesRequest): Awaitable<Errors\Result<ListSigningProfilesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function PutSigningProfile(PutSigningProfileRequest): Awaitable<Errors\Result<PutSigningProfileResponse>>;
+  public function StartSigningJob(StartSigningJobRequest): Awaitable<Errors\Result<StartSigningJobResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class AccessDeniedException {

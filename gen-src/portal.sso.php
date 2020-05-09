@@ -2,10 +2,10 @@
 namespace slack\aws\portal.sso;
 
 interface SSO {
-  public function GetRoleCredentials(GetRoleCredentialsRequest) Awaitable<Errors\Result<GetRoleCredentialsResponse>>;
-  public function ListAccountRoles(ListAccountRolesRequest) Awaitable<Errors\Result<ListAccountRolesResponse>>;
-  public function ListAccounts(ListAccountsRequest) Awaitable<Errors\Result<ListAccountsResponse>>;
-  public function Logout(LogoutRequest) Awaitable<Errors\Error>;
+  public function GetRoleCredentials(GetRoleCredentialsRequest): Awaitable<Errors\Result<GetRoleCredentialsResponse>>;
+  public function ListAccountRoles(ListAccountRolesRequest): Awaitable<Errors\Result<ListAccountRolesResponse>>;
+  public function ListAccounts(ListAccountsRequest): Awaitable<Errors\Result<ListAccountsResponse>>;
+  public function Logout(LogoutRequest): Awaitable<Errors\Error>;
 }
 
 class AccessKeyType {

@@ -2,14 +2,14 @@
 namespace slack\aws\tagging;
 
 interface Resource Groups Tagging API {
-  public function DescribeReportCreation(DescribeReportCreationInput) Awaitable<Errors\Result<DescribeReportCreationOutput>>;
-  public function GetComplianceSummary(GetComplianceSummaryInput) Awaitable<Errors\Result<GetComplianceSummaryOutput>>;
-  public function GetResources(GetResourcesInput) Awaitable<Errors\Result<GetResourcesOutput>>;
-  public function GetTagKeys(GetTagKeysInput) Awaitable<Errors\Result<GetTagKeysOutput>>;
-  public function GetTagValues(GetTagValuesInput) Awaitable<Errors\Result<GetTagValuesOutput>>;
-  public function StartReportCreation(StartReportCreationInput) Awaitable<Errors\Result<StartReportCreationOutput>>;
-  public function TagResources(TagResourcesInput) Awaitable<Errors\Result<TagResourcesOutput>>;
-  public function UntagResources(UntagResourcesInput) Awaitable<Errors\Result<UntagResourcesOutput>>;
+  public function DescribeReportCreation(DescribeReportCreationInput): Awaitable<Errors\Result<DescribeReportCreationOutput>>;
+  public function GetComplianceSummary(GetComplianceSummaryInput): Awaitable<Errors\Result<GetComplianceSummaryOutput>>;
+  public function GetResources(GetResourcesInput): Awaitable<Errors\Result<GetResourcesOutput>>;
+  public function GetTagKeys(GetTagKeysInput): Awaitable<Errors\Result<GetTagKeysOutput>>;
+  public function GetTagValues(GetTagValuesInput): Awaitable<Errors\Result<GetTagValuesOutput>>;
+  public function StartReportCreation(StartReportCreationInput): Awaitable<Errors\Result<StartReportCreationOutput>>;
+  public function TagResources(TagResourcesInput): Awaitable<Errors\Result<TagResourcesOutput>>;
+  public function UntagResources(UntagResourcesInput): Awaitable<Errors\Result<UntagResourcesOutput>>;
 }
 
 class AmazonResourceType {

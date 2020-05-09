@@ -2,16 +2,16 @@
 namespace slack\aws\sdb;
 
 interface  {
-  public function BatchDeleteAttributes(BatchDeleteAttributesRequest) Awaitable<Errors\Error>;
-  public function BatchPutAttributes(BatchPutAttributesRequest) Awaitable<Errors\Error>;
-  public function CreateDomain(CreateDomainRequest) Awaitable<Errors\Error>;
-  public function DeleteAttributes(DeleteAttributesRequest) Awaitable<Errors\Error>;
-  public function DeleteDomain(DeleteDomainRequest) Awaitable<Errors\Error>;
-  public function DomainMetadata(DomainMetadataRequest) Awaitable<Errors\Result<DomainMetadataResult>>;
-  public function GetAttributes(GetAttributesRequest) Awaitable<Errors\Result<GetAttributesResult>>;
-  public function ListDomains(ListDomainsRequest) Awaitable<Errors\Result<ListDomainsResult>>;
-  public function PutAttributes(PutAttributesRequest) Awaitable<Errors\Error>;
-  public function Select(SelectRequest) Awaitable<Errors\Result<SelectResult>>;
+  public function BatchDeleteAttributes(BatchDeleteAttributesRequest): Awaitable<Errors\Error>;
+  public function BatchPutAttributes(BatchPutAttributesRequest): Awaitable<Errors\Error>;
+  public function CreateDomain(CreateDomainRequest): Awaitable<Errors\Error>;
+  public function DeleteAttributes(DeleteAttributesRequest): Awaitable<Errors\Error>;
+  public function DeleteDomain(DeleteDomainRequest): Awaitable<Errors\Error>;
+  public function DomainMetadata(DomainMetadataRequest): Awaitable<Errors\Result<DomainMetadataResult>>;
+  public function GetAttributes(GetAttributesRequest): Awaitable<Errors\Result<GetAttributesResult>>;
+  public function ListDomains(ListDomainsRequest): Awaitable<Errors\Result<ListDomainsResult>>;
+  public function PutAttributes(PutAttributesRequest): Awaitable<Errors\Error>;
+  public function Select(SelectRequest): Awaitable<Errors\Result<SelectResult>>;
 }
 
 class Attribute {

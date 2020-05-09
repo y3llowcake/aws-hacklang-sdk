@@ -2,19 +2,19 @@
 namespace slack\aws\acm;
 
 interface ACM {
-  public function AddTagsToCertificate(AddTagsToCertificateRequest) Awaitable<Errors\Error>;
-  public function DeleteCertificate(DeleteCertificateRequest) Awaitable<Errors\Error>;
-  public function DescribeCertificate(DescribeCertificateRequest) Awaitable<Errors\Result<DescribeCertificateResponse>>;
-  public function ExportCertificate(ExportCertificateRequest) Awaitable<Errors\Result<ExportCertificateResponse>>;
-  public function GetCertificate(GetCertificateRequest) Awaitable<Errors\Result<GetCertificateResponse>>;
-  public function ImportCertificate(ImportCertificateRequest) Awaitable<Errors\Result<ImportCertificateResponse>>;
-  public function ListCertificates(ListCertificatesRequest) Awaitable<Errors\Result<ListCertificatesResponse>>;
-  public function ListTagsForCertificate(ListTagsForCertificateRequest) Awaitable<Errors\Result<ListTagsForCertificateResponse>>;
-  public function RemoveTagsFromCertificate(RemoveTagsFromCertificateRequest) Awaitable<Errors\Error>;
-  public function RenewCertificate(RenewCertificateRequest) Awaitable<Errors\Error>;
-  public function RequestCertificate(RequestCertificateRequest) Awaitable<Errors\Result<RequestCertificateResponse>>;
-  public function ResendValidationEmail(ResendValidationEmailRequest) Awaitable<Errors\Error>;
-  public function UpdateCertificateOptions(UpdateCertificateOptionsRequest) Awaitable<Errors\Error>;
+  public function AddTagsToCertificate(AddTagsToCertificateRequest): Awaitable<Errors\Error>;
+  public function DeleteCertificate(DeleteCertificateRequest): Awaitable<Errors\Error>;
+  public function DescribeCertificate(DescribeCertificateRequest): Awaitable<Errors\Result<DescribeCertificateResponse>>;
+  public function ExportCertificate(ExportCertificateRequest): Awaitable<Errors\Result<ExportCertificateResponse>>;
+  public function GetCertificate(GetCertificateRequest): Awaitable<Errors\Result<GetCertificateResponse>>;
+  public function ImportCertificate(ImportCertificateRequest): Awaitable<Errors\Result<ImportCertificateResponse>>;
+  public function ListCertificates(ListCertificatesRequest): Awaitable<Errors\Result<ListCertificatesResponse>>;
+  public function ListTagsForCertificate(ListTagsForCertificateRequest): Awaitable<Errors\Result<ListTagsForCertificateResponse>>;
+  public function RemoveTagsFromCertificate(RemoveTagsFromCertificateRequest): Awaitable<Errors\Error>;
+  public function RenewCertificate(RenewCertificateRequest): Awaitable<Errors\Error>;
+  public function RequestCertificate(RequestCertificateRequest): Awaitable<Errors\Result<RequestCertificateResponse>>;
+  public function ResendValidationEmail(ResendValidationEmailRequest): Awaitable<Errors\Error>;
+  public function UpdateCertificateOptions(UpdateCertificateOptionsRequest): Awaitable<Errors\Error>;
 }
 
 class AddTagsToCertificateRequest {

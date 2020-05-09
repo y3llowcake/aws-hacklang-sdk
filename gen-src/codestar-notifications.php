@@ -2,19 +2,19 @@
 namespace slack\aws\codestar-notifications;
 
 interface codestar notifications {
-  public function CreateNotificationRule(CreateNotificationRuleRequest) Awaitable<Errors\Result<CreateNotificationRuleResult>>;
-  public function DeleteNotificationRule(DeleteNotificationRuleRequest) Awaitable<Errors\Result<DeleteNotificationRuleResult>>;
-  public function DeleteTarget(DeleteTargetRequest) Awaitable<Errors\Result<DeleteTargetResult>>;
-  public function DescribeNotificationRule(DescribeNotificationRuleRequest) Awaitable<Errors\Result<DescribeNotificationRuleResult>>;
-  public function ListEventTypes(ListEventTypesRequest) Awaitable<Errors\Result<ListEventTypesResult>>;
-  public function ListNotificationRules(ListNotificationRulesRequest) Awaitable<Errors\Result<ListNotificationRulesResult>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResult>>;
-  public function ListTargets(ListTargetsRequest) Awaitable<Errors\Result<ListTargetsResult>>;
-  public function Subscribe(SubscribeRequest) Awaitable<Errors\Result<SubscribeResult>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResult>>;
-  public function Unsubscribe(UnsubscribeRequest) Awaitable<Errors\Result<UnsubscribeResult>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResult>>;
-  public function UpdateNotificationRule(UpdateNotificationRuleRequest) Awaitable<Errors\Result<UpdateNotificationRuleResult>>;
+  public function CreateNotificationRule(CreateNotificationRuleRequest): Awaitable<Errors\Result<CreateNotificationRuleResult>>;
+  public function DeleteNotificationRule(DeleteNotificationRuleRequest): Awaitable<Errors\Result<DeleteNotificationRuleResult>>;
+  public function DeleteTarget(DeleteTargetRequest): Awaitable<Errors\Result<DeleteTargetResult>>;
+  public function DescribeNotificationRule(DescribeNotificationRuleRequest): Awaitable<Errors\Result<DescribeNotificationRuleResult>>;
+  public function ListEventTypes(ListEventTypesRequest): Awaitable<Errors\Result<ListEventTypesResult>>;
+  public function ListNotificationRules(ListNotificationRulesRequest): Awaitable<Errors\Result<ListNotificationRulesResult>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResult>>;
+  public function ListTargets(ListTargetsRequest): Awaitable<Errors\Result<ListTargetsResult>>;
+  public function Subscribe(SubscribeRequest): Awaitable<Errors\Result<SubscribeResult>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResult>>;
+  public function Unsubscribe(UnsubscribeRequest): Awaitable<Errors\Result<UnsubscribeResult>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResult>>;
+  public function UpdateNotificationRule(UpdateNotificationRuleRequest): Awaitable<Errors\Result<UpdateNotificationRuleResult>>;
 }
 
 class AccessDeniedException {

@@ -2,7 +2,7 @@
 namespace slack\aws\mobileanalytics;
 
 interface  {
-  public function PutEvents(PutEventsInput) Awaitable<Errors\Error>;
+  public function PutEvents(PutEventsInput): Awaitable<Errors\Error>;
 }
 
 class BadRequestException {

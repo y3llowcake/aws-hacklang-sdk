@@ -2,36 +2,36 @@
 namespace slack\aws\monitoring;
 
 interface CloudWatch {
-  public function DeleteAlarms(DeleteAlarmsInput) Awaitable<Errors\Error>;
-  public function DeleteAnomalyDetector(DeleteAnomalyDetectorInput) Awaitable<Errors\Result<DeleteAnomalyDetectorOutput>>;
-  public function DeleteDashboards(DeleteDashboardsInput) Awaitable<Errors\Result<DeleteDashboardsOutput>>;
-  public function DeleteInsightRules(DeleteInsightRulesInput) Awaitable<Errors\Result<DeleteInsightRulesOutput>>;
-  public function DescribeAlarmHistory(DescribeAlarmHistoryInput) Awaitable<Errors\Result<DescribeAlarmHistoryOutput>>;
-  public function DescribeAlarms(DescribeAlarmsInput) Awaitable<Errors\Result<DescribeAlarmsOutput>>;
-  public function DescribeAlarmsForMetric(DescribeAlarmsForMetricInput) Awaitable<Errors\Result<DescribeAlarmsForMetricOutput>>;
-  public function DescribeAnomalyDetectors(DescribeAnomalyDetectorsInput) Awaitable<Errors\Result<DescribeAnomalyDetectorsOutput>>;
-  public function DescribeInsightRules(DescribeInsightRulesInput) Awaitable<Errors\Result<DescribeInsightRulesOutput>>;
-  public function DisableAlarmActions(DisableAlarmActionsInput) Awaitable<Errors\Error>;
-  public function DisableInsightRules(DisableInsightRulesInput) Awaitable<Errors\Result<DisableInsightRulesOutput>>;
-  public function EnableAlarmActions(EnableAlarmActionsInput) Awaitable<Errors\Error>;
-  public function EnableInsightRules(EnableInsightRulesInput) Awaitable<Errors\Result<EnableInsightRulesOutput>>;
-  public function GetDashboard(GetDashboardInput) Awaitable<Errors\Result<GetDashboardOutput>>;
-  public function GetInsightRuleReport(GetInsightRuleReportInput) Awaitable<Errors\Result<GetInsightRuleReportOutput>>;
-  public function GetMetricData(GetMetricDataInput) Awaitable<Errors\Result<GetMetricDataOutput>>;
-  public function GetMetricStatistics(GetMetricStatisticsInput) Awaitable<Errors\Result<GetMetricStatisticsOutput>>;
-  public function GetMetricWidgetImage(GetMetricWidgetImageInput) Awaitable<Errors\Result<GetMetricWidgetImageOutput>>;
-  public function ListDashboards(ListDashboardsInput) Awaitable<Errors\Result<ListDashboardsOutput>>;
-  public function ListMetrics(ListMetricsInput) Awaitable<Errors\Result<ListMetricsOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function PutAnomalyDetector(PutAnomalyDetectorInput) Awaitable<Errors\Result<PutAnomalyDetectorOutput>>;
-  public function PutCompositeAlarm(PutCompositeAlarmInput) Awaitable<Errors\Error>;
-  public function PutDashboard(PutDashboardInput) Awaitable<Errors\Result<PutDashboardOutput>>;
-  public function PutInsightRule(PutInsightRuleInput) Awaitable<Errors\Result<PutInsightRuleOutput>>;
-  public function PutMetricAlarm(PutMetricAlarmInput) Awaitable<Errors\Error>;
-  public function PutMetricData(PutMetricDataInput) Awaitable<Errors\Error>;
-  public function SetAlarmState(SetAlarmStateInput) Awaitable<Errors\Error>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function DeleteAlarms(DeleteAlarmsInput): Awaitable<Errors\Error>;
+  public function DeleteAnomalyDetector(DeleteAnomalyDetectorInput): Awaitable<Errors\Result<DeleteAnomalyDetectorOutput>>;
+  public function DeleteDashboards(DeleteDashboardsInput): Awaitable<Errors\Result<DeleteDashboardsOutput>>;
+  public function DeleteInsightRules(DeleteInsightRulesInput): Awaitable<Errors\Result<DeleteInsightRulesOutput>>;
+  public function DescribeAlarmHistory(DescribeAlarmHistoryInput): Awaitable<Errors\Result<DescribeAlarmHistoryOutput>>;
+  public function DescribeAlarms(DescribeAlarmsInput): Awaitable<Errors\Result<DescribeAlarmsOutput>>;
+  public function DescribeAlarmsForMetric(DescribeAlarmsForMetricInput): Awaitable<Errors\Result<DescribeAlarmsForMetricOutput>>;
+  public function DescribeAnomalyDetectors(DescribeAnomalyDetectorsInput): Awaitable<Errors\Result<DescribeAnomalyDetectorsOutput>>;
+  public function DescribeInsightRules(DescribeInsightRulesInput): Awaitable<Errors\Result<DescribeInsightRulesOutput>>;
+  public function DisableAlarmActions(DisableAlarmActionsInput): Awaitable<Errors\Error>;
+  public function DisableInsightRules(DisableInsightRulesInput): Awaitable<Errors\Result<DisableInsightRulesOutput>>;
+  public function EnableAlarmActions(EnableAlarmActionsInput): Awaitable<Errors\Error>;
+  public function EnableInsightRules(EnableInsightRulesInput): Awaitable<Errors\Result<EnableInsightRulesOutput>>;
+  public function GetDashboard(GetDashboardInput): Awaitable<Errors\Result<GetDashboardOutput>>;
+  public function GetInsightRuleReport(GetInsightRuleReportInput): Awaitable<Errors\Result<GetInsightRuleReportOutput>>;
+  public function GetMetricData(GetMetricDataInput): Awaitable<Errors\Result<GetMetricDataOutput>>;
+  public function GetMetricStatistics(GetMetricStatisticsInput): Awaitable<Errors\Result<GetMetricStatisticsOutput>>;
+  public function GetMetricWidgetImage(GetMetricWidgetImageInput): Awaitable<Errors\Result<GetMetricWidgetImageOutput>>;
+  public function ListDashboards(ListDashboardsInput): Awaitable<Errors\Result<ListDashboardsOutput>>;
+  public function ListMetrics(ListMetricsInput): Awaitable<Errors\Result<ListMetricsOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function PutAnomalyDetector(PutAnomalyDetectorInput): Awaitable<Errors\Result<PutAnomalyDetectorOutput>>;
+  public function PutCompositeAlarm(PutCompositeAlarmInput): Awaitable<Errors\Error>;
+  public function PutDashboard(PutDashboardInput): Awaitable<Errors\Result<PutDashboardOutput>>;
+  public function PutInsightRule(PutInsightRuleInput): Awaitable<Errors\Result<PutInsightRuleOutput>>;
+  public function PutMetricAlarm(PutMetricAlarmInput): Awaitable<Errors\Error>;
+  public function PutMetricData(PutMetricDataInput): Awaitable<Errors\Error>;
+  public function SetAlarmState(SetAlarmStateInput): Awaitable<Errors\Error>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
 }
 
 class ActionPrefix {

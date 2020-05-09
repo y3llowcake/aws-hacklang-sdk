@@ -2,26 +2,26 @@
 namespace slack\aws\servicediscovery;
 
 interface ServiceDiscovery {
-  public function CreateHttpNamespace(CreateHttpNamespaceRequest) Awaitable<Errors\Result<CreateHttpNamespaceResponse>>;
-  public function CreatePrivateDnsNamespace(CreatePrivateDnsNamespaceRequest) Awaitable<Errors\Result<CreatePrivateDnsNamespaceResponse>>;
-  public function CreatePublicDnsNamespace(CreatePublicDnsNamespaceRequest) Awaitable<Errors\Result<CreatePublicDnsNamespaceResponse>>;
-  public function CreateService(CreateServiceRequest) Awaitable<Errors\Result<CreateServiceResponse>>;
-  public function DeleteNamespace(DeleteNamespaceRequest) Awaitable<Errors\Result<DeleteNamespaceResponse>>;
-  public function DeleteService(DeleteServiceRequest) Awaitable<Errors\Result<DeleteServiceResponse>>;
-  public function DeregisterInstance(DeregisterInstanceRequest) Awaitable<Errors\Result<DeregisterInstanceResponse>>;
-  public function DiscoverInstances(DiscoverInstancesRequest) Awaitable<Errors\Result<DiscoverInstancesResponse>>;
-  public function GetInstance(GetInstanceRequest) Awaitable<Errors\Result<GetInstanceResponse>>;
-  public function GetInstancesHealthStatus(GetInstancesHealthStatusRequest) Awaitable<Errors\Result<GetInstancesHealthStatusResponse>>;
-  public function GetNamespace(GetNamespaceRequest) Awaitable<Errors\Result<GetNamespaceResponse>>;
-  public function GetOperation(GetOperationRequest) Awaitable<Errors\Result<GetOperationResponse>>;
-  public function GetService(GetServiceRequest) Awaitable<Errors\Result<GetServiceResponse>>;
-  public function ListInstances(ListInstancesRequest) Awaitable<Errors\Result<ListInstancesResponse>>;
-  public function ListNamespaces(ListNamespacesRequest) Awaitable<Errors\Result<ListNamespacesResponse>>;
-  public function ListOperations(ListOperationsRequest) Awaitable<Errors\Result<ListOperationsResponse>>;
-  public function ListServices(ListServicesRequest) Awaitable<Errors\Result<ListServicesResponse>>;
-  public function RegisterInstance(RegisterInstanceRequest) Awaitable<Errors\Result<RegisterInstanceResponse>>;
-  public function UpdateInstanceCustomHealthStatus(UpdateInstanceCustomHealthStatusRequest) Awaitable<Errors\Error>;
-  public function UpdateService(UpdateServiceRequest) Awaitable<Errors\Result<UpdateServiceResponse>>;
+  public function CreateHttpNamespace(CreateHttpNamespaceRequest): Awaitable<Errors\Result<CreateHttpNamespaceResponse>>;
+  public function CreatePrivateDnsNamespace(CreatePrivateDnsNamespaceRequest): Awaitable<Errors\Result<CreatePrivateDnsNamespaceResponse>>;
+  public function CreatePublicDnsNamespace(CreatePublicDnsNamespaceRequest): Awaitable<Errors\Result<CreatePublicDnsNamespaceResponse>>;
+  public function CreateService(CreateServiceRequest): Awaitable<Errors\Result<CreateServiceResponse>>;
+  public function DeleteNamespace(DeleteNamespaceRequest): Awaitable<Errors\Result<DeleteNamespaceResponse>>;
+  public function DeleteService(DeleteServiceRequest): Awaitable<Errors\Result<DeleteServiceResponse>>;
+  public function DeregisterInstance(DeregisterInstanceRequest): Awaitable<Errors\Result<DeregisterInstanceResponse>>;
+  public function DiscoverInstances(DiscoverInstancesRequest): Awaitable<Errors\Result<DiscoverInstancesResponse>>;
+  public function GetInstance(GetInstanceRequest): Awaitable<Errors\Result<GetInstanceResponse>>;
+  public function GetInstancesHealthStatus(GetInstancesHealthStatusRequest): Awaitable<Errors\Result<GetInstancesHealthStatusResponse>>;
+  public function GetNamespace(GetNamespaceRequest): Awaitable<Errors\Result<GetNamespaceResponse>>;
+  public function GetOperation(GetOperationRequest): Awaitable<Errors\Result<GetOperationResponse>>;
+  public function GetService(GetServiceRequest): Awaitable<Errors\Result<GetServiceResponse>>;
+  public function ListInstances(ListInstancesRequest): Awaitable<Errors\Result<ListInstancesResponse>>;
+  public function ListNamespaces(ListNamespacesRequest): Awaitable<Errors\Result<ListNamespacesResponse>>;
+  public function ListOperations(ListOperationsRequest): Awaitable<Errors\Result<ListOperationsResponse>>;
+  public function ListServices(ListServicesRequest): Awaitable<Errors\Result<ListServicesResponse>>;
+  public function RegisterInstance(RegisterInstanceRequest): Awaitable<Errors\Result<RegisterInstanceResponse>>;
+  public function UpdateInstanceCustomHealthStatus(UpdateInstanceCustomHealthStatusRequest): Awaitable<Errors\Error>;
+  public function UpdateService(UpdateServiceRequest): Awaitable<Errors\Result<UpdateServiceResponse>>;
 }
 
 class Arn {

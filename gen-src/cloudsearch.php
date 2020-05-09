@@ -2,32 +2,32 @@
 namespace slack\aws\cloudsearch;
 
 interface CloudSearch {
-  public function BuildSuggesters(BuildSuggestersRequest) Awaitable<Errors\Result<BuildSuggestersResponse>>;
-  public function CreateDomain(CreateDomainRequest) Awaitable<Errors\Result<CreateDomainResponse>>;
-  public function DefineAnalysisScheme(DefineAnalysisSchemeRequest) Awaitable<Errors\Result<DefineAnalysisSchemeResponse>>;
-  public function DefineExpression(DefineExpressionRequest) Awaitable<Errors\Result<DefineExpressionResponse>>;
-  public function DefineIndexField(DefineIndexFieldRequest) Awaitable<Errors\Result<DefineIndexFieldResponse>>;
-  public function DefineSuggester(DefineSuggesterRequest) Awaitable<Errors\Result<DefineSuggesterResponse>>;
-  public function DeleteAnalysisScheme(DeleteAnalysisSchemeRequest) Awaitable<Errors\Result<DeleteAnalysisSchemeResponse>>;
-  public function DeleteDomain(DeleteDomainRequest) Awaitable<Errors\Result<DeleteDomainResponse>>;
-  public function DeleteExpression(DeleteExpressionRequest) Awaitable<Errors\Result<DeleteExpressionResponse>>;
-  public function DeleteIndexField(DeleteIndexFieldRequest) Awaitable<Errors\Result<DeleteIndexFieldResponse>>;
-  public function DeleteSuggester(DeleteSuggesterRequest) Awaitable<Errors\Result<DeleteSuggesterResponse>>;
-  public function DescribeAnalysisSchemes(DescribeAnalysisSchemesRequest) Awaitable<Errors\Result<DescribeAnalysisSchemesResponse>>;
-  public function DescribeAvailabilityOptions(DescribeAvailabilityOptionsRequest) Awaitable<Errors\Result<DescribeAvailabilityOptionsResponse>>;
-  public function DescribeDomainEndpointOptions(DescribeDomainEndpointOptionsRequest) Awaitable<Errors\Result<DescribeDomainEndpointOptionsResponse>>;
-  public function DescribeDomains(DescribeDomainsRequest) Awaitable<Errors\Result<DescribeDomainsResponse>>;
-  public function DescribeExpressions(DescribeExpressionsRequest) Awaitable<Errors\Result<DescribeExpressionsResponse>>;
-  public function DescribeIndexFields(DescribeIndexFieldsRequest) Awaitable<Errors\Result<DescribeIndexFieldsResponse>>;
-  public function DescribeScalingParameters(DescribeScalingParametersRequest) Awaitable<Errors\Result<DescribeScalingParametersResponse>>;
-  public function DescribeServiceAccessPolicies(DescribeServiceAccessPoliciesRequest) Awaitable<Errors\Result<DescribeServiceAccessPoliciesResponse>>;
-  public function DescribeSuggesters(DescribeSuggestersRequest) Awaitable<Errors\Result<DescribeSuggestersResponse>>;
-  public function IndexDocuments(IndexDocumentsRequest) Awaitable<Errors\Result<IndexDocumentsResponse>>;
-  public function ListDomainNames() Awaitable<Errors\Result<ListDomainNamesResponse>>;
-  public function UpdateAvailabilityOptions(UpdateAvailabilityOptionsRequest) Awaitable<Errors\Result<UpdateAvailabilityOptionsResponse>>;
-  public function UpdateDomainEndpointOptions(UpdateDomainEndpointOptionsRequest) Awaitable<Errors\Result<UpdateDomainEndpointOptionsResponse>>;
-  public function UpdateScalingParameters(UpdateScalingParametersRequest) Awaitable<Errors\Result<UpdateScalingParametersResponse>>;
-  public function UpdateServiceAccessPolicies(UpdateServiceAccessPoliciesRequest) Awaitable<Errors\Result<UpdateServiceAccessPoliciesResponse>>;
+  public function BuildSuggesters(BuildSuggestersRequest): Awaitable<Errors\Result<BuildSuggestersResponse>>;
+  public function CreateDomain(CreateDomainRequest): Awaitable<Errors\Result<CreateDomainResponse>>;
+  public function DefineAnalysisScheme(DefineAnalysisSchemeRequest): Awaitable<Errors\Result<DefineAnalysisSchemeResponse>>;
+  public function DefineExpression(DefineExpressionRequest): Awaitable<Errors\Result<DefineExpressionResponse>>;
+  public function DefineIndexField(DefineIndexFieldRequest): Awaitable<Errors\Result<DefineIndexFieldResponse>>;
+  public function DefineSuggester(DefineSuggesterRequest): Awaitable<Errors\Result<DefineSuggesterResponse>>;
+  public function DeleteAnalysisScheme(DeleteAnalysisSchemeRequest): Awaitable<Errors\Result<DeleteAnalysisSchemeResponse>>;
+  public function DeleteDomain(DeleteDomainRequest): Awaitable<Errors\Result<DeleteDomainResponse>>;
+  public function DeleteExpression(DeleteExpressionRequest): Awaitable<Errors\Result<DeleteExpressionResponse>>;
+  public function DeleteIndexField(DeleteIndexFieldRequest): Awaitable<Errors\Result<DeleteIndexFieldResponse>>;
+  public function DeleteSuggester(DeleteSuggesterRequest): Awaitable<Errors\Result<DeleteSuggesterResponse>>;
+  public function DescribeAnalysisSchemes(DescribeAnalysisSchemesRequest): Awaitable<Errors\Result<DescribeAnalysisSchemesResponse>>;
+  public function DescribeAvailabilityOptions(DescribeAvailabilityOptionsRequest): Awaitable<Errors\Result<DescribeAvailabilityOptionsResponse>>;
+  public function DescribeDomainEndpointOptions(DescribeDomainEndpointOptionsRequest): Awaitable<Errors\Result<DescribeDomainEndpointOptionsResponse>>;
+  public function DescribeDomains(DescribeDomainsRequest): Awaitable<Errors\Result<DescribeDomainsResponse>>;
+  public function DescribeExpressions(DescribeExpressionsRequest): Awaitable<Errors\Result<DescribeExpressionsResponse>>;
+  public function DescribeIndexFields(DescribeIndexFieldsRequest): Awaitable<Errors\Result<DescribeIndexFieldsResponse>>;
+  public function DescribeScalingParameters(DescribeScalingParametersRequest): Awaitable<Errors\Result<DescribeScalingParametersResponse>>;
+  public function DescribeServiceAccessPolicies(DescribeServiceAccessPoliciesRequest): Awaitable<Errors\Result<DescribeServiceAccessPoliciesResponse>>;
+  public function DescribeSuggesters(DescribeSuggestersRequest): Awaitable<Errors\Result<DescribeSuggestersResponse>>;
+  public function IndexDocuments(IndexDocumentsRequest): Awaitable<Errors\Result<IndexDocumentsResponse>>;
+  public function ListDomainNames(): Awaitable<Errors\Result<ListDomainNamesResponse>>;
+  public function UpdateAvailabilityOptions(UpdateAvailabilityOptionsRequest): Awaitable<Errors\Result<UpdateAvailabilityOptionsResponse>>;
+  public function UpdateDomainEndpointOptions(UpdateDomainEndpointOptionsRequest): Awaitable<Errors\Result<UpdateDomainEndpointOptionsResponse>>;
+  public function UpdateScalingParameters(UpdateScalingParametersRequest): Awaitable<Errors\Result<UpdateScalingParametersResponse>>;
+  public function UpdateServiceAccessPolicies(UpdateServiceAccessPoliciesRequest): Awaitable<Errors\Result<UpdateServiceAccessPoliciesResponse>>;
 }
 
 class APIVersion {

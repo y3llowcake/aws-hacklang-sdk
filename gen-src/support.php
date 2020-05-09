@@ -2,20 +2,20 @@
 namespace slack\aws\support;
 
 interface Support {
-  public function AddAttachmentsToSet(AddAttachmentsToSetRequest) Awaitable<Errors\Result<AddAttachmentsToSetResponse>>;
-  public function AddCommunicationToCase(AddCommunicationToCaseRequest) Awaitable<Errors\Result<AddCommunicationToCaseResponse>>;
-  public function CreateCase(CreateCaseRequest) Awaitable<Errors\Result<CreateCaseResponse>>;
-  public function DescribeAttachment(DescribeAttachmentRequest) Awaitable<Errors\Result<DescribeAttachmentResponse>>;
-  public function DescribeCases(DescribeCasesRequest) Awaitable<Errors\Result<DescribeCasesResponse>>;
-  public function DescribeCommunications(DescribeCommunicationsRequest) Awaitable<Errors\Result<DescribeCommunicationsResponse>>;
-  public function DescribeServices(DescribeServicesRequest) Awaitable<Errors\Result<DescribeServicesResponse>>;
-  public function DescribeSeverityLevels(DescribeSeverityLevelsRequest) Awaitable<Errors\Result<DescribeSeverityLevelsResponse>>;
-  public function DescribeTrustedAdvisorCheckRefreshStatuses(DescribeTrustedAdvisorCheckRefreshStatusesRequest) Awaitable<Errors\Result<DescribeTrustedAdvisorCheckRefreshStatusesResponse>>;
-  public function DescribeTrustedAdvisorCheckResult(DescribeTrustedAdvisorCheckResultRequest) Awaitable<Errors\Result<DescribeTrustedAdvisorCheckResultResponse>>;
-  public function DescribeTrustedAdvisorCheckSummaries(DescribeTrustedAdvisorCheckSummariesRequest) Awaitable<Errors\Result<DescribeTrustedAdvisorCheckSummariesResponse>>;
-  public function DescribeTrustedAdvisorChecks(DescribeTrustedAdvisorChecksRequest) Awaitable<Errors\Result<DescribeTrustedAdvisorChecksResponse>>;
-  public function RefreshTrustedAdvisorCheck(RefreshTrustedAdvisorCheckRequest) Awaitable<Errors\Result<RefreshTrustedAdvisorCheckResponse>>;
-  public function ResolveCase(ResolveCaseRequest) Awaitable<Errors\Result<ResolveCaseResponse>>;
+  public function AddAttachmentsToSet(AddAttachmentsToSetRequest): Awaitable<Errors\Result<AddAttachmentsToSetResponse>>;
+  public function AddCommunicationToCase(AddCommunicationToCaseRequest): Awaitable<Errors\Result<AddCommunicationToCaseResponse>>;
+  public function CreateCase(CreateCaseRequest): Awaitable<Errors\Result<CreateCaseResponse>>;
+  public function DescribeAttachment(DescribeAttachmentRequest): Awaitable<Errors\Result<DescribeAttachmentResponse>>;
+  public function DescribeCases(DescribeCasesRequest): Awaitable<Errors\Result<DescribeCasesResponse>>;
+  public function DescribeCommunications(DescribeCommunicationsRequest): Awaitable<Errors\Result<DescribeCommunicationsResponse>>;
+  public function DescribeServices(DescribeServicesRequest): Awaitable<Errors\Result<DescribeServicesResponse>>;
+  public function DescribeSeverityLevels(DescribeSeverityLevelsRequest): Awaitable<Errors\Result<DescribeSeverityLevelsResponse>>;
+  public function DescribeTrustedAdvisorCheckRefreshStatuses(DescribeTrustedAdvisorCheckRefreshStatusesRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckRefreshStatusesResponse>>;
+  public function DescribeTrustedAdvisorCheckResult(DescribeTrustedAdvisorCheckResultRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckResultResponse>>;
+  public function DescribeTrustedAdvisorCheckSummaries(DescribeTrustedAdvisorCheckSummariesRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckSummariesResponse>>;
+  public function DescribeTrustedAdvisorChecks(DescribeTrustedAdvisorChecksRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorChecksResponse>>;
+  public function RefreshTrustedAdvisorCheck(RefreshTrustedAdvisorCheckRequest): Awaitable<Errors\Result<RefreshTrustedAdvisorCheckResponse>>;
+  public function ResolveCase(ResolveCaseRequest): Awaitable<Errors\Result<ResolveCaseResponse>>;
 }
 
 class AddAttachmentsToSetRequest {

@@ -2,9 +2,9 @@
 namespace slack\aws\migrationhub-config;
 
 interface MigrationHub Config {
-  public function CreateHomeRegionControl(CreateHomeRegionControlRequest) Awaitable<Errors\Result<CreateHomeRegionControlResult>>;
-  public function DescribeHomeRegionControls(DescribeHomeRegionControlsRequest) Awaitable<Errors\Result<DescribeHomeRegionControlsResult>>;
-  public function GetHomeRegion(GetHomeRegionRequest) Awaitable<Errors\Result<GetHomeRegionResult>>;
+  public function CreateHomeRegionControl(CreateHomeRegionControlRequest): Awaitable<Errors\Result<CreateHomeRegionControlResult>>;
+  public function DescribeHomeRegionControls(DescribeHomeRegionControlsRequest): Awaitable<Errors\Result<DescribeHomeRegionControlsResult>>;
+  public function GetHomeRegion(GetHomeRegionRequest): Awaitable<Errors\Result<GetHomeRegionResult>>;
 }
 
 class AccessDeniedException {

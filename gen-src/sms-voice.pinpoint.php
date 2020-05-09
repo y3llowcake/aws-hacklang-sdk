@@ -2,14 +2,14 @@
 namespace slack\aws\sms-voice.pinpoint;
 
 interface Pinpoint SMS Voice {
-  public function CreateConfigurationSet(CreateConfigurationSetRequest) Awaitable<Errors\Result<CreateConfigurationSetResponse>>;
-  public function CreateConfigurationSetEventDestination(CreateConfigurationSetEventDestinationRequest) Awaitable<Errors\Result<CreateConfigurationSetEventDestinationResponse>>;
-  public function DeleteConfigurationSet(DeleteConfigurationSetRequest) Awaitable<Errors\Result<DeleteConfigurationSetResponse>>;
-  public function DeleteConfigurationSetEventDestination(DeleteConfigurationSetEventDestinationRequest) Awaitable<Errors\Result<DeleteConfigurationSetEventDestinationResponse>>;
-  public function GetConfigurationSetEventDestinations(GetConfigurationSetEventDestinationsRequest) Awaitable<Errors\Result<GetConfigurationSetEventDestinationsResponse>>;
-  public function ListConfigurationSets(ListConfigurationSetsRequest) Awaitable<Errors\Result<ListConfigurationSetsResponse>>;
-  public function SendVoiceMessage(SendVoiceMessageRequest) Awaitable<Errors\Result<SendVoiceMessageResponse>>;
-  public function UpdateConfigurationSetEventDestination(UpdateConfigurationSetEventDestinationRequest) Awaitable<Errors\Result<UpdateConfigurationSetEventDestinationResponse>>;
+  public function CreateConfigurationSet(CreateConfigurationSetRequest): Awaitable<Errors\Result<CreateConfigurationSetResponse>>;
+  public function CreateConfigurationSetEventDestination(CreateConfigurationSetEventDestinationRequest): Awaitable<Errors\Result<CreateConfigurationSetEventDestinationResponse>>;
+  public function DeleteConfigurationSet(DeleteConfigurationSetRequest): Awaitable<Errors\Result<DeleteConfigurationSetResponse>>;
+  public function DeleteConfigurationSetEventDestination(DeleteConfigurationSetEventDestinationRequest): Awaitable<Errors\Result<DeleteConfigurationSetEventDestinationResponse>>;
+  public function GetConfigurationSetEventDestinations(GetConfigurationSetEventDestinationsRequest): Awaitable<Errors\Result<GetConfigurationSetEventDestinationsResponse>>;
+  public function ListConfigurationSets(ListConfigurationSetsRequest): Awaitable<Errors\Result<ListConfigurationSetsResponse>>;
+  public function SendVoiceMessage(SendVoiceMessageRequest): Awaitable<Errors\Result<SendVoiceMessageResponse>>;
+  public function UpdateConfigurationSetEventDestination(UpdateConfigurationSetEventDestinationRequest): Awaitable<Errors\Result<UpdateConfigurationSetEventDestinationResponse>>;
 }
 
 class AlreadyExistsException {

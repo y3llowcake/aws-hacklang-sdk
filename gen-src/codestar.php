@@ -2,24 +2,24 @@
 namespace slack\aws\codestar;
 
 interface CodeStar {
-  public function AssociateTeamMember(AssociateTeamMemberRequest) Awaitable<Errors\Result<AssociateTeamMemberResult>>;
-  public function CreateProject(CreateProjectRequest) Awaitable<Errors\Result<CreateProjectResult>>;
-  public function CreateUserProfile(CreateUserProfileRequest) Awaitable<Errors\Result<CreateUserProfileResult>>;
-  public function DeleteProject(DeleteProjectRequest) Awaitable<Errors\Result<DeleteProjectResult>>;
-  public function DeleteUserProfile(DeleteUserProfileRequest) Awaitable<Errors\Result<DeleteUserProfileResult>>;
-  public function DescribeProject(DescribeProjectRequest) Awaitable<Errors\Result<DescribeProjectResult>>;
-  public function DescribeUserProfile(DescribeUserProfileRequest) Awaitable<Errors\Result<DescribeUserProfileResult>>;
-  public function DisassociateTeamMember(DisassociateTeamMemberRequest) Awaitable<Errors\Result<DisassociateTeamMemberResult>>;
-  public function ListProjects(ListProjectsRequest) Awaitable<Errors\Result<ListProjectsResult>>;
-  public function ListResources(ListResourcesRequest) Awaitable<Errors\Result<ListResourcesResult>>;
-  public function ListTagsForProject(ListTagsForProjectRequest) Awaitable<Errors\Result<ListTagsForProjectResult>>;
-  public function ListTeamMembers(ListTeamMembersRequest) Awaitable<Errors\Result<ListTeamMembersResult>>;
-  public function ListUserProfiles(ListUserProfilesRequest) Awaitable<Errors\Result<ListUserProfilesResult>>;
-  public function TagProject(TagProjectRequest) Awaitable<Errors\Result<TagProjectResult>>;
-  public function UntagProject(UntagProjectRequest) Awaitable<Errors\Result<UntagProjectResult>>;
-  public function UpdateProject(UpdateProjectRequest) Awaitable<Errors\Result<UpdateProjectResult>>;
-  public function UpdateTeamMember(UpdateTeamMemberRequest) Awaitable<Errors\Result<UpdateTeamMemberResult>>;
-  public function UpdateUserProfile(UpdateUserProfileRequest) Awaitable<Errors\Result<UpdateUserProfileResult>>;
+  public function AssociateTeamMember(AssociateTeamMemberRequest): Awaitable<Errors\Result<AssociateTeamMemberResult>>;
+  public function CreateProject(CreateProjectRequest): Awaitable<Errors\Result<CreateProjectResult>>;
+  public function CreateUserProfile(CreateUserProfileRequest): Awaitable<Errors\Result<CreateUserProfileResult>>;
+  public function DeleteProject(DeleteProjectRequest): Awaitable<Errors\Result<DeleteProjectResult>>;
+  public function DeleteUserProfile(DeleteUserProfileRequest): Awaitable<Errors\Result<DeleteUserProfileResult>>;
+  public function DescribeProject(DescribeProjectRequest): Awaitable<Errors\Result<DescribeProjectResult>>;
+  public function DescribeUserProfile(DescribeUserProfileRequest): Awaitable<Errors\Result<DescribeUserProfileResult>>;
+  public function DisassociateTeamMember(DisassociateTeamMemberRequest): Awaitable<Errors\Result<DisassociateTeamMemberResult>>;
+  public function ListProjects(ListProjectsRequest): Awaitable<Errors\Result<ListProjectsResult>>;
+  public function ListResources(ListResourcesRequest): Awaitable<Errors\Result<ListResourcesResult>>;
+  public function ListTagsForProject(ListTagsForProjectRequest): Awaitable<Errors\Result<ListTagsForProjectResult>>;
+  public function ListTeamMembers(ListTeamMembersRequest): Awaitable<Errors\Result<ListTeamMembersResult>>;
+  public function ListUserProfiles(ListUserProfilesRequest): Awaitable<Errors\Result<ListUserProfilesResult>>;
+  public function TagProject(TagProjectRequest): Awaitable<Errors\Result<TagProjectResult>>;
+  public function UntagProject(UntagProjectRequest): Awaitable<Errors\Result<UntagProjectResult>>;
+  public function UpdateProject(UpdateProjectRequest): Awaitable<Errors\Result<UpdateProjectResult>>;
+  public function UpdateTeamMember(UpdateTeamMemberRequest): Awaitable<Errors\Result<UpdateTeamMemberResult>>;
+  public function UpdateUserProfile(UpdateUserProfileRequest): Awaitable<Errors\Result<UpdateUserProfileResult>>;
 }
 
 class AssociateTeamMemberRequest {

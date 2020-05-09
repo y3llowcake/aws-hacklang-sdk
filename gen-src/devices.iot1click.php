@@ -2,19 +2,19 @@
 namespace slack\aws\devices.iot1click;
 
 interface IoT 1Click Devices Service {
-  public function ClaimDevicesByClaimCode(ClaimDevicesByClaimCodeRequest) Awaitable<Errors\Result<ClaimDevicesByClaimCodeResponse>>;
-  public function DescribeDevice(DescribeDeviceRequest) Awaitable<Errors\Result<DescribeDeviceResponse>>;
-  public function FinalizeDeviceClaim(FinalizeDeviceClaimRequest) Awaitable<Errors\Result<FinalizeDeviceClaimResponse>>;
-  public function GetDeviceMethods(GetDeviceMethodsRequest) Awaitable<Errors\Result<GetDeviceMethodsResponse>>;
-  public function InitiateDeviceClaim(InitiateDeviceClaimRequest) Awaitable<Errors\Result<InitiateDeviceClaimResponse>>;
-  public function InvokeDeviceMethod(InvokeDeviceMethodRequest) Awaitable<Errors\Result<InvokeDeviceMethodResponse>>;
-  public function ListDeviceEvents(ListDeviceEventsRequest) Awaitable<Errors\Result<ListDeviceEventsResponse>>;
-  public function ListDevices(ListDevicesRequest) Awaitable<Errors\Result<ListDevicesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UnclaimDevice(UnclaimDeviceRequest) Awaitable<Errors\Result<UnclaimDeviceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateDeviceState(UpdateDeviceStateRequest) Awaitable<Errors\Result<UpdateDeviceStateResponse>>;
+  public function ClaimDevicesByClaimCode(ClaimDevicesByClaimCodeRequest): Awaitable<Errors\Result<ClaimDevicesByClaimCodeResponse>>;
+  public function DescribeDevice(DescribeDeviceRequest): Awaitable<Errors\Result<DescribeDeviceResponse>>;
+  public function FinalizeDeviceClaim(FinalizeDeviceClaimRequest): Awaitable<Errors\Result<FinalizeDeviceClaimResponse>>;
+  public function GetDeviceMethods(GetDeviceMethodsRequest): Awaitable<Errors\Result<GetDeviceMethodsResponse>>;
+  public function InitiateDeviceClaim(InitiateDeviceClaimRequest): Awaitable<Errors\Result<InitiateDeviceClaimResponse>>;
+  public function InvokeDeviceMethod(InvokeDeviceMethodRequest): Awaitable<Errors\Result<InvokeDeviceMethodResponse>>;
+  public function ListDeviceEvents(ListDeviceEventsRequest): Awaitable<Errors\Result<ListDeviceEventsResponse>>;
+  public function ListDevices(ListDevicesRequest): Awaitable<Errors\Result<ListDevicesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UnclaimDevice(UnclaimDeviceRequest): Awaitable<Errors\Result<UnclaimDeviceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateDeviceState(UpdateDeviceStateRequest): Awaitable<Errors\Result<UpdateDeviceStateResponse>>;
 }
 
 class Attributes {

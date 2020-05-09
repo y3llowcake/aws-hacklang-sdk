@@ -2,19 +2,19 @@
 namespace slack\aws\cloud9;
 
 interface Cloud9 {
-  public function CreateEnvironmentEC2(CreateEnvironmentEC2Request) Awaitable<Errors\Result<CreateEnvironmentEC2Result>>;
-  public function CreateEnvironmentMembership(CreateEnvironmentMembershipRequest) Awaitable<Errors\Result<CreateEnvironmentMembershipResult>>;
-  public function DeleteEnvironment(DeleteEnvironmentRequest) Awaitable<Errors\Result<DeleteEnvironmentResult>>;
-  public function DeleteEnvironmentMembership(DeleteEnvironmentMembershipRequest) Awaitable<Errors\Result<DeleteEnvironmentMembershipResult>>;
-  public function DescribeEnvironmentMemberships(DescribeEnvironmentMembershipsRequest) Awaitable<Errors\Result<DescribeEnvironmentMembershipsResult>>;
-  public function DescribeEnvironmentStatus(DescribeEnvironmentStatusRequest) Awaitable<Errors\Result<DescribeEnvironmentStatusResult>>;
-  public function DescribeEnvironments(DescribeEnvironmentsRequest) Awaitable<Errors\Result<DescribeEnvironmentsResult>>;
-  public function ListEnvironments(ListEnvironmentsRequest) Awaitable<Errors\Result<ListEnvironmentsResult>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateEnvironment(UpdateEnvironmentRequest) Awaitable<Errors\Result<UpdateEnvironmentResult>>;
-  public function UpdateEnvironmentMembership(UpdateEnvironmentMembershipRequest) Awaitable<Errors\Result<UpdateEnvironmentMembershipResult>>;
+  public function CreateEnvironmentEC2(CreateEnvironmentEC2Request): Awaitable<Errors\Result<CreateEnvironmentEC2Result>>;
+  public function CreateEnvironmentMembership(CreateEnvironmentMembershipRequest): Awaitable<Errors\Result<CreateEnvironmentMembershipResult>>;
+  public function DeleteEnvironment(DeleteEnvironmentRequest): Awaitable<Errors\Result<DeleteEnvironmentResult>>;
+  public function DeleteEnvironmentMembership(DeleteEnvironmentMembershipRequest): Awaitable<Errors\Result<DeleteEnvironmentMembershipResult>>;
+  public function DescribeEnvironmentMemberships(DescribeEnvironmentMembershipsRequest): Awaitable<Errors\Result<DescribeEnvironmentMembershipsResult>>;
+  public function DescribeEnvironmentStatus(DescribeEnvironmentStatusRequest): Awaitable<Errors\Result<DescribeEnvironmentStatusResult>>;
+  public function DescribeEnvironments(DescribeEnvironmentsRequest): Awaitable<Errors\Result<DescribeEnvironmentsResult>>;
+  public function ListEnvironments(ListEnvironmentsRequest): Awaitable<Errors\Result<ListEnvironmentsResult>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateEnvironment(UpdateEnvironmentRequest): Awaitable<Errors\Result<UpdateEnvironmentResult>>;
+  public function UpdateEnvironmentMembership(UpdateEnvironmentMembershipRequest): Awaitable<Errors\Result<UpdateEnvironmentMembershipResult>>;
 }
 
 class AutomaticStopTimeMinutes {

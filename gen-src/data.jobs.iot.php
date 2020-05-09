@@ -2,10 +2,10 @@
 namespace slack\aws\data.jobs.iot;
 
 interface IoT Jobs Data Plane {
-  public function DescribeJobExecution(DescribeJobExecutionRequest) Awaitable<Errors\Result<DescribeJobExecutionResponse>>;
-  public function GetPendingJobExecutions(GetPendingJobExecutionsRequest) Awaitable<Errors\Result<GetPendingJobExecutionsResponse>>;
-  public function StartNextPendingJobExecution(StartNextPendingJobExecutionRequest) Awaitable<Errors\Result<StartNextPendingJobExecutionResponse>>;
-  public function UpdateJobExecution(UpdateJobExecutionRequest) Awaitable<Errors\Result<UpdateJobExecutionResponse>>;
+  public function DescribeJobExecution(DescribeJobExecutionRequest): Awaitable<Errors\Result<DescribeJobExecutionResponse>>;
+  public function GetPendingJobExecutions(GetPendingJobExecutionsRequest): Awaitable<Errors\Result<GetPendingJobExecutionsResponse>>;
+  public function StartNextPendingJobExecution(StartNextPendingJobExecutionRequest): Awaitable<Errors\Result<StartNextPendingJobExecutionResponse>>;
+  public function UpdateJobExecution(UpdateJobExecutionRequest): Awaitable<Errors\Result<UpdateJobExecutionResponse>>;
 }
 
 class ApproximateSecondsBeforeTimedOut {

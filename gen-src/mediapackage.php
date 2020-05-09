@@ -2,24 +2,24 @@
 namespace slack\aws\mediapackage;
 
 interface MediaPackage {
-  public function CreateChannel(CreateChannelRequest) Awaitable<Errors\Result<CreateChannelResponse>>;
-  public function CreateHarvestJob(CreateHarvestJobRequest) Awaitable<Errors\Result<CreateHarvestJobResponse>>;
-  public function CreateOriginEndpoint(CreateOriginEndpointRequest) Awaitable<Errors\Result<CreateOriginEndpointResponse>>;
-  public function DeleteChannel(DeleteChannelRequest) Awaitable<Errors\Result<DeleteChannelResponse>>;
-  public function DeleteOriginEndpoint(DeleteOriginEndpointRequest) Awaitable<Errors\Result<DeleteOriginEndpointResponse>>;
-  public function DescribeChannel(DescribeChannelRequest) Awaitable<Errors\Result<DescribeChannelResponse>>;
-  public function DescribeHarvestJob(DescribeHarvestJobRequest) Awaitable<Errors\Result<DescribeHarvestJobResponse>>;
-  public function DescribeOriginEndpoint(DescribeOriginEndpointRequest) Awaitable<Errors\Result<DescribeOriginEndpointResponse>>;
-  public function ListChannels(ListChannelsRequest) Awaitable<Errors\Result<ListChannelsResponse>>;
-  public function ListHarvestJobs(ListHarvestJobsRequest) Awaitable<Errors\Result<ListHarvestJobsResponse>>;
-  public function ListOriginEndpoints(ListOriginEndpointsRequest) Awaitable<Errors\Result<ListOriginEndpointsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function RotateChannelCredentials(RotateChannelCredentialsRequest) Awaitable<Errors\Result<RotateChannelCredentialsResponse>>;
-  public function RotateIngestEndpointCredentials(RotateIngestEndpointCredentialsRequest) Awaitable<Errors\Result<RotateIngestEndpointCredentialsResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateChannel(UpdateChannelRequest) Awaitable<Errors\Result<UpdateChannelResponse>>;
-  public function UpdateOriginEndpoint(UpdateOriginEndpointRequest) Awaitable<Errors\Result<UpdateOriginEndpointResponse>>;
+  public function CreateChannel(CreateChannelRequest): Awaitable<Errors\Result<CreateChannelResponse>>;
+  public function CreateHarvestJob(CreateHarvestJobRequest): Awaitable<Errors\Result<CreateHarvestJobResponse>>;
+  public function CreateOriginEndpoint(CreateOriginEndpointRequest): Awaitable<Errors\Result<CreateOriginEndpointResponse>>;
+  public function DeleteChannel(DeleteChannelRequest): Awaitable<Errors\Result<DeleteChannelResponse>>;
+  public function DeleteOriginEndpoint(DeleteOriginEndpointRequest): Awaitable<Errors\Result<DeleteOriginEndpointResponse>>;
+  public function DescribeChannel(DescribeChannelRequest): Awaitable<Errors\Result<DescribeChannelResponse>>;
+  public function DescribeHarvestJob(DescribeHarvestJobRequest): Awaitable<Errors\Result<DescribeHarvestJobResponse>>;
+  public function DescribeOriginEndpoint(DescribeOriginEndpointRequest): Awaitable<Errors\Result<DescribeOriginEndpointResponse>>;
+  public function ListChannels(ListChannelsRequest): Awaitable<Errors\Result<ListChannelsResponse>>;
+  public function ListHarvestJobs(ListHarvestJobsRequest): Awaitable<Errors\Result<ListHarvestJobsResponse>>;
+  public function ListOriginEndpoints(ListOriginEndpointsRequest): Awaitable<Errors\Result<ListOriginEndpointsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function RotateChannelCredentials(RotateChannelCredentialsRequest): Awaitable<Errors\Result<RotateChannelCredentialsResponse>>;
+  public function RotateIngestEndpointCredentials(RotateIngestEndpointCredentialsRequest): Awaitable<Errors\Result<RotateIngestEndpointCredentialsResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateChannel(UpdateChannelRequest): Awaitable<Errors\Result<UpdateChannelResponse>>;
+  public function UpdateOriginEndpoint(UpdateOriginEndpointRequest): Awaitable<Errors\Result<UpdateOriginEndpointResponse>>;
 }
 
 class AdMarkers {

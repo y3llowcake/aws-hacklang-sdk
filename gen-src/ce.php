@@ -2,25 +2,25 @@
 namespace slack\aws\ce;
 
 interface Cost Explorer {
-  public function CreateCostCategoryDefinition(CreateCostCategoryDefinitionRequest) Awaitable<Errors\Result<CreateCostCategoryDefinitionResponse>>;
-  public function DeleteCostCategoryDefinition(DeleteCostCategoryDefinitionRequest) Awaitable<Errors\Result<DeleteCostCategoryDefinitionResponse>>;
-  public function DescribeCostCategoryDefinition(DescribeCostCategoryDefinitionRequest) Awaitable<Errors\Result<DescribeCostCategoryDefinitionResponse>>;
-  public function GetCostAndUsage(GetCostAndUsageRequest) Awaitable<Errors\Result<GetCostAndUsageResponse>>;
-  public function GetCostAndUsageWithResources(GetCostAndUsageWithResourcesRequest) Awaitable<Errors\Result<GetCostAndUsageWithResourcesResponse>>;
-  public function GetCostForecast(GetCostForecastRequest) Awaitable<Errors\Result<GetCostForecastResponse>>;
-  public function GetDimensionValues(GetDimensionValuesRequest) Awaitable<Errors\Result<GetDimensionValuesResponse>>;
-  public function GetReservationCoverage(GetReservationCoverageRequest) Awaitable<Errors\Result<GetReservationCoverageResponse>>;
-  public function GetReservationPurchaseRecommendation(GetReservationPurchaseRecommendationRequest) Awaitable<Errors\Result<GetReservationPurchaseRecommendationResponse>>;
-  public function GetReservationUtilization(GetReservationUtilizationRequest) Awaitable<Errors\Result<GetReservationUtilizationResponse>>;
-  public function GetRightsizingRecommendation(GetRightsizingRecommendationRequest) Awaitable<Errors\Result<GetRightsizingRecommendationResponse>>;
-  public function GetSavingsPlansCoverage(GetSavingsPlansCoverageRequest) Awaitable<Errors\Result<GetSavingsPlansCoverageResponse>>;
-  public function GetSavingsPlansPurchaseRecommendation(GetSavingsPlansPurchaseRecommendationRequest) Awaitable<Errors\Result<GetSavingsPlansPurchaseRecommendationResponse>>;
-  public function GetSavingsPlansUtilization(GetSavingsPlansUtilizationRequest) Awaitable<Errors\Result<GetSavingsPlansUtilizationResponse>>;
-  public function GetSavingsPlansUtilizationDetails(GetSavingsPlansUtilizationDetailsRequest) Awaitable<Errors\Result<GetSavingsPlansUtilizationDetailsResponse>>;
-  public function GetTags(GetTagsRequest) Awaitable<Errors\Result<GetTagsResponse>>;
-  public function GetUsageForecast(GetUsageForecastRequest) Awaitable<Errors\Result<GetUsageForecastResponse>>;
-  public function ListCostCategoryDefinitions(ListCostCategoryDefinitionsRequest) Awaitable<Errors\Result<ListCostCategoryDefinitionsResponse>>;
-  public function UpdateCostCategoryDefinition(UpdateCostCategoryDefinitionRequest) Awaitable<Errors\Result<UpdateCostCategoryDefinitionResponse>>;
+  public function CreateCostCategoryDefinition(CreateCostCategoryDefinitionRequest): Awaitable<Errors\Result<CreateCostCategoryDefinitionResponse>>;
+  public function DeleteCostCategoryDefinition(DeleteCostCategoryDefinitionRequest): Awaitable<Errors\Result<DeleteCostCategoryDefinitionResponse>>;
+  public function DescribeCostCategoryDefinition(DescribeCostCategoryDefinitionRequest): Awaitable<Errors\Result<DescribeCostCategoryDefinitionResponse>>;
+  public function GetCostAndUsage(GetCostAndUsageRequest): Awaitable<Errors\Result<GetCostAndUsageResponse>>;
+  public function GetCostAndUsageWithResources(GetCostAndUsageWithResourcesRequest): Awaitable<Errors\Result<GetCostAndUsageWithResourcesResponse>>;
+  public function GetCostForecast(GetCostForecastRequest): Awaitable<Errors\Result<GetCostForecastResponse>>;
+  public function GetDimensionValues(GetDimensionValuesRequest): Awaitable<Errors\Result<GetDimensionValuesResponse>>;
+  public function GetReservationCoverage(GetReservationCoverageRequest): Awaitable<Errors\Result<GetReservationCoverageResponse>>;
+  public function GetReservationPurchaseRecommendation(GetReservationPurchaseRecommendationRequest): Awaitable<Errors\Result<GetReservationPurchaseRecommendationResponse>>;
+  public function GetReservationUtilization(GetReservationUtilizationRequest): Awaitable<Errors\Result<GetReservationUtilizationResponse>>;
+  public function GetRightsizingRecommendation(GetRightsizingRecommendationRequest): Awaitable<Errors\Result<GetRightsizingRecommendationResponse>>;
+  public function GetSavingsPlansCoverage(GetSavingsPlansCoverageRequest): Awaitable<Errors\Result<GetSavingsPlansCoverageResponse>>;
+  public function GetSavingsPlansPurchaseRecommendation(GetSavingsPlansPurchaseRecommendationRequest): Awaitable<Errors\Result<GetSavingsPlansPurchaseRecommendationResponse>>;
+  public function GetSavingsPlansUtilization(GetSavingsPlansUtilizationRequest): Awaitable<Errors\Result<GetSavingsPlansUtilizationResponse>>;
+  public function GetSavingsPlansUtilizationDetails(GetSavingsPlansUtilizationDetailsRequest): Awaitable<Errors\Result<GetSavingsPlansUtilizationDetailsResponse>>;
+  public function GetTags(GetTagsRequest): Awaitable<Errors\Result<GetTagsResponse>>;
+  public function GetUsageForecast(GetUsageForecastRequest): Awaitable<Errors\Result<GetUsageForecastResponse>>;
+  public function ListCostCategoryDefinitions(ListCostCategoryDefinitionsRequest): Awaitable<Errors\Result<ListCostCategoryDefinitionsResponse>>;
+  public function UpdateCostCategoryDefinition(UpdateCostCategoryDefinitionRequest): Awaitable<Errors\Result<UpdateCostCategoryDefinitionResponse>>;
 }
 
 class AccountScope {

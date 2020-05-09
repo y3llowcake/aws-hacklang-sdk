@@ -2,13 +2,13 @@
 namespace slack\aws\macie;
 
 interface Macie {
-  public function AssociateMemberAccount(AssociateMemberAccountRequest) Awaitable<Errors\Error>;
-  public function AssociateS3Resources(AssociateS3ResourcesRequest) Awaitable<Errors\Result<AssociateS3ResourcesResult>>;
-  public function DisassociateMemberAccount(DisassociateMemberAccountRequest) Awaitable<Errors\Error>;
-  public function DisassociateS3Resources(DisassociateS3ResourcesRequest) Awaitable<Errors\Result<DisassociateS3ResourcesResult>>;
-  public function ListMemberAccounts(ListMemberAccountsRequest) Awaitable<Errors\Result<ListMemberAccountsResult>>;
-  public function ListS3Resources(ListS3ResourcesRequest) Awaitable<Errors\Result<ListS3ResourcesResult>>;
-  public function UpdateS3Resources(UpdateS3ResourcesRequest) Awaitable<Errors\Result<UpdateS3ResourcesResult>>;
+  public function AssociateMemberAccount(AssociateMemberAccountRequest): Awaitable<Errors\Error>;
+  public function AssociateS3Resources(AssociateS3ResourcesRequest): Awaitable<Errors\Result<AssociateS3ResourcesResult>>;
+  public function DisassociateMemberAccount(DisassociateMemberAccountRequest): Awaitable<Errors\Error>;
+  public function DisassociateS3Resources(DisassociateS3ResourcesRequest): Awaitable<Errors\Result<DisassociateS3ResourcesResult>>;
+  public function ListMemberAccounts(ListMemberAccountsRequest): Awaitable<Errors\Result<ListMemberAccountsResult>>;
+  public function ListS3Resources(ListS3ResourcesRequest): Awaitable<Errors\Result<ListS3ResourcesResult>>;
+  public function UpdateS3Resources(UpdateS3ResourcesRequest): Awaitable<Errors\Result<UpdateS3ResourcesResult>>;
 }
 
 class AWSAccountId {

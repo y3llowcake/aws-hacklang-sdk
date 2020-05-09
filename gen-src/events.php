@@ -2,37 +2,37 @@
 namespace slack\aws\events;
 
 interface CloudWatch Events {
-  public function ActivateEventSource(ActivateEventSourceRequest) Awaitable<Errors\Error>;
-  public function CreateEventBus(CreateEventBusRequest) Awaitable<Errors\Result<CreateEventBusResponse>>;
-  public function CreatePartnerEventSource(CreatePartnerEventSourceRequest) Awaitable<Errors\Result<CreatePartnerEventSourceResponse>>;
-  public function DeactivateEventSource(DeactivateEventSourceRequest) Awaitable<Errors\Error>;
-  public function DeleteEventBus(DeleteEventBusRequest) Awaitable<Errors\Error>;
-  public function DeletePartnerEventSource(DeletePartnerEventSourceRequest) Awaitable<Errors\Error>;
-  public function DeleteRule(DeleteRuleRequest) Awaitable<Errors\Error>;
-  public function DescribeEventBus(DescribeEventBusRequest) Awaitable<Errors\Result<DescribeEventBusResponse>>;
-  public function DescribeEventSource(DescribeEventSourceRequest) Awaitable<Errors\Result<DescribeEventSourceResponse>>;
-  public function DescribePartnerEventSource(DescribePartnerEventSourceRequest) Awaitable<Errors\Result<DescribePartnerEventSourceResponse>>;
-  public function DescribeRule(DescribeRuleRequest) Awaitable<Errors\Result<DescribeRuleResponse>>;
-  public function DisableRule(DisableRuleRequest) Awaitable<Errors\Error>;
-  public function EnableRule(EnableRuleRequest) Awaitable<Errors\Error>;
-  public function ListEventBuses(ListEventBusesRequest) Awaitable<Errors\Result<ListEventBusesResponse>>;
-  public function ListEventSources(ListEventSourcesRequest) Awaitable<Errors\Result<ListEventSourcesResponse>>;
-  public function ListPartnerEventSourceAccounts(ListPartnerEventSourceAccountsRequest) Awaitable<Errors\Result<ListPartnerEventSourceAccountsResponse>>;
-  public function ListPartnerEventSources(ListPartnerEventSourcesRequest) Awaitable<Errors\Result<ListPartnerEventSourcesResponse>>;
-  public function ListRuleNamesByTarget(ListRuleNamesByTargetRequest) Awaitable<Errors\Result<ListRuleNamesByTargetResponse>>;
-  public function ListRules(ListRulesRequest) Awaitable<Errors\Result<ListRulesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListTargetsByRule(ListTargetsByRuleRequest) Awaitable<Errors\Result<ListTargetsByRuleResponse>>;
-  public function PutEvents(PutEventsRequest) Awaitable<Errors\Result<PutEventsResponse>>;
-  public function PutPartnerEvents(PutPartnerEventsRequest) Awaitable<Errors\Result<PutPartnerEventsResponse>>;
-  public function PutPermission(PutPermissionRequest) Awaitable<Errors\Error>;
-  public function PutRule(PutRuleRequest) Awaitable<Errors\Result<PutRuleResponse>>;
-  public function PutTargets(PutTargetsRequest) Awaitable<Errors\Result<PutTargetsResponse>>;
-  public function RemovePermission(RemovePermissionRequest) Awaitable<Errors\Error>;
-  public function RemoveTargets(RemoveTargetsRequest) Awaitable<Errors\Result<RemoveTargetsResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function TestEventPattern(TestEventPatternRequest) Awaitable<Errors\Result<TestEventPatternResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function ActivateEventSource(ActivateEventSourceRequest): Awaitable<Errors\Error>;
+  public function CreateEventBus(CreateEventBusRequest): Awaitable<Errors\Result<CreateEventBusResponse>>;
+  public function CreatePartnerEventSource(CreatePartnerEventSourceRequest): Awaitable<Errors\Result<CreatePartnerEventSourceResponse>>;
+  public function DeactivateEventSource(DeactivateEventSourceRequest): Awaitable<Errors\Error>;
+  public function DeleteEventBus(DeleteEventBusRequest): Awaitable<Errors\Error>;
+  public function DeletePartnerEventSource(DeletePartnerEventSourceRequest): Awaitable<Errors\Error>;
+  public function DeleteRule(DeleteRuleRequest): Awaitable<Errors\Error>;
+  public function DescribeEventBus(DescribeEventBusRequest): Awaitable<Errors\Result<DescribeEventBusResponse>>;
+  public function DescribeEventSource(DescribeEventSourceRequest): Awaitable<Errors\Result<DescribeEventSourceResponse>>;
+  public function DescribePartnerEventSource(DescribePartnerEventSourceRequest): Awaitable<Errors\Result<DescribePartnerEventSourceResponse>>;
+  public function DescribeRule(DescribeRuleRequest): Awaitable<Errors\Result<DescribeRuleResponse>>;
+  public function DisableRule(DisableRuleRequest): Awaitable<Errors\Error>;
+  public function EnableRule(EnableRuleRequest): Awaitable<Errors\Error>;
+  public function ListEventBuses(ListEventBusesRequest): Awaitable<Errors\Result<ListEventBusesResponse>>;
+  public function ListEventSources(ListEventSourcesRequest): Awaitable<Errors\Result<ListEventSourcesResponse>>;
+  public function ListPartnerEventSourceAccounts(ListPartnerEventSourceAccountsRequest): Awaitable<Errors\Result<ListPartnerEventSourceAccountsResponse>>;
+  public function ListPartnerEventSources(ListPartnerEventSourcesRequest): Awaitable<Errors\Result<ListPartnerEventSourcesResponse>>;
+  public function ListRuleNamesByTarget(ListRuleNamesByTargetRequest): Awaitable<Errors\Result<ListRuleNamesByTargetResponse>>;
+  public function ListRules(ListRulesRequest): Awaitable<Errors\Result<ListRulesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTargetsByRule(ListTargetsByRuleRequest): Awaitable<Errors\Result<ListTargetsByRuleResponse>>;
+  public function PutEvents(PutEventsRequest): Awaitable<Errors\Result<PutEventsResponse>>;
+  public function PutPartnerEvents(PutPartnerEventsRequest): Awaitable<Errors\Result<PutPartnerEventsResponse>>;
+  public function PutPermission(PutPermissionRequest): Awaitable<Errors\Error>;
+  public function PutRule(PutRuleRequest): Awaitable<Errors\Result<PutRuleResponse>>;
+  public function PutTargets(PutTargetsRequest): Awaitable<Errors\Result<PutTargetsResponse>>;
+  public function RemovePermission(RemovePermissionRequest): Awaitable<Errors\Error>;
+  public function RemoveTargets(RemoveTargetsRequest): Awaitable<Errors\Result<RemoveTargetsResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function TestEventPattern(TestEventPatternRequest): Awaitable<Errors\Result<TestEventPatternResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class AccountId {

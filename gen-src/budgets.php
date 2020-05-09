@@ -2,20 +2,20 @@
 namespace slack\aws\budgets;
 
 interface Budgets {
-  public function CreateBudget(CreateBudgetRequest) Awaitable<Errors\Result<CreateBudgetResponse>>;
-  public function CreateNotification(CreateNotificationRequest) Awaitable<Errors\Result<CreateNotificationResponse>>;
-  public function CreateSubscriber(CreateSubscriberRequest) Awaitable<Errors\Result<CreateSubscriberResponse>>;
-  public function DeleteBudget(DeleteBudgetRequest) Awaitable<Errors\Result<DeleteBudgetResponse>>;
-  public function DeleteNotification(DeleteNotificationRequest) Awaitable<Errors\Result<DeleteNotificationResponse>>;
-  public function DeleteSubscriber(DeleteSubscriberRequest) Awaitable<Errors\Result<DeleteSubscriberResponse>>;
-  public function DescribeBudget(DescribeBudgetRequest) Awaitable<Errors\Result<DescribeBudgetResponse>>;
-  public function DescribeBudgetPerformanceHistory(DescribeBudgetPerformanceHistoryRequest) Awaitable<Errors\Result<DescribeBudgetPerformanceHistoryResponse>>;
-  public function DescribeBudgets(DescribeBudgetsRequest) Awaitable<Errors\Result<DescribeBudgetsResponse>>;
-  public function DescribeNotificationsForBudget(DescribeNotificationsForBudgetRequest) Awaitable<Errors\Result<DescribeNotificationsForBudgetResponse>>;
-  public function DescribeSubscribersForNotification(DescribeSubscribersForNotificationRequest) Awaitable<Errors\Result<DescribeSubscribersForNotificationResponse>>;
-  public function UpdateBudget(UpdateBudgetRequest) Awaitable<Errors\Result<UpdateBudgetResponse>>;
-  public function UpdateNotification(UpdateNotificationRequest) Awaitable<Errors\Result<UpdateNotificationResponse>>;
-  public function UpdateSubscriber(UpdateSubscriberRequest) Awaitable<Errors\Result<UpdateSubscriberResponse>>;
+  public function CreateBudget(CreateBudgetRequest): Awaitable<Errors\Result<CreateBudgetResponse>>;
+  public function CreateNotification(CreateNotificationRequest): Awaitable<Errors\Result<CreateNotificationResponse>>;
+  public function CreateSubscriber(CreateSubscriberRequest): Awaitable<Errors\Result<CreateSubscriberResponse>>;
+  public function DeleteBudget(DeleteBudgetRequest): Awaitable<Errors\Result<DeleteBudgetResponse>>;
+  public function DeleteNotification(DeleteNotificationRequest): Awaitable<Errors\Result<DeleteNotificationResponse>>;
+  public function DeleteSubscriber(DeleteSubscriberRequest): Awaitable<Errors\Result<DeleteSubscriberResponse>>;
+  public function DescribeBudget(DescribeBudgetRequest): Awaitable<Errors\Result<DescribeBudgetResponse>>;
+  public function DescribeBudgetPerformanceHistory(DescribeBudgetPerformanceHistoryRequest): Awaitable<Errors\Result<DescribeBudgetPerformanceHistoryResponse>>;
+  public function DescribeBudgets(DescribeBudgetsRequest): Awaitable<Errors\Result<DescribeBudgetsResponse>>;
+  public function DescribeNotificationsForBudget(DescribeNotificationsForBudgetRequest): Awaitable<Errors\Result<DescribeNotificationsForBudgetResponse>>;
+  public function DescribeSubscribersForNotification(DescribeSubscribersForNotificationRequest): Awaitable<Errors\Result<DescribeSubscribersForNotificationResponse>>;
+  public function UpdateBudget(UpdateBudgetRequest): Awaitable<Errors\Result<UpdateBudgetResponse>>;
+  public function UpdateNotification(UpdateNotificationRequest): Awaitable<Errors\Result<UpdateNotificationResponse>>;
+  public function UpdateSubscriber(UpdateSubscriberRequest): Awaitable<Errors\Result<UpdateSubscriberResponse>>;
 }
 
 class AccessDeniedException {

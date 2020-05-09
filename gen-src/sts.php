@@ -2,14 +2,14 @@
 namespace slack\aws\sts;
 
 interface STS {
-  public function AssumeRole(AssumeRoleRequest) Awaitable<Errors\Result<AssumeRoleResponse>>;
-  public function AssumeRoleWithSAML(AssumeRoleWithSAMLRequest) Awaitable<Errors\Result<AssumeRoleWithSAMLResponse>>;
-  public function AssumeRoleWithWebIdentity(AssumeRoleWithWebIdentityRequest) Awaitable<Errors\Result<AssumeRoleWithWebIdentityResponse>>;
-  public function DecodeAuthorizationMessage(DecodeAuthorizationMessageRequest) Awaitable<Errors\Result<DecodeAuthorizationMessageResponse>>;
-  public function GetAccessKeyInfo(GetAccessKeyInfoRequest) Awaitable<Errors\Result<GetAccessKeyInfoResponse>>;
-  public function GetCallerIdentity(GetCallerIdentityRequest) Awaitable<Errors\Result<GetCallerIdentityResponse>>;
-  public function GetFederationToken(GetFederationTokenRequest) Awaitable<Errors\Result<GetFederationTokenResponse>>;
-  public function GetSessionToken(GetSessionTokenRequest) Awaitable<Errors\Result<GetSessionTokenResponse>>;
+  public function AssumeRole(AssumeRoleRequest): Awaitable<Errors\Result<AssumeRoleResponse>>;
+  public function AssumeRoleWithSAML(AssumeRoleWithSAMLRequest): Awaitable<Errors\Result<AssumeRoleWithSAMLResponse>>;
+  public function AssumeRoleWithWebIdentity(AssumeRoleWithWebIdentityRequest): Awaitable<Errors\Result<AssumeRoleWithWebIdentityResponse>>;
+  public function DecodeAuthorizationMessage(DecodeAuthorizationMessageRequest): Awaitable<Errors\Result<DecodeAuthorizationMessageResponse>>;
+  public function GetAccessKeyInfo(GetAccessKeyInfoRequest): Awaitable<Errors\Result<GetAccessKeyInfoResponse>>;
+  public function GetCallerIdentity(GetCallerIdentityRequest): Awaitable<Errors\Result<GetCallerIdentityResponse>>;
+  public function GetFederationToken(GetFederationTokenRequest): Awaitable<Errors\Result<GetFederationTokenResponse>>;
+  public function GetSessionToken(GetSessionTokenRequest): Awaitable<Errors\Result<GetSessionTokenResponse>>;
 }
 
 class AssumeRoleRequest {

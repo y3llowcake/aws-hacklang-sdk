@@ -2,35 +2,35 @@
 namespace slack\aws\schemas;
 
 interface schemas {
-  public function CreateDiscoverer(CreateDiscovererRequest) Awaitable<Errors\Result<CreateDiscovererResponse>>;
-  public function CreateRegistry(CreateRegistryRequest) Awaitable<Errors\Result<CreateRegistryResponse>>;
-  public function CreateSchema(CreateSchemaRequest) Awaitable<Errors\Result<CreateSchemaResponse>>;
-  public function DeleteDiscoverer(DeleteDiscovererRequest) Awaitable<Errors\Error>;
-  public function DeleteRegistry(DeleteRegistryRequest) Awaitable<Errors\Error>;
-  public function DeleteSchema(DeleteSchemaRequest) Awaitable<Errors\Error>;
-  public function DeleteSchemaVersion(DeleteSchemaVersionRequest) Awaitable<Errors\Error>;
-  public function DescribeCodeBinding(DescribeCodeBindingRequest) Awaitable<Errors\Result<DescribeCodeBindingResponse>>;
-  public function DescribeDiscoverer(DescribeDiscovererRequest) Awaitable<Errors\Result<DescribeDiscovererResponse>>;
-  public function DescribeRegistry(DescribeRegistryRequest) Awaitable<Errors\Result<DescribeRegistryResponse>>;
-  public function DescribeSchema(DescribeSchemaRequest) Awaitable<Errors\Result<DescribeSchemaResponse>>;
-  public function GetCodeBindingSource(GetCodeBindingSourceRequest) Awaitable<Errors\Result<GetCodeBindingSourceResponse>>;
-  public function GetDiscoveredSchema(GetDiscoveredSchemaRequest) Awaitable<Errors\Result<GetDiscoveredSchemaResponse>>;
-  public function ListDiscoverers(ListDiscoverersRequest) Awaitable<Errors\Result<ListDiscoverersResponse>>;
-  public function ListRegistries(ListRegistriesRequest) Awaitable<Errors\Result<ListRegistriesResponse>>;
-  public function ListSchemaVersions(ListSchemaVersionsRequest) Awaitable<Errors\Result<ListSchemaVersionsResponse>>;
-  public function ListSchemas(ListSchemasRequest) Awaitable<Errors\Result<ListSchemasResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function LockServiceLinkedRole(LockServiceLinkedRoleRequest) Awaitable<Errors\Result<LockServiceLinkedRoleResponse>>;
-  public function PutCodeBinding(PutCodeBindingRequest) Awaitable<Errors\Result<PutCodeBindingResponse>>;
-  public function SearchSchemas(SearchSchemasRequest) Awaitable<Errors\Result<SearchSchemasResponse>>;
-  public function StartDiscoverer(StartDiscovererRequest) Awaitable<Errors\Result<StartDiscovererResponse>>;
-  public function StopDiscoverer(StopDiscovererRequest) Awaitable<Errors\Result<StopDiscovererResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UnlockServiceLinkedRole(UnlockServiceLinkedRoleRequest) Awaitable<Errors\Result<UnlockServiceLinkedRoleResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateDiscoverer(UpdateDiscovererRequest) Awaitable<Errors\Result<UpdateDiscovererResponse>>;
-  public function UpdateRegistry(UpdateRegistryRequest) Awaitable<Errors\Result<UpdateRegistryResponse>>;
-  public function UpdateSchema(UpdateSchemaRequest) Awaitable<Errors\Result<UpdateSchemaResponse>>;
+  public function CreateDiscoverer(CreateDiscovererRequest): Awaitable<Errors\Result<CreateDiscovererResponse>>;
+  public function CreateRegistry(CreateRegistryRequest): Awaitable<Errors\Result<CreateRegistryResponse>>;
+  public function CreateSchema(CreateSchemaRequest): Awaitable<Errors\Result<CreateSchemaResponse>>;
+  public function DeleteDiscoverer(DeleteDiscovererRequest): Awaitable<Errors\Error>;
+  public function DeleteRegistry(DeleteRegistryRequest): Awaitable<Errors\Error>;
+  public function DeleteSchema(DeleteSchemaRequest): Awaitable<Errors\Error>;
+  public function DeleteSchemaVersion(DeleteSchemaVersionRequest): Awaitable<Errors\Error>;
+  public function DescribeCodeBinding(DescribeCodeBindingRequest): Awaitable<Errors\Result<DescribeCodeBindingResponse>>;
+  public function DescribeDiscoverer(DescribeDiscovererRequest): Awaitable<Errors\Result<DescribeDiscovererResponse>>;
+  public function DescribeRegistry(DescribeRegistryRequest): Awaitable<Errors\Result<DescribeRegistryResponse>>;
+  public function DescribeSchema(DescribeSchemaRequest): Awaitable<Errors\Result<DescribeSchemaResponse>>;
+  public function GetCodeBindingSource(GetCodeBindingSourceRequest): Awaitable<Errors\Result<GetCodeBindingSourceResponse>>;
+  public function GetDiscoveredSchema(GetDiscoveredSchemaRequest): Awaitable<Errors\Result<GetDiscoveredSchemaResponse>>;
+  public function ListDiscoverers(ListDiscoverersRequest): Awaitable<Errors\Result<ListDiscoverersResponse>>;
+  public function ListRegistries(ListRegistriesRequest): Awaitable<Errors\Result<ListRegistriesResponse>>;
+  public function ListSchemaVersions(ListSchemaVersionsRequest): Awaitable<Errors\Result<ListSchemaVersionsResponse>>;
+  public function ListSchemas(ListSchemasRequest): Awaitable<Errors\Result<ListSchemasResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function LockServiceLinkedRole(LockServiceLinkedRoleRequest): Awaitable<Errors\Result<LockServiceLinkedRoleResponse>>;
+  public function PutCodeBinding(PutCodeBindingRequest): Awaitable<Errors\Result<PutCodeBindingResponse>>;
+  public function SearchSchemas(SearchSchemasRequest): Awaitable<Errors\Result<SearchSchemasResponse>>;
+  public function StartDiscoverer(StartDiscovererRequest): Awaitable<Errors\Result<StartDiscovererResponse>>;
+  public function StopDiscoverer(StopDiscovererRequest): Awaitable<Errors\Result<StopDiscovererResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UnlockServiceLinkedRole(UnlockServiceLinkedRoleRequest): Awaitable<Errors\Result<UnlockServiceLinkedRoleResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateDiscoverer(UpdateDiscovererRequest): Awaitable<Errors\Result<UpdateDiscovererResponse>>;
+  public function UpdateRegistry(UpdateRegistryRequest): Awaitable<Errors\Result<UpdateRegistryResponse>>;
+  public function UpdateSchema(UpdateSchemaRequest): Awaitable<Errors\Result<UpdateSchemaResponse>>;
 }
 
 class BadRequestException {

@@ -2,19 +2,19 @@
 namespace slack\aws\health;
 
 interface Health {
-  public function DescribeAffectedAccountsForOrganization(DescribeAffectedAccountsForOrganizationRequest) Awaitable<Errors\Result<DescribeAffectedAccountsForOrganizationResponse>>;
-  public function DescribeAffectedEntities(DescribeAffectedEntitiesRequest) Awaitable<Errors\Result<DescribeAffectedEntitiesResponse>>;
-  public function DescribeAffectedEntitiesForOrganization(DescribeAffectedEntitiesForOrganizationRequest) Awaitable<Errors\Result<DescribeAffectedEntitiesForOrganizationResponse>>;
-  public function DescribeEntityAggregates(DescribeEntityAggregatesRequest) Awaitable<Errors\Result<DescribeEntityAggregatesResponse>>;
-  public function DescribeEventAggregates(DescribeEventAggregatesRequest) Awaitable<Errors\Result<DescribeEventAggregatesResponse>>;
-  public function DescribeEventDetails(DescribeEventDetailsRequest) Awaitable<Errors\Result<DescribeEventDetailsResponse>>;
-  public function DescribeEventDetailsForOrganization(DescribeEventDetailsForOrganizationRequest) Awaitable<Errors\Result<DescribeEventDetailsForOrganizationResponse>>;
-  public function DescribeEventTypes(DescribeEventTypesRequest) Awaitable<Errors\Result<DescribeEventTypesResponse>>;
-  public function DescribeEvents(DescribeEventsRequest) Awaitable<Errors\Result<DescribeEventsResponse>>;
-  public function DescribeEventsForOrganization(DescribeEventsForOrganizationRequest) Awaitable<Errors\Result<DescribeEventsForOrganizationResponse>>;
-  public function DescribeHealthServiceStatusForOrganization() Awaitable<Errors\Result<DescribeHealthServiceStatusForOrganizationResponse>>;
-  public function DisableHealthServiceAccessForOrganization() Awaitable<Errors\Error>;
-  public function EnableHealthServiceAccessForOrganization() Awaitable<Errors\Error>;
+  public function DescribeAffectedAccountsForOrganization(DescribeAffectedAccountsForOrganizationRequest): Awaitable<Errors\Result<DescribeAffectedAccountsForOrganizationResponse>>;
+  public function DescribeAffectedEntities(DescribeAffectedEntitiesRequest): Awaitable<Errors\Result<DescribeAffectedEntitiesResponse>>;
+  public function DescribeAffectedEntitiesForOrganization(DescribeAffectedEntitiesForOrganizationRequest): Awaitable<Errors\Result<DescribeAffectedEntitiesForOrganizationResponse>>;
+  public function DescribeEntityAggregates(DescribeEntityAggregatesRequest): Awaitable<Errors\Result<DescribeEntityAggregatesResponse>>;
+  public function DescribeEventAggregates(DescribeEventAggregatesRequest): Awaitable<Errors\Result<DescribeEventAggregatesResponse>>;
+  public function DescribeEventDetails(DescribeEventDetailsRequest): Awaitable<Errors\Result<DescribeEventDetailsResponse>>;
+  public function DescribeEventDetailsForOrganization(DescribeEventDetailsForOrganizationRequest): Awaitable<Errors\Result<DescribeEventDetailsForOrganizationResponse>>;
+  public function DescribeEventTypes(DescribeEventTypesRequest): Awaitable<Errors\Result<DescribeEventTypesResponse>>;
+  public function DescribeEvents(DescribeEventsRequest): Awaitable<Errors\Result<DescribeEventsResponse>>;
+  public function DescribeEventsForOrganization(DescribeEventsForOrganizationRequest): Awaitable<Errors\Result<DescribeEventsForOrganizationResponse>>;
+  public function DescribeHealthServiceStatusForOrganization(): Awaitable<Errors\Result<DescribeHealthServiceStatusForOrganizationResponse>>;
+  public function DisableHealthServiceAccessForOrganization(): Awaitable<Errors\Error>;
+  public function EnableHealthServiceAccessForOrganization(): Awaitable<Errors\Error>;
 }
 
 class AffectedEntity {

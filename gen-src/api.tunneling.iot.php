@@ -2,13 +2,13 @@
 namespace slack\aws\api.tunneling.iot;
 
 interface IoTSecureTunneling {
-  public function CloseTunnel(CloseTunnelRequest) Awaitable<Errors\Result<CloseTunnelResponse>>;
-  public function DescribeTunnel(DescribeTunnelRequest) Awaitable<Errors\Result<DescribeTunnelResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListTunnels(ListTunnelsRequest) Awaitable<Errors\Result<ListTunnelsResponse>>;
-  public function OpenTunnel(OpenTunnelRequest) Awaitable<Errors\Result<OpenTunnelResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function CloseTunnel(CloseTunnelRequest): Awaitable<Errors\Result<CloseTunnelResponse>>;
+  public function DescribeTunnel(DescribeTunnelRequest): Awaitable<Errors\Result<DescribeTunnelResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTunnels(ListTunnelsRequest): Awaitable<Errors\Result<ListTunnelsResponse>>;
+  public function OpenTunnel(OpenTunnelRequest): Awaitable<Errors\Result<OpenTunnelResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class AmazonResourceName {

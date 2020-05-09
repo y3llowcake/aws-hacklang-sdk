@@ -2,7 +2,7 @@
 namespace slack\aws\transcribestreaming;
 
 interface Transcribe Streaming {
-  public function StartStreamTranscription(StartStreamTranscriptionRequest) Awaitable<Errors\Result<StartStreamTranscriptionResponse>>;
+  public function StartStreamTranscription(StartStreamTranscriptionRequest): Awaitable<Errors\Result<StartStreamTranscriptionResponse>>;
 }
 
 class Alternative {

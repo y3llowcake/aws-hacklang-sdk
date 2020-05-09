@@ -2,10 +2,10 @@
 namespace slack\aws\codestar-connections;
 
 interface CodeStar connections {
-  public function CreateConnection(CreateConnectionInput) Awaitable<Errors\Result<CreateConnectionOutput>>;
-  public function DeleteConnection(DeleteConnectionInput) Awaitable<Errors\Result<DeleteConnectionOutput>>;
-  public function GetConnection(GetConnectionInput) Awaitable<Errors\Result<GetConnectionOutput>>;
-  public function ListConnections(ListConnectionsInput) Awaitable<Errors\Result<ListConnectionsOutput>>;
+  public function CreateConnection(CreateConnectionInput): Awaitable<Errors\Result<CreateConnectionOutput>>;
+  public function DeleteConnection(DeleteConnectionInput): Awaitable<Errors\Result<DeleteConnectionOutput>>;
+  public function GetConnection(GetConnectionInput): Awaitable<Errors\Result<GetConnectionOutput>>;
+  public function ListConnections(ListConnectionsInput): Awaitable<Errors\Result<ListConnectionsOutput>>;
 }
 
 class AccountId {

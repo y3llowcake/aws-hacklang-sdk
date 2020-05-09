@@ -2,11 +2,11 @@
 namespace slack\aws\a2i-runtime.sagemaker;
 
 interface SageMaker A2I Runtime {
-  public function DeleteHumanLoop(DeleteHumanLoopRequest) Awaitable<Errors\Result<DeleteHumanLoopResponse>>;
-  public function DescribeHumanLoop(DescribeHumanLoopRequest) Awaitable<Errors\Result<DescribeHumanLoopResponse>>;
-  public function ListHumanLoops(ListHumanLoopsRequest) Awaitable<Errors\Result<ListHumanLoopsResponse>>;
-  public function StartHumanLoop(StartHumanLoopRequest) Awaitable<Errors\Result<StartHumanLoopResponse>>;
-  public function StopHumanLoop(StopHumanLoopRequest) Awaitable<Errors\Result<StopHumanLoopResponse>>;
+  public function DeleteHumanLoop(DeleteHumanLoopRequest): Awaitable<Errors\Result<DeleteHumanLoopResponse>>;
+  public function DescribeHumanLoop(DescribeHumanLoopRequest): Awaitable<Errors\Result<DescribeHumanLoopResponse>>;
+  public function ListHumanLoops(ListHumanLoopsRequest): Awaitable<Errors\Result<ListHumanLoopsResponse>>;
+  public function StartHumanLoop(StartHumanLoopRequest): Awaitable<Errors\Result<StartHumanLoopResponse>>;
+  public function StopHumanLoop(StopHumanLoopRequest): Awaitable<Errors\Result<StopHumanLoopResponse>>;
 }
 
 class ConflictException {

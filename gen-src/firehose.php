@@ -2,18 +2,18 @@
 namespace slack\aws\firehose;
 
 interface Firehose {
-  public function CreateDeliveryStream(CreateDeliveryStreamInput) Awaitable<Errors\Result<CreateDeliveryStreamOutput>>;
-  public function DeleteDeliveryStream(DeleteDeliveryStreamInput) Awaitable<Errors\Result<DeleteDeliveryStreamOutput>>;
-  public function DescribeDeliveryStream(DescribeDeliveryStreamInput) Awaitable<Errors\Result<DescribeDeliveryStreamOutput>>;
-  public function ListDeliveryStreams(ListDeliveryStreamsInput) Awaitable<Errors\Result<ListDeliveryStreamsOutput>>;
-  public function ListTagsForDeliveryStream(ListTagsForDeliveryStreamInput) Awaitable<Errors\Result<ListTagsForDeliveryStreamOutput>>;
-  public function PutRecord(PutRecordInput) Awaitable<Errors\Result<PutRecordOutput>>;
-  public function PutRecordBatch(PutRecordBatchInput) Awaitable<Errors\Result<PutRecordBatchOutput>>;
-  public function StartDeliveryStreamEncryption(StartDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StartDeliveryStreamEncryptionOutput>>;
-  public function StopDeliveryStreamEncryption(StopDeliveryStreamEncryptionInput) Awaitable<Errors\Result<StopDeliveryStreamEncryptionOutput>>;
-  public function TagDeliveryStream(TagDeliveryStreamInput) Awaitable<Errors\Result<TagDeliveryStreamOutput>>;
-  public function UntagDeliveryStream(UntagDeliveryStreamInput) Awaitable<Errors\Result<UntagDeliveryStreamOutput>>;
-  public function UpdateDestination(UpdateDestinationInput) Awaitable<Errors\Result<UpdateDestinationOutput>>;
+  public function CreateDeliveryStream(CreateDeliveryStreamInput): Awaitable<Errors\Result<CreateDeliveryStreamOutput>>;
+  public function DeleteDeliveryStream(DeleteDeliveryStreamInput): Awaitable<Errors\Result<DeleteDeliveryStreamOutput>>;
+  public function DescribeDeliveryStream(DescribeDeliveryStreamInput): Awaitable<Errors\Result<DescribeDeliveryStreamOutput>>;
+  public function ListDeliveryStreams(ListDeliveryStreamsInput): Awaitable<Errors\Result<ListDeliveryStreamsOutput>>;
+  public function ListTagsForDeliveryStream(ListTagsForDeliveryStreamInput): Awaitable<Errors\Result<ListTagsForDeliveryStreamOutput>>;
+  public function PutRecord(PutRecordInput): Awaitable<Errors\Result<PutRecordOutput>>;
+  public function PutRecordBatch(PutRecordBatchInput): Awaitable<Errors\Result<PutRecordBatchOutput>>;
+  public function StartDeliveryStreamEncryption(StartDeliveryStreamEncryptionInput): Awaitable<Errors\Result<StartDeliveryStreamEncryptionOutput>>;
+  public function StopDeliveryStreamEncryption(StopDeliveryStreamEncryptionInput): Awaitable<Errors\Result<StopDeliveryStreamEncryptionOutput>>;
+  public function TagDeliveryStream(TagDeliveryStreamInput): Awaitable<Errors\Result<TagDeliveryStreamOutput>>;
+  public function UntagDeliveryStream(UntagDeliveryStreamInput): Awaitable<Errors\Result<UntagDeliveryStreamOutput>>;
+  public function UpdateDestination(UpdateDestinationInput): Awaitable<Errors\Result<UpdateDestinationOutput>>;
 }
 
 class AWSKMSKeyARN {

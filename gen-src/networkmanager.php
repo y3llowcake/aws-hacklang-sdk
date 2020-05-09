@@ -2,34 +2,34 @@
 namespace slack\aws\networkmanager;
 
 interface NetworkManager {
-  public function AssociateCustomerGateway(AssociateCustomerGatewayRequest) Awaitable<Errors\Result<AssociateCustomerGatewayResponse>>;
-  public function AssociateLink(AssociateLinkRequest) Awaitable<Errors\Result<AssociateLinkResponse>>;
-  public function CreateDevice(CreateDeviceRequest) Awaitable<Errors\Result<CreateDeviceResponse>>;
-  public function CreateGlobalNetwork(CreateGlobalNetworkRequest) Awaitable<Errors\Result<CreateGlobalNetworkResponse>>;
-  public function CreateLink(CreateLinkRequest) Awaitable<Errors\Result<CreateLinkResponse>>;
-  public function CreateSite(CreateSiteRequest) Awaitable<Errors\Result<CreateSiteResponse>>;
-  public function DeleteDevice(DeleteDeviceRequest) Awaitable<Errors\Result<DeleteDeviceResponse>>;
-  public function DeleteGlobalNetwork(DeleteGlobalNetworkRequest) Awaitable<Errors\Result<DeleteGlobalNetworkResponse>>;
-  public function DeleteLink(DeleteLinkRequest) Awaitable<Errors\Result<DeleteLinkResponse>>;
-  public function DeleteSite(DeleteSiteRequest) Awaitable<Errors\Result<DeleteSiteResponse>>;
-  public function DeregisterTransitGateway(DeregisterTransitGatewayRequest) Awaitable<Errors\Result<DeregisterTransitGatewayResponse>>;
-  public function DescribeGlobalNetworks(DescribeGlobalNetworksRequest) Awaitable<Errors\Result<DescribeGlobalNetworksResponse>>;
-  public function DisassociateCustomerGateway(DisassociateCustomerGatewayRequest) Awaitable<Errors\Result<DisassociateCustomerGatewayResponse>>;
-  public function DisassociateLink(DisassociateLinkRequest) Awaitable<Errors\Result<DisassociateLinkResponse>>;
-  public function GetCustomerGatewayAssociations(GetCustomerGatewayAssociationsRequest) Awaitable<Errors\Result<GetCustomerGatewayAssociationsResponse>>;
-  public function GetDevices(GetDevicesRequest) Awaitable<Errors\Result<GetDevicesResponse>>;
-  public function GetLinkAssociations(GetLinkAssociationsRequest) Awaitable<Errors\Result<GetLinkAssociationsResponse>>;
-  public function GetLinks(GetLinksRequest) Awaitable<Errors\Result<GetLinksResponse>>;
-  public function GetSites(GetSitesRequest) Awaitable<Errors\Result<GetSitesResponse>>;
-  public function GetTransitGatewayRegistrations(GetTransitGatewayRegistrationsRequest) Awaitable<Errors\Result<GetTransitGatewayRegistrationsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function RegisterTransitGateway(RegisterTransitGatewayRequest) Awaitable<Errors\Result<RegisterTransitGatewayResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateDevice(UpdateDeviceRequest) Awaitable<Errors\Result<UpdateDeviceResponse>>;
-  public function UpdateGlobalNetwork(UpdateGlobalNetworkRequest) Awaitable<Errors\Result<UpdateGlobalNetworkResponse>>;
-  public function UpdateLink(UpdateLinkRequest) Awaitable<Errors\Result<UpdateLinkResponse>>;
-  public function UpdateSite(UpdateSiteRequest) Awaitable<Errors\Result<UpdateSiteResponse>>;
+  public function AssociateCustomerGateway(AssociateCustomerGatewayRequest): Awaitable<Errors\Result<AssociateCustomerGatewayResponse>>;
+  public function AssociateLink(AssociateLinkRequest): Awaitable<Errors\Result<AssociateLinkResponse>>;
+  public function CreateDevice(CreateDeviceRequest): Awaitable<Errors\Result<CreateDeviceResponse>>;
+  public function CreateGlobalNetwork(CreateGlobalNetworkRequest): Awaitable<Errors\Result<CreateGlobalNetworkResponse>>;
+  public function CreateLink(CreateLinkRequest): Awaitable<Errors\Result<CreateLinkResponse>>;
+  public function CreateSite(CreateSiteRequest): Awaitable<Errors\Result<CreateSiteResponse>>;
+  public function DeleteDevice(DeleteDeviceRequest): Awaitable<Errors\Result<DeleteDeviceResponse>>;
+  public function DeleteGlobalNetwork(DeleteGlobalNetworkRequest): Awaitable<Errors\Result<DeleteGlobalNetworkResponse>>;
+  public function DeleteLink(DeleteLinkRequest): Awaitable<Errors\Result<DeleteLinkResponse>>;
+  public function DeleteSite(DeleteSiteRequest): Awaitable<Errors\Result<DeleteSiteResponse>>;
+  public function DeregisterTransitGateway(DeregisterTransitGatewayRequest): Awaitable<Errors\Result<DeregisterTransitGatewayResponse>>;
+  public function DescribeGlobalNetworks(DescribeGlobalNetworksRequest): Awaitable<Errors\Result<DescribeGlobalNetworksResponse>>;
+  public function DisassociateCustomerGateway(DisassociateCustomerGatewayRequest): Awaitable<Errors\Result<DisassociateCustomerGatewayResponse>>;
+  public function DisassociateLink(DisassociateLinkRequest): Awaitable<Errors\Result<DisassociateLinkResponse>>;
+  public function GetCustomerGatewayAssociations(GetCustomerGatewayAssociationsRequest): Awaitable<Errors\Result<GetCustomerGatewayAssociationsResponse>>;
+  public function GetDevices(GetDevicesRequest): Awaitable<Errors\Result<GetDevicesResponse>>;
+  public function GetLinkAssociations(GetLinkAssociationsRequest): Awaitable<Errors\Result<GetLinkAssociationsResponse>>;
+  public function GetLinks(GetLinksRequest): Awaitable<Errors\Result<GetLinksResponse>>;
+  public function GetSites(GetSitesRequest): Awaitable<Errors\Result<GetSitesResponse>>;
+  public function GetTransitGatewayRegistrations(GetTransitGatewayRegistrationsRequest): Awaitable<Errors\Result<GetTransitGatewayRegistrationsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function RegisterTransitGateway(RegisterTransitGatewayRequest): Awaitable<Errors\Result<RegisterTransitGatewayResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateDevice(UpdateDeviceRequest): Awaitable<Errors\Result<UpdateDeviceResponse>>;
+  public function UpdateGlobalNetwork(UpdateGlobalNetworkRequest): Awaitable<Errors\Result<UpdateGlobalNetworkResponse>>;
+  public function UpdateLink(UpdateLinkRequest): Awaitable<Errors\Result<UpdateLinkResponse>>;
+  public function UpdateSite(UpdateSiteRequest): Awaitable<Errors\Result<UpdateSiteResponse>>;
 }
 
 class AccessDeniedException {

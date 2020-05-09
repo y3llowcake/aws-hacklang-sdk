@@ -2,19 +2,19 @@
 namespace slack\aws\comprehendmedical;
 
 interface ComprehendMedical {
-  public function DescribeEntitiesDetectionV2Job(DescribeEntitiesDetectionV2JobRequest) Awaitable<Errors\Result<DescribeEntitiesDetectionV2JobResponse>>;
-  public function DescribePHIDetectionJob(DescribePHIDetectionJobRequest) Awaitable<Errors\Result<DescribePHIDetectionJobResponse>>;
-  public function DetectEntities(DetectEntitiesRequest) Awaitable<Errors\Result<DetectEntitiesResponse>>;
-  public function DetectEntitiesV2(DetectEntitiesV2Request) Awaitable<Errors\Result<DetectEntitiesV2Response>>;
-  public function DetectPHI(DetectPHIRequest) Awaitable<Errors\Result<DetectPHIResponse>>;
-  public function InferICD10CM(InferICD10CMRequest) Awaitable<Errors\Result<InferICD10CMResponse>>;
-  public function InferRxNorm(InferRxNormRequest) Awaitable<Errors\Result<InferRxNormResponse>>;
-  public function ListEntitiesDetectionV2Jobs(ListEntitiesDetectionV2JobsRequest) Awaitable<Errors\Result<ListEntitiesDetectionV2JobsResponse>>;
-  public function ListPHIDetectionJobs(ListPHIDetectionJobsRequest) Awaitable<Errors\Result<ListPHIDetectionJobsResponse>>;
-  public function StartEntitiesDetectionV2Job(StartEntitiesDetectionV2JobRequest) Awaitable<Errors\Result<StartEntitiesDetectionV2JobResponse>>;
-  public function StartPHIDetectionJob(StartPHIDetectionJobRequest) Awaitable<Errors\Result<StartPHIDetectionJobResponse>>;
-  public function StopEntitiesDetectionV2Job(StopEntitiesDetectionV2JobRequest) Awaitable<Errors\Result<StopEntitiesDetectionV2JobResponse>>;
-  public function StopPHIDetectionJob(StopPHIDetectionJobRequest) Awaitable<Errors\Result<StopPHIDetectionJobResponse>>;
+  public function DescribeEntitiesDetectionV2Job(DescribeEntitiesDetectionV2JobRequest): Awaitable<Errors\Result<DescribeEntitiesDetectionV2JobResponse>>;
+  public function DescribePHIDetectionJob(DescribePHIDetectionJobRequest): Awaitable<Errors\Result<DescribePHIDetectionJobResponse>>;
+  public function DetectEntities(DetectEntitiesRequest): Awaitable<Errors\Result<DetectEntitiesResponse>>;
+  public function DetectEntitiesV2(DetectEntitiesV2Request): Awaitable<Errors\Result<DetectEntitiesV2Response>>;
+  public function DetectPHI(DetectPHIRequest): Awaitable<Errors\Result<DetectPHIResponse>>;
+  public function InferICD10CM(InferICD10CMRequest): Awaitable<Errors\Result<InferICD10CMResponse>>;
+  public function InferRxNorm(InferRxNormRequest): Awaitable<Errors\Result<InferRxNormResponse>>;
+  public function ListEntitiesDetectionV2Jobs(ListEntitiesDetectionV2JobsRequest): Awaitable<Errors\Result<ListEntitiesDetectionV2JobsResponse>>;
+  public function ListPHIDetectionJobs(ListPHIDetectionJobsRequest): Awaitable<Errors\Result<ListPHIDetectionJobsResponse>>;
+  public function StartEntitiesDetectionV2Job(StartEntitiesDetectionV2JobRequest): Awaitable<Errors\Result<StartEntitiesDetectionV2JobResponse>>;
+  public function StartPHIDetectionJob(StartPHIDetectionJobRequest): Awaitable<Errors\Result<StartPHIDetectionJobResponse>>;
+  public function StopEntitiesDetectionV2Job(StopEntitiesDetectionV2JobRequest): Awaitable<Errors\Result<StopEntitiesDetectionV2JobResponse>>;
+  public function StopPHIDetectionJob(StopPHIDetectionJobRequest): Awaitable<Errors\Result<StopPHIDetectionJobResponse>>;
 }
 
 class AnyLengthString {

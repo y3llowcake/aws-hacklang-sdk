@@ -2,25 +2,25 @@
 namespace slack\aws\datapipeline;
 
 interface  {
-  public function ActivatePipeline(ActivatePipelineInput) Awaitable<Errors\Result<ActivatePipelineOutput>>;
-  public function AddTags(AddTagsInput) Awaitable<Errors\Result<AddTagsOutput>>;
-  public function CreatePipeline(CreatePipelineInput) Awaitable<Errors\Result<CreatePipelineOutput>>;
-  public function DeactivatePipeline(DeactivatePipelineInput) Awaitable<Errors\Result<DeactivatePipelineOutput>>;
-  public function DeletePipeline(DeletePipelineInput) Awaitable<Errors\Error>;
-  public function DescribeObjects(DescribeObjectsInput) Awaitable<Errors\Result<DescribeObjectsOutput>>;
-  public function DescribePipelines(DescribePipelinesInput) Awaitable<Errors\Result<DescribePipelinesOutput>>;
-  public function EvaluateExpression(EvaluateExpressionInput) Awaitable<Errors\Result<EvaluateExpressionOutput>>;
-  public function GetPipelineDefinition(GetPipelineDefinitionInput) Awaitable<Errors\Result<GetPipelineDefinitionOutput>>;
-  public function ListPipelines(ListPipelinesInput) Awaitable<Errors\Result<ListPipelinesOutput>>;
-  public function PollForTask(PollForTaskInput) Awaitable<Errors\Result<PollForTaskOutput>>;
-  public function PutPipelineDefinition(PutPipelineDefinitionInput) Awaitable<Errors\Result<PutPipelineDefinitionOutput>>;
-  public function QueryObjects(QueryObjectsInput) Awaitable<Errors\Result<QueryObjectsOutput>>;
-  public function RemoveTags(RemoveTagsInput) Awaitable<Errors\Result<RemoveTagsOutput>>;
-  public function ReportTaskProgress(ReportTaskProgressInput) Awaitable<Errors\Result<ReportTaskProgressOutput>>;
-  public function ReportTaskRunnerHeartbeat(ReportTaskRunnerHeartbeatInput) Awaitable<Errors\Result<ReportTaskRunnerHeartbeatOutput>>;
-  public function SetStatus(SetStatusInput) Awaitable<Errors\Error>;
-  public function SetTaskStatus(SetTaskStatusInput) Awaitable<Errors\Result<SetTaskStatusOutput>>;
-  public function ValidatePipelineDefinition(ValidatePipelineDefinitionInput) Awaitable<Errors\Result<ValidatePipelineDefinitionOutput>>;
+  public function ActivatePipeline(ActivatePipelineInput): Awaitable<Errors\Result<ActivatePipelineOutput>>;
+  public function AddTags(AddTagsInput): Awaitable<Errors\Result<AddTagsOutput>>;
+  public function CreatePipeline(CreatePipelineInput): Awaitable<Errors\Result<CreatePipelineOutput>>;
+  public function DeactivatePipeline(DeactivatePipelineInput): Awaitable<Errors\Result<DeactivatePipelineOutput>>;
+  public function DeletePipeline(DeletePipelineInput): Awaitable<Errors\Error>;
+  public function DescribeObjects(DescribeObjectsInput): Awaitable<Errors\Result<DescribeObjectsOutput>>;
+  public function DescribePipelines(DescribePipelinesInput): Awaitable<Errors\Result<DescribePipelinesOutput>>;
+  public function EvaluateExpression(EvaluateExpressionInput): Awaitable<Errors\Result<EvaluateExpressionOutput>>;
+  public function GetPipelineDefinition(GetPipelineDefinitionInput): Awaitable<Errors\Result<GetPipelineDefinitionOutput>>;
+  public function ListPipelines(ListPipelinesInput): Awaitable<Errors\Result<ListPipelinesOutput>>;
+  public function PollForTask(PollForTaskInput): Awaitable<Errors\Result<PollForTaskOutput>>;
+  public function PutPipelineDefinition(PutPipelineDefinitionInput): Awaitable<Errors\Result<PutPipelineDefinitionOutput>>;
+  public function QueryObjects(QueryObjectsInput): Awaitable<Errors\Result<QueryObjectsOutput>>;
+  public function RemoveTags(RemoveTagsInput): Awaitable<Errors\Result<RemoveTagsOutput>>;
+  public function ReportTaskProgress(ReportTaskProgressInput): Awaitable<Errors\Result<ReportTaskProgressOutput>>;
+  public function ReportTaskRunnerHeartbeat(ReportTaskRunnerHeartbeatInput): Awaitable<Errors\Result<ReportTaskRunnerHeartbeatOutput>>;
+  public function SetStatus(SetStatusInput): Awaitable<Errors\Error>;
+  public function SetTaskStatus(SetTaskStatusInput): Awaitable<Errors\Result<SetTaskStatusOutput>>;
+  public function ValidatePipelineDefinition(ValidatePipelineDefinitionInput): Awaitable<Errors\Result<ValidatePipelineDefinitionOutput>>;
 }
 
 class ActivatePipelineInput {

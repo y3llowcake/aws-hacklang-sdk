@@ -2,21 +2,21 @@
 namespace slack\aws\mediapackage-vod;
 
 interface MediaPackage Vod {
-  public function CreateAsset(CreateAssetRequest) Awaitable<Errors\Result<CreateAssetResponse>>;
-  public function CreatePackagingConfiguration(CreatePackagingConfigurationRequest) Awaitable<Errors\Result<CreatePackagingConfigurationResponse>>;
-  public function CreatePackagingGroup(CreatePackagingGroupRequest) Awaitable<Errors\Result<CreatePackagingGroupResponse>>;
-  public function DeleteAsset(DeleteAssetRequest) Awaitable<Errors\Result<DeleteAssetResponse>>;
-  public function DeletePackagingConfiguration(DeletePackagingConfigurationRequest) Awaitable<Errors\Result<DeletePackagingConfigurationResponse>>;
-  public function DeletePackagingGroup(DeletePackagingGroupRequest) Awaitable<Errors\Result<DeletePackagingGroupResponse>>;
-  public function DescribeAsset(DescribeAssetRequest) Awaitable<Errors\Result<DescribeAssetResponse>>;
-  public function DescribePackagingConfiguration(DescribePackagingConfigurationRequest) Awaitable<Errors\Result<DescribePackagingConfigurationResponse>>;
-  public function DescribePackagingGroup(DescribePackagingGroupRequest) Awaitable<Errors\Result<DescribePackagingGroupResponse>>;
-  public function ListAssets(ListAssetsRequest) Awaitable<Errors\Result<ListAssetsResponse>>;
-  public function ListPackagingConfigurations(ListPackagingConfigurationsRequest) Awaitable<Errors\Result<ListPackagingConfigurationsResponse>>;
-  public function ListPackagingGroups(ListPackagingGroupsRequest) Awaitable<Errors\Result<ListPackagingGroupsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
+  public function CreateAsset(CreateAssetRequest): Awaitable<Errors\Result<CreateAssetResponse>>;
+  public function CreatePackagingConfiguration(CreatePackagingConfigurationRequest): Awaitable<Errors\Result<CreatePackagingConfigurationResponse>>;
+  public function CreatePackagingGroup(CreatePackagingGroupRequest): Awaitable<Errors\Result<CreatePackagingGroupResponse>>;
+  public function DeleteAsset(DeleteAssetRequest): Awaitable<Errors\Result<DeleteAssetResponse>>;
+  public function DeletePackagingConfiguration(DeletePackagingConfigurationRequest): Awaitable<Errors\Result<DeletePackagingConfigurationResponse>>;
+  public function DeletePackagingGroup(DeletePackagingGroupRequest): Awaitable<Errors\Result<DeletePackagingGroupResponse>>;
+  public function DescribeAsset(DescribeAssetRequest): Awaitable<Errors\Result<DescribeAssetResponse>>;
+  public function DescribePackagingConfiguration(DescribePackagingConfigurationRequest): Awaitable<Errors\Result<DescribePackagingConfigurationResponse>>;
+  public function DescribePackagingGroup(DescribePackagingGroupRequest): Awaitable<Errors\Result<DescribePackagingGroupResponse>>;
+  public function ListAssets(ListAssetsRequest): Awaitable<Errors\Result<ListAssetsResponse>>;
+  public function ListPackagingConfigurations(ListPackagingConfigurationsRequest): Awaitable<Errors\Result<ListPackagingConfigurationsResponse>>;
+  public function ListPackagingGroups(ListPackagingGroupsRequest): Awaitable<Errors\Result<ListPackagingGroupsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
 }
 
 class AdMarkers {

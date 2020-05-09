@@ -2,32 +2,32 @@
 namespace slack\aws\kinesisanalytics;
 
 interface Kinesis Analytics V2 {
-  public function AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest) Awaitable<Errors\Result<AddApplicationCloudWatchLoggingOptionResponse>>;
-  public function AddApplicationInput(AddApplicationInputRequest) Awaitable<Errors\Result<AddApplicationInputResponse>>;
-  public function AddApplicationInputProcessingConfiguration(AddApplicationInputProcessingConfigurationRequest) Awaitable<Errors\Result<AddApplicationInputProcessingConfigurationResponse>>;
-  public function AddApplicationOutput(AddApplicationOutputRequest) Awaitable<Errors\Result<AddApplicationOutputResponse>>;
-  public function AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest) Awaitable<Errors\Result<AddApplicationReferenceDataSourceResponse>>;
-  public function AddApplicationVpcConfiguration(AddApplicationVpcConfigurationRequest) Awaitable<Errors\Result<AddApplicationVpcConfigurationResponse>>;
-  public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
-  public function CreateApplicationSnapshot(CreateApplicationSnapshotRequest) Awaitable<Errors\Result<CreateApplicationSnapshotResponse>>;
-  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Result<DeleteApplicationResponse>>;
-  public function DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest) Awaitable<Errors\Result<DeleteApplicationCloudWatchLoggingOptionResponse>>;
-  public function DeleteApplicationInputProcessingConfiguration(DeleteApplicationInputProcessingConfigurationRequest) Awaitable<Errors\Result<DeleteApplicationInputProcessingConfigurationResponse>>;
-  public function DeleteApplicationOutput(DeleteApplicationOutputRequest) Awaitable<Errors\Result<DeleteApplicationOutputResponse>>;
-  public function DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest) Awaitable<Errors\Result<DeleteApplicationReferenceDataSourceResponse>>;
-  public function DeleteApplicationSnapshot(DeleteApplicationSnapshotRequest) Awaitable<Errors\Result<DeleteApplicationSnapshotResponse>>;
-  public function DeleteApplicationVpcConfiguration(DeleteApplicationVpcConfigurationRequest) Awaitable<Errors\Result<DeleteApplicationVpcConfigurationResponse>>;
-  public function DescribeApplication(DescribeApplicationRequest) Awaitable<Errors\Result<DescribeApplicationResponse>>;
-  public function DescribeApplicationSnapshot(DescribeApplicationSnapshotRequest) Awaitable<Errors\Result<DescribeApplicationSnapshotResponse>>;
-  public function DiscoverInputSchema(DiscoverInputSchemaRequest) Awaitable<Errors\Result<DiscoverInputSchemaResponse>>;
-  public function ListApplicationSnapshots(ListApplicationSnapshotsRequest) Awaitable<Errors\Result<ListApplicationSnapshotsResponse>>;
-  public function ListApplications(ListApplicationsRequest) Awaitable<Errors\Result<ListApplicationsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function StartApplication(StartApplicationRequest) Awaitable<Errors\Result<StartApplicationResponse>>;
-  public function StopApplication(StopApplicationRequest) Awaitable<Errors\Result<StopApplicationResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
+  public function AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest): Awaitable<Errors\Result<AddApplicationCloudWatchLoggingOptionResponse>>;
+  public function AddApplicationInput(AddApplicationInputRequest): Awaitable<Errors\Result<AddApplicationInputResponse>>;
+  public function AddApplicationInputProcessingConfiguration(AddApplicationInputProcessingConfigurationRequest): Awaitable<Errors\Result<AddApplicationInputProcessingConfigurationResponse>>;
+  public function AddApplicationOutput(AddApplicationOutputRequest): Awaitable<Errors\Result<AddApplicationOutputResponse>>;
+  public function AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest): Awaitable<Errors\Result<AddApplicationReferenceDataSourceResponse>>;
+  public function AddApplicationVpcConfiguration(AddApplicationVpcConfigurationRequest): Awaitable<Errors\Result<AddApplicationVpcConfigurationResponse>>;
+  public function CreateApplication(CreateApplicationRequest): Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateApplicationSnapshot(CreateApplicationSnapshotRequest): Awaitable<Errors\Result<CreateApplicationSnapshotResponse>>;
+  public function DeleteApplication(DeleteApplicationRequest): Awaitable<Errors\Result<DeleteApplicationResponse>>;
+  public function DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest): Awaitable<Errors\Result<DeleteApplicationCloudWatchLoggingOptionResponse>>;
+  public function DeleteApplicationInputProcessingConfiguration(DeleteApplicationInputProcessingConfigurationRequest): Awaitable<Errors\Result<DeleteApplicationInputProcessingConfigurationResponse>>;
+  public function DeleteApplicationOutput(DeleteApplicationOutputRequest): Awaitable<Errors\Result<DeleteApplicationOutputResponse>>;
+  public function DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest): Awaitable<Errors\Result<DeleteApplicationReferenceDataSourceResponse>>;
+  public function DeleteApplicationSnapshot(DeleteApplicationSnapshotRequest): Awaitable<Errors\Result<DeleteApplicationSnapshotResponse>>;
+  public function DeleteApplicationVpcConfiguration(DeleteApplicationVpcConfigurationRequest): Awaitable<Errors\Result<DeleteApplicationVpcConfigurationResponse>>;
+  public function DescribeApplication(DescribeApplicationRequest): Awaitable<Errors\Result<DescribeApplicationResponse>>;
+  public function DescribeApplicationSnapshot(DescribeApplicationSnapshotRequest): Awaitable<Errors\Result<DescribeApplicationSnapshotResponse>>;
+  public function DiscoverInputSchema(DiscoverInputSchemaRequest): Awaitable<Errors\Result<DiscoverInputSchemaResponse>>;
+  public function ListApplicationSnapshots(ListApplicationSnapshotsRequest): Awaitable<Errors\Result<ListApplicationSnapshotsResponse>>;
+  public function ListApplications(ListApplicationsRequest): Awaitable<Errors\Result<ListApplicationsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function StartApplication(StartApplicationRequest): Awaitable<Errors\Result<StartApplicationResponse>>;
+  public function StopApplication(StopApplicationRequest): Awaitable<Errors\Result<StopApplicationResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateApplication(UpdateApplicationRequest): Awaitable<Errors\Result<UpdateApplicationResponse>>;
 }
 
 class AddApplicationCloudWatchLoggingOptionRequest {

@@ -2,34 +2,34 @@
 namespace slack\aws\machinelearning;
 
 interface  {
-  public function AddTags(AddTagsInput) Awaitable<Errors\Result<AddTagsOutput>>;
-  public function CreateBatchPrediction(CreateBatchPredictionInput) Awaitable<Errors\Result<CreateBatchPredictionOutput>>;
-  public function CreateDataSourceFromRDS(CreateDataSourceFromRDSInput) Awaitable<Errors\Result<CreateDataSourceFromRDSOutput>>;
-  public function CreateDataSourceFromRedshift(CreateDataSourceFromRedshiftInput) Awaitable<Errors\Result<CreateDataSourceFromRedshiftOutput>>;
-  public function CreateDataSourceFromS3(CreateDataSourceFromS3Input) Awaitable<Errors\Result<CreateDataSourceFromS3Output>>;
-  public function CreateEvaluation(CreateEvaluationInput) Awaitable<Errors\Result<CreateEvaluationOutput>>;
-  public function CreateMLModel(CreateMLModelInput) Awaitable<Errors\Result<CreateMLModelOutput>>;
-  public function CreateRealtimeEndpoint(CreateRealtimeEndpointInput) Awaitable<Errors\Result<CreateRealtimeEndpointOutput>>;
-  public function DeleteBatchPrediction(DeleteBatchPredictionInput) Awaitable<Errors\Result<DeleteBatchPredictionOutput>>;
-  public function DeleteDataSource(DeleteDataSourceInput) Awaitable<Errors\Result<DeleteDataSourceOutput>>;
-  public function DeleteEvaluation(DeleteEvaluationInput) Awaitable<Errors\Result<DeleteEvaluationOutput>>;
-  public function DeleteMLModel(DeleteMLModelInput) Awaitable<Errors\Result<DeleteMLModelOutput>>;
-  public function DeleteRealtimeEndpoint(DeleteRealtimeEndpointInput) Awaitable<Errors\Result<DeleteRealtimeEndpointOutput>>;
-  public function DeleteTags(DeleteTagsInput) Awaitable<Errors\Result<DeleteTagsOutput>>;
-  public function DescribeBatchPredictions(DescribeBatchPredictionsInput) Awaitable<Errors\Result<DescribeBatchPredictionsOutput>>;
-  public function DescribeDataSources(DescribeDataSourcesInput) Awaitable<Errors\Result<DescribeDataSourcesOutput>>;
-  public function DescribeEvaluations(DescribeEvaluationsInput) Awaitable<Errors\Result<DescribeEvaluationsOutput>>;
-  public function DescribeMLModels(DescribeMLModelsInput) Awaitable<Errors\Result<DescribeMLModelsOutput>>;
-  public function DescribeTags(DescribeTagsInput) Awaitable<Errors\Result<DescribeTagsOutput>>;
-  public function GetBatchPrediction(GetBatchPredictionInput) Awaitable<Errors\Result<GetBatchPredictionOutput>>;
-  public function GetDataSource(GetDataSourceInput) Awaitable<Errors\Result<GetDataSourceOutput>>;
-  public function GetEvaluation(GetEvaluationInput) Awaitable<Errors\Result<GetEvaluationOutput>>;
-  public function GetMLModel(GetMLModelInput) Awaitable<Errors\Result<GetMLModelOutput>>;
-  public function Predict(PredictInput) Awaitable<Errors\Result<PredictOutput>>;
-  public function UpdateBatchPrediction(UpdateBatchPredictionInput) Awaitable<Errors\Result<UpdateBatchPredictionOutput>>;
-  public function UpdateDataSource(UpdateDataSourceInput) Awaitable<Errors\Result<UpdateDataSourceOutput>>;
-  public function UpdateEvaluation(UpdateEvaluationInput) Awaitable<Errors\Result<UpdateEvaluationOutput>>;
-  public function UpdateMLModel(UpdateMLModelInput) Awaitable<Errors\Result<UpdateMLModelOutput>>;
+  public function AddTags(AddTagsInput): Awaitable<Errors\Result<AddTagsOutput>>;
+  public function CreateBatchPrediction(CreateBatchPredictionInput): Awaitable<Errors\Result<CreateBatchPredictionOutput>>;
+  public function CreateDataSourceFromRDS(CreateDataSourceFromRDSInput): Awaitable<Errors\Result<CreateDataSourceFromRDSOutput>>;
+  public function CreateDataSourceFromRedshift(CreateDataSourceFromRedshiftInput): Awaitable<Errors\Result<CreateDataSourceFromRedshiftOutput>>;
+  public function CreateDataSourceFromS3(CreateDataSourceFromS3Input): Awaitable<Errors\Result<CreateDataSourceFromS3Output>>;
+  public function CreateEvaluation(CreateEvaluationInput): Awaitable<Errors\Result<CreateEvaluationOutput>>;
+  public function CreateMLModel(CreateMLModelInput): Awaitable<Errors\Result<CreateMLModelOutput>>;
+  public function CreateRealtimeEndpoint(CreateRealtimeEndpointInput): Awaitable<Errors\Result<CreateRealtimeEndpointOutput>>;
+  public function DeleteBatchPrediction(DeleteBatchPredictionInput): Awaitable<Errors\Result<DeleteBatchPredictionOutput>>;
+  public function DeleteDataSource(DeleteDataSourceInput): Awaitable<Errors\Result<DeleteDataSourceOutput>>;
+  public function DeleteEvaluation(DeleteEvaluationInput): Awaitable<Errors\Result<DeleteEvaluationOutput>>;
+  public function DeleteMLModel(DeleteMLModelInput): Awaitable<Errors\Result<DeleteMLModelOutput>>;
+  public function DeleteRealtimeEndpoint(DeleteRealtimeEndpointInput): Awaitable<Errors\Result<DeleteRealtimeEndpointOutput>>;
+  public function DeleteTags(DeleteTagsInput): Awaitable<Errors\Result<DeleteTagsOutput>>;
+  public function DescribeBatchPredictions(DescribeBatchPredictionsInput): Awaitable<Errors\Result<DescribeBatchPredictionsOutput>>;
+  public function DescribeDataSources(DescribeDataSourcesInput): Awaitable<Errors\Result<DescribeDataSourcesOutput>>;
+  public function DescribeEvaluations(DescribeEvaluationsInput): Awaitable<Errors\Result<DescribeEvaluationsOutput>>;
+  public function DescribeMLModels(DescribeMLModelsInput): Awaitable<Errors\Result<DescribeMLModelsOutput>>;
+  public function DescribeTags(DescribeTagsInput): Awaitable<Errors\Result<DescribeTagsOutput>>;
+  public function GetBatchPrediction(GetBatchPredictionInput): Awaitable<Errors\Result<GetBatchPredictionOutput>>;
+  public function GetDataSource(GetDataSourceInput): Awaitable<Errors\Result<GetDataSourceOutput>>;
+  public function GetEvaluation(GetEvaluationInput): Awaitable<Errors\Result<GetEvaluationOutput>>;
+  public function GetMLModel(GetMLModelInput): Awaitable<Errors\Result<GetMLModelOutput>>;
+  public function Predict(PredictInput): Awaitable<Errors\Result<PredictOutput>>;
+  public function UpdateBatchPrediction(UpdateBatchPredictionInput): Awaitable<Errors\Result<UpdateBatchPredictionOutput>>;
+  public function UpdateDataSource(UpdateDataSourceInput): Awaitable<Errors\Result<UpdateDataSourceOutput>>;
+  public function UpdateEvaluation(UpdateEvaluationInput): Awaitable<Errors\Result<UpdateEvaluationOutput>>;
+  public function UpdateMLModel(UpdateMLModelInput): Awaitable<Errors\Result<UpdateMLModelOutput>>;
 }
 
 class AddTagsInput {

@@ -2,30 +2,30 @@
 namespace slack\aws\ram;
 
 interface RAM {
-  public function AcceptResourceShareInvitation(AcceptResourceShareInvitationRequest) Awaitable<Errors\Result<AcceptResourceShareInvitationResponse>>;
-  public function AssociateResourceShare(AssociateResourceShareRequest) Awaitable<Errors\Result<AssociateResourceShareResponse>>;
-  public function AssociateResourceSharePermission(AssociateResourceSharePermissionRequest) Awaitable<Errors\Result<AssociateResourceSharePermissionResponse>>;
-  public function CreateResourceShare(CreateResourceShareRequest) Awaitable<Errors\Result<CreateResourceShareResponse>>;
-  public function DeleteResourceShare(DeleteResourceShareRequest) Awaitable<Errors\Result<DeleteResourceShareResponse>>;
-  public function DisassociateResourceShare(DisassociateResourceShareRequest) Awaitable<Errors\Result<DisassociateResourceShareResponse>>;
-  public function DisassociateResourceSharePermission(DisassociateResourceSharePermissionRequest) Awaitable<Errors\Result<DisassociateResourceSharePermissionResponse>>;
-  public function EnableSharingWithAwsOrganization(EnableSharingWithAwsOrganizationRequest) Awaitable<Errors\Result<EnableSharingWithAwsOrganizationResponse>>;
-  public function GetPermission(GetPermissionRequest) Awaitable<Errors\Result<GetPermissionResponse>>;
-  public function GetResourcePolicies(GetResourcePoliciesRequest) Awaitable<Errors\Result<GetResourcePoliciesResponse>>;
-  public function GetResourceShareAssociations(GetResourceShareAssociationsRequest) Awaitable<Errors\Result<GetResourceShareAssociationsResponse>>;
-  public function GetResourceShareInvitations(GetResourceShareInvitationsRequest) Awaitable<Errors\Result<GetResourceShareInvitationsResponse>>;
-  public function GetResourceShares(GetResourceSharesRequest) Awaitable<Errors\Result<GetResourceSharesResponse>>;
-  public function ListPendingInvitationResources(ListPendingInvitationResourcesRequest) Awaitable<Errors\Result<ListPendingInvitationResourcesResponse>>;
-  public function ListPermissions(ListPermissionsRequest) Awaitable<Errors\Result<ListPermissionsResponse>>;
-  public function ListPrincipals(ListPrincipalsRequest) Awaitable<Errors\Result<ListPrincipalsResponse>>;
-  public function ListResourceSharePermissions(ListResourceSharePermissionsRequest) Awaitable<Errors\Result<ListResourceSharePermissionsResponse>>;
-  public function ListResourceTypes(ListResourceTypesRequest) Awaitable<Errors\Result<ListResourceTypesResponse>>;
-  public function ListResources(ListResourcesRequest) Awaitable<Errors\Result<ListResourcesResponse>>;
-  public function PromoteResourceShareCreatedFromPolicy(PromoteResourceShareCreatedFromPolicyRequest) Awaitable<Errors\Result<PromoteResourceShareCreatedFromPolicyResponse>>;
-  public function RejectResourceShareInvitation(RejectResourceShareInvitationRequest) Awaitable<Errors\Result<RejectResourceShareInvitationResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateResourceShare(UpdateResourceShareRequest) Awaitable<Errors\Result<UpdateResourceShareResponse>>;
+  public function AcceptResourceShareInvitation(AcceptResourceShareInvitationRequest): Awaitable<Errors\Result<AcceptResourceShareInvitationResponse>>;
+  public function AssociateResourceShare(AssociateResourceShareRequest): Awaitable<Errors\Result<AssociateResourceShareResponse>>;
+  public function AssociateResourceSharePermission(AssociateResourceSharePermissionRequest): Awaitable<Errors\Result<AssociateResourceSharePermissionResponse>>;
+  public function CreateResourceShare(CreateResourceShareRequest): Awaitable<Errors\Result<CreateResourceShareResponse>>;
+  public function DeleteResourceShare(DeleteResourceShareRequest): Awaitable<Errors\Result<DeleteResourceShareResponse>>;
+  public function DisassociateResourceShare(DisassociateResourceShareRequest): Awaitable<Errors\Result<DisassociateResourceShareResponse>>;
+  public function DisassociateResourceSharePermission(DisassociateResourceSharePermissionRequest): Awaitable<Errors\Result<DisassociateResourceSharePermissionResponse>>;
+  public function EnableSharingWithAwsOrganization(EnableSharingWithAwsOrganizationRequest): Awaitable<Errors\Result<EnableSharingWithAwsOrganizationResponse>>;
+  public function GetPermission(GetPermissionRequest): Awaitable<Errors\Result<GetPermissionResponse>>;
+  public function GetResourcePolicies(GetResourcePoliciesRequest): Awaitable<Errors\Result<GetResourcePoliciesResponse>>;
+  public function GetResourceShareAssociations(GetResourceShareAssociationsRequest): Awaitable<Errors\Result<GetResourceShareAssociationsResponse>>;
+  public function GetResourceShareInvitations(GetResourceShareInvitationsRequest): Awaitable<Errors\Result<GetResourceShareInvitationsResponse>>;
+  public function GetResourceShares(GetResourceSharesRequest): Awaitable<Errors\Result<GetResourceSharesResponse>>;
+  public function ListPendingInvitationResources(ListPendingInvitationResourcesRequest): Awaitable<Errors\Result<ListPendingInvitationResourcesResponse>>;
+  public function ListPermissions(ListPermissionsRequest): Awaitable<Errors\Result<ListPermissionsResponse>>;
+  public function ListPrincipals(ListPrincipalsRequest): Awaitable<Errors\Result<ListPrincipalsResponse>>;
+  public function ListResourceSharePermissions(ListResourceSharePermissionsRequest): Awaitable<Errors\Result<ListResourceSharePermissionsResponse>>;
+  public function ListResourceTypes(ListResourceTypesRequest): Awaitable<Errors\Result<ListResourceTypesResponse>>;
+  public function ListResources(ListResourcesRequest): Awaitable<Errors\Result<ListResourcesResponse>>;
+  public function PromoteResourceShareCreatedFromPolicy(PromoteResourceShareCreatedFromPolicyRequest): Awaitable<Errors\Result<PromoteResourceShareCreatedFromPolicyResponse>>;
+  public function RejectResourceShareInvitation(RejectResourceShareInvitationRequest): Awaitable<Errors\Result<RejectResourceShareInvitationResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateResourceShare(UpdateResourceShareRequest): Awaitable<Errors\Result<UpdateResourceShareResponse>>;
 }
 
 class AcceptResourceShareInvitationRequest {

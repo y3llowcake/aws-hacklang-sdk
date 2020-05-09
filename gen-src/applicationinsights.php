@@ -2,33 +2,33 @@
 namespace slack\aws\applicationinsights;
 
 interface Application Insights {
-  public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
-  public function CreateComponent(CreateComponentRequest) Awaitable<Errors\Result<CreateComponentResponse>>;
-  public function CreateLogPattern(CreateLogPatternRequest) Awaitable<Errors\Result<CreateLogPatternResponse>>;
-  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Result<DeleteApplicationResponse>>;
-  public function DeleteComponent(DeleteComponentRequest) Awaitable<Errors\Result<DeleteComponentResponse>>;
-  public function DeleteLogPattern(DeleteLogPatternRequest) Awaitable<Errors\Result<DeleteLogPatternResponse>>;
-  public function DescribeApplication(DescribeApplicationRequest) Awaitable<Errors\Result<DescribeApplicationResponse>>;
-  public function DescribeComponent(DescribeComponentRequest) Awaitable<Errors\Result<DescribeComponentResponse>>;
-  public function DescribeComponentConfiguration(DescribeComponentConfigurationRequest) Awaitable<Errors\Result<DescribeComponentConfigurationResponse>>;
-  public function DescribeComponentConfigurationRecommendation(DescribeComponentConfigurationRecommendationRequest) Awaitable<Errors\Result<DescribeComponentConfigurationRecommendationResponse>>;
-  public function DescribeLogPattern(DescribeLogPatternRequest) Awaitable<Errors\Result<DescribeLogPatternResponse>>;
-  public function DescribeObservation(DescribeObservationRequest) Awaitable<Errors\Result<DescribeObservationResponse>>;
-  public function DescribeProblem(DescribeProblemRequest) Awaitable<Errors\Result<DescribeProblemResponse>>;
-  public function DescribeProblemObservations(DescribeProblemObservationsRequest) Awaitable<Errors\Result<DescribeProblemObservationsResponse>>;
-  public function ListApplications(ListApplicationsRequest) Awaitable<Errors\Result<ListApplicationsResponse>>;
-  public function ListComponents(ListComponentsRequest) Awaitable<Errors\Result<ListComponentsResponse>>;
-  public function ListConfigurationHistory(ListConfigurationHistoryRequest) Awaitable<Errors\Result<ListConfigurationHistoryResponse>>;
-  public function ListLogPatternSets(ListLogPatternSetsRequest) Awaitable<Errors\Result<ListLogPatternSetsResponse>>;
-  public function ListLogPatterns(ListLogPatternsRequest) Awaitable<Errors\Result<ListLogPatternsResponse>>;
-  public function ListProblems(ListProblemsRequest) Awaitable<Errors\Result<ListProblemsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
-  public function UpdateComponent(UpdateComponentRequest) Awaitable<Errors\Result<UpdateComponentResponse>>;
-  public function UpdateComponentConfiguration(UpdateComponentConfigurationRequest) Awaitable<Errors\Result<UpdateComponentConfigurationResponse>>;
-  public function UpdateLogPattern(UpdateLogPatternRequest) Awaitable<Errors\Result<UpdateLogPatternResponse>>;
+  public function CreateApplication(CreateApplicationRequest): Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateComponent(CreateComponentRequest): Awaitable<Errors\Result<CreateComponentResponse>>;
+  public function CreateLogPattern(CreateLogPatternRequest): Awaitable<Errors\Result<CreateLogPatternResponse>>;
+  public function DeleteApplication(DeleteApplicationRequest): Awaitable<Errors\Result<DeleteApplicationResponse>>;
+  public function DeleteComponent(DeleteComponentRequest): Awaitable<Errors\Result<DeleteComponentResponse>>;
+  public function DeleteLogPattern(DeleteLogPatternRequest): Awaitable<Errors\Result<DeleteLogPatternResponse>>;
+  public function DescribeApplication(DescribeApplicationRequest): Awaitable<Errors\Result<DescribeApplicationResponse>>;
+  public function DescribeComponent(DescribeComponentRequest): Awaitable<Errors\Result<DescribeComponentResponse>>;
+  public function DescribeComponentConfiguration(DescribeComponentConfigurationRequest): Awaitable<Errors\Result<DescribeComponentConfigurationResponse>>;
+  public function DescribeComponentConfigurationRecommendation(DescribeComponentConfigurationRecommendationRequest): Awaitable<Errors\Result<DescribeComponentConfigurationRecommendationResponse>>;
+  public function DescribeLogPattern(DescribeLogPatternRequest): Awaitable<Errors\Result<DescribeLogPatternResponse>>;
+  public function DescribeObservation(DescribeObservationRequest): Awaitable<Errors\Result<DescribeObservationResponse>>;
+  public function DescribeProblem(DescribeProblemRequest): Awaitable<Errors\Result<DescribeProblemResponse>>;
+  public function DescribeProblemObservations(DescribeProblemObservationsRequest): Awaitable<Errors\Result<DescribeProblemObservationsResponse>>;
+  public function ListApplications(ListApplicationsRequest): Awaitable<Errors\Result<ListApplicationsResponse>>;
+  public function ListComponents(ListComponentsRequest): Awaitable<Errors\Result<ListComponentsResponse>>;
+  public function ListConfigurationHistory(ListConfigurationHistoryRequest): Awaitable<Errors\Result<ListConfigurationHistoryResponse>>;
+  public function ListLogPatternSets(ListLogPatternSetsRequest): Awaitable<Errors\Result<ListLogPatternSetsResponse>>;
+  public function ListLogPatterns(ListLogPatternsRequest): Awaitable<Errors\Result<ListLogPatternsResponse>>;
+  public function ListProblems(ListProblemsRequest): Awaitable<Errors\Result<ListProblemsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateApplication(UpdateApplicationRequest): Awaitable<Errors\Result<UpdateApplicationResponse>>;
+  public function UpdateComponent(UpdateComponentRequest): Awaitable<Errors\Result<UpdateComponentResponse>>;
+  public function UpdateComponentConfiguration(UpdateComponentConfigurationRequest): Awaitable<Errors\Result<UpdateComponentConfigurationResponse>>;
+  public function UpdateLogPattern(UpdateLogPatternRequest): Awaitable<Errors\Result<UpdateLogPatternResponse>>;
 }
 
 class AffectedResource {

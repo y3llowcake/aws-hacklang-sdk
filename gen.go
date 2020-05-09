@@ -56,7 +56,7 @@ func genModel(m *Model, w *writer) {
 		} else {
 			out = fmt.Sprintf("Awaitable<Errors\\Result<%s>>", out)
 		}
-		w.p("public function %s(%s) %s;", op.Name, op.Input.Shape, out)
+		w.p("public function %s(%s): %s;", op.Name, op.Input.Shape, out)
 	}
 	w.p("}")
 	w.ln()

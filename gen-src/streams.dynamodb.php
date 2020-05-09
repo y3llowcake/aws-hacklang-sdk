@@ -2,10 +2,10 @@
 namespace slack\aws\streams.dynamodb;
 
 interface  {
-  public function DescribeStream(DescribeStreamInput) Awaitable<Errors\Result<DescribeStreamOutput>>;
-  public function GetRecords(GetRecordsInput) Awaitable<Errors\Result<GetRecordsOutput>>;
-  public function GetShardIterator(GetShardIteratorInput) Awaitable<Errors\Result<GetShardIteratorOutput>>;
-  public function ListStreams(ListStreamsInput) Awaitable<Errors\Result<ListStreamsOutput>>;
+  public function DescribeStream(DescribeStreamInput): Awaitable<Errors\Result<DescribeStreamOutput>>;
+  public function GetRecords(GetRecordsInput): Awaitable<Errors\Result<GetRecordsOutput>>;
+  public function GetShardIterator(GetShardIteratorInput): Awaitable<Errors\Result<GetShardIteratorOutput>>;
+  public function ListStreams(ListStreamsInput): Awaitable<Errors\Result<ListStreamsOutput>>;
 }
 
 class AttributeMap {

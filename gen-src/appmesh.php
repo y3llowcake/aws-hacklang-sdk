@@ -2,34 +2,34 @@
 namespace slack\aws\appmesh;
 
 interface App Mesh {
-  public function CreateMesh(CreateMeshInput) Awaitable<Errors\Result<CreateMeshOutput>>;
-  public function CreateRoute(CreateRouteInput) Awaitable<Errors\Result<CreateRouteOutput>>;
-  public function CreateVirtualNode(CreateVirtualNodeInput) Awaitable<Errors\Result<CreateVirtualNodeOutput>>;
-  public function CreateVirtualRouter(CreateVirtualRouterInput) Awaitable<Errors\Result<CreateVirtualRouterOutput>>;
-  public function CreateVirtualService(CreateVirtualServiceInput) Awaitable<Errors\Result<CreateVirtualServiceOutput>>;
-  public function DeleteMesh(DeleteMeshInput) Awaitable<Errors\Result<DeleteMeshOutput>>;
-  public function DeleteRoute(DeleteRouteInput) Awaitable<Errors\Result<DeleteRouteOutput>>;
-  public function DeleteVirtualNode(DeleteVirtualNodeInput) Awaitable<Errors\Result<DeleteVirtualNodeOutput>>;
-  public function DeleteVirtualRouter(DeleteVirtualRouterInput) Awaitable<Errors\Result<DeleteVirtualRouterOutput>>;
-  public function DeleteVirtualService(DeleteVirtualServiceInput) Awaitable<Errors\Result<DeleteVirtualServiceOutput>>;
-  public function DescribeMesh(DescribeMeshInput) Awaitable<Errors\Result<DescribeMeshOutput>>;
-  public function DescribeRoute(DescribeRouteInput) Awaitable<Errors\Result<DescribeRouteOutput>>;
-  public function DescribeVirtualNode(DescribeVirtualNodeInput) Awaitable<Errors\Result<DescribeVirtualNodeOutput>>;
-  public function DescribeVirtualRouter(DescribeVirtualRouterInput) Awaitable<Errors\Result<DescribeVirtualRouterOutput>>;
-  public function DescribeVirtualService(DescribeVirtualServiceInput) Awaitable<Errors\Result<DescribeVirtualServiceOutput>>;
-  public function ListMeshes(ListMeshesInput) Awaitable<Errors\Result<ListMeshesOutput>>;
-  public function ListRoutes(ListRoutesInput) Awaitable<Errors\Result<ListRoutesOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function ListVirtualNodes(ListVirtualNodesInput) Awaitable<Errors\Result<ListVirtualNodesOutput>>;
-  public function ListVirtualRouters(ListVirtualRoutersInput) Awaitable<Errors\Result<ListVirtualRoutersOutput>>;
-  public function ListVirtualServices(ListVirtualServicesInput) Awaitable<Errors\Result<ListVirtualServicesOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
-  public function UpdateMesh(UpdateMeshInput) Awaitable<Errors\Result<UpdateMeshOutput>>;
-  public function UpdateRoute(UpdateRouteInput) Awaitable<Errors\Result<UpdateRouteOutput>>;
-  public function UpdateVirtualNode(UpdateVirtualNodeInput) Awaitable<Errors\Result<UpdateVirtualNodeOutput>>;
-  public function UpdateVirtualRouter(UpdateVirtualRouterInput) Awaitable<Errors\Result<UpdateVirtualRouterOutput>>;
-  public function UpdateVirtualService(UpdateVirtualServiceInput) Awaitable<Errors\Result<UpdateVirtualServiceOutput>>;
+  public function CreateMesh(CreateMeshInput): Awaitable<Errors\Result<CreateMeshOutput>>;
+  public function CreateRoute(CreateRouteInput): Awaitable<Errors\Result<CreateRouteOutput>>;
+  public function CreateVirtualNode(CreateVirtualNodeInput): Awaitable<Errors\Result<CreateVirtualNodeOutput>>;
+  public function CreateVirtualRouter(CreateVirtualRouterInput): Awaitable<Errors\Result<CreateVirtualRouterOutput>>;
+  public function CreateVirtualService(CreateVirtualServiceInput): Awaitable<Errors\Result<CreateVirtualServiceOutput>>;
+  public function DeleteMesh(DeleteMeshInput): Awaitable<Errors\Result<DeleteMeshOutput>>;
+  public function DeleteRoute(DeleteRouteInput): Awaitable<Errors\Result<DeleteRouteOutput>>;
+  public function DeleteVirtualNode(DeleteVirtualNodeInput): Awaitable<Errors\Result<DeleteVirtualNodeOutput>>;
+  public function DeleteVirtualRouter(DeleteVirtualRouterInput): Awaitable<Errors\Result<DeleteVirtualRouterOutput>>;
+  public function DeleteVirtualService(DeleteVirtualServiceInput): Awaitable<Errors\Result<DeleteVirtualServiceOutput>>;
+  public function DescribeMesh(DescribeMeshInput): Awaitable<Errors\Result<DescribeMeshOutput>>;
+  public function DescribeRoute(DescribeRouteInput): Awaitable<Errors\Result<DescribeRouteOutput>>;
+  public function DescribeVirtualNode(DescribeVirtualNodeInput): Awaitable<Errors\Result<DescribeVirtualNodeOutput>>;
+  public function DescribeVirtualRouter(DescribeVirtualRouterInput): Awaitable<Errors\Result<DescribeVirtualRouterOutput>>;
+  public function DescribeVirtualService(DescribeVirtualServiceInput): Awaitable<Errors\Result<DescribeVirtualServiceOutput>>;
+  public function ListMeshes(ListMeshesInput): Awaitable<Errors\Result<ListMeshesOutput>>;
+  public function ListRoutes(ListRoutesInput): Awaitable<Errors\Result<ListRoutesOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function ListVirtualNodes(ListVirtualNodesInput): Awaitable<Errors\Result<ListVirtualNodesOutput>>;
+  public function ListVirtualRouters(ListVirtualRoutersInput): Awaitable<Errors\Result<ListVirtualRoutersOutput>>;
+  public function ListVirtualServices(ListVirtualServicesInput): Awaitable<Errors\Result<ListVirtualServicesOutput>>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function UpdateMesh(UpdateMeshInput): Awaitable<Errors\Result<UpdateMeshOutput>>;
+  public function UpdateRoute(UpdateRouteInput): Awaitable<Errors\Result<UpdateRouteOutput>>;
+  public function UpdateVirtualNode(UpdateVirtualNodeInput): Awaitable<Errors\Result<UpdateVirtualNodeOutput>>;
+  public function UpdateVirtualRouter(UpdateVirtualRouterInput): Awaitable<Errors\Result<UpdateVirtualRouterOutput>>;
+  public function UpdateVirtualService(UpdateVirtualServiceInput): Awaitable<Errors\Result<UpdateVirtualServiceOutput>>;
 }
 
 class AccessLog {

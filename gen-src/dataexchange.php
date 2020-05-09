@@ -2,28 +2,28 @@
 namespace slack\aws\dataexchange;
 
 interface DataExchange {
-  public function CancelJob(CancelJobRequest) Awaitable<Errors\Error>;
-  public function CreateDataSet(CreateDataSetRequest) Awaitable<Errors\Result<CreateDataSetResponse>>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResponse>>;
-  public function CreateRevision(CreateRevisionRequest) Awaitable<Errors\Result<CreateRevisionResponse>>;
-  public function DeleteAsset(DeleteAssetRequest) Awaitable<Errors\Error>;
-  public function DeleteDataSet(DeleteDataSetRequest) Awaitable<Errors\Error>;
-  public function DeleteRevision(DeleteRevisionRequest) Awaitable<Errors\Error>;
-  public function GetAsset(GetAssetRequest) Awaitable<Errors\Result<GetAssetResponse>>;
-  public function GetDataSet(GetDataSetRequest) Awaitable<Errors\Result<GetDataSetResponse>>;
-  public function GetJob(GetJobRequest) Awaitable<Errors\Result<GetJobResponse>>;
-  public function GetRevision(GetRevisionRequest) Awaitable<Errors\Result<GetRevisionResponse>>;
-  public function ListDataSetRevisions(ListDataSetRevisionsRequest) Awaitable<Errors\Result<ListDataSetRevisionsResponse>>;
-  public function ListDataSets(ListDataSetsRequest) Awaitable<Errors\Result<ListDataSetsResponse>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResponse>>;
-  public function ListRevisionAssets(ListRevisionAssetsRequest) Awaitable<Errors\Result<ListRevisionAssetsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function StartJob(StartJobRequest) Awaitable<Errors\Result<StartJobResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateAsset(UpdateAssetRequest) Awaitable<Errors\Result<UpdateAssetResponse>>;
-  public function UpdateDataSet(UpdateDataSetRequest) Awaitable<Errors\Result<UpdateDataSetResponse>>;
-  public function UpdateRevision(UpdateRevisionRequest) Awaitable<Errors\Result<UpdateRevisionResponse>>;
+  public function CancelJob(CancelJobRequest): Awaitable<Errors\Error>;
+  public function CreateDataSet(CreateDataSetRequest): Awaitable<Errors\Result<CreateDataSetResponse>>;
+  public function CreateJob(CreateJobRequest): Awaitable<Errors\Result<CreateJobResponse>>;
+  public function CreateRevision(CreateRevisionRequest): Awaitable<Errors\Result<CreateRevisionResponse>>;
+  public function DeleteAsset(DeleteAssetRequest): Awaitable<Errors\Error>;
+  public function DeleteDataSet(DeleteDataSetRequest): Awaitable<Errors\Error>;
+  public function DeleteRevision(DeleteRevisionRequest): Awaitable<Errors\Error>;
+  public function GetAsset(GetAssetRequest): Awaitable<Errors\Result<GetAssetResponse>>;
+  public function GetDataSet(GetDataSetRequest): Awaitable<Errors\Result<GetDataSetResponse>>;
+  public function GetJob(GetJobRequest): Awaitable<Errors\Result<GetJobResponse>>;
+  public function GetRevision(GetRevisionRequest): Awaitable<Errors\Result<GetRevisionResponse>>;
+  public function ListDataSetRevisions(ListDataSetRevisionsRequest): Awaitable<Errors\Result<ListDataSetRevisionsResponse>>;
+  public function ListDataSets(ListDataSetsRequest): Awaitable<Errors\Result<ListDataSetsResponse>>;
+  public function ListJobs(ListJobsRequest): Awaitable<Errors\Result<ListJobsResponse>>;
+  public function ListRevisionAssets(ListRevisionAssetsRequest): Awaitable<Errors\Result<ListRevisionAssetsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function StartJob(StartJobRequest): Awaitable<Errors\Result<StartJobResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateAsset(UpdateAssetRequest): Awaitable<Errors\Result<UpdateAssetResponse>>;
+  public function UpdateDataSet(UpdateDataSetRequest): Awaitable<Errors\Result<UpdateDataSetResponse>>;
+  public function UpdateRevision(UpdateRevisionRequest): Awaitable<Errors\Result<UpdateRevisionResponse>>;
 }
 
 class AccessDeniedException {

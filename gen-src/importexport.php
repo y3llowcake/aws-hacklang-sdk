@@ -2,12 +2,12 @@
 namespace slack\aws\importexport;
 
 interface  {
-  public function CancelJob(CancelJobInput) Awaitable<Errors\Result<CancelJobOutput>>;
-  public function CreateJob(CreateJobInput) Awaitable<Errors\Result<CreateJobOutput>>;
-  public function GetShippingLabel(GetShippingLabelInput) Awaitable<Errors\Result<GetShippingLabelOutput>>;
-  public function GetStatus(GetStatusInput) Awaitable<Errors\Result<GetStatusOutput>>;
-  public function ListJobs(ListJobsInput) Awaitable<Errors\Result<ListJobsOutput>>;
-  public function UpdateJob(UpdateJobInput) Awaitable<Errors\Result<UpdateJobOutput>>;
+  public function CancelJob(CancelJobInput): Awaitable<Errors\Result<CancelJobOutput>>;
+  public function CreateJob(CreateJobInput): Awaitable<Errors\Result<CreateJobOutput>>;
+  public function GetShippingLabel(GetShippingLabelInput): Awaitable<Errors\Result<GetShippingLabelOutput>>;
+  public function GetStatus(GetStatusInput): Awaitable<Errors\Result<GetStatusOutput>>;
+  public function ListJobs(ListJobsInput): Awaitable<Errors\Result<ListJobsOutput>>;
+  public function UpdateJob(UpdateJobInput): Awaitable<Errors\Result<UpdateJobOutput>>;
 }
 
 class APIVersion {

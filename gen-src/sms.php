@@ -2,34 +2,34 @@
 namespace slack\aws\sms;
 
 interface SMS {
-  public function CreateApp(CreateAppRequest) Awaitable<Errors\Result<CreateAppResponse>>;
-  public function CreateReplicationJob(CreateReplicationJobRequest) Awaitable<Errors\Result<CreateReplicationJobResponse>>;
-  public function DeleteApp(DeleteAppRequest) Awaitable<Errors\Result<DeleteAppResponse>>;
-  public function DeleteAppLaunchConfiguration(DeleteAppLaunchConfigurationRequest) Awaitable<Errors\Result<DeleteAppLaunchConfigurationResponse>>;
-  public function DeleteAppReplicationConfiguration(DeleteAppReplicationConfigurationRequest) Awaitable<Errors\Result<DeleteAppReplicationConfigurationResponse>>;
-  public function DeleteReplicationJob(DeleteReplicationJobRequest) Awaitable<Errors\Result<DeleteReplicationJobResponse>>;
-  public function DeleteServerCatalog(DeleteServerCatalogRequest) Awaitable<Errors\Result<DeleteServerCatalogResponse>>;
-  public function DisassociateConnector(DisassociateConnectorRequest) Awaitable<Errors\Result<DisassociateConnectorResponse>>;
-  public function GenerateChangeSet(GenerateChangeSetRequest) Awaitable<Errors\Result<GenerateChangeSetResponse>>;
-  public function GenerateTemplate(GenerateTemplateRequest) Awaitable<Errors\Result<GenerateTemplateResponse>>;
-  public function GetApp(GetAppRequest) Awaitable<Errors\Result<GetAppResponse>>;
-  public function GetAppLaunchConfiguration(GetAppLaunchConfigurationRequest) Awaitable<Errors\Result<GetAppLaunchConfigurationResponse>>;
-  public function GetAppReplicationConfiguration(GetAppReplicationConfigurationRequest) Awaitable<Errors\Result<GetAppReplicationConfigurationResponse>>;
-  public function GetConnectors(GetConnectorsRequest) Awaitable<Errors\Result<GetConnectorsResponse>>;
-  public function GetReplicationJobs(GetReplicationJobsRequest) Awaitable<Errors\Result<GetReplicationJobsResponse>>;
-  public function GetReplicationRuns(GetReplicationRunsRequest) Awaitable<Errors\Result<GetReplicationRunsResponse>>;
-  public function GetServers(GetServersRequest) Awaitable<Errors\Result<GetServersResponse>>;
-  public function ImportServerCatalog(ImportServerCatalogRequest) Awaitable<Errors\Result<ImportServerCatalogResponse>>;
-  public function LaunchApp(LaunchAppRequest) Awaitable<Errors\Result<LaunchAppResponse>>;
-  public function ListApps(ListAppsRequest) Awaitable<Errors\Result<ListAppsResponse>>;
-  public function PutAppLaunchConfiguration(PutAppLaunchConfigurationRequest) Awaitable<Errors\Result<PutAppLaunchConfigurationResponse>>;
-  public function PutAppReplicationConfiguration(PutAppReplicationConfigurationRequest) Awaitable<Errors\Result<PutAppReplicationConfigurationResponse>>;
-  public function StartAppReplication(StartAppReplicationRequest) Awaitable<Errors\Result<StartAppReplicationResponse>>;
-  public function StartOnDemandReplicationRun(StartOnDemandReplicationRunRequest) Awaitable<Errors\Result<StartOnDemandReplicationRunResponse>>;
-  public function StopAppReplication(StopAppReplicationRequest) Awaitable<Errors\Result<StopAppReplicationResponse>>;
-  public function TerminateApp(TerminateAppRequest) Awaitable<Errors\Result<TerminateAppResponse>>;
-  public function UpdateApp(UpdateAppRequest) Awaitable<Errors\Result<UpdateAppResponse>>;
-  public function UpdateReplicationJob(UpdateReplicationJobRequest) Awaitable<Errors\Result<UpdateReplicationJobResponse>>;
+  public function CreateApp(CreateAppRequest): Awaitable<Errors\Result<CreateAppResponse>>;
+  public function CreateReplicationJob(CreateReplicationJobRequest): Awaitable<Errors\Result<CreateReplicationJobResponse>>;
+  public function DeleteApp(DeleteAppRequest): Awaitable<Errors\Result<DeleteAppResponse>>;
+  public function DeleteAppLaunchConfiguration(DeleteAppLaunchConfigurationRequest): Awaitable<Errors\Result<DeleteAppLaunchConfigurationResponse>>;
+  public function DeleteAppReplicationConfiguration(DeleteAppReplicationConfigurationRequest): Awaitable<Errors\Result<DeleteAppReplicationConfigurationResponse>>;
+  public function DeleteReplicationJob(DeleteReplicationJobRequest): Awaitable<Errors\Result<DeleteReplicationJobResponse>>;
+  public function DeleteServerCatalog(DeleteServerCatalogRequest): Awaitable<Errors\Result<DeleteServerCatalogResponse>>;
+  public function DisassociateConnector(DisassociateConnectorRequest): Awaitable<Errors\Result<DisassociateConnectorResponse>>;
+  public function GenerateChangeSet(GenerateChangeSetRequest): Awaitable<Errors\Result<GenerateChangeSetResponse>>;
+  public function GenerateTemplate(GenerateTemplateRequest): Awaitable<Errors\Result<GenerateTemplateResponse>>;
+  public function GetApp(GetAppRequest): Awaitable<Errors\Result<GetAppResponse>>;
+  public function GetAppLaunchConfiguration(GetAppLaunchConfigurationRequest): Awaitable<Errors\Result<GetAppLaunchConfigurationResponse>>;
+  public function GetAppReplicationConfiguration(GetAppReplicationConfigurationRequest): Awaitable<Errors\Result<GetAppReplicationConfigurationResponse>>;
+  public function GetConnectors(GetConnectorsRequest): Awaitable<Errors\Result<GetConnectorsResponse>>;
+  public function GetReplicationJobs(GetReplicationJobsRequest): Awaitable<Errors\Result<GetReplicationJobsResponse>>;
+  public function GetReplicationRuns(GetReplicationRunsRequest): Awaitable<Errors\Result<GetReplicationRunsResponse>>;
+  public function GetServers(GetServersRequest): Awaitable<Errors\Result<GetServersResponse>>;
+  public function ImportServerCatalog(ImportServerCatalogRequest): Awaitable<Errors\Result<ImportServerCatalogResponse>>;
+  public function LaunchApp(LaunchAppRequest): Awaitable<Errors\Result<LaunchAppResponse>>;
+  public function ListApps(ListAppsRequest): Awaitable<Errors\Result<ListAppsResponse>>;
+  public function PutAppLaunchConfiguration(PutAppLaunchConfigurationRequest): Awaitable<Errors\Result<PutAppLaunchConfigurationResponse>>;
+  public function PutAppReplicationConfiguration(PutAppReplicationConfigurationRequest): Awaitable<Errors\Result<PutAppReplicationConfigurationResponse>>;
+  public function StartAppReplication(StartAppReplicationRequest): Awaitable<Errors\Result<StartAppReplicationResponse>>;
+  public function StartOnDemandReplicationRun(StartOnDemandReplicationRunRequest): Awaitable<Errors\Result<StartOnDemandReplicationRunResponse>>;
+  public function StopAppReplication(StopAppReplicationRequest): Awaitable<Errors\Result<StopAppReplicationResponse>>;
+  public function TerminateApp(TerminateAppRequest): Awaitable<Errors\Result<TerminateAppResponse>>;
+  public function UpdateApp(UpdateAppRequest): Awaitable<Errors\Result<UpdateAppResponse>>;
+  public function UpdateReplicationJob(UpdateReplicationJobRequest): Awaitable<Errors\Result<UpdateReplicationJobResponse>>;
 }
 
 class AmiId {

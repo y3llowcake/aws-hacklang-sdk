@@ -2,9 +2,9 @@
 namespace slack\aws\oidc;
 
 interface SSO OIDC {
-  public function CreateToken(CreateTokenRequest) Awaitable<Errors\Result<CreateTokenResponse>>;
-  public function RegisterClient(RegisterClientRequest) Awaitable<Errors\Result<RegisterClientResponse>>;
-  public function StartDeviceAuthorization(StartDeviceAuthorizationRequest) Awaitable<Errors\Result<StartDeviceAuthorizationResponse>>;
+  public function CreateToken(CreateTokenRequest): Awaitable<Errors\Result<CreateTokenResponse>>;
+  public function RegisterClient(RegisterClientRequest): Awaitable<Errors\Result<RegisterClientResponse>>;
+  public function StartDeviceAuthorization(StartDeviceAuthorizationRequest): Awaitable<Errors\Result<StartDeviceAuthorizationResponse>>;
 }
 
 class AccessDeniedException {

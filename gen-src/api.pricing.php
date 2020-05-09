@@ -2,9 +2,9 @@
 namespace slack\aws\api.pricing;
 
 interface  {
-  public function DescribeServices(DescribeServicesRequest) Awaitable<Errors\Result<DescribeServicesResponse>>;
-  public function GetAttributeValues(GetAttributeValuesRequest) Awaitable<Errors\Result<GetAttributeValuesResponse>>;
-  public function GetProducts(GetProductsRequest) Awaitable<Errors\Result<GetProductsResponse>>;
+  public function DescribeServices(DescribeServicesRequest): Awaitable<Errors\Result<DescribeServicesResponse>>;
+  public function GetAttributeValues(GetAttributeValuesRequest): Awaitable<Errors\Result<GetAttributeValuesResponse>>;
+  public function GetProducts(GetProductsRequest): Awaitable<Errors\Result<GetProductsResponse>>;
 }
 
 class AttributeNameList {

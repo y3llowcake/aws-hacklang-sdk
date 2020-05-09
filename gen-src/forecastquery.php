@@ -2,7 +2,7 @@
 namespace slack\aws\forecastquery;
 
 interface forecastquery {
-  public function QueryForecast(QueryForecastRequest) Awaitable<Errors\Result<QueryForecastResponse>>;
+  public function QueryForecast(QueryForecastRequest): Awaitable<Errors\Result<QueryForecastResponse>>;
 }
 
 class Arn {

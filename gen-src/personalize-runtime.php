@@ -2,8 +2,8 @@
 namespace slack\aws\personalize-runtime;
 
 interface Personalize Runtime {
-  public function GetPersonalizedRanking(GetPersonalizedRankingRequest) Awaitable<Errors\Result<GetPersonalizedRankingResponse>>;
-  public function GetRecommendations(GetRecommendationsRequest) Awaitable<Errors\Result<GetRecommendationsResponse>>;
+  public function GetPersonalizedRanking(GetPersonalizedRankingRequest): Awaitable<Errors\Result<GetPersonalizedRankingResponse>>;
+  public function GetRecommendations(GetRecommendationsRequest): Awaitable<Errors\Result<GetRecommendationsResponse>>;
 }
 
 class Arn {

@@ -2,12 +2,12 @@
 namespace slack\aws\compute-optimizer;
 
 interface Compute Optimizer {
-  public function GetAutoScalingGroupRecommendations(GetAutoScalingGroupRecommendationsRequest) Awaitable<Errors\Result<GetAutoScalingGroupRecommendationsResponse>>;
-  public function GetEC2InstanceRecommendations(GetEC2InstanceRecommendationsRequest) Awaitable<Errors\Result<GetEC2InstanceRecommendationsResponse>>;
-  public function GetEC2RecommendationProjectedMetrics(GetEC2RecommendationProjectedMetricsRequest) Awaitable<Errors\Result<GetEC2RecommendationProjectedMetricsResponse>>;
-  public function GetEnrollmentStatus(GetEnrollmentStatusRequest) Awaitable<Errors\Result<GetEnrollmentStatusResponse>>;
-  public function GetRecommendationSummaries(GetRecommendationSummariesRequest) Awaitable<Errors\Result<GetRecommendationSummariesResponse>>;
-  public function UpdateEnrollmentStatus(UpdateEnrollmentStatusRequest) Awaitable<Errors\Result<UpdateEnrollmentStatusResponse>>;
+  public function GetAutoScalingGroupRecommendations(GetAutoScalingGroupRecommendationsRequest): Awaitable<Errors\Result<GetAutoScalingGroupRecommendationsResponse>>;
+  public function GetEC2InstanceRecommendations(GetEC2InstanceRecommendationsRequest): Awaitable<Errors\Result<GetEC2InstanceRecommendationsResponse>>;
+  public function GetEC2RecommendationProjectedMetrics(GetEC2RecommendationProjectedMetricsRequest): Awaitable<Errors\Result<GetEC2RecommendationProjectedMetricsResponse>>;
+  public function GetEnrollmentStatus(GetEnrollmentStatusRequest): Awaitable<Errors\Result<GetEnrollmentStatusResponse>>;
+  public function GetRecommendationSummaries(GetRecommendationSummariesRequest): Awaitable<Errors\Result<GetRecommendationSummariesResponse>>;
+  public function UpdateEnrollmentStatus(UpdateEnrollmentStatusRequest): Awaitable<Errors\Result<UpdateEnrollmentStatusResponse>>;
 }
 
 class AccessDeniedException {

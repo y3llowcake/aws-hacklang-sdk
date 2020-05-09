@@ -2,25 +2,25 @@
 namespace slack\aws\s3-control;
 
 interface S3 Control {
-  public function CreateAccessPoint(CreateAccessPointRequest) Awaitable<Errors\Error>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResult>>;
-  public function DeleteAccessPoint(DeleteAccessPointRequest) Awaitable<Errors\Error>;
-  public function DeleteAccessPointPolicy(DeleteAccessPointPolicyRequest) Awaitable<Errors\Error>;
-  public function DeleteJobTagging(DeleteJobTaggingRequest) Awaitable<Errors\Result<DeleteJobTaggingResult>>;
-  public function DeletePublicAccessBlock(DeletePublicAccessBlockRequest) Awaitable<Errors\Error>;
-  public function DescribeJob(DescribeJobRequest) Awaitable<Errors\Result<DescribeJobResult>>;
-  public function GetAccessPoint(GetAccessPointRequest) Awaitable<Errors\Result<GetAccessPointResult>>;
-  public function GetAccessPointPolicy(GetAccessPointPolicyRequest) Awaitable<Errors\Result<GetAccessPointPolicyResult>>;
-  public function GetAccessPointPolicyStatus(GetAccessPointPolicyStatusRequest) Awaitable<Errors\Result<GetAccessPointPolicyStatusResult>>;
-  public function GetJobTagging(GetJobTaggingRequest) Awaitable<Errors\Result<GetJobTaggingResult>>;
-  public function GetPublicAccessBlock(GetPublicAccessBlockRequest) Awaitable<Errors\Result<GetPublicAccessBlockOutput>>;
-  public function ListAccessPoints(ListAccessPointsRequest) Awaitable<Errors\Result<ListAccessPointsResult>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResult>>;
-  public function PutAccessPointPolicy(PutAccessPointPolicyRequest) Awaitable<Errors\Error>;
-  public function PutJobTagging(PutJobTaggingRequest) Awaitable<Errors\Result<PutJobTaggingResult>>;
-  public function PutPublicAccessBlock(PutPublicAccessBlockRequest) Awaitable<Errors\Error>;
-  public function UpdateJobPriority(UpdateJobPriorityRequest) Awaitable<Errors\Result<UpdateJobPriorityResult>>;
-  public function UpdateJobStatus(UpdateJobStatusRequest) Awaitable<Errors\Result<UpdateJobStatusResult>>;
+  public function CreateAccessPoint(CreateAccessPointRequest): Awaitable<Errors\Error>;
+  public function CreateJob(CreateJobRequest): Awaitable<Errors\Result<CreateJobResult>>;
+  public function DeleteAccessPoint(DeleteAccessPointRequest): Awaitable<Errors\Error>;
+  public function DeleteAccessPointPolicy(DeleteAccessPointPolicyRequest): Awaitable<Errors\Error>;
+  public function DeleteJobTagging(DeleteJobTaggingRequest): Awaitable<Errors\Result<DeleteJobTaggingResult>>;
+  public function DeletePublicAccessBlock(DeletePublicAccessBlockRequest): Awaitable<Errors\Error>;
+  public function DescribeJob(DescribeJobRequest): Awaitable<Errors\Result<DescribeJobResult>>;
+  public function GetAccessPoint(GetAccessPointRequest): Awaitable<Errors\Result<GetAccessPointResult>>;
+  public function GetAccessPointPolicy(GetAccessPointPolicyRequest): Awaitable<Errors\Result<GetAccessPointPolicyResult>>;
+  public function GetAccessPointPolicyStatus(GetAccessPointPolicyStatusRequest): Awaitable<Errors\Result<GetAccessPointPolicyStatusResult>>;
+  public function GetJobTagging(GetJobTaggingRequest): Awaitable<Errors\Result<GetJobTaggingResult>>;
+  public function GetPublicAccessBlock(GetPublicAccessBlockRequest): Awaitable<Errors\Result<GetPublicAccessBlockOutput>>;
+  public function ListAccessPoints(ListAccessPointsRequest): Awaitable<Errors\Result<ListAccessPointsResult>>;
+  public function ListJobs(ListJobsRequest): Awaitable<Errors\Result<ListJobsResult>>;
+  public function PutAccessPointPolicy(PutAccessPointPolicyRequest): Awaitable<Errors\Error>;
+  public function PutJobTagging(PutJobTaggingRequest): Awaitable<Errors\Result<PutJobTaggingResult>>;
+  public function PutPublicAccessBlock(PutPublicAccessBlockRequest): Awaitable<Errors\Error>;
+  public function UpdateJobPriority(UpdateJobPriorityRequest): Awaitable<Errors\Result<UpdateJobPriorityResult>>;
+  public function UpdateJobStatus(UpdateJobStatusRequest): Awaitable<Errors\Result<UpdateJobStatusResult>>;
 }
 
 class AccessPoint {

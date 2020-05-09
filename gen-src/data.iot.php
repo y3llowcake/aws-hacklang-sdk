@@ -2,10 +2,10 @@
 namespace slack\aws\data.iot;
 
 interface  {
-  public function DeleteThingShadow(DeleteThingShadowRequest) Awaitable<Errors\Result<DeleteThingShadowResponse>>;
-  public function GetThingShadow(GetThingShadowRequest) Awaitable<Errors\Result<GetThingShadowResponse>>;
-  public function Publish(PublishRequest) Awaitable<Errors\Error>;
-  public function UpdateThingShadow(UpdateThingShadowRequest) Awaitable<Errors\Result<UpdateThingShadowResponse>>;
+  public function DeleteThingShadow(DeleteThingShadowRequest): Awaitable<Errors\Result<DeleteThingShadowResponse>>;
+  public function GetThingShadow(GetThingShadowRequest): Awaitable<Errors\Result<GetThingShadowResponse>>;
+  public function Publish(PublishRequest): Awaitable<Errors\Error>;
+  public function UpdateThingShadow(UpdateThingShadowRequest): Awaitable<Errors\Result<UpdateThingShadowResponse>>;
 }
 
 class ConflictException {

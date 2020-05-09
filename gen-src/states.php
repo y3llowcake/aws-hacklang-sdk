@@ -2,28 +2,28 @@
 namespace slack\aws\states;
 
 interface SFN {
-  public function CreateActivity(CreateActivityInput) Awaitable<Errors\Result<CreateActivityOutput>>;
-  public function CreateStateMachine(CreateStateMachineInput) Awaitable<Errors\Result<CreateStateMachineOutput>>;
-  public function DeleteActivity(DeleteActivityInput) Awaitable<Errors\Result<DeleteActivityOutput>>;
-  public function DeleteStateMachine(DeleteStateMachineInput) Awaitable<Errors\Result<DeleteStateMachineOutput>>;
-  public function DescribeActivity(DescribeActivityInput) Awaitable<Errors\Result<DescribeActivityOutput>>;
-  public function DescribeExecution(DescribeExecutionInput) Awaitable<Errors\Result<DescribeExecutionOutput>>;
-  public function DescribeStateMachine(DescribeStateMachineInput) Awaitable<Errors\Result<DescribeStateMachineOutput>>;
-  public function DescribeStateMachineForExecution(DescribeStateMachineForExecutionInput) Awaitable<Errors\Result<DescribeStateMachineForExecutionOutput>>;
-  public function GetActivityTask(GetActivityTaskInput) Awaitable<Errors\Result<GetActivityTaskOutput>>;
-  public function GetExecutionHistory(GetExecutionHistoryInput) Awaitable<Errors\Result<GetExecutionHistoryOutput>>;
-  public function ListActivities(ListActivitiesInput) Awaitable<Errors\Result<ListActivitiesOutput>>;
-  public function ListExecutions(ListExecutionsInput) Awaitable<Errors\Result<ListExecutionsOutput>>;
-  public function ListStateMachines(ListStateMachinesInput) Awaitable<Errors\Result<ListStateMachinesOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function SendTaskFailure(SendTaskFailureInput) Awaitable<Errors\Result<SendTaskFailureOutput>>;
-  public function SendTaskHeartbeat(SendTaskHeartbeatInput) Awaitable<Errors\Result<SendTaskHeartbeatOutput>>;
-  public function SendTaskSuccess(SendTaskSuccessInput) Awaitable<Errors\Result<SendTaskSuccessOutput>>;
-  public function StartExecution(StartExecutionInput) Awaitable<Errors\Result<StartExecutionOutput>>;
-  public function StopExecution(StopExecutionInput) Awaitable<Errors\Result<StopExecutionOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
-  public function UpdateStateMachine(UpdateStateMachineInput) Awaitable<Errors\Result<UpdateStateMachineOutput>>;
+  public function CreateActivity(CreateActivityInput): Awaitable<Errors\Result<CreateActivityOutput>>;
+  public function CreateStateMachine(CreateStateMachineInput): Awaitable<Errors\Result<CreateStateMachineOutput>>;
+  public function DeleteActivity(DeleteActivityInput): Awaitable<Errors\Result<DeleteActivityOutput>>;
+  public function DeleteStateMachine(DeleteStateMachineInput): Awaitable<Errors\Result<DeleteStateMachineOutput>>;
+  public function DescribeActivity(DescribeActivityInput): Awaitable<Errors\Result<DescribeActivityOutput>>;
+  public function DescribeExecution(DescribeExecutionInput): Awaitable<Errors\Result<DescribeExecutionOutput>>;
+  public function DescribeStateMachine(DescribeStateMachineInput): Awaitable<Errors\Result<DescribeStateMachineOutput>>;
+  public function DescribeStateMachineForExecution(DescribeStateMachineForExecutionInput): Awaitable<Errors\Result<DescribeStateMachineForExecutionOutput>>;
+  public function GetActivityTask(GetActivityTaskInput): Awaitable<Errors\Result<GetActivityTaskOutput>>;
+  public function GetExecutionHistory(GetExecutionHistoryInput): Awaitable<Errors\Result<GetExecutionHistoryOutput>>;
+  public function ListActivities(ListActivitiesInput): Awaitable<Errors\Result<ListActivitiesOutput>>;
+  public function ListExecutions(ListExecutionsInput): Awaitable<Errors\Result<ListExecutionsOutput>>;
+  public function ListStateMachines(ListStateMachinesInput): Awaitable<Errors\Result<ListStateMachinesOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function SendTaskFailure(SendTaskFailureInput): Awaitable<Errors\Result<SendTaskFailureOutput>>;
+  public function SendTaskHeartbeat(SendTaskHeartbeatInput): Awaitable<Errors\Result<SendTaskHeartbeatOutput>>;
+  public function SendTaskSuccess(SendTaskSuccessInput): Awaitable<Errors\Result<SendTaskSuccessOutput>>;
+  public function StartExecution(StartExecutionInput): Awaitable<Errors\Result<StartExecutionOutput>>;
+  public function StopExecution(StopExecutionInput): Awaitable<Errors\Result<StopExecutionOutput>>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function UpdateStateMachine(UpdateStateMachineInput): Awaitable<Errors\Result<UpdateStateMachineOutput>>;
 }
 
 class ActivityDoesNotExist {

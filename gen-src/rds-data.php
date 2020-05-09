@@ -2,12 +2,12 @@
 namespace slack\aws\rds-data;
 
 interface RDS Data {
-  public function BatchExecuteStatement(BatchExecuteStatementRequest) Awaitable<Errors\Result<BatchExecuteStatementResponse>>;
-  public function BeginTransaction(BeginTransactionRequest) Awaitable<Errors\Result<BeginTransactionResponse>>;
-  public function CommitTransaction(CommitTransactionRequest) Awaitable<Errors\Result<CommitTransactionResponse>>;
-  public function ExecuteSql(ExecuteSqlRequest) Awaitable<Errors\Result<ExecuteSqlResponse>>;
-  public function ExecuteStatement(ExecuteStatementRequest) Awaitable<Errors\Result<ExecuteStatementResponse>>;
-  public function RollbackTransaction(RollbackTransactionRequest) Awaitable<Errors\Result<RollbackTransactionResponse>>;
+  public function BatchExecuteStatement(BatchExecuteStatementRequest): Awaitable<Errors\Result<BatchExecuteStatementResponse>>;
+  public function BeginTransaction(BeginTransactionRequest): Awaitable<Errors\Result<BeginTransactionResponse>>;
+  public function CommitTransaction(CommitTransactionRequest): Awaitable<Errors\Result<CommitTransactionResponse>>;
+  public function ExecuteSql(ExecuteSqlRequest): Awaitable<Errors\Result<ExecuteSqlResponse>>;
+  public function ExecuteStatement(ExecuteStatementRequest): Awaitable<Errors\Result<ExecuteStatementResponse>>;
+  public function RollbackTransaction(RollbackTransactionRequest): Awaitable<Errors\Result<RollbackTransactionResponse>>;
 }
 
 class Arn {

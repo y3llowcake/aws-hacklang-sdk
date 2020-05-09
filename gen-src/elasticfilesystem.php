@@ -2,29 +2,29 @@
 namespace slack\aws\elasticfilesystem;
 
 interface EFS {
-  public function CreateAccessPoint(CreateAccessPointRequest) Awaitable<Errors\Result<AccessPointDescription>>;
-  public function CreateFileSystem(CreateFileSystemRequest) Awaitable<Errors\Result<FileSystemDescription>>;
-  public function CreateMountTarget(CreateMountTargetRequest) Awaitable<Errors\Result<MountTargetDescription>>;
-  public function CreateTags(CreateTagsRequest) Awaitable<Errors\Error>;
-  public function DeleteAccessPoint(DeleteAccessPointRequest) Awaitable<Errors\Error>;
-  public function DeleteFileSystem(DeleteFileSystemRequest) Awaitable<Errors\Error>;
-  public function DeleteFileSystemPolicy(DeleteFileSystemPolicyRequest) Awaitable<Errors\Error>;
-  public function DeleteMountTarget(DeleteMountTargetRequest) Awaitable<Errors\Error>;
-  public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Error>;
-  public function DescribeAccessPoints(DescribeAccessPointsRequest) Awaitable<Errors\Result<DescribeAccessPointsResponse>>;
-  public function DescribeFileSystemPolicy(DescribeFileSystemPolicyRequest) Awaitable<Errors\Result<FileSystemPolicyDescription>>;
-  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
-  public function DescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
-  public function DescribeMountTargetSecurityGroups(DescribeMountTargetSecurityGroupsRequest) Awaitable<Errors\Result<DescribeMountTargetSecurityGroupsResponse>>;
-  public function DescribeMountTargets(DescribeMountTargetsRequest) Awaitable<Errors\Result<DescribeMountTargetsResponse>>;
-  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ModifyMountTargetSecurityGroups(ModifyMountTargetSecurityGroupsRequest) Awaitable<Errors\Error>;
-  public function PutFileSystemPolicy(PutFileSystemPolicyRequest) Awaitable<Errors\Result<FileSystemPolicyDescription>>;
-  public function PutLifecycleConfiguration(PutLifecycleConfigurationRequest) Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<FileSystemDescription>>;
+  public function CreateAccessPoint(CreateAccessPointRequest): Awaitable<Errors\Result<AccessPointDescription>>;
+  public function CreateFileSystem(CreateFileSystemRequest): Awaitable<Errors\Result<FileSystemDescription>>;
+  public function CreateMountTarget(CreateMountTargetRequest): Awaitable<Errors\Result<MountTargetDescription>>;
+  public function CreateTags(CreateTagsRequest): Awaitable<Errors\Error>;
+  public function DeleteAccessPoint(DeleteAccessPointRequest): Awaitable<Errors\Error>;
+  public function DeleteFileSystem(DeleteFileSystemRequest): Awaitable<Errors\Error>;
+  public function DeleteFileSystemPolicy(DeleteFileSystemPolicyRequest): Awaitable<Errors\Error>;
+  public function DeleteMountTarget(DeleteMountTargetRequest): Awaitable<Errors\Error>;
+  public function DeleteTags(DeleteTagsRequest): Awaitable<Errors\Error>;
+  public function DescribeAccessPoints(DescribeAccessPointsRequest): Awaitable<Errors\Result<DescribeAccessPointsResponse>>;
+  public function DescribeFileSystemPolicy(DescribeFileSystemPolicyRequest): Awaitable<Errors\Result<FileSystemPolicyDescription>>;
+  public function DescribeFileSystems(DescribeFileSystemsRequest): Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
+  public function DescribeLifecycleConfiguration(DescribeLifecycleConfigurationRequest): Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
+  public function DescribeMountTargetSecurityGroups(DescribeMountTargetSecurityGroupsRequest): Awaitable<Errors\Result<DescribeMountTargetSecurityGroupsResponse>>;
+  public function DescribeMountTargets(DescribeMountTargetsRequest): Awaitable<Errors\Result<DescribeMountTargetsResponse>>;
+  public function DescribeTags(DescribeTagsRequest): Awaitable<Errors\Result<DescribeTagsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ModifyMountTargetSecurityGroups(ModifyMountTargetSecurityGroupsRequest): Awaitable<Errors\Error>;
+  public function PutFileSystemPolicy(PutFileSystemPolicyRequest): Awaitable<Errors\Result<FileSystemPolicyDescription>>;
+  public function PutLifecycleConfiguration(PutLifecycleConfigurationRequest): Awaitable<Errors\Result<LifecycleConfigurationDescription>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateFileSystem(UpdateFileSystemRequest): Awaitable<Errors\Result<FileSystemDescription>>;
 }
 
 class AccessPointAlreadyExists {

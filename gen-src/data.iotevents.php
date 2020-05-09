@@ -2,10 +2,10 @@
 namespace slack\aws\data.iotevents;
 
 interface IoT Events Data {
-  public function BatchPutMessage(BatchPutMessageRequest) Awaitable<Errors\Result<BatchPutMessageResponse>>;
-  public function BatchUpdateDetector(BatchUpdateDetectorRequest) Awaitable<Errors\Result<BatchUpdateDetectorResponse>>;
-  public function DescribeDetector(DescribeDetectorRequest) Awaitable<Errors\Result<DescribeDetectorResponse>>;
-  public function ListDetectors(ListDetectorsRequest) Awaitable<Errors\Result<ListDetectorsResponse>>;
+  public function BatchPutMessage(BatchPutMessageRequest): Awaitable<Errors\Result<BatchPutMessageResponse>>;
+  public function BatchUpdateDetector(BatchUpdateDetectorRequest): Awaitable<Errors\Result<BatchUpdateDetectorResponse>>;
+  public function DescribeDetector(DescribeDetectorRequest): Awaitable<Errors\Result<DescribeDetectorResponse>>;
+  public function ListDetectors(ListDetectorsRequest): Awaitable<Errors\Result<ListDetectorsResponse>>;
 }
 
 class BatchPutMessageErrorEntries {

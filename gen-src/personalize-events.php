@@ -2,7 +2,7 @@
 namespace slack\aws\personalize-events;
 
 interface Personalize Events {
-  public function PutEvents(PutEventsRequest) Awaitable<Errors\Error>;
+  public function PutEvents(PutEventsRequest): Awaitable<Errors\Error>;
 }
 
 class Date {

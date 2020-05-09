@@ -2,22 +2,22 @@
 namespace slack\aws\license-manager;
 
 interface License Manager {
-  public function CreateLicenseConfiguration(CreateLicenseConfigurationRequest) Awaitable<Errors\Result<CreateLicenseConfigurationResponse>>;
-  public function DeleteLicenseConfiguration(DeleteLicenseConfigurationRequest) Awaitable<Errors\Result<DeleteLicenseConfigurationResponse>>;
-  public function GetLicenseConfiguration(GetLicenseConfigurationRequest) Awaitable<Errors\Result<GetLicenseConfigurationResponse>>;
-  public function GetServiceSettings(GetServiceSettingsRequest) Awaitable<Errors\Result<GetServiceSettingsResponse>>;
-  public function ListAssociationsForLicenseConfiguration(ListAssociationsForLicenseConfigurationRequest) Awaitable<Errors\Result<ListAssociationsForLicenseConfigurationResponse>>;
-  public function ListFailuresForLicenseConfigurationOperations(ListFailuresForLicenseConfigurationOperationsRequest) Awaitable<Errors\Result<ListFailuresForLicenseConfigurationOperationsResponse>>;
-  public function ListLicenseConfigurations(ListLicenseConfigurationsRequest) Awaitable<Errors\Result<ListLicenseConfigurationsResponse>>;
-  public function ListLicenseSpecificationsForResource(ListLicenseSpecificationsForResourceRequest) Awaitable<Errors\Result<ListLicenseSpecificationsForResourceResponse>>;
-  public function ListResourceInventory(ListResourceInventoryRequest) Awaitable<Errors\Result<ListResourceInventoryResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListUsageForLicenseConfiguration(ListUsageForLicenseConfigurationRequest) Awaitable<Errors\Result<ListUsageForLicenseConfigurationResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateLicenseConfiguration(UpdateLicenseConfigurationRequest) Awaitable<Errors\Result<UpdateLicenseConfigurationResponse>>;
-  public function UpdateLicenseSpecificationsForResource(UpdateLicenseSpecificationsForResourceRequest) Awaitable<Errors\Result<UpdateLicenseSpecificationsForResourceResponse>>;
-  public function UpdateServiceSettings(UpdateServiceSettingsRequest) Awaitable<Errors\Result<UpdateServiceSettingsResponse>>;
+  public function CreateLicenseConfiguration(CreateLicenseConfigurationRequest): Awaitable<Errors\Result<CreateLicenseConfigurationResponse>>;
+  public function DeleteLicenseConfiguration(DeleteLicenseConfigurationRequest): Awaitable<Errors\Result<DeleteLicenseConfigurationResponse>>;
+  public function GetLicenseConfiguration(GetLicenseConfigurationRequest): Awaitable<Errors\Result<GetLicenseConfigurationResponse>>;
+  public function GetServiceSettings(GetServiceSettingsRequest): Awaitable<Errors\Result<GetServiceSettingsResponse>>;
+  public function ListAssociationsForLicenseConfiguration(ListAssociationsForLicenseConfigurationRequest): Awaitable<Errors\Result<ListAssociationsForLicenseConfigurationResponse>>;
+  public function ListFailuresForLicenseConfigurationOperations(ListFailuresForLicenseConfigurationOperationsRequest): Awaitable<Errors\Result<ListFailuresForLicenseConfigurationOperationsResponse>>;
+  public function ListLicenseConfigurations(ListLicenseConfigurationsRequest): Awaitable<Errors\Result<ListLicenseConfigurationsResponse>>;
+  public function ListLicenseSpecificationsForResource(ListLicenseSpecificationsForResourceRequest): Awaitable<Errors\Result<ListLicenseSpecificationsForResourceResponse>>;
+  public function ListResourceInventory(ListResourceInventoryRequest): Awaitable<Errors\Result<ListResourceInventoryResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUsageForLicenseConfiguration(ListUsageForLicenseConfigurationRequest): Awaitable<Errors\Result<ListUsageForLicenseConfigurationResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateLicenseConfiguration(UpdateLicenseConfigurationRequest): Awaitable<Errors\Result<UpdateLicenseConfigurationResponse>>;
+  public function UpdateLicenseSpecificationsForResource(UpdateLicenseSpecificationsForResourceRequest): Awaitable<Errors\Result<UpdateLicenseSpecificationsForResourceResponse>>;
+  public function UpdateServiceSettings(UpdateServiceSettingsRequest): Awaitable<Errors\Result<UpdateServiceSettingsResponse>>;
 }
 
 class AccessDeniedException {

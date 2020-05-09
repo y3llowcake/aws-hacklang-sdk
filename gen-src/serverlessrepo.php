@@ -2,20 +2,20 @@
 namespace slack\aws\serverlessrepo;
 
 interface ServerlessApplicationRepository {
-  public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
-  public function CreateApplicationVersion(CreateApplicationVersionRequest) Awaitable<Errors\Result<CreateApplicationVersionResponse>>;
-  public function CreateCloudFormationChangeSet(CreateCloudFormationChangeSetRequest) Awaitable<Errors\Result<CreateCloudFormationChangeSetResponse>>;
-  public function CreateCloudFormationTemplate(CreateCloudFormationTemplateRequest) Awaitable<Errors\Result<CreateCloudFormationTemplateResponse>>;
-  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Error>;
-  public function GetApplication(GetApplicationRequest) Awaitable<Errors\Result<GetApplicationResponse>>;
-  public function GetApplicationPolicy(GetApplicationPolicyRequest) Awaitable<Errors\Result<GetApplicationPolicyResponse>>;
-  public function GetCloudFormationTemplate(GetCloudFormationTemplateRequest) Awaitable<Errors\Result<GetCloudFormationTemplateResponse>>;
-  public function ListApplicationDependencies(ListApplicationDependenciesRequest) Awaitable<Errors\Result<ListApplicationDependenciesResponse>>;
-  public function ListApplicationVersions(ListApplicationVersionsRequest) Awaitable<Errors\Result<ListApplicationVersionsResponse>>;
-  public function ListApplications(ListApplicationsRequest) Awaitable<Errors\Result<ListApplicationsResponse>>;
-  public function PutApplicationPolicy(PutApplicationPolicyRequest) Awaitable<Errors\Result<PutApplicationPolicyResponse>>;
-  public function UnshareApplication(UnshareApplicationRequest) Awaitable<Errors\Error>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
+  public function CreateApplication(CreateApplicationRequest): Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateApplicationVersion(CreateApplicationVersionRequest): Awaitable<Errors\Result<CreateApplicationVersionResponse>>;
+  public function CreateCloudFormationChangeSet(CreateCloudFormationChangeSetRequest): Awaitable<Errors\Result<CreateCloudFormationChangeSetResponse>>;
+  public function CreateCloudFormationTemplate(CreateCloudFormationTemplateRequest): Awaitable<Errors\Result<CreateCloudFormationTemplateResponse>>;
+  public function DeleteApplication(DeleteApplicationRequest): Awaitable<Errors\Error>;
+  public function GetApplication(GetApplicationRequest): Awaitable<Errors\Result<GetApplicationResponse>>;
+  public function GetApplicationPolicy(GetApplicationPolicyRequest): Awaitable<Errors\Result<GetApplicationPolicyResponse>>;
+  public function GetCloudFormationTemplate(GetCloudFormationTemplateRequest): Awaitable<Errors\Result<GetCloudFormationTemplateResponse>>;
+  public function ListApplicationDependencies(ListApplicationDependenciesRequest): Awaitable<Errors\Result<ListApplicationDependenciesResponse>>;
+  public function ListApplicationVersions(ListApplicationVersionsRequest): Awaitable<Errors\Result<ListApplicationVersionsResponse>>;
+  public function ListApplications(ListApplicationsRequest): Awaitable<Errors\Result<ListApplicationsResponse>>;
+  public function PutApplicationPolicy(PutApplicationPolicyRequest): Awaitable<Errors\Result<PutApplicationPolicyResponse>>;
+  public function UnshareApplication(UnshareApplicationRequest): Awaitable<Errors\Error>;
+  public function UpdateApplication(UpdateApplicationRequest): Awaitable<Errors\Result<UpdateApplicationResponse>>;
 }
 
 class Application {

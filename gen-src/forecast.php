@@ -2,32 +2,32 @@
 namespace slack\aws\forecast;
 
 interface forecast {
-  public function CreateDataset(CreateDatasetRequest) Awaitable<Errors\Result<CreateDatasetResponse>>;
-  public function CreateDatasetGroup(CreateDatasetGroupRequest) Awaitable<Errors\Result<CreateDatasetGroupResponse>>;
-  public function CreateDatasetImportJob(CreateDatasetImportJobRequest) Awaitable<Errors\Result<CreateDatasetImportJobResponse>>;
-  public function CreateForecast(CreateForecastRequest) Awaitable<Errors\Result<CreateForecastResponse>>;
-  public function CreateForecastExportJob(CreateForecastExportJobRequest) Awaitable<Errors\Result<CreateForecastExportJobResponse>>;
-  public function CreatePredictor(CreatePredictorRequest) Awaitable<Errors\Result<CreatePredictorResponse>>;
-  public function DeleteDataset(DeleteDatasetRequest) Awaitable<Errors\Error>;
-  public function DeleteDatasetGroup(DeleteDatasetGroupRequest) Awaitable<Errors\Error>;
-  public function DeleteDatasetImportJob(DeleteDatasetImportJobRequest) Awaitable<Errors\Error>;
-  public function DeleteForecast(DeleteForecastRequest) Awaitable<Errors\Error>;
-  public function DeleteForecastExportJob(DeleteForecastExportJobRequest) Awaitable<Errors\Error>;
-  public function DeletePredictor(DeletePredictorRequest) Awaitable<Errors\Error>;
-  public function DescribeDataset(DescribeDatasetRequest) Awaitable<Errors\Result<DescribeDatasetResponse>>;
-  public function DescribeDatasetGroup(DescribeDatasetGroupRequest) Awaitable<Errors\Result<DescribeDatasetGroupResponse>>;
-  public function DescribeDatasetImportJob(DescribeDatasetImportJobRequest) Awaitable<Errors\Result<DescribeDatasetImportJobResponse>>;
-  public function DescribeForecast(DescribeForecastRequest) Awaitable<Errors\Result<DescribeForecastResponse>>;
-  public function DescribeForecastExportJob(DescribeForecastExportJobRequest) Awaitable<Errors\Result<DescribeForecastExportJobResponse>>;
-  public function DescribePredictor(DescribePredictorRequest) Awaitable<Errors\Result<DescribePredictorResponse>>;
-  public function GetAccuracyMetrics(GetAccuracyMetricsRequest) Awaitable<Errors\Result<GetAccuracyMetricsResponse>>;
-  public function ListDatasetGroups(ListDatasetGroupsRequest) Awaitable<Errors\Result<ListDatasetGroupsResponse>>;
-  public function ListDatasetImportJobs(ListDatasetImportJobsRequest) Awaitable<Errors\Result<ListDatasetImportJobsResponse>>;
-  public function ListDatasets(ListDatasetsRequest) Awaitable<Errors\Result<ListDatasetsResponse>>;
-  public function ListForecastExportJobs(ListForecastExportJobsRequest) Awaitable<Errors\Result<ListForecastExportJobsResponse>>;
-  public function ListForecasts(ListForecastsRequest) Awaitable<Errors\Result<ListForecastsResponse>>;
-  public function ListPredictors(ListPredictorsRequest) Awaitable<Errors\Result<ListPredictorsResponse>>;
-  public function UpdateDatasetGroup(UpdateDatasetGroupRequest) Awaitable<Errors\Result<UpdateDatasetGroupResponse>>;
+  public function CreateDataset(CreateDatasetRequest): Awaitable<Errors\Result<CreateDatasetResponse>>;
+  public function CreateDatasetGroup(CreateDatasetGroupRequest): Awaitable<Errors\Result<CreateDatasetGroupResponse>>;
+  public function CreateDatasetImportJob(CreateDatasetImportJobRequest): Awaitable<Errors\Result<CreateDatasetImportJobResponse>>;
+  public function CreateForecast(CreateForecastRequest): Awaitable<Errors\Result<CreateForecastResponse>>;
+  public function CreateForecastExportJob(CreateForecastExportJobRequest): Awaitable<Errors\Result<CreateForecastExportJobResponse>>;
+  public function CreatePredictor(CreatePredictorRequest): Awaitable<Errors\Result<CreatePredictorResponse>>;
+  public function DeleteDataset(DeleteDatasetRequest): Awaitable<Errors\Error>;
+  public function DeleteDatasetGroup(DeleteDatasetGroupRequest): Awaitable<Errors\Error>;
+  public function DeleteDatasetImportJob(DeleteDatasetImportJobRequest): Awaitable<Errors\Error>;
+  public function DeleteForecast(DeleteForecastRequest): Awaitable<Errors\Error>;
+  public function DeleteForecastExportJob(DeleteForecastExportJobRequest): Awaitable<Errors\Error>;
+  public function DeletePredictor(DeletePredictorRequest): Awaitable<Errors\Error>;
+  public function DescribeDataset(DescribeDatasetRequest): Awaitable<Errors\Result<DescribeDatasetResponse>>;
+  public function DescribeDatasetGroup(DescribeDatasetGroupRequest): Awaitable<Errors\Result<DescribeDatasetGroupResponse>>;
+  public function DescribeDatasetImportJob(DescribeDatasetImportJobRequest): Awaitable<Errors\Result<DescribeDatasetImportJobResponse>>;
+  public function DescribeForecast(DescribeForecastRequest): Awaitable<Errors\Result<DescribeForecastResponse>>;
+  public function DescribeForecastExportJob(DescribeForecastExportJobRequest): Awaitable<Errors\Result<DescribeForecastExportJobResponse>>;
+  public function DescribePredictor(DescribePredictorRequest): Awaitable<Errors\Result<DescribePredictorResponse>>;
+  public function GetAccuracyMetrics(GetAccuracyMetricsRequest): Awaitable<Errors\Result<GetAccuracyMetricsResponse>>;
+  public function ListDatasetGroups(ListDatasetGroupsRequest): Awaitable<Errors\Result<ListDatasetGroupsResponse>>;
+  public function ListDatasetImportJobs(ListDatasetImportJobsRequest): Awaitable<Errors\Result<ListDatasetImportJobsResponse>>;
+  public function ListDatasets(ListDatasetsRequest): Awaitable<Errors\Result<ListDatasetsResponse>>;
+  public function ListForecastExportJobs(ListForecastExportJobsRequest): Awaitable<Errors\Result<ListForecastExportJobsResponse>>;
+  public function ListForecasts(ListForecastsRequest): Awaitable<Errors\Result<ListForecastsResponse>>;
+  public function ListPredictors(ListPredictorsRequest): Awaitable<Errors\Result<ListPredictorsResponse>>;
+  public function UpdateDatasetGroup(UpdateDatasetGroupRequest): Awaitable<Errors\Result<UpdateDatasetGroupResponse>>;
 }
 
 class Arn {

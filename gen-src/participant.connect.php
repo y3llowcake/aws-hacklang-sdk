@@ -2,11 +2,11 @@
 namespace slack\aws\participant.connect;
 
 interface ConnectParticipant {
-  public function CreateParticipantConnection(CreateParticipantConnectionRequest) Awaitable<Errors\Result<CreateParticipantConnectionResponse>>;
-  public function DisconnectParticipant(DisconnectParticipantRequest) Awaitable<Errors\Result<DisconnectParticipantResponse>>;
-  public function GetTranscript(GetTranscriptRequest) Awaitable<Errors\Result<GetTranscriptResponse>>;
-  public function SendEvent(SendEventRequest) Awaitable<Errors\Result<SendEventResponse>>;
-  public function SendMessage(SendMessageRequest) Awaitable<Errors\Result<SendMessageResponse>>;
+  public function CreateParticipantConnection(CreateParticipantConnectionRequest): Awaitable<Errors\Result<CreateParticipantConnectionResponse>>;
+  public function DisconnectParticipant(DisconnectParticipantRequest): Awaitable<Errors\Result<DisconnectParticipantResponse>>;
+  public function GetTranscript(GetTranscriptRequest): Awaitable<Errors\Result<GetTranscriptResponse>>;
+  public function SendEvent(SendEventRequest): Awaitable<Errors\Result<SendEventResponse>>;
+  public function SendMessage(SendMessageRequest): Awaitable<Errors\Result<SendMessageResponse>>;
 }
 
 class AccessDeniedException {

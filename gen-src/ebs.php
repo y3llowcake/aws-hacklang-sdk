@@ -2,9 +2,9 @@
 namespace slack\aws\ebs;
 
 interface EBS {
-  public function GetSnapshotBlock(GetSnapshotBlockRequest) Awaitable<Errors\Result<GetSnapshotBlockResponse>>;
-  public function ListChangedBlocks(ListChangedBlocksRequest) Awaitable<Errors\Result<ListChangedBlocksResponse>>;
-  public function ListSnapshotBlocks(ListSnapshotBlocksRequest) Awaitable<Errors\Result<ListSnapshotBlocksResponse>>;
+  public function GetSnapshotBlock(GetSnapshotBlockRequest): Awaitable<Errors\Result<GetSnapshotBlockResponse>>;
+  public function ListChangedBlocks(ListChangedBlocksRequest): Awaitable<Errors\Result<ListChangedBlocksResponse>>;
+  public function ListSnapshotBlocks(ListSnapshotBlocksRequest): Awaitable<Errors\Result<ListSnapshotBlocksResponse>>;
 }
 
 class Block {

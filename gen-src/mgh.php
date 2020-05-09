@@ -2,23 +2,23 @@
 namespace slack\aws\mgh;
 
 interface Migration Hub {
-  public function AssociateCreatedArtifact(AssociateCreatedArtifactRequest) Awaitable<Errors\Result<AssociateCreatedArtifactResult>>;
-  public function AssociateDiscoveredResource(AssociateDiscoveredResourceRequest) Awaitable<Errors\Result<AssociateDiscoveredResourceResult>>;
-  public function CreateProgressUpdateStream(CreateProgressUpdateStreamRequest) Awaitable<Errors\Result<CreateProgressUpdateStreamResult>>;
-  public function DeleteProgressUpdateStream(DeleteProgressUpdateStreamRequest) Awaitable<Errors\Result<DeleteProgressUpdateStreamResult>>;
-  public function DescribeApplicationState(DescribeApplicationStateRequest) Awaitable<Errors\Result<DescribeApplicationStateResult>>;
-  public function DescribeMigrationTask(DescribeMigrationTaskRequest) Awaitable<Errors\Result<DescribeMigrationTaskResult>>;
-  public function DisassociateCreatedArtifact(DisassociateCreatedArtifactRequest) Awaitable<Errors\Result<DisassociateCreatedArtifactResult>>;
-  public function DisassociateDiscoveredResource(DisassociateDiscoveredResourceRequest) Awaitable<Errors\Result<DisassociateDiscoveredResourceResult>>;
-  public function ImportMigrationTask(ImportMigrationTaskRequest) Awaitable<Errors\Result<ImportMigrationTaskResult>>;
-  public function ListApplicationStates(ListApplicationStatesRequest) Awaitable<Errors\Result<ListApplicationStatesResult>>;
-  public function ListCreatedArtifacts(ListCreatedArtifactsRequest) Awaitable<Errors\Result<ListCreatedArtifactsResult>>;
-  public function ListDiscoveredResources(ListDiscoveredResourcesRequest) Awaitable<Errors\Result<ListDiscoveredResourcesResult>>;
-  public function ListMigrationTasks(ListMigrationTasksRequest) Awaitable<Errors\Result<ListMigrationTasksResult>>;
-  public function ListProgressUpdateStreams(ListProgressUpdateStreamsRequest) Awaitable<Errors\Result<ListProgressUpdateStreamsResult>>;
-  public function NotifyApplicationState(NotifyApplicationStateRequest) Awaitable<Errors\Result<NotifyApplicationStateResult>>;
-  public function NotifyMigrationTaskState(NotifyMigrationTaskStateRequest) Awaitable<Errors\Result<NotifyMigrationTaskStateResult>>;
-  public function PutResourceAttributes(PutResourceAttributesRequest) Awaitable<Errors\Result<PutResourceAttributesResult>>;
+  public function AssociateCreatedArtifact(AssociateCreatedArtifactRequest): Awaitable<Errors\Result<AssociateCreatedArtifactResult>>;
+  public function AssociateDiscoveredResource(AssociateDiscoveredResourceRequest): Awaitable<Errors\Result<AssociateDiscoveredResourceResult>>;
+  public function CreateProgressUpdateStream(CreateProgressUpdateStreamRequest): Awaitable<Errors\Result<CreateProgressUpdateStreamResult>>;
+  public function DeleteProgressUpdateStream(DeleteProgressUpdateStreamRequest): Awaitable<Errors\Result<DeleteProgressUpdateStreamResult>>;
+  public function DescribeApplicationState(DescribeApplicationStateRequest): Awaitable<Errors\Result<DescribeApplicationStateResult>>;
+  public function DescribeMigrationTask(DescribeMigrationTaskRequest): Awaitable<Errors\Result<DescribeMigrationTaskResult>>;
+  public function DisassociateCreatedArtifact(DisassociateCreatedArtifactRequest): Awaitable<Errors\Result<DisassociateCreatedArtifactResult>>;
+  public function DisassociateDiscoveredResource(DisassociateDiscoveredResourceRequest): Awaitable<Errors\Result<DisassociateDiscoveredResourceResult>>;
+  public function ImportMigrationTask(ImportMigrationTaskRequest): Awaitable<Errors\Result<ImportMigrationTaskResult>>;
+  public function ListApplicationStates(ListApplicationStatesRequest): Awaitable<Errors\Result<ListApplicationStatesResult>>;
+  public function ListCreatedArtifacts(ListCreatedArtifactsRequest): Awaitable<Errors\Result<ListCreatedArtifactsResult>>;
+  public function ListDiscoveredResources(ListDiscoveredResourcesRequest): Awaitable<Errors\Result<ListDiscoveredResourcesResult>>;
+  public function ListMigrationTasks(ListMigrationTasksRequest): Awaitable<Errors\Result<ListMigrationTasksResult>>;
+  public function ListProgressUpdateStreams(ListProgressUpdateStreamsRequest): Awaitable<Errors\Result<ListProgressUpdateStreamsResult>>;
+  public function NotifyApplicationState(NotifyApplicationStateRequest): Awaitable<Errors\Result<NotifyApplicationStateResult>>;
+  public function NotifyMigrationTaskState(NotifyMigrationTaskStateRequest): Awaitable<Errors\Result<NotifyMigrationTaskStateResult>>;
+  public function PutResourceAttributes(PutResourceAttributesRequest): Awaitable<Errors\Result<PutResourceAttributesResult>>;
 }
 
 class AccessDeniedException {

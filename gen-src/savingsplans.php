@@ -2,14 +2,14 @@
 namespace slack\aws\savingsplans;
 
 interface savingsplans {
-  public function CreateSavingsPlan(CreateSavingsPlanRequest) Awaitable<Errors\Result<CreateSavingsPlanResponse>>;
-  public function DescribeSavingsPlanRates(DescribeSavingsPlanRatesRequest) Awaitable<Errors\Result<DescribeSavingsPlanRatesResponse>>;
-  public function DescribeSavingsPlans(DescribeSavingsPlansRequest) Awaitable<Errors\Result<DescribeSavingsPlansResponse>>;
-  public function DescribeSavingsPlansOfferingRates(DescribeSavingsPlansOfferingRatesRequest) Awaitable<Errors\Result<DescribeSavingsPlansOfferingRatesResponse>>;
-  public function DescribeSavingsPlansOfferings(DescribeSavingsPlansOfferingsRequest) Awaitable<Errors\Result<DescribeSavingsPlansOfferingsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function CreateSavingsPlan(CreateSavingsPlanRequest): Awaitable<Errors\Result<CreateSavingsPlanResponse>>;
+  public function DescribeSavingsPlanRates(DescribeSavingsPlanRatesRequest): Awaitable<Errors\Result<DescribeSavingsPlanRatesResponse>>;
+  public function DescribeSavingsPlans(DescribeSavingsPlansRequest): Awaitable<Errors\Result<DescribeSavingsPlansResponse>>;
+  public function DescribeSavingsPlansOfferingRates(DescribeSavingsPlansOfferingRatesRequest): Awaitable<Errors\Result<DescribeSavingsPlansOfferingRatesResponse>>;
+  public function DescribeSavingsPlansOfferings(DescribeSavingsPlansOfferingsRequest): Awaitable<Errors\Result<DescribeSavingsPlansOfferingsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class Amount {

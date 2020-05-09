@@ -2,21 +2,21 @@
 namespace slack\aws\qldb;
 
 interface QLDB {
-  public function CreateLedger(CreateLedgerRequest) Awaitable<Errors\Result<CreateLedgerResponse>>;
-  public function DeleteLedger(DeleteLedgerRequest) Awaitable<Errors\Error>;
-  public function DescribeJournalS3Export(DescribeJournalS3ExportRequest) Awaitable<Errors\Result<DescribeJournalS3ExportResponse>>;
-  public function DescribeLedger(DescribeLedgerRequest) Awaitable<Errors\Result<DescribeLedgerResponse>>;
-  public function ExportJournalToS3(ExportJournalToS3Request) Awaitable<Errors\Result<ExportJournalToS3Response>>;
-  public function GetBlock(GetBlockRequest) Awaitable<Errors\Result<GetBlockResponse>>;
-  public function GetDigest(GetDigestRequest) Awaitable<Errors\Result<GetDigestResponse>>;
-  public function GetRevision(GetRevisionRequest) Awaitable<Errors\Result<GetRevisionResponse>>;
-  public function ListJournalS3Exports(ListJournalS3ExportsRequest) Awaitable<Errors\Result<ListJournalS3ExportsResponse>>;
-  public function ListJournalS3ExportsForLedger(ListJournalS3ExportsForLedgerRequest) Awaitable<Errors\Result<ListJournalS3ExportsForLedgerResponse>>;
-  public function ListLedgers(ListLedgersRequest) Awaitable<Errors\Result<ListLedgersResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateLedger(UpdateLedgerRequest) Awaitable<Errors\Result<UpdateLedgerResponse>>;
+  public function CreateLedger(CreateLedgerRequest): Awaitable<Errors\Result<CreateLedgerResponse>>;
+  public function DeleteLedger(DeleteLedgerRequest): Awaitable<Errors\Error>;
+  public function DescribeJournalS3Export(DescribeJournalS3ExportRequest): Awaitable<Errors\Result<DescribeJournalS3ExportResponse>>;
+  public function DescribeLedger(DescribeLedgerRequest): Awaitable<Errors\Result<DescribeLedgerResponse>>;
+  public function ExportJournalToS3(ExportJournalToS3Request): Awaitable<Errors\Result<ExportJournalToS3Response>>;
+  public function GetBlock(GetBlockRequest): Awaitable<Errors\Result<GetBlockResponse>>;
+  public function GetDigest(GetDigestRequest): Awaitable<Errors\Result<GetDigestResponse>>;
+  public function GetRevision(GetRevisionRequest): Awaitable<Errors\Result<GetRevisionResponse>>;
+  public function ListJournalS3Exports(ListJournalS3ExportsRequest): Awaitable<Errors\Result<ListJournalS3ExportsResponse>>;
+  public function ListJournalS3ExportsForLedger(ListJournalS3ExportsForLedgerRequest): Awaitable<Errors\Result<ListJournalS3ExportsForLedgerResponse>>;
+  public function ListLedgers(ListLedgersRequest): Awaitable<Errors\Result<ListLedgersResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateLedger(UpdateLedgerRequest): Awaitable<Errors\Result<UpdateLedgerResponse>>;
 }
 
 class Arn {

@@ -2,12 +2,12 @@
 namespace slack\aws\catalog.marketplace;
 
 interface Marketplace Catalog {
-  public function CancelChangeSet(CancelChangeSetRequest) Awaitable<Errors\Result<CancelChangeSetResponse>>;
-  public function DescribeChangeSet(DescribeChangeSetRequest) Awaitable<Errors\Result<DescribeChangeSetResponse>>;
-  public function DescribeEntity(DescribeEntityRequest) Awaitable<Errors\Result<DescribeEntityResponse>>;
-  public function ListChangeSets(ListChangeSetsRequest) Awaitable<Errors\Result<ListChangeSetsResponse>>;
-  public function ListEntities(ListEntitiesRequest) Awaitable<Errors\Result<ListEntitiesResponse>>;
-  public function StartChangeSet(StartChangeSetRequest) Awaitable<Errors\Result<StartChangeSetResponse>>;
+  public function CancelChangeSet(CancelChangeSetRequest): Awaitable<Errors\Result<CancelChangeSetResponse>>;
+  public function DescribeChangeSet(DescribeChangeSetRequest): Awaitable<Errors\Result<DescribeChangeSetResponse>>;
+  public function DescribeEntity(DescribeEntityRequest): Awaitable<Errors\Result<DescribeEntityResponse>>;
+  public function ListChangeSets(ListChangeSetsRequest): Awaitable<Errors\Result<ListChangeSetsResponse>>;
+  public function ListEntities(ListEntitiesRequest): Awaitable<Errors\Result<ListEntitiesResponse>>;
+  public function StartChangeSet(StartChangeSetRequest): Awaitable<Errors\Result<StartChangeSetResponse>>;
 }
 
 class ARN {

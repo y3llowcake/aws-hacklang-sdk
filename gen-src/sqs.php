@@ -2,26 +2,26 @@
 namespace slack\aws\sqs;
 
 interface SQS {
-  public function AddPermission(AddPermissionRequest) Awaitable<Errors\Error>;
-  public function ChangeMessageVisibility(ChangeMessageVisibilityRequest) Awaitable<Errors\Error>;
-  public function ChangeMessageVisibilityBatch(ChangeMessageVisibilityBatchRequest) Awaitable<Errors\Result<ChangeMessageVisibilityBatchResult>>;
-  public function CreateQueue(CreateQueueRequest) Awaitable<Errors\Result<CreateQueueResult>>;
-  public function DeleteMessage(DeleteMessageRequest) Awaitable<Errors\Error>;
-  public function DeleteMessageBatch(DeleteMessageBatchRequest) Awaitable<Errors\Result<DeleteMessageBatchResult>>;
-  public function DeleteQueue(DeleteQueueRequest) Awaitable<Errors\Error>;
-  public function GetQueueAttributes(GetQueueAttributesRequest) Awaitable<Errors\Result<GetQueueAttributesResult>>;
-  public function GetQueueUrl(GetQueueUrlRequest) Awaitable<Errors\Result<GetQueueUrlResult>>;
-  public function ListDeadLetterSourceQueues(ListDeadLetterSourceQueuesRequest) Awaitable<Errors\Result<ListDeadLetterSourceQueuesResult>>;
-  public function ListQueueTags(ListQueueTagsRequest) Awaitable<Errors\Result<ListQueueTagsResult>>;
-  public function ListQueues(ListQueuesRequest) Awaitable<Errors\Result<ListQueuesResult>>;
-  public function PurgeQueue(PurgeQueueRequest) Awaitable<Errors\Error>;
-  public function ReceiveMessage(ReceiveMessageRequest) Awaitable<Errors\Result<ReceiveMessageResult>>;
-  public function RemovePermission(RemovePermissionRequest) Awaitable<Errors\Error>;
-  public function SendMessage(SendMessageRequest) Awaitable<Errors\Result<SendMessageResult>>;
-  public function SendMessageBatch(SendMessageBatchRequest) Awaitable<Errors\Result<SendMessageBatchResult>>;
-  public function SetQueueAttributes(SetQueueAttributesRequest) Awaitable<Errors\Error>;
-  public function TagQueue(TagQueueRequest) Awaitable<Errors\Error>;
-  public function UntagQueue(UntagQueueRequest) Awaitable<Errors\Error>;
+  public function AddPermission(AddPermissionRequest): Awaitable<Errors\Error>;
+  public function ChangeMessageVisibility(ChangeMessageVisibilityRequest): Awaitable<Errors\Error>;
+  public function ChangeMessageVisibilityBatch(ChangeMessageVisibilityBatchRequest): Awaitable<Errors\Result<ChangeMessageVisibilityBatchResult>>;
+  public function CreateQueue(CreateQueueRequest): Awaitable<Errors\Result<CreateQueueResult>>;
+  public function DeleteMessage(DeleteMessageRequest): Awaitable<Errors\Error>;
+  public function DeleteMessageBatch(DeleteMessageBatchRequest): Awaitable<Errors\Result<DeleteMessageBatchResult>>;
+  public function DeleteQueue(DeleteQueueRequest): Awaitable<Errors\Error>;
+  public function GetQueueAttributes(GetQueueAttributesRequest): Awaitable<Errors\Result<GetQueueAttributesResult>>;
+  public function GetQueueUrl(GetQueueUrlRequest): Awaitable<Errors\Result<GetQueueUrlResult>>;
+  public function ListDeadLetterSourceQueues(ListDeadLetterSourceQueuesRequest): Awaitable<Errors\Result<ListDeadLetterSourceQueuesResult>>;
+  public function ListQueueTags(ListQueueTagsRequest): Awaitable<Errors\Result<ListQueueTagsResult>>;
+  public function ListQueues(ListQueuesRequest): Awaitable<Errors\Result<ListQueuesResult>>;
+  public function PurgeQueue(PurgeQueueRequest): Awaitable<Errors\Error>;
+  public function ReceiveMessage(ReceiveMessageRequest): Awaitable<Errors\Result<ReceiveMessageResult>>;
+  public function RemovePermission(RemovePermissionRequest): Awaitable<Errors\Error>;
+  public function SendMessage(SendMessageRequest): Awaitable<Errors\Result<SendMessageResult>>;
+  public function SendMessageBatch(SendMessageBatchRequest): Awaitable<Errors\Result<SendMessageBatchResult>>;
+  public function SetQueueAttributes(SetQueueAttributesRequest): Awaitable<Errors\Error>;
+  public function TagQueue(TagQueueRequest): Awaitable<Errors\Error>;
+  public function UntagQueue(UntagQueueRequest): Awaitable<Errors\Error>;
 }
 
 class AWSAccountIdList {

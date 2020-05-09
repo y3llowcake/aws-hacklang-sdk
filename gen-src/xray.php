@@ -2,26 +2,26 @@
 namespace slack\aws\xray;
 
 interface XRay {
-  public function BatchGetTraces(BatchGetTracesRequest) Awaitable<Errors\Result<BatchGetTracesResult>>;
-  public function CreateGroup(CreateGroupRequest) Awaitable<Errors\Result<CreateGroupResult>>;
-  public function CreateSamplingRule(CreateSamplingRuleRequest) Awaitable<Errors\Result<CreateSamplingRuleResult>>;
-  public function DeleteGroup(DeleteGroupRequest) Awaitable<Errors\Result<DeleteGroupResult>>;
-  public function DeleteSamplingRule(DeleteSamplingRuleRequest) Awaitable<Errors\Result<DeleteSamplingRuleResult>>;
-  public function GetEncryptionConfig(GetEncryptionConfigRequest) Awaitable<Errors\Result<GetEncryptionConfigResult>>;
-  public function GetGroup(GetGroupRequest) Awaitable<Errors\Result<GetGroupResult>>;
-  public function GetGroups(GetGroupsRequest) Awaitable<Errors\Result<GetGroupsResult>>;
-  public function GetSamplingRules(GetSamplingRulesRequest) Awaitable<Errors\Result<GetSamplingRulesResult>>;
-  public function GetSamplingStatisticSummaries(GetSamplingStatisticSummariesRequest) Awaitable<Errors\Result<GetSamplingStatisticSummariesResult>>;
-  public function GetSamplingTargets(GetSamplingTargetsRequest) Awaitable<Errors\Result<GetSamplingTargetsResult>>;
-  public function GetServiceGraph(GetServiceGraphRequest) Awaitable<Errors\Result<GetServiceGraphResult>>;
-  public function GetTimeSeriesServiceStatistics(GetTimeSeriesServiceStatisticsRequest) Awaitable<Errors\Result<GetTimeSeriesServiceStatisticsResult>>;
-  public function GetTraceGraph(GetTraceGraphRequest) Awaitable<Errors\Result<GetTraceGraphResult>>;
-  public function GetTraceSummaries(GetTraceSummariesRequest) Awaitable<Errors\Result<GetTraceSummariesResult>>;
-  public function PutEncryptionConfig(PutEncryptionConfigRequest) Awaitable<Errors\Result<PutEncryptionConfigResult>>;
-  public function PutTelemetryRecords(PutTelemetryRecordsRequest) Awaitable<Errors\Result<PutTelemetryRecordsResult>>;
-  public function PutTraceSegments(PutTraceSegmentsRequest) Awaitable<Errors\Result<PutTraceSegmentsResult>>;
-  public function UpdateGroup(UpdateGroupRequest) Awaitable<Errors\Result<UpdateGroupResult>>;
-  public function UpdateSamplingRule(UpdateSamplingRuleRequest) Awaitable<Errors\Result<UpdateSamplingRuleResult>>;
+  public function BatchGetTraces(BatchGetTracesRequest): Awaitable<Errors\Result<BatchGetTracesResult>>;
+  public function CreateGroup(CreateGroupRequest): Awaitable<Errors\Result<CreateGroupResult>>;
+  public function CreateSamplingRule(CreateSamplingRuleRequest): Awaitable<Errors\Result<CreateSamplingRuleResult>>;
+  public function DeleteGroup(DeleteGroupRequest): Awaitable<Errors\Result<DeleteGroupResult>>;
+  public function DeleteSamplingRule(DeleteSamplingRuleRequest): Awaitable<Errors\Result<DeleteSamplingRuleResult>>;
+  public function GetEncryptionConfig(GetEncryptionConfigRequest): Awaitable<Errors\Result<GetEncryptionConfigResult>>;
+  public function GetGroup(GetGroupRequest): Awaitable<Errors\Result<GetGroupResult>>;
+  public function GetGroups(GetGroupsRequest): Awaitable<Errors\Result<GetGroupsResult>>;
+  public function GetSamplingRules(GetSamplingRulesRequest): Awaitable<Errors\Result<GetSamplingRulesResult>>;
+  public function GetSamplingStatisticSummaries(GetSamplingStatisticSummariesRequest): Awaitable<Errors\Result<GetSamplingStatisticSummariesResult>>;
+  public function GetSamplingTargets(GetSamplingTargetsRequest): Awaitable<Errors\Result<GetSamplingTargetsResult>>;
+  public function GetServiceGraph(GetServiceGraphRequest): Awaitable<Errors\Result<GetServiceGraphResult>>;
+  public function GetTimeSeriesServiceStatistics(GetTimeSeriesServiceStatisticsRequest): Awaitable<Errors\Result<GetTimeSeriesServiceStatisticsResult>>;
+  public function GetTraceGraph(GetTraceGraphRequest): Awaitable<Errors\Result<GetTraceGraphResult>>;
+  public function GetTraceSummaries(GetTraceSummariesRequest): Awaitable<Errors\Result<GetTraceSummariesResult>>;
+  public function PutEncryptionConfig(PutEncryptionConfigRequest): Awaitable<Errors\Result<PutEncryptionConfigResult>>;
+  public function PutTelemetryRecords(PutTelemetryRecordsRequest): Awaitable<Errors\Result<PutTelemetryRecordsResult>>;
+  public function PutTraceSegments(PutTraceSegmentsRequest): Awaitable<Errors\Result<PutTraceSegmentsResult>>;
+  public function UpdateGroup(UpdateGroupRequest): Awaitable<Errors\Result<UpdateGroupResult>>;
+  public function UpdateSamplingRule(UpdateSamplingRuleRequest): Awaitable<Errors\Result<UpdateSamplingRuleResult>>;
 }
 
 class Alias {

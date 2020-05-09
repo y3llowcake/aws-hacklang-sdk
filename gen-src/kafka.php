@@ -2,27 +2,27 @@
 namespace slack\aws\kafka;
 
 interface Kafka {
-  public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResponse>>;
-  public function CreateConfiguration(CreateConfigurationRequest) Awaitable<Errors\Result<CreateConfigurationResponse>>;
-  public function DeleteCluster(DeleteClusterRequest) Awaitable<Errors\Result<DeleteClusterResponse>>;
-  public function DescribeCluster(DescribeClusterRequest) Awaitable<Errors\Result<DescribeClusterResponse>>;
-  public function DescribeClusterOperation(DescribeClusterOperationRequest) Awaitable<Errors\Result<DescribeClusterOperationResponse>>;
-  public function DescribeConfiguration(DescribeConfigurationRequest) Awaitable<Errors\Result<DescribeConfigurationResponse>>;
-  public function DescribeConfigurationRevision(DescribeConfigurationRevisionRequest) Awaitable<Errors\Result<DescribeConfigurationRevisionResponse>>;
-  public function GetBootstrapBrokers(GetBootstrapBrokersRequest) Awaitable<Errors\Result<GetBootstrapBrokersResponse>>;
-  public function ListClusterOperations(ListClusterOperationsRequest) Awaitable<Errors\Result<ListClusterOperationsResponse>>;
-  public function ListClusters(ListClustersRequest) Awaitable<Errors\Result<ListClustersResponse>>;
-  public function ListConfigurationRevisions(ListConfigurationRevisionsRequest) Awaitable<Errors\Result<ListConfigurationRevisionsResponse>>;
-  public function ListConfigurations(ListConfigurationsRequest) Awaitable<Errors\Result<ListConfigurationsResponse>>;
-  public function ListKafkaVersions(ListKafkaVersionsRequest) Awaitable<Errors\Result<ListKafkaVersionsResponse>>;
-  public function ListNodes(ListNodesRequest) Awaitable<Errors\Result<ListNodesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateBrokerCount(UpdateBrokerCountRequest) Awaitable<Errors\Result<UpdateBrokerCountResponse>>;
-  public function UpdateBrokerStorage(UpdateBrokerStorageRequest) Awaitable<Errors\Result<UpdateBrokerStorageResponse>>;
-  public function UpdateClusterConfiguration(UpdateClusterConfigurationRequest) Awaitable<Errors\Result<UpdateClusterConfigurationResponse>>;
-  public function UpdateMonitoring(UpdateMonitoringRequest) Awaitable<Errors\Result<UpdateMonitoringResponse>>;
+  public function CreateCluster(CreateClusterRequest): Awaitable<Errors\Result<CreateClusterResponse>>;
+  public function CreateConfiguration(CreateConfigurationRequest): Awaitable<Errors\Result<CreateConfigurationResponse>>;
+  public function DeleteCluster(DeleteClusterRequest): Awaitable<Errors\Result<DeleteClusterResponse>>;
+  public function DescribeCluster(DescribeClusterRequest): Awaitable<Errors\Result<DescribeClusterResponse>>;
+  public function DescribeClusterOperation(DescribeClusterOperationRequest): Awaitable<Errors\Result<DescribeClusterOperationResponse>>;
+  public function DescribeConfiguration(DescribeConfigurationRequest): Awaitable<Errors\Result<DescribeConfigurationResponse>>;
+  public function DescribeConfigurationRevision(DescribeConfigurationRevisionRequest): Awaitable<Errors\Result<DescribeConfigurationRevisionResponse>>;
+  public function GetBootstrapBrokers(GetBootstrapBrokersRequest): Awaitable<Errors\Result<GetBootstrapBrokersResponse>>;
+  public function ListClusterOperations(ListClusterOperationsRequest): Awaitable<Errors\Result<ListClusterOperationsResponse>>;
+  public function ListClusters(ListClustersRequest): Awaitable<Errors\Result<ListClustersResponse>>;
+  public function ListConfigurationRevisions(ListConfigurationRevisionsRequest): Awaitable<Errors\Result<ListConfigurationRevisionsResponse>>;
+  public function ListConfigurations(ListConfigurationsRequest): Awaitable<Errors\Result<ListConfigurationsResponse>>;
+  public function ListKafkaVersions(ListKafkaVersionsRequest): Awaitable<Errors\Result<ListKafkaVersionsResponse>>;
+  public function ListNodes(ListNodesRequest): Awaitable<Errors\Result<ListNodesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateBrokerCount(UpdateBrokerCountRequest): Awaitable<Errors\Result<UpdateBrokerCountResponse>>;
+  public function UpdateBrokerStorage(UpdateBrokerStorageRequest): Awaitable<Errors\Result<UpdateBrokerStorageResponse>>;
+  public function UpdateClusterConfiguration(UpdateClusterConfigurationRequest): Awaitable<Errors\Result<UpdateClusterConfigurationResponse>>;
+  public function UpdateMonitoring(UpdateMonitoringRequest): Awaitable<Errors\Result<UpdateMonitoringResponse>>;
 }
 
 class BadRequestException {

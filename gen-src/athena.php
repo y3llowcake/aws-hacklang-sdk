@@ -2,25 +2,25 @@
 namespace slack\aws\athena;
 
 interface Athena {
-  public function BatchGetNamedQuery(BatchGetNamedQueryInput) Awaitable<Errors\Result<BatchGetNamedQueryOutput>>;
-  public function BatchGetQueryExecution(BatchGetQueryExecutionInput) Awaitable<Errors\Result<BatchGetQueryExecutionOutput>>;
-  public function CreateNamedQuery(CreateNamedQueryInput) Awaitable<Errors\Result<CreateNamedQueryOutput>>;
-  public function CreateWorkGroup(CreateWorkGroupInput) Awaitable<Errors\Result<CreateWorkGroupOutput>>;
-  public function DeleteNamedQuery(DeleteNamedQueryInput) Awaitable<Errors\Result<DeleteNamedQueryOutput>>;
-  public function DeleteWorkGroup(DeleteWorkGroupInput) Awaitable<Errors\Result<DeleteWorkGroupOutput>>;
-  public function GetNamedQuery(GetNamedQueryInput) Awaitable<Errors\Result<GetNamedQueryOutput>>;
-  public function GetQueryExecution(GetQueryExecutionInput) Awaitable<Errors\Result<GetQueryExecutionOutput>>;
-  public function GetQueryResults(GetQueryResultsInput) Awaitable<Errors\Result<GetQueryResultsOutput>>;
-  public function GetWorkGroup(GetWorkGroupInput) Awaitable<Errors\Result<GetWorkGroupOutput>>;
-  public function ListNamedQueries(ListNamedQueriesInput) Awaitable<Errors\Result<ListNamedQueriesOutput>>;
-  public function ListQueryExecutions(ListQueryExecutionsInput) Awaitable<Errors\Result<ListQueryExecutionsOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function ListWorkGroups(ListWorkGroupsInput) Awaitable<Errors\Result<ListWorkGroupsOutput>>;
-  public function StartQueryExecution(StartQueryExecutionInput) Awaitable<Errors\Result<StartQueryExecutionOutput>>;
-  public function StopQueryExecution(StopQueryExecutionInput) Awaitable<Errors\Result<StopQueryExecutionOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
-  public function UpdateWorkGroup(UpdateWorkGroupInput) Awaitable<Errors\Result<UpdateWorkGroupOutput>>;
+  public function BatchGetNamedQuery(BatchGetNamedQueryInput): Awaitable<Errors\Result<BatchGetNamedQueryOutput>>;
+  public function BatchGetQueryExecution(BatchGetQueryExecutionInput): Awaitable<Errors\Result<BatchGetQueryExecutionOutput>>;
+  public function CreateNamedQuery(CreateNamedQueryInput): Awaitable<Errors\Result<CreateNamedQueryOutput>>;
+  public function CreateWorkGroup(CreateWorkGroupInput): Awaitable<Errors\Result<CreateWorkGroupOutput>>;
+  public function DeleteNamedQuery(DeleteNamedQueryInput): Awaitable<Errors\Result<DeleteNamedQueryOutput>>;
+  public function DeleteWorkGroup(DeleteWorkGroupInput): Awaitable<Errors\Result<DeleteWorkGroupOutput>>;
+  public function GetNamedQuery(GetNamedQueryInput): Awaitable<Errors\Result<GetNamedQueryOutput>>;
+  public function GetQueryExecution(GetQueryExecutionInput): Awaitable<Errors\Result<GetQueryExecutionOutput>>;
+  public function GetQueryResults(GetQueryResultsInput): Awaitable<Errors\Result<GetQueryResultsOutput>>;
+  public function GetWorkGroup(GetWorkGroupInput): Awaitable<Errors\Result<GetWorkGroupOutput>>;
+  public function ListNamedQueries(ListNamedQueriesInput): Awaitable<Errors\Result<ListNamedQueriesOutput>>;
+  public function ListQueryExecutions(ListQueryExecutionsInput): Awaitable<Errors\Result<ListQueryExecutionsOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function ListWorkGroups(ListWorkGroupsInput): Awaitable<Errors\Result<ListWorkGroupsOutput>>;
+  public function StartQueryExecution(StartQueryExecutionInput): Awaitable<Errors\Result<StartQueryExecutionOutput>>;
+  public function StopQueryExecution(StopQueryExecutionInput): Awaitable<Errors\Result<StopQueryExecutionOutput>>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function UpdateWorkGroup(UpdateWorkGroupInput): Awaitable<Errors\Result<UpdateWorkGroupOutput>>;
 }
 
 class AmazonResourceName {

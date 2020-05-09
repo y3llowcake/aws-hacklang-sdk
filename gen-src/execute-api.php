@@ -2,9 +2,9 @@
 namespace slack\aws\execute-api;
 
 interface ApiGatewayManagementApi {
-  public function DeleteConnection(DeleteConnectionRequest) Awaitable<Errors\Error>;
-  public function GetConnection(GetConnectionRequest) Awaitable<Errors\Result<GetConnectionResponse>>;
-  public function PostToConnection(PostToConnectionRequest) Awaitable<Errors\Error>;
+  public function DeleteConnection(DeleteConnectionRequest): Awaitable<Errors\Error>;
+  public function GetConnection(GetConnectionRequest): Awaitable<Errors\Result<GetConnectionResponse>>;
+  public function PostToConnection(PostToConnectionRequest): Awaitable<Errors\Error>;
 }
 
 class Data {

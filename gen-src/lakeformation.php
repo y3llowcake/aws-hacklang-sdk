@@ -2,19 +2,19 @@
 namespace slack\aws\lakeformation;
 
 interface LakeFormation {
-  public function BatchGrantPermissions(BatchGrantPermissionsRequest) Awaitable<Errors\Result<BatchGrantPermissionsResponse>>;
-  public function BatchRevokePermissions(BatchRevokePermissionsRequest) Awaitable<Errors\Result<BatchRevokePermissionsResponse>>;
-  public function DeregisterResource(DeregisterResourceRequest) Awaitable<Errors\Result<DeregisterResourceResponse>>;
-  public function DescribeResource(DescribeResourceRequest) Awaitable<Errors\Result<DescribeResourceResponse>>;
-  public function GetDataLakeSettings(GetDataLakeSettingsRequest) Awaitable<Errors\Result<GetDataLakeSettingsResponse>>;
-  public function GetEffectivePermissionsForPath(GetEffectivePermissionsForPathRequest) Awaitable<Errors\Result<GetEffectivePermissionsForPathResponse>>;
-  public function GrantPermissions(GrantPermissionsRequest) Awaitable<Errors\Result<GrantPermissionsResponse>>;
-  public function ListPermissions(ListPermissionsRequest) Awaitable<Errors\Result<ListPermissionsResponse>>;
-  public function ListResources(ListResourcesRequest) Awaitable<Errors\Result<ListResourcesResponse>>;
-  public function PutDataLakeSettings(PutDataLakeSettingsRequest) Awaitable<Errors\Result<PutDataLakeSettingsResponse>>;
-  public function RegisterResource(RegisterResourceRequest) Awaitable<Errors\Result<RegisterResourceResponse>>;
-  public function RevokePermissions(RevokePermissionsRequest) Awaitable<Errors\Result<RevokePermissionsResponse>>;
-  public function UpdateResource(UpdateResourceRequest) Awaitable<Errors\Result<UpdateResourceResponse>>;
+  public function BatchGrantPermissions(BatchGrantPermissionsRequest): Awaitable<Errors\Result<BatchGrantPermissionsResponse>>;
+  public function BatchRevokePermissions(BatchRevokePermissionsRequest): Awaitable<Errors\Result<BatchRevokePermissionsResponse>>;
+  public function DeregisterResource(DeregisterResourceRequest): Awaitable<Errors\Result<DeregisterResourceResponse>>;
+  public function DescribeResource(DescribeResourceRequest): Awaitable<Errors\Result<DescribeResourceResponse>>;
+  public function GetDataLakeSettings(GetDataLakeSettingsRequest): Awaitable<Errors\Result<GetDataLakeSettingsResponse>>;
+  public function GetEffectivePermissionsForPath(GetEffectivePermissionsForPathRequest): Awaitable<Errors\Result<GetEffectivePermissionsForPathResponse>>;
+  public function GrantPermissions(GrantPermissionsRequest): Awaitable<Errors\Result<GrantPermissionsResponse>>;
+  public function ListPermissions(ListPermissionsRequest): Awaitable<Errors\Result<ListPermissionsResponse>>;
+  public function ListResources(ListResourcesRequest): Awaitable<Errors\Result<ListResourcesResponse>>;
+  public function PutDataLakeSettings(PutDataLakeSettingsRequest): Awaitable<Errors\Result<PutDataLakeSettingsResponse>>;
+  public function RegisterResource(RegisterResourceRequest): Awaitable<Errors\Result<RegisterResourceResponse>>;
+  public function RevokePermissions(RevokePermissionsRequest): Awaitable<Errors\Result<RevokePermissionsResponse>>;
+  public function UpdateResource(UpdateResourceRequest): Awaitable<Errors\Result<UpdateResourceResponse>>;
 }
 
 class AlreadyExistsException {

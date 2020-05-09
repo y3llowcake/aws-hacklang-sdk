@@ -2,23 +2,23 @@
 namespace slack\aws\elastictranscoder;
 
 interface Elastic Transcoder {
-  public function CancelJob(CancelJobRequest) Awaitable<Errors\Result<CancelJobResponse>>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResponse>>;
-  public function CreatePipeline(CreatePipelineRequest) Awaitable<Errors\Result<CreatePipelineResponse>>;
-  public function CreatePreset(CreatePresetRequest) Awaitable<Errors\Result<CreatePresetResponse>>;
-  public function DeletePipeline(DeletePipelineRequest) Awaitable<Errors\Result<DeletePipelineResponse>>;
-  public function DeletePreset(DeletePresetRequest) Awaitable<Errors\Result<DeletePresetResponse>>;
-  public function ListJobsByPipeline(ListJobsByPipelineRequest) Awaitable<Errors\Result<ListJobsByPipelineResponse>>;
-  public function ListJobsByStatus(ListJobsByStatusRequest) Awaitable<Errors\Result<ListJobsByStatusResponse>>;
-  public function ListPipelines(ListPipelinesRequest) Awaitable<Errors\Result<ListPipelinesResponse>>;
-  public function ListPresets(ListPresetsRequest) Awaitable<Errors\Result<ListPresetsResponse>>;
-  public function ReadJob(ReadJobRequest) Awaitable<Errors\Result<ReadJobResponse>>;
-  public function ReadPipeline(ReadPipelineRequest) Awaitable<Errors\Result<ReadPipelineResponse>>;
-  public function ReadPreset(ReadPresetRequest) Awaitable<Errors\Result<ReadPresetResponse>>;
-  public function TestRole(TestRoleRequest) Awaitable<Errors\Result<TestRoleResponse>>;
-  public function UpdatePipeline(UpdatePipelineRequest) Awaitable<Errors\Result<UpdatePipelineResponse>>;
-  public function UpdatePipelineNotifications(UpdatePipelineNotificationsRequest) Awaitable<Errors\Result<UpdatePipelineNotificationsResponse>>;
-  public function UpdatePipelineStatus(UpdatePipelineStatusRequest) Awaitable<Errors\Result<UpdatePipelineStatusResponse>>;
+  public function CancelJob(CancelJobRequest): Awaitable<Errors\Result<CancelJobResponse>>;
+  public function CreateJob(CreateJobRequest): Awaitable<Errors\Result<CreateJobResponse>>;
+  public function CreatePipeline(CreatePipelineRequest): Awaitable<Errors\Result<CreatePipelineResponse>>;
+  public function CreatePreset(CreatePresetRequest): Awaitable<Errors\Result<CreatePresetResponse>>;
+  public function DeletePipeline(DeletePipelineRequest): Awaitable<Errors\Result<DeletePipelineResponse>>;
+  public function DeletePreset(DeletePresetRequest): Awaitable<Errors\Result<DeletePresetResponse>>;
+  public function ListJobsByPipeline(ListJobsByPipelineRequest): Awaitable<Errors\Result<ListJobsByPipelineResponse>>;
+  public function ListJobsByStatus(ListJobsByStatusRequest): Awaitable<Errors\Result<ListJobsByStatusResponse>>;
+  public function ListPipelines(ListPipelinesRequest): Awaitable<Errors\Result<ListPipelinesResponse>>;
+  public function ListPresets(ListPresetsRequest): Awaitable<Errors\Result<ListPresetsResponse>>;
+  public function ReadJob(ReadJobRequest): Awaitable<Errors\Result<ReadJobResponse>>;
+  public function ReadPipeline(ReadPipelineRequest): Awaitable<Errors\Result<ReadPipelineResponse>>;
+  public function ReadPreset(ReadPresetRequest): Awaitable<Errors\Result<ReadPresetResponse>>;
+  public function TestRole(TestRoleRequest): Awaitable<Errors\Result<TestRoleResponse>>;
+  public function UpdatePipeline(UpdatePipelineRequest): Awaitable<Errors\Result<UpdatePipelineResponse>>;
+  public function UpdatePipelineNotifications(UpdatePipelineNotificationsRequest): Awaitable<Errors\Result<UpdatePipelineNotificationsResponse>>;
+  public function UpdatePipelineStatus(UpdatePipelineStatusRequest): Awaitable<Errors\Result<UpdatePipelineStatusResponse>>;
 }
 
 class AccessControl {

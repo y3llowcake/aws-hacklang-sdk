@@ -2,22 +2,22 @@
 namespace slack\aws\projects.iot1click;
 
 interface IoT 1Click Projects {
-  public function AssociateDeviceWithPlacement(AssociateDeviceWithPlacementRequest) Awaitable<Errors\Result<AssociateDeviceWithPlacementResponse>>;
-  public function CreatePlacement(CreatePlacementRequest) Awaitable<Errors\Result<CreatePlacementResponse>>;
-  public function CreateProject(CreateProjectRequest) Awaitable<Errors\Result<CreateProjectResponse>>;
-  public function DeletePlacement(DeletePlacementRequest) Awaitable<Errors\Result<DeletePlacementResponse>>;
-  public function DeleteProject(DeleteProjectRequest) Awaitable<Errors\Result<DeleteProjectResponse>>;
-  public function DescribePlacement(DescribePlacementRequest) Awaitable<Errors\Result<DescribePlacementResponse>>;
-  public function DescribeProject(DescribeProjectRequest) Awaitable<Errors\Result<DescribeProjectResponse>>;
-  public function DisassociateDeviceFromPlacement(DisassociateDeviceFromPlacementRequest) Awaitable<Errors\Result<DisassociateDeviceFromPlacementResponse>>;
-  public function GetDevicesInPlacement(GetDevicesInPlacementRequest) Awaitable<Errors\Result<GetDevicesInPlacementResponse>>;
-  public function ListPlacements(ListPlacementsRequest) Awaitable<Errors\Result<ListPlacementsResponse>>;
-  public function ListProjects(ListProjectsRequest) Awaitable<Errors\Result<ListProjectsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdatePlacement(UpdatePlacementRequest) Awaitable<Errors\Result<UpdatePlacementResponse>>;
-  public function UpdateProject(UpdateProjectRequest) Awaitable<Errors\Result<UpdateProjectResponse>>;
+  public function AssociateDeviceWithPlacement(AssociateDeviceWithPlacementRequest): Awaitable<Errors\Result<AssociateDeviceWithPlacementResponse>>;
+  public function CreatePlacement(CreatePlacementRequest): Awaitable<Errors\Result<CreatePlacementResponse>>;
+  public function CreateProject(CreateProjectRequest): Awaitable<Errors\Result<CreateProjectResponse>>;
+  public function DeletePlacement(DeletePlacementRequest): Awaitable<Errors\Result<DeletePlacementResponse>>;
+  public function DeleteProject(DeleteProjectRequest): Awaitable<Errors\Result<DeleteProjectResponse>>;
+  public function DescribePlacement(DescribePlacementRequest): Awaitable<Errors\Result<DescribePlacementResponse>>;
+  public function DescribeProject(DescribeProjectRequest): Awaitable<Errors\Result<DescribeProjectResponse>>;
+  public function DisassociateDeviceFromPlacement(DisassociateDeviceFromPlacementRequest): Awaitable<Errors\Result<DisassociateDeviceFromPlacementResponse>>;
+  public function GetDevicesInPlacement(GetDevicesInPlacementRequest): Awaitable<Errors\Result<GetDevicesInPlacementResponse>>;
+  public function ListPlacements(ListPlacementsRequest): Awaitable<Errors\Result<ListPlacementsResponse>>;
+  public function ListProjects(ListProjectsRequest): Awaitable<Errors\Result<ListProjectsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdatePlacement(UpdatePlacementRequest): Awaitable<Errors\Result<UpdatePlacementResponse>>;
+  public function UpdateProject(UpdateProjectRequest): Awaitable<Errors\Result<UpdateProjectResponse>>;
 }
 
 class AssociateDeviceWithPlacementRequest {

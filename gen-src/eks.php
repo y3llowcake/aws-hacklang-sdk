@@ -2,27 +2,27 @@
 namespace slack\aws\eks;
 
 interface EKS {
-  public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResponse>>;
-  public function CreateFargateProfile(CreateFargateProfileRequest) Awaitable<Errors\Result<CreateFargateProfileResponse>>;
-  public function CreateNodegroup(CreateNodegroupRequest) Awaitable<Errors\Result<CreateNodegroupResponse>>;
-  public function DeleteCluster(DeleteClusterRequest) Awaitable<Errors\Result<DeleteClusterResponse>>;
-  public function DeleteFargateProfile(DeleteFargateProfileRequest) Awaitable<Errors\Result<DeleteFargateProfileResponse>>;
-  public function DeleteNodegroup(DeleteNodegroupRequest) Awaitable<Errors\Result<DeleteNodegroupResponse>>;
-  public function DescribeCluster(DescribeClusterRequest) Awaitable<Errors\Result<DescribeClusterResponse>>;
-  public function DescribeFargateProfile(DescribeFargateProfileRequest) Awaitable<Errors\Result<DescribeFargateProfileResponse>>;
-  public function DescribeNodegroup(DescribeNodegroupRequest) Awaitable<Errors\Result<DescribeNodegroupResponse>>;
-  public function DescribeUpdate(DescribeUpdateRequest) Awaitable<Errors\Result<DescribeUpdateResponse>>;
-  public function ListClusters(ListClustersRequest) Awaitable<Errors\Result<ListClustersResponse>>;
-  public function ListFargateProfiles(ListFargateProfilesRequest) Awaitable<Errors\Result<ListFargateProfilesResponse>>;
-  public function ListNodegroups(ListNodegroupsRequest) Awaitable<Errors\Result<ListNodegroupsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListUpdates(ListUpdatesRequest) Awaitable<Errors\Result<ListUpdatesResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateClusterConfig(UpdateClusterConfigRequest) Awaitable<Errors\Result<UpdateClusterConfigResponse>>;
-  public function UpdateClusterVersion(UpdateClusterVersionRequest) Awaitable<Errors\Result<UpdateClusterVersionResponse>>;
-  public function UpdateNodegroupConfig(UpdateNodegroupConfigRequest) Awaitable<Errors\Result<UpdateNodegroupConfigResponse>>;
-  public function UpdateNodegroupVersion(UpdateNodegroupVersionRequest) Awaitable<Errors\Result<UpdateNodegroupVersionResponse>>;
+  public function CreateCluster(CreateClusterRequest): Awaitable<Errors\Result<CreateClusterResponse>>;
+  public function CreateFargateProfile(CreateFargateProfileRequest): Awaitable<Errors\Result<CreateFargateProfileResponse>>;
+  public function CreateNodegroup(CreateNodegroupRequest): Awaitable<Errors\Result<CreateNodegroupResponse>>;
+  public function DeleteCluster(DeleteClusterRequest): Awaitable<Errors\Result<DeleteClusterResponse>>;
+  public function DeleteFargateProfile(DeleteFargateProfileRequest): Awaitable<Errors\Result<DeleteFargateProfileResponse>>;
+  public function DeleteNodegroup(DeleteNodegroupRequest): Awaitable<Errors\Result<DeleteNodegroupResponse>>;
+  public function DescribeCluster(DescribeClusterRequest): Awaitable<Errors\Result<DescribeClusterResponse>>;
+  public function DescribeFargateProfile(DescribeFargateProfileRequest): Awaitable<Errors\Result<DescribeFargateProfileResponse>>;
+  public function DescribeNodegroup(DescribeNodegroupRequest): Awaitable<Errors\Result<DescribeNodegroupResponse>>;
+  public function DescribeUpdate(DescribeUpdateRequest): Awaitable<Errors\Result<DescribeUpdateResponse>>;
+  public function ListClusters(ListClustersRequest): Awaitable<Errors\Result<ListClustersResponse>>;
+  public function ListFargateProfiles(ListFargateProfilesRequest): Awaitable<Errors\Result<ListFargateProfilesResponse>>;
+  public function ListNodegroups(ListNodegroupsRequest): Awaitable<Errors\Result<ListNodegroupsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUpdates(ListUpdatesRequest): Awaitable<Errors\Result<ListUpdatesResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateClusterConfig(UpdateClusterConfigRequest): Awaitable<Errors\Result<UpdateClusterConfigResponse>>;
+  public function UpdateClusterVersion(UpdateClusterVersionRequest): Awaitable<Errors\Result<UpdateClusterVersionResponse>>;
+  public function UpdateNodegroupConfig(UpdateNodegroupConfigRequest): Awaitable<Errors\Result<UpdateNodegroupConfigResponse>>;
+  public function UpdateNodegroupVersion(UpdateNodegroupVersionRequest): Awaitable<Errors\Result<UpdateNodegroupVersionResponse>>;
 }
 
 class AMITypes {

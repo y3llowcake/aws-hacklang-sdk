@@ -2,12 +2,12 @@
 namespace slack\aws\autoscaling-plans;
 
 interface Auto Scaling Plans {
-  public function CreateScalingPlan(CreateScalingPlanRequest) Awaitable<Errors\Result<CreateScalingPlanResponse>>;
-  public function DeleteScalingPlan(DeleteScalingPlanRequest) Awaitable<Errors\Result<DeleteScalingPlanResponse>>;
-  public function DescribeScalingPlanResources(DescribeScalingPlanResourcesRequest) Awaitable<Errors\Result<DescribeScalingPlanResourcesResponse>>;
-  public function DescribeScalingPlans(DescribeScalingPlansRequest) Awaitable<Errors\Result<DescribeScalingPlansResponse>>;
-  public function GetScalingPlanResourceForecastData(GetScalingPlanResourceForecastDataRequest) Awaitable<Errors\Result<GetScalingPlanResourceForecastDataResponse>>;
-  public function UpdateScalingPlan(UpdateScalingPlanRequest) Awaitable<Errors\Result<UpdateScalingPlanResponse>>;
+  public function CreateScalingPlan(CreateScalingPlanRequest): Awaitable<Errors\Result<CreateScalingPlanResponse>>;
+  public function DeleteScalingPlan(DeleteScalingPlanRequest): Awaitable<Errors\Result<DeleteScalingPlanResponse>>;
+  public function DescribeScalingPlanResources(DescribeScalingPlanResourcesRequest): Awaitable<Errors\Result<DescribeScalingPlanResourcesResponse>>;
+  public function DescribeScalingPlans(DescribeScalingPlansRequest): Awaitable<Errors\Result<DescribeScalingPlansResponse>>;
+  public function GetScalingPlanResourceForecastData(GetScalingPlanResourceForecastDataRequest): Awaitable<Errors\Result<GetScalingPlanResourceForecastDataResponse>>;
+  public function UpdateScalingPlan(UpdateScalingPlanRequest): Awaitable<Errors\Result<UpdateScalingPlanResponse>>;
 }
 
 class ApplicationSource {

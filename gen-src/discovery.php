@@ -2,31 +2,31 @@
 namespace slack\aws\discovery;
 
 interface Application Discovery Service {
-  public function AssociateConfigurationItemsToApplication(AssociateConfigurationItemsToApplicationRequest) Awaitable<Errors\Result<AssociateConfigurationItemsToApplicationResponse>>;
-  public function BatchDeleteImportData(BatchDeleteImportDataRequest) Awaitable<Errors\Result<BatchDeleteImportDataResponse>>;
-  public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<CreateApplicationResponse>>;
-  public function CreateTags(CreateTagsRequest) Awaitable<Errors\Result<CreateTagsResponse>>;
-  public function DeleteApplications(DeleteApplicationsRequest) Awaitable<Errors\Result<DeleteApplicationsResponse>>;
-  public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Result<DeleteTagsResponse>>;
-  public function DescribeAgents(DescribeAgentsRequest) Awaitable<Errors\Result<DescribeAgentsResponse>>;
-  public function DescribeConfigurations(DescribeConfigurationsRequest) Awaitable<Errors\Result<DescribeConfigurationsResponse>>;
-  public function DescribeContinuousExports(DescribeContinuousExportsRequest) Awaitable<Errors\Result<DescribeContinuousExportsResponse>>;
-  public function DescribeExportConfigurations(DescribeExportConfigurationsRequest) Awaitable<Errors\Result<DescribeExportConfigurationsResponse>>;
-  public function DescribeExportTasks(DescribeExportTasksRequest) Awaitable<Errors\Result<DescribeExportTasksResponse>>;
-  public function DescribeImportTasks(DescribeImportTasksRequest) Awaitable<Errors\Result<DescribeImportTasksResponse>>;
-  public function DescribeTags(DescribeTagsRequest) Awaitable<Errors\Result<DescribeTagsResponse>>;
-  public function DisassociateConfigurationItemsFromApplication(DisassociateConfigurationItemsFromApplicationRequest) Awaitable<Errors\Result<DisassociateConfigurationItemsFromApplicationResponse>>;
-  public function ExportConfigurations() Awaitable<Errors\Result<ExportConfigurationsResponse>>;
-  public function GetDiscoverySummary(GetDiscoverySummaryRequest) Awaitable<Errors\Result<GetDiscoverySummaryResponse>>;
-  public function ListConfigurations(ListConfigurationsRequest) Awaitable<Errors\Result<ListConfigurationsResponse>>;
-  public function ListServerNeighbors(ListServerNeighborsRequest) Awaitable<Errors\Result<ListServerNeighborsResponse>>;
-  public function StartContinuousExport(StartContinuousExportRequest) Awaitable<Errors\Result<StartContinuousExportResponse>>;
-  public function StartDataCollectionByAgentIds(StartDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StartDataCollectionByAgentIdsResponse>>;
-  public function StartExportTask(StartExportTaskRequest) Awaitable<Errors\Result<StartExportTaskResponse>>;
-  public function StartImportTask(StartImportTaskRequest) Awaitable<Errors\Result<StartImportTaskResponse>>;
-  public function StopContinuousExport(StopContinuousExportRequest) Awaitable<Errors\Result<StopContinuousExportResponse>>;
-  public function StopDataCollectionByAgentIds(StopDataCollectionByAgentIdsRequest) Awaitable<Errors\Result<StopDataCollectionByAgentIdsResponse>>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<UpdateApplicationResponse>>;
+  public function AssociateConfigurationItemsToApplication(AssociateConfigurationItemsToApplicationRequest): Awaitable<Errors\Result<AssociateConfigurationItemsToApplicationResponse>>;
+  public function BatchDeleteImportData(BatchDeleteImportDataRequest): Awaitable<Errors\Result<BatchDeleteImportDataResponse>>;
+  public function CreateApplication(CreateApplicationRequest): Awaitable<Errors\Result<CreateApplicationResponse>>;
+  public function CreateTags(CreateTagsRequest): Awaitable<Errors\Result<CreateTagsResponse>>;
+  public function DeleteApplications(DeleteApplicationsRequest): Awaitable<Errors\Result<DeleteApplicationsResponse>>;
+  public function DeleteTags(DeleteTagsRequest): Awaitable<Errors\Result<DeleteTagsResponse>>;
+  public function DescribeAgents(DescribeAgentsRequest): Awaitable<Errors\Result<DescribeAgentsResponse>>;
+  public function DescribeConfigurations(DescribeConfigurationsRequest): Awaitable<Errors\Result<DescribeConfigurationsResponse>>;
+  public function DescribeContinuousExports(DescribeContinuousExportsRequest): Awaitable<Errors\Result<DescribeContinuousExportsResponse>>;
+  public function DescribeExportConfigurations(DescribeExportConfigurationsRequest): Awaitable<Errors\Result<DescribeExportConfigurationsResponse>>;
+  public function DescribeExportTasks(DescribeExportTasksRequest): Awaitable<Errors\Result<DescribeExportTasksResponse>>;
+  public function DescribeImportTasks(DescribeImportTasksRequest): Awaitable<Errors\Result<DescribeImportTasksResponse>>;
+  public function DescribeTags(DescribeTagsRequest): Awaitable<Errors\Result<DescribeTagsResponse>>;
+  public function DisassociateConfigurationItemsFromApplication(DisassociateConfigurationItemsFromApplicationRequest): Awaitable<Errors\Result<DisassociateConfigurationItemsFromApplicationResponse>>;
+  public function ExportConfigurations(): Awaitable<Errors\Result<ExportConfigurationsResponse>>;
+  public function GetDiscoverySummary(GetDiscoverySummaryRequest): Awaitable<Errors\Result<GetDiscoverySummaryResponse>>;
+  public function ListConfigurations(ListConfigurationsRequest): Awaitable<Errors\Result<ListConfigurationsResponse>>;
+  public function ListServerNeighbors(ListServerNeighborsRequest): Awaitable<Errors\Result<ListServerNeighborsResponse>>;
+  public function StartContinuousExport(StartContinuousExportRequest): Awaitable<Errors\Result<StartContinuousExportResponse>>;
+  public function StartDataCollectionByAgentIds(StartDataCollectionByAgentIdsRequest): Awaitable<Errors\Result<StartDataCollectionByAgentIdsResponse>>;
+  public function StartExportTask(StartExportTaskRequest): Awaitable<Errors\Result<StartExportTaskResponse>>;
+  public function StartImportTask(StartImportTaskRequest): Awaitable<Errors\Result<StartImportTaskResponse>>;
+  public function StopContinuousExport(StopContinuousExportRequest): Awaitable<Errors\Result<StopContinuousExportResponse>>;
+  public function StopDataCollectionByAgentIds(StopDataCollectionByAgentIdsRequest): Awaitable<Errors\Result<StopDataCollectionByAgentIdsResponse>>;
+  public function UpdateApplication(UpdateApplicationRequest): Awaitable<Errors\Result<UpdateApplicationResponse>>;
 }
 
 class AgentConfigurationStatus {

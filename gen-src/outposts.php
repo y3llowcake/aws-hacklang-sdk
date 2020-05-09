@@ -2,13 +2,13 @@
 namespace slack\aws\outposts;
 
 interface Outposts {
-  public function CreateOutpost(CreateOutpostInput) Awaitable<Errors\Result<CreateOutpostOutput>>;
-  public function DeleteOutpost(DeleteOutpostInput) Awaitable<Errors\Result<DeleteOutpostOutput>>;
-  public function DeleteSite(DeleteSiteInput) Awaitable<Errors\Result<DeleteSiteOutput>>;
-  public function GetOutpost(GetOutpostInput) Awaitable<Errors\Result<GetOutpostOutput>>;
-  public function GetOutpostInstanceTypes(GetOutpostInstanceTypesInput) Awaitable<Errors\Result<GetOutpostInstanceTypesOutput>>;
-  public function ListOutposts(ListOutpostsInput) Awaitable<Errors\Result<ListOutpostsOutput>>;
-  public function ListSites(ListSitesInput) Awaitable<Errors\Result<ListSitesOutput>>;
+  public function CreateOutpost(CreateOutpostInput): Awaitable<Errors\Result<CreateOutpostOutput>>;
+  public function DeleteOutpost(DeleteOutpostInput): Awaitable<Errors\Result<DeleteOutpostOutput>>;
+  public function DeleteSite(DeleteSiteInput): Awaitable<Errors\Result<DeleteSiteOutput>>;
+  public function GetOutpost(GetOutpostInput): Awaitable<Errors\Result<GetOutpostOutput>>;
+  public function GetOutpostInstanceTypes(GetOutpostInstanceTypesInput): Awaitable<Errors\Result<GetOutpostInstanceTypesOutput>>;
+  public function ListOutposts(ListOutpostsInput): Awaitable<Errors\Result<ListOutpostsOutput>>;
+  public function ListSites(ListSitesInput): Awaitable<Errors\Result<ListSitesOutput>>;
 }
 
 class AccessDeniedException {

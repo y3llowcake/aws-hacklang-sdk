@@ -2,8 +2,8 @@
 namespace slack\aws\pi;
 
 interface PI {
-  public function DescribeDimensionKeys(DescribeDimensionKeysRequest) Awaitable<Errors\Result<DescribeDimensionKeysResponse>>;
-  public function GetResourceMetrics(GetResourceMetricsRequest) Awaitable<Errors\Result<GetResourceMetricsResponse>>;
+  public function DescribeDimensionKeys(DescribeDimensionKeysRequest): Awaitable<Errors\Result<DescribeDimensionKeysResponse>>;
+  public function GetResourceMetrics(GetResourceMetricsRequest): Awaitable<Errors\Result<GetResourceMetricsResponse>>;
 }
 
 class DataPoint {

@@ -2,31 +2,31 @@
 namespace slack\aws\groundstation;
 
 interface GroundStation {
-  public function CancelContact(CancelContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
-  public function CreateConfig(CreateConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
-  public function CreateDataflowEndpointGroup(CreateDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
-  public function CreateMissionProfile(CreateMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
-  public function DeleteConfig(DeleteConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
-  public function DeleteDataflowEndpointGroup(DeleteDataflowEndpointGroupRequest) Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
-  public function DeleteMissionProfile(DeleteMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
-  public function DescribeContact(DescribeContactRequest) Awaitable<Errors\Result<DescribeContactResponse>>;
-  public function GetConfig(GetConfigRequest) Awaitable<Errors\Result<GetConfigResponse>>;
-  public function GetDataflowEndpointGroup(GetDataflowEndpointGroupRequest) Awaitable<Errors\Result<GetDataflowEndpointGroupResponse>>;
-  public function GetMinuteUsage(GetMinuteUsageRequest) Awaitable<Errors\Result<GetMinuteUsageResponse>>;
-  public function GetMissionProfile(GetMissionProfileRequest) Awaitable<Errors\Result<GetMissionProfileResponse>>;
-  public function GetSatellite(GetSatelliteRequest) Awaitable<Errors\Result<GetSatelliteResponse>>;
-  public function ListConfigs(ListConfigsRequest) Awaitable<Errors\Result<ListConfigsResponse>>;
-  public function ListContacts(ListContactsRequest) Awaitable<Errors\Result<ListContactsResponse>>;
-  public function ListDataflowEndpointGroups(ListDataflowEndpointGroupsRequest) Awaitable<Errors\Result<ListDataflowEndpointGroupsResponse>>;
-  public function ListGroundStations(ListGroundStationsRequest) Awaitable<Errors\Result<ListGroundStationsResponse>>;
-  public function ListMissionProfiles(ListMissionProfilesRequest) Awaitable<Errors\Result<ListMissionProfilesResponse>>;
-  public function ListSatellites(ListSatellitesRequest) Awaitable<Errors\Result<ListSatellitesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ReserveContact(ReserveContactRequest) Awaitable<Errors\Result<ContactIdResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateConfig(UpdateConfigRequest) Awaitable<Errors\Result<ConfigIdResponse>>;
-  public function UpdateMissionProfile(UpdateMissionProfileRequest) Awaitable<Errors\Result<MissionProfileIdResponse>>;
+  public function CancelContact(CancelContactRequest): Awaitable<Errors\Result<ContactIdResponse>>;
+  public function CreateConfig(CreateConfigRequest): Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function CreateDataflowEndpointGroup(CreateDataflowEndpointGroupRequest): Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
+  public function CreateMissionProfile(CreateMissionProfileRequest): Awaitable<Errors\Result<MissionProfileIdResponse>>;
+  public function DeleteConfig(DeleteConfigRequest): Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function DeleteDataflowEndpointGroup(DeleteDataflowEndpointGroupRequest): Awaitable<Errors\Result<DataflowEndpointGroupIdResponse>>;
+  public function DeleteMissionProfile(DeleteMissionProfileRequest): Awaitable<Errors\Result<MissionProfileIdResponse>>;
+  public function DescribeContact(DescribeContactRequest): Awaitable<Errors\Result<DescribeContactResponse>>;
+  public function GetConfig(GetConfigRequest): Awaitable<Errors\Result<GetConfigResponse>>;
+  public function GetDataflowEndpointGroup(GetDataflowEndpointGroupRequest): Awaitable<Errors\Result<GetDataflowEndpointGroupResponse>>;
+  public function GetMinuteUsage(GetMinuteUsageRequest): Awaitable<Errors\Result<GetMinuteUsageResponse>>;
+  public function GetMissionProfile(GetMissionProfileRequest): Awaitable<Errors\Result<GetMissionProfileResponse>>;
+  public function GetSatellite(GetSatelliteRequest): Awaitable<Errors\Result<GetSatelliteResponse>>;
+  public function ListConfigs(ListConfigsRequest): Awaitable<Errors\Result<ListConfigsResponse>>;
+  public function ListContacts(ListContactsRequest): Awaitable<Errors\Result<ListContactsResponse>>;
+  public function ListDataflowEndpointGroups(ListDataflowEndpointGroupsRequest): Awaitable<Errors\Result<ListDataflowEndpointGroupsResponse>>;
+  public function ListGroundStations(ListGroundStationsRequest): Awaitable<Errors\Result<ListGroundStationsResponse>>;
+  public function ListMissionProfiles(ListMissionProfilesRequest): Awaitable<Errors\Result<ListMissionProfilesResponse>>;
+  public function ListSatellites(ListSatellitesRequest): Awaitable<Errors\Result<ListSatellitesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ReserveContact(ReserveContactRequest): Awaitable<Errors\Result<ContactIdResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateConfig(UpdateConfigRequest): Awaitable<Errors\Result<ConfigIdResponse>>;
+  public function UpdateMissionProfile(UpdateMissionProfileRequest): Awaitable<Errors\Result<MissionProfileIdResponse>>;
 }
 
 class AngleUnits {

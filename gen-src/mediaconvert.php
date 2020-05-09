@@ -2,31 +2,31 @@
 namespace slack\aws\mediaconvert;
 
 interface MediaConvert {
-  public function AssociateCertificate(AssociateCertificateRequest) Awaitable<Errors\Result<AssociateCertificateResponse>>;
-  public function CancelJob(CancelJobRequest) Awaitable<Errors\Result<CancelJobResponse>>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResponse>>;
-  public function CreateJobTemplate(CreateJobTemplateRequest) Awaitable<Errors\Result<CreateJobTemplateResponse>>;
-  public function CreatePreset(CreatePresetRequest) Awaitable<Errors\Result<CreatePresetResponse>>;
-  public function CreateQueue(CreateQueueRequest) Awaitable<Errors\Result<CreateQueueResponse>>;
-  public function DeleteJobTemplate(DeleteJobTemplateRequest) Awaitable<Errors\Result<DeleteJobTemplateResponse>>;
-  public function DeletePreset(DeletePresetRequest) Awaitable<Errors\Result<DeletePresetResponse>>;
-  public function DeleteQueue(DeleteQueueRequest) Awaitable<Errors\Result<DeleteQueueResponse>>;
-  public function DescribeEndpoints(DescribeEndpointsRequest) Awaitable<Errors\Result<DescribeEndpointsResponse>>;
-  public function DisassociateCertificate(DisassociateCertificateRequest) Awaitable<Errors\Result<DisassociateCertificateResponse>>;
-  public function GetJob(GetJobRequest) Awaitable<Errors\Result<GetJobResponse>>;
-  public function GetJobTemplate(GetJobTemplateRequest) Awaitable<Errors\Result<GetJobTemplateResponse>>;
-  public function GetPreset(GetPresetRequest) Awaitable<Errors\Result<GetPresetResponse>>;
-  public function GetQueue(GetQueueRequest) Awaitable<Errors\Result<GetQueueResponse>>;
-  public function ListJobTemplates(ListJobTemplatesRequest) Awaitable<Errors\Result<ListJobTemplatesResponse>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResponse>>;
-  public function ListPresets(ListPresetsRequest) Awaitable<Errors\Result<ListPresetsResponse>>;
-  public function ListQueues(ListQueuesRequest) Awaitable<Errors\Result<ListQueuesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateJobTemplate(UpdateJobTemplateRequest) Awaitable<Errors\Result<UpdateJobTemplateResponse>>;
-  public function UpdatePreset(UpdatePresetRequest) Awaitable<Errors\Result<UpdatePresetResponse>>;
-  public function UpdateQueue(UpdateQueueRequest) Awaitable<Errors\Result<UpdateQueueResponse>>;
+  public function AssociateCertificate(AssociateCertificateRequest): Awaitable<Errors\Result<AssociateCertificateResponse>>;
+  public function CancelJob(CancelJobRequest): Awaitable<Errors\Result<CancelJobResponse>>;
+  public function CreateJob(CreateJobRequest): Awaitable<Errors\Result<CreateJobResponse>>;
+  public function CreateJobTemplate(CreateJobTemplateRequest): Awaitable<Errors\Result<CreateJobTemplateResponse>>;
+  public function CreatePreset(CreatePresetRequest): Awaitable<Errors\Result<CreatePresetResponse>>;
+  public function CreateQueue(CreateQueueRequest): Awaitable<Errors\Result<CreateQueueResponse>>;
+  public function DeleteJobTemplate(DeleteJobTemplateRequest): Awaitable<Errors\Result<DeleteJobTemplateResponse>>;
+  public function DeletePreset(DeletePresetRequest): Awaitable<Errors\Result<DeletePresetResponse>>;
+  public function DeleteQueue(DeleteQueueRequest): Awaitable<Errors\Result<DeleteQueueResponse>>;
+  public function DescribeEndpoints(DescribeEndpointsRequest): Awaitable<Errors\Result<DescribeEndpointsResponse>>;
+  public function DisassociateCertificate(DisassociateCertificateRequest): Awaitable<Errors\Result<DisassociateCertificateResponse>>;
+  public function GetJob(GetJobRequest): Awaitable<Errors\Result<GetJobResponse>>;
+  public function GetJobTemplate(GetJobTemplateRequest): Awaitable<Errors\Result<GetJobTemplateResponse>>;
+  public function GetPreset(GetPresetRequest): Awaitable<Errors\Result<GetPresetResponse>>;
+  public function GetQueue(GetQueueRequest): Awaitable<Errors\Result<GetQueueResponse>>;
+  public function ListJobTemplates(ListJobTemplatesRequest): Awaitable<Errors\Result<ListJobTemplatesResponse>>;
+  public function ListJobs(ListJobsRequest): Awaitable<Errors\Result<ListJobsResponse>>;
+  public function ListPresets(ListPresetsRequest): Awaitable<Errors\Result<ListPresetsResponse>>;
+  public function ListQueues(ListQueuesRequest): Awaitable<Errors\Result<ListQueuesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateJobTemplate(UpdateJobTemplateRequest): Awaitable<Errors\Result<UpdateJobTemplateResponse>>;
+  public function UpdatePreset(UpdatePresetRequest): Awaitable<Errors\Result<UpdatePresetResponse>>;
+  public function UpdateQueue(UpdateQueueRequest): Awaitable<Errors\Result<UpdateQueueResponse>>;
 }
 
 class AacAudioDescriptionBroadcasterMix {

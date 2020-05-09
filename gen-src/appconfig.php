@@ -2,35 +2,35 @@
 namespace slack\aws\appconfig;
 
 interface AppConfig {
-  public function CreateApplication(CreateApplicationRequest) Awaitable<Errors\Result<Application>>;
-  public function CreateConfigurationProfile(CreateConfigurationProfileRequest) Awaitable<Errors\Result<ConfigurationProfile>>;
-  public function CreateDeploymentStrategy(CreateDeploymentStrategyRequest) Awaitable<Errors\Result<DeploymentStrategy>>;
-  public function CreateEnvironment(CreateEnvironmentRequest) Awaitable<Errors\Result<Environment>>;
-  public function DeleteApplication(DeleteApplicationRequest) Awaitable<Errors\Error>;
-  public function DeleteConfigurationProfile(DeleteConfigurationProfileRequest) Awaitable<Errors\Error>;
-  public function DeleteDeploymentStrategy(DeleteDeploymentStrategyRequest) Awaitable<Errors\Error>;
-  public function DeleteEnvironment(DeleteEnvironmentRequest) Awaitable<Errors\Error>;
-  public function GetApplication(GetApplicationRequest) Awaitable<Errors\Result<Application>>;
-  public function GetConfiguration(GetConfigurationRequest) Awaitable<Errors\Result<Configuration>>;
-  public function GetConfigurationProfile(GetConfigurationProfileRequest) Awaitable<Errors\Result<ConfigurationProfile>>;
-  public function GetDeployment(GetDeploymentRequest) Awaitable<Errors\Result<Deployment>>;
-  public function GetDeploymentStrategy(GetDeploymentStrategyRequest) Awaitable<Errors\Result<DeploymentStrategy>>;
-  public function GetEnvironment(GetEnvironmentRequest) Awaitable<Errors\Result<Environment>>;
-  public function ListApplications(ListApplicationsRequest) Awaitable<Errors\Result<Applications>>;
-  public function ListConfigurationProfiles(ListConfigurationProfilesRequest) Awaitable<Errors\Result<ConfigurationProfiles>>;
-  public function ListDeploymentStrategies(ListDeploymentStrategiesRequest) Awaitable<Errors\Result<DeploymentStrategies>>;
-  public function ListDeployments(ListDeploymentsRequest) Awaitable<Errors\Result<Deployments>>;
-  public function ListEnvironments(ListEnvironmentsRequest) Awaitable<Errors\Result<Environments>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ResourceTags>>;
-  public function StartDeployment(StartDeploymentRequest) Awaitable<Errors\Result<Deployment>>;
-  public function StopDeployment(StopDeploymentRequest) Awaitable<Errors\Result<Deployment>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateApplication(UpdateApplicationRequest) Awaitable<Errors\Result<Application>>;
-  public function UpdateConfigurationProfile(UpdateConfigurationProfileRequest) Awaitable<Errors\Result<ConfigurationProfile>>;
-  public function UpdateDeploymentStrategy(UpdateDeploymentStrategyRequest) Awaitable<Errors\Result<DeploymentStrategy>>;
-  public function UpdateEnvironment(UpdateEnvironmentRequest) Awaitable<Errors\Result<Environment>>;
-  public function ValidateConfiguration(ValidateConfigurationRequest) Awaitable<Errors\Error>;
+  public function CreateApplication(CreateApplicationRequest): Awaitable<Errors\Result<Application>>;
+  public function CreateConfigurationProfile(CreateConfigurationProfileRequest): Awaitable<Errors\Result<ConfigurationProfile>>;
+  public function CreateDeploymentStrategy(CreateDeploymentStrategyRequest): Awaitable<Errors\Result<DeploymentStrategy>>;
+  public function CreateEnvironment(CreateEnvironmentRequest): Awaitable<Errors\Result<Environment>>;
+  public function DeleteApplication(DeleteApplicationRequest): Awaitable<Errors\Error>;
+  public function DeleteConfigurationProfile(DeleteConfigurationProfileRequest): Awaitable<Errors\Error>;
+  public function DeleteDeploymentStrategy(DeleteDeploymentStrategyRequest): Awaitable<Errors\Error>;
+  public function DeleteEnvironment(DeleteEnvironmentRequest): Awaitable<Errors\Error>;
+  public function GetApplication(GetApplicationRequest): Awaitable<Errors\Result<Application>>;
+  public function GetConfiguration(GetConfigurationRequest): Awaitable<Errors\Result<Configuration>>;
+  public function GetConfigurationProfile(GetConfigurationProfileRequest): Awaitable<Errors\Result<ConfigurationProfile>>;
+  public function GetDeployment(GetDeploymentRequest): Awaitable<Errors\Result<Deployment>>;
+  public function GetDeploymentStrategy(GetDeploymentStrategyRequest): Awaitable<Errors\Result<DeploymentStrategy>>;
+  public function GetEnvironment(GetEnvironmentRequest): Awaitable<Errors\Result<Environment>>;
+  public function ListApplications(ListApplicationsRequest): Awaitable<Errors\Result<Applications>>;
+  public function ListConfigurationProfiles(ListConfigurationProfilesRequest): Awaitable<Errors\Result<ConfigurationProfiles>>;
+  public function ListDeploymentStrategies(ListDeploymentStrategiesRequest): Awaitable<Errors\Result<DeploymentStrategies>>;
+  public function ListDeployments(ListDeploymentsRequest): Awaitable<Errors\Result<Deployments>>;
+  public function ListEnvironments(ListEnvironmentsRequest): Awaitable<Errors\Result<Environments>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ResourceTags>>;
+  public function StartDeployment(StartDeploymentRequest): Awaitable<Errors\Result<Deployment>>;
+  public function StopDeployment(StopDeploymentRequest): Awaitable<Errors\Result<Deployment>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateApplication(UpdateApplicationRequest): Awaitable<Errors\Result<Application>>;
+  public function UpdateConfigurationProfile(UpdateConfigurationProfileRequest): Awaitable<Errors\Result<ConfigurationProfile>>;
+  public function UpdateDeploymentStrategy(UpdateDeploymentStrategyRequest): Awaitable<Errors\Result<DeploymentStrategy>>;
+  public function UpdateEnvironment(UpdateEnvironmentRequest): Awaitable<Errors\Result<Environment>>;
+  public function ValidateConfiguration(ValidateConfigurationRequest): Awaitable<Errors\Error>;
 }
 
 class Application {

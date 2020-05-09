@@ -2,20 +2,20 @@
 namespace slack\aws\fsx;
 
 interface FSx {
-  public function CancelDataRepositoryTask(CancelDataRepositoryTaskRequest) Awaitable<Errors\Result<CancelDataRepositoryTaskResponse>>;
-  public function CreateBackup(CreateBackupRequest) Awaitable<Errors\Result<CreateBackupResponse>>;
-  public function CreateDataRepositoryTask(CreateDataRepositoryTaskRequest) Awaitable<Errors\Result<CreateDataRepositoryTaskResponse>>;
-  public function CreateFileSystem(CreateFileSystemRequest) Awaitable<Errors\Result<CreateFileSystemResponse>>;
-  public function CreateFileSystemFromBackup(CreateFileSystemFromBackupRequest) Awaitable<Errors\Result<CreateFileSystemFromBackupResponse>>;
-  public function DeleteBackup(DeleteBackupRequest) Awaitable<Errors\Result<DeleteBackupResponse>>;
-  public function DeleteFileSystem(DeleteFileSystemRequest) Awaitable<Errors\Result<DeleteFileSystemResponse>>;
-  public function DescribeBackups(DescribeBackupsRequest) Awaitable<Errors\Result<DescribeBackupsResponse>>;
-  public function DescribeDataRepositoryTasks(DescribeDataRepositoryTasksRequest) Awaitable<Errors\Result<DescribeDataRepositoryTasksResponse>>;
-  public function DescribeFileSystems(DescribeFileSystemsRequest) Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateFileSystem(UpdateFileSystemRequest) Awaitable<Errors\Result<UpdateFileSystemResponse>>;
+  public function CancelDataRepositoryTask(CancelDataRepositoryTaskRequest): Awaitable<Errors\Result<CancelDataRepositoryTaskResponse>>;
+  public function CreateBackup(CreateBackupRequest): Awaitable<Errors\Result<CreateBackupResponse>>;
+  public function CreateDataRepositoryTask(CreateDataRepositoryTaskRequest): Awaitable<Errors\Result<CreateDataRepositoryTaskResponse>>;
+  public function CreateFileSystem(CreateFileSystemRequest): Awaitable<Errors\Result<CreateFileSystemResponse>>;
+  public function CreateFileSystemFromBackup(CreateFileSystemFromBackupRequest): Awaitable<Errors\Result<CreateFileSystemFromBackupResponse>>;
+  public function DeleteBackup(DeleteBackupRequest): Awaitable<Errors\Result<DeleteBackupResponse>>;
+  public function DeleteFileSystem(DeleteFileSystemRequest): Awaitable<Errors\Result<DeleteFileSystemResponse>>;
+  public function DescribeBackups(DescribeBackupsRequest): Awaitable<Errors\Result<DescribeBackupsResponse>>;
+  public function DescribeDataRepositoryTasks(DescribeDataRepositoryTasksRequest): Awaitable<Errors\Result<DescribeDataRepositoryTasksResponse>>;
+  public function DescribeFileSystems(DescribeFileSystemsRequest): Awaitable<Errors\Result<DescribeFileSystemsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateFileSystem(UpdateFileSystemRequest): Awaitable<Errors\Result<UpdateFileSystemResponse>>;
 }
 
 class AWSAccountId {

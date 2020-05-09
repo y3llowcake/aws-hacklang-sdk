@@ -2,27 +2,27 @@
 namespace slack\aws\dax;
 
 interface DAX {
-  public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResponse>>;
-  public function CreateParameterGroup(CreateParameterGroupRequest) Awaitable<Errors\Result<CreateParameterGroupResponse>>;
-  public function CreateSubnetGroup(CreateSubnetGroupRequest) Awaitable<Errors\Result<CreateSubnetGroupResponse>>;
-  public function DecreaseReplicationFactor(DecreaseReplicationFactorRequest) Awaitable<Errors\Result<DecreaseReplicationFactorResponse>>;
-  public function DeleteCluster(DeleteClusterRequest) Awaitable<Errors\Result<DeleteClusterResponse>>;
-  public function DeleteParameterGroup(DeleteParameterGroupRequest) Awaitable<Errors\Result<DeleteParameterGroupResponse>>;
-  public function DeleteSubnetGroup(DeleteSubnetGroupRequest) Awaitable<Errors\Result<DeleteSubnetGroupResponse>>;
-  public function DescribeClusters(DescribeClustersRequest) Awaitable<Errors\Result<DescribeClustersResponse>>;
-  public function DescribeDefaultParameters(DescribeDefaultParametersRequest) Awaitable<Errors\Result<DescribeDefaultParametersResponse>>;
-  public function DescribeEvents(DescribeEventsRequest) Awaitable<Errors\Result<DescribeEventsResponse>>;
-  public function DescribeParameterGroups(DescribeParameterGroupsRequest) Awaitable<Errors\Result<DescribeParameterGroupsResponse>>;
-  public function DescribeParameters(DescribeParametersRequest) Awaitable<Errors\Result<DescribeParametersResponse>>;
-  public function DescribeSubnetGroups(DescribeSubnetGroupsRequest) Awaitable<Errors\Result<DescribeSubnetGroupsResponse>>;
-  public function IncreaseReplicationFactor(IncreaseReplicationFactorRequest) Awaitable<Errors\Result<IncreaseReplicationFactorResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function RebootNode(RebootNodeRequest) Awaitable<Errors\Result<RebootNodeResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateCluster(UpdateClusterRequest) Awaitable<Errors\Result<UpdateClusterResponse>>;
-  public function UpdateParameterGroup(UpdateParameterGroupRequest) Awaitable<Errors\Result<UpdateParameterGroupResponse>>;
-  public function UpdateSubnetGroup(UpdateSubnetGroupRequest) Awaitable<Errors\Result<UpdateSubnetGroupResponse>>;
+  public function CreateCluster(CreateClusterRequest): Awaitable<Errors\Result<CreateClusterResponse>>;
+  public function CreateParameterGroup(CreateParameterGroupRequest): Awaitable<Errors\Result<CreateParameterGroupResponse>>;
+  public function CreateSubnetGroup(CreateSubnetGroupRequest): Awaitable<Errors\Result<CreateSubnetGroupResponse>>;
+  public function DecreaseReplicationFactor(DecreaseReplicationFactorRequest): Awaitable<Errors\Result<DecreaseReplicationFactorResponse>>;
+  public function DeleteCluster(DeleteClusterRequest): Awaitable<Errors\Result<DeleteClusterResponse>>;
+  public function DeleteParameterGroup(DeleteParameterGroupRequest): Awaitable<Errors\Result<DeleteParameterGroupResponse>>;
+  public function DeleteSubnetGroup(DeleteSubnetGroupRequest): Awaitable<Errors\Result<DeleteSubnetGroupResponse>>;
+  public function DescribeClusters(DescribeClustersRequest): Awaitable<Errors\Result<DescribeClustersResponse>>;
+  public function DescribeDefaultParameters(DescribeDefaultParametersRequest): Awaitable<Errors\Result<DescribeDefaultParametersResponse>>;
+  public function DescribeEvents(DescribeEventsRequest): Awaitable<Errors\Result<DescribeEventsResponse>>;
+  public function DescribeParameterGroups(DescribeParameterGroupsRequest): Awaitable<Errors\Result<DescribeParameterGroupsResponse>>;
+  public function DescribeParameters(DescribeParametersRequest): Awaitable<Errors\Result<DescribeParametersResponse>>;
+  public function DescribeSubnetGroups(DescribeSubnetGroupsRequest): Awaitable<Errors\Result<DescribeSubnetGroupsResponse>>;
+  public function IncreaseReplicationFactor(IncreaseReplicationFactorRequest): Awaitable<Errors\Result<IncreaseReplicationFactorResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function RebootNode(RebootNodeRequest): Awaitable<Errors\Result<RebootNodeResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateCluster(UpdateClusterRequest): Awaitable<Errors\Result<UpdateClusterResponse>>;
+  public function UpdateParameterGroup(UpdateParameterGroupRequest): Awaitable<Errors\Result<UpdateParameterGroupResponse>>;
+  public function UpdateSubnetGroup(UpdateSubnetGroupRequest): Awaitable<Errors\Result<UpdateSubnetGroupResponse>>;
 }
 
 class AvailabilityZoneList {

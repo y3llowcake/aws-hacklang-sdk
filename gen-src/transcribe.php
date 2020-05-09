@@ -2,24 +2,24 @@
 namespace slack\aws\transcribe;
 
 interface Transcribe {
-  public function CreateVocabulary(CreateVocabularyRequest) Awaitable<Errors\Result<CreateVocabularyResponse>>;
-  public function CreateVocabularyFilter(CreateVocabularyFilterRequest) Awaitable<Errors\Result<CreateVocabularyFilterResponse>>;
-  public function DeleteMedicalTranscriptionJob(DeleteMedicalTranscriptionJobRequest) Awaitable<Errors\Error>;
-  public function DeleteTranscriptionJob(DeleteTranscriptionJobRequest) Awaitable<Errors\Error>;
-  public function DeleteVocabulary(DeleteVocabularyRequest) Awaitable<Errors\Error>;
-  public function DeleteVocabularyFilter(DeleteVocabularyFilterRequest) Awaitable<Errors\Error>;
-  public function GetMedicalTranscriptionJob(GetMedicalTranscriptionJobRequest) Awaitable<Errors\Result<GetMedicalTranscriptionJobResponse>>;
-  public function GetTranscriptionJob(GetTranscriptionJobRequest) Awaitable<Errors\Result<GetTranscriptionJobResponse>>;
-  public function GetVocabulary(GetVocabularyRequest) Awaitable<Errors\Result<GetVocabularyResponse>>;
-  public function GetVocabularyFilter(GetVocabularyFilterRequest) Awaitable<Errors\Result<GetVocabularyFilterResponse>>;
-  public function ListMedicalTranscriptionJobs(ListMedicalTranscriptionJobsRequest) Awaitable<Errors\Result<ListMedicalTranscriptionJobsResponse>>;
-  public function ListTranscriptionJobs(ListTranscriptionJobsRequest) Awaitable<Errors\Result<ListTranscriptionJobsResponse>>;
-  public function ListVocabularies(ListVocabulariesRequest) Awaitable<Errors\Result<ListVocabulariesResponse>>;
-  public function ListVocabularyFilters(ListVocabularyFiltersRequest) Awaitable<Errors\Result<ListVocabularyFiltersResponse>>;
-  public function StartMedicalTranscriptionJob(StartMedicalTranscriptionJobRequest) Awaitable<Errors\Result<StartMedicalTranscriptionJobResponse>>;
-  public function StartTranscriptionJob(StartTranscriptionJobRequest) Awaitable<Errors\Result<StartTranscriptionJobResponse>>;
-  public function UpdateVocabulary(UpdateVocabularyRequest) Awaitable<Errors\Result<UpdateVocabularyResponse>>;
-  public function UpdateVocabularyFilter(UpdateVocabularyFilterRequest) Awaitable<Errors\Result<UpdateVocabularyFilterResponse>>;
+  public function CreateVocabulary(CreateVocabularyRequest): Awaitable<Errors\Result<CreateVocabularyResponse>>;
+  public function CreateVocabularyFilter(CreateVocabularyFilterRequest): Awaitable<Errors\Result<CreateVocabularyFilterResponse>>;
+  public function DeleteMedicalTranscriptionJob(DeleteMedicalTranscriptionJobRequest): Awaitable<Errors\Error>;
+  public function DeleteTranscriptionJob(DeleteTranscriptionJobRequest): Awaitable<Errors\Error>;
+  public function DeleteVocabulary(DeleteVocabularyRequest): Awaitable<Errors\Error>;
+  public function DeleteVocabularyFilter(DeleteVocabularyFilterRequest): Awaitable<Errors\Error>;
+  public function GetMedicalTranscriptionJob(GetMedicalTranscriptionJobRequest): Awaitable<Errors\Result<GetMedicalTranscriptionJobResponse>>;
+  public function GetTranscriptionJob(GetTranscriptionJobRequest): Awaitable<Errors\Result<GetTranscriptionJobResponse>>;
+  public function GetVocabulary(GetVocabularyRequest): Awaitable<Errors\Result<GetVocabularyResponse>>;
+  public function GetVocabularyFilter(GetVocabularyFilterRequest): Awaitable<Errors\Result<GetVocabularyFilterResponse>>;
+  public function ListMedicalTranscriptionJobs(ListMedicalTranscriptionJobsRequest): Awaitable<Errors\Result<ListMedicalTranscriptionJobsResponse>>;
+  public function ListTranscriptionJobs(ListTranscriptionJobsRequest): Awaitable<Errors\Result<ListTranscriptionJobsResponse>>;
+  public function ListVocabularies(ListVocabulariesRequest): Awaitable<Errors\Result<ListVocabulariesResponse>>;
+  public function ListVocabularyFilters(ListVocabularyFiltersRequest): Awaitable<Errors\Result<ListVocabularyFiltersResponse>>;
+  public function StartMedicalTranscriptionJob(StartMedicalTranscriptionJobRequest): Awaitable<Errors\Result<StartMedicalTranscriptionJobResponse>>;
+  public function StartTranscriptionJob(StartTranscriptionJobRequest): Awaitable<Errors\Result<StartTranscriptionJobResponse>>;
+  public function UpdateVocabulary(UpdateVocabularyRequest): Awaitable<Errors\Result<UpdateVocabularyResponse>>;
+  public function UpdateVocabularyFilter(UpdateVocabularyFilterRequest): Awaitable<Errors\Result<UpdateVocabularyFilterResponse>>;
 }
 
 class BadRequestException {

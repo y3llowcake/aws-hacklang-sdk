@@ -2,25 +2,25 @@
 namespace slack\aws\kinesisvideo;
 
 interface Kinesis Video {
-  public function CreateSignalingChannel(CreateSignalingChannelInput) Awaitable<Errors\Result<CreateSignalingChannelOutput>>;
-  public function CreateStream(CreateStreamInput) Awaitable<Errors\Result<CreateStreamOutput>>;
-  public function DeleteSignalingChannel(DeleteSignalingChannelInput) Awaitable<Errors\Result<DeleteSignalingChannelOutput>>;
-  public function DeleteStream(DeleteStreamInput) Awaitable<Errors\Result<DeleteStreamOutput>>;
-  public function DescribeSignalingChannel(DescribeSignalingChannelInput) Awaitable<Errors\Result<DescribeSignalingChannelOutput>>;
-  public function DescribeStream(DescribeStreamInput) Awaitable<Errors\Result<DescribeStreamOutput>>;
-  public function GetDataEndpoint(GetDataEndpointInput) Awaitable<Errors\Result<GetDataEndpointOutput>>;
-  public function GetSignalingChannelEndpoint(GetSignalingChannelEndpointInput) Awaitable<Errors\Result<GetSignalingChannelEndpointOutput>>;
-  public function ListSignalingChannels(ListSignalingChannelsInput) Awaitable<Errors\Result<ListSignalingChannelsOutput>>;
-  public function ListStreams(ListStreamsInput) Awaitable<Errors\Result<ListStreamsOutput>>;
-  public function ListTagsForResource(ListTagsForResourceInput) Awaitable<Errors\Result<ListTagsForResourceOutput>>;
-  public function ListTagsForStream(ListTagsForStreamInput) Awaitable<Errors\Result<ListTagsForStreamOutput>>;
-  public function TagResource(TagResourceInput) Awaitable<Errors\Result<TagResourceOutput>>;
-  public function TagStream(TagStreamInput) Awaitable<Errors\Result<TagStreamOutput>>;
-  public function UntagResource(UntagResourceInput) Awaitable<Errors\Result<UntagResourceOutput>>;
-  public function UntagStream(UntagStreamInput) Awaitable<Errors\Result<UntagStreamOutput>>;
-  public function UpdateDataRetention(UpdateDataRetentionInput) Awaitable<Errors\Result<UpdateDataRetentionOutput>>;
-  public function UpdateSignalingChannel(UpdateSignalingChannelInput) Awaitable<Errors\Result<UpdateSignalingChannelOutput>>;
-  public function UpdateStream(UpdateStreamInput) Awaitable<Errors\Result<UpdateStreamOutput>>;
+  public function CreateSignalingChannel(CreateSignalingChannelInput): Awaitable<Errors\Result<CreateSignalingChannelOutput>>;
+  public function CreateStream(CreateStreamInput): Awaitable<Errors\Result<CreateStreamOutput>>;
+  public function DeleteSignalingChannel(DeleteSignalingChannelInput): Awaitable<Errors\Result<DeleteSignalingChannelOutput>>;
+  public function DeleteStream(DeleteStreamInput): Awaitable<Errors\Result<DeleteStreamOutput>>;
+  public function DescribeSignalingChannel(DescribeSignalingChannelInput): Awaitable<Errors\Result<DescribeSignalingChannelOutput>>;
+  public function DescribeStream(DescribeStreamInput): Awaitable<Errors\Result<DescribeStreamOutput>>;
+  public function GetDataEndpoint(GetDataEndpointInput): Awaitable<Errors\Result<GetDataEndpointOutput>>;
+  public function GetSignalingChannelEndpoint(GetSignalingChannelEndpointInput): Awaitable<Errors\Result<GetSignalingChannelEndpointOutput>>;
+  public function ListSignalingChannels(ListSignalingChannelsInput): Awaitable<Errors\Result<ListSignalingChannelsOutput>>;
+  public function ListStreams(ListStreamsInput): Awaitable<Errors\Result<ListStreamsOutput>>;
+  public function ListTagsForResource(ListTagsForResourceInput): Awaitable<Errors\Result<ListTagsForResourceOutput>>;
+  public function ListTagsForStream(ListTagsForStreamInput): Awaitable<Errors\Result<ListTagsForStreamOutput>>;
+  public function TagResource(TagResourceInput): Awaitable<Errors\Result<TagResourceOutput>>;
+  public function TagStream(TagStreamInput): Awaitable<Errors\Result<TagStreamOutput>>;
+  public function UntagResource(UntagResourceInput): Awaitable<Errors\Result<UntagResourceOutput>>;
+  public function UntagStream(UntagStreamInput): Awaitable<Errors\Result<UntagStreamOutput>>;
+  public function UpdateDataRetention(UpdateDataRetentionInput): Awaitable<Errors\Result<UpdateDataRetentionOutput>>;
+  public function UpdateSignalingChannel(UpdateSignalingChannelInput): Awaitable<Errors\Result<UpdateSignalingChannelOutput>>;
+  public function UpdateStream(UpdateStreamInput): Awaitable<Errors\Result<UpdateStreamOutput>>;
 }
 
 class APIName {

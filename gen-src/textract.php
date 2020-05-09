@@ -2,12 +2,12 @@
 namespace slack\aws\textract;
 
 interface Textract {
-  public function AnalyzeDocument(AnalyzeDocumentRequest) Awaitable<Errors\Result<AnalyzeDocumentResponse>>;
-  public function DetectDocumentText(DetectDocumentTextRequest) Awaitable<Errors\Result<DetectDocumentTextResponse>>;
-  public function GetDocumentAnalysis(GetDocumentAnalysisRequest) Awaitable<Errors\Result<GetDocumentAnalysisResponse>>;
-  public function GetDocumentTextDetection(GetDocumentTextDetectionRequest) Awaitable<Errors\Result<GetDocumentTextDetectionResponse>>;
-  public function StartDocumentAnalysis(StartDocumentAnalysisRequest) Awaitable<Errors\Result<StartDocumentAnalysisResponse>>;
-  public function StartDocumentTextDetection(StartDocumentTextDetectionRequest) Awaitable<Errors\Result<StartDocumentTextDetectionResponse>>;
+  public function AnalyzeDocument(AnalyzeDocumentRequest): Awaitable<Errors\Result<AnalyzeDocumentResponse>>;
+  public function DetectDocumentText(DetectDocumentTextRequest): Awaitable<Errors\Result<DetectDocumentTextResponse>>;
+  public function GetDocumentAnalysis(GetDocumentAnalysisRequest): Awaitable<Errors\Result<GetDocumentAnalysisResponse>>;
+  public function GetDocumentTextDetection(GetDocumentTextDetectionRequest): Awaitable<Errors\Result<GetDocumentTextDetectionResponse>>;
+  public function StartDocumentAnalysis(StartDocumentAnalysisRequest): Awaitable<Errors\Result<StartDocumentAnalysisResponse>>;
+  public function StartDocumentTextDetection(StartDocumentTextDetectionRequest): Awaitable<Errors\Result<StartDocumentTextDetectionResponse>>;
 }
 
 class AccessDeniedException {

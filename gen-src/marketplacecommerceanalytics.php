@@ -2,8 +2,8 @@
 namespace slack\aws\marketplacecommerceanalytics;
 
 interface Marketplace Commerce Analytics {
-  public function GenerateDataSet(GenerateDataSetRequest) Awaitable<Errors\Result<GenerateDataSetResult>>;
-  public function StartSupportDataExport(StartSupportDataExportRequest) Awaitable<Errors\Result<StartSupportDataExportResult>>;
+  public function GenerateDataSet(GenerateDataSetRequest): Awaitable<Errors\Result<GenerateDataSetResult>>;
+  public function StartSupportDataExport(StartSupportDataExportRequest): Awaitable<Errors\Result<StartSupportDataExportResult>>;
 }
 
 class CustomerDefinedValues {

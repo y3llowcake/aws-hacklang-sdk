@@ -2,24 +2,24 @@
 namespace slack\aws\access-analyzer;
 
 interface AccessAnalyzer {
-  public function CreateAnalyzer(CreateAnalyzerRequest) Awaitable<Errors\Result<CreateAnalyzerResponse>>;
-  public function CreateArchiveRule(CreateArchiveRuleRequest) Awaitable<Errors\Error>;
-  public function DeleteAnalyzer(DeleteAnalyzerRequest) Awaitable<Errors\Error>;
-  public function DeleteArchiveRule(DeleteArchiveRuleRequest) Awaitable<Errors\Error>;
-  public function GetAnalyzedResource(GetAnalyzedResourceRequest) Awaitable<Errors\Result<GetAnalyzedResourceResponse>>;
-  public function GetAnalyzer(GetAnalyzerRequest) Awaitable<Errors\Result<GetAnalyzerResponse>>;
-  public function GetArchiveRule(GetArchiveRuleRequest) Awaitable<Errors\Result<GetArchiveRuleResponse>>;
-  public function GetFinding(GetFindingRequest) Awaitable<Errors\Result<GetFindingResponse>>;
-  public function ListAnalyzedResources(ListAnalyzedResourcesRequest) Awaitable<Errors\Result<ListAnalyzedResourcesResponse>>;
-  public function ListAnalyzers(ListAnalyzersRequest) Awaitable<Errors\Result<ListAnalyzersResponse>>;
-  public function ListArchiveRules(ListArchiveRulesRequest) Awaitable<Errors\Result<ListArchiveRulesResponse>>;
-  public function ListFindings(ListFindingsRequest) Awaitable<Errors\Result<ListFindingsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function StartResourceScan(StartResourceScanRequest) Awaitable<Errors\Error>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateArchiveRule(UpdateArchiveRuleRequest) Awaitable<Errors\Error>;
-  public function UpdateFindings(UpdateFindingsRequest) Awaitable<Errors\Error>;
+  public function CreateAnalyzer(CreateAnalyzerRequest): Awaitable<Errors\Result<CreateAnalyzerResponse>>;
+  public function CreateArchiveRule(CreateArchiveRuleRequest): Awaitable<Errors\Error>;
+  public function DeleteAnalyzer(DeleteAnalyzerRequest): Awaitable<Errors\Error>;
+  public function DeleteArchiveRule(DeleteArchiveRuleRequest): Awaitable<Errors\Error>;
+  public function GetAnalyzedResource(GetAnalyzedResourceRequest): Awaitable<Errors\Result<GetAnalyzedResourceResponse>>;
+  public function GetAnalyzer(GetAnalyzerRequest): Awaitable<Errors\Result<GetAnalyzerResponse>>;
+  public function GetArchiveRule(GetArchiveRuleRequest): Awaitable<Errors\Result<GetArchiveRuleResponse>>;
+  public function GetFinding(GetFindingRequest): Awaitable<Errors\Result<GetFindingResponse>>;
+  public function ListAnalyzedResources(ListAnalyzedResourcesRequest): Awaitable<Errors\Result<ListAnalyzedResourcesResponse>>;
+  public function ListAnalyzers(ListAnalyzersRequest): Awaitable<Errors\Result<ListAnalyzersResponse>>;
+  public function ListArchiveRules(ListArchiveRulesRequest): Awaitable<Errors\Result<ListArchiveRulesResponse>>;
+  public function ListFindings(ListFindingsRequest): Awaitable<Errors\Result<ListFindingsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function StartResourceScan(StartResourceScanRequest): Awaitable<Errors\Error>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateArchiveRule(UpdateArchiveRuleRequest): Awaitable<Errors\Error>;
+  public function UpdateFindings(UpdateFindingsRequest): Awaitable<Errors\Error>;
 }
 
 class AccessDeniedException {

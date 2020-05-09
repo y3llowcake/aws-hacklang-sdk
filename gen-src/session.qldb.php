@@ -2,7 +2,7 @@
 namespace slack\aws\session.qldb;
 
 interface QLDB Session {
-  public function SendCommand(SendCommandRequest) Awaitable<Errors\Result<SendCommandResult>>;
+  public function SendCommand(SendCommandRequest): Awaitable<Errors\Result<SendCommandResult>>;
 }
 
 class AbortTransactionRequest {

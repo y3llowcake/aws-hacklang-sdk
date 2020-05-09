@@ -2,35 +2,35 @@
 namespace slack\aws\datasync;
 
 interface DataSync {
-  public function CancelTaskExecution(CancelTaskExecutionRequest) Awaitable<Errors\Result<CancelTaskExecutionResponse>>;
-  public function CreateAgent(CreateAgentRequest) Awaitable<Errors\Result<CreateAgentResponse>>;
-  public function CreateLocationEfs(CreateLocationEfsRequest) Awaitable<Errors\Result<CreateLocationEfsResponse>>;
-  public function CreateLocationFsxWindows(CreateLocationFsxWindowsRequest) Awaitable<Errors\Result<CreateLocationFsxWindowsResponse>>;
-  public function CreateLocationNfs(CreateLocationNfsRequest) Awaitable<Errors\Result<CreateLocationNfsResponse>>;
-  public function CreateLocationS3(CreateLocationS3Request) Awaitable<Errors\Result<CreateLocationS3Response>>;
-  public function CreateLocationSmb(CreateLocationSmbRequest) Awaitable<Errors\Result<CreateLocationSmbResponse>>;
-  public function CreateTask(CreateTaskRequest) Awaitable<Errors\Result<CreateTaskResponse>>;
-  public function DeleteAgent(DeleteAgentRequest) Awaitable<Errors\Result<DeleteAgentResponse>>;
-  public function DeleteLocation(DeleteLocationRequest) Awaitable<Errors\Result<DeleteLocationResponse>>;
-  public function DeleteTask(DeleteTaskRequest) Awaitable<Errors\Result<DeleteTaskResponse>>;
-  public function DescribeAgent(DescribeAgentRequest) Awaitable<Errors\Result<DescribeAgentResponse>>;
-  public function DescribeLocationEfs(DescribeLocationEfsRequest) Awaitable<Errors\Result<DescribeLocationEfsResponse>>;
-  public function DescribeLocationFsxWindows(DescribeLocationFsxWindowsRequest) Awaitable<Errors\Result<DescribeLocationFsxWindowsResponse>>;
-  public function DescribeLocationNfs(DescribeLocationNfsRequest) Awaitable<Errors\Result<DescribeLocationNfsResponse>>;
-  public function DescribeLocationS3(DescribeLocationS3Request) Awaitable<Errors\Result<DescribeLocationS3Response>>;
-  public function DescribeLocationSmb(DescribeLocationSmbRequest) Awaitable<Errors\Result<DescribeLocationSmbResponse>>;
-  public function DescribeTask(DescribeTaskRequest) Awaitable<Errors\Result<DescribeTaskResponse>>;
-  public function DescribeTaskExecution(DescribeTaskExecutionRequest) Awaitable<Errors\Result<DescribeTaskExecutionResponse>>;
-  public function ListAgents(ListAgentsRequest) Awaitable<Errors\Result<ListAgentsResponse>>;
-  public function ListLocations(ListLocationsRequest) Awaitable<Errors\Result<ListLocationsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListTaskExecutions(ListTaskExecutionsRequest) Awaitable<Errors\Result<ListTaskExecutionsResponse>>;
-  public function ListTasks(ListTasksRequest) Awaitable<Errors\Result<ListTasksResponse>>;
-  public function StartTaskExecution(StartTaskExecutionRequest) Awaitable<Errors\Result<StartTaskExecutionResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateAgent(UpdateAgentRequest) Awaitable<Errors\Result<UpdateAgentResponse>>;
-  public function UpdateTask(UpdateTaskRequest) Awaitable<Errors\Result<UpdateTaskResponse>>;
+  public function CancelTaskExecution(CancelTaskExecutionRequest): Awaitable<Errors\Result<CancelTaskExecutionResponse>>;
+  public function CreateAgent(CreateAgentRequest): Awaitable<Errors\Result<CreateAgentResponse>>;
+  public function CreateLocationEfs(CreateLocationEfsRequest): Awaitable<Errors\Result<CreateLocationEfsResponse>>;
+  public function CreateLocationFsxWindows(CreateLocationFsxWindowsRequest): Awaitable<Errors\Result<CreateLocationFsxWindowsResponse>>;
+  public function CreateLocationNfs(CreateLocationNfsRequest): Awaitable<Errors\Result<CreateLocationNfsResponse>>;
+  public function CreateLocationS3(CreateLocationS3Request): Awaitable<Errors\Result<CreateLocationS3Response>>;
+  public function CreateLocationSmb(CreateLocationSmbRequest): Awaitable<Errors\Result<CreateLocationSmbResponse>>;
+  public function CreateTask(CreateTaskRequest): Awaitable<Errors\Result<CreateTaskResponse>>;
+  public function DeleteAgent(DeleteAgentRequest): Awaitable<Errors\Result<DeleteAgentResponse>>;
+  public function DeleteLocation(DeleteLocationRequest): Awaitable<Errors\Result<DeleteLocationResponse>>;
+  public function DeleteTask(DeleteTaskRequest): Awaitable<Errors\Result<DeleteTaskResponse>>;
+  public function DescribeAgent(DescribeAgentRequest): Awaitable<Errors\Result<DescribeAgentResponse>>;
+  public function DescribeLocationEfs(DescribeLocationEfsRequest): Awaitable<Errors\Result<DescribeLocationEfsResponse>>;
+  public function DescribeLocationFsxWindows(DescribeLocationFsxWindowsRequest): Awaitable<Errors\Result<DescribeLocationFsxWindowsResponse>>;
+  public function DescribeLocationNfs(DescribeLocationNfsRequest): Awaitable<Errors\Result<DescribeLocationNfsResponse>>;
+  public function DescribeLocationS3(DescribeLocationS3Request): Awaitable<Errors\Result<DescribeLocationS3Response>>;
+  public function DescribeLocationSmb(DescribeLocationSmbRequest): Awaitable<Errors\Result<DescribeLocationSmbResponse>>;
+  public function DescribeTask(DescribeTaskRequest): Awaitable<Errors\Result<DescribeTaskResponse>>;
+  public function DescribeTaskExecution(DescribeTaskExecutionRequest): Awaitable<Errors\Result<DescribeTaskExecutionResponse>>;
+  public function ListAgents(ListAgentsRequest): Awaitable<Errors\Result<ListAgentsResponse>>;
+  public function ListLocations(ListLocationsRequest): Awaitable<Errors\Result<ListLocationsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListTaskExecutions(ListTaskExecutionsRequest): Awaitable<Errors\Result<ListTaskExecutionsResponse>>;
+  public function ListTasks(ListTasksRequest): Awaitable<Errors\Result<ListTasksResponse>>;
+  public function StartTaskExecution(StartTaskExecutionRequest): Awaitable<Errors\Result<StartTaskExecutionResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateAgent(UpdateAgentRequest): Awaitable<Errors\Result<UpdateAgentResponse>>;
+  public function UpdateTask(UpdateTaskRequest): Awaitable<Errors\Result<UpdateTaskResponse>>;
 }
 
 class ActivationKey {

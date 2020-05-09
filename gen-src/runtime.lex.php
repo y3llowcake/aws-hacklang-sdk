@@ -2,11 +2,11 @@
 namespace slack\aws\runtime.lex;
 
 interface Lex Runtime Service {
-  public function DeleteSession(DeleteSessionRequest) Awaitable<Errors\Result<DeleteSessionResponse>>;
-  public function GetSession(GetSessionRequest) Awaitable<Errors\Result<GetSessionResponse>>;
-  public function PostContent(PostContentRequest) Awaitable<Errors\Result<PostContentResponse>>;
-  public function PostText(PostTextRequest) Awaitable<Errors\Result<PostTextResponse>>;
-  public function PutSession(PutSessionRequest) Awaitable<Errors\Result<PutSessionResponse>>;
+  public function DeleteSession(DeleteSessionRequest): Awaitable<Errors\Result<DeleteSessionResponse>>;
+  public function GetSession(GetSessionRequest): Awaitable<Errors\Result<GetSessionResponse>>;
+  public function PostContent(PostContentRequest): Awaitable<Errors\Result<PostContentResponse>>;
+  public function PostText(PostTextRequest): Awaitable<Errors\Result<PostTextResponse>>;
+  public function PutSession(PutSessionRequest): Awaitable<Errors\Result<PutSessionResponse>>;
 }
 
 class Accept {

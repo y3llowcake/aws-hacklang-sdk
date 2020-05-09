@@ -2,25 +2,25 @@
 namespace slack\aws\snowball;
 
 interface Snowball {
-  public function CancelCluster(CancelClusterRequest) Awaitable<Errors\Result<CancelClusterResult>>;
-  public function CancelJob(CancelJobRequest) Awaitable<Errors\Result<CancelJobResult>>;
-  public function CreateAddress(CreateAddressRequest) Awaitable<Errors\Result<CreateAddressResult>>;
-  public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResult>>;
-  public function CreateJob(CreateJobRequest) Awaitable<Errors\Result<CreateJobResult>>;
-  public function DescribeAddress(DescribeAddressRequest) Awaitable<Errors\Result<DescribeAddressResult>>;
-  public function DescribeAddresses(DescribeAddressesRequest) Awaitable<Errors\Result<DescribeAddressesResult>>;
-  public function DescribeCluster(DescribeClusterRequest) Awaitable<Errors\Result<DescribeClusterResult>>;
-  public function DescribeJob(DescribeJobRequest) Awaitable<Errors\Result<DescribeJobResult>>;
-  public function GetJobManifest(GetJobManifestRequest) Awaitable<Errors\Result<GetJobManifestResult>>;
-  public function GetJobUnlockCode(GetJobUnlockCodeRequest) Awaitable<Errors\Result<GetJobUnlockCodeResult>>;
-  public function GetSnowballUsage(GetSnowballUsageRequest) Awaitable<Errors\Result<GetSnowballUsageResult>>;
-  public function GetSoftwareUpdates(GetSoftwareUpdatesRequest) Awaitable<Errors\Result<GetSoftwareUpdatesResult>>;
-  public function ListClusterJobs(ListClusterJobsRequest) Awaitable<Errors\Result<ListClusterJobsResult>>;
-  public function ListClusters(ListClustersRequest) Awaitable<Errors\Result<ListClustersResult>>;
-  public function ListCompatibleImages(ListCompatibleImagesRequest) Awaitable<Errors\Result<ListCompatibleImagesResult>>;
-  public function ListJobs(ListJobsRequest) Awaitable<Errors\Result<ListJobsResult>>;
-  public function UpdateCluster(UpdateClusterRequest) Awaitable<Errors\Result<UpdateClusterResult>>;
-  public function UpdateJob(UpdateJobRequest) Awaitable<Errors\Result<UpdateJobResult>>;
+  public function CancelCluster(CancelClusterRequest): Awaitable<Errors\Result<CancelClusterResult>>;
+  public function CancelJob(CancelJobRequest): Awaitable<Errors\Result<CancelJobResult>>;
+  public function CreateAddress(CreateAddressRequest): Awaitable<Errors\Result<CreateAddressResult>>;
+  public function CreateCluster(CreateClusterRequest): Awaitable<Errors\Result<CreateClusterResult>>;
+  public function CreateJob(CreateJobRequest): Awaitable<Errors\Result<CreateJobResult>>;
+  public function DescribeAddress(DescribeAddressRequest): Awaitable<Errors\Result<DescribeAddressResult>>;
+  public function DescribeAddresses(DescribeAddressesRequest): Awaitable<Errors\Result<DescribeAddressesResult>>;
+  public function DescribeCluster(DescribeClusterRequest): Awaitable<Errors\Result<DescribeClusterResult>>;
+  public function DescribeJob(DescribeJobRequest): Awaitable<Errors\Result<DescribeJobResult>>;
+  public function GetJobManifest(GetJobManifestRequest): Awaitable<Errors\Result<GetJobManifestResult>>;
+  public function GetJobUnlockCode(GetJobUnlockCodeRequest): Awaitable<Errors\Result<GetJobUnlockCodeResult>>;
+  public function GetSnowballUsage(GetSnowballUsageRequest): Awaitable<Errors\Result<GetSnowballUsageResult>>;
+  public function GetSoftwareUpdates(GetSoftwareUpdatesRequest): Awaitable<Errors\Result<GetSoftwareUpdatesResult>>;
+  public function ListClusterJobs(ListClusterJobsRequest): Awaitable<Errors\Result<ListClusterJobsResult>>;
+  public function ListClusters(ListClustersRequest): Awaitable<Errors\Result<ListClustersResult>>;
+  public function ListCompatibleImages(ListCompatibleImagesRequest): Awaitable<Errors\Result<ListCompatibleImagesResult>>;
+  public function ListJobs(ListJobsRequest): Awaitable<Errors\Result<ListJobsResult>>;
+  public function UpdateCluster(UpdateClusterRequest): Awaitable<Errors\Result<UpdateClusterResult>>;
+  public function UpdateJob(UpdateJobRequest): Awaitable<Errors\Result<UpdateJobResult>>;
 }
 
 class Address {

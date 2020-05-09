@@ -2,12 +2,12 @@
 namespace slack\aws\api.elastic-inference;
 
 interface Elastic Inference {
-  public function DescribeAcceleratorOfferings(DescribeAcceleratorOfferingsRequest) Awaitable<Errors\Result<DescribeAcceleratorOfferingsResponse>>;
-  public function DescribeAcceleratorTypes(DescribeAcceleratorTypesRequest) Awaitable<Errors\Result<DescribeAcceleratorTypesResponse>>;
-  public function DescribeAccelerators(DescribeAcceleratorsRequest) Awaitable<Errors\Result<DescribeAcceleratorsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResult>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResult>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResult>>;
+  public function DescribeAcceleratorOfferings(DescribeAcceleratorOfferingsRequest): Awaitable<Errors\Result<DescribeAcceleratorOfferingsResponse>>;
+  public function DescribeAcceleratorTypes(DescribeAcceleratorTypesRequest): Awaitable<Errors\Result<DescribeAcceleratorTypesResponse>>;
+  public function DescribeAccelerators(DescribeAcceleratorsRequest): Awaitable<Errors\Result<DescribeAcceleratorsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResult>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResult>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResult>>;
 }
 
 class AcceleratorHealthStatus {

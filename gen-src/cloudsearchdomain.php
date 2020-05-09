@@ -2,9 +2,9 @@
 namespace slack\aws\cloudsearchdomain;
 
 interface  {
-  public function Search(SearchRequest) Awaitable<Errors\Result<SearchResponse>>;
-  public function Suggest(SuggestRequest) Awaitable<Errors\Result<SuggestResponse>>;
-  public function UploadDocuments(UploadDocumentsRequest) Awaitable<Errors\Result<UploadDocumentsResponse>>;
+  public function Search(SearchRequest): Awaitable<Errors\Result<SearchResponse>>;
+  public function Suggest(SuggestRequest): Awaitable<Errors\Result<SuggestResponse>>;
+  public function UploadDocuments(UploadDocumentsRequest): Awaitable<Errors\Result<UploadDocumentsResponse>>;
 }
 
 class Adds {

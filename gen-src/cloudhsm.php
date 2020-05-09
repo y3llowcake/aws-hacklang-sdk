@@ -2,26 +2,26 @@
 namespace slack\aws\cloudhsm;
 
 interface CloudHSM {
-  public function AddTagsToResource(AddTagsToResourceRequest) Awaitable<Errors\Result<AddTagsToResourceResponse>>;
-  public function CreateHapg(CreateHapgRequest) Awaitable<Errors\Result<CreateHapgResponse>>;
-  public function CreateHsm(CreateHsmRequest) Awaitable<Errors\Result<CreateHsmResponse>>;
-  public function CreateLunaClient(CreateLunaClientRequest) Awaitable<Errors\Result<CreateLunaClientResponse>>;
-  public function DeleteHapg(DeleteHapgRequest) Awaitable<Errors\Result<DeleteHapgResponse>>;
-  public function DeleteHsm(DeleteHsmRequest) Awaitable<Errors\Result<DeleteHsmResponse>>;
-  public function DeleteLunaClient(DeleteLunaClientRequest) Awaitable<Errors\Result<DeleteLunaClientResponse>>;
-  public function DescribeHapg(DescribeHapgRequest) Awaitable<Errors\Result<DescribeHapgResponse>>;
-  public function DescribeHsm(DescribeHsmRequest) Awaitable<Errors\Result<DescribeHsmResponse>>;
-  public function DescribeLunaClient(DescribeLunaClientRequest) Awaitable<Errors\Result<DescribeLunaClientResponse>>;
-  public function GetConfig(GetConfigRequest) Awaitable<Errors\Result<GetConfigResponse>>;
-  public function ListAvailableZones(ListAvailableZonesRequest) Awaitable<Errors\Result<ListAvailableZonesResponse>>;
-  public function ListHapgs(ListHapgsRequest) Awaitable<Errors\Result<ListHapgsResponse>>;
-  public function ListHsms(ListHsmsRequest) Awaitable<Errors\Result<ListHsmsResponse>>;
-  public function ListLunaClients(ListLunaClientsRequest) Awaitable<Errors\Result<ListLunaClientsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ModifyHapg(ModifyHapgRequest) Awaitable<Errors\Result<ModifyHapgResponse>>;
-  public function ModifyHsm(ModifyHsmRequest) Awaitable<Errors\Result<ModifyHsmResponse>>;
-  public function ModifyLunaClient(ModifyLunaClientRequest) Awaitable<Errors\Result<ModifyLunaClientResponse>>;
-  public function RemoveTagsFromResource(RemoveTagsFromResourceRequest) Awaitable<Errors\Result<RemoveTagsFromResourceResponse>>;
+  public function AddTagsToResource(AddTagsToResourceRequest): Awaitable<Errors\Result<AddTagsToResourceResponse>>;
+  public function CreateHapg(CreateHapgRequest): Awaitable<Errors\Result<CreateHapgResponse>>;
+  public function CreateHsm(CreateHsmRequest): Awaitable<Errors\Result<CreateHsmResponse>>;
+  public function CreateLunaClient(CreateLunaClientRequest): Awaitable<Errors\Result<CreateLunaClientResponse>>;
+  public function DeleteHapg(DeleteHapgRequest): Awaitable<Errors\Result<DeleteHapgResponse>>;
+  public function DeleteHsm(DeleteHsmRequest): Awaitable<Errors\Result<DeleteHsmResponse>>;
+  public function DeleteLunaClient(DeleteLunaClientRequest): Awaitable<Errors\Result<DeleteLunaClientResponse>>;
+  public function DescribeHapg(DescribeHapgRequest): Awaitable<Errors\Result<DescribeHapgResponse>>;
+  public function DescribeHsm(DescribeHsmRequest): Awaitable<Errors\Result<DescribeHsmResponse>>;
+  public function DescribeLunaClient(DescribeLunaClientRequest): Awaitable<Errors\Result<DescribeLunaClientResponse>>;
+  public function GetConfig(GetConfigRequest): Awaitable<Errors\Result<GetConfigResponse>>;
+  public function ListAvailableZones(ListAvailableZonesRequest): Awaitable<Errors\Result<ListAvailableZonesResponse>>;
+  public function ListHapgs(ListHapgsRequest): Awaitable<Errors\Result<ListHapgsResponse>>;
+  public function ListHsms(ListHsmsRequest): Awaitable<Errors\Result<ListHsmsResponse>>;
+  public function ListLunaClients(ListLunaClientsRequest): Awaitable<Errors\Result<ListLunaClientsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ModifyHapg(ModifyHapgRequest): Awaitable<Errors\Result<ModifyHapgResponse>>;
+  public function ModifyHsm(ModifyHsmRequest): Awaitable<Errors\Result<ModifyHsmResponse>>;
+  public function ModifyLunaClient(ModifyLunaClientRequest): Awaitable<Errors\Result<ModifyLunaClientResponse>>;
+  public function RemoveTagsFromResource(RemoveTagsFromResourceRequest): Awaitable<Errors\Result<RemoveTagsFromResourceResponse>>;
 }
 
 class AZ {

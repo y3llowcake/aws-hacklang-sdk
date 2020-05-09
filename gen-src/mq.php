@@ -2,28 +2,28 @@
 namespace slack\aws\mq;
 
 interface mq {
-  public function CreateBroker(CreateBrokerRequest) Awaitable<Errors\Result<CreateBrokerResponse>>;
-  public function CreateConfiguration(CreateConfigurationRequest) Awaitable<Errors\Result<CreateConfigurationResponse>>;
-  public function CreateTags(CreateTagsRequest) Awaitable<Errors\Error>;
-  public function CreateUser(CreateUserRequest) Awaitable<Errors\Result<CreateUserResponse>>;
-  public function DeleteBroker(DeleteBrokerRequest) Awaitable<Errors\Result<DeleteBrokerResponse>>;
-  public function DeleteTags(DeleteTagsRequest) Awaitable<Errors\Error>;
-  public function DeleteUser(DeleteUserRequest) Awaitable<Errors\Result<DeleteUserResponse>>;
-  public function DescribeBroker(DescribeBrokerRequest) Awaitable<Errors\Result<DescribeBrokerResponse>>;
-  public function DescribeBrokerEngineTypes(DescribeBrokerEngineTypesRequest) Awaitable<Errors\Result<DescribeBrokerEngineTypesResponse>>;
-  public function DescribeBrokerInstanceOptions(DescribeBrokerInstanceOptionsRequest) Awaitable<Errors\Result<DescribeBrokerInstanceOptionsResponse>>;
-  public function DescribeConfiguration(DescribeConfigurationRequest) Awaitable<Errors\Result<DescribeConfigurationResponse>>;
-  public function DescribeConfigurationRevision(DescribeConfigurationRevisionRequest) Awaitable<Errors\Result<DescribeConfigurationRevisionResponse>>;
-  public function DescribeUser(DescribeUserRequest) Awaitable<Errors\Result<DescribeUserResponse>>;
-  public function ListBrokers(ListBrokersRequest) Awaitable<Errors\Result<ListBrokersResponse>>;
-  public function ListConfigurationRevisions(ListConfigurationRevisionsRequest) Awaitable<Errors\Result<ListConfigurationRevisionsResponse>>;
-  public function ListConfigurations(ListConfigurationsRequest) Awaitable<Errors\Result<ListConfigurationsResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function ListUsers(ListUsersRequest) Awaitable<Errors\Result<ListUsersResponse>>;
-  public function RebootBroker(RebootBrokerRequest) Awaitable<Errors\Result<RebootBrokerResponse>>;
-  public function UpdateBroker(UpdateBrokerRequest) Awaitable<Errors\Result<UpdateBrokerResponse>>;
-  public function UpdateConfiguration(UpdateConfigurationRequest) Awaitable<Errors\Result<UpdateConfigurationResponse>>;
-  public function UpdateUser(UpdateUserRequest) Awaitable<Errors\Result<UpdateUserResponse>>;
+  public function CreateBroker(CreateBrokerRequest): Awaitable<Errors\Result<CreateBrokerResponse>>;
+  public function CreateConfiguration(CreateConfigurationRequest): Awaitable<Errors\Result<CreateConfigurationResponse>>;
+  public function CreateTags(CreateTagsRequest): Awaitable<Errors\Error>;
+  public function CreateUser(CreateUserRequest): Awaitable<Errors\Result<CreateUserResponse>>;
+  public function DeleteBroker(DeleteBrokerRequest): Awaitable<Errors\Result<DeleteBrokerResponse>>;
+  public function DeleteTags(DeleteTagsRequest): Awaitable<Errors\Error>;
+  public function DeleteUser(DeleteUserRequest): Awaitable<Errors\Result<DeleteUserResponse>>;
+  public function DescribeBroker(DescribeBrokerRequest): Awaitable<Errors\Result<DescribeBrokerResponse>>;
+  public function DescribeBrokerEngineTypes(DescribeBrokerEngineTypesRequest): Awaitable<Errors\Result<DescribeBrokerEngineTypesResponse>>;
+  public function DescribeBrokerInstanceOptions(DescribeBrokerInstanceOptionsRequest): Awaitable<Errors\Result<DescribeBrokerInstanceOptionsResponse>>;
+  public function DescribeConfiguration(DescribeConfigurationRequest): Awaitable<Errors\Result<DescribeConfigurationResponse>>;
+  public function DescribeConfigurationRevision(DescribeConfigurationRevisionRequest): Awaitable<Errors\Result<DescribeConfigurationRevisionResponse>>;
+  public function DescribeUser(DescribeUserRequest): Awaitable<Errors\Result<DescribeUserResponse>>;
+  public function ListBrokers(ListBrokersRequest): Awaitable<Errors\Result<ListBrokersResponse>>;
+  public function ListConfigurationRevisions(ListConfigurationRevisionsRequest): Awaitable<Errors\Result<ListConfigurationRevisionsResponse>>;
+  public function ListConfigurations(ListConfigurationsRequest): Awaitable<Errors\Result<ListConfigurationsResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function ListUsers(ListUsersRequest): Awaitable<Errors\Result<ListUsersResponse>>;
+  public function RebootBroker(RebootBrokerRequest): Awaitable<Errors\Result<RebootBrokerResponse>>;
+  public function UpdateBroker(UpdateBrokerRequest): Awaitable<Errors\Result<UpdateBrokerResponse>>;
+  public function UpdateConfiguration(UpdateConfigurationRequest): Awaitable<Errors\Result<UpdateConfigurationResponse>>;
+  public function UpdateUser(UpdateUserRequest): Awaitable<Errors\Result<UpdateUserResponse>>;
 }
 
 class AvailabilityZone {

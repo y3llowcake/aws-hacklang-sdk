@@ -2,16 +2,16 @@
 namespace slack\aws\application-autoscaling;
 
 interface Application Auto Scaling {
-  public function DeleteScalingPolicy(DeleteScalingPolicyRequest) Awaitable<Errors\Result<DeleteScalingPolicyResponse>>;
-  public function DeleteScheduledAction(DeleteScheduledActionRequest) Awaitable<Errors\Result<DeleteScheduledActionResponse>>;
-  public function DeregisterScalableTarget(DeregisterScalableTargetRequest) Awaitable<Errors\Result<DeregisterScalableTargetResponse>>;
-  public function DescribeScalableTargets(DescribeScalableTargetsRequest) Awaitable<Errors\Result<DescribeScalableTargetsResponse>>;
-  public function DescribeScalingActivities(DescribeScalingActivitiesRequest) Awaitable<Errors\Result<DescribeScalingActivitiesResponse>>;
-  public function DescribeScalingPolicies(DescribeScalingPoliciesRequest) Awaitable<Errors\Result<DescribeScalingPoliciesResponse>>;
-  public function DescribeScheduledActions(DescribeScheduledActionsRequest) Awaitable<Errors\Result<DescribeScheduledActionsResponse>>;
-  public function PutScalingPolicy(PutScalingPolicyRequest) Awaitable<Errors\Result<PutScalingPolicyResponse>>;
-  public function PutScheduledAction(PutScheduledActionRequest) Awaitable<Errors\Result<PutScheduledActionResponse>>;
-  public function RegisterScalableTarget(RegisterScalableTargetRequest) Awaitable<Errors\Result<RegisterScalableTargetResponse>>;
+  public function DeleteScalingPolicy(DeleteScalingPolicyRequest): Awaitable<Errors\Result<DeleteScalingPolicyResponse>>;
+  public function DeleteScheduledAction(DeleteScheduledActionRequest): Awaitable<Errors\Result<DeleteScheduledActionResponse>>;
+  public function DeregisterScalableTarget(DeregisterScalableTargetRequest): Awaitable<Errors\Result<DeregisterScalableTargetResponse>>;
+  public function DescribeScalableTargets(DescribeScalableTargetsRequest): Awaitable<Errors\Result<DescribeScalableTargetsResponse>>;
+  public function DescribeScalingActivities(DescribeScalingActivitiesRequest): Awaitable<Errors\Result<DescribeScalingActivitiesResponse>>;
+  public function DescribeScalingPolicies(DescribeScalingPoliciesRequest): Awaitable<Errors\Result<DescribeScalingPoliciesResponse>>;
+  public function DescribeScheduledActions(DescribeScheduledActionsRequest): Awaitable<Errors\Result<DescribeScheduledActionsResponse>>;
+  public function PutScalingPolicy(PutScalingPolicyRequest): Awaitable<Errors\Result<PutScalingPolicyResponse>>;
+  public function PutScheduledAction(PutScheduledActionRequest): Awaitable<Errors\Result<PutScheduledActionResponse>>;
+  public function RegisterScalableTarget(RegisterScalableTargetRequest): Awaitable<Errors\Result<RegisterScalableTargetResponse>>;
 }
 
 class AdjustmentType {

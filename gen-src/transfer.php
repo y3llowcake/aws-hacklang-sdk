@@ -2,24 +2,24 @@
 namespace slack\aws\transfer;
 
 interface Transfer {
-  public function CreateServer(CreateServerRequest) Awaitable<Errors\Result<CreateServerResponse>>;
-  public function CreateUser(CreateUserRequest) Awaitable<Errors\Result<CreateUserResponse>>;
-  public function DeleteServer(DeleteServerRequest) Awaitable<Errors\Error>;
-  public function DeleteSshPublicKey(DeleteSshPublicKeyRequest) Awaitable<Errors\Error>;
-  public function DeleteUser(DeleteUserRequest) Awaitable<Errors\Error>;
-  public function DescribeServer(DescribeServerRequest) Awaitable<Errors\Result<DescribeServerResponse>>;
-  public function DescribeUser(DescribeUserRequest) Awaitable<Errors\Result<DescribeUserResponse>>;
-  public function ImportSshPublicKey(ImportSshPublicKeyRequest) Awaitable<Errors\Result<ImportSshPublicKeyResponse>>;
-  public function ListServers(ListServersRequest) Awaitable<Errors\Result<ListServersResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListUsers(ListUsersRequest) Awaitable<Errors\Result<ListUsersResponse>>;
-  public function StartServer(StartServerRequest) Awaitable<Errors\Error>;
-  public function StopServer(StopServerRequest) Awaitable<Errors\Error>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function TestIdentityProvider(TestIdentityProviderRequest) Awaitable<Errors\Result<TestIdentityProviderResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateServer(UpdateServerRequest) Awaitable<Errors\Result<UpdateServerResponse>>;
-  public function UpdateUser(UpdateUserRequest) Awaitable<Errors\Result<UpdateUserResponse>>;
+  public function CreateServer(CreateServerRequest): Awaitable<Errors\Result<CreateServerResponse>>;
+  public function CreateUser(CreateUserRequest): Awaitable<Errors\Result<CreateUserResponse>>;
+  public function DeleteServer(DeleteServerRequest): Awaitable<Errors\Error>;
+  public function DeleteSshPublicKey(DeleteSshPublicKeyRequest): Awaitable<Errors\Error>;
+  public function DeleteUser(DeleteUserRequest): Awaitable<Errors\Error>;
+  public function DescribeServer(DescribeServerRequest): Awaitable<Errors\Result<DescribeServerResponse>>;
+  public function DescribeUser(DescribeUserRequest): Awaitable<Errors\Result<DescribeUserResponse>>;
+  public function ImportSshPublicKey(ImportSshPublicKeyRequest): Awaitable<Errors\Result<ImportSshPublicKeyResponse>>;
+  public function ListServers(ListServersRequest): Awaitable<Errors\Result<ListServersResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUsers(ListUsersRequest): Awaitable<Errors\Result<ListUsersResponse>>;
+  public function StartServer(StartServerRequest): Awaitable<Errors\Error>;
+  public function StopServer(StopServerRequest): Awaitable<Errors\Error>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function TestIdentityProvider(TestIdentityProviderRequest): Awaitable<Errors\Result<TestIdentityProviderResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateServer(UpdateServerRequest): Awaitable<Errors\Result<UpdateServerResponse>>;
+  public function UpdateUser(UpdateUserRequest): Awaitable<Errors\Result<UpdateUserResponse>>;
 }
 
 class AccessDeniedException {

@@ -2,24 +2,24 @@
 namespace slack\aws\cloudtrail;
 
 interface CloudTrail {
-  public function AddTags(AddTagsRequest) Awaitable<Errors\Result<AddTagsResponse>>;
-  public function CreateTrail(CreateTrailRequest) Awaitable<Errors\Result<CreateTrailResponse>>;
-  public function DeleteTrail(DeleteTrailRequest) Awaitable<Errors\Result<DeleteTrailResponse>>;
-  public function DescribeTrails(DescribeTrailsRequest) Awaitable<Errors\Result<DescribeTrailsResponse>>;
-  public function GetEventSelectors(GetEventSelectorsRequest) Awaitable<Errors\Result<GetEventSelectorsResponse>>;
-  public function GetInsightSelectors(GetInsightSelectorsRequest) Awaitable<Errors\Result<GetInsightSelectorsResponse>>;
-  public function GetTrail(GetTrailRequest) Awaitable<Errors\Result<GetTrailResponse>>;
-  public function GetTrailStatus(GetTrailStatusRequest) Awaitable<Errors\Result<GetTrailStatusResponse>>;
-  public function ListPublicKeys(ListPublicKeysRequest) Awaitable<Errors\Result<ListPublicKeysResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function ListTrails(ListTrailsRequest) Awaitable<Errors\Result<ListTrailsResponse>>;
-  public function LookupEvents(LookupEventsRequest) Awaitable<Errors\Result<LookupEventsResponse>>;
-  public function PutEventSelectors(PutEventSelectorsRequest) Awaitable<Errors\Result<PutEventSelectorsResponse>>;
-  public function PutInsightSelectors(PutInsightSelectorsRequest) Awaitable<Errors\Result<PutInsightSelectorsResponse>>;
-  public function RemoveTags(RemoveTagsRequest) Awaitable<Errors\Result<RemoveTagsResponse>>;
-  public function StartLogging(StartLoggingRequest) Awaitable<Errors\Result<StartLoggingResponse>>;
-  public function StopLogging(StopLoggingRequest) Awaitable<Errors\Result<StopLoggingResponse>>;
-  public function UpdateTrail(UpdateTrailRequest) Awaitable<Errors\Result<UpdateTrailResponse>>;
+  public function AddTags(AddTagsRequest): Awaitable<Errors\Result<AddTagsResponse>>;
+  public function CreateTrail(CreateTrailRequest): Awaitable<Errors\Result<CreateTrailResponse>>;
+  public function DeleteTrail(DeleteTrailRequest): Awaitable<Errors\Result<DeleteTrailResponse>>;
+  public function DescribeTrails(DescribeTrailsRequest): Awaitable<Errors\Result<DescribeTrailsResponse>>;
+  public function GetEventSelectors(GetEventSelectorsRequest): Awaitable<Errors\Result<GetEventSelectorsResponse>>;
+  public function GetInsightSelectors(GetInsightSelectorsRequest): Awaitable<Errors\Result<GetInsightSelectorsResponse>>;
+  public function GetTrail(GetTrailRequest): Awaitable<Errors\Result<GetTrailResponse>>;
+  public function GetTrailStatus(GetTrailStatusRequest): Awaitable<Errors\Result<GetTrailStatusResponse>>;
+  public function ListPublicKeys(ListPublicKeysRequest): Awaitable<Errors\Result<ListPublicKeysResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function ListTrails(ListTrailsRequest): Awaitable<Errors\Result<ListTrailsResponse>>;
+  public function LookupEvents(LookupEventsRequest): Awaitable<Errors\Result<LookupEventsResponse>>;
+  public function PutEventSelectors(PutEventSelectorsRequest): Awaitable<Errors\Result<PutEventSelectorsResponse>>;
+  public function PutInsightSelectors(PutInsightSelectorsRequest): Awaitable<Errors\Result<PutInsightSelectorsResponse>>;
+  public function RemoveTags(RemoveTagsRequest): Awaitable<Errors\Result<RemoveTagsResponse>>;
+  public function StartLogging(StartLoggingRequest): Awaitable<Errors\Result<StartLoggingResponse>>;
+  public function StopLogging(StopLoggingRequest): Awaitable<Errors\Result<StopLoggingResponse>>;
+  public function UpdateTrail(UpdateTrailRequest): Awaitable<Errors\Result<UpdateTrailResponse>>;
 }
 
 class AddTagsRequest {

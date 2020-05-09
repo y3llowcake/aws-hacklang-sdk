@@ -2,14 +2,14 @@
 namespace slack\aws\dlm;
 
 interface DLM {
-  public function CreateLifecyclePolicy(CreateLifecyclePolicyRequest) Awaitable<Errors\Result<CreateLifecyclePolicyResponse>>;
-  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyRequest) Awaitable<Errors\Result<DeleteLifecyclePolicyResponse>>;
-  public function GetLifecyclePolicies(GetLifecyclePoliciesRequest) Awaitable<Errors\Result<GetLifecyclePoliciesResponse>>;
-  public function GetLifecyclePolicy(GetLifecyclePolicyRequest) Awaitable<Errors\Result<GetLifecyclePolicyResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateLifecyclePolicy(UpdateLifecyclePolicyRequest) Awaitable<Errors\Result<UpdateLifecyclePolicyResponse>>;
+  public function CreateLifecyclePolicy(CreateLifecyclePolicyRequest): Awaitable<Errors\Result<CreateLifecyclePolicyResponse>>;
+  public function DeleteLifecyclePolicy(DeleteLifecyclePolicyRequest): Awaitable<Errors\Result<DeleteLifecyclePolicyResponse>>;
+  public function GetLifecyclePolicies(GetLifecyclePoliciesRequest): Awaitable<Errors\Result<GetLifecyclePoliciesResponse>>;
+  public function GetLifecyclePolicy(GetLifecyclePolicyRequest): Awaitable<Errors\Result<GetLifecyclePolicyResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function UpdateLifecyclePolicy(UpdateLifecyclePolicyRequest): Awaitable<Errors\Result<UpdateLifecyclePolicyResponse>>;
 }
 
 class AvailabilityZone {

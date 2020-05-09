@@ -2,18 +2,18 @@
 namespace slack\aws\api.detective;
 
 interface Detective {
-  public function AcceptInvitation(AcceptInvitationRequest) Awaitable<Errors\Error>;
-  public function CreateGraph() Awaitable<Errors\Result<CreateGraphResponse>>;
-  public function CreateMembers(CreateMembersRequest) Awaitable<Errors\Result<CreateMembersResponse>>;
-  public function DeleteGraph(DeleteGraphRequest) Awaitable<Errors\Error>;
-  public function DeleteMembers(DeleteMembersRequest) Awaitable<Errors\Result<DeleteMembersResponse>>;
-  public function DisassociateMembership(DisassociateMembershipRequest) Awaitable<Errors\Error>;
-  public function GetMembers(GetMembersRequest) Awaitable<Errors\Result<GetMembersResponse>>;
-  public function ListGraphs(ListGraphsRequest) Awaitable<Errors\Result<ListGraphsResponse>>;
-  public function ListInvitations(ListInvitationsRequest) Awaitable<Errors\Result<ListInvitationsResponse>>;
-  public function ListMembers(ListMembersRequest) Awaitable<Errors\Result<ListMembersResponse>>;
-  public function RejectInvitation(RejectInvitationRequest) Awaitable<Errors\Error>;
-  public function StartMonitoringMember(StartMonitoringMemberRequest) Awaitable<Errors\Error>;
+  public function AcceptInvitation(AcceptInvitationRequest): Awaitable<Errors\Error>;
+  public function CreateGraph(): Awaitable<Errors\Result<CreateGraphResponse>>;
+  public function CreateMembers(CreateMembersRequest): Awaitable<Errors\Result<CreateMembersResponse>>;
+  public function DeleteGraph(DeleteGraphRequest): Awaitable<Errors\Error>;
+  public function DeleteMembers(DeleteMembersRequest): Awaitable<Errors\Result<DeleteMembersResponse>>;
+  public function DisassociateMembership(DisassociateMembershipRequest): Awaitable<Errors\Error>;
+  public function GetMembers(GetMembersRequest): Awaitable<Errors\Result<GetMembersResponse>>;
+  public function ListGraphs(ListGraphsRequest): Awaitable<Errors\Result<ListGraphsResponse>>;
+  public function ListInvitations(ListInvitationsRequest): Awaitable<Errors\Result<ListInvitationsResponse>>;
+  public function ListMembers(ListMembersRequest): Awaitable<Errors\Result<ListMembersResponse>>;
+  public function RejectInvitation(RejectInvitationRequest): Awaitable<Errors\Error>;
+  public function StartMonitoringMember(StartMonitoringMemberRequest): Awaitable<Errors\Error>;
 }
 
 class AcceptInvitationRequest {

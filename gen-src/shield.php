@@ -2,26 +2,26 @@
 namespace slack\aws\shield;
 
 interface Shield {
-  public function AssociateDRTLogBucket(AssociateDRTLogBucketRequest) Awaitable<Errors\Result<AssociateDRTLogBucketResponse>>;
-  public function AssociateDRTRole(AssociateDRTRoleRequest) Awaitable<Errors\Result<AssociateDRTRoleResponse>>;
-  public function AssociateHealthCheck(AssociateHealthCheckRequest) Awaitable<Errors\Result<AssociateHealthCheckResponse>>;
-  public function CreateProtection(CreateProtectionRequest) Awaitable<Errors\Result<CreateProtectionResponse>>;
-  public function CreateSubscription(CreateSubscriptionRequest) Awaitable<Errors\Result<CreateSubscriptionResponse>>;
-  public function DeleteProtection(DeleteProtectionRequest) Awaitable<Errors\Result<DeleteProtectionResponse>>;
-  public function DeleteSubscription(DeleteSubscriptionRequest) Awaitable<Errors\Result<DeleteSubscriptionResponse>>;
-  public function DescribeAttack(DescribeAttackRequest) Awaitable<Errors\Result<DescribeAttackResponse>>;
-  public function DescribeDRTAccess(DescribeDRTAccessRequest) Awaitable<Errors\Result<DescribeDRTAccessResponse>>;
-  public function DescribeEmergencyContactSettings(DescribeEmergencyContactSettingsRequest) Awaitable<Errors\Result<DescribeEmergencyContactSettingsResponse>>;
-  public function DescribeProtection(DescribeProtectionRequest) Awaitable<Errors\Result<DescribeProtectionResponse>>;
-  public function DescribeSubscription(DescribeSubscriptionRequest) Awaitable<Errors\Result<DescribeSubscriptionResponse>>;
-  public function DisassociateDRTLogBucket(DisassociateDRTLogBucketRequest) Awaitable<Errors\Result<DisassociateDRTLogBucketResponse>>;
-  public function DisassociateDRTRole(DisassociateDRTRoleRequest) Awaitable<Errors\Result<DisassociateDRTRoleResponse>>;
-  public function DisassociateHealthCheck(DisassociateHealthCheckRequest) Awaitable<Errors\Result<DisassociateHealthCheckResponse>>;
-  public function GetSubscriptionState(GetSubscriptionStateRequest) Awaitable<Errors\Result<GetSubscriptionStateResponse>>;
-  public function ListAttacks(ListAttacksRequest) Awaitable<Errors\Result<ListAttacksResponse>>;
-  public function ListProtections(ListProtectionsRequest) Awaitable<Errors\Result<ListProtectionsResponse>>;
-  public function UpdateEmergencyContactSettings(UpdateEmergencyContactSettingsRequest) Awaitable<Errors\Result<UpdateEmergencyContactSettingsResponse>>;
-  public function UpdateSubscription(UpdateSubscriptionRequest) Awaitable<Errors\Result<UpdateSubscriptionResponse>>;
+  public function AssociateDRTLogBucket(AssociateDRTLogBucketRequest): Awaitable<Errors\Result<AssociateDRTLogBucketResponse>>;
+  public function AssociateDRTRole(AssociateDRTRoleRequest): Awaitable<Errors\Result<AssociateDRTRoleResponse>>;
+  public function AssociateHealthCheck(AssociateHealthCheckRequest): Awaitable<Errors\Result<AssociateHealthCheckResponse>>;
+  public function CreateProtection(CreateProtectionRequest): Awaitable<Errors\Result<CreateProtectionResponse>>;
+  public function CreateSubscription(CreateSubscriptionRequest): Awaitable<Errors\Result<CreateSubscriptionResponse>>;
+  public function DeleteProtection(DeleteProtectionRequest): Awaitable<Errors\Result<DeleteProtectionResponse>>;
+  public function DeleteSubscription(DeleteSubscriptionRequest): Awaitable<Errors\Result<DeleteSubscriptionResponse>>;
+  public function DescribeAttack(DescribeAttackRequest): Awaitable<Errors\Result<DescribeAttackResponse>>;
+  public function DescribeDRTAccess(DescribeDRTAccessRequest): Awaitable<Errors\Result<DescribeDRTAccessResponse>>;
+  public function DescribeEmergencyContactSettings(DescribeEmergencyContactSettingsRequest): Awaitable<Errors\Result<DescribeEmergencyContactSettingsResponse>>;
+  public function DescribeProtection(DescribeProtectionRequest): Awaitable<Errors\Result<DescribeProtectionResponse>>;
+  public function DescribeSubscription(DescribeSubscriptionRequest): Awaitable<Errors\Result<DescribeSubscriptionResponse>>;
+  public function DisassociateDRTLogBucket(DisassociateDRTLogBucketRequest): Awaitable<Errors\Result<DisassociateDRTLogBucketResponse>>;
+  public function DisassociateDRTRole(DisassociateDRTRoleRequest): Awaitable<Errors\Result<DisassociateDRTRoleResponse>>;
+  public function DisassociateHealthCheck(DisassociateHealthCheckRequest): Awaitable<Errors\Result<DisassociateHealthCheckResponse>>;
+  public function GetSubscriptionState(GetSubscriptionStateRequest): Awaitable<Errors\Result<GetSubscriptionStateResponse>>;
+  public function ListAttacks(ListAttacksRequest): Awaitable<Errors\Result<ListAttacksResponse>>;
+  public function ListProtections(ListProtectionsRequest): Awaitable<Errors\Result<ListProtectionsResponse>>;
+  public function UpdateEmergencyContactSettings(UpdateEmergencyContactSettingsRequest): Awaitable<Errors\Result<UpdateEmergencyContactSettingsResponse>>;
+  public function UpdateSubscription(UpdateSubscriptionRequest): Awaitable<Errors\Result<UpdateSubscriptionResponse>>;
 }
 
 class AccessDeniedException {

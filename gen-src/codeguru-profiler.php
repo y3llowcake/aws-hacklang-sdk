@@ -2,18 +2,18 @@
 namespace slack\aws\codeguru-profiler;
 
 interface CodeGuruProfiler {
-  public function ConfigureAgent(ConfigureAgentRequest) Awaitable<Errors\Result<ConfigureAgentResponse>>;
-  public function CreateProfilingGroup(CreateProfilingGroupRequest) Awaitable<Errors\Result<CreateProfilingGroupResponse>>;
-  public function DeleteProfilingGroup(DeleteProfilingGroupRequest) Awaitable<Errors\Result<DeleteProfilingGroupResponse>>;
-  public function DescribeProfilingGroup(DescribeProfilingGroupRequest) Awaitable<Errors\Result<DescribeProfilingGroupResponse>>;
-  public function GetPolicy(GetPolicyRequest) Awaitable<Errors\Result<GetPolicyResponse>>;
-  public function GetProfile(GetProfileRequest) Awaitable<Errors\Result<GetProfileResponse>>;
-  public function ListProfileTimes(ListProfileTimesRequest) Awaitable<Errors\Result<ListProfileTimesResponse>>;
-  public function ListProfilingGroups(ListProfilingGroupsRequest) Awaitable<Errors\Result<ListProfilingGroupsResponse>>;
-  public function PostAgentProfile(PostAgentProfileRequest) Awaitable<Errors\Result<PostAgentProfileResponse>>;
-  public function PutPermission(PutPermissionRequest) Awaitable<Errors\Result<PutPermissionResponse>>;
-  public function RemovePermission(RemovePermissionRequest) Awaitable<Errors\Result<RemovePermissionResponse>>;
-  public function UpdateProfilingGroup(UpdateProfilingGroupRequest) Awaitable<Errors\Result<UpdateProfilingGroupResponse>>;
+  public function ConfigureAgent(ConfigureAgentRequest): Awaitable<Errors\Result<ConfigureAgentResponse>>;
+  public function CreateProfilingGroup(CreateProfilingGroupRequest): Awaitable<Errors\Result<CreateProfilingGroupResponse>>;
+  public function DeleteProfilingGroup(DeleteProfilingGroupRequest): Awaitable<Errors\Result<DeleteProfilingGroupResponse>>;
+  public function DescribeProfilingGroup(DescribeProfilingGroupRequest): Awaitable<Errors\Result<DescribeProfilingGroupResponse>>;
+  public function GetPolicy(GetPolicyRequest): Awaitable<Errors\Result<GetPolicyResponse>>;
+  public function GetProfile(GetProfileRequest): Awaitable<Errors\Result<GetProfileResponse>>;
+  public function ListProfileTimes(ListProfileTimesRequest): Awaitable<Errors\Result<ListProfileTimesResponse>>;
+  public function ListProfilingGroups(ListProfilingGroupsRequest): Awaitable<Errors\Result<ListProfilingGroupsResponse>>;
+  public function PostAgentProfile(PostAgentProfileRequest): Awaitable<Errors\Result<PostAgentProfileResponse>>;
+  public function PutPermission(PutPermissionRequest): Awaitable<Errors\Result<PutPermissionResponse>>;
+  public function RemovePermission(RemovePermissionRequest): Awaitable<Errors\Result<RemovePermissionResponse>>;
+  public function UpdateProfilingGroup(UpdateProfilingGroupRequest): Awaitable<Errors\Result<UpdateProfilingGroupResponse>>;
 }
 
 class ActionGroup {

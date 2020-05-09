@@ -2,19 +2,19 @@
 namespace slack\aws\cloudhsmv2;
 
 interface CloudHSM V2 {
-  public function CopyBackupToRegion(CopyBackupToRegionRequest) Awaitable<Errors\Result<CopyBackupToRegionResponse>>;
-  public function CreateCluster(CreateClusterRequest) Awaitable<Errors\Result<CreateClusterResponse>>;
-  public function CreateHsm(CreateHsmRequest) Awaitable<Errors\Result<CreateHsmResponse>>;
-  public function DeleteBackup(DeleteBackupRequest) Awaitable<Errors\Result<DeleteBackupResponse>>;
-  public function DeleteCluster(DeleteClusterRequest) Awaitable<Errors\Result<DeleteClusterResponse>>;
-  public function DeleteHsm(DeleteHsmRequest) Awaitable<Errors\Result<DeleteHsmResponse>>;
-  public function DescribeBackups(DescribeBackupsRequest) Awaitable<Errors\Result<DescribeBackupsResponse>>;
-  public function DescribeClusters(DescribeClustersRequest) Awaitable<Errors\Result<DescribeClustersResponse>>;
-  public function InitializeCluster(InitializeClusterRequest) Awaitable<Errors\Result<InitializeClusterResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function RestoreBackup(RestoreBackupRequest) Awaitable<Errors\Result<RestoreBackupResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Result<UntagResourceResponse>>;
+  public function CopyBackupToRegion(CopyBackupToRegionRequest): Awaitable<Errors\Result<CopyBackupToRegionResponse>>;
+  public function CreateCluster(CreateClusterRequest): Awaitable<Errors\Result<CreateClusterResponse>>;
+  public function CreateHsm(CreateHsmRequest): Awaitable<Errors\Result<CreateHsmResponse>>;
+  public function DeleteBackup(DeleteBackupRequest): Awaitable<Errors\Result<DeleteBackupResponse>>;
+  public function DeleteCluster(DeleteClusterRequest): Awaitable<Errors\Result<DeleteClusterResponse>>;
+  public function DeleteHsm(DeleteHsmRequest): Awaitable<Errors\Result<DeleteHsmResponse>>;
+  public function DescribeBackups(DescribeBackupsRequest): Awaitable<Errors\Result<DescribeBackupsResponse>>;
+  public function DescribeClusters(DescribeClustersRequest): Awaitable<Errors\Result<DescribeClustersResponse>>;
+  public function InitializeCluster(InitializeClusterRequest): Awaitable<Errors\Result<InitializeClusterResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function RestoreBackup(RestoreBackupRequest): Awaitable<Errors\Result<RestoreBackupResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
 class Backup {

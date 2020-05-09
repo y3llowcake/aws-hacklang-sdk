@@ -2,26 +2,26 @@
 namespace slack\aws\acm-pca;
 
 interface ACM PCA {
-  public function CreateCertificateAuthority(CreateCertificateAuthorityRequest) Awaitable<Errors\Result<CreateCertificateAuthorityResponse>>;
-  public function CreateCertificateAuthorityAuditReport(CreateCertificateAuthorityAuditReportRequest) Awaitable<Errors\Result<CreateCertificateAuthorityAuditReportResponse>>;
-  public function CreatePermission(CreatePermissionRequest) Awaitable<Errors\Error>;
-  public function DeleteCertificateAuthority(DeleteCertificateAuthorityRequest) Awaitable<Errors\Error>;
-  public function DeletePermission(DeletePermissionRequest) Awaitable<Errors\Error>;
-  public function DescribeCertificateAuthority(DescribeCertificateAuthorityRequest) Awaitable<Errors\Result<DescribeCertificateAuthorityResponse>>;
-  public function DescribeCertificateAuthorityAuditReport(DescribeCertificateAuthorityAuditReportRequest) Awaitable<Errors\Result<DescribeCertificateAuthorityAuditReportResponse>>;
-  public function GetCertificate(GetCertificateRequest) Awaitable<Errors\Result<GetCertificateResponse>>;
-  public function GetCertificateAuthorityCertificate(GetCertificateAuthorityCertificateRequest) Awaitable<Errors\Result<GetCertificateAuthorityCertificateResponse>>;
-  public function GetCertificateAuthorityCsr(GetCertificateAuthorityCsrRequest) Awaitable<Errors\Result<GetCertificateAuthorityCsrResponse>>;
-  public function ImportCertificateAuthorityCertificate(ImportCertificateAuthorityCertificateRequest) Awaitable<Errors\Error>;
-  public function IssueCertificate(IssueCertificateRequest) Awaitable<Errors\Result<IssueCertificateResponse>>;
-  public function ListCertificateAuthorities(ListCertificateAuthoritiesRequest) Awaitable<Errors\Result<ListCertificateAuthoritiesResponse>>;
-  public function ListPermissions(ListPermissionsRequest) Awaitable<Errors\Result<ListPermissionsResponse>>;
-  public function ListTags(ListTagsRequest) Awaitable<Errors\Result<ListTagsResponse>>;
-  public function RestoreCertificateAuthority(RestoreCertificateAuthorityRequest) Awaitable<Errors\Error>;
-  public function RevokeCertificate(RevokeCertificateRequest) Awaitable<Errors\Error>;
-  public function TagCertificateAuthority(TagCertificateAuthorityRequest) Awaitable<Errors\Error>;
-  public function UntagCertificateAuthority(UntagCertificateAuthorityRequest) Awaitable<Errors\Error>;
-  public function UpdateCertificateAuthority(UpdateCertificateAuthorityRequest) Awaitable<Errors\Error>;
+  public function CreateCertificateAuthority(CreateCertificateAuthorityRequest): Awaitable<Errors\Result<CreateCertificateAuthorityResponse>>;
+  public function CreateCertificateAuthorityAuditReport(CreateCertificateAuthorityAuditReportRequest): Awaitable<Errors\Result<CreateCertificateAuthorityAuditReportResponse>>;
+  public function CreatePermission(CreatePermissionRequest): Awaitable<Errors\Error>;
+  public function DeleteCertificateAuthority(DeleteCertificateAuthorityRequest): Awaitable<Errors\Error>;
+  public function DeletePermission(DeletePermissionRequest): Awaitable<Errors\Error>;
+  public function DescribeCertificateAuthority(DescribeCertificateAuthorityRequest): Awaitable<Errors\Result<DescribeCertificateAuthorityResponse>>;
+  public function DescribeCertificateAuthorityAuditReport(DescribeCertificateAuthorityAuditReportRequest): Awaitable<Errors\Result<DescribeCertificateAuthorityAuditReportResponse>>;
+  public function GetCertificate(GetCertificateRequest): Awaitable<Errors\Result<GetCertificateResponse>>;
+  public function GetCertificateAuthorityCertificate(GetCertificateAuthorityCertificateRequest): Awaitable<Errors\Result<GetCertificateAuthorityCertificateResponse>>;
+  public function GetCertificateAuthorityCsr(GetCertificateAuthorityCsrRequest): Awaitable<Errors\Result<GetCertificateAuthorityCsrResponse>>;
+  public function ImportCertificateAuthorityCertificate(ImportCertificateAuthorityCertificateRequest): Awaitable<Errors\Error>;
+  public function IssueCertificate(IssueCertificateRequest): Awaitable<Errors\Result<IssueCertificateResponse>>;
+  public function ListCertificateAuthorities(ListCertificateAuthoritiesRequest): Awaitable<Errors\Result<ListCertificateAuthoritiesResponse>>;
+  public function ListPermissions(ListPermissionsRequest): Awaitable<Errors\Result<ListPermissionsResponse>>;
+  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
+  public function RestoreCertificateAuthority(RestoreCertificateAuthorityRequest): Awaitable<Errors\Error>;
+  public function RevokeCertificate(RevokeCertificateRequest): Awaitable<Errors\Error>;
+  public function TagCertificateAuthority(TagCertificateAuthorityRequest): Awaitable<Errors\Error>;
+  public function UntagCertificateAuthority(UntagCertificateAuthorityRequest): Awaitable<Errors\Error>;
+  public function UpdateCertificateAuthority(UpdateCertificateAuthorityRequest): Awaitable<Errors\Error>;
 }
 
 class ASN1Subject {

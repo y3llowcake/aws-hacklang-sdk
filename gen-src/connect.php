@@ -2,35 +2,35 @@
 namespace slack\aws\connect;
 
 interface Connect {
-  public function CreateUser(CreateUserRequest) Awaitable<Errors\Result<CreateUserResponse>>;
-  public function DeleteUser(DeleteUserRequest) Awaitable<Errors\Error>;
-  public function DescribeUser(DescribeUserRequest) Awaitable<Errors\Result<DescribeUserResponse>>;
-  public function DescribeUserHierarchyGroup(DescribeUserHierarchyGroupRequest) Awaitable<Errors\Result<DescribeUserHierarchyGroupResponse>>;
-  public function DescribeUserHierarchyStructure(DescribeUserHierarchyStructureRequest) Awaitable<Errors\Result<DescribeUserHierarchyStructureResponse>>;
-  public function GetContactAttributes(GetContactAttributesRequest) Awaitable<Errors\Result<GetContactAttributesResponse>>;
-  public function GetCurrentMetricData(GetCurrentMetricDataRequest) Awaitable<Errors\Result<GetCurrentMetricDataResponse>>;
-  public function GetFederationToken(GetFederationTokenRequest) Awaitable<Errors\Result<GetFederationTokenResponse>>;
-  public function GetMetricData(GetMetricDataRequest) Awaitable<Errors\Result<GetMetricDataResponse>>;
-  public function ListContactFlows(ListContactFlowsRequest) Awaitable<Errors\Result<ListContactFlowsResponse>>;
-  public function ListHoursOfOperations(ListHoursOfOperationsRequest) Awaitable<Errors\Result<ListHoursOfOperationsResponse>>;
-  public function ListPhoneNumbers(ListPhoneNumbersRequest) Awaitable<Errors\Result<ListPhoneNumbersResponse>>;
-  public function ListQueues(ListQueuesRequest) Awaitable<Errors\Result<ListQueuesResponse>>;
-  public function ListRoutingProfiles(ListRoutingProfilesRequest) Awaitable<Errors\Result<ListRoutingProfilesResponse>>;
-  public function ListSecurityProfiles(ListSecurityProfilesRequest) Awaitable<Errors\Result<ListSecurityProfilesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest) Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListUserHierarchyGroups(ListUserHierarchyGroupsRequest) Awaitable<Errors\Result<ListUserHierarchyGroupsResponse>>;
-  public function ListUsers(ListUsersRequest) Awaitable<Errors\Result<ListUsersResponse>>;
-  public function StartChatContact(StartChatContactRequest) Awaitable<Errors\Result<StartChatContactResponse>>;
-  public function StartOutboundVoiceContact(StartOutboundVoiceContactRequest) Awaitable<Errors\Result<StartOutboundVoiceContactResponse>>;
-  public function StopContact(StopContactRequest) Awaitable<Errors\Result<StopContactResponse>>;
-  public function TagResource(TagResourceRequest) Awaitable<Errors\Error>;
-  public function UntagResource(UntagResourceRequest) Awaitable<Errors\Error>;
-  public function UpdateContactAttributes(UpdateContactAttributesRequest) Awaitable<Errors\Result<UpdateContactAttributesResponse>>;
-  public function UpdateUserHierarchy(UpdateUserHierarchyRequest) Awaitable<Errors\Error>;
-  public function UpdateUserIdentityInfo(UpdateUserIdentityInfoRequest) Awaitable<Errors\Error>;
-  public function UpdateUserPhoneConfig(UpdateUserPhoneConfigRequest) Awaitable<Errors\Error>;
-  public function UpdateUserRoutingProfile(UpdateUserRoutingProfileRequest) Awaitable<Errors\Error>;
-  public function UpdateUserSecurityProfiles(UpdateUserSecurityProfilesRequest) Awaitable<Errors\Error>;
+  public function CreateUser(CreateUserRequest): Awaitable<Errors\Result<CreateUserResponse>>;
+  public function DeleteUser(DeleteUserRequest): Awaitable<Errors\Error>;
+  public function DescribeUser(DescribeUserRequest): Awaitable<Errors\Result<DescribeUserResponse>>;
+  public function DescribeUserHierarchyGroup(DescribeUserHierarchyGroupRequest): Awaitable<Errors\Result<DescribeUserHierarchyGroupResponse>>;
+  public function DescribeUserHierarchyStructure(DescribeUserHierarchyStructureRequest): Awaitable<Errors\Result<DescribeUserHierarchyStructureResponse>>;
+  public function GetContactAttributes(GetContactAttributesRequest): Awaitable<Errors\Result<GetContactAttributesResponse>>;
+  public function GetCurrentMetricData(GetCurrentMetricDataRequest): Awaitable<Errors\Result<GetCurrentMetricDataResponse>>;
+  public function GetFederationToken(GetFederationTokenRequest): Awaitable<Errors\Result<GetFederationTokenResponse>>;
+  public function GetMetricData(GetMetricDataRequest): Awaitable<Errors\Result<GetMetricDataResponse>>;
+  public function ListContactFlows(ListContactFlowsRequest): Awaitable<Errors\Result<ListContactFlowsResponse>>;
+  public function ListHoursOfOperations(ListHoursOfOperationsRequest): Awaitable<Errors\Result<ListHoursOfOperationsResponse>>;
+  public function ListPhoneNumbers(ListPhoneNumbersRequest): Awaitable<Errors\Result<ListPhoneNumbersResponse>>;
+  public function ListQueues(ListQueuesRequest): Awaitable<Errors\Result<ListQueuesResponse>>;
+  public function ListRoutingProfiles(ListRoutingProfilesRequest): Awaitable<Errors\Result<ListRoutingProfilesResponse>>;
+  public function ListSecurityProfiles(ListSecurityProfilesRequest): Awaitable<Errors\Result<ListSecurityProfilesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUserHierarchyGroups(ListUserHierarchyGroupsRequest): Awaitable<Errors\Result<ListUserHierarchyGroupsResponse>>;
+  public function ListUsers(ListUsersRequest): Awaitable<Errors\Result<ListUsersResponse>>;
+  public function StartChatContact(StartChatContactRequest): Awaitable<Errors\Result<StartChatContactResponse>>;
+  public function StartOutboundVoiceContact(StartOutboundVoiceContactRequest): Awaitable<Errors\Result<StartOutboundVoiceContactResponse>>;
+  public function StopContact(StopContactRequest): Awaitable<Errors\Result<StopContactResponse>>;
+  public function TagResource(TagResourceRequest): Awaitable<Errors\Error>;
+  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Error>;
+  public function UpdateContactAttributes(UpdateContactAttributesRequest): Awaitable<Errors\Result<UpdateContactAttributesResponse>>;
+  public function UpdateUserHierarchy(UpdateUserHierarchyRequest): Awaitable<Errors\Error>;
+  public function UpdateUserIdentityInfo(UpdateUserIdentityInfoRequest): Awaitable<Errors\Error>;
+  public function UpdateUserPhoneConfig(UpdateUserPhoneConfigRequest): Awaitable<Errors\Error>;
+  public function UpdateUserRoutingProfile(UpdateUserRoutingProfileRequest): Awaitable<Errors\Error>;
+  public function UpdateUserSecurityProfiles(UpdateUserSecurityProfilesRequest): Awaitable<Errors\Error>;
 }
 
 class ARN {
