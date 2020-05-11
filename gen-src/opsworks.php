@@ -86,8 +86,8 @@ class AgentVersion {
   ?'configuration_manager' => StackConfigurationManager,
   ?'version' => string,
   ) $s = shape()) {
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->version = $version ?? ;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->version = $version ?? "";
   }
 }
 
@@ -125,20 +125,20 @@ class App {
   ?'stack_id' => string,
   ?'type' => AppType,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->app_source = $app_source ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->created_at = $created_at ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->app_source = $app_source ?? null;
+    $this->attributes = $attributes ?? [];
+    $this->created_at = $created_at ?? "";
     $this->data_sources = $data_sources ?? [];
-    $this->description = $description ?? ;
-    $this->domains = $domains ?? ;
-    $this->enable_ssl = $enable_ssl ?? ;
-    $this->environment = $environment ?? ;
-    $this->name = $name ?? ;
-    $this->shortname = $shortname ?? ;
+    $this->description = $description ?? "";
+    $this->domains = $domains ?? [];
+    $this->enable_ssl = $enable_ssl ?? false;
+    $this->environment = $environment ?? [];
+    $this->name = $name ?? "";
+    $this->shortname = $shortname ?? "";
     $this->ssl_configuration = $ssl_configuration ?? null;
-    $this->stack_id = $stack_id ?? ;
-    $this->type = $type ?? ;
+    $this->stack_id = $stack_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -160,8 +160,8 @@ class AssignInstanceRequest {
   ?'instance_id' => string,
   ?'layer_ids' => Strings,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->layer_ids = $layer_ids ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->layer_ids = $layer_ids ?? [];
   }
 }
 
@@ -173,8 +173,8 @@ class AssignVolumeRequest {
   ?'instance_id' => string,
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->volume_id = $volume_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -186,8 +186,8 @@ class AssociateElasticIpRequest {
   ?'elastic_ip' => string,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
-    $this->instance_id = $instance_id ?? ;
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -199,8 +199,8 @@ class AttachElasticLoadBalancerRequest {
   ?'elastic_load_balancer_name' => string,
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? ;
-    $this->layer_id = $layer_id ?? ;
+    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? "";
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -222,13 +222,13 @@ class AutoScalingThresholds {
   ?'memory_threshold' => Double,
   ?'thresholds_wait_time' => Minute,
   ) $s = shape()) {
-    $this->alarms = $alarms ?? ;
-    $this->cpu_threshold = $cpu_threshold ?? ;
-    $this->ignore_metrics_time = $ignore_metrics_time ?? ;
-    $this->instance_count = $instance_count ?? ;
-    $this->load_threshold = $load_threshold ?? ;
-    $this->memory_threshold = $memory_threshold ?? ;
-    $this->thresholds_wait_time = $thresholds_wait_time ?? ;
+    $this->alarms = $alarms ?? [];
+    $this->cpu_threshold = $cpu_threshold ?? 0.0;
+    $this->ignore_metrics_time = $ignore_metrics_time ?? 0;
+    $this->instance_count = $instance_count ?? 0;
+    $this->load_threshold = $load_threshold ?? 0.0;
+    $this->memory_threshold = $memory_threshold ?? 0.0;
+    $this->thresholds_wait_time = $thresholds_wait_time ?? 0;
   }
 }
 
@@ -246,10 +246,10 @@ class BlockDeviceMapping {
   ?'no_device' => string,
   ?'virtual_name' => string,
   ) $s = shape()) {
-    $this->device_name = $device_name ?? ;
-    $this->ebs = $ebs ?? ;
-    $this->no_device = $no_device ?? ;
-    $this->virtual_name = $virtual_name ?? ;
+    $this->device_name = $device_name ?? "";
+    $this->ebs = $ebs ?? null;
+    $this->no_device = $no_device ?? "";
+    $this->virtual_name = $virtual_name ?? "";
   }
 }
 
@@ -265,8 +265,8 @@ class ChefConfiguration {
   ?'berkshelf_version' => string,
   ?'manage_berkshelf' => boolean,
   ) $s = shape()) {
-    $this->berkshelf_version = $berkshelf_version ?? ;
-    $this->manage_berkshelf = $manage_berkshelf ?? ;
+    $this->berkshelf_version = $berkshelf_version ?? "";
+    $this->manage_berkshelf = $manage_berkshelf ?? false;
   }
 }
 
@@ -318,28 +318,28 @@ class CloneStackRequest {
   ?'use_opsworks_security_groups' => boolean,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->attributes = $attributes ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->attributes = $attributes ?? [];
     $this->chef_configuration = $chef_configuration ?? null;
-    $this->clone_app_ids = $clone_app_ids ?? ;
-    $this->clone_permissions = $clone_permissions ?? ;
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->custom_cookbooks_source = $custom_cookbooks_source ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->default_availability_zone = $default_availability_zone ?? ;
-    $this->default_instance_profile_arn = $default_instance_profile_arn ?? ;
-    $this->default_os = $default_os ?? ;
-    $this->default_root_device_type = $default_root_device_type ?? ;
-    $this->default_ssh_key_name = $default_ssh_key_name ?? ;
-    $this->default_subnet_id = $default_subnet_id ?? ;
-    $this->hostname_theme = $hostname_theme ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->source_stack_id = $source_stack_id ?? ;
-    $this->use_custom_cookbooks = $use_custom_cookbooks ?? ;
-    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->clone_app_ids = $clone_app_ids ?? [];
+    $this->clone_permissions = $clone_permissions ?? false;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->custom_cookbooks_source = $custom_cookbooks_source ?? null;
+    $this->custom_json = $custom_json ?? "";
+    $this->default_availability_zone = $default_availability_zone ?? "";
+    $this->default_instance_profile_arn = $default_instance_profile_arn ?? "";
+    $this->default_os = $default_os ?? "";
+    $this->default_root_device_type = $default_root_device_type ?? "";
+    $this->default_ssh_key_name = $default_ssh_key_name ?? "";
+    $this->default_subnet_id = $default_subnet_id ?? "";
+    $this->hostname_theme = $hostname_theme ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->source_stack_id = $source_stack_id ?? "";
+    $this->use_custom_cookbooks = $use_custom_cookbooks ?? false;
+    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? false;
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -349,7 +349,7 @@ class CloneStackResult {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -361,8 +361,8 @@ class CloudWatchLogsConfiguration {
   ?'enabled' => boolean,
   ?'log_streams' => CloudWatchLogsLogStreams,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->log_streams = $log_streams ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->log_streams = $log_streams ?? [];
   }
 }
 
@@ -396,17 +396,17 @@ class CloudWatchLogsLogStream {
   ?'multi_line_start_pattern' => string,
   ?'time_zone' => CloudWatchLogsTimeZone,
   ) $s = shape()) {
-    $this->batch_count = $batch_count ?? ;
-    $this->batch_size = $batch_size ?? ;
-    $this->buffer_duration = $buffer_duration ?? ;
-    $this->datetime_format = $datetime_format ?? ;
-    $this->encoding = $encoding ?? ;
-    $this->file = $file ?? ;
-    $this->file_fingerprint_lines = $file_fingerprint_lines ?? ;
-    $this->initial_position = $initial_position ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->multi_line_start_pattern = $multi_line_start_pattern ?? ;
-    $this->time_zone = $time_zone ?? ;
+    $this->batch_count = $batch_count ?? 0;
+    $this->batch_size = $batch_size ?? 0;
+    $this->buffer_duration = $buffer_duration ?? 0;
+    $this->datetime_format = $datetime_format ?? "";
+    $this->encoding = $encoding ?? "";
+    $this->file = $file ?? "";
+    $this->file_fingerprint_lines = $file_fingerprint_lines ?? "";
+    $this->initial_position = $initial_position ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->multi_line_start_pattern = $multi_line_start_pattern ?? "";
+    $this->time_zone = $time_zone ?? "";
   }
 }
 
@@ -438,16 +438,16 @@ class Command {
   ?'status' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->acknowledged_at = $acknowledged_at ?? ;
-    $this->command_id = $command_id ?? ;
-    $this->completed_at = $completed_at ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->log_url = $log_url ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->acknowledged_at = $acknowledged_at ?? "";
+    $this->command_id = $command_id ?? "";
+    $this->completed_at = $completed_at ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->deployment_id = $deployment_id ?? "";
+    $this->exit_code = $exit_code ?? 0;
+    $this->instance_id = $instance_id ?? "";
+    $this->log_url = $log_url ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -481,18 +481,18 @@ class CreateAppRequest {
   ?'stack_id' => string,
   ?'type' => AppType,
   ) $s = shape()) {
-    $this->app_source = $app_source ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->app_source = $app_source ?? null;
+    $this->attributes = $attributes ?? [];
     $this->data_sources = $data_sources ?? [];
-    $this->description = $description ?? ;
-    $this->domains = $domains ?? ;
-    $this->enable_ssl = $enable_ssl ?? ;
-    $this->environment = $environment ?? ;
-    $this->name = $name ?? ;
-    $this->shortname = $shortname ?? ;
+    $this->description = $description ?? "";
+    $this->domains = $domains ?? [];
+    $this->enable_ssl = $enable_ssl ?? false;
+    $this->environment = $environment ?? [];
+    $this->name = $name ?? "";
+    $this->shortname = $shortname ?? "";
     $this->ssl_configuration = $ssl_configuration ?? null;
-    $this->stack_id = $stack_id ?? ;
-    $this->type = $type ?? ;
+    $this->stack_id = $stack_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class CreateAppResult {
   public function __construct(shape(
   ?'app_id' => string,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -524,13 +524,13 @@ class CreateDeploymentRequest {
   ?'layer_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
     $this->command = $command ?? null;
-    $this->comment = $comment ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->instance_ids = $instance_ids ?? ;
-    $this->layer_ids = $layer_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->comment = $comment ?? "";
+    $this->custom_json = $custom_json ?? "";
+    $this->instance_ids = $instance_ids ?? [];
+    $this->layer_ids = $layer_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class CreateDeploymentResult {
   public function __construct(shape(
   ?'deployment_id' => string,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -584,23 +584,23 @@ class CreateInstanceRequest {
   ?'tenancy' => string,
   ?'virtualization_type' => string,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->ami_id = $ami_id ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->ami_id = $ami_id ?? "";
     $this->architecture = $architecture ?? "";
     $this->auto_scaling_type = $auto_scaling_type ?? "";
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->block_device_mappings = $block_device_mappings ?? [];
-    $this->ebs_optimized = $ebs_optimized ?? ;
-    $this->hostname = $hostname ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->layer_ids = $layer_ids ?? ;
-    $this->os = $os ?? ;
+    $this->ebs_optimized = $ebs_optimized ?? false;
+    $this->hostname = $hostname ?? "";
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
+    $this->instance_type = $instance_type ?? "";
+    $this->layer_ids = $layer_ids ?? [];
+    $this->os = $os ?? "";
     $this->root_device_type = $root_device_type ?? "";
-    $this->ssh_key_name = $ssh_key_name ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->tenancy = $tenancy ?? ;
+    $this->ssh_key_name = $ssh_key_name ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->tenancy = $tenancy ?? "";
     $this->virtualization_type = $virtualization_type ?? "";
   }
 }
@@ -611,7 +611,7 @@ class CreateInstanceResult {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -655,23 +655,23 @@ class CreateLayerRequest {
   ?'use_ebs_optimized_instances' => boolean,
   ?'volume_configurations' => VolumeConfigurations,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? ;
-    $this->auto_assign_public_ips = $auto_assign_public_ips ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? false;
+    $this->auto_assign_public_ips = $auto_assign_public_ips ?? false;
     $this->cloud_watch_logs_configuration = $cloud_watch_logs_configuration ?? null;
-    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->custom_recipes = $custom_recipes ?? ;
-    $this->custom_security_group_ids = $custom_security_group_ids ?? ;
-    $this->enable_auto_healing = $enable_auto_healing ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
+    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? "";
+    $this->custom_json = $custom_json ?? "";
+    $this->custom_recipes = $custom_recipes ?? null;
+    $this->custom_security_group_ids = $custom_security_group_ids ?? [];
+    $this->enable_auto_healing = $enable_auto_healing ?? false;
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
     $this->lifecycle_event_configuration = $lifecycle_event_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->packages = $packages ?? ;
-    $this->shortname = $shortname ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->type = $type ?? ;
-    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? ;
+    $this->name = $name ?? "";
+    $this->packages = $packages ?? [];
+    $this->shortname = $shortname ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->type = $type ?? "";
+    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? false;
     $this->volume_configurations = $volume_configurations ?? [];
   }
 }
@@ -682,7 +682,7 @@ class CreateLayerResult {
   public function __construct(shape(
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->layer_id = $layer_id ?? ;
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -728,25 +728,25 @@ class CreateStackRequest {
   ?'use_opsworks_security_groups' => boolean,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->attributes = $attributes ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->attributes = $attributes ?? [];
     $this->chef_configuration = $chef_configuration ?? null;
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->custom_cookbooks_source = $custom_cookbooks_source ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->default_availability_zone = $default_availability_zone ?? ;
-    $this->default_instance_profile_arn = $default_instance_profile_arn ?? ;
-    $this->default_os = $default_os ?? ;
-    $this->default_root_device_type = $default_root_device_type ?? ;
-    $this->default_ssh_key_name = $default_ssh_key_name ?? ;
-    $this->default_subnet_id = $default_subnet_id ?? ;
-    $this->hostname_theme = $hostname_theme ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->use_custom_cookbooks = $use_custom_cookbooks ?? ;
-    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->custom_cookbooks_source = $custom_cookbooks_source ?? null;
+    $this->custom_json = $custom_json ?? "";
+    $this->default_availability_zone = $default_availability_zone ?? "";
+    $this->default_instance_profile_arn = $default_instance_profile_arn ?? "";
+    $this->default_os = $default_os ?? "";
+    $this->default_root_device_type = $default_root_device_type ?? "";
+    $this->default_ssh_key_name = $default_ssh_key_name ?? "";
+    $this->default_subnet_id = $default_subnet_id ?? "";
+    $this->hostname_theme = $hostname_theme ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->use_custom_cookbooks = $use_custom_cookbooks ?? false;
+    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? false;
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -756,7 +756,7 @@ class CreateStackResult {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -772,10 +772,10 @@ class CreateUserProfileRequest {
   ?'ssh_public_key' => string,
   ?'ssh_username' => string,
   ) $s = shape()) {
-    $this->allow_self_management = $allow_self_management ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->ssh_username = $ssh_username ?? ;
+    $this->allow_self_management = $allow_self_management ?? false;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->ssh_username = $ssh_username ?? "";
   }
 }
 
@@ -785,7 +785,7 @@ class CreateUserProfileResult {
   public function __construct(shape(
   ?'iam_user_arn' => string,
   ) $s = shape()) {
-    $this->iam_user_arn = $iam_user_arn ?? ;
+    $this->iam_user_arn = $iam_user_arn ?? "";
   }
 }
 
@@ -801,9 +801,9 @@ class DataSource {
   ?'database_name' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->database_name = $database_name ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->database_name = $database_name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -817,7 +817,7 @@ class DeleteAppRequest {
   public function __construct(shape(
   ?'app_id' => string,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -831,9 +831,9 @@ class DeleteInstanceRequest {
   ?'delete_volumes' => boolean,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->delete_elastic_ip = $delete_elastic_ip ?? ;
-    $this->delete_volumes = $delete_volumes ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->delete_elastic_ip = $delete_elastic_ip ?? false;
+    $this->delete_volumes = $delete_volumes ?? false;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -843,7 +843,7 @@ class DeleteLayerRequest {
   public function __construct(shape(
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->layer_id = $layer_id ?? ;
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -853,7 +853,7 @@ class DeleteStackRequest {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -863,7 +863,7 @@ class DeleteUserProfileRequest {
   public function __construct(shape(
   ?'iam_user_arn' => string,
   ) $s = shape()) {
-    $this->iam_user_arn = $iam_user_arn ?? ;
+    $this->iam_user_arn = $iam_user_arn ?? "";
   }
 }
 
@@ -895,18 +895,18 @@ class Deployment {
   ?'stack_id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
     $this->command = $command ?? null;
-    $this->comment = $comment ?? ;
-    $this->completed_at = $completed_at ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->duration = $duration ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->instance_ids = $instance_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->status = $status ?? ;
+    $this->comment = $comment ?? "";
+    $this->completed_at = $completed_at ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->custom_json = $custom_json ?? "";
+    $this->deployment_id = $deployment_id ?? "";
+    $this->duration = $duration ?? 0;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->instance_ids = $instance_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -918,8 +918,8 @@ class DeploymentCommand {
   ?'args' => DeploymentCommandArgs,
   ?'name' => DeploymentCommandName,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->name = $name ?? ;
+    $this->args = $args ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -935,7 +935,7 @@ class DeregisterEcsClusterRequest {
   public function __construct(shape(
   ?'ecs_cluster_arn' => string,
   ) $s = shape()) {
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
   }
 }
 
@@ -945,7 +945,7 @@ class DeregisterElasticIpRequest {
   public function __construct(shape(
   ?'elastic_ip' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
+    $this->elastic_ip = $elastic_ip ?? "";
   }
 }
 
@@ -955,7 +955,7 @@ class DeregisterInstanceRequest {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -965,7 +965,7 @@ class DeregisterRdsDbInstanceRequest {
   public function __construct(shape(
   ?'rds_db_instance_arn' => string,
   ) $s = shape()) {
-    $this->rds_db_instance_arn = $rds_db_instance_arn ?? ;
+    $this->rds_db_instance_arn = $rds_db_instance_arn ?? "";
   }
 }
 
@@ -975,7 +975,7 @@ class DeregisterVolumeRequest {
   public function __construct(shape(
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->volume_id = $volume_id ?? ;
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -987,8 +987,8 @@ class DescribeAgentVersionsRequest {
   ?'configuration_manager' => StackConfigurationManager,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1010,8 +1010,8 @@ class DescribeAppsRequest {
   ?'app_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->app_ids = $app_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->app_ids = $app_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1035,9 +1035,9 @@ class DescribeCommandsRequest {
   ?'deployment_id' => string,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->command_ids = $command_ids ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->command_ids = $command_ids ?? [];
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -1061,9 +1061,9 @@ class DescribeDeploymentsRequest {
   ?'deployment_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->deployment_ids = $deployment_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->deployment_ids = $deployment_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1089,10 +1089,10 @@ class DescribeEcsClustersRequest {
   ?'next_token' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->ecs_cluster_arns = $ecs_cluster_arns ?? ;
+    $this->ecs_cluster_arns = $ecs_cluster_arns ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1119,9 +1119,9 @@ class DescribeElasticIpsRequest {
   ?'ips' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->ips = $ips ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->ips = $ips ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1143,8 +1143,8 @@ class DescribeElasticLoadBalancersRequest {
   ?'layer_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->layer_ids = $layer_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->layer_ids = $layer_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1168,9 +1168,9 @@ class DescribeInstancesRequest {
   ?'layer_id' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->instance_ids = $instance_ids ?? ;
-    $this->layer_id = $layer_id ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->instance_ids = $instance_ids ?? [];
+    $this->layer_id = $layer_id ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1192,8 +1192,8 @@ class DescribeLayersRequest {
   ?'layer_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->layer_ids = $layer_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->layer_ids = $layer_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1213,7 +1213,7 @@ class DescribeLoadBasedAutoScalingRequest {
   public function __construct(shape(
   ?'layer_ids' => Strings,
   ) $s = shape()) {
-    $this->layer_ids = $layer_ids ?? ;
+    $this->layer_ids = $layer_ids ?? [];
   }
 }
 
@@ -1255,8 +1255,8 @@ class DescribePermissionsRequest {
   ?'iam_user_arn' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1280,9 +1280,9 @@ class DescribeRaidArraysRequest {
   ?'raid_array_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->raid_array_ids = $raid_array_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->raid_array_ids = $raid_array_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1304,8 +1304,8 @@ class DescribeRdsDbInstancesRequest {
   ?'rds_db_instance_arns' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->rds_db_instance_arns = $rds_db_instance_arns ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->rds_db_instance_arns = $rds_db_instance_arns ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1329,9 +1329,9 @@ class DescribeServiceErrorsRequest {
   ?'service_error_ids' => Strings,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->service_error_ids = $service_error_ids ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->service_error_ids = $service_error_ids ?? [];
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1351,7 +1351,7 @@ class DescribeStackProvisioningParametersRequest {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1363,7 +1363,7 @@ class DescribeStackProvisioningParametersResult {
   ?'agent_installer_url' => string,
   ?'parameters' => Parameters,
   ) $s = shape()) {
-    $this->agent_installer_url = $agent_installer_url ?? ;
+    $this->agent_installer_url = $agent_installer_url ?? "";
     $this->parameters = $parameters ?? [];
   }
 }
@@ -1374,7 +1374,7 @@ class DescribeStackSummaryRequest {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1394,7 +1394,7 @@ class DescribeStacksRequest {
   public function __construct(shape(
   ?'stack_ids' => Strings,
   ) $s = shape()) {
-    $this->stack_ids = $stack_ids ?? ;
+    $this->stack_ids = $stack_ids ?? [];
   }
 }
 
@@ -1414,7 +1414,7 @@ class DescribeTimeBasedAutoScalingRequest {
   public function __construct(shape(
   ?'instance_ids' => Strings,
   ) $s = shape()) {
-    $this->instance_ids = $instance_ids ?? ;
+    $this->instance_ids = $instance_ids ?? [];
   }
 }
 
@@ -1434,7 +1434,7 @@ class DescribeUserProfilesRequest {
   public function __construct(shape(
   ?'iam_user_arns' => Strings,
   ) $s = shape()) {
-    $this->iam_user_arns = $iam_user_arns ?? ;
+    $this->iam_user_arns = $iam_user_arns ?? [];
   }
 }
 
@@ -1460,10 +1460,10 @@ class DescribeVolumesRequest {
   ?'stack_id' => string,
   ?'volume_ids' => Strings,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->raid_array_id = $raid_array_id ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->volume_ids = $volume_ids ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->raid_array_id = $raid_array_id ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->volume_ids = $volume_ids ?? [];
   }
 }
 
@@ -1485,8 +1485,8 @@ class DetachElasticLoadBalancerRequest {
   ?'elastic_load_balancer_name' => string,
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? ;
-    $this->layer_id = $layer_id ?? ;
+    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? "";
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -1496,7 +1496,7 @@ class DisassociateElasticIpRequest {
   public function __construct(shape(
   ?'elastic_ip' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
+    $this->elastic_ip = $elastic_ip ?? "";
   }
 }
 
@@ -1516,10 +1516,10 @@ class EbsBlockDevice {
   ?'volume_size' => int,
   ?'volume_type' => VolumeType,
   ) $s = shape()) {
-    $this->delete_on_termination = $delete_on_termination ?? ;
-    $this->iops = $iops ?? ;
-    $this->snapshot_id = $snapshot_id ?? ;
-    $this->volume_size = $volume_size ?? ;
+    $this->delete_on_termination = $delete_on_termination ?? false;
+    $this->iops = $iops ?? 0;
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->volume_size = $volume_size ?? 0;
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -1536,10 +1536,10 @@ class EcsCluster {
   ?'registered_at' => DateTime,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
-    $this->ecs_cluster_name = $ecs_cluster_name ?? ;
-    $this->registered_at = $registered_at ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
+    $this->ecs_cluster_name = $ecs_cluster_name ?? "";
+    $this->registered_at = $registered_at ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -1559,11 +1559,11 @@ class ElasticIp {
   ?'name' => string,
   ?'region' => string,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->ip = $ip ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
+    $this->domain = $domain ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->ip = $ip ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -1591,15 +1591,15 @@ class ElasticLoadBalancer {
   ?'subnet_ids' => Strings,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->dns_name = $dns_name ?? ;
-    $this->ec_2_instance_ids = $ec_2_instance_ids ?? ;
-    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? ;
-    $this->layer_id = $layer_id ?? ;
-    $this->region = $region ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->dns_name = $dns_name ?? "";
+    $this->ec_2_instance_ids = $ec_2_instance_ids ?? [];
+    $this->elastic_load_balancer_name = $elastic_load_balancer_name ?? "";
+    $this->layer_id = $layer_id ?? "";
+    $this->region = $region ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -1615,9 +1615,9 @@ class EnvironmentVariable {
   ?'secure' => boolean,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->secure = $secure ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->secure = $secure ?? false;
+    $this->value = $value ?? "";
   }
 }
 
@@ -1629,7 +1629,7 @@ class GetHostnameSuggestionRequest {
   public function __construct(shape(
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->layer_id = $layer_id ?? ;
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -1641,8 +1641,8 @@ class GetHostnameSuggestionResult {
   ?'hostname' => string,
   ?'layer_id' => string,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
-    $this->layer_id = $layer_id ?? ;
+    $this->hostname = $hostname ?? "";
+    $this->layer_id = $layer_id ?? "";
   }
 }
 
@@ -1654,7 +1654,7 @@ class GrantAccessRequest {
   ?'instance_id' => string,
   ?'valid_for_in_minutes' => ValidForInMinutes,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
     $this->valid_for_in_minutes = $valid_for_in_minutes ?? 0;
   }
 }
@@ -1757,46 +1757,46 @@ class Instance {
   ?'tenancy' => string,
   ?'virtualization_type' => VirtualizationType,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->ami_id = $ami_id ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->ami_id = $ami_id ?? "";
     $this->architecture = $architecture ?? "";
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->auto_scaling_type = $auto_scaling_type ?? "";
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->block_device_mappings = $block_device_mappings ?? [];
-    $this->created_at = $created_at ?? ;
-    $this->ebs_optimized = $ebs_optimized ?? ;
-    $this->ec_2_instance_id = $ec_2_instance_id ?? ;
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
-    $this->ecs_container_instance_arn = $ecs_container_instance_arn ?? ;
-    $this->elastic_ip = $elastic_ip ?? null;
-    $this->hostname = $hostname ?? ;
-    $this->infrastructure_class = $infrastructure_class ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_profile_arn = $instance_profile_arn ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->last_service_error_id = $last_service_error_id ?? ;
-    $this->layer_ids = $layer_ids ?? ;
-    $this->os = $os ?? ;
-    $this->platform = $platform ?? ;
-    $this->private_dns = $private_dns ?? ;
-    $this->private_ip = $private_ip ?? ;
-    $this->public_dns = $public_dns ?? ;
-    $this->public_ip = $public_ip ?? ;
-    $this->registered_by = $registered_by ?? ;
-    $this->reported_agent_version = $reported_agent_version ?? ;
+    $this->created_at = $created_at ?? "";
+    $this->ebs_optimized = $ebs_optimized ?? false;
+    $this->ec_2_instance_id = $ec_2_instance_id ?? "";
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
+    $this->ecs_container_instance_arn = $ecs_container_instance_arn ?? "";
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->hostname = $hostname ?? "";
+    $this->infrastructure_class = $infrastructure_class ?? "";
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_profile_arn = $instance_profile_arn ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->last_service_error_id = $last_service_error_id ?? "";
+    $this->layer_ids = $layer_ids ?? [];
+    $this->os = $os ?? "";
+    $this->platform = $platform ?? "";
+    $this->private_dns = $private_dns ?? "";
+    $this->private_ip = $private_ip ?? "";
+    $this->public_dns = $public_dns ?? "";
+    $this->public_ip = $public_ip ?? "";
+    $this->registered_by = $registered_by ?? "";
+    $this->reported_agent_version = $reported_agent_version ?? "";
     $this->reported_os = $reported_os ?? null;
     $this->root_device_type = $root_device_type ?? "";
-    $this->root_device_volume_id = $root_device_volume_id ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->ssh_host_dsa_key_fingerprint = $ssh_host_dsa_key_fingerprint ?? ;
-    $this->ssh_host_rsa_key_fingerprint = $ssh_host_rsa_key_fingerprint ?? ;
-    $this->ssh_key_name = $ssh_key_name ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->status = $status ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->tenancy = $tenancy ?? ;
+    $this->root_device_volume_id = $root_device_volume_id ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->ssh_host_dsa_key_fingerprint = $ssh_host_dsa_key_fingerprint ?? "";
+    $this->ssh_host_rsa_key_fingerprint = $ssh_host_rsa_key_fingerprint ?? "";
+    $this->ssh_key_name = $ssh_key_name ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->status = $status ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->tenancy = $tenancy ?? "";
     $this->virtualization_type = $virtualization_type ?? "";
   }
 }
@@ -1809,8 +1809,8 @@ class InstanceIdentity {
   ?'document' => string,
   ?'signature' => string,
   ) $s = shape()) {
-    $this->document = $document ?? ;
-    $this->signature = $signature ?? ;
+    $this->document = $document ?? "";
+    $this->signature = $signature ?? "";
   }
 }
 
@@ -1860,26 +1860,26 @@ class InstancesCount {
   ?'terminating' => int,
   ?'unassigning' => int,
   ) $s = shape()) {
-    $this->assigning = $assigning ?? ;
-    $this->booting = $booting ?? ;
-    $this->connection_lost = $connection_lost ?? ;
-    $this->deregistering = $deregistering ?? ;
-    $this->online = $online ?? ;
-    $this->pending = $pending ?? ;
-    $this->rebooting = $rebooting ?? ;
-    $this->registered = $registered ?? ;
-    $this->registering = $registering ?? ;
-    $this->requested = $requested ?? ;
-    $this->running_setup = $running_setup ?? ;
-    $this->setup_failed = $setup_failed ?? ;
-    $this->shutting_down = $shutting_down ?? ;
-    $this->start_failed = $start_failed ?? ;
-    $this->stop_failed = $stop_failed ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->stopping = $stopping ?? ;
-    $this->terminated = $terminated ?? ;
-    $this->terminating = $terminating ?? ;
-    $this->unassigning = $unassigning ?? ;
+    $this->assigning = $assigning ?? 0;
+    $this->booting = $booting ?? 0;
+    $this->connection_lost = $connection_lost ?? 0;
+    $this->deregistering = $deregistering ?? 0;
+    $this->online = $online ?? 0;
+    $this->pending = $pending ?? 0;
+    $this->rebooting = $rebooting ?? 0;
+    $this->registered = $registered ?? 0;
+    $this->registering = $registering ?? 0;
+    $this->requested = $requested ?? 0;
+    $this->running_setup = $running_setup ?? 0;
+    $this->setup_failed = $setup_failed ?? 0;
+    $this->shutting_down = $shutting_down ?? 0;
+    $this->start_failed = $start_failed ?? 0;
+    $this->stop_failed = $stop_failed ?? 0;
+    $this->stopped = $stopped ?? 0;
+    $this->stopping = $stopping ?? 0;
+    $this->terminated = $terminated ?? 0;
+    $this->terminating = $terminating ?? 0;
+    $this->unassigning = $unassigning ?? 0;
   }
 }
 
@@ -1935,28 +1935,28 @@ class Layer {
   ?'use_ebs_optimized_instances' => boolean,
   ?'volume_configurations' => VolumeConfigurations,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? ;
-    $this->auto_assign_public_ips = $auto_assign_public_ips ?? ;
+    $this->arn = $arn ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? false;
+    $this->auto_assign_public_ips = $auto_assign_public_ips ?? false;
     $this->cloud_watch_logs_configuration = $cloud_watch_logs_configuration ?? null;
-    $this->created_at = $created_at ?? ;
-    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->custom_recipes = $custom_recipes ?? ;
-    $this->custom_security_group_ids = $custom_security_group_ids ?? ;
-    $this->default_recipes = $default_recipes ?? ;
-    $this->default_security_group_names = $default_security_group_names ?? ;
-    $this->enable_auto_healing = $enable_auto_healing ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
-    $this->layer_id = $layer_id ?? ;
+    $this->created_at = $created_at ?? "";
+    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? "";
+    $this->custom_json = $custom_json ?? "";
+    $this->custom_recipes = $custom_recipes ?? null;
+    $this->custom_security_group_ids = $custom_security_group_ids ?? [];
+    $this->default_recipes = $default_recipes ?? null;
+    $this->default_security_group_names = $default_security_group_names ?? [];
+    $this->enable_auto_healing = $enable_auto_healing ?? false;
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
+    $this->layer_id = $layer_id ?? "";
     $this->lifecycle_event_configuration = $lifecycle_event_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->packages = $packages ?? ;
-    $this->shortname = $shortname ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->type = $type ?? ;
-    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? ;
+    $this->name = $name ?? "";
+    $this->packages = $packages ?? [];
+    $this->shortname = $shortname ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->type = $type ?? "";
+    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? false;
     $this->volume_configurations = $volume_configurations ?? [];
   }
 }
@@ -1975,7 +1975,7 @@ class LifecycleEventConfiguration {
   public function __construct(shape(
   ?'shutdown' => ShutdownEventConfiguration,
   ) $s = shape()) {
-    $this->shutdown = $shutdown ?? ;
+    $this->shutdown = $shutdown ?? null;
   }
 }
 
@@ -2020,10 +2020,10 @@ class LoadBasedAutoScalingConfiguration {
   ?'layer_id' => string,
   ?'up_scaling' => AutoScalingThresholds,
   ) $s = shape()) {
-    $this->down_scaling = $down_scaling ?? ;
-    $this->enable = $enable ?? ;
-    $this->layer_id = $layer_id ?? ;
-    $this->up_scaling = $up_scaling ?? ;
+    $this->down_scaling = $down_scaling ?? null;
+    $this->enable = $enable ?? false;
+    $this->layer_id = $layer_id ?? "";
+    $this->up_scaling = $up_scaling ?? null;
   }
 }
 
@@ -2053,13 +2053,13 @@ class OperatingSystem {
   ?'supported' => boolean,
   ?'type' => string,
   ) $s = shape()) {
-    $this->configuration_managers = $configuration_managers ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->reported_name = $reported_name ?? ;
-    $this->reported_version = $reported_version ?? ;
-    $this->supported = $supported ?? ;
-    $this->type = $type ?? ;
+    $this->configuration_managers = $configuration_managers ?? [];
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->reported_name = $reported_name ?? "";
+    $this->reported_version = $reported_version ?? "";
+    $this->supported = $supported ?? false;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2071,8 +2071,8 @@ class OperatingSystemConfigurationManager {
   ?'name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2096,11 +2096,11 @@ class Permission {
   ?'level' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->allow_ssh = $allow_ssh ?? ;
-    $this->allow_sudo = $allow_sudo ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->level = $level ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->allow_ssh = $allow_ssh ?? false;
+    $this->allow_sudo = $allow_sudo ?? false;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->level = $level ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2136,18 +2136,18 @@ class RaidArray {
   ?'stack_id' => string,
   ?'volume_type' => string,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->device = $device ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->iops = $iops ?? ;
-    $this->mount_point = $mount_point ?? ;
-    $this->name = $name ?? ;
-    $this->number_of_disks = $number_of_disks ?? ;
-    $this->raid_array_id = $raid_array_id ?? ;
-    $this->raid_level = $raid_level ?? ;
-    $this->size = $size ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->device = $device ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->iops = $iops ?? 0;
+    $this->mount_point = $mount_point ?? "";
+    $this->name = $name ?? "";
+    $this->number_of_disks = $number_of_disks ?? 0;
+    $this->raid_array_id = $raid_array_id ?? "";
+    $this->raid_level = $raid_level ?? 0;
+    $this->size = $size ?? 0;
+    $this->stack_id = $stack_id ?? "";
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -2176,15 +2176,15 @@ class RdsDbInstance {
   ?'region' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->db_instance_identifier = $db_instance_identifier ?? ;
-    $this->db_password = $db_password ?? ;
-    $this->db_user = $db_user ?? ;
-    $this->engine = $engine ?? ;
-    $this->missing_on_rds = $missing_on_rds ?? ;
-    $this->rds_db_instance_arn = $rds_db_instance_arn ?? ;
-    $this->region = $region ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->address = $address ?? "";
+    $this->db_instance_identifier = $db_instance_identifier ?? "";
+    $this->db_password = $db_password ?? "";
+    $this->db_user = $db_user ?? "";
+    $this->engine = $engine ?? "";
+    $this->missing_on_rds = $missing_on_rds ?? false;
+    $this->rds_db_instance_arn = $rds_db_instance_arn ?? "";
+    $this->region = $region ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2196,7 +2196,7 @@ class RebootInstanceRequest {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2214,11 +2214,11 @@ class Recipes {
   ?'shutdown' => Strings,
   ?'undeploy' => Strings,
   ) $s = shape()) {
-    $this->configure = $configure ?? ;
-    $this->deploy = $deploy ?? ;
-    $this->setup = $setup ?? ;
-    $this->shutdown = $shutdown ?? ;
-    $this->undeploy = $undeploy ?? ;
+    $this->configure = $configure ?? [];
+    $this->deploy = $deploy ?? [];
+    $this->setup = $setup ?? [];
+    $this->shutdown = $shutdown ?? [];
+    $this->undeploy = $undeploy ?? [];
   }
 }
 
@@ -2230,8 +2230,8 @@ class RegisterEcsClusterRequest {
   ?'ecs_cluster_arn' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2241,7 +2241,7 @@ class RegisterEcsClusterResult {
   public function __construct(shape(
   ?'ecs_cluster_arn' => string,
   ) $s = shape()) {
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
   }
 }
 
@@ -2253,8 +2253,8 @@ class RegisterElasticIpRequest {
   ?'elastic_ip' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
-    $this->stack_id = $stack_id ?? ;
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2264,7 +2264,7 @@ class RegisterElasticIpResult {
   public function __construct(shape(
   ?'elastic_ip' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
+    $this->elastic_ip = $elastic_ip ?? "";
   }
 }
 
@@ -2286,13 +2286,13 @@ class RegisterInstanceRequest {
   ?'rsa_public_key_fingerprint' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
+    $this->hostname = $hostname ?? "";
     $this->instance_identity = $instance_identity ?? null;
-    $this->private_ip = $private_ip ?? ;
-    $this->public_ip = $public_ip ?? ;
-    $this->rsa_public_key = $rsa_public_key ?? ;
-    $this->rsa_public_key_fingerprint = $rsa_public_key_fingerprint ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->private_ip = $private_ip ?? "";
+    $this->public_ip = $public_ip ?? "";
+    $this->rsa_public_key = $rsa_public_key ?? "";
+    $this->rsa_public_key_fingerprint = $rsa_public_key_fingerprint ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2302,7 +2302,7 @@ class RegisterInstanceResult {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2318,10 +2318,10 @@ class RegisterRdsDbInstanceRequest {
   ?'rds_db_instance_arn' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->db_password = $db_password ?? ;
-    $this->db_user = $db_user ?? ;
-    $this->rds_db_instance_arn = $rds_db_instance_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->db_password = $db_password ?? "";
+    $this->db_user = $db_user ?? "";
+    $this->rds_db_instance_arn = $rds_db_instance_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2333,8 +2333,8 @@ class RegisterVolumeRequest {
   ?'ec_2_volume_id' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->ec_2_volume_id = $ec_2_volume_id ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->ec_2_volume_id = $ec_2_volume_id ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2344,7 +2344,7 @@ class RegisterVolumeResult {
   public function __construct(shape(
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->volume_id = $volume_id ?? ;
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -2358,9 +2358,9 @@ class ReportedOs {
   ?'name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->family = $family ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->family = $family ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2372,7 +2372,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2390,10 +2390,10 @@ class SelfUserProfile {
   ?'ssh_public_key' => string,
   ?'ssh_username' => string,
   ) $s = shape()) {
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->name = $name ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->ssh_username = $ssh_username ?? ;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->name = $name ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->ssh_username = $ssh_username ?? "";
   }
 }
 
@@ -2413,12 +2413,12 @@ class ServiceError {
   ?'stack_id' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->message = $message ?? ;
-    $this->service_error_id = $service_error_id ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->type = $type ?? ;
+    $this->created_at = $created_at ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->message = $message ?? "";
+    $this->service_error_id = $service_error_id ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2436,10 +2436,10 @@ class SetLoadBasedAutoScalingRequest {
   ?'layer_id' => string,
   ?'up_scaling' => AutoScalingThresholds,
   ) $s = shape()) {
-    $this->down_scaling = $down_scaling ?? ;
-    $this->enable = $enable ?? ;
-    $this->layer_id = $layer_id ?? ;
-    $this->up_scaling = $up_scaling ?? ;
+    $this->down_scaling = $down_scaling ?? null;
+    $this->enable = $enable ?? false;
+    $this->layer_id = $layer_id ?? "";
+    $this->up_scaling = $up_scaling ?? null;
   }
 }
 
@@ -2457,11 +2457,11 @@ class SetPermissionRequest {
   ?'level' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->allow_ssh = $allow_ssh ?? ;
-    $this->allow_sudo = $allow_sudo ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->level = $level ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->allow_ssh = $allow_ssh ?? false;
+    $this->allow_sudo = $allow_sudo ?? false;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->level = $level ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2473,8 +2473,8 @@ class SetTimeBasedAutoScalingRequest {
   ?'auto_scaling_schedule' => WeeklyAutoScalingSchedule,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->auto_scaling_schedule = $auto_scaling_schedule ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->auto_scaling_schedule = $auto_scaling_schedule ?? null;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2486,8 +2486,8 @@ class ShutdownEventConfiguration {
   ?'delay_until_elb_connections_drained' => boolean,
   ?'execution_timeout' => int,
   ) $s = shape()) {
-    $this->delay_until_elb_connections_drained = $delay_until_elb_connections_drained ?? ;
-    $this->execution_timeout = $execution_timeout ?? ;
+    $this->delay_until_elb_connections_drained = $delay_until_elb_connections_drained ?? false;
+    $this->execution_timeout = $execution_timeout ?? 0;
   }
 }
 
@@ -2507,12 +2507,12 @@ class Source {
   ?'url' => string,
   ?'username' => string,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->revision = $revision ?? ;
-    $this->ssh_key = $ssh_key ?? ;
-    $this->type = $type ?? ;
-    $this->url = $url ?? ;
-    $this->username = $username ?? ;
+    $this->password = $password ?? "";
+    $this->revision = $revision ?? "";
+    $this->ssh_key = $ssh_key ?? "";
+    $this->type = $type ?? "";
+    $this->url = $url ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -2528,9 +2528,9 @@ class SslConfiguration {
   ?'chain' => string,
   ?'private_key' => string,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
-    $this->chain = $chain ?? ;
-    $this->private_key = $private_key ?? ;
+    $this->certificate = $certificate ?? "";
+    $this->chain = $chain ?? "";
+    $this->private_key = $private_key ?? "";
   }
 }
 
@@ -2582,28 +2582,28 @@ class Stack {
   ?'use_opsworks_security_groups' => boolean,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->arn = $arn ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->arn = $arn ?? "";
+    $this->attributes = $attributes ?? [];
     $this->chef_configuration = $chef_configuration ?? null;
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->custom_cookbooks_source = $custom_cookbooks_source ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->default_availability_zone = $default_availability_zone ?? ;
-    $this->default_instance_profile_arn = $default_instance_profile_arn ?? ;
-    $this->default_os = $default_os ?? ;
-    $this->default_root_device_type = $default_root_device_type ?? ;
-    $this->default_ssh_key_name = $default_ssh_key_name ?? ;
-    $this->default_subnet_id = $default_subnet_id ?? ;
-    $this->hostname_theme = $hostname_theme ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->use_custom_cookbooks = $use_custom_cookbooks ?? ;
-    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->created_at = $created_at ?? "";
+    $this->custom_cookbooks_source = $custom_cookbooks_source ?? null;
+    $this->custom_json = $custom_json ?? "";
+    $this->default_availability_zone = $default_availability_zone ?? "";
+    $this->default_instance_profile_arn = $default_instance_profile_arn ?? "";
+    $this->default_os = $default_os ?? "";
+    $this->default_root_device_type = $default_root_device_type ?? "";
+    $this->default_ssh_key_name = $default_ssh_key_name ?? "";
+    $this->default_subnet_id = $default_subnet_id ?? "";
+    $this->hostname_theme = $hostname_theme ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->use_custom_cookbooks = $use_custom_cookbooks ?? false;
+    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? false;
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -2619,8 +2619,8 @@ class StackConfigurationManager {
   ?'name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2640,12 +2640,12 @@ class StackSummary {
   ?'name' => string,
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->apps_count = $apps_count ?? ;
-    $this->arn = $arn ?? ;
+    $this->apps_count = $apps_count ?? 0;
+    $this->arn = $arn ?? "";
     $this->instances_count = $instances_count ?? null;
-    $this->layers_count = $layers_count ?? ;
-    $this->name = $name ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->layers_count = $layers_count ?? 0;
+    $this->name = $name ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2657,7 +2657,7 @@ class StartInstanceRequest {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2667,7 +2667,7 @@ class StartStackRequest {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2679,8 +2679,8 @@ class StopInstanceRequest {
   ?'force' => boolean,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->force = $force ?? false;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2690,7 +2690,7 @@ class StopStackRequest {
   public function __construct(shape(
   ?'stack_id' => string,
   ) $s = shape()) {
-    $this->stack_id = $stack_id ?? ;
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -2733,9 +2733,9 @@ class TemporaryCredential {
   ?'username' => string,
   ?'valid_for_in_minutes' => int,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
     $this->valid_for_in_minutes = $valid_for_in_minutes ?? 0;
   }
 }
@@ -2748,8 +2748,8 @@ class TimeBasedAutoScalingConfiguration {
   ?'auto_scaling_schedule' => WeeklyAutoScalingSchedule,
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->auto_scaling_schedule = $auto_scaling_schedule ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->auto_scaling_schedule = $auto_scaling_schedule ?? null;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2761,7 +2761,7 @@ class UnassignInstanceRequest {
   public function __construct(shape(
   ?'instance_id' => string,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -2771,7 +2771,7 @@ class UnassignVolumeRequest {
   public function __construct(shape(
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->volume_id = $volume_id ?? ;
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -2814,17 +2814,17 @@ class UpdateAppRequest {
   ?'ssl_configuration' => SslConfiguration,
   ?'type' => AppType,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->app_source = $app_source ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->app_source = $app_source ?? null;
+    $this->attributes = $attributes ?? [];
     $this->data_sources = $data_sources ?? [];
-    $this->description = $description ?? ;
-    $this->domains = $domains ?? ;
-    $this->enable_ssl = $enable_ssl ?? ;
-    $this->environment = $environment ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->domains = $domains ?? [];
+    $this->enable_ssl = $enable_ssl ?? false;
+    $this->environment = $environment ?? [];
+    $this->name = $name ?? "";
     $this->ssl_configuration = $ssl_configuration ?? null;
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2836,8 +2836,8 @@ class UpdateElasticIpRequest {
   ?'elastic_ip' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? null;
-    $this->name = $name ?? ;
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2869,18 +2869,18 @@ class UpdateInstanceRequest {
   ?'os' => string,
   ?'ssh_key_name' => string,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->ami_id = $ami_id ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->ami_id = $ami_id ?? "";
     $this->architecture = $architecture ?? "";
     $this->auto_scaling_type = $auto_scaling_type ?? "";
-    $this->ebs_optimized = $ebs_optimized ?? ;
-    $this->hostname = $hostname ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->layer_ids = $layer_ids ?? ;
-    $this->os = $os ?? ;
-    $this->ssh_key_name = $ssh_key_name ?? ;
+    $this->ebs_optimized = $ebs_optimized ?? false;
+    $this->hostname = $hostname ?? "";
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->layer_ids = $layer_ids ?? [];
+    $this->os = $os ?? "";
+    $this->ssh_key_name = $ssh_key_name ?? "";
   }
 }
 
@@ -2922,22 +2922,22 @@ class UpdateLayerRequest {
   ?'use_ebs_optimized_instances' => boolean,
   ?'volume_configurations' => VolumeConfigurations,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? ;
-    $this->auto_assign_public_ips = $auto_assign_public_ips ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->auto_assign_elastic_ips = $auto_assign_elastic_ips ?? false;
+    $this->auto_assign_public_ips = $auto_assign_public_ips ?? false;
     $this->cloud_watch_logs_configuration = $cloud_watch_logs_configuration ?? null;
-    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->custom_recipes = $custom_recipes ?? ;
-    $this->custom_security_group_ids = $custom_security_group_ids ?? ;
-    $this->enable_auto_healing = $enable_auto_healing ?? ;
-    $this->install_updates_on_boot = $install_updates_on_boot ?? ;
-    $this->layer_id = $layer_id ?? ;
+    $this->custom_instance_profile_arn = $custom_instance_profile_arn ?? "";
+    $this->custom_json = $custom_json ?? "";
+    $this->custom_recipes = $custom_recipes ?? null;
+    $this->custom_security_group_ids = $custom_security_group_ids ?? [];
+    $this->enable_auto_healing = $enable_auto_healing ?? false;
+    $this->install_updates_on_boot = $install_updates_on_boot ?? false;
+    $this->layer_id = $layer_id ?? "";
     $this->lifecycle_event_configuration = $lifecycle_event_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->packages = $packages ?? ;
-    $this->shortname = $shortname ?? ;
-    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? ;
+    $this->name = $name ?? "";
+    $this->packages = $packages ?? [];
+    $this->shortname = $shortname ?? "";
+    $this->use_ebs_optimized_instances = $use_ebs_optimized_instances ?? false;
     $this->volume_configurations = $volume_configurations ?? [];
   }
 }
@@ -2948,7 +2948,7 @@ class UpdateMyUserProfileRequest {
   public function __construct(shape(
   ?'ssh_public_key' => string,
   ) $s = shape()) {
-    $this->ssh_public_key = $ssh_public_key ?? ;
+    $this->ssh_public_key = $ssh_public_key ?? "";
   }
 }
 
@@ -2962,9 +2962,9 @@ class UpdateRdsDbInstanceRequest {
   ?'db_user' => string,
   ?'rds_db_instance_arn' => string,
   ) $s = shape()) {
-    $this->db_password = $db_password ?? ;
-    $this->db_user = $db_user ?? ;
-    $this->rds_db_instance_arn = $rds_db_instance_arn ?? ;
+    $this->db_password = $db_password ?? "";
+    $this->db_user = $db_user ?? "";
+    $this->rds_db_instance_arn = $rds_db_instance_arn ?? "";
   }
 }
 
@@ -3008,24 +3008,24 @@ class UpdateStackRequest {
   ?'use_custom_cookbooks' => boolean,
   ?'use_opsworks_security_groups' => boolean,
   ) $s = shape()) {
-    $this->agent_version = $agent_version ?? null;
-    $this->attributes = $attributes ?? ;
+    $this->agent_version = $agent_version ?? "";
+    $this->attributes = $attributes ?? [];
     $this->chef_configuration = $chef_configuration ?? null;
-    $this->configuration_manager = $configuration_manager ?? ;
-    $this->custom_cookbooks_source = $custom_cookbooks_source ?? ;
-    $this->custom_json = $custom_json ?? ;
-    $this->default_availability_zone = $default_availability_zone ?? ;
-    $this->default_instance_profile_arn = $default_instance_profile_arn ?? ;
-    $this->default_os = $default_os ?? ;
-    $this->default_root_device_type = $default_root_device_type ?? ;
-    $this->default_ssh_key_name = $default_ssh_key_name ?? ;
-    $this->default_subnet_id = $default_subnet_id ?? ;
-    $this->hostname_theme = $hostname_theme ?? ;
-    $this->name = $name ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->use_custom_cookbooks = $use_custom_cookbooks ?? ;
-    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? ;
+    $this->configuration_manager = $configuration_manager ?? null;
+    $this->custom_cookbooks_source = $custom_cookbooks_source ?? null;
+    $this->custom_json = $custom_json ?? "";
+    $this->default_availability_zone = $default_availability_zone ?? "";
+    $this->default_instance_profile_arn = $default_instance_profile_arn ?? "";
+    $this->default_os = $default_os ?? "";
+    $this->default_root_device_type = $default_root_device_type ?? "";
+    $this->default_ssh_key_name = $default_ssh_key_name ?? "";
+    $this->default_subnet_id = $default_subnet_id ?? "";
+    $this->hostname_theme = $hostname_theme ?? "";
+    $this->name = $name ?? "";
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->use_custom_cookbooks = $use_custom_cookbooks ?? false;
+    $this->use_opsworks_security_groups = $use_opsworks_security_groups ?? false;
   }
 }
 
@@ -3041,10 +3041,10 @@ class UpdateUserProfileRequest {
   ?'ssh_public_key' => string,
   ?'ssh_username' => string,
   ) $s = shape()) {
-    $this->allow_self_management = $allow_self_management ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->ssh_username = $ssh_username ?? ;
+    $this->allow_self_management = $allow_self_management ?? false;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->ssh_username = $ssh_username ?? "";
   }
 }
 
@@ -3058,9 +3058,9 @@ class UpdateVolumeRequest {
   ?'name' => string,
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->mount_point = $mount_point ?? ;
-    $this->name = $name ?? ;
-    $this->volume_id = $volume_id ?? ;
+    $this->mount_point = $mount_point ?? "";
+    $this->name = $name ?? "";
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -3078,11 +3078,11 @@ class UserProfile {
   ?'ssh_public_key' => string,
   ?'ssh_username' => string,
   ) $s = shape()) {
-    $this->allow_self_management = $allow_self_management ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->name = $name ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->ssh_username = $ssh_username ?? ;
+    $this->allow_self_management = $allow_self_management ?? false;
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->name = $name ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->ssh_username = $ssh_username ?? "";
   }
 }
 
@@ -3096,7 +3096,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3134,19 +3134,19 @@ class Volume {
   ?'volume_id' => string,
   ?'volume_type' => string,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->device = $device ?? ;
-    $this->ec_2_volume_id = $ec_2_volume_id ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->iops = $iops ?? ;
-    $this->mount_point = $mount_point ?? ;
-    $this->name = $name ?? ;
-    $this->raid_array_id = $raid_array_id ?? ;
-    $this->region = $region ?? ;
-    $this->size = $size ?? ;
-    $this->status = $status ?? ;
-    $this->volume_id = $volume_id ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->device = $device ?? "";
+    $this->ec_2_volume_id = $ec_2_volume_id ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->instance_id = $instance_id ?? "";
+    $this->iops = $iops ?? 0;
+    $this->mount_point = $mount_point ?? "";
+    $this->name = $name ?? "";
+    $this->raid_array_id = $raid_array_id ?? "";
+    $this->region = $region ?? "";
+    $this->size = $size ?? 0;
+    $this->status = $status ?? "";
+    $this->volume_id = $volume_id ?? "";
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -3169,12 +3169,12 @@ class VolumeConfiguration {
   ?'size' => int,
   ?'volume_type' => string,
   ) $s = shape()) {
-    $this->encrypted = $encrypted ?? ;
-    $this->iops = $iops ?? ;
-    $this->mount_point = $mount_point ?? ;
-    $this->number_of_disks = $number_of_disks ?? ;
-    $this->raid_level = $raid_level ?? ;
-    $this->size = $size ?? ;
+    $this->encrypted = $encrypted ?? false;
+    $this->iops = $iops ?? 0;
+    $this->mount_point = $mount_point ?? "";
+    $this->number_of_disks = $number_of_disks ?? 0;
+    $this->raid_level = $raid_level ?? 0;
+    $this->size = $size ?? 0;
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -3203,13 +3203,13 @@ class WeeklyAutoScalingSchedule {
   ?'tuesday' => DailyAutoScalingSchedule,
   ?'wednesday' => DailyAutoScalingSchedule,
   ) $s = shape()) {
-    $this->friday = $friday ?? ;
-    $this->monday = $monday ?? ;
-    $this->saturday = $saturday ?? ;
-    $this->sunday = $sunday ?? ;
-    $this->thursday = $thursday ?? ;
-    $this->tuesday = $tuesday ?? ;
-    $this->wednesday = $wednesday ?? ;
+    $this->friday = $friday ?? [];
+    $this->monday = $monday ?? [];
+    $this->saturday = $saturday ?? [];
+    $this->sunday = $sunday ?? [];
+    $this->thursday = $thursday ?? [];
+    $this->tuesday = $tuesday ?? [];
+    $this->wednesday = $wednesday ?? [];
   }
 }
 

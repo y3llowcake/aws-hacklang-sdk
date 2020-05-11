@@ -70,8 +70,8 @@ class AcceptInvitationRequest {
   ?'master_id' => string,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->invitation_id = $invitation_id ?? ;
-    $this->master_id = $master_id ?? ;
+    $this->invitation_id = $invitation_id ?? "";
+    $this->master_id = $master_id ?? "";
   }
 }
 
@@ -94,10 +94,10 @@ class AccessKeyDetails {
   ?'user_name' => string,
   ?'user_type' => string,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->principal_id = $principal_id ?? ;
-    $this->user_name = $user_name ?? ;
-    $this->user_type = $user_type ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->principal_id = $principal_id ?? "";
+    $this->user_name = $user_name ?? "";
+    $this->user_type = $user_type ?? "";
   }
 }
 
@@ -134,7 +134,7 @@ class Action {
   ?'network_connection_action' => NetworkConnectionAction,
   ?'port_probe_action' => PortProbeAction,
   ) $s = shape()) {
-    $this->action_type = $action_type ?? ;
+    $this->action_type = $action_type ?? "";
     $this->aws_api_call_action = $aws_api_call_action ?? null;
     $this->dns_request_action = $dns_request_action ?? null;
     $this->network_connection_action = $network_connection_action ?? null;
@@ -150,7 +150,7 @@ class AdminAccount {
   ?'admin_account_id' => string,
   ?'admin_status' => AdminStatus,
   ) $s = shape()) {
-    $this->admin_account_id = $admin_account_id ?? ;
+    $this->admin_account_id = $admin_account_id ?? "";
     $this->admin_status = $admin_status ?? "";
   }
 }
@@ -193,11 +193,11 @@ class AwsApiCallAction {
   ?'remote_ip_details' => RemoteIpDetails,
   ?'service_name' => string,
   ) $s = shape()) {
-    $this->api = $api ?? ;
-    $this->caller_type = $caller_type ?? ;
+    $this->api = $api ?? "";
+    $this->caller_type = $caller_type ?? "";
     $this->domain_details = $domain_details ?? null;
     $this->remote_ip_details = $remote_ip_details ?? null;
-    $this->service_name = $service_name ?? ;
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -209,8 +209,8 @@ class BadRequestException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -222,7 +222,7 @@ class City {
   public function __construct(shape(
   ?'city_name' => string,
   ) $s = shape()) {
-    $this->city_name = $city_name ?? ;
+    $this->city_name = $city_name ?? "";
   }
 }
 
@@ -258,14 +258,14 @@ class Condition {
   ) $s = shape()) {
     $this->eq = $eq ?? [];
     $this->equals = $equals ?? [];
-    $this->greater_than = $greater_than ?? ;
-    $this->greater_than_or_equal = $greater_than_or_equal ?? ;
-    $this->gt = $gt ?? ;
-    $this->gte = $gte ?? ;
-    $this->less_than = $less_than ?? ;
-    $this->less_than_or_equal = $less_than_or_equal ?? ;
-    $this->lt = $lt ?? ;
-    $this->lte = $lte ?? ;
+    $this->greater_than = $greater_than ?? 0;
+    $this->greater_than_or_equal = $greater_than_or_equal ?? 0;
+    $this->gt = $gt ?? 0;
+    $this->gte = $gte ?? 0;
+    $this->less_than = $less_than ?? 0;
+    $this->less_than_or_equal = $less_than_or_equal ?? 0;
+    $this->lt = $lt ?? 0;
+    $this->lte = $lte ?? 0;
     $this->neq = $neq ?? [];
     $this->not_equals = $not_equals ?? [];
   }
@@ -281,8 +281,8 @@ class Country {
   ?'country_code' => string,
   ?'country_name' => string,
   ) $s = shape()) {
-    $this->country_code = $country_code ?? ;
-    $this->country_name = $country_name ?? ;
+    $this->country_code = $country_code ?? "";
+    $this->country_name = $country_name ?? "";
   }
 }
 
@@ -299,7 +299,7 @@ class CreateDetectorRequest {
   ?'tags' => TagMap,
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
-    $this->enable = $enable ?? ;
+    $this->enable = $enable ?? false;
     $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
     $this->tags = $tags ?? [];
   }
@@ -335,13 +335,13 @@ class CreateFilterRequest {
   ?'rank' => FilterRank,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->action = $action ?? null;
+    $this->action = $action ?? "";
     $this->client_token = $client_token ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->detector_id = $detector_id ?? "";
     $this->finding_criteria = $finding_criteria ?? null;
     $this->name = $name ?? "";
-    $this->rank = $rank ?? ;
+    $this->rank = $rank ?? 0;
     $this->tags = $tags ?? [];
   }
 }
@@ -374,10 +374,10 @@ class CreateIPSetRequest {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->activate = $activate ?? ;
+    $this->activate = $activate ?? false;
     $this->client_token = $client_token ?? "";
     $this->detector_id = $detector_id ?? "";
-    $this->format = $format ?? ;
+    $this->format = $format ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
     $this->tags = $tags ?? [];
@@ -390,7 +390,7 @@ class CreateIPSetResponse {
   public function __construct(shape(
   ?'ip_set_id' => string,
   ) $s = shape()) {
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
   }
 }
 
@@ -442,7 +442,7 @@ class CreatePublishingDestinationResponse {
   public function __construct(shape(
   ?'destination_id' => string,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
   }
 }
 
@@ -484,10 +484,10 @@ class CreateThreatIntelSetRequest {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->activate = $activate ?? ;
+    $this->activate = $activate ?? false;
     $this->client_token = $client_token ?? "";
     $this->detector_id = $detector_id ?? "";
-    $this->format = $format ?? ;
+    $this->format = $format ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
     $this->tags = $tags ?? [];
@@ -500,7 +500,7 @@ class CreateThreatIntelSetResponse {
   public function __construct(shape(
   ?'threat_intel_set_id' => string,
   ) $s = shape()) {
-    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+    $this->threat_intel_set_id = $threat_intel_set_id ?? "";
   }
 }
 
@@ -572,7 +572,7 @@ class DeleteIPSetRequest {
   ?'ip_set_id' => string,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
   }
 }
 
@@ -634,7 +634,7 @@ class DeletePublishingDestinationRequest {
   ?'destination_id' => string,
   ?'detector_id' => DetectorId,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
     $this->detector_id = $detector_id ?? "";
   }
 }
@@ -655,7 +655,7 @@ class DeleteThreatIntelSetRequest {
   ?'threat_intel_set_id' => string,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+    $this->threat_intel_set_id = $threat_intel_set_id ?? "";
   }
 }
 
@@ -684,8 +684,8 @@ class DescribeOrganizationConfigurationResponse {
   ?'auto_enable' => boolean,
   ?'member_account_limit_reached' => boolean,
   ) $s = shape()) {
-    $this->auto_enable = $auto_enable ?? ;
-    $this->member_account_limit_reached = $member_account_limit_reached ?? ;
+    $this->auto_enable = $auto_enable ?? false;
+    $this->member_account_limit_reached = $member_account_limit_reached ?? false;
   }
 }
 
@@ -697,7 +697,7 @@ class DescribePublishingDestinationRequest {
   ?'destination_id' => string,
   ?'detector_id' => DetectorId,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
     $this->detector_id = $detector_id ?? "";
   }
 }
@@ -716,11 +716,11 @@ class DescribePublishingDestinationResponse {
   ?'publishing_failure_start_timestamp' => Long,
   ?'status' => PublishingStatus,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
     $this->destination_properties = $destination_properties ?? null;
     $this->destination_type = $destination_type ?? "";
-    $this->publishing_failure_start_timestamp = $publishing_failure_start_timestamp ?? ;
-    $this->status = $status ?? ;
+    $this->publishing_failure_start_timestamp = $publishing_failure_start_timestamp ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -734,9 +734,9 @@ class Destination {
   ?'destination_type' => DestinationType,
   ?'status' => PublishingStatus,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
     $this->destination_type = $destination_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -748,8 +748,8 @@ class DestinationProperties {
   ?'destination_arn' => string,
   ?'kms_key_arn' => string,
   ) $s = shape()) {
-    $this->destination_arn = $destination_arn ?? ;
-    $this->kms_key_arn = $kms_key_arn ?? ;
+    $this->destination_arn = $destination_arn ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
   }
 }
 
@@ -769,7 +769,7 @@ class DisableOrganizationAdminAccountRequest {
   public function __construct(shape(
   ?'admin_account_id' => string,
   ) $s = shape()) {
-    $this->admin_account_id = $admin_account_id ?? ;
+    $this->admin_account_id = $admin_account_id ?? "";
   }
 }
 
@@ -826,7 +826,7 @@ class DnsRequestAction {
   public function __construct(shape(
   ?'domain' => string,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -836,7 +836,7 @@ class DomainDetails {
   public function __construct(shape(
   ?'domain' => string,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -850,7 +850,7 @@ class EnableOrganizationAdminAccountRequest {
   public function __construct(shape(
   ?'admin_account_id' => string,
   ) $s = shape()) {
-    $this->admin_account_id = $admin_account_id ?? ;
+    $this->admin_account_id = $admin_account_id ?? "";
   }
 }
 
@@ -922,20 +922,20 @@ class Finding {
   ?'updated_at' => string,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->arn = $arn ?? ;
-    $this->confidence = $confidence ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->partition = $partition ?? ;
-    $this->region = $region ?? ;
+    $this->arn = $arn ?? "";
+    $this->confidence = $confidence ?? 0.0;
+    $this->created_at = $created_at ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->partition = $partition ?? "";
+    $this->region = $region ?? "";
     $this->resource = $resource ?? null;
-    $this->schema_version = $schema_version ?? ;
+    $this->schema_version = $schema_version ?? "";
     $this->service = $service ?? null;
-    $this->severity = $severity ?? ;
-    $this->title = $title ?? ;
-    $this->type = $type ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->severity = $severity ?? 0.0;
+    $this->title = $title ?? "";
+    $this->type = $type ?? "";
+    $this->updated_at = $updated_at ?? "";
   }
 }
 
@@ -983,8 +983,8 @@ class GeoLocation {
   ?'lat' => Double,
   ?'lon' => Double,
   ) $s = shape()) {
-    $this->lat = $lat ?? ;
-    $this->lon = $lon ?? ;
+    $this->lat = $lat ?? 0.0;
+    $this->lon = $lon ?? 0.0;
   }
 }
 
@@ -1014,12 +1014,12 @@ class GetDetectorResponse {
   ?'tags' => TagMap,
   ?'updated_at' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? "";
     $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
-    $this->service_role = $service_role ?? ;
-    $this->status = $status ?? ;
+    $this->service_role = $service_role ?? "";
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
-    $this->updated_at = $updated_at ?? ;
+    $this->updated_at = $updated_at ?? "";
   }
 }
 
@@ -1052,11 +1052,11 @@ class GetFilterResponse {
   ?'rank' => FilterRank,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->action = $action ?? null;
-    $this->description = $description ?? ;
+    $this->action = $action ?? "";
+    $this->description = $description ?? "";
     $this->finding_criteria = $finding_criteria ?? null;
     $this->name = $name ?? "";
-    $this->rank = $rank ?? ;
+    $this->rank = $rank ?? 0;
     $this->tags = $tags ?? [];
   }
 }
@@ -1122,7 +1122,7 @@ class GetIPSetRequest {
   ?'ip_set_id' => string,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
   }
 }
 
@@ -1140,10 +1140,10 @@ class GetIPSetResponse {
   ?'status' => IpSetStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->format = $format ?? ;
+    $this->format = $format ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1161,7 +1161,7 @@ class GetInvitationsCountResponse {
   public function __construct(shape(
   ?'invitations_count' => int,
   ) $s = shape()) {
-    $this->invitations_count = $invitations_count ?? ;
+    $this->invitations_count = $invitations_count ?? 0;
   }
 }
 
@@ -1220,7 +1220,7 @@ class GetThreatIntelSetRequest {
   ?'threat_intel_set_id' => string,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+    $this->threat_intel_set_id = $threat_intel_set_id ?? "";
   }
 }
 
@@ -1238,10 +1238,10 @@ class GetThreatIntelSetResponse {
   ?'status' => ThreatIntelSetStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->format = $format ?? ;
+    $this->format = $format ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1256,8 +1256,8 @@ class IamInstanceProfile {
   ?'arn' => string,
   ?'id' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1291,17 +1291,17 @@ class InstanceDetails {
   ?'product_codes' => ProductCodes,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->iam_instance_profile = $iam_instance_profile ?? null;
-    $this->image_description = $image_description ?? ;
-    $this->image_id = $image_id ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_state = $instance_state ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->launch_time = $launch_time ?? ;
+    $this->image_description = $image_description ?? "";
+    $this->image_id = $image_id ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_state = $instance_state ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->launch_time = $launch_time ?? "";
     $this->network_interfaces = $network_interfaces ?? [];
-    $this->outpost_arn = $outpost_arn ?? ;
-    $this->platform = $platform ?? ;
+    $this->outpost_arn = $outpost_arn ?? "";
+    $this->platform = $platform ?? "";
     $this->product_codes = $product_codes ?? [];
     $this->tags = $tags ?? [];
   }
@@ -1317,8 +1317,8 @@ class InternalServerErrorException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1335,9 +1335,9 @@ class Invitation {
   ?'relationship_status' => string,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->invitation_id = $invitation_id ?? ;
-    $this->invited_at = $invited_at ?? ;
-    $this->relationship_status = $relationship_status ?? ;
+    $this->invitation_id = $invitation_id ?? "";
+    $this->invited_at = $invited_at ?? "";
+    $this->relationship_status = $relationship_status ?? "";
   }
 }
 
@@ -1357,8 +1357,8 @@ class InviteMembersRequest {
   ) $s = shape()) {
     $this->account_ids = $account_ids ?? [];
     $this->detector_id = $detector_id ?? "";
-    $this->disable_email_notification = $disable_email_notification ?? ;
-    $this->message = $message ?? ;
+    $this->disable_email_notification = $disable_email_notification ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1389,7 +1389,7 @@ class ListDetectorsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1402,7 +1402,7 @@ class ListDetectorsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->detector_ids = $detector_ids ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1418,7 +1418,7 @@ class ListFiltersRequest {
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1431,7 +1431,7 @@ class ListFiltersResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->filter_names = $filter_names ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1452,7 +1452,7 @@ class ListFindingsRequest {
     $this->detector_id = $detector_id ?? "";
     $this->finding_criteria = $finding_criteria ?? null;
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->sort_criteria = $sort_criteria ?? null;
   }
 }
@@ -1466,7 +1466,7 @@ class ListFindingsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->finding_ids = $finding_ids ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1482,7 +1482,7 @@ class ListIPSetsRequest {
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1495,7 +1495,7 @@ class ListIPSetsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->ip_set_ids = $ip_set_ids ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1508,7 +1508,7 @@ class ListInvitationsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1521,7 +1521,7 @@ class ListInvitationsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->invitations = $invitations ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1539,8 +1539,8 @@ class ListMembersRequest {
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->only_associated = $only_associated ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->only_associated = $only_associated ?? "";
   }
 }
 
@@ -1553,7 +1553,7 @@ class ListMembersResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->members = $members ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1566,7 +1566,7 @@ class ListOrganizationAdminAccountsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1579,7 +1579,7 @@ class ListOrganizationAdminAccountsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->admin_accounts = $admin_accounts ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1595,7 +1595,7 @@ class ListPublishingDestinationsRequest {
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1608,7 +1608,7 @@ class ListPublishingDestinationsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->destinations = $destinations ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1618,7 +1618,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => GuardDutyArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1644,7 +1644,7 @@ class ListThreatIntelSetsRequest {
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1656,7 +1656,7 @@ class ListThreatIntelSetsResponse {
   ?'next_token' => string,
   ?'threat_intel_set_ids' => ThreatIntelSetIds,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->threat_intel_set_ids = $threat_intel_set_ids ?? [];
   }
 }
@@ -1667,7 +1667,7 @@ class LocalIpDetails {
   public function __construct(shape(
   ?'ip_address_v_4' => string,
   ) $s = shape()) {
-    $this->ip_address_v_4 = $ip_address_v_4 ?? ;
+    $this->ip_address_v_4 = $ip_address_v_4 ?? "";
   }
 }
 
@@ -1679,8 +1679,8 @@ class LocalPortDetails {
   ?'port' => int,
   ?'port_name' => string,
   ) $s = shape()) {
-    $this->port = $port ?? ;
-    $this->port_name = $port_name ?? ;
+    $this->port = $port ?? 0;
+    $this->port_name = $port_name ?? "";
   }
 }
 
@@ -1701,9 +1701,9 @@ class Master {
   ?'relationship_status' => string,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->invitation_id = $invitation_id ?? ;
-    $this->invited_at = $invited_at ?? ;
-    $this->relationship_status = $relationship_status ?? ;
+    $this->invitation_id = $invitation_id ?? "";
+    $this->invited_at = $invited_at ?? "";
+    $this->relationship_status = $relationship_status ?? "";
   }
 }
 
@@ -1730,10 +1730,10 @@ class Member {
     $this->account_id = $account_id ?? "";
     $this->detector_id = $detector_id ?? "";
     $this->email = $email ?? "";
-    $this->invited_at = $invited_at ?? ;
-    $this->master_id = $master_id ?? ;
-    $this->relationship_status = $relationship_status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->invited_at = $invited_at ?? "";
+    $this->master_id = $master_id ?? "";
+    $this->relationship_status = $relationship_status ?? "";
+    $this->updated_at = $updated_at ?? "";
   }
 }
 
@@ -1761,11 +1761,11 @@ class NetworkConnectionAction {
   ?'remote_ip_details' => RemoteIpDetails,
   ?'remote_port_details' => RemotePortDetails,
   ) $s = shape()) {
-    $this->blocked = $blocked ?? ;
-    $this->connection_direction = $connection_direction ?? ;
+    $this->blocked = $blocked ?? false;
+    $this->connection_direction = $connection_direction ?? "";
     $this->local_ip_details = $local_ip_details ?? null;
     $this->local_port_details = $local_port_details ?? null;
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
     $this->remote_ip_details = $remote_ip_details ?? null;
     $this->remote_port_details = $remote_port_details ?? null;
   }
@@ -1796,15 +1796,15 @@ class NetworkInterface {
   ?'vpc_id' => string,
   ) $s = shape()) {
     $this->ipv_6_addresses = $ipv_6_addresses ?? [];
-    $this->network_interface_id = $network_interface_id ?? ;
-    $this->private_dns_name = $private_dns_name ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->private_dns_name = $private_dns_name ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
     $this->private_ip_addresses = $private_ip_addresses ?? [];
-    $this->public_dns_name = $public_dns_name ?? ;
-    $this->public_ip = $public_ip ?? ;
+    $this->public_dns_name = $public_dns_name ?? "";
+    $this->public_ip = $public_ip ?? "";
     $this->security_groups = $security_groups ?? [];
-    $this->subnet_id = $subnet_id ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->subnet_id = $subnet_id ?? "";
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -1826,10 +1826,10 @@ class Organization {
   ?'isp' => string,
   ?'org' => string,
   ) $s = shape()) {
-    $this->asn = $asn ?? ;
-    $this->asn_org = $asn_org ?? ;
-    $this->isp = $isp ?? ;
-    $this->org = $org ?? ;
+    $this->asn = $asn ?? "";
+    $this->asn_org = $asn_org ?? "";
+    $this->isp = $isp ?? "";
+    $this->org = $org ?? "";
   }
 }
 
@@ -1841,7 +1841,7 @@ class PortProbeAction {
   ?'blocked' => boolean,
   ?'port_probe_details' => PortProbeDetails,
   ) $s = shape()) {
-    $this->blocked = $blocked ?? ;
+    $this->blocked = $blocked ?? false;
     $this->port_probe_details = $port_probe_details ?? [];
   }
 }
@@ -1872,8 +1872,8 @@ class PrivateIpAddressDetails {
   ?'private_dns_name' => string,
   ?'private_ip_address' => string,
   ) $s = shape()) {
-    $this->private_dns_name = $private_dns_name ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
+    $this->private_dns_name = $private_dns_name ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
   }
 }
 
@@ -1887,8 +1887,8 @@ class ProductCode {
   ?'code' => string,
   ?'product_type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->product_type = $product_type ?? ;
+    $this->code = $code ?? "";
+    $this->product_type = $product_type ?? "";
   }
 }
 
@@ -1913,7 +1913,7 @@ class RemoteIpDetails {
     $this->city = $city ?? null;
     $this->country = $country ?? null;
     $this->geo_location = $geo_location ?? null;
-    $this->ip_address_v_4 = $ip_address_v_4 ?? ;
+    $this->ip_address_v_4 = $ip_address_v_4 ?? "";
     $this->organization = $organization ?? null;
   }
 }
@@ -1926,8 +1926,8 @@ class RemotePortDetails {
   ?'port' => int,
   ?'port_name' => string,
   ) $s = shape()) {
-    $this->port = $port ?? ;
-    $this->port_name = $port_name ?? ;
+    $this->port = $port ?? 0;
+    $this->port_name = $port_name ?? "";
   }
 }
 
@@ -1943,7 +1943,7 @@ class Resource {
   ) $s = shape()) {
     $this->access_key_details = $access_key_details ?? null;
     $this->instance_details = $instance_details ?? null;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1955,8 +1955,8 @@ class SecurityGroup {
   ?'group_id' => string,
   ?'group_name' => string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -1987,15 +1987,15 @@ class Service {
   ?'user_feedback' => string,
   ) $s = shape()) {
     $this->action = $action ?? null;
-    $this->archived = $archived ?? ;
-    $this->count = $count ?? ;
+    $this->archived = $archived ?? false;
+    $this->count = $count ?? 0;
     $this->detector_id = $detector_id ?? "";
-    $this->event_first_seen = $event_first_seen ?? ;
-    $this->event_last_seen = $event_last_seen ?? ;
+    $this->event_first_seen = $event_first_seen ?? "";
+    $this->event_last_seen = $event_last_seen ?? "";
     $this->evidence = $evidence ?? null;
-    $this->resource_role = $resource_role ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->user_feedback = $user_feedback ?? ;
+    $this->resource_role = $resource_role ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->user_feedback = $user_feedback ?? "";
   }
 }
 
@@ -2007,7 +2007,7 @@ class SortCriteria {
   ?'attribute_name' => string,
   ?'order_by' => OrderBy,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
+    $this->attribute_name = $attribute_name ?? "";
     $this->order_by = $order_by ?? "";
   }
 }
@@ -2068,8 +2068,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2087,7 +2087,7 @@ class TagResourceRequest {
   ?'resource_arn' => GuardDutyArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -2117,7 +2117,7 @@ class ThreatIntelligenceDetail {
   ?'threat_list_name' => string,
   ?'threat_names' => ThreatNames,
   ) $s = shape()) {
-    $this->threat_list_name = $threat_list_name ?? ;
+    $this->threat_list_name = $threat_list_name ?? "";
     $this->threat_names = $threat_names ?? [];
   }
 }
@@ -2155,7 +2155,7 @@ class UnprocessedAccount {
   ?'result' => string,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->result = $result ?? ;
+    $this->result = $result ?? "";
   }
 }
 
@@ -2169,8 +2169,8 @@ class UntagResourceRequest {
   ?'resource_arn' => GuardDutyArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2192,7 +2192,7 @@ class UpdateDetectorRequest {
   ?'finding_publishing_frequency' => FindingPublishingFrequency,
   ) $s = shape()) {
     $this->detector_id = $detector_id ?? "";
-    $this->enable = $enable ?? ;
+    $this->enable = $enable ?? false;
     $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
   }
 }
@@ -2220,12 +2220,12 @@ class UpdateFilterRequest {
   ?'finding_criteria' => FindingCriteria,
   ?'rank' => FilterRank,
   ) $s = shape()) {
-    $this->action = $action ?? null;
-    $this->description = $description ?? ;
+    $this->action = $action ?? "";
+    $this->description = $description ?? "";
     $this->detector_id = $detector_id ?? "";
     $this->filter_name = $filter_name ?? "";
     $this->finding_criteria = $finding_criteria ?? null;
-    $this->rank = $rank ?? ;
+    $this->rank = $rank ?? 0;
   }
 }
 
@@ -2251,7 +2251,7 @@ class UpdateFindingsFeedbackRequest {
   ?'feedback' => Feedback,
   ?'finding_ids' => FindingIds,
   ) $s = shape()) {
-    $this->comments = $comments ?? ;
+    $this->comments = $comments ?? "";
     $this->detector_id = $detector_id ?? "";
     $this->feedback = $feedback ?? "";
     $this->finding_ids = $finding_ids ?? [];
@@ -2279,9 +2279,9 @@ class UpdateIPSetRequest {
   ?'location' => Location,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->activate = $activate ?? ;
+    $this->activate = $activate ?? false;
     $this->detector_id = $detector_id ?? "";
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
   }
@@ -2302,7 +2302,7 @@ class UpdateOrganizationConfigurationRequest {
   ?'auto_enable' => boolean,
   ?'detector_id' => DetectorId,
   ) $s = shape()) {
-    $this->auto_enable = $auto_enable ?? ;
+    $this->auto_enable = $auto_enable ?? false;
     $this->detector_id = $detector_id ?? "";
   }
 }
@@ -2324,7 +2324,7 @@ class UpdatePublishingDestinationRequest {
   ?'destination_properties' => DestinationProperties,
   ?'detector_id' => DetectorId,
   ) $s = shape()) {
-    $this->destination_id = $destination_id ?? ;
+    $this->destination_id = $destination_id ?? "";
     $this->destination_properties = $destination_properties ?? null;
     $this->detector_id = $detector_id ?? "";
   }
@@ -2351,11 +2351,11 @@ class UpdateThreatIntelSetRequest {
   ?'name' => Name,
   ?'threat_intel_set_id' => string,
   ) $s = shape()) {
-    $this->activate = $activate ?? ;
+    $this->activate = $activate ?? false;
     $this->detector_id = $detector_id ?? "";
     $this->location = $location ?? "";
     $this->name = $name ?? "";
-    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+    $this->threat_intel_set_id = $threat_intel_set_id ?? "";
   }
 }
 

@@ -37,8 +37,8 @@ class ConnectionCredentials {
   ?'connection_token' => ParticipantToken,
   ?'expiry' => ISO8601Datetime,
   ) $s = shape()) {
-    $this->connection_token = $connection_token ?? ;
-    $this->expiry = $expiry ?? ;
+    $this->connection_token = $connection_token ?? "";
+    $this->expiry = $expiry ?? "";
   }
 }
 
@@ -57,7 +57,7 @@ class CreateParticipantConnectionRequest {
   ?'type' => ConnectionTypeList,
   ) $s = shape()) {
     $this->participant_token = $participant_token ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? [];
   }
 }
 
@@ -83,7 +83,7 @@ class DisconnectParticipantRequest {
   ?'connection_token' => ParticipantToken,
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
-    $this->connection_token = $connection_token ?? ;
+    $this->connection_token = $connection_token ?? "";
   }
 }
 
@@ -114,12 +114,12 @@ class GetTranscriptRequest {
   ?'sort_order' => SortKey,
   ?'start_position' => StartPosition,
   ) $s = shape()) {
-    $this->connection_token = $connection_token ?? ;
+    $this->connection_token = $connection_token ?? "";
     $this->contact_id = $contact_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->scan_direction = $scan_direction ?? "";
-    $this->sort_order = $sort_order ?? ;
+    $this->sort_order = $sort_order ?? "";
     $this->start_position = $start_position ?? null;
   }
 }
@@ -134,7 +134,7 @@ class GetTranscriptResponse {
   ?'next_token' => NextToken,
   ?'transcript' => Transcript,
   ) $s = shape()) {
-    $this->initial_contact_id = $initial_contact_id ?? ;
+    $this->initial_contact_id = $initial_contact_id ?? "";
     $this->next_token = $next_token ?? "";
     $this->transcript = $transcript ?? [];
   }
@@ -174,14 +174,14 @@ class Item {
   ?'participant_role' => ParticipantRole,
   ?'type' => ChatItemType,
   ) $s = shape()) {
-    $this->absolute_time = $absolute_time ?? ;
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
+    $this->absolute_time = $absolute_time ?? "";
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
     $this->display_name = $display_name ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->participant_id = $participant_id ?? "";
     $this->participant_role = $participant_role ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -218,9 +218,9 @@ class SendEventRequest {
   ?'content_type' => ChatContentType,
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
-    $this->connection_token = $connection_token ?? ;
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
+    $this->connection_token = $connection_token ?? "";
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
   }
 }
 
@@ -232,8 +232,8 @@ class SendEventResponse {
   ?'absolute_time' => Instant,
   ?'id' => ChatItemId,
   ) $s = shape()) {
-    $this->absolute_time = $absolute_time ?? ;
-    $this->id = $id ?? ;
+    $this->absolute_time = $absolute_time ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -250,9 +250,9 @@ class SendMessageRequest {
   ?'content_type' => ChatContentType,
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
-    $this->connection_token = $connection_token ?? ;
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
+    $this->connection_token = $connection_token ?? "";
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
   }
 }
 
@@ -264,8 +264,8 @@ class SendMessageResponse {
   ?'absolute_time' => Instant,
   ?'id' => ChatItemId,
   ) $s = shape()) {
-    $this->absolute_time = $absolute_time ?? ;
-    $this->id = $id ?? ;
+    $this->absolute_time = $absolute_time ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -281,8 +281,8 @@ class StartPosition {
   ?'id' => ChatItemId,
   ?'most_recent' => MostRecent,
   ) $s = shape()) {
-    $this->absolute_time = $absolute_time ?? ;
-    $this->id = $id ?? ;
+    $this->absolute_time = $absolute_time ?? "";
+    $this->id = $id ?? "";
     $this->most_recent = $most_recent ?? 0;
   }
 }
@@ -317,8 +317,8 @@ class Websocket {
   ?'connection_expiry' => ISO8601Datetime,
   ?'url' => PreSignedConnectionUrl,
   ) $s = shape()) {
-    $this->connection_expiry = $connection_expiry ?? ;
-    $this->url = $url ?? ;
+    $this->connection_expiry = $connection_expiry ?? "";
+    $this->url = $url ?? "";
   }
 }
 

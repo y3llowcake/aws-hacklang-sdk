@@ -17,7 +17,7 @@ class BatchMeterUsageRequest {
   ?'usage_records' => UsageRecordList,
   ) $s = shape()) {
     $this->product_code = $product_code ?? "";
-    $this->usage_records = $usage_records ?? ;
+    $this->usage_records = $usage_records ?? [];
   }
 }
 
@@ -29,8 +29,8 @@ class BatchMeterUsageResult {
   ?'results' => UsageRecordResultList,
   ?'unprocessed_records' => UsageRecordList,
   ) $s = shape()) {
-    $this->results = $results ?? ;
-    $this->unprocessed_records = $unprocessed_records ?? ;
+    $this->results = $results ?? [];
+    $this->unprocessed_records = $unprocessed_records ?? [];
   }
 }
 
@@ -44,7 +44,7 @@ class CustomerNotEntitledException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -54,7 +54,7 @@ class DisabledApiException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -64,7 +64,7 @@ class DuplicateRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -74,7 +74,7 @@ class ExpiredTokenException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -84,7 +84,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -94,7 +94,7 @@ class InvalidCustomerIdentifierException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -104,7 +104,7 @@ class InvalidEndpointRegionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -114,7 +114,7 @@ class InvalidProductCodeException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class InvalidPublicKeyVersionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -134,7 +134,7 @@ class InvalidRegionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -144,7 +144,7 @@ class InvalidTokenException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -154,7 +154,7 @@ class InvalidUsageDimensionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -172,7 +172,7 @@ class MeterUsageRequest {
   ?'usage_dimension' => UsageDimension,
   ?'usage_quantity' => UsageQuantity,
   ) $s = shape()) {
-    $this->dry_run = $dry_run ?? ;
+    $this->dry_run = $dry_run ?? false;
     $this->product_code = $product_code ?? "";
     $this->timestamp = $timestamp ?? 0;
     $this->usage_dimension = $usage_dimension ?? "";
@@ -186,7 +186,7 @@ class MeterUsageResult {
   public function __construct(shape(
   ?'metering_record_id' => string,
   ) $s = shape()) {
-    $this->metering_record_id = $metering_record_id ?? ;
+    $this->metering_record_id = $metering_record_id ?? "";
   }
 }
 
@@ -200,7 +200,7 @@ class PlatformNotSupportedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -218,7 +218,7 @@ class RegisterUsageRequest {
   ) $s = shape()) {
     $this->nonce = $nonce ?? "";
     $this->product_code = $product_code ?? "";
-    $this->public_key_version = $public_key_version ?? ;
+    $this->public_key_version = $public_key_version ?? 0;
   }
 }
 
@@ -230,8 +230,8 @@ class RegisterUsageResult {
   ?'public_key_rotation_timestamp' => Timestamp,
   ?'signature' => NonEmptyString,
   ) $s = shape()) {
-    $this->public_key_rotation_timestamp = $public_key_rotation_timestamp ?? ;
-    $this->signature = $signature ?? ;
+    $this->public_key_rotation_timestamp = $public_key_rotation_timestamp ?? 0;
+    $this->signature = $signature ?? "";
   }
 }
 
@@ -241,7 +241,7 @@ class ResolveCustomerRequest {
   public function __construct(shape(
   ?'registration_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->registration_token = $registration_token ?? ;
+    $this->registration_token = $registration_token ?? "";
   }
 }
 
@@ -266,7 +266,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -278,7 +278,7 @@ class TimestampOutOfBoundsException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -299,8 +299,8 @@ class UsageRecord {
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
     $this->customer_identifier = $customer_identifier ?? "";
-    $this->dimension = $dimension ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->dimension = $dimension ?? "";
+    $this->quantity = $quantity ?? 0;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -317,8 +317,8 @@ class UsageRecordResult {
   ?'status' => UsageRecordResultStatus,
   ?'usage_record' => UsageRecord,
   ) $s = shape()) {
-    $this->metering_record_id = $metering_record_id ?? ;
-    $this->status = $status ?? ;
+    $this->metering_record_id = $metering_record_id ?? "";
+    $this->status = $status ?? "";
     $this->usage_record = $usage_record ?? null;
   }
 }

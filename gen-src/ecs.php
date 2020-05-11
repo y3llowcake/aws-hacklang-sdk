@@ -75,10 +75,10 @@ class Attachment {
   ?'status' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->details = $details ?? [];
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -92,8 +92,8 @@ class AttachmentStateChange {
   ?'attachment_arn' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->attachment_arn = $attachment_arn ?? ;
-    $this->status = $status ?? ;
+    $this->attachment_arn = $attachment_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -113,10 +113,10 @@ class Attribute {
   ?'target_type' => TargetType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->target_id = $target_id ?? ;
-    $this->target_type = $target_type ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->target_id = $target_id ?? "";
+    $this->target_type = $target_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -139,9 +139,9 @@ class AutoScalingGroupProvider {
   ?'managed_scaling' => ManagedScaling,
   ?'managed_termination_protection' => ManagedTerminationProtection,
   ) $s = shape()) {
-    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? ;
-    $this->managed_scaling = $managed_scaling ?? ;
-    $this->managed_termination_protection = $managed_termination_protection ?? ;
+    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? "";
+    $this->managed_scaling = $managed_scaling ?? null;
+    $this->managed_termination_protection = $managed_termination_protection ?? "";
   }
 }
 
@@ -155,9 +155,9 @@ class AwsVpcConfiguration {
   ?'security_groups' => StringList,
   ?'subnets' => StringList,
   ) $s = shape()) {
-    $this->assign_public_ip = $assign_public_ip ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->subnets = $subnets ?? ;
+    $this->assign_public_ip = $assign_public_ip ?? "";
+    $this->security_groups = $security_groups ?? [];
+    $this->subnets = $subnets ?? [];
   }
 }
 
@@ -188,11 +188,11 @@ class CapacityProvider {
   ?'status' => CapacityProviderStatus,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->auto_scaling_group_provider = $auto_scaling_group_provider ?? ;
-    $this->capacity_provider_arn = $capacity_provider_arn ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->auto_scaling_group_provider = $auto_scaling_group_provider ?? null;
+    $this->capacity_provider_arn = $capacity_provider_arn ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -214,9 +214,9 @@ class CapacityProviderStrategyItem {
   ?'capacity_provider' => string,
   ?'weight' => CapacityProviderStrategyItemWeight,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->capacity_provider = $capacity_provider ?? ;
-    $this->weight = $weight ?? ;
+    $this->base = $base ?? 0;
+    $this->capacity_provider = $capacity_provider ?? "";
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -232,7 +232,7 @@ class ClientException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -268,20 +268,20 @@ class Cluster {
   ?'status' => string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->active_services_count = $active_services_count ?? ;
-    $this->attachments = $attachments ?? ;
-    $this->attachments_status = $attachments_status ?? ;
-    $this->capacity_providers = $capacity_providers ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? ;
-    $this->pending_tasks_count = $pending_tasks_count ?? ;
-    $this->registered_container_instances_count = $registered_container_instances_count ?? ;
-    $this->running_tasks_count = $running_tasks_count ?? ;
-    $this->settings = $settings ?? ;
-    $this->statistics = $statistics ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->active_services_count = $active_services_count ?? 0;
+    $this->attachments = $attachments ?? [];
+    $this->attachments_status = $attachments_status ?? "";
+    $this->capacity_providers = $capacity_providers ?? [];
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? [];
+    $this->pending_tasks_count = $pending_tasks_count ?? 0;
+    $this->registered_container_instances_count = $registered_container_instances_count ?? 0;
+    $this->running_tasks_count = $running_tasks_count ?? 0;
+    $this->settings = $settings ?? [];
+    $this->statistics = $statistics ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -325,8 +325,8 @@ class ClusterSetting {
   ?'name' => ClusterSettingName,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -378,22 +378,22 @@ class Container {
   ?'runtime_id' => string,
   ?'task_arn' => string,
   ) $s = shape()) {
-    $this->container_arn = $container_arn ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->gpu_ids = $gpu_ids ?? ;
-    $this->health_status = $health_status ?? ;
-    $this->image = $image ?? ;
-    $this->image_digest = $image_digest ?? ;
-    $this->last_status = $last_status ?? ;
-    $this->memory = $memory ?? ;
-    $this->memory_reservation = $memory_reservation ?? ;
-    $this->name = $name ?? ;
-    $this->network_bindings = $network_bindings ?? ;
-    $this->network_interfaces = $network_interfaces ?? ;
-    $this->reason = $reason ?? ;
-    $this->runtime_id = $runtime_id ?? ;
-    $this->task_arn = $task_arn ?? ;
+    $this->container_arn = $container_arn ?? "";
+    $this->cpu = $cpu ?? "";
+    $this->exit_code = $exit_code ?? 0;
+    $this->gpu_ids = $gpu_ids ?? [];
+    $this->health_status = $health_status ?? "";
+    $this->image = $image ?? "";
+    $this->image_digest = $image_digest ?? "";
+    $this->last_status = $last_status ?? "";
+    $this->memory = $memory ?? "";
+    $this->memory_reservation = $memory_reservation ?? "";
+    $this->name = $name ?? "";
+    $this->network_bindings = $network_bindings ?? [];
+    $this->network_interfaces = $network_interfaces ?? [];
+    $this->reason = $reason ?? "";
+    $this->runtime_id = $runtime_id ?? "";
+    $this->task_arn = $task_arn ?? "";
   }
 }
 
@@ -479,44 +479,44 @@ class ContainerDefinition {
   ?'volumes_from' => VolumeFromList,
   ?'working_directory' => string,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->depends_on = $depends_on ?? ;
-    $this->disable_networking = $disable_networking ?? ;
-    $this->dns_search_domains = $dns_search_domains ?? ;
-    $this->dns_servers = $dns_servers ?? ;
-    $this->docker_labels = $docker_labels ?? ;
-    $this->docker_security_options = $docker_security_options ?? ;
-    $this->entry_point = $entry_point ?? ;
-    $this->environment = $environment ?? ;
-    $this->essential = $essential ?? ;
-    $this->extra_hosts = $extra_hosts ?? ;
-    $this->firelens_configuration = $firelens_configuration ?? ;
-    $this->health_check = $health_check ?? ;
-    $this->hostname = $hostname ?? ;
-    $this->image = $image ?? ;
-    $this->interactive = $interactive ?? ;
-    $this->links = $links ?? ;
-    $this->linux_parameters = $linux_parameters ?? ;
-    $this->log_configuration = $log_configuration ?? ;
-    $this->memory = $memory ?? ;
-    $this->memory_reservation = $memory_reservation ?? ;
-    $this->mount_points = $mount_points ?? ;
-    $this->name = $name ?? ;
-    $this->port_mappings = $port_mappings ?? ;
-    $this->privileged = $privileged ?? ;
-    $this->pseudo_terminal = $pseudo_terminal ?? ;
-    $this->readonly_root_filesystem = $readonly_root_filesystem ?? ;
-    $this->repository_credentials = $repository_credentials ?? ;
-    $this->resource_requirements = $resource_requirements ?? ;
-    $this->secrets = $secrets ?? ;
-    $this->start_timeout = $start_timeout ?? ;
-    $this->stop_timeout = $stop_timeout ?? ;
-    $this->system_controls = $system_controls ?? ;
-    $this->ulimits = $ulimits ?? ;
-    $this->user = $user ?? ;
-    $this->volumes_from = $volumes_from ?? ;
-    $this->working_directory = $working_directory ?? ;
+    $this->command = $command ?? [];
+    $this->cpu = $cpu ?? 0;
+    $this->depends_on = $depends_on ?? [];
+    $this->disable_networking = $disable_networking ?? false;
+    $this->dns_search_domains = $dns_search_domains ?? [];
+    $this->dns_servers = $dns_servers ?? [];
+    $this->docker_labels = $docker_labels ?? [];
+    $this->docker_security_options = $docker_security_options ?? [];
+    $this->entry_point = $entry_point ?? [];
+    $this->environment = $environment ?? [];
+    $this->essential = $essential ?? false;
+    $this->extra_hosts = $extra_hosts ?? [];
+    $this->firelens_configuration = $firelens_configuration ?? null;
+    $this->health_check = $health_check ?? null;
+    $this->hostname = $hostname ?? "";
+    $this->image = $image ?? "";
+    $this->interactive = $interactive ?? false;
+    $this->links = $links ?? [];
+    $this->linux_parameters = $linux_parameters ?? null;
+    $this->log_configuration = $log_configuration ?? null;
+    $this->memory = $memory ?? 0;
+    $this->memory_reservation = $memory_reservation ?? 0;
+    $this->mount_points = $mount_points ?? [];
+    $this->name = $name ?? "";
+    $this->port_mappings = $port_mappings ?? [];
+    $this->privileged = $privileged ?? false;
+    $this->pseudo_terminal = $pseudo_terminal ?? false;
+    $this->readonly_root_filesystem = $readonly_root_filesystem ?? false;
+    $this->repository_credentials = $repository_credentials ?? null;
+    $this->resource_requirements = $resource_requirements ?? [];
+    $this->secrets = $secrets ?? [];
+    $this->start_timeout = $start_timeout ?? 0;
+    $this->stop_timeout = $stop_timeout ?? 0;
+    $this->system_controls = $system_controls ?? [];
+    $this->ulimits = $ulimits ?? [];
+    $this->user = $user ?? "";
+    $this->volumes_from = $volumes_from ?? [];
+    $this->working_directory = $working_directory ?? "";
   }
 }
 
@@ -532,8 +532,8 @@ class ContainerDependency {
   ?'condition' => ContainerCondition,
   ?'container_name' => string,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->container_name = $container_name ?? ;
+    $this->condition = $condition ?? "";
+    $this->container_name = $container_name ?? "";
   }
 }
 
@@ -575,23 +575,23 @@ class ContainerInstance {
   ?'version' => Long,
   ?'version_info' => VersionInfo,
   ) $s = shape()) {
-    $this->agent_connected = $agent_connected ?? ;
-    $this->agent_update_status = $agent_update_status ?? ;
-    $this->attachments = $attachments ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->capacity_provider_name = $capacity_provider_name ?? ;
-    $this->container_instance_arn = $container_instance_arn ?? ;
-    $this->ec_2_instance_id = $ec_2_instance_id ?? ;
-    $this->pending_tasks_count = $pending_tasks_count ?? ;
-    $this->registered_at = $registered_at ?? ;
-    $this->registered_resources = $registered_resources ?? ;
-    $this->remaining_resources = $remaining_resources ?? ;
-    $this->running_tasks_count = $running_tasks_count ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
-    $this->version_info = $version_info ?? ;
+    $this->agent_connected = $agent_connected ?? false;
+    $this->agent_update_status = $agent_update_status ?? "";
+    $this->attachments = $attachments ?? [];
+    $this->attributes = $attributes ?? [];
+    $this->capacity_provider_name = $capacity_provider_name ?? "";
+    $this->container_instance_arn = $container_instance_arn ?? "";
+    $this->ec_2_instance_id = $ec_2_instance_id ?? "";
+    $this->pending_tasks_count = $pending_tasks_count ?? 0;
+    $this->registered_at = $registered_at ?? 0;
+    $this->registered_resources = $registered_resources ?? [];
+    $this->remaining_resources = $remaining_resources ?? [];
+    $this->running_tasks_count = $running_tasks_count ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? 0;
+    $this->version_info = $version_info ?? null;
   }
 }
 
@@ -621,13 +621,13 @@ class ContainerOverride {
   ?'name' => string,
   ?'resource_requirements' => ResourceRequirements,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->environment = $environment ?? ;
-    $this->memory = $memory ?? ;
-    $this->memory_reservation = $memory_reservation ?? ;
-    $this->name = $name ?? ;
-    $this->resource_requirements = $resource_requirements ?? ;
+    $this->command = $command ?? [];
+    $this->cpu = $cpu ?? 0;
+    $this->environment = $environment ?? [];
+    $this->memory = $memory ?? 0;
+    $this->memory_reservation = $memory_reservation ?? 0;
+    $this->name = $name ?? "";
+    $this->resource_requirements = $resource_requirements ?? [];
   }
 }
 
@@ -651,13 +651,13 @@ class ContainerStateChange {
   ?'runtime_id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->container_name = $container_name ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->image_digest = $image_digest ?? ;
-    $this->network_bindings = $network_bindings ?? ;
-    $this->reason = $reason ?? ;
-    $this->runtime_id = $runtime_id ?? ;
-    $this->status = $status ?? ;
+    $this->container_name = $container_name ?? "";
+    $this->exit_code = $exit_code ?? 0;
+    $this->image_digest = $image_digest ?? "";
+    $this->network_bindings = $network_bindings ?? [];
+    $this->reason = $reason ?? "";
+    $this->runtime_id = $runtime_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -675,9 +675,9 @@ class CreateCapacityProviderRequest {
   ?'name' => string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->auto_scaling_group_provider = $auto_scaling_group_provider ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->auto_scaling_group_provider = $auto_scaling_group_provider ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -687,7 +687,7 @@ class CreateCapacityProviderResponse {
   public function __construct(shape(
   ?'capacity_provider' => CapacityProvider,
   ) $s = shape()) {
-    $this->capacity_provider = $capacity_provider ?? ;
+    $this->capacity_provider = $capacity_provider ?? null;
   }
 }
 
@@ -705,11 +705,11 @@ class CreateClusterRequest {
   ?'settings' => ClusterSettings,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->capacity_providers = $capacity_providers ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? ;
-    $this->settings = $settings ?? ;
-    $this->tags = $tags ?? ;
+    $this->capacity_providers = $capacity_providers ?? [];
+    $this->cluster_name = $cluster_name ?? "";
+    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? [];
+    $this->settings = $settings ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -719,7 +719,7 @@ class CreateClusterResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -769,27 +769,27 @@ class CreateServiceRequest {
   ?'tags' => Tags,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->deployment_configuration = $deployment_configuration ?? ;
-    $this->deployment_controller = $deployment_controller ?? ;
-    $this->desired_count = $desired_count ?? ;
-    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? ;
-    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->load_balancers = $load_balancers ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->placement_strategy = $placement_strategy ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->propagate_tags = $propagate_tags ?? ;
-    $this->role = $role ?? ;
-    $this->scheduling_strategy = $scheduling_strategy ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_registries = $service_registries ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->client_token = $client_token ?? "";
+    $this->cluster = $cluster ?? "";
+    $this->deployment_configuration = $deployment_configuration ?? null;
+    $this->deployment_controller = $deployment_controller ?? null;
+    $this->desired_count = $desired_count ?? 0;
+    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? false;
+    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? 0;
+    $this->launch_type = $launch_type ?? "";
+    $this->load_balancers = $load_balancers ?? [];
+    $this->network_configuration = $network_configuration ?? null;
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->placement_strategy = $placement_strategy ?? [];
+    $this->platform_version = $platform_version ?? "";
+    $this->propagate_tags = $propagate_tags ?? "";
+    $this->role = $role ?? "";
+    $this->scheduling_strategy = $scheduling_strategy ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->service_registries = $service_registries ?? [];
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -799,7 +799,7 @@ class CreateServiceResponse {
   public function __construct(shape(
   ?'service' => Service,
   ) $s = shape()) {
-    $this->service = $service ?? ;
+    $this->service = $service ?? null;
   }
 }
 
@@ -833,19 +833,19 @@ class CreateTaskSetRequest {
   ?'tags' => Tags,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->load_balancers = $load_balancers ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->scale = $scale ?? ;
-    $this->service = $service ?? ;
-    $this->service_registries = $service_registries ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->client_token = $client_token ?? "";
+    $this->cluster = $cluster ?? "";
+    $this->external_id = $external_id ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->load_balancers = $load_balancers ?? [];
+    $this->network_configuration = $network_configuration ?? null;
+    $this->platform_version = $platform_version ?? "";
+    $this->scale = $scale ?? null;
+    $this->service = $service ?? "";
+    $this->service_registries = $service_registries ?? [];
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -855,7 +855,7 @@ class CreateTaskSetResponse {
   public function __construct(shape(
   ?'task_set' => TaskSet,
   ) $s = shape()) {
-    $this->task_set = $task_set ?? ;
+    $this->task_set = $task_set ?? null;
   }
 }
 
@@ -867,8 +867,8 @@ class DeleteAccountSettingRequest {
   ?'name' => SettingName,
   ?'principal_arn' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->principal_arn = $principal_arn ?? ;
+    $this->name = $name ?? "";
+    $this->principal_arn = $principal_arn ?? "";
   }
 }
 
@@ -878,7 +878,7 @@ class DeleteAccountSettingResponse {
   public function __construct(shape(
   ?'setting' => Setting,
   ) $s = shape()) {
-    $this->setting = $setting ?? ;
+    $this->setting = $setting ?? null;
   }
 }
 
@@ -890,8 +890,8 @@ class DeleteAttributesRequest {
   ?'attributes' => Attributes,
   ?'cluster' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->cluster = $cluster ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->cluster = $cluster ?? "";
   }
 }
 
@@ -901,7 +901,7 @@ class DeleteAttributesResponse {
   public function __construct(shape(
   ?'attributes' => Attributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -911,7 +911,7 @@ class DeleteClusterRequest {
   public function __construct(shape(
   ?'cluster' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? "";
   }
 }
 
@@ -921,7 +921,7 @@ class DeleteClusterResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -935,9 +935,9 @@ class DeleteServiceRequest {
   ?'force' => BoxedBoolean,
   ?'service' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->force = $force ?? ;
-    $this->service = $service ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->force = $force ?? false;
+    $this->service = $service ?? "";
   }
 }
 
@@ -947,7 +947,7 @@ class DeleteServiceResponse {
   public function __construct(shape(
   ?'service' => Service,
   ) $s = shape()) {
-    $this->service = $service ?? ;
+    $this->service = $service ?? null;
   }
 }
 
@@ -963,10 +963,10 @@ class DeleteTaskSetRequest {
   ?'service' => string,
   ?'task_set' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->force = $force ?? ;
-    $this->service = $service ?? ;
-    $this->task_set = $task_set ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->force = $force ?? false;
+    $this->service = $service ?? "";
+    $this->task_set = $task_set ?? "";
   }
 }
 
@@ -976,7 +976,7 @@ class DeleteTaskSetResponse {
   public function __construct(shape(
   ?'task_set' => TaskSet,
   ) $s = shape()) {
-    $this->task_set = $task_set ?? ;
+    $this->task_set = $task_set ?? null;
   }
 }
 
@@ -1008,18 +1008,18 @@ class Deployment {
   ?'task_definition' => string,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->desired_count = $desired_count ?? ;
-    $this->id = $id ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->pending_count = $pending_count ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->running_count = $running_count ?? ;
-    $this->status = $status ?? ;
-    $this->task_definition = $task_definition ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->created_at = $created_at ?? 0;
+    $this->desired_count = $desired_count ?? 0;
+    $this->id = $id ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->network_configuration = $network_configuration ?? null;
+    $this->pending_count = $pending_count ?? 0;
+    $this->platform_version = $platform_version ?? "";
+    $this->running_count = $running_count ?? 0;
+    $this->status = $status ?? "";
+    $this->task_definition = $task_definition ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1031,8 +1031,8 @@ class DeploymentConfiguration {
   ?'maximum_percent' => BoxedInteger,
   ?'minimum_healthy_percent' => BoxedInteger,
   ) $s = shape()) {
-    $this->maximum_percent = $maximum_percent ?? ;
-    $this->minimum_healthy_percent = $minimum_healthy_percent ?? ;
+    $this->maximum_percent = $maximum_percent ?? 0;
+    $this->minimum_healthy_percent = $minimum_healthy_percent ?? 0;
   }
 }
 
@@ -1042,7 +1042,7 @@ class DeploymentController {
   public function __construct(shape(
   ?'type' => DeploymentControllerType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1060,9 +1060,9 @@ class DeregisterContainerInstanceRequest {
   ?'container_instance' => string,
   ?'force' => BoxedBoolean,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instance = $container_instance ?? ;
-    $this->force = $force ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instance = $container_instance ?? "";
+    $this->force = $force ?? false;
   }
 }
 
@@ -1072,7 +1072,7 @@ class DeregisterContainerInstanceResponse {
   public function __construct(shape(
   ?'container_instance' => ContainerInstance,
   ) $s = shape()) {
-    $this->container_instance = $container_instance ?? ;
+    $this->container_instance = $container_instance ?? null;
   }
 }
 
@@ -1082,7 +1082,7 @@ class DeregisterTaskDefinitionRequest {
   public function __construct(shape(
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->task_definition = $task_definition ?? ;
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -1092,7 +1092,7 @@ class DeregisterTaskDefinitionResponse {
   public function __construct(shape(
   ?'task_definition' => TaskDefinition,
   ) $s = shape()) {
-    $this->task_definition = $task_definition ?? ;
+    $this->task_definition = $task_definition ?? null;
   }
 }
 
@@ -1108,10 +1108,10 @@ class DescribeCapacityProvidersRequest {
   ?'max_results' => BoxedInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->capacity_providers = $capacity_providers ?? ;
-    $this->include = $include ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->capacity_providers = $capacity_providers ?? [];
+    $this->include = $include ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1125,9 +1125,9 @@ class DescribeCapacityProvidersResponse {
   ?'failures' => Failures,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->capacity_providers = $capacity_providers ?? ;
-    $this->failures = $failures ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->capacity_providers = $capacity_providers ?? [];
+    $this->failures = $failures ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1139,8 +1139,8 @@ class DescribeClustersRequest {
   ?'clusters' => StringList,
   ?'include' => ClusterFieldList,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
-    $this->include = $include ?? ;
+    $this->clusters = $clusters ?? [];
+    $this->include = $include ?? [];
   }
 }
 
@@ -1152,8 +1152,8 @@ class DescribeClustersResponse {
   ?'clusters' => Clusters,
   ?'failures' => Failures,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
-    $this->failures = $failures ?? ;
+    $this->clusters = $clusters ?? [];
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -1167,9 +1167,9 @@ class DescribeContainerInstancesRequest {
   ?'container_instances' => StringList,
   ?'include' => ContainerInstanceFieldList,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instances = $container_instances ?? ;
-    $this->include = $include ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instances = $container_instances ?? [];
+    $this->include = $include ?? [];
   }
 }
 
@@ -1181,8 +1181,8 @@ class DescribeContainerInstancesResponse {
   ?'container_instances' => ContainerInstances,
   ?'failures' => Failures,
   ) $s = shape()) {
-    $this->container_instances = $container_instances ?? ;
-    $this->failures = $failures ?? ;
+    $this->container_instances = $container_instances ?? [];
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -1196,9 +1196,9 @@ class DescribeServicesRequest {
   ?'include' => ServiceFieldList,
   ?'services' => StringList,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->include = $include ?? ;
-    $this->services = $services ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->include = $include ?? [];
+    $this->services = $services ?? [];
   }
 }
 
@@ -1210,8 +1210,8 @@ class DescribeServicesResponse {
   ?'failures' => Failures,
   ?'services' => Services,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->services = $services ?? ;
+    $this->failures = $failures ?? [];
+    $this->services = $services ?? [];
   }
 }
 
@@ -1223,8 +1223,8 @@ class DescribeTaskDefinitionRequest {
   ?'include' => TaskDefinitionFieldList,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->include = $include ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->include = $include ?? [];
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -1236,8 +1236,8 @@ class DescribeTaskDefinitionResponse {
   ?'tags' => Tags,
   ?'task_definition' => TaskDefinition,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? null;
   }
 }
 
@@ -1253,10 +1253,10 @@ class DescribeTaskSetsRequest {
   ?'service' => string,
   ?'task_sets' => StringList,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->include = $include ?? ;
-    $this->service = $service ?? ;
-    $this->task_sets = $task_sets ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->include = $include ?? [];
+    $this->service = $service ?? "";
+    $this->task_sets = $task_sets ?? [];
   }
 }
 
@@ -1268,8 +1268,8 @@ class DescribeTaskSetsResponse {
   ?'failures' => Failures,
   ?'task_sets' => TaskSets,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->task_sets = $task_sets ?? ;
+    $this->failures = $failures ?? [];
+    $this->task_sets = $task_sets ?? [];
   }
 }
 
@@ -1283,9 +1283,9 @@ class DescribeTasksRequest {
   ?'include' => TaskFieldList,
   ?'tasks' => StringList,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->include = $include ?? ;
-    $this->tasks = $tasks ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->include = $include ?? [];
+    $this->tasks = $tasks ?? [];
   }
 }
 
@@ -1297,8 +1297,8 @@ class DescribeTasksResponse {
   ?'failures' => Failures,
   ?'tasks' => Tasks,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->tasks = $tasks ?? ;
+    $this->failures = $failures ?? [];
+    $this->tasks = $tasks ?? [];
   }
 }
 
@@ -1314,9 +1314,9 @@ class Device {
   ?'host_path' => string,
   ?'permissions' => DeviceCgroupPermissions,
   ) $s = shape()) {
-    $this->container_path = $container_path ?? ;
-    $this->host_path = $host_path ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->container_path = $container_path ?? "";
+    $this->host_path = $host_path ?? "";
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -1334,8 +1334,8 @@ class DiscoverPollEndpointRequest {
   ?'cluster' => string,
   ?'container_instance' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instance = $container_instance ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instance = $container_instance ?? "";
   }
 }
 
@@ -1347,8 +1347,8 @@ class DiscoverPollEndpointResponse {
   ?'endpoint' => string,
   ?'telemetry_endpoint' => string,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? ;
-    $this->telemetry_endpoint = $telemetry_endpoint ?? ;
+    $this->endpoint = $endpoint ?? "";
+    $this->telemetry_endpoint = $telemetry_endpoint ?? "";
   }
 }
 
@@ -1368,11 +1368,11 @@ class DockerVolumeConfiguration {
   ?'labels' => StringMap,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->autoprovision = $autoprovision ?? ;
-    $this->driver = $driver ?? ;
-    $this->driver_opts = $driver_opts ?? ;
-    $this->labels = $labels ?? ;
-    $this->scope = $scope ?? ;
+    $this->autoprovision = $autoprovision ?? false;
+    $this->driver = $driver ?? "";
+    $this->driver_opts = $driver_opts ?? [];
+    $this->labels = $labels ?? [];
+    $this->scope = $scope ?? "";
   }
 }
 
@@ -1386,8 +1386,8 @@ class EFSAuthorizationConfig {
   ?'access_point_id' => string,
   ?'iam' => EFSAuthorizationConfigIAM,
   ) $s = shape()) {
-    $this->access_point_id = $access_point_id ?? ;
-    $this->iam = $iam ?? ;
+    $this->access_point_id = $access_point_id ?? "";
+    $this->iam = $iam ?? "";
   }
 }
 
@@ -1409,11 +1409,11 @@ class EFSVolumeConfiguration {
   ?'transit_encryption' => EFSTransitEncryption,
   ?'transit_encryption_port' => BoxedInteger,
   ) $s = shape()) {
-    $this->authorization_config = $authorization_config ?? ;
-    $this->file_system_id = $file_system_id ?? ;
-    $this->root_directory = $root_directory ?? ;
-    $this->transit_encryption = $transit_encryption ?? ;
-    $this->transit_encryption_port = $transit_encryption_port ?? ;
+    $this->authorization_config = $authorization_config ?? null;
+    $this->file_system_id = $file_system_id ?? "";
+    $this->root_directory = $root_directory ?? "";
+    $this->transit_encryption = $transit_encryption ?? "";
+    $this->transit_encryption_port = $transit_encryption_port ?? 0;
   }
 }
 
@@ -1429,9 +1429,9 @@ class Failure {
   ?'detail' => string,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->detail = $detail ?? ;
-    $this->reason = $reason ?? ;
+    $this->arn = $arn ?? "";
+    $this->detail = $detail ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1445,8 +1445,8 @@ class FirelensConfiguration {
   ?'options' => FirelensConfigurationOptionsMap,
   ?'type' => FirelensConfigurationType,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->type = $type ?? ;
+    $this->options = $options ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1470,11 +1470,11 @@ class HealthCheck {
   ?'start_period' => BoxedInteger,
   ?'timeout' => BoxedInteger,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->interval = $interval ?? ;
-    $this->retries = $retries ?? ;
-    $this->start_period = $start_period ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->command = $command ?? [];
+    $this->interval = $interval ?? 0;
+    $this->retries = $retries ?? 0;
+    $this->start_period = $start_period ?? 0;
+    $this->timeout = $timeout ?? 0;
   }
 }
 
@@ -1488,8 +1488,8 @@ class HostEntry {
   ?'hostname' => string,
   ?'ip_address' => string,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
-    $this->ip_address = $ip_address ?? ;
+    $this->hostname = $hostname ?? "";
+    $this->ip_address = $ip_address ?? "";
   }
 }
 
@@ -1501,7 +1501,7 @@ class HostVolumeProperties {
   public function __construct(shape(
   ?'source_path' => string,
   ) $s = shape()) {
-    $this->source_path = $source_path ?? ;
+    $this->source_path = $source_path ?? "";
   }
 }
 
@@ -1513,8 +1513,8 @@ class InferenceAccelerator {
   ?'device_name' => string,
   ?'device_type' => string,
   ) $s = shape()) {
-    $this->device_name = $device_name ?? ;
-    $this->device_type = $device_type ?? ;
+    $this->device_name = $device_name ?? "";
+    $this->device_type = $device_type ?? "";
   }
 }
 
@@ -1526,8 +1526,8 @@ class InferenceAcceleratorOverride {
   ?'device_name' => string,
   ?'device_type' => string,
   ) $s = shape()) {
-    $this->device_name = $device_name ?? ;
-    $this->device_type = $device_type ?? ;
+    $this->device_name = $device_name ?? "";
+    $this->device_type = $device_type ?? "";
   }
 }
 
@@ -1554,8 +1554,8 @@ class KernelCapabilities {
   ?'add' => StringList,
   ?'drop' => StringList,
   ) $s = shape()) {
-    $this->add = $add ?? ;
-    $this->drop = $drop ?? ;
+    $this->add = $add ?? [];
+    $this->drop = $drop ?? [];
   }
 }
 
@@ -1567,8 +1567,8 @@ class KeyValuePair {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1599,13 +1599,13 @@ class LinuxParameters {
   ?'swappiness' => BoxedInteger,
   ?'tmpfs' => TmpfsList,
   ) $s = shape()) {
-    $this->capabilities = $capabilities ?? ;
-    $this->devices = $devices ?? ;
-    $this->init_process_enabled = $init_process_enabled ?? ;
-    $this->max_swap = $max_swap ?? ;
-    $this->shared_memory_size = $shared_memory_size ?? ;
-    $this->swappiness = $swappiness ?? ;
-    $this->tmpfs = $tmpfs ?? ;
+    $this->capabilities = $capabilities ?? null;
+    $this->devices = $devices ?? [];
+    $this->init_process_enabled = $init_process_enabled ?? false;
+    $this->max_swap = $max_swap ?? 0;
+    $this->shared_memory_size = $shared_memory_size ?? 0;
+    $this->swappiness = $swappiness ?? 0;
+    $this->tmpfs = $tmpfs ?? [];
   }
 }
 
@@ -1625,12 +1625,12 @@ class ListAccountSettingsRequest {
   ?'principal_arn' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->effective_settings = $effective_settings ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principal_arn = $principal_arn ?? ;
-    $this->value = $value ?? ;
+    $this->effective_settings = $effective_settings ?? false;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->principal_arn = $principal_arn ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1642,8 +1642,8 @@ class ListAccountSettingsResponse {
   ?'next_token' => string,
   ?'settings' => Settings,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->settings = $settings ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->settings = $settings ?? [];
   }
 }
 
@@ -1663,12 +1663,12 @@ class ListAttributesRequest {
   ?'next_token' => string,
   ?'target_type' => TargetType,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->attribute_value = $attribute_value ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->target_type = $target_type ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->attribute_value = $attribute_value ?? "";
+    $this->cluster = $cluster ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->target_type = $target_type ?? "";
   }
 }
 
@@ -1680,8 +1680,8 @@ class ListAttributesResponse {
   ?'attributes' => Attributes,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1693,8 +1693,8 @@ class ListClustersRequest {
   ?'max_results' => BoxedInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1706,8 +1706,8 @@ class ListClustersResponse {
   ?'cluster_arns' => StringList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->cluster_arns = $cluster_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_arns = $cluster_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1725,11 +1725,11 @@ class ListContainerInstancesRequest {
   ?'next_token' => string,
   ?'status' => ContainerInstanceStatus,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->filter = $filter ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1741,8 +1741,8 @@ class ListContainerInstancesResponse {
   ?'container_instance_arns' => StringList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->container_instance_arns = $container_instance_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->container_instance_arns = $container_instance_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1760,11 +1760,11 @@ class ListServicesRequest {
   ?'next_token' => string,
   ?'scheduling_strategy' => SchedulingStrategy,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->scheduling_strategy = $scheduling_strategy ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->scheduling_strategy = $scheduling_strategy ?? "";
   }
 }
 
@@ -1776,8 +1776,8 @@ class ListServicesResponse {
   ?'next_token' => string,
   ?'service_arns' => StringList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->service_arns = $service_arns ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->service_arns = $service_arns ?? [];
   }
 }
 
@@ -1787,7 +1787,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1797,7 +1797,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1813,10 +1813,10 @@ class ListTaskDefinitionFamiliesRequest {
   ?'next_token' => string,
   ?'status' => TaskDefinitionFamilyStatus,
   ) $s = shape()) {
-    $this->family_prefix = $family_prefix ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->family_prefix = $family_prefix ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1828,8 +1828,8 @@ class ListTaskDefinitionFamiliesResponse {
   ?'families' => StringList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->families = $families ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->families = $families ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1847,11 +1847,11 @@ class ListTaskDefinitionsRequest {
   ?'sort' => SortOrder,
   ?'status' => TaskDefinitionStatus,
   ) $s = shape()) {
-    $this->family_prefix = $family_prefix ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort = $sort ?? ;
-    $this->status = $status ?? ;
+    $this->family_prefix = $family_prefix ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort = $sort ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1863,8 +1863,8 @@ class ListTaskDefinitionsResponse {
   ?'next_token' => string,
   ?'task_definition_arns' => StringList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->task_definition_arns = $task_definition_arns ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->task_definition_arns = $task_definition_arns ?? [];
   }
 }
 
@@ -1890,15 +1890,15 @@ class ListTasksRequest {
   ?'service_name' => string,
   ?'started_by' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instance = $container_instance ?? ;
-    $this->desired_status = $desired_status ?? ;
-    $this->family = $family ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->started_by = $started_by ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instance = $container_instance ?? "";
+    $this->desired_status = $desired_status ?? "";
+    $this->family = $family ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->started_by = $started_by ?? "";
   }
 }
 
@@ -1910,8 +1910,8 @@ class ListTasksResponse {
   ?'next_token' => string,
   ?'task_arns' => StringList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->task_arns = $task_arns ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->task_arns = $task_arns ?? [];
   }
 }
 
@@ -1927,10 +1927,10 @@ class LoadBalancer {
   ?'load_balancer_name' => string,
   ?'target_group_arn' => string,
   ) $s = shape()) {
-    $this->container_name = $container_name ?? ;
-    $this->container_port = $container_port ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->target_group_arn = $target_group_arn ?? ;
+    $this->container_name = $container_name ?? "";
+    $this->container_port = $container_port ?? 0;
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->target_group_arn = $target_group_arn ?? "";
   }
 }
 
@@ -1946,9 +1946,9 @@ class LogConfiguration {
   ?'options' => LogConfigurationOptionsMap,
   ?'secret_options' => SecretList,
   ) $s = shape()) {
-    $this->log_driver = $log_driver ?? ;
-    $this->options = $options ?? ;
-    $this->secret_options = $secret_options ?? ;
+    $this->log_driver = $log_driver ?? "";
+    $this->options = $options ?? [];
+    $this->secret_options = $secret_options ?? [];
   }
 }
 
@@ -1970,10 +1970,10 @@ class ManagedScaling {
   ?'status' => ManagedScalingStatus,
   ?'target_capacity' => ManagedScalingTargetCapacity,
   ) $s = shape()) {
-    $this->maximum_scaling_step_size = $maximum_scaling_step_size ?? ;
-    $this->minimum_scaling_step_size = $minimum_scaling_step_size ?? ;
-    $this->status = $status ?? ;
-    $this->target_capacity = $target_capacity ?? ;
+    $this->maximum_scaling_step_size = $maximum_scaling_step_size ?? 0;
+    $this->minimum_scaling_step_size = $minimum_scaling_step_size ?? 0;
+    $this->status = $status ?? "";
+    $this->target_capacity = $target_capacity ?? 0;
   }
 }
 
@@ -2002,9 +2002,9 @@ class MountPoint {
   ?'read_only' => BoxedBoolean,
   ?'source_volume' => string,
   ) $s = shape()) {
-    $this->container_path = $container_path ?? ;
-    $this->read_only = $read_only ?? ;
-    $this->source_volume = $source_volume ?? ;
+    $this->container_path = $container_path ?? "";
+    $this->read_only = $read_only ?? false;
+    $this->source_volume = $source_volume ?? "";
   }
 }
 
@@ -2022,10 +2022,10 @@ class NetworkBinding {
   ?'host_port' => BoxedInteger,
   ?'protocol' => TransportProtocol,
   ) $s = shape()) {
-    $this->bind_ip = $bind_ip ?? ;
-    $this->container_port = $container_port ?? ;
-    $this->host_port = $host_port ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->bind_ip = $bind_ip ?? "";
+    $this->container_port = $container_port ?? 0;
+    $this->host_port = $host_port ?? 0;
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -2037,7 +2037,7 @@ class NetworkConfiguration {
   public function __construct(shape(
   ?'awsvpc_configuration' => AwsVpcConfiguration,
   ) $s = shape()) {
-    $this->awsvpc_configuration = $awsvpc_configuration ?? ;
+    $this->awsvpc_configuration = $awsvpc_configuration ?? null;
   }
 }
 
@@ -2051,9 +2051,9 @@ class NetworkInterface {
   ?'ipv_6_address' => string,
   ?'private_ipv_4_address' => string,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? ;
-    $this->ipv_6_address = $ipv_6_address ?? ;
-    $this->private_ipv_4_address = $private_ipv_4_address ?? ;
+    $this->attachment_id = $attachment_id ?? "";
+    $this->ipv_6_address = $ipv_6_address ?? "";
+    $this->private_ipv_4_address = $private_ipv_4_address ?? "";
   }
 }
 
@@ -2078,8 +2078,8 @@ class PlacementConstraint {
   ?'expression' => string,
   ?'type' => PlacementConstraintType,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
-    $this->type = $type ?? ;
+    $this->expression = $expression ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2097,8 +2097,8 @@ class PlacementStrategy {
   ?'field' => string,
   ?'type' => PlacementStrategyType,
   ) $s = shape()) {
-    $this->field = $field ?? ;
-    $this->type = $type ?? ;
+    $this->field = $field ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2112,8 +2112,8 @@ class PlatformDevice {
   ?'id' => string,
   ?'type' => PlatformDeviceType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2145,9 +2145,9 @@ class PortMapping {
   ?'host_port' => BoxedInteger,
   ?'protocol' => TransportProtocol,
   ) $s = shape()) {
-    $this->container_port = $container_port ?? ;
-    $this->host_port = $host_port ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->container_port = $container_port ?? 0;
+    $this->host_port = $host_port ?? 0;
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -2165,9 +2165,9 @@ class ProxyConfiguration {
   ?'properties' => ProxyConfigurationProperties,
   ?'type' => ProxyConfigurationType,
   ) $s = shape()) {
-    $this->container_name = $container_name ?? ;
-    $this->properties = $properties ?? ;
-    $this->type = $type ?? ;
+    $this->container_name = $container_name ?? "";
+    $this->properties = $properties ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -2183,8 +2183,8 @@ class PutAccountSettingDefaultRequest {
   ?'name' => SettingName,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2194,7 +2194,7 @@ class PutAccountSettingDefaultResponse {
   public function __construct(shape(
   ?'setting' => Setting,
   ) $s = shape()) {
-    $this->setting = $setting ?? ;
+    $this->setting = $setting ?? null;
   }
 }
 
@@ -2208,9 +2208,9 @@ class PutAccountSettingRequest {
   ?'principal_arn' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->principal_arn = $principal_arn ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->principal_arn = $principal_arn ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2220,7 +2220,7 @@ class PutAccountSettingResponse {
   public function __construct(shape(
   ?'setting' => Setting,
   ) $s = shape()) {
-    $this->setting = $setting ?? ;
+    $this->setting = $setting ?? null;
   }
 }
 
@@ -2232,8 +2232,8 @@ class PutAttributesRequest {
   ?'attributes' => Attributes,
   ?'cluster' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->cluster = $cluster ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->cluster = $cluster ?? "";
   }
 }
 
@@ -2243,7 +2243,7 @@ class PutAttributesResponse {
   public function __construct(shape(
   ?'attributes' => Attributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -2257,9 +2257,9 @@ class PutClusterCapacityProvidersRequest {
   ?'cluster' => string,
   ?'default_capacity_provider_strategy' => CapacityProviderStrategy,
   ) $s = shape()) {
-    $this->capacity_providers = $capacity_providers ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? ;
+    $this->capacity_providers = $capacity_providers ?? [];
+    $this->cluster = $cluster ?? "";
+    $this->default_capacity_provider_strategy = $default_capacity_provider_strategy ?? [];
   }
 }
 
@@ -2269,7 +2269,7 @@ class PutClusterCapacityProvidersResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -2295,15 +2295,15 @@ class RegisterContainerInstanceRequest {
   ?'total_resources' => Resources,
   ?'version_info' => VersionInfo,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->container_instance_arn = $container_instance_arn ?? ;
-    $this->instance_identity_document = $instance_identity_document ?? ;
-    $this->instance_identity_document_signature = $instance_identity_document_signature ?? ;
-    $this->platform_devices = $platform_devices ?? ;
-    $this->tags = $tags ?? ;
-    $this->total_resources = $total_resources ?? ;
-    $this->version_info = $version_info ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->cluster = $cluster ?? "";
+    $this->container_instance_arn = $container_instance_arn ?? "";
+    $this->instance_identity_document = $instance_identity_document ?? "";
+    $this->instance_identity_document_signature = $instance_identity_document_signature ?? "";
+    $this->platform_devices = $platform_devices ?? [];
+    $this->tags = $tags ?? [];
+    $this->total_resources = $total_resources ?? [];
+    $this->version_info = $version_info ?? null;
   }
 }
 
@@ -2313,7 +2313,7 @@ class RegisterContainerInstanceResponse {
   public function __construct(shape(
   ?'container_instance' => ContainerInstance,
   ) $s = shape()) {
-    $this->container_instance = $container_instance ?? ;
+    $this->container_instance = $container_instance ?? null;
   }
 }
 
@@ -2351,21 +2351,21 @@ class RegisterTaskDefinitionRequest {
   ?'task_role_arn' => string,
   ?'volumes' => VolumeList,
   ) $s = shape()) {
-    $this->container_definitions = $container_definitions ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->family = $family ?? ;
-    $this->inference_accelerators = $inference_accelerators ?? ;
-    $this->ipc_mode = $ipc_mode ?? ;
-    $this->memory = $memory ?? ;
-    $this->network_mode = $network_mode ?? ;
-    $this->pid_mode = $pid_mode ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->proxy_configuration = $proxy_configuration ?? ;
-    $this->requires_compatibilities = $requires_compatibilities ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_role_arn = $task_role_arn ?? ;
-    $this->volumes = $volumes ?? ;
+    $this->container_definitions = $container_definitions ?? [];
+    $this->cpu = $cpu ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->family = $family ?? "";
+    $this->inference_accelerators = $inference_accelerators ?? [];
+    $this->ipc_mode = $ipc_mode ?? "";
+    $this->memory = $memory ?? "";
+    $this->network_mode = $network_mode ?? "";
+    $this->pid_mode = $pid_mode ?? "";
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->proxy_configuration = $proxy_configuration ?? null;
+    $this->requires_compatibilities = $requires_compatibilities ?? [];
+    $this->tags = $tags ?? [];
+    $this->task_role_arn = $task_role_arn ?? "";
+    $this->volumes = $volumes ?? [];
   }
 }
 
@@ -2377,8 +2377,8 @@ class RegisterTaskDefinitionResponse {
   ?'tags' => Tags,
   ?'task_definition' => TaskDefinition,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? null;
   }
 }
 
@@ -2388,7 +2388,7 @@ class RepositoryCredentials {
   public function __construct(shape(
   ?'credentials_parameter' => string,
   ) $s = shape()) {
-    $this->credentials_parameter = $credentials_parameter ?? ;
+    $this->credentials_parameter = $credentials_parameter ?? "";
   }
 }
 
@@ -2410,12 +2410,12 @@ class Resource {
   ?'string_set_value' => StringList,
   ?'type' => string,
   ) $s = shape()) {
-    $this->double_value = $double_value ?? ;
-    $this->integer_value = $integer_value ?? ;
-    $this->long_value = $long_value ?? ;
-    $this->name = $name ?? ;
-    $this->string_set_value = $string_set_value ?? ;
-    $this->type = $type ?? ;
+    $this->double_value = $double_value ?? 0.0;
+    $this->integer_value = $integer_value ?? 0;
+    $this->long_value = $long_value ?? 0;
+    $this->name = $name ?? "";
+    $this->string_set_value = $string_set_value ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -2441,8 +2441,8 @@ class ResourceRequirement {
   ?'type' => ResourceType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2488,22 +2488,22 @@ class RunTaskRequest {
   ?'tags' => Tags,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->count = $count ?? ;
-    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? ;
-    $this->group = $group ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->overrides = $overrides ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->placement_strategy = $placement_strategy ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->propagate_tags = $propagate_tags ?? ;
-    $this->reference_id = $reference_id ?? ;
-    $this->started_by = $started_by ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->cluster = $cluster ?? "";
+    $this->count = $count ?? 0;
+    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? false;
+    $this->group = $group ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->network_configuration = $network_configuration ?? null;
+    $this->overrides = $overrides ?? null;
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->placement_strategy = $placement_strategy ?? [];
+    $this->platform_version = $platform_version ?? "";
+    $this->propagate_tags = $propagate_tags ?? "";
+    $this->reference_id = $reference_id ?? "";
+    $this->started_by = $started_by ?? "";
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -2515,8 +2515,8 @@ class RunTaskResponse {
   ?'failures' => Failures,
   ?'tasks' => Tasks,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->tasks = $tasks ?? ;
+    $this->failures = $failures ?? [];
+    $this->tasks = $tasks ?? [];
   }
 }
 
@@ -2528,8 +2528,8 @@ class Scale {
   ?'unit' => ScaleUnit,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->unit = $unit ?? ;
-    $this->value = $value ?? ;
+    $this->unit = $unit ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -2547,8 +2547,8 @@ class Secret {
   ?'name' => string,
   ?'value_from' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value_from = $value_from ?? ;
+    $this->name = $name ?? "";
+    $this->value_from = $value_from ?? "";
   }
 }
 
@@ -2560,7 +2560,7 @@ class ServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2626,35 +2626,35 @@ class Service {
   ?'task_definition' => string,
   ?'task_sets' => TaskSets,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->deployment_configuration = $deployment_configuration ?? ;
-    $this->deployment_controller = $deployment_controller ?? ;
-    $this->deployments = $deployments ?? ;
-    $this->desired_count = $desired_count ?? ;
-    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? ;
-    $this->events = $events ?? ;
-    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->load_balancers = $load_balancers ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->pending_count = $pending_count ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->placement_strategy = $placement_strategy ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->propagate_tags = $propagate_tags ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->running_count = $running_count ?? ;
-    $this->scheduling_strategy = $scheduling_strategy ?? ;
-    $this->service_arn = $service_arn ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_registries = $service_registries ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
-    $this->task_sets = $task_sets ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->created_by = $created_by ?? "";
+    $this->deployment_configuration = $deployment_configuration ?? null;
+    $this->deployment_controller = $deployment_controller ?? null;
+    $this->deployments = $deployments ?? [];
+    $this->desired_count = $desired_count ?? 0;
+    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? false;
+    $this->events = $events ?? [];
+    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? 0;
+    $this->launch_type = $launch_type ?? "";
+    $this->load_balancers = $load_balancers ?? [];
+    $this->network_configuration = $network_configuration ?? null;
+    $this->pending_count = $pending_count ?? 0;
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->placement_strategy = $placement_strategy ?? [];
+    $this->platform_version = $platform_version ?? "";
+    $this->propagate_tags = $propagate_tags ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->running_count = $running_count ?? 0;
+    $this->scheduling_strategy = $scheduling_strategy ?? "";
+    $this->service_arn = $service_arn ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->service_registries = $service_registries ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
+    $this->task_sets = $task_sets ?? [];
   }
 }
 
@@ -2668,9 +2668,9 @@ class ServiceEvent {
   ?'id' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->message = $message ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2708,10 +2708,10 @@ class ServiceRegistry {
   ?'port' => BoxedInteger,
   ?'registry_arn' => string,
   ) $s = shape()) {
-    $this->container_name = $container_name ?? ;
-    $this->container_port = $container_port ?? ;
-    $this->port = $port ?? ;
-    $this->registry_arn = $registry_arn ?? ;
+    $this->container_name = $container_name ?? "";
+    $this->container_port = $container_port ?? 0;
+    $this->port = $port ?? 0;
+    $this->registry_arn = $registry_arn ?? "";
   }
 }
 
@@ -2727,9 +2727,9 @@ class Setting {
   ?'principal_arn' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->principal_arn = $principal_arn ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->principal_arn = $principal_arn ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2767,17 +2767,17 @@ class StartTaskRequest {
   ?'tags' => Tags,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instances = $container_instances ?? ;
-    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? ;
-    $this->group = $group ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->overrides = $overrides ?? ;
-    $this->propagate_tags = $propagate_tags ?? ;
-    $this->reference_id = $reference_id ?? ;
-    $this->started_by = $started_by ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instances = $container_instances ?? [];
+    $this->enable_ecs_managed_tags = $enable_ecs_managed_tags ?? false;
+    $this->group = $group ?? "";
+    $this->network_configuration = $network_configuration ?? null;
+    $this->overrides = $overrides ?? null;
+    $this->propagate_tags = $propagate_tags ?? "";
+    $this->reference_id = $reference_id ?? "";
+    $this->started_by = $started_by ?? "";
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -2789,8 +2789,8 @@ class StartTaskResponse {
   ?'failures' => Failures,
   ?'tasks' => Tasks,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->tasks = $tasks ?? ;
+    $this->failures = $failures ?? [];
+    $this->tasks = $tasks ?? [];
   }
 }
 
@@ -2806,9 +2806,9 @@ class StopTaskRequest {
   ?'reason' => string,
   ?'task' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->reason = $reason ?? ;
-    $this->task = $task ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->reason = $reason ?? "";
+    $this->task = $task ?? "";
   }
 }
 
@@ -2818,7 +2818,7 @@ class StopTaskResponse {
   public function __construct(shape(
   ?'task' => Task,
   ) $s = shape()) {
-    $this->task = $task ?? ;
+    $this->task = $task ?? null;
   }
 }
 
@@ -2836,8 +2836,8 @@ class SubmitAttachmentStateChangesRequest {
   ?'attachments' => AttachmentStateChanges,
   ?'cluster' => string,
   ) $s = shape()) {
-    $this->attachments = $attachments ?? ;
-    $this->cluster = $cluster ?? ;
+    $this->attachments = $attachments ?? [];
+    $this->cluster = $cluster ?? "";
   }
 }
 
@@ -2847,7 +2847,7 @@ class SubmitAttachmentStateChangesResponse {
   public function __construct(shape(
   ?'acknowledgment' => string,
   ) $s = shape()) {
-    $this->acknowledgment = $acknowledgment ?? ;
+    $this->acknowledgment = $acknowledgment ?? "";
   }
 }
 
@@ -2871,14 +2871,14 @@ class SubmitContainerStateChangeRequest {
   ?'status' => string,
   ?'task' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_name = $container_name ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->network_bindings = $network_bindings ?? ;
-    $this->reason = $reason ?? ;
-    $this->runtime_id = $runtime_id ?? ;
-    $this->status = $status ?? ;
-    $this->task = $task ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_name = $container_name ?? "";
+    $this->exit_code = $exit_code ?? 0;
+    $this->network_bindings = $network_bindings ?? [];
+    $this->reason = $reason ?? "";
+    $this->runtime_id = $runtime_id ?? "";
+    $this->status = $status ?? "";
+    $this->task = $task ?? "";
   }
 }
 
@@ -2888,7 +2888,7 @@ class SubmitContainerStateChangeResponse {
   public function __construct(shape(
   ?'acknowledgment' => string,
   ) $s = shape()) {
-    $this->acknowledgment = $acknowledgment ?? ;
+    $this->acknowledgment = $acknowledgment ?? "";
   }
 }
 
@@ -2914,15 +2914,15 @@ class SubmitTaskStateChangeRequest {
   ?'status' => string,
   ?'task' => string,
   ) $s = shape()) {
-    $this->attachments = $attachments ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->containers = $containers ?? ;
-    $this->execution_stopped_at = $execution_stopped_at ?? ;
-    $this->pull_started_at = $pull_started_at ?? ;
-    $this->pull_stopped_at = $pull_stopped_at ?? ;
-    $this->reason = $reason ?? ;
-    $this->status = $status ?? ;
-    $this->task = $task ?? ;
+    $this->attachments = $attachments ?? [];
+    $this->cluster = $cluster ?? "";
+    $this->containers = $containers ?? [];
+    $this->execution_stopped_at = $execution_stopped_at ?? 0;
+    $this->pull_started_at = $pull_started_at ?? 0;
+    $this->pull_stopped_at = $pull_stopped_at ?? 0;
+    $this->reason = $reason ?? "";
+    $this->status = $status ?? "";
+    $this->task = $task ?? "";
   }
 }
 
@@ -2932,7 +2932,7 @@ class SubmitTaskStateChangeResponse {
   public function __construct(shape(
   ?'acknowledgment' => string,
   ) $s = shape()) {
-    $this->acknowledgment = $acknowledgment ?? ;
+    $this->acknowledgment = $acknowledgment ?? "";
   }
 }
 
@@ -2944,8 +2944,8 @@ class SystemControl {
   ?'namespace' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->namespace = $namespace ?? ;
-    $this->value = $value ?? ;
+    $this->namespace = $namespace ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2959,8 +2959,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2976,8 +2976,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3071,39 +3071,39 @@ class Task {
   ?'task_definition_arn' => string,
   ?'version' => Long,
   ) $s = shape()) {
-    $this->attachments = $attachments ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->capacity_provider_name = $capacity_provider_name ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->connectivity = $connectivity ?? ;
-    $this->connectivity_at = $connectivity_at ?? ;
-    $this->container_instance_arn = $container_instance_arn ?? ;
-    $this->containers = $containers ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->desired_status = $desired_status ?? ;
-    $this->execution_stopped_at = $execution_stopped_at ?? ;
-    $this->group = $group ?? ;
-    $this->health_status = $health_status ?? ;
-    $this->inference_accelerators = $inference_accelerators ?? ;
-    $this->last_status = $last_status ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->memory = $memory ?? ;
-    $this->overrides = $overrides ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->pull_started_at = $pull_started_at ?? ;
-    $this->pull_stopped_at = $pull_stopped_at ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->started_by = $started_by ?? ;
-    $this->stop_code = $stop_code ?? ;
-    $this->stopped_at = $stopped_at ?? ;
-    $this->stopped_reason = $stopped_reason ?? ;
-    $this->stopping_at = $stopping_at ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_arn = $task_arn ?? ;
-    $this->task_definition_arn = $task_definition_arn ?? ;
-    $this->version = $version ?? ;
+    $this->attachments = $attachments ?? [];
+    $this->attributes = $attributes ?? [];
+    $this->availability_zone = $availability_zone ?? "";
+    $this->capacity_provider_name = $capacity_provider_name ?? "";
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->connectivity = $connectivity ?? "";
+    $this->connectivity_at = $connectivity_at ?? 0;
+    $this->container_instance_arn = $container_instance_arn ?? "";
+    $this->containers = $containers ?? [];
+    $this->cpu = $cpu ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->desired_status = $desired_status ?? "";
+    $this->execution_stopped_at = $execution_stopped_at ?? 0;
+    $this->group = $group ?? "";
+    $this->health_status = $health_status ?? "";
+    $this->inference_accelerators = $inference_accelerators ?? [];
+    $this->last_status = $last_status ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->memory = $memory ?? "";
+    $this->overrides = $overrides ?? null;
+    $this->platform_version = $platform_version ?? "";
+    $this->pull_started_at = $pull_started_at ?? 0;
+    $this->pull_stopped_at = $pull_stopped_at ?? 0;
+    $this->started_at = $started_at ?? 0;
+    $this->started_by = $started_by ?? "";
+    $this->stop_code = $stop_code ?? "";
+    $this->stopped_at = $stopped_at ?? 0;
+    $this->stopped_reason = $stopped_reason ?? "";
+    $this->stopping_at = $stopping_at ?? 0;
+    $this->tags = $tags ?? [];
+    $this->task_arn = $task_arn ?? "";
+    $this->task_definition_arn = $task_definition_arn ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -3149,25 +3149,25 @@ class TaskDefinition {
   ?'task_role_arn' => string,
   ?'volumes' => VolumeList,
   ) $s = shape()) {
-    $this->compatibilities = $compatibilities ?? ;
-    $this->container_definitions = $container_definitions ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->family = $family ?? ;
-    $this->inference_accelerators = $inference_accelerators ?? ;
-    $this->ipc_mode = $ipc_mode ?? ;
-    $this->memory = $memory ?? ;
-    $this->network_mode = $network_mode ?? ;
-    $this->pid_mode = $pid_mode ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->proxy_configuration = $proxy_configuration ?? ;
-    $this->requires_attributes = $requires_attributes ?? ;
-    $this->requires_compatibilities = $requires_compatibilities ?? ;
-    $this->revision = $revision ?? ;
-    $this->status = $status ?? ;
-    $this->task_definition_arn = $task_definition_arn ?? ;
-    $this->task_role_arn = $task_role_arn ?? ;
-    $this->volumes = $volumes ?? ;
+    $this->compatibilities = $compatibilities ?? [];
+    $this->container_definitions = $container_definitions ?? [];
+    $this->cpu = $cpu ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->family = $family ?? "";
+    $this->inference_accelerators = $inference_accelerators ?? [];
+    $this->ipc_mode = $ipc_mode ?? "";
+    $this->memory = $memory ?? "";
+    $this->network_mode = $network_mode ?? "";
+    $this->pid_mode = $pid_mode ?? "";
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->proxy_configuration = $proxy_configuration ?? null;
+    $this->requires_attributes = $requires_attributes ?? [];
+    $this->requires_compatibilities = $requires_compatibilities ?? [];
+    $this->revision = $revision ?? 0;
+    $this->status = $status ?? "";
+    $this->task_definition_arn = $task_definition_arn ?? "";
+    $this->task_role_arn = $task_role_arn ?? "";
+    $this->volumes = $volumes ?? [];
   }
 }
 
@@ -3185,8 +3185,8 @@ class TaskDefinitionPlacementConstraint {
   ?'expression' => string,
   ?'type' => TaskDefinitionPlacementConstraintType,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
-    $this->type = $type ?? ;
+    $this->expression = $expression ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -3216,12 +3216,12 @@ class TaskOverride {
   ?'memory' => string,
   ?'task_role_arn' => string,
   ) $s = shape()) {
-    $this->container_overrides = $container_overrides ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->inference_accelerator_overrides = $inference_accelerator_overrides ?? ;
-    $this->memory = $memory ?? ;
-    $this->task_role_arn = $task_role_arn ?? ;
+    $this->container_overrides = $container_overrides ?? [];
+    $this->cpu = $cpu ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->inference_accelerator_overrides = $inference_accelerator_overrides ?? [];
+    $this->memory = $memory ?? "";
+    $this->task_role_arn = $task_role_arn ?? "";
   }
 }
 
@@ -3275,29 +3275,29 @@ class TaskSet {
   ?'task_set_arn' => string,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->computed_desired_count = $computed_desired_count ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->id = $id ?? ;
-    $this->launch_type = $launch_type ?? ;
-    $this->load_balancers = $load_balancers ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->pending_count = $pending_count ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->running_count = $running_count ?? ;
-    $this->scale = $scale ?? ;
-    $this->service_arn = $service_arn ?? ;
-    $this->service_registries = $service_registries ?? ;
-    $this->stability_status = $stability_status ?? ;
-    $this->stability_status_at = $stability_status_at ?? ;
-    $this->started_by = $started_by ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->task_definition = $task_definition ?? ;
-    $this->task_set_arn = $task_set_arn ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->computed_desired_count = $computed_desired_count ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->external_id = $external_id ?? "";
+    $this->id = $id ?? "";
+    $this->launch_type = $launch_type ?? "";
+    $this->load_balancers = $load_balancers ?? [];
+    $this->network_configuration = $network_configuration ?? null;
+    $this->pending_count = $pending_count ?? 0;
+    $this->platform_version = $platform_version ?? "";
+    $this->running_count = $running_count ?? 0;
+    $this->scale = $scale ?? null;
+    $this->service_arn = $service_arn ?? "";
+    $this->service_registries = $service_registries ?? [];
+    $this->stability_status = $stability_status ?? "";
+    $this->stability_status_at = $stability_status_at ?? 0;
+    $this->started_by = $started_by ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->task_definition = $task_definition ?? "";
+    $this->task_set_arn = $task_set_arn ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -3330,9 +3330,9 @@ class Tmpfs {
   ?'mount_options' => StringList,
   ?'size' => int,
   ) $s = shape()) {
-    $this->container_path = $container_path ?? ;
-    $this->mount_options = $mount_options ?? ;
-    $this->size = $size ?? ;
+    $this->container_path = $container_path ?? "";
+    $this->mount_options = $mount_options ?? [];
+    $this->size = $size ?? 0;
   }
 }
 
@@ -3350,9 +3350,9 @@ class Ulimit {
   ?'name' => UlimitName,
   ?'soft_limit' => int,
   ) $s = shape()) {
-    $this->hard_limit = $hard_limit ?? ;
-    $this->name = $name ?? ;
-    $this->soft_limit = $soft_limit ?? ;
+    $this->hard_limit = $hard_limit ?? 0;
+    $this->name = $name ?? "";
+    $this->soft_limit = $soft_limit ?? 0;
   }
 }
 
@@ -3375,8 +3375,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3395,8 +3395,8 @@ class UpdateClusterSettingsRequest {
   ?'cluster' => string,
   ?'settings' => ClusterSettings,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->settings = $settings ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->settings = $settings ?? [];
   }
 }
 
@@ -3406,7 +3406,7 @@ class UpdateClusterSettingsResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -3418,8 +3418,8 @@ class UpdateContainerAgentRequest {
   ?'cluster' => string,
   ?'container_instance' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instance = $container_instance ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instance = $container_instance ?? "";
   }
 }
 
@@ -3429,7 +3429,7 @@ class UpdateContainerAgentResponse {
   public function __construct(shape(
   ?'container_instance' => ContainerInstance,
   ) $s = shape()) {
-    $this->container_instance = $container_instance ?? ;
+    $this->container_instance = $container_instance ?? null;
   }
 }
 
@@ -3443,9 +3443,9 @@ class UpdateContainerInstancesStateRequest {
   ?'container_instances' => StringList,
   ?'status' => ContainerInstanceStatus,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->container_instances = $container_instances ?? ;
-    $this->status = $status ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->container_instances = $container_instances ?? [];
+    $this->status = $status ?? "";
   }
 }
 
@@ -3457,8 +3457,8 @@ class UpdateContainerInstancesStateResponse {
   ?'container_instances' => ContainerInstances,
   ?'failures' => Failures,
   ) $s = shape()) {
-    $this->container_instances = $container_instances ?? ;
-    $this->failures = $failures ?? ;
+    $this->container_instances = $container_instances ?? [];
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -3479,9 +3479,9 @@ class UpdateServicePrimaryTaskSetRequest {
   ?'primary_task_set' => string,
   ?'service' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->primary_task_set = $primary_task_set ?? ;
-    $this->service = $service ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->primary_task_set = $primary_task_set ?? "";
+    $this->service = $service ?? "";
   }
 }
 
@@ -3491,7 +3491,7 @@ class UpdateServicePrimaryTaskSetResponse {
   public function __construct(shape(
   ?'task_set' => TaskSet,
   ) $s = shape()) {
-    $this->task_set = $task_set ?? ;
+    $this->task_set = $task_set ?? null;
   }
 }
 
@@ -3523,18 +3523,18 @@ class UpdateServiceRequest {
   ?'service' => string,
   ?'task_definition' => string,
   ) $s = shape()) {
-    $this->capacity_provider_strategy = $capacity_provider_strategy ?? ;
-    $this->cluster = $cluster ?? ;
-    $this->deployment_configuration = $deployment_configuration ?? ;
-    $this->desired_count = $desired_count ?? ;
-    $this->force_new_deployment = $force_new_deployment ?? ;
-    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? ;
-    $this->network_configuration = $network_configuration ?? ;
-    $this->placement_constraints = $placement_constraints ?? ;
-    $this->placement_strategy = $placement_strategy ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->service = $service ?? ;
-    $this->task_definition = $task_definition ?? ;
+    $this->capacity_provider_strategy = $capacity_provider_strategy ?? [];
+    $this->cluster = $cluster ?? "";
+    $this->deployment_configuration = $deployment_configuration ?? null;
+    $this->desired_count = $desired_count ?? 0;
+    $this->force_new_deployment = $force_new_deployment ?? false;
+    $this->health_check_grace_period_seconds = $health_check_grace_period_seconds ?? 0;
+    $this->network_configuration = $network_configuration ?? null;
+    $this->placement_constraints = $placement_constraints ?? [];
+    $this->placement_strategy = $placement_strategy ?? [];
+    $this->platform_version = $platform_version ?? "";
+    $this->service = $service ?? "";
+    $this->task_definition = $task_definition ?? "";
   }
 }
 
@@ -3544,7 +3544,7 @@ class UpdateServiceResponse {
   public function __construct(shape(
   ?'service' => Service,
   ) $s = shape()) {
-    $this->service = $service ?? ;
+    $this->service = $service ?? null;
   }
 }
 
@@ -3560,10 +3560,10 @@ class UpdateTaskSetRequest {
   ?'service' => string,
   ?'task_set' => string,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
-    $this->scale = $scale ?? ;
-    $this->service = $service ?? ;
-    $this->task_set = $task_set ?? ;
+    $this->cluster = $cluster ?? "";
+    $this->scale = $scale ?? null;
+    $this->service = $service ?? "";
+    $this->task_set = $task_set ?? "";
   }
 }
 
@@ -3573,7 +3573,7 @@ class UpdateTaskSetResponse {
   public function __construct(shape(
   ?'task_set' => TaskSet,
   ) $s = shape()) {
-    $this->task_set = $task_set ?? ;
+    $this->task_set = $task_set ?? null;
   }
 }
 
@@ -3587,9 +3587,9 @@ class VersionInfo {
   ?'agent_version' => string,
   ?'docker_version' => string,
   ) $s = shape()) {
-    $this->agent_hash = $agent_hash ?? ;
-    $this->agent_version = $agent_version ?? ;
-    $this->docker_version = $docker_version ?? ;
+    $this->agent_hash = $agent_hash ?? "";
+    $this->agent_version = $agent_version ?? "";
+    $this->docker_version = $docker_version ?? "";
   }
 }
 
@@ -3605,10 +3605,10 @@ class Volume {
   ?'host' => HostVolumeProperties,
   ?'name' => string,
   ) $s = shape()) {
-    $this->docker_volume_configuration = $docker_volume_configuration ?? ;
-    $this->efs_volume_configuration = $efs_volume_configuration ?? ;
-    $this->host = $host ?? ;
-    $this->name = $name ?? ;
+    $this->docker_volume_configuration = $docker_volume_configuration ?? null;
+    $this->efs_volume_configuration = $efs_volume_configuration ?? null;
+    $this->host = $host ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3620,8 +3620,8 @@ class VolumeFrom {
   ?'read_only' => BoxedBoolean,
   ?'source_container' => string,
   ) $s = shape()) {
-    $this->read_only = $read_only ?? ;
-    $this->source_container = $source_container ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->source_container = $source_container ?? "";
   }
 }
 

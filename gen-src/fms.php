@@ -31,7 +31,7 @@ class AssociateAdminAccountRequest {
   public function __construct(shape(
   ?'admin_account' => AWSAccountId,
   ) $s = shape()) {
-    $this->admin_account = $admin_account ?? ;
+    $this->admin_account = $admin_account ?? "";
   }
 }
 
@@ -78,7 +78,7 @@ class DeletePolicyRequest {
   ?'delete_all_policy_resources' => boolean,
   ?'policy_id' => PolicyId,
   ) $s = shape()) {
-    $this->delete_all_policy_resources = $delete_all_policy_resources ?? ;
+    $this->delete_all_policy_resources = $delete_all_policy_resources ?? false;
     $this->policy_id = $policy_id ?? "";
   }
 }
@@ -106,9 +106,9 @@ class EvaluationResult {
   ?'evaluation_limit_exceeded' => boolean,
   ?'violator_count' => ResourceCount,
   ) $s = shape()) {
-    $this->compliance_status = $compliance_status ?? ;
-    $this->evaluation_limit_exceeded = $evaluation_limit_exceeded ?? ;
-    $this->violator_count = $violator_count ?? ;
+    $this->compliance_status = $compliance_status ?? "";
+    $this->evaluation_limit_exceeded = $evaluation_limit_exceeded ?? false;
+    $this->violator_count = $violator_count ?? 0;
   }
 }
 
@@ -129,8 +129,8 @@ class GetAdminAccountResponse {
   ?'admin_account' => AWSAccountId,
   ?'role_status' => AccountRoleStatus,
   ) $s = shape()) {
-    $this->admin_account = $admin_account ?? ;
-    $this->role_status = $role_status ?? ;
+    $this->admin_account = $admin_account ?? "";
+    $this->role_status = $role_status ?? "";
   }
 }
 
@@ -142,7 +142,7 @@ class GetComplianceDetailRequest {
   ?'member_account' => AWSAccountId,
   ?'policy_id' => PolicyId,
   ) $s = shape()) {
-    $this->member_account = $member_account ?? ;
+    $this->member_account = $member_account ?? "";
     $this->policy_id = $policy_id ?? "";
   }
 }
@@ -172,8 +172,8 @@ class GetNotificationChannelResponse {
   ?'sns_role_name' => ResourceArn,
   ?'sns_topic_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->sns_role_name = $sns_role_name ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->sns_role_name = $sns_role_name ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -196,7 +196,7 @@ class GetPolicyResponse {
   ?'policy_arn' => ResourceArn,
   ) $s = shape()) {
     $this->policy = $policy ?? null;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -216,12 +216,12 @@ class GetProtectionStatusRequest {
   ?'policy_id' => PolicyId,
   ?'start_time' => TimeStamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->member_account_id = $member_account_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->max_results = $max_results ?? 0;
+    $this->member_account_id = $member_account_id ?? "";
+    $this->next_token = $next_token ?? "";
     $this->policy_id = $policy_id ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -237,10 +237,10 @@ class GetProtectionStatusResponse {
   ?'next_token' => PaginationToken,
   ?'service_type' => SecurityServiceType,
   ) $s = shape()) {
-    $this->admin_account_id = $admin_account_id ?? ;
-    $this->data = $data ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->service_type = $service_type ?? ;
+    $this->admin_account_id = $admin_account_id ?? "";
+    $this->data = $data ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->service_type = $service_type ?? "";
   }
 }
 
@@ -250,7 +250,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -260,7 +260,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -270,7 +270,7 @@ class InvalidOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -280,7 +280,7 @@ class InvalidTypeException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -292,7 +292,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -306,8 +306,8 @@ class ListComplianceStatusRequest {
   ?'next_token' => PaginationToken,
   ?'policy_id' => PolicyId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->policy_id = $policy_id ?? "";
   }
 }
@@ -320,7 +320,7 @@ class ListComplianceStatusResponse {
   ?'next_token' => PaginationToken,
   ?'policy_compliance_status_list' => PolicyComplianceStatusList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->policy_compliance_status_list = $policy_compliance_status_list ?? [];
   }
 }
@@ -333,8 +333,8 @@ class ListMemberAccountsRequest {
   ?'max_results' => PaginationMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -347,7 +347,7 @@ class ListMemberAccountsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->member_accounts = $member_accounts ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -359,8 +359,8 @@ class ListPoliciesRequest {
   ?'max_results' => PaginationMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -372,8 +372,8 @@ class ListPoliciesResponse {
   ?'next_token' => PaginationToken,
   ?'policy_list' => PolicySummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->policy_list = $policy_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->policy_list = $policy_list ?? [];
   }
 }
 
@@ -431,13 +431,13 @@ class Policy {
   ?'resource_type_list' => ResourceTypeList,
   ?'security_service_policy_data' => SecurityServicePolicyData,
   ) $s = shape()) {
-    $this->exclude_map = $exclude_map ?? ;
-    $this->exclude_resource_tags = $exclude_resource_tags ?? ;
-    $this->include_map = $include_map ?? ;
+    $this->exclude_map = $exclude_map ?? [];
+    $this->exclude_resource_tags = $exclude_resource_tags ?? false;
+    $this->include_map = $include_map ?? [];
     $this->policy_id = $policy_id ?? "";
-    $this->policy_name = $policy_name ?? ;
+    $this->policy_name = $policy_name ?? "";
     $this->policy_update_token = $policy_update_token ?? "";
-    $this->remediation_enabled = $remediation_enabled ?? ;
+    $this->remediation_enabled = $remediation_enabled ?? false;
     $this->resource_tags = $resource_tags ?? [];
     $this->resource_type = $resource_type ?? "";
     $this->resource_type_list = $resource_type_list ?? [];
@@ -463,13 +463,13 @@ class PolicyComplianceDetail {
   ?'policy_owner' => AWSAccountId,
   ?'violators' => ComplianceViolators,
   ) $s = shape()) {
-    $this->evaluation_limit_exceeded = $evaluation_limit_exceeded ?? ;
-    $this->expired_at = $expired_at ?? ;
+    $this->evaluation_limit_exceeded = $evaluation_limit_exceeded ?? false;
+    $this->expired_at = $expired_at ?? 0;
     $this->issue_info_map = $issue_info_map ?? [];
-    $this->member_account = $member_account ?? ;
+    $this->member_account = $member_account ?? "";
     $this->policy_id = $policy_id ?? "";
-    $this->policy_owner = $policy_owner ?? ;
-    $this->violators = $violators ?? ;
+    $this->policy_owner = $policy_owner ?? "";
+    $this->violators = $violators ?? [];
   }
 }
 
@@ -493,11 +493,11 @@ class PolicyComplianceStatus {
   ) $s = shape()) {
     $this->evaluation_results = $evaluation_results ?? [];
     $this->issue_info_map = $issue_info_map ?? [];
-    $this->last_updated = $last_updated ?? ;
-    $this->member_account = $member_account ?? ;
+    $this->last_updated = $last_updated ?? 0;
+    $this->member_account = $member_account ?? "";
     $this->policy_id = $policy_id ?? "";
-    $this->policy_name = $policy_name ?? ;
-    $this->policy_owner = $policy_owner ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->policy_owner = $policy_owner ?? "";
   }
 }
 
@@ -523,10 +523,10 @@ class PolicySummary {
   ?'resource_type' => ResourceType,
   ?'security_service_type' => SecurityServiceType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
     $this->policy_id = $policy_id ?? "";
-    $this->policy_name = $policy_name ?? ;
-    $this->remediation_enabled = $remediation_enabled ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->remediation_enabled = $remediation_enabled ?? false;
     $this->resource_type = $resource_type ?? "";
     $this->security_service_type = $security_service_type ?? "";
   }
@@ -546,8 +546,8 @@ class PutNotificationChannelRequest {
   ?'sns_role_name' => ResourceArn,
   ?'sns_topic_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->sns_role_name = $sns_role_name ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->sns_role_name = $sns_role_name ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -573,7 +573,7 @@ class PutPolicyResponse {
   ?'policy_arn' => ResourceArn,
   ) $s = shape()) {
     $this->policy = $policy ?? null;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -591,7 +591,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -603,8 +603,8 @@ class ResourceTag {
   ?'key' => ResourceTagKey,
   ?'value' => ResourceTagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -627,7 +627,7 @@ class SecurityServicePolicyData {
   ?'type' => SecurityServiceType,
   ) $s = shape()) {
     $this->managed_service_data = $managed_service_data ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -641,8 +641,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -685,7 +685,7 @@ class UntagResourceRequest {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

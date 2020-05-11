@@ -38,11 +38,11 @@ class CreateLifecyclePolicyRequest {
   ?'state' => SettablePolicyStateValues,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->execution_role_arn = $execution_role_arn ?? "";
     $this->policy_details = $policy_details ?? null;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -67,8 +67,8 @@ class CreateRule {
   ?'times' => TimesList,
   ) $s = shape()) {
     $this->interval = $interval ?? 0;
-    $this->interval_unit = $interval_unit ?? ;
-    $this->times = $times ?? ;
+    $this->interval_unit = $interval_unit ?? "";
+    $this->times = $times ?? [];
   }
 }
 
@@ -81,7 +81,7 @@ class CrossRegionCopyRetainRule {
   ?'interval_unit' => RetentionIntervalUnitValues,
   ) $s = shape()) {
     $this->interval = $interval ?? 0;
-    $this->interval_unit = $interval_unit ?? ;
+    $this->interval_unit = $interval_unit ?? "";
   }
 }
 
@@ -148,10 +148,10 @@ class FastRestoreRule {
   ?'interval' => Interval,
   ?'interval_unit' => RetentionIntervalUnitValues,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
+    $this->availability_zones = $availability_zones ?? [];
     $this->count = $count ?? 0;
     $this->interval = $interval ?? 0;
-    $this->interval_unit = $interval_unit ?? ;
+    $this->interval_unit = $interval_unit ?? "";
   }
 }
 
@@ -169,11 +169,11 @@ class GetLifecyclePoliciesRequest {
   ?'tags_to_add' => TagsToAddFilterList,
   ?'target_tags' => TargetTagsFilterList,
   ) $s = shape()) {
-    $this->policy_ids = $policy_ids ?? ;
-    $this->resource_types = $resource_types ?? ;
-    $this->state = $state ?? ;
-    $this->tags_to_add = $tags_to_add ?? ;
-    $this->target_tags = $target_tags ?? ;
+    $this->policy_ids = $policy_ids ?? [];
+    $this->resource_types = $resource_types ?? [];
+    $this->state = $state ?? "";
+    $this->tags_to_add = $tags_to_add ?? [];
+    $this->target_tags = $target_tags ?? [];
   }
 }
 
@@ -183,7 +183,7 @@ class GetLifecyclePoliciesResponse {
   public function __construct(shape(
   ?'policies' => LifecyclePolicySummaryList,
   ) $s = shape()) {
-    $this->policies = $policies ?? ;
+    $this->policies = $policies ?? [];
   }
 }
 
@@ -203,7 +203,7 @@ class GetLifecyclePolicyResponse {
   public function __construct(shape(
   ?'policy' => LifecyclePolicy,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? null;
   }
 }
 
@@ -217,8 +217,8 @@ class InternalServerException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -238,10 +238,10 @@ class InvalidRequestException {
   ?'mutually_exclusive_parameters' => ParameterList,
   ?'required_parameters' => ParameterList,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->mutually_exclusive_parameters = $mutually_exclusive_parameters ?? ;
-    $this->required_parameters = $required_parameters ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->mutually_exclusive_parameters = $mutually_exclusive_parameters ?? [];
+    $this->required_parameters = $required_parameters ?? [];
   }
 }
 
@@ -269,16 +269,16 @@ class LifecyclePolicy {
   ?'status_message' => StatusMessage,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->date_created = $date_created ?? ;
-    $this->date_modified = $date_modified ?? ;
-    $this->description = $description ?? ;
+    $this->date_created = $date_created ?? 0;
+    $this->date_modified = $date_modified ?? 0;
+    $this->description = $description ?? "";
     $this->execution_role_arn = $execution_role_arn ?? "";
     $this->policy_arn = $policy_arn ?? "";
     $this->policy_details = $policy_details ?? null;
     $this->policy_id = $policy_id ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->status_message = $status_message ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -294,10 +294,10 @@ class LifecyclePolicySummary {
   ?'state' => GettablePolicyStateValues,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->policy_id = $policy_id ?? "";
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -313,9 +313,9 @@ class LimitExceededException {
   ?'message' => ErrorMessage,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -325,7 +325,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => PolicyArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -335,7 +335,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -372,10 +372,10 @@ class PolicyDetails {
   ?'target_tags' => TargetTagList,
   ) $s = shape()) {
     $this->parameters = $parameters ?? null;
-    $this->policy_type = $policy_type ?? ;
-    $this->resource_types = $resource_types ?? ;
-    $this->schedules = $schedules ?? ;
-    $this->target_tags = $target_tags ?? ;
+    $this->policy_type = $policy_type ?? "";
+    $this->resource_types = $resource_types ?? [];
+    $this->schedules = $schedules ?? [];
+    $this->target_tags = $target_tags ?? [];
   }
 }
 
@@ -397,10 +397,10 @@ class ResourceNotFoundException {
   ?'resource_ids' => PolicyIdList,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->resource_ids = $resource_ids ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->resource_ids = $resource_ids ?? [];
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -420,7 +420,7 @@ class RetainRule {
   ) $s = shape()) {
     $this->count = $count ?? 0;
     $this->interval = $interval ?? 0;
-    $this->interval_unit = $interval_unit ?? ;
+    $this->interval_unit = $interval_unit ?? "";
   }
 }
 
@@ -450,10 +450,10 @@ class Schedule {
     $this->create_rule = $create_rule ?? null;
     $this->cross_region_copy_rules = $cross_region_copy_rules ?? [];
     $this->fast_restore_rule = $fast_restore_rule ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->retain_rule = $retain_rule ?? null;
-    $this->tags_to_add = $tags_to_add ?? ;
-    $this->variable_tags = $variable_tags ?? ;
+    $this->tags_to_add = $tags_to_add ?? [];
+    $this->variable_tags = $variable_tags ?? [];
   }
 }
 
@@ -475,8 +475,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -496,8 +496,8 @@ class TagResourceRequest {
   ?'resource_arn' => PolicyArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -534,8 +534,8 @@ class UntagResourceRequest {
   ?'resource_arn' => PolicyArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -560,11 +560,11 @@ class UpdateLifecyclePolicyRequest {
   ?'policy_id' => PolicyId,
   ?'state' => SettablePolicyStateValues,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->execution_role_arn = $execution_role_arn ?? "";
     $this->policy_details = $policy_details ?? null;
     $this->policy_id = $policy_id ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 

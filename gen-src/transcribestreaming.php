@@ -13,8 +13,8 @@ class Alternative {
   ?'items' => ItemList,
   ?'transcript' => string,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->transcript = $transcript ?? null;
+    $this->items = $items ?? [];
+    $this->transcript = $transcript ?? "";
   }
 }
 
@@ -48,7 +48,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -60,7 +60,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -72,7 +72,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -88,10 +88,10 @@ class Item {
   ?'start_time' => Double,
   ?'type' => ItemType,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->type = $type ?? ;
+    $this->content = $content ?? "";
+    $this->end_time = $end_time ?? 0.0;
+    $this->start_time = $start_time ?? 0.0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -107,7 +107,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -131,11 +131,11 @@ class Result {
   ?'result_id' => string,
   ?'start_time' => Double,
   ) $s = shape()) {
-    $this->alternatives = $alternatives ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->is_partial = $is_partial ?? ;
-    $this->result_id = $result_id ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->alternatives = $alternatives ?? [];
+    $this->end_time = $end_time ?? 0.0;
+    $this->is_partial = $is_partial ?? false;
+    $this->result_id = $result_id ?? "";
+    $this->start_time = $start_time ?? 0.0;
   }
 }
 
@@ -147,7 +147,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -214,7 +214,7 @@ class Transcript {
   public function __construct(shape(
   ?'results' => ResultList,
   ) $s = shape()) {
-    $this->results = $results ?? ;
+    $this->results = $results ?? [];
   }
 }
 

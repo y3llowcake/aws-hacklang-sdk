@@ -32,7 +32,7 @@ class DeleteReportDefinitionResponse {
   public function __construct(shape(
   ?'response_message' => DeleteResponseMessage,
   ) $s = shape()) {
-    $this->response_message = $response_message ?? ;
+    $this->response_message = $response_message ?? "";
   }
 }
 
@@ -47,7 +47,7 @@ class DescribeReportDefinitionsRequest {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -59,8 +59,8 @@ class DescribeReportDefinitionsResponse {
   ?'next_token' => GenericString,
   ?'report_definitions' => ReportDefinitionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->report_definitions = $report_definitions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->report_definitions = $report_definitions ?? [];
   }
 }
 
@@ -70,7 +70,7 @@ class DuplicateReportNameException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -84,7 +84,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -155,16 +155,16 @@ class ReportDefinition {
   ?'s_3_region' => AWSRegion,
   ?'time_unit' => TimeUnit,
   ) $s = shape()) {
-    $this->additional_artifacts = $additional_artifacts ?? ;
-    $this->additional_schema_elements = $additional_schema_elements ?? ;
-    $this->compression = $compression ?? ;
-    $this->format = $format ?? ;
+    $this->additional_artifacts = $additional_artifacts ?? [];
+    $this->additional_schema_elements = $additional_schema_elements ?? [];
+    $this->compression = $compression ?? "";
+    $this->format = $format ?? "";
     $this->refresh_closed_reports = $refresh_closed_reports ?? false;
     $this->report_name = $report_name ?? "";
     $this->report_versioning = $report_versioning ?? "";
     $this->s_3_bucket = $s_3_bucket ?? "";
     $this->s_3_prefix = $s_3_prefix ?? "";
-    $this->s_3_region = $s_3_region ?? ;
+    $this->s_3_region = $s_3_region ?? "";
     $this->time_unit = $time_unit ?? "";
   }
 }
@@ -179,7 +179,7 @@ class ReportLimitReachedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -203,7 +203,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

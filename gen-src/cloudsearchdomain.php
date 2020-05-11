@@ -19,8 +19,8 @@ class Bucket {
   ?'count' => Long,
   ?'value' => string,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->value = $value ?? ;
+    $this->count = $count ?? 0;
+    $this->value = $value ?? "";
   }
 }
 
@@ -30,7 +30,7 @@ class BucketInfo {
   public function __construct(shape(
   ?'buckets' => BucketList,
   ) $s = shape()) {
-    $this->buckets = $buckets ?? ;
+    $this->buckets = $buckets ?? [];
   }
 }
 
@@ -50,8 +50,8 @@ class DocumentServiceException {
   ?'message' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->status = $status ?? ;
+    $this->message = $message ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -61,7 +61,7 @@ class DocumentServiceWarning {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -97,14 +97,14 @@ class FieldStats {
   ?'sum' => Double,
   ?'sum_of_squares' => Double,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->max = $max ?? ;
-    $this->mean = $mean ?? ;
-    $this->min = $min ?? ;
-    $this->missing = $missing ?? ;
-    $this->stddev = $stddev ?? ;
-    $this->sum = $sum ?? ;
-    $this->sum_of_squares = $sum_of_squares ?? ;
+    $this->count = $count ?? 0;
+    $this->max = $max ?? "";
+    $this->mean = $mean ?? "";
+    $this->min = $min ?? "";
+    $this->missing = $missing ?? 0;
+    $this->stddev = $stddev ?? 0.0;
+    $this->sum = $sum ?? 0.0;
+    $this->sum_of_squares = $sum_of_squares ?? 0.0;
   }
 }
 
@@ -130,10 +130,10 @@ class Hit {
   ?'highlights' => Highlights,
   ?'id' => string,
   ) $s = shape()) {
-    $this->exprs = $exprs ?? ;
-    $this->fields = $fields ?? ;
-    $this->highlights = $highlights ?? ;
-    $this->id = $id ?? ;
+    $this->exprs = $exprs ?? [];
+    $this->fields = $fields ?? [];
+    $this->highlights = $highlights ?? [];
+    $this->id = $id ?? "";
   }
 }
 
@@ -151,10 +151,10 @@ class Hits {
   ?'hit' => HitList,
   ?'start' => Long,
   ) $s = shape()) {
-    $this->cursor = $cursor ?? ;
-    $this->found = $found ?? ;
-    $this->hit = $hit ?? ;
-    $this->start = $start ?? ;
+    $this->cursor = $cursor ?? "";
+    $this->found = $found ?? 0;
+    $this->hit = $hit ?? [];
+    $this->start = $start ?? 0;
   }
 }
 
@@ -176,7 +176,7 @@ class SearchException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -212,20 +212,20 @@ class SearchRequest {
   ?'start' => Start,
   ?'stats' => Stat,
   ) $s = shape()) {
-    $this->cursor = $cursor ?? ;
-    $this->expr = $expr ?? ;
-    $this->facet = $facet ?? ;
-    $this->filter_query = $filter_query ?? ;
-    $this->highlight = $highlight ?? ;
-    $this->partial = $partial ?? ;
-    $this->query = $query ?? ;
-    $this->query_options = $query_options ?? ;
-    $this->query_parser = $query_parser ?? ;
-    $this->return = $return ?? ;
-    $this->size = $size ?? ;
-    $this->sort = $sort ?? ;
-    $this->start = $start ?? ;
-    $this->stats = $stats ?? ;
+    $this->cursor = $cursor ?? "";
+    $this->expr = $expr ?? "";
+    $this->facet = $facet ?? "";
+    $this->filter_query = $filter_query ?? "";
+    $this->highlight = $highlight ?? "";
+    $this->partial = $partial ?? false;
+    $this->query = $query ?? "";
+    $this->query_options = $query_options ?? "";
+    $this->query_parser = $query_parser ?? "";
+    $this->return = $return ?? "";
+    $this->size = $size ?? 0;
+    $this->sort = $sort ?? "";
+    $this->start = $start ?? 0;
+    $this->stats = $stats ?? "";
   }
 }
 
@@ -241,10 +241,10 @@ class SearchResponse {
   ?'stats' => Stats,
   ?'status' => SearchStatus,
   ) $s = shape()) {
-    $this->facets = $facets ?? ;
-    $this->hits = $hits ?? ;
-    $this->stats = $stats ?? ;
-    $this->status = $status ?? ;
+    $this->facets = $facets ?? [];
+    $this->hits = $hits ?? null;
+    $this->stats = $stats ?? [];
+    $this->status = $status ?? null;
   }
 }
 
@@ -256,8 +256,8 @@ class SearchStatus {
   ?'rid' => string,
   ?'timems' => Long,
   ) $s = shape()) {
-    $this->rid = $rid ?? ;
-    $this->timems = $timems ?? ;
+    $this->rid = $rid ?? "";
+    $this->timems = $timems ?? 0;
   }
 }
 
@@ -283,9 +283,9 @@ class SuggestModel {
   ?'query' => string,
   ?'suggestions' => Suggestions,
   ) $s = shape()) {
-    $this->found = $found ?? ;
-    $this->query = $query ?? ;
-    $this->suggestions = $suggestions ?? ;
+    $this->found = $found ?? 0;
+    $this->query = $query ?? "";
+    $this->suggestions = $suggestions ?? [];
   }
 }
 
@@ -299,9 +299,9 @@ class SuggestRequest {
   ?'size' => SuggestionsSize,
   ?'suggester' => Suggester,
   ) $s = shape()) {
-    $this->query = $query ?? ;
-    $this->size = $size ?? ;
-    $this->suggester = $suggester ?? ;
+    $this->query = $query ?? "";
+    $this->size = $size ?? 0;
+    $this->suggester = $suggester ?? "";
   }
 }
 
@@ -313,8 +313,8 @@ class SuggestResponse {
   ?'status' => SuggestStatus,
   ?'suggest' => SuggestModel,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->suggest = $suggest ?? ;
+    $this->status = $status ?? null;
+    $this->suggest = $suggest ?? null;
   }
 }
 
@@ -326,8 +326,8 @@ class SuggestStatus {
   ?'rid' => string,
   ?'timems' => Long,
   ) $s = shape()) {
-    $this->rid = $rid ?? ;
-    $this->timems = $timems ?? ;
+    $this->rid = $rid ?? "";
+    $this->timems = $timems ?? 0;
   }
 }
 
@@ -343,9 +343,9 @@ class SuggestionMatch {
   ?'score' => Long,
   ?'suggestion' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->score = $score ?? ;
-    $this->suggestion = $suggestion ?? ;
+    $this->id = $id ?? "";
+    $this->score = $score ?? 0;
+    $this->suggestion = $suggestion ?? "";
   }
 }
 
@@ -361,8 +361,8 @@ class UploadDocumentsRequest {
   ?'content_type' => ContentType,
   ?'documents' => Blob,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->documents = $documents ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->documents = $documents ?? "";
   }
 }
 
@@ -378,10 +378,10 @@ class UploadDocumentsResponse {
   ?'status' => string,
   ?'warnings' => DocumentServiceWarnings,
   ) $s = shape()) {
-    $this->adds = $adds ?? ;
-    $this->deletes = $deletes ?? ;
-    $this->status = $status ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->adds = $adds ?? 0;
+    $this->deletes = $deletes ?? 0;
+    $this->status = $status ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 

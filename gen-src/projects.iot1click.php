@@ -32,10 +32,10 @@ class AssociateDeviceWithPlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->device_template_name = $device_template_name ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->device_template_name = $device_template_name ?? "";
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -64,9 +64,9 @@ class CreatePlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -89,10 +89,10 @@ class CreateProjectRequest {
   ?'project_name' => ProjectName,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->placement_template = $placement_template ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->placement_template = $placement_template ?? null;
+    $this->project_name = $project_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -113,8 +113,8 @@ class DeletePlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -131,7 +131,7 @@ class DeleteProjectRequest {
   public function __construct(shape(
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? ;
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -150,8 +150,8 @@ class DescribePlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -161,7 +161,7 @@ class DescribePlacementResponse {
   public function __construct(shape(
   ?'placement' => PlacementDescription,
   ) $s = shape()) {
-    $this->placement = $placement ?? ;
+    $this->placement = $placement ?? null;
   }
 }
 
@@ -171,7 +171,7 @@ class DescribeProjectRequest {
   public function __construct(shape(
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? ;
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -181,7 +181,7 @@ class DescribeProjectResponse {
   public function __construct(shape(
   ?'project' => ProjectDescription,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -205,8 +205,8 @@ class DeviceTemplate {
   ?'callback_overrides' => DeviceCallbackOverrideMap,
   ?'device_type' => DeviceType,
   ) $s = shape()) {
-    $this->callback_overrides = $callback_overrides ?? ;
-    $this->device_type = $device_type ?? ;
+    $this->callback_overrides = $callback_overrides ?? [];
+    $this->device_type = $device_type ?? "";
   }
 }
 
@@ -226,9 +226,9 @@ class DisassociateDeviceFromPlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->device_template_name = $device_template_name ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->device_template_name = $device_template_name ?? "";
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -247,8 +247,8 @@ class GetDevicesInPlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -258,7 +258,7 @@ class GetDevicesInPlacementResponse {
   public function __construct(shape(
   ?'devices' => DeviceMap,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
+    $this->devices = $devices ?? [];
   }
 }
 
@@ -270,8 +270,8 @@ class InternalFailureException {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -283,8 +283,8 @@ class InvalidRequestException {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -298,9 +298,9 @@ class ListPlacementsRequest {
   ?'next_token' => NextToken,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -312,8 +312,8 @@ class ListPlacementsResponse {
   ?'next_token' => NextToken,
   ?'placements' => PlacementSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->placements = $placements ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->placements = $placements ?? [];
   }
 }
 
@@ -325,8 +325,8 @@ class ListProjectsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -338,8 +338,8 @@ class ListProjectsResponse {
   ?'next_token' => NextToken,
   ?'projects' => ProjectSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -349,7 +349,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ProjectArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -359,7 +359,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -385,11 +385,11 @@ class PlacementDescription {
   ?'project_name' => ProjectName,
   ?'updated_date' => Time,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->updated_date = $updated_date ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->created_date = $created_date ?? 0;
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
+    $this->updated_date = $updated_date ?? 0;
   }
 }
 
@@ -407,10 +407,10 @@ class PlacementSummary {
   ?'project_name' => ProjectName,
   ?'updated_date' => Time,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->updated_date = $updated_date ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
+    $this->updated_date = $updated_date ?? 0;
   }
 }
 
@@ -424,8 +424,8 @@ class PlacementTemplate {
   ?'default_attributes' => DefaultPlacementAttributeMap,
   ?'device_templates' => DeviceTemplateMap,
   ) $s = shape()) {
-    $this->default_attributes = $default_attributes ?? ;
-    $this->device_templates = $device_templates ?? ;
+    $this->default_attributes = $default_attributes ?? [];
+    $this->device_templates = $device_templates ?? [];
   }
 }
 
@@ -449,13 +449,13 @@ class ProjectDescription {
   ?'tags' => TagMap,
   ?'updated_date' => Time,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->placement_template = $placement_template ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_date = $updated_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->placement_template = $placement_template ?? null;
+    $this->project_name = $project_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_date = $updated_date ?? 0;
   }
 }
 
@@ -475,11 +475,11 @@ class ProjectSummary {
   ?'tags' => TagMap,
   ?'updated_date' => Time,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_date = $updated_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->project_name = $project_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_date = $updated_date ?? 0;
   }
 }
 
@@ -493,8 +493,8 @@ class ResourceConflictException {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -506,8 +506,8 @@ class ResourceNotFoundException {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -525,8 +525,8 @@ class TagResourceRequest {
   ?'resource_arn' => ProjectArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -549,8 +549,8 @@ class TooManyRequestsException {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -562,8 +562,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ProjectArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -584,9 +584,9 @@ class UpdatePlacementRequest {
   ?'placement_name' => PlacementName,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->placement_name = $placement_name ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->placement_name = $placement_name ?? "";
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -607,9 +607,9 @@ class UpdateProjectRequest {
   ?'placement_template' => PlacementTemplate,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->placement_template = $placement_template ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->description = $description ?? "";
+    $this->placement_template = $placement_template ?? null;
+    $this->project_name = $project_name ?? "";
   }
 }
 

@@ -38,7 +38,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -54,10 +54,10 @@ class AssociateCustomerGatewayRequest {
   ?'global_network_id' => string,
   ?'link_id' => string,
   ) $s = shape()) {
-    $this->customer_gateway_arn = $customer_gateway_arn ?? ;
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
+    $this->customer_gateway_arn = $customer_gateway_arn ?? "";
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
   }
 }
 
@@ -81,9 +81,9 @@ class AssociateLinkRequest {
   ?'global_network_id' => string,
   ?'link_id' => string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
   }
 }
 
@@ -105,8 +105,8 @@ class Bandwidth {
   ?'download_speed' => int,
   ?'upload_speed' => int,
   ) $s = shape()) {
-    $this->download_speed = $download_speed ?? ;
-    $this->upload_speed = $upload_speed ?? ;
+    $this->download_speed = $download_speed ?? 0;
+    $this->upload_speed = $upload_speed ?? 0;
   }
 }
 
@@ -120,9 +120,9 @@ class ConflictException {
   ?'resource_id' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -148,15 +148,15 @@ class CreateDeviceRequest {
   ?'type' => string,
   ?'vendor' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->model = $model ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
-    $this->vendor = $vendor ?? ;
+    $this->model = $model ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
+    $this->vendor = $vendor ?? "";
   }
 }
 
@@ -178,8 +178,8 @@ class CreateGlobalNetworkRequest {
   ?'description' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -212,12 +212,12 @@ class CreateLinkRequest {
   ?'type' => string,
   ) $s = shape()) {
     $this->bandwidth = $bandwidth ?? null;
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->provider = $provider ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->provider = $provider ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -243,10 +243,10 @@ class CreateSiteRequest {
   ?'location' => Location,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -274,11 +274,11 @@ class CustomerGatewayAssociation {
   ?'link_id' => string,
   ?'state' => CustomerGatewayAssociationState,
   ) $s = shape()) {
-    $this->customer_gateway_arn = $customer_gateway_arn ?? ;
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
-    $this->state = $state ?? ;
+    $this->customer_gateway_arn = $customer_gateway_arn ?? "";
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -296,8 +296,8 @@ class DeleteDeviceRequest {
   ?'device_id' => string,
   ?'global_network_id' => string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
   }
 }
 
@@ -317,7 +317,7 @@ class DeleteGlobalNetworkRequest {
   public function __construct(shape(
   ?'global_network_id' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
+    $this->global_network_id = $global_network_id ?? "";
   }
 }
 
@@ -339,8 +339,8 @@ class DeleteLinkRequest {
   ?'global_network_id' => string,
   ?'link_id' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
   }
 }
 
@@ -362,8 +362,8 @@ class DeleteSiteRequest {
   ?'global_network_id' => string,
   ?'site_id' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->site_id = $site_id ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->site_id = $site_id ?? "";
   }
 }
 
@@ -385,8 +385,8 @@ class DeregisterTransitGatewayRequest {
   ?'global_network_id' => string,
   ?'transit_gateway_arn' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->transit_gateway_arn = $transit_gateway_arn ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->transit_gateway_arn = $transit_gateway_arn ?? "";
   }
 }
 
@@ -410,9 +410,9 @@ class DescribeGlobalNetworksRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->global_network_ids = $global_network_ids ?? ;
+    $this->global_network_ids = $global_network_ids ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -424,8 +424,8 @@ class DescribeGlobalNetworksResponse {
   ?'global_networks' => GlobalNetworkList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->global_networks = $global_networks ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->global_networks = $global_networks ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -459,19 +459,19 @@ class Device {
   ?'type' => string,
   ?'vendor' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->device_arn = $device_arn ?? ;
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->device_arn = $device_arn ?? "";
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->model = $model ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
-    $this->vendor = $vendor ?? ;
+    $this->model = $model ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
+    $this->vendor = $vendor ?? "";
   }
 }
 
@@ -487,8 +487,8 @@ class DisassociateCustomerGatewayRequest {
   ?'customer_gateway_arn' => string,
   ?'global_network_id' => string,
   ) $s = shape()) {
-    $this->customer_gateway_arn = $customer_gateway_arn ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->customer_gateway_arn = $customer_gateway_arn ?? "";
+    $this->global_network_id = $global_network_id ?? "";
   }
 }
 
@@ -512,9 +512,9 @@ class DisassociateLinkRequest {
   ?'global_network_id' => string,
   ?'link_id' => string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
   }
 }
 
@@ -540,10 +540,10 @@ class GetCustomerGatewayAssociationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->customer_gateway_arns = $customer_gateway_arns ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->customer_gateway_arns = $customer_gateway_arns ?? [];
+    $this->global_network_id = $global_network_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -555,8 +555,8 @@ class GetCustomerGatewayAssociationsResponse {
   ?'customer_gateway_associations' => CustomerGatewayAssociationList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->customer_gateway_associations = $customer_gateway_associations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->customer_gateway_associations = $customer_gateway_associations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -574,11 +574,11 @@ class GetDevicesRequest {
   ?'next_token' => string,
   ?'site_id' => string,
   ) $s = shape()) {
-    $this->device_ids = $device_ids ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->device_ids = $device_ids ?? [];
+    $this->global_network_id = $global_network_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->site_id = $site_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->site_id = $site_id ?? "";
   }
 }
 
@@ -590,8 +590,8 @@ class GetDevicesResponse {
   ?'devices' => DeviceList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->devices = $devices ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -609,11 +609,11 @@ class GetLinkAssociationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -625,8 +625,8 @@ class GetLinkAssociationsResponse {
   ?'link_associations' => LinkAssociationList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->link_associations = $link_associations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->link_associations = $link_associations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -648,13 +648,13 @@ class GetLinksRequest {
   ?'site_id' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_ids = $link_ids ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_ids = $link_ids ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->provider = $provider ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->type = $type ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->provider = $provider ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -666,8 +666,8 @@ class GetLinksResponse {
   ?'links' => LinkList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->links = $links ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->links = $links ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -683,10 +683,10 @@ class GetSitesRequest {
   ?'next_token' => string,
   ?'site_ids' => StringList,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
+    $this->global_network_id = $global_network_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->site_ids = $site_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->site_ids = $site_ids ?? [];
   }
 }
 
@@ -698,8 +698,8 @@ class GetSitesResponse {
   ?'next_token' => string,
   ?'sites' => SiteList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sites = $sites ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sites = $sites ?? [];
   }
 }
 
@@ -715,10 +715,10 @@ class GetTransitGatewayRegistrationsRequest {
   ?'next_token' => string,
   ?'transit_gateway_arns' => StringList,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
+    $this->global_network_id = $global_network_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->transit_gateway_arns = $transit_gateway_arns ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->transit_gateway_arns = $transit_gateway_arns ?? [];
   }
 }
 
@@ -730,8 +730,8 @@ class GetTransitGatewayRegistrationsResponse {
   ?'next_token' => string,
   ?'transit_gateway_registrations' => TransitGatewayRegistrationList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->transit_gateway_registrations = $transit_gateway_registrations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->transit_gateway_registrations = $transit_gateway_registrations ?? [];
   }
 }
 
@@ -751,12 +751,12 @@ class GlobalNetwork {
   ?'state' => GlobalNetworkState,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->global_network_arn = $global_network_arn ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->global_network_arn = $global_network_arn ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -774,7 +774,7 @@ class InternalServerException {
   ?'message' => string,
   ?'retry_after_seconds' => RetryAfterSeconds,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }
@@ -806,16 +806,16 @@ class Link {
   ?'type' => string,
   ) $s = shape()) {
     $this->bandwidth = $bandwidth ?? null;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_arn = $link_arn ?? ;
-    $this->link_id = $link_id ?? ;
-    $this->provider = $provider ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_arn = $link_arn ?? "";
+    $this->link_id = $link_id ?? "";
+    $this->provider = $provider ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -831,10 +831,10 @@ class LinkAssociation {
   ?'link_association_state' => LinkAssociationState,
   ?'link_id' => string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->link_association_state = $link_association_state ?? "";
-    $this->link_id = $link_id ?? ;
+    $this->link_id = $link_id ?? "";
   }
 }
 
@@ -852,7 +852,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -876,9 +876,9 @@ class Location {
   ?'latitude' => string,
   ?'longitude' => string,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->latitude = $latitude ?? ;
-    $this->longitude = $longitude ?? ;
+    $this->address = $address ?? "";
+    $this->latitude = $latitude ?? "";
+    $this->longitude = $longitude ?? "";
   }
 }
 
@@ -892,8 +892,8 @@ class RegisterTransitGatewayRequest {
   ?'global_network_id' => string,
   ?'transit_gateway_arn' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->transit_gateway_arn = $transit_gateway_arn ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->transit_gateway_arn = $transit_gateway_arn ?? "";
   }
 }
 
@@ -919,9 +919,9 @@ class ResourceNotFoundException {
   ?'resource_id' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -941,11 +941,11 @@ class ServiceQuotaExceededException {
   ?'resource_type' => string,
   ?'service_code' => string,
   ) $s = shape()) {
-    $this->limit_code = $limit_code ?? ;
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->service_code = $service_code ?? ;
+    $this->limit_code = $limit_code ?? "";
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->service_code = $service_code ?? "";
   }
 }
 
@@ -969,14 +969,14 @@ class Site {
   ?'state' => SiteState,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->site_arn = $site_arn ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
+    $this->site_arn = $site_arn ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -996,8 +996,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1015,8 +1015,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceARN,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1037,7 +1037,7 @@ class ThrottlingException {
   ?'message' => string,
   ?'retry_after_seconds' => RetryAfterSeconds,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }
@@ -1052,9 +1052,9 @@ class TransitGatewayRegistration {
   ?'state' => TransitGatewayRegistrationStateReason,
   ?'transit_gateway_arn' => string,
   ) $s = shape()) {
-    $this->global_network_id = $global_network_id ?? ;
-    $this->state = $state ?? ;
-    $this->transit_gateway_arn = $transit_gateway_arn ?? ;
+    $this->global_network_id = $global_network_id ?? "";
+    $this->state = $state ?? null;
+    $this->transit_gateway_arn = $transit_gateway_arn ?? "";
   }
 }
 
@@ -1070,8 +1070,8 @@ class TransitGatewayRegistrationStateReason {
   ?'code' => TransitGatewayRegistrationState,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1083,8 +1083,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceARN,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1117,15 +1117,15 @@ class UpdateDeviceRequest {
   ?'type' => string,
   ?'vendor' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->device_id = $device_id ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->description = $description ?? "";
+    $this->device_id = $device_id ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->model = $model ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->site_id = $site_id ?? ;
-    $this->type = $type ?? ;
-    $this->vendor = $vendor ?? ;
+    $this->model = $model ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->site_id = $site_id ?? "";
+    $this->type = $type ?? "";
+    $this->vendor = $vendor ?? "";
   }
 }
 
@@ -1147,8 +1147,8 @@ class UpdateGlobalNetworkRequest {
   ?'description' => string,
   ?'global_network_id' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
   }
 }
 
@@ -1179,11 +1179,11 @@ class UpdateLinkRequest {
   ?'type' => string,
   ) $s = shape()) {
     $this->bandwidth = $bandwidth ?? null;
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
-    $this->link_id = $link_id ?? ;
-    $this->provider = $provider ?? ;
-    $this->type = $type ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
+    $this->link_id = $link_id ?? "";
+    $this->provider = $provider ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1209,10 +1209,10 @@ class UpdateSiteRequest {
   ?'location' => Location,
   ?'site_id' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->global_network_id = $global_network_id ?? ;
+    $this->description = $description ?? "";
+    $this->global_network_id = $global_network_id ?? "";
     $this->location = $location ?? null;
-    $this->site_id = $site_id ?? ;
+    $this->site_id = $site_id ?? "";
   }
 }
 
@@ -1236,9 +1236,9 @@ class ValidationException {
   ?'message' => string,
   ?'reason' => ValidationExceptionReason,
   ) $s = shape()) {
-    $this->fields = $fields ?? ;
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->fields = $fields ?? [];
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1250,8 +1250,8 @@ class ValidationExceptionField {
   ?'message' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
   }
 }
 

@@ -129,10 +129,10 @@ class AccessDeniedException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -150,10 +150,10 @@ class AccountSetupInProgressException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -169,10 +169,10 @@ class AddOn {
   ?'snapshot_time_of_day' => TimeOfDay,
   ?'status' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->next_snapshot_time_of_day = $next_snapshot_time_of_day ?? ;
-    $this->snapshot_time_of_day = $snapshot_time_of_day ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->next_snapshot_time_of_day = $next_snapshot_time_of_day ?? "";
+    $this->snapshot_time_of_day = $snapshot_time_of_day ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -186,8 +186,8 @@ class AddOnRequest {
   ?'add_on_type' => AddOnType,
   ?'auto_snapshot_add_on_request' => AutoSnapshotAddOnRequest,
   ) $s = shape()) {
-    $this->add_on_type = $add_on_type ?? ;
-    $this->auto_snapshot_add_on_request = $auto_snapshot_add_on_request ?? ;
+    $this->add_on_type = $add_on_type ?? "";
+    $this->auto_snapshot_add_on_request = $auto_snapshot_add_on_request ?? null;
   }
 }
 
@@ -239,26 +239,26 @@ class Alarm {
   ?'treat_missing_data' => TreatMissingData,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->comparison_operator = $comparison_operator ?? ;
-    $this->contact_protocols = $contact_protocols ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->datapoints_to_alarm = $datapoints_to_alarm ?? ;
-    $this->evaluation_periods = $evaluation_periods ?? ;
-    $this->location = $location ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->monitored_resource_info = $monitored_resource_info ?? ;
-    $this->name = $name ?? ;
-    $this->notification_enabled = $notification_enabled ?? ;
-    $this->notification_triggers = $notification_triggers ?? ;
-    $this->period = $period ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->state = $state ?? ;
-    $this->statistic = $statistic ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->threshold = $threshold ?? ;
-    $this->treat_missing_data = $treat_missing_data ?? ;
-    $this->unit = $unit ?? ;
+    $this->arn = $arn ?? "";
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->contact_protocols = $contact_protocols ?? [];
+    $this->created_at = $created_at ?? 0;
+    $this->datapoints_to_alarm = $datapoints_to_alarm ?? 0;
+    $this->evaluation_periods = $evaluation_periods ?? 0;
+    $this->location = $location ?? null;
+    $this->metric_name = $metric_name ?? "";
+    $this->monitored_resource_info = $monitored_resource_info ?? null;
+    $this->name = $name ?? "";
+    $this->notification_enabled = $notification_enabled ?? false;
+    $this->notification_triggers = $notification_triggers ?? [];
+    $this->period = $period ?? 0;
+    $this->resource_type = $resource_type ?? "";
+    $this->state = $state ?? "";
+    $this->statistic = $statistic ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->threshold = $threshold ?? 0.0;
+    $this->treat_missing_data = $treat_missing_data ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -272,7 +272,7 @@ class AllocateStaticIpRequest {
   public function __construct(shape(
   ?'static_ip_name' => ResourceName,
   ) $s = shape()) {
-    $this->static_ip_name = $static_ip_name ?? ;
+    $this->static_ip_name = $static_ip_name ?? "";
   }
 }
 
@@ -282,7 +282,7 @@ class AllocateStaticIpResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -296,9 +296,9 @@ class AttachDiskRequest {
   ?'disk_path' => NonEmptyString,
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->disk_name = $disk_name ?? ;
-    $this->disk_path = $disk_path ?? ;
-    $this->instance_name = $instance_name ?? ;
+    $this->disk_name = $disk_name ?? "";
+    $this->disk_path = $disk_path ?? "";
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -308,7 +308,7 @@ class AttachDiskResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -320,8 +320,8 @@ class AttachInstancesToLoadBalancerRequest {
   ?'instance_names' => ResourceNameList,
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->instance_names = $instance_names ?? [];
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -331,7 +331,7 @@ class AttachInstancesToLoadBalancerResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -343,8 +343,8 @@ class AttachLoadBalancerTlsCertificateRequest {
   ?'certificate_name' => ResourceName,
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->certificate_name = $certificate_name ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->certificate_name = $certificate_name ?? "";
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -354,7 +354,7 @@ class AttachLoadBalancerTlsCertificateResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -366,8 +366,8 @@ class AttachStaticIpRequest {
   ?'instance_name' => ResourceName,
   ?'static_ip_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->static_ip_name = $static_ip_name ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->static_ip_name = $static_ip_name ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class AttachStaticIpResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -389,8 +389,8 @@ class AttachedDisk {
   ?'path' => string,
   ?'size_in_gb' => integer,
   ) $s = shape()) {
-    $this->path = $path ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
+    $this->path = $path ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
   }
 }
 
@@ -404,7 +404,7 @@ class AutoSnapshotAddOnRequest {
   public function __construct(shape(
   ?'snapshot_time_of_day' => TimeOfDay,
   ) $s = shape()) {
-    $this->snapshot_time_of_day = $snapshot_time_of_day ?? ;
+    $this->snapshot_time_of_day = $snapshot_time_of_day ?? "";
   }
 }
 
@@ -422,10 +422,10 @@ class AutoSnapshotDetails {
   ?'from_attached_disks' => AttachedDiskList,
   ?'status' => AutoSnapshotStatus,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->date = $date ?? ;
-    $this->from_attached_disks = $from_attached_disks ?? ;
-    $this->status = $status ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->date = $date ?? "";
+    $this->from_attached_disks = $from_attached_disks ?? [];
+    $this->status = $status ?? "";
   }
 }
 
@@ -441,8 +441,8 @@ class AvailabilityZone {
   ?'state' => NonEmptyString,
   ?'zone_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->zone_name = $zone_name ?? ;
+    $this->state = $state ?? "";
+    $this->zone_name = $zone_name ?? "";
   }
 }
 
@@ -478,18 +478,18 @@ class Blueprint {
   ?'version' => string,
   ?'version_code' => string,
   ) $s = shape()) {
-    $this->blueprint_id = $blueprint_id ?? ;
-    $this->description = $description ?? ;
-    $this->group = $group ?? ;
-    $this->is_active = $is_active ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->min_power = $min_power ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
-    $this->product_url = $product_url ?? ;
-    $this->type = $type ?? ;
-    $this->version = $version ?? ;
-    $this->version_code = $version_code ?? ;
+    $this->blueprint_id = $blueprint_id ?? "";
+    $this->description = $description ?? "";
+    $this->group = $group ?? "";
+    $this->is_active = $is_active ?? false;
+    $this->license_url = $license_url ?? "";
+    $this->min_power = $min_power ?? 0;
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
+    $this->product_url = $product_url ?? "";
+    $this->type = $type ?? "";
+    $this->version = $version ?? "";
+    $this->version_code = $version_code ?? "";
   }
 }
 
@@ -523,17 +523,17 @@ class Bundle {
   ?'supported_platforms' => InstancePlatformList,
   ?'transfer_per_month_in_gb' => integer,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->cpu_count = $cpu_count ?? ;
-    $this->disk_size_in_gb = $disk_size_in_gb ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->is_active = $is_active ?? ;
-    $this->name = $name ?? ;
-    $this->power = $power ?? ;
-    $this->price = $price ?? ;
-    $this->ram_size_in_gb = $ram_size_in_gb ?? ;
-    $this->supported_platforms = $supported_platforms ?? ;
-    $this->transfer_per_month_in_gb = $transfer_per_month_in_gb ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->cpu_count = $cpu_count ?? 0;
+    $this->disk_size_in_gb = $disk_size_in_gb ?? 0;
+    $this->instance_type = $instance_type ?? "";
+    $this->is_active = $is_active ?? false;
+    $this->name = $name ?? "";
+    $this->power = $power ?? 0;
+    $this->price = $price ?? 0.0;
+    $this->ram_size_in_gb = $ram_size_in_gb ?? 0.0;
+    $this->supported_platforms = $supported_platforms ?? [];
+    $this->transfer_per_month_in_gb = $transfer_per_month_in_gb ?? 0;
   }
 }
 
@@ -547,8 +547,8 @@ class CloseInstancePublicPortsRequest {
   ?'instance_name' => ResourceName,
   ?'port_info' => PortInfo,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->port_info = $port_info ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->port_info = $port_info ?? null;
   }
 }
 
@@ -558,7 +558,7 @@ class CloseInstancePublicPortsResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -582,14 +582,14 @@ class CloudFormationStackRecord {
   ?'source_info' => CloudFormationStackRecordSourceInfoList,
   ?'state' => RecordState,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->destination_info = $destination_info ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->source_info = $source_info ?? ;
-    $this->state = $state ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->destination_info = $destination_info ?? null;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->source_info = $source_info ?? [];
+    $this->state = $state ?? "";
   }
 }
 
@@ -605,9 +605,9 @@ class CloudFormationStackRecordSourceInfo {
   ?'name' => NonEmptyString,
   ?'resource_type' => CloudFormationStackRecordSourceType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -639,15 +639,15 @@ class ContactMethod {
   ?'status' => ContactMethodStatus,
   ?'support_code' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->contact_endpoint = $contact_endpoint ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->status = $status ?? ;
-    $this->support_code = $support_code ?? ;
+    $this->arn = $arn ?? "";
+    $this->contact_endpoint = $contact_endpoint ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->status = $status ?? "";
+    $this->support_code = $support_code ?? "";
   }
 }
 
@@ -677,12 +677,12 @@ class CopySnapshotRequest {
   ?'target_snapshot_name' => ResourceName,
   ?'use_latest_restorable_auto_snapshot' => boolean,
   ) $s = shape()) {
-    $this->restore_date = $restore_date ?? ;
-    $this->source_region = $source_region ?? ;
-    $this->source_resource_name = $source_resource_name ?? ;
-    $this->source_snapshot_name = $source_snapshot_name ?? ;
-    $this->target_snapshot_name = $target_snapshot_name ?? ;
-    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? ;
+    $this->restore_date = $restore_date ?? "";
+    $this->source_region = $source_region ?? "";
+    $this->source_resource_name = $source_resource_name ?? "";
+    $this->source_snapshot_name = $source_snapshot_name ?? "";
+    $this->target_snapshot_name = $target_snapshot_name ?? "";
+    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? false;
   }
 }
 
@@ -692,7 +692,7 @@ class CopySnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -702,7 +702,7 @@ class CreateCloudFormationStackRequest {
   public function __construct(shape(
   ?'instances' => InstanceEntryList,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
+    $this->instances = $instances ?? [];
   }
 }
 
@@ -712,7 +712,7 @@ class CreateCloudFormationStackResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -724,8 +724,8 @@ class CreateContactMethodRequest {
   ?'contact_endpoint' => StringMax256,
   ?'protocol' => ContactProtocol,
   ) $s = shape()) {
-    $this->contact_endpoint = $contact_endpoint ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->contact_endpoint = $contact_endpoint ?? "";
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -735,7 +735,7 @@ class CreateContactMethodResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -761,15 +761,15 @@ class CreateDiskFromSnapshotRequest {
   ?'tags' => TagList,
   ?'use_latest_restorable_auto_snapshot' => boolean,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->disk_name = $disk_name ?? ;
-    $this->disk_snapshot_name = $disk_snapshot_name ?? ;
-    $this->restore_date = $restore_date ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->source_disk_name = $source_disk_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->availability_zone = $availability_zone ?? "";
+    $this->disk_name = $disk_name ?? "";
+    $this->disk_snapshot_name = $disk_snapshot_name ?? "";
+    $this->restore_date = $restore_date ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->source_disk_name = $source_disk_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? false;
   }
 }
 
@@ -779,7 +779,7 @@ class CreateDiskFromSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -797,11 +797,11 @@ class CreateDiskRequest {
   ?'size_in_gb' => integer,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->disk_name = $disk_name ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->tags = $tags ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->availability_zone = $availability_zone ?? "";
+    $this->disk_name = $disk_name ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -811,7 +811,7 @@ class CreateDiskResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -827,10 +827,10 @@ class CreateDiskSnapshotRequest {
   ?'instance_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->disk_name = $disk_name ?? ;
-    $this->disk_snapshot_name = $disk_snapshot_name ?? ;
-    $this->instance_name = $instance_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->disk_name = $disk_name ?? "";
+    $this->disk_snapshot_name = $disk_snapshot_name ?? "";
+    $this->instance_name = $instance_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -840,7 +840,7 @@ class CreateDiskSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -852,8 +852,8 @@ class CreateDomainEntryRequest {
   ?'domain_entry' => DomainEntry,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_entry = $domain_entry ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_entry = $domain_entry ?? null;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -863,7 +863,7 @@ class CreateDomainEntryResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -875,8 +875,8 @@ class CreateDomainRequest {
   ?'domain_name' => DomainName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -886,7 +886,7 @@ class CreateDomainResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -900,9 +900,9 @@ class CreateInstanceSnapshotRequest {
   ?'instance_snapshot_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->instance_snapshot_name = $instance_snapshot_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->instance_snapshot_name = $instance_snapshot_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -912,7 +912,7 @@ class CreateInstanceSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -944,18 +944,18 @@ class CreateInstancesFromSnapshotRequest {
   ?'use_latest_restorable_auto_snapshot' => boolean,
   ?'user_data' => string,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->attached_disk_mapping = $attached_disk_mapping ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->bundle_id = $bundle_id ?? ;
-    $this->instance_names = $instance_names ?? ;
-    $this->instance_snapshot_name = $instance_snapshot_name ?? ;
-    $this->key_pair_name = $key_pair_name ?? ;
-    $this->restore_date = $restore_date ?? ;
-    $this->source_instance_name = $source_instance_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? ;
-    $this->user_data = $user_data ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->attached_disk_mapping = $attached_disk_mapping ?? [];
+    $this->availability_zone = $availability_zone ?? "";
+    $this->bundle_id = $bundle_id ?? "";
+    $this->instance_names = $instance_names ?? [];
+    $this->instance_snapshot_name = $instance_snapshot_name ?? "";
+    $this->key_pair_name = $key_pair_name ?? "";
+    $this->restore_date = $restore_date ?? "";
+    $this->source_instance_name = $source_instance_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->use_latest_restorable_auto_snapshot = $use_latest_restorable_auto_snapshot ?? false;
+    $this->user_data = $user_data ?? "";
   }
 }
 
@@ -965,7 +965,7 @@ class CreateInstancesFromSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -991,15 +991,15 @@ class CreateInstancesRequest {
   ?'tags' => TagList,
   ?'user_data' => string,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->blueprint_id = $blueprint_id ?? ;
-    $this->bundle_id = $bundle_id ?? ;
-    $this->custom_image_name = $custom_image_name ?? ;
-    $this->instance_names = $instance_names ?? ;
-    $this->key_pair_name = $key_pair_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_data = $user_data ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->availability_zone = $availability_zone ?? "";
+    $this->blueprint_id = $blueprint_id ?? "";
+    $this->bundle_id = $bundle_id ?? "";
+    $this->custom_image_name = $custom_image_name ?? "";
+    $this->instance_names = $instance_names ?? [];
+    $this->key_pair_name = $key_pair_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->user_data = $user_data ?? "";
   }
 }
 
@@ -1009,7 +1009,7 @@ class CreateInstancesResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1021,8 +1021,8 @@ class CreateKeyPairRequest {
   ?'key_pair_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->key_pair_name = $key_pair_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->key_pair_name = $key_pair_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1038,10 +1038,10 @@ class CreateKeyPairResult {
   ?'private_key_base_64' => Base64,
   ?'public_key_base_64' => Base64,
   ) $s = shape()) {
-    $this->key_pair = $key_pair ?? ;
-    $this->operation = $operation ?? ;
-    $this->private_key_base_64 = $private_key_base_64 ?? ;
-    $this->public_key_base_64 = $public_key_base_64 ?? ;
+    $this->key_pair = $key_pair ?? null;
+    $this->operation = $operation ?? null;
+    $this->private_key_base_64 = $private_key_base_64 ?? "";
+    $this->public_key_base_64 = $public_key_base_64 ?? "";
   }
 }
 
@@ -1063,13 +1063,13 @@ class CreateLoadBalancerRequest {
   ?'load_balancer_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_alternative_names = $certificate_alternative_names ?? ;
-    $this->certificate_domain_name = $certificate_domain_name ?? ;
-    $this->certificate_name = $certificate_name ?? ;
-    $this->health_check_path = $health_check_path ?? ;
-    $this->instance_port = $instance_port ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_alternative_names = $certificate_alternative_names ?? [];
+    $this->certificate_domain_name = $certificate_domain_name ?? "";
+    $this->certificate_name = $certificate_name ?? "";
+    $this->health_check_path = $health_check_path ?? "";
+    $this->instance_port = $instance_port ?? 0;
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1079,7 +1079,7 @@ class CreateLoadBalancerResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1097,11 +1097,11 @@ class CreateLoadBalancerTlsCertificateRequest {
   ?'load_balancer_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_alternative_names = $certificate_alternative_names ?? ;
-    $this->certificate_domain_name = $certificate_domain_name ?? ;
-    $this->certificate_name = $certificate_name ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_alternative_names = $certificate_alternative_names ?? [];
+    $this->certificate_domain_name = $certificate_domain_name ?? "";
+    $this->certificate_name = $certificate_name ?? "";
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1111,7 +1111,7 @@ class CreateLoadBalancerTlsCertificateResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1137,15 +1137,15 @@ class CreateRelationalDatabaseFromSnapshotRequest {
   ?'tags' => TagList,
   ?'use_latest_restorable_time' => boolean,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->relational_database_bundle_id = $relational_database_bundle_id ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? ;
-    $this->restore_time = $restore_time ?? ;
-    $this->source_relational_database_name = $source_relational_database_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->use_latest_restorable_time = $use_latest_restorable_time ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->relational_database_bundle_id = $relational_database_bundle_id ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? "";
+    $this->restore_time = $restore_time ?? 0;
+    $this->source_relational_database_name = $source_relational_database_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->use_latest_restorable_time = $use_latest_restorable_time ?? false;
   }
 }
 
@@ -1155,7 +1155,7 @@ class CreateRelationalDatabaseFromSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1185,17 +1185,17 @@ class CreateRelationalDatabaseRequest {
   ?'relational_database_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->master_database_name = $master_database_name ?? ;
-    $this->master_user_password = $master_user_password ?? ;
-    $this->master_username = $master_username ?? ;
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->relational_database_blueprint_id = $relational_database_blueprint_id ?? ;
-    $this->relational_database_bundle_id = $relational_database_bundle_id ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->master_database_name = $master_database_name ?? "";
+    $this->master_user_password = $master_user_password ?? "";
+    $this->master_username = $master_username ?? "";
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->relational_database_blueprint_id = $relational_database_blueprint_id ?? "";
+    $this->relational_database_bundle_id = $relational_database_bundle_id ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1205,7 +1205,7 @@ class CreateRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1219,9 +1219,9 @@ class CreateRelationalDatabaseSnapshotRequest {
   ?'relational_database_snapshot_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1231,7 +1231,7 @@ class CreateRelationalDatabaseSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1241,7 +1241,7 @@ class DeleteAlarmRequest {
   public function __construct(shape(
   ?'alarm_name' => ResourceName,
   ) $s = shape()) {
-    $this->alarm_name = $alarm_name ?? ;
+    $this->alarm_name = $alarm_name ?? "";
   }
 }
 
@@ -1251,7 +1251,7 @@ class DeleteAlarmResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1263,8 +1263,8 @@ class DeleteAutoSnapshotRequest {
   ?'date' => AutoSnapshotDate,
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->date = $date ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1274,7 +1274,7 @@ class DeleteAutoSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1284,7 +1284,7 @@ class DeleteContactMethodRequest {
   public function __construct(shape(
   ?'protocol' => ContactProtocol,
   ) $s = shape()) {
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -1294,7 +1294,7 @@ class DeleteContactMethodResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1306,8 +1306,8 @@ class DeleteDiskRequest {
   ?'disk_name' => ResourceName,
   ?'force_delete_add_ons' => boolean,
   ) $s = shape()) {
-    $this->disk_name = $disk_name ?? ;
-    $this->force_delete_add_ons = $force_delete_add_ons ?? ;
+    $this->disk_name = $disk_name ?? "";
+    $this->force_delete_add_ons = $force_delete_add_ons ?? false;
   }
 }
 
@@ -1317,7 +1317,7 @@ class DeleteDiskResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1327,7 +1327,7 @@ class DeleteDiskSnapshotRequest {
   public function __construct(shape(
   ?'disk_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->disk_snapshot_name = $disk_snapshot_name ?? ;
+    $this->disk_snapshot_name = $disk_snapshot_name ?? "";
   }
 }
 
@@ -1337,7 +1337,7 @@ class DeleteDiskSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1349,8 +1349,8 @@ class DeleteDomainEntryRequest {
   ?'domain_entry' => DomainEntry,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_entry = $domain_entry ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_entry = $domain_entry ?? null;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -1360,7 +1360,7 @@ class DeleteDomainEntryResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -1370,7 +1370,7 @@ class DeleteDomainRequest {
   public function __construct(shape(
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -1380,7 +1380,7 @@ class DeleteDomainResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -1392,8 +1392,8 @@ class DeleteInstanceRequest {
   ?'force_delete_add_ons' => boolean,
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->force_delete_add_ons = $force_delete_add_ons ?? ;
-    $this->instance_name = $instance_name ?? ;
+    $this->force_delete_add_ons = $force_delete_add_ons ?? false;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -1403,7 +1403,7 @@ class DeleteInstanceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1413,7 +1413,7 @@ class DeleteInstanceSnapshotRequest {
   public function __construct(shape(
   ?'instance_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_snapshot_name = $instance_snapshot_name ?? ;
+    $this->instance_snapshot_name = $instance_snapshot_name ?? "";
   }
 }
 
@@ -1423,7 +1423,7 @@ class DeleteInstanceSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1433,7 +1433,7 @@ class DeleteKeyPairRequest {
   public function __construct(shape(
   ?'key_pair_name' => ResourceName,
   ) $s = shape()) {
-    $this->key_pair_name = $key_pair_name ?? ;
+    $this->key_pair_name = $key_pair_name ?? "";
   }
 }
 
@@ -1443,7 +1443,7 @@ class DeleteKeyPairResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -1453,7 +1453,7 @@ class DeleteKnownHostKeysRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -1463,7 +1463,7 @@ class DeleteKnownHostKeysResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1473,7 +1473,7 @@ class DeleteLoadBalancerRequest {
   public function __construct(shape(
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -1483,7 +1483,7 @@ class DeleteLoadBalancerResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1497,9 +1497,9 @@ class DeleteLoadBalancerTlsCertificateRequest {
   ?'force' => boolean,
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->certificate_name = $certificate_name ?? ;
-    $this->force = $force ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->certificate_name = $certificate_name ?? "";
+    $this->force = $force ?? false;
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -1509,7 +1509,7 @@ class DeleteLoadBalancerTlsCertificateResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1523,9 +1523,9 @@ class DeleteRelationalDatabaseRequest {
   ?'relational_database_name' => ResourceName,
   ?'skip_final_snapshot' => boolean,
   ) $s = shape()) {
-    $this->final_relational_database_snapshot_name = $final_relational_database_snapshot_name ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->skip_final_snapshot = $skip_final_snapshot ?? ;
+    $this->final_relational_database_snapshot_name = $final_relational_database_snapshot_name ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->skip_final_snapshot = $skip_final_snapshot ?? false;
   }
 }
 
@@ -1535,7 +1535,7 @@ class DeleteRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1545,7 +1545,7 @@ class DeleteRelationalDatabaseSnapshotRequest {
   public function __construct(shape(
   ?'relational_database_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? ;
+    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? "";
   }
 }
 
@@ -1555,7 +1555,7 @@ class DeleteRelationalDatabaseSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1567,8 +1567,8 @@ class DestinationInfo {
   ?'id' => NonEmptyString,
   ?'service' => NonEmptyString,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->service = $service ?? ;
+    $this->id = $id ?? "";
+    $this->service = $service ?? "";
   }
 }
 
@@ -1578,7 +1578,7 @@ class DetachDiskRequest {
   public function __construct(shape(
   ?'disk_name' => ResourceName,
   ) $s = shape()) {
-    $this->disk_name = $disk_name ?? ;
+    $this->disk_name = $disk_name ?? "";
   }
 }
 
@@ -1588,7 +1588,7 @@ class DetachDiskResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1600,8 +1600,8 @@ class DetachInstancesFromLoadBalancerRequest {
   ?'instance_names' => ResourceNameList,
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->instance_names = $instance_names ?? [];
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -1611,7 +1611,7 @@ class DetachInstancesFromLoadBalancerResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1621,7 +1621,7 @@ class DetachStaticIpRequest {
   public function __construct(shape(
   ?'static_ip_name' => ResourceName,
   ) $s = shape()) {
-    $this->static_ip_name = $static_ip_name ?? ;
+    $this->static_ip_name = $static_ip_name ?? "";
   }
 }
 
@@ -1631,7 +1631,7 @@ class DetachStaticIpResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1643,8 +1643,8 @@ class DisableAddOnRequest {
   ?'add_on_type' => AddOnType,
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
-    $this->add_on_type = $add_on_type ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->add_on_type = $add_on_type ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1654,7 +1654,7 @@ class DisableAddOnResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1696,23 +1696,23 @@ class Disk {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->arn = $arn ?? ;
-    $this->attached_to = $attached_to ?? ;
-    $this->attachment_state = $attachment_state ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->gb_in_use = $gb_in_use ?? ;
-    $this->iops = $iops ?? ;
-    $this->is_attached = $is_attached ?? ;
-    $this->is_system_disk = $is_system_disk ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->path = $path ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->arn = $arn ?? "";
+    $this->attached_to = $attached_to ?? "";
+    $this->attachment_state = $attachment_state ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->gb_in_use = $gb_in_use ?? 0;
+    $this->iops = $iops ?? 0;
+    $this->is_attached = $is_attached ?? false;
+    $this->is_system_disk = $is_system_disk ?? false;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->path = $path ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1728,10 +1728,10 @@ class DiskInfo {
   ?'path' => NonEmptyString,
   ?'size_in_gb' => integer,
   ) $s = shape()) {
-    $this->is_system_disk = $is_system_disk ?? ;
-    $this->name = $name ?? ;
-    $this->path = $path ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
+    $this->is_system_disk = $is_system_disk ?? false;
+    $this->name = $name ?? "";
+    $this->path = $path ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
   }
 }
 
@@ -1747,8 +1747,8 @@ class DiskMap {
   ?'new_disk_name' => ResourceName,
   ?'original_disk_path' => NonEmptyString,
   ) $s = shape()) {
-    $this->new_disk_name = $new_disk_name ?? ;
-    $this->original_disk_path = $original_disk_path ?? ;
+    $this->new_disk_name = $new_disk_name ?? "";
+    $this->original_disk_path = $original_disk_path ?? "";
   }
 }
 
@@ -1788,21 +1788,21 @@ class DiskSnapshot {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->from_disk_arn = $from_disk_arn ?? ;
-    $this->from_disk_name = $from_disk_name ?? ;
-    $this->from_instance_arn = $from_instance_arn ?? ;
-    $this->from_instance_name = $from_instance_name ?? ;
-    $this->is_from_auto_snapshot = $is_from_auto_snapshot ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->progress = $progress ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->from_disk_arn = $from_disk_arn ?? "";
+    $this->from_disk_name = $from_disk_name ?? "";
+    $this->from_instance_arn = $from_instance_arn ?? "";
+    $this->from_instance_name = $from_instance_name ?? "";
+    $this->is_from_auto_snapshot = $is_from_auto_snapshot ?? false;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->progress = $progress ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1812,7 +1812,7 @@ class DiskSnapshotInfo {
   public function __construct(shape(
   ?'size_in_gb' => integer,
   ) $s = shape()) {
-    $this->size_in_gb = $size_in_gb ?? ;
+    $this->size_in_gb = $size_in_gb ?? 0;
   }
 }
 
@@ -1842,14 +1842,14 @@ class Domain {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->domain_entries = $domain_entries ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->domain_entries = $domain_entries ?? [];
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1869,12 +1869,12 @@ class DomainEntry {
   ?'target' => string,
   ?'type' => DomainEntryType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->is_alias = $is_alias ?? ;
-    $this->name = $name ?? ;
-    $this->options = $options ?? ;
-    $this->target = $target ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->is_alias = $is_alias ?? false;
+    $this->name = $name ?? "";
+    $this->options = $options ?? [];
+    $this->target = $target ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1907,8 +1907,8 @@ class DownloadDefaultKeyPairResult {
   ?'private_key_base_64' => Base64,
   ?'public_key_base_64' => Base64,
   ) $s = shape()) {
-    $this->private_key_base_64 = $private_key_base_64 ?? ;
-    $this->public_key_base_64 = $public_key_base_64 ?? ;
+    $this->private_key_base_64 = $private_key_base_64 ?? "";
+    $this->public_key_base_64 = $public_key_base_64 ?? "";
   }
 }
 
@@ -1920,8 +1920,8 @@ class EnableAddOnRequest {
   ?'add_on_request' => AddOnRequest,
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
-    $this->add_on_request = $add_on_request ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->add_on_request = $add_on_request ?? null;
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1931,7 +1931,7 @@ class EnableAddOnResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1955,14 +1955,14 @@ class ExportSnapshotRecord {
   ?'source_info' => ExportSnapshotRecordSourceInfo,
   ?'state' => RecordState,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->destination_info = $destination_info ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->source_info = $source_info ?? ;
-    $this->state = $state ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->destination_info = $destination_info ?? null;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->source_info = $source_info ?? null;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1988,14 +1988,14 @@ class ExportSnapshotRecordSourceInfo {
   ?'name' => NonEmptyString,
   ?'resource_type' => ExportSnapshotRecordSourceType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->disk_snapshot_info = $disk_snapshot_info ?? ;
-    $this->from_resource_arn = $from_resource_arn ?? ;
-    $this->from_resource_name = $from_resource_name ?? ;
-    $this->instance_snapshot_info = $instance_snapshot_info ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->disk_snapshot_info = $disk_snapshot_info ?? null;
+    $this->from_resource_arn = $from_resource_arn ?? "";
+    $this->from_resource_name = $from_resource_name ?? "";
+    $this->instance_snapshot_info = $instance_snapshot_info ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2007,7 +2007,7 @@ class ExportSnapshotRequest {
   public function __construct(shape(
   ?'source_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->source_snapshot_name = $source_snapshot_name ?? ;
+    $this->source_snapshot_name = $source_snapshot_name ?? "";
   }
 }
 
@@ -2017,7 +2017,7 @@ class ExportSnapshotResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -2027,7 +2027,7 @@ class GetActiveNamesRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2039,8 +2039,8 @@ class GetActiveNamesResult {
   ?'active_names' => StringList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->active_names = $active_names ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->active_names = $active_names ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2054,9 +2054,9 @@ class GetAlarmsRequest {
   ?'monitored_resource_name' => ResourceName,
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->alarm_name = $alarm_name ?? ;
-    $this->monitored_resource_name = $monitored_resource_name ?? ;
-    $this->page_token = $page_token ?? ;
+    $this->alarm_name = $alarm_name ?? "";
+    $this->monitored_resource_name = $monitored_resource_name ?? "";
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2068,8 +2068,8 @@ class GetAlarmsResult {
   ?'alarms' => AlarmsList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->alarms = $alarms ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->alarms = $alarms ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2079,7 +2079,7 @@ class GetAutoSnapshotsRequest {
   public function __construct(shape(
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -2093,9 +2093,9 @@ class GetAutoSnapshotsResult {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->auto_snapshots = $auto_snapshots ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->auto_snapshots = $auto_snapshots ?? [];
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2107,8 +2107,8 @@ class GetBlueprintsRequest {
   ?'include_inactive' => boolean,
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->include_inactive = $include_inactive ?? ;
-    $this->page_token = $page_token ?? ;
+    $this->include_inactive = $include_inactive ?? false;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2120,8 +2120,8 @@ class GetBlueprintsResult {
   ?'blueprints' => BlueprintList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->blueprints = $blueprints ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->blueprints = $blueprints ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2133,8 +2133,8 @@ class GetBundlesRequest {
   ?'include_inactive' => boolean,
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->include_inactive = $include_inactive ?? ;
-    $this->page_token = $page_token ?? ;
+    $this->include_inactive = $include_inactive ?? false;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2146,8 +2146,8 @@ class GetBundlesResult {
   ?'bundles' => BundleList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->bundles = $bundles ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->bundles = $bundles ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2157,7 +2157,7 @@ class GetCloudFormationStackRecordsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2169,8 +2169,8 @@ class GetCloudFormationStackRecordsResult {
   ?'cloud_formation_stack_records' => CloudFormationStackRecordList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->cloud_formation_stack_records = $cloud_formation_stack_records ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->cloud_formation_stack_records = $cloud_formation_stack_records ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2180,7 +2180,7 @@ class GetContactMethodsRequest {
   public function __construct(shape(
   ?'protocols' => ContactProtocolsList,
   ) $s = shape()) {
-    $this->protocols = $protocols ?? ;
+    $this->protocols = $protocols ?? [];
   }
 }
 
@@ -2190,7 +2190,7 @@ class GetContactMethodsResult {
   public function __construct(shape(
   ?'contact_methods' => ContactMethodsList,
   ) $s = shape()) {
-    $this->contact_methods = $contact_methods ?? ;
+    $this->contact_methods = $contact_methods ?? [];
   }
 }
 
@@ -2200,7 +2200,7 @@ class GetDiskRequest {
   public function __construct(shape(
   ?'disk_name' => ResourceName,
   ) $s = shape()) {
-    $this->disk_name = $disk_name ?? ;
+    $this->disk_name = $disk_name ?? "";
   }
 }
 
@@ -2210,7 +2210,7 @@ class GetDiskResult {
   public function __construct(shape(
   ?'disk' => Disk,
   ) $s = shape()) {
-    $this->disk = $disk ?? ;
+    $this->disk = $disk ?? null;
   }
 }
 
@@ -2220,7 +2220,7 @@ class GetDiskSnapshotRequest {
   public function __construct(shape(
   ?'disk_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->disk_snapshot_name = $disk_snapshot_name ?? ;
+    $this->disk_snapshot_name = $disk_snapshot_name ?? "";
   }
 }
 
@@ -2230,7 +2230,7 @@ class GetDiskSnapshotResult {
   public function __construct(shape(
   ?'disk_snapshot' => DiskSnapshot,
   ) $s = shape()) {
-    $this->disk_snapshot = $disk_snapshot ?? ;
+    $this->disk_snapshot = $disk_snapshot ?? null;
   }
 }
 
@@ -2240,7 +2240,7 @@ class GetDiskSnapshotsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2252,8 +2252,8 @@ class GetDiskSnapshotsResult {
   ?'disk_snapshots' => DiskSnapshotList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->disk_snapshots = $disk_snapshots ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->disk_snapshots = $disk_snapshots ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2263,7 +2263,7 @@ class GetDisksRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2275,8 +2275,8 @@ class GetDisksResult {
   ?'disks' => DiskList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->disks = $disks ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->disks = $disks ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2286,7 +2286,7 @@ class GetDomainRequest {
   public function __construct(shape(
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -2296,7 +2296,7 @@ class GetDomainResult {
   public function __construct(shape(
   ?'domain' => Domain,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
+    $this->domain = $domain ?? null;
   }
 }
 
@@ -2306,7 +2306,7 @@ class GetDomainsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2318,8 +2318,8 @@ class GetDomainsResult {
   ?'domains' => DomainList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->domains = $domains ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->domains = $domains ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2329,7 +2329,7 @@ class GetExportSnapshotRecordsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2341,8 +2341,8 @@ class GetExportSnapshotRecordsResult {
   ?'export_snapshot_records' => ExportSnapshotRecordList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->export_snapshot_records = $export_snapshot_records ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->export_snapshot_records = $export_snapshot_records ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2354,8 +2354,8 @@ class GetInstanceAccessDetailsRequest {
   ?'instance_name' => ResourceName,
   ?'protocol' => InstanceAccessProtocol,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -2365,7 +2365,7 @@ class GetInstanceAccessDetailsResult {
   public function __construct(shape(
   ?'access_details' => InstanceAccessDetails,
   ) $s = shape()) {
-    $this->access_details = $access_details ?? ;
+    $this->access_details = $access_details ?? null;
   }
 }
 
@@ -2387,13 +2387,13 @@ class GetInstanceMetricDataRequest {
   ?'statistics' => MetricStatisticList,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->instance_name = $instance_name ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->period = $period ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->statistics = $statistics ?? ;
-    $this->unit = $unit ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->instance_name = $instance_name ?? "";
+    $this->metric_name = $metric_name ?? "";
+    $this->period = $period ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->statistics = $statistics ?? [];
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -2405,8 +2405,8 @@ class GetInstanceMetricDataResult {
   ?'metric_data' => MetricDatapointList,
   ?'metric_name' => InstanceMetricName,
   ) $s = shape()) {
-    $this->metric_data = $metric_data ?? ;
-    $this->metric_name = $metric_name ?? ;
+    $this->metric_data = $metric_data ?? [];
+    $this->metric_name = $metric_name ?? "";
   }
 }
 
@@ -2416,7 +2416,7 @@ class GetInstancePortStatesRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -2426,7 +2426,7 @@ class GetInstancePortStatesResult {
   public function __construct(shape(
   ?'port_states' => InstancePortStateList,
   ) $s = shape()) {
-    $this->port_states = $port_states ?? ;
+    $this->port_states = $port_states ?? [];
   }
 }
 
@@ -2436,7 +2436,7 @@ class GetInstanceRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -2446,7 +2446,7 @@ class GetInstanceResult {
   public function __construct(shape(
   ?'instance' => Instance,
   ) $s = shape()) {
-    $this->instance = $instance ?? ;
+    $this->instance = $instance ?? null;
   }
 }
 
@@ -2456,7 +2456,7 @@ class GetInstanceSnapshotRequest {
   public function __construct(shape(
   ?'instance_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_snapshot_name = $instance_snapshot_name ?? ;
+    $this->instance_snapshot_name = $instance_snapshot_name ?? "";
   }
 }
 
@@ -2466,7 +2466,7 @@ class GetInstanceSnapshotResult {
   public function __construct(shape(
   ?'instance_snapshot' => InstanceSnapshot,
   ) $s = shape()) {
-    $this->instance_snapshot = $instance_snapshot ?? ;
+    $this->instance_snapshot = $instance_snapshot ?? null;
   }
 }
 
@@ -2476,7 +2476,7 @@ class GetInstanceSnapshotsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2488,8 +2488,8 @@ class GetInstanceSnapshotsResult {
   ?'instance_snapshots' => InstanceSnapshotList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->instance_snapshots = $instance_snapshots ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->instance_snapshots = $instance_snapshots ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2499,7 +2499,7 @@ class GetInstanceStateRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -2509,7 +2509,7 @@ class GetInstanceStateResult {
   public function __construct(shape(
   ?'state' => InstanceState,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? null;
   }
 }
 
@@ -2519,7 +2519,7 @@ class GetInstancesRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2531,8 +2531,8 @@ class GetInstancesResult {
   ?'instances' => InstanceList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->instances = $instances ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2542,7 +2542,7 @@ class GetKeyPairRequest {
   public function __construct(shape(
   ?'key_pair_name' => ResourceName,
   ) $s = shape()) {
-    $this->key_pair_name = $key_pair_name ?? ;
+    $this->key_pair_name = $key_pair_name ?? "";
   }
 }
 
@@ -2552,7 +2552,7 @@ class GetKeyPairResult {
   public function __construct(shape(
   ?'key_pair' => KeyPair,
   ) $s = shape()) {
-    $this->key_pair = $key_pair ?? ;
+    $this->key_pair = $key_pair ?? null;
   }
 }
 
@@ -2562,7 +2562,7 @@ class GetKeyPairsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2574,8 +2574,8 @@ class GetKeyPairsResult {
   ?'key_pairs' => KeyPairList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->key_pairs = $key_pairs ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->key_pairs = $key_pairs ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2597,13 +2597,13 @@ class GetLoadBalancerMetricDataRequest {
   ?'statistics' => MetricStatisticList,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->period = $period ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->statistics = $statistics ?? ;
-    $this->unit = $unit ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->metric_name = $metric_name ?? "";
+    $this->period = $period ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->statistics = $statistics ?? [];
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -2615,8 +2615,8 @@ class GetLoadBalancerMetricDataResult {
   ?'metric_data' => MetricDatapointList,
   ?'metric_name' => LoadBalancerMetricName,
   ) $s = shape()) {
-    $this->metric_data = $metric_data ?? ;
-    $this->metric_name = $metric_name ?? ;
+    $this->metric_data = $metric_data ?? [];
+    $this->metric_name = $metric_name ?? "";
   }
 }
 
@@ -2626,7 +2626,7 @@ class GetLoadBalancerRequest {
   public function __construct(shape(
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -2636,7 +2636,7 @@ class GetLoadBalancerResult {
   public function __construct(shape(
   ?'load_balancer' => LoadBalancer,
   ) $s = shape()) {
-    $this->load_balancer = $load_balancer ?? ;
+    $this->load_balancer = $load_balancer ?? null;
   }
 }
 
@@ -2646,7 +2646,7 @@ class GetLoadBalancerTlsCertificatesRequest {
   public function __construct(shape(
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -2656,7 +2656,7 @@ class GetLoadBalancerTlsCertificatesResult {
   public function __construct(shape(
   ?'tls_certificates' => LoadBalancerTlsCertificateList,
   ) $s = shape()) {
-    $this->tls_certificates = $tls_certificates ?? ;
+    $this->tls_certificates = $tls_certificates ?? [];
   }
 }
 
@@ -2666,7 +2666,7 @@ class GetLoadBalancersRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2678,8 +2678,8 @@ class GetLoadBalancersResult {
   ?'load_balancers' => LoadBalancerList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->load_balancers = $load_balancers ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->load_balancers = $load_balancers ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2689,7 +2689,7 @@ class GetOperationRequest {
   public function __construct(shape(
   ?'operation_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -2699,7 +2699,7 @@ class GetOperationResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -2711,8 +2711,8 @@ class GetOperationsForResourceRequest {
   ?'page_token' => string,
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->page_token = $page_token ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -2726,9 +2726,9 @@ class GetOperationsForResourceResult {
   ?'next_page_token' => string,
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->next_page_count = $next_page_count ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->operations = $operations ?? ;
+    $this->next_page_count = $next_page_count ?? "";
+    $this->next_page_token = $next_page_token ?? "";
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -2738,7 +2738,7 @@ class GetOperationsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2750,8 +2750,8 @@ class GetOperationsResult {
   ?'next_page_token' => string,
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->operations = $operations ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -2763,8 +2763,8 @@ class GetRegionsRequest {
   ?'include_availability_zones' => boolean,
   ?'include_relational_database_availability_zones' => boolean,
   ) $s = shape()) {
-    $this->include_availability_zones = $include_availability_zones ?? ;
-    $this->include_relational_database_availability_zones = $include_relational_database_availability_zones ?? ;
+    $this->include_availability_zones = $include_availability_zones ?? false;
+    $this->include_relational_database_availability_zones = $include_relational_database_availability_zones ?? false;
   }
 }
 
@@ -2774,7 +2774,7 @@ class GetRegionsResult {
   public function __construct(shape(
   ?'regions' => RegionList,
   ) $s = shape()) {
-    $this->regions = $regions ?? ;
+    $this->regions = $regions ?? [];
   }
 }
 
@@ -2784,7 +2784,7 @@ class GetRelationalDatabaseBlueprintsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2796,8 +2796,8 @@ class GetRelationalDatabaseBlueprintsResult {
   ?'blueprints' => RelationalDatabaseBlueprintList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->blueprints = $blueprints ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->blueprints = $blueprints ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2807,7 +2807,7 @@ class GetRelationalDatabaseBundlesRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -2819,8 +2819,8 @@ class GetRelationalDatabaseBundlesResult {
   ?'bundles' => RelationalDatabaseBundleList,
   ?'next_page_token' => string,
   ) $s = shape()) {
-    $this->bundles = $bundles ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->bundles = $bundles ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2834,9 +2834,9 @@ class GetRelationalDatabaseEventsRequest {
   ?'page_token' => string,
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->duration_in_minutes = $duration_in_minutes ?? ;
-    $this->page_token = $page_token ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->duration_in_minutes = $duration_in_minutes ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -2848,8 +2848,8 @@ class GetRelationalDatabaseEventsResult {
   ?'next_page_token' => string,
   ?'relational_database_events' => RelationalDatabaseEventList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->relational_database_events = $relational_database_events ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->relational_database_events = $relational_database_events ?? [];
   }
 }
 
@@ -2869,12 +2869,12 @@ class GetRelationalDatabaseLogEventsRequest {
   ?'start_from_head' => boolean,
   ?'start_time' => IsoDate,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->page_token = $page_token ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->start_from_head = $start_from_head ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->page_token = $page_token ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->start_from_head = $start_from_head ?? false;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -2888,9 +2888,9 @@ class GetRelationalDatabaseLogEventsResult {
   ?'next_forward_token' => string,
   ?'resource_log_events' => LogEventList,
   ) $s = shape()) {
-    $this->next_backward_token = $next_backward_token ?? ;
-    $this->next_forward_token = $next_forward_token ?? ;
-    $this->resource_log_events = $resource_log_events ?? ;
+    $this->next_backward_token = $next_backward_token ?? "";
+    $this->next_forward_token = $next_forward_token ?? "";
+    $this->resource_log_events = $resource_log_events ?? [];
   }
 }
 
@@ -2900,7 +2900,7 @@ class GetRelationalDatabaseLogStreamsRequest {
   public function __construct(shape(
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -2910,7 +2910,7 @@ class GetRelationalDatabaseLogStreamsResult {
   public function __construct(shape(
   ?'log_streams' => StringList,
   ) $s = shape()) {
-    $this->log_streams = $log_streams ?? ;
+    $this->log_streams = $log_streams ?? [];
   }
 }
 
@@ -2922,8 +2922,8 @@ class GetRelationalDatabaseMasterUserPasswordRequest {
   ?'password_version' => RelationalDatabasePasswordVersion,
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->password_version = $password_version ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->password_version = $password_version ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -2935,8 +2935,8 @@ class GetRelationalDatabaseMasterUserPasswordResult {
   ?'created_at' => IsoDate,
   ?'master_user_password' => SensitiveString,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->master_user_password = $master_user_password ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->master_user_password = $master_user_password ?? "";
   }
 }
 
@@ -2958,13 +2958,13 @@ class GetRelationalDatabaseMetricDataRequest {
   ?'statistics' => MetricStatisticList,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->period = $period ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->statistics = $statistics ?? ;
-    $this->unit = $unit ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->metric_name = $metric_name ?? "";
+    $this->period = $period ?? 0;
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->statistics = $statistics ?? [];
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -2976,8 +2976,8 @@ class GetRelationalDatabaseMetricDataResult {
   ?'metric_data' => MetricDatapointList,
   ?'metric_name' => RelationalDatabaseMetricName,
   ) $s = shape()) {
-    $this->metric_data = $metric_data ?? ;
-    $this->metric_name = $metric_name ?? ;
+    $this->metric_data = $metric_data ?? [];
+    $this->metric_name = $metric_name ?? "";
   }
 }
 
@@ -2989,8 +2989,8 @@ class GetRelationalDatabaseParametersRequest {
   ?'page_token' => string,
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->page_token = $page_token ?? "";
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -3002,8 +3002,8 @@ class GetRelationalDatabaseParametersResult {
   ?'next_page_token' => string,
   ?'parameters' => RelationalDatabaseParameterList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -3013,7 +3013,7 @@ class GetRelationalDatabaseRequest {
   public function __construct(shape(
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -3023,7 +3023,7 @@ class GetRelationalDatabaseResult {
   public function __construct(shape(
   ?'relational_database' => RelationalDatabase,
   ) $s = shape()) {
-    $this->relational_database = $relational_database ?? ;
+    $this->relational_database = $relational_database ?? null;
   }
 }
 
@@ -3033,7 +3033,7 @@ class GetRelationalDatabaseSnapshotRequest {
   public function __construct(shape(
   ?'relational_database_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? ;
+    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? "";
   }
 }
 
@@ -3043,7 +3043,7 @@ class GetRelationalDatabaseSnapshotResult {
   public function __construct(shape(
   ?'relational_database_snapshot' => RelationalDatabaseSnapshot,
   ) $s = shape()) {
-    $this->relational_database_snapshot = $relational_database_snapshot ?? ;
+    $this->relational_database_snapshot = $relational_database_snapshot ?? null;
   }
 }
 
@@ -3053,7 +3053,7 @@ class GetRelationalDatabaseSnapshotsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -3065,8 +3065,8 @@ class GetRelationalDatabaseSnapshotsResult {
   ?'next_page_token' => string,
   ?'relational_database_snapshots' => RelationalDatabaseSnapshotList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->relational_database_snapshots = $relational_database_snapshots ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->relational_database_snapshots = $relational_database_snapshots ?? [];
   }
 }
 
@@ -3076,7 +3076,7 @@ class GetRelationalDatabasesRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -3088,8 +3088,8 @@ class GetRelationalDatabasesResult {
   ?'next_page_token' => string,
   ?'relational_databases' => RelationalDatabaseList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->relational_databases = $relational_databases ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->relational_databases = $relational_databases ?? [];
   }
 }
 
@@ -3099,7 +3099,7 @@ class GetStaticIpRequest {
   public function __construct(shape(
   ?'static_ip_name' => ResourceName,
   ) $s = shape()) {
-    $this->static_ip_name = $static_ip_name ?? ;
+    $this->static_ip_name = $static_ip_name ?? "";
   }
 }
 
@@ -3109,7 +3109,7 @@ class GetStaticIpResult {
   public function __construct(shape(
   ?'static_ip' => StaticIp,
   ) $s = shape()) {
-    $this->static_ip = $static_ip ?? ;
+    $this->static_ip = $static_ip ?? null;
   }
 }
 
@@ -3119,7 +3119,7 @@ class GetStaticIpsRequest {
   public function __construct(shape(
   ?'page_token' => string,
   ) $s = shape()) {
-    $this->page_token = $page_token ?? ;
+    $this->page_token = $page_token ?? "";
   }
 }
 
@@ -3131,8 +3131,8 @@ class GetStaticIpsResult {
   ?'next_page_token' => string,
   ?'static_ips' => StaticIpList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->static_ips = $static_ips ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->static_ips = $static_ips ?? [];
   }
 }
 
@@ -3154,13 +3154,13 @@ class HostKeyAttributes {
   ?'public_key' => string,
   ?'witnessed_at' => IsoDate,
   ) $s = shape()) {
-    $this->algorithm = $algorithm ?? ;
-    $this->fingerprint_sha_1 = $fingerprint_sha_1 ?? ;
-    $this->fingerprint_sha_256 = $fingerprint_sha_256 ?? ;
-    $this->not_valid_after = $not_valid_after ?? ;
-    $this->not_valid_before = $not_valid_before ?? ;
-    $this->public_key = $public_key ?? ;
-    $this->witnessed_at = $witnessed_at ?? ;
+    $this->algorithm = $algorithm ?? "";
+    $this->fingerprint_sha_1 = $fingerprint_sha_1 ?? "";
+    $this->fingerprint_sha_256 = $fingerprint_sha_256 ?? "";
+    $this->not_valid_after = $not_valid_after ?? 0;
+    $this->not_valid_before = $not_valid_before ?? 0;
+    $this->public_key = $public_key ?? "";
+    $this->witnessed_at = $witnessed_at ?? 0;
   }
 }
 
@@ -3174,8 +3174,8 @@ class ImportKeyPairRequest {
   ?'key_pair_name' => ResourceName,
   ?'public_key_base_64' => Base64,
   ) $s = shape()) {
-    $this->key_pair_name = $key_pair_name ?? ;
-    $this->public_key_base_64 = $public_key_base_64 ?? ;
+    $this->key_pair_name = $key_pair_name ?? "";
+    $this->public_key_base_64 = $public_key_base_64 ?? "";
   }
 }
 
@@ -3185,7 +3185,7 @@ class ImportKeyPairResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -3233,26 +3233,26 @@ class Instance {
   ?'tags' => TagList,
   ?'username' => NonEmptyString,
   ) $s = shape()) {
-    $this->add_ons = $add_ons ?? ;
-    $this->arn = $arn ?? ;
-    $this->blueprint_id = $blueprint_id ?? ;
-    $this->blueprint_name = $blueprint_name ?? ;
-    $this->bundle_id = $bundle_id ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->hardware = $hardware ?? ;
-    $this->ipv_6_address = $ipv_6_address ?? ;
-    $this->is_static_ip = $is_static_ip ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->networking = $networking ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
-    $this->public_ip_address = $public_ip_address ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->ssh_key_name = $ssh_key_name ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
-    $this->username = $username ?? ;
+    $this->add_ons = $add_ons ?? [];
+    $this->arn = $arn ?? "";
+    $this->blueprint_id = $blueprint_id ?? "";
+    $this->blueprint_name = $blueprint_name ?? "";
+    $this->bundle_id = $bundle_id ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->hardware = $hardware ?? null;
+    $this->ipv_6_address = $ipv_6_address ?? "";
+    $this->is_static_ip = $is_static_ip ?? false;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->networking = $networking ?? null;
+    $this->private_ip_address = $private_ip_address ?? "";
+    $this->public_ip_address = $public_ip_address ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->ssh_key_name = $ssh_key_name ?? "";
+    $this->state = $state ?? null;
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -3280,16 +3280,16 @@ class InstanceAccessDetails {
   ?'protocol' => InstanceAccessProtocol,
   ?'username' => string,
   ) $s = shape()) {
-    $this->cert_key = $cert_key ?? ;
-    $this->expires_at = $expires_at ?? ;
-    $this->host_keys = $host_keys ?? ;
-    $this->instance_name = $instance_name ?? ;
-    $this->ip_address = $ip_address ?? ;
-    $this->password = $password ?? ;
-    $this->password_data = $password_data ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->username = $username ?? ;
+    $this->cert_key = $cert_key ?? "";
+    $this->expires_at = $expires_at ?? 0;
+    $this->host_keys = $host_keys ?? [];
+    $this->instance_name = $instance_name ?? "";
+    $this->ip_address = $ip_address ?? "";
+    $this->password = $password ?? "";
+    $this->password_data = $password_data ?? null;
+    $this->private_key = $private_key ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -3309,11 +3309,11 @@ class InstanceEntry {
   ?'source_name' => ResourceName,
   ?'user_data' => string,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->port_info_source = $port_info_source ?? ;
-    $this->source_name = $source_name ?? ;
-    $this->user_data = $user_data ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->port_info_source = $port_info_source ?? "";
+    $this->source_name = $source_name ?? "";
+    $this->user_data = $user_data ?? "";
   }
 }
 
@@ -3329,9 +3329,9 @@ class InstanceHardware {
   ?'disks' => DiskList,
   ?'ram_size_in_gb' => float,
   ) $s = shape()) {
-    $this->cpu_count = $cpu_count ?? ;
-    $this->disks = $disks ?? ;
-    $this->ram_size_in_gb = $ram_size_in_gb ?? ;
+    $this->cpu_count = $cpu_count ?? 0;
+    $this->disks = $disks ?? [];
+    $this->ram_size_in_gb = $ram_size_in_gb ?? 0.0;
   }
 }
 
@@ -3349,9 +3349,9 @@ class InstanceHealthSummary {
   ?'instance_health_reason' => InstanceHealthReason,
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_health = $instance_health ?? ;
-    $this->instance_health_reason = $instance_health_reason ?? ;
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_health = $instance_health ?? "";
+    $this->instance_health_reason = $instance_health_reason ?? "";
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -3369,8 +3369,8 @@ class InstanceNetworking {
   ?'monthly_transfer' => MonthlyTransfer,
   ?'ports' => InstancePortInfoList,
   ) $s = shape()) {
-    $this->monthly_transfer = $monthly_transfer ?? ;
-    $this->ports = $ports ?? ;
+    $this->monthly_transfer = $monthly_transfer ?? null;
+    $this->ports = $ports ?? [];
   }
 }
 
@@ -3396,13 +3396,13 @@ class InstancePortInfo {
   ?'protocol' => NetworkProtocol,
   ?'to_port' => Port,
   ) $s = shape()) {
-    $this->access_direction = $access_direction ?? ;
-    $this->access_from = $access_from ?? ;
-    $this->access_type = $access_type ?? ;
-    $this->common_name = $common_name ?? ;
-    $this->from_port = $from_port ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->to_port = $to_port ?? ;
+    $this->access_direction = $access_direction ?? "";
+    $this->access_from = $access_from ?? "";
+    $this->access_type = $access_type ?? "";
+    $this->common_name = $common_name ?? "";
+    $this->from_port = $from_port ?? 0;
+    $this->protocol = $protocol ?? "";
+    $this->to_port = $to_port ?? 0;
   }
 }
 
@@ -3420,10 +3420,10 @@ class InstancePortState {
   ?'state' => PortState,
   ?'to_port' => Port,
   ) $s = shape()) {
-    $this->from_port = $from_port ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->state = $state ?? ;
-    $this->to_port = $to_port ?? ;
+    $this->from_port = $from_port ?? 0;
+    $this->protocol = $protocol ?? "";
+    $this->state = $state ?? "";
+    $this->to_port = $to_port ?? 0;
   }
 }
 
@@ -3465,22 +3465,22 @@ class InstanceSnapshot {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->from_attached_disks = $from_attached_disks ?? ;
-    $this->from_blueprint_id = $from_blueprint_id ?? ;
-    $this->from_bundle_id = $from_bundle_id ?? ;
-    $this->from_instance_arn = $from_instance_arn ?? ;
-    $this->from_instance_name = $from_instance_name ?? ;
-    $this->is_from_auto_snapshot = $is_from_auto_snapshot ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->progress = $progress ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->from_attached_disks = $from_attached_disks ?? [];
+    $this->from_blueprint_id = $from_blueprint_id ?? "";
+    $this->from_bundle_id = $from_bundle_id ?? "";
+    $this->from_instance_arn = $from_instance_arn ?? "";
+    $this->from_instance_name = $from_instance_name ?? "";
+    $this->is_from_auto_snapshot = $is_from_auto_snapshot ?? false;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->progress = $progress ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3494,9 +3494,9 @@ class InstanceSnapshotInfo {
   ?'from_bundle_id' => NonEmptyString,
   ?'from_disk_info' => DiskInfoList,
   ) $s = shape()) {
-    $this->from_blueprint_id = $from_blueprint_id ?? ;
-    $this->from_bundle_id = $from_bundle_id ?? ;
-    $this->from_disk_info = $from_disk_info ?? ;
+    $this->from_blueprint_id = $from_blueprint_id ?? "";
+    $this->from_bundle_id = $from_bundle_id ?? "";
+    $this->from_disk_info = $from_disk_info ?? [];
   }
 }
 
@@ -3512,8 +3512,8 @@ class InstanceState {
   ?'code' => integer,
   ?'name' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->name = $name ?? ;
+    $this->code = $code ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3529,10 +3529,10 @@ class InvalidInputException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -3553,7 +3553,7 @@ class IsVpcPeeredResult {
   public function __construct(shape(
   ?'is_peered' => boolean,
   ) $s = shape()) {
-    $this->is_peered = $is_peered ?? ;
+    $this->is_peered = $is_peered ?? false;
   }
 }
 
@@ -3579,14 +3579,14 @@ class KeyPair {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->fingerprint = $fingerprint ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->fingerprint = $fingerprint ?? "";
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3628,22 +3628,22 @@ class LoadBalancer {
   ?'tags' => TagList,
   ?'tls_certificate_summaries' => LoadBalancerTlsCertificateSummaryList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->configuration_options = $configuration_options ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->dns_name = $dns_name ?? ;
-    $this->health_check_path = $health_check_path ?? ;
-    $this->instance_health_summary = $instance_health_summary ?? ;
-    $this->instance_port = $instance_port ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->public_ports = $public_ports ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
-    $this->tls_certificate_summaries = $tls_certificate_summaries ?? ;
+    $this->arn = $arn ?? "";
+    $this->configuration_options = $configuration_options ?? [];
+    $this->created_at = $created_at ?? 0;
+    $this->dns_name = $dns_name ?? "";
+    $this->health_check_path = $health_check_path ?? "";
+    $this->instance_health_summary = $instance_health_summary ?? [];
+    $this->instance_port = $instance_port ?? 0;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->public_ports = $public_ports ?? [];
+    $this->resource_type = $resource_type ?? "";
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
+    $this->tls_certificate_summaries = $tls_certificate_summaries ?? [];
   }
 }
 
@@ -3713,31 +3713,31 @@ class LoadBalancerTlsCertificate {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->domain_validation_records = $domain_validation_records ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->is_attached = $is_attached ?? ;
-    $this->issued_at = $issued_at ?? ;
-    $this->issuer = $issuer ?? ;
-    $this->key_algorithm = $key_algorithm ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->not_after = $not_after ?? ;
-    $this->not_before = $not_before ?? ;
-    $this->renewal_summary = $renewal_summary ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->revocation_reason = $revocation_reason ?? ;
-    $this->revoked_at = $revoked_at ?? ;
-    $this->serial = $serial ?? ;
-    $this->signature_algorithm = $signature_algorithm ?? ;
-    $this->status = $status ?? ;
-    $this->subject = $subject ?? ;
-    $this->subject_alternative_names = $subject_alternative_names ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->domain_name = $domain_name ?? "";
+    $this->domain_validation_records = $domain_validation_records ?? [];
+    $this->failure_reason = $failure_reason ?? "";
+    $this->is_attached = $is_attached ?? false;
+    $this->issued_at = $issued_at ?? 0;
+    $this->issuer = $issuer ?? "";
+    $this->key_algorithm = $key_algorithm ?? "";
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->not_after = $not_after ?? 0;
+    $this->not_before = $not_before ?? 0;
+    $this->renewal_summary = $renewal_summary ?? null;
+    $this->resource_type = $resource_type ?? "";
+    $this->revocation_reason = $revocation_reason ?? "";
+    $this->revoked_at = $revoked_at ?? 0;
+    $this->serial = $serial ?? "";
+    $this->signature_algorithm = $signature_algorithm ?? "";
+    $this->status = $status ?? "";
+    $this->subject = $subject ?? "";
+    $this->subject_alternative_names = $subject_alternative_names ?? [];
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3751,8 +3751,8 @@ class LoadBalancerTlsCertificateDomainValidationOption {
   ?'domain_name' => DomainName,
   ?'validation_status' => LoadBalancerTlsCertificateDomainStatus,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->validation_status = $validation_status ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->validation_status = $validation_status ?? "";
   }
 }
 
@@ -3772,11 +3772,11 @@ class LoadBalancerTlsCertificateDomainValidationRecord {
   ?'validation_status' => LoadBalancerTlsCertificateDomainStatus,
   ?'value' => NonEmptyString,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->validation_status = $validation_status ?? ;
-    $this->value = $value ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->validation_status = $validation_status ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3796,8 +3796,8 @@ class LoadBalancerTlsCertificateRenewalSummary {
   ?'domain_validation_options' => LoadBalancerTlsCertificateDomainValidationOptionList,
   ?'renewal_status' => LoadBalancerTlsCertificateRenewalStatus,
   ) $s = shape()) {
-    $this->domain_validation_options = $domain_validation_options ?? ;
-    $this->renewal_status = $renewal_status ?? ;
+    $this->domain_validation_options = $domain_validation_options ?? [];
+    $this->renewal_status = $renewal_status ?? "";
   }
 }
 
@@ -3813,8 +3813,8 @@ class LoadBalancerTlsCertificateSummary {
   ?'is_attached' => boolean,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->is_attached = $is_attached ?? ;
-    $this->name = $name ?? ;
+    $this->is_attached = $is_attached ?? false;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3828,8 +3828,8 @@ class LogEvent {
   ?'created_at' => IsoDate,
   ?'message' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->message = $message ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3853,13 +3853,13 @@ class MetricDatapoint {
   ?'timestamp' => timestamp,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->average = $average ?? ;
-    $this->maximum = $maximum ?? ;
-    $this->minimum = $minimum ?? ;
-    $this->sample_count = $sample_count ?? ;
-    $this->sum = $sum ?? ;
+    $this->average = $average ?? 0.0;
+    $this->maximum = $maximum ?? 0.0;
+    $this->minimum = $minimum ?? 0.0;
+    $this->sample_count = $sample_count ?? 0.0;
+    $this->sum = $sum ?? 0.0;
     $this->timestamp = $timestamp ?? 0;
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -3885,9 +3885,9 @@ class MonitoredResourceInfo {
   ?'name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3897,7 +3897,7 @@ class MonthlyTransfer {
   public function __construct(shape(
   ?'gb_per_month_allocated' => integer,
   ) $s = shape()) {
-    $this->gb_per_month_allocated = $gb_per_month_allocated ?? ;
+    $this->gb_per_month_allocated = $gb_per_month_allocated ?? 0;
   }
 }
 
@@ -3917,10 +3917,10 @@ class NotFoundException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -3934,8 +3934,8 @@ class OpenInstancePublicPortsRequest {
   ?'instance_name' => ResourceName,
   ?'port_info' => PortInfo,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->port_info = $port_info ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->port_info = $port_info ?? null;
   }
 }
 
@@ -3945,7 +3945,7 @@ class OpenInstancePublicPortsResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -3977,18 +3977,18 @@ class Operation {
   ?'status' => OperationStatus,
   ?'status_changed_at' => IsoDate,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->error_details = $error_details ?? ;
-    $this->id = $id ?? ;
-    $this->is_terminal = $is_terminal ?? ;
-    $this->location = $location ?? ;
-    $this->operation_details = $operation_details ?? ;
-    $this->operation_type = $operation_type ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->status = $status ?? ;
-    $this->status_changed_at = $status_changed_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->error_code = $error_code ?? "";
+    $this->error_details = $error_details ?? "";
+    $this->id = $id ?? "";
+    $this->is_terminal = $is_terminal ?? false;
+    $this->location = $location ?? null;
+    $this->operation_details = $operation_details ?? "";
+    $this->operation_type = $operation_type ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->status = $status ?? "";
+    $this->status_changed_at = $status_changed_at ?? 0;
   }
 }
 
@@ -4004,10 +4004,10 @@ class OperationFailureException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -4025,8 +4025,8 @@ class PasswordData {
   ?'ciphertext' => string,
   ?'key_pair_name' => ResourceName,
   ) $s = shape()) {
-    $this->ciphertext = $ciphertext ?? ;
-    $this->key_pair_name = $key_pair_name ?? ;
+    $this->ciphertext = $ciphertext ?? "";
+    $this->key_pair_name = $key_pair_name ?? "";
   }
 }
 
@@ -4043,7 +4043,7 @@ class PeerVpcResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -4057,9 +4057,9 @@ class PendingMaintenanceAction {
   ?'current_apply_date' => IsoDate,
   ?'description' => NonEmptyString,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->current_apply_date = $current_apply_date ?? ;
-    $this->description = $description ?? ;
+    $this->action = $action ?? "";
+    $this->current_apply_date = $current_apply_date ?? 0;
+    $this->description = $description ?? "";
   }
 }
 
@@ -4075,9 +4075,9 @@ class PendingModifiedRelationalDatabaseValues {
   ?'engine_version' => string,
   ?'master_user_password' => string,
   ) $s = shape()) {
-    $this->backup_retention_enabled = $backup_retention_enabled ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->master_user_password = $master_user_password ?? ;
+    $this->backup_retention_enabled = $backup_retention_enabled ?? false;
+    $this->engine_version = $engine_version ?? "";
+    $this->master_user_password = $master_user_password ?? "";
   }
 }
 
@@ -4095,9 +4095,9 @@ class PortInfo {
   ?'protocol' => NetworkProtocol,
   ?'to_port' => Port,
   ) $s = shape()) {
-    $this->from_port = $from_port ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->to_port = $to_port ?? ;
+    $this->from_port = $from_port ?? 0;
+    $this->protocol = $protocol ?? "";
+    $this->to_port = $to_port ?? 0;
   }
 }
 
@@ -4135,17 +4135,17 @@ class PutAlarmRequest {
   ?'threshold' => double,
   ?'treat_missing_data' => TreatMissingData,
   ) $s = shape()) {
-    $this->alarm_name = $alarm_name ?? ;
-    $this->comparison_operator = $comparison_operator ?? ;
-    $this->contact_protocols = $contact_protocols ?? ;
-    $this->datapoints_to_alarm = $datapoints_to_alarm ?? ;
-    $this->evaluation_periods = $evaluation_periods ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->monitored_resource_name = $monitored_resource_name ?? ;
-    $this->notification_enabled = $notification_enabled ?? ;
-    $this->notification_triggers = $notification_triggers ?? ;
-    $this->threshold = $threshold ?? ;
-    $this->treat_missing_data = $treat_missing_data ?? ;
+    $this->alarm_name = $alarm_name ?? "";
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->contact_protocols = $contact_protocols ?? [];
+    $this->datapoints_to_alarm = $datapoints_to_alarm ?? 0;
+    $this->evaluation_periods = $evaluation_periods ?? 0;
+    $this->metric_name = $metric_name ?? "";
+    $this->monitored_resource_name = $monitored_resource_name ?? "";
+    $this->notification_enabled = $notification_enabled ?? false;
+    $this->notification_triggers = $notification_triggers ?? [];
+    $this->threshold = $threshold ?? 0.0;
+    $this->treat_missing_data = $treat_missing_data ?? "";
   }
 }
 
@@ -4155,7 +4155,7 @@ class PutAlarmResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4167,8 +4167,8 @@ class PutInstancePublicPortsRequest {
   ?'instance_name' => ResourceName,
   ?'port_infos' => PortInfoList,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
-    $this->port_infos = $port_infos ?? ;
+    $this->instance_name = $instance_name ?? "";
+    $this->port_infos = $port_infos ?? [];
   }
 }
 
@@ -4178,7 +4178,7 @@ class PutInstancePublicPortsResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -4188,7 +4188,7 @@ class RebootInstanceRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -4198,7 +4198,7 @@ class RebootInstanceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4208,7 +4208,7 @@ class RebootRelationalDatabaseRequest {
   public function __construct(shape(
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -4218,7 +4218,7 @@ class RebootRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4240,12 +4240,12 @@ class Region {
   ?'name' => RegionName,
   ?'relational_database_availability_zones' => AvailabilityZoneList,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->continent_code = $continent_code ?? ;
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->name = $name ?? ;
-    $this->relational_database_availability_zones = $relational_database_availability_zones ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->continent_code = $continent_code ?? "";
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->name = $name ?? "";
+    $this->relational_database_availability_zones = $relational_database_availability_zones ?? [];
   }
 }
 
@@ -4309,32 +4309,32 @@ class RelationalDatabase {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->backup_retention_enabled = $backup_retention_enabled ?? ;
-    $this->ca_certificate_identifier = $ca_certificate_identifier ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->hardware = $hardware ?? ;
-    $this->latest_restorable_time = $latest_restorable_time ?? ;
-    $this->location = $location ?? ;
-    $this->master_database_name = $master_database_name ?? ;
-    $this->master_endpoint = $master_endpoint ?? ;
-    $this->master_username = $master_username ?? ;
-    $this->name = $name ?? ;
-    $this->parameter_apply_status = $parameter_apply_status ?? ;
-    $this->pending_maintenance_actions = $pending_maintenance_actions ?? ;
-    $this->pending_modified_values = $pending_modified_values ?? ;
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->relational_database_blueprint_id = $relational_database_blueprint_id ?? ;
-    $this->relational_database_bundle_id = $relational_database_bundle_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->secondary_availability_zone = $secondary_availability_zone ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->backup_retention_enabled = $backup_retention_enabled ?? false;
+    $this->ca_certificate_identifier = $ca_certificate_identifier ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->hardware = $hardware ?? null;
+    $this->latest_restorable_time = $latest_restorable_time ?? 0;
+    $this->location = $location ?? null;
+    $this->master_database_name = $master_database_name ?? "";
+    $this->master_endpoint = $master_endpoint ?? null;
+    $this->master_username = $master_username ?? "";
+    $this->name = $name ?? "";
+    $this->parameter_apply_status = $parameter_apply_status ?? "";
+    $this->pending_maintenance_actions = $pending_maintenance_actions ?? [];
+    $this->pending_modified_values = $pending_modified_values ?? null;
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->relational_database_blueprint_id = $relational_database_blueprint_id ?? "";
+    $this->relational_database_bundle_id = $relational_database_bundle_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->secondary_availability_zone = $secondary_availability_zone ?? "";
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4354,12 +4354,12 @@ class RelationalDatabaseBlueprint {
   ?'engine_version_description' => string,
   ?'is_engine_default' => boolean,
   ) $s = shape()) {
-    $this->blueprint_id = $blueprint_id ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_description = $engine_description ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->engine_version_description = $engine_version_description ?? ;
-    $this->is_engine_default = $is_engine_default ?? ;
+    $this->blueprint_id = $blueprint_id ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_description = $engine_description ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->engine_version_description = $engine_version_description ?? "";
+    $this->is_engine_default = $is_engine_default ?? false;
   }
 }
 
@@ -4387,15 +4387,15 @@ class RelationalDatabaseBundle {
   ?'ram_size_in_gb' => float,
   ?'transfer_per_month_in_gb' => integer,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->cpu_count = $cpu_count ?? ;
-    $this->disk_size_in_gb = $disk_size_in_gb ?? ;
-    $this->is_active = $is_active ?? ;
-    $this->is_encrypted = $is_encrypted ?? ;
-    $this->name = $name ?? ;
-    $this->price = $price ?? ;
-    $this->ram_size_in_gb = $ram_size_in_gb ?? ;
-    $this->transfer_per_month_in_gb = $transfer_per_month_in_gb ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->cpu_count = $cpu_count ?? 0;
+    $this->disk_size_in_gb = $disk_size_in_gb ?? 0;
+    $this->is_active = $is_active ?? false;
+    $this->is_encrypted = $is_encrypted ?? false;
+    $this->name = $name ?? "";
+    $this->price = $price ?? 0.0;
+    $this->ram_size_in_gb = $ram_size_in_gb ?? 0.0;
+    $this->transfer_per_month_in_gb = $transfer_per_month_in_gb ?? 0;
   }
 }
 
@@ -4409,8 +4409,8 @@ class RelationalDatabaseEndpoint {
   ?'address' => NonEmptyString,
   ?'port' => integer,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->port = $port ?? ;
+    $this->address = $address ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -4428,10 +4428,10 @@ class RelationalDatabaseEvent {
   ?'message' => string,
   ?'resource' => ResourceName,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->message = $message ?? ;
-    $this->resource = $resource ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->event_categories = $event_categories ?? [];
+    $this->message = $message ?? "";
+    $this->resource = $resource ?? "";
   }
 }
 
@@ -4447,9 +4447,9 @@ class RelationalDatabaseHardware {
   ?'disk_size_in_gb' => integer,
   ?'ram_size_in_gb' => float,
   ) $s = shape()) {
-    $this->cpu_count = $cpu_count ?? ;
-    $this->disk_size_in_gb = $disk_size_in_gb ?? ;
-    $this->ram_size_in_gb = $ram_size_in_gb ?? ;
+    $this->cpu_count = $cpu_count ?? 0;
+    $this->disk_size_in_gb = $disk_size_in_gb ?? 0;
+    $this->ram_size_in_gb = $ram_size_in_gb ?? 0.0;
   }
 }
 
@@ -4477,14 +4477,14 @@ class RelationalDatabaseParameter {
   ?'parameter_name' => string,
   ?'parameter_value' => string,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
-    $this->apply_method = $apply_method ?? ;
-    $this->apply_type = $apply_type ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->description = $description ?? ;
-    $this->is_modifiable = $is_modifiable ?? ;
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
+    $this->allowed_values = $allowed_values ?? "";
+    $this->apply_method = $apply_method ?? "";
+    $this->apply_type = $apply_type ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->description = $description ?? "";
+    $this->is_modifiable = $is_modifiable ?? false;
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
   }
 }
 
@@ -4526,21 +4526,21 @@ class RelationalDatabaseSnapshot {
   ?'support_code' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->from_relational_database_arn = $from_relational_database_arn ?? ;
-    $this->from_relational_database_blueprint_id = $from_relational_database_blueprint_id ?? ;
-    $this->from_relational_database_bundle_id = $from_relational_database_bundle_id ?? ;
-    $this->from_relational_database_name = $from_relational_database_name ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->state = $state ?? ;
-    $this->support_code = $support_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->from_relational_database_arn = $from_relational_database_arn ?? "";
+    $this->from_relational_database_blueprint_id = $from_relational_database_blueprint_id ?? "";
+    $this->from_relational_database_bundle_id = $from_relational_database_bundle_id ?? "";
+    $this->from_relational_database_name = $from_relational_database_name ?? "";
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->state = $state ?? "";
+    $this->support_code = $support_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4552,7 +4552,7 @@ class ReleaseStaticIpRequest {
   public function __construct(shape(
   ?'static_ip_name' => ResourceName,
   ) $s = shape()) {
-    $this->static_ip_name = $static_ip_name ?? ;
+    $this->static_ip_name = $static_ip_name ?? "";
   }
 }
 
@@ -4562,7 +4562,7 @@ class ReleaseStaticIpResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4576,8 +4576,8 @@ class ResourceLocation {
   ?'availability_zone' => string,
   ?'region_name' => RegionName,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->region_name = $region_name ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->region_name = $region_name ?? "";
   }
 }
 
@@ -4593,7 +4593,7 @@ class SendContactMethodVerificationRequest {
   public function __construct(shape(
   ?'protocol' => ContactMethodVerificationProtocol,
   ) $s = shape()) {
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -4603,7 +4603,7 @@ class SendContactMethodVerificationResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4621,10 +4621,10 @@ class ServiceException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -4634,7 +4634,7 @@ class StartInstanceRequest {
   public function __construct(shape(
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -4644,7 +4644,7 @@ class StartInstanceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4654,7 +4654,7 @@ class StartRelationalDatabaseRequest {
   public function __construct(shape(
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -4664,7 +4664,7 @@ class StartRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4690,15 +4690,15 @@ class StaticIp {
   ?'resource_type' => ResourceType,
   ?'support_code' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attached_to = $attached_to ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->ip_address = $ip_address ?? ;
-    $this->is_attached = $is_attached ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->support_code = $support_code ?? ;
+    $this->arn = $arn ?? "";
+    $this->attached_to = $attached_to ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->ip_address = $ip_address ?? "";
+    $this->is_attached = $is_attached ?? false;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->support_code = $support_code ?? "";
   }
 }
 
@@ -4712,8 +4712,8 @@ class StopInstanceRequest {
   ?'force' => boolean,
   ?'instance_name' => ResourceName,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->instance_name = $instance_name ?? ;
+    $this->force = $force ?? false;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -4723,7 +4723,7 @@ class StopInstanceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4735,8 +4735,8 @@ class StopRelationalDatabaseRequest {
   ?'relational_database_name' => ResourceName,
   ?'relational_database_snapshot_name' => ResourceName,
   ) $s = shape()) {
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? ;
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->relational_database_snapshot_name = $relational_database_snapshot_name ?? "";
   }
 }
 
@@ -4746,7 +4746,7 @@ class StopRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4762,8 +4762,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -4783,9 +4783,9 @@ class TagResourceRequest {
   ?'resource_name' => ResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4795,7 +4795,7 @@ class TagResourceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4809,8 +4809,8 @@ class TestAlarmRequest {
   ?'alarm_name' => ResourceName,
   ?'state' => AlarmState,
   ) $s = shape()) {
-    $this->alarm_name = $alarm_name ?? ;
-    $this->state = $state ?? ;
+    $this->alarm_name = $alarm_name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -4820,7 +4820,7 @@ class TestAlarmResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4840,10 +4840,10 @@ class UnauthenticatedException {
   ?'message' => string,
   ?'tip' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->docs = $docs ?? ;
-    $this->message = $message ?? ;
-    $this->tip = $tip ?? ;
+    $this->code = $code ?? "";
+    $this->docs = $docs ?? "";
+    $this->message = $message ?? "";
+    $this->tip = $tip ?? "";
   }
 }
 
@@ -4860,7 +4860,7 @@ class UnpeerVpcResult {
   public function __construct(shape(
   ?'operation' => Operation,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? null;
   }
 }
 
@@ -4874,9 +4874,9 @@ class UntagResourceRequest {
   ?'resource_name' => ResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -4886,7 +4886,7 @@ class UntagResourceResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4898,8 +4898,8 @@ class UpdateDomainEntryRequest {
   ?'domain_entry' => DomainEntry,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_entry = $domain_entry ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_entry = $domain_entry ?? null;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -4909,7 +4909,7 @@ class UpdateDomainEntryResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4923,9 +4923,9 @@ class UpdateLoadBalancerAttributeRequest {
   ?'attribute_value' => StringMax256,
   ?'load_balancer_name' => ResourceName,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->attribute_value = $attribute_value ?? ;
-    $this->load_balancer_name = $load_balancer_name ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->attribute_value = $attribute_value ?? "";
+    $this->load_balancer_name = $load_balancer_name ?? "";
   }
 }
 
@@ -4935,7 +4935,7 @@ class UpdateLoadBalancerAttributeResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4947,8 +4947,8 @@ class UpdateRelationalDatabaseParametersRequest {
   ?'parameters' => RelationalDatabaseParameterList,
   ?'relational_database_name' => ResourceName,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
+    $this->parameters = $parameters ?? [];
+    $this->relational_database_name = $relational_database_name ?? "";
   }
 }
 
@@ -4958,7 +4958,7 @@ class UpdateRelationalDatabaseParametersResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -4986,16 +4986,16 @@ class UpdateRelationalDatabaseRequest {
   ?'relational_database_name' => ResourceName,
   ?'rotate_master_user_password' => boolean,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->ca_certificate_identifier = $ca_certificate_identifier ?? ;
-    $this->disable_backup_retention = $disable_backup_retention ?? ;
-    $this->enable_backup_retention = $enable_backup_retention ?? ;
-    $this->master_user_password = $master_user_password ?? ;
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->relational_database_name = $relational_database_name ?? ;
-    $this->rotate_master_user_password = $rotate_master_user_password ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->ca_certificate_identifier = $ca_certificate_identifier ?? "";
+    $this->disable_backup_retention = $disable_backup_retention ?? false;
+    $this->enable_backup_retention = $enable_backup_retention ?? false;
+    $this->master_user_password = $master_user_password ?? "";
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->relational_database_name = $relational_database_name ?? "";
+    $this->rotate_master_user_password = $rotate_master_user_password ?? false;
   }
 }
 
@@ -5005,7 +5005,7 @@ class UpdateRelationalDatabaseResult {
   public function __construct(shape(
   ?'operations' => OperationList,
   ) $s = shape()) {
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 

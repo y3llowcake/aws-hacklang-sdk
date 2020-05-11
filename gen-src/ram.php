@@ -36,8 +36,8 @@ class AcceptResourceShareInvitationRequest {
   ?'client_token' => string,
   ?'resource_share_invitation_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? "";
   }
 }
 
@@ -49,8 +49,8 @@ class AcceptResourceShareInvitationResponse {
   ?'client_token' => string,
   ?'resource_share_invitation' => ResourceShareInvitation,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_invitation = $resource_share_invitation ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_invitation = $resource_share_invitation ?? null;
   }
 }
 
@@ -66,10 +66,10 @@ class AssociateResourceSharePermissionRequest {
   ?'replace' => boolean,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->permission_arn = $permission_arn ?? ;
-    $this->replace = $replace ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->permission_arn = $permission_arn ?? "";
+    $this->replace = $replace ?? false;
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -81,8 +81,8 @@ class AssociateResourceSharePermissionResponse {
   ?'client_token' => string,
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->return_value = $return_value ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -98,10 +98,10 @@ class AssociateResourceShareRequest {
   ?'resource_arns' => ResourceArnList,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->principals = $principals ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->principals = $principals ?? [];
+    $this->resource_arns = $resource_arns ?? [];
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -113,8 +113,8 @@ class AssociateResourceShareResponse {
   ?'client_token' => string,
   ?'resource_share_associations' => ResourceShareAssociationList,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_associations = $resource_share_associations ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_associations = $resource_share_associations ?? [];
   }
 }
 
@@ -138,13 +138,13 @@ class CreateResourceShareRequest {
   ?'resource_arns' => ResourceArnList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->allow_external_principals = $allow_external_principals ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->name = $name ?? ;
-    $this->permission_arns = $permission_arns ?? ;
-    $this->principals = $principals ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->tags = $tags ?? ;
+    $this->allow_external_principals = $allow_external_principals ?? false;
+    $this->client_token = $client_token ?? "";
+    $this->name = $name ?? "";
+    $this->permission_arns = $permission_arns ?? [];
+    $this->principals = $principals ?? [];
+    $this->resource_arns = $resource_arns ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -156,8 +156,8 @@ class CreateResourceShareResponse {
   ?'client_token' => string,
   ?'resource_share' => ResourceShare,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share = $resource_share ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share = $resource_share ?? null;
   }
 }
 
@@ -171,8 +171,8 @@ class DeleteResourceShareRequest {
   ?'client_token' => string,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -184,8 +184,8 @@ class DeleteResourceShareResponse {
   ?'client_token' => string,
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->return_value = $return_value ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -199,9 +199,9 @@ class DisassociateResourceSharePermissionRequest {
   ?'permission_arn' => string,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->permission_arn = $permission_arn ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->permission_arn = $permission_arn ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -213,8 +213,8 @@ class DisassociateResourceSharePermissionResponse {
   ?'client_token' => string,
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->return_value = $return_value ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -230,10 +230,10 @@ class DisassociateResourceShareRequest {
   ?'resource_arns' => ResourceArnList,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->principals = $principals ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->principals = $principals ?? [];
+    $this->resource_arns = $resource_arns ?? [];
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -245,8 +245,8 @@ class DisassociateResourceShareResponse {
   ?'client_token' => string,
   ?'resource_share_associations' => ResourceShareAssociationList,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_associations = $resource_share_associations ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_associations = $resource_share_associations ?? [];
   }
 }
 
@@ -263,7 +263,7 @@ class EnableSharingWithAwsOrganizationResponse {
   public function __construct(shape(
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->return_value = $return_value ?? ;
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -275,8 +275,8 @@ class GetPermissionRequest {
   ?'permission_arn' => string,
   ?'permission_version' => int,
   ) $s = shape()) {
-    $this->permission_arn = $permission_arn ?? ;
-    $this->permission_version = $permission_version ?? ;
+    $this->permission_arn = $permission_arn ?? "";
+    $this->permission_version = $permission_version ?? 0;
   }
 }
 
@@ -286,7 +286,7 @@ class GetPermissionResponse {
   public function __construct(shape(
   ?'permission' => ResourceSharePermissionDetail,
   ) $s = shape()) {
-    $this->permission = $permission ?? ;
+    $this->permission = $permission ?? null;
   }
 }
 
@@ -302,10 +302,10 @@ class GetResourcePoliciesRequest {
   ?'principal' => string,
   ?'resource_arns' => ResourceArnList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principal = $principal ?? ;
-    $this->resource_arns = $resource_arns ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->principal = $principal ?? "";
+    $this->resource_arns = $resource_arns ?? [];
   }
 }
 
@@ -317,8 +317,8 @@ class GetResourcePoliciesResponse {
   ?'next_token' => string,
   ?'policies' => PolicyList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->policies = $policies ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->policies = $policies ?? [];
   }
 }
 
@@ -340,13 +340,13 @@ class GetResourceShareAssociationsRequest {
   ?'resource_arn' => string,
   ?'resource_share_arns' => ResourceShareArnList,
   ) $s = shape()) {
-    $this->association_status = $association_status ?? ;
-    $this->association_type = $association_type ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principal = $principal ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_share_arns = $resource_share_arns ?? ;
+    $this->association_status = $association_status ?? "";
+    $this->association_type = $association_type ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->principal = $principal ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_share_arns = $resource_share_arns ?? [];
   }
 }
 
@@ -358,8 +358,8 @@ class GetResourceShareAssociationsResponse {
   ?'next_token' => string,
   ?'resource_share_associations' => ResourceShareAssociationList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_share_associations = $resource_share_associations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_share_associations = $resource_share_associations ?? [];
   }
 }
 
@@ -375,10 +375,10 @@ class GetResourceShareInvitationsRequest {
   ?'resource_share_arns' => ResourceShareArnList,
   ?'resource_share_invitation_arns' => ResourceShareInvitationArnList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_share_arns = $resource_share_arns ?? ;
-    $this->resource_share_invitation_arns = $resource_share_invitation_arns ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_share_arns = $resource_share_arns ?? [];
+    $this->resource_share_invitation_arns = $resource_share_invitation_arns ?? [];
   }
 }
 
@@ -390,8 +390,8 @@ class GetResourceShareInvitationsResponse {
   ?'next_token' => string,
   ?'resource_share_invitations' => ResourceShareInvitationList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_share_invitations = $resource_share_invitations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_share_invitations = $resource_share_invitations ?? [];
   }
 }
 
@@ -413,13 +413,13 @@ class GetResourceSharesRequest {
   ?'resource_share_status' => ResourceShareStatus,
   ?'tag_filters' => TagFilters,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->resource_share_arns = $resource_share_arns ?? ;
-    $this->resource_share_status = $resource_share_status ?? ;
-    $this->tag_filters = $tag_filters ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->resource_share_arns = $resource_share_arns ?? [];
+    $this->resource_share_status = $resource_share_status ?? "";
+    $this->tag_filters = $tag_filters ?? [];
   }
 }
 
@@ -431,8 +431,8 @@ class GetResourceSharesResponse {
   ?'next_token' => string,
   ?'resource_shares' => ResourceShareList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_shares = $resource_shares ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_shares = $resource_shares ?? [];
   }
 }
 
@@ -442,7 +442,7 @@ class IdempotentParameterMismatchException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -454,7 +454,7 @@ class InvalidClientTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -464,7 +464,7 @@ class InvalidMaxResultsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -474,7 +474,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -484,7 +484,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -494,7 +494,7 @@ class InvalidResourceTypeException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -504,7 +504,7 @@ class InvalidStateTransitionException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -518,9 +518,9 @@ class ListPendingInvitationResourcesRequest {
   ?'next_token' => string,
   ?'resource_share_invitation_arn' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? "";
   }
 }
 
@@ -532,8 +532,8 @@ class ListPendingInvitationResourcesResponse {
   ?'next_token' => string,
   ?'resources' => ResourceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resources = $resources ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -547,9 +547,9 @@ class ListPermissionsRequest {
   ?'next_token' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -561,8 +561,8 @@ class ListPermissionsResponse {
   ?'next_token' => string,
   ?'permissions' => ResourceSharePermissionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -584,13 +584,13 @@ class ListPrincipalsRequest {
   ?'resource_share_arns' => ResourceShareArnList,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principals = $principals ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->resource_share_arns = $resource_share_arns ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->principals = $principals ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->resource_share_arns = $resource_share_arns ?? [];
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -602,8 +602,8 @@ class ListPrincipalsResponse {
   ?'next_token' => string,
   ?'principals' => PrincipalList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->principals = $principals ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->principals = $principals ?? [];
   }
 }
 
@@ -617,9 +617,9 @@ class ListResourceSharePermissionsRequest {
   ?'next_token' => string,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -631,8 +631,8 @@ class ListResourceSharePermissionsResponse {
   ?'next_token' => string,
   ?'permissions' => ResourceSharePermissionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -644,8 +644,8 @@ class ListResourceTypesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -657,8 +657,8 @@ class ListResourceTypesResponse {
   ?'next_token' => string,
   ?'resource_types' => ServiceNameAndResourceTypeList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_types = $resource_types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_types = $resource_types ?? [];
   }
 }
 
@@ -680,13 +680,13 @@ class ListResourcesRequest {
   ?'resource_share_arns' => ResourceShareArnList,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principal = $principal ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->resource_share_arns = $resource_share_arns ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->principal = $principal ?? "";
+    $this->resource_arns = $resource_arns ?? [];
+    $this->resource_owner = $resource_owner ?? "";
+    $this->resource_share_arns = $resource_share_arns ?? [];
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -698,8 +698,8 @@ class ListResourcesResponse {
   ?'next_token' => string,
   ?'resources' => ResourceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resources = $resources ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -709,7 +709,7 @@ class MalformedArnException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -721,7 +721,7 @@ class MissingRequiredParameterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -731,7 +731,7 @@ class OperationNotPermittedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -755,11 +755,11 @@ class Principal {
   ?'last_updated_time' => DateTime,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->external = $external ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->external = $external ?? false;
+    $this->id = $id ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -773,7 +773,7 @@ class PromoteResourceShareCreatedFromPolicyRequest {
   public function __construct(shape(
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -783,7 +783,7 @@ class PromoteResourceShareCreatedFromPolicyResponse {
   public function __construct(shape(
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->return_value = $return_value ?? ;
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -795,8 +795,8 @@ class RejectResourceShareInvitationRequest {
   ?'client_token' => string,
   ?'resource_share_invitation_arn' => string,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? "";
   }
 }
 
@@ -808,8 +808,8 @@ class RejectResourceShareInvitationResponse {
   ?'client_token' => string,
   ?'resource_share_invitation' => ResourceShareInvitation,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share_invitation = $resource_share_invitation ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share_invitation = $resource_share_invitation ?? null;
   }
 }
 
@@ -833,14 +833,14 @@ class Resource {
   ?'status_message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->resource_group_arn = $resource_group_arn ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->resource_group_arn = $resource_group_arn ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -852,7 +852,7 @@ class ResourceArnNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -884,16 +884,16 @@ class ResourceShare {
   ?'status_message' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->allow_external_principals = $allow_external_principals ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->feature_set = $feature_set ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->owning_account_id = $owning_account_id ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->tags = $tags ?? ;
+    $this->allow_external_principals = $allow_external_principals ?? false;
+    $this->creation_time = $creation_time ?? 0;
+    $this->feature_set = $feature_set ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->owning_account_id = $owning_account_id ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -921,15 +921,15 @@ class ResourceShareAssociation {
   ?'status' => ResourceShareAssociationStatus,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->associated_entity = $associated_entity ?? ;
-    $this->association_type = $association_type ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->external = $external ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->resource_share_name = $resource_share_name ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->associated_entity = $associated_entity ?? "";
+    $this->association_type = $association_type ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->external = $external ?? false;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->resource_share_name = $resource_share_name ?? "";
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -961,14 +961,14 @@ class ResourceShareInvitation {
   ?'sender_account_id' => string,
   ?'status' => ResourceShareInvitationStatus,
   ) $s = shape()) {
-    $this->invitation_timestamp = $invitation_timestamp ?? ;
-    $this->receiver_account_id = $receiver_account_id ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->resource_share_associations = $resource_share_associations ?? ;
-    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? ;
-    $this->resource_share_name = $resource_share_name ?? ;
-    $this->sender_account_id = $sender_account_id ?? ;
-    $this->status = $status ?? ;
+    $this->invitation_timestamp = $invitation_timestamp ?? 0;
+    $this->receiver_account_id = $receiver_account_id ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->resource_share_associations = $resource_share_associations ?? [];
+    $this->resource_share_invitation_arn = $resource_share_invitation_arn ?? "";
+    $this->resource_share_name = $resource_share_name ?? "";
+    $this->sender_account_id = $sender_account_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -978,7 +978,7 @@ class ResourceShareInvitationAlreadyAcceptedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -988,7 +988,7 @@ class ResourceShareInvitationAlreadyRejectedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1000,7 +1000,7 @@ class ResourceShareInvitationArnNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1010,7 +1010,7 @@ class ResourceShareInvitationExpiredException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1024,7 +1024,7 @@ class ResourceShareLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1050,14 +1050,14 @@ class ResourceSharePermissionDetail {
   ?'resource_type' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->default_version = $default_version ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->permission = $permission ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->default_version = $default_version ?? false;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->permission = $permission ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1083,14 +1083,14 @@ class ResourceSharePermissionSummary {
   ?'status' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->default_version = $default_version ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->default_version = $default_version ?? false;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1104,7 +1104,7 @@ class ServerInternalException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1116,8 +1116,8 @@ class ServiceNameAndResourceType {
   ?'resource_type' => string,
   ?'service_name' => string,
   ) $s = shape()) {
-    $this->resource_type = $resource_type ?? ;
-    $this->service_name = $service_name ?? ;
+    $this->resource_type = $resource_type ?? "";
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -1129,7 +1129,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1143,8 +1143,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1156,8 +1156,8 @@ class TagFilter {
   ?'tag_key' => TagKey,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->tag_key = $tag_key ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->tag_key = $tag_key ?? "";
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1173,7 +1173,7 @@ class TagLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1185,7 +1185,7 @@ class TagPolicyViolationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1197,8 +1197,8 @@ class TagResourceRequest {
   ?'resource_share_arn' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1219,7 +1219,7 @@ class UnknownResourceException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1231,8 +1231,8 @@ class UntagResourceRequest {
   ?'resource_share_arn' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_share_arn = $resource_share_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_share_arn = $resource_share_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1255,10 +1255,10 @@ class UpdateResourceShareRequest {
   ?'name' => string,
   ?'resource_share_arn' => string,
   ) $s = shape()) {
-    $this->allow_external_principals = $allow_external_principals ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->name = $name ?? ;
-    $this->resource_share_arn = $resource_share_arn ?? ;
+    $this->allow_external_principals = $allow_external_principals ?? false;
+    $this->client_token = $client_token ?? "";
+    $this->name = $name ?? "";
+    $this->resource_share_arn = $resource_share_arn ?? "";
   }
 }
 
@@ -1270,8 +1270,8 @@ class UpdateResourceShareResponse {
   ?'client_token' => string,
   ?'resource_share' => ResourceShare,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->resource_share = $resource_share ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->resource_share = $resource_share ?? null;
   }
 }
 

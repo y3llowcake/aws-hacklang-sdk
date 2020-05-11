@@ -91,27 +91,27 @@ class App {
   ?'tags' => TagMap,
   ?'update_time' => UpdateTime,
   ) $s = shape()) {
-    $this->app_arn = $app_arn ?? ;
-    $this->app_id = $app_id ?? ;
-    $this->auto_branch_creation_config = $auto_branch_creation_config ?? ;
-    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->custom_rules = $custom_rules ?? ;
-    $this->default_domain = $default_domain ?? ;
-    $this->description = $description ?? ;
-    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_branch_auto_build = $enable_branch_auto_build ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->iam_service_role_arn = $iam_service_role_arn ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
-    $this->production_branch = $production_branch ?? ;
-    $this->repository = $repository ?? ;
-    $this->tags = $tags ?? ;
-    $this->update_time = $update_time ?? ;
+    $this->app_arn = $app_arn ?? "";
+    $this->app_id = $app_id ?? "";
+    $this->auto_branch_creation_config = $auto_branch_creation_config ?? null;
+    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? [];
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->custom_rules = $custom_rules ?? [];
+    $this->default_domain = $default_domain ?? "";
+    $this->description = $description ?? "";
+    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_branch_auto_build = $enable_branch_auto_build ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->iam_service_role_arn = $iam_service_role_arn ?? "";
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
+    $this->production_branch = $production_branch ?? null;
+    $this->repository = $repository ?? "";
+    $this->tags = $tags ?? [];
+    $this->update_time = $update_time ?? 0;
   }
 }
 
@@ -129,8 +129,8 @@ class Artifact {
   ?'artifact_file_name' => ArtifactFileName,
   ?'artifact_id' => ArtifactId,
   ) $s = shape()) {
-    $this->artifact_file_name = $artifact_file_name ?? ;
-    $this->artifact_id = $artifact_id ?? ;
+    $this->artifact_file_name = $artifact_file_name ?? "";
+    $this->artifact_id = $artifact_id ?? "";
   }
 }
 
@@ -170,15 +170,15 @@ class AutoBranchCreationConfig {
   ?'pull_request_environment_name' => PullRequestEnvironmentName,
   ?'stage' => Stage,
   ) $s = shape()) {
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->enable_auto_build = $enable_auto_build ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_pull_request_preview = $enable_pull_request_preview ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->framework = $framework ?? ;
-    $this->pull_request_environment_name = $pull_request_environment_name ?? ;
-    $this->stage = $stage ?? ;
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->enable_auto_build = $enable_auto_build ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_pull_request_preview = $enable_pull_request_preview ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->framework = $framework ?? "";
+    $this->pull_request_environment_name = $pull_request_environment_name ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -202,12 +202,12 @@ class BackendEnvironment {
   ?'stack_name' => StackName,
   ?'update_time' => UpdateTime,
   ) $s = shape()) {
-    $this->backend_environment_arn = $backend_environment_arn ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->deployment_artifacts = $deployment_artifacts ?? ;
-    $this->environment_name = $environment_name ?? ;
-    $this->stack_name = $stack_name ?? ;
-    $this->update_time = $update_time ?? ;
+    $this->backend_environment_arn = $backend_environment_arn ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->deployment_artifacts = $deployment_artifacts ?? "";
+    $this->environment_name = $environment_name ?? "";
+    $this->stack_name = $stack_name ?? "";
+    $this->update_time = $update_time ?? 0;
   }
 }
 
@@ -221,7 +221,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -283,32 +283,32 @@ class Branch {
   ?'ttl' => TTL,
   ?'update_time' => UpdateTime,
   ) $s = shape()) {
-    $this->active_job_id = $active_job_id ?? ;
-    $this->associated_resources = $associated_resources ?? ;
-    $this->backend_environment_arn = $backend_environment_arn ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->branch_arn = $branch_arn ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->custom_domains = $custom_domains ?? ;
-    $this->description = $description ?? ;
-    $this->destination_branch = $destination_branch ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->enable_auto_build = $enable_auto_build ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_notification = $enable_notification ?? ;
-    $this->enable_pull_request_preview = $enable_pull_request_preview ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->framework = $framework ?? ;
-    $this->pull_request_environment_name = $pull_request_environment_name ?? ;
-    $this->source_branch = $source_branch ?? ;
-    $this->stage = $stage ?? ;
-    $this->tags = $tags ?? ;
-    $this->thumbnail_url = $thumbnail_url ?? ;
-    $this->total_number_of_jobs = $total_number_of_jobs ?? ;
-    $this->ttl = $ttl ?? ;
-    $this->update_time = $update_time ?? ;
+    $this->active_job_id = $active_job_id ?? "";
+    $this->associated_resources = $associated_resources ?? [];
+    $this->backend_environment_arn = $backend_environment_arn ?? "";
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->branch_arn = $branch_arn ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->custom_domains = $custom_domains ?? [];
+    $this->description = $description ?? "";
+    $this->destination_branch = $destination_branch ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->enable_auto_build = $enable_auto_build ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_notification = $enable_notification ?? false;
+    $this->enable_pull_request_preview = $enable_pull_request_preview ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->framework = $framework ?? "";
+    $this->pull_request_environment_name = $pull_request_environment_name ?? "";
+    $this->source_branch = $source_branch ?? "";
+    $this->stage = $stage ?? "";
+    $this->tags = $tags ?? [];
+    $this->thumbnail_url = $thumbnail_url ?? "";
+    $this->total_number_of_jobs = $total_number_of_jobs ?? "";
+    $this->ttl = $ttl ?? "";
+    $this->update_time = $update_time ?? 0;
   }
 }
 
@@ -372,23 +372,23 @@ class CreateAppRequest {
   ?'repository' => Repository,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->auto_branch_creation_config = $auto_branch_creation_config ?? ;
-    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->custom_rules = $custom_rules ?? ;
-    $this->description = $description ?? ;
-    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_branch_auto_build = $enable_branch_auto_build ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->iam_service_role_arn = $iam_service_role_arn ?? ;
-    $this->name = $name ?? ;
-    $this->oauth_token = $oauth_token ?? ;
-    $this->platform = $platform ?? ;
-    $this->repository = $repository ?? ;
-    $this->tags = $tags ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->auto_branch_creation_config = $auto_branch_creation_config ?? null;
+    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? [];
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->custom_rules = $custom_rules ?? [];
+    $this->description = $description ?? "";
+    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_branch_auto_build = $enable_branch_auto_build ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->iam_service_role_arn = $iam_service_role_arn ?? "";
+    $this->name = $name ?? "";
+    $this->oauth_token = $oauth_token ?? "";
+    $this->platform = $platform ?? "";
+    $this->repository = $repository ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -398,7 +398,7 @@ class CreateAppResult {
   public function __construct(shape(
   ?'app' => App,
   ) $s = shape()) {
-    $this->app = $app ?? ;
+    $this->app = $app ?? null;
   }
 }
 
@@ -414,10 +414,10 @@ class CreateBackendEnvironmentRequest {
   ?'environment_name' => EnvironmentName,
   ?'stack_name' => StackName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->deployment_artifacts = $deployment_artifacts ?? ;
-    $this->environment_name = $environment_name ?? ;
-    $this->stack_name = $stack_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->deployment_artifacts = $deployment_artifacts ?? "";
+    $this->environment_name = $environment_name ?? "";
+    $this->stack_name = $stack_name ?? "";
   }
 }
 
@@ -427,7 +427,7 @@ class CreateBackendEnvironmentResult {
   public function __construct(shape(
   ?'backend_environment' => BackendEnvironment,
   ) $s = shape()) {
-    $this->backend_environment = $backend_environment ?? ;
+    $this->backend_environment = $backend_environment ?? null;
   }
 }
 
@@ -469,23 +469,23 @@ class CreateBranchRequest {
   ?'tags' => TagMap,
   ?'ttl' => TTL,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->backend_environment_arn = $backend_environment_arn ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->enable_auto_build = $enable_auto_build ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_notification = $enable_notification ?? ;
-    $this->enable_pull_request_preview = $enable_pull_request_preview ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->framework = $framework ?? ;
-    $this->pull_request_environment_name = $pull_request_environment_name ?? ;
-    $this->stage = $stage ?? ;
-    $this->tags = $tags ?? ;
-    $this->ttl = $ttl ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->backend_environment_arn = $backend_environment_arn ?? "";
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->enable_auto_build = $enable_auto_build ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_notification = $enable_notification ?? false;
+    $this->enable_pull_request_preview = $enable_pull_request_preview ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->framework = $framework ?? "";
+    $this->pull_request_environment_name = $pull_request_environment_name ?? "";
+    $this->stage = $stage ?? "";
+    $this->tags = $tags ?? [];
+    $this->ttl = $ttl ?? "";
   }
 }
 
@@ -495,7 +495,7 @@ class CreateBranchResult {
   public function __construct(shape(
   ?'branch' => Branch,
   ) $s = shape()) {
-    $this->branch = $branch ?? ;
+    $this->branch = $branch ?? null;
   }
 }
 
@@ -509,9 +509,9 @@ class CreateDeploymentRequest {
   ?'branch_name' => BranchName,
   ?'file_map' => FileMap,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->file_map = $file_map ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->file_map = $file_map ?? [];
   }
 }
 
@@ -525,9 +525,9 @@ class CreateDeploymentResult {
   ?'job_id' => JobId,
   ?'zip_upload_url' => UploadUrl,
   ) $s = shape()) {
-    $this->file_upload_urls = $file_upload_urls ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->zip_upload_url = $zip_upload_url ?? ;
+    $this->file_upload_urls = $file_upload_urls ?? [];
+    $this->job_id = $job_id ?? "";
+    $this->zip_upload_url = $zip_upload_url ?? "";
   }
 }
 
@@ -543,10 +543,10 @@ class CreateDomainAssociationRequest {
   ?'enable_auto_sub_domain' => EnableAutoSubDomain,
   ?'sub_domain_settings' => SubDomainSettings,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? ;
-    $this->sub_domain_settings = $sub_domain_settings ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? false;
+    $this->sub_domain_settings = $sub_domain_settings ?? [];
   }
 }
 
@@ -556,7 +556,7 @@ class CreateDomainAssociationResult {
   public function __construct(shape(
   ?'domain_association' => DomainAssociation,
   ) $s = shape()) {
-    $this->domain_association = $domain_association ?? ;
+    $this->domain_association = $domain_association ?? null;
   }
 }
 
@@ -572,9 +572,9 @@ class CreateWebhookRequest {
   ?'branch_name' => BranchName,
   ?'description' => Description,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->description = $description ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class CreateWebhookResult {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -604,10 +604,10 @@ class CustomRule {
   ?'status' => Status,
   ?'target' => Target,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->source = $source ?? ;
-    $this->status = $status ?? ;
-    $this->target = $target ?? ;
+    $this->condition = $condition ?? "";
+    $this->source = $source ?? "";
+    $this->status = $status ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -623,7 +623,7 @@ class DeleteAppRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -633,7 +633,7 @@ class DeleteAppResult {
   public function __construct(shape(
   ?'app' => App,
   ) $s = shape()) {
-    $this->app = $app ?? ;
+    $this->app = $app ?? null;
   }
 }
 
@@ -645,8 +645,8 @@ class DeleteBackendEnvironmentRequest {
   ?'app_id' => AppId,
   ?'environment_name' => EnvironmentName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->environment_name = $environment_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->environment_name = $environment_name ?? "";
   }
 }
 
@@ -656,7 +656,7 @@ class DeleteBackendEnvironmentResult {
   public function __construct(shape(
   ?'backend_environment' => BackendEnvironment,
   ) $s = shape()) {
-    $this->backend_environment = $backend_environment ?? ;
+    $this->backend_environment = $backend_environment ?? null;
   }
 }
 
@@ -668,8 +668,8 @@ class DeleteBranchRequest {
   ?'app_id' => AppId,
   ?'branch_name' => BranchName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
   }
 }
 
@@ -679,7 +679,7 @@ class DeleteBranchResult {
   public function __construct(shape(
   ?'branch' => Branch,
   ) $s = shape()) {
-    $this->branch = $branch ?? ;
+    $this->branch = $branch ?? null;
   }
 }
 
@@ -691,8 +691,8 @@ class DeleteDomainAssociationRequest {
   ?'app_id' => AppId,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -702,7 +702,7 @@ class DeleteDomainAssociationResult {
   public function __construct(shape(
   ?'domain_association' => DomainAssociation,
   ) $s = shape()) {
-    $this->domain_association = $domain_association ?? ;
+    $this->domain_association = $domain_association ?? null;
   }
 }
 
@@ -716,9 +716,9 @@ class DeleteJobRequest {
   ?'branch_name' => BranchName,
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -728,7 +728,7 @@ class DeleteJobResult {
   public function __construct(shape(
   ?'job_summary' => JobSummary,
   ) $s = shape()) {
-    $this->job_summary = $job_summary ?? ;
+    $this->job_summary = $job_summary ?? null;
   }
 }
 
@@ -738,7 +738,7 @@ class DeleteWebhookRequest {
   public function __construct(shape(
   ?'webhook_id' => WebhookId,
   ) $s = shape()) {
-    $this->webhook_id = $webhook_id ?? ;
+    $this->webhook_id = $webhook_id ?? "";
   }
 }
 
@@ -748,7 +748,7 @@ class DeleteWebhookResult {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -758,7 +758,7 @@ class DependentServiceFailureException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -786,13 +786,13 @@ class DomainAssociation {
   ?'status_reason' => StatusReason,
   ?'sub_domains' => SubDomains,
   ) $s = shape()) {
-    $this->certificate_verification_dns_record = $certificate_verification_dns_record ?? ;
-    $this->domain_association_arn = $domain_association_arn ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->domain_status = $domain_status ?? ;
-    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->sub_domains = $sub_domains ?? ;
+    $this->certificate_verification_dns_record = $certificate_verification_dns_record ?? "";
+    $this->domain_association_arn = $domain_association_arn ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->domain_status = $domain_status ?? "";
+    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? false;
+    $this->status_reason = $status_reason ?? "";
+    $this->sub_domains = $sub_domains ?? [];
   }
 }
 
@@ -852,10 +852,10 @@ class GenerateAccessLogsRequest {
   ?'end_time' => EndTime,
   ?'start_time' => StartTime,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -865,7 +865,7 @@ class GenerateAccessLogsResult {
   public function __construct(shape(
   ?'log_url' => LogUrl,
   ) $s = shape()) {
-    $this->log_url = $log_url ?? ;
+    $this->log_url = $log_url ?? "";
   }
 }
 
@@ -875,7 +875,7 @@ class GetAppRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -885,7 +885,7 @@ class GetAppResult {
   public function __construct(shape(
   ?'app' => App,
   ) $s = shape()) {
-    $this->app = $app ?? ;
+    $this->app = $app ?? null;
   }
 }
 
@@ -895,7 +895,7 @@ class GetArtifactUrlRequest {
   public function __construct(shape(
   ?'artifact_id' => ArtifactId,
   ) $s = shape()) {
-    $this->artifact_id = $artifact_id ?? ;
+    $this->artifact_id = $artifact_id ?? "";
   }
 }
 
@@ -907,8 +907,8 @@ class GetArtifactUrlResult {
   ?'artifact_id' => ArtifactId,
   ?'artifact_url' => ArtifactUrl,
   ) $s = shape()) {
-    $this->artifact_id = $artifact_id ?? ;
-    $this->artifact_url = $artifact_url ?? ;
+    $this->artifact_id = $artifact_id ?? "";
+    $this->artifact_url = $artifact_url ?? "";
   }
 }
 
@@ -920,8 +920,8 @@ class GetBackendEnvironmentRequest {
   ?'app_id' => AppId,
   ?'environment_name' => EnvironmentName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->environment_name = $environment_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->environment_name = $environment_name ?? "";
   }
 }
 
@@ -931,7 +931,7 @@ class GetBackendEnvironmentResult {
   public function __construct(shape(
   ?'backend_environment' => BackendEnvironment,
   ) $s = shape()) {
-    $this->backend_environment = $backend_environment ?? ;
+    $this->backend_environment = $backend_environment ?? null;
   }
 }
 
@@ -943,8 +943,8 @@ class GetBranchRequest {
   ?'app_id' => AppId,
   ?'branch_name' => BranchName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
   }
 }
 
@@ -954,7 +954,7 @@ class GetBranchResult {
   public function __construct(shape(
   ?'branch' => Branch,
   ) $s = shape()) {
-    $this->branch = $branch ?? ;
+    $this->branch = $branch ?? null;
   }
 }
 
@@ -966,8 +966,8 @@ class GetDomainAssociationRequest {
   ?'app_id' => AppId,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -977,7 +977,7 @@ class GetDomainAssociationResult {
   public function __construct(shape(
   ?'domain_association' => DomainAssociation,
   ) $s = shape()) {
-    $this->domain_association = $domain_association ?? ;
+    $this->domain_association = $domain_association ?? null;
   }
 }
 
@@ -991,9 +991,9 @@ class GetJobRequest {
   ?'branch_name' => BranchName,
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1003,7 +1003,7 @@ class GetJobResult {
   public function __construct(shape(
   ?'job' => Job,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? null;
   }
 }
 
@@ -1013,7 +1013,7 @@ class GetWebhookRequest {
   public function __construct(shape(
   ?'webhook_id' => WebhookId,
   ) $s = shape()) {
-    $this->webhook_id = $webhook_id ?? ;
+    $this->webhook_id = $webhook_id ?? "";
   }
 }
 
@@ -1023,7 +1023,7 @@ class GetWebhookResult {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -1033,7 +1033,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1045,8 +1045,8 @@ class Job {
   ?'steps' => Steps,
   ?'summary' => JobSummary,
   ) $s = shape()) {
-    $this->steps = $steps ?? ;
-    $this->summary = $summary ?? ;
+    $this->steps = $steps ?? [];
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -1082,15 +1082,15 @@ class JobSummary {
   ?'start_time' => StartTime,
   ?'status' => JobStatus,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->commit_time = $commit_time ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->job_arn = $job_arn ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_type = $job_type ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->commit_time = $commit_time ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->job_arn = $job_arn ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->job_type = $job_type ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1104,7 +1104,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1116,8 +1116,8 @@ class ListAppsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1129,8 +1129,8 @@ class ListAppsResult {
   ?'apps' => Apps,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->apps = $apps ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->apps = $apps ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1148,11 +1148,11 @@ class ListArtifactsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1164,8 +1164,8 @@ class ListArtifactsResult {
   ?'artifacts' => Artifacts,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->artifacts = $artifacts ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->artifacts = $artifacts ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1181,10 +1181,10 @@ class ListBackendEnvironmentsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->environment_name = $environment_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->environment_name = $environment_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1196,8 +1196,8 @@ class ListBackendEnvironmentsResult {
   ?'backend_environments' => BackendEnvironments,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->backend_environments = $backend_environments ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->backend_environments = $backend_environments ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1211,9 +1211,9 @@ class ListBranchesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1225,8 +1225,8 @@ class ListBranchesResult {
   ?'branches' => Branches,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->branches = $branches ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->branches = $branches ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1240,9 +1240,9 @@ class ListDomainAssociationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1254,8 +1254,8 @@ class ListDomainAssociationsResult {
   ?'domain_associations' => DomainAssociations,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->domain_associations = $domain_associations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->domain_associations = $domain_associations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1271,10 +1271,10 @@ class ListJobsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1286,8 +1286,8 @@ class ListJobsResult {
   ?'job_summaries' => JobSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->job_summaries = $job_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_summaries = $job_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1297,7 +1297,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1307,7 +1307,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1321,9 +1321,9 @@ class ListWebhooksRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1335,8 +1335,8 @@ class ListWebhooksResult {
   ?'next_token' => NextToken,
   ?'webhooks' => Webhooks,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->webhooks = $webhooks ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->webhooks = $webhooks ?? [];
   }
 }
 
@@ -1356,7 +1356,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1376,10 +1376,10 @@ class ProductionBranch {
   ?'status' => Status,
   ?'thumbnail_url' => ThumbnailUrl,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->last_deploy_time = $last_deploy_time ?? ;
-    $this->status = $status ?? ;
-    $this->thumbnail_url = $thumbnail_url ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->last_deploy_time = $last_deploy_time ?? 0;
+    $this->status = $status ?? "";
+    $this->thumbnail_url = $thumbnail_url ?? "";
   }
 }
 
@@ -1397,8 +1397,8 @@ class ResourceNotFoundException {
   ?'code' => Code,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1426,10 +1426,10 @@ class StartDeploymentRequest {
   ?'job_id' => JobId,
   ?'source_url' => SourceUrl,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->source_url = $source_url ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->source_url = $source_url ?? "";
   }
 }
 
@@ -1439,7 +1439,7 @@ class StartDeploymentResult {
   public function __construct(shape(
   ?'job_summary' => JobSummary,
   ) $s = shape()) {
-    $this->job_summary = $job_summary ?? ;
+    $this->job_summary = $job_summary ?? null;
   }
 }
 
@@ -1463,14 +1463,14 @@ class StartJobRequest {
   ?'job_reason' => JobReason,
   ?'job_type' => JobType,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->commit_time = $commit_time ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_reason = $job_reason ?? ;
-    $this->job_type = $job_type ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->commit_time = $commit_time ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->job_reason = $job_reason ?? "";
+    $this->job_type = $job_type ?? "";
   }
 }
 
@@ -1480,7 +1480,7 @@ class StartJobResult {
   public function __construct(shape(
   ?'job_summary' => JobSummary,
   ) $s = shape()) {
-    $this->job_summary = $job_summary ?? ;
+    $this->job_summary = $job_summary ?? null;
   }
 }
 
@@ -1516,17 +1516,17 @@ class Step {
   ?'test_artifacts_url' => TestArtifactsUrl,
   ?'test_config_url' => TestConfigUrl,
   ) $s = shape()) {
-    $this->artifacts_url = $artifacts_url ?? ;
-    $this->context = $context ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->log_url = $log_url ?? ;
-    $this->screenshots = $screenshots ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->step_name = $step_name ?? ;
-    $this->test_artifacts_url = $test_artifacts_url ?? ;
-    $this->test_config_url = $test_config_url ?? ;
+    $this->artifacts_url = $artifacts_url ?? "";
+    $this->context = $context ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->log_url = $log_url ?? "";
+    $this->screenshots = $screenshots ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->step_name = $step_name ?? "";
+    $this->test_artifacts_url = $test_artifacts_url ?? "";
+    $this->test_config_url = $test_config_url ?? "";
   }
 }
 
@@ -1544,9 +1544,9 @@ class StopJobRequest {
   ?'branch_name' => BranchName,
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1556,7 +1556,7 @@ class StopJobResult {
   public function __construct(shape(
   ?'job_summary' => JobSummary,
   ) $s = shape()) {
-    $this->job_summary = $job_summary ?? ;
+    $this->job_summary = $job_summary ?? null;
   }
 }
 
@@ -1570,9 +1570,9 @@ class SubDomain {
   ?'sub_domain_setting' => SubDomainSetting,
   ?'verified' => Verified,
   ) $s = shape()) {
-    $this->dns_record = $dns_record ?? ;
-    $this->sub_domain_setting = $sub_domain_setting ?? ;
-    $this->verified = $verified ?? ;
+    $this->dns_record = $dns_record ?? "";
+    $this->sub_domain_setting = $sub_domain_setting ?? null;
+    $this->verified = $verified ?? false;
   }
 }
 
@@ -1584,8 +1584,8 @@ class SubDomainSetting {
   ?'branch_name' => BranchName,
   ?'prefix' => DomainPrefix,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -1609,8 +1609,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1641,7 +1641,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1653,8 +1653,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1703,23 +1703,23 @@ class UpdateAppRequest {
   ?'platform' => Platform,
   ?'repository' => Repository,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->app_id = $app_id ?? ;
-    $this->auto_branch_creation_config = $auto_branch_creation_config ?? ;
-    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->custom_rules = $custom_rules ?? ;
-    $this->description = $description ?? ;
-    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_branch_auto_build = $enable_branch_auto_build ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->iam_service_role_arn = $iam_service_role_arn ?? ;
-    $this->name = $name ?? ;
-    $this->oauth_token = $oauth_token ?? ;
-    $this->platform = $platform ?? ;
-    $this->repository = $repository ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->app_id = $app_id ?? "";
+    $this->auto_branch_creation_config = $auto_branch_creation_config ?? null;
+    $this->auto_branch_creation_patterns = $auto_branch_creation_patterns ?? [];
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->custom_rules = $custom_rules ?? [];
+    $this->description = $description ?? "";
+    $this->enable_auto_branch_creation = $enable_auto_branch_creation ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_branch_auto_build = $enable_branch_auto_build ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->iam_service_role_arn = $iam_service_role_arn ?? "";
+    $this->name = $name ?? "";
+    $this->oauth_token = $oauth_token ?? "";
+    $this->platform = $platform ?? "";
+    $this->repository = $repository ?? "";
   }
 }
 
@@ -1729,7 +1729,7 @@ class UpdateAppResult {
   public function __construct(shape(
   ?'app' => App,
   ) $s = shape()) {
-    $this->app = $app ?? ;
+    $this->app = $app ?? null;
   }
 }
 
@@ -1769,22 +1769,22 @@ class UpdateBranchRequest {
   ?'stage' => Stage,
   ?'ttl' => TTL,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->backend_environment_arn = $backend_environment_arn ?? ;
-    $this->basic_auth_credentials = $basic_auth_credentials ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->build_spec = $build_spec ?? ;
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->enable_auto_build = $enable_auto_build ?? ;
-    $this->enable_basic_auth = $enable_basic_auth ?? ;
-    $this->enable_notification = $enable_notification ?? ;
-    $this->enable_pull_request_preview = $enable_pull_request_preview ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->framework = $framework ?? ;
-    $this->pull_request_environment_name = $pull_request_environment_name ?? ;
-    $this->stage = $stage ?? ;
-    $this->ttl = $ttl ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->backend_environment_arn = $backend_environment_arn ?? "";
+    $this->basic_auth_credentials = $basic_auth_credentials ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->build_spec = $build_spec ?? "";
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->enable_auto_build = $enable_auto_build ?? false;
+    $this->enable_basic_auth = $enable_basic_auth ?? false;
+    $this->enable_notification = $enable_notification ?? false;
+    $this->enable_pull_request_preview = $enable_pull_request_preview ?? false;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->framework = $framework ?? "";
+    $this->pull_request_environment_name = $pull_request_environment_name ?? "";
+    $this->stage = $stage ?? "";
+    $this->ttl = $ttl ?? "";
   }
 }
 
@@ -1794,7 +1794,7 @@ class UpdateBranchResult {
   public function __construct(shape(
   ?'branch' => Branch,
   ) $s = shape()) {
-    $this->branch = $branch ?? ;
+    $this->branch = $branch ?? null;
   }
 }
 
@@ -1810,10 +1810,10 @@ class UpdateDomainAssociationRequest {
   ?'enable_auto_sub_domain' => EnableAutoSubDomain,
   ?'sub_domain_settings' => SubDomainSettings,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? ;
-    $this->sub_domain_settings = $sub_domain_settings ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->enable_auto_sub_domain = $enable_auto_sub_domain ?? false;
+    $this->sub_domain_settings = $sub_domain_settings ?? [];
   }
 }
 
@@ -1823,7 +1823,7 @@ class UpdateDomainAssociationResult {
   public function __construct(shape(
   ?'domain_association' => DomainAssociation,
   ) $s = shape()) {
-    $this->domain_association = $domain_association ?? ;
+    $this->domain_association = $domain_association ?? null;
   }
 }
 
@@ -1839,9 +1839,9 @@ class UpdateWebhookRequest {
   ?'description' => Description,
   ?'webhook_id' => WebhookId,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->description = $description ?? ;
-    $this->webhook_id = $webhook_id ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->description = $description ?? "";
+    $this->webhook_id = $webhook_id ?? "";
   }
 }
 
@@ -1851,7 +1851,7 @@ class UpdateWebhookResult {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -1877,13 +1877,13 @@ class Webhook {
   ?'webhook_id' => WebhookId,
   ?'webhook_url' => WebhookUrl,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->description = $description ?? ;
-    $this->update_time = $update_time ?? ;
-    $this->webhook_arn = $webhook_arn ?? ;
-    $this->webhook_id = $webhook_id ?? ;
-    $this->webhook_url = $webhook_url ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->description = $description ?? "";
+    $this->update_time = $update_time ?? 0;
+    $this->webhook_arn = $webhook_arn ?? "";
+    $this->webhook_id = $webhook_id ?? "";
+    $this->webhook_url = $webhook_url ?? "";
   }
 }
 

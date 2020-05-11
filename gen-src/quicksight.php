@@ -78,8 +78,8 @@ class AccessDeniedException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -93,8 +93,8 @@ class ActiveIAMPolicyAssignment {
   ?'assignment_name' => IAMPolicyAssignmentName,
   ?'policy_arn' => Arn,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->assignment_name = $assignment_name ?? "";
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -106,7 +106,7 @@ class AdHocFilteringOption {
   public function __construct(shape(
   ?'availability_status' => DashboardBehavior,
   ) $s = shape()) {
-    $this->availability_status = $availability_status ?? ;
+    $this->availability_status = $availability_status ?? "";
   }
 }
 
@@ -211,7 +211,7 @@ class CancelIngestionRequest {
   ?'ingestion_id' => IngestionId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
   }
 }
@@ -230,8 +230,8 @@ class CancelIngestionResponse {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -246,8 +246,8 @@ class CastColumnTypeOperation {
   ?'new_column_type' => ColumnDataType,
   ) $s = shape()) {
     $this->column_name = $column_name ?? "";
-    $this->format = $format ?? ;
-    $this->new_column_type = $new_column_type ?? ;
+    $this->format = $format ?? "";
+    $this->new_column_type = $new_column_type ?? "";
   }
 }
 
@@ -273,7 +273,7 @@ class ColumnGroupColumnSchema {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -292,7 +292,7 @@ class ColumnGroupSchema {
   ?'name' => string,
   ) $s = shape()) {
     $this->column_group_column_schema_list = $column_group_column_schema_list ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -314,9 +314,9 @@ class ColumnSchema {
   ?'geographic_role' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->data_type = $data_type ?? ;
-    $this->geographic_role = $geographic_role ?? ;
-    $this->name = $name ?? ;
+    $this->data_type = $data_type ?? "";
+    $this->geographic_role = $geographic_role ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -328,7 +328,7 @@ class ColumnTag {
   public function __construct(shape(
   ?'column_geographic_role' => GeoSpatialDataRole,
   ) $s = shape()) {
-    $this->column_geographic_role = $column_geographic_role ?? ;
+    $this->column_geographic_role = $column_geographic_role ?? "";
   }
 }
 
@@ -342,8 +342,8 @@ class ConcurrentUpdatingException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -355,8 +355,8 @@ class ConflictException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -366,7 +366,7 @@ class CreateColumnsOperation {
   public function __construct(shape(
   ?'columns' => CalculatedColumnList,
   ) $s = shape()) {
-    $this->columns = $columns ?? ;
+    $this->columns = $columns ?? [];
   }
 }
 
@@ -393,13 +393,13 @@ class CreateDashboardRequest {
   ?'version_description' => VersionDescription,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->dashboard_publish_options = $dashboard_publish_options ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->parameters = $parameters ?? null;
-    $this->permissions = $permissions ?? ;
-    $this->source_entity = $source_entity ?? ;
-    $this->tags = $tags ?? ;
+    $this->permissions = $permissions ?? [];
+    $this->source_entity = $source_entity ?? null;
+    $this->tags = $tags ?? [];
     $this->version_description = $version_description ?? "";
   }
 }
@@ -421,11 +421,11 @@ class CreateDashboardResponse {
   ?'version_arn' => Arn,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_status = $creation_status ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->version_arn = $version_arn ?? ;
+    $this->creation_status = $creation_status ?? "";
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->version_arn = $version_arn ?? "";
   }
 }
 
@@ -454,15 +454,15 @@ class CreateDataSetRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->column_groups = $column_groups ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->import_mode = $import_mode ?? ;
+    $this->column_groups = $column_groups ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->import_mode = $import_mode ?? "";
     $this->logical_table_map = $logical_table_map ?? [];
-    $this->name = $name ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->name = $name ?? "";
+    $this->permissions = $permissions ?? [];
     $this->physical_table_map = $physical_table_map ?? [];
     $this->row_level_permission_data_set = $row_level_permission_data_set ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -483,11 +483,11 @@ class CreateDataSetResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->ingestion_arn = $ingestion_arn ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->ingestion_arn = $ingestion_arn ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -516,14 +516,14 @@ class CreateDataSourceRequest {
   ?'vpc_connection_properties' => VpcConnectionProperties,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->credentials = $credentials ?? ;
-    $this->data_source_id = $data_source_id ?? ;
+    $this->credentials = $credentials ?? null;
+    $this->data_source_id = $data_source_id ?? "";
     $this->data_source_parameters = $data_source_parameters ?? null;
-    $this->name = $name ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->name = $name ?? "";
+    $this->permissions = $permissions ?? [];
     $this->ssl_properties = $ssl_properties ?? null;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
     $this->vpc_connection_properties = $vpc_connection_properties ?? null;
   }
 }
@@ -543,10 +543,10 @@ class CreateDataSourceResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_status = $creation_status ?? ;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->creation_status = $creation_status ?? "";
+    $this->data_source_id = $data_source_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -564,7 +564,7 @@ class CreateGroupMembershipRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->group_name = $group_name ?? "";
-    $this->member_name = $member_name ?? ;
+    $this->member_name = $member_name ?? "";
     $this->namespace = $namespace ?? "";
   }
 }
@@ -580,8 +580,8 @@ class CreateGroupMembershipResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group_member = $group_member ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -598,7 +598,7 @@ class CreateGroupRequest {
   ?'namespace' => Namespace,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->group_name = $group_name ?? "";
     $this->namespace = $namespace ?? "";
   }
@@ -615,8 +615,8 @@ class CreateGroupResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group = $group ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -636,12 +636,12 @@ class CreateIAMPolicyAssignmentRequest {
   ?'namespace' => Namespace,
   ?'policy_arn' => Arn,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->identities = $identities ?? ;
+    $this->identities = $identities ?? [];
     $this->namespace = $namespace ?? "";
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -663,13 +663,13 @@ class CreateIAMPolicyAssignmentResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
-    $this->identities = $identities ?? ;
-    $this->policy_arn = $policy_arn ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->identities = $identities ?? [];
+    $this->policy_arn = $policy_arn ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -684,7 +684,7 @@ class CreateIngestionRequest {
   ?'ingestion_id' => IngestionId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
   }
 }
@@ -706,8 +706,8 @@ class CreateIngestionResponse {
     $this->arn = $arn ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
     $this->ingestion_status = $ingestion_status ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -725,8 +725,8 @@ class CreateTemplateAliasRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
-    $this->template_version_number = $template_version_number ?? ;
+    $this->template_id = $template_id ?? "";
+    $this->template_version_number = $template_version_number ?? 0;
   }
 }
 
@@ -740,8 +740,8 @@ class CreateTemplateAliasResponse {
   ?'status' => StatusCode,
   ?'template_alias' => TemplateAlias,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_alias = $template_alias ?? null;
   }
 }
@@ -765,11 +765,11 @@ class CreateTemplateRequest {
   ?'version_description' => VersionDescription,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->name = $name ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->source_entity = $source_entity ?? ;
-    $this->tags = $tags ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->name = $name ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->source_entity = $source_entity ?? null;
+    $this->tags = $tags ?? [];
+    $this->template_id = $template_id ?? "";
     $this->version_description = $version_description ?? "";
   }
 }
@@ -791,11 +791,11 @@ class CreateTemplateResponse {
   ?'version_arn' => Arn,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_status = $creation_status ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_id = $template_id ?? ;
-    $this->version_arn = $version_arn ?? ;
+    $this->creation_status = $creation_status ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_id = $template_id ?? "";
+    $this->version_arn = $version_arn ?? "";
   }
 }
 
@@ -824,9 +824,9 @@ class CustomSql {
   ?'name' => CustomSqlName,
   ?'sql_query' => SqlQuery,
   ) $s = shape()) {
-    $this->columns = $columns ?? ;
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->name = $name ?? ;
+    $this->columns = $columns ?? [];
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->name = $name ?? "";
     $this->sql_query = $sql_query ?? "";
   }
 }
@@ -852,12 +852,12 @@ class Dashboard {
   ?'version' => DashboardVersion,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->last_published_time = $last_published_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->last_published_time = $last_published_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->version = $version ?? null;
   }
 }
 
@@ -871,8 +871,8 @@ class DashboardError {
   ?'message' => NonEmptyString,
   ?'type' => DashboardErrorType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -910,9 +910,9 @@ class DashboardSearchFilter {
   ?'operator' => FilterOperator,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->operator = $operator ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->operator = $operator ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -924,7 +924,7 @@ class DashboardSourceEntity {
   public function __construct(shape(
   ?'source_template' => DashboardSourceTemplate,
   ) $s = shape()) {
-    $this->source_template = $source_template ?? ;
+    $this->source_template = $source_template ?? null;
   }
 }
 
@@ -937,7 +937,7 @@ class DashboardSourceTemplate {
   ?'data_set_references' => DataSetReferenceList,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_set_references = $data_set_references ?? ;
+    $this->data_set_references = $data_set_references ?? [];
   }
 }
 
@@ -960,12 +960,12 @@ class DashboardSummary {
   ?'published_version_number' => VersionNumber,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->last_published_time = $last_published_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->published_version_number = $published_version_number ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->last_published_time = $last_published_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->published_version_number = $published_version_number ?? 0;
   }
 }
 
@@ -992,11 +992,11 @@ class DashboardVersion {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->description = $description ?? ;
-    $this->errors = $errors ?? ;
-    $this->source_entity_arn = $source_entity_arn ?? ;
-    $this->status = $status ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->errors = $errors ?? [];
+    $this->source_entity_arn = $source_entity_arn ?? "";
+    $this->status = $status ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -1018,10 +1018,10 @@ class DashboardVersionSummary {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->description = $description ?? ;
-    $this->source_entity_arn = $source_entity_arn ?? ;
-    $this->status = $status ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->source_entity_arn = $source_entity_arn ?? "";
+    $this->status = $status ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -1057,15 +1057,15 @@ class DataSet {
   ?'row_level_permission_data_set' => RowLevelPermissionDataSet,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->column_groups = $column_groups ?? ;
-    $this->consumed_spice_capacity_in_bytes = $consumed_spice_capacity_in_bytes ?? ;
-    $this->created_time = $created_time ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->import_mode = $import_mode ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->column_groups = $column_groups ?? [];
+    $this->consumed_spice_capacity_in_bytes = $consumed_spice_capacity_in_bytes ?? 0;
+    $this->created_time = $created_time ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->import_mode = $import_mode ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->logical_table_map = $logical_table_map ?? [];
-    $this->name = $name ?? ;
-    $this->output_columns = $output_columns ?? ;
+    $this->name = $name ?? "";
+    $this->output_columns = $output_columns ?? [];
     $this->physical_table_map = $physical_table_map ?? [];
     $this->row_level_permission_data_set = $row_level_permission_data_set ?? null;
   }
@@ -1083,7 +1083,7 @@ class DataSetConfiguration {
   ) $s = shape()) {
     $this->column_group_schema_list = $column_group_schema_list ?? [];
     $this->data_set_schema = $data_set_schema ?? null;
-    $this->placeholder = $placeholder ?? ;
+    $this->placeholder = $placeholder ?? "";
   }
 }
 
@@ -1101,8 +1101,8 @@ class DataSetReference {
   ?'data_set_arn' => Arn,
   ?'data_set_placeholder' => NonEmptyString,
   ) $s = shape()) {
-    $this->data_set_arn = $data_set_arn ?? ;
-    $this->data_set_placeholder = $data_set_placeholder ?? ;
+    $this->data_set_arn = $data_set_arn ?? "";
+    $this->data_set_placeholder = $data_set_placeholder ?? "";
   }
 }
 
@@ -1137,11 +1137,11 @@ class DataSetSummary {
   ?'row_level_permission_data_set' => RowLevelPermissionDataSet,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->import_mode = $import_mode ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->import_mode = $import_mode ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
     $this->row_level_permission_data_set = $row_level_permission_data_set ?? null;
   }
 }
@@ -1175,15 +1175,15 @@ class DataSource {
   ?'vpc_connection_properties' => VpcConnectionProperties,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->data_source_id = $data_source_id ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->data_source_id = $data_source_id ?? "";
     $this->data_source_parameters = $data_source_parameters ?? null;
     $this->error_info = $error_info ?? null;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
     $this->ssl_properties = $ssl_properties ?? null;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
     $this->vpc_connection_properties = $vpc_connection_properties ?? null;
   }
 }
@@ -1206,8 +1206,8 @@ class DataSourceErrorInfo {
   ?'message' => string,
   ?'type' => DataSourceErrorInfoType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1291,8 +1291,8 @@ class DateTimeParameter {
   ?'name' => NonEmptyString,
   ?'values' => TimestampList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1306,8 +1306,8 @@ class DecimalParameter {
   ?'name' => NonEmptyString,
   ?'values' => DoubleList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1324,7 +1324,7 @@ class DeleteDashboardRequest {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -1342,9 +1342,9 @@ class DeleteDashboardResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1357,7 +1357,7 @@ class DeleteDataSetRequest {
   ?'data_set_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
   }
 }
 
@@ -1374,9 +1374,9 @@ class DeleteDataSetResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1389,7 +1389,7 @@ class DeleteDataSourceRequest {
   ?'data_source_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -1406,9 +1406,9 @@ class DeleteDataSourceResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_source_id = $data_source_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1426,7 +1426,7 @@ class DeleteGroupMembershipRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->group_name = $group_name ?? "";
-    $this->member_name = $member_name ?? ;
+    $this->member_name = $member_name ?? "";
     $this->namespace = $namespace ?? "";
   }
 }
@@ -1439,8 +1439,8 @@ class DeleteGroupMembershipResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1468,8 +1468,8 @@ class DeleteGroupResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1483,7 +1483,7 @@ class DeleteIAMPolicyAssignmentRequest {
   ?'aws_account_id' => AwsAccountId,
   ?'namespace' => Namespace,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_name = $assignment_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
     $this->namespace = $namespace ?? "";
   }
@@ -1499,9 +1499,9 @@ class DeleteIAMPolicyAssignmentResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->assignment_name = $assignment_name ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1517,7 +1517,7 @@ class DeleteTemplateAliasRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -1537,9 +1537,9 @@ class DeleteTemplateAliasResponse {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->arn = $arn ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -1554,7 +1554,7 @@ class DeleteTemplateRequest {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
+    $this->template_id = $template_id ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -1572,9 +1572,9 @@ class DeleteTemplateResponse {
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -1590,7 +1590,7 @@ class DeleteUserByPrincipalIdRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->namespace = $namespace ?? "";
-    $this->principal_id = $principal_id ?? ;
+    $this->principal_id = $principal_id ?? "";
   }
 }
 
@@ -1602,8 +1602,8 @@ class DeleteUserByPrincipalIdResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1631,8 +1631,8 @@ class DeleteUserResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1647,7 +1647,7 @@ class DescribeDashboardPermissionsRequest {
   ?'dashboard_id' => RestrictiveResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
   }
 }
 
@@ -1665,11 +1665,11 @@ class DescribeDashboardPermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->dashboard_arn = $dashboard_arn ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->dashboard_arn = $dashboard_arn ?? "";
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1687,7 +1687,7 @@ class DescribeDashboardRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -1703,8 +1703,8 @@ class DescribeDashboardResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->dashboard = $dashboard ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1717,7 +1717,7 @@ class DescribeDataSetPermissionsRequest {
   ?'data_set_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
   }
 }
 
@@ -1735,11 +1735,11 @@ class DescribeDataSetPermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_set_arn = $data_set_arn ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_set_arn = $data_set_arn ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1752,7 +1752,7 @@ class DescribeDataSetRequest {
   ?'data_set_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
   }
 }
 
@@ -1767,8 +1767,8 @@ class DescribeDataSetResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->data_set = $data_set ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1781,7 +1781,7 @@ class DescribeDataSourcePermissionsRequest {
   ?'data_source_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -1799,11 +1799,11 @@ class DescribeDataSourcePermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->data_source_id = $data_source_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1816,7 +1816,7 @@ class DescribeDataSourceRequest {
   ?'data_source_id' => ResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -1831,8 +1831,8 @@ class DescribeDataSourceResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->data_source = $data_source ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1863,8 +1863,8 @@ class DescribeGroupResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group = $group ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1878,7 +1878,7 @@ class DescribeIAMPolicyAssignmentRequest {
   ?'aws_account_id' => AwsAccountId,
   ?'namespace' => Namespace,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_name = $assignment_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
     $this->namespace = $namespace ?? "";
   }
@@ -1895,8 +1895,8 @@ class DescribeIAMPolicyAssignmentResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->iam_policy_assignment = $iam_policy_assignment ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1911,7 +1911,7 @@ class DescribeIngestionRequest {
   ?'ingestion_id' => IngestionId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
   }
 }
@@ -1927,8 +1927,8 @@ class DescribeIngestionResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->ingestion = $ingestion ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1944,7 +1944,7 @@ class DescribeTemplateAliasRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -1958,8 +1958,8 @@ class DescribeTemplateAliasResponse {
   ?'status' => StatusCode,
   ?'template_alias' => TemplateAlias,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_alias = $template_alias ?? null;
   }
 }
@@ -1973,7 +1973,7 @@ class DescribeTemplatePermissionsRequest {
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -1991,11 +1991,11 @@ class DescribeTemplatePermissionsResponse {
   ?'template_arn' => Arn,
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_arn = $template_arn ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_arn = $template_arn ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -2013,7 +2013,7 @@ class DescribeTemplateRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
+    $this->template_id = $template_id ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -2026,7 +2026,7 @@ class DescribeTemplateResponse {
   ?'status' => StatusCode,
   ?'template' => Template,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? 0;
     $this->template = $template ?? null;
   }
 }
@@ -2057,8 +2057,8 @@ class DescribeUserResponse {
   ?'status' => StatusCode,
   ?'user' => User,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->user = $user ?? null;
   }
 }
@@ -2073,8 +2073,8 @@ class DomainNotWhitelistedException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2092,8 +2092,8 @@ class ErrorInfo {
   ?'message' => string,
   ?'type' => IngestionErrorType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2105,7 +2105,7 @@ class ExportToCSVOption {
   public function __construct(shape(
   ?'availability_status' => DashboardBehavior,
   ) $s = shape()) {
-    $this->availability_status = $availability_status ?? ;
+    $this->availability_status = $availability_status ?? "";
   }
 }
 
@@ -2119,7 +2119,7 @@ class FilterOperation {
   public function __construct(shape(
   ?'condition_expression' => Expression,
   ) $s = shape()) {
-    $this->condition_expression = $condition_expression ?? ;
+    $this->condition_expression = $condition_expression ?? "";
   }
 }
 
@@ -2135,9 +2135,9 @@ class GeoSpatialColumnGroup {
   ?'country_code' => GeoSpatialCountryCode,
   ?'name' => ColumnGroupName,
   ) $s = shape()) {
-    $this->columns = $columns ?? ;
-    $this->country_code = $country_code ?? ;
-    $this->name = $name ?? ;
+    $this->columns = $columns ?? [];
+    $this->country_code = $country_code ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2164,12 +2164,12 @@ class GetDashboardEmbedUrlRequest {
   ?'user_arn' => Arn,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->identity_type = $identity_type ?? "";
-    $this->reset_disabled = $reset_disabled ?? ;
+    $this->reset_disabled = $reset_disabled ?? false;
     $this->session_lifetime_in_minutes = $session_lifetime_in_minutes ?? 0;
-    $this->undo_redo_disabled = $undo_redo_disabled ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->undo_redo_disabled = $undo_redo_disabled ?? false;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -2183,9 +2183,9 @@ class GetDashboardEmbedUrlResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->embed_url = $embed_url ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->embed_url = $embed_url ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2202,9 +2202,9 @@ class Group {
   ?'principal_id' => string,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->group_name = $group_name ?? "";
-    $this->principal_id = $principal_id ?? ;
+    $this->principal_id = $principal_id ?? "";
   }
 }
 
@@ -2221,7 +2221,7 @@ class GroupMember {
   ?'member_name' => GroupMemberName,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->member_name = $member_name ?? ;
+    $this->member_name = $member_name ?? "";
   }
 }
 
@@ -2249,12 +2249,12 @@ class IAMPolicyAssignment {
   ?'identities' => IdentityMap,
   ?'policy_arn' => Arn,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->identities = $identities ?? ;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->identities = $identities ?? [];
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -2268,7 +2268,7 @@ class IAMPolicyAssignmentSummary {
   ?'assignment_name' => IAMPolicyAssignmentName,
   ?'assignment_status' => AssignmentStatus,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
   }
 }
@@ -2291,8 +2291,8 @@ class IdentityTypeNotSupportedException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2323,15 +2323,15 @@ class Ingestion {
   ?'row_info' => RowInfo,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->error_info = $error_info ?? null;
     $this->ingestion_id = $ingestion_id ?? "";
-    $this->ingestion_size_in_bytes = $ingestion_size_in_bytes ?? ;
+    $this->ingestion_size_in_bytes = $ingestion_size_in_bytes ?? 0;
     $this->ingestion_status = $ingestion_status ?? "";
-    $this->ingestion_time_in_seconds = $ingestion_time_in_seconds ?? ;
+    $this->ingestion_time_in_seconds = $ingestion_time_in_seconds ?? 0;
     $this->queue_info = $queue_info ?? null;
-    $this->request_source = $request_source ?? ;
-    $this->request_type = $request_type ?? ;
+    $this->request_source = $request_source ?? "";
+    $this->request_type = $request_type ?? "";
     $this->row_info = $row_info ?? null;
   }
 }
@@ -2358,8 +2358,8 @@ class InputColumn {
   ?'name' => ColumnName,
   ?'type' => InputColumnDataType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2377,8 +2377,8 @@ class IntegerParameter {
   ?'name' => NonEmptyString,
   ?'values' => LongList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -2392,8 +2392,8 @@ class InternalFailureException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2405,8 +2405,8 @@ class InvalidNextTokenException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2418,8 +2418,8 @@ class InvalidParameterValueException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2445,10 +2445,10 @@ class JoinInstruction {
   ?'right_operand' => LogicalTableId,
   ?'type' => JoinType,
   ) $s = shape()) {
-    $this->left_operand = $left_operand ?? ;
+    $this->left_operand = $left_operand ?? "";
     $this->on_clause = $on_clause ?? "";
-    $this->right_operand = $right_operand ?? ;
-    $this->type = $type ?? ;
+    $this->right_operand = $right_operand ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2464,9 +2464,9 @@ class LimitExceededException {
   ?'request_id' => string,
   ?'resource_type' => ExceptionResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2483,9 +2483,9 @@ class ListDashboardVersionsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2502,9 +2502,9 @@ class ListDashboardVersionsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->dashboard_version_summary_list = $dashboard_version_summary_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2520,7 +2520,7 @@ class ListDashboardsRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2537,9 +2537,9 @@ class ListDashboardsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->dashboard_summary_list = $dashboard_summary_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2555,7 +2555,7 @@ class ListDataSetsRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2571,10 +2571,10 @@ class ListDataSetsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_set_summaries = $data_set_summaries ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_set_summaries = $data_set_summaries ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2590,7 +2590,7 @@ class ListDataSourcesRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2606,10 +2606,10 @@ class ListDataSourcesResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_sources = $data_sources ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_sources = $data_sources ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2631,7 +2631,7 @@ class ListGroupMembershipsRequest {
     $this->group_name = $group_name ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2648,9 +2648,9 @@ class ListGroupMembershipsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group_member_list = $group_member_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2669,7 +2669,7 @@ class ListGroupsRequest {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2686,9 +2686,9 @@ class ListGroupsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group_list = $group_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2709,7 +2709,7 @@ class ListIAMPolicyAssignmentsForUserRequest {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->user_name = $user_name ?? "";
   }
 }
@@ -2726,10 +2726,10 @@ class ListIAMPolicyAssignmentsForUserResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->active_assignments = $active_assignments ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->active_assignments = $active_assignments ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2751,7 +2751,7 @@ class ListIAMPolicyAssignmentsRequest {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2767,10 +2767,10 @@ class ListIAMPolicyAssignmentsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->iam_policy_assignments = $iam_policy_assignments ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->iam_policy_assignments = $iam_policy_assignments ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2787,9 +2787,9 @@ class ListIngestionsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2806,9 +2806,9 @@ class ListIngestionsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->ingestions = $ingestions ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -2818,7 +2818,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2832,9 +2832,9 @@ class ListTagsForResourceResponse {
   ?'status' => StatusCode,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2852,8 +2852,8 @@ class ListTemplateAliasesRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -2869,9 +2869,9 @@ class ListTemplateAliasesResponse {
   ?'status' => StatusCode,
   ?'template_alias_list' => TemplateAliasList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_alias_list = $template_alias_list ?? [];
   }
 }
@@ -2890,8 +2890,8 @@ class ListTemplateVersionsRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -2907,9 +2907,9 @@ class ListTemplateVersionsResponse {
   ?'status' => StatusCode,
   ?'template_version_summary_list' => TemplateVersionSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_version_summary_list = $template_version_summary_list ?? [];
   }
 }
@@ -2926,7 +2926,7 @@ class ListTemplatesRequest {
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2942,9 +2942,9 @@ class ListTemplatesResponse {
   ?'status' => StatusCode,
   ?'template_summary_list' => TemplateSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_summary_list = $template_summary_list ?? [];
   }
 }
@@ -2966,7 +2966,7 @@ class ListUserGroupsRequest {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->user_name = $user_name ?? "";
   }
 }
@@ -2984,9 +2984,9 @@ class ListUserGroupsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group_list = $group_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -3005,7 +3005,7 @@ class ListUsersRequest {
     $this->aws_account_id = $aws_account_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace = $namespace ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -3021,9 +3021,9 @@ class ListUsersResponse {
   ?'status' => StatusCode,
   ?'user_list' => UserList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->user_list = $user_list ?? [];
   }
 }
@@ -3038,9 +3038,9 @@ class LogicalTable {
   ?'data_transforms' => TransformOperationList,
   ?'source' => LogicalTableSource,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
-    $this->data_transforms = $data_transforms ?? ;
-    $this->source = $source ?? ;
+    $this->alias = $alias ?? "";
+    $this->data_transforms = $data_transforms ?? [];
+    $this->source = $source ?? null;
   }
 }
 
@@ -3075,8 +3075,8 @@ class ManifestFileLocation {
   ?'bucket' => S3Bucket,
   ?'key' => S3Key,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -3130,8 +3130,8 @@ class OutputColumn {
   ?'name' => ColumnName,
   ?'type' => ColumnDataType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -3149,10 +3149,10 @@ class Parameters {
   ?'integer_parameters' => IntegerParameterList,
   ?'string_parameters' => StringParameterList,
   ) $s = shape()) {
-    $this->date_time_parameters = $date_time_parameters ?? ;
-    $this->decimal_parameters = $decimal_parameters ?? ;
-    $this->integer_parameters = $integer_parameters ?? ;
-    $this->string_parameters = $string_parameters ?? ;
+    $this->date_time_parameters = $date_time_parameters ?? [];
+    $this->decimal_parameters = $decimal_parameters ?? [];
+    $this->integer_parameters = $integer_parameters ?? [];
+    $this->string_parameters = $string_parameters ?? [];
   }
 }
 
@@ -3206,8 +3206,8 @@ class PreconditionNotMetException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -3235,7 +3235,7 @@ class ProjectOperation {
   public function __construct(shape(
   ?'projected_columns' => ProjectedColumnList,
   ) $s = shape()) {
-    $this->projected_columns = $projected_columns ?? ;
+    $this->projected_columns = $projected_columns ?? [];
   }
 }
 
@@ -3251,8 +3251,8 @@ class QueueInfo {
   ?'queued_ingestion' => string,
   ?'waiting_on_ingestion' => string,
   ) $s = shape()) {
-    $this->queued_ingestion = $queued_ingestion ?? ;
-    $this->waiting_on_ingestion = $waiting_on_ingestion ?? ;
+    $this->queued_ingestion = $queued_ingestion ?? "";
+    $this->waiting_on_ingestion = $waiting_on_ingestion ?? "";
   }
 }
 
@@ -3264,8 +3264,8 @@ class QuickSightUserNotFoundException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -3322,11 +3322,11 @@ class RegisterUserRequest {
   ?'user_role' => UserRole,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->email = $email ?? ;
-    $this->iam_arn = $iam_arn ?? ;
+    $this->email = $email ?? "";
+    $this->iam_arn = $iam_arn ?? "";
     $this->identity_type = $identity_type ?? "";
     $this->namespace = $namespace ?? "";
-    $this->session_name = $session_name ?? ;
+    $this->session_name = $session_name ?? "";
     $this->user_name = $user_name ?? "";
     $this->user_role = $user_role ?? "";
   }
@@ -3344,10 +3344,10 @@ class RegisterUserResponse {
   ?'user' => User,
   ?'user_invitation_url' => string,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->user = $user ?? null;
-    $this->user_invitation_url = $user_invitation_url ?? ;
+    $this->user_invitation_url = $user_invitation_url ?? "";
   }
 }
 
@@ -3363,10 +3363,10 @@ class RelationalTable {
   ?'name' => RelationalTableName,
   ?'schema' => RelationalTableSchema,
   ) $s = shape()) {
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->input_columns = $input_columns ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->input_columns = $input_columns ?? [];
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -3383,7 +3383,7 @@ class RenameColumnOperation {
   ?'new_column_name' => ColumnName,
   ) $s = shape()) {
     $this->column_name = $column_name ?? "";
-    $this->new_column_name = $new_column_name ?? ;
+    $this->new_column_name = $new_column_name ?? "";
   }
 }
 
@@ -3397,9 +3397,9 @@ class ResourceExistsException {
   ?'request_id' => string,
   ?'resource_type' => ExceptionResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3417,9 +3417,9 @@ class ResourceNotFoundException {
   ?'request_id' => string,
   ?'resource_type' => ExceptionResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3431,7 +3431,7 @@ class ResourcePermission {
   ?'actions' => ActionList,
   ?'principal' => Principal,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
+    $this->actions = $actions ?? [];
     $this->principal = $principal ?? "";
   }
 }
@@ -3450,9 +3450,9 @@ class ResourceUnavailableException {
   ?'request_id' => string,
   ?'resource_type' => ExceptionResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3468,8 +3468,8 @@ class RowInfo {
   ?'rows_dropped' => long,
   ?'rows_ingested' => long,
   ) $s = shape()) {
-    $this->rows_dropped = $rows_dropped ?? ;
-    $this->rows_ingested = $rows_ingested ?? ;
+    $this->rows_dropped = $rows_dropped ?? 0;
+    $this->rows_ingested = $rows_ingested ?? 0;
   }
 }
 
@@ -3482,7 +3482,7 @@ class RowLevelPermissionDataSet {
   ?'permission_policy' => RowLevelPermissionPolicy,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->permission_policy = $permission_policy ?? ;
+    $this->permission_policy = $permission_policy ?? "";
   }
 }
 
@@ -3512,8 +3512,8 @@ class S3Source {
   ?'input_columns' => InputColumnList,
   ?'upload_settings' => UploadSettings,
   ) $s = shape()) {
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->input_columns = $input_columns ?? ;
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->input_columns = $input_columns ?? [];
     $this->upload_settings = $upload_settings ?? null;
   }
 }
@@ -3531,9 +3531,9 @@ class SearchDashboardsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -3550,9 +3550,9 @@ class SearchDashboardsResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->dashboard_summary_list = $dashboard_summary_list ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -3576,8 +3576,8 @@ class SessionLifetimeInMinutesInvalidException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -3587,7 +3587,7 @@ class SheetControlsOption {
   public function __construct(shape(
   ?'visibility_state' => DashboardUIState,
   ) $s = shape()) {
-    $this->visibility_state = $visibility_state ?? ;
+    $this->visibility_state = $visibility_state ?? "";
   }
 }
 
@@ -3646,7 +3646,7 @@ class SslProperties {
   public function __construct(shape(
   ?'disable_ssl' => boolean,
   ) $s = shape()) {
-    $this->disable_ssl = $disable_ssl ?? ;
+    $this->disable_ssl = $disable_ssl ?? false;
   }
 }
 
@@ -3664,8 +3664,8 @@ class StringParameter {
   ?'name' => NonEmptyString,
   ?'values' => StringList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -3679,8 +3679,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3693,7 +3693,7 @@ class TagColumnOperation {
   ?'tags' => ColumnTagList,
   ) $s = shape()) {
     $this->column_name = $column_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3711,8 +3711,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3724,8 +3724,8 @@ class TagResourceResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -3748,11 +3748,11 @@ class Template {
   ?'version' => TemplateVersion,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->template_id = $template_id ?? ;
-    $this->version = $version ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->template_id = $template_id ?? "";
+    $this->version = $version ?? null;
   }
 }
 
@@ -3768,7 +3768,7 @@ class TemplateAlias {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->arn = $arn ?? "";
-    $this->template_version_number = $template_version_number ?? ;
+    $this->template_version_number = $template_version_number ?? 0;
   }
 }
 
@@ -3782,8 +3782,8 @@ class TemplateError {
   ?'message' => NonEmptyString,
   ?'type' => TemplateErrorType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -3802,7 +3802,7 @@ class TemplateSourceAnalysis {
   ?'data_set_references' => DataSetReferenceList,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_set_references = $data_set_references ?? ;
+    $this->data_set_references = $data_set_references ?? [];
   }
 }
 
@@ -3814,8 +3814,8 @@ class TemplateSourceEntity {
   ?'source_analysis' => TemplateSourceAnalysis,
   ?'source_template' => TemplateSourceTemplate,
   ) $s = shape()) {
-    $this->source_analysis = $source_analysis ?? ;
-    $this->source_template = $source_template ?? ;
+    $this->source_analysis = $source_analysis ?? null;
+    $this->source_template = $source_template ?? null;
   }
 }
 
@@ -3846,11 +3846,11 @@ class TemplateSummary {
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->latest_version_number = $latest_version_number ?? ;
-    $this->name = $name ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->latest_version_number = $latest_version_number ?? 0;
+    $this->name = $name ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -3874,12 +3874,12 @@ class TemplateVersion {
   ?'status' => ResourceStatus,
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
-    $this->data_set_configurations = $data_set_configurations ?? ;
-    $this->description = $description ?? ;
-    $this->errors = $errors ?? ;
-    $this->source_entity_arn = $source_entity_arn ?? ;
-    $this->status = $status ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->data_set_configurations = $data_set_configurations ?? [];
+    $this->description = $description ?? "";
+    $this->errors = $errors ?? [];
+    $this->source_entity_arn = $source_entity_arn ?? "";
+    $this->status = $status ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -3899,9 +3899,9 @@ class TemplateVersionSummary {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_time = $created_time ?? ;
-    $this->description = $description ?? ;
-    $this->status = $status ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->status = $status ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -3934,8 +3934,8 @@ class ThrottlingException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -3978,7 +3978,7 @@ class TwitterParameters {
   ?'max_rows' => PositiveInteger,
   ?'query' => Query,
   ) $s = shape()) {
-    $this->max_rows = $max_rows ?? ;
+    $this->max_rows = $max_rows ?? 0;
     $this->query = $query ?? "";
   }
 }
@@ -3993,8 +3993,8 @@ class UnsupportedUserEditionException {
   ?'message' => string,
   ?'request_id' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -4006,8 +4006,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -4019,8 +4019,8 @@ class UntagResourceResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4037,9 +4037,9 @@ class UpdateDashboardPermissionsRequest {
   ?'revoke_permissions' => UpdateResourcePermissionList,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->grant_permissions = $grant_permissions ?? ;
-    $this->revoke_permissions = $revoke_permissions ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->grant_permissions = $grant_permissions ?? [];
+    $this->revoke_permissions = $revoke_permissions ?? [];
   }
 }
 
@@ -4057,11 +4057,11 @@ class UpdateDashboardPermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->dashboard_arn = $dashboard_arn ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->dashboard_arn = $dashboard_arn ?? "";
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4076,7 +4076,7 @@ class UpdateDashboardPublishedVersionRequest {
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->version_number = $version_number ?? 0;
   }
 }
@@ -4093,10 +4093,10 @@ class UpdateDashboardPublishedVersionResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->dashboard_arn = $dashboard_arn ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->dashboard_arn = $dashboard_arn ?? "";
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4119,11 +4119,11 @@ class UpdateDashboardRequest {
   ?'version_description' => VersionDescription,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->dashboard_id = $dashboard_id ?? ;
+    $this->dashboard_id = $dashboard_id ?? "";
     $this->dashboard_publish_options = $dashboard_publish_options ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->parameters = $parameters ?? null;
-    $this->source_entity = $source_entity ?? ;
+    $this->source_entity = $source_entity ?? null;
     $this->version_description = $version_description ?? "";
   }
 }
@@ -4145,11 +4145,11 @@ class UpdateDashboardResponse {
   ?'version_arn' => Arn,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_status = $creation_status ?? ;
-    $this->dashboard_id = $dashboard_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->version_arn = $version_arn ?? ;
+    $this->creation_status = $creation_status ?? "";
+    $this->dashboard_id = $dashboard_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->version_arn = $version_arn ?? "";
   }
 }
 
@@ -4166,9 +4166,9 @@ class UpdateDataSetPermissionsRequest {
   ?'revoke_permissions' => ResourcePermissionList,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->grant_permissions = $grant_permissions ?? ;
-    $this->revoke_permissions = $revoke_permissions ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->grant_permissions = $grant_permissions ?? [];
+    $this->revoke_permissions = $revoke_permissions ?? [];
   }
 }
 
@@ -4184,10 +4184,10 @@ class UpdateDataSetPermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_set_arn = $data_set_arn ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_set_arn = $data_set_arn ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4212,11 +4212,11 @@ class UpdateDataSetRequest {
   ?'row_level_permission_data_set' => RowLevelPermissionDataSet,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->column_groups = $column_groups ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->import_mode = $import_mode ?? ;
+    $this->column_groups = $column_groups ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->import_mode = $import_mode ?? "";
     $this->logical_table_map = $logical_table_map ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->physical_table_map = $physical_table_map ?? [];
     $this->row_level_permission_data_set = $row_level_permission_data_set ?? null;
   }
@@ -4239,11 +4239,11 @@ class UpdateDataSetResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->ingestion_arn = $ingestion_arn ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->ingestion_arn = $ingestion_arn ?? "";
     $this->ingestion_id = $ingestion_id ?? "";
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4260,9 +4260,9 @@ class UpdateDataSourcePermissionsRequest {
   ?'revoke_permissions' => ResourcePermissionList,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->data_source_id = $data_source_id ?? ;
-    $this->grant_permissions = $grant_permissions ?? ;
-    $this->revoke_permissions = $revoke_permissions ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->grant_permissions = $grant_permissions ?? [];
+    $this->revoke_permissions = $revoke_permissions ?? [];
   }
 }
 
@@ -4278,10 +4278,10 @@ class UpdateDataSourcePermissionsResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->data_source_id = $data_source_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4304,10 +4304,10 @@ class UpdateDataSourceRequest {
   ?'vpc_connection_properties' => VpcConnectionProperties,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->credentials = $credentials ?? ;
-    $this->data_source_id = $data_source_id ?? ;
+    $this->credentials = $credentials ?? null;
+    $this->data_source_id = $data_source_id ?? "";
     $this->data_source_parameters = $data_source_parameters ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->ssl_properties = $ssl_properties ?? null;
     $this->vpc_connection_properties = $vpc_connection_properties ?? null;
   }
@@ -4328,10 +4328,10 @@ class UpdateDataSourceResponse {
   ?'update_status' => ResourceStatus,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->data_source_id = $data_source_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->update_status = $update_status ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->update_status = $update_status ?? "";
   }
 }
 
@@ -4348,7 +4348,7 @@ class UpdateGroupRequest {
   ?'namespace' => Namespace,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->group_name = $group_name ?? "";
     $this->namespace = $namespace ?? "";
   }
@@ -4365,8 +4365,8 @@ class UpdateGroupResponse {
   ?'status' => StatusCode,
   ) $s = shape()) {
     $this->group = $group ?? null;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4386,12 +4386,12 @@ class UpdateIAMPolicyAssignmentRequest {
   ?'namespace' => Namespace,
   ?'policy_arn' => Arn,
   ) $s = shape()) {
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->identities = $identities ?? ;
+    $this->identities = $identities ?? [];
     $this->namespace = $namespace ?? "";
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -4413,13 +4413,13 @@ class UpdateIAMPolicyAssignmentResponse {
   ?'request_id' => string,
   ?'status' => StatusCode,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->assignment_name = $assignment_name ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->assignment_name = $assignment_name ?? "";
     $this->assignment_status = $assignment_status ?? "";
-    $this->identities = $identities ?? ;
-    $this->policy_arn = $policy_arn ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->identities = $identities ?? [];
+    $this->policy_arn = $policy_arn ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -4439,8 +4439,8 @@ class UpdateTemplateAliasRequest {
   ) $s = shape()) {
     $this->alias_name = $alias_name ?? "";
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->template_id = $template_id ?? ;
-    $this->template_version_number = $template_version_number ?? ;
+    $this->template_id = $template_id ?? "";
+    $this->template_version_number = $template_version_number ?? 0;
   }
 }
 
@@ -4454,8 +4454,8 @@ class UpdateTemplateAliasResponse {
   ?'status' => StatusCode,
   ?'template_alias' => TemplateAlias,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->template_alias = $template_alias ?? null;
   }
 }
@@ -4473,9 +4473,9 @@ class UpdateTemplatePermissionsRequest {
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->grant_permissions = $grant_permissions ?? ;
-    $this->revoke_permissions = $revoke_permissions ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->grant_permissions = $grant_permissions ?? [];
+    $this->revoke_permissions = $revoke_permissions ?? [];
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -4493,11 +4493,11 @@ class UpdateTemplatePermissionsResponse {
   ?'template_arn' => Arn,
   ?'template_id' => RestrictiveResourceId,
   ) $s = shape()) {
-    $this->permissions = $permissions ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_arn = $template_arn ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->permissions = $permissions ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_arn = $template_arn ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -4516,9 +4516,9 @@ class UpdateTemplateRequest {
   ?'version_description' => VersionDescription,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->name = $name ?? ;
-    $this->source_entity = $source_entity ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->name = $name ?? "";
+    $this->source_entity = $source_entity ?? null;
+    $this->template_id = $template_id ?? "";
     $this->version_description = $version_description ?? "";
   }
 }
@@ -4540,11 +4540,11 @@ class UpdateTemplateResponse {
   ?'version_arn' => Arn,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_status = $creation_status ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
-    $this->template_id = $template_id ?? ;
-    $this->version_arn = $version_arn ?? ;
+    $this->creation_status = $creation_status ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
+    $this->template_id = $template_id ?? "";
+    $this->version_arn = $version_arn ?? "";
   }
 }
 
@@ -4563,9 +4563,9 @@ class UpdateUserRequest {
   ?'user_name' => UserName,
   ) $s = shape()) {
     $this->aws_account_id = $aws_account_id ?? "";
-    $this->email = $email ?? ;
+    $this->email = $email ?? "";
     $this->namespace = $namespace ?? "";
-    $this->role = $role ?? ;
+    $this->role = $role ?? "";
     $this->user_name = $user_name ?? "";
   }
 }
@@ -4580,8 +4580,8 @@ class UpdateUserResponse {
   ?'status' => StatusCode,
   ?'user' => User,
   ) $s = shape()) {
-    $this->request_id = $request_id ?? ;
-    $this->status = $status ?? ;
+    $this->request_id = $request_id ?? "";
+    $this->status = $status ?? 0;
     $this->user = $user ?? null;
   }
 }
@@ -4600,10 +4600,10 @@ class UploadSettings {
   ?'start_from_row' => PositiveInteger,
   ?'text_qualifier' => TextQualifier,
   ) $s = shape()) {
-    $this->contains_header = $contains_header ?? ;
+    $this->contains_header = $contains_header ?? false;
     $this->delimiter = $delimiter ?? "";
-    $this->format = $format ?? ;
-    $this->start_from_row = $start_from_row ?? ;
+    $this->format = $format ?? "";
+    $this->start_from_row = $start_from_row ?? 0;
     $this->text_qualifier = $text_qualifier ?? "";
   }
 }
@@ -4626,12 +4626,12 @@ class User {
   ?'role' => UserRole,
   ?'user_name' => UserName,
   ) $s = shape()) {
-    $this->active = $active ?? ;
+    $this->active = $active ?? false;
     $this->arn = $arn ?? "";
-    $this->email = $email ?? ;
+    $this->email = $email ?? "";
     $this->identity_type = $identity_type ?? "";
-    $this->principal_id = $principal_id ?? ;
-    $this->role = $role ?? ;
+    $this->principal_id = $principal_id ?? "";
+    $this->role = $role ?? "";
     $this->user_name = $user_name ?? "";
   }
 }
@@ -4654,7 +4654,7 @@ class VpcConnectionProperties {
   public function __construct(shape(
   ?'vpc_connection_arn' => Arn,
   ) $s = shape()) {
-    $this->vpc_connection_arn = $vpc_connection_arn ?? ;
+    $this->vpc_connection_arn = $vpc_connection_arn ?? "";
   }
 }
 

@@ -47,9 +47,9 @@ class AbortMultipartUploadInput {
   ?'upload_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->upload_id = $upload_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->upload_id = $upload_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -61,8 +61,8 @@ class AbortVaultLockInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -80,9 +80,9 @@ class AddTagsToVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->tags = $tags ?? [];
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -96,9 +96,9 @@ class ArchiveCreationOutput {
   ?'checksum' => string,
   ?'location' => string,
   ) $s = shape()) {
-    $this->archive_id = $archive_id ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->location = $location ?? ;
+    $this->archive_id = $archive_id ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->location = $location ?? "";
   }
 }
 
@@ -118,12 +118,12 @@ class CSVInput {
   ?'quote_escape_character' => string,
   ?'record_delimiter' => string,
   ) $s = shape()) {
-    $this->comments = $comments ?? ;
-    $this->field_delimiter = $field_delimiter ?? ;
+    $this->comments = $comments ?? "";
+    $this->field_delimiter = $field_delimiter ?? "";
     $this->file_header_info = $file_header_info ?? "";
-    $this->quote_character = $quote_character ?? ;
-    $this->quote_escape_character = $quote_escape_character ?? ;
-    $this->record_delimiter = $record_delimiter ?? ;
+    $this->quote_character = $quote_character ?? "";
+    $this->quote_escape_character = $quote_escape_character ?? "";
+    $this->record_delimiter = $record_delimiter ?? "";
   }
 }
 
@@ -141,11 +141,11 @@ class CSVOutput {
   ?'quote_fields' => QuoteFields,
   ?'record_delimiter' => string,
   ) $s = shape()) {
-    $this->field_delimiter = $field_delimiter ?? ;
-    $this->quote_character = $quote_character ?? ;
-    $this->quote_escape_character = $quote_escape_character ?? ;
+    $this->field_delimiter = $field_delimiter ?? "";
+    $this->quote_character = $quote_character ?? "";
+    $this->quote_escape_character = $quote_escape_character ?? "";
     $this->quote_fields = $quote_fields ?? "";
-    $this->record_delimiter = $record_delimiter ?? ;
+    $this->record_delimiter = $record_delimiter ?? "";
   }
 }
 
@@ -165,11 +165,11 @@ class CompleteMultipartUploadInput {
   ?'upload_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->archive_size = $archive_size ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->upload_id = $upload_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->archive_size = $archive_size ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->upload_id = $upload_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -183,9 +183,9 @@ class CompleteVaultLockInput {
   ?'lock_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->lock_id = $lock_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->lock_id = $lock_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -197,8 +197,8 @@ class CreateVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -208,7 +208,7 @@ class CreateVaultOutput {
   public function __construct(shape(
   ?'location' => string,
   ) $s = shape()) {
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -218,7 +218,7 @@ class DataRetrievalPolicy {
   public function __construct(shape(
   ?'rules' => DataRetrievalRulesList,
   ) $s = shape()) {
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -230,8 +230,8 @@ class DataRetrievalRule {
   ?'bytes_per_hour' => NullableLong,
   ?'strategy' => string,
   ) $s = shape()) {
-    $this->bytes_per_hour = $bytes_per_hour ?? ;
-    $this->strategy = $strategy ?? ;
+    $this->bytes_per_hour = $bytes_per_hour ?? 0;
+    $this->strategy = $strategy ?? "";
   }
 }
 
@@ -249,9 +249,9 @@ class DeleteArchiveInput {
   ?'archive_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->archive_id = $archive_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->archive_id = $archive_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -263,8 +263,8 @@ class DeleteVaultAccessPolicyInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -276,8 +276,8 @@ class DeleteVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -289,8 +289,8 @@ class DeleteVaultNotificationsInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -304,9 +304,9 @@ class DescribeJobInput {
   ?'job_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -318,8 +318,8 @@ class DescribeVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -339,12 +339,12 @@ class DescribeVaultOutput {
   ?'vault_arn' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->last_inventory_date = $last_inventory_date ?? ;
-    $this->number_of_archives = $number_of_archives ?? ;
-    $this->size_in_bytes = $size_in_bytes ?? ;
-    $this->vault_arn = $vault_arn ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->creation_date = $creation_date ?? "";
+    $this->last_inventory_date = $last_inventory_date ?? "";
+    $this->number_of_archives = $number_of_archives ?? 0;
+    $this->size_in_bytes = $size_in_bytes ?? 0;
+    $this->vault_arn = $vault_arn ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -359,8 +359,8 @@ class Encryption {
   ?'kms_key_id' => string,
   ) $s = shape()) {
     $this->encryption_type = $encryption_type ?? "";
-    $this->kms_context = $kms_context ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
+    $this->kms_context = $kms_context ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
   }
 }
 
@@ -376,7 +376,7 @@ class GetDataRetrievalPolicyInput {
   public function __construct(shape(
   ?'account_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -386,7 +386,7 @@ class GetDataRetrievalPolicyOutput {
   public function __construct(shape(
   ?'policy' => DataRetrievalPolicy,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? null;
   }
 }
 
@@ -402,10 +402,10 @@ class GetJobOutputInput {
   ?'range' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->range = $range ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->range = $range ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -427,13 +427,13 @@ class GetJobOutputOutput {
   ?'content_type' => string,
   ?'status' => httpstatus,
   ) $s = shape()) {
-    $this->accept_ranges = $accept_ranges ?? ;
-    $this->archive_description = $archive_description ?? ;
-    $this->body = $body ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->content_range = $content_range ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->status = $status ?? ;
+    $this->accept_ranges = $accept_ranges ?? "";
+    $this->archive_description = $archive_description ?? "";
+    $this->body = $body ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->content_range = $content_range ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->status = $status ?? 0;
   }
 }
 
@@ -445,8 +445,8 @@ class GetVaultAccessPolicyInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -456,7 +456,7 @@ class GetVaultAccessPolicyOutput {
   public function __construct(shape(
   ?'policy' => VaultAccessPolicy,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? null;
   }
 }
 
@@ -468,8 +468,8 @@ class GetVaultLockInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -485,10 +485,10 @@ class GetVaultLockOutput {
   ?'policy' => string,
   ?'state' => string,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->expiration_date = $expiration_date ?? ;
-    $this->policy = $policy ?? ;
-    $this->state = $state ?? ;
+    $this->creation_date = $creation_date ?? "";
+    $this->expiration_date = $expiration_date ?? "";
+    $this->policy = $policy ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -500,8 +500,8 @@ class GetVaultNotificationsInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -511,7 +511,7 @@ class GetVaultNotificationsOutput {
   public function __construct(shape(
   ?'vault_notification_config' => VaultNotificationConfig,
   ) $s = shape()) {
-    $this->vault_notification_config = $vault_notification_config ?? ;
+    $this->vault_notification_config = $vault_notification_config ?? null;
   }
 }
 
@@ -561,27 +561,27 @@ class GlacierJobDescription {
   ?'tier' => string,
   ?'vault_arn' => string,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->archive_id = $archive_id ?? ;
-    $this->archive_sha_256_tree_hash = $archive_sha_256_tree_hash ?? ;
-    $this->archive_size_in_bytes = $archive_size_in_bytes ?? ;
-    $this->completed = $completed ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->inventory_retrieval_parameters = $inventory_retrieval_parameters ?? ;
-    $this->inventory_size_in_bytes = $inventory_size_in_bytes ?? ;
-    $this->job_description = $job_description ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_output_path = $job_output_path ?? ;
+    $this->action = $action ?? "";
+    $this->archive_id = $archive_id ?? "";
+    $this->archive_sha_256_tree_hash = $archive_sha_256_tree_hash ?? "";
+    $this->archive_size_in_bytes = $archive_size_in_bytes ?? 0;
+    $this->completed = $completed ?? false;
+    $this->completion_date = $completion_date ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->inventory_retrieval_parameters = $inventory_retrieval_parameters ?? null;
+    $this->inventory_size_in_bytes = $inventory_size_in_bytes ?? 0;
+    $this->job_description = $job_description ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->job_output_path = $job_output_path ?? "";
     $this->output_location = $output_location ?? null;
-    $this->retrieval_byte_range = $retrieval_byte_range ?? ;
-    $this->sha_256_tree_hash = $sha_256_tree_hash ?? ;
-    $this->sns_topic = $sns_topic ?? ;
+    $this->retrieval_byte_range = $retrieval_byte_range ?? "";
+    $this->sha_256_tree_hash = $sha_256_tree_hash ?? "";
+    $this->sns_topic = $sns_topic ?? "";
     $this->select_parameters = $select_parameters ?? null;
     $this->status_code = $status_code ?? "";
-    $this->status_message = $status_message ?? ;
-    $this->tier = $tier ?? ;
-    $this->vault_arn = $vault_arn ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->tier = $tier ?? "";
+    $this->vault_arn = $vault_arn ?? "";
   }
 }
 
@@ -612,11 +612,11 @@ class Grantee {
   ?'type' => Type,
   ?'uri' => string,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->id = $id ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->id = $id ?? "";
     $this->type = $type ?? "";
-    $this->uri = $uri ?? ;
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -630,9 +630,9 @@ class InitiateJobInput {
   ?'job_parameters' => JobParameters,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->job_parameters = $job_parameters ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->job_parameters = $job_parameters ?? null;
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -646,9 +646,9 @@ class InitiateJobOutput {
   ?'job_output_path' => string,
   ?'location' => string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->job_output_path = $job_output_path ?? ;
-    $this->location = $location ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->job_output_path = $job_output_path ?? "";
+    $this->location = $location ?? "";
   }
 }
 
@@ -664,10 +664,10 @@ class InitiateMultipartUploadInput {
   ?'part_size' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->archive_description = $archive_description ?? ;
-    $this->part_size = $part_size ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->archive_description = $archive_description ?? "";
+    $this->part_size = $part_size ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -679,8 +679,8 @@ class InitiateMultipartUploadOutput {
   ?'location' => string,
   ?'upload_id' => string,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->location = $location ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -694,9 +694,9 @@ class InitiateVaultLockInput {
   ?'policy' => VaultLockPolicy,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->policy = $policy ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->policy = $policy ?? null;
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -706,7 +706,7 @@ class InitiateVaultLockOutput {
   public function __construct(shape(
   ?'lock_id' => string,
   ) $s = shape()) {
-    $this->lock_id = $lock_id ?? ;
+    $this->lock_id = $lock_id ?? "";
   }
 }
 
@@ -716,7 +716,7 @@ class InputSerialization {
   public function __construct(shape(
   ?'csv' => CSVInput,
   ) $s = shape()) {
-    $this->csv = $csv ?? ;
+    $this->csv = $csv ?? null;
   }
 }
 
@@ -730,9 +730,9 @@ class InsufficientCapacityException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -746,9 +746,9 @@ class InvalidParameterValueException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -766,11 +766,11 @@ class InventoryRetrievalJobDescription {
   ?'marker' => string,
   ?'start_date' => DateTime,
   ) $s = shape()) {
-    $this->end_date = $end_date ?? ;
-    $this->format = $format ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->end_date = $end_date ?? "";
+    $this->format = $format ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
+    $this->start_date = $start_date ?? "";
   }
 }
 
@@ -786,10 +786,10 @@ class InventoryRetrievalJobInput {
   ?'marker' => string,
   ?'start_date' => string,
   ) $s = shape()) {
-    $this->end_date = $end_date ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->end_date = $end_date ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
+    $this->start_date = $start_date ?? "";
   }
 }
 
@@ -819,15 +819,15 @@ class JobParameters {
   ?'tier' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->archive_id = $archive_id ?? ;
-    $this->description = $description ?? ;
-    $this->format = $format ?? ;
-    $this->inventory_retrieval_parameters = $inventory_retrieval_parameters ?? ;
+    $this->archive_id = $archive_id ?? "";
+    $this->description = $description ?? "";
+    $this->format = $format ?? "";
+    $this->inventory_retrieval_parameters = $inventory_retrieval_parameters ?? null;
     $this->output_location = $output_location ?? null;
-    $this->retrieval_byte_range = $retrieval_byte_range ?? ;
-    $this->sns_topic = $sns_topic ?? ;
+    $this->retrieval_byte_range = $retrieval_byte_range ?? "";
+    $this->sns_topic = $sns_topic ?? "";
     $this->select_parameters = $select_parameters ?? null;
-    $this->tier = $tier ?? ;
+    $this->tier = $tier ?? "";
     $this->type = $type ?? "";
   }
 }
@@ -842,9 +842,9 @@ class LimitExceededException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -864,12 +864,12 @@ class ListJobsInput {
   ?'statuscode' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->completed = $completed ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->statuscode = $statuscode ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->completed = $completed ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
+    $this->statuscode = $statuscode ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -882,7 +882,7 @@ class ListJobsOutput {
   ?'marker' => string,
   ) $s = shape()) {
     $this->job_list = $job_list ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -898,10 +898,10 @@ class ListMultipartUploadsInput {
   ?'marker' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -913,7 +913,7 @@ class ListMultipartUploadsOutput {
   ?'marker' => string,
   ?'uploads_list' => UploadsList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->uploads_list = $uploads_list ?? [];
   }
 }
@@ -932,11 +932,11 @@ class ListPartsInput {
   ?'upload_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->upload_id = $upload_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
+    $this->upload_id = $upload_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -958,13 +958,13 @@ class ListPartsOutput {
   ?'parts' => PartList,
   ?'vault_arn' => string,
   ) $s = shape()) {
-    $this->archive_description = $archive_description ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->marker = $marker ?? ;
-    $this->multipart_upload_id = $multipart_upload_id ?? ;
-    $this->part_size_in_bytes = $part_size_in_bytes ?? ;
-    $this->parts = $parts ?? ;
-    $this->vault_arn = $vault_arn ?? ;
+    $this->archive_description = $archive_description ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->marker = $marker ?? "";
+    $this->multipart_upload_id = $multipart_upload_id ?? "";
+    $this->part_size_in_bytes = $part_size_in_bytes ?? 0;
+    $this->parts = $parts ?? [];
+    $this->vault_arn = $vault_arn ?? "";
   }
 }
 
@@ -974,7 +974,7 @@ class ListProvisionedCapacityInput {
   public function __construct(shape(
   ?'account_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -996,8 +996,8 @@ class ListTagsForVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -1007,7 +1007,7 @@ class ListTagsForVaultOutput {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1021,9 +1021,9 @@ class ListVaultsInput {
   ?'limit' => string,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->limit = $limit ?? "";
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1035,7 +1035,7 @@ class ListVaultsOutput {
   ?'marker' => string,
   ?'vault_list' => VaultList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->vault_list = $vault_list ?? [];
   }
 }
@@ -1050,9 +1050,9 @@ class MissingParameterValueException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1066,7 +1066,7 @@ class OutputLocation {
   public function __construct(shape(
   ?'s_3' => S3Location,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -1076,7 +1076,7 @@ class OutputSerialization {
   public function __construct(shape(
   ?'csv' => CSVOutput,
   ) $s = shape()) {
-    $this->csv = $csv ?? ;
+    $this->csv = $csv ?? null;
   }
 }
 
@@ -1090,8 +1090,8 @@ class PartListElement {
   ?'range_in_bytes' => string,
   ?'sha_256_tree_hash' => string,
   ) $s = shape()) {
-    $this->range_in_bytes = $range_in_bytes ?? ;
-    $this->sha_256_tree_hash = $sha_256_tree_hash ?? ;
+    $this->range_in_bytes = $range_in_bytes ?? "";
+    $this->sha_256_tree_hash = $sha_256_tree_hash ?? "";
   }
 }
 
@@ -1107,9 +1107,9 @@ class PolicyEnforcedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1123,9 +1123,9 @@ class ProvisionedCapacityDescription {
   ?'expiration_date' => string,
   ?'start_date' => string,
   ) $s = shape()) {
-    $this->capacity_id = $capacity_id ?? ;
-    $this->expiration_date = $expiration_date ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->capacity_id = $capacity_id ?? "";
+    $this->expiration_date = $expiration_date ?? "";
+    $this->start_date = $start_date ?? "";
   }
 }
 
@@ -1137,7 +1137,7 @@ class PurchaseProvisionedCapacityInput {
   public function __construct(shape(
   ?'account_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -1147,7 +1147,7 @@ class PurchaseProvisionedCapacityOutput {
   public function __construct(shape(
   ?'capacity_id' => string,
   ) $s = shape()) {
-    $this->capacity_id = $capacity_id ?? ;
+    $this->capacity_id = $capacity_id ?? "";
   }
 }
 
@@ -1163,9 +1163,9 @@ class RemoveTagsFromVaultInput {
   ?'account_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->tag_keys = $tag_keys ?? ;
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -1179,9 +1179,9 @@ class RequestTimeoutException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1195,9 +1195,9 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1221,14 +1221,14 @@ class S3Location {
   ?'tagging' => hashmap,
   ?'user_metadata' => hashmap,
   ) $s = shape()) {
-    $this->access_control_list = $access_control_list ?? ;
-    $this->bucket_name = $bucket_name ?? ;
+    $this->access_control_list = $access_control_list ?? [];
+    $this->bucket_name = $bucket_name ?? "";
     $this->canned_acl = $canned_acl ?? "";
     $this->encryption = $encryption ?? null;
-    $this->prefix = $prefix ?? ;
+    $this->prefix = $prefix ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->tagging = $tagging ?? ;
-    $this->user_metadata = $user_metadata ?? ;
+    $this->tagging = $tagging ?? [];
+    $this->user_metadata = $user_metadata ?? [];
   }
 }
 
@@ -1244,7 +1244,7 @@ class SelectParameters {
   ?'input_serialization' => InputSerialization,
   ?'output_serialization' => OutputSerialization,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
+    $this->expression = $expression ?? "";
     $this->expression_type = $expression_type ?? "";
     $this->input_serialization = $input_serialization ?? null;
     $this->output_serialization = $output_serialization ?? null;
@@ -1261,9 +1261,9 @@ class ServiceUnavailableException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1275,8 +1275,8 @@ class SetDataRetrievalPolicyInput {
   ?'policy' => DataRetrievalPolicy,
   ?'account_id' => string,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->account_id = $account_id ?? ;
+    $this->policy = $policy ?? null;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -1290,9 +1290,9 @@ class SetVaultAccessPolicyInput {
   ?'policy' => VaultAccessPolicy,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->policy = $policy ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->policy = $policy ?? null;
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -1306,9 +1306,9 @@ class SetVaultNotificationsInput {
   ?'vault_name' => string,
   ?'vault_notification_config' => VaultNotificationConfig,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->vault_name = $vault_name ?? ;
-    $this->vault_notification_config = $vault_notification_config ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->vault_name = $vault_name ?? "";
+    $this->vault_notification_config = $vault_notification_config ?? null;
   }
 }
 
@@ -1344,11 +1344,11 @@ class UploadArchiveInput {
   ?'checksum' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->archive_description = $archive_description ?? ;
-    $this->body = $body ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->archive_description = $archive_description ?? "";
+    $this->body = $body ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -1366,11 +1366,11 @@ class UploadListElement {
   ?'part_size_in_bytes' => long,
   ?'vault_arn' => string,
   ) $s = shape()) {
-    $this->archive_description = $archive_description ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->multipart_upload_id = $multipart_upload_id ?? ;
-    $this->part_size_in_bytes = $part_size_in_bytes ?? ;
-    $this->vault_arn = $vault_arn ?? ;
+    $this->archive_description = $archive_description ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->multipart_upload_id = $multipart_upload_id ?? "";
+    $this->part_size_in_bytes = $part_size_in_bytes ?? 0;
+    $this->vault_arn = $vault_arn ?? "";
   }
 }
 
@@ -1390,12 +1390,12 @@ class UploadMultipartPartInput {
   ?'upload_id' => string,
   ?'vault_name' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->body = $body ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->range = $range ?? ;
-    $this->upload_id = $upload_id ?? ;
-    $this->vault_name = $vault_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->body = $body ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->range = $range ?? "";
+    $this->upload_id = $upload_id ?? "";
+    $this->vault_name = $vault_name ?? "";
   }
 }
 
@@ -1405,7 +1405,7 @@ class UploadMultipartPartOutput {
   public function __construct(shape(
   ?'checksum' => string,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
+    $this->checksum = $checksum ?? "";
   }
 }
 
@@ -1417,7 +1417,7 @@ class VaultAccessPolicy {
   public function __construct(shape(
   ?'policy' => string,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1429,7 +1429,7 @@ class VaultLockPolicy {
   public function __construct(shape(
   ?'policy' => string,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1441,8 +1441,8 @@ class VaultNotificationConfig {
   ?'events' => NotificationEventList,
   ?'sns_topic' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->sns_topic = $sns_topic ?? ;
+    $this->events = $events ?? [];
+    $this->sns_topic = $sns_topic ?? "";
   }
 }
 

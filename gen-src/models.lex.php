@@ -55,7 +55,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -83,14 +83,14 @@ class BotAliasMetadata {
   ?'last_updated_date' => Timestamp,
   ?'name' => AliasName,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->bot_version = $bot_version ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->conversation_logs = $conversation_logs ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->bot_version = $bot_version ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->conversation_logs = $conversation_logs ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -118,15 +118,15 @@ class BotChannelAssociation {
   ?'status' => ChannelStatus,
   ?'type' => ChannelType,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_configuration = $bot_configuration ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_configuration = $bot_configuration ?? [];
+    $this->bot_name = $bot_name ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -150,12 +150,12 @@ class BotMetadata {
   ?'status' => Status,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -173,8 +173,8 @@ class BuiltinIntentMetadata {
   ?'signature' => BuiltinIntentSignature,
   ?'supported_locales' => LocaleList,
   ) $s = shape()) {
-    $this->signature = $signature ?? ;
-    $this->supported_locales = $supported_locales ?? ;
+    $this->signature = $signature ?? "";
+    $this->supported_locales = $supported_locales ?? [];
   }
 }
 
@@ -188,7 +188,7 @@ class BuiltinIntentSlot {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -202,8 +202,8 @@ class BuiltinSlotTypeMetadata {
   ?'signature' => BuiltinSlotTypeSignature,
   ?'supported_locales' => LocaleList,
   ) $s = shape()) {
-    $this->signature = $signature ?? ;
-    $this->supported_locales = $supported_locales ?? ;
+    $this->signature = $signature ?? "";
+    $this->supported_locales = $supported_locales ?? [];
   }
 }
 
@@ -225,8 +225,8 @@ class CodeHook {
   ?'message_version' => MessageVersion,
   ?'uri' => LambdaARN,
   ) $s = shape()) {
-    $this->message_version = $message_version ?? ;
-    $this->uri = $uri ?? ;
+    $this->message_version = $message_version ?? "";
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -236,7 +236,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -252,8 +252,8 @@ class ConversationLogsRequest {
   ?'iam_role_arn' => IamRoleArn,
   ?'log_settings' => LogSettingsRequestList,
   ) $s = shape()) {
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->log_settings = $log_settings ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->log_settings = $log_settings ?? [];
   }
 }
 
@@ -265,8 +265,8 @@ class ConversationLogsResponse {
   ?'iam_role_arn' => IamRoleArn,
   ?'log_settings' => LogSettingsResponseList,
   ) $s = shape()) {
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->log_settings = $log_settings ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->log_settings = $log_settings ?? [];
   }
 }
 
@@ -280,8 +280,8 @@ class CreateBotVersionRequest {
   ?'checksum' => string,
   ?'name' => BotName,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->name = $name ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -321,22 +321,22 @@ class CreateBotVersionResponse {
   ?'version' => Version,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->abort_statement = $abort_statement ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->child_directed = $child_directed ?? ;
-    $this->clarification_prompt = $clarification_prompt ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->detect_sentiment = $detect_sentiment ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? ;
-    $this->intents = $intents ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->locale = $locale ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->abort_statement = $abort_statement ?? null;
+    $this->checksum = $checksum ?? "";
+    $this->child_directed = $child_directed ?? false;
+    $this->clarification_prompt = $clarification_prompt ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->detect_sentiment = $detect_sentiment ?? false;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? 0;
+    $this->intents = $intents ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->locale = $locale ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -348,8 +348,8 @@ class CreateIntentVersionRequest {
   ?'checksum' => string,
   ?'name' => IntentName,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->name = $name ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -387,21 +387,21 @@ class CreateIntentVersionResponse {
   ?'slots' => SlotList,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->conclusion_statement = $conclusion_statement ?? ;
-    $this->confirmation_prompt = $confirmation_prompt ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->dialog_code_hook = $dialog_code_hook ?? ;
-    $this->follow_up_prompt = $follow_up_prompt ?? ;
-    $this->fulfillment_activity = $fulfillment_activity ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_intent_signature = $parent_intent_signature ?? ;
-    $this->rejection_statement = $rejection_statement ?? ;
-    $this->sample_utterances = $sample_utterances ?? ;
-    $this->slots = $slots ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->conclusion_statement = $conclusion_statement ?? null;
+    $this->confirmation_prompt = $confirmation_prompt ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->dialog_code_hook = $dialog_code_hook ?? null;
+    $this->follow_up_prompt = $follow_up_prompt ?? null;
+    $this->fulfillment_activity = $fulfillment_activity ?? null;
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_intent_signature = $parent_intent_signature ?? "";
+    $this->rejection_statement = $rejection_statement ?? null;
+    $this->sample_utterances = $sample_utterances ?? [];
+    $this->slots = $slots ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -413,8 +413,8 @@ class CreateSlotTypeVersionRequest {
   ?'checksum' => string,
   ?'name' => SlotTypeName,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->name = $name ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -442,16 +442,16 @@ class CreateSlotTypeVersionResponse {
   ?'value_selection_strategy' => SlotValueSelectionStrategy,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->enumeration_values = $enumeration_values ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_slot_type_signature = $parent_slot_type_signature ?? ;
-    $this->slot_type_configurations = $slot_type_configurations ?? ;
-    $this->value_selection_strategy = $value_selection_strategy ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->enumeration_values = $enumeration_values ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_slot_type_signature = $parent_slot_type_signature ?? "";
+    $this->slot_type_configurations = $slot_type_configurations ?? [];
+    $this->value_selection_strategy = $value_selection_strategy ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -465,8 +465,8 @@ class DeleteBotAliasRequest {
   ?'bot_name' => BotName,
   ?'name' => AliasName,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->name = $name ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -480,9 +480,9 @@ class DeleteBotChannelAssociationRequest {
   ?'bot_name' => BotName,
   ?'name' => BotChannelName,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->name = $name ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -492,7 +492,7 @@ class DeleteBotRequest {
   public function __construct(shape(
   ?'name' => BotName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -504,8 +504,8 @@ class DeleteBotVersionRequest {
   ?'name' => BotName,
   ?'version' => NumericalVersion,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -515,7 +515,7 @@ class DeleteIntentRequest {
   public function __construct(shape(
   ?'name' => IntentName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -527,8 +527,8 @@ class DeleteIntentVersionRequest {
   ?'name' => IntentName,
   ?'version' => NumericalVersion,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -538,7 +538,7 @@ class DeleteSlotTypeRequest {
   public function __construct(shape(
   ?'name' => SlotTypeName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -550,8 +550,8 @@ class DeleteSlotTypeVersionRequest {
   ?'name' => SlotTypeName,
   ?'version' => NumericalVersion,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -563,8 +563,8 @@ class DeleteUtterancesRequest {
   ?'bot_name' => BotName,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -580,8 +580,8 @@ class EnumerationValue {
   ?'synonyms' => SynonymList,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->synonyms = $synonyms ?? ;
-    $this->value = $value ?? ;
+    $this->synonyms = $synonyms ?? [];
+    $this->value = $value ?? "";
   }
 }
 
@@ -599,8 +599,8 @@ class FollowUpPrompt {
   ?'prompt' => Prompt,
   ?'rejection_statement' => Statement,
   ) $s = shape()) {
-    $this->prompt = $prompt ?? ;
-    $this->rejection_statement = $rejection_statement ?? ;
+    $this->prompt = $prompt ?? null;
+    $this->rejection_statement = $rejection_statement ?? null;
   }
 }
 
@@ -612,8 +612,8 @@ class FulfillmentActivity {
   ?'code_hook' => CodeHook,
   ?'type' => FulfillmentActivityType,
   ) $s = shape()) {
-    $this->code_hook = $code_hook ?? ;
-    $this->type = $type ?? ;
+    $this->code_hook = $code_hook ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -627,8 +627,8 @@ class GetBotAliasRequest {
   ?'bot_name' => BotName,
   ?'name' => AliasName,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->name = $name ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -652,14 +652,14 @@ class GetBotAliasResponse {
   ?'last_updated_date' => Timestamp,
   ?'name' => AliasName,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->bot_version = $bot_version ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->conversation_logs = $conversation_logs ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->bot_version = $bot_version ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->conversation_logs = $conversation_logs ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -675,10 +675,10 @@ class GetBotAliasesRequest {
   ?'name_contains' => AliasName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->name_contains = $name_contains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->name_contains = $name_contains ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -690,8 +690,8 @@ class GetBotAliasesResponse {
   ?'bot_aliases' => BotAliasMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bot_aliases = $bot_aliases ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bot_aliases = $bot_aliases ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -705,9 +705,9 @@ class GetBotChannelAssociationRequest {
   ?'bot_name' => BotName,
   ?'name' => BotChannelName,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->name = $name ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -733,15 +733,15 @@ class GetBotChannelAssociationResponse {
   ?'status' => ChannelStatus,
   ?'type' => ChannelType,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_configuration = $bot_configuration ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_configuration = $bot_configuration ?? [];
+    $this->bot_name = $bot_name ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -759,11 +759,11 @@ class GetBotChannelAssociationsRequest {
   ?'name_contains' => BotChannelName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->name_contains = $name_contains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->name_contains = $name_contains ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -775,8 +775,8 @@ class GetBotChannelAssociationsResponse {
   ?'bot_channel_associations' => BotChannelAssociationList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bot_channel_associations = $bot_channel_associations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bot_channel_associations = $bot_channel_associations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -788,8 +788,8 @@ class GetBotRequest {
   ?'name' => BotName,
   ?'version_or_alias' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version_or_alias = $version_or_alias ?? ;
+    $this->name = $name ?? "";
+    $this->version_or_alias = $version_or_alias ?? "";
   }
 }
 
@@ -829,22 +829,22 @@ class GetBotResponse {
   ?'version' => Version,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->abort_statement = $abort_statement ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->child_directed = $child_directed ?? ;
-    $this->clarification_prompt = $clarification_prompt ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->detect_sentiment = $detect_sentiment ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? ;
-    $this->intents = $intents ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->locale = $locale ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->abort_statement = $abort_statement ?? null;
+    $this->checksum = $checksum ?? "";
+    $this->child_directed = $child_directed ?? false;
+    $this->clarification_prompt = $clarification_prompt ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->detect_sentiment = $detect_sentiment ?? false;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? 0;
+    $this->intents = $intents ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->locale = $locale ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -858,9 +858,9 @@ class GetBotVersionsRequest {
   ?'name' => BotName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -872,8 +872,8 @@ class GetBotVersionsResponse {
   ?'bots' => BotMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bots = $bots ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bots = $bots ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -887,9 +887,9 @@ class GetBotsRequest {
   ?'name_contains' => BotName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name_contains = $name_contains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name_contains = $name_contains ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -901,8 +901,8 @@ class GetBotsResponse {
   ?'bots' => BotMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bots = $bots ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bots = $bots ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -912,7 +912,7 @@ class GetBuiltinIntentRequest {
   public function __construct(shape(
   ?'signature' => BuiltinIntentSignature,
   ) $s = shape()) {
-    $this->signature = $signature ?? ;
+    $this->signature = $signature ?? "";
   }
 }
 
@@ -926,9 +926,9 @@ class GetBuiltinIntentResponse {
   ?'slots' => BuiltinIntentSlotList,
   ?'supported_locales' => LocaleList,
   ) $s = shape()) {
-    $this->signature = $signature ?? ;
-    $this->slots = $slots ?? ;
-    $this->supported_locales = $supported_locales ?? ;
+    $this->signature = $signature ?? "";
+    $this->slots = $slots ?? [];
+    $this->supported_locales = $supported_locales ?? [];
   }
 }
 
@@ -944,10 +944,10 @@ class GetBuiltinIntentsRequest {
   ?'next_token' => NextToken,
   ?'signature_contains' => string,
   ) $s = shape()) {
-    $this->locale = $locale ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->signature_contains = $signature_contains ?? ;
+    $this->locale = $locale ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->signature_contains = $signature_contains ?? "";
   }
 }
 
@@ -959,8 +959,8 @@ class GetBuiltinIntentsResponse {
   ?'intents' => BuiltinIntentMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->intents = $intents ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->intents = $intents ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -976,10 +976,10 @@ class GetBuiltinSlotTypesRequest {
   ?'next_token' => NextToken,
   ?'signature_contains' => string,
   ) $s = shape()) {
-    $this->locale = $locale ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->signature_contains = $signature_contains ?? ;
+    $this->locale = $locale ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->signature_contains = $signature_contains ?? "";
   }
 }
 
@@ -991,8 +991,8 @@ class GetBuiltinSlotTypesResponse {
   ?'next_token' => NextToken,
   ?'slot_types' => BuiltinSlotTypeMetadataList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->slot_types = $slot_types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->slot_types = $slot_types ?? [];
   }
 }
 
@@ -1008,10 +1008,10 @@ class GetExportRequest {
   ?'resource_type' => ResourceType,
   ?'version' => NumericalVersion,
   ) $s = shape()) {
-    $this->export_type = $export_type ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->version = $version ?? ;
+    $this->export_type = $export_type ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1033,13 +1033,13 @@ class GetExportResponse {
   ?'url' => string,
   ?'version' => NumericalVersion,
   ) $s = shape()) {
-    $this->export_status = $export_status ?? ;
-    $this->export_type = $export_type ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->url = $url ?? ;
-    $this->version = $version ?? ;
+    $this->export_status = $export_status ?? "";
+    $this->export_type = $export_type ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->url = $url ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1049,7 +1049,7 @@ class GetImportRequest {
   public function __construct(shape(
   ?'import_id' => string,
   ) $s = shape()) {
-    $this->import_id = $import_id ?? ;
+    $this->import_id = $import_id ?? "";
   }
 }
 
@@ -1071,13 +1071,13 @@ class GetImportResponse {
   ?'name' => Name,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->import_id = $import_id ?? ;
-    $this->import_status = $import_status ?? ;
-    $this->merge_strategy = $merge_strategy ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->failure_reason = $failure_reason ?? [];
+    $this->import_id = $import_id ?? "";
+    $this->import_status = $import_status ?? "";
+    $this->merge_strategy = $merge_strategy ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1089,8 +1089,8 @@ class GetIntentRequest {
   ?'name' => IntentName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1128,21 +1128,21 @@ class GetIntentResponse {
   ?'slots' => SlotList,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->conclusion_statement = $conclusion_statement ?? ;
-    $this->confirmation_prompt = $confirmation_prompt ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->dialog_code_hook = $dialog_code_hook ?? ;
-    $this->follow_up_prompt = $follow_up_prompt ?? ;
-    $this->fulfillment_activity = $fulfillment_activity ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_intent_signature = $parent_intent_signature ?? ;
-    $this->rejection_statement = $rejection_statement ?? ;
-    $this->sample_utterances = $sample_utterances ?? ;
-    $this->slots = $slots ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->conclusion_statement = $conclusion_statement ?? null;
+    $this->confirmation_prompt = $confirmation_prompt ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->dialog_code_hook = $dialog_code_hook ?? null;
+    $this->follow_up_prompt = $follow_up_prompt ?? null;
+    $this->fulfillment_activity = $fulfillment_activity ?? null;
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_intent_signature = $parent_intent_signature ?? "";
+    $this->rejection_statement = $rejection_statement ?? null;
+    $this->sample_utterances = $sample_utterances ?? [];
+    $this->slots = $slots ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1156,9 +1156,9 @@ class GetIntentVersionsRequest {
   ?'name' => IntentName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1170,8 +1170,8 @@ class GetIntentVersionsResponse {
   ?'intents' => IntentMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->intents = $intents ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->intents = $intents ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1185,9 +1185,9 @@ class GetIntentsRequest {
   ?'name_contains' => IntentName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name_contains = $name_contains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name_contains = $name_contains ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1199,8 +1199,8 @@ class GetIntentsResponse {
   ?'intents' => IntentMetadataList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->intents = $intents ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->intents = $intents ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1212,8 +1212,8 @@ class GetSlotTypeRequest {
   ?'name' => SlotTypeName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1241,16 +1241,16 @@ class GetSlotTypeResponse {
   ?'value_selection_strategy' => SlotValueSelectionStrategy,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->enumeration_values = $enumeration_values ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_slot_type_signature = $parent_slot_type_signature ?? ;
-    $this->slot_type_configurations = $slot_type_configurations ?? ;
-    $this->value_selection_strategy = $value_selection_strategy ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->enumeration_values = $enumeration_values ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_slot_type_signature = $parent_slot_type_signature ?? "";
+    $this->slot_type_configurations = $slot_type_configurations ?? [];
+    $this->value_selection_strategy = $value_selection_strategy ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1264,9 +1264,9 @@ class GetSlotTypeVersionsRequest {
   ?'name' => SlotTypeName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1278,8 +1278,8 @@ class GetSlotTypeVersionsResponse {
   ?'next_token' => NextToken,
   ?'slot_types' => SlotTypeMetadataList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->slot_types = $slot_types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->slot_types = $slot_types ?? [];
   }
 }
 
@@ -1293,9 +1293,9 @@ class GetSlotTypesRequest {
   ?'name_contains' => SlotTypeName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name_contains = $name_contains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name_contains = $name_contains ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1307,8 +1307,8 @@ class GetSlotTypesResponse {
   ?'next_token' => NextToken,
   ?'slot_types' => SlotTypeMetadataList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->slot_types = $slot_types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->slot_types = $slot_types ?? [];
   }
 }
 
@@ -1322,9 +1322,9 @@ class GetUtterancesViewRequest {
   ?'bot_versions' => BotVersions,
   ?'status_type' => StatusType,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->bot_versions = $bot_versions ?? ;
-    $this->status_type = $status_type ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->bot_versions = $bot_versions ?? [];
+    $this->status_type = $status_type ?? "";
   }
 }
 
@@ -1336,8 +1336,8 @@ class GetUtterancesViewResponse {
   ?'bot_name' => BotName,
   ?'utterances' => ListsOfUtterances,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->utterances = $utterances ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->utterances = $utterances ?? [];
   }
 }
 
@@ -1355,8 +1355,8 @@ class Intent {
   ?'intent_name' => IntentName,
   ?'intent_version' => Version,
   ) $s = shape()) {
-    $this->intent_name = $intent_name ?? ;
-    $this->intent_version = $intent_version ?? ;
+    $this->intent_name = $intent_name ?? "";
+    $this->intent_version = $intent_version ?? "";
   }
 }
 
@@ -1376,11 +1376,11 @@ class IntentMetadata {
   ?'name' => IntentName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1396,7 +1396,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1412,8 +1412,8 @@ class LimitExceededException {
   ?'message' => string,
   ?'retry_after_seconds' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -1425,7 +1425,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1435,7 +1435,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1457,10 +1457,10 @@ class LogSettingsRequest {
   ?'log_type' => LogType,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->log_type = $log_type ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->destination = $destination ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->log_type = $log_type ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1480,11 +1480,11 @@ class LogSettingsResponse {
   ?'resource_arn' => ResourceArn,
   ?'resource_prefix' => ResourcePrefix,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->log_type = $log_type ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_prefix = $resource_prefix ?? ;
+    $this->destination = $destination ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->log_type = $log_type ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_prefix = $resource_prefix ?? "";
   }
 }
 
@@ -1506,9 +1506,9 @@ class Message {
   ?'content_type' => ContentType,
   ?'group_number' => GroupNumber,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->group_number = $group_number ?? ;
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->group_number = $group_number ?? 0;
   }
 }
 
@@ -1526,7 +1526,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1540,7 +1540,7 @@ class PreconditionFailedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1558,9 +1558,9 @@ class Prompt {
   ?'messages' => MessageList,
   ?'response_card' => ResponseCard,
   ) $s = shape()) {
-    $this->max_attempts = $max_attempts ?? ;
-    $this->messages = $messages ?? ;
-    $this->response_card = $response_card ?? ;
+    $this->max_attempts = $max_attempts ?? 0;
+    $this->messages = $messages ?? [];
+    $this->response_card = $response_card ?? "";
   }
 }
 
@@ -1584,13 +1584,13 @@ class PutBotAliasRequest {
   ?'name' => AliasName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->bot_version = $bot_version ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->conversation_logs = $conversation_logs ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->bot_version = $bot_version ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->conversation_logs = $conversation_logs ?? null;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1616,15 +1616,15 @@ class PutBotAliasResponse {
   ?'name' => AliasName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->bot_name = $bot_name ?? ;
-    $this->bot_version = $bot_version ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->conversation_logs = $conversation_logs ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->bot_name = $bot_name ?? "";
+    $this->bot_version = $bot_version ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->conversation_logs = $conversation_logs ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1660,20 +1660,20 @@ class PutBotRequest {
   ?'tags' => TagList,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->abort_statement = $abort_statement ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->child_directed = $child_directed ?? ;
-    $this->clarification_prompt = $clarification_prompt ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->description = $description ?? ;
-    $this->detect_sentiment = $detect_sentiment ?? ;
-    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? ;
-    $this->intents = $intents ?? ;
-    $this->locale = $locale ?? ;
-    $this->name = $name ?? ;
-    $this->process_behavior = $process_behavior ?? ;
-    $this->tags = $tags ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->abort_statement = $abort_statement ?? null;
+    $this->checksum = $checksum ?? "";
+    $this->child_directed = $child_directed ?? false;
+    $this->clarification_prompt = $clarification_prompt ?? null;
+    $this->create_version = $create_version ?? false;
+    $this->description = $description ?? "";
+    $this->detect_sentiment = $detect_sentiment ?? false;
+    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? 0;
+    $this->intents = $intents ?? [];
+    $this->locale = $locale ?? "";
+    $this->name = $name ?? "";
+    $this->process_behavior = $process_behavior ?? "";
+    $this->tags = $tags ?? [];
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -1717,24 +1717,24 @@ class PutBotResponse {
   ?'version' => Version,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->abort_statement = $abort_statement ?? ;
-    $this->checksum = $checksum ?? ;
-    $this->child_directed = $child_directed ?? ;
-    $this->clarification_prompt = $clarification_prompt ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->detect_sentiment = $detect_sentiment ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? ;
-    $this->intents = $intents ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->locale = $locale ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->abort_statement = $abort_statement ?? null;
+    $this->checksum = $checksum ?? "";
+    $this->child_directed = $child_directed ?? false;
+    $this->clarification_prompt = $clarification_prompt ?? null;
+    $this->create_version = $create_version ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->detect_sentiment = $detect_sentiment ?? false;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->idle_session_ttl_in_seconds = $idle_session_ttl_in_seconds ?? 0;
+    $this->intents = $intents ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->locale = $locale ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -1768,19 +1768,19 @@ class PutIntentRequest {
   ?'sample_utterances' => IntentUtteranceList,
   ?'slots' => SlotList,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->conclusion_statement = $conclusion_statement ?? ;
-    $this->confirmation_prompt = $confirmation_prompt ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->description = $description ?? ;
-    $this->dialog_code_hook = $dialog_code_hook ?? ;
-    $this->follow_up_prompt = $follow_up_prompt ?? ;
-    $this->fulfillment_activity = $fulfillment_activity ?? ;
-    $this->name = $name ?? ;
-    $this->parent_intent_signature = $parent_intent_signature ?? ;
-    $this->rejection_statement = $rejection_statement ?? ;
-    $this->sample_utterances = $sample_utterances ?? ;
-    $this->slots = $slots ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->conclusion_statement = $conclusion_statement ?? null;
+    $this->confirmation_prompt = $confirmation_prompt ?? null;
+    $this->create_version = $create_version ?? false;
+    $this->description = $description ?? "";
+    $this->dialog_code_hook = $dialog_code_hook ?? null;
+    $this->follow_up_prompt = $follow_up_prompt ?? null;
+    $this->fulfillment_activity = $fulfillment_activity ?? null;
+    $this->name = $name ?? "";
+    $this->parent_intent_signature = $parent_intent_signature ?? "";
+    $this->rejection_statement = $rejection_statement ?? null;
+    $this->sample_utterances = $sample_utterances ?? [];
+    $this->slots = $slots ?? [];
   }
 }
 
@@ -1820,22 +1820,22 @@ class PutIntentResponse {
   ?'slots' => SlotList,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->conclusion_statement = $conclusion_statement ?? ;
-    $this->confirmation_prompt = $confirmation_prompt ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->dialog_code_hook = $dialog_code_hook ?? ;
-    $this->follow_up_prompt = $follow_up_prompt ?? ;
-    $this->fulfillment_activity = $fulfillment_activity ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_intent_signature = $parent_intent_signature ?? ;
-    $this->rejection_statement = $rejection_statement ?? ;
-    $this->sample_utterances = $sample_utterances ?? ;
-    $this->slots = $slots ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->conclusion_statement = $conclusion_statement ?? null;
+    $this->confirmation_prompt = $confirmation_prompt ?? null;
+    $this->create_version = $create_version ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->dialog_code_hook = $dialog_code_hook ?? null;
+    $this->follow_up_prompt = $follow_up_prompt ?? null;
+    $this->fulfillment_activity = $fulfillment_activity ?? null;
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_intent_signature = $parent_intent_signature ?? "";
+    $this->rejection_statement = $rejection_statement ?? null;
+    $this->sample_utterances = $sample_utterances ?? [];
+    $this->slots = $slots ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1859,14 +1859,14 @@ class PutSlotTypeRequest {
   ?'slot_type_configurations' => SlotTypeConfigurations,
   ?'value_selection_strategy' => SlotValueSelectionStrategy,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->description = $description ?? ;
-    $this->enumeration_values = $enumeration_values ?? ;
-    $this->name = $name ?? ;
-    $this->parent_slot_type_signature = $parent_slot_type_signature ?? ;
-    $this->slot_type_configurations = $slot_type_configurations ?? ;
-    $this->value_selection_strategy = $value_selection_strategy ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->create_version = $create_version ?? false;
+    $this->description = $description ?? "";
+    $this->enumeration_values = $enumeration_values ?? [];
+    $this->name = $name ?? "";
+    $this->parent_slot_type_signature = $parent_slot_type_signature ?? "";
+    $this->slot_type_configurations = $slot_type_configurations ?? [];
+    $this->value_selection_strategy = $value_selection_strategy ?? "";
   }
 }
 
@@ -1896,17 +1896,17 @@ class PutSlotTypeResponse {
   ?'value_selection_strategy' => SlotValueSelectionStrategy,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->checksum = $checksum ?? ;
-    $this->create_version = $create_version ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->enumeration_values = $enumeration_values ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->parent_slot_type_signature = $parent_slot_type_signature ?? ;
-    $this->slot_type_configurations = $slot_type_configurations ?? ;
-    $this->value_selection_strategy = $value_selection_strategy ?? ;
-    $this->version = $version ?? ;
+    $this->checksum = $checksum ?? "";
+    $this->create_version = $create_version ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->enumeration_values = $enumeration_values ?? [];
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_slot_type_signature = $parent_slot_type_signature ?? "";
+    $this->slot_type_configurations = $slot_type_configurations ?? [];
+    $this->value_selection_strategy = $value_selection_strategy ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1924,8 +1924,8 @@ class ResourceInUseException {
   ?'example_reference' => ResourceReference,
   ?'reference_type' => ReferenceType,
   ) $s = shape()) {
-    $this->example_reference = $example_reference ?? ;
-    $this->reference_type = $reference_type ?? ;
+    $this->example_reference = $example_reference ?? null;
+    $this->reference_type = $reference_type ?? "";
   }
 }
 
@@ -1939,8 +1939,8 @@ class ResourceReference {
   ?'name' => Name,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1974,16 +1974,16 @@ class Slot {
   ?'slot_type_version' => Version,
   ?'value_elicitation_prompt' => Prompt,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->obfuscation_setting = $obfuscation_setting ?? ;
-    $this->priority = $priority ?? ;
-    $this->response_card = $response_card ?? ;
-    $this->sample_utterances = $sample_utterances ?? ;
-    $this->slot_constraint = $slot_constraint ?? ;
-    $this->slot_type = $slot_type ?? ;
-    $this->slot_type_version = $slot_type_version ?? ;
-    $this->value_elicitation_prompt = $value_elicitation_prompt ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->obfuscation_setting = $obfuscation_setting ?? "";
+    $this->priority = $priority ?? 0;
+    $this->response_card = $response_card ?? "";
+    $this->sample_utterances = $sample_utterances ?? [];
+    $this->slot_constraint = $slot_constraint ?? "";
+    $this->slot_type = $slot_type ?? "";
+    $this->slot_type_version = $slot_type_version ?? "";
+    $this->value_elicitation_prompt = $value_elicitation_prompt ?? null;
   }
 }
 
@@ -1999,7 +1999,7 @@ class SlotTypeConfiguration {
   public function __construct(shape(
   ?'regex_configuration' => SlotTypeRegexConfiguration,
   ) $s = shape()) {
-    $this->regex_configuration = $regex_configuration ?? ;
+    $this->regex_configuration = $regex_configuration ?? null;
   }
 }
 
@@ -2019,11 +2019,11 @@ class SlotTypeMetadata {
   ?'name' => SlotTypeName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2037,7 +2037,7 @@ class SlotTypeRegexConfiguration {
   public function __construct(shape(
   ?'pattern' => RegexPattern,
   ) $s = shape()) {
-    $this->pattern = $pattern ?? ;
+    $this->pattern = $pattern ?? "";
   }
 }
 
@@ -2057,10 +2057,10 @@ class StartImportRequest {
   ?'resource_type' => ResourceType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->merge_strategy = $merge_strategy ?? ;
-    $this->payload = $payload ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->merge_strategy = $merge_strategy ?? "";
+    $this->payload = $payload ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2082,13 +2082,13 @@ class StartImportResponse {
   ?'resource_type' => ResourceType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->import_id = $import_id ?? ;
-    $this->import_status = $import_status ?? ;
-    $this->merge_strategy = $merge_strategy ?? ;
-    $this->name = $name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->import_id = $import_id ?? "";
+    $this->import_status = $import_status ?? "";
+    $this->merge_strategy = $merge_strategy ?? "";
+    $this->name = $name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2100,8 +2100,8 @@ class Statement {
   ?'messages' => MessageList,
   ?'response_card' => ResponseCard,
   ) $s = shape()) {
-    $this->messages = $messages ?? ;
-    $this->response_card = $response_card ?? ;
+    $this->messages = $messages ?? [];
+    $this->response_card = $response_card ?? "";
   }
 }
 
@@ -2123,8 +2123,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2142,8 +2142,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2166,8 +2166,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2196,11 +2196,11 @@ class UtteranceData {
   ?'last_uttered_date' => Timestamp,
   ?'utterance_string' => UtteranceString,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->distinct_users = $distinct_users ?? ;
-    $this->first_uttered_date = $first_uttered_date ?? ;
-    $this->last_uttered_date = $last_uttered_date ?? ;
-    $this->utterance_string = $utterance_string ?? ;
+    $this->count = $count ?? 0;
+    $this->distinct_users = $distinct_users ?? 0;
+    $this->first_uttered_date = $first_uttered_date ?? 0;
+    $this->last_uttered_date = $last_uttered_date ?? 0;
+    $this->utterance_string = $utterance_string ?? "";
   }
 }
 
@@ -2212,8 +2212,8 @@ class UtteranceList {
   ?'bot_version' => Version,
   ?'utterances' => ListOfUtterance,
   ) $s = shape()) {
-    $this->bot_version = $bot_version ?? ;
-    $this->utterances = $utterances ?? ;
+    $this->bot_version = $bot_version ?? "";
+    $this->utterances = $utterances ?? [];
   }
 }
 

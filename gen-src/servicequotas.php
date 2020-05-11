@@ -26,7 +26,7 @@ class AWSServiceAccessNotEnabledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -36,7 +36,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -89,7 +89,7 @@ class DependencyAccessDeniedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -145,7 +145,7 @@ class GetAWSDefaultServiceQuotaResponse {
   public function __construct(shape(
   ?'quota' => ServiceQuota,
   ) $s = shape()) {
-    $this->quota = $quota ?? ;
+    $this->quota = $quota ?? null;
   }
 }
 
@@ -182,7 +182,7 @@ class GetRequestedServiceQuotaChangeResponse {
   public function __construct(shape(
   ?'requested_quota' => RequestedServiceQuotaChange,
   ) $s = shape()) {
-    $this->requested_quota = $requested_quota ?? ;
+    $this->requested_quota = $requested_quota ?? null;
   }
 }
 
@@ -231,7 +231,7 @@ class GetServiceQuotaResponse {
   public function __construct(shape(
   ?'quota' => ServiceQuota,
   ) $s = shape()) {
-    $this->quota = $quota ?? ;
+    $this->quota = $quota ?? null;
   }
 }
 
@@ -243,7 +243,7 @@ class IllegalArgumentException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -253,7 +253,7 @@ class InvalidPaginationTokenException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -263,7 +263,7 @@ class InvalidResourceStateException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -292,7 +292,7 @@ class ListAWSDefaultServiceQuotasResponse {
   ?'quotas' => ServiceQuotaListDefinition,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->quotas = $quotas ?? ;
+    $this->quotas = $quotas ?? [];
   }
 }
 
@@ -314,7 +314,7 @@ class ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
     $this->next_token = $next_token ?? "";
     $this->quota_code = $quota_code ?? "";
     $this->service_code = $service_code ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -327,7 +327,7 @@ class ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   ?'requested_quotas' => RequestedServiceQuotaChangeHistoryListDefinition,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->requested_quotas = $requested_quotas ?? ;
+    $this->requested_quotas = $requested_quotas ?? [];
   }
 }
 
@@ -346,7 +346,7 @@ class ListRequestedServiceQuotaChangeHistoryRequest {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->service_code = $service_code ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -359,7 +359,7 @@ class ListRequestedServiceQuotaChangeHistoryResponse {
   ?'requested_quotas' => RequestedServiceQuotaChangeHistoryListDefinition,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->requested_quotas = $requested_quotas ?? ;
+    $this->requested_quotas = $requested_quotas ?? [];
   }
 }
 
@@ -420,7 +420,7 @@ class ListServiceQuotasResponse {
   ?'quotas' => ServiceQuotaListDefinition,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->quotas = $quotas ?? ;
+    $this->quotas = $quotas ?? [];
   }
 }
 
@@ -446,7 +446,7 @@ class ListServicesResponse {
   ?'services' => ServiceInfoListDefinition,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->services = $services ?? ;
+    $this->services = $services ?? [];
   }
 }
 
@@ -470,10 +470,10 @@ class MetricInfo {
   ?'metric_namespace' => QuotaMetricNamespace,
   ?'metric_statistic_recommendation' => Statistic,
   ) $s = shape()) {
-    $this->metric_dimensions = $metric_dimensions ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->metric_namespace = $metric_namespace ?? ;
-    $this->metric_statistic_recommendation = $metric_statistic_recommendation ?? ;
+    $this->metric_dimensions = $metric_dimensions ?? [];
+    $this->metric_name = $metric_name ?? "";
+    $this->metric_namespace = $metric_namespace ?? "";
+    $this->metric_statistic_recommendation = $metric_statistic_recommendation ?? "";
   }
 }
 
@@ -485,7 +485,7 @@ class NoAvailableOrganizationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -495,7 +495,7 @@ class NoSuchResourceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -505,7 +505,7 @@ class OrganizationNotInAllFeaturesModeException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -526,7 +526,7 @@ class PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   ?'service_code' => ServiceCode,
   ) $s = shape()) {
     $this->aws_region = $aws_region ?? "";
-    $this->desired_value = $desired_value ?? ;
+    $this->desired_value = $desired_value ?? 0.0;
     $this->quota_code = $quota_code ?? "";
     $this->service_code = $service_code ?? "";
   }
@@ -554,7 +554,7 @@ class QuotaExceededException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -593,7 +593,7 @@ class RequestServiceQuotaIncreaseRequest {
   ?'quota_code' => QuotaCode,
   ?'service_code' => ServiceCode,
   ) $s = shape()) {
-    $this->desired_value = $desired_value ?? ;
+    $this->desired_value = $desired_value ?? 0.0;
     $this->quota_code = $quota_code ?? "";
     $this->service_code = $service_code ?? "";
   }
@@ -605,7 +605,7 @@ class RequestServiceQuotaIncreaseResponse {
   public function __construct(shape(
   ?'requested_quota' => RequestedServiceQuotaChange,
   ) $s = shape()) {
-    $this->requested_quota = $requested_quota ?? ;
+    $this->requested_quota = $requested_quota ?? null;
   }
 }
 
@@ -643,20 +643,20 @@ class RequestedServiceQuotaChange {
   ?'status' => RequestStatus,
   ?'unit' => QuotaUnit,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? ;
-    $this->created = $created ?? ;
-    $this->desired_value = $desired_value ?? ;
+    $this->case_id = $case_id ?? "";
+    $this->created = $created ?? 0;
+    $this->desired_value = $desired_value ?? 0.0;
     $this->global_quota = $global_quota ?? false;
-    $this->id = $id ?? ;
-    $this->last_updated = $last_updated ?? ;
+    $this->id = $id ?? "";
+    $this->last_updated = $last_updated ?? 0;
     $this->quota_arn = $quota_arn ?? "";
     $this->quota_code = $quota_code ?? "";
     $this->quota_name = $quota_name ?? "";
     $this->requester = $requester ?? "";
     $this->service_code = $service_code ?? "";
     $this->service_name = $service_name ?? "";
-    $this->status = $status ?? ;
-    $this->unit = $unit ?? ;
+    $this->status = $status ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -670,7 +670,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -682,7 +682,7 @@ class ServiceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -731,18 +731,18 @@ class ServiceQuota {
   ?'usage_metric' => MetricInfo,
   ?'value' => QuotaValue,
   ) $s = shape()) {
-    $this->adjustable = $adjustable ?? ;
+    $this->adjustable = $adjustable ?? false;
     $this->error_reason = $error_reason ?? null;
     $this->global_quota = $global_quota ?? false;
-    $this->period = $period ?? ;
+    $this->period = $period ?? null;
     $this->quota_arn = $quota_arn ?? "";
     $this->quota_code = $quota_code ?? "";
     $this->quota_name = $quota_name ?? "";
     $this->service_code = $service_code ?? "";
     $this->service_name = $service_name ?? "";
-    $this->unit = $unit ?? ;
-    $this->usage_metric = $usage_metric ?? ;
-    $this->value = $value ?? ;
+    $this->unit = $unit ?? "";
+    $this->usage_metric = $usage_metric ?? null;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -767,13 +767,13 @@ class ServiceQuotaIncreaseRequestInTemplate {
   ?'unit' => QuotaUnit,
   ) $s = shape()) {
     $this->aws_region = $aws_region ?? "";
-    $this->desired_value = $desired_value ?? ;
+    $this->desired_value = $desired_value ?? 0.0;
     $this->global_quota = $global_quota ?? false;
     $this->quota_code = $quota_code ?? "";
     $this->quota_name = $quota_name ?? "";
     $this->service_code = $service_code ?? "";
     $this->service_name = $service_name ?? "";
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -789,7 +789,7 @@ class ServiceQuotaTemplateNotInUseException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -801,7 +801,7 @@ class TemplatesNotAvailableInRegionException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -811,7 +811,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

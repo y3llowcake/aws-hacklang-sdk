@@ -30,11 +30,11 @@ class CreateSavingsPlanRequest {
   ?'tags' => TagMap,
   ?'upfront_payment_amount' => Amount,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->commitment = $commitment ?? ;
-    $this->savings_plan_offering_id = $savings_plan_offering_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->upfront_payment_amount = $upfront_payment_amount ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->commitment = $commitment ?? "";
+    $this->savings_plan_offering_id = $savings_plan_offering_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->upfront_payment_amount = $upfront_payment_amount ?? "";
   }
 }
 
@@ -44,7 +44,7 @@ class CreateSavingsPlanResponse {
   public function __construct(shape(
   ?'savings_plan_id' => SavingsPlanId,
   ) $s = shape()) {
-    $this->savings_plan_id = $savings_plan_id ?? ;
+    $this->savings_plan_id = $savings_plan_id ?? "";
   }
 }
 
@@ -64,10 +64,10 @@ class DescribeSavingsPlanRatesRequest {
   ?'next_token' => PaginationToken,
   ?'savings_plan_id' => SavingsPlanId,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->savings_plan_id = $savings_plan_id ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->savings_plan_id = $savings_plan_id ?? "";
   }
 }
 
@@ -81,9 +81,9 @@ class DescribeSavingsPlanRatesResponse {
   ?'savings_plan_id' => SavingsPlanId,
   ?'search_results' => SavingsPlanRateList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->savings_plan_id = $savings_plan_id ?? ;
-    $this->search_results = $search_results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->savings_plan_id = $savings_plan_id ?? "";
+    $this->search_results = $search_results ?? [];
   }
 }
 
@@ -111,16 +111,16 @@ class DescribeSavingsPlansOfferingRatesRequest {
   ?'service_codes' => SavingsPlanRateServiceCodeList,
   ?'usage_types' => SavingsPlanRateUsageTypeList,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->operations = $operations ?? ;
-    $this->products = $products ?? ;
-    $this->savings_plan_offering_ids = $savings_plan_offering_ids ?? ;
-    $this->savings_plan_payment_options = $savings_plan_payment_options ?? ;
-    $this->savings_plan_types = $savings_plan_types ?? ;
-    $this->service_codes = $service_codes ?? ;
-    $this->usage_types = $usage_types ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->operations = $operations ?? [];
+    $this->products = $products ?? [];
+    $this->savings_plan_offering_ids = $savings_plan_offering_ids ?? [];
+    $this->savings_plan_payment_options = $savings_plan_payment_options ?? [];
+    $this->savings_plan_types = $savings_plan_types ?? [];
+    $this->service_codes = $service_codes ?? [];
+    $this->usage_types = $usage_types ?? [];
   }
 }
 
@@ -132,8 +132,8 @@ class DescribeSavingsPlansOfferingRatesResponse {
   ?'next_token' => PaginationToken,
   ?'search_results' => SavingsPlanOfferingRatesList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->search_results = $search_results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->search_results = $search_results ?? [];
   }
 }
 
@@ -167,19 +167,19 @@ class DescribeSavingsPlansOfferingsRequest {
   ?'service_codes' => SavingsPlanServiceCodeList,
   ?'usage_types' => SavingsPlanUsageTypeList,
   ) $s = shape()) {
-    $this->currencies = $currencies ?? ;
-    $this->descriptions = $descriptions ?? ;
-    $this->durations = $durations ?? ;
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->offering_ids = $offering_ids ?? ;
-    $this->operations = $operations ?? ;
-    $this->payment_options = $payment_options ?? ;
-    $this->plan_types = $plan_types ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->service_codes = $service_codes ?? ;
-    $this->usage_types = $usage_types ?? ;
+    $this->currencies = $currencies ?? [];
+    $this->descriptions = $descriptions ?? [];
+    $this->durations = $durations ?? [];
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->offering_ids = $offering_ids ?? [];
+    $this->operations = $operations ?? [];
+    $this->payment_options = $payment_options ?? [];
+    $this->plan_types = $plan_types ?? [];
+    $this->product_type = $product_type ?? "";
+    $this->service_codes = $service_codes ?? [];
+    $this->usage_types = $usage_types ?? [];
   }
 }
 
@@ -191,8 +191,8 @@ class DescribeSavingsPlansOfferingsResponse {
   ?'next_token' => PaginationToken,
   ?'search_results' => SavingsPlanOfferingsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->search_results = $search_results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->search_results = $search_results ?? [];
   }
 }
 
@@ -212,12 +212,12 @@ class DescribeSavingsPlansRequest {
   ?'savings_plan_ids' => SavingsPlanIdList,
   ?'states' => SavingsPlanStateList,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->savings_plan_arns = $savings_plan_arns ?? ;
-    $this->savings_plan_ids = $savings_plan_ids ?? ;
-    $this->states = $states ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->savings_plan_arns = $savings_plan_arns ?? [];
+    $this->savings_plan_ids = $savings_plan_ids ?? [];
+    $this->states = $states ?? [];
   }
 }
 
@@ -229,8 +229,8 @@ class DescribeSavingsPlansResponse {
   ?'next_token' => PaginationToken,
   ?'savings_plans' => SavingsPlanList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->savings_plans = $savings_plans ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->savings_plans = $savings_plans ?? [];
   }
 }
 
@@ -246,7 +246,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -260,7 +260,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => SavingsPlanArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -270,7 +270,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -296,12 +296,12 @@ class ParentSavingsPlanOffering {
   ?'plan_description' => SavingsPlanDescription,
   ?'plan_type' => SavingsPlanType,
   ) $s = shape()) {
-    $this->currency = $currency ?? ;
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->offering_id = $offering_id ?? ;
-    $this->payment_option = $payment_option ?? ;
-    $this->plan_description = $plan_description ?? ;
-    $this->plan_type = $plan_type ?? ;
+    $this->currency = $currency ?? "";
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->offering_id = $offering_id ?? "";
+    $this->payment_option = $payment_option ?? "";
+    $this->plan_description = $plan_description ?? "";
+    $this->plan_type = $plan_type ?? "";
   }
 }
 
@@ -313,7 +313,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -357,24 +357,24 @@ class SavingsPlan {
   ?'term_duration_in_seconds' => TermDurationInSeconds,
   ?'upfront_payment_amount' => Amount,
   ) $s = shape()) {
-    $this->commitment = $commitment ?? ;
-    $this->currency = $currency ?? ;
-    $this->description = $description ?? ;
-    $this->ec_2_instance_family = $ec_2_instance_family ?? ;
-    $this->end = $end ?? ;
-    $this->offering_id = $offering_id ?? ;
-    $this->payment_option = $payment_option ?? ;
-    $this->product_types = $product_types ?? ;
-    $this->recurring_payment_amount = $recurring_payment_amount ?? ;
-    $this->region = $region ?? ;
-    $this->savings_plan_arn = $savings_plan_arn ?? ;
-    $this->savings_plan_id = $savings_plan_id ?? ;
-    $this->savings_plan_type = $savings_plan_type ?? ;
-    $this->start = $start ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->term_duration_in_seconds = $term_duration_in_seconds ?? ;
-    $this->upfront_payment_amount = $upfront_payment_amount ?? ;
+    $this->commitment = $commitment ?? "";
+    $this->currency = $currency ?? "";
+    $this->description = $description ?? "";
+    $this->ec_2_instance_family = $ec_2_instance_family ?? "";
+    $this->end = $end ?? "";
+    $this->offering_id = $offering_id ?? "";
+    $this->payment_option = $payment_option ?? "";
+    $this->product_types = $product_types ?? [];
+    $this->recurring_payment_amount = $recurring_payment_amount ?? "";
+    $this->region = $region ?? "";
+    $this->savings_plan_arn = $savings_plan_arn ?? "";
+    $this->savings_plan_id = $savings_plan_id ?? "";
+    $this->savings_plan_type = $savings_plan_type ?? "";
+    $this->start = $start ?? "";
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
+    $this->term_duration_in_seconds = $term_duration_in_seconds ?? 0;
+    $this->upfront_payment_amount = $upfront_payment_amount ?? "";
   }
 }
 
@@ -394,8 +394,8 @@ class SavingsPlanFilter {
   ?'name' => SavingsPlansFilterName,
   ?'values' => ListOfStrings,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -433,17 +433,17 @@ class SavingsPlanOffering {
   ?'service_code' => SavingsPlanServiceCode,
   ?'usage_type' => SavingsPlanUsageType,
   ) $s = shape()) {
-    $this->currency = $currency ?? ;
-    $this->description = $description ?? ;
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->offering_id = $offering_id ?? ;
-    $this->operation = $operation ?? ;
-    $this->payment_option = $payment_option ?? ;
-    $this->plan_type = $plan_type ?? ;
-    $this->product_types = $product_types ?? ;
-    $this->properties = $properties ?? ;
-    $this->service_code = $service_code ?? ;
-    $this->usage_type = $usage_type ?? ;
+    $this->currency = $currency ?? "";
+    $this->description = $description ?? "";
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->offering_id = $offering_id ?? "";
+    $this->operation = $operation ?? "";
+    $this->payment_option = $payment_option ?? "";
+    $this->plan_type = $plan_type ?? "";
+    $this->product_types = $product_types ?? [];
+    $this->properties = $properties ?? [];
+    $this->service_code = $service_code ?? "";
+    $this->usage_type = $usage_type ?? "";
   }
 }
 
@@ -457,8 +457,8 @@ class SavingsPlanOfferingFilterElement {
   ?'name' => SavingsPlanOfferingFilterAttribute,
   ?'values' => FilterValuesList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -474,8 +474,8 @@ class SavingsPlanOfferingProperty {
   ?'name' => SavingsPlanOfferingPropertyKey,
   ?'value' => JsonSafeFilterValueString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -503,14 +503,14 @@ class SavingsPlanOfferingRate {
   ?'unit' => SavingsPlanRateUnit,
   ?'usage_type' => SavingsPlanRateUsageType,
   ) $s = shape()) {
-    $this->operation = $operation ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->properties = $properties ?? ;
-    $this->rate = $rate ?? ;
-    $this->savings_plan_offering = $savings_plan_offering ?? ;
-    $this->service_code = $service_code ?? ;
-    $this->unit = $unit ?? ;
-    $this->usage_type = $usage_type ?? ;
+    $this->operation = $operation ?? "";
+    $this->product_type = $product_type ?? "";
+    $this->properties = $properties ?? [];
+    $this->rate = $rate ?? "";
+    $this->savings_plan_offering = $savings_plan_offering ?? null;
+    $this->service_code = $service_code ?? "";
+    $this->unit = $unit ?? "";
+    $this->usage_type = $usage_type ?? "";
   }
 }
 
@@ -522,8 +522,8 @@ class SavingsPlanOfferingRateFilterElement {
   ?'name' => SavingsPlanRateFilterAttribute,
   ?'values' => FilterValuesList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -537,8 +537,8 @@ class SavingsPlanOfferingRateProperty {
   ?'name' => JsonSafeFilterValueString,
   ?'value' => JsonSafeFilterValueString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -580,14 +580,14 @@ class SavingsPlanRate {
   ?'unit' => SavingsPlanRateUnit,
   ?'usage_type' => SavingsPlanRateUsageType,
   ) $s = shape()) {
-    $this->currency = $currency ?? ;
-    $this->operation = $operation ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->properties = $properties ?? ;
-    $this->rate = $rate ?? ;
-    $this->service_code = $service_code ?? ;
-    $this->unit = $unit ?? ;
-    $this->usage_type = $usage_type ?? ;
+    $this->currency = $currency ?? "";
+    $this->operation = $operation ?? "";
+    $this->product_type = $product_type ?? "";
+    $this->properties = $properties ?? [];
+    $this->rate = $rate ?? "";
+    $this->service_code = $service_code ?? "";
+    $this->unit = $unit ?? "";
+    $this->usage_type = $usage_type ?? "";
   }
 }
 
@@ -599,8 +599,8 @@ class SavingsPlanRateFilter {
   ?'name' => SavingsPlanRateFilterName,
   ?'values' => ListOfStrings,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -626,8 +626,8 @@ class SavingsPlanRateProperty {
   ?'name' => SavingsPlanRatePropertyKey,
   ?'value' => JsonSafeFilterValueString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -671,7 +671,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -691,8 +691,8 @@ class TagResourceRequest {
   ?'resource_arn' => SavingsPlanArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -719,8 +719,8 @@ class UntagResourceRequest {
   ?'resource_arn' => SavingsPlanArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -737,7 +737,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

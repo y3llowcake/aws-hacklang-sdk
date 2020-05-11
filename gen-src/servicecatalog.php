@@ -100,7 +100,7 @@ class AcceptPortfolioShareInput {
   ?'portfolio_share_type' => PortfolioShareType,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
     $this->portfolio_share_type = $portfolio_share_type ?? "";
   }
 }
@@ -120,8 +120,8 @@ class AccessLevelFilter {
   ?'key' => AccessLevelFilterKey,
   ?'value' => AccessLevelFilterValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -176,7 +176,7 @@ class AssociatePrincipalWithPortfolioInput {
   ?'principal_type' => PrincipalType,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
     $this->principal_arn = $principal_arn ?? "";
     $this->principal_type = $principal_type ?? "";
   }
@@ -202,9 +202,9 @@ class AssociateProductWithPortfolioInput {
   ?'source_portfolio_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->source_portfolio_id = $source_portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->source_portfolio_id = $source_portfolio_id ?? "";
   }
 }
 
@@ -228,9 +228,9 @@ class AssociateServiceActionWithProvisioningArtifactInput {
   ?'service_action_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
-    $this->service_action_id = $service_action_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -333,7 +333,7 @@ class CloudWatchDashboard {
   public function __construct(shape(
   ?'name' => CloudWatchDashboardName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -359,12 +359,12 @@ class ConstraintDetail {
   ?'product_id' => Id,
   ?'type' => ConstraintType,
   ) $s = shape()) {
-    $this->constraint_id = $constraint_id ?? ;
+    $this->constraint_id = $constraint_id ?? "";
     $this->description = $description ?? "";
-    $this->owner = $owner ?? ;
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->type = $type ?? ;
+    $this->owner = $owner ?? "";
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -383,7 +383,7 @@ class ConstraintSummary {
   ?'type' => ConstraintType,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -414,10 +414,10 @@ class CopyProductInput {
     $this->accept_language = $accept_language ?? "";
     $this->copy_options = $copy_options ?? [];
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->source_product_arn = $source_product_arn ?? ;
-    $this->source_provisioning_artifact_identifiers = $source_provisioning_artifact_identifiers ?? ;
-    $this->target_product_id = $target_product_id ?? ;
-    $this->target_product_name = $target_product_name ?? ;
+    $this->source_product_arn = $source_product_arn ?? "";
+    $this->source_provisioning_artifact_identifiers = $source_provisioning_artifact_identifiers ?? [];
+    $this->target_product_id = $target_product_id ?? "";
+    $this->target_product_name = $target_product_name ?? "";
   }
 }
 
@@ -427,7 +427,7 @@ class CopyProductOutput {
   public function __construct(shape(
   ?'copy_product_token' => Id,
   ) $s = shape()) {
-    $this->copy_product_token = $copy_product_token ?? ;
+    $this->copy_product_token = $copy_product_token ?? "";
   }
 }
 
@@ -454,10 +454,10 @@ class CreateConstraintInput {
     $this->accept_language = $accept_language ?? "";
     $this->description = $description ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->parameters = $parameters ?? ;
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->type = $type ?? ;
+    $this->parameters = $parameters ?? "";
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -495,7 +495,7 @@ class CreatePortfolioInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->description = $description ?? "";
-    $this->display_name = $display_name ?? ;
+    $this->display_name = $display_name ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
     $this->provider_name = $provider_name ?? "";
     $this->tags = $tags ?? [];
@@ -530,7 +530,7 @@ class CreatePortfolioShareInput {
     $this->accept_language = $accept_language ?? "";
     $this->account_id = $account_id ?? "";
     $this->organization_node = $organization_node ?? null;
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class CreatePortfolioShareOutput {
   public function __construct(shape(
   ?'portfolio_share_token' => Id,
   ) $s = shape()) {
-    $this->portfolio_share_token = $portfolio_share_token ?? ;
+    $this->portfolio_share_token = $portfolio_share_token ?? "";
   }
 }
 
@@ -574,12 +574,12 @@ class CreateProductInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->description = $description ?? "";
-    $this->distributor = $distributor ?? ;
+    $this->distributor = $distributor ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
     $this->product_type = $product_type ?? "";
-    $this->provisioning_artifact_parameters = $provisioning_artifact_parameters ?? [];
+    $this->provisioning_artifact_parameters = $provisioning_artifact_parameters ?? null;
     $this->support_description = $support_description ?? "";
     $this->support_email = $support_email ?? "";
     $this->support_url = $support_url ?? "";
@@ -632,12 +632,12 @@ class CreateProvisionedProductPlanInput {
     $this->accept_language = $accept_language ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
     $this->notification_arns = $notification_arns ?? [];
-    $this->path_id = $path_id ?? ;
-    $this->plan_name = $plan_name ?? ;
-    $this->plan_type = $plan_type ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->plan_name = $plan_name ?? "";
+    $this->plan_type = $plan_type ?? "";
+    $this->product_id = $product_id ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->provisioning_parameters = $provisioning_parameters ?? [];
     $this->tags = $tags ?? [];
   }
@@ -657,11 +657,11 @@ class CreateProvisionedProductPlanOutput {
   ?'provisioned_product_name' => ProvisionedProductName,
   ?'provisioning_artifact_id' => Id,
   ) $s = shape()) {
-    $this->plan_id = $plan_id ?? ;
-    $this->plan_name = $plan_name ?? ;
-    $this->provision_product_id = $provision_product_id ?? ;
+    $this->plan_id = $plan_id ?? "";
+    $this->plan_name = $plan_name ?? "";
+    $this->provision_product_id = $provision_product_id ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -679,8 +679,8 @@ class CreateProvisioningArtifactInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->parameters = $parameters ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->parameters = $parameters ?? null;
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -694,7 +694,7 @@ class CreateProvisioningArtifactOutput {
   ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->info = $info ?? ;
+    $this->info = $info ?? [];
     $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
     $this->status = $status ?? "";
   }
@@ -717,11 +717,11 @@ class CreateServiceActionInput {
   ?'name' => ServiceActionName,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->definition = $definition ?? ;
-    $this->definition_type = $definition_type ?? ;
+    $this->definition = $definition ?? [];
+    $this->definition_type = $definition_type ?? "";
     $this->description = $description ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -743,8 +743,8 @@ class CreateTagOptionInput {
   ?'key' => TagOptionKey,
   ?'value' => TagOptionValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -819,7 +819,7 @@ class DeletePortfolioShareInput {
     $this->accept_language = $accept_language ?? "";
     $this->account_id = $account_id ?? "";
     $this->organization_node = $organization_node ?? null;
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
   }
 }
 
@@ -829,7 +829,7 @@ class DeletePortfolioShareOutput {
   public function __construct(shape(
   ?'portfolio_share_token' => Id,
   ) $s = shape()) {
-    $this->portfolio_share_token = $portfolio_share_token ?? ;
+    $this->portfolio_share_token = $portfolio_share_token ?? "";
   }
 }
 
@@ -865,7 +865,7 @@ class DeleteProvisionedProductPlanInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->ignore_errors = $ignore_errors ?? false;
-    $this->plan_id = $plan_id ?? ;
+    $this->plan_id = $plan_id ?? "";
   }
 }
 
@@ -887,8 +887,8 @@ class DeleteProvisioningArtifactInput {
   ?'provisioning_artifact_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -974,7 +974,7 @@ class DescribeCopyProductStatusInput {
   ?'copy_product_token' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->copy_product_token = $copy_product_token ?? ;
+    $this->copy_product_token = $copy_product_token ?? "";
   }
 }
 
@@ -990,7 +990,7 @@ class DescribeCopyProductStatusOutput {
   ) $s = shape()) {
     $this->copy_product_status = $copy_product_status ?? "";
     $this->status_detail = $status_detail ?? "";
-    $this->target_product_id = $target_product_id ?? ;
+    $this->target_product_id = $target_product_id ?? "";
   }
 }
 
@@ -1021,7 +1021,7 @@ class DescribePortfolioOutput {
   ) $s = shape()) {
     $this->budgets = $budgets ?? [];
     $this->portfolio_detail = $portfolio_detail ?? null;
-    $this->tag_options = $tag_options ?? ;
+    $this->tag_options = $tag_options ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1032,7 +1032,7 @@ class DescribePortfolioShareStatusInput {
   public function __construct(shape(
   ?'portfolio_share_token' => Id,
   ) $s = shape()) {
-    $this->portfolio_share_token = $portfolio_share_token ?? ;
+    $this->portfolio_share_token = $portfolio_share_token ?? "";
   }
 }
 
@@ -1051,8 +1051,8 @@ class DescribePortfolioShareStatusOutput {
   ?'status' => ShareStatus,
   ) $s = shape()) {
     $this->organization_node_value = $organization_node_value ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->portfolio_share_token = $portfolio_share_token ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->portfolio_share_token = $portfolio_share_token ?? "";
     $this->share_details = $share_details ?? null;
     $this->status = $status ?? "";
   }
@@ -1088,7 +1088,7 @@ class DescribeProductAsAdminOutput {
     $this->budgets = $budgets ?? [];
     $this->product_view_detail = $product_view_detail ?? null;
     $this->provisioning_artifact_summaries = $provisioning_artifact_summaries ?? [];
-    $this->tag_options = $tag_options ?? ;
+    $this->tag_options = $tag_options ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1189,7 +1189,7 @@ class DescribeProvisionedProductPlanInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->plan_id = $plan_id ?? ;
+    $this->plan_id = $plan_id ?? "";
   }
 }
 
@@ -1203,7 +1203,7 @@ class DescribeProvisionedProductPlanOutput {
   ?'provisioned_product_plan_details' => ProvisionedProductPlanDetails,
   ?'resource_changes' => ResourceChanges,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->provisioned_product_plan_details = $provisioned_product_plan_details ?? null;
     $this->resource_changes = $resource_changes ?? [];
   }
@@ -1222,8 +1222,8 @@ class DescribeProvisioningArtifactInput {
   ?'verbose' => Verbose,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->verbose = $verbose ?? false;
   }
 }
@@ -1238,7 +1238,7 @@ class DescribeProvisioningArtifactOutput {
   ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->info = $info ?? ;
+    $this->info = $info ?? [];
     $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
     $this->status = $status ?? "";
   }
@@ -1257,9 +1257,9 @@ class DescribeProvisioningParametersInput {
   ?'provisioning_artifact_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->path_id = $path_id ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -1280,7 +1280,7 @@ class DescribeProvisioningParametersOutput {
     $this->constraint_summaries = $constraint_summaries ?? [];
     $this->provisioning_artifact_parameters = $provisioning_artifact_parameters ?? [];
     $this->provisioning_artifact_preferences = $provisioning_artifact_preferences ?? null;
-    $this->tag_options = $tag_options ?? ;
+    $this->tag_options = $tag_options ?? [];
     $this->usage_instructions = $usage_instructions ?? [];
   }
 }
@@ -1314,7 +1314,7 @@ class DescribeRecordOutput {
   ?'record_detail' => RecordDetail,
   ?'record_outputs' => RecordOutputs,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->record_detail = $record_detail ?? null;
     $this->record_outputs = $record_outputs ?? [];
   }
@@ -1332,7 +1332,7 @@ class DescribeServiceActionExecutionParametersInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->provisioned_product_id = $provisioned_product_id ?? "";
-    $this->service_action_id = $service_action_id ?? ;
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -1342,7 +1342,7 @@ class DescribeServiceActionExecutionParametersOutput {
   public function __construct(shape(
   ?'service_action_parameters' => ExecutionParameters,
   ) $s = shape()) {
-    $this->service_action_parameters = $service_action_parameters ?? ;
+    $this->service_action_parameters = $service_action_parameters ?? [];
   }
 }
 
@@ -1438,7 +1438,7 @@ class DisassociatePrincipalFromPortfolioInput {
   ?'principal_arn' => PrincipalARN,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
     $this->principal_arn = $principal_arn ?? "";
   }
 }
@@ -1461,8 +1461,8 @@ class DisassociateProductFromPortfolioInput {
   ?'product_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -1486,9 +1486,9 @@ class DisassociateServiceActionFromProvisioningArtifactInput {
   ?'service_action_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
-    $this->service_action_id = $service_action_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -1560,7 +1560,7 @@ class ExecuteProvisionedProductPlanInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->plan_id = $plan_id ?? ;
+    $this->plan_id = $plan_id ?? "";
   }
 }
 
@@ -1589,10 +1589,10 @@ class ExecuteProvisionedProductServiceActionInput {
   ?'service_action_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->execute_token = $execute_token ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->execute_token = $execute_token ?? "";
+    $this->parameters = $parameters ?? [];
     $this->provisioned_product_id = $provisioned_product_id ?? "";
-    $this->service_action_id = $service_action_id ?? ;
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -1616,9 +1616,9 @@ class ExecutionParameter {
   ?'name' => ExecutionParameterKey,
   ?'type' => ExecutionParameterType,
   ) $s = shape()) {
-    $this->default_values = $default_values ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->default_values = $default_values ?? [];
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1649,10 +1649,10 @@ class FailedServiceActionAssociation {
   ?'service_action_id' => Id,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->error_message = $error_message ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
-    $this->service_action_id = $service_action_id ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -1719,7 +1719,7 @@ class LaunchPathSummary {
   ) $s = shape()) {
     $this->constraint_summaries = $constraint_summaries ?? [];
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1758,7 +1758,7 @@ class ListAcceptedPortfolioSharesOutput {
   ?'next_page_token' => PageToken,
   ?'portfolio_details' => PortfolioDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->portfolio_details = $portfolio_details ?? [];
   }
 }
@@ -1791,7 +1791,7 @@ class ListBudgetsForResourceOutput {
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
     $this->budgets = $budgets ?? [];
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1812,8 +1812,8 @@ class ListConstraintsForPortfolioInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -1826,7 +1826,7 @@ class ListConstraintsForPortfolioOutput {
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
     $this->constraint_details = $constraint_details ?? [];
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1845,7 +1845,7 @@ class ListLaunchPathsInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->product_id = $product_id ?? ;
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -1858,7 +1858,7 @@ class ListLaunchPathsOutput {
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
     $this->launch_path_summaries = $launch_path_summaries ?? [];
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1880,7 +1880,7 @@ class ListOrganizationPortfolioAccessInput {
     $this->organization_node_type = $organization_node_type ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
   }
 }
 
@@ -1892,7 +1892,7 @@ class ListOrganizationPortfolioAccessOutput {
   ?'next_page_token' => PageToken,
   ?'organization_nodes' => OrganizationNodes,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->organization_nodes = $organization_nodes ?? [];
   }
 }
@@ -1912,10 +1912,10 @@ class ListPortfolioAccessInput {
   ?'portfolio_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->organization_parent_id = $organization_parent_id ?? ;
+    $this->organization_parent_id = $organization_parent_id ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
   }
 }
 
@@ -1928,7 +1928,7 @@ class ListPortfolioAccessOutput {
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
     $this->account_ids = $account_ids ?? [];
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1947,7 +1947,7 @@ class ListPortfoliosForProductInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->product_id = $product_id ?? ;
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -1959,7 +1959,7 @@ class ListPortfoliosForProductOutput {
   ?'next_page_token' => PageToken,
   ?'portfolio_details' => PortfolioDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->portfolio_details = $portfolio_details ?? [];
   }
 }
@@ -1988,7 +1988,7 @@ class ListPortfoliosOutput {
   ?'next_page_token' => PageToken,
   ?'portfolio_details' => PortfolioDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->portfolio_details = $portfolio_details ?? [];
   }
 }
@@ -2008,7 +2008,7 @@ class ListPrincipalsForPortfolioInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
   }
 }
 
@@ -2020,7 +2020,7 @@ class ListPrincipalsForPortfolioOutput {
   ?'next_page_token' => PageToken,
   ?'principals' => Principals,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->principals = $principals ?? [];
   }
 }
@@ -2043,7 +2043,7 @@ class ListProvisionedProductPlansInput {
     $this->access_level_filter = $access_level_filter ?? null;
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->provision_product_id = $provision_product_id ?? ;
+    $this->provision_product_id = $provision_product_id ?? "";
   }
 }
 
@@ -2055,7 +2055,7 @@ class ListProvisionedProductPlansOutput {
   ?'next_page_token' => PageToken,
   ?'provisioned_product_plans' => ProvisionedProductPlans,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->provisioned_product_plans = $provisioned_product_plans ?? [];
   }
 }
@@ -2075,7 +2075,7 @@ class ListProvisioningArtifactsForServiceActionInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->service_action_id = $service_action_id ?? ;
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -2087,7 +2087,7 @@ class ListProvisioningArtifactsForServiceActionOutput {
   ?'next_page_token' => PageToken,
   ?'provisioning_artifact_views' => ProvisioningArtifactViews,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->provisioning_artifact_views = $provisioning_artifact_views ?? [];
   }
 }
@@ -2101,7 +2101,7 @@ class ListProvisioningArtifactsInput {
   ?'product_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->product_id = $product_id ?? ;
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -2113,7 +2113,7 @@ class ListProvisioningArtifactsOutput {
   ?'next_page_token' => PageToken,
   ?'provisioning_artifact_details' => ProvisioningArtifactDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->provisioning_artifact_details = $provisioning_artifact_details ?? [];
   }
 }
@@ -2136,7 +2136,7 @@ class ListRecordHistoryInput {
     $this->access_level_filter = $access_level_filter ?? null;
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->search_filter = $search_filter ?? ;
+    $this->search_filter = $search_filter ?? null;
   }
 }
 
@@ -2148,7 +2148,7 @@ class ListRecordHistoryOutput {
   ?'next_page_token' => PageToken,
   ?'record_details' => RecordDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->record_details = $record_details ?? [];
   }
 }
@@ -2161,8 +2161,8 @@ class ListRecordHistorySearchFilter {
   ?'key' => SearchFilterKey,
   ?'value' => SearchFilterValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2215,8 +2215,8 @@ class ListServiceActionsForProvisioningArtifactInput {
     $this->accept_language = $accept_language ?? "";
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -2228,7 +2228,7 @@ class ListServiceActionsForProvisioningArtifactOutput {
   ?'next_page_token' => PageToken,
   ?'service_action_summaries' => ServiceActionSummaries,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->service_action_summaries = $service_action_summaries ?? [];
   }
 }
@@ -2257,7 +2257,7 @@ class ListServiceActionsOutput {
   ?'next_page_token' => PageToken,
   ?'service_action_summaries' => ServiceActionSummaries,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->service_action_summaries = $service_action_summaries ?? [];
   }
 }
@@ -2289,7 +2289,7 @@ class ListStackInstancesForProvisionedProductOutput {
   ?'next_page_token' => PageToken,
   ?'stack_instances' => StackInstances,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->stack_instances = $stack_instances ?? [];
   }
 }
@@ -2304,9 +2304,9 @@ class ListTagOptionsFilters {
   ?'key' => TagOptionKey,
   ?'value' => TagOptionValue,
   ) $s = shape()) {
-    $this->active = $active ?? ;
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->active = $active ?? false;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2320,7 +2320,7 @@ class ListTagOptionsInput {
   ?'page_size' => PageSize,
   ?'page_token' => PageToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
   }
@@ -2366,8 +2366,8 @@ class OrganizationNode {
   ?'type' => OrganizationNodeType,
   ?'value' => OrganizationNodeValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2425,10 +2425,10 @@ class PortfolioDetail {
   ?'id' => Id,
   ?'provider_name' => ProviderName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->created_time = $created_time ?? 0;
     $this->description = $description ?? "";
-    $this->display_name = $display_name ?? ;
+    $this->display_name = $display_name ?? "";
     $this->id = $id ?? "";
     $this->provider_name = $provider_name ?? "";
   }
@@ -2478,7 +2478,7 @@ class ProductViewAggregationValue {
   ?'value' => AttributeValue,
   ) $s = shape()) {
     $this->approximate_count = $approximate_count ?? 0;
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -2499,7 +2499,7 @@ class ProductViewDetail {
   ?'status' => Status,
   ) $s = shape()) {
     $this->created_time = $created_time ?? 0;
-    $this->product_arn = $product_arn ?? ;
+    $this->product_arn = $product_arn ?? "";
     $this->product_view_summary = $product_view_summary ?? null;
     $this->status = $status ?? "";
   }
@@ -2553,17 +2553,17 @@ class ProductViewSummary {
   ?'support_url' => SupportUrl,
   ?'type' => ProductType,
   ) $s = shape()) {
-    $this->distributor = $distributor ?? ;
+    $this->distributor = $distributor ?? "";
     $this->has_default_path = $has_default_path ?? false;
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->short_description = $short_description ?? ;
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->short_description = $short_description ?? "";
     $this->support_description = $support_description ?? "";
     $this->support_email = $support_email ?? "";
     $this->support_url = $support_url ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2601,11 +2601,11 @@ class ProvisionProductInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->notification_arns = $notification_arns ?? [];
-    $this->path_id = $path_id ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provision_token = $provision_token ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provision_token = $provision_token ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->provisioning_parameters = $provisioning_parameters ?? [];
     $this->provisioning_preferences = $provisioning_preferences ?? null;
     $this->tags = $tags ?? [];
@@ -2656,19 +2656,19 @@ class ProvisionedProductAttribute {
   ?'user_arn' => UserArn,
   ?'user_arn_session' => UserArnSession,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->created_time = $created_time ?? 0;
     $this->id = $id ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->last_record_id = $last_record_id ?? ;
-    $this->name = $name ?? ;
+    $this->last_record_id = $last_record_id ?? "";
+    $this->name = $name ?? "";
     $this->physical_id = $physical_id ?? "";
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
     $this->tags = $tags ?? [];
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
     $this->user_arn = $user_arn ?? "";
     $this->user_arn_session = $user_arn_session ?? "";
   }
@@ -2702,17 +2702,17 @@ class ProvisionedProductDetail {
   ?'status_message' => ProvisionedProductStatusMessage,
   ?'type' => ProvisionedProductType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->created_time = $created_time ?? 0;
     $this->id = $id ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->last_record_id = $last_record_id ?? ;
-    $this->name = $name ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->last_record_id = $last_record_id ?? "";
+    $this->name = $name ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2762,14 +2762,14 @@ class ProvisionedProductPlanDetails {
   ) $s = shape()) {
     $this->created_time = $created_time ?? 0;
     $this->notification_arns = $notification_arns ?? [];
-    $this->path_id = $path_id ?? ;
-    $this->plan_id = $plan_id ?? ;
-    $this->plan_name = $plan_name ?? ;
-    $this->plan_type = $plan_type ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provision_product_id = $provision_product_id ?? ;
-    $this->provision_product_name = $provision_product_name ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->plan_id = $plan_id ?? "";
+    $this->plan_name = $plan_name ?? "";
+    $this->plan_type = $plan_type ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provision_product_id = $provision_product_id ?? "";
+    $this->provision_product_name = $provision_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->provisioning_parameters = $provisioning_parameters ?? [];
     $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
@@ -2798,12 +2798,12 @@ class ProvisionedProductPlanSummary {
   ?'provision_product_name' => ProvisionedProductName,
   ?'provisioning_artifact_id' => Id,
   ) $s = shape()) {
-    $this->plan_id = $plan_id ?? ;
-    $this->plan_name = $plan_name ?? ;
-    $this->plan_type = $plan_type ?? ;
-    $this->provision_product_id = $provision_product_id ?? ;
-    $this->provision_product_name = $provision_product_name ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->plan_id = $plan_id ?? "";
+    $this->plan_name = $plan_name ?? "";
+    $this->plan_type = $plan_type ?? "";
+    $this->provision_product_id = $provision_product_id ?? "";
+    $this->provision_product_name = $provision_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -2841,9 +2841,9 @@ class ProvisioningArtifact {
   ) $s = shape()) {
     $this->created_time = $created_time ?? 0;
     $this->description = $description ?? "";
-    $this->guidance = $guidance ?? ;
+    $this->guidance = $guidance ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2871,13 +2871,13 @@ class ProvisioningArtifactDetail {
   ?'name' => ProvisioningArtifactName,
   ?'type' => ProvisioningArtifactType,
   ) $s = shape()) {
-    $this->active = $active ?? ;
+    $this->active = $active ?? false;
     $this->created_time = $created_time ?? 0;
     $this->description = $description ?? "";
-    $this->guidance = $guidance ?? ;
+    $this->guidance = $guidance ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2911,7 +2911,7 @@ class ProvisioningArtifactParameter {
   ) $s = shape()) {
     $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
-    $this->is_no_echo = $is_no_echo ?? ;
+    $this->is_no_echo = $is_no_echo ?? false;
     $this->parameter_constraints = $parameter_constraints ?? null;
     $this->parameter_key = $parameter_key ?? "";
     $this->parameter_type = $parameter_type ?? "";
@@ -2949,9 +2949,9 @@ class ProvisioningArtifactProperties {
   ) $s = shape()) {
     $this->description = $description ?? "";
     $this->disable_template_validation = $disable_template_validation ?? false;
-    $this->info = $info ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->info = $info ?? [];
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2978,8 +2978,8 @@ class ProvisioningArtifactSummary {
     $this->created_time = $created_time ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
-    $this->provisioning_artifact_metadata = $provisioning_artifact_metadata ?? ;
+    $this->name = $name ?? "";
+    $this->provisioning_artifact_metadata = $provisioning_artifact_metadata ?? [];
   }
 }
 
@@ -3010,8 +3010,8 @@ class ProvisioningParameter {
   ?'key' => ParameterKey,
   ?'value' => ParameterValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3073,14 +3073,14 @@ class RecordDetail {
   ?'updated_time' => UpdatedTime,
   ) $s = shape()) {
     $this->created_time = $created_time ?? 0;
-    $this->path_id = $path_id ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->product_id = $product_id ?? "";
     $this->provisioned_product_id = $provisioned_product_id ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
     $this->provisioned_product_type = $provisioned_product_type ?? "";
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->record_errors = $record_errors ?? [];
-    $this->record_id = $record_id ?? ;
+    $this->record_id = $record_id ?? "";
     $this->record_tags = $record_tags ?? [];
     $this->record_type = $record_type ?? "";
     $this->status = $status ?? "";
@@ -3098,7 +3098,7 @@ class RecordError {
   ?'code' => ErrorCode,
   ?'description' => ErrorDescription,
   ) $s = shape()) {
-    $this->code = $code ?? ;
+    $this->code = $code ?? "";
     $this->description = $description ?? "";
   }
 }
@@ -3133,8 +3133,8 @@ class RecordTag {
   ?'key' => RecordTagKey,
   ?'value' => RecordTagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3159,7 +3159,7 @@ class RejectPortfolioShareInput {
   ?'portfolio_share_type' => PortfolioShareType,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
     $this->portfolio_share_type = $portfolio_share_type ?? "";
   }
 }
@@ -3197,8 +3197,8 @@ class ResourceChange {
   ?'resource_type' => PlanResourceType,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->details = $details ?? ;
+    $this->action = $action ?? "";
+    $this->details = $details ?? [];
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
     $this->replacement = $replacement ?? "";
@@ -3218,8 +3218,8 @@ class ResourceChangeDetail {
   ?'target' => ResourceTargetDefinition,
   ) $s = shape()) {
     $this->causing_entity = $causing_entity ?? "";
-    $this->evaluation = $evaluation ?? ;
-    $this->target = $target ?? ;
+    $this->evaluation = $evaluation ?? "";
+    $this->target = $target ?? null;
   }
 }
 
@@ -3241,11 +3241,11 @@ class ResourceDetail {
   ?'id' => ResourceDetailId,
   ?'name' => ResourceDetailName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->created_time = $created_time ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3287,8 +3287,8 @@ class ResourceTargetDefinition {
   ?'name' => PropertyName,
   ?'requires_recreation' => RequiresRecreation,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->name = $name ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->name = $name ?? "";
     $this->requires_recreation = $requires_recreation ?? "";
   }
 }
@@ -3322,8 +3322,8 @@ class ScanProvisionedProductsOutput {
   ?'next_page_token' => PageToken,
   ?'provisioned_products' => ProvisionedProductDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->provisioned_products = $provisioned_products ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->provisioned_products = $provisioned_products ?? [];
   }
 }
 
@@ -3354,12 +3354,12 @@ class SearchProductsAsAdminInput {
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_id = $portfolio_id ?? "";
     $this->product_source = $product_source ?? "";
-    $this->sort_by = $sort_by ?? ;
+    $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -3372,7 +3372,7 @@ class SearchProductsAsAdminOutput {
   ?'next_page_token' => PageToken,
   ?'product_view_details' => ProductViewDetails,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->product_view_details = $product_view_details ?? [];
   }
 }
@@ -3394,10 +3394,10 @@ class SearchProductsInput {
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->sort_by = $sort_by ?? ;
+    $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -3412,7 +3412,7 @@ class SearchProductsOutput {
   ?'product_view_aggregations' => ProductViewAggregations,
   ?'product_view_summaries' => ProductViewSummaries,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->product_view_aggregations = $product_view_aggregations ?? [];
     $this->product_view_summaries = $product_view_summaries ?? [];
   }
@@ -3438,10 +3438,10 @@ class SearchProvisionedProductsInput {
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
     $this->access_level_filter = $access_level_filter ?? null;
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->page_size = $page_size ?? 0;
     $this->page_token = $page_token ?? "";
-    $this->sort_by = $sort_by ?? ;
+    $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -3456,8 +3456,8 @@ class SearchProvisionedProductsOutput {
   ?'provisioned_products' => ProvisionedProductAttributes,
   ?'total_results_count' => TotalResultsCount,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->provisioned_products = $provisioned_products ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->provisioned_products = $provisioned_products ?? [];
     $this->total_results_count = $total_results_count ?? 0;
   }
 }
@@ -3474,9 +3474,9 @@ class ServiceActionAssociation {
   ?'provisioning_artifact_id' => Id,
   ?'service_action_id' => Id,
   ) $s = shape()) {
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
-    $this->service_action_id = $service_action_id ?? ;
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
+    $this->service_action_id = $service_action_id ?? "";
   }
 }
 
@@ -3504,7 +3504,7 @@ class ServiceActionDetail {
   ?'definition' => ServiceActionDefinitionMap,
   ?'service_action_summary' => ServiceActionSummary,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
+    $this->definition = $definition ?? [];
     $this->service_action_summary = $service_action_summary ?? null;
   }
 }
@@ -3525,10 +3525,10 @@ class ServiceActionSummary {
   ?'id' => Id,
   ?'name' => ServiceActionName,
   ) $s = shape()) {
-    $this->definition_type = $definition_type ?? ;
+    $this->definition_type = $definition_type ?? "";
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3555,7 +3555,7 @@ class ShareError {
   ?'error' => Error,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
+    $this->accounts = $accounts ?? [];
     $this->error = $error ?? "";
     $this->message = $message ?? "";
   }
@@ -3583,7 +3583,7 @@ class StackInstance {
   ?'region' => Region,
   ?'stack_instance_status' => StackInstanceStatus,
   ) $s = shape()) {
-    $this->account = $account ?? ;
+    $this->account = $account ?? "";
     $this->region = $region ?? "";
     $this->stack_instance_status = $stack_instance_status ?? "";
   }
@@ -3629,8 +3629,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3652,10 +3652,10 @@ class TagOptionDetail {
   ?'key' => TagOptionKey,
   ?'value' => TagOptionValue,
   ) $s = shape()) {
-    $this->active = $active ?? ;
+    $this->active = $active ?? false;
     $this->id = $id ?? "";
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3682,8 +3682,8 @@ class TagOptionSummary {
   ?'key' => TagOptionKey,
   ?'values' => TagOptionValues,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -3713,7 +3713,7 @@ class TerminateProvisionedProductInput {
     $this->ignore_errors = $ignore_errors ?? false;
     $this->provisioned_product_id = $provisioned_product_id ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
-    $this->terminate_token = $terminate_token ?? ;
+    $this->terminate_token = $terminate_token ?? "";
   }
 }
 
@@ -3744,7 +3744,7 @@ class UpdateConstraintInput {
     $this->accept_language = $accept_language ?? "";
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->parameters = $parameters ?? ;
+    $this->parameters = $parameters ?? "";
   }
 }
 
@@ -3785,10 +3785,10 @@ class UpdatePortfolioInput {
     $this->accept_language = $accept_language ?? "";
     $this->add_tags = $add_tags ?? [];
     $this->description = $description ?? "";
-    $this->display_name = $display_name ?? ;
+    $this->display_name = $display_name ?? "";
     $this->id = $id ?? "";
     $this->provider_name = $provider_name ?? "";
-    $this->remove_tags = $remove_tags ?? ;
+    $this->remove_tags = $remove_tags ?? [];
   }
 }
 
@@ -3834,11 +3834,11 @@ class UpdateProductInput {
     $this->accept_language = $accept_language ?? "";
     $this->add_tags = $add_tags ?? [];
     $this->description = $description ?? "";
-    $this->distributor = $distributor ?? ;
+    $this->distributor = $distributor ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->remove_tags = $remove_tags ?? ;
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->remove_tags = $remove_tags ?? [];
     $this->support_description = $support_description ?? "";
     $this->support_email = $support_email ?? "";
     $this->support_url = $support_url ?? "";
@@ -3883,15 +3883,15 @@ class UpdateProvisionedProductInput {
   ?'update_token' => IdempotencyToken,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->path_id = $path_id ?? ;
-    $this->product_id = $product_id ?? ;
+    $this->path_id = $path_id ?? "";
+    $this->product_id = $product_id ?? "";
     $this->provisioned_product_id = $provisioned_product_id ?? "";
     $this->provisioned_product_name = $provisioned_product_name ?? "";
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
     $this->provisioning_parameters = $provisioning_parameters ?? [];
     $this->provisioning_preferences = $provisioning_preferences ?? null;
     $this->tags = $tags ?? [];
-    $this->update_token = $update_token ?? ;
+    $this->update_token = $update_token ?? "";
   }
 }
 
@@ -3938,7 +3938,7 @@ class UpdateProvisionedProductPropertiesOutput {
   ) $s = shape()) {
     $this->provisioned_product_id = $provisioned_product_id ?? "";
     $this->provisioned_product_properties = $provisioned_product_properties ?? [];
-    $this->record_id = $record_id ?? ;
+    $this->record_id = $record_id ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -3962,12 +3962,12 @@ class UpdateProvisioningArtifactInput {
   ?'provisioning_artifact_id' => Id,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->active = $active ?? ;
+    $this->active = $active ?? false;
     $this->description = $description ?? "";
-    $this->guidance = $guidance ?? ;
-    $this->name = $name ?? ;
-    $this->product_id = $product_id ?? ;
-    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->guidance = $guidance ?? "";
+    $this->name = $name ?? "";
+    $this->product_id = $product_id ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? "";
   }
 }
 
@@ -3981,7 +3981,7 @@ class UpdateProvisioningArtifactOutput {
   ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->info = $info ?? ;
+    $this->info = $info ?? [];
     $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
     $this->status = $status ?? "";
   }
@@ -3997,9 +3997,9 @@ class UpdateProvisioningParameter {
   ?'use_previous_value' => UsePreviousValue,
   ?'value' => ParameterValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->use_previous_value = $use_previous_value ?? false;
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -4048,10 +4048,10 @@ class UpdateServiceActionInput {
   ?'name' => ServiceActionName,
   ) $s = shape()) {
     $this->accept_language = $accept_language ?? "";
-    $this->definition = $definition ?? ;
+    $this->definition = $definition ?? [];
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -4075,9 +4075,9 @@ class UpdateTagOptionInput {
   ?'id' => TagOptionId,
   ?'value' => TagOptionValue,
   ) $s = shape()) {
-    $this->active = $active ?? ;
+    $this->active = $active ?? false;
     $this->id = $id ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -4101,8 +4101,8 @@ class UsageInstruction {
   ?'type' => InstructionType,
   ?'value' => InstructionValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 

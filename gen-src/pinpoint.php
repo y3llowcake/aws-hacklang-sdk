@@ -126,9 +126,9 @@ class ADMChannelRequest {
   ?'client_secret' => __string,
   ?'enabled' => __boolean,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->client_secret = $client_secret ?? "";
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -156,16 +156,16 @@ class ADMChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -206,21 +206,21 @@ class ADMMessage {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->consolidation_key = $consolidation_key ?? ;
-    $this->data = $data ?? ;
-    $this->expires_after = $expires_after ?? ;
-    $this->icon_reference = $icon_reference ?? ;
-    $this->image_icon_url = $image_icon_url ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->md_5 = $md_5 ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->small_image_icon_url = $small_image_icon_url ?? ;
-    $this->sound = $sound ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->consolidation_key = $consolidation_key ?? "";
+    $this->data = $data ?? [];
+    $this->expires_after = $expires_after ?? "";
+    $this->icon_reference = $icon_reference ?? "";
+    $this->image_icon_url = $image_icon_url ?? "";
+    $this->image_url = $image_url ?? "";
+    $this->md_5 = $md_5 ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->silent_push = $silent_push ?? false;
+    $this->small_image_icon_url = $small_image_icon_url ?? "";
+    $this->sound = $sound ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -244,14 +244,14 @@ class APNSChannelRequest {
   ?'token_key' => __string,
   ?'token_key_id' => __string,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->certificate = $certificate ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->team_id = $team_id ?? ;
-    $this->token_key = $token_key ?? ;
-    $this->token_key_id = $token_key_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->certificate = $certificate ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->private_key = $private_key ?? "";
+    $this->team_id = $team_id ?? "";
+    $this->token_key = $token_key ?? "";
+    $this->token_key_id = $token_key_id ?? "";
   }
 }
 
@@ -283,18 +283,18 @@ class APNSChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->has_token_key = $has_token_key ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->has_token_key = $has_token_key ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -338,24 +338,24 @@ class APNSMessage {
   ?'title' => __string,
   ?'url' => __string,
   ) $s = shape()) {
-    $this->apns_push_type = $apns_push_type ?? ;
+    $this->apns_push_type = $apns_push_type ?? "";
     $this->action = $action ?? "";
-    $this->badge = $badge ?? ;
-    $this->body = $body ?? ;
-    $this->category = $category ?? ;
-    $this->collapse_id = $collapse_id ?? ;
-    $this->data = $data ?? ;
-    $this->media_url = $media_url ?? ;
-    $this->preferred_authentication_method = $preferred_authentication_method ?? ;
-    $this->priority = $priority ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->sound = $sound ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->thread_id = $thread_id ?? ;
-    $this->time_to_live = $time_to_live ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->badge = $badge ?? 0;
+    $this->body = $body ?? "";
+    $this->category = $category ?? "";
+    $this->collapse_id = $collapse_id ?? "";
+    $this->data = $data ?? [];
+    $this->media_url = $media_url ?? "";
+    $this->preferred_authentication_method = $preferred_authentication_method ?? "";
+    $this->priority = $priority ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->silent_push = $silent_push ?? false;
+    $this->sound = $sound ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->thread_id = $thread_id ?? "";
+    $this->time_to_live = $time_to_live ?? 0;
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -378,12 +378,12 @@ class APNSPushNotificationTemplate {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->media_url = $media_url ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->sound = $sound ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->media_url = $media_url ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->sound = $sound ?? "";
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -407,14 +407,14 @@ class APNSSandboxChannelRequest {
   ?'token_key' => __string,
   ?'token_key_id' => __string,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->certificate = $certificate ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->team_id = $team_id ?? ;
-    $this->token_key = $token_key ?? ;
-    $this->token_key_id = $token_key_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->certificate = $certificate ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->private_key = $private_key ?? "";
+    $this->team_id = $team_id ?? "";
+    $this->token_key = $token_key ?? "";
+    $this->token_key_id = $token_key_id ?? "";
   }
 }
 
@@ -446,18 +446,18 @@ class APNSSandboxChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->has_token_key = $has_token_key ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->has_token_key = $has_token_key ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -481,14 +481,14 @@ class APNSVoipChannelRequest {
   ?'token_key' => __string,
   ?'token_key_id' => __string,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->certificate = $certificate ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->team_id = $team_id ?? ;
-    $this->token_key = $token_key ?? ;
-    $this->token_key_id = $token_key_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->certificate = $certificate ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->private_key = $private_key ?? "";
+    $this->team_id = $team_id ?? "";
+    $this->token_key = $token_key ?? "";
+    $this->token_key_id = $token_key_id ?? "";
   }
 }
 
@@ -520,18 +520,18 @@ class APNSVoipChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->has_token_key = $has_token_key ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->has_token_key = $has_token_key ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -555,14 +555,14 @@ class APNSVoipSandboxChannelRequest {
   ?'token_key' => __string,
   ?'token_key_id' => __string,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->certificate = $certificate ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->team_id = $team_id ?? ;
-    $this->token_key = $token_key ?? ;
-    $this->token_key_id = $token_key_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->certificate = $certificate ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->private_key = $private_key ?? "";
+    $this->team_id = $team_id ?? "";
+    $this->token_key = $token_key ?? "";
+    $this->token_key_id = $token_key_id ?? "";
   }
 }
 
@@ -594,18 +594,18 @@ class APNSVoipSandboxChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_authentication_method = $default_authentication_method ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->has_token_key = $has_token_key ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_authentication_method = $default_authentication_method ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->has_token_key = $has_token_key ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -619,8 +619,8 @@ class ActivitiesResponse {
   ?'item' => ListOfActivityResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -642,13 +642,13 @@ class Activity {
   ?'random_split' => RandomSplitActivity,
   ?'wait' => WaitActivity,
   ) $s = shape()) {
-    $this->conditional_split = $conditional_split ?? ;
-    $this->description = $description ?? ;
-    $this->email = $email ?? ;
-    $this->holdout = $holdout ?? ;
-    $this->multi_condition = $multi_condition ?? ;
-    $this->random_split = $random_split ?? ;
-    $this->wait = $wait ?? ;
+    $this->conditional_split = $conditional_split ?? null;
+    $this->description = $description ?? "";
+    $this->email = $email ?? null;
+    $this->holdout = $holdout ?? null;
+    $this->multi_condition = $multi_condition ?? null;
+    $this->random_split = $random_split ?? null;
+    $this->wait = $wait ?? null;
   }
 }
 
@@ -682,19 +682,19 @@ class ActivityResponse {
   ?'total_endpoint_count' => __integer,
   ?'treatment_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->end = $end ?? ;
-    $this->id = $id ?? ;
-    $this->result = $result ?? ;
-    $this->scheduled_start = $scheduled_start ?? ;
-    $this->start = $start ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->end = $end ?? "";
+    $this->id = $id ?? "";
+    $this->result = $result ?? "";
+    $this->scheduled_start = $scheduled_start ?? "";
+    $this->start = $start ?? "";
     $this->state = $state ?? "";
-    $this->successful_endpoint_count = $successful_endpoint_count ?? ;
-    $this->timezones_completed_count = $timezones_completed_count ?? ;
-    $this->timezones_total_count = $timezones_total_count ?? ;
-    $this->total_endpoint_count = $total_endpoint_count ?? ;
-    $this->treatment_id = $treatment_id ?? ;
+    $this->successful_endpoint_count = $successful_endpoint_count ?? 0;
+    $this->timezones_completed_count = $timezones_completed_count ?? 0;
+    $this->timezones_total_count = $timezones_total_count ?? 0;
+    $this->total_endpoint_count = $total_endpoint_count ?? 0;
+    $this->treatment_id = $treatment_id ?? "";
   }
 }
 
@@ -714,12 +714,12 @@ class AddressConfiguration {
   ?'substitutions' => MapOfListOf__string,
   ?'title_override' => __string,
   ) $s = shape()) {
-    $this->body_override = $body_override ?? ;
+    $this->body_override = $body_override ?? "";
     $this->channel_type = $channel_type ?? "";
-    $this->context = $context ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->title_override = $title_override ?? ;
+    $this->context = $context ?? [];
+    $this->raw_content = $raw_content ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->title_override = $title_override ?? "";
   }
 }
 
@@ -746,14 +746,14 @@ class AndroidPushNotificationTemplate {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->image_icon_url = $image_icon_url ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->small_image_icon_url = $small_image_icon_url ?? ;
-    $this->sound = $sound ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->image_icon_url = $image_icon_url ?? "";
+    $this->image_url = $image_url ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->small_image_icon_url = $small_image_icon_url ?? "";
+    $this->sound = $sound ?? "";
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -773,12 +773,12 @@ class ApplicationDateRangeKpiResponse {
   ?'next_token' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->kpi_result = $kpi_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->kpi_name = $kpi_name ?? "";
+    $this->kpi_result = $kpi_result ?? null;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -794,10 +794,10 @@ class ApplicationResponse {
   ?'name' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -815,10 +815,10 @@ class ApplicationSettingsResource {
   ?'limits' => CampaignLimits,
   ?'quiet_time' => QuietTime,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->campaign_hook = $campaign_hook ?? null;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->limits = $limits ?? ;
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->limits = $limits ?? null;
     $this->quiet_time = $quiet_time ?? null;
   }
 }
@@ -831,8 +831,8 @@ class ApplicationsResponse {
   ?'item' => ListOfApplicationResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -845,7 +845,7 @@ class AttributeDimension {
   ?'values' => ListOf__string,
   ) $s = shape()) {
     $this->attribute_type = $attribute_type ?? "";
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -861,9 +861,9 @@ class AttributesResource {
   ?'attribute_type' => __string,
   ?'attributes' => ListOf__string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->attribute_type = $attribute_type ?? "";
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -875,8 +875,8 @@ class BadRequestException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -890,9 +890,9 @@ class BaiduChannelRequest {
   ?'enabled' => __boolean,
   ?'secret_key' => __string,
   ) $s = shape()) {
-    $this->api_key = $api_key ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->secret_key = $secret_key ?? ;
+    $this->api_key = $api_key ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->secret_key = $secret_key ?? "";
   }
 }
 
@@ -922,17 +922,17 @@ class BaiduChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->credential = $credential ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->credential = $credential ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -969,19 +969,19 @@ class BaiduMessage {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->data = $data ?? ;
-    $this->icon_reference = $icon_reference ?? ;
-    $this->image_icon_url = $image_icon_url ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->small_image_icon_url = $small_image_icon_url ?? ;
-    $this->sound = $sound ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->time_to_live = $time_to_live ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->data = $data ?? [];
+    $this->icon_reference = $icon_reference ?? "";
+    $this->image_icon_url = $image_icon_url ?? "";
+    $this->image_url = $image_url ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->silent_push = $silent_push ?? false;
+    $this->small_image_icon_url = $small_image_icon_url ?? "";
+    $this->sound = $sound ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->time_to_live = $time_to_live ?? 0;
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -991,7 +991,7 @@ class BaseKpiResult {
   public function __construct(shape(
   ?'rows' => ListOfResultRow,
   ) $s = shape()) {
-    $this->rows = $rows ?? ;
+    $this->rows = $rows ?? [];
   }
 }
 
@@ -1001,7 +1001,7 @@ class CampaignCustomMessage {
   public function __construct(shape(
   ?'data' => __string,
   ) $s = shape()) {
-    $this->data = $data ?? ;
+    $this->data = $data ?? "";
   }
 }
 
@@ -1023,13 +1023,13 @@ class CampaignDateRangeKpiResponse {
   ?'next_token' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->kpi_result = $kpi_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->kpi_name = $kpi_name ?? "";
+    $this->kpi_result = $kpi_result ?? null;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1045,10 +1045,10 @@ class CampaignEmailMessage {
   ?'html_body' => __string,
   ?'title' => __string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->from_address = $from_address ?? ;
-    $this->html_body = $html_body ?? ;
-    $this->title = $title ?? ;
+    $this->body = $body ?? "";
+    $this->from_address = $from_address ?? "";
+    $this->html_body = $html_body ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -1060,7 +1060,7 @@ class CampaignEventFilter {
   ?'dimensions' => EventDimensions,
   ?'filter_type' => FilterType,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? null;
     $this->filter_type = $filter_type ?? "";
   }
 }
@@ -1075,9 +1075,9 @@ class CampaignHook {
   ?'mode' => Mode,
   ?'web_url' => __string,
   ) $s = shape()) {
-    $this->lambda_function_name = $lambda_function_name ?? ;
+    $this->lambda_function_name = $lambda_function_name ?? "";
     $this->mode = $mode ?? "";
-    $this->web_url = $web_url ?? ;
+    $this->web_url = $web_url ?? "";
   }
 }
 
@@ -1093,10 +1093,10 @@ class CampaignLimits {
   ?'messages_per_second' => __integer,
   ?'total' => __integer,
   ) $s = shape()) {
-    $this->daily = $daily ?? ;
-    $this->maximum_duration = $maximum_duration ?? ;
-    $this->messages_per_second = $messages_per_second ?? ;
-    $this->total = $total ?? ;
+    $this->daily = $daily ?? 0;
+    $this->maximum_duration = $maximum_duration ?? 0;
+    $this->messages_per_second = $messages_per_second ?? 0;
+    $this->total = $total ?? 0;
   }
 }
 
@@ -1152,30 +1152,30 @@ class CampaignResponse {
   ?'version' => __integer,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->additional_treatments = $additional_treatments ?? ;
-    $this->application_id = $application_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->creation_date = $creation_date ?? ;
+    $this->additional_treatments = $additional_treatments ?? [];
+    $this->application_id = $application_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->creation_date = $creation_date ?? "";
     $this->custom_delivery_configuration = $custom_delivery_configuration ?? null;
-    $this->default_state = $default_state ?? ;
-    $this->description = $description ?? ;
-    $this->holdout_percent = $holdout_percent ?? ;
-    $this->hook = $hook ?? ;
-    $this->id = $id ?? ;
-    $this->is_paused = $is_paused ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->limits = $limits ?? ;
+    $this->default_state = $default_state ?? null;
+    $this->description = $description ?? "";
+    $this->holdout_percent = $holdout_percent ?? 0;
+    $this->hook = $hook ?? null;
+    $this->id = $id ?? "";
+    $this->is_paused = $is_paused ?? false;
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->limits = $limits ?? null;
     $this->message_configuration = $message_configuration ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->schedule = $schedule ?? null;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_version = $segment_version ?? ;
-    $this->state = $state ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_version = $segment_version ?? 0;
+    $this->state = $state ?? null;
     $this->template_configuration = $template_configuration ?? null;
-    $this->treatment_description = $treatment_description ?? ;
-    $this->treatment_name = $treatment_name ?? ;
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->treatment_description = $treatment_description ?? "";
+    $this->treatment_name = $treatment_name ?? "";
+    $this->version = $version ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1189,9 +1189,9 @@ class CampaignSmsMessage {
   ?'message_type' => MessageType,
   ?'sender_id' => __string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
+    $this->body = $body ?? "";
     $this->message_type = $message_type ?? "";
-    $this->sender_id = $sender_id ?? ;
+    $this->sender_id = $sender_id ?? "";
   }
 }
 
@@ -1215,8 +1215,8 @@ class CampaignsResponse {
   ?'item' => ListOfCampaignResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1242,15 +1242,15 @@ class ChannelResponse {
   ?'last_modified_date' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1262,7 +1262,7 @@ class ChannelsResponse {
   public function __construct(shape(
   ?'channels' => MapOfChannelResponse,
   ) $s = shape()) {
-    $this->channels = $channels ?? ;
+    $this->channels = $channels ?? [];
   }
 }
 
@@ -1274,7 +1274,7 @@ class Condition {
   ?'conditions' => ListOfSimpleCondition,
   ?'operator' => Operator,
   ) $s = shape()) {
-    $this->conditions = $conditions ?? ;
+    $this->conditions = $conditions ?? [];
     $this->operator = $operator ?? "";
   }
 }
@@ -1292,9 +1292,9 @@ class ConditionalSplitActivity {
   ?'true_activity' => __string,
   ) $s = shape()) {
     $this->condition = $condition ?? null;
-    $this->evaluation_wait_time = $evaluation_wait_time ?? ;
-    $this->false_activity = $false_activity ?? ;
-    $this->true_activity = $true_activity ?? ;
+    $this->evaluation_wait_time = $evaluation_wait_time ?? null;
+    $this->false_activity = $false_activity ?? "";
+    $this->true_activity = $true_activity ?? "";
   }
 }
 
@@ -1326,8 +1326,8 @@ class CreateApplicationRequest {
   ?'name' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1339,7 +1339,7 @@ class CreateCampaignRequest {
   ?'application_id' => __string,
   ?'write_campaign_request' => WriteCampaignRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->write_campaign_request = $write_campaign_request ?? null;
   }
 }
@@ -1363,7 +1363,7 @@ class CreateEmailTemplateRequest {
   ?'template_name' => __string,
   ) $s = shape()) {
     $this->email_template_request = $email_template_request ?? null;
-    $this->template_name = $template_name ?? ;
+    $this->template_name = $template_name ?? "";
   }
 }
 
@@ -1385,7 +1385,7 @@ class CreateExportJobRequest {
   ?'application_id' => __string,
   ?'export_job_request' => ExportJobRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->export_job_request = $export_job_request ?? null;
   }
 }
@@ -1408,7 +1408,7 @@ class CreateImportJobRequest {
   ?'application_id' => __string,
   ?'import_job_request' => ImportJobRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->import_job_request = $import_job_request ?? null;
   }
 }
@@ -1431,7 +1431,7 @@ class CreateJourneyRequest {
   ?'application_id' => __string,
   ?'write_journey_request' => WriteJourneyRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->write_journey_request = $write_journey_request ?? null;
   }
 }
@@ -1455,7 +1455,7 @@ class CreatePushTemplateRequest {
   ?'template_name' => __string,
   ) $s = shape()) {
     $this->push_notification_template_request = $push_notification_template_request ?? null;
-    $this->template_name = $template_name ?? ;
+    $this->template_name = $template_name ?? "";
   }
 }
 
@@ -1491,15 +1491,15 @@ class CreateRecommenderConfiguration {
   ?'recommendations_display_name' => __string,
   ?'recommendations_per_message' => __integer,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? ;
-    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? ;
-    $this->recommendation_provider_uri = $recommendation_provider_uri ?? ;
-    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? ;
-    $this->recommendations_display_name = $recommendations_display_name ?? ;
-    $this->recommendations_per_message = $recommendations_per_message ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? "";
+    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? "";
+    $this->recommendation_provider_uri = $recommendation_provider_uri ?? "";
+    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? "";
+    $this->recommendations_display_name = $recommendations_display_name ?? "";
+    $this->recommendations_per_message = $recommendations_per_message ?? 0;
   }
 }
 
@@ -1531,7 +1531,7 @@ class CreateSegmentRequest {
   ?'application_id' => __string,
   ?'write_segment_request' => WriteSegmentRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->write_segment_request = $write_segment_request ?? null;
   }
 }
@@ -1555,7 +1555,7 @@ class CreateSmsTemplateRequest {
   ?'template_name' => __string,
   ) $s = shape()) {
     $this->sms_template_request = $sms_template_request ?? null;
-    $this->template_name = $template_name ?? ;
+    $this->template_name = $template_name ?? "";
   }
 }
 
@@ -1579,9 +1579,9 @@ class CreateTemplateMessageBody {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1593,7 +1593,7 @@ class CreateVoiceTemplateRequest {
   ?'template_name' => __string,
   ?'voice_template_request' => VoiceTemplateRequest,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
+    $this->template_name = $template_name ?? "";
     $this->voice_template_request = $voice_template_request ?? null;
   }
 }
@@ -1616,8 +1616,8 @@ class CustomDeliveryConfiguration {
   ?'delivery_uri' => __string,
   ?'endpoint_types' => ListOf__EndpointTypesElement,
   ) $s = shape()) {
-    $this->delivery_uri = $delivery_uri ?? ;
-    $this->endpoint_types = $endpoint_types ?? ;
+    $this->delivery_uri = $delivery_uri ?? "";
+    $this->endpoint_types = $endpoint_types ?? [];
   }
 }
 
@@ -1629,8 +1629,8 @@ class DefaultMessage {
   ?'body' => __string,
   ?'substitutions' => MapOfListOf__string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->substitutions = $substitutions ?? ;
+    $this->body = $body ?? "";
+    $this->substitutions = $substitutions ?? [];
   }
 }
 
@@ -1653,12 +1653,12 @@ class DefaultPushNotificationMessage {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->data = $data ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->data = $data ?? [];
+    $this->silent_push = $silent_push ?? false;
+    $this->substitutions = $substitutions ?? [];
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -1677,10 +1677,10 @@ class DefaultPushNotificationTemplate {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->sound = $sound ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->sound = $sound ?? "";
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -1690,7 +1690,7 @@ class DeleteAdmChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1710,7 +1710,7 @@ class DeleteApnsChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1730,7 +1730,7 @@ class DeleteApnsSandboxChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1750,7 +1750,7 @@ class DeleteApnsVoipChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1770,7 +1770,7 @@ class DeleteApnsVoipSandboxChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1790,7 +1790,7 @@ class DeleteAppRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1810,7 +1810,7 @@ class DeleteBaiduChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1832,8 +1832,8 @@ class DeleteCampaignRequest {
   ?'application_id' => __string,
   ?'campaign_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
   }
 }
 
@@ -1853,7 +1853,7 @@ class DeleteEmailChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1875,8 +1875,8 @@ class DeleteEmailTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1898,8 +1898,8 @@ class DeleteEndpointRequest {
   ?'application_id' => __string,
   ?'endpoint_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->endpoint_id = $endpoint_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->endpoint_id = $endpoint_id ?? "";
   }
 }
 
@@ -1919,7 +1919,7 @@ class DeleteEventStreamRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1939,7 +1939,7 @@ class DeleteGcmChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -1961,8 +1961,8 @@ class DeleteJourneyRequest {
   ?'application_id' => __string,
   ?'journey_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
   }
 }
 
@@ -1984,8 +1984,8 @@ class DeletePushTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2005,7 +2005,7 @@ class DeleteRecommenderConfigurationRequest {
   public function __construct(shape(
   ?'recommender_id' => __string,
   ) $s = shape()) {
-    $this->recommender_id = $recommender_id ?? ;
+    $this->recommender_id = $recommender_id ?? "";
   }
 }
 
@@ -2027,8 +2027,8 @@ class DeleteSegmentRequest {
   ?'application_id' => __string,
   ?'segment_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->segment_id = $segment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->segment_id = $segment_id ?? "";
   }
 }
 
@@ -2048,7 +2048,7 @@ class DeleteSmsChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -2070,8 +2070,8 @@ class DeleteSmsTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2093,8 +2093,8 @@ class DeleteUserEndpointsRequest {
   ?'application_id' => __string,
   ?'user_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -2114,7 +2114,7 @@ class DeleteVoiceChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -2136,8 +2136,8 @@ class DeleteVoiceTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2205,11 +2205,11 @@ class EmailChannelRequest {
   ?'identity' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->configuration_set = $configuration_set ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->from_address = $from_address ?? ;
-    $this->identity = $identity ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->configuration_set = $configuration_set ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->from_address = $from_address ?? "";
+    $this->identity = $identity ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -2247,21 +2247,21 @@ class EmailChannelResponse {
   ?'role_arn' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_set = $configuration_set ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->from_address = $from_address ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->identity = $identity ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->messages_per_second = $messages_per_second ?? ;
-    $this->platform = $platform ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_set = $configuration_set ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->from_address = $from_address ?? "";
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->identity = $identity ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->messages_per_second = $messages_per_second ?? 0;
+    $this->platform = $platform ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -2283,13 +2283,13 @@ class EmailMessage {
   ?'simple_email' => SimpleEmail,
   ?'substitutions' => MapOfListOf__string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->feedback_forwarding_address = $feedback_forwarding_address ?? ;
-    $this->from_address = $from_address ?? ;
+    $this->body = $body ?? "";
+    $this->feedback_forwarding_address = $feedback_forwarding_address ?? "";
+    $this->from_address = $from_address ?? "";
     $this->raw_email = $raw_email ?? null;
-    $this->reply_to_addresses = $reply_to_addresses ?? ;
+    $this->reply_to_addresses = $reply_to_addresses ?? [];
     $this->simple_email = $simple_email ?? null;
-    $this->substitutions = $substitutions ?? ;
+    $this->substitutions = $substitutions ?? [];
   }
 }
 
@@ -2305,10 +2305,10 @@ class EmailMessageActivity {
   ?'template_name' => __string,
   ?'template_version' => __string,
   ) $s = shape()) {
-    $this->message_config = $message_config ?? ;
-    $this->next_activity = $next_activity ?? ;
-    $this->template_name = $template_name ?? ;
-    $this->template_version = $template_version ?? ;
+    $this->message_config = $message_config ?? null;
+    $this->next_activity = $next_activity ?? "";
+    $this->template_name = $template_name ?? "";
+    $this->template_version = $template_version ?? "";
   }
 }
 
@@ -2330,13 +2330,13 @@ class EmailTemplateRequest {
   ?'text_part' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->html_part = $html_part ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->subject = $subject ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->text_part = $text_part ?? ;
-    $this->tags = $tags ?? ;
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->html_part = $html_part ?? "";
+    $this->recommender_id = $recommender_id ?? "";
+    $this->subject = $subject ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->text_part = $text_part ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2370,19 +2370,19 @@ class EmailTemplateResponse {
   ?'version' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->html_part = $html_part ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->subject = $subject ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->html_part = $html_part ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->recommender_id = $recommender_id ?? "";
+    $this->subject = $subject ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->text_part = $text_part ?? ;
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->text_part = $text_part ?? "";
+    $this->version = $version ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2414,18 +2414,18 @@ class EndpointBatchItem {
   ?'request_id' => __string,
   ?'user' => EndpointUser,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->address = $address ?? "";
+    $this->attributes = $attributes ?? [];
     $this->channel_type = $channel_type ?? "";
-    $this->demographic = $demographic ?? ;
-    $this->effective_date = $effective_date ?? ;
-    $this->endpoint_status = $endpoint_status ?? ;
-    $this->id = $id ?? ;
-    $this->location = $location ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->opt_out = $opt_out ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->user = $user ?? ;
+    $this->demographic = $demographic ?? null;
+    $this->effective_date = $effective_date ?? "";
+    $this->endpoint_status = $endpoint_status ?? "";
+    $this->id = $id ?? "";
+    $this->location = $location ?? null;
+    $this->metrics = $metrics ?? [];
+    $this->opt_out = $opt_out ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->user = $user ?? null;
   }
 }
 
@@ -2435,7 +2435,7 @@ class EndpointBatchRequest {
   public function __construct(shape(
   ?'item' => ListOfEndpointBatchItem,
   ) $s = shape()) {
-    $this->item = $item ?? ;
+    $this->item = $item ?? [];
   }
 }
 
@@ -2459,14 +2459,14 @@ class EndpointDemographic {
   ?'platform_version' => __string,
   ?'timezone' => __string,
   ) $s = shape()) {
-    $this->app_version = $app_version ?? ;
-    $this->locale = $locale ?? ;
-    $this->make = $make ?? ;
-    $this->model = $model ?? ;
-    $this->model_version = $model_version ?? ;
-    $this->platform = $platform ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->timezone = $timezone ?? ;
+    $this->app_version = $app_version ?? "";
+    $this->locale = $locale ?? "";
+    $this->make = $make ?? "";
+    $this->model = $model ?? "";
+    $this->model_version = $model_version ?? "";
+    $this->platform = $platform ?? "";
+    $this->platform_version = $platform_version ?? "";
+    $this->timezone = $timezone ?? "";
   }
 }
 
@@ -2478,8 +2478,8 @@ class EndpointItemResponse {
   ?'message' => __string,
   ?'status_code' => __integer,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->status_code = $status_code ?? ;
+    $this->message = $message ?? "";
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -2499,12 +2499,12 @@ class EndpointLocation {
   ?'postal_code' => __string,
   ?'region' => __string,
   ) $s = shape()) {
-    $this->city = $city ?? ;
-    $this->country = $country ?? ;
-    $this->latitude = $latitude ?? ;
-    $this->longitude = $longitude ?? ;
-    $this->postal_code = $postal_code ?? ;
-    $this->region = $region ?? ;
+    $this->city = $city ?? "";
+    $this->country = $country ?? "";
+    $this->latitude = $latitude ?? 0.0;
+    $this->longitude = $longitude ?? 0.0;
+    $this->postal_code = $postal_code ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -2524,12 +2524,12 @@ class EndpointMessageResult {
   ?'status_message' => __string,
   ?'updated_token' => __string,
   ) $s = shape()) {
-    $this->address = $address ?? ;
+    $this->address = $address ?? "";
     $this->delivery_status = $delivery_status ?? "";
-    $this->message_id = $message_id ?? ;
-    $this->status_code = $status_code ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->updated_token = $updated_token ?? ;
+    $this->message_id = $message_id ?? "";
+    $this->status_code = $status_code ?? 0;
+    $this->status_message = $status_message ?? "";
+    $this->updated_token = $updated_token ?? "";
   }
 }
 
@@ -2559,17 +2559,17 @@ class EndpointRequest {
   ?'request_id' => __string,
   ?'user' => EndpointUser,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->address = $address ?? "";
+    $this->attributes = $attributes ?? [];
     $this->channel_type = $channel_type ?? "";
-    $this->demographic = $demographic ?? ;
-    $this->effective_date = $effective_date ?? ;
-    $this->endpoint_status = $endpoint_status ?? ;
-    $this->location = $location ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->opt_out = $opt_out ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->user = $user ?? ;
+    $this->demographic = $demographic ?? null;
+    $this->effective_date = $effective_date ?? "";
+    $this->endpoint_status = $endpoint_status ?? "";
+    $this->location = $location ?? null;
+    $this->metrics = $metrics ?? [];
+    $this->opt_out = $opt_out ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->user = $user ?? null;
   }
 }
 
@@ -2607,21 +2607,21 @@ class EndpointResponse {
   ?'request_id' => __string,
   ?'user' => EndpointUser,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->application_id = $application_id ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->address = $address ?? "";
+    $this->application_id = $application_id ?? "";
+    $this->attributes = $attributes ?? [];
     $this->channel_type = $channel_type ?? "";
-    $this->cohort_id = $cohort_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->demographic = $demographic ?? ;
-    $this->effective_date = $effective_date ?? ;
-    $this->endpoint_status = $endpoint_status ?? ;
-    $this->id = $id ?? ;
-    $this->location = $location ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->opt_out = $opt_out ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->user = $user ?? ;
+    $this->cohort_id = $cohort_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->demographic = $demographic ?? null;
+    $this->effective_date = $effective_date ?? "";
+    $this->endpoint_status = $endpoint_status ?? "";
+    $this->id = $id ?? "";
+    $this->location = $location ?? null;
+    $this->metrics = $metrics ?? [];
+    $this->opt_out = $opt_out ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->user = $user ?? null;
   }
 }
 
@@ -2639,11 +2639,11 @@ class EndpointSendConfiguration {
   ?'substitutions' => MapOfListOf__string,
   ?'title_override' => __string,
   ) $s = shape()) {
-    $this->body_override = $body_override ?? ;
-    $this->context = $context ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->title_override = $title_override ?? ;
+    $this->body_override = $body_override ?? "";
+    $this->context = $context ?? [];
+    $this->raw_content = $raw_content ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->title_override = $title_override ?? "";
   }
 }
 
@@ -2655,8 +2655,8 @@ class EndpointUser {
   ?'user_attributes' => MapOfListOf__string,
   ?'user_id' => __string,
   ) $s = shape()) {
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -2666,7 +2666,7 @@ class EndpointsResponse {
   public function __construct(shape(
   ?'item' => ListOfEndpointResponse,
   ) $s = shape()) {
-    $this->item = $item ?? ;
+    $this->item = $item ?? [];
   }
 }
 
@@ -2694,16 +2694,16 @@ class Event {
   ?'session' => Session,
   ?'timestamp' => __string,
   ) $s = shape()) {
-    $this->app_package_name = $app_package_name ?? ;
-    $this->app_title = $app_title ?? ;
-    $this->app_version_code = $app_version_code ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->client_sdk_version = $client_sdk_version ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->sdk_name = $sdk_name ?? ;
+    $this->app_package_name = $app_package_name ?? "";
+    $this->app_title = $app_title ?? "";
+    $this->app_version_code = $app_version_code ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->client_sdk_version = $client_sdk_version ?? "";
+    $this->event_type = $event_type ?? "";
+    $this->metrics = $metrics ?? [];
+    $this->sdk_name = $sdk_name ?? "";
     $this->session = $session ?? null;
-    $this->timestamp = $timestamp ?? ;
+    $this->timestamp = $timestamp ?? "";
   }
 }
 
@@ -2715,8 +2715,8 @@ class EventCondition {
   ?'dimensions' => EventDimensions,
   ?'message_activity' => __string,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->message_activity = $message_activity ?? ;
+    $this->dimensions = $dimensions ?? null;
+    $this->message_activity = $message_activity ?? "";
   }
 }
 
@@ -2730,9 +2730,9 @@ class EventDimensions {
   ?'event_type' => SetDimension,
   ?'metrics' => MapOfMetricDimension,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->metrics = $metrics ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->event_type = $event_type ?? null;
+    $this->metrics = $metrics ?? [];
   }
 }
 
@@ -2744,8 +2744,8 @@ class EventItemResponse {
   ?'message' => __string,
   ?'status_code' => __integer,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->status_code = $status_code ?? ;
+    $this->message = $message ?? "";
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -2765,12 +2765,12 @@ class EventStream {
   ?'last_updated_by' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->destination_stream_arn = $destination_stream_arn ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->last_updated_by = $last_updated_by ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->destination_stream_arn = $destination_stream_arn ?? "";
+    $this->external_id = $external_id ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->last_updated_by = $last_updated_by ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -2782,8 +2782,8 @@ class EventsBatch {
   ?'endpoint' => PublicEndpoint,
   ?'events' => MapOfEvent,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? ;
-    $this->events = $events ?? ;
+    $this->endpoint = $endpoint ?? null;
+    $this->events = $events ?? [];
   }
 }
 
@@ -2793,7 +2793,7 @@ class EventsRequest {
   public function __construct(shape(
   ?'batch_item' => MapOfEventsBatch,
   ) $s = shape()) {
-    $this->batch_item = $batch_item ?? ;
+    $this->batch_item = $batch_item ?? [];
   }
 }
 
@@ -2803,7 +2803,7 @@ class EventsResponse {
   public function __construct(shape(
   ?'results' => MapOfItemResponse,
   ) $s = shape()) {
-    $this->results = $results ?? ;
+    $this->results = $results ?? [];
   }
 }
 
@@ -2819,10 +2819,10 @@ class ExportJobRequest {
   ?'segment_id' => __string,
   ?'segment_version' => __integer,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->s_3_url_prefix = $s_3_url_prefix ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_version = $segment_version ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->s_3_url_prefix = $s_3_url_prefix ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_version = $segment_version ?? 0;
   }
 }
 
@@ -2838,10 +2838,10 @@ class ExportJobResource {
   ?'segment_id' => __string,
   ?'segment_version' => __integer,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->s_3_url_prefix = $s_3_url_prefix ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_version = $segment_version ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->s_3_url_prefix = $s_3_url_prefix ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_version = $segment_version ?? 0;
   }
 }
 
@@ -2875,18 +2875,18 @@ class ExportJobResponse {
   ?'total_processed' => __integer,
   ?'type' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->completed_pieces = $completed_pieces ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->definition = $definition ?? ;
-    $this->failed_pieces = $failed_pieces ?? ;
-    $this->failures = $failures ?? ;
-    $this->id = $id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->completed_pieces = $completed_pieces ?? 0;
+    $this->completion_date = $completion_date ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->definition = $definition ?? null;
+    $this->failed_pieces = $failed_pieces ?? 0;
+    $this->failures = $failures ?? [];
+    $this->id = $id ?? "";
     $this->job_status = $job_status ?? "";
-    $this->total_failures = $total_failures ?? ;
-    $this->total_pieces = $total_pieces ?? ;
-    $this->total_processed = $total_processed ?? ;
+    $this->total_failures = $total_failures ?? 0;
+    $this->total_pieces = $total_pieces ?? 0;
+    $this->total_processed = $total_processed ?? 0;
     $this->type = $type ?? "";
   }
 }
@@ -2899,8 +2899,8 @@ class ExportJobsResponse {
   ?'item' => ListOfExportJobResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2914,8 +2914,8 @@ class ForbiddenException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2931,8 +2931,8 @@ class GCMChannelRequest {
   ?'api_key' => __string,
   ?'enabled' => __boolean,
   ) $s = shape()) {
-    $this->api_key = $api_key ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->api_key = $api_key ?? "";
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -2962,17 +2962,17 @@ class GCMChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->credential = $credential ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->credential = $credential ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -3015,22 +3015,22 @@ class GCMMessage {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->collapse_key = $collapse_key ?? ;
-    $this->data = $data ?? ;
-    $this->icon_reference = $icon_reference ?? ;
-    $this->image_icon_url = $image_icon_url ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->priority = $priority ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->restricted_package_name = $restricted_package_name ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->small_image_icon_url = $small_image_icon_url ?? ;
-    $this->sound = $sound ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->time_to_live = $time_to_live ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->collapse_key = $collapse_key ?? "";
+    $this->data = $data ?? [];
+    $this->icon_reference = $icon_reference ?? "";
+    $this->image_icon_url = $image_icon_url ?? "";
+    $this->image_url = $image_url ?? "";
+    $this->priority = $priority ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->restricted_package_name = $restricted_package_name ?? "";
+    $this->silent_push = $silent_push ?? false;
+    $this->small_image_icon_url = $small_image_icon_url ?? "";
+    $this->sound = $sound ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->time_to_live = $time_to_live ?? 0;
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -3042,8 +3042,8 @@ class GPSCoordinates {
   ?'latitude' => __double,
   ?'longitude' => __double,
   ) $s = shape()) {
-    $this->latitude = $latitude ?? ;
-    $this->longitude = $longitude ?? ;
+    $this->latitude = $latitude ?? 0.0;
+    $this->longitude = $longitude ?? 0.0;
   }
 }
 
@@ -3055,8 +3055,8 @@ class GPSPointDimension {
   ?'coordinates' => GPSCoordinates,
   ?'range_in_kilometers' => __double,
   ) $s = shape()) {
-    $this->coordinates = $coordinates ?? ;
-    $this->range_in_kilometers = $range_in_kilometers ?? ;
+    $this->coordinates = $coordinates ?? null;
+    $this->range_in_kilometers = $range_in_kilometers ?? 0.0;
   }
 }
 
@@ -3066,7 +3066,7 @@ class GetAdmChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3086,7 +3086,7 @@ class GetApnsChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3106,7 +3106,7 @@ class GetApnsSandboxChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3126,7 +3126,7 @@ class GetApnsVoipChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3146,7 +3146,7 @@ class GetApnsVoipSandboxChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3166,7 +3166,7 @@ class GetAppRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3196,12 +3196,12 @@ class GetApplicationDateRangeKpiRequest {
   ?'page_size' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->kpi_name = $kpi_name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -3221,7 +3221,7 @@ class GetApplicationSettingsRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3243,8 +3243,8 @@ class GetAppsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3264,7 +3264,7 @@ class GetBaiduChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3290,10 +3290,10 @@ class GetCampaignActivitiesRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3325,13 +3325,13 @@ class GetCampaignDateRangeKpiRequest {
   ?'page_size' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->kpi_name = $kpi_name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -3353,8 +3353,8 @@ class GetCampaignRequest {
   ?'application_id' => __string,
   ?'campaign_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
   }
 }
 
@@ -3378,9 +3378,9 @@ class GetCampaignVersionRequest {
   ?'campaign_id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3406,10 +3406,10 @@ class GetCampaignVersionsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3433,9 +3433,9 @@ class GetCampaignsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3455,7 +3455,7 @@ class GetChannelsRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3475,7 +3475,7 @@ class GetEmailChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3497,8 +3497,8 @@ class GetEmailTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3520,8 +3520,8 @@ class GetEndpointRequest {
   ?'application_id' => __string,
   ?'endpoint_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->endpoint_id = $endpoint_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->endpoint_id = $endpoint_id ?? "";
   }
 }
 
@@ -3541,7 +3541,7 @@ class GetEventStreamRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3563,8 +3563,8 @@ class GetExportJobRequest {
   ?'application_id' => __string,
   ?'job_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -3588,9 +3588,9 @@ class GetExportJobsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3610,7 +3610,7 @@ class GetGcmChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -3632,8 +3632,8 @@ class GetImportJobRequest {
   ?'application_id' => __string,
   ?'job_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -3657,9 +3657,9 @@ class GetImportJobsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3691,13 +3691,13 @@ class GetJourneyDateRangeKpiRequest {
   ?'page_size' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->journey_id = $journey_id ?? "";
+    $this->kpi_name = $kpi_name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -3725,11 +3725,11 @@ class GetJourneyExecutionActivityMetricsRequest {
   ?'next_token' => __string,
   ?'page_size' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_activity_id = $journey_activity_id ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_activity_id = $journey_activity_id ?? "";
+    $this->journey_id = $journey_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
   }
 }
 
@@ -3755,10 +3755,10 @@ class GetJourneyExecutionMetricsRequest {
   ?'next_token' => __string,
   ?'page_size' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
   }
 }
 
@@ -3780,8 +3780,8 @@ class GetJourneyRequest {
   ?'application_id' => __string,
   ?'journey_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
   }
 }
 
@@ -3803,8 +3803,8 @@ class GetPushTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3824,7 +3824,7 @@ class GetRecommenderConfigurationRequest {
   public function __construct(shape(
   ?'recommender_id' => __string,
   ) $s = shape()) {
-    $this->recommender_id = $recommender_id ?? ;
+    $this->recommender_id = $recommender_id ?? "";
   }
 }
 
@@ -3846,8 +3846,8 @@ class GetRecommenderConfigurationsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3873,10 +3873,10 @@ class GetSegmentExportJobsRequest {
   ?'segment_id' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3902,10 +3902,10 @@ class GetSegmentImportJobsRequest {
   ?'segment_id' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -3927,8 +3927,8 @@ class GetSegmentRequest {
   ?'application_id' => __string,
   ?'segment_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->segment_id = $segment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->segment_id = $segment_id ?? "";
   }
 }
 
@@ -3952,9 +3952,9 @@ class GetSegmentVersionRequest {
   ?'segment_id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3980,10 +3980,10 @@ class GetSegmentVersionsRequest {
   ?'segment_id' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -4007,9 +4007,9 @@ class GetSegmentsRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -4029,7 +4029,7 @@ class GetSmsChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -4051,8 +4051,8 @@ class GetSmsTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -4074,8 +4074,8 @@ class GetUserEndpointsRequest {
   ?'application_id' => __string,
   ?'user_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -4095,7 +4095,7 @@ class GetVoiceChannelRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -4117,8 +4117,8 @@ class GetVoiceTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -4140,8 +4140,8 @@ class HoldoutActivity {
   ?'next_activity' => __string,
   ?'percentage' => __integer,
   ) $s = shape()) {
-    $this->next_activity = $next_activity ?? ;
-    $this->percentage = $percentage ?? ;
+    $this->next_activity = $next_activity ?? "";
+    $this->percentage = $percentage ?? 0;
   }
 }
 
@@ -4165,14 +4165,14 @@ class ImportJobRequest {
   ?'segment_id' => __string,
   ?'segment_name' => __string,
   ) $s = shape()) {
-    $this->define_segment = $define_segment ?? ;
-    $this->external_id = $external_id ?? ;
+    $this->define_segment = $define_segment ?? false;
+    $this->external_id = $external_id ?? "";
     $this->format = $format ?? "";
-    $this->register_endpoints = $register_endpoints ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->s_3_url = $s_3_url ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_name = $segment_name ?? ;
+    $this->register_endpoints = $register_endpoints ?? false;
+    $this->role_arn = $role_arn ?? "";
+    $this->s_3_url = $s_3_url ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_name = $segment_name ?? "";
   }
 }
 
@@ -4196,14 +4196,14 @@ class ImportJobResource {
   ?'segment_id' => __string,
   ?'segment_name' => __string,
   ) $s = shape()) {
-    $this->define_segment = $define_segment ?? ;
-    $this->external_id = $external_id ?? ;
+    $this->define_segment = $define_segment ?? false;
+    $this->external_id = $external_id ?? "";
     $this->format = $format ?? "";
-    $this->register_endpoints = $register_endpoints ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->s_3_url = $s_3_url ?? ;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_name = $segment_name ?? ;
+    $this->register_endpoints = $register_endpoints ?? false;
+    $this->role_arn = $role_arn ?? "";
+    $this->s_3_url = $s_3_url ?? "";
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_name = $segment_name ?? "";
   }
 }
 
@@ -4237,18 +4237,18 @@ class ImportJobResponse {
   ?'total_processed' => __integer,
   ?'type' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->completed_pieces = $completed_pieces ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->definition = $definition ?? ;
-    $this->failed_pieces = $failed_pieces ?? ;
-    $this->failures = $failures ?? ;
-    $this->id = $id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->completed_pieces = $completed_pieces ?? 0;
+    $this->completion_date = $completion_date ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->definition = $definition ?? null;
+    $this->failed_pieces = $failed_pieces ?? 0;
+    $this->failures = $failures ?? [];
+    $this->id = $id ?? "";
     $this->job_status = $job_status ?? "";
-    $this->total_failures = $total_failures ?? ;
-    $this->total_pieces = $total_pieces ?? ;
-    $this->total_processed = $total_processed ?? ;
+    $this->total_failures = $total_failures ?? 0;
+    $this->total_pieces = $total_pieces ?? 0;
+    $this->total_processed = $total_processed ?? 0;
     $this->type = $type ?? "";
   }
 }
@@ -4261,8 +4261,8 @@ class ImportJobsResponse {
   ?'item' => ListOfImportJobResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -4276,8 +4276,8 @@ class InternalServerErrorException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -4290,7 +4290,7 @@ class ItemResponse {
   ?'events_item_response' => MapOfEventItemResponse,
   ) $s = shape()) {
     $this->endpoint_item_response = $endpoint_item_response ?? null;
-    $this->events_item_response = $events_item_response ?? ;
+    $this->events_item_response = $events_item_response ?? [];
   }
 }
 
@@ -4314,13 +4314,13 @@ class JourneyDateRangeKpiResponse {
   ?'next_token' => __string,
   ?'start_time' => __timestampIso8601,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->kpi_name = $kpi_name ?? ;
-    $this->kpi_result = $kpi_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->journey_id = $journey_id ?? "";
+    $this->kpi_name = $kpi_name ?? "";
+    $this->kpi_result = $kpi_result ?? null;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -4330,7 +4330,7 @@ class JourneyEmailMessage {
   public function __construct(shape(
   ?'from_address' => __string,
   ) $s = shape()) {
-    $this->from_address = $from_address ?? ;
+    $this->from_address = $from_address ?? "";
   }
 }
 
@@ -4350,12 +4350,12 @@ class JourneyExecutionActivityMetricsResponse {
   ?'last_evaluated_time' => __string,
   ?'metrics' => MapOf__string,
   ) $s = shape()) {
-    $this->activity_type = $activity_type ?? ;
-    $this->application_id = $application_id ?? ;
-    $this->journey_activity_id = $journey_activity_id ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->last_evaluated_time = $last_evaluated_time ?? ;
-    $this->metrics = $metrics ?? ;
+    $this->activity_type = $activity_type ?? "";
+    $this->application_id = $application_id ?? "";
+    $this->journey_activity_id = $journey_activity_id ?? "";
+    $this->journey_id = $journey_id ?? "";
+    $this->last_evaluated_time = $last_evaluated_time ?? "";
+    $this->metrics = $metrics ?? [];
   }
 }
 
@@ -4371,10 +4371,10 @@ class JourneyExecutionMetricsResponse {
   ?'last_evaluated_time' => __string,
   ?'metrics' => MapOf__string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
-    $this->last_evaluated_time = $last_evaluated_time ?? ;
-    $this->metrics = $metrics ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
+    $this->last_evaluated_time = $last_evaluated_time ?? "";
+    $this->metrics = $metrics ?? [];
   }
 }
 
@@ -4388,9 +4388,9 @@ class JourneyLimits {
   ?'endpoint_reentry_cap' => __integer,
   ?'messages_per_second' => __integer,
   ) $s = shape()) {
-    $this->daily_cap = $daily_cap ?? ;
-    $this->endpoint_reentry_cap = $endpoint_reentry_cap ?? ;
-    $this->messages_per_second = $messages_per_second ?? ;
+    $this->daily_cap = $daily_cap ?? 0;
+    $this->endpoint_reentry_cap = $endpoint_reentry_cap ?? 0;
+    $this->messages_per_second = $messages_per_second ?? 0;
   }
 }
 
@@ -4428,21 +4428,21 @@ class JourneyResponse {
   ?'state' => State,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->activities = $activities ?? ;
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->id = $id ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->limits = $limits ?? ;
-    $this->local_time = $local_time ?? ;
-    $this->name = $name ?? ;
+    $this->activities = $activities ?? [];
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->id = $id ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->limits = $limits ?? null;
+    $this->local_time = $local_time ?? false;
+    $this->name = $name ?? "";
     $this->quiet_time = $quiet_time ?? null;
-    $this->refresh_frequency = $refresh_frequency ?? ;
+    $this->refresh_frequency = $refresh_frequency ?? "";
     $this->schedule = $schedule ?? null;
-    $this->start_activity = $start_activity ?? ;
+    $this->start_activity = $start_activity ?? "";
     $this->start_condition = $start_condition ?? null;
     $this->state = $state ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4456,9 +4456,9 @@ class JourneySchedule {
   ?'start_time' => __timestampIso8601,
   ?'timezone' => __string,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->timezone = $timezone ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->timezone = $timezone ?? "";
   }
 }
 
@@ -4480,8 +4480,8 @@ class JourneysResponse {
   ?'item' => ListOfJourneyResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -4495,9 +4495,9 @@ class ListJourneysRequest {
   ?'page_size' => __string,
   ?'token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->token = $token ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -4567,8 +4567,8 @@ class ListRecommenderConfigurationsResponse {
   ?'item' => ListOfRecommenderConfigurationResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -4578,7 +4578,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -4604,9 +4604,9 @@ class ListTemplateVersionsRequest {
   ?'template_name' => __string,
   ?'template_type' => __string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
   }
 }
@@ -4633,9 +4633,9 @@ class ListTemplatesRequest {
   ?'prefix' => __string,
   ?'template_type' => __string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
+    $this->prefix = $prefix ?? "";
     $this->template_type = $template_type ?? "";
   }
 }
@@ -4713,17 +4713,17 @@ class Message {
   ?'url' => __string,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->body = $body ?? ;
-    $this->image_icon_url = $image_icon_url ?? ;
-    $this->image_small_icon_url = $image_small_icon_url ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->json_body = $json_body ?? ;
-    $this->media_url = $media_url ?? ;
-    $this->raw_content = $raw_content ?? ;
-    $this->silent_push = $silent_push ?? ;
-    $this->time_to_live = $time_to_live ?? ;
-    $this->title = $title ?? ;
-    $this->url = $url ?? ;
+    $this->body = $body ?? "";
+    $this->image_icon_url = $image_icon_url ?? "";
+    $this->image_small_icon_url = $image_small_icon_url ?? "";
+    $this->image_url = $image_url ?? "";
+    $this->json_body = $json_body ?? "";
+    $this->media_url = $media_url ?? "";
+    $this->raw_content = $raw_content ?? "";
+    $this->silent_push = $silent_push ?? false;
+    $this->time_to_live = $time_to_live ?? 0;
+    $this->title = $title ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -4735,8 +4735,8 @@ class MessageBody {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -4763,7 +4763,7 @@ class MessageConfiguration {
     $this->adm_message = $adm_message ?? null;
     $this->apns_message = $apns_message ?? null;
     $this->baidu_message = $baidu_message ?? null;
-    $this->custom_message = $custom_message ?? ;
+    $this->custom_message = $custom_message ?? null;
     $this->default_message = $default_message ?? null;
     $this->email_message = $email_message ?? null;
     $this->gcm_message = $gcm_message ?? null;
@@ -4787,12 +4787,12 @@ class MessageRequest {
   ?'template_configuration' => TemplateConfiguration,
   ?'trace_id' => __string,
   ) $s = shape()) {
-    $this->addresses = $addresses ?? ;
-    $this->context = $context ?? ;
-    $this->endpoints = $endpoints ?? ;
+    $this->addresses = $addresses ?? [];
+    $this->context = $context ?? [];
+    $this->endpoints = $endpoints ?? [];
     $this->message_configuration = $message_configuration ?? null;
     $this->template_configuration = $template_configuration ?? null;
-    $this->trace_id = $trace_id ?? ;
+    $this->trace_id = $trace_id ?? "";
   }
 }
 
@@ -4808,10 +4808,10 @@ class MessageResponse {
   ?'request_id' => __string,
   ?'result' => MapOfMessageResult,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->endpoint_result = $endpoint_result ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->result = $result ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->endpoint_result = $endpoint_result ?? [];
+    $this->request_id = $request_id ?? "";
+    $this->result = $result ?? [];
   }
 }
 
@@ -4830,10 +4830,10 @@ class MessageResult {
   ?'updated_token' => __string,
   ) $s = shape()) {
     $this->delivery_status = $delivery_status ?? "";
-    $this->message_id = $message_id ?? ;
-    $this->status_code = $status_code ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->updated_token = $updated_token ?? ;
+    $this->message_id = $message_id ?? "";
+    $this->status_code = $status_code ?? 0;
+    $this->status_message = $status_message ?? "";
+    $this->updated_token = $updated_token ?? "";
   }
 }
 
@@ -4847,8 +4847,8 @@ class MethodNotAllowedException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -4860,8 +4860,8 @@ class MetricDimension {
   ?'comparison_operator' => __string,
   ?'value' => __double,
   ) $s = shape()) {
-    $this->comparison_operator = $comparison_operator ?? ;
-    $this->value = $value ?? ;
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -4876,7 +4876,7 @@ class MultiConditionalBranch {
   ?'next_activity' => __string,
   ) $s = shape()) {
     $this->condition = $condition ?? null;
-    $this->next_activity = $next_activity ?? ;
+    $this->next_activity = $next_activity ?? "";
   }
 }
 
@@ -4890,9 +4890,9 @@ class MultiConditionalSplitActivity {
   ?'default_activity' => __string,
   ?'evaluation_wait_time' => WaitTime,
   ) $s = shape()) {
-    $this->branches = $branches ?? ;
-    $this->default_activity = $default_activity ?? ;
-    $this->evaluation_wait_time = $evaluation_wait_time ?? ;
+    $this->branches = $branches ?? [];
+    $this->default_activity = $default_activity ?? "";
+    $this->evaluation_wait_time = $evaluation_wait_time ?? null;
   }
 }
 
@@ -4904,8 +4904,8 @@ class NotFoundException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -4917,8 +4917,8 @@ class NumberValidateRequest {
   ?'iso_country_code' => __string,
   ?'phone_number' => __string,
   ) $s = shape()) {
-    $this->iso_country_code = $iso_country_code ?? ;
-    $this->phone_number = $phone_number ?? ;
+    $this->iso_country_code = $iso_country_code ?? "";
+    $this->phone_number = $phone_number ?? "";
   }
 }
 
@@ -4954,20 +4954,20 @@ class NumberValidateResponse {
   ?'timezone' => __string,
   ?'zip_code' => __string,
   ) $s = shape()) {
-    $this->carrier = $carrier ?? ;
-    $this->city = $city ?? ;
-    $this->cleansed_phone_number_e_164 = $cleansed_phone_number_e_164 ?? ;
-    $this->cleansed_phone_number_national = $cleansed_phone_number_national ?? ;
-    $this->country = $country ?? ;
-    $this->country_code_iso_2 = $country_code_iso_2 ?? ;
-    $this->country_code_numeric = $country_code_numeric ?? ;
-    $this->county = $county ?? ;
-    $this->original_country_code_iso_2 = $original_country_code_iso_2 ?? ;
-    $this->original_phone_number = $original_phone_number ?? ;
-    $this->phone_type = $phone_type ?? ;
-    $this->phone_type_code = $phone_type_code ?? ;
-    $this->timezone = $timezone ?? ;
-    $this->zip_code = $zip_code ?? ;
+    $this->carrier = $carrier ?? "";
+    $this->city = $city ?? "";
+    $this->cleansed_phone_number_e_164 = $cleansed_phone_number_e_164 ?? "";
+    $this->cleansed_phone_number_national = $cleansed_phone_number_national ?? "";
+    $this->country = $country ?? "";
+    $this->country_code_iso_2 = $country_code_iso_2 ?? "";
+    $this->country_code_numeric = $country_code_numeric ?? "";
+    $this->county = $county ?? "";
+    $this->original_country_code_iso_2 = $original_country_code_iso_2 ?? "";
+    $this->original_phone_number = $original_phone_number ?? "";
+    $this->phone_type = $phone_type ?? "";
+    $this->phone_type_code = $phone_type_code ?? 0;
+    $this->timezone = $timezone ?? "";
+    $this->zip_code = $zip_code ?? "";
   }
 }
 
@@ -4981,8 +4981,8 @@ class PayloadTooLargeException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -5032,17 +5032,17 @@ class PublicEndpoint {
   ?'request_id' => __string,
   ?'user' => EndpointUser,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->address = $address ?? "";
+    $this->attributes = $attributes ?? [];
     $this->channel_type = $channel_type ?? "";
-    $this->demographic = $demographic ?? ;
-    $this->effective_date = $effective_date ?? ;
-    $this->endpoint_status = $endpoint_status ?? ;
-    $this->location = $location ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->opt_out = $opt_out ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->user = $user ?? ;
+    $this->demographic = $demographic ?? null;
+    $this->effective_date = $effective_date ?? "";
+    $this->endpoint_status = $endpoint_status ?? "";
+    $this->location = $location ?? null;
+    $this->metrics = $metrics ?? [];
+    $this->opt_out = $opt_out ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->user = $user ?? null;
   }
 }
 
@@ -5068,15 +5068,15 @@ class PushNotificationTemplateRequest {
   ?'template_description' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->adm = $adm ?? ;
-    $this->apns = $apns ?? ;
-    $this->baidu = $baidu ?? ;
-    $this->default = $default ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->gcm = $gcm ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->tags = $tags ?? ;
+    $this->adm = $adm ?? null;
+    $this->apns = $apns ?? null;
+    $this->baidu = $baidu ?? null;
+    $this->default = $default ?? null;
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->gcm = $gcm ?? null;
+    $this->recommender_id = $recommender_id ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5114,21 +5114,21 @@ class PushNotificationTemplateResponse {
   ?'version' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->adm = $adm ?? ;
-    $this->apns = $apns ?? ;
-    $this->arn = $arn ?? ;
-    $this->baidu = $baidu ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default = $default ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->gcm = $gcm ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->adm = $adm ?? null;
+    $this->apns = $apns ?? null;
+    $this->arn = $arn ?? "";
+    $this->baidu = $baidu ?? null;
+    $this->creation_date = $creation_date ?? "";
+    $this->default = $default ?? null;
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->gcm = $gcm ?? null;
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->recommender_id = $recommender_id ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->version = $version ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5140,7 +5140,7 @@ class PutEventStreamRequest {
   ?'application_id' => __string,
   ?'write_event_stream' => WriteEventStream,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->write_event_stream = $write_event_stream ?? null;
   }
 }
@@ -5163,7 +5163,7 @@ class PutEventsRequest {
   ?'application_id' => __string,
   ?'events_request' => EventsRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->events_request = $events_request ?? null;
   }
 }
@@ -5186,8 +5186,8 @@ class QuietTime {
   ?'end' => __string,
   ?'start' => __string,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? "";
+    $this->start = $start ?? "";
   }
 }
 
@@ -5197,7 +5197,7 @@ class RandomSplitActivity {
   public function __construct(shape(
   ?'branches' => ListOfRandomSplitEntry,
   ) $s = shape()) {
-    $this->branches = $branches ?? ;
+    $this->branches = $branches ?? [];
   }
 }
 
@@ -5209,8 +5209,8 @@ class RandomSplitEntry {
   ?'next_activity' => __string,
   ?'percentage' => __integer,
   ) $s = shape()) {
-    $this->next_activity = $next_activity ?? ;
-    $this->percentage = $percentage ?? ;
+    $this->next_activity = $next_activity ?? "";
+    $this->percentage = $percentage ?? 0;
   }
 }
 
@@ -5220,7 +5220,7 @@ class RawEmail {
   public function __construct(shape(
   ?'data' => __blob,
   ) $s = shape()) {
-    $this->data = $data ?? ;
+    $this->data = $data ?? "";
   }
 }
 
@@ -5267,18 +5267,18 @@ class RecommenderConfigurationResponse {
   ?'recommendations_display_name' => __string,
   ?'recommendations_per_message' => __integer,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->name = $name ?? ;
-    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? ;
-    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? ;
-    $this->recommendation_provider_uri = $recommendation_provider_uri ?? ;
-    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? ;
-    $this->recommendations_display_name = $recommendations_display_name ?? ;
-    $this->recommendations_per_message = $recommendations_per_message ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->creation_date = $creation_date ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->name = $name ?? "";
+    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? "";
+    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? "";
+    $this->recommendation_provider_uri = $recommendation_provider_uri ?? "";
+    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? "";
+    $this->recommendations_display_name = $recommendations_display_name ?? "";
+    $this->recommendations_per_message = $recommendations_per_message ?? 0;
   }
 }
 
@@ -5292,7 +5292,7 @@ class RemoveAttributesRequest {
   ?'attribute_type' => __string,
   ?'update_attributes_request' => UpdateAttributesRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->attribute_type = $attribute_type ?? "";
     $this->update_attributes_request = $update_attributes_request ?? null;
   }
@@ -5316,8 +5316,8 @@ class ResultRow {
   ?'grouped_bys' => ListOfResultRowValue,
   ?'values' => ListOfResultRowValue,
   ) $s = shape()) {
-    $this->grouped_bys = $grouped_bys ?? ;
-    $this->values = $values ?? ;
+    $this->grouped_bys = $grouped_bys ?? [];
+    $this->values = $values ?? [];
   }
 }
 
@@ -5331,9 +5331,9 @@ class ResultRowValue {
   ?'type' => __string,
   ?'value' => __string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->type = $type ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -5347,9 +5347,9 @@ class SMSChannelRequest {
   ?'sender_id' => __string,
   ?'short_code' => __string,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->sender_id = $sender_id ?? ;
-    $this->short_code = $short_code ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->sender_id = $sender_id ?? "";
+    $this->short_code = $short_code ?? "";
   }
 }
 
@@ -5385,20 +5385,20 @@ class SMSChannelResponse {
   ?'transactional_messages_per_second' => __integer,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->promotional_messages_per_second = $promotional_messages_per_second ?? ;
-    $this->sender_id = $sender_id ?? ;
-    $this->short_code = $short_code ?? ;
-    $this->transactional_messages_per_second = $transactional_messages_per_second ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->promotional_messages_per_second = $promotional_messages_per_second ?? 0;
+    $this->sender_id = $sender_id ?? "";
+    $this->short_code = $short_code ?? "";
+    $this->transactional_messages_per_second = $transactional_messages_per_second ?? 0;
+    $this->version = $version ?? 0;
   }
 }
 
@@ -5420,13 +5420,13 @@ class SMSMessage {
   ?'sender_id' => __string,
   ?'substitutions' => MapOfListOf__string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->keyword = $keyword ?? ;
-    $this->media_url = $media_url ?? ;
+    $this->body = $body ?? "";
+    $this->keyword = $keyword ?? "";
+    $this->media_url = $media_url ?? "";
     $this->message_type = $message_type ?? "";
-    $this->origination_number = $origination_number ?? ;
-    $this->sender_id = $sender_id ?? ;
-    $this->substitutions = $substitutions ?? ;
+    $this->origination_number = $origination_number ?? "";
+    $this->sender_id = $sender_id ?? "";
+    $this->substitutions = $substitutions ?? [];
   }
 }
 
@@ -5444,11 +5444,11 @@ class SMSTemplateRequest {
   ?'template_description' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->tags = $tags ?? ;
+    $this->body = $body ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->recommender_id = $recommender_id ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5478,17 +5478,17 @@ class SMSTemplateResponse {
   ?'version' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->body = $body ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->recommender_id = $recommender_id ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->body = $body ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->recommender_id = $recommender_id ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->version = $version ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5510,13 +5510,13 @@ class Schedule {
   ?'start_time' => __string,
   ?'timezone' => __string,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->event_filter = $event_filter ?? ;
+    $this->end_time = $end_time ?? "";
+    $this->event_filter = $event_filter ?? null;
     $this->frequency = $frequency ?? "";
-    $this->is_local_time = $is_local_time ?? ;
+    $this->is_local_time = $is_local_time ?? false;
     $this->quiet_time = $quiet_time ?? null;
-    $this->start_time = $start_time ?? ;
-    $this->timezone = $timezone ?? ;
+    $this->start_time = $start_time ?? "";
+    $this->timezone = $timezone ?? "";
   }
 }
 
@@ -5526,7 +5526,7 @@ class SegmentBehaviors {
   public function __construct(shape(
   ?'recency' => RecencyDimension,
   ) $s = shape()) {
-    $this->recency = $recency ?? ;
+    $this->recency = $recency ?? null;
   }
 }
 
@@ -5536,7 +5536,7 @@ class SegmentCondition {
   public function __construct(shape(
   ?'segment_id' => __string,
   ) $s = shape()) {
-    $this->segment_id = $segment_id ?? ;
+    $this->segment_id = $segment_id ?? "";
   }
 }
 
@@ -5556,12 +5556,12 @@ class SegmentDemographics {
   ?'model' => SetDimension,
   ?'platform' => SetDimension,
   ) $s = shape()) {
-    $this->app_version = $app_version ?? ;
-    $this->channel = $channel ?? ;
-    $this->device_type = $device_type ?? ;
-    $this->make = $make ?? ;
-    $this->model = $model ?? ;
-    $this->platform = $platform ?? ;
+    $this->app_version = $app_version ?? null;
+    $this->channel = $channel ?? null;
+    $this->device_type = $device_type ?? null;
+    $this->make = $make ?? null;
+    $this->model = $model ?? null;
+    $this->platform = $platform ?? null;
   }
 }
 
@@ -5581,12 +5581,12 @@ class SegmentDimensions {
   ?'metrics' => MapOfMetricDimension,
   ?'user_attributes' => MapOfAttributeDimension,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->behavior = $behavior ?? ;
-    $this->demographic = $demographic ?? ;
-    $this->location = $location ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->user_attributes = $user_attributes ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->behavior = $behavior ?? null;
+    $this->demographic = $demographic ?? null;
+    $this->location = $location ?? null;
+    $this->metrics = $metrics ?? [];
+    $this->user_attributes = $user_attributes ?? [];
   }
 }
 
@@ -5602,8 +5602,8 @@ class SegmentGroup {
   ?'source_type' => SourceType,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->source_segments = $source_segments ?? ;
+    $this->dimensions = $dimensions ?? [];
+    $this->source_segments = $source_segments ?? [];
     $this->source_type = $source_type ?? "";
     $this->type = $type ?? "";
   }
@@ -5617,7 +5617,7 @@ class SegmentGroupList {
   ?'groups' => ListOfSegmentGroup,
   ?'include' => Include,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
+    $this->groups = $groups ?? [];
     $this->include = $include ?? "";
   }
 }
@@ -5638,12 +5638,12 @@ class SegmentImportResource {
   ?'s_3_url' => __string,
   ?'size' => __integer,
   ) $s = shape()) {
-    $this->channel_counts = $channel_counts ?? ;
-    $this->external_id = $external_id ?? ;
+    $this->channel_counts = $channel_counts ?? [];
+    $this->external_id = $external_id ?? "";
     $this->format = $format ?? "";
-    $this->role_arn = $role_arn ?? ;
-    $this->s_3_url = $s_3_url ?? ;
-    $this->size = $size ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->s_3_url = $s_3_url ?? "";
+    $this->size = $size ?? 0;
   }
 }
 
@@ -5655,8 +5655,8 @@ class SegmentLocation {
   ?'country' => SetDimension,
   ?'gps_point' => GPSPointDimension,
   ) $s = shape()) {
-    $this->country = $country ?? ;
-    $this->gps_point = $gps_point ?? ;
+    $this->country = $country ?? null;
+    $this->gps_point = $gps_point ?? null;
   }
 }
 
@@ -5668,8 +5668,8 @@ class SegmentReference {
   ?'id' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->id = $id ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -5701,18 +5701,18 @@ class SegmentResponse {
   ?'version' => __integer,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->dimensions = $dimensions ?? ;
-    $this->id = $id ?? ;
-    $this->import_definition = $import_definition ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->name = $name ?? ;
-    $this->segment_groups = $segment_groups ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->dimensions = $dimensions ?? null;
+    $this->id = $id ?? "";
+    $this->import_definition = $import_definition ?? null;
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->name = $name ?? "";
+    $this->segment_groups = $segment_groups ?? null;
     $this->segment_type = $segment_type ?? "";
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->version = $version ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5726,8 +5726,8 @@ class SegmentsResponse {
   ?'item' => ListOfSegmentResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -5739,7 +5739,7 @@ class SendMessagesRequest {
   ?'application_id' => __string,
   ?'message_request' => MessageRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->message_request = $message_request ?? null;
   }
 }
@@ -5768,11 +5768,11 @@ class SendUsersMessageRequest {
   ?'trace_id' => __string,
   ?'users' => MapOfEndpointSendConfiguration,
   ) $s = shape()) {
-    $this->context = $context ?? ;
+    $this->context = $context ?? [];
     $this->message_configuration = $message_configuration ?? null;
     $this->template_configuration = $template_configuration ?? null;
-    $this->trace_id = $trace_id ?? ;
-    $this->users = $users ?? ;
+    $this->trace_id = $trace_id ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -5786,9 +5786,9 @@ class SendUsersMessageResponse {
   ?'request_id' => __string,
   ?'result' => MapOfMapOfEndpointMessageResult,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->request_id = $request_id ?? ;
-    $this->result = $result ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->request_id = $request_id ?? "";
+    $this->result = $result ?? [];
   }
 }
 
@@ -5800,7 +5800,7 @@ class SendUsersMessagesRequest {
   ?'application_id' => __string,
   ?'send_users_message_request' => SendUsersMessageRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->send_users_message_request = $send_users_message_request ?? null;
   }
 }
@@ -5827,10 +5827,10 @@ class Session {
   ?'start_timestamp' => __string,
   ?'stop_timestamp' => __string,
   ) $s = shape()) {
-    $this->duration = $duration ?? "";
-    $this->id = $id ?? ;
-    $this->start_timestamp = $start_timestamp ?? ;
-    $this->stop_timestamp = $stop_timestamp ?? ;
+    $this->duration = $duration ?? 0;
+    $this->id = $id ?? "";
+    $this->start_timestamp = $start_timestamp ?? "";
+    $this->stop_timestamp = $stop_timestamp ?? "";
   }
 }
 
@@ -5843,7 +5843,7 @@ class SetDimension {
   ?'values' => ListOf__string,
   ) $s = shape()) {
     $this->dimension_type = $dimension_type ?? "";
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -5873,9 +5873,9 @@ class SimpleEmail {
   ?'subject' => SimpleEmailPart,
   ?'text_part' => SimpleEmailPart,
   ) $s = shape()) {
-    $this->html_part = $html_part ?? ;
-    $this->subject = $subject ?? ;
-    $this->text_part = $text_part ?? ;
+    $this->html_part = $html_part ?? null;
+    $this->subject = $subject ?? null;
+    $this->text_part = $text_part ?? null;
   }
 }
 
@@ -5887,8 +5887,8 @@ class SimpleEmailPart {
   ?'charset' => __string,
   ?'data' => __string,
   ) $s = shape()) {
-    $this->charset = $charset ?? ;
-    $this->data = $data ?? ;
+    $this->charset = $charset ?? "";
+    $this->data = $data ?? "";
   }
 }
 
@@ -5902,8 +5902,8 @@ class StartCondition {
   ?'description' => __string,
   ?'segment_start_condition' => SegmentCondition,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->segment_start_condition = $segment_start_condition ?? ;
+    $this->description = $description ?? "";
+    $this->segment_start_condition = $segment_start_condition ?? null;
   }
 }
 
@@ -5917,7 +5917,7 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags_model' => TagsModel,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags_model = $tags_model ?? null;
   }
 }
@@ -5928,7 +5928,7 @@ class TagsModel {
   public function __construct(shape(
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -5940,8 +5940,8 @@ class Template {
   ?'name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -5951,7 +5951,7 @@ class TemplateActiveVersionRequest {
   public function __construct(shape(
   ?'version' => __string,
   ) $s = shape()) {
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -5967,10 +5967,10 @@ class TemplateConfiguration {
   ?'sms_template' => Template,
   ?'voice_template' => Template,
   ) $s = shape()) {
-    $this->email_template = $email_template ?? ;
-    $this->push_template = $push_template ?? ;
-    $this->sms_template = $sms_template ?? ;
-    $this->voice_template = $voice_template ?? ;
+    $this->email_template = $email_template ?? null;
+    $this->push_template = $push_template ?? null;
+    $this->sms_template = $sms_template ?? null;
+    $this->voice_template = $voice_template ?? null;
   }
 }
 
@@ -5996,15 +5996,15 @@ class TemplateResponse {
   ?'version' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->version = $version ?? ;
-    $this->tags = $tags ?? ;
+    $this->version = $version ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -6028,13 +6028,13 @@ class TemplateVersionResponse {
   ?'template_type' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->creation_date = $creation_date ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -6050,10 +6050,10 @@ class TemplateVersionsResponse {
   ?'next_token' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->message = $message ?? null;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->item = $item ?? [];
+    $this->message = $message ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -6065,8 +6065,8 @@ class TemplatesResponse {
   ?'item' => ListOfTemplateResponse,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->item = $item ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->item = $item ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -6078,8 +6078,8 @@ class TooManyRequestsException {
   ?'message' => __string,
   ?'request_id' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? null;
-    $this->request_id = $request_id ?? ;
+    $this->message = $message ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -6106,14 +6106,14 @@ class TreatmentResource {
   ?'treatment_name' => __string,
   ) $s = shape()) {
     $this->custom_delivery_configuration = $custom_delivery_configuration ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->message_configuration = $message_configuration ?? null;
     $this->schedule = $schedule ?? null;
-    $this->size_percent = $size_percent ?? ;
-    $this->state = $state ?? "";
+    $this->size_percent = $size_percent ?? 0;
+    $this->state = $state ?? null;
     $this->template_configuration = $template_configuration ?? null;
-    $this->treatment_description = $treatment_description ?? ;
-    $this->treatment_name = $treatment_name ?? ;
+    $this->treatment_description = $treatment_description ?? "";
+    $this->treatment_name = $treatment_name ?? "";
   }
 }
 
@@ -6127,8 +6127,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => ListOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -6141,7 +6141,7 @@ class UpdateAdmChannelRequest {
   ?'application_id' => __string,
   ) $s = shape()) {
     $this->adm_channel_request = $adm_channel_request ?? null;
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -6164,7 +6164,7 @@ class UpdateApnsChannelRequest {
   ?'application_id' => __string,
   ) $s = shape()) {
     $this->apns_channel_request = $apns_channel_request ?? null;
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -6187,7 +6187,7 @@ class UpdateApnsSandboxChannelRequest {
   ?'application_id' => __string,
   ) $s = shape()) {
     $this->apns_sandbox_channel_request = $apns_sandbox_channel_request ?? null;
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -6210,7 +6210,7 @@ class UpdateApnsVoipChannelRequest {
   ?'application_id' => __string,
   ) $s = shape()) {
     $this->apns_voip_channel_request = $apns_voip_channel_request ?? null;
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -6233,7 +6233,7 @@ class UpdateApnsVoipSandboxChannelRequest {
   ?'application_id' => __string,
   ) $s = shape()) {
     $this->apns_voip_sandbox_channel_request = $apns_voip_sandbox_channel_request ?? null;
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -6255,7 +6255,7 @@ class UpdateApplicationSettingsRequest {
   ?'application_id' => __string,
   ?'write_application_settings_request' => WriteApplicationSettingsRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->write_application_settings_request = $write_application_settings_request ?? null;
   }
 }
@@ -6276,7 +6276,7 @@ class UpdateAttributesRequest {
   public function __construct(shape(
   ?'blacklist' => ListOf__string,
   ) $s = shape()) {
-    $this->blacklist = $blacklist ?? ;
+    $this->blacklist = $blacklist ?? [];
   }
 }
 
@@ -6288,7 +6288,7 @@ class UpdateBaiduChannelRequest {
   ?'application_id' => __string,
   ?'baidu_channel_request' => BaiduChannelRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->baidu_channel_request = $baidu_channel_request ?? null;
   }
 }
@@ -6313,8 +6313,8 @@ class UpdateCampaignRequest {
   ?'campaign_id' => __string,
   ?'write_campaign_request' => WriteCampaignRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->campaign_id = $campaign_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->campaign_id = $campaign_id ?? "";
     $this->write_campaign_request = $write_campaign_request ?? null;
   }
 }
@@ -6337,7 +6337,7 @@ class UpdateEmailChannelRequest {
   ?'application_id' => __string,
   ?'email_channel_request' => EmailChannelRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->email_channel_request = $email_channel_request ?? null;
   }
 }
@@ -6364,10 +6364,10 @@ class UpdateEmailTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->create_new_version = $create_new_version ?? ;
+    $this->create_new_version = $create_new_version ?? false;
     $this->email_template_request = $email_template_request ?? null;
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -6391,8 +6391,8 @@ class UpdateEndpointRequest {
   ?'endpoint_id' => __string,
   ?'endpoint_request' => EndpointRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->endpoint_id = $endpoint_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->endpoint_id = $endpoint_id ?? "";
     $this->endpoint_request = $endpoint_request ?? null;
   }
 }
@@ -6415,7 +6415,7 @@ class UpdateEndpointsBatchRequest {
   ?'application_id' => __string,
   ?'endpoint_batch_request' => EndpointBatchRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->endpoint_batch_request = $endpoint_batch_request ?? null;
   }
 }
@@ -6438,7 +6438,7 @@ class UpdateGcmChannelRequest {
   ?'application_id' => __string,
   ?'gcm_channel_request' => GCMChannelRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->gcm_channel_request = $gcm_channel_request ?? null;
   }
 }
@@ -6463,8 +6463,8 @@ class UpdateJourneyRequest {
   ?'journey_id' => __string,
   ?'write_journey_request' => WriteJourneyRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
     $this->write_journey_request = $write_journey_request ?? null;
   }
 }
@@ -6489,8 +6489,8 @@ class UpdateJourneyStateRequest {
   ?'journey_id' => __string,
   ?'journey_state_request' => JourneyStateRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->journey_id = $journey_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->journey_id = $journey_id ?? "";
     $this->journey_state_request = $journey_state_request ?? null;
   }
 }
@@ -6517,10 +6517,10 @@ class UpdatePushTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->create_new_version = $create_new_version ?? ;
+    $this->create_new_version = $create_new_version ?? false;
     $this->push_notification_template_request = $push_notification_template_request ?? null;
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -6556,15 +6556,15 @@ class UpdateRecommenderConfiguration {
   ?'recommendations_display_name' => __string,
   ?'recommendations_per_message' => __integer,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? ;
-    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? ;
-    $this->recommendation_provider_uri = $recommendation_provider_uri ?? ;
-    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? ;
-    $this->recommendations_display_name = $recommendations_display_name ?? ;
-    $this->recommendations_per_message = $recommendations_per_message ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->recommendation_provider_id_type = $recommendation_provider_id_type ?? "";
+    $this->recommendation_provider_role_arn = $recommendation_provider_role_arn ?? "";
+    $this->recommendation_provider_uri = $recommendation_provider_uri ?? "";
+    $this->recommendation_transformer_uri = $recommendation_transformer_uri ?? "";
+    $this->recommendations_display_name = $recommendations_display_name ?? "";
+    $this->recommendations_per_message = $recommendations_per_message ?? 0;
   }
 }
 
@@ -6576,7 +6576,7 @@ class UpdateRecommenderConfigurationRequest {
   ?'recommender_id' => __string,
   ?'update_recommender_configuration' => UpdateRecommenderConfiguration,
   ) $s = shape()) {
-    $this->recommender_id = $recommender_id ?? ;
+    $this->recommender_id = $recommender_id ?? "";
     $this->update_recommender_configuration = $update_recommender_configuration ?? null;
   }
 }
@@ -6601,8 +6601,8 @@ class UpdateSegmentRequest {
   ?'segment_id' => __string,
   ?'write_segment_request' => WriteSegmentRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->segment_id = $segment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->segment_id = $segment_id ?? "";
     $this->write_segment_request = $write_segment_request ?? null;
   }
 }
@@ -6625,7 +6625,7 @@ class UpdateSmsChannelRequest {
   ?'application_id' => __string,
   ?'sms_channel_request' => SMSChannelRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->sms_channel_request = $sms_channel_request ?? null;
   }
 }
@@ -6652,10 +6652,10 @@ class UpdateSmsTemplateRequest {
   ?'template_name' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->create_new_version = $create_new_version ?? ;
+    $this->create_new_version = $create_new_version ?? false;
     $this->sms_template_request = $sms_template_request ?? null;
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -6680,7 +6680,7 @@ class UpdateTemplateActiveVersionRequest {
   ?'template_type' => __string,
   ) $s = shape()) {
     $this->template_active_version_request = $template_active_version_request ?? null;
-    $this->template_name = $template_name ?? ;
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
   }
 }
@@ -6703,7 +6703,7 @@ class UpdateVoiceChannelRequest {
   ?'application_id' => __string,
   ?'voice_channel_request' => VoiceChannelRequest,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->voice_channel_request = $voice_channel_request ?? null;
   }
 }
@@ -6730,9 +6730,9 @@ class UpdateVoiceTemplateRequest {
   ?'version' => __string,
   ?'voice_template_request' => VoiceTemplateRequest,
   ) $s = shape()) {
-    $this->create_new_version = $create_new_version ?? ;
-    $this->template_name = $template_name ?? ;
-    $this->version = $version ?? ;
+    $this->create_new_version = $create_new_version ?? false;
+    $this->template_name = $template_name ?? "";
+    $this->version = $version ?? "";
     $this->voice_template_request = $voice_template_request ?? null;
   }
 }
@@ -6753,7 +6753,7 @@ class VoiceChannelRequest {
   public function __construct(shape(
   ?'enabled' => __boolean,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -6781,16 +6781,16 @@ class VoiceChannelResponse {
   ?'platform' => __string,
   ?'version' => __integer,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->has_credential = $has_credential ?? ;
-    $this->id = $id ?? ;
-    $this->is_archived = $is_archived ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->has_credential = $has_credential ?? false;
+    $this->id = $id ?? "";
+    $this->is_archived = $is_archived ?? false;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -6808,11 +6808,11 @@ class VoiceMessage {
   ?'substitutions' => MapOfListOf__string,
   ?'voice_id' => __string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->language_code = $language_code ?? ;
-    $this->origination_number = $origination_number ?? ;
-    $this->substitutions = $substitutions ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->body = $body ?? "";
+    $this->language_code = $language_code ?? "";
+    $this->origination_number = $origination_number ?? "";
+    $this->substitutions = $substitutions ?? [];
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -6832,12 +6832,12 @@ class VoiceTemplateRequest {
   ?'voice_id' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->language_code = $language_code ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->voice_id = $voice_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->body = $body ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->language_code = $language_code ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->voice_id = $voice_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -6869,18 +6869,18 @@ class VoiceTemplateResponse {
   ?'voice_id' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->body = $body ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_substitutions = $default_substitutions ?? ;
-    $this->language_code = $language_code ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->template_description = $template_description ?? ;
-    $this->template_name = $template_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->body = $body ?? "";
+    $this->creation_date = $creation_date ?? "";
+    $this->default_substitutions = $default_substitutions ?? "";
+    $this->language_code = $language_code ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->template_description = $template_description ?? "";
+    $this->template_name = $template_name ?? "";
     $this->template_type = $template_type ?? "";
-    $this->version = $version ?? ;
-    $this->voice_id = $voice_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->version = $version ?? "";
+    $this->voice_id = $voice_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -6892,7 +6892,7 @@ class WaitActivity {
   ?'next_activity' => __string,
   ?'wait_time' => WaitTime,
   ) $s = shape()) {
-    $this->next_activity = $next_activity ?? ;
+    $this->next_activity = $next_activity ?? "";
     $this->wait_time = $wait_time ?? null;
   }
 }
@@ -6905,8 +6905,8 @@ class WaitTime {
   ?'wait_for' => __string,
   ?'wait_until' => __string,
   ) $s = shape()) {
-    $this->wait_for = $wait_for ?? ;
-    $this->wait_until = $wait_until ?? ;
+    $this->wait_for = $wait_for ?? "";
+    $this->wait_until = $wait_until ?? "";
   }
 }
 
@@ -6923,8 +6923,8 @@ class WriteApplicationSettingsRequest {
   ?'quiet_time' => QuietTime,
   ) $s = shape()) {
     $this->campaign_hook = $campaign_hook ?? null;
-    $this->cloud_watch_metrics_enabled = $cloud_watch_metrics_enabled ?? ;
-    $this->limits = $limits ?? ;
+    $this->cloud_watch_metrics_enabled = $cloud_watch_metrics_enabled ?? false;
+    $this->limits = $limits ?? null;
     $this->quiet_time = $quiet_time ?? null;
   }
 }
@@ -6965,22 +6965,22 @@ class WriteCampaignRequest {
   ?'treatment_name' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->additional_treatments = $additional_treatments ?? ;
+    $this->additional_treatments = $additional_treatments ?? [];
     $this->custom_delivery_configuration = $custom_delivery_configuration ?? null;
-    $this->description = $description ?? ;
-    $this->holdout_percent = $holdout_percent ?? ;
-    $this->hook = $hook ?? ;
-    $this->is_paused = $is_paused ?? ;
-    $this->limits = $limits ?? ;
+    $this->description = $description ?? "";
+    $this->holdout_percent = $holdout_percent ?? 0;
+    $this->hook = $hook ?? null;
+    $this->is_paused = $is_paused ?? false;
+    $this->limits = $limits ?? null;
     $this->message_configuration = $message_configuration ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->schedule = $schedule ?? null;
-    $this->segment_id = $segment_id ?? ;
-    $this->segment_version = $segment_version ?? ;
+    $this->segment_id = $segment_id ?? "";
+    $this->segment_version = $segment_version ?? 0;
     $this->template_configuration = $template_configuration ?? null;
-    $this->treatment_description = $treatment_description ?? ;
-    $this->treatment_name = $treatment_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->treatment_description = $treatment_description ?? "";
+    $this->treatment_name = $treatment_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -6992,8 +6992,8 @@ class WriteEventStream {
   ?'destination_stream_arn' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->destination_stream_arn = $destination_stream_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->destination_stream_arn = $destination_stream_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -7025,16 +7025,16 @@ class WriteJourneyRequest {
   ?'start_condition' => StartCondition,
   ?'state' => State,
   ) $s = shape()) {
-    $this->activities = $activities ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->limits = $limits ?? ;
-    $this->local_time = $local_time ?? ;
-    $this->name = $name ?? ;
+    $this->activities = $activities ?? [];
+    $this->creation_date = $creation_date ?? "";
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->limits = $limits ?? null;
+    $this->local_time = $local_time ?? false;
+    $this->name = $name ?? "";
     $this->quiet_time = $quiet_time ?? null;
-    $this->refresh_frequency = $refresh_frequency ?? ;
+    $this->refresh_frequency = $refresh_frequency ?? "";
     $this->schedule = $schedule ?? null;
-    $this->start_activity = $start_activity ?? ;
+    $this->start_activity = $start_activity ?? "";
     $this->start_condition = $start_condition ?? null;
     $this->state = $state ?? "";
   }
@@ -7052,10 +7052,10 @@ class WriteSegmentRequest {
   ?'segment_groups' => SegmentGroupList,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->name = $name ?? ;
-    $this->segment_groups = $segment_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->dimensions = $dimensions ?? null;
+    $this->name = $name ?? "";
+    $this->segment_groups = $segment_groups ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -7080,10 +7080,10 @@ class WriteTreatmentResource {
     $this->custom_delivery_configuration = $custom_delivery_configuration ?? null;
     $this->message_configuration = $message_configuration ?? null;
     $this->schedule = $schedule ?? null;
-    $this->size_percent = $size_percent ?? ;
+    $this->size_percent = $size_percent ?? 0;
     $this->template_configuration = $template_configuration ?? null;
-    $this->treatment_description = $treatment_description ?? ;
-    $this->treatment_name = $treatment_name ?? ;
+    $this->treatment_description = $treatment_description ?? "";
+    $this->treatment_name = $treatment_name ?? "";
   }
 }
 

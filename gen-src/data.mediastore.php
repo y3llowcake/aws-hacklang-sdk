@@ -15,7 +15,7 @@ class ContainerNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -29,7 +29,7 @@ class DeleteObjectRequest {
   public function __construct(shape(
   ?'path' => PathNaming,
   ) $s = shape()) {
-    $this->path = $path ?? ;
+    $this->path = $path ?? "";
   }
 }
 
@@ -46,7 +46,7 @@ class DescribeObjectRequest {
   public function __construct(shape(
   ?'path' => PathNaming,
   ) $s = shape()) {
-    $this->path = $path ?? ;
+    $this->path = $path ?? "";
   }
 }
 
@@ -64,11 +64,11 @@ class DescribeObjectResponse {
   ?'e_tag' => ETag,
   ?'last_modified' => TimeStamp,
   ) $s = shape()) {
-    $this->cache_control = $cache_control ?? ;
-    $this->content_length = $content_length ?? ;
+    $this->cache_control = $cache_control ?? "";
+    $this->content_length = $content_length ?? 0;
     $this->content_type = $content_type ?? "";
     $this->e_tag = $e_tag ?? "";
-    $this->last_modified = $last_modified ?? ;
+    $this->last_modified = $last_modified ?? 0;
   }
 }
 
@@ -84,8 +84,8 @@ class GetObjectRequest {
   ?'path' => PathNaming,
   ?'range' => RangePattern,
   ) $s = shape()) {
-    $this->path = $path ?? ;
-    $this->range = $range ?? ;
+    $this->path = $path ?? "";
+    $this->range = $range ?? "";
   }
 }
 
@@ -109,14 +109,14 @@ class GetObjectResponse {
   ?'last_modified' => TimeStamp,
   ?'status_code' => statusCode,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->cache_control = $cache_control ?? ;
-    $this->content_length = $content_length ?? ;
-    $this->content_range = $content_range ?? ;
+    $this->body = $body ?? "";
+    $this->cache_control = $cache_control ?? "";
+    $this->content_length = $content_length ?? 0;
+    $this->content_range = $content_range ?? "";
     $this->content_type = $content_type ?? "";
     $this->e_tag = $e_tag ?? "";
-    $this->last_modified = $last_modified ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->last_modified = $last_modified ?? 0;
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -126,7 +126,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -146,12 +146,12 @@ class Item {
   ?'name' => ItemName,
   ?'type' => ItemType,
   ) $s = shape()) {
-    $this->content_length = $content_length ?? ;
+    $this->content_length = $content_length ?? 0;
     $this->content_type = $content_type ?? "";
     $this->e_tag = $e_tag ?? "";
-    $this->last_modified = $last_modified ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->last_modified = $last_modified ?? 0;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -171,9 +171,9 @@ class ListItemsRequest {
   ?'next_token' => PaginationToken,
   ?'path' => ListPathNaming,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->path = $path ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -185,8 +185,8 @@ class ListItemsResponse {
   ?'items' => ItemList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->items = $items ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -202,7 +202,7 @@ class ObjectNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -228,10 +228,10 @@ class PutObjectRequest {
   ?'storage_class' => StorageClass,
   ?'upload_availability' => UploadAvailability,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->cache_control = $cache_control ?? ;
+    $this->body = $body ?? "";
+    $this->cache_control = $cache_control ?? "";
     $this->content_type = $content_type ?? "";
-    $this->path = $path ?? ;
+    $this->path = $path ?? "";
     $this->storage_class = $storage_class ?? "";
     $this->upload_availability = $upload_availability ?? "";
   }
@@ -247,7 +247,7 @@ class PutObjectResponse {
   ?'e_tag' => ETag,
   ?'storage_class' => StorageClass,
   ) $s = shape()) {
-    $this->content_sha_256 = $content_sha_256 ?? ;
+    $this->content_sha_256 = $content_sha_256 ?? "";
     $this->e_tag = $e_tag ?? "";
     $this->storage_class = $storage_class ?? "";
   }
@@ -261,7 +261,7 @@ class RequestedRangeNotSatisfiableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

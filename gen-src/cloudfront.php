@@ -55,7 +55,7 @@ class AccessDenied {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -69,9 +69,9 @@ class ActiveTrustedSigners {
   ?'items' => SignerList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -83,7 +83,7 @@ class AliasICPRecordal {
   ?'cname' => string,
   ?'icp_recordal_status' => ICPRecordalStatus,
   ) $s = shape()) {
-    $this->cname = $cname ?? ;
+    $this->cname = $cname ?? "";
     $this->icp_recordal_status = $icp_recordal_status ?? "";
   }
 }
@@ -100,8 +100,8 @@ class Aliases {
   ?'items' => AliasList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -116,8 +116,8 @@ class AllowedMethods {
   ?'quantity' => integer,
   ) $s = shape()) {
     $this->cached_methods = $cached_methods ?? null;
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -129,7 +129,7 @@ class BatchTooLarge {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -139,7 +139,7 @@ class CNAMEAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -174,16 +174,16 @@ class CacheBehavior {
   ?'viewer_protocol_policy' => ViewerProtocolPolicy,
   ) $s = shape()) {
     $this->allowed_methods = $allowed_methods ?? null;
-    $this->compress = $compress ?? ;
-    $this->default_ttl = $default_ttl ?? ;
-    $this->field_level_encryption_id = $field_level_encryption_id ?? ;
+    $this->compress = $compress ?? false;
+    $this->default_ttl = $default_ttl ?? 0;
+    $this->field_level_encryption_id = $field_level_encryption_id ?? "";
     $this->forwarded_values = $forwarded_values ?? null;
     $this->lambda_function_associations = $lambda_function_associations ?? null;
-    $this->max_ttl = $max_ttl ?? ;
-    $this->min_ttl = $min_ttl ?? ;
-    $this->path_pattern = $path_pattern ?? ;
-    $this->smooth_streaming = $smooth_streaming ?? ;
-    $this->target_origin_id = $target_origin_id ?? ;
+    $this->max_ttl = $max_ttl ?? 0;
+    $this->min_ttl = $min_ttl ?? 0;
+    $this->path_pattern = $path_pattern ?? "";
+    $this->smooth_streaming = $smooth_streaming ?? false;
+    $this->target_origin_id = $target_origin_id ?? "";
     $this->trusted_signers = $trusted_signers ?? null;
     $this->viewer_protocol_policy = $viewer_protocol_policy ?? "";
   }
@@ -199,8 +199,8 @@ class CacheBehaviors {
   ?'items' => CacheBehaviorList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -212,8 +212,8 @@ class CachedMethods {
   ?'items' => MethodsList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -223,7 +223,7 @@ class CannotChangeImmutablePublicKeyFields {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -240,8 +240,8 @@ class CloudFrontOriginAccessIdentity {
   ?'s_3_canonical_user_id' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity_config = $cloud_front_origin_access_identity_config ?? null;
-    $this->id = $id ?? ;
-    $this->s_3_canonical_user_id = $s_3_canonical_user_id ?? ;
+    $this->id = $id ?? "";
+    $this->s_3_canonical_user_id = $s_3_canonical_user_id ?? "";
   }
 }
 
@@ -251,7 +251,7 @@ class CloudFrontOriginAccessIdentityAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -263,8 +263,8 @@ class CloudFrontOriginAccessIdentityConfig {
   ?'caller_reference' => string,
   ?'comment' => string,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
   }
 }
 
@@ -274,7 +274,7 @@ class CloudFrontOriginAccessIdentityInUse {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -294,12 +294,12 @@ class CloudFrontOriginAccessIdentityList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->items = $items ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->items = $items ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -313,9 +313,9 @@ class CloudFrontOriginAccessIdentitySummary {
   ?'id' => string,
   ?'s_3_canonical_user_id' => string,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->id = $id ?? ;
-    $this->s_3_canonical_user_id = $s_3_canonical_user_id ?? ;
+    $this->comment = $comment ?? "";
+    $this->id = $id ?? "";
+    $this->s_3_canonical_user_id = $s_3_canonical_user_id ?? "";
   }
 }
 
@@ -333,9 +333,9 @@ class ContentTypeProfile {
   ?'format' => Format,
   ?'profile_id' => string,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
+    $this->content_type = $content_type ?? "";
     $this->format = $format ?? "";
-    $this->profile_id = $profile_id ?? ;
+    $this->profile_id = $profile_id ?? "";
   }
 }
 
@@ -348,7 +348,7 @@ class ContentTypeProfileConfig {
   ?'forward_when_content_type_is_unknown' => boolean,
   ) $s = shape()) {
     $this->content_type_profiles = $content_type_profiles ?? null;
-    $this->forward_when_content_type_is_unknown = $forward_when_content_type_is_unknown ?? ;
+    $this->forward_when_content_type_is_unknown = $forward_when_content_type_is_unknown ?? false;
   }
 }
 
@@ -362,8 +362,8 @@ class ContentTypeProfiles {
   ?'items' => ContentTypeProfileList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -377,8 +377,8 @@ class CookieNames {
   ?'items' => CookieNameList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -390,8 +390,8 @@ class CookiePreference {
   ?'forward' => ItemSelection,
   ?'whitelisted_names' => CookieNames,
   ) $s = shape()) {
-    $this->forward = $forward ?? ;
-    $this->whitelisted_names = $whitelisted_names ?? ;
+    $this->forward = $forward ?? "";
+    $this->whitelisted_names = $whitelisted_names ?? null;
   }
 }
 
@@ -416,8 +416,8 @@ class CreateCloudFrontOriginAccessIdentityResult {
   ?'location' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity = $cloud_front_origin_access_identity ?? null;
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
   }
 }
 
@@ -442,8 +442,8 @@ class CreateDistributionResult {
   ?'location' => string,
   ) $s = shape()) {
     $this->distribution = $distribution ?? null;
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
   }
 }
 
@@ -468,8 +468,8 @@ class CreateDistributionWithTagsResult {
   ?'location' => string,
   ) $s = shape()) {
     $this->distribution = $distribution ?? null;
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
   }
 }
 
@@ -493,9 +493,9 @@ class CreateFieldLevelEncryptionConfigResult {
   ?'field_level_encryption' => FieldLevelEncryption,
   ?'location' => string,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption = $field_level_encryption ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -519,9 +519,9 @@ class CreateFieldLevelEncryptionProfileResult {
   ?'field_level_encryption_profile' => FieldLevelEncryptionProfile,
   ?'location' => string,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption_profile = $field_level_encryption_profile ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -533,7 +533,7 @@ class CreateInvalidationRequest {
   ?'distribution_id' => string,
   ?'invalidation_batch' => InvalidationBatch,
   ) $s = shape()) {
-    $this->distribution_id = $distribution_id ?? ;
+    $this->distribution_id = $distribution_id ?? "";
     $this->invalidation_batch = $invalidation_batch ?? null;
   }
 }
@@ -547,7 +547,7 @@ class CreateInvalidationResult {
   ?'location' => string,
   ) $s = shape()) {
     $this->invalidation = $invalidation ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -571,8 +571,8 @@ class CreatePublicKeyResult {
   ?'location' => string,
   ?'public_key' => PublicKey,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
     $this->public_key = $public_key ?? null;
   }
 }
@@ -597,8 +597,8 @@ class CreateStreamingDistributionResult {
   ?'location' => string,
   ?'streaming_distribution' => StreamingDistribution,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
     $this->streaming_distribution = $streaming_distribution ?? null;
   }
 }
@@ -623,8 +623,8 @@ class CreateStreamingDistributionWithTagsResult {
   ?'location' => string,
   ?'streaming_distribution' => StreamingDistribution,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
-    $this->location = $location ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->location = $location ?? "";
     $this->streaming_distribution = $streaming_distribution ?? null;
   }
 }
@@ -641,10 +641,10 @@ class CustomErrorResponse {
   ?'response_code' => string,
   ?'response_page_path' => string,
   ) $s = shape()) {
-    $this->error_caching_min_ttl = $error_caching_min_ttl ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->response_code = $response_code ?? ;
-    $this->response_page_path = $response_page_path ?? ;
+    $this->error_caching_min_ttl = $error_caching_min_ttl ?? 0;
+    $this->error_code = $error_code ?? 0;
+    $this->response_code = $response_code ?? "";
+    $this->response_page_path = $response_page_path ?? "";
   }
 }
 
@@ -658,8 +658,8 @@ class CustomErrorResponses {
   ?'items' => CustomErrorResponseList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -671,8 +671,8 @@ class CustomHeaders {
   ?'items' => OriginCustomHeadersList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -692,11 +692,11 @@ class CustomOriginConfig {
   ?'origin_read_timeout' => integer,
   ?'origin_ssl_protocols' => OriginSslProtocols,
   ) $s = shape()) {
-    $this->http_port = $http_port ?? ;
-    $this->https_port = $https_port ?? ;
-    $this->origin_keepalive_timeout = $origin_keepalive_timeout ?? ;
+    $this->http_port = $http_port ?? 0;
+    $this->https_port = $https_port ?? 0;
+    $this->origin_keepalive_timeout = $origin_keepalive_timeout ?? 0;
     $this->origin_protocol_policy = $origin_protocol_policy ?? "";
-    $this->origin_read_timeout = $origin_read_timeout ?? ;
+    $this->origin_read_timeout = $origin_read_timeout ?? 0;
     $this->origin_ssl_protocols = $origin_ssl_protocols ?? null;
   }
 }
@@ -730,15 +730,15 @@ class DefaultCacheBehavior {
   ?'viewer_protocol_policy' => ViewerProtocolPolicy,
   ) $s = shape()) {
     $this->allowed_methods = $allowed_methods ?? null;
-    $this->compress = $compress ?? ;
-    $this->default_ttl = $default_ttl ?? ;
-    $this->field_level_encryption_id = $field_level_encryption_id ?? ;
+    $this->compress = $compress ?? false;
+    $this->default_ttl = $default_ttl ?? 0;
+    $this->field_level_encryption_id = $field_level_encryption_id ?? "";
     $this->forwarded_values = $forwarded_values ?? null;
     $this->lambda_function_associations = $lambda_function_associations ?? null;
-    $this->max_ttl = $max_ttl ?? ;
-    $this->min_ttl = $min_ttl ?? ;
-    $this->smooth_streaming = $smooth_streaming ?? ;
-    $this->target_origin_id = $target_origin_id ?? ;
+    $this->max_ttl = $max_ttl ?? 0;
+    $this->min_ttl = $min_ttl ?? 0;
+    $this->smooth_streaming = $smooth_streaming ?? false;
+    $this->target_origin_id = $target_origin_id ?? "";
     $this->trusted_signers = $trusted_signers ?? null;
     $this->viewer_protocol_policy = $viewer_protocol_policy ?? "";
   }
@@ -752,8 +752,8 @@ class DeleteCloudFrontOriginAccessIdentityRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -765,8 +765,8 @@ class DeleteDistributionRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -778,8 +778,8 @@ class DeleteFieldLevelEncryptionConfigRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -791,8 +791,8 @@ class DeleteFieldLevelEncryptionProfileRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -804,8 +804,8 @@ class DeletePublicKeyRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -817,8 +817,8 @@ class DeleteStreamingDistributionRequest {
   ?'id' => string,
   ?'if_match' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -844,15 +844,15 @@ class Distribution {
   ?'last_modified_time' => timestamp,
   ?'status' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->active_trusted_signers = $active_trusted_signers ?? null;
     $this->alias_icp_recordals = $alias_icp_recordals ?? [];
     $this->distribution_config = $distribution_config ?? null;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
-    $this->in_progress_invalidation_batches = $in_progress_invalidation_batches ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
-    $this->status = $status ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
+    $this->in_progress_invalidation_batches = $in_progress_invalidation_batches ?? 0;
+    $this->last_modified_time = $last_modified_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -862,7 +862,7 @@ class DistributionAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -906,21 +906,21 @@ class DistributionConfig {
   ) $s = shape()) {
     $this->aliases = $aliases ?? null;
     $this->cache_behaviors = $cache_behaviors ?? null;
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
     $this->custom_error_responses = $custom_error_responses ?? null;
     $this->default_cache_behavior = $default_cache_behavior ?? null;
-    $this->default_root_object = $default_root_object ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->default_root_object = $default_root_object ?? "";
+    $this->enabled = $enabled ?? false;
     $this->http_version = $http_version ?? "";
-    $this->is_ipv_6_enabled = $is_ipv_6_enabled ?? ;
-    $this->logging = $logging ?? ;
+    $this->is_ipv_6_enabled = $is_ipv_6_enabled ?? false;
+    $this->logging = $logging ?? null;
     $this->origin_groups = $origin_groups ?? null;
     $this->origins = $origins ?? null;
     $this->price_class = $price_class ?? "";
     $this->restrictions = $restrictions ?? null;
     $this->viewer_certificate = $viewer_certificate ?? null;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -953,12 +953,12 @@ class DistributionList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->items = $items ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->items = $items ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -968,7 +968,7 @@ class DistributionNotDisabled {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1016,26 +1016,26 @@ class DistributionSummary {
   ?'viewer_certificate' => ViewerCertificate,
   ?'web_acl_id' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->alias_icp_recordals = $alias_icp_recordals ?? [];
     $this->aliases = $aliases ?? null;
     $this->cache_behaviors = $cache_behaviors ?? null;
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? "";
     $this->custom_error_responses = $custom_error_responses ?? null;
     $this->default_cache_behavior = $default_cache_behavior ?? null;
-    $this->domain_name = $domain_name ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->enabled = $enabled ?? false;
     $this->http_version = $http_version ?? "";
-    $this->id = $id ?? ;
-    $this->is_ipv_6_enabled = $is_ipv_6_enabled ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->id = $id ?? "";
+    $this->is_ipv_6_enabled = $is_ipv_6_enabled ?? false;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->origin_groups = $origin_groups ?? null;
     $this->origins = $origins ?? null;
     $this->price_class = $price_class ?? "";
     $this->restrictions = $restrictions ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->viewer_certificate = $viewer_certificate ?? null;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -1049,8 +1049,8 @@ class EncryptionEntities {
   ?'items' => EncryptionEntityList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1065,8 +1065,8 @@ class EncryptionEntity {
   ?'public_key_id' => string,
   ) $s = shape()) {
     $this->field_patterns = $field_patterns ?? null;
-    $this->provider_id = $provider_id ?? ;
-    $this->public_key_id = $public_key_id ?? ;
+    $this->provider_id = $provider_id ?? "";
+    $this->public_key_id = $public_key_id ?? "";
   }
 }
 
@@ -1085,8 +1085,8 @@ class FieldLevelEncryption {
   ?'last_modified_time' => timestamp,
   ) $s = shape()) {
     $this->field_level_encryption_config = $field_level_encryption_config ?? null;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
   }
 }
 
@@ -1102,8 +1102,8 @@ class FieldLevelEncryptionConfig {
   ?'content_type_profile_config' => ContentTypeProfileConfig,
   ?'query_arg_profile_config' => QueryArgProfileConfig,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
     $this->content_type_profile_config = $content_type_profile_config ?? null;
     $this->query_arg_profile_config = $query_arg_profile_config ?? null;
   }
@@ -1115,7 +1115,7 @@ class FieldLevelEncryptionConfigAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1125,7 +1125,7 @@ class FieldLevelEncryptionConfigInUse {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1141,10 +1141,10 @@ class FieldLevelEncryptionList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1159,8 +1159,8 @@ class FieldLevelEncryptionProfile {
   ?'last_modified_time' => timestamp,
   ) $s = shape()) {
     $this->field_level_encryption_profile_config = $field_level_encryption_profile_config ?? null;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
   }
 }
 
@@ -1170,7 +1170,7 @@ class FieldLevelEncryptionProfileAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1186,10 +1186,10 @@ class FieldLevelEncryptionProfileConfig {
   ?'encryption_entities' => EncryptionEntities,
   ?'name' => string,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
     $this->encryption_entities = $encryption_entities ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1199,7 +1199,7 @@ class FieldLevelEncryptionProfileInUse {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1215,10 +1215,10 @@ class FieldLevelEncryptionProfileList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1228,7 +1228,7 @@ class FieldLevelEncryptionProfileSizeExceeded {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1246,11 +1246,11 @@ class FieldLevelEncryptionProfileSummary {
   ?'last_modified_time' => timestamp,
   ?'name' => string,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? "";
     $this->encryption_entities = $encryption_entities ?? null;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1270,10 +1270,10 @@ class FieldLevelEncryptionSummary {
   ?'last_modified_time' => timestamp,
   ?'query_arg_profile_config' => QueryArgProfileConfig,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? "";
     $this->content_type_profile_config = $content_type_profile_config ?? null;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->query_arg_profile_config = $query_arg_profile_config ?? null;
   }
 }
@@ -1290,8 +1290,8 @@ class FieldPatterns {
   ?'items' => FieldPatternList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1309,9 +1309,9 @@ class ForwardedValues {
   ?'query_string' => boolean,
   ?'query_string_cache_keys' => QueryStringCacheKeys,
   ) $s = shape()) {
-    $this->cookies = $cookies ?? ;
+    $this->cookies = $cookies ?? null;
     $this->headers = $headers ?? null;
-    $this->query_string = $query_string ?? ;
+    $this->query_string = $query_string ?? false;
     $this->query_string_cache_keys = $query_string_cache_keys ?? null;
   }
 }
@@ -1326,9 +1326,9 @@ class GeoRestriction {
   ?'quantity' => integer,
   ?'restriction_type' => GeoRestrictionType,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
-    $this->restriction_type = $restriction_type ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
+    $this->restriction_type = $restriction_type ?? "";
   }
 }
 
@@ -1340,7 +1340,7 @@ class GetCloudFrontOriginAccessIdentityConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1353,7 +1353,7 @@ class GetCloudFrontOriginAccessIdentityConfigResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity_config = $cloud_front_origin_access_identity_config ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -1363,7 +1363,7 @@ class GetCloudFrontOriginAccessIdentityRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1376,7 +1376,7 @@ class GetCloudFrontOriginAccessIdentityResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity = $cloud_front_origin_access_identity ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -1386,7 +1386,7 @@ class GetDistributionConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1399,7 +1399,7 @@ class GetDistributionConfigResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->distribution_config = $distribution_config ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -1409,7 +1409,7 @@ class GetDistributionRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1422,7 +1422,7 @@ class GetDistributionResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->distribution = $distribution ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -1432,7 +1432,7 @@ class GetFieldLevelEncryptionConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1444,7 +1444,7 @@ class GetFieldLevelEncryptionConfigResult {
   ?'e_tag' => string,
   ?'field_level_encryption_config' => FieldLevelEncryptionConfig,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption_config = $field_level_encryption_config ?? null;
   }
 }
@@ -1455,7 +1455,7 @@ class GetFieldLevelEncryptionProfileConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1467,7 +1467,7 @@ class GetFieldLevelEncryptionProfileConfigResult {
   ?'e_tag' => string,
   ?'field_level_encryption_profile_config' => FieldLevelEncryptionProfileConfig,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption_profile_config = $field_level_encryption_profile_config ?? null;
   }
 }
@@ -1478,7 +1478,7 @@ class GetFieldLevelEncryptionProfileRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1490,7 +1490,7 @@ class GetFieldLevelEncryptionProfileResult {
   ?'e_tag' => string,
   ?'field_level_encryption_profile' => FieldLevelEncryptionProfile,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption_profile = $field_level_encryption_profile ?? null;
   }
 }
@@ -1501,7 +1501,7 @@ class GetFieldLevelEncryptionRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1513,7 +1513,7 @@ class GetFieldLevelEncryptionResult {
   ?'e_tag' => string,
   ?'field_level_encryption' => FieldLevelEncryption,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption = $field_level_encryption ?? null;
   }
 }
@@ -1526,8 +1526,8 @@ class GetInvalidationRequest {
   ?'distribution_id' => string,
   ?'id' => string,
   ) $s = shape()) {
-    $this->distribution_id = $distribution_id ?? ;
-    $this->id = $id ?? ;
+    $this->distribution_id = $distribution_id ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1547,7 +1547,7 @@ class GetPublicKeyConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1559,7 +1559,7 @@ class GetPublicKeyConfigResult {
   ?'e_tag' => string,
   ?'public_key_config' => PublicKeyConfig,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->public_key_config = $public_key_config ?? null;
   }
 }
@@ -1570,7 +1570,7 @@ class GetPublicKeyRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1582,7 +1582,7 @@ class GetPublicKeyResult {
   ?'e_tag' => string,
   ?'public_key' => PublicKey,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->public_key = $public_key ?? null;
   }
 }
@@ -1593,7 +1593,7 @@ class GetStreamingDistributionConfigRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1605,7 +1605,7 @@ class GetStreamingDistributionConfigResult {
   ?'e_tag' => string,
   ?'streaming_distribution_config' => StreamingDistributionConfig,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->streaming_distribution_config = $streaming_distribution_config ?? null;
   }
 }
@@ -1616,7 +1616,7 @@ class GetStreamingDistributionRequest {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1628,7 +1628,7 @@ class GetStreamingDistributionResult {
   ?'e_tag' => string,
   ?'streaming_distribution' => StreamingDistribution,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->streaming_distribution = $streaming_distribution ?? null;
   }
 }
@@ -1643,8 +1643,8 @@ class Headers {
   ?'items' => HeaderList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1658,7 +1658,7 @@ class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1668,7 +1668,7 @@ class IllegalUpdate {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1678,7 +1678,7 @@ class InconsistentQuantities {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1688,7 +1688,7 @@ class InvalidArgument {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1698,7 +1698,7 @@ class InvalidDefaultRootObject {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1708,7 +1708,7 @@ class InvalidErrorCode {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1718,7 +1718,7 @@ class InvalidForwardCookies {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1728,7 +1728,7 @@ class InvalidGeoRestrictionParameter {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1738,7 +1738,7 @@ class InvalidHeadersForS3Origin {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1748,7 +1748,7 @@ class InvalidIfMatchVersion {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1758,7 +1758,7 @@ class InvalidLambdaFunctionAssociation {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1768,7 +1768,7 @@ class InvalidLocationCode {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1778,7 +1778,7 @@ class InvalidMinimumProtocolVersion {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1788,7 +1788,7 @@ class InvalidOrigin {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1798,7 +1798,7 @@ class InvalidOriginAccessIdentity {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1808,7 +1808,7 @@ class InvalidOriginKeepaliveTimeout {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1818,7 +1818,7 @@ class InvalidOriginReadTimeout {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1828,7 +1828,7 @@ class InvalidProtocolSettings {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1838,7 +1838,7 @@ class InvalidQueryStringParameters {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1848,7 +1848,7 @@ class InvalidRelativePath {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1858,7 +1858,7 @@ class InvalidRequiredProtocol {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1868,7 +1868,7 @@ class InvalidResponseCode {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1878,7 +1878,7 @@ class InvalidTTLOrder {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1888,7 +1888,7 @@ class InvalidTagging {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1898,7 +1898,7 @@ class InvalidViewerCertificate {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1908,7 +1908,7 @@ class InvalidWebACLId {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1924,10 +1924,10 @@ class Invalidation {
   ?'invalidation_batch' => InvalidationBatch,
   ?'status' => string,
   ) $s = shape()) {
-    $this->create_time = $create_time ?? ;
-    $this->id = $id ?? ;
+    $this->create_time = $create_time ?? 0;
+    $this->id = $id ?? "";
     $this->invalidation_batch = $invalidation_batch ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1939,7 +1939,7 @@ class InvalidationBatch {
   ?'caller_reference' => string,
   ?'paths' => Paths,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
+    $this->caller_reference = $caller_reference ?? "";
     $this->paths = $paths ?? null;
   }
 }
@@ -1960,12 +1960,12 @@ class InvalidationList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->items = $items ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->items = $items ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -1979,9 +1979,9 @@ class InvalidationSummary {
   ?'id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->create_time = $create_time ?? ;
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
+    $this->create_time = $create_time ?? 0;
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1999,8 +1999,8 @@ class KeyPairIds {
   ?'items' => KeyPairIdList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2017,7 +2017,7 @@ class LambdaFunctionAssociation {
   ?'lambda_function_arn' => LambdaFunctionARN,
   ) $s = shape()) {
     $this->event_type = $event_type ?? "";
-    $this->include_body = $include_body ?? ;
+    $this->include_body = $include_body ?? false;
     $this->lambda_function_arn = $lambda_function_arn ?? "";
   }
 }
@@ -2032,8 +2032,8 @@ class LambdaFunctionAssociations {
   ?'items' => LambdaFunctionAssociationList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2045,8 +2045,8 @@ class ListCloudFrontOriginAccessIdentitiesRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2070,9 +2070,9 @@ class ListDistributionsByWebACLIdRequest {
   ?'max_items' => string,
   ?'web_acl_id' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -2094,8 +2094,8 @@ class ListDistributionsRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2117,8 +2117,8 @@ class ListFieldLevelEncryptionConfigsRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2140,8 +2140,8 @@ class ListFieldLevelEncryptionProfilesRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2165,9 +2165,9 @@ class ListInvalidationsRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->distribution_id = $distribution_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->distribution_id = $distribution_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2189,8 +2189,8 @@ class ListPublicKeysRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2212,8 +2212,8 @@ class ListStreamingDistributionsRequest {
   ?'marker' => string,
   ?'max_items' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -2233,7 +2233,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource' => ResourceARN,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
   }
 }
 
@@ -2261,10 +2261,10 @@ class LoggingConfig {
   ?'include_cookies' => boolean,
   ?'prefix' => string,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->include_cookies = $include_cookies ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->include_cookies = $include_cookies ?? false;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -2280,7 +2280,7 @@ class MissingBody {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2290,7 +2290,7 @@ class NoSuchCloudFrontOriginAccessIdentity {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2300,7 +2300,7 @@ class NoSuchDistribution {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2310,7 +2310,7 @@ class NoSuchFieldLevelEncryptionConfig {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2320,7 +2320,7 @@ class NoSuchFieldLevelEncryptionProfile {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2330,7 +2330,7 @@ class NoSuchInvalidation {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2340,7 +2340,7 @@ class NoSuchOrigin {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2350,7 +2350,7 @@ class NoSuchPublicKey {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2360,7 +2360,7 @@ class NoSuchResource {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2370,7 +2370,7 @@ class NoSuchStreamingDistribution {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2392,9 +2392,9 @@ class Origin {
   ) $s = shape()) {
     $this->custom_headers = $custom_headers ?? null;
     $this->custom_origin_config = $custom_origin_config ?? null;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
-    $this->origin_path = $origin_path ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
+    $this->origin_path = $origin_path ?? "";
     $this->s_3_origin_config = $s_3_origin_config ?? null;
   }
 }
@@ -2407,8 +2407,8 @@ class OriginCustomHeader {
   ?'header_name' => string,
   ?'header_value' => string,
   ) $s = shape()) {
-    $this->header_name = $header_name ?? ;
-    $this->header_value = $header_value ?? ;
+    $this->header_name = $header_name ?? "";
+    $this->header_value = $header_value ?? "";
   }
 }
 
@@ -2424,9 +2424,9 @@ class OriginGroup {
   ?'id' => string,
   ?'members' => OriginGroupMembers,
   ) $s = shape()) {
-    $this->failover_criteria = $failover_criteria ?? ;
-    $this->id = $id ?? ;
-    $this->members = $members ?? ;
+    $this->failover_criteria = $failover_criteria ?? null;
+    $this->id = $id ?? "";
+    $this->members = $members ?? null;
   }
 }
 
@@ -2448,7 +2448,7 @@ class OriginGroupMember {
   public function __construct(shape(
   ?'origin_id' => string,
   ) $s = shape()) {
-    $this->origin_id = $origin_id ?? ;
+    $this->origin_id = $origin_id ?? "";
   }
 }
 
@@ -2462,8 +2462,8 @@ class OriginGroupMembers {
   ?'items' => OriginGroupMemberList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2475,8 +2475,8 @@ class OriginGroups {
   ?'items' => OriginGroupList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2492,8 +2492,8 @@ class OriginSslProtocols {
   ?'items' => SslProtocolsList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2505,8 +2505,8 @@ class Origins {
   ?'items' => OriginList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2520,8 +2520,8 @@ class Paths {
   ?'items' => PathList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2531,7 +2531,7 @@ class PreconditionFailed {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2547,8 +2547,8 @@ class PublicKey {
   ?'id' => string,
   ?'public_key_config' => PublicKeyConfig,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
-    $this->id = $id ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->id = $id ?? "";
     $this->public_key_config = $public_key_config ?? null;
   }
 }
@@ -2559,7 +2559,7 @@ class PublicKeyAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2575,10 +2575,10 @@ class PublicKeyConfig {
   ?'encoded_key' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
-    $this->encoded_key = $encoded_key ?? ;
-    $this->name = $name ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
+    $this->encoded_key = $encoded_key ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2588,7 +2588,7 @@ class PublicKeyInUse {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2604,10 +2604,10 @@ class PublicKeyList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2625,11 +2625,11 @@ class PublicKeySummary {
   ?'id' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->created_time = $created_time ?? ;
-    $this->encoded_key = $encoded_key ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->comment = $comment ?? "";
+    $this->created_time = $created_time ?? 0;
+    $this->encoded_key = $encoded_key ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2643,8 +2643,8 @@ class QueryArgProfile {
   ?'profile_id' => string,
   ?'query_arg' => string,
   ) $s = shape()) {
-    $this->profile_id = $profile_id ?? ;
-    $this->query_arg = $query_arg ?? ;
+    $this->profile_id = $profile_id ?? "";
+    $this->query_arg = $query_arg ?? "";
   }
 }
 
@@ -2656,7 +2656,7 @@ class QueryArgProfileConfig {
   ?'forward_when_query_arg_profile_is_unknown' => boolean,
   ?'query_arg_profiles' => QueryArgProfiles,
   ) $s = shape()) {
-    $this->forward_when_query_arg_profile_is_unknown = $forward_when_query_arg_profile_is_unknown ?? ;
+    $this->forward_when_query_arg_profile_is_unknown = $forward_when_query_arg_profile_is_unknown ?? false;
     $this->query_arg_profiles = $query_arg_profiles ?? null;
   }
 }
@@ -2667,7 +2667,7 @@ class QueryArgProfileEmpty {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2681,8 +2681,8 @@ class QueryArgProfiles {
   ?'items' => QueryArgProfileList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2694,8 +2694,8 @@ class QueryStringCacheKeys {
   ?'items' => QueryStringCacheKeysList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2721,8 +2721,8 @@ class S3Origin {
   ?'domain_name' => string,
   ?'origin_access_identity' => string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->origin_access_identity = $origin_access_identity ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->origin_access_identity = $origin_access_identity ?? "";
   }
 }
 
@@ -2732,7 +2732,7 @@ class S3OriginConfig {
   public function __construct(shape(
   ?'origin_access_identity' => string,
   ) $s = shape()) {
-    $this->origin_access_identity = $origin_access_identity ?? ;
+    $this->origin_access_identity = $origin_access_identity ?? "";
   }
 }
 
@@ -2746,7 +2746,7 @@ class Signer {
   ?'aws_account_number' => string,
   ?'key_pair_ids' => KeyPairIds,
   ) $s = shape()) {
-    $this->aws_account_number = $aws_account_number ?? ;
+    $this->aws_account_number = $aws_account_number ?? "";
     $this->key_pair_ids = $key_pair_ids ?? null;
   }
 }
@@ -2767,8 +2767,8 @@ class StatusCodes {
   ?'items' => StatusCodeList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2790,12 +2790,12 @@ class StreamingDistribution {
   ?'status' => string,
   ?'streaming_distribution_config' => StreamingDistributionConfig,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->active_trusted_signers = $active_trusted_signers ?? null;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
-    $this->status = $status ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
+    $this->status = $status ?? "";
     $this->streaming_distribution_config = $streaming_distribution_config ?? null;
   }
 }
@@ -2806,7 +2806,7 @@ class StreamingDistributionAlreadyExists {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2831,10 +2831,10 @@ class StreamingDistributionConfig {
   ?'trusted_signers' => TrustedSigners,
   ) $s = shape()) {
     $this->aliases = $aliases ?? null;
-    $this->caller_reference = $caller_reference ?? ;
-    $this->comment = $comment ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->logging = $logging ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->comment = $comment ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->logging = $logging ?? null;
     $this->price_class = $price_class ?? "";
     $this->s_3_origin = $s_3_origin ?? null;
     $this->trusted_signers = $trusted_signers ?? null;
@@ -2870,12 +2870,12 @@ class StreamingDistributionList {
   ?'next_marker' => string,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->items = $items ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->items = $items ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->next_marker = $next_marker ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2885,7 +2885,7 @@ class StreamingDistributionNotDisabled {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2915,16 +2915,16 @@ class StreamingDistributionSummary {
   ?'status' => string,
   ?'trusted_signers' => TrustedSigners,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->aliases = $aliases ?? null;
-    $this->comment = $comment ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->id = $id ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->comment = $comment ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->id = $id ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->price_class = $price_class ?? "";
     $this->s_3_origin = $s_3_origin ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->trusted_signers = $trusted_signers ?? null;
   }
 }
@@ -2941,9 +2941,9 @@ class StreamingLoggingConfig {
   ?'enabled' => boolean,
   ?'prefix' => string,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -2955,8 +2955,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2970,7 +2970,7 @@ class TagKeys {
   public function __construct(shape(
   ?'items' => TagKeyList,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
   }
 }
 
@@ -2984,7 +2984,7 @@ class TagResourceRequest {
   ?'resource' => ResourceARN,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
     $this->tags = $tags ?? null;
   }
 }
@@ -2997,7 +2997,7 @@ class Tags {
   public function __construct(shape(
   ?'items' => TagList,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
   }
 }
 
@@ -3007,7 +3007,7 @@ class TooManyCacheBehaviors {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3017,7 +3017,7 @@ class TooManyCertificates {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3027,7 +3027,7 @@ class TooManyCloudFrontOriginAccessIdentities {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3037,7 +3037,7 @@ class TooManyCookieNamesInWhiteList {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3047,7 +3047,7 @@ class TooManyDistributionCNAMEs {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3057,7 +3057,7 @@ class TooManyDistributions {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3067,7 +3067,7 @@ class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3077,7 +3077,7 @@ class TooManyDistributionsWithLambdaAssociations {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3087,7 +3087,7 @@ class TooManyFieldLevelEncryptionConfigs {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3097,7 +3097,7 @@ class TooManyFieldLevelEncryptionContentTypeProfiles {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3107,7 +3107,7 @@ class TooManyFieldLevelEncryptionEncryptionEntities {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3117,7 +3117,7 @@ class TooManyFieldLevelEncryptionFieldPatterns {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3127,7 +3127,7 @@ class TooManyFieldLevelEncryptionProfiles {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3137,7 +3137,7 @@ class TooManyFieldLevelEncryptionQueryArgProfiles {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3147,7 +3147,7 @@ class TooManyHeadersInForwardedValues {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3157,7 +3157,7 @@ class TooManyInvalidationsInProgress {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3167,7 +3167,7 @@ class TooManyLambdaFunctionAssociations {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3177,7 +3177,7 @@ class TooManyOriginCustomHeaders {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3187,7 +3187,7 @@ class TooManyOriginGroupsPerDistribution {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3197,7 +3197,7 @@ class TooManyOrigins {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3207,7 +3207,7 @@ class TooManyPublicKeys {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3217,7 +3217,7 @@ class TooManyQueryStringParameters {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3227,7 +3227,7 @@ class TooManyStreamingDistributionCNAMEs {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3237,7 +3237,7 @@ class TooManyStreamingDistributions {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3247,7 +3247,7 @@ class TooManyTrustedSigners {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3257,7 +3257,7 @@ class TrustedSignerDoesNotExist {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3271,9 +3271,9 @@ class TrustedSigners {
   ?'items' => AwsAccountNumberList,
   ?'quantity' => integer,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->items = $items ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->items = $items ?? [];
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -3285,7 +3285,7 @@ class UntagResourceRequest {
   ?'resource' => ResourceARN,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
     $this->tag_keys = $tag_keys ?? null;
   }
 }
@@ -3301,8 +3301,8 @@ class UpdateCloudFrontOriginAccessIdentityRequest {
   ?'if_match' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity_config = $cloud_front_origin_access_identity_config ?? null;
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -3315,7 +3315,7 @@ class UpdateCloudFrontOriginAccessIdentityResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->cloud_front_origin_access_identity = $cloud_front_origin_access_identity ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -3330,8 +3330,8 @@ class UpdateDistributionRequest {
   ?'if_match' => string,
   ) $s = shape()) {
     $this->distribution_config = $distribution_config ?? null;
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -3344,7 +3344,7 @@ class UpdateDistributionResult {
   ?'e_tag' => string,
   ) $s = shape()) {
     $this->distribution = $distribution ?? null;
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
   }
 }
 
@@ -3359,8 +3359,8 @@ class UpdateFieldLevelEncryptionConfigRequest {
   ?'if_match' => string,
   ) $s = shape()) {
     $this->field_level_encryption_config = $field_level_encryption_config ?? null;
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -3372,7 +3372,7 @@ class UpdateFieldLevelEncryptionConfigResult {
   ?'e_tag' => string,
   ?'field_level_encryption' => FieldLevelEncryption,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption = $field_level_encryption ?? null;
   }
 }
@@ -3388,8 +3388,8 @@ class UpdateFieldLevelEncryptionProfileRequest {
   ?'if_match' => string,
   ) $s = shape()) {
     $this->field_level_encryption_profile_config = $field_level_encryption_profile_config ?? null;
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
   }
 }
 
@@ -3401,7 +3401,7 @@ class UpdateFieldLevelEncryptionProfileResult {
   ?'e_tag' => string,
   ?'field_level_encryption_profile' => FieldLevelEncryptionProfile,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->field_level_encryption_profile = $field_level_encryption_profile ?? null;
   }
 }
@@ -3416,8 +3416,8 @@ class UpdatePublicKeyRequest {
   ?'if_match' => string,
   ?'public_key_config' => PublicKeyConfig,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
     $this->public_key_config = $public_key_config ?? null;
   }
 }
@@ -3430,7 +3430,7 @@ class UpdatePublicKeyResult {
   ?'e_tag' => string,
   ?'public_key' => PublicKey,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->public_key = $public_key ?? null;
   }
 }
@@ -3445,8 +3445,8 @@ class UpdateStreamingDistributionRequest {
   ?'if_match' => string,
   ?'streaming_distribution_config' => StreamingDistributionConfig,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->if_match = $if_match ?? ;
+    $this->id = $id ?? "";
+    $this->if_match = $if_match ?? "";
     $this->streaming_distribution_config = $streaming_distribution_config ?? null;
   }
 }
@@ -3459,7 +3459,7 @@ class UpdateStreamingDistributionResult {
   ?'e_tag' => string,
   ?'streaming_distribution' => StreamingDistribution,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
+    $this->e_tag = $e_tag ?? "";
     $this->streaming_distribution = $streaming_distribution ?? null;
   }
 }
@@ -3482,11 +3482,11 @@ class ViewerCertificate {
   ?'minimum_protocol_version' => MinimumProtocolVersion,
   ?'ssl_support_method' => SSLSupportMethod,
   ) $s = shape()) {
-    $this->acm_certificate_arn = $acm_certificate_arn ?? ;
-    $this->certificate = $certificate ?? ;
+    $this->acm_certificate_arn = $acm_certificate_arn ?? "";
+    $this->certificate = $certificate ?? "";
     $this->certificate_source = $certificate_source ?? "";
-    $this->cloud_front_default_certificate = $cloud_front_default_certificate ?? ;
-    $this->iam_certificate_id = $iam_certificate_id ?? ;
+    $this->cloud_front_default_certificate = $cloud_front_default_certificate ?? false;
+    $this->iam_certificate_id = $iam_certificate_id ?? "";
     $this->minimum_protocol_version = $minimum_protocol_version ?? "";
     $this->ssl_support_method = $ssl_support_method ?? "";
   }

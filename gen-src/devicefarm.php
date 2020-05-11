@@ -103,14 +103,14 @@ class AccountSettings {
   ?'unmetered_devices' => PurchasedDevicesMap,
   ?'unmetered_remote_access_devices' => PurchasedDevicesMap,
   ) $s = shape()) {
-    $this->aws_account_number = $aws_account_number ?? ;
-    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
-    $this->max_job_timeout_minutes = $max_job_timeout_minutes ?? ;
-    $this->max_slots = $max_slots ?? ;
-    $this->skip_app_resign = $skip_app_resign ?? ;
-    $this->trial_minutes = $trial_minutes ?? ;
-    $this->unmetered_devices = $unmetered_devices ?? ;
-    $this->unmetered_remote_access_devices = $unmetered_remote_access_devices ?? ;
+    $this->aws_account_number = $aws_account_number ?? "";
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? 0;
+    $this->max_job_timeout_minutes = $max_job_timeout_minutes ?? 0;
+    $this->max_slots = $max_slots ?? [];
+    $this->skip_app_resign = $skip_app_resign ?? false;
+    $this->trial_minutes = $trial_minutes ?? null;
+    $this->unmetered_devices = $unmetered_devices ?? [];
+    $this->unmetered_remote_access_devices = $unmetered_remote_access_devices ?? [];
   }
 }
 
@@ -130,7 +130,7 @@ class ArgumentException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -148,11 +148,11 @@ class Artifact {
   ?'type' => ArtifactType,
   ?'url' => URL,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->extension = $extension ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->url = $url ?? ;
+    $this->arn = $arn ?? "";
+    $this->extension = $extension ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -176,9 +176,9 @@ class CPU {
   ?'clock' => Double,
   ?'frequency' => string,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->clock = $clock ?? ;
-    $this->frequency = $frequency ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->clock = $clock ?? 0.0;
+    $this->frequency = $frequency ?? "";
   }
 }
 
@@ -188,7 +188,7 @@ class CannotDeleteException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -214,13 +214,13 @@ class Counters {
   ?'total' => int,
   ?'warned' => int,
   ) $s = shape()) {
-    $this->errored = $errored ?? ;
-    $this->failed = $failed ?? ;
-    $this->passed = $passed ?? ;
-    $this->skipped = $skipped ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->total = $total ?? ;
-    $this->warned = $warned ?? ;
+    $this->errored = $errored ?? 0;
+    $this->failed = $failed ?? 0;
+    $this->passed = $passed ?? 0;
+    $this->skipped = $skipped ?? 0;
+    $this->stopped = $stopped ?? 0;
+    $this->total = $total ?? 0;
+    $this->warned = $warned ?? 0;
   }
 }
 
@@ -238,11 +238,11 @@ class CreateDevicePoolRequest {
   ?'project_arn' => AmazonResourceName,
   ?'rules' => Rules,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->max_devices = $max_devices ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->rules = $rules ?? ;
+    $this->description = $description ?? "";
+    $this->max_devices = $max_devices ?? 0;
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -252,7 +252,7 @@ class CreateDevicePoolResult {
   public function __construct(shape(
   ?'device_pool' => DevicePool,
   ) $s = shape()) {
-    $this->device_pool = $device_pool ?? ;
+    $this->device_pool = $device_pool ?? null;
   }
 }
 
@@ -270,11 +270,11 @@ class CreateInstanceProfileRequest {
   ?'package_cleanup' => boolean,
   ?'reboot_after_use' => boolean,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
-    $this->name = $name ?? ;
-    $this->package_cleanup = $package_cleanup ?? ;
-    $this->reboot_after_use = $reboot_after_use ?? ;
+    $this->description = $description ?? "";
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? [];
+    $this->name = $name ?? "";
+    $this->package_cleanup = $package_cleanup ?? false;
+    $this->reboot_after_use = $reboot_after_use ?? false;
   }
 }
 
@@ -284,7 +284,7 @@ class CreateInstanceProfileResult {
   public function __construct(shape(
   ?'instance_profile' => InstanceProfile,
   ) $s = shape()) {
-    $this->instance_profile = $instance_profile ?? ;
+    $this->instance_profile = $instance_profile ?? null;
   }
 }
 
@@ -316,18 +316,18 @@ class CreateNetworkProfileRequest {
   ?'uplink_jitter_ms' => Long,
   ?'uplink_loss_percent' => PercentInteger,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
-    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
-    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
-    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->type = $type ?? ;
-    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
-    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
-    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
-    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+    $this->description = $description ?? "";
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? 0;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? 0;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? 0;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? 0;
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->type = $type ?? "";
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? 0;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? 0;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? 0;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? 0;
   }
 }
 
@@ -337,7 +337,7 @@ class CreateNetworkProfileResult {
   public function __construct(shape(
   ?'network_profile' => NetworkProfile,
   ) $s = shape()) {
-    $this->network_profile = $network_profile ?? ;
+    $this->network_profile = $network_profile ?? null;
   }
 }
 
@@ -349,8 +349,8 @@ class CreateProjectRequest {
   ?'default_job_timeout_minutes' => JobTimeoutMinutes,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
-    $this->name = $name ?? ;
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -360,7 +360,7 @@ class CreateProjectResult {
   public function __construct(shape(
   ?'project' => Project,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -372,8 +372,8 @@ class CreateRemoteAccessSessionConfiguration {
   ?'billing_method' => BillingMethod,
   ?'vpce_configuration_arns' => AmazonResourceNames,
   ) $s = shape()) {
-    $this->billing_method = $billing_method ?? ;
-    $this->vpce_configuration_arns = $vpce_configuration_arns ?? ;
+    $this->billing_method = $billing_method ?? "";
+    $this->vpce_configuration_arns = $vpce_configuration_arns ?? [];
   }
 }
 
@@ -405,18 +405,18 @@ class CreateRemoteAccessSessionRequest {
   ?'skip_app_resign' => boolean,
   ?'ssh_public_key' => SshPublicKey,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->device_arn = $device_arn ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->interaction_mode = $interaction_mode ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
-    $this->remote_record_app_arn = $remote_record_app_arn ?? ;
-    $this->remote_record_enabled = $remote_record_enabled ?? ;
-    $this->skip_app_resign = $skip_app_resign ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->configuration = $configuration ?? null;
+    $this->device_arn = $device_arn ?? "";
+    $this->instance_arn = $instance_arn ?? "";
+    $this->interaction_mode = $interaction_mode ?? "";
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->remote_debug_enabled = $remote_debug_enabled ?? false;
+    $this->remote_record_app_arn = $remote_record_app_arn ?? "";
+    $this->remote_record_enabled = $remote_record_enabled ?? false;
+    $this->skip_app_resign = $skip_app_resign ?? false;
+    $this->ssh_public_key = $ssh_public_key ?? "";
   }
 }
 
@@ -426,7 +426,7 @@ class CreateRemoteAccessSessionResult {
   public function __construct(shape(
   ?'remote_access_session' => RemoteAccessSession,
   ) $s = shape()) {
-    $this->remote_access_session = $remote_access_session ?? ;
+    $this->remote_access_session = $remote_access_session ?? null;
   }
 }
 
@@ -438,8 +438,8 @@ class CreateTestGridProjectRequest {
   ?'description' => ResourceDescription,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -449,7 +449,7 @@ class CreateTestGridProjectResult {
   public function __construct(shape(
   ?'test_grid_project' => TestGridProject,
   ) $s = shape()) {
-    $this->test_grid_project = $test_grid_project ?? ;
+    $this->test_grid_project = $test_grid_project ?? null;
   }
 }
 
@@ -461,8 +461,8 @@ class CreateTestGridUrlRequest {
   ?'expires_in_seconds' => TestGridUrlExpiresInSecondsInput,
   ?'project_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->expires_in_seconds = $expires_in_seconds ?? ;
-    $this->project_arn = $project_arn ?? ;
+    $this->expires_in_seconds = $expires_in_seconds ?? 0;
+    $this->project_arn = $project_arn ?? "";
   }
 }
 
@@ -474,8 +474,8 @@ class CreateTestGridUrlResult {
   ?'expires' => DateTime,
   ?'url' => string,
   ) $s = shape()) {
-    $this->expires = $expires ?? ;
-    $this->url = $url ?? ;
+    $this->expires = $expires ?? 0;
+    $this->url = $url ?? "";
   }
 }
 
@@ -491,10 +491,10 @@ class CreateUploadRequest {
   ?'project_arn' => AmazonResourceName,
   ?'type' => UploadType,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->type = $type ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -504,7 +504,7 @@ class CreateUploadResult {
   public function __construct(shape(
   ?'upload' => Upload,
   ) $s = shape()) {
-    $this->upload = $upload ?? ;
+    $this->upload = $upload ?? null;
   }
 }
 
@@ -520,10 +520,10 @@ class CreateVPCEConfigurationRequest {
   ?'vpce_configuration_name' => VPCEConfigurationName,
   ?'vpce_service_name' => VPCEServiceName,
   ) $s = shape()) {
-    $this->service_dns_name = $service_dns_name ?? ;
-    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
-    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
-    $this->vpce_service_name = $vpce_service_name ?? ;
+    $this->service_dns_name = $service_dns_name ?? "";
+    $this->vpce_configuration_description = $vpce_configuration_description ?? "";
+    $this->vpce_configuration_name = $vpce_configuration_name ?? "";
+    $this->vpce_service_name = $vpce_service_name ?? "";
   }
 }
 
@@ -533,7 +533,7 @@ class CreateVPCEConfigurationResult {
   public function __construct(shape(
   ?'vpce_configuration' => VPCEConfiguration,
   ) $s = shape()) {
-    $this->vpce_configuration = $vpce_configuration ?? ;
+    $this->vpce_configuration = $vpce_configuration ?? null;
   }
 }
 
@@ -549,9 +549,9 @@ class CustomerArtifactPaths {
   ?'device_host_paths' => DeviceHostPaths,
   ?'ios_paths' => IosPaths,
   ) $s = shape()) {
-    $this->android_paths = $android_paths ?? ;
-    $this->device_host_paths = $device_host_paths ?? ;
-    $this->ios_paths = $ios_paths ?? ;
+    $this->android_paths = $android_paths ?? [];
+    $this->device_host_paths = $device_host_paths ?? [];
+    $this->ios_paths = $ios_paths ?? [];
   }
 }
 
@@ -563,7 +563,7 @@ class DeleteDevicePoolRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -580,7 +580,7 @@ class DeleteInstanceProfileRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -597,7 +597,7 @@ class DeleteNetworkProfileRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -614,7 +614,7 @@ class DeleteProjectRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -631,7 +631,7 @@ class DeleteRemoteAccessSessionRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -648,7 +648,7 @@ class DeleteRunRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -665,7 +665,7 @@ class DeleteTestGridProjectRequest {
   public function __construct(shape(
   ?'project_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->project_arn = $project_arn ?? ;
+    $this->project_arn = $project_arn ?? "";
   }
 }
 
@@ -682,7 +682,7 @@ class DeleteUploadRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -699,7 +699,7 @@ class DeleteVPCEConfigurationRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -756,27 +756,27 @@ class Device {
   ?'remote_debug_enabled' => boolean,
   ?'resolution' => Resolution,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->availability = $availability ?? ;
-    $this->carrier = $carrier ?? ;
-    $this->cpu = $cpu ?? ;
-    $this->fleet_name = $fleet_name ?? ;
-    $this->fleet_type = $fleet_type ?? ;
-    $this->form_factor = $form_factor ?? ;
-    $this->heap_size = $heap_size ?? ;
-    $this->image = $image ?? ;
-    $this->instances = $instances ?? ;
-    $this->manufacturer = $manufacturer ?? ;
-    $this->memory = $memory ?? ;
-    $this->model = $model ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->os = $os ?? ;
-    $this->platform = $platform ?? ;
-    $this->radio = $radio ?? ;
-    $this->remote_access_enabled = $remote_access_enabled ?? ;
-    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
-    $this->resolution = $resolution ?? ;
+    $this->arn = $arn ?? "";
+    $this->availability = $availability ?? "";
+    $this->carrier = $carrier ?? "";
+    $this->cpu = $cpu ?? null;
+    $this->fleet_name = $fleet_name ?? "";
+    $this->fleet_type = $fleet_type ?? "";
+    $this->form_factor = $form_factor ?? "";
+    $this->heap_size = $heap_size ?? 0;
+    $this->image = $image ?? "";
+    $this->instances = $instances ?? [];
+    $this->manufacturer = $manufacturer ?? "";
+    $this->memory = $memory ?? 0;
+    $this->model = $model ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->os = $os ?? "";
+    $this->platform = $platform ?? "";
+    $this->radio = $radio ?? "";
+    $this->remote_access_enabled = $remote_access_enabled ?? false;
+    $this->remote_debug_enabled = $remote_debug_enabled ?? false;
+    $this->resolution = $resolution ?? null;
   }
 }
 
@@ -796,9 +796,9 @@ class DeviceFilter {
   ?'operator' => RuleOperator,
   ?'values' => DeviceFilterValues,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->operator = $operator ?? ;
-    $this->values = $values ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->operator = $operator ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -828,12 +828,12 @@ class DeviceInstance {
   ?'status' => InstanceStatus,
   ?'udid' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->device_arn = $device_arn ?? ;
-    $this->instance_profile = $instance_profile ?? ;
-    $this->labels = $labels ?? ;
-    $this->status = $status ?? ;
-    $this->udid = $udid ?? ;
+    $this->arn = $arn ?? "";
+    $this->device_arn = $device_arn ?? "";
+    $this->instance_profile = $instance_profile ?? null;
+    $this->labels = $labels ?? [];
+    $this->status = $status ?? "";
+    $this->udid = $udid ?? "";
   }
 }
 
@@ -849,9 +849,9 @@ class DeviceMinutes {
   ?'total' => Double,
   ?'unmetered' => Double,
   ) $s = shape()) {
-    $this->metered = $metered ?? ;
-    $this->total = $total ?? ;
-    $this->unmetered = $unmetered ?? ;
+    $this->metered = $metered ?? 0.0;
+    $this->total = $total ?? 0.0;
+    $this->unmetered = $unmetered ?? 0.0;
   }
 }
 
@@ -873,12 +873,12 @@ class DevicePool {
   ?'rules' => Rules,
   ?'type' => DevicePoolType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->max_devices = $max_devices ?? ;
-    $this->name = $name ?? ;
-    $this->rules = $rules ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->max_devices = $max_devices ?? 0;
+    $this->name = $name ?? "";
+    $this->rules = $rules ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -892,9 +892,9 @@ class DevicePoolCompatibilityResult {
   ?'device' => Device,
   ?'incompatibility_messages' => IncompatibilityMessages,
   ) $s = shape()) {
-    $this->compatible = $compatible ?? ;
-    $this->device = $device ?? ;
-    $this->incompatibility_messages = $incompatibility_messages ?? ;
+    $this->compatible = $compatible ?? false;
+    $this->device = $device ?? null;
+    $this->incompatibility_messages = $incompatibility_messages ?? [];
   }
 }
 
@@ -912,8 +912,8 @@ class DeviceSelectionConfiguration {
   ?'filters' => DeviceFilters,
   ?'max_devices' => int,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_devices = $max_devices ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_devices = $max_devices ?? 0;
   }
 }
 
@@ -927,9 +927,9 @@ class DeviceSelectionResult {
   ?'matched_devices_count' => int,
   ?'max_devices' => int,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->matched_devices_count = $matched_devices_count ?? ;
-    $this->max_devices = $max_devices ?? ;
+    $this->filters = $filters ?? [];
+    $this->matched_devices_count = $matched_devices_count ?? 0;
+    $this->max_devices = $max_devices ?? 0;
   }
 }
 
@@ -953,11 +953,11 @@ class ExecutionConfiguration {
   ?'skip_app_resign' => SkipAppResign,
   ?'video_capture' => VideoCapture,
   ) $s = shape()) {
-    $this->accounts_cleanup = $accounts_cleanup ?? ;
-    $this->app_packages_cleanup = $app_packages_cleanup ?? ;
-    $this->job_timeout_minutes = $job_timeout_minutes ?? ;
-    $this->skip_app_resign = $skip_app_resign ?? ;
-    $this->video_capture = $video_capture ?? ;
+    $this->accounts_cleanup = $accounts_cleanup ?? false;
+    $this->app_packages_cleanup = $app_packages_cleanup ?? false;
+    $this->job_timeout_minutes = $job_timeout_minutes ?? 0;
+    $this->skip_app_resign = $skip_app_resign ?? false;
+    $this->video_capture = $video_capture ?? false;
   }
 }
 
@@ -982,7 +982,7 @@ class GetAccountSettingsResult {
   public function __construct(shape(
   ?'account_settings' => AccountSettings,
   ) $s = shape()) {
-    $this->account_settings = $account_settings ?? ;
+    $this->account_settings = $account_settings ?? null;
   }
 }
 
@@ -992,7 +992,7 @@ class GetDeviceInstanceRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1002,7 +1002,7 @@ class GetDeviceInstanceResult {
   public function __construct(shape(
   ?'device_instance' => DeviceInstance,
   ) $s = shape()) {
-    $this->device_instance = $device_instance ?? ;
+    $this->device_instance = $device_instance ?? null;
   }
 }
 
@@ -1020,11 +1020,11 @@ class GetDevicePoolCompatibilityRequest {
   ?'test' => ScheduleRunTest,
   ?'test_type' => TestType,
   ) $s = shape()) {
-    $this->app_arn = $app_arn ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->device_pool_arn = $device_pool_arn ?? ;
-    $this->test = $test ?? ;
-    $this->test_type = $test_type ?? ;
+    $this->app_arn = $app_arn ?? "";
+    $this->configuration = $configuration ?? null;
+    $this->device_pool_arn = $device_pool_arn ?? "";
+    $this->test = $test ?? null;
+    $this->test_type = $test_type ?? "";
   }
 }
 
@@ -1036,8 +1036,8 @@ class GetDevicePoolCompatibilityResult {
   ?'compatible_devices' => DevicePoolCompatibilityResults,
   ?'incompatible_devices' => DevicePoolCompatibilityResults,
   ) $s = shape()) {
-    $this->compatible_devices = $compatible_devices ?? ;
-    $this->incompatible_devices = $incompatible_devices ?? ;
+    $this->compatible_devices = $compatible_devices ?? [];
+    $this->incompatible_devices = $incompatible_devices ?? [];
   }
 }
 
@@ -1047,7 +1047,7 @@ class GetDevicePoolRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1057,7 +1057,7 @@ class GetDevicePoolResult {
   public function __construct(shape(
   ?'device_pool' => DevicePool,
   ) $s = shape()) {
-    $this->device_pool = $device_pool ?? ;
+    $this->device_pool = $device_pool ?? null;
   }
 }
 
@@ -1067,7 +1067,7 @@ class GetDeviceRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1077,7 +1077,7 @@ class GetDeviceResult {
   public function __construct(shape(
   ?'device' => Device,
   ) $s = shape()) {
-    $this->device = $device ?? ;
+    $this->device = $device ?? null;
   }
 }
 
@@ -1087,7 +1087,7 @@ class GetInstanceProfileRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1097,7 +1097,7 @@ class GetInstanceProfileResult {
   public function __construct(shape(
   ?'instance_profile' => InstanceProfile,
   ) $s = shape()) {
-    $this->instance_profile = $instance_profile ?? ;
+    $this->instance_profile = $instance_profile ?? null;
   }
 }
 
@@ -1107,7 +1107,7 @@ class GetJobRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1117,7 +1117,7 @@ class GetJobResult {
   public function __construct(shape(
   ?'job' => Job,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? null;
   }
 }
 
@@ -1127,7 +1127,7 @@ class GetNetworkProfileRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1137,7 +1137,7 @@ class GetNetworkProfileResult {
   public function __construct(shape(
   ?'network_profile' => NetworkProfile,
   ) $s = shape()) {
-    $this->network_profile = $network_profile ?? ;
+    $this->network_profile = $network_profile ?? null;
   }
 }
 
@@ -1147,7 +1147,7 @@ class GetOfferingStatusRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1161,9 +1161,9 @@ class GetOfferingStatusResult {
   ?'next_period' => OfferingStatusMap,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->current = $current ?? ;
-    $this->next_period = $next_period ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->current = $current ?? [];
+    $this->next_period = $next_period ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1173,7 +1173,7 @@ class GetProjectRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1183,7 +1183,7 @@ class GetProjectResult {
   public function __construct(shape(
   ?'project' => Project,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -1193,7 +1193,7 @@ class GetRemoteAccessSessionRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1203,7 +1203,7 @@ class GetRemoteAccessSessionResult {
   public function __construct(shape(
   ?'remote_access_session' => RemoteAccessSession,
   ) $s = shape()) {
-    $this->remote_access_session = $remote_access_session ?? ;
+    $this->remote_access_session = $remote_access_session ?? null;
   }
 }
 
@@ -1213,7 +1213,7 @@ class GetRunRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1223,7 +1223,7 @@ class GetRunResult {
   public function __construct(shape(
   ?'run' => Run,
   ) $s = shape()) {
-    $this->run = $run ?? ;
+    $this->run = $run ?? null;
   }
 }
 
@@ -1233,7 +1233,7 @@ class GetSuiteRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1243,7 +1243,7 @@ class GetSuiteResult {
   public function __construct(shape(
   ?'suite' => Suite,
   ) $s = shape()) {
-    $this->suite = $suite ?? ;
+    $this->suite = $suite ?? null;
   }
 }
 
@@ -1253,7 +1253,7 @@ class GetTestGridProjectRequest {
   public function __construct(shape(
   ?'project_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->project_arn = $project_arn ?? ;
+    $this->project_arn = $project_arn ?? "";
   }
 }
 
@@ -1263,7 +1263,7 @@ class GetTestGridProjectResult {
   public function __construct(shape(
   ?'test_grid_project' => TestGridProject,
   ) $s = shape()) {
-    $this->test_grid_project = $test_grid_project ?? ;
+    $this->test_grid_project = $test_grid_project ?? null;
   }
 }
 
@@ -1277,9 +1277,9 @@ class GetTestGridSessionRequest {
   ?'session_arn' => DeviceFarmArn,
   ?'session_id' => ResourceId,
   ) $s = shape()) {
-    $this->project_arn = $project_arn ?? ;
-    $this->session_arn = $session_arn ?? ;
-    $this->session_id = $session_id ?? ;
+    $this->project_arn = $project_arn ?? "";
+    $this->session_arn = $session_arn ?? "";
+    $this->session_id = $session_id ?? "";
   }
 }
 
@@ -1289,7 +1289,7 @@ class GetTestGridSessionResult {
   public function __construct(shape(
   ?'test_grid_session' => TestGridSession,
   ) $s = shape()) {
-    $this->test_grid_session = $test_grid_session ?? ;
+    $this->test_grid_session = $test_grid_session ?? null;
   }
 }
 
@@ -1299,7 +1299,7 @@ class GetTestRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1309,7 +1309,7 @@ class GetTestResult {
   public function __construct(shape(
   ?'test' => Test,
   ) $s = shape()) {
-    $this->test = $test ?? ;
+    $this->test = $test ?? null;
   }
 }
 
@@ -1319,7 +1319,7 @@ class GetUploadRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1329,7 +1329,7 @@ class GetUploadResult {
   public function __construct(shape(
   ?'upload' => Upload,
   ) $s = shape()) {
-    $this->upload = $upload ?? ;
+    $this->upload = $upload ?? null;
   }
 }
 
@@ -1339,7 +1339,7 @@ class GetVPCEConfigurationRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1349,7 +1349,7 @@ class GetVPCEConfigurationResult {
   public function __construct(shape(
   ?'vpce_configuration' => VPCEConfiguration,
   ) $s = shape()) {
-    $this->vpce_configuration = $vpce_configuration ?? ;
+    $this->vpce_configuration = $vpce_configuration ?? null;
   }
 }
 
@@ -1361,7 +1361,7 @@ class IdempotencyException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1373,8 +1373,8 @@ class IncompatibilityMessage {
   ?'message' => Message,
   ?'type' => DeviceAttribute,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1388,8 +1388,8 @@ class InstallToRemoteAccessSessionRequest {
   ?'app_arn' => AmazonResourceName,
   ?'remote_access_session_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->app_arn = $app_arn ?? ;
-    $this->remote_access_session_arn = $remote_access_session_arn ?? ;
+    $this->app_arn = $app_arn ?? "";
+    $this->remote_access_session_arn = $remote_access_session_arn ?? "";
   }
 }
 
@@ -1399,7 +1399,7 @@ class InstallToRemoteAccessSessionResult {
   public function __construct(shape(
   ?'app_upload' => Upload,
   ) $s = shape()) {
-    $this->app_upload = $app_upload ?? ;
+    $this->app_upload = $app_upload ?? null;
   }
 }
 
@@ -1421,12 +1421,12 @@ class InstanceProfile {
   ?'package_cleanup' => boolean,
   ?'reboot_after_use' => boolean,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
-    $this->name = $name ?? ;
-    $this->package_cleanup = $package_cleanup ?? ;
-    $this->reboot_after_use = $reboot_after_use ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? [];
+    $this->name = $name ?? "";
+    $this->package_cleanup = $package_cleanup ?? false;
+    $this->reboot_after_use = $reboot_after_use ?? false;
   }
 }
 
@@ -1444,7 +1444,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1454,7 +1454,7 @@ class InvalidOperationException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1494,21 +1494,21 @@ class Job {
   ?'video_capture' => VideoCapture,
   ?'video_endpoint' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->counters = $counters ?? ;
-    $this->created = $created ?? ;
-    $this->device = $device ?? ;
-    $this->device_minutes = $device_minutes ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->result = $result ?? ;
-    $this->started = $started ?? ;
-    $this->status = $status ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->type = $type ?? ;
-    $this->video_capture = $video_capture ?? ;
-    $this->video_endpoint = $video_endpoint ?? ;
+    $this->arn = $arn ?? "";
+    $this->counters = $counters ?? null;
+    $this->created = $created ?? 0;
+    $this->device = $device ?? null;
+    $this->device_minutes = $device_minutes ?? null;
+    $this->instance_arn = $instance_arn ?? "";
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->result = $result ?? "";
+    $this->started = $started ?? 0;
+    $this->status = $status ?? "";
+    $this->stopped = $stopped ?? 0;
+    $this->type = $type ?? "";
+    $this->video_capture = $video_capture ?? false;
+    $this->video_endpoint = $video_endpoint ?? "";
   }
 }
 
@@ -1522,7 +1522,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1536,9 +1536,9 @@ class ListArtifactsRequest {
   ?'next_token' => PaginationToken,
   ?'type' => ArtifactCategory,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1550,8 +1550,8 @@ class ListArtifactsResult {
   ?'artifacts' => Artifacts,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->artifacts = $artifacts ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->artifacts = $artifacts ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1563,8 +1563,8 @@ class ListDeviceInstancesRequest {
   ?'max_results' => int,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1576,8 +1576,8 @@ class ListDeviceInstancesResult {
   ?'device_instances' => DeviceInstances,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->device_instances = $device_instances ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->device_instances = $device_instances ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1591,9 +1591,9 @@ class ListDevicePoolsRequest {
   ?'next_token' => PaginationToken,
   ?'type' => DevicePoolType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1605,8 +1605,8 @@ class ListDevicePoolsResult {
   ?'device_pools' => DevicePools,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->device_pools = $device_pools ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->device_pools = $device_pools ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1620,9 +1620,9 @@ class ListDevicesRequest {
   ?'filters' => DeviceFilters,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->filters = $filters ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->filters = $filters ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1634,8 +1634,8 @@ class ListDevicesResult {
   ?'devices' => Devices,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->devices = $devices ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1647,8 +1647,8 @@ class ListInstanceProfilesRequest {
   ?'max_results' => int,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1660,8 +1660,8 @@ class ListInstanceProfilesResult {
   ?'instance_profiles' => InstanceProfiles,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->instance_profiles = $instance_profiles ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->instance_profiles = $instance_profiles ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1673,8 +1673,8 @@ class ListJobsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1686,8 +1686,8 @@ class ListJobsResult {
   ?'jobs' => Jobs,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->jobs = $jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1701,9 +1701,9 @@ class ListNetworkProfilesRequest {
   ?'next_token' => PaginationToken,
   ?'type' => NetworkProfileType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1715,8 +1715,8 @@ class ListNetworkProfilesResult {
   ?'network_profiles' => NetworkProfiles,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->network_profiles = $network_profiles ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->network_profiles = $network_profiles ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1726,7 +1726,7 @@ class ListOfferingPromotionsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1738,8 +1738,8 @@ class ListOfferingPromotionsResult {
   ?'next_token' => PaginationToken,
   ?'offering_promotions' => OfferingPromotions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->offering_promotions = $offering_promotions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->offering_promotions = $offering_promotions ?? [];
   }
 }
 
@@ -1749,7 +1749,7 @@ class ListOfferingTransactionsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1761,8 +1761,8 @@ class ListOfferingTransactionsResult {
   ?'next_token' => PaginationToken,
   ?'offering_transactions' => OfferingTransactions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->offering_transactions = $offering_transactions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->offering_transactions = $offering_transactions ?? [];
   }
 }
 
@@ -1772,7 +1772,7 @@ class ListOfferingsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1784,8 +1784,8 @@ class ListOfferingsResult {
   ?'next_token' => PaginationToken,
   ?'offerings' => Offerings,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->offerings = $offerings ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->offerings = $offerings ?? [];
   }
 }
 
@@ -1797,8 +1797,8 @@ class ListProjectsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1810,8 +1810,8 @@ class ListProjectsResult {
   ?'next_token' => PaginationToken,
   ?'projects' => Projects,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -1823,8 +1823,8 @@ class ListRemoteAccessSessionsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1836,8 +1836,8 @@ class ListRemoteAccessSessionsResult {
   ?'next_token' => PaginationToken,
   ?'remote_access_sessions' => RemoteAccessSessions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->remote_access_sessions = $remote_access_sessions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->remote_access_sessions = $remote_access_sessions ?? [];
   }
 }
 
@@ -1849,8 +1849,8 @@ class ListRunsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1862,8 +1862,8 @@ class ListRunsResult {
   ?'next_token' => PaginationToken,
   ?'runs' => Runs,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->runs = $runs ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->runs = $runs ?? [];
   }
 }
 
@@ -1875,8 +1875,8 @@ class ListSamplesRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1888,8 +1888,8 @@ class ListSamplesResult {
   ?'next_token' => PaginationToken,
   ?'samples' => Samples,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->samples = $samples ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->samples = $samples ?? [];
   }
 }
 
@@ -1901,8 +1901,8 @@ class ListSuitesRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1914,8 +1914,8 @@ class ListSuitesResult {
   ?'next_token' => PaginationToken,
   ?'suites' => Suites,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->suites = $suites ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->suites = $suites ?? [];
   }
 }
 
@@ -1925,7 +1925,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1935,7 +1935,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1947,8 +1947,8 @@ class ListTestGridProjectsRequest {
   ?'max_result' => MaxPageSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_result = $max_result ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_result = $max_result ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1960,8 +1960,8 @@ class ListTestGridProjectsResult {
   ?'next_token' => PaginationToken,
   ?'test_grid_projects' => TestGridProjects,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->test_grid_projects = $test_grid_projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->test_grid_projects = $test_grid_projects ?? [];
   }
 }
 
@@ -1975,9 +1975,9 @@ class ListTestGridSessionActionsRequest {
   ?'next_token' => PaginationToken,
   ?'session_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->max_result = $max_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->session_arn = $session_arn ?? ;
+    $this->max_result = $max_result ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->session_arn = $session_arn ?? "";
   }
 }
 
@@ -1989,8 +1989,8 @@ class ListTestGridSessionActionsResult {
   ?'actions' => TestGridSessionActions,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->actions = $actions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2006,10 +2006,10 @@ class ListTestGridSessionArtifactsRequest {
   ?'session_arn' => DeviceFarmArn,
   ?'type' => TestGridSessionArtifactCategory,
   ) $s = shape()) {
-    $this->max_result = $max_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->session_arn = $session_arn ?? ;
-    $this->type = $type ?? ;
+    $this->max_result = $max_result ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->session_arn = $session_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2021,8 +2021,8 @@ class ListTestGridSessionArtifactsResult {
   ?'artifacts' => TestGridSessionArtifacts,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->artifacts = $artifacts ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->artifacts = $artifacts ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2046,14 +2046,14 @@ class ListTestGridSessionsRequest {
   ?'project_arn' => DeviceFarmArn,
   ?'status' => TestGridSessionStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->end_time_after = $end_time_after ?? ;
-    $this->end_time_before = $end_time_before ?? ;
-    $this->max_result = $max_result ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->end_time_after = $end_time_after ?? 0;
+    $this->end_time_before = $end_time_before ?? 0;
+    $this->max_result = $max_result ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2065,8 +2065,8 @@ class ListTestGridSessionsResult {
   ?'next_token' => PaginationToken,
   ?'test_grid_sessions' => TestGridSessions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->test_grid_sessions = $test_grid_sessions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->test_grid_sessions = $test_grid_sessions ?? [];
   }
 }
 
@@ -2078,8 +2078,8 @@ class ListTestsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2091,8 +2091,8 @@ class ListTestsResult {
   ?'next_token' => PaginationToken,
   ?'tests' => Tests,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tests = $tests ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tests = $tests ?? [];
   }
 }
 
@@ -2104,8 +2104,8 @@ class ListUniqueProblemsRequest {
   ?'arn' => AmazonResourceName,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2117,8 +2117,8 @@ class ListUniqueProblemsResult {
   ?'next_token' => PaginationToken,
   ?'unique_problems' => UniqueProblemsByExecutionResultMap,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->unique_problems = $unique_problems ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->unique_problems = $unique_problems ?? [];
   }
 }
 
@@ -2132,9 +2132,9 @@ class ListUploadsRequest {
   ?'next_token' => PaginationToken,
   ?'type' => UploadType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2146,8 +2146,8 @@ class ListUploadsResult {
   ?'next_token' => PaginationToken,
   ?'uploads' => Uploads,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->uploads = $uploads ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->uploads = $uploads ?? [];
   }
 }
 
@@ -2159,8 +2159,8 @@ class ListVPCEConfigurationsRequest {
   ?'max_results' => int,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2172,8 +2172,8 @@ class ListVPCEConfigurationsResult {
   ?'next_token' => PaginationToken,
   ?'vpce_configurations' => VPCEConfigurations,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->vpce_configurations = $vpce_configurations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->vpce_configurations = $vpce_configurations ?? [];
   }
 }
 
@@ -2185,8 +2185,8 @@ class Location {
   ?'latitude' => Double,
   ?'longitude' => Double,
   ) $s = shape()) {
-    $this->latitude = $latitude ?? ;
-    $this->longitude = $longitude ?? ;
+    $this->latitude = $latitude ?? 0.0;
+    $this->longitude = $longitude ?? 0.0;
   }
 }
 
@@ -2208,8 +2208,8 @@ class MonetaryAmount {
   ?'amount' => Double,
   ?'currency_code' => CurrencyCode,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->currency_code = $currency_code ?? ;
+    $this->amount = $amount ?? 0.0;
+    $this->currency_code = $currency_code ?? "";
   }
 }
 
@@ -2243,18 +2243,18 @@ class NetworkProfile {
   ?'uplink_jitter_ms' => Long,
   ?'uplink_loss_percent' => PercentInteger,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
-    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
-    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
-    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
-    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
-    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
-    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? 0;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? 0;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? 0;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? 0;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? 0;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? 0;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? 0;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? 0;
   }
 }
 
@@ -2268,7 +2268,7 @@ class NotEligibleException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2278,7 +2278,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2296,11 +2296,11 @@ class Offering {
   ?'recurring_charges' => RecurringCharges,
   ?'type' => OfferingType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->platform = $platform ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->type = $type ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->platform = $platform ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -2314,8 +2314,8 @@ class OfferingPromotion {
   ?'description' => Message,
   ?'id' => OfferingPromotionIdentifier,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -2335,10 +2335,10 @@ class OfferingStatus {
   ?'quantity' => int,
   ?'type' => OfferingTransactionType,
   ) $s = shape()) {
-    $this->effective_on = $effective_on ?? ;
-    $this->offering = $offering ?? ;
-    $this->quantity = $quantity ?? ;
-    $this->type = $type ?? ;
+    $this->effective_on = $effective_on ?? 0;
+    $this->offering = $offering ?? null;
+    $this->quantity = $quantity ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2358,11 +2358,11 @@ class OfferingTransaction {
   ?'offering_status' => OfferingStatus,
   ?'transaction_id' => TransactionIdentifier,
   ) $s = shape()) {
-    $this->cost = $cost ?? ;
-    $this->created_on = $created_on ?? ;
-    $this->offering_promotion_id = $offering_promotion_id ?? ;
-    $this->offering_status = $offering_status ?? ;
-    $this->transaction_id = $transaction_id ?? ;
+    $this->cost = $cost ?? null;
+    $this->created_on = $created_on ?? 0;
+    $this->offering_promotion_id = $offering_promotion_id ?? "";
+    $this->offering_status = $offering_status ?? null;
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -2398,13 +2398,13 @@ class Problem {
   ?'suite' => ProblemDetail,
   ?'test' => ProblemDetail,
   ) $s = shape()) {
-    $this->device = $device ?? ;
-    $this->job = $job ?? ;
-    $this->message = $message ?? ;
-    $this->result = $result ?? ;
-    $this->run = $run ?? ;
-    $this->suite = $suite ?? ;
-    $this->test = $test ?? ;
+    $this->device = $device ?? null;
+    $this->job = $job ?? null;
+    $this->message = $message ?? "";
+    $this->result = $result ?? "";
+    $this->run = $run ?? null;
+    $this->suite = $suite ?? null;
+    $this->test = $test ?? null;
   }
 }
 
@@ -2416,8 +2416,8 @@ class ProblemDetail {
   ?'arn' => AmazonResourceName,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2435,10 +2435,10 @@ class Project {
   ?'default_job_timeout_minutes' => JobTimeoutMinutes,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2454,9 +2454,9 @@ class PurchaseOfferingRequest {
   ?'offering_promotion_id' => OfferingPromotionIdentifier,
   ?'quantity' => int,
   ) $s = shape()) {
-    $this->offering_id = $offering_id ?? ;
-    $this->offering_promotion_id = $offering_promotion_id ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->offering_id = $offering_id ?? "";
+    $this->offering_promotion_id = $offering_promotion_id ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2466,7 +2466,7 @@ class PurchaseOfferingResult {
   public function __construct(shape(
   ?'offering_transaction' => OfferingTransaction,
   ) $s = shape()) {
-    $this->offering_transaction = $offering_transaction ?? ;
+    $this->offering_transaction = $offering_transaction ?? null;
   }
 }
 
@@ -2484,10 +2484,10 @@ class Radios {
   ?'nfc' => boolean,
   ?'wifi' => boolean,
   ) $s = shape()) {
-    $this->bluetooth = $bluetooth ?? ;
-    $this->gps = $gps ?? ;
-    $this->nfc = $nfc ?? ;
-    $this->wifi = $wifi ?? ;
+    $this->bluetooth = $bluetooth ?? false;
+    $this->gps = $gps ?? false;
+    $this->nfc = $nfc ?? false;
+    $this->wifi = $wifi ?? false;
   }
 }
 
@@ -2499,8 +2499,8 @@ class RecurringCharge {
   ?'cost' => MonetaryAmount,
   ?'frequency' => RecurringChargeFrequency,
   ) $s = shape()) {
-    $this->cost = $cost ?? ;
-    $this->frequency = $frequency ?? ;
+    $this->cost = $cost ?? null;
+    $this->frequency = $frequency ?? "";
   }
 }
 
@@ -2554,27 +2554,27 @@ class RemoteAccessSession {
   ?'status' => ExecutionStatus,
   ?'stopped' => DateTime,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->billing_method = $billing_method ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->created = $created ?? ;
-    $this->device = $device ?? ;
-    $this->device_minutes = $device_minutes ?? ;
-    $this->device_udid = $device_udid ?? ;
-    $this->endpoint = $endpoint ?? ;
-    $this->host_address = $host_address ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->interaction_mode = $interaction_mode ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
-    $this->remote_record_app_arn = $remote_record_app_arn ?? ;
-    $this->remote_record_enabled = $remote_record_enabled ?? ;
-    $this->result = $result ?? ;
-    $this->skip_app_resign = $skip_app_resign ?? ;
-    $this->started = $started ?? ;
-    $this->status = $status ?? ;
-    $this->stopped = $stopped ?? ;
+    $this->arn = $arn ?? "";
+    $this->billing_method = $billing_method ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->created = $created ?? 0;
+    $this->device = $device ?? null;
+    $this->device_minutes = $device_minutes ?? null;
+    $this->device_udid = $device_udid ?? "";
+    $this->endpoint = $endpoint ?? "";
+    $this->host_address = $host_address ?? "";
+    $this->instance_arn = $instance_arn ?? "";
+    $this->interaction_mode = $interaction_mode ?? "";
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->remote_debug_enabled = $remote_debug_enabled ?? false;
+    $this->remote_record_app_arn = $remote_record_app_arn ?? "";
+    $this->remote_record_enabled = $remote_record_enabled ?? false;
+    $this->result = $result ?? "";
+    $this->skip_app_resign = $skip_app_resign ?? false;
+    $this->started = $started ?? 0;
+    $this->status = $status ?? "";
+    $this->stopped = $stopped ?? 0;
   }
 }
 
@@ -2588,8 +2588,8 @@ class RenewOfferingRequest {
   ?'offering_id' => OfferingIdentifier,
   ?'quantity' => int,
   ) $s = shape()) {
-    $this->offering_id = $offering_id ?? ;
-    $this->quantity = $quantity ?? ;
+    $this->offering_id = $offering_id ?? "";
+    $this->quantity = $quantity ?? 0;
   }
 }
 
@@ -2599,7 +2599,7 @@ class RenewOfferingResult {
   public function __construct(shape(
   ?'offering_transaction' => OfferingTransaction,
   ) $s = shape()) {
-    $this->offering_transaction = $offering_transaction ?? ;
+    $this->offering_transaction = $offering_transaction ?? null;
   }
 }
 
@@ -2611,8 +2611,8 @@ class Resolution {
   ?'height' => int,
   ?'width' => int,
   ) $s = shape()) {
-    $this->height = $height ?? ;
-    $this->width = $width ?? ;
+    $this->height = $height ?? 0;
+    $this->width = $width ?? 0;
   }
 }
 
@@ -2632,9 +2632,9 @@ class Rule {
   ?'operator' => RuleOperator,
   ?'value' => string,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->operator = $operator ?? ;
-    $this->value = $value ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->operator = $operator ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2708,37 +2708,37 @@ class Run {
   ?'type' => TestType,
   ?'web_url' => string,
   ) $s = shape()) {
-    $this->app_upload = $app_upload ?? ;
-    $this->arn = $arn ?? ;
-    $this->billing_method = $billing_method ?? ;
-    $this->completed_jobs = $completed_jobs ?? ;
-    $this->counters = $counters ?? ;
-    $this->created = $created ?? ;
-    $this->customer_artifact_paths = $customer_artifact_paths ?? ;
-    $this->device_minutes = $device_minutes ?? ;
-    $this->device_pool_arn = $device_pool_arn ?? ;
-    $this->device_selection_result = $device_selection_result ?? ;
-    $this->event_count = $event_count ?? ;
-    $this->job_timeout_minutes = $job_timeout_minutes ?? ;
-    $this->locale = $locale ?? ;
-    $this->location = $location ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->network_profile = $network_profile ?? ;
-    $this->parsing_result_url = $parsing_result_url ?? ;
-    $this->platform = $platform ?? ;
-    $this->radios = $radios ?? ;
-    $this->result = $result ?? ;
-    $this->result_code = $result_code ?? ;
-    $this->seed = $seed ?? ;
-    $this->skip_app_resign = $skip_app_resign ?? ;
-    $this->started = $started ?? ;
-    $this->status = $status ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->test_spec_arn = $test_spec_arn ?? ;
-    $this->total_jobs = $total_jobs ?? ;
-    $this->type = $type ?? ;
-    $this->web_url = $web_url ?? ;
+    $this->app_upload = $app_upload ?? "";
+    $this->arn = $arn ?? "";
+    $this->billing_method = $billing_method ?? "";
+    $this->completed_jobs = $completed_jobs ?? 0;
+    $this->counters = $counters ?? null;
+    $this->created = $created ?? 0;
+    $this->customer_artifact_paths = $customer_artifact_paths ?? null;
+    $this->device_minutes = $device_minutes ?? null;
+    $this->device_pool_arn = $device_pool_arn ?? "";
+    $this->device_selection_result = $device_selection_result ?? null;
+    $this->event_count = $event_count ?? 0;
+    $this->job_timeout_minutes = $job_timeout_minutes ?? 0;
+    $this->locale = $locale ?? "";
+    $this->location = $location ?? null;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->network_profile = $network_profile ?? null;
+    $this->parsing_result_url = $parsing_result_url ?? "";
+    $this->platform = $platform ?? "";
+    $this->radios = $radios ?? null;
+    $this->result = $result ?? "";
+    $this->result_code = $result_code ?? "";
+    $this->seed = $seed ?? 0;
+    $this->skip_app_resign = $skip_app_resign ?? false;
+    $this->started = $started ?? 0;
+    $this->status = $status ?? "";
+    $this->stopped = $stopped ?? 0;
+    $this->test_spec_arn = $test_spec_arn ?? "";
+    $this->total_jobs = $total_jobs ?? 0;
+    $this->type = $type ?? "";
+    $this->web_url = $web_url ?? "";
   }
 }
 
@@ -2754,9 +2754,9 @@ class Sample {
   ?'type' => SampleType,
   ?'url' => URL,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->type = $type ?? ;
-    $this->url = $url ?? ;
+    $this->arn = $arn ?? "";
+    $this->type = $type ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -2786,15 +2786,15 @@ class ScheduleRunConfiguration {
   ?'radios' => Radios,
   ?'vpce_configuration_arns' => AmazonResourceNames,
   ) $s = shape()) {
-    $this->auxiliary_apps = $auxiliary_apps ?? ;
-    $this->billing_method = $billing_method ?? ;
-    $this->customer_artifact_paths = $customer_artifact_paths ?? ;
-    $this->extra_data_package_arn = $extra_data_package_arn ?? ;
-    $this->locale = $locale ?? ;
-    $this->location = $location ?? ;
-    $this->network_profile_arn = $network_profile_arn ?? ;
-    $this->radios = $radios ?? ;
-    $this->vpce_configuration_arns = $vpce_configuration_arns ?? ;
+    $this->auxiliary_apps = $auxiliary_apps ?? [];
+    $this->billing_method = $billing_method ?? "";
+    $this->customer_artifact_paths = $customer_artifact_paths ?? null;
+    $this->extra_data_package_arn = $extra_data_package_arn ?? "";
+    $this->locale = $locale ?? "";
+    $this->location = $location ?? null;
+    $this->network_profile_arn = $network_profile_arn ?? "";
+    $this->radios = $radios ?? null;
+    $this->vpce_configuration_arns = $vpce_configuration_arns ?? [];
   }
 }
 
@@ -2818,14 +2818,14 @@ class ScheduleRunRequest {
   ?'project_arn' => AmazonResourceName,
   ?'test' => ScheduleRunTest,
   ) $s = shape()) {
-    $this->app_arn = $app_arn ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->device_pool_arn = $device_pool_arn ?? ;
-    $this->device_selection_configuration = $device_selection_configuration ?? ;
-    $this->execution_configuration = $execution_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
-    $this->test = $test ?? ;
+    $this->app_arn = $app_arn ?? "";
+    $this->configuration = $configuration ?? null;
+    $this->device_pool_arn = $device_pool_arn ?? "";
+    $this->device_selection_configuration = $device_selection_configuration ?? null;
+    $this->execution_configuration = $execution_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
+    $this->test = $test ?? null;
   }
 }
 
@@ -2835,7 +2835,7 @@ class ScheduleRunResult {
   public function __construct(shape(
   ?'run' => Run,
   ) $s = shape()) {
-    $this->run = $run ?? ;
+    $this->run = $run ?? null;
   }
 }
 
@@ -2853,11 +2853,11 @@ class ScheduleRunTest {
   ?'test_spec_arn' => AmazonResourceName,
   ?'type' => TestType,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->test_package_arn = $test_package_arn ?? ;
-    $this->test_spec_arn = $test_spec_arn ?? ;
-    $this->type = $type ?? ;
+    $this->filter = $filter ?? "";
+    $this->parameters = $parameters ?? [];
+    $this->test_package_arn = $test_package_arn ?? "";
+    $this->test_spec_arn = $test_spec_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2867,7 +2867,7 @@ class ServiceAccountException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2883,7 +2883,7 @@ class StopJobRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -2893,7 +2893,7 @@ class StopJobResult {
   public function __construct(shape(
   ?'job' => Job,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? null;
   }
 }
 
@@ -2903,7 +2903,7 @@ class StopRemoteAccessSessionRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -2913,7 +2913,7 @@ class StopRemoteAccessSessionResult {
   public function __construct(shape(
   ?'remote_access_session' => RemoteAccessSession,
   ) $s = shape()) {
-    $this->remote_access_session = $remote_access_session ?? ;
+    $this->remote_access_session = $remote_access_session ?? null;
   }
 }
 
@@ -2923,7 +2923,7 @@ class StopRunRequest {
   public function __construct(shape(
   ?'arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -2933,7 +2933,7 @@ class StopRunResult {
   public function __construct(shape(
   ?'run' => Run,
   ) $s = shape()) {
-    $this->run = $run ?? ;
+    $this->run = $run ?? null;
   }
 }
 
@@ -2965,17 +2965,17 @@ class Suite {
   ?'stopped' => DateTime,
   ?'type' => TestType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->counters = $counters ?? ;
-    $this->created = $created ?? ;
-    $this->device_minutes = $device_minutes ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->result = $result ?? ;
-    $this->started = $started ?? ;
-    $this->status = $status ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->counters = $counters ?? null;
+    $this->created = $created ?? 0;
+    $this->device_minutes = $device_minutes ?? null;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->result = $result ?? "";
+    $this->started = $started ?? 0;
+    $this->status = $status ?? "";
+    $this->stopped = $stopped ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2989,8 +2989,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3008,8 +3008,8 @@ class TagOperationException {
   ?'message' => ExceptionMessage,
   ?'resource_name' => AmazonResourceName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -3021,8 +3021,8 @@ class TagPolicyException {
   ?'message' => ExceptionMessage,
   ?'resource_name' => AmazonResourceName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -3034,8 +3034,8 @@ class TagResourceRequest {
   ?'resource_arn' => DeviceFarmArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3074,17 +3074,17 @@ class Test {
   ?'stopped' => DateTime,
   ?'type' => TestType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->counters = $counters ?? ;
-    $this->created = $created ?? ;
-    $this->device_minutes = $device_minutes ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->result = $result ?? ;
-    $this->started = $started ?? ;
-    $this->status = $status ?? ;
-    $this->stopped = $stopped ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->counters = $counters ?? null;
+    $this->created = $created ?? 0;
+    $this->device_minutes = $device_minutes ?? null;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->result = $result ?? "";
+    $this->started = $started ?? 0;
+    $this->status = $status ?? "";
+    $this->stopped = $stopped ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -3100,10 +3100,10 @@ class TestGridProject {
   ?'description' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3125,12 +3125,12 @@ class TestGridSession {
   ?'selenium_properties' => string,
   ?'status' => TestGridSessionStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->billing_minutes = $billing_minutes ?? ;
-    $this->created = $created ?? ;
-    $this->ended = $ended ?? ;
-    $this->selenium_properties = $selenium_properties ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->billing_minutes = $billing_minutes ?? 0.0;
+    $this->created = $created ?? 0;
+    $this->ended = $ended ?? 0;
+    $this->selenium_properties = $selenium_properties ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -3148,11 +3148,11 @@ class TestGridSessionAction {
   ?'started' => DateTime,
   ?'status_code' => string,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->duration = $duration ?? ;
-    $this->request_method = $request_method ?? ;
-    $this->started = $started ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->action = $action ?? "";
+    $this->duration = $duration ?? 0;
+    $this->request_method = $request_method ?? "";
+    $this->started = $started ?? 0;
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -3168,9 +3168,9 @@ class TestGridSessionArtifact {
   ?'type' => TestGridSessionArtifactType,
   ?'url' => string,
   ) $s = shape()) {
-    $this->filename = $filename ?? ;
-    $this->type = $type ?? ;
-    $this->url = $url ?? ;
+    $this->filename = $filename ?? "";
+    $this->type = $type ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -3200,8 +3200,8 @@ class TooManyTagsException {
   ?'message' => ExceptionMessage,
   ?'resource_name' => AmazonResourceName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -3215,8 +3215,8 @@ class TrialMinutes {
   ?'remaining' => Double,
   ?'total' => Double,
   ) $s = shape()) {
-    $this->remaining = $remaining ?? ;
-    $this->total = $total ?? ;
+    $this->remaining = $remaining ?? 0.0;
+    $this->total = $total ?? 0.0;
   }
 }
 
@@ -3230,8 +3230,8 @@ class UniqueProblem {
   ?'message' => Message,
   ?'problems' => Problems,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->problems = $problems ?? ;
+    $this->message = $message ?? "";
+    $this->problems = $problems ?? [];
   }
 }
 
@@ -3247,8 +3247,8 @@ class UntagResourceRequest {
   ?'resource_arn' => DeviceFarmArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3269,9 +3269,9 @@ class UpdateDeviceInstanceRequest {
   ?'labels' => InstanceLabels,
   ?'profile_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->labels = $labels ?? ;
-    $this->profile_arn = $profile_arn ?? ;
+    $this->arn = $arn ?? "";
+    $this->labels = $labels ?? [];
+    $this->profile_arn = $profile_arn ?? "";
   }
 }
 
@@ -3281,7 +3281,7 @@ class UpdateDeviceInstanceResult {
   public function __construct(shape(
   ?'device_instance' => DeviceInstance,
   ) $s = shape()) {
-    $this->device_instance = $device_instance ?? ;
+    $this->device_instance = $device_instance ?? null;
   }
 }
 
@@ -3301,12 +3301,12 @@ class UpdateDevicePoolRequest {
   ?'name' => Name,
   ?'rules' => Rules,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->clear_max_devices = $clear_max_devices ?? ;
-    $this->description = $description ?? ;
-    $this->max_devices = $max_devices ?? ;
-    $this->name = $name ?? ;
-    $this->rules = $rules ?? ;
+    $this->arn = $arn ?? "";
+    $this->clear_max_devices = $clear_max_devices ?? false;
+    $this->description = $description ?? "";
+    $this->max_devices = $max_devices ?? 0;
+    $this->name = $name ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -3316,7 +3316,7 @@ class UpdateDevicePoolResult {
   public function __construct(shape(
   ?'device_pool' => DevicePool,
   ) $s = shape()) {
-    $this->device_pool = $device_pool ?? ;
+    $this->device_pool = $device_pool ?? null;
   }
 }
 
@@ -3336,12 +3336,12 @@ class UpdateInstanceProfileRequest {
   ?'package_cleanup' => boolean,
   ?'reboot_after_use' => boolean,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
-    $this->name = $name ?? ;
-    $this->package_cleanup = $package_cleanup ?? ;
-    $this->reboot_after_use = $reboot_after_use ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? [];
+    $this->name = $name ?? "";
+    $this->package_cleanup = $package_cleanup ?? false;
+    $this->reboot_after_use = $reboot_after_use ?? false;
   }
 }
 
@@ -3351,7 +3351,7 @@ class UpdateInstanceProfileResult {
   public function __construct(shape(
   ?'instance_profile' => InstanceProfile,
   ) $s = shape()) {
-    $this->instance_profile = $instance_profile ?? ;
+    $this->instance_profile = $instance_profile ?? null;
   }
 }
 
@@ -3383,18 +3383,18 @@ class UpdateNetworkProfileRequest {
   ?'uplink_jitter_ms' => Long,
   ?'uplink_loss_percent' => PercentInteger,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
-    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
-    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
-    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
-    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
-    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
-    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? 0;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? 0;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? 0;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? 0;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? 0;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? 0;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? 0;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? 0;
   }
 }
 
@@ -3404,7 +3404,7 @@ class UpdateNetworkProfileResult {
   public function __construct(shape(
   ?'network_profile' => NetworkProfile,
   ) $s = shape()) {
-    $this->network_profile = $network_profile ?? ;
+    $this->network_profile = $network_profile ?? null;
   }
 }
 
@@ -3418,9 +3418,9 @@ class UpdateProjectRequest {
   ?'default_job_timeout_minutes' => JobTimeoutMinutes,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3430,7 +3430,7 @@ class UpdateProjectResult {
   public function __construct(shape(
   ?'project' => Project,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -3444,9 +3444,9 @@ class UpdateTestGridProjectRequest {
   ?'name' => ResourceName,
   ?'project_arn' => DeviceFarmArn,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->project_arn = $project_arn ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->project_arn = $project_arn ?? "";
   }
 }
 
@@ -3456,7 +3456,7 @@ class UpdateTestGridProjectResult {
   public function __construct(shape(
   ?'test_grid_project' => TestGridProject,
   ) $s = shape()) {
-    $this->test_grid_project = $test_grid_project ?? ;
+    $this->test_grid_project = $test_grid_project ?? null;
   }
 }
 
@@ -3472,10 +3472,10 @@ class UpdateUploadRequest {
   ?'edit_content' => boolean,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->edit_content = $edit_content ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->edit_content = $edit_content ?? false;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3485,7 +3485,7 @@ class UpdateUploadResult {
   public function __construct(shape(
   ?'upload' => Upload,
   ) $s = shape()) {
-    $this->upload = $upload ?? ;
+    $this->upload = $upload ?? null;
   }
 }
 
@@ -3503,11 +3503,11 @@ class UpdateVPCEConfigurationRequest {
   ?'vpce_configuration_name' => VPCEConfigurationName,
   ?'vpce_service_name' => VPCEServiceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->service_dns_name = $service_dns_name ?? ;
-    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
-    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
-    $this->vpce_service_name = $vpce_service_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->service_dns_name = $service_dns_name ?? "";
+    $this->vpce_configuration_description = $vpce_configuration_description ?? "";
+    $this->vpce_configuration_name = $vpce_configuration_name ?? "";
+    $this->vpce_service_name = $vpce_service_name ?? "";
   }
 }
 
@@ -3517,7 +3517,7 @@ class UpdateVPCEConfigurationResult {
   public function __construct(shape(
   ?'vpce_configuration' => VPCEConfiguration,
   ) $s = shape()) {
-    $this->vpce_configuration = $vpce_configuration ?? ;
+    $this->vpce_configuration = $vpce_configuration ?? null;
   }
 }
 
@@ -3545,16 +3545,16 @@ class Upload {
   ?'type' => UploadType,
   ?'url' => URL,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->category = $category ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->created = $created ?? ;
-    $this->message = $message ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
-    $this->url = $url ?? ;
+    $this->arn = $arn ?? "";
+    $this->category = $category ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->created = $created ?? 0;
+    $this->message = $message ?? "";
+    $this->metadata = $metadata ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -3580,11 +3580,11 @@ class VPCEConfiguration {
   ?'vpce_configuration_name' => VPCEConfigurationName,
   ?'vpce_service_name' => VPCEServiceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->service_dns_name = $service_dns_name ?? ;
-    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
-    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
-    $this->vpce_service_name = $vpce_service_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->service_dns_name = $service_dns_name ?? "";
+    $this->vpce_configuration_description = $vpce_configuration_description ?? "";
+    $this->vpce_configuration_name = $vpce_configuration_name ?? "";
+    $this->vpce_service_name = $vpce_service_name ?? "";
   }
 }
 

@@ -15,7 +15,7 @@ class DeleteConnectionRequest {
   public function __construct(shape(
   ?'connection_id' => __string,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -32,7 +32,7 @@ class GetConnectionRequest {
   public function __construct(shape(
   ?'connection_id' => __string,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -46,9 +46,9 @@ class GetConnectionResponse {
   ?'identity' => Identity,
   ?'last_active_at' => __timestampIso8601,
   ) $s = shape()) {
-    $this->connected_at = $connected_at ?? ;
+    $this->connected_at = $connected_at ?? 0;
     $this->identity = $identity ?? null;
-    $this->last_active_at = $last_active_at ?? ;
+    $this->last_active_at = $last_active_at ?? 0;
   }
 }
 
@@ -67,8 +67,8 @@ class Identity {
   ?'source_ip' => __string,
   ?'user_agent' => __string,
   ) $s = shape()) {
-    $this->source_ip = $source_ip ?? ;
-    $this->user_agent = $user_agent ?? ;
+    $this->source_ip = $source_ip ?? "";
+    $this->user_agent = $user_agent ?? "";
   }
 }
 
@@ -85,7 +85,7 @@ class PayloadTooLargeException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -97,7 +97,7 @@ class PostToConnectionRequest {
   ?'connection_id' => __string,
   ?'data' => Data,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
     $this->data = $data ?? "";
   }
 }

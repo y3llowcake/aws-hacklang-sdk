@@ -43,8 +43,8 @@ class Attribute {
   ?'key' => AttributeKey,
   ?'value' => AttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -64,9 +64,9 @@ class AuthorizationData {
   ?'expires_at' => ExpirationTimestamp,
   ?'proxy_endpoint' => ProxyEndpoint,
   ) $s = shape()) {
-    $this->authorization_token = $authorization_token ?? ;
-    $this->expires_at = $expires_at ?? ;
-    $this->proxy_endpoint = $proxy_endpoint ?? ;
+    $this->authorization_token = $authorization_token ?? "";
+    $this->expires_at = $expires_at ?? 0;
+    $this->proxy_endpoint = $proxy_endpoint ?? "";
   }
 }
 
@@ -84,9 +84,9 @@ class BatchCheckLayerAvailabilityRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->layer_digests = $layer_digests ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->layer_digests = $layer_digests ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -98,8 +98,8 @@ class BatchCheckLayerAvailabilityResponse {
   ?'failures' => LayerFailureList,
   ?'layers' => LayerList,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->layers = $layers ?? ;
+    $this->failures = $failures ?? [];
+    $this->layers = $layers ?? [];
   }
 }
 
@@ -113,9 +113,9 @@ class BatchDeleteImageRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_ids = $image_ids ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_ids = $image_ids ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -127,8 +127,8 @@ class BatchDeleteImageResponse {
   ?'failures' => ImageFailureList,
   ?'image_ids' => ImageIdentifierList,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->image_ids = $image_ids ?? ;
+    $this->failures = $failures ?? [];
+    $this->image_ids = $image_ids ?? [];
   }
 }
 
@@ -144,10 +144,10 @@ class BatchGetImageRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->accepted_media_types = $accepted_media_types ?? ;
-    $this->image_ids = $image_ids ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->accepted_media_types = $accepted_media_types ?? [];
+    $this->image_ids = $image_ids ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -159,8 +159,8 @@ class BatchGetImageResponse {
   ?'failures' => ImageFailureList,
   ?'images' => ImageList,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
-    $this->images = $images ?? ;
+    $this->failures = $failures ?? [];
+    $this->images = $images ?? [];
   }
 }
 
@@ -180,10 +180,10 @@ class CompleteLayerUploadRequest {
   ?'repository_name' => RepositoryName,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->layer_digests = $layer_digests ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->layer_digests = $layer_digests ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -199,10 +199,10 @@ class CompleteLayerUploadResponse {
   ?'repository_name' => RepositoryName,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->layer_digest = $layer_digest ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->layer_digest = $layer_digest ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -218,10 +218,10 @@ class CreateRepositoryRequest {
   ?'repository_name' => RepositoryName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
-    $this->image_tag_mutability = $image_tag_mutability ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->image_scanning_configuration = $image_scanning_configuration ?? null;
+    $this->image_tag_mutability = $image_tag_mutability ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -231,7 +231,7 @@ class CreateRepositoryResponse {
   public function __construct(shape(
   ?'repository' => Repository,
   ) $s = shape()) {
-    $this->repository = $repository ?? ;
+    $this->repository = $repository ?? null;
   }
 }
 
@@ -245,8 +245,8 @@ class DeleteLifecyclePolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -262,10 +262,10 @@ class DeleteLifecyclePolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->last_evaluated_at = $last_evaluated_at ?? ;
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->last_evaluated_at = $last_evaluated_at ?? 0;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -277,8 +277,8 @@ class DeleteRepositoryPolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -292,9 +292,9 @@ class DeleteRepositoryPolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->policy_text = $policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->policy_text = $policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -308,9 +308,9 @@ class DeleteRepositoryRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->force = $force ?? false;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -320,7 +320,7 @@ class DeleteRepositoryResponse {
   public function __construct(shape(
   ?'repository' => Repository,
   ) $s = shape()) {
-    $this->repository = $repository ?? ;
+    $this->repository = $repository ?? null;
   }
 }
 
@@ -338,11 +338,11 @@ class DescribeImageScanFindingsRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_id = $image_id ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -362,12 +362,12 @@ class DescribeImageScanFindingsResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
-    $this->image_scan_findings = $image_scan_findings ?? ;
-    $this->image_scan_status = $image_scan_status ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_id = $image_id ?? null;
+    $this->image_scan_findings = $image_scan_findings ?? null;
+    $this->image_scan_status = $image_scan_status ?? null;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class DescribeImagesFilter {
   public function __construct(shape(
   ?'tag_status' => TagStatus,
   ) $s = shape()) {
-    $this->tag_status = $tag_status ?? ;
+    $this->tag_status = $tag_status ?? "";
   }
 }
 
@@ -397,12 +397,12 @@ class DescribeImagesRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->image_ids = $image_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->filter = $filter ?? null;
+    $this->image_ids = $image_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -414,8 +414,8 @@ class DescribeImagesResponse {
   ?'image_details' => ImageDetailList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->image_details = $image_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->image_details = $image_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -431,10 +431,10 @@ class DescribeRepositoriesRequest {
   ?'registry_id' => RegistryId,
   ?'repository_names' => RepositoryNameList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_names = $repository_names ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_names = $repository_names ?? [];
   }
 }
 
@@ -446,8 +446,8 @@ class DescribeRepositoriesResponse {
   ?'next_token' => NextToken,
   ?'repositories' => RepositoryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->repositories = $repositories ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->repositories = $repositories ?? [];
   }
 }
 
@@ -457,7 +457,7 @@ class EmptyUploadException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -485,7 +485,7 @@ class GetAuthorizationTokenRequest {
   public function __construct(shape(
   ?'registry_ids' => GetAuthorizationTokenRegistryIdList,
   ) $s = shape()) {
-    $this->registry_ids = $registry_ids ?? ;
+    $this->registry_ids = $registry_ids ?? [];
   }
 }
 
@@ -495,7 +495,7 @@ class GetAuthorizationTokenResponse {
   public function __construct(shape(
   ?'authorization_data' => AuthorizationDataList,
   ) $s = shape()) {
-    $this->authorization_data = $authorization_data ?? ;
+    $this->authorization_data = $authorization_data ?? [];
   }
 }
 
@@ -509,9 +509,9 @@ class GetDownloadUrlForLayerRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->layer_digest = $layer_digest ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->layer_digest = $layer_digest ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -523,8 +523,8 @@ class GetDownloadUrlForLayerResponse {
   ?'download_url' => Url,
   ?'layer_digest' => LayerDigest,
   ) $s = shape()) {
-    $this->download_url = $download_url ?? ;
-    $this->layer_digest = $layer_digest ?? ;
+    $this->download_url = $download_url ?? "";
+    $this->layer_digest = $layer_digest ?? "";
   }
 }
 
@@ -544,12 +544,12 @@ class GetLifecyclePolicyPreviewRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->image_ids = $image_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->filter = $filter ?? null;
+    $this->image_ids = $image_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -571,13 +571,13 @@ class GetLifecyclePolicyPreviewResponse {
   ?'status' => LifecyclePolicyPreviewStatus,
   ?'summary' => LifecyclePolicyPreviewSummary,
   ) $s = shape()) {
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->preview_results = $preview_results ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->status = $status ?? ;
-    $this->summary = $summary ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->preview_results = $preview_results ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->status = $status ?? "";
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -589,8 +589,8 @@ class GetLifecyclePolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -606,10 +606,10 @@ class GetLifecyclePolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->last_evaluated_at = $last_evaluated_at ?? ;
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->last_evaluated_at = $last_evaluated_at ?? 0;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -621,8 +621,8 @@ class GetRepositoryPolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -636,9 +636,9 @@ class GetRepositoryPolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->policy_text = $policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->policy_text = $policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -654,10 +654,10 @@ class Image {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
-    $this->image_manifest = $image_manifest ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_id = $image_id ?? null;
+    $this->image_manifest = $image_manifest ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -669,7 +669,7 @@ class ImageAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -695,14 +695,14 @@ class ImageDetail {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_digest = $image_digest ?? ;
-    $this->image_pushed_at = $image_pushed_at ?? ;
-    $this->image_scan_findings_summary = $image_scan_findings_summary ?? ;
-    $this->image_scan_status = $image_scan_status ?? ;
-    $this->image_size_in_bytes = $image_size_in_bytes ?? ;
-    $this->image_tags = $image_tags ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_digest = $image_digest ?? "";
+    $this->image_pushed_at = $image_pushed_at ?? 0;
+    $this->image_scan_findings_summary = $image_scan_findings_summary ?? null;
+    $this->image_scan_status = $image_scan_status ?? null;
+    $this->image_size_in_bytes = $image_size_in_bytes ?? 0;
+    $this->image_tags = $image_tags ?? [];
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -720,9 +720,9 @@ class ImageFailure {
   ?'failure_reason' => ImageFailureReason,
   ?'image_id' => ImageIdentifier,
   ) $s = shape()) {
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->image_id = $image_id ?? ;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->image_id = $image_id ?? null;
   }
 }
 
@@ -740,8 +740,8 @@ class ImageIdentifier {
   ?'image_digest' => ImageDigest,
   ?'image_tag' => ImageTag,
   ) $s = shape()) {
-    $this->image_digest = $image_digest ?? ;
-    $this->image_tag = $image_tag ?? ;
+    $this->image_digest = $image_digest ?? "";
+    $this->image_tag = $image_tag ?? "";
   }
 }
 
@@ -757,7 +757,7 @@ class ImageNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -775,11 +775,11 @@ class ImageScanFinding {
   ?'severity' => FindingSeverity,
   ?'uri' => Url,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->severity = $severity ?? ;
-    $this->uri = $uri ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->severity = $severity ?? "";
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -797,10 +797,10 @@ class ImageScanFindings {
   ?'image_scan_completed_at' => ScanTimestamp,
   ?'vulnerability_source_updated_at' => VulnerabilitySourceUpdateTimestamp,
   ) $s = shape()) {
-    $this->finding_severity_counts = $finding_severity_counts ?? ;
-    $this->findings = $findings ?? ;
-    $this->image_scan_completed_at = $image_scan_completed_at ?? ;
-    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? ;
+    $this->finding_severity_counts = $finding_severity_counts ?? [];
+    $this->findings = $findings ?? [];
+    $this->image_scan_completed_at = $image_scan_completed_at ?? 0;
+    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? 0;
   }
 }
 
@@ -814,9 +814,9 @@ class ImageScanFindingsSummary {
   ?'image_scan_completed_at' => ScanTimestamp,
   ?'vulnerability_source_updated_at' => VulnerabilitySourceUpdateTimestamp,
   ) $s = shape()) {
-    $this->finding_severity_counts = $finding_severity_counts ?? ;
-    $this->image_scan_completed_at = $image_scan_completed_at ?? ;
-    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? ;
+    $this->finding_severity_counts = $finding_severity_counts ?? [];
+    $this->image_scan_completed_at = $image_scan_completed_at ?? 0;
+    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? 0;
   }
 }
 
@@ -828,8 +828,8 @@ class ImageScanStatus {
   ?'description' => ScanStatusDescription,
   ?'status' => ScanStatus,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->status = $status ?? ;
+    $this->description = $description ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -839,7 +839,7 @@ class ImageScanningConfiguration {
   public function __construct(shape(
   ?'scan_on_push' => ScanOnPushFlag,
   ) $s = shape()) {
-    $this->scan_on_push = $scan_on_push ?? ;
+    $this->scan_on_push = $scan_on_push ?? false;
   }
 }
 
@@ -853,7 +853,7 @@ class ImageTagAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -869,8 +869,8 @@ class InitiateLayerUploadRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -882,8 +882,8 @@ class InitiateLayerUploadResponse {
   ?'part_size' => PartSize,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->part_size = $part_size ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->part_size = $part_size ?? 0;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -893,7 +893,7 @@ class InvalidLayerException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -911,11 +911,11 @@ class InvalidLayerPartException {
   ?'repository_name' => RepositoryName,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->last_valid_byte_received = $last_valid_byte_received ?? ;
-    $this->message = $message ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->last_valid_byte_received = $last_valid_byte_received ?? 0;
+    $this->message = $message ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -925,7 +925,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -935,7 +935,7 @@ class InvalidTagParameterException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -951,10 +951,10 @@ class Layer {
   ?'layer_size' => LayerSizeInBytes,
   ?'media_type' => MediaType,
   ) $s = shape()) {
-    $this->layer_availability = $layer_availability ?? ;
-    $this->layer_digest = $layer_digest ?? ;
-    $this->layer_size = $layer_size ?? ;
-    $this->media_type = $media_type ?? ;
+    $this->layer_availability = $layer_availability ?? "";
+    $this->layer_digest = $layer_digest ?? "";
+    $this->layer_size = $layer_size ?? 0;
+    $this->media_type = $media_type ?? "";
   }
 }
 
@@ -964,7 +964,7 @@ class LayerAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -984,9 +984,9 @@ class LayerFailure {
   ?'failure_reason' => LayerFailureReason,
   ?'layer_digest' => BatchedOperationLayerDigest,
   ) $s = shape()) {
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->layer_digest = $layer_digest ?? ;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->layer_digest = $layer_digest ?? "";
   }
 }
 
@@ -1002,7 +1002,7 @@ class LayerInaccessibleException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1016,7 +1016,7 @@ class LayerPartTooSmallException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1028,7 +1028,7 @@ class LayersNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1038,7 +1038,7 @@ class LifecyclePolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1048,7 +1048,7 @@ class LifecyclePolicyPreviewFilter {
   public function __construct(shape(
   ?'tag_status' => TagStatus,
   ) $s = shape()) {
-    $this->tag_status = $tag_status ?? ;
+    $this->tag_status = $tag_status ?? "";
   }
 }
 
@@ -1058,7 +1058,7 @@ class LifecyclePolicyPreviewInProgressException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1068,7 +1068,7 @@ class LifecyclePolicyPreviewNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1086,11 +1086,11 @@ class LifecyclePolicyPreviewResult {
   ?'image_pushed_at' => PushTimestamp,
   ?'image_tags' => ImageTagList,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->applied_rule_priority = $applied_rule_priority ?? ;
-    $this->image_digest = $image_digest ?? ;
-    $this->image_pushed_at = $image_pushed_at ?? ;
-    $this->image_tags = $image_tags ?? ;
+    $this->action = $action ?? null;
+    $this->applied_rule_priority = $applied_rule_priority ?? 0;
+    $this->image_digest = $image_digest ?? "";
+    $this->image_pushed_at = $image_pushed_at ?? 0;
+    $this->image_tags = $image_tags ?? [];
   }
 }
 
@@ -1104,7 +1104,7 @@ class LifecyclePolicyPreviewSummary {
   public function __construct(shape(
   ?'expiring_image_total_count' => ImageCount,
   ) $s = shape()) {
-    $this->expiring_image_total_count = $expiring_image_total_count ?? ;
+    $this->expiring_image_total_count = $expiring_image_total_count ?? 0;
   }
 }
 
@@ -1114,7 +1114,7 @@ class LifecyclePolicyRuleAction {
   public function __construct(shape(
   ?'type' => ImageActionType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1130,7 +1130,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1140,7 +1140,7 @@ class ListImagesFilter {
   public function __construct(shape(
   ?'tag_status' => TagStatus,
   ) $s = shape()) {
-    $this->tag_status = $tag_status ?? ;
+    $this->tag_status = $tag_status ?? "";
   }
 }
 
@@ -1158,11 +1158,11 @@ class ListImagesRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1174,8 +1174,8 @@ class ListImagesResponse {
   ?'image_ids' => ImageIdentifierList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->image_ids = $image_ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->image_ids = $image_ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1185,7 +1185,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1195,7 +1195,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1225,10 +1225,10 @@ class PutImageRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_manifest = $image_manifest ?? ;
-    $this->image_tag = $image_tag ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_manifest = $image_manifest ?? "";
+    $this->image_tag = $image_tag ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1238,7 +1238,7 @@ class PutImageResponse {
   public function __construct(shape(
   ?'image' => Image,
   ) $s = shape()) {
-    $this->image = $image ?? ;
+    $this->image = $image ?? null;
   }
 }
 
@@ -1252,9 +1252,9 @@ class PutImageScanningConfigurationRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_scanning_configuration = $image_scanning_configuration ?? null;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1268,9 +1268,9 @@ class PutImageScanningConfigurationResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_scanning_configuration = $image_scanning_configuration ?? null;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1284,9 +1284,9 @@ class PutImageTagMutabilityRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_tag_mutability = $image_tag_mutability ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_tag_mutability = $image_tag_mutability ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1300,9 +1300,9 @@ class PutImageTagMutabilityResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_tag_mutability = $image_tag_mutability ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_tag_mutability = $image_tag_mutability ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1316,9 +1316,9 @@ class PutLifecyclePolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1332,9 +1332,9 @@ class PutLifecyclePolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1358,13 +1358,13 @@ class Repository {
   ?'repository_name' => RepositoryName,
   ?'repository_uri' => Url,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
-    $this->image_tag_mutability = $image_tag_mutability ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_arn = $repository_arn ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->repository_uri = $repository_uri ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->image_scanning_configuration = $image_scanning_configuration ?? null;
+    $this->image_tag_mutability = $image_tag_mutability ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_arn = $repository_arn ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->repository_uri = $repository_uri ?? "";
   }
 }
 
@@ -1374,7 +1374,7 @@ class RepositoryAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1390,7 +1390,7 @@ class RepositoryNotEmptyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1400,7 +1400,7 @@ class RepositoryNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1410,7 +1410,7 @@ class RepositoryPolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1422,7 +1422,7 @@ class ScanNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1440,7 +1440,7 @@ class ServerException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1456,10 +1456,10 @@ class SetRepositoryPolicyRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->policy_text = $policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->force = $force ?? false;
+    $this->policy_text = $policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1473,9 +1473,9 @@ class SetRepositoryPolicyResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->policy_text = $policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->policy_text = $policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1491,9 +1491,9 @@ class StartImageScanRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_id = $image_id ?? null;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1509,10 +1509,10 @@ class StartImageScanResponse {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
-    $this->image_scan_status = $image_scan_status ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->image_id = $image_id ?? null;
+    $this->image_scan_status = $image_scan_status ?? null;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1526,9 +1526,9 @@ class StartLifecyclePolicyPreviewRequest {
   ?'registry_id' => RegistryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1544,10 +1544,10 @@ class StartLifecyclePolicyPreviewResponse {
   ?'repository_name' => RepositoryName,
   ?'status' => LifecyclePolicyPreviewStatus,
   ) $s = shape()) {
-    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->status = $status ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? "";
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1559,8 +1559,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1578,8 +1578,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1600,7 +1600,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1612,8 +1612,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1642,12 +1642,12 @@ class UploadLayerPartRequest {
   ?'repository_name' => RepositoryName,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->layer_part_blob = $layer_part_blob ?? ;
-    $this->part_first_byte = $part_first_byte ?? ;
-    $this->part_last_byte = $part_last_byte ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->layer_part_blob = $layer_part_blob ?? "";
+    $this->part_first_byte = $part_first_byte ?? 0;
+    $this->part_last_byte = $part_last_byte ?? 0;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -1663,10 +1663,10 @@ class UploadLayerPartResponse {
   ?'repository_name' => RepositoryName,
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->last_byte_received = $last_byte_received ?? ;
-    $this->registry_id = $registry_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->upload_id = $upload_id ?? ;
+    $this->last_byte_received = $last_byte_received ?? 0;
+    $this->registry_id = $registry_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -1676,7 +1676,7 @@ class UploadNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

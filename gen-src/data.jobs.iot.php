@@ -18,7 +18,7 @@ class CertificateValidationException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -36,10 +36,10 @@ class DescribeJobExecutionRequest {
   ?'job_id' => DescribeJobExecutionJobId,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->execution_number = $execution_number ?? ;
-    $this->include_job_document = $include_job_document ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->execution_number = $execution_number ?? 0;
+    $this->include_job_document = $include_job_document ?? false;
+    $this->job_id = $job_id ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -49,7 +49,7 @@ class DescribeJobExecutionResponse {
   public function __construct(shape(
   ?'execution' => JobExecution,
   ) $s = shape()) {
-    $this->execution = $execution ?? ;
+    $this->execution = $execution ?? null;
   }
 }
 
@@ -69,7 +69,7 @@ class GetPendingJobExecutionsRequest {
   public function __construct(shape(
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->thing_name = $thing_name ?? ;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -81,8 +81,8 @@ class GetPendingJobExecutionsResponse {
   ?'in_progress_jobs' => JobExecutionSummaryList,
   ?'queued_jobs' => JobExecutionSummaryList,
   ) $s = shape()) {
-    $this->in_progress_jobs = $in_progress_jobs ?? ;
-    $this->queued_jobs = $queued_jobs ?? ;
+    $this->in_progress_jobs = $in_progress_jobs ?? [];
+    $this->queued_jobs = $queued_jobs ?? [];
   }
 }
 
@@ -96,7 +96,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -106,7 +106,7 @@ class InvalidStateTransitionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -138,17 +138,17 @@ class JobExecution {
   ?'thing_name' => ThingName,
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
-    $this->approximate_seconds_before_timed_out = $approximate_seconds_before_timed_out ?? ;
-    $this->execution_number = $execution_number ?? ;
-    $this->job_document = $job_document ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->queued_at = $queued_at ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->status_details = $status_details ?? ;
-    $this->thing_name = $thing_name ?? ;
-    $this->version_number = $version_number ?? ;
+    $this->approximate_seconds_before_timed_out = $approximate_seconds_before_timed_out ?? 0;
+    $this->execution_number = $execution_number ?? 0;
+    $this->job_document = $job_document ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->queued_at = $queued_at ?? 0;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->status_details = $status_details ?? [];
+    $this->thing_name = $thing_name ?? "";
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -162,9 +162,9 @@ class JobExecutionState {
   ?'status_details' => DetailsMap,
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->status_details = $status_details ?? ;
-    $this->version_number = $version_number ?? ;
+    $this->status = $status ?? "";
+    $this->status_details = $status_details ?? [];
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -186,12 +186,12 @@ class JobExecutionSummary {
   ?'started_at' => StartedAt,
   ?'version_number' => VersionNumber,
   ) $s = shape()) {
-    $this->execution_number = $execution_number ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->queued_at = $queued_at ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->version_number = $version_number ?? ;
+    $this->execution_number = $execution_number ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->queued_at = $queued_at ?? 0;
+    $this->started_at = $started_at ?? 0;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -209,7 +209,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -219,7 +219,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -233,9 +233,9 @@ class StartNextPendingJobExecutionRequest {
   ?'step_timeout_in_minutes' => StepTimeoutInMinutes,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->status_details = $status_details ?? ;
-    $this->step_timeout_in_minutes = $step_timeout_in_minutes ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->status_details = $status_details ?? [];
+    $this->step_timeout_in_minutes = $step_timeout_in_minutes ?? 0;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -245,7 +245,7 @@ class StartNextPendingJobExecutionResponse {
   public function __construct(shape(
   ?'execution' => JobExecution,
   ) $s = shape()) {
-    $this->execution = $execution ?? ;
+    $this->execution = $execution ?? null;
   }
 }
 
@@ -259,7 +259,7 @@ class TerminalStateException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -273,8 +273,8 @@ class ThrottlingException {
   ?'message' => errorMessage,
   ?'payload' => BinaryBlob,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->payload = $payload ?? ;
+    $this->message = $message ?? "";
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -300,15 +300,15 @@ class UpdateJobExecutionRequest {
   ?'step_timeout_in_minutes' => StepTimeoutInMinutes,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->execution_number = $execution_number ?? ;
-    $this->expected_version = $expected_version ?? ;
-    $this->include_job_document = $include_job_document ?? ;
-    $this->include_job_execution_state = $include_job_execution_state ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->status = $status ?? ;
-    $this->status_details = $status_details ?? ;
-    $this->step_timeout_in_minutes = $step_timeout_in_minutes ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->execution_number = $execution_number ?? 0;
+    $this->expected_version = $expected_version ?? 0;
+    $this->include_job_document = $include_job_document ?? false;
+    $this->include_job_execution_state = $include_job_execution_state ?? false;
+    $this->job_id = $job_id ?? "";
+    $this->status = $status ?? "";
+    $this->status_details = $status_details ?? [];
+    $this->step_timeout_in_minutes = $step_timeout_in_minutes ?? 0;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -320,8 +320,8 @@ class UpdateJobExecutionResponse {
   ?'execution_state' => JobExecutionState,
   ?'job_document' => JobDocument,
   ) $s = shape()) {
-    $this->execution_state = $execution_state ?? ;
-    $this->job_document = $job_document ?? ;
+    $this->execution_state = $execution_state ?? null;
+    $this->job_document = $job_document ?? "";
   }
 }
 

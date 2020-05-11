@@ -65,8 +65,8 @@ class BatchDetectDominantLanguageItemResult {
   ?'index' => int,
   ?'languages' => ListOfDominantLanguages,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->languages = $languages ?? ;
+    $this->index = $index ?? 0;
+    $this->languages = $languages ?? [];
   }
 }
 
@@ -76,7 +76,7 @@ class BatchDetectDominantLanguageRequest {
   public function __construct(shape(
   ?'text_list' => StringList,
   ) $s = shape()) {
-    $this->text_list = $text_list ?? ;
+    $this->text_list = $text_list ?? [];
   }
 }
 
@@ -88,8 +88,8 @@ class BatchDetectDominantLanguageResponse {
   ?'error_list' => BatchItemErrorList,
   ?'result_list' => ListOfDetectDominantLanguageResult,
   ) $s = shape()) {
-    $this->error_list = $error_list ?? ;
-    $this->result_list = $result_list ?? ;
+    $this->error_list = $error_list ?? [];
+    $this->result_list = $result_list ?? [];
   }
 }
 
@@ -101,8 +101,8 @@ class BatchDetectEntitiesItemResult {
   ?'entities' => ListOfEntities,
   ?'index' => int,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
-    $this->index = $index ?? ;
+    $this->entities = $entities ?? [];
+    $this->index = $index ?? 0;
   }
 }
 
@@ -115,7 +115,7 @@ class BatchDetectEntitiesRequest {
   ?'text_list' => StringList,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text_list = $text_list ?? ;
+    $this->text_list = $text_list ?? [];
   }
 }
 
@@ -127,8 +127,8 @@ class BatchDetectEntitiesResponse {
   ?'error_list' => BatchItemErrorList,
   ?'result_list' => ListOfDetectEntitiesResult,
   ) $s = shape()) {
-    $this->error_list = $error_list ?? ;
-    $this->result_list = $result_list ?? ;
+    $this->error_list = $error_list ?? [];
+    $this->result_list = $result_list ?? [];
   }
 }
 
@@ -140,8 +140,8 @@ class BatchDetectKeyPhrasesItemResult {
   ?'index' => int,
   ?'key_phrases' => ListOfKeyPhrases,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->key_phrases = $key_phrases ?? ;
+    $this->index = $index ?? 0;
+    $this->key_phrases = $key_phrases ?? [];
   }
 }
 
@@ -154,7 +154,7 @@ class BatchDetectKeyPhrasesRequest {
   ?'text_list' => StringList,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text_list = $text_list ?? ;
+    $this->text_list = $text_list ?? [];
   }
 }
 
@@ -166,8 +166,8 @@ class BatchDetectKeyPhrasesResponse {
   ?'error_list' => BatchItemErrorList,
   ?'result_list' => ListOfDetectKeyPhrasesResult,
   ) $s = shape()) {
-    $this->error_list = $error_list ?? ;
-    $this->result_list = $result_list ?? ;
+    $this->error_list = $error_list ?? [];
+    $this->result_list = $result_list ?? [];
   }
 }
 
@@ -181,8 +181,8 @@ class BatchDetectSentimentItemResult {
   ?'sentiment' => SentimentType,
   ?'sentiment_score' => SentimentScore,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->sentiment = $sentiment ?? ;
+    $this->index = $index ?? 0;
+    $this->sentiment = $sentiment ?? "";
     $this->sentiment_score = $sentiment_score ?? null;
   }
 }
@@ -196,7 +196,7 @@ class BatchDetectSentimentRequest {
   ?'text_list' => StringList,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text_list = $text_list ?? ;
+    $this->text_list = $text_list ?? [];
   }
 }
 
@@ -208,8 +208,8 @@ class BatchDetectSentimentResponse {
   ?'error_list' => BatchItemErrorList,
   ?'result_list' => ListOfDetectSentimentResult,
   ) $s = shape()) {
-    $this->error_list = $error_list ?? ;
-    $this->result_list = $result_list ?? ;
+    $this->error_list = $error_list ?? [];
+    $this->result_list = $result_list ?? [];
   }
 }
 
@@ -221,8 +221,8 @@ class BatchDetectSyntaxItemResult {
   ?'index' => int,
   ?'syntax_tokens' => ListOfSyntaxTokens,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->syntax_tokens = $syntax_tokens ?? ;
+    $this->index = $index ?? 0;
+    $this->syntax_tokens = $syntax_tokens ?? [];
   }
 }
 
@@ -235,7 +235,7 @@ class BatchDetectSyntaxRequest {
   ?'text_list' => StringList,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text_list = $text_list ?? ;
+    $this->text_list = $text_list ?? [];
   }
 }
 
@@ -247,8 +247,8 @@ class BatchDetectSyntaxResponse {
   ?'error_list' => BatchItemErrorList,
   ?'result_list' => ListOfDetectSyntaxResult,
   ) $s = shape()) {
-    $this->error_list = $error_list ?? ;
-    $this->result_list = $result_list ?? ;
+    $this->error_list = $error_list ?? [];
+    $this->result_list = $result_list ?? [];
   }
 }
 
@@ -262,9 +262,9 @@ class BatchItemError {
   ?'error_message' => string,
   ?'index' => int,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->index = $index ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->index = $index ?? 0;
   }
 }
 
@@ -276,7 +276,7 @@ class BatchSizeLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -300,14 +300,14 @@ class ClassifierEvaluationMetrics {
   ?'precision' => Double,
   ?'recall' => Double,
   ) $s = shape()) {
-    $this->accuracy = $accuracy ?? ;
-    $this->f_1_score = $f_1_score ?? ;
-    $this->hamming_loss = $hamming_loss ?? ;
-    $this->micro_f_1_score = $micro_f_1_score ?? ;
-    $this->micro_precision = $micro_precision ?? ;
-    $this->micro_recall = $micro_recall ?? ;
-    $this->precision = $precision ?? ;
-    $this->recall = $recall ?? ;
+    $this->accuracy = $accuracy ?? 0.0;
+    $this->f_1_score = $f_1_score ?? 0.0;
+    $this->hamming_loss = $hamming_loss ?? 0.0;
+    $this->micro_f_1_score = $micro_f_1_score ?? 0.0;
+    $this->micro_precision = $micro_precision ?? 0.0;
+    $this->micro_recall = $micro_recall ?? 0.0;
+    $this->precision = $precision ?? 0.0;
+    $this->recall = $recall ?? 0.0;
   }
 }
 
@@ -323,10 +323,10 @@ class ClassifierMetadata {
   ?'number_of_test_documents' => int,
   ?'number_of_trained_documents' => int,
   ) $s = shape()) {
-    $this->evaluation_metrics = $evaluation_metrics ?? ;
-    $this->number_of_labels = $number_of_labels ?? ;
-    $this->number_of_test_documents = $number_of_test_documents ?? ;
-    $this->number_of_trained_documents = $number_of_trained_documents ?? ;
+    $this->evaluation_metrics = $evaluation_metrics ?? null;
+    $this->number_of_labels = $number_of_labels ?? 0;
+    $this->number_of_test_documents = $number_of_test_documents ?? 0;
+    $this->number_of_trained_documents = $number_of_trained_documents ?? 0;
   }
 }
 
@@ -338,8 +338,8 @@ class ClassifyDocumentRequest {
   ?'endpoint_arn' => DocumentClassifierEndpointArn,
   ?'text' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->text = $text ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->text = $text ?? "";
   }
 }
 
@@ -351,8 +351,8 @@ class ClassifyDocumentResponse {
   ?'classes' => ListOfClasses,
   ?'labels' => ListOfLabels,
   ) $s = shape()) {
-    $this->classes = $classes ?? ;
-    $this->labels = $labels ?? ;
+    $this->classes = $classes ?? [];
+    $this->labels = $labels ?? [];
   }
 }
 
@@ -374,7 +374,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -402,15 +402,15 @@ class CreateDocumentClassifierRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->document_classifier_name = $document_classifier_name ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->document_classifier_name = $document_classifier_name ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->language_code = $language_code ?? "";
-    $this->mode = $mode ?? ;
+    $this->mode = $mode ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->tags = $tags ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->tags = $tags ?? [];
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -439,11 +439,11 @@ class CreateEndpointRequest {
   ?'model_arn' => ComprehendModelArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->desired_inference_units = $desired_inference_units ?? ;
-    $this->endpoint_name = $endpoint_name ?? ;
-    $this->model_arn = $model_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->desired_inference_units = $desired_inference_units ?? 0;
+    $this->endpoint_name = $endpoint_name ?? "";
+    $this->model_arn = $model_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -453,7 +453,7 @@ class CreateEndpointResponse {
   public function __construct(shape(
   ?'endpoint_arn' => ComprehendEndpointArn,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -477,13 +477,13 @@ class CreateEntityRecognizerRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->language_code = $language_code ?? "";
-    $this->recognizer_name = $recognizer_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->recognizer_name = $recognizer_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -521,7 +521,7 @@ class DeleteEndpointRequest {
   public function __construct(shape(
   ?'endpoint_arn' => ComprehendEndpointArn,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -615,7 +615,7 @@ class DescribeEndpointRequest {
   public function __construct(shape(
   ?'endpoint_arn' => ComprehendEndpointArn,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -735,7 +735,7 @@ class DetectDominantLanguageRequest {
   public function __construct(shape(
   ?'text' => string,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -745,7 +745,7 @@ class DetectDominantLanguageResponse {
   public function __construct(shape(
   ?'languages' => ListOfDominantLanguages,
   ) $s = shape()) {
-    $this->languages = $languages ?? ;
+    $this->languages = $languages ?? [];
   }
 }
 
@@ -758,7 +758,7 @@ class DetectEntitiesRequest {
   ?'text' => string,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -768,7 +768,7 @@ class DetectEntitiesResponse {
   public function __construct(shape(
   ?'entities' => ListOfEntities,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
   }
 }
 
@@ -781,7 +781,7 @@ class DetectKeyPhrasesRequest {
   ?'text' => string,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -791,7 +791,7 @@ class DetectKeyPhrasesResponse {
   public function __construct(shape(
   ?'key_phrases' => ListOfKeyPhrases,
   ) $s = shape()) {
-    $this->key_phrases = $key_phrases ?? ;
+    $this->key_phrases = $key_phrases ?? [];
   }
 }
 
@@ -804,7 +804,7 @@ class DetectSentimentRequest {
   ?'text' => string,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -816,7 +816,7 @@ class DetectSentimentResponse {
   ?'sentiment' => SentimentType,
   ?'sentiment_score' => SentimentScore,
   ) $s = shape()) {
-    $this->sentiment = $sentiment ?? ;
+    $this->sentiment = $sentiment ?? "";
     $this->sentiment_score = $sentiment_score ?? null;
   }
 }
@@ -830,7 +830,7 @@ class DetectSyntaxRequest {
   ?'text' => string,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -840,7 +840,7 @@ class DetectSyntaxResponse {
   public function __construct(shape(
   ?'syntax_tokens' => ListOfSyntaxTokens,
   ) $s = shape()) {
-    $this->syntax_tokens = $syntax_tokens ?? ;
+    $this->syntax_tokens = $syntax_tokens ?? [];
   }
 }
 
@@ -852,8 +852,8 @@ class DocumentClass {
   ?'name' => string,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->score = $score ?? ;
+    $this->name = $name ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -871,8 +871,8 @@ class DocumentClassificationJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -904,17 +904,17 @@ class DocumentClassificationJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->document_classifier_arn = $document_classifier_arn ?? "";
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -935,9 +935,9 @@ class DocumentClassifierFilter {
   ?'submit_time_after' => Timestamp,
   ?'submit_time_before' => Timestamp,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->status = $status ?? "";
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -1004,19 +1004,19 @@ class DocumentClassifierProperties {
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
     $this->classifier_metadata = $classifier_metadata ?? null;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->document_classifier_arn = $document_classifier_arn ?? "";
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->language_code = $language_code ?? "";
-    $this->message = $message ?? ;
-    $this->mode = $mode ?? ;
+    $this->message = $message ?? "";
+    $this->mode = $mode ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->status = $status ?? ;
-    $this->submit_time = $submit_time ?? ;
-    $this->training_end_time = $training_end_time ?? ;
-    $this->training_start_time = $training_start_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->status = $status ?? "";
+    $this->submit_time = $submit_time ?? 0;
+    $this->training_end_time = $training_end_time ?? 0;
+    $this->training_start_time = $training_start_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1031,8 +1031,8 @@ class DocumentLabel {
   ?'name' => string,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->score = $score ?? ;
+    $this->name = $name ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -1045,7 +1045,7 @@ class DominantLanguage {
   ?'score' => Float,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->score = $score ?? ;
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -1063,8 +1063,8 @@ class DominantLanguageDetectionJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -1094,16 +1094,16 @@ class DominantLanguageDetectionJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1124,10 +1124,10 @@ class EndpointFilter {
   ?'model_arn' => ComprehendModelArn,
   ?'status' => EndpointStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->model_arn = $model_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->model_arn = $model_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1151,14 +1151,14 @@ class EndpointProperties {
   ?'model_arn' => ComprehendModelArn,
   ?'status' => EndpointStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->current_inference_units = $current_inference_units ?? ;
-    $this->desired_inference_units = $desired_inference_units ?? ;
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->last_modified_time = $last_modified_time ?? ;
-    $this->message = $message ?? ;
-    $this->model_arn = $model_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->current_inference_units = $current_inference_units ?? 0;
+    $this->desired_inference_units = $desired_inference_units ?? 0;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->last_modified_time = $last_modified_time ?? 0;
+    $this->message = $message ?? "";
+    $this->model_arn = $model_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1180,8 +1180,8 @@ class EntitiesDetectionJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -1215,18 +1215,18 @@ class EntitiesDetectionJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->entity_recognizer_arn = $entity_recognizer_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
     $this->language_code = $language_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1247,11 +1247,11 @@ class Entity {
   ?'text' => string,
   ?'type' => EntityType,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->type = $type ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1297,9 +1297,9 @@ class EntityRecognizerEvaluationMetrics {
   ?'precision' => Double,
   ?'recall' => Double,
   ) $s = shape()) {
-    $this->f_1_score = $f_1_score ?? ;
-    $this->precision = $precision ?? ;
-    $this->recall = $recall ?? ;
+    $this->f_1_score = $f_1_score ?? 0.0;
+    $this->precision = $precision ?? 0.0;
+    $this->recall = $recall ?? 0.0;
   }
 }
 
@@ -1313,9 +1313,9 @@ class EntityRecognizerFilter {
   ?'submit_time_after' => Timestamp,
   ?'submit_time_before' => Timestamp,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->status = $status ?? "";
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -1331,10 +1331,10 @@ class EntityRecognizerInputDataConfig {
   ?'entity_list' => EntityRecognizerEntityList,
   ?'entity_types' => EntityTypesList,
   ) $s = shape()) {
-    $this->annotations = $annotations ?? ;
-    $this->documents = $documents ?? ;
-    $this->entity_list = $entity_list ?? ;
-    $this->entity_types = $entity_types ?? ;
+    $this->annotations = $annotations ?? null;
+    $this->documents = $documents ?? null;
+    $this->entity_list = $entity_list ?? null;
+    $this->entity_types = $entity_types ?? [];
   }
 }
 
@@ -1350,10 +1350,10 @@ class EntityRecognizerMetadata {
   ?'number_of_test_documents' => int,
   ?'number_of_trained_documents' => int,
   ) $s = shape()) {
-    $this->entity_types = $entity_types ?? ;
-    $this->evaluation_metrics = $evaluation_metrics ?? ;
-    $this->number_of_test_documents = $number_of_test_documents ?? ;
-    $this->number_of_trained_documents = $number_of_trained_documents ?? ;
+    $this->entity_types = $entity_types ?? [];
+    $this->evaluation_metrics = $evaluation_metrics ?? null;
+    $this->number_of_test_documents = $number_of_test_documents ?? 0;
+    $this->number_of_trained_documents = $number_of_trained_documents ?? 0;
   }
 }
 
@@ -1369,9 +1369,9 @@ class EntityRecognizerMetadataEntityTypesListItem {
   ?'number_of_train_mentions' => int,
   ?'type' => AnyLengthString,
   ) $s = shape()) {
-    $this->evaluation_metrics = $evaluation_metrics ?? ;
-    $this->number_of_train_mentions = $number_of_train_mentions ?? ;
-    $this->type = $type ?? ;
+    $this->evaluation_metrics = $evaluation_metrics ?? null;
+    $this->number_of_train_mentions = $number_of_train_mentions ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1405,18 +1405,18 @@ class EntityRecognizerProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->entity_recognizer_arn = $entity_recognizer_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->language_code = $language_code ?? "";
-    $this->message = $message ?? ;
-    $this->recognizer_metadata = $recognizer_metadata ?? ;
-    $this->status = $status ?? ;
-    $this->submit_time = $submit_time ?? ;
-    $this->training_end_time = $training_end_time ?? ;
-    $this->training_start_time = $training_start_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->message = $message ?? "";
+    $this->recognizer_metadata = $recognizer_metadata ?? null;
+    $this->status = $status ?? "";
+    $this->submit_time = $submit_time ?? 0;
+    $this->training_end_time = $training_end_time ?? 0;
+    $this->training_start_time = $training_start_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1437,9 +1437,9 @@ class EntityTypesEvaluationMetrics {
   ?'precision' => Double,
   ?'recall' => Double,
   ) $s = shape()) {
-    $this->f_1_score = $f_1_score ?? ;
-    $this->precision = $precision ?? ;
-    $this->recall = $recall ?? ;
+    $this->f_1_score = $f_1_score ?? 0.0;
+    $this->precision = $precision ?? 0.0;
+    $this->recall = $recall ?? 0.0;
   }
 }
 
@@ -1451,7 +1451,7 @@ class EntityTypesListItem {
   public function __construct(shape(
   ?'type' => EntityTypeName,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1484,7 +1484,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1494,7 +1494,7 @@ class InvalidFilterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1504,7 +1504,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1518,7 +1518,7 @@ class JobNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1536,10 +1536,10 @@ class KeyPhrase {
   ?'score' => Float,
   ?'text' => string,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
   }
 }
 
@@ -1557,8 +1557,8 @@ class KeyPhrasesDetectionJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -1590,17 +1590,17 @@ class KeyPhrasesDetectionJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
     $this->language_code = $language_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1615,7 +1615,7 @@ class KmsKeyValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1633,9 +1633,9 @@ class ListDocumentClassificationJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1648,7 +1648,7 @@ class ListDocumentClassificationJobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->document_classification_job_properties_list = $document_classification_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1662,9 +1662,9 @@ class ListDocumentClassifiersRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1677,7 +1677,7 @@ class ListDocumentClassifiersResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->document_classifier_properties_list = $document_classifier_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1691,9 +1691,9 @@ class ListDominantLanguageDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1706,7 +1706,7 @@ class ListDominantLanguageDetectionJobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->dominant_language_detection_job_properties_list = $dominant_language_detection_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1720,9 +1720,9 @@ class ListEndpointsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1735,7 +1735,7 @@ class ListEndpointsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->endpoint_properties_list = $endpoint_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1749,9 +1749,9 @@ class ListEntitiesDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1764,7 +1764,7 @@ class ListEntitiesDetectionJobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->entities_detection_job_properties_list = $entities_detection_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1778,9 +1778,9 @@ class ListEntityRecognizersRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1793,7 +1793,7 @@ class ListEntityRecognizersResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->entity_recognizer_properties_list = $entity_recognizer_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1807,9 +1807,9 @@ class ListKeyPhrasesDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1822,7 +1822,7 @@ class ListKeyPhrasesDetectionJobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->key_phrases_detection_job_properties_list = $key_phrases_detection_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1858,9 +1858,9 @@ class ListSentimentDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1872,7 +1872,7 @@ class ListSentimentDetectionJobsResponse {
   ?'next_token' => string,
   ?'sentiment_detection_job_properties_list' => SentimentDetectionJobPropertiesList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->sentiment_detection_job_properties_list = $sentiment_detection_job_properties_list ?? [];
   }
 }
@@ -1883,7 +1883,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ComprehendArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1895,8 +1895,8 @@ class ListTagsForResourceResponse {
   ?'resource_arn' => ComprehendArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1910,9 +1910,9 @@ class ListTopicsDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1924,7 +1924,7 @@ class ListTopicsDetectionJobsResponse {
   ?'next_token' => string,
   ?'topics_detection_job_properties_list' => TopicsDetectionJobPropertiesList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->topics_detection_job_properties_list = $topics_detection_job_properties_list ?? [];
   }
 }
@@ -1956,8 +1956,8 @@ class PartOfSpeechTag {
   ?'score' => Float,
   ?'tag' => PartOfSpeechTagType,
   ) $s = shape()) {
-    $this->score = $score ?? ;
-    $this->tag = $tag ?? null;
+    $this->score = $score ?? 0.0;
+    $this->tag = $tag ?? "";
   }
 }
 
@@ -1969,7 +1969,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1979,7 +1979,7 @@ class ResourceLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1989,7 +1989,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1999,7 +1999,7 @@ class ResourceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2023,8 +2023,8 @@ class SentimentDetectionJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -2056,17 +2056,17 @@ class SentimentDetectionJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
     $this->language_code = $language_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2085,10 +2085,10 @@ class SentimentScore {
   ?'neutral' => Float,
   ?'positive' => Float,
   ) $s = shape()) {
-    $this->mixed = $mixed ?? ;
-    $this->negative = $negative ?? ;
-    $this->neutral = $neutral ?? ;
-    $this->positive = $positive ?? ;
+    $this->mixed = $mixed ?? 0.0;
+    $this->negative = $negative ?? 0.0;
+    $this->neutral = $neutral ?? 0.0;
+    $this->positive = $positive ?? 0.0;
   }
 }
 
@@ -2114,13 +2114,13 @@ class StartDocumentClassificationJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->document_classifier_arn = $document_classifier_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2156,12 +2156,12 @@ class StartDominantLanguageDetectionJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2201,14 +2201,14 @@ class StartEntitiesDetectionJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->entity_recognizer_arn = $entity_recognizer_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->language_code = $language_code ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2246,13 +2246,13 @@ class StartKeyPhrasesDetectionJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->language_code = $language_code ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2290,13 +2290,13 @@ class StartSentimentDetectionJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->language_code = $language_code ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2334,13 +2334,13 @@ class StartTopicsDetectionJobRequest {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
-    $this->number_of_topics = $number_of_topics ?? ;
+    $this->number_of_topics = $number_of_topics ?? 0;
     $this->output_data_config = $output_data_config ?? null;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2508,11 +2508,11 @@ class SyntaxToken {
   ?'text' => string,
   ?'token_id' => int,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->part_of_speech = $part_of_speech ?? ;
-    $this->text = $text ?? ;
-    $this->token_id = $token_id ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->part_of_speech = $part_of_speech ?? null;
+    $this->text = $text ?? "";
+    $this->token_id = $token_id ?? 0;
   }
 }
 
@@ -2524,8 +2524,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2543,8 +2543,8 @@ class TagResourceRequest {
   ?'resource_arn' => ComprehendArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2563,7 +2563,7 @@ class TextSizeLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2575,7 +2575,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2585,7 +2585,7 @@ class TooManyTagKeysException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2595,7 +2595,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2613,8 +2613,8 @@ class TopicsDetectionJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -2646,17 +2646,17 @@ class TopicsDetectionJobProperties {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->message = $message ?? ;
-    $this->number_of_topics = $number_of_topics ?? ;
+    $this->message = $message ?? "";
+    $this->number_of_topics = $number_of_topics ?? 0;
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->submit_time = $submit_time ?? 0;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -2669,7 +2669,7 @@ class UnsupportedLanguageException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2681,8 +2681,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ComprehendArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2701,8 +2701,8 @@ class UpdateEndpointRequest {
   ?'desired_inference_units' => InferenceUnitsInteger,
   ?'endpoint_arn' => ComprehendEndpointArn,
   ) $s = shape()) {
-    $this->desired_inference_units = $desired_inference_units ?? ;
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->desired_inference_units = $desired_inference_units ?? 0;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 

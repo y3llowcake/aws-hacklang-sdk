@@ -98,12 +98,12 @@ class ActivatedRule {
   ?'rule_id' => ResourceId,
   ?'type' => WafRuleType,
   ) $s = shape()) {
-    $this->action = $action ?? "";
+    $this->action = $action ?? null;
     $this->excluded_rules = $excluded_rules ?? [];
-    $this->override_action = $override_action ?? ;
-    $this->priority = $priority ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->type = $type ?? ;
+    $this->override_action = $override_action ?? null;
+    $this->priority = $priority ?? 0;
+    $this->rule_id = $rule_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -119,9 +119,9 @@ class ByteMatchSet {
   ?'byte_match_tuples' => ByteMatchTuples,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->byte_match_set_id = $byte_match_set_id ?? ;
+    $this->byte_match_set_id = $byte_match_set_id ?? "";
     $this->byte_match_tuples = $byte_match_tuples ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -135,8 +135,8 @@ class ByteMatchSetSummary {
   ?'byte_match_set_id' => ResourceId,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->byte_match_set_id = $byte_match_set_id ?? ;
-    $this->name = $name ?? ;
+    $this->byte_match_set_id = $byte_match_set_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -171,7 +171,7 @@ class ByteMatchTuple {
   ) $s = shape()) {
     $this->field_to_match = $field_to_match ?? null;
     $this->positional_constraint = $positional_constraint ?? "";
-    $this->target_string = $target_string ?? ;
+    $this->target_string = $target_string ?? "";
     $this->text_transformation = $text_transformation ?? "";
   }
 }
@@ -197,7 +197,7 @@ class CreateByteMatchSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -223,7 +223,7 @@ class CreateGeoMatchSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -249,7 +249,7 @@ class CreateIPSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -284,10 +284,10 @@ class CreateRateBasedRuleRequest {
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->rate_key = $rate_key ?? "";
     $this->rate_limit = $rate_limit ?? 0;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -313,7 +313,7 @@ class CreateRegexMatchSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -339,7 +339,7 @@ class CreateRegexPatternSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -370,8 +370,8 @@ class CreateRuleGroupRequest {
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -402,8 +402,8 @@ class CreateRuleRequest {
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -429,7 +429,7 @@ class CreateSizeConstraintSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -455,7 +455,7 @@ class CreateSqlInjectionMatchSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -487,10 +487,10 @@ class CreateWebACLRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->default_action = $default_action ?? ;
+    $this->default_action = $default_action ?? null;
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -516,7 +516,7 @@ class CreateXssMatchSetRequest {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -541,7 +541,7 @@ class DeleteByteMatchSetRequest {
   ?'byte_match_set_id' => ResourceId,
   ?'change_token' => ChangeToken,
   ) $s = shape()) {
-    $this->byte_match_set_id = $byte_match_set_id ?? ;
+    $this->byte_match_set_id = $byte_match_set_id ?? "";
     $this->change_token = $change_token ?? "";
   }
 }
@@ -565,7 +565,7 @@ class DeleteGeoMatchSetRequest {
   ?'geo_match_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->geo_match_set_id = $geo_match_set_id ?? ;
+    $this->geo_match_set_id = $geo_match_set_id ?? "";
   }
 }
 
@@ -588,7 +588,7 @@ class DeleteIPSetRequest {
   ?'ip_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
   }
 }
 
@@ -645,7 +645,7 @@ class DeleteRateBasedRuleRequest {
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -668,7 +668,7 @@ class DeleteRegexMatchSetRequest {
   ?'regex_match_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->regex_match_set_id = $regex_match_set_id ?? ;
+    $this->regex_match_set_id = $regex_match_set_id ?? "";
   }
 }
 
@@ -691,7 +691,7 @@ class DeleteRegexPatternSetRequest {
   ?'regex_pattern_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
   }
 }
 
@@ -714,7 +714,7 @@ class DeleteRuleGroupRequest {
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -737,7 +737,7 @@ class DeleteRuleRequest {
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -760,7 +760,7 @@ class DeleteSizeConstraintSetRequest {
   ?'size_constraint_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->size_constraint_set_id = $size_constraint_set_id ?? ;
+    $this->size_constraint_set_id = $size_constraint_set_id ?? "";
   }
 }
 
@@ -783,7 +783,7 @@ class DeleteSqlInjectionMatchSetRequest {
   ?'sql_injection_match_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? ;
+    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? "";
   }
 }
 
@@ -806,7 +806,7 @@ class DeleteWebACLRequest {
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -829,7 +829,7 @@ class DeleteXssMatchSetRequest {
   ?'xss_match_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->xss_match_set_id = $xss_match_set_id ?? ;
+    $this->xss_match_set_id = $xss_match_set_id ?? "";
   }
 }
 
@@ -849,7 +849,7 @@ class ExcludedRule {
   public function __construct(shape(
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -863,8 +863,8 @@ class FieldToMatch {
   ?'data' => MatchFieldData,
   ?'type' => MatchFieldType,
   ) $s = shape()) {
-    $this->data = $data ?? ;
-    $this->type = $type ?? ;
+    $this->data = $data ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -876,8 +876,8 @@ class GeoMatchConstraint {
   ?'type' => GeoMatchConstraintType,
   ?'value' => GeoMatchConstraintValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -898,8 +898,8 @@ class GeoMatchSet {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->geo_match_constraints = $geo_match_constraints ?? [];
-    $this->geo_match_set_id = $geo_match_set_id ?? ;
-    $this->name = $name ?? ;
+    $this->geo_match_set_id = $geo_match_set_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -913,8 +913,8 @@ class GeoMatchSetSummary {
   ?'geo_match_set_id' => ResourceId,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->geo_match_set_id = $geo_match_set_id ?? ;
-    $this->name = $name ?? ;
+    $this->geo_match_set_id = $geo_match_set_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -939,7 +939,7 @@ class GetByteMatchSetRequest {
   public function __construct(shape(
   ?'byte_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->byte_match_set_id = $byte_match_set_id ?? ;
+    $this->byte_match_set_id = $byte_match_set_id ?? "";
   }
 }
 
@@ -996,7 +996,7 @@ class GetGeoMatchSetRequest {
   public function __construct(shape(
   ?'geo_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->geo_match_set_id = $geo_match_set_id ?? ;
+    $this->geo_match_set_id = $geo_match_set_id ?? "";
   }
 }
 
@@ -1016,7 +1016,7 @@ class GetIPSetRequest {
   public function __construct(shape(
   ?'ip_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->ip_set_id = $ip_set_id ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
   }
 }
 
@@ -1066,7 +1066,7 @@ class GetPermissionPolicyResponse {
   public function __construct(shape(
   ?'policy' => PolicyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1079,7 +1079,7 @@ class GetRateBasedRuleManagedKeysRequest {
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -1102,7 +1102,7 @@ class GetRateBasedRuleRequest {
   public function __construct(shape(
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -1122,7 +1122,7 @@ class GetRegexMatchSetRequest {
   public function __construct(shape(
   ?'regex_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->regex_match_set_id = $regex_match_set_id ?? ;
+    $this->regex_match_set_id = $regex_match_set_id ?? "";
   }
 }
 
@@ -1142,7 +1142,7 @@ class GetRegexPatternSetRequest {
   public function __construct(shape(
   ?'regex_pattern_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
   }
 }
 
@@ -1162,7 +1162,7 @@ class GetRuleGroupRequest {
   public function __construct(shape(
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -1182,7 +1182,7 @@ class GetRuleRequest {
   public function __construct(shape(
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -1210,10 +1210,10 @@ class GetSampledRequestsRequest {
   ?'time_window' => TimeWindow,
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
-    $this->max_items = $max_items ?? ;
-    $this->rule_id = $rule_id ?? ;
+    $this->max_items = $max_items ?? 0;
+    $this->rule_id = $rule_id ?? "";
     $this->time_window = $time_window ?? null;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -1228,7 +1228,7 @@ class GetSampledRequestsResponse {
   ?'time_window' => TimeWindow,
   ) $s = shape()) {
     $this->population_size = $population_size ?? 0;
-    $this->sampled_requests = $sampled_requests ?? ;
+    $this->sampled_requests = $sampled_requests ?? [];
     $this->time_window = $time_window ?? null;
   }
 }
@@ -1239,7 +1239,7 @@ class GetSizeConstraintSetRequest {
   public function __construct(shape(
   ?'size_constraint_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->size_constraint_set_id = $size_constraint_set_id ?? ;
+    $this->size_constraint_set_id = $size_constraint_set_id ?? "";
   }
 }
 
@@ -1259,7 +1259,7 @@ class GetSqlInjectionMatchSetRequest {
   public function __construct(shape(
   ?'sql_injection_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? ;
+    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? "";
   }
 }
 
@@ -1279,7 +1279,7 @@ class GetWebACLRequest {
   public function __construct(shape(
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -1299,7 +1299,7 @@ class GetXssMatchSetRequest {
   public function __construct(shape(
   ?'xss_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->xss_match_set_id = $xss_match_set_id ?? ;
+    $this->xss_match_set_id = $xss_match_set_id ?? "";
   }
 }
 
@@ -1321,8 +1321,8 @@ class HTTPHeader {
   ?'name' => HeaderName,
   ?'value' => HeaderValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1346,12 +1346,12 @@ class HTTPRequest {
   ?'method' => HTTPMethod,
   ?'uri' => URIString,
   ) $s = shape()) {
-    $this->client_ip = $client_ip ?? ;
+    $this->client_ip = $client_ip ?? "";
     $this->country = $country ?? "";
     $this->http_version = $http_version ?? "";
-    $this->headers = $headers ?? ;
-    $this->method = $method ?? ;
-    $this->uri = $uri ?? ;
+    $this->headers = $headers ?? [];
+    $this->method = $method ?? "";
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -1372,8 +1372,8 @@ class IPSet {
   ?'name' => ResourceName,
   ) $s = shape()) {
     $this->ip_set_descriptors = $ip_set_descriptors ?? [];
-    $this->ip_set_id = $ip_set_id ?? ;
-    $this->name = $name ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1385,8 +1385,8 @@ class IPSetDescriptor {
   ?'type' => IPSetDescriptorType,
   ?'value' => IPSetDescriptorValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1406,8 +1406,8 @@ class IPSetSummary {
   ?'ip_set_id' => ResourceId,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->ip_set_id = $ip_set_id ?? ;
-    $this->name = $name ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1438,9 +1438,9 @@ class ListActivatedRulesInRuleGroupRequest {
   ?'next_marker' => NextMarker,
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -1465,7 +1465,7 @@ class ListByteMatchSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1478,7 +1478,7 @@ class ListByteMatchSetsResponse {
   ?'byte_match_sets' => ByteMatchSetSummaries,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->byte_match_sets = $byte_match_sets ?? ;
+    $this->byte_match_sets = $byte_match_sets ?? [];
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1491,7 +1491,7 @@ class ListGeoMatchSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1504,7 +1504,7 @@ class ListGeoMatchSetsResponse {
   ?'geo_match_sets' => GeoMatchSetSummaries,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->geo_match_sets = $geo_match_sets ?? ;
+    $this->geo_match_sets = $geo_match_sets ?? [];
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1517,7 +1517,7 @@ class ListIPSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1530,7 +1530,7 @@ class ListIPSetsResponse {
   ?'ip_sets' => IPSetSummaries,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->ip_sets = $ip_sets ?? ;
+    $this->ip_sets = $ip_sets ?? [];
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1543,7 +1543,7 @@ class ListLoggingConfigurationsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1569,7 +1569,7 @@ class ListRateBasedRulesRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1583,7 +1583,7 @@ class ListRateBasedRulesResponse {
   ?'rules' => RuleSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -1595,7 +1595,7 @@ class ListRegexMatchSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1609,7 +1609,7 @@ class ListRegexMatchSetsResponse {
   ?'regex_match_sets' => RegexMatchSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->regex_match_sets = $regex_match_sets ?? ;
+    $this->regex_match_sets = $regex_match_sets ?? [];
   }
 }
 
@@ -1621,7 +1621,7 @@ class ListRegexPatternSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1635,7 +1635,7 @@ class ListRegexPatternSetsResponse {
   ?'regex_pattern_sets' => RegexPatternSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->regex_pattern_sets = $regex_pattern_sets ?? ;
+    $this->regex_pattern_sets = $regex_pattern_sets ?? [];
   }
 }
 
@@ -1647,7 +1647,7 @@ class ListRuleGroupsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1661,7 +1661,7 @@ class ListRuleGroupsResponse {
   ?'rule_groups' => RuleGroupSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rule_groups = $rule_groups ?? ;
+    $this->rule_groups = $rule_groups ?? [];
   }
 }
 
@@ -1673,7 +1673,7 @@ class ListRulesRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1687,7 +1687,7 @@ class ListRulesResponse {
   ?'rules' => RuleSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -1699,7 +1699,7 @@ class ListSizeConstraintSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1713,7 +1713,7 @@ class ListSizeConstraintSetsResponse {
   ?'size_constraint_sets' => SizeConstraintSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->size_constraint_sets = $size_constraint_sets ?? ;
+    $this->size_constraint_sets = $size_constraint_sets ?? [];
   }
 }
 
@@ -1725,7 +1725,7 @@ class ListSqlInjectionMatchSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1739,7 +1739,7 @@ class ListSqlInjectionMatchSetsResponse {
   ?'sql_injection_match_sets' => SqlInjectionMatchSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->sql_injection_match_sets = $sql_injection_match_sets ?? ;
+    $this->sql_injection_match_sets = $sql_injection_match_sets ?? [];
   }
 }
 
@@ -1751,7 +1751,7 @@ class ListSubscribedRuleGroupsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1765,7 +1765,7 @@ class ListSubscribedRuleGroupsResponse {
   ?'rule_groups' => SubscribedRuleGroupSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rule_groups = $rule_groups ?? ;
+    $this->rule_groups = $rule_groups ?? [];
   }
 }
 
@@ -1779,9 +1779,9 @@ class ListTagsForResourceRequest {
   ?'next_marker' => NextMarker,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1806,7 +1806,7 @@ class ListWebACLsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1820,7 +1820,7 @@ class ListWebACLsResponse {
   ?'web_ac_ls' => WebACLSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->web_ac_ls = $web_ac_ls ?? ;
+    $this->web_ac_ls = $web_ac_ls ?? [];
   }
 }
 
@@ -1832,7 +1832,7 @@ class ListXssMatchSetsRequest {
   ?'limit' => PaginationLimit,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1846,7 +1846,7 @@ class ListXssMatchSetsResponse {
   ?'xss_match_sets' => XssMatchSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->xss_match_sets = $xss_match_sets ?? ;
+    $this->xss_match_sets = $xss_match_sets ?? [];
   }
 }
 
@@ -1908,9 +1908,9 @@ class Predicate {
   ?'negated' => Negated,
   ?'type' => PredicateType,
   ) $s = shape()) {
-    $this->data_id = $data_id ?? ;
+    $this->data_id = $data_id ?? "";
     $this->negated = $negated ?? false;
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1946,7 +1946,7 @@ class PutPermissionPolicyRequest {
   ?'policy' => PolicyString,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -1974,12 +1974,12 @@ class RateBasedRule {
   ?'rate_limit' => RateLimit,
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->match_predicates = $match_predicates ?? ;
+    $this->match_predicates = $match_predicates ?? [];
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->rate_key = $rate_key ?? "";
     $this->rate_limit = $rate_limit ?? 0;
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -1999,8 +1999,8 @@ class RegexMatchSet {
   ?'regex_match_set_id' => ResourceId,
   ?'regex_match_tuples' => RegexMatchTuples,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->regex_match_set_id = $regex_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->regex_match_set_id = $regex_match_set_id ?? "";
     $this->regex_match_tuples = $regex_match_tuples ?? [];
   }
 }
@@ -2015,8 +2015,8 @@ class RegexMatchSetSummary {
   ?'name' => ResourceName,
   ?'regex_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->regex_match_set_id = $regex_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->regex_match_set_id = $regex_match_set_id ?? "";
   }
 }
 
@@ -2046,7 +2046,7 @@ class RegexMatchTuple {
   ?'text_transformation' => TextTransformation,
   ) $s = shape()) {
     $this->field_to_match = $field_to_match ?? null;
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
     $this->text_transformation = $text_transformation ?? "";
   }
 }
@@ -2063,8 +2063,8 @@ class RegexPatternSet {
   ?'regex_pattern_set_id' => ResourceId,
   ?'regex_pattern_strings' => RegexPatternStrings,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
     $this->regex_pattern_strings = $regex_pattern_strings ?? [];
   }
 }
@@ -2079,8 +2079,8 @@ class RegexPatternSetSummary {
   ?'name' => ResourceName,
   ?'regex_pattern_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
   }
 }
 
@@ -2122,9 +2122,9 @@ class Rule {
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->predicates = $predicates ?? [];
-    $this->rule_id = $rule_id ?? ;
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -2139,8 +2139,8 @@ class RuleGroup {
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->name = $name ?? "";
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -2154,8 +2154,8 @@ class RuleGroupSummary {
   ?'name' => ResourceName,
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->name = $name ?? "";
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -2186,8 +2186,8 @@ class RuleSummary {
   ?'name' => ResourceName,
   ?'rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->rule_id = $rule_id ?? ;
+    $this->name = $name ?? "";
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -2223,10 +2223,10 @@ class SampledHTTPRequest {
   ?'weight' => SampleWeight,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->request = $request ?? ;
-    $this->rule_within_rule_group = $rule_within_rule_group ?? ;
+    $this->request = $request ?? null;
+    $this->rule_within_rule_group = $rule_within_rule_group ?? "";
     $this->timestamp = $timestamp ?? 0;
-    $this->weight = $weight ?? ;
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -2263,8 +2263,8 @@ class SizeConstraintSet {
   ?'size_constraint_set_id' => ResourceId,
   ?'size_constraints' => SizeConstraints,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->size_constraint_set_id = $size_constraint_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->size_constraint_set_id = $size_constraint_set_id ?? "";
     $this->size_constraints = $size_constraints ?? [];
   }
 }
@@ -2279,8 +2279,8 @@ class SizeConstraintSetSummary {
   ?'name' => ResourceName,
   ?'size_constraint_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->size_constraint_set_id = $size_constraint_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->size_constraint_set_id = $size_constraint_set_id ?? "";
   }
 }
 
@@ -2311,8 +2311,8 @@ class SqlInjectionMatchSet {
   ?'sql_injection_match_set_id' => ResourceId,
   ?'sql_injection_match_tuples' => SqlInjectionMatchTuples,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? "";
     $this->sql_injection_match_tuples = $sql_injection_match_tuples ?? [];
   }
 }
@@ -2327,8 +2327,8 @@ class SqlInjectionMatchSetSummary {
   ?'name' => ResourceName,
   ?'sql_injection_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? "";
   }
 }
 
@@ -2375,8 +2375,8 @@ class SubscribedRuleGroupSummary {
   ?'rule_group_id' => ResourceId,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->rule_group_id = $rule_group_id ?? ;
+    $this->name = $name ?? "";
+    $this->rule_group_id = $rule_group_id ?? "";
   }
 }
 
@@ -2388,8 +2388,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2401,7 +2401,7 @@ class TagInfoForResource {
   ?'resource_arn' => ResourceArn,
   ?'tag_list' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tag_list = $tag_list ?? [];
   }
 }
@@ -2420,8 +2420,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2444,8 +2444,8 @@ class TimeWindow {
   ?'end_time' => Timestamp,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -2461,8 +2461,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2483,9 +2483,9 @@ class UpdateByteMatchSetRequest {
   ?'change_token' => ChangeToken,
   ?'updates' => ByteMatchSetUpdates,
   ) $s = shape()) {
-    $this->byte_match_set_id = $byte_match_set_id ?? ;
+    $this->byte_match_set_id = $byte_match_set_id ?? "";
     $this->change_token = $change_token ?? "";
-    $this->updates = $updates ?? ;
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2510,8 +2510,8 @@ class UpdateGeoMatchSetRequest {
   ?'updates' => GeoMatchSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->geo_match_set_id = $geo_match_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->geo_match_set_id = $geo_match_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2536,8 +2536,8 @@ class UpdateIPSetRequest {
   ?'updates' => IPSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->ip_set_id = $ip_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->ip_set_id = $ip_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2565,8 +2565,8 @@ class UpdateRateBasedRuleRequest {
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
     $this->rate_limit = $rate_limit ?? 0;
-    $this->rule_id = $rule_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->rule_id = $rule_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2591,8 +2591,8 @@ class UpdateRegexMatchSetRequest {
   ?'updates' => RegexMatchSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->regex_match_set_id = $regex_match_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->regex_match_set_id = $regex_match_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2617,8 +2617,8 @@ class UpdateRegexPatternSetRequest {
   ?'updates' => RegexPatternSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->regex_pattern_set_id = $regex_pattern_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->regex_pattern_set_id = $regex_pattern_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2643,8 +2643,8 @@ class UpdateRuleGroupRequest {
   ?'updates' => RuleGroupUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->rule_group_id = $rule_group_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->rule_group_id = $rule_group_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2669,8 +2669,8 @@ class UpdateRuleRequest {
   ?'updates' => RuleUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->rule_id = $rule_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->rule_id = $rule_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2695,8 +2695,8 @@ class UpdateSizeConstraintSetRequest {
   ?'updates' => SizeConstraintSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->size_constraint_set_id = $size_constraint_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->size_constraint_set_id = $size_constraint_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2721,8 +2721,8 @@ class UpdateSqlInjectionMatchSetRequest {
   ?'updates' => SqlInjectionMatchSetUpdates,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? ;
-    $this->updates = $updates ?? ;
+    $this->sql_injection_match_set_id = $sql_injection_match_set_id ?? "";
+    $this->updates = $updates ?? [];
   }
 }
 
@@ -2749,9 +2749,9 @@ class UpdateWebACLRequest {
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->default_action = $default_action ?? ;
-    $this->updates = $updates ?? ;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->default_action = $default_action ?? null;
+    $this->updates = $updates ?? [];
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -2776,8 +2776,8 @@ class UpdateXssMatchSetRequest {
   ?'xss_match_set_id' => ResourceId,
   ) $s = shape()) {
     $this->change_token = $change_token ?? "";
-    $this->updates = $updates ?? ;
-    $this->xss_match_set_id = $xss_match_set_id ?? ;
+    $this->updates = $updates ?? [];
+    $this->xss_match_set_id = $xss_match_set_id ?? "";
   }
 }
 
@@ -2797,7 +2797,7 @@ class WAFBadRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2807,7 +2807,7 @@ class WAFDisallowedNameException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2817,7 +2817,7 @@ class WAFInternalErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2834,7 +2834,7 @@ class WAFInvalidOperationException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2848,9 +2848,9 @@ class WAFInvalidParameterException {
   ?'parameter' => ParameterExceptionParameter,
   ?'reason' => ParameterExceptionReason,
   ) $s = shape()) {
-    $this->field = $field ?? ;
-    $this->parameter = $parameter ?? ;
-    $this->reason = $reason ?? ;
+    $this->field = $field ?? "";
+    $this->parameter = $parameter ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -2860,7 +2860,7 @@ class WAFInvalidPermissionPolicyException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2870,7 +2870,7 @@ class WAFInvalidRegexPatternException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2880,7 +2880,7 @@ class WAFLimitsExceededException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2890,7 +2890,7 @@ class WAFNonEmptyEntityException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2900,7 +2900,7 @@ class WAFNonexistentContainerException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2910,7 +2910,7 @@ class WAFNonexistentItemException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2920,7 +2920,7 @@ class WAFReferencedItemException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2930,7 +2930,7 @@ class WAFServiceLinkedRoleErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2940,7 +2940,7 @@ class WAFStaleDataException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2950,7 +2950,7 @@ class WAFSubscriptionNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2960,7 +2960,7 @@ class WAFTagOperationException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2970,7 +2970,7 @@ class WAFTagOperationInternalErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2980,7 +2980,7 @@ class WafAction {
   public function __construct(shape(
   ?'type' => WafActionType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2992,7 +2992,7 @@ class WafOverrideAction {
   public function __construct(shape(
   ?'type' => WafOverrideActionType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -3016,12 +3016,12 @@ class WebACL {
   ?'web_acl_arn' => ResourceArn,
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
-    $this->default_action = $default_action ?? ;
+    $this->default_action = $default_action ?? null;
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
-    $this->rules = $rules ?? ;
-    $this->web_acl_arn = $web_acl_arn ?? ;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->name = $name ?? "";
+    $this->rules = $rules ?? [];
+    $this->web_acl_arn = $web_acl_arn ?? "";
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -3035,8 +3035,8 @@ class WebACLSummary {
   ?'name' => ResourceName,
   ?'web_acl_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->web_acl_id = $web_acl_id ?? ;
+    $this->name = $name ?? "";
+    $this->web_acl_id = $web_acl_id ?? "";
   }
 }
 
@@ -3065,8 +3065,8 @@ class XssMatchSet {
   ?'xss_match_set_id' => ResourceId,
   ?'xss_match_tuples' => XssMatchTuples,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->xss_match_set_id = $xss_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->xss_match_set_id = $xss_match_set_id ?? "";
     $this->xss_match_tuples = $xss_match_tuples ?? [];
   }
 }
@@ -3081,8 +3081,8 @@ class XssMatchSetSummary {
   ?'name' => ResourceName,
   ?'xss_match_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->xss_match_set_id = $xss_match_set_id ?? ;
+    $this->name = $name ?? "";
+    $this->xss_match_set_id = $xss_match_set_id ?? "";
   }
 }
 

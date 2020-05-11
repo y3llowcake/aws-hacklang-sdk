@@ -43,16 +43,16 @@ class Attribute {
   ?'traits' => TraitList,
   ?'type' => EntitySubType,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->category = $category ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->id = $id ?? ;
-    $this->relationship_score = $relationship_score ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->category = $category ?? "";
+    $this->end_offset = $end_offset ?? 0;
+    $this->id = $id ?? 0;
+    $this->relationship_score = $relationship_score ?? 0.0;
     $this->relationship_type = $relationship_type ?? "";
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -78,8 +78,8 @@ class ComprehendMedicalAsyncJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submit_time_after = $submit_time_after ?? ;
-    $this->submit_time_before = $submit_time_before ?? ;
+    $this->submit_time_after = $submit_time_after ?? 0;
+    $this->submit_time_before = $submit_time_before ?? 0;
   }
 }
 
@@ -115,9 +115,9 @@ class ComprehendMedicalAsyncJobProperties {
   ?'output_data_config' => OutputDataConfig,
   ?'submit_time' => Timestamp,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->expiration_time = $expiration_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
@@ -125,10 +125,10 @@ class ComprehendMedicalAsyncJobProperties {
     $this->kms_key = $kms_key ?? "";
     $this->language_code = $language_code ?? "";
     $this->manifest_file_path = $manifest_file_path ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->model_version = $model_version ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->submit_time = $submit_time ?? ;
+    $this->submit_time = $submit_time ?? 0;
   }
 }
 
@@ -180,7 +180,7 @@ class DetectEntitiesRequest {
   public function __construct(shape(
   ?'text' => BoundedLengthString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -196,10 +196,10 @@ class DetectEntitiesResponse {
   ?'pagination_token' => string,
   ?'unmapped_attributes' => UnmappedAttributeList,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->model_version = $model_version ?? "";
-    $this->pagination_token = $pagination_token ?? ;
-    $this->unmapped_attributes = $unmapped_attributes ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->unmapped_attributes = $unmapped_attributes ?? [];
   }
 }
 
@@ -209,7 +209,7 @@ class DetectEntitiesV2Request {
   public function __construct(shape(
   ?'text' => BoundedLengthString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -225,10 +225,10 @@ class DetectEntitiesV2Response {
   ?'pagination_token' => string,
   ?'unmapped_attributes' => UnmappedAttributeList,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->model_version = $model_version ?? "";
-    $this->pagination_token = $pagination_token ?? ;
-    $this->unmapped_attributes = $unmapped_attributes ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->unmapped_attributes = $unmapped_attributes ?? [];
   }
 }
 
@@ -238,7 +238,7 @@ class DetectPHIRequest {
   public function __construct(shape(
   ?'text' => BoundedLengthString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -252,9 +252,9 @@ class DetectPHIResponse {
   ?'model_version' => string,
   ?'pagination_token' => string,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->model_version = $model_version ?? "";
-    $this->pagination_token = $pagination_token ?? ;
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -280,15 +280,15 @@ class Entity {
   ?'traits' => TraitList,
   ?'type' => EntitySubType,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->begin_offset = $begin_offset ?? ;
-    $this->category = $category ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->id = $id ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->category = $category ?? "";
+    $this->end_offset = $end_offset ?? 0;
+    $this->id = $id ?? 0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -320,14 +320,14 @@ class ICD10CMAttribute {
   ?'traits' => ICD10CMTraitList,
   ?'type' => ICD10CMAttributeType,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->id = $id ?? ;
-    $this->relationship_score = $relationship_score ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->id = $id ?? 0;
+    $this->relationship_score = $relationship_score ?? 0.0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -345,9 +345,9 @@ class ICD10CMConcept {
   ?'description' => string,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->description = $description ?? ;
-    $this->score = $score ?? ;
+    $this->code = $code ?? "";
+    $this->description = $description ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -377,16 +377,16 @@ class ICD10CMEntity {
   ?'traits' => ICD10CMTraitList,
   ?'type' => ICD10CMEntityType,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->begin_offset = $begin_offset ?? ;
-    $this->category = $category ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->icd_10_cm_concepts = $icd_10_cm_concepts ?? ;
-    $this->id = $id ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->category = $category ?? "";
+    $this->end_offset = $end_offset ?? 0;
+    $this->icd_10_cm_concepts = $icd_10_cm_concepts ?? [];
+    $this->id = $id ?? 0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -404,8 +404,8 @@ class ICD10CMTrait {
   ?'name' => ICD10CMTraitName,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->score = $score ?? ;
+    $this->name = $name ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -421,7 +421,7 @@ class InferICD10CMRequest {
   public function __construct(shape(
   ?'text' => OntologyLinkingBoundedLengthString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -435,9 +435,9 @@ class InferICD10CMResponse {
   ?'model_version' => string,
   ?'pagination_token' => string,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->model_version = $model_version ?? "";
-    $this->pagination_token = $pagination_token ?? ;
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -447,7 +447,7 @@ class InferRxNormRequest {
   public function __construct(shape(
   ?'text' => OntologyLinkingBoundedLengthString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -461,9 +461,9 @@ class InferRxNormResponse {
   ?'model_version' => string,
   ?'pagination_token' => string,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->model_version = $model_version ?? "";
-    $this->pagination_token = $pagination_token ?? ;
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -498,7 +498,7 @@ class InvalidEncodingException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -508,7 +508,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -532,9 +532,9 @@ class ListEntitiesDetectionV2JobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -547,7 +547,7 @@ class ListEntitiesDetectionV2JobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->comprehend_medical_async_job_properties_list = $comprehend_medical_async_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -561,9 +561,9 @@ class ListPHIDetectionJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -576,7 +576,7 @@ class ListPHIDetectionJobsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->comprehend_medical_async_job_properties_list = $comprehend_medical_async_job_properties_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -609,7 +609,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -633,14 +633,14 @@ class RxNormAttribute {
   ?'traits' => RxNormTraitList,
   ?'type' => RxNormAttributeType,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->id = $id ?? ;
-    $this->relationship_score = $relationship_score ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->id = $id ?? 0;
+    $this->relationship_score = $relationship_score ?? 0.0;
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -658,9 +658,9 @@ class RxNormConcept {
   ?'description' => string,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->description = $description ?? ;
-    $this->score = $score ?? ;
+    $this->code = $code ?? "";
+    $this->description = $description ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -690,16 +690,16 @@ class RxNormEntity {
   ?'traits' => RxNormTraitList,
   ?'type' => RxNormEntityType,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->begin_offset = $begin_offset ?? ;
-    $this->category = $category ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->id = $id ?? ;
-    $this->rx_norm_concepts = $rx_norm_concepts ?? ;
-    $this->score = $score ?? ;
-    $this->text = $text ?? ;
-    $this->traits = $traits ?? ;
-    $this->type = $type ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->category = $category ?? "";
+    $this->end_offset = $end_offset ?? 0;
+    $this->id = $id ?? 0;
+    $this->rx_norm_concepts = $rx_norm_concepts ?? [];
+    $this->score = $score ?? 0.0;
+    $this->text = $text ?? "";
+    $this->traits = $traits ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -717,8 +717,8 @@ class RxNormTrait {
   ?'name' => RxNormTraitName,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->score = $score ?? ;
+    $this->name = $name ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -736,7 +736,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -758,8 +758,8 @@ class StartEntitiesDetectionV2JobRequest {
   ?'language_code' => LanguageCode,
   ?'output_data_config' => OutputDataConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->kms_key = $kms_key ?? "";
@@ -796,8 +796,8 @@ class StartPHIDetectionJobRequest {
   ?'language_code' => LanguageCode,
   ?'output_data_config' => OutputDataConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->kms_key = $kms_key ?? "";
@@ -864,7 +864,7 @@ class TextSizeLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -876,7 +876,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -888,8 +888,8 @@ class Trait {
   ?'name' => AttributeName,
   ?'score' => Float,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->score = $score ?? ;
+    $this->name = $name ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -904,7 +904,7 @@ class UnmappedAttribute {
   ?'type' => EntityType,
   ) $s = shape()) {
     $this->attribute = $attribute ?? null;
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -916,7 +916,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

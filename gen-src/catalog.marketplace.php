@@ -18,7 +18,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -31,7 +31,7 @@ class CancelChangeSetRequest {
   ?'change_set_id' => ResourceId,
   ) $s = shape()) {
     $this->catalog = $catalog ?? "";
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set_id = $change_set_id ?? "";
   }
 }
 
@@ -43,8 +43,8 @@ class CancelChangeSetResponse {
   ?'change_set_arn' => ARN,
   ?'change_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->change_set_arn = $change_set_arn ?? ;
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set_arn = $change_set_arn ?? "";
+    $this->change_set_id = $change_set_id ?? "";
   }
 }
 
@@ -61,7 +61,7 @@ class Change {
   ?'entity' => Entity,
   ) $s = shape()) {
     $this->change_type = $change_type ?? "";
-    $this->details = $details ?? ;
+    $this->details = $details ?? "";
     $this->entity = $entity ?? null;
   }
 }
@@ -90,13 +90,13 @@ class ChangeSetSummaryListItem {
   ?'start_time' => DateTimeISO8601,
   ?'status' => ChangeStatus,
   ) $s = shape()) {
-    $this->change_set_arn = $change_set_arn ?? ;
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set_arn = $change_set_arn ?? "";
+    $this->change_set_id = $change_set_id ?? "";
     $this->change_set_name = $change_set_name ?? "";
-    $this->end_time = $end_time ?? ;
-    $this->entity_id_list = $entity_id_list ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->end_time = $end_time ?? "";
+    $this->entity_id_list = $entity_id_list ?? [];
+    $this->start_time = $start_time ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -133,7 +133,7 @@ class DescribeChangeSetRequest {
   ?'change_set_id' => ResourceId,
   ) $s = shape()) {
     $this->catalog = $catalog ?? "";
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set_id = $change_set_id ?? "";
   }
 }
 
@@ -157,14 +157,14 @@ class DescribeChangeSetResponse {
   ?'start_time' => DateTimeISO8601,
   ?'status' => ChangeStatus,
   ) $s = shape()) {
-    $this->change_set = $change_set ?? ;
-    $this->change_set_arn = $change_set_arn ?? ;
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set = $change_set ?? [];
+    $this->change_set_arn = $change_set_arn ?? "";
+    $this->change_set_id = $change_set_id ?? "";
     $this->change_set_name = $change_set_name ?? "";
-    $this->end_time = $end_time ?? ;
-    $this->failure_description = $failure_description ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->end_time = $end_time ?? "";
+    $this->failure_description = $failure_description ?? "";
+    $this->start_time = $start_time ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -177,7 +177,7 @@ class DescribeEntityRequest {
   ?'entity_id' => ResourceId,
   ) $s = shape()) {
     $this->catalog = $catalog ?? "";
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
   }
 }
 
@@ -195,11 +195,11 @@ class DescribeEntityResponse {
   ?'entity_type' => EntityType,
   ?'last_modified_date' => StringValue,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->entity_arn = $entity_arn ?? ;
-    $this->entity_identifier = $entity_identifier ?? ;
+    $this->details = $details ?? "";
+    $this->entity_arn = $entity_arn ?? "";
+    $this->entity_identifier = $entity_identifier ?? "";
     $this->entity_type = $entity_type ?? "";
-    $this->last_modified_date = $last_modified_date ?? ;
+    $this->last_modified_date = $last_modified_date ?? "";
   }
 }
 
@@ -212,7 +212,7 @@ class Entity {
   ?'type' => EntityType,
   ) $s = shape()) {
     $this->identifier = $identifier ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -232,12 +232,12 @@ class EntitySummary {
   ?'name' => StringValue,
   ?'visibility' => StringValue,
   ) $s = shape()) {
-    $this->entity_arn = $entity_arn ?? ;
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_arn = $entity_arn ?? "";
+    $this->entity_id = $entity_id ?? "";
     $this->entity_type = $entity_type ?? "";
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->name = $name ?? ;
-    $this->visibility = $visibility ?? ;
+    $this->last_modified_date = $last_modified_date ?? "";
+    $this->name = $name ?? "";
+    $this->visibility = $visibility ?? "";
   }
 }
 
@@ -253,8 +253,8 @@ class ErrorDetail {
   ?'error_code' => StringValue,
   ?'error_message' => StringValue,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
   }
 }
 
@@ -268,7 +268,7 @@ class Filter {
   ?'name' => FilterName,
   ?'value_list' => ValueList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->value_list = $value_list ?? [];
   }
 }
@@ -285,7 +285,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -307,7 +307,7 @@ class ListChangeSetsRequest {
   ) $s = shape()) {
     $this->catalog = $catalog ?? "";
     $this->filter_list = $filter_list ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort = $sort ?? null;
   }
@@ -345,7 +345,7 @@ class ListEntitiesRequest {
     $this->catalog = $catalog ?? "";
     $this->entity_type = $entity_type ?? "";
     $this->filter_list = $filter_list ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort = $sort ?? null;
   }
@@ -380,7 +380,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -390,7 +390,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -400,7 +400,7 @@ class ResourceNotSupportedException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -410,7 +410,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -444,7 +444,7 @@ class StartChangeSetRequest {
   ?'client_request_token' => ClientRequestToken,
   ) $s = shape()) {
     $this->catalog = $catalog ?? "";
-    $this->change_set = $change_set ?? ;
+    $this->change_set = $change_set ?? [];
     $this->change_set_name = $change_set_name ?? "";
     $this->client_request_token = $client_request_token ?? "";
   }
@@ -458,8 +458,8 @@ class StartChangeSetResponse {
   ?'change_set_arn' => ARN,
   ?'change_set_id' => ResourceId,
   ) $s = shape()) {
-    $this->change_set_arn = $change_set_arn ?? ;
-    $this->change_set_id = $change_set_id ?? ;
+    $this->change_set_arn = $change_set_arn ?? "";
+    $this->change_set_id = $change_set_id ?? "";
   }
 }
 
@@ -471,7 +471,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -481,7 +481,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => StringValue,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

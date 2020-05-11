@@ -25,8 +25,8 @@ class ComplianceDetails {
   ?'noncompliant_keys' => TagKeyList,
   ) $s = shape()) {
     $this->compliance_status = $compliance_status ?? false;
-    $this->keys_with_noncompliant_values = $keys_with_noncompliant_values ?? ;
-    $this->noncompliant_keys = $noncompliant_keys ?? ;
+    $this->keys_with_noncompliant_values = $keys_with_noncompliant_values ?? [];
+    $this->noncompliant_keys = $noncompliant_keys ?? [];
   }
 }
 
@@ -38,7 +38,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -48,7 +48,7 @@ class ConstraintViolationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -120,12 +120,12 @@ class GetComplianceSummaryInput {
   ?'target_id_filters' => TargetIdFilterList,
   ) $s = shape()) {
     $this->group_by = $group_by ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->pagination_token = $pagination_token ?? "";
-    $this->region_filters = $region_filters ?? ;
-    $this->resource_type_filters = $resource_type_filters ?? ;
-    $this->tag_key_filters = $tag_key_filters ?? ;
-    $this->target_id_filters = $target_id_filters ?? ;
+    $this->region_filters = $region_filters ?? [];
+    $this->resource_type_filters = $resource_type_filters ?? [];
+    $this->tag_key_filters = $tag_key_filters ?? [];
+    $this->target_id_filters = $target_id_filters ?? [];
   }
 }
 
@@ -163,9 +163,9 @@ class GetResourcesInput {
     $this->exclude_compliant_resources = $exclude_compliant_resources ?? false;
     $this->include_compliance_details = $include_compliance_details ?? false;
     $this->pagination_token = $pagination_token ?? "";
-    $this->resource_type_filters = $resource_type_filters ?? ;
+    $this->resource_type_filters = $resource_type_filters ?? [];
     $this->resources_per_page = $resources_per_page ?? 0;
-    $this->tag_filters = $tag_filters ?? ;
+    $this->tag_filters = $tag_filters ?? [];
     $this->tags_per_page = $tags_per_page ?? 0;
   }
 }
@@ -202,7 +202,7 @@ class GetTagKeysOutput {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->pagination_token = $pagination_token ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -214,7 +214,7 @@ class GetTagValuesInput {
   ?'key' => TagKey,
   ?'pagination_token' => PaginationToken,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->pagination_token = $pagination_token ?? "";
   }
 }
@@ -228,7 +228,7 @@ class GetTagValuesOutput {
   ?'tag_values' => TagValuesOutputList,
   ) $s = shape()) {
     $this->pagination_token = $pagination_token ?? "";
-    $this->tag_values = $tag_values ?? ;
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -244,7 +244,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -254,7 +254,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -272,7 +272,7 @@ class PaginationTokenExpiredException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -296,7 +296,7 @@ class ResourceTagMapping {
   ) $s = shape()) {
     $this->compliance_details = $compliance_details ?? null;
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -350,7 +350,7 @@ class Summary {
     $this->last_updated = $last_updated ?? "";
     $this->non_compliant_resources = $non_compliant_resources ?? 0;
     $this->region = $region ?? "";
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_type = $resource_type ?? "";
     $this->target_id = $target_id ?? "";
     $this->target_id_type = $target_id_type ?? "";
   }
@@ -366,8 +366,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -379,8 +379,8 @@ class TagFilter {
   ?'key' => TagKey,
   ?'values' => TagValueList,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -407,7 +407,7 @@ class TagResourcesInput {
   ?'tags' => TagMap,
   ) $s = shape()) {
     $this->resource_arn_list = $resource_arn_list ?? [];
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -441,7 +441,7 @@ class ThrottledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -454,7 +454,7 @@ class UntagResourcesInput {
   ?'tag_keys' => TagKeyListForUntag,
   ) $s = shape()) {
     $this->resource_arn_list = $resource_arn_list ?? [];
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

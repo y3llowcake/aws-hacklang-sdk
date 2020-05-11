@@ -28,7 +28,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -40,7 +40,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -70,7 +70,7 @@ class CreateVocabularyFilterRequest {
   ?'words' => Words,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->vocabulary_filter_file_uri = $vocabulary_filter_file_uri ?? ;
+    $this->vocabulary_filter_file_uri = $vocabulary_filter_file_uri ?? "";
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
     $this->words = $words ?? [];
   }
@@ -87,7 +87,7 @@ class CreateVocabularyFilterResponse {
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
   }
 }
@@ -106,7 +106,7 @@ class CreateVocabularyRequest {
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
     $this->phrases = $phrases ?? [];
-    $this->vocabulary_file_uri = $vocabulary_file_uri ?? ;
+    $this->vocabulary_file_uri = $vocabulary_file_uri ?? "";
     $this->vocabulary_name = $vocabulary_name ?? "";
   }
 }
@@ -127,7 +127,7 @@ class CreateVocabularyResponse {
   ) $s = shape()) {
     $this->failure_reason = $failure_reason ?? "";
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_name = $vocabulary_name ?? "";
     $this->vocabulary_state = $vocabulary_state ?? "";
   }
@@ -143,7 +143,7 @@ class DeleteMedicalTranscriptionJobRequest {
   public function __construct(shape(
   ?'medical_transcription_job_name' => TranscriptionJobName,
   ) $s = shape()) {
-    $this->medical_transcription_job_name = $medical_transcription_job_name ?? ;
+    $this->medical_transcription_job_name = $medical_transcription_job_name ?? "";
   }
 }
 
@@ -185,7 +185,7 @@ class GetMedicalTranscriptionJobRequest {
   public function __construct(shape(
   ?'medical_transcription_job_name' => TranscriptionJobName,
   ) $s = shape()) {
-    $this->medical_transcription_job_name = $medical_transcription_job_name ?? ;
+    $this->medical_transcription_job_name = $medical_transcription_job_name ?? "";
   }
 }
 
@@ -241,9 +241,9 @@ class GetVocabularyFilterResponse {
   ?'last_modified_time' => DateTime,
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ) $s = shape()) {
-    $this->download_uri = $download_uri ?? ;
+    $this->download_uri = $download_uri ?? "";
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
   }
 }
@@ -274,10 +274,10 @@ class GetVocabularyResponse {
   ?'vocabulary_name' => VocabularyName,
   ?'vocabulary_state' => VocabularyState,
   ) $s = shape()) {
-    $this->download_uri = $download_uri ?? ;
+    $this->download_uri = $download_uri ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_name = $vocabulary_name ?? "";
     $this->vocabulary_state = $vocabulary_state ?? "";
   }
@@ -289,7 +289,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -301,7 +301,7 @@ class JobExecutionSettings {
   ?'allow_deferred_execution' => boolean,
   ?'data_access_role_arn' => DataAccessRoleArn,
   ) $s = shape()) {
-    $this->allow_deferred_execution = $allow_deferred_execution ?? ;
+    $this->allow_deferred_execution = $allow_deferred_execution ?? false;
     $this->data_access_role_arn = $data_access_role_arn ?? "";
   }
 }
@@ -316,7 +316,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -332,10 +332,10 @@ class ListMedicalTranscriptionJobsRequest {
   ?'next_token' => NextToken,
   ?'status' => TranscriptionJobStatus,
   ) $s = shape()) {
-    $this->job_name_contains = $job_name_contains ?? ;
+    $this->job_name_contains = $job_name_contains ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -351,7 +351,7 @@ class ListMedicalTranscriptionJobsResponse {
   ) $s = shape()) {
     $this->medical_transcription_job_summaries = $medical_transcription_job_summaries ?? [];
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -367,10 +367,10 @@ class ListTranscriptionJobsRequest {
   ?'next_token' => NextToken,
   ?'status' => TranscriptionJobStatus,
   ) $s = shape()) {
-    $this->job_name_contains = $job_name_contains ?? ;
+    $this->job_name_contains = $job_name_contains ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -385,7 +385,7 @@ class ListTranscriptionJobsResponse {
   ?'transcription_job_summaries' => TranscriptionJobSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->transcription_job_summaries = $transcription_job_summaries ?? [];
   }
 }
@@ -403,9 +403,9 @@ class ListVocabulariesRequest {
   ?'state_equals' => VocabularyState,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->name_contains = $name_contains ?? ;
+    $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
-    $this->state_equals = $state_equals ?? ;
+    $this->state_equals = $state_equals ?? "";
   }
 }
 
@@ -420,7 +420,7 @@ class ListVocabulariesResponse {
   ?'vocabularies' => Vocabularies,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->vocabularies = $vocabularies ?? [];
   }
 }
@@ -436,7 +436,7 @@ class ListVocabularyFiltersRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->name_contains = $name_contains ?? ;
+    $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -466,7 +466,7 @@ class Media {
   public function __construct(shape(
   ?'media_file_uri' => Uri,
   ) $s = shape()) {
-    $this->media_file_uri = $media_file_uri ?? ;
+    $this->media_file_uri = $media_file_uri ?? "";
   }
 }
 
@@ -480,7 +480,7 @@ class MedicalTranscript {
   public function __construct(shape(
   ?'transcript_file_uri' => Uri,
   ) $s = shape()) {
-    $this->transcript_file_uri = $transcript_file_uri ?? ;
+    $this->transcript_file_uri = $transcript_file_uri ?? "";
   }
 }
 
@@ -516,17 +516,17 @@ class MedicalTranscriptionJob {
   ?'transcription_job_status' => TranscriptionJobStatus,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
+    $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->language_code = $language_code ?? "";
     $this->media = $media ?? null;
     $this->media_format = $media_format ?? "";
     $this->media_sample_rate_hertz = $media_sample_rate_hertz ?? 0;
-    $this->medical_transcription_job_name = $medical_transcription_job_name ?? ;
+    $this->medical_transcription_job_name = $medical_transcription_job_name ?? "";
     $this->settings = $settings ?? null;
     $this->specialty = $specialty ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->transcript = $transcript ?? null;
     $this->transcription_job_status = $transcription_job_status ?? "";
     $this->type = $type ?? "";
@@ -559,14 +559,14 @@ class MedicalTranscriptionJobSummary {
   ?'transcription_job_status' => TranscriptionJobStatus,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
+    $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->language_code = $language_code ?? "";
-    $this->medical_transcription_job_name = $medical_transcription_job_name ?? ;
+    $this->medical_transcription_job_name = $medical_transcription_job_name ?? "";
     $this->output_location_type = $output_location_type ?? "";
     $this->specialty = $specialty ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->transcription_job_status = $transcription_job_status ?? "";
     $this->type = $type ?? "";
   }
@@ -586,11 +586,11 @@ class MedicalTranscriptionSetting {
   ?'show_alternatives' => boolean,
   ?'show_speaker_labels' => boolean,
   ) $s = shape()) {
-    $this->channel_identification = $channel_identification ?? ;
+    $this->channel_identification = $channel_identification ?? false;
     $this->max_alternatives = $max_alternatives ?? 0;
-    $this->max_speaker_labels = $max_speaker_labels ?? ;
-    $this->show_alternatives = $show_alternatives ?? ;
-    $this->show_speaker_labels = $show_speaker_labels ?? ;
+    $this->max_speaker_labels = $max_speaker_labels ?? 0;
+    $this->show_alternatives = $show_alternatives ?? false;
+    $this->show_speaker_labels = $show_speaker_labels ?? false;
   }
 }
 
@@ -602,7 +602,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -638,11 +638,11 @@ class Settings {
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ?'vocabulary_name' => VocabularyName,
   ) $s = shape()) {
-    $this->channel_identification = $channel_identification ?? ;
+    $this->channel_identification = $channel_identification ?? false;
     $this->max_alternatives = $max_alternatives ?? 0;
-    $this->max_speaker_labels = $max_speaker_labels ?? ;
-    $this->show_alternatives = $show_alternatives ?? ;
-    $this->show_speaker_labels = $show_speaker_labels ?? ;
+    $this->max_speaker_labels = $max_speaker_labels ?? 0;
+    $this->show_alternatives = $show_alternatives ?? false;
+    $this->show_speaker_labels = $show_speaker_labels ?? false;
     $this->vocabulary_filter_method = $vocabulary_filter_method ?? "";
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
     $this->vocabulary_name = $vocabulary_name ?? "";
@@ -679,9 +679,9 @@ class StartMedicalTranscriptionJobRequest {
     $this->media = $media ?? null;
     $this->media_format = $media_format ?? "";
     $this->media_sample_rate_hertz = $media_sample_rate_hertz ?? 0;
-    $this->medical_transcription_job_name = $medical_transcription_job_name ?? ;
+    $this->medical_transcription_job_name = $medical_transcription_job_name ?? "";
     $this->output_bucket_name = $output_bucket_name ?? "";
-    $this->output_encryption_kms_key_id = $output_encryption_kms_key_id ?? ;
+    $this->output_encryption_kms_key_id = $output_encryption_kms_key_id ?? "";
     $this->settings = $settings ?? null;
     $this->specialty = $specialty ?? "";
     $this->type = $type ?? "";
@@ -729,7 +729,7 @@ class StartTranscriptionJobRequest {
     $this->media_format = $media_format ?? "";
     $this->media_sample_rate_hertz = $media_sample_rate_hertz ?? 0;
     $this->output_bucket_name = $output_bucket_name ?? "";
-    $this->output_encryption_kms_key_id = $output_encryption_kms_key_id ?? ;
+    $this->output_encryption_kms_key_id = $output_encryption_kms_key_id ?? "";
     $this->settings = $settings ?? null;
     $this->transcription_job_name = $transcription_job_name ?? "";
   }
@@ -755,8 +755,8 @@ class Transcript {
   ?'redacted_transcript_file_uri' => Uri,
   ?'transcript_file_uri' => Uri,
   ) $s = shape()) {
-    $this->redacted_transcript_file_uri = $redacted_transcript_file_uri ?? ;
-    $this->transcript_file_uri = $transcript_file_uri ?? ;
+    $this->redacted_transcript_file_uri = $redacted_transcript_file_uri ?? "";
+    $this->transcript_file_uri = $transcript_file_uri ?? "";
   }
 }
 
@@ -792,9 +792,9 @@ class TranscriptionJob {
   ?'transcription_job_name' => TranscriptionJobName,
   ?'transcription_job_status' => TranscriptionJobStatus,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
     $this->content_redaction = $content_redaction ?? null;
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->job_execution_settings = $job_execution_settings ?? null;
     $this->language_code = $language_code ?? "";
@@ -802,7 +802,7 @@ class TranscriptionJob {
     $this->media_format = $media_format ?? "";
     $this->media_sample_rate_hertz = $media_sample_rate_hertz ?? 0;
     $this->settings = $settings ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->transcript = $transcript ?? null;
     $this->transcription_job_name = $transcription_job_name ?? "";
     $this->transcription_job_status = $transcription_job_status ?? "";
@@ -837,13 +837,13 @@ class TranscriptionJobSummary {
   ?'transcription_job_name' => TranscriptionJobName,
   ?'transcription_job_status' => TranscriptionJobStatus,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
     $this->content_redaction = $content_redaction ?? null;
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->language_code = $language_code ?? "";
     $this->output_location_type = $output_location_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->transcription_job_name = $transcription_job_name ?? "";
     $this->transcription_job_status = $transcription_job_status ?? "";
   }
@@ -861,7 +861,7 @@ class UpdateVocabularyFilterRequest {
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ?'words' => Words,
   ) $s = shape()) {
-    $this->vocabulary_filter_file_uri = $vocabulary_filter_file_uri ?? ;
+    $this->vocabulary_filter_file_uri = $vocabulary_filter_file_uri ?? "";
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
     $this->words = $words ?? [];
   }
@@ -878,7 +878,7 @@ class UpdateVocabularyFilterResponse {
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
   }
 }
@@ -897,7 +897,7 @@ class UpdateVocabularyRequest {
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
     $this->phrases = $phrases ?? [];
-    $this->vocabulary_file_uri = $vocabulary_file_uri ?? ;
+    $this->vocabulary_file_uri = $vocabulary_file_uri ?? "";
     $this->vocabulary_name = $vocabulary_name ?? "";
   }
 }
@@ -915,7 +915,7 @@ class UpdateVocabularyResponse {
   ?'vocabulary_state' => VocabularyState,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_name = $vocabulary_name ?? "";
     $this->vocabulary_state = $vocabulary_state ?? "";
   }
@@ -936,7 +936,7 @@ class VocabularyFilterInfo {
   ?'vocabulary_filter_name' => VocabularyFilterName,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_filter_name = $vocabulary_filter_name ?? "";
   }
 }
@@ -960,7 +960,7 @@ class VocabularyInfo {
   ?'vocabulary_state' => VocabularyState,
   ) $s = shape()) {
     $this->language_code = $language_code ?? "";
-    $this->last_modified_time = $last_modified_time ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
     $this->vocabulary_name = $vocabulary_name ?? "";
     $this->vocabulary_state = $vocabulary_state ?? "";
   }

@@ -11,7 +11,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -33,12 +33,12 @@ class Event {
   ?'timestamp' => ISO8601Timestamp,
   ?'version' => String10Chars,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->metrics = $metrics ?? ;
-    $this->session = $session ?? ;
-    $this->timestamp = $timestamp ?? ;
-    $this->version = $version ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->event_type = $event_type ?? "";
+    $this->metrics = $metrics ?? [];
+    $this->session = $session ?? null;
+    $this->timestamp = $timestamp ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -62,9 +62,9 @@ class PutEventsInput {
   ?'client_context_encoding' => string,
   ?'events' => EventListDefinition,
   ) $s = shape()) {
-    $this->client_context = $client_context ?? ;
-    $this->client_context_encoding = $client_context_encoding ?? ;
-    $this->events = $events ?? ;
+    $this->client_context = $client_context ?? "";
+    $this->client_context_encoding = $client_context_encoding ?? "";
+    $this->events = $events ?? [];
   }
 }
 
@@ -80,10 +80,10 @@ class Session {
   ?'start_timestamp' => ISO8601Timestamp,
   ?'stop_timestamp' => ISO8601Timestamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->id = $id ?? ;
-    $this->start_timestamp = $start_timestamp ?? ;
-    $this->stop_timestamp = $stop_timestamp ?? ;
+    $this->duration = $duration ?? 0;
+    $this->id = $id ?? "";
+    $this->start_timestamp = $start_timestamp ?? "";
+    $this->stop_timestamp = $stop_timestamp ?? "";
   }
 }
 

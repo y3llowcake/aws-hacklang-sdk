@@ -68,8 +68,8 @@ class AccountLimit {
   ?'type' => AccountLimitType,
   ?'value' => LimitValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -83,8 +83,8 @@ class AlarmIdentifier {
   ?'name' => AlarmName,
   ?'region' => CloudWatchRegion,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -103,8 +103,8 @@ class AliasTarget {
   ?'hosted_zone_id' => ResourceId,
   ) $s = shape()) {
     $this->dns_name = $dns_name ?? "";
-    $this->evaluate_target_health = $evaluate_target_health ?? ;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->evaluate_target_health = $evaluate_target_health ?? false;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
   }
 }
 
@@ -120,8 +120,8 @@ class AssociateVPCWithHostedZoneRequest {
   ?'hosted_zone_id' => ResourceId,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->comment = $comment ?? "";
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -144,7 +144,7 @@ class Change {
   ?'action' => ChangeAction,
   ?'resource_record_set' => ResourceRecordSet,
   ) $s = shape()) {
-    $this->action = $action ?? ;
+    $this->action = $action ?? "";
     $this->resource_record_set = $resource_record_set ?? null;
   }
 }
@@ -160,7 +160,7 @@ class ChangeBatch {
   ?'comment' => ResourceDescription,
   ) $s = shape()) {
     $this->changes = $changes ?? [];
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? "";
   }
 }
 
@@ -176,10 +176,10 @@ class ChangeInfo {
   ?'status' => ChangeStatus,
   ?'submitted_at' => TimeStamp,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->id = $id ?? ;
+    $this->comment = $comment ?? "";
+    $this->id = $id ?? "";
     $this->status = $status ?? "";
-    $this->submitted_at = $submitted_at ?? ;
+    $this->submitted_at = $submitted_at ?? 0;
   }
 }
 
@@ -192,7 +192,7 @@ class ChangeResourceRecordSetsRequest {
   ?'hosted_zone_id' => ResourceId,
   ) $s = shape()) {
     $this->change_batch = $change_batch ?? null;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
   }
 }
 
@@ -220,10 +220,10 @@ class ChangeTagsForResourceRequest {
   ?'resource_id' => TagResourceId,
   ?'resource_type' => TagResourceType,
   ) $s = shape()) {
-    $this->add_tags = $add_tags ?? ;
-    $this->remove_tag_keys = $remove_tag_keys ?? ;
+    $this->add_tags = $add_tags ?? [];
+    $this->remove_tag_keys = $remove_tag_keys ?? [];
     $this->resource_id = $resource_id ?? "";
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -261,7 +261,7 @@ class CloudWatchAlarmConfiguration {
   ?'threshold' => Threshold,
   ) $s = shape()) {
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? [];
     $this->evaluation_periods = $evaluation_periods ?? 0;
     $this->metric_name = $metric_name ?? "";
     $this->namespace = $namespace ?? "";
@@ -283,7 +283,7 @@ class ConcurrentModification {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -293,7 +293,7 @@ class ConflictingDomainExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -303,7 +303,7 @@ class ConflictingTypes {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -315,7 +315,7 @@ class CreateHealthCheckRequest {
   ?'caller_reference' => HealthCheckNonce,
   ?'health_check_config' => HealthCheckConfig,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
+    $this->caller_reference = $caller_reference ?? "";
     $this->health_check_config = $health_check_config ?? null;
   }
 }
@@ -329,7 +329,7 @@ class CreateHealthCheckResponse {
   ?'location' => ResourceURI,
   ) $s = shape()) {
     $this->health_check = $health_check ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -347,10 +347,10 @@ class CreateHostedZoneRequest {
   ?'name' => DNSName,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->delegation_set_id = $delegation_set_id ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->delegation_set_id = $delegation_set_id ?? "";
     $this->hosted_zone_config = $hosted_zone_config ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -372,7 +372,7 @@ class CreateHostedZoneResponse {
     $this->change_info = $change_info ?? null;
     $this->delegation_set = $delegation_set ?? null;
     $this->hosted_zone = $hosted_zone ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -386,7 +386,7 @@ class CreateQueryLoggingConfigRequest {
   ?'hosted_zone_id' => ResourceId,
   ) $s = shape()) {
     $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
   }
 }
 
@@ -398,7 +398,7 @@ class CreateQueryLoggingConfigResponse {
   ?'location' => ResourceURI,
   ?'query_logging_config' => QueryLoggingConfig,
   ) $s = shape()) {
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
     $this->query_logging_config = $query_logging_config ?? null;
   }
 }
@@ -411,8 +411,8 @@ class CreateReusableDelegationSetRequest {
   ?'caller_reference' => Nonce,
   ?'hosted_zone_id' => ResourceId,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
   }
 }
 
@@ -425,7 +425,7 @@ class CreateReusableDelegationSetResponse {
   ?'location' => ResourceURI,
   ) $s = shape()) {
     $this->delegation_set = $delegation_set ?? null;
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
   }
 }
 
@@ -443,8 +443,8 @@ class CreateTrafficPolicyInstanceRequest {
   ?'traffic_policy_id' => TrafficPolicyId,
   ?'traffic_policy_version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->name = $name ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->name = $name ?? "";
     $this->ttl = $ttl ?? 0;
     $this->traffic_policy_id = $traffic_policy_id ?? "";
     $this->traffic_policy_version = $traffic_policy_version ?? 0;
@@ -459,7 +459,7 @@ class CreateTrafficPolicyInstanceResponse {
   ?'location' => ResourceURI,
   ?'traffic_policy_instance' => TrafficPolicyInstance,
   ) $s = shape()) {
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
     $this->traffic_policy_instance = $traffic_policy_instance ?? null;
   }
 }
@@ -474,9 +474,9 @@ class CreateTrafficPolicyRequest {
   ?'document' => TrafficPolicyDocument,
   ?'name' => TrafficPolicyName,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->document = $document ?? ;
-    $this->name = $name ?? ;
+    $this->comment = $comment ?? "";
+    $this->document = $document ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class CreateTrafficPolicyResponse {
   ?'location' => ResourceURI,
   ?'traffic_policy' => TrafficPolicy,
   ) $s = shape()) {
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
     $this->traffic_policy = $traffic_policy ?? null;
   }
 }
@@ -503,9 +503,9 @@ class CreateTrafficPolicyVersionRequest {
   ?'document' => TrafficPolicyDocument,
   ?'id' => TrafficPolicyId,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->document = $document ?? ;
-    $this->id = $id ?? ;
+    $this->comment = $comment ?? "";
+    $this->document = $document ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class CreateTrafficPolicyVersionResponse {
   ?'location' => ResourceURI,
   ?'traffic_policy' => TrafficPolicy,
   ) $s = shape()) {
-    $this->location = $location ?? ;
+    $this->location = $location ?? "";
     $this->traffic_policy = $traffic_policy ?? null;
   }
 }
@@ -530,7 +530,7 @@ class CreateVPCAssociationAuthorizationRequest {
   ?'hosted_zone_id' => ResourceId,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -543,7 +543,7 @@ class CreateVPCAssociationAuthorizationResponse {
   ?'hosted_zone_id' => ResourceId,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -562,9 +562,9 @@ class DelegationSet {
   ?'id' => ResourceId,
   ?'name_servers' => DelegationSetNameServers,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->id = $id ?? ;
-    $this->name_servers = $name_servers ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->id = $id ?? "";
+    $this->name_servers = $name_servers ?? [];
   }
 }
 
@@ -574,7 +574,7 @@ class DelegationSetAlreadyCreated {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class DelegationSetAlreadyReusable {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -594,7 +594,7 @@ class DelegationSetInUse {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -606,7 +606,7 @@ class DelegationSetNotAvailable {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -616,7 +616,7 @@ class DelegationSetNotReusable {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -645,7 +645,7 @@ class DeleteHostedZoneRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -665,7 +665,7 @@ class DeleteQueryLoggingConfigRequest {
   public function __construct(shape(
   ?'id' => QueryLoggingConfigId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -682,7 +682,7 @@ class DeleteReusableDelegationSetRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -699,7 +699,7 @@ class DeleteTrafficPolicyInstanceRequest {
   public function __construct(shape(
   ?'id' => TrafficPolicyInstanceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -718,8 +718,8 @@ class DeleteTrafficPolicyRequest {
   ?'id' => TrafficPolicyId,
   ?'version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->id = $id ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -738,7 +738,7 @@ class DeleteVPCAssociationAuthorizationRequest {
   ?'hosted_zone_id' => ResourceId,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -758,8 +758,8 @@ class Dimension {
   ?'name' => DimensionField,
   ?'value' => DimensionField,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -781,8 +781,8 @@ class DisassociateVPCFromHostedZoneRequest {
   ?'hosted_zone_id' => ResourceId,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->comment = $comment ?? "";
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->vpc = $vpc ?? null;
   }
 }
@@ -819,9 +819,9 @@ class GeoLocation {
   ?'country_code' => GeoLocationCountryCode,
   ?'subdivision_code' => GeoLocationSubdivisionCode,
   ) $s = shape()) {
-    $this->continent_code = $continent_code ?? ;
-    $this->country_code = $country_code ?? ;
-    $this->subdivision_code = $subdivision_code ?? ;
+    $this->continent_code = $continent_code ?? "";
+    $this->country_code = $country_code ?? "";
+    $this->subdivision_code = $subdivision_code ?? "";
   }
 }
 
@@ -849,12 +849,12 @@ class GeoLocationDetails {
   ?'subdivision_code' => GeoLocationSubdivisionCode,
   ?'subdivision_name' => GeoLocationSubdivisionName,
   ) $s = shape()) {
-    $this->continent_code = $continent_code ?? ;
-    $this->continent_name = $continent_name ?? ;
-    $this->country_code = $country_code ?? ;
-    $this->country_name = $country_name ?? ;
-    $this->subdivision_code = $subdivision_code ?? ;
-    $this->subdivision_name = $subdivision_name ?? ;
+    $this->continent_code = $continent_code ?? "";
+    $this->continent_name = $continent_name ?? "";
+    $this->country_code = $country_code ?? "";
+    $this->country_name = $country_name ?? "";
+    $this->subdivision_code = $subdivision_code ?? "";
+    $this->subdivision_name = $subdivision_name ?? "";
   }
 }
 
@@ -870,7 +870,7 @@ class GetAccountLimitRequest {
   public function __construct(shape(
   ?'type' => AccountLimitType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -882,8 +882,8 @@ class GetAccountLimitResponse {
   ?'count' => UsageCount,
   ?'limit' => AccountLimit,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->limit = $limit ?? ;
+    $this->count = $count ?? 0;
+    $this->limit = $limit ?? null;
   }
 }
 
@@ -893,7 +893,7 @@ class GetChangeRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -934,9 +934,9 @@ class GetGeoLocationRequest {
   ?'country_code' => GeoLocationCountryCode,
   ?'subdivision_code' => GeoLocationSubdivisionCode,
   ) $s = shape()) {
-    $this->continent_code = $continent_code ?? ;
-    $this->country_code = $country_code ?? ;
-    $this->subdivision_code = $subdivision_code ?? ;
+    $this->continent_code = $continent_code ?? "";
+    $this->country_code = $country_code ?? "";
+    $this->subdivision_code = $subdivision_code ?? "";
   }
 }
 
@@ -1052,8 +1052,8 @@ class GetHostedZoneLimitRequest {
   ?'hosted_zone_id' => ResourceId,
   ?'type' => HostedZoneLimitType,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->type = $type ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1065,8 +1065,8 @@ class GetHostedZoneLimitResponse {
   ?'count' => UsageCount,
   ?'limit' => HostedZoneLimit,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->limit = $limit ?? ;
+    $this->count = $count ?? 0;
+    $this->limit = $limit ?? null;
   }
 }
 
@@ -1076,7 +1076,7 @@ class GetHostedZoneRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1102,7 +1102,7 @@ class GetQueryLoggingConfigRequest {
   public function __construct(shape(
   ?'id' => QueryLoggingConfigId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1124,8 +1124,8 @@ class GetReusableDelegationSetLimitRequest {
   ?'delegation_set_id' => ResourceId,
   ?'type' => ReusableDelegationSetLimitType,
   ) $s = shape()) {
-    $this->delegation_set_id = $delegation_set_id ?? ;
-    $this->type = $type ?? ;
+    $this->delegation_set_id = $delegation_set_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1137,8 +1137,8 @@ class GetReusableDelegationSetLimitResponse {
   ?'count' => UsageCount,
   ?'limit' => ReusableDelegationSetLimit,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->limit = $limit ?? ;
+    $this->count = $count ?? 0;
+    $this->limit = $limit ?? null;
   }
 }
 
@@ -1148,7 +1148,7 @@ class GetReusableDelegationSetRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1185,7 +1185,7 @@ class GetTrafficPolicyInstanceRequest {
   public function __construct(shape(
   ?'id' => TrafficPolicyInstanceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1207,8 +1207,8 @@ class GetTrafficPolicyRequest {
   ?'id' => TrafficPolicyId,
   ?'version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->id = $id ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1238,11 +1238,11 @@ class HealthCheck {
   ?'id' => HealthCheckId,
   ?'linked_service' => LinkedService,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
+    $this->caller_reference = $caller_reference ?? "";
     $this->cloud_watch_alarm_configuration = $cloud_watch_alarm_configuration ?? null;
     $this->health_check_config = $health_check_config ?? null;
     $this->health_check_version = $health_check_version ?? 0;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->linked_service = $linked_service ?? null;
   }
 }
@@ -1253,7 +1253,7 @@ class HealthCheckAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1296,7 +1296,7 @@ class HealthCheckConfig {
   ?'type' => HealthCheckType,
   ) $s = shape()) {
     $this->alarm_identifier = $alarm_identifier ?? null;
-    $this->child_health_checks = $child_health_checks ?? ;
+    $this->child_health_checks = $child_health_checks ?? [];
     $this->disabled = $disabled ?? false;
     $this->enable_sni = $enable_sni ?? false;
     $this->failure_threshold = $failure_threshold ?? 0;
@@ -1307,11 +1307,11 @@ class HealthCheckConfig {
     $this->inverted = $inverted ?? false;
     $this->measure_latency = $measure_latency ?? false;
     $this->port = $port ?? 0;
-    $this->regions = $regions ?? ;
+    $this->regions = $regions ?? [];
     $this->request_interval = $request_interval ?? 0;
     $this->resource_path = $resource_path ?? "";
     $this->search_string = $search_string ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1325,7 +1325,7 @@ class HealthCheckInUse {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1342,7 +1342,7 @@ class HealthCheckObservation {
   ?'status_report' => StatusReport,
   ) $s = shape()) {
     $this->ip_address = $ip_address ?? "";
-    $this->region = $region ?? ;
+    $this->region = $region ?? "";
     $this->status_report = $status_report ?? null;
   }
 }
@@ -1363,7 +1363,7 @@ class HealthCheckVersionMismatch {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1387,12 +1387,12 @@ class HostedZone {
   ?'name' => DNSName,
   ?'resource_record_set_count' => HostedZoneRRSetCount,
   ) $s = shape()) {
-    $this->caller_reference = $caller_reference ?? ;
-    $this->config = $config ?? ;
-    $this->id = $id ?? ;
+    $this->caller_reference = $caller_reference ?? "";
+    $this->config = $config ?? null;
+    $this->id = $id ?? "";
     $this->linked_service = $linked_service ?? null;
-    $this->name = $name ?? ;
-    $this->resource_record_set_count = $resource_record_set_count ?? ;
+    $this->name = $name ?? "";
+    $this->resource_record_set_count = $resource_record_set_count ?? 0;
   }
 }
 
@@ -1402,7 +1402,7 @@ class HostedZoneAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1414,8 +1414,8 @@ class HostedZoneConfig {
   ?'comment' => ResourceDescription,
   ?'private_zone' => IsPrivateZone,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->private_zone = $private_zone ?? ;
+    $this->comment = $comment ?? "";
+    $this->private_zone = $private_zone ?? false;
   }
 }
 
@@ -1429,8 +1429,8 @@ class HostedZoneLimit {
   ?'type' => HostedZoneLimitType,
   ?'value' => LimitValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -1442,7 +1442,7 @@ class HostedZoneNotEmpty {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1452,7 +1452,7 @@ class HostedZoneNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1462,7 +1462,7 @@ class HostedZoneNotPrivate {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1480,7 +1480,7 @@ class IncompatibleVersion {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1490,7 +1490,7 @@ class InsufficientCloudWatchLogsResourcePolicy {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1502,7 +1502,7 @@ class InvalidArgument {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1514,8 +1514,8 @@ class InvalidChangeBatch {
   ?'message' => ErrorMessage,
   ?'messages' => ErrorMessages,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->messages = $messages ?? ;
+    $this->message = $message ?? "";
+    $this->messages = $messages ?? [];
   }
 }
 
@@ -1525,7 +1525,7 @@ class InvalidDomainName {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1535,7 +1535,7 @@ class InvalidInput {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1545,7 +1545,7 @@ class InvalidPaginationToken {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1555,7 +1555,7 @@ class InvalidTrafficPolicyDocument {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1565,7 +1565,7 @@ class InvalidVPCId {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1579,7 +1579,7 @@ class LastVPCAssociation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1591,7 +1591,7 @@ class LimitsExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1603,7 +1603,7 @@ class LinkedService {
   ?'description' => ResourceDescription,
   ?'service_principal' => ServicePrincipal,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->service_principal = $service_principal ?? "";
   }
 }
@@ -1620,10 +1620,10 @@ class ListGeoLocationsRequest {
   ?'start_country_code' => GeoLocationCountryCode,
   ?'start_subdivision_code' => GeoLocationSubdivisionCode,
   ) $s = shape()) {
-    $this->max_items = $max_items ?? ;
-    $this->start_continent_code = $start_continent_code ?? ;
-    $this->start_country_code = $start_country_code ?? ;
-    $this->start_subdivision_code = $start_subdivision_code ?? ;
+    $this->max_items = $max_items ?? "";
+    $this->start_continent_code = $start_continent_code ?? "";
+    $this->start_country_code = $start_country_code ?? "";
+    $this->start_subdivision_code = $start_subdivision_code ?? "";
   }
 }
 
@@ -1644,11 +1644,11 @@ class ListGeoLocationsResponse {
   ?'next_subdivision_code' => GeoLocationSubdivisionCode,
   ) $s = shape()) {
     $this->geo_location_details_list = $geo_location_details_list ?? [];
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_continent_code = $next_continent_code ?? ;
-    $this->next_country_code = $next_country_code ?? ;
-    $this->next_subdivision_code = $next_subdivision_code ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->next_continent_code = $next_continent_code ?? "";
+    $this->next_country_code = $next_country_code ?? "";
+    $this->next_subdivision_code = $next_subdivision_code ?? "";
   }
 }
 
@@ -1660,8 +1660,8 @@ class ListHealthChecksRequest {
   ?'marker' => PageMarker,
   ?'max_items' => PageMaxItems,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -1680,10 +1680,10 @@ class ListHealthChecksResponse {
   ?'next_marker' => PageMarker,
   ) $s = shape()) {
     $this->health_checks = $health_checks ?? [];
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1698,8 +1698,8 @@ class ListHostedZonesByNameRequest {
   ?'max_items' => PageMaxItems,
   ) $s = shape()) {
     $this->dns_name = $dns_name ?? "";
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -1722,12 +1722,12 @@ class ListHostedZonesByNameResponse {
   ?'next_hosted_zone_id' => ResourceId,
   ) $s = shape()) {
     $this->dns_name = $dns_name ?? "";
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->hosted_zones = $hosted_zones ?? [];
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_dns_name = $next_dns_name ?? ;
-    $this->next_hosted_zone_id = $next_hosted_zone_id ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->next_dns_name = $next_dns_name ?? "";
+    $this->next_hosted_zone_id = $next_hosted_zone_id ?? "";
   }
 }
 
@@ -1741,9 +1741,9 @@ class ListHostedZonesRequest {
   ?'marker' => PageMarker,
   ?'max_items' => PageMaxItems,
   ) $s = shape()) {
-    $this->delegation_set_id = $delegation_set_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->delegation_set_id = $delegation_set_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -1762,10 +1762,10 @@ class ListHostedZonesResponse {
   ?'next_marker' => PageMarker,
   ) $s = shape()) {
     $this->hosted_zones = $hosted_zones ?? [];
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1779,9 +1779,9 @@ class ListQueryLoggingConfigsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->max_results = $max_results ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1793,7 +1793,7 @@ class ListQueryLoggingConfigsResponse {
   ?'next_token' => PaginationToken,
   ?'query_logging_configs' => QueryLoggingConfigs,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->query_logging_configs = $query_logging_configs ?? [];
   }
 }
@@ -1812,11 +1812,11 @@ class ListResourceRecordSetsRequest {
   ?'start_record_name' => DNSName,
   ?'start_record_type' => RRType,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->start_record_identifier = $start_record_identifier ?? ;
-    $this->start_record_name = $start_record_name ?? ;
-    $this->start_record_type = $start_record_type ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->start_record_identifier = $start_record_identifier ?? "";
+    $this->start_record_name = $start_record_name ?? "";
+    $this->start_record_type = $start_record_type ?? "";
   }
 }
 
@@ -1836,11 +1836,11 @@ class ListResourceRecordSetsResponse {
   ?'next_record_type' => RRType,
   ?'resource_record_sets' => ResourceRecordSets,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_record_identifier = $next_record_identifier ?? ;
-    $this->next_record_name = $next_record_name ?? ;
-    $this->next_record_type = $next_record_type ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->next_record_identifier = $next_record_identifier ?? "";
+    $this->next_record_name = $next_record_name ?? "";
+    $this->next_record_type = $next_record_type ?? "";
     $this->resource_record_sets = $resource_record_sets ?? [];
   }
 }
@@ -1853,8 +1853,8 @@ class ListReusableDelegationSetsRequest {
   ?'marker' => PageMarker,
   ?'max_items' => PageMaxItems,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
   }
 }
 
@@ -1873,10 +1873,10 @@ class ListReusableDelegationSetsResponse {
   ?'next_marker' => PageMarker,
   ) $s = shape()) {
     $this->delegation_sets = $delegation_sets ?? [];
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1889,7 +1889,7 @@ class ListTagsForResourceRequest {
   ?'resource_type' => TagResourceType,
   ) $s = shape()) {
     $this->resource_id = $resource_id ?? "";
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1911,8 +1911,8 @@ class ListTagsForResourcesRequest {
   ?'resource_ids' => TagResourceIdList,
   ?'resource_type' => TagResourceType,
   ) $s = shape()) {
-    $this->resource_ids = $resource_ids ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_ids = $resource_ids ?? [];
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1922,7 +1922,7 @@ class ListTagsForResourcesResponse {
   public function __construct(shape(
   ?'resource_tag_sets' => ResourceTagSetList,
   ) $s = shape()) {
-    $this->resource_tag_sets = $resource_tag_sets ?? ;
+    $this->resource_tag_sets = $resource_tag_sets ?? [];
   }
 }
 
@@ -1934,8 +1934,8 @@ class ListTrafficPoliciesRequest {
   ?'max_items' => PageMaxItems,
   ?'traffic_policy_id_marker' => TrafficPolicyId,
   ) $s = shape()) {
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_id_marker = $traffic_policy_id_marker ?? ;
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_id_marker = $traffic_policy_id_marker ?? "";
   }
 }
 
@@ -1951,9 +1951,9 @@ class ListTrafficPoliciesResponse {
   ?'traffic_policy_id_marker' => TrafficPolicyId,
   ?'traffic_policy_summaries' => TrafficPolicySummaries,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_id_marker = $traffic_policy_id_marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_id_marker = $traffic_policy_id_marker ?? "";
     $this->traffic_policy_summaries = $traffic_policy_summaries ?? [];
   }
 }
@@ -1970,10 +1970,10 @@ class ListTrafficPolicyInstancesByHostedZoneRequest {
   ?'traffic_policy_instance_name_marker' => DNSName,
   ?'traffic_policy_instance_type_marker' => RRType,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
   }
 }
 
@@ -1991,10 +1991,10 @@ class ListTrafficPolicyInstancesByHostedZoneResponse {
   ?'traffic_policy_instance_type_marker' => RRType,
   ?'traffic_policy_instances' => TrafficPolicyInstances,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
     $this->traffic_policy_instances = $traffic_policy_instances ?? [];
   }
 }
@@ -2015,11 +2015,11 @@ class ListTrafficPolicyInstancesByPolicyRequest {
   ?'traffic_policy_instance_type_marker' => RRType,
   ?'traffic_policy_version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? "";
+    $this->max_items = $max_items ?? "";
     $this->traffic_policy_id = $traffic_policy_id ?? "";
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
     $this->traffic_policy_version = $traffic_policy_version ?? 0;
   }
 }
@@ -2040,11 +2040,11 @@ class ListTrafficPolicyInstancesByPolicyResponse {
   ?'traffic_policy_instance_type_marker' => RRType,
   ?'traffic_policy_instances' => TrafficPolicyInstances,
   ) $s = shape()) {
-    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? "";
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
     $this->traffic_policy_instances = $traffic_policy_instances ?? [];
   }
 }
@@ -2061,10 +2061,10 @@ class ListTrafficPolicyInstancesRequest {
   ?'traffic_policy_instance_name_marker' => DNSName,
   ?'traffic_policy_instance_type_marker' => RRType,
   ) $s = shape()) {
-    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? "";
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
   }
 }
 
@@ -2084,11 +2084,11 @@ class ListTrafficPolicyInstancesResponse {
   ?'traffic_policy_instance_type_marker' => RRType,
   ?'traffic_policy_instances' => TrafficPolicyInstances,
   ) $s = shape()) {
-    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? ;
-    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? ;
+    $this->hosted_zone_id_marker = $hosted_zone_id_marker ?? "";
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
+    $this->traffic_policy_instance_name_marker = $traffic_policy_instance_name_marker ?? "";
+    $this->traffic_policy_instance_type_marker = $traffic_policy_instance_type_marker ?? "";
     $this->traffic_policy_instances = $traffic_policy_instances ?? [];
   }
 }
@@ -2103,8 +2103,8 @@ class ListTrafficPolicyVersionsRequest {
   ?'max_items' => PageMaxItems,
   ?'traffic_policy_version_marker' => TrafficPolicyVersionMarker,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->id = $id ?? "";
+    $this->max_items = $max_items ?? "";
     $this->traffic_policy_version_marker = $traffic_policy_version_marker ?? "";
   }
 }
@@ -2121,8 +2121,8 @@ class ListTrafficPolicyVersionsResponse {
   ?'traffic_policies' => TrafficPolicies,
   ?'traffic_policy_version_marker' => TrafficPolicyVersionMarker,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->max_items = $max_items ?? "";
     $this->traffic_policies = $traffic_policies ?? [];
     $this->traffic_policy_version_marker = $traffic_policy_version_marker ?? "";
   }
@@ -2138,9 +2138,9 @@ class ListVPCAssociationAuthorizationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->max_results = $max_results ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2154,8 +2154,8 @@ class ListVPCAssociationAuthorizationsResponse {
   ?'next_token' => PaginationToken,
   ?'vp_cs' => VPCs,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->next_token = $next_token ?? "";
     $this->vp_cs = $vp_cs ?? [];
   }
 }
@@ -2178,7 +2178,7 @@ class NoSuchChange {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2188,7 +2188,7 @@ class NoSuchCloudWatchLogsLogGroup {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2198,7 +2198,7 @@ class NoSuchDelegationSet {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2208,7 +2208,7 @@ class NoSuchGeoLocation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2218,7 +2218,7 @@ class NoSuchHealthCheck {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2228,7 +2228,7 @@ class NoSuchHostedZone {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2238,7 +2238,7 @@ class NoSuchQueryLoggingConfig {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2248,7 +2248,7 @@ class NoSuchTrafficPolicy {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2258,7 +2258,7 @@ class NoSuchTrafficPolicyInstance {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2270,7 +2270,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2292,7 +2292,7 @@ class PriorRequestNotComplete {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2302,7 +2302,7 @@ class PublicZoneVPCAssociation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2317,8 +2317,8 @@ class QueryLoggingConfig {
   ?'id' => QueryLoggingConfigId,
   ) $s = shape()) {
     $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->id = $id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -2328,7 +2328,7 @@ class QueryLoggingConfigAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2362,7 +2362,7 @@ class ResourceRecord {
   public function __construct(shape(
   ?'value' => RData,
   ) $s = shape()) {
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -2397,18 +2397,18 @@ class ResourceRecordSet {
   ?'weight' => ResourceRecordSetWeight,
   ) $s = shape()) {
     $this->alias_target = $alias_target ?? null;
-    $this->failover = $failover ?? ;
+    $this->failover = $failover ?? "";
     $this->geo_location = $geo_location ?? null;
     $this->health_check_id = $health_check_id ?? "";
-    $this->multi_value_answer = $multi_value_answer ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
+    $this->multi_value_answer = $multi_value_answer ?? false;
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
     $this->resource_records = $resource_records ?? [];
-    $this->set_identifier = $set_identifier ?? ;
+    $this->set_identifier = $set_identifier ?? "";
     $this->ttl = $ttl ?? 0;
     $this->traffic_policy_instance_id = $traffic_policy_instance_id ?? "";
-    $this->type = $type ?? ;
-    $this->weight = $weight ?? ;
+    $this->type = $type ?? "";
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -2437,8 +2437,8 @@ class ResourceTagSet {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_id = $resource_id ?? "";
-    $this->resource_type = $resource_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_type = $resource_type ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2454,8 +2454,8 @@ class ReusableDelegationSetLimit {
   ?'type' => ReusableDelegationSetLimitType,
   ?'value' => LimitValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -2477,7 +2477,7 @@ class StatusReport {
   ?'checked_time' => TimeStamp,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->checked_time = $checked_time ?? ;
+    $this->checked_time = $checked_time ?? 0;
     $this->status = $status ?? "";
   }
 }
@@ -2494,8 +2494,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2529,12 +2529,12 @@ class TestDNSAnswerRequest {
   ?'record_type' => RRType,
   ?'resolver_ip' => IPAddress,
   ) $s = shape()) {
-    $this->edns_0_client_subnet_ip = $edns_0_client_subnet_ip ?? ;
-    $this->edns_0_client_subnet_mask = $edns_0_client_subnet_mask ?? ;
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->record_name = $record_name ?? ;
-    $this->record_type = $record_type ?? ;
-    $this->resolver_ip = $resolver_ip ?? ;
+    $this->edns_0_client_subnet_ip = $edns_0_client_subnet_ip ?? "";
+    $this->edns_0_client_subnet_mask = $edns_0_client_subnet_mask ?? "";
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->record_name = $record_name ?? "";
+    $this->record_type = $record_type ?? "";
+    $this->resolver_ip = $resolver_ip ?? "";
   }
 }
 
@@ -2555,11 +2555,11 @@ class TestDNSAnswerResponse {
   ?'response_code' => DNSRCode,
   ) $s = shape()) {
     $this->nameserver = $nameserver ?? "";
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
     $this->record_data = $record_data ?? [];
-    $this->record_name = $record_name ?? ;
-    $this->record_type = $record_type ?? ;
-    $this->response_code = $response_code ?? ;
+    $this->record_name = $record_name ?? "";
+    $this->record_type = $record_type ?? "";
+    $this->response_code = $response_code ?? "";
   }
 }
 
@@ -2571,7 +2571,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2583,7 +2583,7 @@ class TooManyHealthChecks {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2593,7 +2593,7 @@ class TooManyHostedZones {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2603,7 +2603,7 @@ class TooManyTrafficPolicies {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2613,7 +2613,7 @@ class TooManyTrafficPolicyInstances {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2623,7 +2623,7 @@ class TooManyTrafficPolicyVersionsForCurrentPolicy {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2633,7 +2633,7 @@ class TooManyVPCAssociationAuthorizations {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2655,12 +2655,12 @@ class TrafficPolicy {
   ?'type' => RRType,
   ?'version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->document = $document ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->version = $version ?? ;
+    $this->comment = $comment ?? "";
+    $this->document = $document ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -2670,7 +2670,7 @@ class TrafficPolicyAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2686,7 +2686,7 @@ class TrafficPolicyInUse {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2712,14 +2712,14 @@ class TrafficPolicyInstance {
   ?'traffic_policy_type' => RRType,
   ?'traffic_policy_version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
-    $this->id = $id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
+    $this->id = $id ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
     $this->ttl = $ttl ?? 0;
     $this->traffic_policy_id = $traffic_policy_id ?? "";
-    $this->traffic_policy_type = $traffic_policy_type ?? ;
+    $this->traffic_policy_type = $traffic_policy_type ?? "";
     $this->traffic_policy_version = $traffic_policy_version ?? 0;
   }
 }
@@ -2730,7 +2730,7 @@ class TrafficPolicyInstanceAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2760,11 +2760,11 @@ class TrafficPolicySummary {
   ?'traffic_policy_count' => TrafficPolicyVersion,
   ?'type' => RRType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->name = $name ?? ;
-    $this->traffic_policy_count = $traffic_policy_count ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->latest_version = $latest_version ?? 0;
+    $this->name = $name ?? "";
+    $this->traffic_policy_count = $traffic_policy_count ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2813,7 +2813,7 @@ class UpdateHealthCheckRequest {
   ?'search_string' => SearchString,
   ) $s = shape()) {
     $this->alarm_identifier = $alarm_identifier ?? null;
-    $this->child_health_checks = $child_health_checks ?? ;
+    $this->child_health_checks = $child_health_checks ?? [];
     $this->disabled = $disabled ?? false;
     $this->enable_sni = $enable_sni ?? false;
     $this->failure_threshold = $failure_threshold ?? 0;
@@ -2825,8 +2825,8 @@ class UpdateHealthCheckRequest {
     $this->insufficient_data_health_status = $insufficient_data_health_status ?? "";
     $this->inverted = $inverted ?? false;
     $this->port = $port ?? 0;
-    $this->regions = $regions ?? ;
-    $this->reset_elements = $reset_elements ?? ;
+    $this->regions = $regions ?? [];
+    $this->reset_elements = $reset_elements ?? [];
     $this->resource_path = $resource_path ?? "";
     $this->search_string = $search_string ?? "";
   }
@@ -2850,8 +2850,8 @@ class UpdateHostedZoneCommentRequest {
   ?'comment' => ResourceDescription,
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->id = $id ?? ;
+    $this->comment = $comment ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -2875,9 +2875,9 @@ class UpdateTrafficPolicyCommentRequest {
   ?'id' => TrafficPolicyId,
   ?'version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->comment = $comment ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -2903,7 +2903,7 @@ class UpdateTrafficPolicyInstanceRequest {
   ?'traffic_policy_id' => TrafficPolicyId,
   ?'traffic_policy_version' => TrafficPolicyVersion,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->ttl = $ttl ?? 0;
     $this->traffic_policy_id = $traffic_policy_id ?? "";
     $this->traffic_policy_version = $traffic_policy_version ?? 0;
@@ -2941,7 +2941,7 @@ class VPCAssociationAuthorizationNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2951,7 +2951,7 @@ class VPCAssociationNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

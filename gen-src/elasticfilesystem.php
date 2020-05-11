@@ -39,7 +39,7 @@ class AccessPointAlreadyExists {
   ) $s = shape()) {
     $this->access_point_id = $access_point_id ?? "";
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -75,7 +75,7 @@ class AccessPointDescription {
     $this->file_system_id = $file_system_id ?? "";
     $this->life_cycle_state = $life_cycle_state ?? "";
     $this->name = $name ?? "";
-    $this->owner_id = $owner_id ?? ;
+    $this->owner_id = $owner_id ?? "";
     $this->posix_user = $posix_user ?? null;
     $this->root_directory = $root_directory ?? null;
     $this->tags = $tags ?? [];
@@ -95,7 +95,7 @@ class AccessPointLimitExceeded {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -108,7 +108,7 @@ class AccessPointNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -127,7 +127,7 @@ class BadRequest {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -297,7 +297,7 @@ class DependencyTimeout {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -316,7 +316,7 @@ class DescribeAccessPointsRequest {
     $this->access_point_id = $access_point_id ?? "";
     $this->file_system_id = $file_system_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -328,8 +328,8 @@ class DescribeAccessPointsResponse {
   ?'access_points' => AccessPointDescriptions,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->access_points = $access_points ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->access_points = $access_points ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -372,9 +372,9 @@ class DescribeFileSystemsResponse {
   ?'marker' => Marker,
   ?'next_marker' => Marker,
   ) $s = shape()) {
-    $this->file_systems = $file_systems ?? ;
+    $this->file_systems = $file_systems ?? [];
     $this->marker = $marker ?? "";
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -441,8 +441,8 @@ class DescribeMountTargetsResponse {
   ?'next_marker' => Marker,
   ) $s = shape()) {
     $this->marker = $marker ?? "";
-    $this->mount_targets = $mount_targets ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->mount_targets = $mount_targets ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -473,7 +473,7 @@ class DescribeTagsResponse {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->marker = $marker ?? "";
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -496,7 +496,7 @@ class FileSystemAlreadyExists {
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
     $this->file_system_id = $file_system_id ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -532,18 +532,18 @@ class FileSystemDescription {
   ?'tags' => Tags,
   ?'throughput_mode' => ThroughputMode,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->creation_token = $creation_token ?? "";
     $this->encrypted = $encrypted ?? false;
     $this->file_system_id = $file_system_id ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
     $this->life_cycle_state = $life_cycle_state ?? "";
     $this->name = $name ?? "";
-    $this->number_of_mount_targets = $number_of_mount_targets ?? ;
-    $this->owner_id = $owner_id ?? ;
+    $this->number_of_mount_targets = $number_of_mount_targets ?? 0;
+    $this->owner_id = $owner_id ?? "";
     $this->performance_mode = $performance_mode ?? "";
     $this->provisioned_throughput_in_mibps = $provisioned_throughput_in_mibps ?? 0.0;
-    $this->size_in_bytes = $size_in_bytes ?? ;
+    $this->size_in_bytes = $size_in_bytes ?? null;
     $this->tags = $tags ?? [];
     $this->throughput_mode = $throughput_mode ?? "";
   }
@@ -562,7 +562,7 @@ class FileSystemInUse {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -575,7 +575,7 @@ class FileSystemLimitExceeded {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -588,7 +588,7 @@ class FileSystemNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -620,9 +620,9 @@ class FileSystemSize {
   ?'value_in_standard' => FileSystemNullableSizeValue,
   ) $s = shape()) {
     $this->timestamp = $timestamp ?? 0;
-    $this->value = $value ?? ;
-    $this->value_in_ia = $value_in_ia ?? ;
-    $this->value_in_standard = $value_in_standard ?? ;
+    $this->value = $value ?? 0;
+    $this->value_in_ia = $value_in_ia ?? 0;
+    $this->value_in_standard = $value_in_standard ?? 0;
   }
 }
 
@@ -639,7 +639,7 @@ class IncorrectFileSystemLifeCycleState {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -652,7 +652,7 @@ class IncorrectMountTargetState {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -665,7 +665,7 @@ class InsufficientThroughputCapacity {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -678,7 +678,7 @@ class InternalServerError {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -691,7 +691,7 @@ class InvalidPolicyException {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -706,7 +706,7 @@ class IpAddressInUse {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -732,7 +732,7 @@ class LifecyclePolicy {
   public function __construct(shape(
   ?'transition_to_ia' => TransitionToIARules,
   ) $s = shape()) {
-    $this->transition_to_ia = $transition_to_ia ?? ;
+    $this->transition_to_ia = $transition_to_ia ?? "";
   }
 }
 
@@ -747,7 +747,7 @@ class ListTagsForResourceRequest {
   ?'resource_id' => ResourceId,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->resource_id = $resource_id ?? "";
   }
 }
@@ -760,7 +760,7 @@ class ListTagsForResourceResponse {
   ?'next_token' => Token,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -793,7 +793,7 @@ class MountTargetConflict {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -828,7 +828,7 @@ class MountTargetDescription {
     $this->life_cycle_state = $life_cycle_state ?? "";
     $this->mount_target_id = $mount_target_id ?? "";
     $this->network_interface_id = $network_interface_id ?? "";
-    $this->owner_id = $owner_id ?? ;
+    $this->owner_id = $owner_id ?? "";
     $this->subnet_id = $subnet_id ?? "";
   }
 }
@@ -846,7 +846,7 @@ class MountTargetNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -863,7 +863,7 @@ class NetworkInterfaceLimitExceeded {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -876,7 +876,7 @@ class NoFreeAddressesInSubnet {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -901,7 +901,7 @@ class PolicyNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -980,7 +980,7 @@ class SecurityGroupLimitExceeded {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -993,7 +993,7 @@ class SecurityGroupNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1010,7 +1010,7 @@ class SubnetNotFound {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1022,8 +1022,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1057,7 +1057,7 @@ class ThroughputLimitExceeded {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1076,7 +1076,7 @@ class TooManyRequests {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1093,7 +1093,7 @@ class UnsupportedAvailabilityZone {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

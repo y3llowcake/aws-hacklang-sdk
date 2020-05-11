@@ -15,8 +15,8 @@ class AccessDeniedException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -32,8 +32,8 @@ class AuthorizationPendingException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -65,14 +65,14 @@ class CreateTokenRequest {
   ?'refresh_token' => RefreshToken,
   ?'scope' => Scopes,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->code = $code ?? ;
-    $this->device_code = $device_code ?? ;
-    $this->grant_type = $grant_type ?? ;
-    $this->redirect_uri = $redirect_uri ?? ;
-    $this->refresh_token = $refresh_token ?? ;
-    $this->scope = $scope ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->client_secret = $client_secret ?? "";
+    $this->code = $code ?? "";
+    $this->device_code = $device_code ?? "";
+    $this->grant_type = $grant_type ?? "";
+    $this->redirect_uri = $redirect_uri ?? "";
+    $this->refresh_token = $refresh_token ?? "";
+    $this->scope = $scope ?? [];
   }
 }
 
@@ -90,11 +90,11 @@ class CreateTokenResponse {
   ?'refresh_token' => RefreshToken,
   ?'token_type' => TokenType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->expires_in = $expires_in ?? ;
-    $this->id_token = $id_token ?? ;
-    $this->refresh_token = $refresh_token ?? ;
-    $this->token_type = $token_type ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->expires_in = $expires_in ?? 0;
+    $this->id_token = $id_token ?? "";
+    $this->refresh_token = $refresh_token ?? "";
+    $this->token_type = $token_type ?? "";
   }
 }
 
@@ -114,8 +114,8 @@ class ExpiredTokenException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -131,8 +131,8 @@ class InternalServerException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -146,8 +146,8 @@ class InvalidClientException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -159,8 +159,8 @@ class InvalidClientMetadataException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -172,8 +172,8 @@ class InvalidGrantException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -185,8 +185,8 @@ class InvalidRequestException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -198,8 +198,8 @@ class InvalidScopeException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -217,9 +217,9 @@ class RegisterClientRequest {
   ?'client_type' => ClientType,
   ?'scopes' => Scopes,
   ) $s = shape()) {
-    $this->client_name = $client_name ?? ;
-    $this->client_type = $client_type ?? ;
-    $this->scopes = $scopes ?? ;
+    $this->client_name = $client_name ?? "";
+    $this->client_type = $client_type ?? "";
+    $this->scopes = $scopes ?? [];
   }
 }
 
@@ -239,12 +239,12 @@ class RegisterClientResponse {
   ?'client_secret_expires_at' => LongTimeStampType,
   ?'token_endpoint' => URI,
   ) $s = shape()) {
-    $this->authorization_endpoint = $authorization_endpoint ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_id_issued_at = $client_id_issued_at ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->client_secret_expires_at = $client_secret_expires_at ?? ;
-    $this->token_endpoint = $token_endpoint ?? ;
+    $this->authorization_endpoint = $authorization_endpoint ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->client_id_issued_at = $client_id_issued_at ?? 0;
+    $this->client_secret = $client_secret ?? "";
+    $this->client_secret_expires_at = $client_secret_expires_at ?? 0;
+    $this->token_endpoint = $token_endpoint ?? "";
   }
 }
 
@@ -260,8 +260,8 @@ class SlowDownException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -275,9 +275,9 @@ class StartDeviceAuthorizationRequest {
   ?'client_secret' => ClientSecret,
   ?'start_url' => URI,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->start_url = $start_url ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->client_secret = $client_secret ?? "";
+    $this->start_url = $start_url ?? "";
   }
 }
 
@@ -297,12 +297,12 @@ class StartDeviceAuthorizationResponse {
   ?'verification_uri' => URI,
   ?'verification_uri_complete' => URI,
   ) $s = shape()) {
-    $this->device_code = $device_code ?? ;
-    $this->expires_in = $expires_in ?? ;
-    $this->interval = $interval ?? ;
-    $this->user_code = $user_code ?? ;
-    $this->verification_uri = $verification_uri ?? ;
-    $this->verification_uri_complete = $verification_uri_complete ?? ;
+    $this->device_code = $device_code ?? "";
+    $this->expires_in = $expires_in ?? 0;
+    $this->interval = $interval ?? 0;
+    $this->user_code = $user_code ?? "";
+    $this->verification_uri = $verification_uri ?? "";
+    $this->verification_uri_complete = $verification_uri_complete ?? "";
   }
 }
 
@@ -318,8 +318,8 @@ class UnauthorizedClientException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 
@@ -331,8 +331,8 @@ class UnsupportedGrantTypeException {
   ?'error' => Error,
   ?'error_description' => ErrorDescription,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->error_description = $error_description ?? ;
+    $this->error = $error ?? "";
+    $this->error_description = $error_description ?? "";
   }
 }
 

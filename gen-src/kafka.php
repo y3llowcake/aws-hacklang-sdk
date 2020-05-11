@@ -33,8 +33,8 @@ class BadRequestException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -48,8 +48,8 @@ class BrokerEBSVolumeInfo {
   ?'kafka_broker_node_id' => __string,
   ?'volume_size_gb' => __integer,
   ) $s = shape()) {
-    $this->kafka_broker_node_id = $kafka_broker_node_id ?? ;
-    $this->volume_size_gb = $volume_size_gb ?? ;
+    $this->kafka_broker_node_id = $kafka_broker_node_id ?? "";
+    $this->volume_size_gb = $volume_size_gb ?? 0;
   }
 }
 
@@ -84,9 +84,9 @@ class BrokerNodeGroupInfo {
   ?'storage_info' => StorageInfo,
   ) $s = shape()) {
     $this->broker_az_distribution = $broker_az_distribution ?? "";
-    $this->client_subnets = $client_subnets ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->security_groups = $security_groups ?? ;
+    $this->client_subnets = $client_subnets ?? [];
+    $this->instance_type = $instance_type ?? "";
+    $this->security_groups = $security_groups ?? [];
     $this->storage_info = $storage_info ?? null;
   }
 }
@@ -107,12 +107,12 @@ class BrokerNodeInfo {
   ?'current_broker_software_info' => BrokerSoftwareInfo,
   ?'endpoints' => __listOf__string,
   ) $s = shape()) {
-    $this->attached_eni_id = $attached_eni_id ?? ;
-    $this->broker_id = $broker_id ?? ;
-    $this->client_subnet = $client_subnet ?? ;
-    $this->client_vpc_ip_address = $client_vpc_ip_address ?? ;
-    $this->current_broker_software_info = $current_broker_software_info ?? ;
-    $this->endpoints = $endpoints ?? ;
+    $this->attached_eni_id = $attached_eni_id ?? "";
+    $this->broker_id = $broker_id ?? 0.0;
+    $this->client_subnet = $client_subnet ?? "";
+    $this->client_vpc_ip_address = $client_vpc_ip_address ?? "";
+    $this->current_broker_software_info = $current_broker_software_info ?? null;
+    $this->endpoints = $endpoints ?? [];
   }
 }
 
@@ -126,9 +126,9 @@ class BrokerSoftwareInfo {
   ?'configuration_revision' => __long,
   ?'kafka_version' => __string,
   ) $s = shape()) {
-    $this->configuration_arn = $configuration_arn ?? ;
-    $this->configuration_revision = $configuration_revision ?? null;
-    $this->kafka_version = $kafka_version ?? null;
+    $this->configuration_arn = $configuration_arn ?? "";
+    $this->configuration_revision = $configuration_revision ?? 0;
+    $this->kafka_version = $kafka_version ?? "";
   }
 }
 
@@ -152,8 +152,8 @@ class CloudWatchLogs {
   ?'enabled' => __boolean,
   ?'log_group' => __string,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->log_group = $log_group ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->log_group = $log_group ?? "";
   }
 }
 
@@ -193,22 +193,22 @@ class ClusterInfo {
   ?'tags' => __mapOf__string,
   ?'zookeeper_connect_string' => __string,
   ) $s = shape()) {
-    $this->active_operation_arn = $active_operation_arn ?? ;
+    $this->active_operation_arn = $active_operation_arn ?? "";
     $this->broker_node_group_info = $broker_node_group_info ?? null;
     $this->client_authentication = $client_authentication ?? null;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->current_broker_software_info = $current_broker_software_info ?? ;
-    $this->current_version = $current_version ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->current_broker_software_info = $current_broker_software_info ?? null;
+    $this->current_version = $current_version ?? "";
     $this->encryption_info = $encryption_info ?? null;
     $this->enhanced_monitoring = $enhanced_monitoring ?? "";
     $this->logging_info = $logging_info ?? null;
-    $this->number_of_broker_nodes = $number_of_broker_nodes ?? ;
+    $this->number_of_broker_nodes = $number_of_broker_nodes ?? 0;
     $this->open_monitoring = $open_monitoring ?? null;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->zookeeper_connect_string = $zookeeper_connect_string ?? ;
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
+    $this->zookeeper_connect_string = $zookeeper_connect_string ?? "";
   }
 }
 
@@ -236,16 +236,16 @@ class ClusterOperationInfo {
   ?'source_cluster_info' => MutableClusterInfo,
   ?'target_cluster_info' => MutableClusterInfo,
   ) $s = shape()) {
-    $this->client_request_id = $client_request_id ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->client_request_id = $client_request_id ?? "";
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->end_time = $end_time ?? 0;
     $this->error_info = $error_info ?? null;
-    $this->operation_arn = $operation_arn ?? ;
-    $this->operation_state = $operation_state ?? ;
-    $this->operation_type = $operation_type ?? ;
-    $this->source_cluster_info = $source_cluster_info ?? ;
-    $this->target_cluster_info = $target_cluster_info ?? ;
+    $this->operation_arn = $operation_arn ?? "";
+    $this->operation_state = $operation_state ?? "";
+    $this->operation_type = $operation_type ?? "";
+    $this->source_cluster_info = $source_cluster_info ?? null;
+    $this->target_cluster_info = $target_cluster_info ?? null;
   }
 }
 
@@ -267,12 +267,12 @@ class Configuration {
   ?'latest_revision' => ConfigurationRevision,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->kafka_versions = $kafka_versions ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->kafka_versions = $kafka_versions ?? [];
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -284,8 +284,8 @@ class ConfigurationInfo {
   ?'arn' => __string,
   ?'revision' => __long,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->revision = $revision ?? ;
+    $this->arn = $arn ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -299,9 +299,9 @@ class ConfigurationRevision {
   ?'description' => __string,
   ?'revision' => __long,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->revision = $revision ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -313,8 +313,8 @@ class ConflictException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -346,15 +346,15 @@ class CreateClusterRequest {
   ) $s = shape()) {
     $this->broker_node_group_info = $broker_node_group_info ?? null;
     $this->client_authentication = $client_authentication ?? null;
-    $this->cluster_name = $cluster_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
     $this->configuration_info = $configuration_info ?? null;
     $this->encryption_info = $encryption_info ?? null;
     $this->enhanced_monitoring = $enhanced_monitoring ?? "";
-    $this->kafka_version = $kafka_version ?? null;
+    $this->kafka_version = $kafka_version ?? "";
     $this->logging_info = $logging_info ?? null;
-    $this->number_of_broker_nodes = $number_of_broker_nodes ?? ;
+    $this->number_of_broker_nodes = $number_of_broker_nodes ?? 0;
     $this->open_monitoring = $open_monitoring ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -368,9 +368,9 @@ class CreateClusterResponse {
   ?'cluster_name' => __string,
   ?'state' => ClusterState,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->state = $state ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -386,10 +386,10 @@ class CreateConfigurationRequest {
   ?'name' => __string,
   ?'server_properties' => __blob,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->kafka_versions = $kafka_versions ?? ;
-    $this->name = $name ?? ;
-    $this->server_properties = $server_properties ?? ;
+    $this->description = $description ?? "";
+    $this->kafka_versions = $kafka_versions ?? [];
+    $this->name = $name ?? "";
+    $this->server_properties = $server_properties ?? "";
   }
 }
 
@@ -405,10 +405,10 @@ class CreateConfigurationResponse {
   ?'latest_revision' => ConfigurationRevision,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -420,8 +420,8 @@ class DeleteClusterRequest {
   ?'cluster_arn' => __string,
   ?'current_version' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->current_version = $current_version ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->current_version = $current_version ?? "";
   }
 }
 
@@ -433,8 +433,8 @@ class DeleteClusterResponse {
   ?'cluster_arn' => __string,
   ?'state' => ClusterState,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->state = $state ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -444,7 +444,7 @@ class DescribeClusterOperationRequest {
   public function __construct(shape(
   ?'cluster_operation_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_operation_arn = $cluster_operation_arn ?? ;
+    $this->cluster_operation_arn = $cluster_operation_arn ?? "";
   }
 }
 
@@ -464,7 +464,7 @@ class DescribeClusterRequest {
   public function __construct(shape(
   ?'cluster_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
   }
 }
 
@@ -484,7 +484,7 @@ class DescribeConfigurationRequest {
   public function __construct(shape(
   ?'arn' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -504,12 +504,12 @@ class DescribeConfigurationResponse {
   ?'latest_revision' => ConfigurationRevision,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->kafka_versions = $kafka_versions ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->kafka_versions = $kafka_versions ?? [];
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -521,8 +521,8 @@ class DescribeConfigurationRevisionRequest {
   ?'arn' => __string,
   ?'revision' => __long,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->revision = $revision ?? ;
+    $this->arn = $arn ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -540,11 +540,11 @@ class DescribeConfigurationRevisionResponse {
   ?'revision' => __long,
   ?'server_properties' => __blob,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->revision = $revision ?? ;
-    $this->server_properties = $server_properties ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->revision = $revision ?? 0;
+    $this->server_properties = $server_properties ?? "";
   }
 }
 
@@ -554,7 +554,7 @@ class EBSStorageInfo {
   public function __construct(shape(
   ?'volume_size' => __integerMin1Max16384,
   ) $s = shape()) {
-    $this->volume_size = $volume_size ?? ;
+    $this->volume_size = $volume_size ?? 0;
   }
 }
 
@@ -564,7 +564,7 @@ class EncryptionAtRest {
   public function __construct(shape(
   ?'data_volume_kms_key_id' => __string,
   ) $s = shape()) {
-    $this->data_volume_kms_key_id = $data_volume_kms_key_id ?? ;
+    $this->data_volume_kms_key_id = $data_volume_kms_key_id ?? "";
   }
 }
 
@@ -577,7 +577,7 @@ class EncryptionInTransit {
   ?'in_cluster' => __boolean,
   ) $s = shape()) {
     $this->client_broker = $client_broker ?? "";
-    $this->in_cluster = $in_cluster ?? ;
+    $this->in_cluster = $in_cluster ?? false;
   }
 }
 
@@ -604,8 +604,8 @@ class Error {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -617,8 +617,8 @@ class ErrorInfo {
   ?'error_code' => __string,
   ?'error_string' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_string = $error_string ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_string = $error_string ?? "";
   }
 }
 
@@ -630,8 +630,8 @@ class Firehose {
   ?'delivery_stream' => __string,
   ?'enabled' => __boolean,
   ) $s = shape()) {
-    $this->delivery_stream = $delivery_stream ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->delivery_stream = $delivery_stream ?? "";
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -643,8 +643,8 @@ class ForbiddenException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -654,7 +654,7 @@ class GetBootstrapBrokersRequest {
   public function __construct(shape(
   ?'cluster_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
   }
 }
 
@@ -666,8 +666,8 @@ class GetBootstrapBrokersResponse {
   ?'bootstrap_broker_string' => __string,
   ?'bootstrap_broker_string_tls' => __string,
   ) $s = shape()) {
-    $this->bootstrap_broker_string = $bootstrap_broker_string ?? ;
-    $this->bootstrap_broker_string_tls = $bootstrap_broker_string_tls ?? ;
+    $this->bootstrap_broker_string = $bootstrap_broker_string ?? "";
+    $this->bootstrap_broker_string_tls = $bootstrap_broker_string_tls ?? "";
   }
 }
 
@@ -679,8 +679,8 @@ class InternalServerErrorException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -690,7 +690,7 @@ class JmxExporter {
   public function __construct(shape(
   ?'enabled_in_broker' => __boolean,
   ) $s = shape()) {
-    $this->enabled_in_broker = $enabled_in_broker ?? ;
+    $this->enabled_in_broker = $enabled_in_broker ?? false;
   }
 }
 
@@ -700,7 +700,7 @@ class JmxExporterInfo {
   public function __construct(shape(
   ?'enabled_in_broker' => __boolean,
   ) $s = shape()) {
-    $this->enabled_in_broker = $enabled_in_broker ?? ;
+    $this->enabled_in_broker = $enabled_in_broker ?? false;
   }
 }
 
@@ -712,8 +712,8 @@ class KafkaVersion {
   ?'status' => KafkaVersionStatus,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -729,9 +729,9 @@ class ListClusterOperationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -743,8 +743,8 @@ class ListClusterOperationsResponse {
   ?'cluster_operation_info_list' => __listOfClusterOperationInfo,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->cluster_operation_info_list = $cluster_operation_info_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_operation_info_list = $cluster_operation_info_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -758,9 +758,9 @@ class ListClustersRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->cluster_name_filter = $cluster_name_filter ?? ;
+    $this->cluster_name_filter = $cluster_name_filter ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -772,8 +772,8 @@ class ListClustersResponse {
   ?'cluster_info_list' => __listOfClusterInfo,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->cluster_info_list = $cluster_info_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_info_list = $cluster_info_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -787,9 +787,9 @@ class ListConfigurationRevisionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -801,8 +801,8 @@ class ListConfigurationRevisionsResponse {
   ?'next_token' => __string,
   ?'revisions' => __listOfConfigurationRevision,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -815,7 +815,7 @@ class ListConfigurationsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -827,8 +827,8 @@ class ListConfigurationsResponse {
   ?'configurations' => __listOfConfiguration,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->configurations = $configurations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->configurations = $configurations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -841,7 +841,7 @@ class ListKafkaVersionsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -853,8 +853,8 @@ class ListKafkaVersionsResponse {
   ?'kafka_versions' => __listOfKafkaVersion,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->kafka_versions = $kafka_versions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->kafka_versions = $kafka_versions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -868,9 +868,9 @@ class ListNodesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -882,8 +882,8 @@ class ListNodesResponse {
   ?'next_token' => __string,
   ?'node_info_list' => __listOfNodeInfo,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->node_info_list = $node_info_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->node_info_list = $node_info_list ?? [];
   }
 }
 
@@ -893,7 +893,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -903,7 +903,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -935,11 +935,11 @@ class MutableClusterInfo {
   ?'number_of_broker_nodes' => __integer,
   ?'open_monitoring' => OpenMonitoring,
   ) $s = shape()) {
-    $this->broker_ebs_volume_info = $broker_ebs_volume_info ?? null;
+    $this->broker_ebs_volume_info = $broker_ebs_volume_info ?? [];
     $this->configuration_info = $configuration_info ?? null;
     $this->enhanced_monitoring = $enhanced_monitoring ?? "";
     $this->logging_info = $logging_info ?? null;
-    $this->number_of_broker_nodes = $number_of_broker_nodes ?? ;
+    $this->number_of_broker_nodes = $number_of_broker_nodes ?? 0;
     $this->open_monitoring = $open_monitoring ?? null;
   }
 }
@@ -950,7 +950,7 @@ class NodeExporter {
   public function __construct(shape(
   ?'enabled_in_broker' => __boolean,
   ) $s = shape()) {
-    $this->enabled_in_broker = $enabled_in_broker ?? ;
+    $this->enabled_in_broker = $enabled_in_broker ?? false;
   }
 }
 
@@ -960,7 +960,7 @@ class NodeExporterInfo {
   public function __construct(shape(
   ?'enabled_in_broker' => __boolean,
   ) $s = shape()) {
-    $this->enabled_in_broker = $enabled_in_broker ?? ;
+    $this->enabled_in_broker = $enabled_in_broker ?? false;
   }
 }
 
@@ -980,10 +980,10 @@ class NodeInfo {
   ?'node_type' => NodeType,
   ?'zookeeper_node_info' => ZookeeperNodeInfo,
   ) $s = shape()) {
-    $this->added_to_cluster_time = $added_to_cluster_time ?? ;
+    $this->added_to_cluster_time = $added_to_cluster_time ?? "";
     $this->broker_node_info = $broker_node_info ?? null;
-    $this->instance_type = $instance_type ?? ;
-    $this->node_arn = $node_arn ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->node_arn = $node_arn ?? "";
     $this->node_type = $node_type ?? "";
     $this->zookeeper_node_info = $zookeeper_node_info ?? null;
   }
@@ -999,8 +999,8 @@ class NotFoundException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1060,9 +1060,9 @@ class S3 {
   ?'enabled' => __boolean,
   ?'prefix' => __string,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -1074,8 +1074,8 @@ class ServiceUnavailableException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1087,8 +1087,8 @@ class StateInfo {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1098,7 +1098,7 @@ class StorageInfo {
   public function __construct(shape(
   ?'ebs_storage_info' => EBSStorageInfo,
   ) $s = shape()) {
-    $this->ebs_storage_info = $ebs_storage_info ?? ;
+    $this->ebs_storage_info = $ebs_storage_info ?? null;
   }
 }
 
@@ -1110,8 +1110,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1121,7 +1121,7 @@ class Tls {
   public function __construct(shape(
   ?'certificate_authority_arn_list' => __listOf__string,
   ) $s = shape()) {
-    $this->certificate_authority_arn_list = $certificate_authority_arn_list ?? ;
+    $this->certificate_authority_arn_list = $certificate_authority_arn_list ?? [];
   }
 }
 
@@ -1133,8 +1133,8 @@ class TooManyRequestsException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1146,8 +1146,8 @@ class UnauthorizedException {
   ?'invalid_parameter' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->invalid_parameter = $invalid_parameter ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_parameter = $invalid_parameter ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1159,8 +1159,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1174,9 +1174,9 @@ class UpdateBrokerCountRequest {
   ?'current_version' => __string,
   ?'target_number_of_broker_nodes' => __integerMin1Max15,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->current_version = $current_version ?? ;
-    $this->target_number_of_broker_nodes = $target_number_of_broker_nodes ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->current_version = $current_version ?? "";
+    $this->target_number_of_broker_nodes = $target_number_of_broker_nodes ?? 0;
   }
 }
 
@@ -1188,8 +1188,8 @@ class UpdateBrokerCountResponse {
   ?'cluster_arn' => __string,
   ?'cluster_operation_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_operation_arn = $cluster_operation_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_operation_arn = $cluster_operation_arn ?? "";
   }
 }
 
@@ -1203,9 +1203,9 @@ class UpdateBrokerStorageRequest {
   ?'current_version' => __string,
   ?'target_broker_ebs_volume_info' => __listOfBrokerEBSVolumeInfo,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->current_version = $current_version ?? ;
-    $this->target_broker_ebs_volume_info = $target_broker_ebs_volume_info ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->current_version = $current_version ?? "";
+    $this->target_broker_ebs_volume_info = $target_broker_ebs_volume_info ?? [];
   }
 }
 
@@ -1217,8 +1217,8 @@ class UpdateBrokerStorageResponse {
   ?'cluster_arn' => __string,
   ?'cluster_operation_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_operation_arn = $cluster_operation_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_operation_arn = $cluster_operation_arn ?? "";
   }
 }
 
@@ -1232,9 +1232,9 @@ class UpdateClusterConfigurationRequest {
   ?'configuration_info' => ConfigurationInfo,
   ?'current_version' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
     $this->configuration_info = $configuration_info ?? null;
-    $this->current_version = $current_version ?? ;
+    $this->current_version = $current_version ?? "";
   }
 }
 
@@ -1246,8 +1246,8 @@ class UpdateClusterConfigurationResponse {
   ?'cluster_arn' => __string,
   ?'cluster_operation_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_operation_arn = $cluster_operation_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_operation_arn = $cluster_operation_arn ?? "";
   }
 }
 
@@ -1265,8 +1265,8 @@ class UpdateMonitoringRequest {
   ?'logging_info' => LoggingInfo,
   ?'open_monitoring' => OpenMonitoringInfo,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->current_version = $current_version ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->current_version = $current_version ?? "";
     $this->enhanced_monitoring = $enhanced_monitoring ?? "";
     $this->logging_info = $logging_info ?? null;
     $this->open_monitoring = $open_monitoring ?? null;
@@ -1281,8 +1281,8 @@ class UpdateMonitoringResponse {
   ?'cluster_arn' => __string,
   ?'cluster_operation_arn' => __string,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_operation_arn = $cluster_operation_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_operation_arn = $cluster_operation_arn ?? "";
   }
 }
 
@@ -1300,11 +1300,11 @@ class ZookeeperNodeInfo {
   ?'zookeeper_id' => __double,
   ?'zookeeper_version' => __string,
   ) $s = shape()) {
-    $this->attached_eni_id = $attached_eni_id ?? ;
-    $this->client_vpc_ip_address = $client_vpc_ip_address ?? ;
-    $this->endpoints = $endpoints ?? ;
-    $this->zookeeper_id = $zookeeper_id ?? ;
-    $this->zookeeper_version = $zookeeper_version ?? ;
+    $this->attached_eni_id = $attached_eni_id ?? "";
+    $this->client_vpc_ip_address = $client_vpc_ip_address ?? "";
+    $this->endpoints = $endpoints ?? [];
+    $this->zookeeper_id = $zookeeper_id ?? 0.0;
+    $this->zookeeper_version = $zookeeper_version ?? "";
   }
 }
 

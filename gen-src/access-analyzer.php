@@ -28,7 +28,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -60,17 +60,17 @@ class AnalyzedResource {
   ?'status' => FindingStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->analyzed_at = $analyzed_at ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->error = $error ?? ;
-    $this->is_public = $is_public ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner_account = $resource_owner_account ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->shared_via = $shared_via ?? ;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->actions = $actions ?? [];
+    $this->analyzed_at = $analyzed_at ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->error = $error ?? "";
+    $this->is_public = $is_public ?? false;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner_account = $resource_owner_account ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->shared_via = $shared_via ?? [];
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -84,9 +84,9 @@ class AnalyzedResourceSummary {
   ?'resource_owner_account' => string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner_account = $resource_owner_account ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner_account = $resource_owner_account ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -118,15 +118,15 @@ class AnalyzerSummary {
   ?'tags' => TagsMap,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->last_resource_analyzed = $last_resource_analyzed ?? ;
-    $this->last_resource_analyzed_at = $last_resource_analyzed_at ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->last_resource_analyzed = $last_resource_analyzed ?? "";
+    $this->last_resource_analyzed_at = $last_resource_analyzed_at ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? null;
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -144,10 +144,10 @@ class ArchiveRuleSummary {
   ?'rule_name' => Name,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->filter = $filter ?? ;
-    $this->rule_name = $rule_name ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->filter = $filter ?? [];
+    $this->rule_name = $rule_name ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -167,9 +167,9 @@ class ConflictException {
   ?'resource_id' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -187,11 +187,11 @@ class CreateAnalyzerRequest {
   ?'tags' => TagsMap,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->archive_rules = $archive_rules ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->archive_rules = $archive_rules ?? [];
+    $this->client_token = $client_token ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -201,7 +201,7 @@ class CreateAnalyzerResponse {
   public function __construct(shape(
   ?'arn' => AnalyzerArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -217,10 +217,10 @@ class CreateArchiveRuleRequest {
   ?'filter' => FilterCriteriaMap,
   ?'rule_name' => Name,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->filter = $filter ?? ;
-    $this->rule_name = $rule_name ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->filter = $filter ?? [];
+    $this->rule_name = $rule_name ?? "";
   }
 }
 
@@ -236,10 +236,10 @@ class Criterion {
   ?'exists' => boolean,
   ?'neq' => ValueList,
   ) $s = shape()) {
-    $this->contains = $contains ?? ;
-    $this->eq = $eq ?? ;
-    $this->exists = $exists ?? ;
-    $this->neq = $neq ?? ;
+    $this->contains = $contains ?? [];
+    $this->eq = $eq ?? [];
+    $this->exists = $exists ?? false;
+    $this->neq = $neq ?? [];
   }
 }
 
@@ -251,8 +251,8 @@ class DeleteAnalyzerRequest {
   ?'analyzer_name' => Name,
   ?'client_token' => string,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->client_token = $client_token ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->client_token = $client_token ?? "";
   }
 }
 
@@ -266,9 +266,9 @@ class DeleteArchiveRuleRequest {
   ?'client_token' => string,
   ?'rule_name' => Name,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->rule_name = $rule_name ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->rule_name = $rule_name ?? "";
   }
 }
 
@@ -306,20 +306,20 @@ class Finding {
   ?'status' => FindingStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->analyzed_at = $analyzed_at ?? ;
-    $this->condition = $condition ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->error = $error ?? ;
-    $this->id = $id ?? ;
-    $this->is_public = $is_public ?? ;
-    $this->principal = $principal ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_owner_account = $resource_owner_account ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->sources = $sources ?? ;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->action = $action ?? [];
+    $this->analyzed_at = $analyzed_at ?? 0;
+    $this->condition = $condition ?? [];
+    $this->created_at = $created_at ?? 0;
+    $this->error = $error ?? "";
+    $this->id = $id ?? "";
+    $this->is_public = $is_public ?? false;
+    $this->principal = $principal ?? [];
+    $this->resource = $resource ?? "";
+    $this->resource_owner_account = $resource_owner_account ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->sources = $sources ?? [];
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -335,8 +335,8 @@ class FindingSource {
   ?'detail' => FindingSourceDetail,
   ?'type' => FindingSourceType,
   ) $s = shape()) {
-    $this->detail = $detail ?? ;
-    $this->type = $type ?? ;
+    $this->detail = $detail ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -346,7 +346,7 @@ class FindingSourceDetail {
   public function __construct(shape(
   ?'access_point_arn' => string,
   ) $s = shape()) {
-    $this->access_point_arn = $access_point_arn ?? ;
+    $this->access_point_arn = $access_point_arn ?? "";
   }
 }
 
@@ -390,20 +390,20 @@ class FindingSummary {
   ?'status' => FindingStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->analyzed_at = $analyzed_at ?? ;
-    $this->condition = $condition ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->error = $error ?? ;
-    $this->id = $id ?? ;
-    $this->is_public = $is_public ?? ;
-    $this->principal = $principal ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_owner_account = $resource_owner_account ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->sources = $sources ?? ;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->action = $action ?? [];
+    $this->analyzed_at = $analyzed_at ?? 0;
+    $this->condition = $condition ?? [];
+    $this->created_at = $created_at ?? 0;
+    $this->error = $error ?? "";
+    $this->id = $id ?? "";
+    $this->is_public = $is_public ?? false;
+    $this->principal = $principal ?? [];
+    $this->resource = $resource ?? "";
+    $this->resource_owner_account = $resource_owner_account ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->sources = $sources ?? [];
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -417,8 +417,8 @@ class GetAnalyzedResourceRequest {
   ?'analyzer_arn' => AnalyzerArn,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -428,7 +428,7 @@ class GetAnalyzedResourceResponse {
   public function __construct(shape(
   ?'resource' => AnalyzedResource,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? null;
   }
 }
 
@@ -438,7 +438,7 @@ class GetAnalyzerRequest {
   public function __construct(shape(
   ?'analyzer_name' => Name,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
   }
 }
 
@@ -448,7 +448,7 @@ class GetAnalyzerResponse {
   public function __construct(shape(
   ?'analyzer' => AnalyzerSummary,
   ) $s = shape()) {
-    $this->analyzer = $analyzer ?? ;
+    $this->analyzer = $analyzer ?? null;
   }
 }
 
@@ -460,8 +460,8 @@ class GetArchiveRuleRequest {
   ?'analyzer_name' => Name,
   ?'rule_name' => Name,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->rule_name = $rule_name ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->rule_name = $rule_name ?? "";
   }
 }
 
@@ -471,7 +471,7 @@ class GetArchiveRuleResponse {
   public function __construct(shape(
   ?'archive_rule' => ArchiveRuleSummary,
   ) $s = shape()) {
-    $this->archive_rule = $archive_rule ?? ;
+    $this->archive_rule = $archive_rule ?? null;
   }
 }
 
@@ -483,8 +483,8 @@ class GetFindingRequest {
   ?'analyzer_arn' => AnalyzerArn,
   ?'id' => FindingId,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->id = $id ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -494,7 +494,7 @@ class GetFindingResponse {
   public function __construct(shape(
   ?'finding' => Finding,
   ) $s = shape()) {
-    $this->finding = $finding ?? ;
+    $this->finding = $finding ?? null;
   }
 }
 
@@ -506,8 +506,8 @@ class InlineArchiveRule {
   ?'filter' => FilterCriteriaMap,
   ?'rule_name' => Name,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->rule_name = $rule_name ?? ;
+    $this->filter = $filter ?? [];
+    $this->rule_name = $rule_name ?? "";
   }
 }
 
@@ -523,8 +523,8 @@ class InternalServerException {
   ?'message' => string,
   ?'retry_after_seconds' => int,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }
 
@@ -540,10 +540,10 @@ class ListAnalyzedResourcesRequest {
   ?'next_token' => Token,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -555,8 +555,8 @@ class ListAnalyzedResourcesResponse {
   ?'analyzed_resources' => AnalyzedResourcesList,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->analyzed_resources = $analyzed_resources ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->analyzed_resources = $analyzed_resources ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -570,9 +570,9 @@ class ListAnalyzersRequest {
   ?'next_token' => Token,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type = $type ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -584,8 +584,8 @@ class ListAnalyzersResponse {
   ?'analyzers' => AnalyzersList,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->analyzers = $analyzers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->analyzers = $analyzers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -599,9 +599,9 @@ class ListArchiveRulesRequest {
   ?'max_results' => int,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -613,8 +613,8 @@ class ListArchiveRulesResponse {
   ?'archive_rules' => ArchiveRulesList,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->archive_rules = $archive_rules ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->archive_rules = $archive_rules ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -632,11 +632,11 @@ class ListFindingsRequest {
   ?'next_token' => Token,
   ?'sort' => SortCriteria,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort = $sort ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->filter = $filter ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort = $sort ?? null;
   }
 }
 
@@ -648,8 +648,8 @@ class ListFindingsResponse {
   ?'findings' => FindingsList,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->findings = $findings ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->findings = $findings ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -659,7 +659,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -669,7 +669,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -693,9 +693,9 @@ class ResourceNotFoundException {
   ?'resource_id' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -711,9 +711,9 @@ class ServiceQuotaExceededException {
   ?'resource_id' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -727,8 +727,8 @@ class SortCriteria {
   ?'attribute_name' => string,
   ?'order_by' => OrderBy,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->order_by = $order_by ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->order_by = $order_by ?? "";
   }
 }
 
@@ -740,8 +740,8 @@ class StartResourceScanRequest {
   ?'analyzer_arn' => AnalyzerArn,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -751,7 +751,7 @@ class StatusReason {
   public function __construct(shape(
   ?'code' => ReasonCode,
   ) $s = shape()) {
-    $this->code = $code ?? ;
+    $this->code = $code ?? "";
   }
 }
 
@@ -767,8 +767,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -789,8 +789,8 @@ class ThrottlingException {
   ?'message' => string,
   ?'retry_after_seconds' => int,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }
 
@@ -808,8 +808,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -832,10 +832,10 @@ class UpdateArchiveRuleRequest {
   ?'filter' => FilterCriteriaMap,
   ?'rule_name' => Name,
   ) $s = shape()) {
-    $this->analyzer_name = $analyzer_name ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->filter = $filter ?? ;
-    $this->rule_name = $rule_name ?? ;
+    $this->analyzer_name = $analyzer_name ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->filter = $filter ?? [];
+    $this->rule_name = $rule_name ?? "";
   }
 }
 
@@ -853,11 +853,11 @@ class UpdateFindingsRequest {
   ?'resource_arn' => ResourceArn,
   ?'status' => FindingStatusUpdate,
   ) $s = shape()) {
-    $this->analyzer_arn = $analyzer_arn ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->ids = $ids ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->status = $status ?? ;
+    $this->analyzer_arn = $analyzer_arn ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->ids = $ids ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -871,9 +871,9 @@ class ValidationException {
   ?'message' => string,
   ?'reason' => ValidationExceptionReason,
   ) $s = shape()) {
-    $this->field_list = $field_list ?? ;
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->field_list = $field_list ?? [];
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -885,8 +885,8 @@ class ValidationExceptionField {
   ?'message' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
   }
 }
 

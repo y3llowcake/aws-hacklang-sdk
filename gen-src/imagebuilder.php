@@ -62,11 +62,11 @@ class Ami {
   ?'region' => NonEmptyString,
   ?'state' => ImageState,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->image = $image ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->image = $image ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->state = $state ?? null;
   }
 }
 
@@ -82,10 +82,10 @@ class AmiDistributionConfiguration {
   ?'launch_permission' => LaunchPermissionConfiguration,
   ?'name' => AmiNameString,
   ) $s = shape()) {
-    $this->ami_tags = $ami_tags ?? ;
-    $this->description = $description ?? ;
-    $this->launch_permission = $launch_permission ?? ;
-    $this->name = $name ?? ;
+    $this->ami_tags = $ami_tags ?? [];
+    $this->description = $description ?? "";
+    $this->launch_permission = $launch_permission ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -103,7 +103,7 @@ class CallRateLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -115,8 +115,8 @@ class CancelImageCreationRequest {
   ?'client_token' => ClientToken,
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
   }
 }
 
@@ -130,9 +130,9 @@ class CancelImageCreationResponse {
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -142,7 +142,7 @@ class ClientException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -178,19 +178,19 @@ class Component {
   ?'type' => ComponentType,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->change_description = $change_description ?? ;
-    $this->data = $data ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->description = $description ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->platform = $platform ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->change_description = $change_description ?? "";
+    $this->data = $data ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->description = $description ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->platform = $platform ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -202,7 +202,7 @@ class ComponentConfiguration {
   public function __construct(shape(
   ?'component_arn' => ComponentVersionArnOrBuildVersionArn,
   ) $s = shape()) {
-    $this->component_arn = $component_arn ?? ;
+    $this->component_arn = $component_arn ?? "";
   }
 }
 
@@ -236,16 +236,16 @@ class ComponentSummary {
   ?'type' => ComponentType,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->change_description = $change_description ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->platform = $platform ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->change_description = $change_description ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->platform = $platform ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -273,14 +273,14 @@ class ComponentVersion {
   ?'type' => ComponentType,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->platform = $platform ?? ;
-    $this->type = $type ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->platform = $platform ?? "";
+    $this->type = $type ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -314,16 +314,16 @@ class CreateComponentRequest {
   ?'tags' => TagMap,
   ?'uri' => Uri,
   ) $s = shape()) {
-    $this->change_description = $change_description ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->tags = $tags ?? ;
-    $this->uri = $uri ?? ;
+    $this->change_description = $change_description ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->tags = $tags ?? [];
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -337,9 +337,9 @@ class CreateComponentResponse {
   ?'component_build_version_arn' => ComponentBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->component_build_version_arn = $component_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->component_build_version_arn = $component_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -357,11 +357,11 @@ class CreateDistributionConfigurationRequest {
   ?'name' => ResourceName,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->distributions = $distributions ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->distributions = $distributions ?? [];
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -375,9 +375,9 @@ class CreateDistributionConfigurationResponse {
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -407,17 +407,17 @@ class CreateImagePipelineRequest {
   ?'status' => PipelineStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? ;
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->image_tests_configuration = $image_tests_configuration ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->name = $name ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? false;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->image_tests_configuration = $image_tests_configuration ?? null;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->name = $name ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -431,9 +431,9 @@ class CreateImagePipelineResponse {
   ?'image_pipeline_arn' => ImagePipelineArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -457,14 +457,14 @@ class CreateImageRecipeRequest {
   ?'semantic_version' => VersionNumber,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->block_device_mappings = $block_device_mappings ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->components = $components ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->parent_image = $parent_image ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->tags = $tags ?? ;
+    $this->block_device_mappings = $block_device_mappings ?? [];
+    $this->client_token = $client_token ?? "";
+    $this->components = $components ?? [];
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->parent_image = $parent_image ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -478,9 +478,9 @@ class CreateImageRecipeResponse {
   ?'image_recipe_arn' => ImageRecipeArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -502,13 +502,13 @@ class CreateImageRequest {
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? ;
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->image_tests_configuration = $image_tests_configuration ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? false;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->image_tests_configuration = $image_tests_configuration ?? null;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -522,9 +522,9 @@ class CreateImageResponse {
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -556,18 +556,18 @@ class CreateInfrastructureConfigurationRequest {
   ?'tags' => TagMap,
   ?'terminate_instance_on_failure' => NullableBoolean,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->key_pair = $key_pair ?? ;
-    $this->logging = $logging ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->instance_types = $instance_types ?? [];
+    $this->key_pair = $key_pair ?? "";
+    $this->logging = $logging ?? null;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? false;
   }
 }
 
@@ -581,9 +581,9 @@ class CreateInfrastructureConfigurationResponse {
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -595,7 +595,7 @@ class DeleteComponentRequest {
   public function __construct(shape(
   ?'component_build_version_arn' => ComponentBuildVersionArn,
   ) $s = shape()) {
-    $this->component_build_version_arn = $component_build_version_arn ?? ;
+    $this->component_build_version_arn = $component_build_version_arn ?? "";
   }
 }
 
@@ -607,8 +607,8 @@ class DeleteComponentResponse {
   ?'component_build_version_arn' => ComponentBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->component_build_version_arn = $component_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->component_build_version_arn = $component_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -618,7 +618,7 @@ class DeleteDistributionConfigurationRequest {
   public function __construct(shape(
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ) $s = shape()) {
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
   }
 }
 
@@ -630,8 +630,8 @@ class DeleteDistributionConfigurationResponse {
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -641,7 +641,7 @@ class DeleteImagePipelineRequest {
   public function __construct(shape(
   ?'image_pipeline_arn' => ImagePipelineArn,
   ) $s = shape()) {
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
   }
 }
 
@@ -653,8 +653,8 @@ class DeleteImagePipelineResponse {
   ?'image_pipeline_arn' => ImagePipelineArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -664,7 +664,7 @@ class DeleteImageRecipeRequest {
   public function __construct(shape(
   ?'image_recipe_arn' => ImageRecipeArn,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
   }
 }
 
@@ -676,8 +676,8 @@ class DeleteImageRecipeResponse {
   ?'image_recipe_arn' => ImageRecipeArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -687,7 +687,7 @@ class DeleteImageRequest {
   public function __construct(shape(
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ) $s = shape()) {
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
   }
 }
 
@@ -699,8 +699,8 @@ class DeleteImageResponse {
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -710,7 +710,7 @@ class DeleteInfrastructureConfigurationRequest {
   public function __construct(shape(
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ) $s = shape()) {
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
   }
 }
 
@@ -722,8 +722,8 @@ class DeleteInfrastructureConfigurationResponse {
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -737,9 +737,9 @@ class Distribution {
   ?'license_configuration_arns' => ArnList,
   ?'region' => NonEmptyString,
   ) $s = shape()) {
-    $this->ami_distribution_configuration = $ami_distribution_configuration ?? ;
-    $this->license_configuration_arns = $license_configuration_arns ?? ;
-    $this->region = $region ?? ;
+    $this->ami_distribution_configuration = $ami_distribution_configuration ?? null;
+    $this->license_configuration_arns = $license_configuration_arns ?? [];
+    $this->region = $region ?? "";
   }
 }
 
@@ -763,14 +763,14 @@ class DistributionConfiguration {
   ?'tags' => TagMap,
   ?'timeout_minutes' => DistributionTimeoutMinutes,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_updated = $date_updated ?? ;
-    $this->description = $description ?? ;
-    $this->distributions = $distributions ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_minutes = $timeout_minutes ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->date_updated = $date_updated ?? "";
+    $this->description = $description ?? "";
+    $this->distributions = $distributions ?? [];
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout_minutes = $timeout_minutes ?? 0;
   }
 }
 
@@ -792,12 +792,12 @@ class DistributionConfigurationSummary {
   ?'name' => ResourceName,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_updated = $date_updated ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->date_updated = $date_updated ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -825,13 +825,13 @@ class EbsInstanceBlockDeviceSpecification {
   ?'volume_size' => EbsVolumeSizeInteger,
   ?'volume_type' => EbsVolumeType,
   ) $s = shape()) {
-    $this->delete_on_termination = $delete_on_termination ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->iops = $iops ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->snapshot_id = $snapshot_id ?? ;
-    $this->volume_size = $volume_size ?? ;
-    $this->volume_type = $volume_type ?? ;
+    $this->delete_on_termination = $delete_on_termination ?? false;
+    $this->encrypted = $encrypted ?? false;
+    $this->iops = $iops ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->volume_size = $volume_size ?? 0;
+    $this->volume_type = $volume_type ?? "";
   }
 }
 
@@ -853,8 +853,8 @@ class Filter {
   ?'name' => FilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -872,7 +872,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -882,7 +882,7 @@ class GetComponentPolicyRequest {
   public function __construct(shape(
   ?'component_arn' => ComponentBuildVersionArn,
   ) $s = shape()) {
-    $this->component_arn = $component_arn ?? ;
+    $this->component_arn = $component_arn ?? "";
   }
 }
 
@@ -894,8 +894,8 @@ class GetComponentPolicyResponse {
   ?'policy' => ResourcePolicyDocument,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -905,7 +905,7 @@ class GetComponentRequest {
   public function __construct(shape(
   ?'component_build_version_arn' => ComponentBuildVersionArn,
   ) $s = shape()) {
-    $this->component_build_version_arn = $component_build_version_arn ?? ;
+    $this->component_build_version_arn = $component_build_version_arn ?? "";
   }
 }
 
@@ -917,8 +917,8 @@ class GetComponentResponse {
   ?'component' => Component,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->component = $component ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->component = $component ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -928,7 +928,7 @@ class GetDistributionConfigurationRequest {
   public function __construct(shape(
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ) $s = shape()) {
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
   }
 }
 
@@ -940,8 +940,8 @@ class GetDistributionConfigurationResponse {
   ?'distribution_configuration' => DistributionConfiguration,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->distribution_configuration = $distribution_configuration ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->distribution_configuration = $distribution_configuration ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -951,7 +951,7 @@ class GetImagePipelineRequest {
   public function __construct(shape(
   ?'image_pipeline_arn' => ImagePipelineArn,
   ) $s = shape()) {
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
   }
 }
 
@@ -963,8 +963,8 @@ class GetImagePipelineResponse {
   ?'image_pipeline' => ImagePipeline,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_pipeline = $image_pipeline ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_pipeline = $image_pipeline ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -974,7 +974,7 @@ class GetImagePolicyRequest {
   public function __construct(shape(
   ?'image_arn' => ImageBuildVersionArn,
   ) $s = shape()) {
-    $this->image_arn = $image_arn ?? ;
+    $this->image_arn = $image_arn ?? "";
   }
 }
 
@@ -986,8 +986,8 @@ class GetImagePolicyResponse {
   ?'policy' => ResourcePolicyDocument,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -997,7 +997,7 @@ class GetImageRecipePolicyRequest {
   public function __construct(shape(
   ?'image_recipe_arn' => ImageRecipeArn,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
   }
 }
 
@@ -1009,8 +1009,8 @@ class GetImageRecipePolicyResponse {
   ?'policy' => ResourcePolicyDocument,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1020,7 +1020,7 @@ class GetImageRecipeRequest {
   public function __construct(shape(
   ?'image_recipe_arn' => ImageRecipeArn,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
   }
 }
 
@@ -1032,8 +1032,8 @@ class GetImageRecipeResponse {
   ?'image_recipe' => ImageRecipe,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_recipe = $image_recipe ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_recipe = $image_recipe ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1043,7 +1043,7 @@ class GetImageRequest {
   public function __construct(shape(
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ) $s = shape()) {
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
   }
 }
 
@@ -1055,8 +1055,8 @@ class GetImageResponse {
   ?'image' => Image,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image = $image ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image = $image ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1066,7 +1066,7 @@ class GetInfrastructureConfigurationRequest {
   public function __construct(shape(
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ) $s = shape()) {
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
   }
 }
 
@@ -1078,8 +1078,8 @@ class GetInfrastructureConfigurationResponse {
   ?'infrastructure_configuration' => InfrastructureConfiguration,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->infrastructure_configuration = $infrastructure_configuration ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->infrastructure_configuration = $infrastructure_configuration ?? null;
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1089,7 +1089,7 @@ class IdempotentParameterMismatchException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1129,22 +1129,22 @@ class Image {
   ?'tags' => TagMap,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->distribution_configuration = $distribution_configuration ?? ;
-    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? ;
-    $this->image_recipe = $image_recipe ?? ;
-    $this->image_tests_configuration = $image_tests_configuration ?? ;
-    $this->infrastructure_configuration = $infrastructure_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->os_version = $os_version ?? ;
-    $this->output_resources = $output_resources ?? ;
-    $this->platform = $platform ?? ;
-    $this->source_pipeline_arn = $source_pipeline_arn ?? ;
-    $this->source_pipeline_name = $source_pipeline_name ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->distribution_configuration = $distribution_configuration ?? null;
+    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? false;
+    $this->image_recipe = $image_recipe ?? null;
+    $this->image_tests_configuration = $image_tests_configuration ?? null;
+    $this->infrastructure_configuration = $infrastructure_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->os_version = $os_version ?? "";
+    $this->output_resources = $output_resources ?? null;
+    $this->platform = $platform ?? "";
+    $this->source_pipeline_arn = $source_pipeline_arn ?? "";
+    $this->source_pipeline_name = $source_pipeline_name ?? "";
+    $this->state = $state ?? null;
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1188,22 +1188,22 @@ class ImagePipeline {
   ?'status' => PipelineStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_last_run = $date_last_run ?? ;
-    $this->date_next_run = $date_next_run ?? ;
-    $this->date_updated = $date_updated ?? ;
-    $this->description = $description ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? ;
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->image_tests_configuration = $image_tests_configuration ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->date_last_run = $date_last_run ?? "";
+    $this->date_next_run = $date_next_run ?? "";
+    $this->date_updated = $date_updated ?? "";
+    $this->description = $description ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? false;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->image_tests_configuration = $image_tests_configuration ?? null;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1237,17 +1237,17 @@ class ImageRecipe {
   ?'tags' => TagMap,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->block_device_mappings = $block_device_mappings ?? ;
-    $this->components = $components ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->parent_image = $parent_image ?? ;
-    $this->platform = $platform ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->block_device_mappings = $block_device_mappings ?? [];
+    $this->components = $components ?? [];
+    $this->date_created = $date_created ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->parent_image = $parent_image ?? "";
+    $this->platform = $platform ?? "";
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1271,13 +1271,13 @@ class ImageRecipeSummary {
   ?'platform' => Platform,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->parent_image = $parent_image ?? ;
-    $this->platform = $platform ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->parent_image = $parent_image ?? "";
+    $this->platform = $platform ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1291,8 +1291,8 @@ class ImageState {
   ?'reason' => NonEmptyString,
   ?'status' => ImageStatus,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->status = $status ?? ;
+    $this->reason = $reason ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1322,16 +1322,16 @@ class ImageSummary {
   ?'tags' => TagMap,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->name = $name ?? ;
-    $this->os_version = $os_version ?? ;
-    $this->output_resources = $output_resources ?? ;
-    $this->owner = $owner ?? ;
-    $this->platform = $platform ?? ;
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->name = $name ?? "";
+    $this->os_version = $os_version ?? "";
+    $this->output_resources = $output_resources ?? null;
+    $this->owner = $owner ?? "";
+    $this->platform = $platform ?? "";
+    $this->state = $state ?? null;
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1345,8 +1345,8 @@ class ImageTestsConfiguration {
   ?'image_tests_enabled' => NullableBoolean,
   ?'timeout_minutes' => ImageTestsTimeoutMinutes,
   ) $s = shape()) {
-    $this->image_tests_enabled = $image_tests_enabled ?? ;
-    $this->timeout_minutes = $timeout_minutes ?? ;
+    $this->image_tests_enabled = $image_tests_enabled ?? false;
+    $this->timeout_minutes = $timeout_minutes ?? 0;
   }
 }
 
@@ -1370,13 +1370,13 @@ class ImageVersion {
   ?'platform' => Platform,
   ?'version' => VersionNumber,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->name = $name ?? ;
-    $this->os_version = $os_version ?? ;
-    $this->owner = $owner ?? ;
-    $this->platform = $platform ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->name = $name ?? "";
+    $this->os_version = $os_version ?? "";
+    $this->owner = $owner ?? "";
+    $this->platform = $platform ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1412,18 +1412,18 @@ class ImportComponentRequest {
   ?'type' => ComponentType,
   ?'uri' => Uri,
   ) $s = shape()) {
-    $this->change_description = $change_description ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
-    $this->format = $format ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
-    $this->uri = $uri ?? ;
+    $this->change_description = $change_description ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
+    $this->format = $format ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -1437,9 +1437,9 @@ class ImportComponentResponse {
   ?'component_build_version_arn' => ComponentBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->component_build_version_arn = $component_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->component_build_version_arn = $component_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1475,20 +1475,20 @@ class InfrastructureConfiguration {
   ?'tags' => TagMap,
   ?'terminate_instance_on_failure' => NullableBoolean,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_updated = $date_updated ?? ;
-    $this->description = $description ?? ;
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->key_pair = $key_pair ?? ;
-    $this->logging = $logging ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->date_updated = $date_updated ?? "";
+    $this->description = $description ?? "";
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->instance_types = $instance_types ?? [];
+    $this->key_pair = $key_pair ?? "";
+    $this->logging = $logging ?? null;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? false;
   }
 }
 
@@ -1510,12 +1510,12 @@ class InfrastructureConfigurationSummary {
   ?'name' => ResourceName,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_updated = $date_updated ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->date_created = $date_created ?? "";
+    $this->date_updated = $date_updated ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1535,10 +1535,10 @@ class InstanceBlockDeviceMapping {
   ?'no_device' => EmptyString,
   ?'virtual_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->device_name = $device_name ?? ;
-    $this->ebs = $ebs ?? ;
-    $this->no_device = $no_device ?? ;
-    $this->virtual_name = $virtual_name ?? ;
+    $this->device_name = $device_name ?? "";
+    $this->ebs = $ebs ?? null;
+    $this->no_device = $no_device ?? "";
+    $this->virtual_name = $virtual_name ?? "";
   }
 }
 
@@ -1554,7 +1554,7 @@ class InvalidPaginationTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1564,7 +1564,7 @@ class InvalidParameterCombinationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1574,7 +1574,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1584,7 +1584,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1594,7 +1594,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1604,7 +1604,7 @@ class InvalidVersionNumberException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1616,8 +1616,8 @@ class LaunchPermissionConfiguration {
   ?'user_groups' => StringList,
   ?'user_ids' => AccountList,
   ) $s = shape()) {
-    $this->user_groups = $user_groups ?? ;
-    $this->user_ids = $user_ids ?? ;
+    $this->user_groups = $user_groups ?? [];
+    $this->user_ids = $user_ids ?? [];
   }
 }
 
@@ -1631,9 +1631,9 @@ class ListComponentBuildVersionsRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->component_version_arn = $component_version_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->component_version_arn = $component_version_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1647,9 +1647,9 @@ class ListComponentBuildVersionsResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->component_summary_list = $component_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->component_summary_list = $component_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1665,10 +1665,10 @@ class ListComponentsRequest {
   ?'next_token' => NonEmptyString,
   ?'owner' => Ownership,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->owner = $owner ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->owner = $owner ?? "";
   }
 }
 
@@ -1682,9 +1682,9 @@ class ListComponentsResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->component_version_list = $component_version_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->component_version_list = $component_version_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1698,9 +1698,9 @@ class ListDistributionConfigurationsRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1714,9 +1714,9 @@ class ListDistributionConfigurationsResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->distribution_configuration_summary_list = $distribution_configuration_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->distribution_configuration_summary_list = $distribution_configuration_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1732,10 +1732,10 @@ class ListImageBuildVersionsRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->image_version_arn = $image_version_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->image_version_arn = $image_version_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1749,9 +1749,9 @@ class ListImageBuildVersionsResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_summary_list = $image_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_summary_list = $image_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1767,10 +1767,10 @@ class ListImagePipelineImagesRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1784,9 +1784,9 @@ class ListImagePipelineImagesResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_summary_list = $image_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_summary_list = $image_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1800,9 +1800,9 @@ class ListImagePipelinesRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1816,9 +1816,9 @@ class ListImagePipelinesResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_pipeline_list = $image_pipeline_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_pipeline_list = $image_pipeline_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1834,10 +1834,10 @@ class ListImageRecipesRequest {
   ?'next_token' => NonEmptyString,
   ?'owner' => Ownership,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->owner = $owner ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->owner = $owner ?? "";
   }
 }
 
@@ -1851,9 +1851,9 @@ class ListImageRecipesResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_recipe_summary_list = $image_recipe_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_recipe_summary_list = $image_recipe_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1869,10 +1869,10 @@ class ListImagesRequest {
   ?'next_token' => NonEmptyString,
   ?'owner' => Ownership,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->owner = $owner ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->owner = $owner ?? "";
   }
 }
 
@@ -1886,9 +1886,9 @@ class ListImagesResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_version_list = $image_version_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_version_list = $image_version_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1902,9 +1902,9 @@ class ListInfrastructureConfigurationsRequest {
   ?'max_results' => RestrictedInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1918,9 +1918,9 @@ class ListInfrastructureConfigurationsResponse {
   ?'next_token' => NonEmptyString,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->infrastructure_configuration_summary_list = $infrastructure_configuration_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->infrastructure_configuration_summary_list = $infrastructure_configuration_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -1930,7 +1930,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ImageBuilderArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1940,7 +1940,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1950,7 +1950,7 @@ class Logging {
   public function __construct(shape(
   ?'s_3_logs' => S3Logs,
   ) $s = shape()) {
-    $this->s_3_logs = $s_3_logs ?? ;
+    $this->s_3_logs = $s_3_logs ?? null;
   }
 }
 
@@ -1966,7 +1966,7 @@ class OutputResources {
   public function __construct(shape(
   ?'amis' => AmiList,
   ) $s = shape()) {
-    $this->amis = $amis ?? ;
+    $this->amis = $amis ?? [];
   }
 }
 
@@ -1986,8 +1986,8 @@ class PutComponentPolicyRequest {
   ?'component_arn' => ComponentBuildVersionArn,
   ?'policy' => ResourcePolicyDocument,
   ) $s = shape()) {
-    $this->component_arn = $component_arn ?? ;
-    $this->policy = $policy ?? ;
+    $this->component_arn = $component_arn ?? "";
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1999,8 +1999,8 @@ class PutComponentPolicyResponse {
   ?'component_arn' => ComponentBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->component_arn = $component_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->component_arn = $component_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2012,8 +2012,8 @@ class PutImagePolicyRequest {
   ?'image_arn' => ImageBuildVersionArn,
   ?'policy' => ResourcePolicyDocument,
   ) $s = shape()) {
-    $this->image_arn = $image_arn ?? ;
-    $this->policy = $policy ?? ;
+    $this->image_arn = $image_arn ?? "";
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -2025,8 +2025,8 @@ class PutImagePolicyResponse {
   ?'image_arn' => ImageBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_arn = $image_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_arn = $image_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2038,8 +2038,8 @@ class PutImageRecipePolicyRequest {
   ?'image_recipe_arn' => ImageRecipeArn,
   ?'policy' => ResourcePolicyDocument,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->policy = $policy ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -2051,8 +2051,8 @@ class PutImageRecipePolicyResponse {
   ?'image_recipe_arn' => ImageRecipeArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2062,7 +2062,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2072,7 +2072,7 @@ class ResourceDependencyException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2082,7 +2082,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2094,7 +2094,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2110,8 +2110,8 @@ class S3Logs {
   ?'s_3_bucket_name' => NonEmptyString,
   ?'s_3_key_prefix' => NonEmptyString,
   ) $s = shape()) {
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
   }
 }
 
@@ -2123,8 +2123,8 @@ class Schedule {
   ?'pipeline_execution_start_condition' => PipelineExecutionStartCondition,
   ?'schedule_expression' => NonEmptyString,
   ) $s = shape()) {
-    $this->pipeline_execution_start_condition = $pipeline_execution_start_condition ?? ;
-    $this->schedule_expression = $schedule_expression ?? ;
+    $this->pipeline_execution_start_condition = $pipeline_execution_start_condition ?? "";
+    $this->schedule_expression = $schedule_expression ?? "";
   }
 }
 
@@ -2136,7 +2136,7 @@ class ServiceException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2146,7 +2146,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2160,8 +2160,8 @@ class StartImagePipelineExecutionRequest {
   ?'client_token' => ClientToken,
   ?'image_pipeline_arn' => ImagePipelineArn,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
   }
 }
 
@@ -2175,9 +2175,9 @@ class StartImagePipelineExecutionResponse {
   ?'image_build_version_arn' => ImageBuildVersionArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_build_version_arn = $image_build_version_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_build_version_arn = $image_build_version_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2197,8 +2197,8 @@ class TagResourceRequest {
   ?'resource_arn' => ImageBuilderArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2219,8 +2219,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ImageBuilderArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2243,10 +2243,10 @@ class UpdateDistributionConfigurationRequest {
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ?'distributions' => DistributionList,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->distributions = $distributions ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->distributions = $distributions ?? [];
   }
 }
 
@@ -2260,9 +2260,9 @@ class UpdateDistributionConfigurationResponse {
   ?'distribution_configuration_arn' => DistributionConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2290,16 +2290,16 @@ class UpdateImagePipelineRequest {
   ?'schedule' => Schedule,
   ?'status' => PipelineStatus,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->distribution_configuration_arn = $distribution_configuration_arn ?? ;
-    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? ;
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
-    $this->image_recipe_arn = $image_recipe_arn ?? ;
-    $this->image_tests_configuration = $image_tests_configuration ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->status = $status ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->distribution_configuration_arn = $distribution_configuration_arn ?? "";
+    $this->enhanced_image_metadata_enabled = $enhanced_image_metadata_enabled ?? false;
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
+    $this->image_recipe_arn = $image_recipe_arn ?? "";
+    $this->image_tests_configuration = $image_tests_configuration ?? null;
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2313,9 +2313,9 @@ class UpdateImagePipelineResponse {
   ?'image_pipeline_arn' => ImagePipelineArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->image_pipeline_arn = $image_pipeline_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->image_pipeline_arn = $image_pipeline_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 
@@ -2345,17 +2345,17 @@ class UpdateInfrastructureConfigurationRequest {
   ?'subnet_id' => NonEmptyString,
   ?'terminate_instance_on_failure' => NullableBoolean,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->key_pair = $key_pair ?? ;
-    $this->logging = $logging ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->instance_types = $instance_types ?? [];
+    $this->key_pair = $key_pair ?? "";
+    $this->logging = $logging ?? null;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->terminate_instance_on_failure = $terminate_instance_on_failure ?? false;
   }
 }
 
@@ -2369,9 +2369,9 @@ class UpdateInfrastructureConfigurationResponse {
   ?'infrastructure_configuration_arn' => InfrastructureConfigurationArn,
   ?'request_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? ;
-    $this->request_id = $request_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->infrastructure_configuration_arn = $infrastructure_configuration_arn ?? "";
+    $this->request_id = $request_id ?? "";
   }
 }
 

@@ -34,9 +34,9 @@ class Alias {
   ?'names' => AliasNames,
   ?'type' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->type = $type ?? ;
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -56,9 +56,9 @@ class AnnotationValue {
   ?'number_value' => NullableDouble,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->boolean_value = $boolean_value ?? ;
-    $this->number_value = $number_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->boolean_value = $boolean_value ?? false;
+    $this->number_value = $number_value ?? 0.0;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -76,7 +76,7 @@ class AvailabilityZoneDetail {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -96,12 +96,12 @@ class BackendConnectionErrors {
   ?'timeout_count' => NullableInteger,
   ?'unknown_host_count' => NullableInteger,
   ) $s = shape()) {
-    $this->connection_refused_count = $connection_refused_count ?? ;
-    $this->http_code_4_xx_count = $http_code_4_xx_count ?? ;
-    $this->http_code_5_xx_count = $http_code_5_xx_count ?? ;
-    $this->other_count = $other_count ?? ;
-    $this->timeout_count = $timeout_count ?? ;
-    $this->unknown_host_count = $unknown_host_count ?? ;
+    $this->connection_refused_count = $connection_refused_count ?? 0;
+    $this->http_code_4_xx_count = $http_code_4_xx_count ?? 0;
+    $this->http_code_5_xx_count = $http_code_5_xx_count ?? 0;
+    $this->other_count = $other_count ?? 0;
+    $this->timeout_count = $timeout_count ?? 0;
+    $this->unknown_host_count = $unknown_host_count ?? 0;
   }
 }
 
@@ -113,8 +113,8 @@ class BatchGetTracesRequest {
   ?'next_token' => string,
   ?'trace_ids' => TraceIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->trace_ids = $trace_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->trace_ids = $trace_ids ?? [];
   }
 }
 
@@ -128,9 +128,9 @@ class BatchGetTracesResult {
   ?'traces' => TraceList,
   ?'unprocessed_trace_ids' => UnprocessedTraceIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->traces = $traces ?? ;
-    $this->unprocessed_trace_ids = $unprocessed_trace_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->traces = $traces ?? [];
+    $this->unprocessed_trace_ids = $unprocessed_trace_ids ?? [];
   }
 }
 
@@ -211,7 +211,7 @@ class DeleteSamplingRuleRequest {
   ?'rule_arn' => string,
   ?'rule_name' => string,
   ) $s = shape()) {
-    $this->rule_arn = $rule_arn ?? ;
+    $this->rule_arn = $rule_arn ?? "";
     $this->rule_name = $rule_name ?? "";
   }
 }
@@ -246,12 +246,12 @@ class Edge {
   ?'start_time' => Timestamp,
   ?'summary_statistics' => EdgeStatistics,
   ) $s = shape()) {
-    $this->aliases = $aliases ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->reference_id = $reference_id ?? ;
-    $this->response_time_histogram = $response_time_histogram ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->summary_statistics = $summary_statistics ?? ;
+    $this->aliases = $aliases ?? [];
+    $this->end_time = $end_time ?? 0;
+    $this->reference_id = $reference_id ?? 0;
+    $this->response_time_histogram = $response_time_histogram ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->summary_statistics = $summary_statistics ?? null;
   }
 }
 
@@ -273,9 +273,9 @@ class EdgeStatistics {
   ) $s = shape()) {
     $this->error_statistics = $error_statistics ?? null;
     $this->fault_statistics = $fault_statistics ?? null;
-    $this->ok_count = $ok_count ?? ;
-    $this->total_count = $total_count ?? ;
-    $this->total_response_time = $total_response_time ?? ;
+    $this->ok_count = $ok_count ?? 0;
+    $this->total_count = $total_count ?? 0;
+    $this->total_response_time = $total_response_time ?? 0.0;
   }
 }
 
@@ -289,9 +289,9 @@ class EncryptionConfig {
   ?'status' => EncryptionStatus,
   ?'type' => EncryptionType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -313,8 +313,8 @@ class ErrorRootCause {
   ?'client_impacting' => NullableBoolean,
   ?'services' => ErrorRootCauseServices,
   ) $s = shape()) {
-    $this->client_impacting = $client_impacting ?? ;
-    $this->services = $services ?? ;
+    $this->client_impacting = $client_impacting ?? false;
+    $this->services = $services ?? [];
   }
 }
 
@@ -328,9 +328,9 @@ class ErrorRootCauseEntity {
   ?'name' => string,
   ?'remote' => NullableBoolean,
   ) $s = shape()) {
-    $this->exceptions = $exceptions ?? ;
-    $this->name = $name ?? ;
-    $this->remote = $remote ?? ;
+    $this->exceptions = $exceptions ?? [];
+    $this->name = $name ?? "";
+    $this->remote = $remote ?? false;
   }
 }
 
@@ -352,12 +352,12 @@ class ErrorRootCauseService {
   ?'names' => ServiceNames,
   ?'type' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->entity_path = $entity_path ?? ;
-    $this->inferred = $inferred ?? ;
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->type = $type ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->entity_path = $entity_path ?? [];
+    $this->inferred = $inferred ?? false;
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -375,9 +375,9 @@ class ErrorStatistics {
   ?'throttle_count' => NullableLong,
   ?'total_count' => NullableLong,
   ) $s = shape()) {
-    $this->other_count = $other_count ?? ;
-    $this->throttle_count = $throttle_count ?? ;
-    $this->total_count = $total_count ?? ;
+    $this->other_count = $other_count ?? 0;
+    $this->throttle_count = $throttle_count ?? 0;
+    $this->total_count = $total_count ?? 0;
   }
 }
 
@@ -389,8 +389,8 @@ class FaultRootCause {
   ?'client_impacting' => NullableBoolean,
   ?'services' => FaultRootCauseServices,
   ) $s = shape()) {
-    $this->client_impacting = $client_impacting ?? ;
-    $this->services = $services ?? ;
+    $this->client_impacting = $client_impacting ?? false;
+    $this->services = $services ?? [];
   }
 }
 
@@ -404,9 +404,9 @@ class FaultRootCauseEntity {
   ?'name' => string,
   ?'remote' => NullableBoolean,
   ) $s = shape()) {
-    $this->exceptions = $exceptions ?? ;
-    $this->name = $name ?? ;
-    $this->remote = $remote ?? ;
+    $this->exceptions = $exceptions ?? [];
+    $this->name = $name ?? "";
+    $this->remote = $remote ?? false;
   }
 }
 
@@ -428,12 +428,12 @@ class FaultRootCauseService {
   ?'names' => ServiceNames,
   ?'type' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->entity_path = $entity_path ?? ;
-    $this->inferred = $inferred ?? ;
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->type = $type ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->entity_path = $entity_path ?? [];
+    $this->inferred = $inferred ?? false;
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -449,8 +449,8 @@ class FaultStatistics {
   ?'other_count' => NullableLong,
   ?'total_count' => NullableLong,
   ) $s = shape()) {
-    $this->other_count = $other_count ?? ;
-    $this->total_count = $total_count ?? ;
+    $this->other_count = $other_count ?? 0;
+    $this->total_count = $total_count ?? 0;
   }
 }
 
@@ -506,7 +506,7 @@ class GetGroupsRequest {
   public function __construct(shape(
   ?'next_token' => GetGroupsNextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -518,8 +518,8 @@ class GetGroupsResult {
   ?'groups' => GroupSummaryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->groups = $groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -529,7 +529,7 @@ class GetSamplingRulesRequest {
   public function __construct(shape(
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -541,8 +541,8 @@ class GetSamplingRulesResult {
   ?'next_token' => string,
   ?'sampling_rule_records' => SamplingRuleRecordList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sampling_rule_records = $sampling_rule_records ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sampling_rule_records = $sampling_rule_records ?? [];
   }
 }
 
@@ -552,7 +552,7 @@ class GetSamplingStatisticSummariesRequest {
   public function __construct(shape(
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -564,8 +564,8 @@ class GetSamplingStatisticSummariesResult {
   ?'next_token' => string,
   ?'sampling_statistic_summaries' => SamplingStatisticSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sampling_statistic_summaries = $sampling_statistic_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sampling_statistic_summaries = $sampling_statistic_summaries ?? [];
   }
 }
 
@@ -575,7 +575,7 @@ class GetSamplingTargetsRequest {
   public function __construct(shape(
   ?'sampling_statistics_documents' => SamplingStatisticsDocumentList,
   ) $s = shape()) {
-    $this->sampling_statistics_documents = $sampling_statistics_documents ?? ;
+    $this->sampling_statistics_documents = $sampling_statistics_documents ?? [];
   }
 }
 
@@ -589,9 +589,9 @@ class GetSamplingTargetsResult {
   ?'sampling_target_documents' => SamplingTargetDocumentList,
   ?'unprocessed_statistics' => UnprocessedStatisticsList,
   ) $s = shape()) {
-    $this->last_rule_modification = $last_rule_modification ?? ;
-    $this->sampling_target_documents = $sampling_target_documents ?? ;
-    $this->unprocessed_statistics = $unprocessed_statistics ?? null;
+    $this->last_rule_modification = $last_rule_modification ?? 0;
+    $this->sampling_target_documents = $sampling_target_documents ?? [];
+    $this->unprocessed_statistics = $unprocessed_statistics ?? [];
   }
 }
 
@@ -609,11 +609,11 @@ class GetServiceGraphRequest {
   ?'next_token' => string,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->group_arn = $group_arn ?? "";
     $this->group_name = $group_name ?? "";
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -631,11 +631,11 @@ class GetServiceGraphResult {
   ?'services' => ServiceList,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->contains_old_group_versions = $contains_old_group_versions ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->services = $services ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->contains_old_group_versions = $contains_old_group_versions ?? false;
+    $this->end_time = $end_time ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->services = $services ?? [];
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -657,13 +657,13 @@ class GetTimeSeriesServiceStatisticsRequest {
   ?'period' => NullableInteger,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->entity_selector_expression = $entity_selector_expression ?? "";
     $this->group_arn = $group_arn ?? "";
     $this->group_name = $group_name ?? "";
-    $this->next_token = $next_token ?? ;
-    $this->period = $period ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->period = $period ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -677,9 +677,9 @@ class GetTimeSeriesServiceStatisticsResult {
   ?'next_token' => string,
   ?'time_series_service_statistics' => TimeSeriesServiceStatisticsList,
   ) $s = shape()) {
-    $this->contains_old_group_versions = $contains_old_group_versions ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->time_series_service_statistics = $time_series_service_statistics ?? null;
+    $this->contains_old_group_versions = $contains_old_group_versions ?? false;
+    $this->next_token = $next_token ?? "";
+    $this->time_series_service_statistics = $time_series_service_statistics ?? [];
   }
 }
 
@@ -691,8 +691,8 @@ class GetTraceGraphRequest {
   ?'next_token' => string,
   ?'trace_ids' => TraceIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->trace_ids = $trace_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->trace_ids = $trace_ids ?? [];
   }
 }
 
@@ -704,8 +704,8 @@ class GetTraceGraphResult {
   ?'next_token' => string,
   ?'services' => ServiceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->services = $services ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->services = $services ?? [];
   }
 }
 
@@ -727,12 +727,12 @@ class GetTraceSummariesRequest {
   ?'start_time' => Timestamp,
   ?'time_range_type' => TimeRangeType,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->filter_expression = $filter_expression ?? "";
-    $this->next_token = $next_token ?? ;
-    $this->sampling = $sampling ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sampling = $sampling ?? false;
     $this->sampling_strategy = $sampling_strategy ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->time_range_type = $time_range_type ?? "";
   }
 }
@@ -749,10 +749,10 @@ class GetTraceSummariesResult {
   ?'trace_summaries' => TraceSummaryList,
   ?'traces_processed_count' => NullableLong,
   ) $s = shape()) {
-    $this->approximate_time = $approximate_time ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->trace_summaries = $trace_summaries ?? ;
-    $this->traces_processed_count = $traces_processed_count ?? ;
+    $this->approximate_time = $approximate_time ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->trace_summaries = $trace_summaries ?? [];
+    $this->traces_processed_count = $traces_processed_count ?? 0;
   }
 }
 
@@ -806,8 +806,8 @@ class HistogramEntry {
   ?'count' => int,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->value = $value ?? ;
+    $this->count = $count ?? 0;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -829,11 +829,11 @@ class Http {
   ?'http_url' => string,
   ?'user_agent' => string,
   ) $s = shape()) {
-    $this->client_ip = $client_ip ?? ;
-    $this->http_method = $http_method ?? ;
-    $this->http_status = $http_status ?? ;
-    $this->http_url = $http_url ?? ;
-    $this->user_agent = $user_agent ?? ;
+    $this->client_ip = $client_ip ?? "";
+    $this->http_method = $http_method ?? "";
+    $this->http_status = $http_status ?? 0;
+    $this->http_url = $http_url ?? "";
+    $this->user_agent = $user_agent ?? "";
   }
 }
 
@@ -843,7 +843,7 @@ class InstanceIdDetail {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -855,7 +855,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -877,8 +877,8 @@ class PutEncryptionConfigRequest {
   ?'key_id' => EncryptionKeyId,
   ?'type' => EncryptionType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->type = $type ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -907,7 +907,7 @@ class PutTelemetryRecordsRequest {
     $this->ec_2_instance_id = $ec_2_instance_id ?? "";
     $this->hostname = $hostname ?? "";
     $this->resource_arn = $resource_arn ?? "";
-    $this->telemetry_records = $telemetry_records ?? ;
+    $this->telemetry_records = $telemetry_records ?? [];
   }
 }
 
@@ -924,7 +924,7 @@ class PutTraceSegmentsRequest {
   public function __construct(shape(
   ?'trace_segment_documents' => TraceSegmentDocumentList,
   ) $s = shape()) {
-    $this->trace_segment_documents = $trace_segment_documents ?? ;
+    $this->trace_segment_documents = $trace_segment_documents ?? [];
   }
 }
 
@@ -934,7 +934,7 @@ class PutTraceSegmentsResult {
   public function __construct(shape(
   ?'unprocessed_trace_segments' => UnprocessedTraceSegmentList,
   ) $s = shape()) {
-    $this->unprocessed_trace_segments = $unprocessed_trace_segments ?? ;
+    $this->unprocessed_trace_segments = $unprocessed_trace_segments ?? [];
   }
 }
 
@@ -950,7 +950,7 @@ class ResourceARNDetail {
   public function __construct(shape(
   ?'arn' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -962,8 +962,8 @@ class ResponseTimeRootCause {
   ?'client_impacting' => NullableBoolean,
   ?'services' => ResponseTimeRootCauseServices,
   ) $s = shape()) {
-    $this->client_impacting = $client_impacting ?? ;
-    $this->services = $services ?? ;
+    $this->client_impacting = $client_impacting ?? false;
+    $this->services = $services ?? [];
   }
 }
 
@@ -977,9 +977,9 @@ class ResponseTimeRootCauseEntity {
   ?'name' => string,
   ?'remote' => NullableBoolean,
   ) $s = shape()) {
-    $this->coverage = $coverage ?? ;
-    $this->name = $name ?? ;
-    $this->remote = $remote ?? ;
+    $this->coverage = $coverage ?? 0.0;
+    $this->name = $name ?? "";
+    $this->remote = $remote ?? false;
   }
 }
 
@@ -1001,12 +1001,12 @@ class ResponseTimeRootCauseService {
   ?'names' => ServiceNames,
   ?'type' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->entity_path = $entity_path ?? ;
-    $this->inferred = $inferred ?? ;
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->type = $type ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->entity_path = $entity_path ?? [];
+    $this->inferred = $inferred ?? false;
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1022,8 +1022,8 @@ class RootCauseException {
   ?'message' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1035,7 +1035,7 @@ class RuleLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1073,14 +1073,14 @@ class SamplingRule {
   ?'url_path' => URLPath,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->fixed_rate = $fixed_rate ?? 0.0;
     $this->http_method = $http_method ?? "";
     $this->host = $host ?? "";
     $this->priority = $priority ?? 0;
     $this->reservoir_size = $reservoir_size ?? 0;
     $this->resource_arn = $resource_arn ?? "";
-    $this->rule_arn = $rule_arn ?? ;
+    $this->rule_arn = $rule_arn ?? "";
     $this->rule_name = $rule_name ?? "";
     $this->service_name = $service_name ?? "";
     $this->service_type = $service_type ?? "";
@@ -1099,8 +1099,8 @@ class SamplingRuleRecord {
   ?'modified_at' => Timestamp,
   ?'sampling_rule' => SamplingRule,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->modified_at = $modified_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->modified_at = $modified_at ?? 0;
     $this->sampling_rule = $sampling_rule ?? null;
   }
 }
@@ -1135,14 +1135,14 @@ class SamplingRuleUpdate {
   ?'service_type' => ServiceType,
   ?'url_path' => URLPath,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->fixed_rate = $fixed_rate ?? 0.0;
     $this->http_method = $http_method ?? "";
     $this->host = $host ?? "";
     $this->priority = $priority ?? 0;
     $this->reservoir_size = $reservoir_size ?? 0;
     $this->resource_arn = $resource_arn ?? "";
-    $this->rule_arn = $rule_arn ?? ;
+    $this->rule_arn = $rule_arn ?? "";
     $this->rule_name = $rule_name ?? "";
     $this->service_name = $service_name ?? "";
     $this->service_type = $service_type ?? "";
@@ -1209,8 +1209,8 @@ class SamplingStrategy {
   ?'name' => SamplingStrategyName,
   ?'value' => NullableDouble,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -1231,9 +1231,9 @@ class SamplingTargetDocument {
   ?'rule_name' => string,
   ) $s = shape()) {
     $this->fixed_rate = $fixed_rate ?? 0.0;
-    $this->interval = $interval ?? ;
-    $this->reservoir_quota = $reservoir_quota ?? ;
-    $this->reservoir_quota_ttl = $reservoir_quota_ttl ?? ;
+    $this->interval = $interval ?? 0;
+    $this->reservoir_quota = $reservoir_quota ?? 0;
+    $this->reservoir_quota_ttl = $reservoir_quota_ttl ?? 0;
     $this->rule_name = $rule_name ?? "";
   }
 }
@@ -1248,8 +1248,8 @@ class Segment {
   ?'document' => SegmentDocument,
   ?'id' => SegmentId,
   ) $s = shape()) {
-    $this->document = $document ?? ;
-    $this->id = $id ?? ;
+    $this->document = $document ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1289,19 +1289,19 @@ class Service {
   ?'summary_statistics' => ServiceStatistics,
   ?'type' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->duration_histogram = $duration_histogram ?? ;
-    $this->edges = $edges ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->reference_id = $reference_id ?? ;
-    $this->response_time_histogram = $response_time_histogram ?? ;
-    $this->root = $root ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->summary_statistics = $summary_statistics ?? ;
-    $this->type = $type ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->duration_histogram = $duration_histogram ?? [];
+    $this->edges = $edges ?? [];
+    $this->end_time = $end_time ?? 0;
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->reference_id = $reference_id ?? 0;
+    $this->response_time_histogram = $response_time_histogram ?? [];
+    $this->root = $root ?? false;
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->summary_statistics = $summary_statistics ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1317,10 +1317,10 @@ class ServiceId {
   ?'names' => ServiceNames,
   ?'type' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->name = $name ?? ;
-    $this->names = $names ?? ;
-    $this->type = $type ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->name = $name ?? "";
+    $this->names = $names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1348,9 +1348,9 @@ class ServiceStatistics {
   ) $s = shape()) {
     $this->error_statistics = $error_statistics ?? null;
     $this->fault_statistics = $fault_statistics ?? null;
-    $this->ok_count = $ok_count ?? ;
-    $this->total_count = $total_count ?? ;
-    $this->total_response_time = $total_response_time ?? ;
+    $this->ok_count = $ok_count ?? 0;
+    $this->total_count = $total_count ?? 0;
+    $this->total_response_time = $total_response_time ?? 0.0;
   }
 }
 
@@ -1375,10 +1375,10 @@ class TelemetryRecord {
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
     $this->backend_connection_errors = $backend_connection_errors ?? null;
-    $this->segments_received_count = $segments_received_count ?? ;
-    $this->segments_rejected_count = $segments_rejected_count ?? ;
-    $this->segments_sent_count = $segments_sent_count ?? ;
-    $this->segments_spillover_count = $segments_spillover_count ?? ;
+    $this->segments_received_count = $segments_received_count ?? 0;
+    $this->segments_rejected_count = $segments_rejected_count ?? 0;
+    $this->segments_sent_count = $segments_sent_count ?? 0;
+    $this->segments_spillover_count = $segments_spillover_count ?? 0;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -1391,7 +1391,7 @@ class ThrottledException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1409,9 +1409,9 @@ class TimeSeriesServiceStatistics {
   ?'service_summary_statistics' => ServiceStatistics,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->edge_summary_statistics = $edge_summary_statistics ?? ;
-    $this->response_time_histogram = $response_time_histogram ?? ;
-    $this->service_summary_statistics = $service_summary_statistics ?? ;
+    $this->edge_summary_statistics = $edge_summary_statistics ?? null;
+    $this->response_time_histogram = $response_time_histogram ?? [];
+    $this->service_summary_statistics = $service_summary_statistics ?? null;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -1430,9 +1430,9 @@ class Trace {
   ?'id' => TraceId,
   ?'segments' => SegmentList,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->id = $id ?? ;
-    $this->segments = $segments ?? ;
+    $this->duration = $duration ?? 0.0;
+    $this->id = $id ?? "";
+    $this->segments = $segments ?? [];
   }
 }
 
@@ -1497,25 +1497,25 @@ class TraceSummary {
   ?'users' => TraceUsers,
   ) $s = shape()) {
     $this->annotations = $annotations ?? [];
-    $this->availability_zones = $availability_zones ?? ;
-    $this->duration = $duration ?? ;
-    $this->entry_point = $entry_point ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->duration = $duration ?? 0.0;
+    $this->entry_point = $entry_point ?? null;
     $this->error_root_causes = $error_root_causes ?? [];
     $this->fault_root_causes = $fault_root_causes ?? [];
-    $this->has_error = $has_error ?? ;
-    $this->has_fault = $has_fault ?? ;
-    $this->has_throttle = $has_throttle ?? ;
+    $this->has_error = $has_error ?? false;
+    $this->has_fault = $has_fault ?? false;
+    $this->has_throttle = $has_throttle ?? false;
     $this->http = $http ?? null;
-    $this->id = $id ?? ;
-    $this->instance_ids = $instance_ids ?? ;
-    $this->is_partial = $is_partial ?? ;
-    $this->matched_event_time = $matched_event_time ?? ;
-    $this->resource_ar_ns = $resource_ar_ns ?? ;
-    $this->response_time = $response_time ?? ;
+    $this->id = $id ?? "";
+    $this->instance_ids = $instance_ids ?? [];
+    $this->is_partial = $is_partial ?? false;
+    $this->matched_event_time = $matched_event_time ?? 0;
+    $this->resource_ar_ns = $resource_ar_ns ?? [];
+    $this->response_time = $response_time ?? 0.0;
     $this->response_time_root_causes = $response_time_root_causes ?? [];
-    $this->revision = $revision ?? ;
+    $this->revision = $revision ?? 0;
     $this->service_ids = $service_ids ?? [];
-    $this->users = $users ?? ;
+    $this->users = $users ?? [];
   }
 }
 
@@ -1530,7 +1530,7 @@ class TraceUser {
   ?'user_name' => string,
   ) $s = shape()) {
     $this->service_ids = $service_ids ?? [];
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1548,8 +1548,8 @@ class UnprocessedStatistics {
   ?'message' => string,
   ?'rule_name' => string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
     $this->rule_name = $rule_name ?? "";
   }
 }
@@ -1568,9 +1568,9 @@ class UnprocessedTraceSegment {
   ?'id' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->id = $id ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->id = $id ?? "";
+    $this->message = $message ?? "";
   }
 }
 

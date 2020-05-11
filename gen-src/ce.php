@@ -43,7 +43,7 @@ class BillExpirationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -65,12 +65,12 @@ class CostCategory {
   ?'rule_version' => CostCategoryRuleVersion,
   ?'rules' => CostCategoryRulesList,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_end = $effective_end ?? ;
-    $this->effective_start = $effective_start ?? ;
-    $this->name = $name ?? ;
-    $this->rule_version = $rule_version ?? ;
-    $this->rules = $rules ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_end = $effective_end ?? "";
+    $this->effective_start = $effective_start ?? "";
+    $this->name = $name ?? "";
+    $this->rule_version = $rule_version ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -92,11 +92,11 @@ class CostCategoryReference {
   ?'name' => CostCategoryName,
   ?'number_of_rules' => NonNegativeInteger,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_end = $effective_end ?? ;
-    $this->effective_start = $effective_start ?? ;
-    $this->name = $name ?? ;
-    $this->number_of_rules = $number_of_rules ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_end = $effective_end ?? "";
+    $this->effective_start = $effective_start ?? "";
+    $this->name = $name ?? "";
+    $this->number_of_rules = $number_of_rules ?? 0;
   }
 }
 
@@ -110,7 +110,7 @@ class CostCategoryRule {
   ?'rule' => Expression,
   ?'value' => CostCategoryValue,
   ) $s = shape()) {
-    $this->rule = $rule ?? ;
+    $this->rule = $rule ?? null;
     $this->value = $value ?? "";
   }
 }
@@ -161,8 +161,8 @@ class CoverageByTime {
   ?'total' => Coverage,
   ) $s = shape()) {
     $this->groups = $groups ?? [];
-    $this->time_period = $time_period ?? ;
-    $this->total = $total ?? ;
+    $this->time_period = $time_period ?? null;
+    $this->total = $total ?? null;
   }
 }
 
@@ -230,9 +230,9 @@ class CreateCostCategoryDefinitionRequest {
   ?'rule_version' => CostCategoryRuleVersion,
   ?'rules' => CostCategoryRulesList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->rule_version = $rule_version ?? ;
-    $this->rules = $rules ?? ;
+    $this->name = $name ?? "";
+    $this->rule_version = $rule_version ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -244,8 +244,8 @@ class CreateCostCategoryDefinitionResponse {
   ?'cost_category_arn' => Arn,
   ?'effective_start' => ZonedDateTime,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_start = $effective_start ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_start = $effective_start ?? "";
   }
 }
 
@@ -273,16 +273,16 @@ class CurrentInstance {
   ?'tags' => TagValuesList,
   ?'total_running_hours_in_lookback_period' => GenericString,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->monthly_cost = $monthly_cost ?? ;
-    $this->on_demand_hours_in_lookback_period = $on_demand_hours_in_lookback_period ?? ;
-    $this->reservation_covered_hours_in_lookback_period = $reservation_covered_hours_in_lookback_period ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->monthly_cost = $monthly_cost ?? "";
+    $this->on_demand_hours_in_lookback_period = $on_demand_hours_in_lookback_period ?? "";
+    $this->reservation_covered_hours_in_lookback_period = $reservation_covered_hours_in_lookback_period ?? "";
     $this->resource_details = $resource_details ?? null;
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->resource_utilization = $resource_utilization ?? null;
-    $this->savings_plans_covered_hours_in_lookback_period = $savings_plans_covered_hours_in_lookback_period ?? ;
-    $this->tags = $tags ?? ;
-    $this->total_running_hours_in_lookback_period = $total_running_hours_in_lookback_period ?? ;
+    $this->savings_plans_covered_hours_in_lookback_period = $savings_plans_covered_hours_in_lookback_period ?? "";
+    $this->tags = $tags ?? [];
+    $this->total_running_hours_in_lookback_period = $total_running_hours_in_lookback_period ?? "";
   }
 }
 
@@ -292,7 +292,7 @@ class DataUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -304,8 +304,8 @@ class DateInterval {
   ?'end' => YearMonthDay,
   ?'start' => YearMonthDay,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? "";
+    $this->start = $start ?? "";
   }
 }
 
@@ -315,7 +315,7 @@ class DeleteCostCategoryDefinitionRequest {
   public function __construct(shape(
   ?'cost_category_arn' => Arn,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
   }
 }
 
@@ -327,8 +327,8 @@ class DeleteCostCategoryDefinitionResponse {
   ?'cost_category_arn' => Arn,
   ?'effective_end' => ZonedDateTime,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_end = $effective_end ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_end = $effective_end ?? "";
   }
 }
 
@@ -340,8 +340,8 @@ class DescribeCostCategoryDefinitionRequest {
   ?'cost_category_arn' => Arn,
   ?'effective_on' => ZonedDateTime,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_on = $effective_on ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_on = $effective_on ?? "";
   }
 }
 
@@ -408,14 +408,14 @@ class EC2InstanceDetails {
   ?'size_flex_eligible' => GenericBoolean,
   ?'tenancy' => GenericString,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->current_generation = $current_generation ?? ;
-    $this->family = $family ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->platform = $platform ?? ;
-    $this->region = $region ?? ;
-    $this->size_flex_eligible = $size_flex_eligible ?? ;
-    $this->tenancy = $tenancy ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->current_generation = $current_generation ?? false;
+    $this->family = $family ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->platform = $platform ?? "";
+    $this->region = $region ?? "";
+    $this->size_flex_eligible = $size_flex_eligible ?? false;
+    $this->tenancy = $tenancy ?? "";
   }
 }
 
@@ -441,15 +441,15 @@ class EC2ResourceDetails {
   ?'storage' => GenericString,
   ?'vcpu' => GenericString,
   ) $s = shape()) {
-    $this->hourly_on_demand_rate = $hourly_on_demand_rate ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->memory = $memory ?? ;
-    $this->network_performance = $network_performance ?? ;
-    $this->platform = $platform ?? ;
-    $this->region = $region ?? ;
-    $this->sku = $sku ?? ;
-    $this->storage = $storage ?? ;
-    $this->vcpu = $vcpu ?? ;
+    $this->hourly_on_demand_rate = $hourly_on_demand_rate ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->memory = $memory ?? "";
+    $this->network_performance = $network_performance ?? "";
+    $this->platform = $platform ?? "";
+    $this->region = $region ?? "";
+    $this->sku = $sku ?? "";
+    $this->storage = $storage ?? "";
+    $this->vcpu = $vcpu ?? "";
   }
 }
 
@@ -463,9 +463,9 @@ class EC2ResourceUtilization {
   ?'max_memory_utilization_percentage' => GenericString,
   ?'max_storage_utilization_percentage' => GenericString,
   ) $s = shape()) {
-    $this->max_cpu_utilization_percentage = $max_cpu_utilization_percentage ?? ;
-    $this->max_memory_utilization_percentage = $max_memory_utilization_percentage ?? ;
-    $this->max_storage_utilization_percentage = $max_storage_utilization_percentage ?? ;
+    $this->max_cpu_utilization_percentage = $max_cpu_utilization_percentage ?? "";
+    $this->max_memory_utilization_percentage = $max_memory_utilization_percentage ?? "";
+    $this->max_storage_utilization_percentage = $max_storage_utilization_percentage ?? "";
   }
 }
 
@@ -493,11 +493,11 @@ class ESInstanceDetails {
   ?'region' => GenericString,
   ?'size_flex_eligible' => GenericBoolean,
   ) $s = shape()) {
-    $this->current_generation = $current_generation ?? ;
-    $this->instance_class = $instance_class ?? ;
-    $this->instance_size = $instance_size ?? ;
-    $this->region = $region ?? ;
-    $this->size_flex_eligible = $size_flex_eligible ?? ;
+    $this->current_generation = $current_generation ?? false;
+    $this->instance_class = $instance_class ?? "";
+    $this->instance_size = $instance_size ?? "";
+    $this->region = $region ?? "";
+    $this->size_flex_eligible = $size_flex_eligible ?? false;
   }
 }
 
@@ -517,12 +517,12 @@ class ElastiCacheInstanceDetails {
   ?'region' => GenericString,
   ?'size_flex_eligible' => GenericBoolean,
   ) $s = shape()) {
-    $this->current_generation = $current_generation ?? ;
-    $this->family = $family ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->product_description = $product_description ?? ;
-    $this->region = $region ?? ;
-    $this->size_flex_eligible = $size_flex_eligible ?? ;
+    $this->current_generation = $current_generation ?? false;
+    $this->family = $family ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->product_description = $product_description ?? "";
+    $this->region = $region ?? "";
+    $this->size_flex_eligible = $size_flex_eligible ?? false;
   }
 }
 
@@ -548,12 +548,12 @@ class Expression {
   ?'or' => Expressions,
   ?'tags' => TagValues,
   ) $s = shape()) {
-    $this->and = $and ?? ;
-    $this->cost_categories = $cost_categories ?? ;
-    $this->dimensions = $dimensions ?? ;
-    $this->not = $not ?? ;
-    $this->or = $or ?? ;
-    $this->tags = $tags ?? ;
+    $this->and = $and ?? [];
+    $this->cost_categories = $cost_categories ?? null;
+    $this->dimensions = $dimensions ?? null;
+    $this->not = $not ?? null;
+    $this->or = $or ?? [];
+    $this->tags = $tags ?? null;
   }
 }
 
@@ -571,10 +571,10 @@ class ForecastResult {
   ?'prediction_interval_upper_bound' => GenericString,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->mean_value = $mean_value ?? ;
-    $this->prediction_interval_lower_bound = $prediction_interval_lower_bound ?? ;
-    $this->prediction_interval_upper_bound = $prediction_interval_upper_bound ?? ;
-    $this->time_period = $time_period ?? ;
+    $this->mean_value = $mean_value ?? "";
+    $this->prediction_interval_lower_bound = $prediction_interval_lower_bound ?? "";
+    $this->prediction_interval_upper_bound = $prediction_interval_upper_bound ?? "";
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -600,12 +600,12 @@ class GetCostAndUsageRequest {
   ?'next_page_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->group_by = $group_by ?? ;
+    $this->group_by = $group_by ?? [];
     $this->metrics = $metrics ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -641,12 +641,12 @@ class GetCostAndUsageWithResourcesRequest {
   ?'next_page_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->group_by = $group_by ?? ;
+    $this->group_by = $group_by ?? [];
     $this->metrics = $metrics ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -680,11 +680,11 @@ class GetCostForecastRequest {
   ?'prediction_interval_level' => PredictionIntervalLevel,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
     $this->metric = $metric ?? "";
     $this->prediction_interval_level = $prediction_interval_level ?? 0;
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -697,7 +697,7 @@ class GetCostForecastResponse {
   ?'total' => MetricValue,
   ) $s = shape()) {
     $this->forecast_results_by_time = $forecast_results_by_time ?? [];
-    $this->total = $total ?? ;
+    $this->total = $total ?? null;
   }
 }
 
@@ -719,7 +719,7 @@ class GetDimensionValuesRequest {
     $this->dimension = $dimension ?? "";
     $this->next_page_token = $next_page_token ?? "";
     $this->search_string = $search_string ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -735,10 +735,10 @@ class GetDimensionValuesResponse {
   ?'return_size' => PageSize,
   ?'total_size' => PageSize,
   ) $s = shape()) {
-    $this->dimension_values = $dimension_values ?? null;
+    $this->dimension_values = $dimension_values ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->return_size = $return_size ?? ;
-    $this->total_size = $total_size ?? ;
+    $this->return_size = $return_size ?? 0;
+    $this->total_size = $total_size ?? 0;
   }
 }
 
@@ -758,12 +758,12 @@ class GetReservationCoverageRequest {
   ?'next_page_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->group_by = $group_by ?? ;
+    $this->group_by = $group_by ?? [];
     $this->metrics = $metrics ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -779,7 +779,7 @@ class GetReservationCoverageResponse {
   ) $s = shape()) {
     $this->coverages_by_time = $coverages_by_time ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->total = $total ?? ;
+    $this->total = $total ?? null;
   }
 }
 
@@ -805,13 +805,13 @@ class GetReservationPurchaseRecommendationRequest {
   ?'service_specification' => ServiceSpecification,
   ?'term_in_years' => TermInYears,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->account_scope = $account_scope ?? "";
     $this->lookback_period_in_days = $lookback_period_in_days ?? "";
     $this->next_page_token = $next_page_token ?? "";
     $this->page_size = $page_size ?? 0;
     $this->payment_option = $payment_option ?? "";
-    $this->service = $service ?? ;
+    $this->service = $service ?? "";
     $this->service_specification = $service_specification ?? null;
     $this->term_in_years = $term_in_years ?? "";
   }
@@ -827,9 +827,9 @@ class GetReservationPurchaseRecommendationResponse {
   ?'next_page_token' => NextPageToken,
   ?'recommendations' => ReservationPurchaseRecommendations,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
+    $this->metadata = $metadata ?? null;
     $this->next_page_token = $next_page_token ?? "";
-    $this->recommendations = $recommendations ?? ;
+    $this->recommendations = $recommendations ?? [];
   }
 }
 
@@ -847,11 +847,11 @@ class GetReservationUtilizationRequest {
   ?'next_page_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->group_by = $group_by ?? ;
+    $this->group_by = $group_by ?? [];
     $this->next_page_token = $next_page_token ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -866,7 +866,7 @@ class GetReservationUtilizationResponse {
   ?'utilizations_by_time' => UtilizationsByTime,
   ) $s = shape()) {
     $this->next_page_token = $next_page_token ?? "";
-    $this->total = $total ?? ;
+    $this->total = $total ?? null;
     $this->utilizations_by_time = $utilizations_by_time ?? [];
   }
 }
@@ -885,11 +885,11 @@ class GetRightsizingRecommendationRequest {
   ?'page_size' => NonNegativeInteger,
   ?'service' => GenericString,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->filter = $filter ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->filter = $filter ?? null;
     $this->next_page_token = $next_page_token ?? "";
     $this->page_size = $page_size ?? 0;
-    $this->service = $service ?? ;
+    $this->service = $service ?? "";
   }
 }
 
@@ -907,11 +907,11 @@ class GetRightsizingRecommendationResponse {
   ?'rightsizing_recommendations' => RightsizingRecommendationList,
   ?'summary' => RightsizingRecommendationSummary,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->metadata = $metadata ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->metadata = $metadata ?? null;
     $this->next_page_token = $next_page_token ?? "";
-    $this->rightsizing_recommendations = $rightsizing_recommendations ?? ;
-    $this->summary = $summary ?? ;
+    $this->rightsizing_recommendations = $rightsizing_recommendations ?? [];
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -933,13 +933,13 @@ class GetSavingsPlansCoverageRequest {
   ?'next_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->group_by = $group_by ?? ;
+    $this->group_by = $group_by ?? [];
     $this->max_results = $max_results ?? 0;
     $this->metrics = $metrics ?? [];
-    $this->next_token = $next_token ?? ;
-    $this->time_period = $time_period ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -951,7 +951,7 @@ class GetSavingsPlansCoverageResponse {
   ?'next_token' => NextPageToken,
   ?'savings_plans_coverages' => SavingsPlansCoverages,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->savings_plans_coverages = $savings_plans_coverages ?? [];
   }
 }
@@ -977,12 +977,12 @@ class GetSavingsPlansPurchaseRecommendationRequest {
   ?'term_in_years' => TermInYears,
   ) $s = shape()) {
     $this->account_scope = $account_scope ?? "";
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->lookback_period_in_days = $lookback_period_in_days ?? "";
     $this->next_page_token = $next_page_token ?? "";
     $this->page_size = $page_size ?? 0;
     $this->payment_option = $payment_option ?? "";
-    $this->savings_plans_type = $savings_plans_type ?? ;
+    $this->savings_plans_type = $savings_plans_type ?? "";
     $this->term_in_years = $term_in_years ?? "";
   }
 }
@@ -997,7 +997,7 @@ class GetSavingsPlansPurchaseRecommendationResponse {
   ?'next_page_token' => NextPageToken,
   ?'savings_plans_purchase_recommendation' => SavingsPlansPurchaseRecommendation,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
+    $this->metadata = $metadata ?? null;
     $this->next_page_token = $next_page_token ?? "";
     $this->savings_plans_purchase_recommendation = $savings_plans_purchase_recommendation ?? null;
   }
@@ -1015,10 +1015,10 @@ class GetSavingsPlansUtilizationDetailsRequest {
   ?'next_token' => NextPageToken,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->time_period = $time_period ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -1034,10 +1034,10 @@ class GetSavingsPlansUtilizationDetailsResponse {
   ?'time_period' => DateInterval,
   ?'total' => SavingsPlansUtilizationAggregates,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->savings_plans_utilization_details = $savings_plans_utilization_details ?? [];
-    $this->time_period = $time_period ?? ;
-    $this->total = $total ?? ;
+    $this->time_period = $time_period ?? null;
+    $this->total = $total ?? null;
   }
 }
 
@@ -1051,9 +1051,9 @@ class GetSavingsPlansUtilizationRequest {
   ?'granularity' => Granularity,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -1066,7 +1066,7 @@ class GetSavingsPlansUtilizationResponse {
   ?'total' => SavingsPlansUtilizationAggregates,
   ) $s = shape()) {
     $this->savings_plans_utilizations_by_time = $savings_plans_utilizations_by_time ?? [];
-    $this->total = $total ?? ;
+    $this->total = $total ?? null;
   }
 }
 
@@ -1085,7 +1085,7 @@ class GetTagsRequest {
     $this->next_page_token = $next_page_token ?? "";
     $this->search_string = $search_string ?? "";
     $this->tag_key = $tag_key ?? "";
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -1102,9 +1102,9 @@ class GetTagsResponse {
   ?'total_size' => PageSize,
   ) $s = shape()) {
     $this->next_page_token = $next_page_token ?? "";
-    $this->return_size = $return_size ?? ;
-    $this->tags = $tags ?? ;
-    $this->total_size = $total_size ?? ;
+    $this->return_size = $return_size ?? 0;
+    $this->tags = $tags ?? [];
+    $this->total_size = $total_size ?? 0;
   }
 }
 
@@ -1122,11 +1122,11 @@ class GetUsageForecastRequest {
   ?'prediction_interval_level' => PredictionIntervalLevel,
   ?'time_period' => DateInterval,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->granularity = $granularity ?? "";
     $this->metric = $metric ?? "";
     $this->prediction_interval_level = $prediction_interval_level ?? 0;
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -1139,7 +1139,7 @@ class GetUsageForecastResponse {
   ?'total' => MetricValue,
   ) $s = shape()) {
     $this->forecast_results_by_time = $forecast_results_by_time ?? [];
-    $this->total = $total ?? ;
+    $this->total = $total ?? null;
   }
 }
 
@@ -1167,7 +1167,7 @@ class GroupDefinition {
   ?'type' => GroupDefinitionType,
   ) $s = shape()) {
     $this->key = $key ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1207,7 +1207,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1221,7 +1221,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1235,9 +1235,9 @@ class ListCostCategoryDefinitionsRequest {
   ?'max_results' => CostCategoryMaxResults,
   ?'next_token' => NextPageToken,
   ) $s = shape()) {
-    $this->effective_on = $effective_on ?? ;
+    $this->effective_on = $effective_on ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1249,8 +1249,8 @@ class ListCostCategoryDefinitionsResponse {
   ?'cost_category_references' => CostCategoryReferencesList,
   ?'next_token' => NextPageToken,
   ) $s = shape()) {
-    $this->cost_category_references = $cost_category_references ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cost_category_references = $cost_category_references ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1280,8 +1280,8 @@ class MetricValue {
   ?'amount' => MetricAmount,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->unit = $unit ?? ;
+    $this->amount = $amount ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -1293,7 +1293,7 @@ class ModifyRecommendationDetail {
   public function __construct(shape(
   ?'target_instances' => TargetInstancesList,
   ) $s = shape()) {
-    $this->target_instances = $target_instances ?? ;
+    $this->target_instances = $target_instances ?? [];
   }
 }
 
@@ -1345,15 +1345,15 @@ class RDSInstanceDetails {
   ?'region' => GenericString,
   ?'size_flex_eligible' => GenericBoolean,
   ) $s = shape()) {
-    $this->current_generation = $current_generation ?? ;
-    $this->database_edition = $database_edition ?? ;
-    $this->database_engine = $database_engine ?? ;
-    $this->deployment_option = $deployment_option ?? ;
-    $this->family = $family ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->license_model = $license_model ?? ;
-    $this->region = $region ?? ;
-    $this->size_flex_eligible = $size_flex_eligible ?? ;
+    $this->current_generation = $current_generation ?? false;
+    $this->database_edition = $database_edition ?? "";
+    $this->database_engine = $database_engine ?? "";
+    $this->deployment_option = $deployment_option ?? "";
+    $this->family = $family ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->license_model = $license_model ?? "";
+    $this->region = $region ?? "";
+    $this->size_flex_eligible = $size_flex_eligible ?? false;
   }
 }
 
@@ -1373,11 +1373,11 @@ class RedshiftInstanceDetails {
   ?'region' => GenericString,
   ?'size_flex_eligible' => GenericBoolean,
   ) $s = shape()) {
-    $this->current_generation = $current_generation ?? ;
-    $this->family = $family ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->region = $region ?? ;
-    $this->size_flex_eligible = $size_flex_eligible ?? ;
+    $this->current_generation = $current_generation ?? false;
+    $this->family = $family ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->region = $region ?? "";
+    $this->size_flex_eligible = $size_flex_eligible ?? false;
   }
 }
 
@@ -1387,7 +1387,7 @@ class RequestChangedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1480,8 +1480,8 @@ class ReservationPurchaseRecommendation {
     $this->account_scope = $account_scope ?? "";
     $this->lookback_period_in_days = $lookback_period_in_days ?? "";
     $this->payment_option = $payment_option ?? "";
-    $this->recommendation_details = $recommendation_details ?? ;
-    $this->recommendation_summary = $recommendation_summary ?? ;
+    $this->recommendation_details = $recommendation_details ?? [];
+    $this->recommendation_summary = $recommendation_summary ?? null;
     $this->service_specification = $service_specification ?? null;
     $this->term_in_years = $term_in_years ?? "";
   }
@@ -1529,25 +1529,25 @@ class ReservationPurchaseRecommendationDetail {
   ?'recurring_standard_monthly_cost' => GenericString,
   ?'upfront_cost' => GenericString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->average_normalized_units_used_per_hour = $average_normalized_units_used_per_hour ?? ;
-    $this->average_number_of_instances_used_per_hour = $average_number_of_instances_used_per_hour ?? ;
-    $this->average_utilization = $average_utilization ?? ;
-    $this->currency_code = $currency_code ?? ;
-    $this->estimated_break_even_in_months = $estimated_break_even_in_months ?? ;
-    $this->estimated_monthly_on_demand_cost = $estimated_monthly_on_demand_cost ?? ;
-    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? ;
-    $this->estimated_monthly_savings_percentage = $estimated_monthly_savings_percentage ?? ;
-    $this->estimated_reservation_cost_for_lookback_period = $estimated_reservation_cost_for_lookback_period ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->average_normalized_units_used_per_hour = $average_normalized_units_used_per_hour ?? "";
+    $this->average_number_of_instances_used_per_hour = $average_number_of_instances_used_per_hour ?? "";
+    $this->average_utilization = $average_utilization ?? "";
+    $this->currency_code = $currency_code ?? "";
+    $this->estimated_break_even_in_months = $estimated_break_even_in_months ?? "";
+    $this->estimated_monthly_on_demand_cost = $estimated_monthly_on_demand_cost ?? "";
+    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? "";
+    $this->estimated_monthly_savings_percentage = $estimated_monthly_savings_percentage ?? "";
+    $this->estimated_reservation_cost_for_lookback_period = $estimated_reservation_cost_for_lookback_period ?? "";
     $this->instance_details = $instance_details ?? null;
-    $this->maximum_normalized_units_used_per_hour = $maximum_normalized_units_used_per_hour ?? ;
-    $this->maximum_number_of_instances_used_per_hour = $maximum_number_of_instances_used_per_hour ?? ;
-    $this->minimum_normalized_units_used_per_hour = $minimum_normalized_units_used_per_hour ?? ;
-    $this->minimum_number_of_instances_used_per_hour = $minimum_number_of_instances_used_per_hour ?? ;
-    $this->recommended_normalized_units_to_purchase = $recommended_normalized_units_to_purchase ?? ;
-    $this->recommended_number_of_instances_to_purchase = $recommended_number_of_instances_to_purchase ?? ;
-    $this->recurring_standard_monthly_cost = $recurring_standard_monthly_cost ?? ;
-    $this->upfront_cost = $upfront_cost ?? ;
+    $this->maximum_normalized_units_used_per_hour = $maximum_normalized_units_used_per_hour ?? "";
+    $this->maximum_number_of_instances_used_per_hour = $maximum_number_of_instances_used_per_hour ?? "";
+    $this->minimum_normalized_units_used_per_hour = $minimum_normalized_units_used_per_hour ?? "";
+    $this->minimum_number_of_instances_used_per_hour = $minimum_number_of_instances_used_per_hour ?? "";
+    $this->recommended_normalized_units_to_purchase = $recommended_normalized_units_to_purchase ?? "";
+    $this->recommended_number_of_instances_to_purchase = $recommended_number_of_instances_to_purchase ?? "";
+    $this->recurring_standard_monthly_cost = $recurring_standard_monthly_cost ?? "";
+    $this->upfront_cost = $upfront_cost ?? "";
   }
 }
 
@@ -1561,8 +1561,8 @@ class ReservationPurchaseRecommendationMetadata {
   ?'generation_timestamp' => GenericString,
   ?'recommendation_id' => GenericString,
   ) $s = shape()) {
-    $this->generation_timestamp = $generation_timestamp ?? ;
-    $this->recommendation_id = $recommendation_id ?? ;
+    $this->generation_timestamp = $generation_timestamp ?? "";
+    $this->recommendation_id = $recommendation_id ?? "";
   }
 }
 
@@ -1576,9 +1576,9 @@ class ReservationPurchaseRecommendationSummary {
   ?'total_estimated_monthly_savings_amount' => GenericString,
   ?'total_estimated_monthly_savings_percentage' => GenericString,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->total_estimated_monthly_savings_amount = $total_estimated_monthly_savings_amount ?? ;
-    $this->total_estimated_monthly_savings_percentage = $total_estimated_monthly_savings_percentage ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->total_estimated_monthly_savings_amount = $total_estimated_monthly_savings_amount ?? "";
+    $this->total_estimated_monthly_savings_percentage = $total_estimated_monthly_savings_percentage ?? "";
   }
 }
 
@@ -1598,7 +1598,7 @@ class ReservationUtilizationGroup {
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
     $this->key = $key ?? "";
-    $this->utilization = $utilization ?? ;
+    $this->utilization = $utilization ?? null;
     $this->value = $value ?? "";
   }
 }
@@ -1625,7 +1625,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1653,8 +1653,8 @@ class ResultByTime {
   ) $s = shape()) {
     $this->estimated = $estimated ?? false;
     $this->groups = $groups ?? [];
-    $this->time_period = $time_period ?? ;
-    $this->total = $total ?? ;
+    $this->time_period = $time_period ?? null;
+    $this->total = $total ?? [];
   }
 }
 
@@ -1674,7 +1674,7 @@ class RightsizingRecommendation {
   ?'rightsizing_type' => RightsizingType,
   ?'terminate_recommendation_detail' => TerminateRecommendationDetail,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->current_instance = $current_instance ?? null;
     $this->modify_recommendation_detail = $modify_recommendation_detail ?? null;
     $this->rightsizing_type = $rightsizing_type ?? "";
@@ -1690,7 +1690,7 @@ class RightsizingRecommendationConfiguration {
   ?'benefits_considered' => GenericBoolean,
   ?'recommendation_target' => RecommendationTarget,
   ) $s = shape()) {
-    $this->benefits_considered = $benefits_considered ?? ;
+    $this->benefits_considered = $benefits_considered ?? false;
     $this->recommendation_target = $recommendation_target ?? "";
   }
 }
@@ -1707,9 +1707,9 @@ class RightsizingRecommendationMetadata {
   ?'lookback_period_in_days' => LookbackPeriodInDays,
   ?'recommendation_id' => GenericString,
   ) $s = shape()) {
-    $this->generation_timestamp = $generation_timestamp ?? ;
+    $this->generation_timestamp = $generation_timestamp ?? "";
     $this->lookback_period_in_days = $lookback_period_in_days ?? "";
-    $this->recommendation_id = $recommendation_id ?? ;
+    $this->recommendation_id = $recommendation_id ?? "";
   }
 }
 
@@ -1725,10 +1725,10 @@ class RightsizingRecommendationSummary {
   ?'savings_percentage' => GenericString,
   ?'total_recommendation_count' => GenericString,
   ) $s = shape()) {
-    $this->estimated_total_monthly_savings_amount = $estimated_total_monthly_savings_amount ?? ;
-    $this->savings_currency_code = $savings_currency_code ?? ;
-    $this->savings_percentage = $savings_percentage ?? ;
-    $this->total_recommendation_count = $total_recommendation_count ?? ;
+    $this->estimated_total_monthly_savings_amount = $estimated_total_monthly_savings_amount ?? "";
+    $this->savings_currency_code = $savings_currency_code ?? "";
+    $this->savings_percentage = $savings_percentage ?? "";
+    $this->total_recommendation_count = $total_recommendation_count ?? "";
   }
 }
 
@@ -1746,9 +1746,9 @@ class SavingsPlansAmortizedCommitment {
   ?'amortized_upfront_commitment' => GenericString,
   ?'total_amortized_commitment' => GenericString,
   ) $s = shape()) {
-    $this->amortized_recurring_commitment = $amortized_recurring_commitment ?? ;
-    $this->amortized_upfront_commitment = $amortized_upfront_commitment ?? ;
-    $this->total_amortized_commitment = $total_amortized_commitment ?? ;
+    $this->amortized_recurring_commitment = $amortized_recurring_commitment ?? "";
+    $this->amortized_upfront_commitment = $amortized_upfront_commitment ?? "";
+    $this->total_amortized_commitment = $total_amortized_commitment ?? "";
   }
 }
 
@@ -1764,7 +1764,7 @@ class SavingsPlansCoverage {
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
     $this->coverage = $coverage ?? null;
-    $this->time_period = $time_period ?? ;
+    $this->time_period = $time_period ?? null;
   }
 }
 
@@ -1780,10 +1780,10 @@ class SavingsPlansCoverageData {
   ?'spend_covered_by_savings_plans' => GenericString,
   ?'total_cost' => GenericString,
   ) $s = shape()) {
-    $this->coverage_percentage = $coverage_percentage ?? ;
+    $this->coverage_percentage = $coverage_percentage ?? "";
     $this->on_demand_cost = $on_demand_cost ?? "";
-    $this->spend_covered_by_savings_plans = $spend_covered_by_savings_plans ?? ;
-    $this->total_cost = $total_cost ?? ;
+    $this->spend_covered_by_savings_plans = $spend_covered_by_savings_plans ?? "";
+    $this->total_cost = $total_cost ?? "";
   }
 }
 
@@ -1799,9 +1799,9 @@ class SavingsPlansDetails {
   ?'offering_id' => GenericString,
   ?'region' => GenericString,
   ) $s = shape()) {
-    $this->instance_family = $instance_family ?? ;
-    $this->offering_id = $offering_id ?? ;
-    $this->region = $region ?? ;
+    $this->instance_family = $instance_family ?? "";
+    $this->offering_id = $offering_id ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -1826,9 +1826,9 @@ class SavingsPlansPurchaseRecommendation {
     $this->account_scope = $account_scope ?? "";
     $this->lookback_period_in_days = $lookback_period_in_days ?? "";
     $this->payment_option = $payment_option ?? "";
-    $this->savings_plans_purchase_recommendation_details = $savings_plans_purchase_recommendation_details ?? ;
+    $this->savings_plans_purchase_recommendation_details = $savings_plans_purchase_recommendation_details ?? [];
     $this->savings_plans_purchase_recommendation_summary = $savings_plans_purchase_recommendation_summary ?? null;
-    $this->savings_plans_type = $savings_plans_type ?? ;
+    $this->savings_plans_type = $savings_plans_type ?? "";
     $this->term_in_years = $term_in_years ?? "";
   }
 }
@@ -1869,22 +1869,22 @@ class SavingsPlansPurchaseRecommendationDetail {
   ?'savings_plans_details' => SavingsPlansDetails,
   ?'upfront_cost' => GenericString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->currency_code = $currency_code ?? ;
-    $this->current_average_hourly_on_demand_spend = $current_average_hourly_on_demand_spend ?? ;
-    $this->current_maximum_hourly_on_demand_spend = $current_maximum_hourly_on_demand_spend ?? ;
-    $this->current_minimum_hourly_on_demand_spend = $current_minimum_hourly_on_demand_spend ?? ;
-    $this->estimated_average_utilization = $estimated_average_utilization ?? ;
-    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? ;
-    $this->estimated_on_demand_cost = $estimated_on_demand_cost ?? ;
-    $this->estimated_on_demand_cost_with_current_commitment = $estimated_on_demand_cost_with_current_commitment ?? ;
-    $this->estimated_roi = $estimated_roi ?? ;
-    $this->estimated_sp_cost = $estimated_sp_cost ?? ;
-    $this->estimated_savings_amount = $estimated_savings_amount ?? ;
-    $this->estimated_savings_percentage = $estimated_savings_percentage ?? ;
-    $this->hourly_commitment_to_purchase = $hourly_commitment_to_purchase ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->currency_code = $currency_code ?? "";
+    $this->current_average_hourly_on_demand_spend = $current_average_hourly_on_demand_spend ?? "";
+    $this->current_maximum_hourly_on_demand_spend = $current_maximum_hourly_on_demand_spend ?? "";
+    $this->current_minimum_hourly_on_demand_spend = $current_minimum_hourly_on_demand_spend ?? "";
+    $this->estimated_average_utilization = $estimated_average_utilization ?? "";
+    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? "";
+    $this->estimated_on_demand_cost = $estimated_on_demand_cost ?? "";
+    $this->estimated_on_demand_cost_with_current_commitment = $estimated_on_demand_cost_with_current_commitment ?? "";
+    $this->estimated_roi = $estimated_roi ?? "";
+    $this->estimated_sp_cost = $estimated_sp_cost ?? "";
+    $this->estimated_savings_amount = $estimated_savings_amount ?? "";
+    $this->estimated_savings_percentage = $estimated_savings_percentage ?? "";
+    $this->hourly_commitment_to_purchase = $hourly_commitment_to_purchase ?? "";
     $this->savings_plans_details = $savings_plans_details ?? null;
-    $this->upfront_cost = $upfront_cost ?? ;
+    $this->upfront_cost = $upfront_cost ?? "";
   }
 }
 
@@ -1898,8 +1898,8 @@ class SavingsPlansPurchaseRecommendationMetadata {
   ?'generation_timestamp' => GenericString,
   ?'recommendation_id' => GenericString,
   ) $s = shape()) {
-    $this->generation_timestamp = $generation_timestamp ?? ;
-    $this->recommendation_id = $recommendation_id ?? ;
+    $this->generation_timestamp = $generation_timestamp ?? "";
+    $this->recommendation_id = $recommendation_id ?? "";
   }
 }
 
@@ -1929,17 +1929,17 @@ class SavingsPlansPurchaseRecommendationSummary {
   ?'hourly_commitment_to_purchase' => GenericString,
   ?'total_recommendation_count' => GenericString,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->current_on_demand_spend = $current_on_demand_spend ?? ;
-    $this->daily_commitment_to_purchase = $daily_commitment_to_purchase ?? ;
-    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? ;
-    $this->estimated_on_demand_cost_with_current_commitment = $estimated_on_demand_cost_with_current_commitment ?? ;
-    $this->estimated_roi = $estimated_roi ?? ;
-    $this->estimated_savings_amount = $estimated_savings_amount ?? ;
-    $this->estimated_savings_percentage = $estimated_savings_percentage ?? ;
-    $this->estimated_total_cost = $estimated_total_cost ?? ;
-    $this->hourly_commitment_to_purchase = $hourly_commitment_to_purchase ?? ;
-    $this->total_recommendation_count = $total_recommendation_count ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->current_on_demand_spend = $current_on_demand_spend ?? "";
+    $this->daily_commitment_to_purchase = $daily_commitment_to_purchase ?? "";
+    $this->estimated_monthly_savings_amount = $estimated_monthly_savings_amount ?? "";
+    $this->estimated_on_demand_cost_with_current_commitment = $estimated_on_demand_cost_with_current_commitment ?? "";
+    $this->estimated_roi = $estimated_roi ?? "";
+    $this->estimated_savings_amount = $estimated_savings_amount ?? "";
+    $this->estimated_savings_percentage = $estimated_savings_percentage ?? "";
+    $this->estimated_total_cost = $estimated_total_cost ?? "";
+    $this->hourly_commitment_to_purchase = $hourly_commitment_to_purchase ?? "";
+    $this->total_recommendation_count = $total_recommendation_count ?? "";
   }
 }
 
@@ -1951,8 +1951,8 @@ class SavingsPlansSavings {
   ?'net_savings' => GenericString,
   ?'on_demand_cost_equivalent' => GenericString,
   ) $s = shape()) {
-    $this->net_savings = $net_savings ?? ;
-    $this->on_demand_cost_equivalent = $on_demand_cost_equivalent ?? ;
+    $this->net_savings = $net_savings ?? "";
+    $this->on_demand_cost_equivalent = $on_demand_cost_equivalent ?? "";
   }
 }
 
@@ -1968,9 +1968,9 @@ class SavingsPlansUtilization {
   ?'used_commitment' => GenericString,
   ?'utilization_percentage' => GenericString,
   ) $s = shape()) {
-    $this->total_commitment = $total_commitment ?? ;
-    $this->unused_commitment = $unused_commitment ?? ;
-    $this->used_commitment = $used_commitment ?? ;
+    $this->total_commitment = $total_commitment ?? "";
+    $this->unused_commitment = $unused_commitment ?? "";
+    $this->used_commitment = $used_commitment ?? "";
     $this->utilization_percentage = $utilization_percentage ?? "";
   }
 }
@@ -1985,9 +1985,9 @@ class SavingsPlansUtilizationAggregates {
   ?'savings' => SavingsPlansSavings,
   ?'utilization' => SavingsPlansUtilization,
   ) $s = shape()) {
-    $this->amortized_commitment = $amortized_commitment ?? ;
-    $this->savings = $savings ?? ;
-    $this->utilization = $utilization ?? ;
+    $this->amortized_commitment = $amortized_commitment ?? null;
+    $this->savings = $savings ?? null;
+    $this->utilization = $utilization ?? null;
   }
 }
 
@@ -2003,10 +2003,10 @@ class SavingsPlansUtilizationByTime {
   ?'time_period' => DateInterval,
   ?'utilization' => SavingsPlansUtilization,
   ) $s = shape()) {
-    $this->amortized_commitment = $amortized_commitment ?? ;
-    $this->savings = $savings ?? ;
-    $this->time_period = $time_period ?? ;
-    $this->utilization = $utilization ?? ;
+    $this->amortized_commitment = $amortized_commitment ?? null;
+    $this->savings = $savings ?? null;
+    $this->time_period = $time_period ?? null;
+    $this->utilization = $utilization ?? null;
   }
 }
 
@@ -2024,11 +2024,11 @@ class SavingsPlansUtilizationDetail {
   ?'savings_plan_arn' => SavingsPlanArn,
   ?'utilization' => SavingsPlansUtilization,
   ) $s = shape()) {
-    $this->amortized_commitment = $amortized_commitment ?? ;
+    $this->amortized_commitment = $amortized_commitment ?? null;
     $this->attributes = $attributes ?? [];
-    $this->savings = $savings ?? ;
+    $this->savings = $savings ?? null;
     $this->savings_plan_arn = $savings_plan_arn ?? "";
-    $this->utilization = $utilization ?? ;
+    $this->utilization = $utilization ?? null;
   }
 }
 
@@ -2044,7 +2044,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2098,11 +2098,11 @@ class TargetInstance {
   ?'expected_resource_utilization' => ResourceUtilization,
   ?'resource_details' => ResourceDetails,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->default_target_instance = $default_target_instance ?? ;
-    $this->estimated_monthly_cost = $estimated_monthly_cost ?? ;
-    $this->estimated_monthly_savings = $estimated_monthly_savings ?? ;
-    $this->expected_resource_utilization = $expected_resource_utilization ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->default_target_instance = $default_target_instance ?? false;
+    $this->estimated_monthly_cost = $estimated_monthly_cost ?? "";
+    $this->estimated_monthly_savings = $estimated_monthly_savings ?? "";
+    $this->expected_resource_utilization = $expected_resource_utilization ?? null;
     $this->resource_details = $resource_details ?? null;
   }
 }
@@ -2119,8 +2119,8 @@ class TerminateRecommendationDetail {
   ?'currency_code' => GenericString,
   ?'estimated_monthly_savings' => GenericString,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->estimated_monthly_savings = $estimated_monthly_savings ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->estimated_monthly_savings = $estimated_monthly_savings ?? "";
   }
 }
 
@@ -2142,7 +2142,7 @@ class UnresolvableUsageUnitException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2160,9 +2160,9 @@ class UpdateCostCategoryDefinitionRequest {
   ?'rule_version' => CostCategoryRuleVersion,
   ?'rules' => CostCategoryRulesList,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->rule_version = $rule_version ?? ;
-    $this->rules = $rules ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->rule_version = $rule_version ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -2174,8 +2174,8 @@ class UpdateCostCategoryDefinitionResponse {
   ?'cost_category_arn' => Arn,
   ?'effective_start' => ZonedDateTime,
   ) $s = shape()) {
-    $this->cost_category_arn = $cost_category_arn ?? ;
-    $this->effective_start = $effective_start ?? ;
+    $this->cost_category_arn = $cost_category_arn ?? "";
+    $this->effective_start = $effective_start ?? "";
   }
 }
 
@@ -2190,8 +2190,8 @@ class UtilizationByTime {
   ?'total' => ReservationAggregates,
   ) $s = shape()) {
     $this->groups = $groups ?? [];
-    $this->time_period = $time_period ?? ;
-    $this->total = $total ?? ;
+    $this->time_period = $time_period ?? null;
+    $this->total = $total ?? null;
   }
 }
 

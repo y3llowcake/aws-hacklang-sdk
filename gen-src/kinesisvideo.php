@@ -31,7 +31,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -41,7 +41,7 @@ class AccountChannelLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -51,7 +51,7 @@ class AccountStreamLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -73,11 +73,11 @@ class ChannelInfo {
   ?'single_master_configuration' => SingleMasterConfiguration,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
+    $this->channel_arn = $channel_arn ?? "";
     $this->channel_name = $channel_name ?? "";
-    $this->channel_status = $channel_status ?? ;
+    $this->channel_status = $channel_status ?? "";
     $this->channel_type = $channel_type ?? "";
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->single_master_configuration = $single_master_configuration ?? null;
     $this->version = $version ?? "";
   }
@@ -96,7 +96,7 @@ class ChannelNameCondition {
   ?'comparison_value' => ChannelName,
   ) $s = shape()) {
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->comparison_value = $comparison_value ?? ;
+    $this->comparison_value = $comparison_value ?? "";
   }
 }
 
@@ -112,7 +112,7 @@ class ClientLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -133,7 +133,7 @@ class CreateSignalingChannelInput {
     $this->channel_name = $channel_name ?? "";
     $this->channel_type = $channel_type ?? "";
     $this->single_master_configuration = $single_master_configuration ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -143,7 +143,7 @@ class CreateSignalingChannelOutput {
   public function __construct(shape(
   ?'channel_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
+    $this->channel_arn = $channel_arn ?? "";
   }
 }
 
@@ -168,7 +168,7 @@ class CreateStreamInput {
     $this->kms_key_id = $kms_key_id ?? "";
     $this->media_type = $media_type ?? "";
     $this->stream_name = $stream_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -178,7 +178,7 @@ class CreateStreamOutput {
   public function __construct(shape(
   ?'stream_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
   }
 }
 
@@ -196,8 +196,8 @@ class DeleteSignalingChannelInput {
   ?'channel_arn' => ResourceARN,
   ?'current_version' => Version,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
-    $this->current_version = $current_version ?? ;
+    $this->channel_arn = $channel_arn ?? "";
+    $this->current_version = $current_version ?? "";
   }
 }
 
@@ -216,8 +216,8 @@ class DeleteStreamInput {
   ?'current_version' => Version,
   ?'stream_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->current_version = $current_version ?? ;
-    $this->stream_arn = $stream_arn ?? ;
+    $this->current_version = $current_version ?? "";
+    $this->stream_arn = $stream_arn ?? "";
   }
 }
 
@@ -236,7 +236,7 @@ class DescribeSignalingChannelInput {
   ?'channel_arn' => ResourceARN,
   ?'channel_name' => ChannelName,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
+    $this->channel_arn = $channel_arn ?? "";
     $this->channel_name = $channel_name ?? "";
   }
 }
@@ -259,7 +259,7 @@ class DescribeStreamInput {
   ?'stream_arn' => ResourceARN,
   ?'stream_name' => StreamName,
   ) $s = shape()) {
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
   }
 }
@@ -282,7 +282,7 @@ class DeviceStreamLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -299,7 +299,7 @@ class GetDataEndpointInput {
   ?'stream_name' => StreamName,
   ) $s = shape()) {
     $this->api_name = $api_name ?? "";
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
   }
 }
@@ -322,7 +322,7 @@ class GetSignalingChannelEndpointInput {
   ?'channel_arn' => ResourceARN,
   ?'single_master_channel_endpoint_configuration' => SingleMasterChannelEndpointConfiguration,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
+    $this->channel_arn = $channel_arn ?? "";
     $this->single_master_channel_endpoint_configuration = $single_master_channel_endpoint_configuration ?? null;
   }
 }
@@ -343,7 +343,7 @@ class InvalidArgumentException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -353,7 +353,7 @@ class InvalidDeviceException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -363,7 +363,7 @@ class InvalidResourceFormatException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -382,7 +382,7 @@ class ListSignalingChannelsInput {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->channel_name_condition = $channel_name_condition ?? null;
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -410,7 +410,7 @@ class ListStreamsInput {
   ?'next_token' => NextToken,
   ?'stream_name_condition' => StreamNameCondition,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->stream_name_condition = $stream_name_condition ?? null;
   }
@@ -453,7 +453,7 @@ class ListTagsForResourceOutput {
   ?'tags' => ResourceTags,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -468,7 +468,7 @@ class ListTagsForStreamInput {
   ?'stream_name' => StreamName,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
   }
 }
@@ -482,7 +482,7 @@ class ListTagsForStreamOutput {
   ?'tags' => ResourceTags,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -498,7 +498,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -516,7 +516,7 @@ class ResourceEndpointListItem {
   ?'protocol' => ChannelProtocol,
   ?'resource_endpoint' => ResourceEndpoint,
   ) $s = shape()) {
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
     $this->resource_endpoint = $resource_endpoint ?? "";
   }
 }
@@ -527,7 +527,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -537,7 +537,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -551,8 +551,8 @@ class SingleMasterChannelEndpointConfiguration {
   ?'protocols' => ListOfProtocols,
   ?'role' => ChannelRole,
   ) $s = shape()) {
-    $this->protocols = $protocols ?? ;
-    $this->role = $role ?? ;
+    $this->protocols = $protocols ?? [];
+    $this->role = $role ?? "";
   }
 }
 
@@ -590,13 +590,13 @@ class StreamInfo {
   ?'stream_name' => StreamName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->data_retention_in_hours = $data_retention_in_hours ?? 0;
     $this->device_name = $device_name ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
     $this->media_type = $media_type ?? "";
     $this->status = $status ?? "";
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
     $this->version = $version ?? "";
   }
@@ -615,7 +615,7 @@ class StreamNameCondition {
   ?'comparison_value' => StreamName,
   ) $s = shape()) {
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->comparison_value = $comparison_value ?? ;
+    $this->comparison_value = $comparison_value ?? "";
   }
 }
 
@@ -627,8 +627,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -649,7 +649,7 @@ class TagResourceInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -670,9 +670,9 @@ class TagStreamInput {
   ?'stream_name' => StreamName,
   ?'tags' => ResourceTags,
   ) $s = shape()) {
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -691,7 +691,7 @@ class TagsPerResourceExceededLimitException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -727,7 +727,7 @@ class UntagStreamInput {
   ?'stream_name' => StreamName,
   ?'tag_key_list' => TagKeyList,
   ) $s = shape()) {
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
     $this->tag_key_list = $tag_key_list ?? [];
   }
@@ -754,10 +754,10 @@ class UpdateDataRetentionInput {
   ?'stream_arn' => ResourceARN,
   ?'stream_name' => StreamName,
   ) $s = shape()) {
-    $this->current_version = $current_version ?? ;
+    $this->current_version = $current_version ?? "";
     $this->data_retention_change_in_hours = $data_retention_change_in_hours ?? 0;
-    $this->operation = $operation ?? ;
-    $this->stream_arn = $stream_arn ?? ;
+    $this->operation = $operation ?? "";
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
   }
 }
@@ -781,8 +781,8 @@ class UpdateSignalingChannelInput {
   ?'current_version' => Version,
   ?'single_master_configuration' => SingleMasterConfiguration,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
-    $this->current_version = $current_version ?? ;
+    $this->channel_arn = $channel_arn ?? "";
+    $this->current_version = $current_version ?? "";
     $this->single_master_configuration = $single_master_configuration ?? null;
   }
 }
@@ -808,10 +808,10 @@ class UpdateStreamInput {
   ?'stream_arn' => ResourceARN,
   ?'stream_name' => StreamName,
   ) $s = shape()) {
-    $this->current_version = $current_version ?? ;
+    $this->current_version = $current_version ?? "";
     $this->device_name = $device_name ?? "";
     $this->media_type = $media_type ?? "";
-    $this->stream_arn = $stream_arn ?? ;
+    $this->stream_arn = $stream_arn ?? "";
     $this->stream_name = $stream_name ?? "";
   }
 }
@@ -831,7 +831,7 @@ class VersionMismatchException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

@@ -38,8 +38,8 @@ class AssociateResolverEndpointIpAddressRequest {
   ?'ip_address' => IpAddressUpdate,
   ?'resolver_endpoint_id' => ResourceId,
   ) $s = shape()) {
-    $this->ip_address = $ip_address ?? ;
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->ip_address = $ip_address ?? null;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -64,8 +64,8 @@ class AssociateResolverRuleRequest {
   ?'vpc_id' => ResourceId,
   ) $s = shape()) {
     $this->name = $name ?? "";
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -98,11 +98,11 @@ class CreateResolverEndpointRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->creator_request_id = $creator_request_id ?? "";
-    $this->direction = $direction ?? ;
-    $this->ip_addresses = $ip_addresses ?? ;
+    $this->direction = $direction ?? "";
+    $this->ip_addresses = $ip_addresses ?? [];
     $this->name = $name ?? "";
     $this->security_group_ids = $security_group_ids ?? [];
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -137,10 +137,10 @@ class CreateResolverRuleRequest {
     $this->creator_request_id = $creator_request_id ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->name = $name ?? "";
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
-    $this->rule_type = $rule_type ?? ;
-    $this->tags = $tags ?? ;
-    $this->target_ips = $target_ips ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
+    $this->rule_type = $rule_type ?? "";
+    $this->tags = $tags ?? [];
+    $this->target_ips = $target_ips ?? [];
   }
 }
 
@@ -162,7 +162,7 @@ class DeleteResolverEndpointRequest {
   public function __construct(shape(
   ?'resolver_endpoint_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -182,7 +182,7 @@ class DeleteResolverRuleRequest {
   public function __construct(shape(
   ?'resolver_rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
   }
 }
 
@@ -204,8 +204,8 @@ class DisassociateResolverEndpointIpAddressRequest {
   ?'ip_address' => IpAddressUpdate,
   ?'resolver_endpoint_id' => ResourceId,
   ) $s = shape()) {
-    $this->ip_address = $ip_address ?? ;
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->ip_address = $ip_address ?? null;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -227,8 +227,8 @@ class DisassociateResolverRuleRequest {
   ?'resolver_rule_id' => ResourceId,
   ?'vpc_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -255,7 +255,7 @@ class Filter {
   ?'values' => FilterValues,
   ) $s = shape()) {
     $this->name = $name ?? "";
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -273,7 +273,7 @@ class GetResolverEndpointRequest {
   public function __construct(shape(
   ?'resolver_endpoint_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -293,7 +293,7 @@ class GetResolverRuleAssociationRequest {
   public function __construct(shape(
   ?'resolver_rule_association_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_rule_association_id = $resolver_rule_association_id ?? ;
+    $this->resolver_rule_association_id = $resolver_rule_association_id ?? "";
   }
 }
 
@@ -333,7 +333,7 @@ class GetResolverRuleRequest {
   public function __construct(shape(
   ?'resolver_rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
   }
 }
 
@@ -353,7 +353,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -363,7 +363,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -375,8 +375,8 @@ class InvalidParameterException {
   ?'field_name' => string,
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->field_name = $field_name ?? ;
-    $this->message = $message ?? ;
+    $this->field_name = $field_name ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -386,7 +386,7 @@ class InvalidPolicyDocument {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -396,7 +396,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -406,7 +406,7 @@ class InvalidTagException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -445,11 +445,11 @@ class IpAddressResponse {
   ?'status_message' => StatusMessage,
   ?'subnet_id' => SubnetId,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? "";
     $this->ip = $ip ?? "";
-    $this->ip_id = $ip_id ?? ;
-    $this->modification_time = $modification_time ?? ;
-    $this->status = $status ?? ;
+    $this->ip_id = $ip_id ?? "";
+    $this->modification_time = $modification_time ?? "";
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
     $this->subnet_id = $subnet_id ?? "";
   }
@@ -468,7 +468,7 @@ class IpAddressUpdate {
   ?'subnet_id' => SubnetId,
   ) $s = shape()) {
     $this->ip = $ip ?? "";
-    $this->ip_id = $ip_id ?? ;
+    $this->ip_id = $ip_id ?? "";
     $this->subnet_id = $subnet_id ?? "";
   }
 }
@@ -485,8 +485,8 @@ class LimitExceededException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class ListResolverEndpointIpAddressesRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -516,7 +516,7 @@ class ListResolverEndpointIpAddressesResponse {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->ip_addresses = $ip_addresses ?? ;
+    $this->ip_addresses = $ip_addresses ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -630,7 +630,7 @@ class ListTagsForResourceRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -643,7 +643,7 @@ class ListTagsForResourceResponse {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -674,7 +674,7 @@ class PutResolverRulePolicyResponse {
   public function __construct(shape(
   ?'return_value' => boolean,
   ) $s = shape()) {
-    $this->return_value = $return_value ?? ;
+    $this->return_value = $return_value ?? false;
   }
 }
 
@@ -707,16 +707,16 @@ class ResolverEndpoint {
   ?'status_message' => StatusMessage,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? "";
     $this->creator_request_id = $creator_request_id ?? "";
-    $this->direction = $direction ?? ;
-    $this->host_vpc_id = $host_vpc_id ?? ;
-    $this->id = $id ?? ;
+    $this->direction = $direction ?? "";
+    $this->host_vpc_id = $host_vpc_id ?? "";
+    $this->id = $id ?? "";
     $this->ip_address_count = $ip_address_count ?? 0;
-    $this->modification_time = $modification_time ?? ;
+    $this->modification_time = $modification_time ?? "";
     $this->name = $name ?? "";
     $this->security_group_ids = $security_group_ids ?? [];
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
   }
 }
@@ -758,15 +758,15 @@ class ResolverRule {
     $this->arn = $arn ?? "";
     $this->creator_request_id = $creator_request_id ?? "";
     $this->domain_name = $domain_name ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->name = $name ?? "";
-    $this->owner_id = $owner_id ?? ;
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
-    $this->rule_type = $rule_type ?? ;
+    $this->owner_id = $owner_id ?? "";
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
+    $this->rule_type = $rule_type ?? "";
     $this->share_status = $share_status ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
-    $this->target_ips = $target_ips ?? ;
+    $this->target_ips = $target_ips ?? [];
   }
 }
 
@@ -786,12 +786,12 @@ class ResolverRuleAssociation {
   ?'status_message' => StatusMessage,
   ?'vpc_id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->name = $name ?? "";
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
-    $this->status = $status ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
-    $this->vpc_id = $vpc_id ?? ;
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -810,8 +810,8 @@ class ResolverRuleConfig {
   ?'target_ips' => TargetList,
   ) $s = shape()) {
     $this->name = $name ?? "";
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
-    $this->target_ips = $target_ips ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
+    $this->target_ips = $target_ips ?? [];
   }
 }
 
@@ -829,8 +829,8 @@ class ResourceExistsException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -844,8 +844,8 @@ class ResourceInUseException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -857,8 +857,8 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -870,8 +870,8 @@ class ResourceUnavailableException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -897,8 +897,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -916,8 +916,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -951,7 +951,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -961,7 +961,7 @@ class UnknownResourceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -973,8 +973,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -994,7 +994,7 @@ class UpdateResolverEndpointRequest {
   ?'resolver_endpoint_id' => ResourceId,
   ) $s = shape()) {
     $this->name = $name ?? "";
-    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? "";
   }
 }
 
@@ -1016,8 +1016,8 @@ class UpdateResolverRuleRequest {
   ?'config' => ResolverRuleConfig,
   ?'resolver_rule_id' => ResourceId,
   ) $s = shape()) {
-    $this->config = $config ?? ;
-    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->config = $config ?? null;
+    $this->resolver_rule_id = $resolver_rule_id ?? "";
   }
 }
 

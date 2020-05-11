@@ -56,7 +56,7 @@ class BatchDescribeSimulationJobRequest {
   public function __construct(shape(
   ?'jobs' => Arns,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -68,8 +68,8 @@ class BatchDescribeSimulationJobResponse {
   ?'jobs' => SimulationJobs,
   ?'unprocessed_jobs' => Arns,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
-    $this->unprocessed_jobs = $unprocessed_jobs ?? ;
+    $this->jobs = $jobs ?? [];
+    $this->unprocessed_jobs = $unprocessed_jobs ?? [];
   }
 }
 
@@ -81,8 +81,8 @@ class BatchPolicy {
   ?'max_concurrency' => MaxConcurrency,
   ?'timeout_in_seconds' => BatchTimeoutInSeconds,
   ) $s = shape()) {
-    $this->max_concurrency = $max_concurrency ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->max_concurrency = $max_concurrency ?? 0;
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -98,7 +98,7 @@ class CancelDeploymentJobRequest {
   public function __construct(shape(
   ?'job' => Arn,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? "";
   }
 }
 
@@ -115,7 +115,7 @@ class CancelSimulationJobBatchRequest {
   public function __construct(shape(
   ?'batch' => Arn,
   ) $s = shape()) {
-    $this->batch = $batch ?? ;
+    $this->batch = $batch ?? "";
   }
 }
 
@@ -132,7 +132,7 @@ class CancelSimulationJobRequest {
   public function __construct(shape(
   ?'job' => Arn,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? "";
   }
 }
 
@@ -153,7 +153,7 @@ class Compute {
   public function __construct(shape(
   ?'simulation_unit_limit' => SimulationUnit,
   ) $s = shape()) {
-    $this->simulation_unit_limit = $simulation_unit_limit ?? ;
+    $this->simulation_unit_limit = $simulation_unit_limit ?? 0;
   }
 }
 
@@ -163,7 +163,7 @@ class ComputeResponse {
   public function __construct(shape(
   ?'simulation_unit_limit' => SimulationUnit,
   ) $s = shape()) {
-    $this->simulation_unit_limit = $simulation_unit_limit ?? ;
+    $this->simulation_unit_limit = $simulation_unit_limit ?? 0;
   }
 }
 
@@ -173,7 +173,7 @@ class ConcurrentDeploymentException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -191,11 +191,11 @@ class CreateDeploymentJobRequest {
   ?'fleet' => Arn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->deployment_application_configs = $deployment_application_configs ?? ;
-    $this->deployment_config = $deployment_config ?? ;
-    $this->fleet = $fleet ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->deployment_application_configs = $deployment_application_configs ?? [];
+    $this->deployment_config = $deployment_config ?? null;
+    $this->fleet = $fleet ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -221,15 +221,15 @@ class CreateDeploymentJobResponse {
   ?'status' => DeploymentStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->deployment_application_configs = $deployment_application_configs ?? ;
-    $this->deployment_config = $deployment_config ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->fleet = $fleet ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->deployment_application_configs = $deployment_application_configs ?? [];
+    $this->deployment_config = $deployment_config ?? null;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->fleet = $fleet ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -241,8 +241,8 @@ class CreateFleetRequest {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -258,10 +258,10 @@ class CreateFleetResponse {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -277,10 +277,10 @@ class CreateRobotApplicationRequest {
   ?'sources' => SourceConfigs,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -304,14 +304,14 @@ class CreateRobotApplicationResponse {
   ?'tags' => TagMap,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -323,8 +323,8 @@ class CreateRobotApplicationVersionRequest {
   ?'application' => Arn,
   ?'current_revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->current_revision_id = $current_revision_id ?? ;
+    $this->application = $application ?? "";
+    $this->current_revision_id = $current_revision_id ?? "";
   }
 }
 
@@ -346,13 +346,13 @@ class CreateRobotApplicationVersionResponse {
   ?'sources' => Sources,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -368,10 +368,10 @@ class CreateRobotRequest {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->greengrass_group_id = $greengrass_group_id ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->greengrass_group_id = $greengrass_group_id ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -391,12 +391,12 @@ class CreateRobotResponse {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->greengrass_group_id = $greengrass_group_id ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->greengrass_group_id = $greengrass_group_id ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -416,12 +416,12 @@ class CreateSimulationApplicationRequest {
   ?'sources' => SourceConfigs,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -449,16 +449,16 @@ class CreateSimulationApplicationResponse {
   ?'tags' => TagMap,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -470,8 +470,8 @@ class CreateSimulationApplicationVersionRequest {
   ?'application' => Arn,
   ?'current_revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->current_revision_id = $current_revision_id ?? ;
+    $this->application = $application ?? "";
+    $this->current_revision_id = $current_revision_id ?? "";
   }
 }
 
@@ -497,15 +497,15 @@ class CreateSimulationApplicationVersionResponse {
   ?'sources' => Sources,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -537,18 +537,18 @@ class CreateSimulationJobRequest {
   ?'tags' => TagMap,
   ?'vpc_config' => VPCConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->compute = $compute ?? ;
-    $this->data_sources = $data_sources ?? ;
-    $this->failure_behavior = $failure_behavior ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->logging_config = $logging_config ?? ;
-    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
-    $this->output_location = $output_location ?? ;
-    $this->robot_applications = $robot_applications ?? ;
-    $this->simulation_applications = $simulation_applications ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->compute = $compute ?? null;
+    $this->data_sources = $data_sources ?? [];
+    $this->failure_behavior = $failure_behavior ?? "";
+    $this->iam_role = $iam_role ?? "";
+    $this->logging_config = $logging_config ?? null;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? 0;
+    $this->output_location = $output_location ?? null;
+    $this->robot_applications = $robot_applications ?? [];
+    $this->simulation_applications = $simulation_applications ?? [];
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -594,24 +594,24 @@ class CreateSimulationJobResponse {
   ?'tags' => TagMap,
   ?'vpc_config' => VPCConfigResponse,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->compute = $compute ?? ;
-    $this->data_sources = $data_sources ?? ;
-    $this->failure_behavior = $failure_behavior ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->last_started_at = $last_started_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->logging_config = $logging_config ?? ;
-    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
-    $this->output_location = $output_location ?? ;
-    $this->robot_applications = $robot_applications ?? ;
-    $this->simulation_applications = $simulation_applications ?? ;
-    $this->simulation_time_millis = $simulation_time_millis ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->arn = $arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->compute = $compute ?? null;
+    $this->data_sources = $data_sources ?? [];
+    $this->failure_behavior = $failure_behavior ?? "";
+    $this->failure_code = $failure_code ?? "";
+    $this->iam_role = $iam_role ?? "";
+    $this->last_started_at = $last_started_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->logging_config = $logging_config ?? null;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? 0;
+    $this->output_location = $output_location ?? null;
+    $this->robot_applications = $robot_applications ?? [];
+    $this->simulation_applications = $simulation_applications ?? [];
+    $this->simulation_time_millis = $simulation_time_millis ?? 0;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -627,9 +627,9 @@ class DataSource {
   ?'s_3_bucket' => S3Bucket,
   ?'s_3_keys' => S3KeyOutputs,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_keys = $s_3_keys ?? ;
+    $this->name = $name ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_keys = $s_3_keys ?? [];
   }
 }
 
@@ -643,9 +643,9 @@ class DataSourceConfig {
   ?'s_3_bucket' => S3Bucket,
   ?'s_3_keys' => S3Keys,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_keys = $s_3_keys ?? ;
+    $this->name = $name ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_keys = $s_3_keys ?? [];
   }
 }
 
@@ -661,7 +661,7 @@ class DeleteFleetRequest {
   public function __construct(shape(
   ?'fleet' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
+    $this->fleet = $fleet ?? "";
   }
 }
 
@@ -680,8 +680,8 @@ class DeleteRobotApplicationRequest {
   ?'application' => Arn,
   ?'application_version' => Version,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
   }
 }
 
@@ -698,7 +698,7 @@ class DeleteRobotRequest {
   public function __construct(shape(
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->robot = $robot ?? ;
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -717,8 +717,8 @@ class DeleteSimulationApplicationRequest {
   ?'application' => Arn,
   ?'application_version' => Version,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
   }
 }
 
@@ -739,9 +739,9 @@ class DeploymentApplicationConfig {
   ?'application_version' => DeploymentVersion,
   ?'launch_config' => DeploymentLaunchConfig,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
-    $this->launch_config = $launch_config ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
+    $this->launch_config = $launch_config ?? null;
   }
 }
 
@@ -759,10 +759,10 @@ class DeploymentConfig {
   ?'failure_threshold_percentage' => Percentage,
   ?'robot_deployment_timeout_in_seconds' => DeploymentTimeout,
   ) $s = shape()) {
-    $this->concurrent_deployment_percentage = $concurrent_deployment_percentage ?? ;
-    $this->download_condition_file = $download_condition_file ?? ;
-    $this->failure_threshold_percentage = $failure_threshold_percentage ?? ;
-    $this->robot_deployment_timeout_in_seconds = $robot_deployment_timeout_in_seconds ?? ;
+    $this->concurrent_deployment_percentage = $concurrent_deployment_percentage ?? 0;
+    $this->download_condition_file = $download_condition_file ?? null;
+    $this->failure_threshold_percentage = $failure_threshold_percentage ?? 0;
+    $this->robot_deployment_timeout_in_seconds = $robot_deployment_timeout_in_seconds ?? 0;
   }
 }
 
@@ -786,14 +786,14 @@ class DeploymentJob {
   ?'fleet' => Arn,
   ?'status' => DeploymentStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->deployment_application_configs = $deployment_application_configs ?? ;
-    $this->deployment_config = $deployment_config ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->fleet = $fleet ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->deployment_application_configs = $deployment_application_configs ?? [];
+    $this->deployment_config = $deployment_config ?? null;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->fleet = $fleet ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -815,11 +815,11 @@ class DeploymentLaunchConfig {
   ?'post_launch_file' => Path,
   ?'pre_launch_file' => Path,
   ) $s = shape()) {
-    $this->environment_variables = $environment_variables ?? ;
-    $this->launch_file = $launch_file ?? ;
-    $this->package_name = $package_name ?? ;
-    $this->post_launch_file = $post_launch_file ?? ;
-    $this->pre_launch_file = $pre_launch_file ?? ;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->launch_file = $launch_file ?? "";
+    $this->package_name = $package_name ?? "";
+    $this->post_launch_file = $post_launch_file ?? "";
+    $this->pre_launch_file = $pre_launch_file ?? "";
   }
 }
 
@@ -837,8 +837,8 @@ class DeregisterRobotRequest {
   ?'fleet' => Arn,
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
-    $this->robot = $robot ?? ;
+    $this->fleet = $fleet ?? "";
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -850,8 +850,8 @@ class DeregisterRobotResponse {
   ?'fleet' => Arn,
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
-    $this->robot = $robot ?? ;
+    $this->fleet = $fleet ?? "";
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -861,7 +861,7 @@ class DescribeDeploymentJobRequest {
   public function __construct(shape(
   ?'job' => Arn,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? "";
   }
 }
 
@@ -889,16 +889,16 @@ class DescribeDeploymentJobResponse {
   ?'status' => DeploymentStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->deployment_application_configs = $deployment_application_configs ?? ;
-    $this->deployment_config = $deployment_config ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->fleet = $fleet ?? ;
-    $this->robot_deployment_summary = $robot_deployment_summary ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->deployment_application_configs = $deployment_application_configs ?? [];
+    $this->deployment_config = $deployment_config ?? null;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->fleet = $fleet ?? "";
+    $this->robot_deployment_summary = $robot_deployment_summary ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -908,7 +908,7 @@ class DescribeFleetRequest {
   public function __construct(shape(
   ?'fleet' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
+    $this->fleet = $fleet ?? "";
   }
 }
 
@@ -932,14 +932,14 @@ class DescribeFleetResponse {
   ?'robots' => Robots,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->last_deployment_job = $last_deployment_job ?? ;
-    $this->last_deployment_status = $last_deployment_status ?? ;
-    $this->last_deployment_time = $last_deployment_time ?? ;
-    $this->name = $name ?? ;
-    $this->robots = $robots ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->last_deployment_job = $last_deployment_job ?? "";
+    $this->last_deployment_status = $last_deployment_status ?? "";
+    $this->last_deployment_time = $last_deployment_time ?? 0;
+    $this->name = $name ?? "";
+    $this->robots = $robots ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -951,8 +951,8 @@ class DescribeRobotApplicationRequest {
   ?'application' => Arn,
   ?'application_version' => Version,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
   }
 }
 
@@ -976,14 +976,14 @@ class DescribeRobotApplicationResponse {
   ?'tags' => TagMap,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -993,7 +993,7 @@ class DescribeRobotRequest {
   public function __construct(shape(
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->robot = $robot ?? ;
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -1021,16 +1021,16 @@ class DescribeRobotResponse {
   ?'status' => RobotStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->fleet_arn = $fleet_arn ?? ;
-    $this->greengrass_group_id = $greengrass_group_id ?? ;
-    $this->last_deployment_job = $last_deployment_job ?? ;
-    $this->last_deployment_time = $last_deployment_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->fleet_arn = $fleet_arn ?? "";
+    $this->greengrass_group_id = $greengrass_group_id ?? "";
+    $this->last_deployment_job = $last_deployment_job ?? "";
+    $this->last_deployment_time = $last_deployment_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1042,8 +1042,8 @@ class DescribeSimulationApplicationRequest {
   ?'application' => Arn,
   ?'application_version' => Version,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
   }
 }
 
@@ -1071,16 +1071,16 @@ class DescribeSimulationApplicationResponse {
   ?'tags' => TagMap,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -1090,7 +1090,7 @@ class DescribeSimulationJobBatchRequest {
   public function __construct(shape(
   ?'batch' => Arn,
   ) $s = shape()) {
-    $this->batch = $batch ?? ;
+    $this->batch = $batch ?? "";
   }
 }
 
@@ -1122,18 +1122,18 @@ class DescribeSimulationJobBatchResponse {
   ?'status' => SimulationJobBatchStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->batch_policy = $batch_policy ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_requests = $created_requests ?? ;
-    $this->failed_requests = $failed_requests ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->pending_requests = $pending_requests ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->batch_policy = $batch_policy ?? null;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->created_requests = $created_requests ?? [];
+    $this->failed_requests = $failed_requests ?? [];
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->pending_requests = $pending_requests ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1143,7 +1143,7 @@ class DescribeSimulationJobRequest {
   public function __construct(shape(
   ?'job' => Arn,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? "";
   }
 }
 
@@ -1193,27 +1193,27 @@ class DescribeSimulationJobResponse {
   ?'tags' => TagMap,
   ?'vpc_config' => VPCConfigResponse,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->compute = $compute ?? ;
-    $this->data_sources = $data_sources ?? ;
-    $this->failure_behavior = $failure_behavior ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->last_started_at = $last_started_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->logging_config = $logging_config ?? ;
-    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
-    $this->name = $name ?? ;
-    $this->network_interface = $network_interface ?? ;
-    $this->output_location = $output_location ?? ;
-    $this->robot_applications = $robot_applications ?? ;
-    $this->simulation_applications = $simulation_applications ?? ;
-    $this->simulation_time_millis = $simulation_time_millis ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->arn = $arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->compute = $compute ?? null;
+    $this->data_sources = $data_sources ?? [];
+    $this->failure_behavior = $failure_behavior ?? "";
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->iam_role = $iam_role ?? "";
+    $this->last_started_at = $last_started_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->logging_config = $logging_config ?? null;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? 0;
+    $this->name = $name ?? "";
+    $this->network_interface = $network_interface ?? null;
+    $this->output_location = $output_location ?? null;
+    $this->robot_applications = $robot_applications ?? [];
+    $this->simulation_applications = $simulation_applications ?? [];
+    $this->simulation_time_millis = $simulation_time_millis ?? 0;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -1237,10 +1237,10 @@ class FailedCreateSimulationJobRequest {
   ?'failure_reason' => GenericString,
   ?'request' => SimulationJobRequest,
   ) $s = shape()) {
-    $this->failed_at = $failed_at ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->request = $request ?? ;
+    $this->failed_at = $failed_at ?? 0;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->request = $request ?? null;
   }
 }
 
@@ -1256,8 +1256,8 @@ class Filter {
   ?'name' => Name,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1281,12 +1281,12 @@ class Fleet {
   ?'last_deployment_time' => CreatedAt,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->last_deployment_job = $last_deployment_job ?? ;
-    $this->last_deployment_status = $last_deployment_status ?? ;
-    $this->last_deployment_time = $last_deployment_time ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->last_deployment_job = $last_deployment_job ?? "";
+    $this->last_deployment_status = $last_deployment_status ?? "";
+    $this->last_deployment_time = $last_deployment_time ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1306,7 +1306,7 @@ class IdempotentParameterMismatchException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1318,7 +1318,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1328,7 +1328,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1352,11 +1352,11 @@ class LaunchConfig {
   ?'port_forwarding_config' => PortForwardingConfig,
   ?'stream_ui' => boolean,
   ) $s = shape()) {
-    $this->environment_variables = $environment_variables ?? ;
-    $this->launch_file = $launch_file ?? ;
-    $this->package_name = $package_name ?? ;
-    $this->port_forwarding_config = $port_forwarding_config ?? ;
-    $this->stream_ui = $stream_ui ?? ;
+    $this->environment_variables = $environment_variables ?? [];
+    $this->launch_file = $launch_file ?? "";
+    $this->package_name = $package_name ?? "";
+    $this->port_forwarding_config = $port_forwarding_config ?? null;
+    $this->stream_ui = $stream_ui ?? false;
   }
 }
 
@@ -1366,7 +1366,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1380,9 +1380,9 @@ class ListDeploymentJobsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1394,8 +1394,8 @@ class ListDeploymentJobsResponse {
   ?'deployment_jobs' => DeploymentJobs,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->deployment_jobs = $deployment_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->deployment_jobs = $deployment_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1409,9 +1409,9 @@ class ListFleetsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1423,8 +1423,8 @@ class ListFleetsResponse {
   ?'fleet_details' => Fleets,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->fleet_details = $fleet_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_details = $fleet_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1440,10 +1440,10 @@ class ListRobotApplicationsRequest {
   ?'next_token' => PaginationToken,
   ?'version_qualifier' => VersionQualifier,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version_qualifier = $version_qualifier ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->version_qualifier = $version_qualifier ?? "";
   }
 }
 
@@ -1455,8 +1455,8 @@ class ListRobotApplicationsResponse {
   ?'next_token' => PaginationToken,
   ?'robot_application_summaries' => RobotApplicationSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->robot_application_summaries = $robot_application_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->robot_application_summaries = $robot_application_summaries ?? [];
   }
 }
 
@@ -1470,9 +1470,9 @@ class ListRobotsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1484,8 +1484,8 @@ class ListRobotsResponse {
   ?'next_token' => PaginationToken,
   ?'robots' => Robots,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->robots = $robots ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->robots = $robots ?? [];
   }
 }
 
@@ -1501,10 +1501,10 @@ class ListSimulationApplicationsRequest {
   ?'next_token' => PaginationToken,
   ?'version_qualifier' => VersionQualifier,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version_qualifier = $version_qualifier ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->version_qualifier = $version_qualifier ?? "";
   }
 }
 
@@ -1516,8 +1516,8 @@ class ListSimulationApplicationsResponse {
   ?'next_token' => PaginationToken,
   ?'simulation_application_summaries' => SimulationApplicationSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->simulation_application_summaries = $simulation_application_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->simulation_application_summaries = $simulation_application_summaries ?? [];
   }
 }
 
@@ -1531,9 +1531,9 @@ class ListSimulationJobBatchesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1545,8 +1545,8 @@ class ListSimulationJobBatchesResponse {
   ?'next_token' => PaginationToken,
   ?'simulation_job_batch_summaries' => SimulationJobBatchSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->simulation_job_batch_summaries = $simulation_job_batch_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->simulation_job_batch_summaries = $simulation_job_batch_summaries ?? [];
   }
 }
 
@@ -1560,9 +1560,9 @@ class ListSimulationJobsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1574,8 +1574,8 @@ class ListSimulationJobsResponse {
   ?'next_token' => PaginationToken,
   ?'simulation_job_summaries' => SimulationJobSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->simulation_job_summaries = $simulation_job_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->simulation_job_summaries = $simulation_job_summaries ?? [];
   }
 }
 
@@ -1585,7 +1585,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1595,7 +1595,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1605,7 +1605,7 @@ class LoggingConfig {
   public function __construct(shape(
   ?'record_all_ros_topics' => BoxedBoolean,
   ) $s = shape()) {
-    $this->record_all_ros_topics = $record_all_ros_topics ?? ;
+    $this->record_all_ros_topics = $record_all_ros_topics ?? false;
   }
 }
 
@@ -1625,9 +1625,9 @@ class NetworkInterface {
   ?'private_ip_address' => GenericString,
   ?'public_ip_address' => GenericString,
   ) $s = shape()) {
-    $this->network_interface_id = $network_interface_id ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
-    $this->public_ip_address = $public_ip_address ?? ;
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
+    $this->public_ip_address = $public_ip_address ?? "";
   }
 }
 
@@ -1643,8 +1643,8 @@ class OutputLocation {
   ?'s_3_bucket' => S3Bucket,
   ?'s_3_prefix' => S3Key,
   ) $s = shape()) {
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_prefix = $s_3_prefix ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_prefix = $s_3_prefix ?? "";
   }
 }
 
@@ -1664,7 +1664,7 @@ class PortForwardingConfig {
   public function __construct(shape(
   ?'port_mappings' => PortMappingList,
   ) $s = shape()) {
-    $this->port_mappings = $port_mappings ?? ;
+    $this->port_mappings = $port_mappings ?? [];
   }
 }
 
@@ -1678,9 +1678,9 @@ class PortMapping {
   ?'enable_on_public_ip' => boolean,
   ?'job_port' => Port,
   ) $s = shape()) {
-    $this->application_port = $application_port ?? ;
-    $this->enable_on_public_ip = $enable_on_public_ip ?? ;
-    $this->job_port = $job_port ?? ;
+    $this->application_port = $application_port ?? 0;
+    $this->enable_on_public_ip = $enable_on_public_ip ?? false;
+    $this->job_port = $job_port ?? 0;
   }
 }
 
@@ -1698,10 +1698,10 @@ class ProgressDetail {
   ?'percent_done' => PercentDone,
   ?'target_resource' => GenericString,
   ) $s = shape()) {
-    $this->current_progress = $current_progress ?? ;
-    $this->estimated_time_remaining_seconds = $estimated_time_remaining_seconds ?? ;
-    $this->percent_done = $percent_done ?? ;
-    $this->target_resource = $target_resource ?? ;
+    $this->current_progress = $current_progress ?? "";
+    $this->estimated_time_remaining_seconds = $estimated_time_remaining_seconds ?? 0;
+    $this->percent_done = $percent_done ?? 0.0;
+    $this->target_resource = $target_resource ?? "";
   }
 }
 
@@ -1713,8 +1713,8 @@ class RegisterRobotRequest {
   ?'fleet' => Arn,
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
-    $this->robot = $robot ?? ;
+    $this->fleet = $fleet ?? "";
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -1726,8 +1726,8 @@ class RegisterRobotResponse {
   ?'fleet' => Arn,
   ?'robot' => Arn,
   ) $s = shape()) {
-    $this->fleet = $fleet ?? ;
-    $this->robot = $robot ?? ;
+    $this->fleet = $fleet ?? "";
+    $this->robot = $robot ?? "";
   }
 }
 
@@ -1739,8 +1739,8 @@ class RenderingEngine {
   ?'name' => RenderingEngineType,
   ?'version' => RenderingEngineVersionType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1754,7 +1754,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1764,7 +1764,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1774,7 +1774,7 @@ class RestartSimulationJobRequest {
   public function __construct(shape(
   ?'job' => Arn,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? "";
   }
 }
 
@@ -1809,15 +1809,15 @@ class Robot {
   ?'name' => Name,
   ?'status' => RobotStatus,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->fleet_arn = $fleet_arn ?? ;
-    $this->green_grass_group_id = $green_grass_group_id ?? ;
-    $this->last_deployment_job = $last_deployment_job ?? ;
-    $this->last_deployment_time = $last_deployment_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->fleet_arn = $fleet_arn ?? "";
+    $this->green_grass_group_id = $green_grass_group_id ?? "";
+    $this->last_deployment_job = $last_deployment_job ?? "";
+    $this->last_deployment_time = $last_deployment_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1831,9 +1831,9 @@ class RobotApplicationConfig {
   ?'application_version' => Version,
   ?'launch_config' => LaunchConfig,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
-    $this->launch_config = $launch_config ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
+    $this->launch_config = $launch_config ?? null;
   }
 }
 
@@ -1857,11 +1857,11 @@ class RobotApplicationSummary {
   ?'robot_software_suite' => RobotSoftwareSuite,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->version = $version ?? "";
   }
 }
 
@@ -1883,13 +1883,13 @@ class RobotDeployment {
   ?'progress_detail' => ProgressDetail,
   ?'status' => RobotStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->deployment_finish_time = $deployment_finish_time ?? ;
-    $this->deployment_start_time = $deployment_start_time ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->progress_detail = $progress_detail ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->deployment_finish_time = $deployment_finish_time ?? 0;
+    $this->deployment_start_time = $deployment_start_time ?? 0;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->progress_detail = $progress_detail ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1905,8 +1905,8 @@ class RobotSoftwareSuite {
   ?'name' => RobotSoftwareSuiteType,
   ?'version' => RobotSoftwareSuiteVersionType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1932,8 +1932,8 @@ class S3KeyOutput {
   ?'etag' => S3Etag,
   ?'s_3_key' => S3Key,
   ) $s = shape()) {
-    $this->etag = $etag ?? ;
-    $this->s_3_key = $s_3_key ?? ;
+    $this->etag = $etag ?? "";
+    $this->s_3_key = $s_3_key ?? "";
   }
 }
 
@@ -1951,9 +1951,9 @@ class S3Object {
   ?'etag' => S3Etag,
   ?'key' => S3Key,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->etag = $etag ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->etag = $etag ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -1965,7 +1965,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1979,9 +1979,9 @@ class SimulationApplicationConfig {
   ?'application_version' => Version,
   ?'launch_config' => LaunchConfig,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->application_version = $application_version ?? ;
-    $this->launch_config = $launch_config ?? ;
+    $this->application = $application ?? "";
+    $this->application_version = $application_version ?? "";
+    $this->launch_config = $launch_config ?? null;
   }
 }
 
@@ -2007,12 +2007,12 @@ class SimulationApplicationSummary {
   ?'simulation_software_suite' => SimulationSoftwareSuite,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->version = $version ?? "";
   }
 }
 
@@ -2062,27 +2062,27 @@ class SimulationJob {
   ?'tags' => TagMap,
   ?'vpc_config' => VPCConfigResponse,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->compute = $compute ?? ;
-    $this->data_sources = $data_sources ?? ;
-    $this->failure_behavior = $failure_behavior ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->last_started_at = $last_started_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->logging_config = $logging_config ?? ;
-    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
-    $this->name = $name ?? ;
-    $this->network_interface = $network_interface ?? ;
-    $this->output_location = $output_location ?? ;
-    $this->robot_applications = $robot_applications ?? ;
-    $this->simulation_applications = $simulation_applications ?? ;
-    $this->simulation_time_millis = $simulation_time_millis ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->arn = $arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->compute = $compute ?? null;
+    $this->data_sources = $data_sources ?? [];
+    $this->failure_behavior = $failure_behavior ?? "";
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->iam_role = $iam_role ?? "";
+    $this->last_started_at = $last_started_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->logging_config = $logging_config ?? null;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? 0;
+    $this->name = $name ?? "";
+    $this->network_interface = $network_interface ?? null;
+    $this->output_location = $output_location ?? null;
+    $this->robot_applications = $robot_applications ?? [];
+    $this->simulation_applications = $simulation_applications ?? [];
+    $this->simulation_time_millis = $simulation_time_millis ?? 0;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -2110,13 +2110,13 @@ class SimulationJobBatchSummary {
   ?'pending_request_count' => int,
   ?'status' => SimulationJobBatchStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_request_count = $created_request_count ?? ;
-    $this->failed_request_count = $failed_request_count ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->pending_request_count = $pending_request_count ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->created_request_count = $created_request_count ?? 0;
+    $this->failed_request_count = $failed_request_count ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->pending_request_count = $pending_request_count ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2150,18 +2150,18 @@ class SimulationJobRequest {
   ?'use_default_applications' => BoxedBoolean,
   ?'vpc_config' => VPCConfig,
   ) $s = shape()) {
-    $this->compute = $compute ?? ;
-    $this->data_sources = $data_sources ?? ;
-    $this->failure_behavior = $failure_behavior ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->logging_config = $logging_config ?? ;
-    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
-    $this->output_location = $output_location ?? ;
-    $this->robot_applications = $robot_applications ?? ;
-    $this->simulation_applications = $simulation_applications ?? ;
-    $this->tags = $tags ?? ;
-    $this->use_default_applications = $use_default_applications ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->compute = $compute ?? null;
+    $this->data_sources = $data_sources ?? [];
+    $this->failure_behavior = $failure_behavior ?? "";
+    $this->iam_role = $iam_role ?? "";
+    $this->logging_config = $logging_config ?? null;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? 0;
+    $this->output_location = $output_location ?? null;
+    $this->robot_applications = $robot_applications ?? [];
+    $this->simulation_applications = $simulation_applications ?? [];
+    $this->tags = $tags ?? [];
+    $this->use_default_applications = $use_default_applications ?? false;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -2187,13 +2187,13 @@ class SimulationJobSummary {
   ?'simulation_application_names' => SimulationApplicationNames,
   ?'status' => SimulationJobStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->data_source_names = $data_source_names ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->robot_application_names = $robot_application_names ?? ;
-    $this->simulation_application_names = $simulation_application_names ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->data_source_names = $data_source_names ?? [];
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->robot_application_names = $robot_application_names ?? [];
+    $this->simulation_application_names = $simulation_application_names ?? [];
+    $this->status = $status ?? "";
   }
 }
 
@@ -2207,8 +2207,8 @@ class SimulationSoftwareSuite {
   ?'name' => SimulationSoftwareSuiteType,
   ?'version' => SimulationSoftwareSuiteVersionType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2232,10 +2232,10 @@ class Source {
   ?'s_3_bucket' => S3Bucket,
   ?'s_3_key' => S3Key,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->etag = $etag ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_key = $s_3_key ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->etag = $etag ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
   }
 }
 
@@ -2249,9 +2249,9 @@ class SourceConfig {
   ?'s_3_bucket' => S3Bucket,
   ?'s_3_key' => S3Key,
   ) $s = shape()) {
-    $this->architecture = $architecture ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_key = $s_3_key ?? ;
+    $this->architecture = $architecture ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
   }
 }
 
@@ -2271,10 +2271,10 @@ class StartSimulationJobBatchRequest {
   ?'create_simulation_job_requests' => CreateSimulationJobRequests,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->batch_policy = $batch_policy ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->create_simulation_job_requests = $create_simulation_job_requests ?? ;
-    $this->tags = $tags ?? ;
+    $this->batch_policy = $batch_policy ?? null;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->create_simulation_job_requests = $create_simulation_job_requests ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2304,17 +2304,17 @@ class StartSimulationJobBatchResponse {
   ?'status' => SimulationJobBatchStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->batch_policy = $batch_policy ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_requests = $created_requests ?? ;
-    $this->failed_requests = $failed_requests ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->pending_requests = $pending_requests ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->batch_policy = $batch_policy ?? null;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->created_requests = $created_requests ?? [];
+    $this->failed_requests = $failed_requests ?? [];
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->pending_requests = $pending_requests ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2328,8 +2328,8 @@ class SyncDeploymentJobRequest {
   ?'client_request_token' => ClientRequestToken,
   ?'fleet' => Arn,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->fleet = $fleet ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->fleet = $fleet ?? "";
   }
 }
 
@@ -2353,14 +2353,14 @@ class SyncDeploymentJobResponse {
   ?'fleet' => Arn,
   ?'status' => DeploymentStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->deployment_application_configs = $deployment_application_configs ?? ;
-    $this->deployment_config = $deployment_config ?? ;
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->fleet = $fleet ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->deployment_application_configs = $deployment_application_configs ?? [];
+    $this->deployment_config = $deployment_config ?? null;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->fleet = $fleet ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2378,8 +2378,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2398,7 +2398,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2410,8 +2410,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2434,10 +2434,10 @@ class UpdateRobotApplicationRequest {
   ?'robot_software_suite' => RobotSoftwareSuite,
   ?'sources' => SourceConfigs,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->current_revision_id = $current_revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
+    $this->application = $application ?? "";
+    $this->current_revision_id = $current_revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
   }
 }
 
@@ -2459,13 +2459,13 @@ class UpdateRobotApplicationResponse {
   ?'sources' => Sources,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -2485,12 +2485,12 @@ class UpdateSimulationApplicationRequest {
   ?'simulation_software_suite' => SimulationSoftwareSuite,
   ?'sources' => SourceConfigs,
   ) $s = shape()) {
-    $this->application = $application ?? ;
-    $this->current_revision_id = $current_revision_id ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
+    $this->application = $application ?? "";
+    $this->current_revision_id = $current_revision_id ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
   }
 }
 
@@ -2516,15 +2516,15 @@ class UpdateSimulationApplicationResponse {
   ?'sources' => Sources,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->rendering_engine = $rendering_engine ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->robot_software_suite = $robot_software_suite ?? ;
-    $this->simulation_software_suite = $simulation_software_suite ?? ;
-    $this->sources = $sources ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->rendering_engine = $rendering_engine ?? null;
+    $this->revision_id = $revision_id ?? "";
+    $this->robot_software_suite = $robot_software_suite ?? null;
+    $this->simulation_software_suite = $simulation_software_suite ?? null;
+    $this->sources = $sources ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -2538,9 +2538,9 @@ class VPCConfig {
   ?'security_groups' => SecurityGroups,
   ?'subnets' => Subnets,
   ) $s = shape()) {
-    $this->assign_public_ip = $assign_public_ip ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->subnets = $subnets ?? ;
+    $this->assign_public_ip = $assign_public_ip ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->subnets = $subnets ?? [];
   }
 }
 
@@ -2556,10 +2556,10 @@ class VPCConfigResponse {
   ?'subnets' => Subnets,
   ?'vpc_id' => GenericString,
   ) $s = shape()) {
-    $this->assign_public_ip = $assign_public_ip ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->assign_public_ip = $assign_public_ip ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->subnets = $subnets ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 

@@ -52,8 +52,8 @@ class AgentListEntry {
   ?'status' => AgentStatus,
   ) $s = shape()) {
     $this->agent_arn = $agent_arn ?? "";
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -97,10 +97,10 @@ class CreateAgentRequest {
   ?'vpc_endpoint_id' => VpcEndpointId,
   ) $s = shape()) {
     $this->activation_key = $activation_key ?? "";
-    $this->agent_name = $agent_name ?? ;
-    $this->security_group_arns = $security_group_arns ?? ;
-    $this->subnet_arns = $subnet_arns ?? ;
-    $this->tags = $tags ?? ;
+    $this->agent_name = $agent_name ?? "";
+    $this->security_group_arns = $security_group_arns ?? [];
+    $this->subnet_arns = $subnet_arns ?? [];
+    $this->tags = $tags ?? [];
     $this->vpc_endpoint_id = $vpc_endpoint_id ?? "";
   }
 }
@@ -129,8 +129,8 @@ class CreateLocationEfsRequest {
   ) $s = shape()) {
     $this->ec_2_config = $ec_2_config ?? null;
     $this->efs_filesystem_arn = $efs_filesystem_arn ?? "";
-    $this->subdirectory = $subdirectory ?? ;
-    $this->tags = $tags ?? ;
+    $this->subdirectory = $subdirectory ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -162,13 +162,13 @@ class CreateLocationFsxWindowsRequest {
   ?'tags' => TagList,
   ?'user' => SmbUser,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
+    $this->domain = $domain ?? "";
     $this->fsx_filesystem_arn = $fsx_filesystem_arn ?? "";
-    $this->password = $password ?? ;
-    $this->security_group_arns = $security_group_arns ?? ;
-    $this->subdirectory = $subdirectory ?? ;
-    $this->tags = $tags ?? ;
-    $this->user = $user ?? ;
+    $this->password = $password ?? "";
+    $this->security_group_arns = $security_group_arns ?? [];
+    $this->subdirectory = $subdirectory ?? "";
+    $this->tags = $tags ?? [];
+    $this->user = $user ?? "";
   }
 }
 
@@ -196,11 +196,11 @@ class CreateLocationNfsRequest {
   ?'subdirectory' => NfsSubdirectory,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->mount_options = $mount_options ?? ;
+    $this->mount_options = $mount_options ?? null;
     $this->on_prem_config = $on_prem_config ?? null;
     $this->server_hostname = $server_hostname ?? "";
-    $this->subdirectory = $subdirectory ?? ;
-    $this->tags = $tags ?? ;
+    $this->subdirectory = $subdirectory ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -231,8 +231,8 @@ class CreateLocationS3Request {
     $this->s_3_bucket_arn = $s_3_bucket_arn ?? "";
     $this->s_3_config = $s_3_config ?? null;
     $this->s_3_storage_class = $s_3_storage_class ?? "";
-    $this->subdirectory = $subdirectory ?? ;
-    $this->tags = $tags ?? ;
+    $this->subdirectory = $subdirectory ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -266,14 +266,14 @@ class CreateLocationSmbRequest {
   ?'tags' => TagList,
   ?'user' => SmbUser,
   ) $s = shape()) {
-    $this->agent_arns = $agent_arns ?? ;
-    $this->domain = $domain ?? ;
-    $this->mount_options = $mount_options ?? ;
-    $this->password = $password ?? ;
+    $this->agent_arns = $agent_arns ?? [];
+    $this->domain = $domain ?? "";
+    $this->mount_options = $mount_options ?? null;
+    $this->password = $password ?? "";
     $this->server_hostname = $server_hostname ?? "";
-    $this->subdirectory = $subdirectory ?? ;
-    $this->tags = $tags ?? ;
-    $this->user = $user ?? ;
+    $this->subdirectory = $subdirectory ?? "";
+    $this->tags = $tags ?? [];
+    $this->user = $user ?? "";
   }
 }
 
@@ -307,14 +307,14 @@ class CreateTaskRequest {
   ?'source_location_arn' => LocationArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? ;
-    $this->destination_location_arn = $destination_location_arn ?? ;
-    $this->excludes = $excludes ?? ;
-    $this->name = $name ?? ;
+    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? "";
+    $this->destination_location_arn = $destination_location_arn ?? "";
+    $this->excludes = $excludes ?? [];
+    $this->name = $name ?? "";
     $this->options = $options ?? null;
-    $this->schedule = $schedule ?? ;
-    $this->source_location_arn = $source_location_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->schedule = $schedule ?? null;
+    $this->source_location_arn = $source_location_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -408,12 +408,12 @@ class DescribeAgentResponse {
   ?'status' => AgentStatus,
   ) $s = shape()) {
     $this->agent_arn = $agent_arn ?? "";
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->endpoint_type = $endpoint_type ?? "";
-    $this->last_connection_time = $last_connection_time ?? ;
-    $this->name = $name ?? ;
+    $this->last_connection_time = $last_connection_time ?? 0;
+    $this->name = $name ?? "";
     $this->private_link_config = $private_link_config ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -439,7 +439,7 @@ class DescribeLocationEfsResponse {
   ?'location_arn' => LocationArn,
   ?'location_uri' => LocationUri,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->ec_2_config = $ec_2_config ?? null;
     $this->location_arn = $location_arn ?? "";
     $this->location_uri = $location_uri ?? "";
@@ -472,12 +472,12 @@ class DescribeLocationFsxWindowsResponse {
   ?'security_group_arns' => Ec2SecurityGroupArnList,
   ?'user' => SmbUser,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->domain = $domain ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->domain = $domain ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->location_uri = $location_uri ?? "";
-    $this->security_group_arns = $security_group_arns ?? ;
-    $this->user = $user ?? ;
+    $this->security_group_arns = $security_group_arns ?? [];
+    $this->user = $user ?? "";
   }
 }
 
@@ -505,10 +505,10 @@ class DescribeLocationNfsResponse {
   ?'mount_options' => NfsMountOptions,
   ?'on_prem_config' => OnPremConfig,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->location_arn = $location_arn ?? "";
     $this->location_uri = $location_uri ?? "";
-    $this->mount_options = $mount_options ?? ;
+    $this->mount_options = $mount_options ?? null;
     $this->on_prem_config = $on_prem_config ?? null;
   }
 }
@@ -537,7 +537,7 @@ class DescribeLocationS3Response {
   ?'s_3_config' => S3Config,
   ?'s_3_storage_class' => S3StorageClass,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->location_arn = $location_arn ?? "";
     $this->location_uri = $location_uri ?? "";
     $this->s_3_config = $s_3_config ?? null;
@@ -573,13 +573,13 @@ class DescribeLocationSmbResponse {
   ?'mount_options' => SmbMountOptions,
   ?'user' => SmbUser,
   ) $s = shape()) {
-    $this->agent_arns = $agent_arns ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->domain = $domain ?? ;
+    $this->agent_arns = $agent_arns ?? [];
+    $this->creation_time = $creation_time ?? 0;
+    $this->domain = $domain ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->location_uri = $location_uri ?? "";
-    $this->mount_options = $mount_options ?? ;
-    $this->user = $user ?? ;
+    $this->mount_options = $mount_options ?? null;
+    $this->user = $user ?? "";
   }
 }
 
@@ -621,17 +621,17 @@ class DescribeTaskExecutionResponse {
   ?'status' => TaskExecutionStatus,
   ?'task_execution_arn' => TaskExecutionArn,
   ) $s = shape()) {
-    $this->bytes_transferred = $bytes_transferred ?? ;
-    $this->bytes_written = $bytes_written ?? ;
-    $this->estimated_bytes_to_transfer = $estimated_bytes_to_transfer ?? ;
-    $this->estimated_files_to_transfer = $estimated_files_to_transfer ?? ;
-    $this->excludes = $excludes ?? ;
-    $this->files_transferred = $files_transferred ?? ;
-    $this->includes = $includes ?? ;
+    $this->bytes_transferred = $bytes_transferred ?? 0;
+    $this->bytes_written = $bytes_written ?? 0;
+    $this->estimated_bytes_to_transfer = $estimated_bytes_to_transfer ?? 0;
+    $this->estimated_files_to_transfer = $estimated_files_to_transfer ?? 0;
+    $this->excludes = $excludes ?? [];
+    $this->files_transferred = $files_transferred ?? 0;
+    $this->includes = $includes ?? [];
     $this->options = $options ?? null;
-    $this->result = $result ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->result = $result ?? null;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
     $this->task_execution_arn = $task_execution_arn ?? "";
   }
 }
@@ -680,20 +680,20 @@ class DescribeTaskResponse {
   ?'status' => TaskStatus,
   ?'task_arn' => TaskArn,
   ) $s = shape()) {
-    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->current_task_execution_arn = $current_task_execution_arn ?? ;
-    $this->destination_location_arn = $destination_location_arn ?? ;
+    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->current_task_execution_arn = $current_task_execution_arn ?? "";
+    $this->destination_location_arn = $destination_location_arn ?? "";
     $this->destination_network_interface_arns = $destination_network_interface_arns ?? [];
-    $this->error_code = $error_code ?? ;
-    $this->error_detail = $error_detail ?? ;
-    $this->excludes = $excludes ?? ;
-    $this->name = $name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_detail = $error_detail ?? "";
+    $this->excludes = $excludes ?? [];
+    $this->name = $name ?? "";
     $this->options = $options ?? null;
-    $this->schedule = $schedule ?? ;
-    $this->source_location_arn = $source_location_arn ?? ;
+    $this->schedule = $schedule ?? null;
+    $this->source_location_arn = $source_location_arn ?? "";
     $this->source_network_interface_arns = $source_network_interface_arns ?? [];
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->task_arn = $task_arn ?? "";
   }
 }
@@ -710,8 +710,8 @@ class Ec2Config {
   ?'security_group_arns' => Ec2SecurityGroupArnList,
   ?'subnet_arn' => Ec2SubnetArn,
   ) $s = shape()) {
-    $this->security_group_arns = $security_group_arns ?? ;
-    $this->subnet_arn = $subnet_arn ?? ;
+    $this->security_group_arns = $security_group_arns ?? [];
+    $this->subnet_arn = $subnet_arn ?? "";
   }
 }
 
@@ -740,7 +740,7 @@ class FilterRule {
   ?'value' => FilterValue,
   ) $s = shape()) {
     $this->filter_type = $filter_type ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -764,8 +764,8 @@ class InternalException {
   ?'error_code' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -777,8 +777,8 @@ class InvalidRequestException {
   ?'error_code' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -803,7 +803,7 @@ class ListAgentsResponse {
   ?'agents' => AgentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->agents = $agents ?? ;
+    $this->agents = $agents ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -829,7 +829,7 @@ class ListLocationsResponse {
   ?'locations' => LocationList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->locations = $locations ?? ;
+    $this->locations = $locations ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -846,7 +846,7 @@ class ListTagsForResourceRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -859,7 +859,7 @@ class ListTagsForResourceResponse {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -888,7 +888,7 @@ class ListTaskExecutionsResponse {
   ?'task_executions' => TaskExecutionList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->task_executions = $task_executions ?? ;
+    $this->task_executions = $task_executions ?? [];
   }
 }
 
@@ -914,7 +914,7 @@ class ListTasksResponse {
   ?'tasks' => TaskList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tasks = $tasks ?? ;
+    $this->tasks = $tasks ?? [];
   }
 }
 
@@ -955,7 +955,7 @@ class NfsMountOptions {
   public function __construct(shape(
   ?'version' => NfsVersion,
   ) $s = shape()) {
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -969,7 +969,7 @@ class OnPremConfig {
   public function __construct(shape(
   ?'agent_arns' => AgentArnList,
   ) $s = shape()) {
-    $this->agent_arns = $agent_arns ?? ;
+    $this->agent_arns = $agent_arns ?? [];
   }
 }
 
@@ -1042,9 +1042,9 @@ class PrivateLinkConfig {
   ?'subnet_arns' => PLSubnetArnList,
   ?'vpc_endpoint_id' => VpcEndpointId,
   ) $s = shape()) {
-    $this->private_link_endpoint = $private_link_endpoint ?? ;
-    $this->security_group_arns = $security_group_arns ?? ;
-    $this->subnet_arns = $subnet_arns ?? ;
+    $this->private_link_endpoint = $private_link_endpoint ?? "";
+    $this->security_group_arns = $security_group_arns ?? [];
+    $this->subnet_arns = $subnet_arns ?? [];
     $this->vpc_endpoint_id = $vpc_endpoint_id ?? "";
   }
 }
@@ -1057,7 +1057,7 @@ class S3Config {
   public function __construct(shape(
   ?'bucket_access_role_arn' => IamRoleArn,
   ) $s = shape()) {
-    $this->bucket_access_role_arn = $bucket_access_role_arn ?? ;
+    $this->bucket_access_role_arn = $bucket_access_role_arn ?? "";
   }
 }
 
@@ -1077,7 +1077,7 @@ class SmbMountOptions {
   public function __construct(shape(
   ?'version' => SmbVersion,
   ) $s = shape()) {
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -1101,8 +1101,8 @@ class StartTaskExecutionRequest {
   ?'override_options' => Options,
   ?'task_arn' => TaskArn,
   ) $s = shape()) {
-    $this->includes = $includes ?? ;
-    $this->override_options = $override_options ?? ;
+    $this->includes = $includes ?? [];
+    $this->override_options = $override_options ?? null;
     $this->task_arn = $task_arn ?? "";
   }
 }
@@ -1131,8 +1131,8 @@ class TagListEntry {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1144,8 +1144,8 @@ class TagResourceRequest {
   ?'resource_arn' => TaggableResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1174,7 +1174,7 @@ class TaskExecutionListEntry {
   ?'status' => TaskExecutionStatus,
   ?'task_execution_arn' => TaskExecutionArn,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->task_execution_arn = $task_execution_arn ?? "";
   }
 }
@@ -1201,15 +1201,15 @@ class TaskExecutionResultDetail {
   ?'verify_duration' => Duration,
   ?'verify_status' => PhaseStatus,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_detail = $error_detail ?? ;
-    $this->prepare_duration = $prepare_duration ?? ;
-    $this->prepare_status = $prepare_status ?? ;
-    $this->total_duration = $total_duration ?? ;
-    $this->transfer_duration = $transfer_duration ?? ;
-    $this->transfer_status = $transfer_status ?? ;
-    $this->verify_duration = $verify_duration ?? ;
-    $this->verify_status = $verify_status ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_detail = $error_detail ?? "";
+    $this->prepare_duration = $prepare_duration ?? 0;
+    $this->prepare_status = $prepare_status ?? "";
+    $this->total_duration = $total_duration ?? 0;
+    $this->transfer_duration = $transfer_duration ?? 0;
+    $this->transfer_status = $transfer_status ?? "";
+    $this->verify_duration = $verify_duration ?? 0;
+    $this->verify_status = $verify_status ?? "";
   }
 }
 
@@ -1227,8 +1227,8 @@ class TaskListEntry {
   ?'status' => TaskStatus,
   ?'task_arn' => TaskArn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
     $this->task_arn = $task_arn ?? "";
   }
 }
@@ -1241,7 +1241,7 @@ class TaskSchedule {
   public function __construct(shape(
   ?'schedule_expression' => ScheduleExpressionCron,
   ) $s = shape()) {
-    $this->schedule_expression = $schedule_expression ?? ;
+    $this->schedule_expression = $schedule_expression ?? "";
   }
 }
 
@@ -1259,8 +1259,8 @@ class UntagResourceRequest {
   ?'keys' => TagKeyList,
   ?'resource_arn' => TaggableResourceArn,
   ) $s = shape()) {
-    $this->keys = $keys ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->keys = $keys ?? [];
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1280,7 +1280,7 @@ class UpdateAgentRequest {
   ?'name' => TagValue,
   ) $s = shape()) {
     $this->agent_arn = $agent_arn ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1307,11 +1307,11 @@ class UpdateTaskRequest {
   ?'schedule' => TaskSchedule,
   ?'task_arn' => TaskArn,
   ) $s = shape()) {
-    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? ;
-    $this->excludes = $excludes ?? ;
-    $this->name = $name ?? ;
+    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? "";
+    $this->excludes = $excludes ?? [];
+    $this->name = $name ?? "";
     $this->options = $options ?? null;
-    $this->schedule = $schedule ?? ;
+    $this->schedule = $schedule ?? null;
     $this->task_arn = $task_arn ?? "";
   }
 }

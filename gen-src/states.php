@@ -32,7 +32,7 @@ class ActivityDoesNotExist {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -44,8 +44,8 @@ class ActivityFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -55,7 +55,7 @@ class ActivityLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -71,9 +71,9 @@ class ActivityListItem {
   ?'creation_date' => Timestamp,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->name = $name ?? ;
+    $this->activity_arn = $activity_arn ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -85,8 +85,8 @@ class ActivityScheduleFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -102,10 +102,10 @@ class ActivityScheduledEventDetails {
   ?'resource' => Arn,
   ?'timeout_in_seconds' => TimeoutInSeconds,
   ) $s = shape()) {
-    $this->heartbeat_in_seconds = $heartbeat_in_seconds ?? ;
-    $this->input = $input ?? ;
-    $this->resource = $resource ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->heartbeat_in_seconds = $heartbeat_in_seconds ?? 0;
+    $this->input = $input ?? "";
+    $this->resource = $resource ?? "";
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -115,7 +115,7 @@ class ActivityStartedEventDetails {
   public function __construct(shape(
   ?'worker_name' => Identity,
   ) $s = shape()) {
-    $this->worker_name = $worker_name ?? ;
+    $this->worker_name = $worker_name ?? "";
   }
 }
 
@@ -125,7 +125,7 @@ class ActivitySucceededEventDetails {
   public function __construct(shape(
   ?'output' => SensitiveData,
   ) $s = shape()) {
-    $this->output = $output ?? ;
+    $this->output = $output ?? "";
   }
 }
 
@@ -137,8 +137,8 @@ class ActivityTimedOutEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -148,7 +148,7 @@ class ActivityWorkerLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -160,7 +160,7 @@ class CloudWatchLogsLogGroup {
   public function __construct(shape(
   ?'log_group_arn' => Arn,
   ) $s = shape()) {
-    $this->log_group_arn = $log_group_arn ?? ;
+    $this->log_group_arn = $log_group_arn ?? "";
   }
 }
 
@@ -174,8 +174,8 @@ class CreateActivityInput {
   ?'name' => Name,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -187,8 +187,8 @@ class CreateActivityOutput {
   ?'activity_arn' => Arn,
   ?'creation_date' => Timestamp,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
-    $this->creation_date = $creation_date ?? ;
+    $this->activity_arn = $activity_arn ?? "";
+    $this->creation_date = $creation_date ?? 0;
   }
 }
 
@@ -208,12 +208,12 @@ class CreateStateMachineInput {
   ?'tags' => TagList,
   ?'type' => StateMachineType,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->logging_configuration = $logging_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->definition = $definition ?? "";
+    $this->logging_configuration = $logging_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -225,8 +225,8 @@ class CreateStateMachineOutput {
   ?'creation_date' => Timestamp,
   ?'state_machine_arn' => Arn,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->state_machine_arn = $state_machine_arn ?? "";
   }
 }
 
@@ -238,7 +238,7 @@ class DeleteActivityInput {
   public function __construct(shape(
   ?'activity_arn' => Arn,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
+    $this->activity_arn = $activity_arn ?? "";
   }
 }
 
@@ -255,7 +255,7 @@ class DeleteStateMachineInput {
   public function __construct(shape(
   ?'state_machine_arn' => Arn,
   ) $s = shape()) {
-    $this->state_machine_arn = $state_machine_arn ?? ;
+    $this->state_machine_arn = $state_machine_arn ?? "";
   }
 }
 
@@ -272,7 +272,7 @@ class DescribeActivityInput {
   public function __construct(shape(
   ?'activity_arn' => Arn,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
+    $this->activity_arn = $activity_arn ?? "";
   }
 }
 
@@ -286,9 +286,9 @@ class DescribeActivityOutput {
   ?'creation_date' => Timestamp,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->name = $name ?? ;
+    $this->activity_arn = $activity_arn ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -298,7 +298,7 @@ class DescribeExecutionInput {
   public function __construct(shape(
   ?'execution_arn' => Arn,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
+    $this->execution_arn = $execution_arn ?? "";
   }
 }
 
@@ -322,14 +322,14 @@ class DescribeExecutionOutput {
   ?'status' => ExecutionStatus,
   ?'stop_date' => Timestamp,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
-    $this->output = $output ?? ;
-    $this->start_date = $start_date ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->status = $status ?? ;
-    $this->stop_date = $stop_date ?? ;
+    $this->execution_arn = $execution_arn ?? "";
+    $this->input = $input ?? "";
+    $this->name = $name ?? "";
+    $this->output = $output ?? "";
+    $this->start_date = $start_date ?? 0;
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->status = $status ?? "";
+    $this->stop_date = $stop_date ?? 0;
   }
 }
 
@@ -339,7 +339,7 @@ class DescribeStateMachineForExecutionInput {
   public function __construct(shape(
   ?'execution_arn' => Arn,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
+    $this->execution_arn = $execution_arn ?? "";
   }
 }
 
@@ -359,12 +359,12 @@ class DescribeStateMachineForExecutionOutput {
   ?'state_machine_arn' => Arn,
   ?'update_date' => Timestamp,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->logging_configuration = $logging_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->update_date = $update_date ?? ;
+    $this->definition = $definition ?? "";
+    $this->logging_configuration = $logging_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->update_date = $update_date ?? 0;
   }
 }
 
@@ -374,7 +374,7 @@ class DescribeStateMachineInput {
   public function __construct(shape(
   ?'state_machine_arn' => Arn,
   ) $s = shape()) {
-    $this->state_machine_arn = $state_machine_arn ?? ;
+    $this->state_machine_arn = $state_machine_arn ?? "";
   }
 }
 
@@ -398,14 +398,14 @@ class DescribeStateMachineOutput {
   ?'status' => StateMachineStatus,
   ?'type' => StateMachineType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->definition = $definition ?? ;
-    $this->logging_configuration = $logging_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->definition = $definition ?? "";
+    $this->logging_configuration = $logging_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -421,8 +421,8 @@ class ExecutionAbortedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -432,7 +432,7 @@ class ExecutionAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -442,7 +442,7 @@ class ExecutionDoesNotExist {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -454,8 +454,8 @@ class ExecutionFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -465,7 +465,7 @@ class ExecutionLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -487,12 +487,12 @@ class ExecutionListItem {
   ?'status' => ExecutionStatus,
   ?'stop_date' => Timestamp,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
-    $this->name = $name ?? ;
-    $this->start_date = $start_date ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->status = $status ?? ;
-    $this->stop_date = $stop_date ?? ;
+    $this->execution_arn = $execution_arn ?? "";
+    $this->name = $name ?? "";
+    $this->start_date = $start_date ?? 0;
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->status = $status ?? "";
+    $this->stop_date = $stop_date ?? 0;
   }
 }
 
@@ -504,8 +504,8 @@ class ExecutionStartedEventDetails {
   ?'input' => SensitiveData,
   ?'role_arn' => Arn,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->input = $input ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class ExecutionSucceededEventDetails {
   public function __construct(shape(
   ?'output' => SensitiveData,
   ) $s = shape()) {
-    $this->output = $output ?? ;
+    $this->output = $output ?? "";
   }
 }
 
@@ -529,8 +529,8 @@ class ExecutionTimedOutEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -542,8 +542,8 @@ class GetActivityTaskInput {
   ?'activity_arn' => Arn,
   ?'worker_name' => Name,
   ) $s = shape()) {
-    $this->activity_arn = $activity_arn ?? ;
-    $this->worker_name = $worker_name ?? ;
+    $this->activity_arn = $activity_arn ?? "";
+    $this->worker_name = $worker_name ?? "";
   }
 }
 
@@ -555,8 +555,8 @@ class GetActivityTaskOutput {
   ?'input' => SensitiveDataJobInput,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->input = $input ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -572,10 +572,10 @@ class GetExecutionHistoryInput {
   ?'next_token' => PageToken,
   ?'reverse_order' => ReverseOrder,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->reverse_order = $reverse_order ?? ;
+    $this->execution_arn = $execution_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->reverse_order = $reverse_order ?? false;
   }
 }
 
@@ -587,8 +587,8 @@ class GetExecutionHistoryOutput {
   ?'events' => HistoryEventList,
   ?'next_token' => PageToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -668,42 +668,42 @@ class HistoryEvent {
   ?'timestamp' => Timestamp,
   ?'type' => HistoryEventType,
   ) $s = shape()) {
-    $this->activity_failed_event_details = $activity_failed_event_details ?? ;
-    $this->activity_schedule_failed_event_details = $activity_schedule_failed_event_details ?? ;
-    $this->activity_scheduled_event_details = $activity_scheduled_event_details ?? ;
-    $this->activity_started_event_details = $activity_started_event_details ?? ;
-    $this->activity_succeeded_event_details = $activity_succeeded_event_details ?? ;
-    $this->activity_timed_out_event_details = $activity_timed_out_event_details ?? ;
-    $this->execution_aborted_event_details = $execution_aborted_event_details ?? ;
-    $this->execution_failed_event_details = $execution_failed_event_details ?? ;
-    $this->execution_started_event_details = $execution_started_event_details ?? ;
-    $this->execution_succeeded_event_details = $execution_succeeded_event_details ?? ;
-    $this->execution_timed_out_event_details = $execution_timed_out_event_details ?? ;
-    $this->id = $id ?? ;
-    $this->lambda_function_failed_event_details = $lambda_function_failed_event_details ?? ;
-    $this->lambda_function_schedule_failed_event_details = $lambda_function_schedule_failed_event_details ?? ;
-    $this->lambda_function_scheduled_event_details = $lambda_function_scheduled_event_details ?? ;
-    $this->lambda_function_start_failed_event_details = $lambda_function_start_failed_event_details ?? ;
-    $this->lambda_function_succeeded_event_details = $lambda_function_succeeded_event_details ?? ;
-    $this->lambda_function_timed_out_event_details = $lambda_function_timed_out_event_details ?? ;
-    $this->map_iteration_aborted_event_details = $map_iteration_aborted_event_details ?? ;
-    $this->map_iteration_failed_event_details = $map_iteration_failed_event_details ?? ;
-    $this->map_iteration_started_event_details = $map_iteration_started_event_details ?? ;
-    $this->map_iteration_succeeded_event_details = $map_iteration_succeeded_event_details ?? ;
-    $this->map_state_started_event_details = $map_state_started_event_details ?? ;
-    $this->previous_event_id = $previous_event_id ?? ;
-    $this->state_entered_event_details = $state_entered_event_details ?? ;
-    $this->state_exited_event_details = $state_exited_event_details ?? ;
-    $this->task_failed_event_details = $task_failed_event_details ?? ;
-    $this->task_scheduled_event_details = $task_scheduled_event_details ?? ;
-    $this->task_start_failed_event_details = $task_start_failed_event_details ?? ;
-    $this->task_started_event_details = $task_started_event_details ?? ;
-    $this->task_submit_failed_event_details = $task_submit_failed_event_details ?? ;
-    $this->task_submitted_event_details = $task_submitted_event_details ?? ;
-    $this->task_succeeded_event_details = $task_succeeded_event_details ?? ;
-    $this->task_timed_out_event_details = $task_timed_out_event_details ?? ;
-    $this->timestamp = $timestamp ?? ;
-    $this->type = $type ?? ;
+    $this->activity_failed_event_details = $activity_failed_event_details ?? null;
+    $this->activity_schedule_failed_event_details = $activity_schedule_failed_event_details ?? null;
+    $this->activity_scheduled_event_details = $activity_scheduled_event_details ?? null;
+    $this->activity_started_event_details = $activity_started_event_details ?? null;
+    $this->activity_succeeded_event_details = $activity_succeeded_event_details ?? null;
+    $this->activity_timed_out_event_details = $activity_timed_out_event_details ?? null;
+    $this->execution_aborted_event_details = $execution_aborted_event_details ?? null;
+    $this->execution_failed_event_details = $execution_failed_event_details ?? null;
+    $this->execution_started_event_details = $execution_started_event_details ?? null;
+    $this->execution_succeeded_event_details = $execution_succeeded_event_details ?? null;
+    $this->execution_timed_out_event_details = $execution_timed_out_event_details ?? null;
+    $this->id = $id ?? 0;
+    $this->lambda_function_failed_event_details = $lambda_function_failed_event_details ?? null;
+    $this->lambda_function_schedule_failed_event_details = $lambda_function_schedule_failed_event_details ?? null;
+    $this->lambda_function_scheduled_event_details = $lambda_function_scheduled_event_details ?? null;
+    $this->lambda_function_start_failed_event_details = $lambda_function_start_failed_event_details ?? null;
+    $this->lambda_function_succeeded_event_details = $lambda_function_succeeded_event_details ?? null;
+    $this->lambda_function_timed_out_event_details = $lambda_function_timed_out_event_details ?? null;
+    $this->map_iteration_aborted_event_details = $map_iteration_aborted_event_details ?? null;
+    $this->map_iteration_failed_event_details = $map_iteration_failed_event_details ?? null;
+    $this->map_iteration_started_event_details = $map_iteration_started_event_details ?? null;
+    $this->map_iteration_succeeded_event_details = $map_iteration_succeeded_event_details ?? null;
+    $this->map_state_started_event_details = $map_state_started_event_details ?? null;
+    $this->previous_event_id = $previous_event_id ?? 0;
+    $this->state_entered_event_details = $state_entered_event_details ?? null;
+    $this->state_exited_event_details = $state_exited_event_details ?? null;
+    $this->task_failed_event_details = $task_failed_event_details ?? null;
+    $this->task_scheduled_event_details = $task_scheduled_event_details ?? null;
+    $this->task_start_failed_event_details = $task_start_failed_event_details ?? null;
+    $this->task_started_event_details = $task_started_event_details ?? null;
+    $this->task_submit_failed_event_details = $task_submit_failed_event_details ?? null;
+    $this->task_submitted_event_details = $task_submitted_event_details ?? null;
+    $this->task_succeeded_event_details = $task_succeeded_event_details ?? null;
+    $this->task_timed_out_event_details = $task_timed_out_event_details ?? null;
+    $this->timestamp = $timestamp ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -721,7 +721,7 @@ class InvalidArn {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -731,7 +731,7 @@ class InvalidDefinition {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -741,7 +741,7 @@ class InvalidExecutionInput {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -751,7 +751,7 @@ class InvalidLoggingConfiguration {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -761,7 +761,7 @@ class InvalidName {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -771,7 +771,7 @@ class InvalidOutput {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -781,7 +781,7 @@ class InvalidToken {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -793,8 +793,8 @@ class LambdaFunctionFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -806,8 +806,8 @@ class LambdaFunctionScheduleFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -821,9 +821,9 @@ class LambdaFunctionScheduledEventDetails {
   ?'resource' => Arn,
   ?'timeout_in_seconds' => TimeoutInSeconds,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->resource = $resource ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->input = $input ?? "";
+    $this->resource = $resource ?? "";
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -835,8 +835,8 @@ class LambdaFunctionStartFailedEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -846,7 +846,7 @@ class LambdaFunctionSucceededEventDetails {
   public function __construct(shape(
   ?'output' => SensitiveData,
   ) $s = shape()) {
-    $this->output = $output ?? ;
+    $this->output = $output ?? "";
   }
 }
 
@@ -858,8 +858,8 @@ class LambdaFunctionTimedOutEventDetails {
   ?'cause' => SensitiveCause,
   ?'error' => SensitiveError,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
   }
 }
 
@@ -871,8 +871,8 @@ class ListActivitiesInput {
   ?'max_results' => PageSize,
   ?'next_token' => PageToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -884,8 +884,8 @@ class ListActivitiesOutput {
   ?'activities' => ActivityList,
   ?'next_token' => PageToken,
   ) $s = shape()) {
-    $this->activities = $activities ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->activities = $activities ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -901,10 +901,10 @@ class ListExecutionsInput {
   ?'state_machine_arn' => Arn,
   ?'status_filter' => ExecutionStatus,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->status_filter = $status_filter ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->status_filter = $status_filter ?? "";
   }
 }
 
@@ -916,8 +916,8 @@ class ListExecutionsOutput {
   ?'executions' => ExecutionList,
   ?'next_token' => ListExecutionsPageToken,
   ) $s = shape()) {
-    $this->executions = $executions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->executions = $executions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -931,8 +931,8 @@ class ListStateMachinesInput {
   ?'max_results' => PageSize,
   ?'next_token' => PageToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -944,8 +944,8 @@ class ListStateMachinesOutput {
   ?'next_token' => PageToken,
   ?'state_machines' => StateMachineList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->state_machines = $state_machines ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->state_machines = $state_machines ?? [];
   }
 }
 
@@ -955,7 +955,7 @@ class ListTagsForResourceInput {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -965,7 +965,7 @@ class ListTagsForResourceOutput {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -975,7 +975,7 @@ class LogDestination {
   public function __construct(shape(
   ?'cloud_watch_logs_log_group' => CloudWatchLogsLogGroup,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group = $cloud_watch_logs_log_group ?? ;
+    $this->cloud_watch_logs_log_group = $cloud_watch_logs_log_group ?? null;
   }
 }
 
@@ -993,9 +993,9 @@ class LoggingConfiguration {
   ?'include_execution_data' => IncludeExecutionData,
   ?'level' => LogLevel,
   ) $s = shape()) {
-    $this->destinations = $destinations ?? ;
-    $this->include_execution_data = $include_execution_data ?? ;
-    $this->level = $level ?? ;
+    $this->destinations = $destinations ?? [];
+    $this->include_execution_data = $include_execution_data ?? false;
+    $this->level = $level ?? "";
   }
 }
 
@@ -1007,8 +1007,8 @@ class MapIterationEventDetails {
   ?'index' => UnsignedInteger,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->name = $name ?? ;
+    $this->index = $index ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1018,7 +1018,7 @@ class MapStateStartedEventDetails {
   public function __construct(shape(
   ?'length' => UnsignedInteger,
   ) $s = shape()) {
-    $this->length = $length ?? ;
+    $this->length = $length ?? 0;
   }
 }
 
@@ -1028,7 +1028,7 @@ class MissingRequiredParameter {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1046,8 +1046,8 @@ class ResourceNotFound {
   ?'message' => ErrorMessage,
   ?'resource_name' => Arn,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1063,9 +1063,9 @@ class SendTaskFailureInput {
   ?'error' => SensitiveError,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1082,7 +1082,7 @@ class SendTaskHeartbeatInput {
   public function __construct(shape(
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->task_token = $task_token ?? ;
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1101,8 +1101,8 @@ class SendTaskSuccessInput {
   ?'output' => SensitiveData,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->output = $output ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->output = $output ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1131,9 +1131,9 @@ class StartExecutionInput {
   ?'name' => Name,
   ?'state_machine_arn' => Arn,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
+    $this->input = $input ?? "";
+    $this->name = $name ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
   }
 }
 
@@ -1145,8 +1145,8 @@ class StartExecutionOutput {
   ?'execution_arn' => Arn,
   ?'start_date' => Timestamp,
   ) $s = shape()) {
-    $this->execution_arn = $execution_arn ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->execution_arn = $execution_arn ?? "";
+    $this->start_date = $start_date ?? 0;
   }
 }
 
@@ -1158,8 +1158,8 @@ class StateEnteredEventDetails {
   ?'input' => SensitiveData,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
+    $this->input = $input ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1171,8 +1171,8 @@ class StateExitedEventDetails {
   ?'name' => Name,
   ?'output' => SensitiveData,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->output = $output ?? ;
+    $this->name = $name ?? "";
+    $this->output = $output ?? "";
   }
 }
 
@@ -1182,7 +1182,7 @@ class StateMachineAlreadyExists {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1192,7 +1192,7 @@ class StateMachineDeleting {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1202,7 +1202,7 @@ class StateMachineDoesNotExist {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1212,7 +1212,7 @@ class StateMachineLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1230,10 +1230,10 @@ class StateMachineListItem {
   ?'state_machine_arn' => Arn,
   ?'type' => StateMachineType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->name = $name ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
-    $this->type = $type ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->name = $name ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1247,7 +1247,7 @@ class StateMachineTypeNotSupported {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1261,9 +1261,9 @@ class StopExecutionInput {
   ?'error' => SensitiveError,
   ?'execution_arn' => Arn,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->execution_arn = $execution_arn ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->execution_arn = $execution_arn ?? "";
   }
 }
 
@@ -1273,7 +1273,7 @@ class StopExecutionOutput {
   public function __construct(shape(
   ?'stop_date' => Timestamp,
   ) $s = shape()) {
-    $this->stop_date = $stop_date ?? ;
+    $this->stop_date = $stop_date ?? 0;
   }
 }
 
@@ -1285,8 +1285,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1304,8 +1304,8 @@ class TagResourceInput {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1324,7 +1324,7 @@ class TaskDoesNotExist {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1340,10 +1340,10 @@ class TaskFailedEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1361,11 +1361,11 @@ class TaskScheduledEventDetails {
   ?'resource_type' => Name,
   ?'timeout_in_seconds' => TimeoutInSeconds,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
-    $this->region = $region ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->parameters = $parameters ?? "";
+    $this->region = $region ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -1381,10 +1381,10 @@ class TaskStartFailedEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1396,8 +1396,8 @@ class TaskStartedEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1413,10 +1413,10 @@ class TaskSubmitFailedEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1430,9 +1430,9 @@ class TaskSubmittedEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->output = $output ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->output = $output ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1446,9 +1446,9 @@ class TaskSucceededEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->output = $output ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->output = $output ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1458,7 +1458,7 @@ class TaskTimedOut {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1474,10 +1474,10 @@ class TaskTimedOutEventDetails {
   ?'resource' => Name,
   ?'resource_type' => Name,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->error = $error ?? ;
-    $this->resource = $resource ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->cause = $cause ?? "";
+    $this->error = $error ?? "";
+    $this->resource = $resource ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -1495,8 +1495,8 @@ class TooManyTags {
   ?'message' => ErrorMessage,
   ?'resource_name' => Arn,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1510,8 +1510,8 @@ class UntagResourceInput {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1534,10 +1534,10 @@ class UpdateStateMachineInput {
   ?'role_arn' => Arn,
   ?'state_machine_arn' => Arn,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->logging_configuration = $logging_configuration ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->state_machine_arn = $state_machine_arn ?? ;
+    $this->definition = $definition ?? "";
+    $this->logging_configuration = $logging_configuration ?? null;
+    $this->role_arn = $role_arn ?? "";
+    $this->state_machine_arn = $state_machine_arn ?? "";
   }
 }
 
@@ -1547,7 +1547,7 @@ class UpdateStateMachineOutput {
   public function __construct(shape(
   ?'update_date' => Timestamp,
   ) $s = shape()) {
-    $this->update_date = $update_date ?? ;
+    $this->update_date = $update_date ?? 0;
   }
 }
 

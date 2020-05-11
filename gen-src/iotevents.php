@@ -51,19 +51,19 @@ class Action {
   ?'sns' => SNSTopicPublishAction,
   ?'sqs' => SqsAction,
   ) $s = shape()) {
-    $this->clear_timer = $clear_timer ?? ;
-    $this->dynamo_db = $dynamo_db ?? ;
-    $this->dynamo_d_bv_2 = $dynamo_d_bv_2 ?? ;
-    $this->firehose = $firehose ?? ;
-    $this->iot_events = $iot_events ?? ;
-    $this->iot_site_wise = $iot_site_wise ?? ;
-    $this->iot_topic_publish = $iot_topic_publish ?? ;
-    $this->lambda = $lambda ?? ;
-    $this->reset_timer = $reset_timer ?? ;
-    $this->set_timer = $set_timer ?? ;
-    $this->set_variable = $set_variable ?? ;
-    $this->sns = $sns ?? ;
-    $this->sqs = $sqs ?? ;
+    $this->clear_timer = $clear_timer ?? null;
+    $this->dynamo_db = $dynamo_db ?? null;
+    $this->dynamo_d_bv_2 = $dynamo_d_bv_2 ?? null;
+    $this->firehose = $firehose ?? null;
+    $this->iot_events = $iot_events ?? null;
+    $this->iot_site_wise = $iot_site_wise ?? null;
+    $this->iot_topic_publish = $iot_topic_publish ?? null;
+    $this->lambda = $lambda ?? null;
+    $this->reset_timer = $reset_timer ?? null;
+    $this->set_timer = $set_timer ?? null;
+    $this->set_variable = $set_variable ?? null;
+    $this->sns = $sns ?? null;
+    $this->sqs = $sqs ?? null;
   }
 }
 
@@ -101,8 +101,8 @@ class AssetPropertyTimestamp {
   ?'offset_in_nanos' => AssetPropertyOffsetInNanos,
   ?'time_in_seconds' => AssetPropertyTimeInSeconds,
   ) $s = shape()) {
-    $this->offset_in_nanos = $offset_in_nanos ?? ;
-    $this->time_in_seconds = $time_in_seconds ?? ;
+    $this->offset_in_nanos = $offset_in_nanos ?? "";
+    $this->time_in_seconds = $time_in_seconds ?? "";
   }
 }
 
@@ -116,9 +116,9 @@ class AssetPropertyValue {
   ?'timestamp' => AssetPropertyTimestamp,
   ?'value' => AssetPropertyVariant,
   ) $s = shape()) {
-    $this->quality = $quality ?? ;
-    $this->timestamp = $timestamp ?? ;
-    $this->value = $value ?? ;
+    $this->quality = $quality ?? "";
+    $this->timestamp = $timestamp ?? null;
+    $this->value = $value ?? null;
   }
 }
 
@@ -134,10 +134,10 @@ class AssetPropertyVariant {
   ?'integer_value' => AssetPropertyIntegerValue,
   ?'string_value' => AssetPropertyStringValue,
   ) $s = shape()) {
-    $this->boolean_value = $boolean_value ?? ;
-    $this->double_value = $double_value ?? ;
-    $this->integer_value = $integer_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->boolean_value = $boolean_value ?? "";
+    $this->double_value = $double_value ?? "";
+    $this->integer_value = $integer_value ?? "";
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -147,7 +147,7 @@ class Attribute {
   public function __construct(shape(
   ?'json_path' => AttributeJsonPath,
   ) $s = shape()) {
-    $this->json_path = $json_path ?? ;
+    $this->json_path = $json_path ?? "";
   }
 }
 
@@ -161,7 +161,7 @@ class ClearTimerAction {
   public function __construct(shape(
   ?'timer_name' => TimerName,
   ) $s = shape()) {
-    $this->timer_name = $timer_name ?? ;
+    $this->timer_name = $timer_name ?? "";
   }
 }
 
@@ -187,13 +187,13 @@ class CreateDetectorModelRequest {
   ?'role_arn' => AmazonResourceName,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->detector_model_definition = $detector_model_definition ?? ;
-    $this->detector_model_description = $detector_model_description ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->evaluation_method = $evaluation_method ?? ;
-    $this->key = $key ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->detector_model_definition = $detector_model_definition ?? null;
+    $this->detector_model_description = $detector_model_description ?? "";
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->evaluation_method = $evaluation_method ?? "";
+    $this->key = $key ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -203,7 +203,7 @@ class CreateDetectorModelResponse {
   public function __construct(shape(
   ?'detector_model_configuration' => DetectorModelConfiguration,
   ) $s = shape()) {
-    $this->detector_model_configuration = $detector_model_configuration ?? ;
+    $this->detector_model_configuration = $detector_model_configuration ?? null;
   }
 }
 
@@ -219,10 +219,10 @@ class CreateInputRequest {
   ?'input_name' => InputName,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->input_definition = $input_definition ?? ;
-    $this->input_description = $input_description ?? ;
-    $this->input_name = $input_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->input_definition = $input_definition ?? null;
+    $this->input_description = $input_description ?? "";
+    $this->input_name = $input_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -232,7 +232,7 @@ class CreateInputResponse {
   public function __construct(shape(
   ?'input_configuration' => InputConfiguration,
   ) $s = shape()) {
-    $this->input_configuration = $input_configuration ?? ;
+    $this->input_configuration = $input_configuration ?? null;
   }
 }
 
@@ -242,7 +242,7 @@ class DeleteDetectorModelRequest {
   public function __construct(shape(
   ?'detector_model_name' => DetectorModelName,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
   }
 }
 
@@ -259,7 +259,7 @@ class DeleteInputRequest {
   public function __construct(shape(
   ?'input_name' => InputName,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
+    $this->input_name = $input_name ?? "";
   }
 }
 
@@ -280,8 +280,8 @@ class DescribeDetectorModelRequest {
   ?'detector_model_name' => DetectorModelName,
   ?'detector_model_version' => DetectorModelVersion,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->detector_model_version = $detector_model_version ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->detector_model_version = $detector_model_version ?? "";
   }
 }
 
@@ -291,7 +291,7 @@ class DescribeDetectorModelResponse {
   public function __construct(shape(
   ?'detector_model' => DetectorModel,
   ) $s = shape()) {
-    $this->detector_model = $detector_model ?? ;
+    $this->detector_model = $detector_model ?? null;
   }
 }
 
@@ -301,7 +301,7 @@ class DescribeInputRequest {
   public function __construct(shape(
   ?'input_name' => InputName,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
+    $this->input_name = $input_name ?? "";
   }
 }
 
@@ -311,7 +311,7 @@ class DescribeInputResponse {
   public function __construct(shape(
   ?'input' => Input,
   ) $s = shape()) {
-    $this->input = $input ?? ;
+    $this->input = $input ?? null;
   }
 }
 
@@ -328,7 +328,7 @@ class DescribeLoggingOptionsResponse {
   public function __construct(shape(
   ?'logging_options' => LoggingOptions,
   ) $s = shape()) {
-    $this->logging_options = $logging_options ?? ;
+    $this->logging_options = $logging_options ?? null;
   }
 }
 
@@ -340,8 +340,8 @@ class DetectorDebugOption {
   ?'detector_model_name' => DetectorModelName,
   ?'key_value' => KeyValue,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->key_value = $key_value ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->key_value = $key_value ?? "";
   }
 }
 
@@ -355,8 +355,8 @@ class DetectorModel {
   ?'detector_model_configuration' => DetectorModelConfiguration,
   ?'detector_model_definition' => DetectorModelDefinition,
   ) $s = shape()) {
-    $this->detector_model_configuration = $detector_model_configuration ?? ;
-    $this->detector_model_definition = $detector_model_definition ?? ;
+    $this->detector_model_configuration = $detector_model_configuration ?? null;
+    $this->detector_model_definition = $detector_model_definition ?? null;
   }
 }
 
@@ -386,16 +386,16 @@ class DetectorModelConfiguration {
   ?'role_arn' => AmazonResourceName,
   ?'status' => DetectorModelVersionStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->detector_model_arn = $detector_model_arn ?? ;
-    $this->detector_model_description = $detector_model_description ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->detector_model_version = $detector_model_version ?? ;
-    $this->evaluation_method = $evaluation_method ?? ;
-    $this->key = $key ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->detector_model_arn = $detector_model_arn ?? "";
+    $this->detector_model_description = $detector_model_description ?? "";
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->detector_model_version = $detector_model_version ?? "";
+    $this->evaluation_method = $evaluation_method ?? "";
+    $this->key = $key ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -407,8 +407,8 @@ class DetectorModelDefinition {
   ?'initial_state_name' => StateName,
   ?'states' => States,
   ) $s = shape()) {
-    $this->initial_state_name = $initial_state_name ?? ;
-    $this->states = $states ?? ;
+    $this->initial_state_name = $initial_state_name ?? "";
+    $this->states = $states ?? [];
   }
 }
 
@@ -428,9 +428,9 @@ class DetectorModelSummary {
   ?'detector_model_description' => DetectorModelDescription,
   ?'detector_model_name' => DetectorModelName,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->detector_model_description = $detector_model_description ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->detector_model_description = $detector_model_description ?? "";
+    $this->detector_model_name = $detector_model_name ?? "";
   }
 }
 
@@ -460,14 +460,14 @@ class DetectorModelVersionSummary {
   ?'role_arn' => AmazonResourceName,
   ?'status' => DetectorModelVersionStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->detector_model_arn = $detector_model_arn ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->detector_model_version = $detector_model_version ?? ;
-    $this->evaluation_method = $evaluation_method ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->detector_model_arn = $detector_model_arn ?? "";
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->detector_model_version = $detector_model_version ?? "";
+    $this->evaluation_method = $evaluation_method ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -495,16 +495,16 @@ class DynamoDBAction {
   ?'range_key_value' => DynamoKeyValue,
   ?'table_name' => DynamoTableName,
   ) $s = shape()) {
-    $this->hash_key_field = $hash_key_field ?? ;
-    $this->hash_key_type = $hash_key_type ?? ;
-    $this->hash_key_value = $hash_key_value ?? ;
-    $this->operation = $operation ?? ;
-    $this->payload = $payload ?? ;
-    $this->payload_field = $payload_field ?? ;
-    $this->range_key_field = $range_key_field ?? ;
-    $this->range_key_type = $range_key_type ?? ;
-    $this->range_key_value = $range_key_value ?? ;
-    $this->table_name = $table_name ?? ;
+    $this->hash_key_field = $hash_key_field ?? "";
+    $this->hash_key_type = $hash_key_type ?? "";
+    $this->hash_key_value = $hash_key_value ?? "";
+    $this->operation = $operation ?? "";
+    $this->payload = $payload ?? null;
+    $this->payload_field = $payload_field ?? "";
+    $this->range_key_field = $range_key_field ?? "";
+    $this->range_key_type = $range_key_type ?? "";
+    $this->range_key_value = $range_key_value ?? "";
+    $this->table_name = $table_name ?? "";
   }
 }
 
@@ -516,8 +516,8 @@ class DynamoDBv2Action {
   ?'payload' => Payload,
   ?'table_name' => DynamoTableName,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
-    $this->table_name = $table_name ?? ;
+    $this->payload = $payload ?? null;
+    $this->table_name = $table_name ?? "";
   }
 }
 
@@ -543,9 +543,9 @@ class Event {
   ?'condition' => Condition,
   ?'event_name' => EventName,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->condition = $condition ?? ;
-    $this->event_name = $event_name ?? ;
+    $this->actions = $actions ?? [];
+    $this->condition = $condition ?? "";
+    $this->event_name = $event_name ?? "";
   }
 }
 
@@ -563,9 +563,9 @@ class FirehoseAction {
   ?'payload' => Payload,
   ?'separator' => FirehoseSeparator,
   ) $s = shape()) {
-    $this->delivery_stream_name = $delivery_stream_name ?? ;
-    $this->payload = $payload ?? ;
-    $this->separator = $separator ?? ;
+    $this->delivery_stream_name = $delivery_stream_name ?? "";
+    $this->payload = $payload ?? null;
+    $this->separator = $separator ?? "";
   }
 }
 
@@ -579,8 +579,8 @@ class Input {
   ?'input_configuration' => InputConfiguration,
   ?'input_definition' => InputDefinition,
   ) $s = shape()) {
-    $this->input_configuration = $input_configuration ?? ;
-    $this->input_definition = $input_definition ?? ;
+    $this->input_configuration = $input_configuration ?? null;
+    $this->input_definition = $input_definition ?? null;
   }
 }
 
@@ -602,12 +602,12 @@ class InputConfiguration {
   ?'last_update_time' => Timestamp,
   ?'status' => InputStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->input_arn = $input_arn ?? ;
-    $this->input_description = $input_description ?? ;
-    $this->input_name = $input_name ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->input_arn = $input_arn ?? "";
+    $this->input_description = $input_description ?? "";
+    $this->input_name = $input_name ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -617,7 +617,7 @@ class InputDefinition {
   public function __construct(shape(
   ?'attributes' => Attributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -645,12 +645,12 @@ class InputSummary {
   ?'last_update_time' => Timestamp,
   ?'status' => InputStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->input_arn = $input_arn ?? ;
-    $this->input_description = $input_description ?? ;
-    $this->input_name = $input_name ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->input_arn = $input_arn ?? "";
+    $this->input_description = $input_description ?? "";
+    $this->input_name = $input_name ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -660,7 +660,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -670,7 +670,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -682,8 +682,8 @@ class IotEventsAction {
   ?'input_name' => InputName,
   ?'payload' => Payload,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
-    $this->payload = $payload ?? ;
+    $this->input_name = $input_name ?? "";
+    $this->payload = $payload ?? null;
   }
 }
 
@@ -701,11 +701,11 @@ class IotSiteWiseAction {
   ?'property_id' => AssetPropertyId,
   ?'property_value' => AssetPropertyValue,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->entry_id = $entry_id ?? ;
-    $this->property_alias = $property_alias ?? ;
-    $this->property_id = $property_id ?? ;
-    $this->property_value = $property_value ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->entry_id = $entry_id ?? "";
+    $this->property_alias = $property_alias ?? "";
+    $this->property_id = $property_id ?? "";
+    $this->property_value = $property_value ?? null;
   }
 }
 
@@ -717,8 +717,8 @@ class IotTopicPublishAction {
   ?'mqtt_topic' => MQTTTopic,
   ?'payload' => Payload,
   ) $s = shape()) {
-    $this->mqtt_topic = $mqtt_topic ?? ;
-    $this->payload = $payload ?? ;
+    $this->mqtt_topic = $mqtt_topic ?? "";
+    $this->payload = $payload ?? null;
   }
 }
 
@@ -732,8 +732,8 @@ class LambdaAction {
   ?'function_arn' => AmazonResourceName,
   ?'payload' => Payload,
   ) $s = shape()) {
-    $this->function_arn = $function_arn ?? ;
-    $this->payload = $payload ?? ;
+    $this->function_arn = $function_arn ?? "";
+    $this->payload = $payload ?? null;
   }
 }
 
@@ -743,7 +743,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -757,9 +757,9 @@ class ListDetectorModelVersionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -771,8 +771,8 @@ class ListDetectorModelVersionsResponse {
   ?'detector_model_version_summaries' => DetectorModelVersionSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->detector_model_version_summaries = $detector_model_version_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_model_version_summaries = $detector_model_version_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -784,8 +784,8 @@ class ListDetectorModelsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -797,8 +797,8 @@ class ListDetectorModelsResponse {
   ?'detector_model_summaries' => DetectorModelSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->detector_model_summaries = $detector_model_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_model_summaries = $detector_model_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -810,8 +810,8 @@ class ListInputsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -823,8 +823,8 @@ class ListInputsResponse {
   ?'input_summaries' => InputSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->input_summaries = $input_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->input_summaries = $input_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -844,7 +844,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -864,10 +864,10 @@ class LoggingOptions {
   ?'level' => LoggingLevel,
   ?'role_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->detector_debug_options = $detector_debug_options ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->level = $level ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->detector_debug_options = $detector_debug_options ?? [];
+    $this->enabled = $enabled ?? false;
+    $this->level = $level ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -883,7 +883,7 @@ class OnEnterLifecycle {
   public function __construct(shape(
   ?'events' => Events,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
   }
 }
 
@@ -893,7 +893,7 @@ class OnExitLifecycle {
   public function __construct(shape(
   ?'events' => Events,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
   }
 }
 
@@ -905,8 +905,8 @@ class OnInputLifecycle {
   ?'events' => Events,
   ?'transition_events' => TransitionEvents,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->transition_events = $transition_events ?? ;
+    $this->events = $events ?? [];
+    $this->transition_events = $transition_events ?? [];
   }
 }
 
@@ -918,8 +918,8 @@ class Payload {
   ?'content_expression' => ContentExpression,
   ?'type' => PayloadType,
   ) $s = shape()) {
-    $this->content_expression = $content_expression ?? ;
-    $this->type = $type ?? ;
+    $this->content_expression = $content_expression ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -931,7 +931,7 @@ class PutLoggingOptionsRequest {
   public function __construct(shape(
   ?'logging_options' => LoggingOptions,
   ) $s = shape()) {
-    $this->logging_options = $logging_options ?? ;
+    $this->logging_options = $logging_options ?? null;
   }
 }
 
@@ -943,7 +943,7 @@ class ResetTimerAction {
   public function __construct(shape(
   ?'timer_name' => TimerName,
   ) $s = shape()) {
-    $this->timer_name = $timer_name ?? ;
+    $this->timer_name = $timer_name ?? "";
   }
 }
 
@@ -957,7 +957,7 @@ class ResourceAlreadyExistsException {
   ?'resource_arn' => resourceArn,
   ?'resource_id' => resourceId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_arn = $resource_arn ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -969,7 +969,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -979,7 +979,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -991,8 +991,8 @@ class SNSTopicPublishAction {
   ?'payload' => Payload,
   ?'target_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
-    $this->target_arn = $target_arn ?? ;
+    $this->payload = $payload ?? null;
+    $this->target_arn = $target_arn ?? "";
   }
 }
 
@@ -1004,7 +1004,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1018,9 +1018,9 @@ class SetTimerAction {
   ?'seconds' => Seconds,
   ?'timer_name' => TimerName,
   ) $s = shape()) {
-    $this->duration_expression = $duration_expression ?? ;
-    $this->seconds = $seconds ?? ;
-    $this->timer_name = $timer_name ?? ;
+    $this->duration_expression = $duration_expression ?? "";
+    $this->seconds = $seconds ?? 0;
+    $this->timer_name = $timer_name ?? "";
   }
 }
 
@@ -1032,8 +1032,8 @@ class SetVariableAction {
   ?'value' => VariableValue,
   ?'variable_name' => VariableName,
   ) $s = shape()) {
-    $this->value = $value ?? ;
-    $this->variable_name = $variable_name ?? ;
+    $this->value = $value ?? "";
+    $this->variable_name = $variable_name ?? "";
   }
 }
 
@@ -1047,9 +1047,9 @@ class SqsAction {
   ?'queue_url' => QueueUrl,
   ?'use_base_64' => UseBase64,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
-    $this->queue_url = $queue_url ?? ;
-    $this->use_base_64 = $use_base_64 ?? ;
+    $this->payload = $payload ?? null;
+    $this->queue_url = $queue_url ?? "";
+    $this->use_base_64 = $use_base_64 ?? false;
   }
 }
 
@@ -1065,10 +1065,10 @@ class State {
   ?'on_input' => OnInputLifecycle,
   ?'state_name' => StateName,
   ) $s = shape()) {
-    $this->on_enter = $on_enter ?? ;
-    $this->on_exit = $on_exit ?? ;
-    $this->on_input = $on_input ?? ;
-    $this->state_name = $state_name ?? ;
+    $this->on_enter = $on_enter ?? null;
+    $this->on_exit = $on_exit ?? null;
+    $this->on_input = $on_input ?? null;
+    $this->state_name = $state_name ?? "";
   }
 }
 
@@ -1084,8 +1084,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1102,7 +1102,7 @@ class TagResourceRequest {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1121,7 +1121,7 @@ class TagrisAccessDeniedException {
   public function __construct(shape(
   ?'message' => TagrisExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1139,7 +1139,7 @@ class TagrisInternalServiceException {
   public function __construct(shape(
   ?'message' => TagrisExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1151,8 +1151,8 @@ class TagrisInvalidArnException {
   ?'message' => TagrisExceptionMessage,
   ?'sweep_list_item' => TagrisSweepListItem,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->sweep_list_item = $sweep_list_item ?? ;
+    $this->message = $message ?? "";
+    $this->sweep_list_item = $sweep_list_item ?? null;
   }
 }
 
@@ -1162,7 +1162,7 @@ class TagrisInvalidParameterException {
   public function __construct(shape(
   ?'message' => TagrisExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1174,8 +1174,8 @@ class TagrisPartialResourcesExistResultsException {
   ?'message' => TagrisExceptionMessage,
   ?'resource_existence_information' => TagrisSweepListResult,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_existence_information = $resource_existence_information ?? ;
+    $this->message = $message ?? "";
+    $this->resource_existence_information = $resource_existence_information ?? [];
   }
 }
 
@@ -1210,7 +1210,7 @@ class TagrisThrottledException {
   public function __construct(shape(
   ?'message' => TagrisExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1244,7 +1244,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1264,10 +1264,10 @@ class TransitionEvent {
   ?'event_name' => EventName,
   ?'next_state' => StateName,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->condition = $condition ?? ;
-    $this->event_name = $event_name ?? ;
-    $this->next_state = $next_state ?? ;
+    $this->actions = $actions ?? [];
+    $this->condition = $condition ?? "";
+    $this->event_name = $event_name ?? "";
+    $this->next_state = $next_state ?? "";
   }
 }
 
@@ -1279,7 +1279,7 @@ class UnsupportedOperationException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1292,7 +1292,7 @@ class UntagResourceRequest {
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1317,11 +1317,11 @@ class UpdateDetectorModelRequest {
   ?'evaluation_method' => EvaluationMethod,
   ?'role_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->detector_model_definition = $detector_model_definition ?? ;
-    $this->detector_model_description = $detector_model_description ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->evaluation_method = $evaluation_method ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->detector_model_definition = $detector_model_definition ?? null;
+    $this->detector_model_description = $detector_model_description ?? "";
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->evaluation_method = $evaluation_method ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1331,7 +1331,7 @@ class UpdateDetectorModelResponse {
   public function __construct(shape(
   ?'detector_model_configuration' => DetectorModelConfiguration,
   ) $s = shape()) {
-    $this->detector_model_configuration = $detector_model_configuration ?? ;
+    $this->detector_model_configuration = $detector_model_configuration ?? null;
   }
 }
 
@@ -1345,9 +1345,9 @@ class UpdateInputRequest {
   ?'input_description' => InputDescription,
   ?'input_name' => InputName,
   ) $s = shape()) {
-    $this->input_definition = $input_definition ?? ;
-    $this->input_description = $input_description ?? ;
-    $this->input_name = $input_name ?? ;
+    $this->input_definition = $input_definition ?? null;
+    $this->input_description = $input_description ?? "";
+    $this->input_name = $input_name ?? "";
   }
 }
 
@@ -1357,7 +1357,7 @@ class UpdateInputResponse {
   public function __construct(shape(
   ?'input_configuration' => InputConfiguration,
   ) $s = shape()) {
-    $this->input_configuration = $input_configuration ?? ;
+    $this->input_configuration = $input_configuration ?? null;
   }
 }
 

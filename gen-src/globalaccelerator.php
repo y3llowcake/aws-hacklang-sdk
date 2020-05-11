@@ -51,15 +51,15 @@ class Accelerator {
   ?'name' => GenericString,
   ?'status' => AcceleratorStatus,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
-    $this->created_time = $created_time ?? ;
-    $this->dns_name = $dns_name ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
+    $this->created_time = $created_time ?? 0;
+    $this->dns_name = $dns_name ?? "";
+    $this->enabled = $enabled ?? false;
     $this->ip_address_type = $ip_address_type ?? "";
     $this->ip_sets = $ip_sets ?? [];
-    $this->last_modified_time = $last_modified_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->last_modified_time = $last_modified_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -73,9 +73,9 @@ class AcceleratorAttributes {
   ?'flow_logs_s_3_bucket' => GenericString,
   ?'flow_logs_s_3_prefix' => GenericString,
   ) $s = shape()) {
-    $this->flow_logs_enabled = $flow_logs_enabled ?? ;
-    $this->flow_logs_s_3_bucket = $flow_logs_s_3_bucket ?? ;
-    $this->flow_logs_s_3_prefix = $flow_logs_s_3_prefix ?? ;
+    $this->flow_logs_enabled = $flow_logs_enabled ?? false;
+    $this->flow_logs_s_3_bucket = $flow_logs_s_3_bucket ?? "";
+    $this->flow_logs_s_3_prefix = $flow_logs_s_3_prefix ?? "";
   }
 }
 
@@ -85,7 +85,7 @@ class AcceleratorNotDisabledException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -95,7 +95,7 @@ class AcceleratorNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -109,7 +109,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -119,7 +119,7 @@ class AdvertiseByoipCidrRequest {
   public function __construct(shape(
   ?'cidr' => GenericString,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
+    $this->cidr = $cidr ?? "";
   }
 }
 
@@ -139,7 +139,7 @@ class AssociatedEndpointGroupFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -149,7 +149,7 @@ class AssociatedListenerFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -163,9 +163,9 @@ class ByoipCidr {
   ?'events' => ByoipCidrEvents,
   ?'state' => ByoipCidrState,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
-    $this->events = $events ?? ;
-    $this->state = $state ?? ;
+    $this->cidr = $cidr ?? "";
+    $this->events = $events ?? [];
+    $this->state = $state ?? "";
   }
 }
 
@@ -177,7 +177,7 @@ class ByoipCidrEvent {
   ?'message' => GenericString,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -190,7 +190,7 @@ class ByoipCidrNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -206,8 +206,8 @@ class CidrAuthorizationContext {
   ?'message' => GenericString,
   ?'signature' => GenericString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->signature = $signature ?? ;
+    $this->message = $message ?? "";
+    $this->signature = $signature ?? "";
   }
 }
 
@@ -229,11 +229,11 @@ class CreateAcceleratorRequest {
   ?'name' => GenericString,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->idempotency_token = $idempotency_token ?? "";
     $this->ip_address_type = $ip_address_type ?? "";
     $this->ip_addresses = $ip_addresses ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -273,13 +273,13 @@ class CreateEndpointGroupRequest {
   ?'traffic_dial_percentage' => TrafficDialPercentage,
   ) $s = shape()) {
     $this->endpoint_configurations = $endpoint_configurations ?? [];
-    $this->endpoint_group_region = $endpoint_group_region ?? ;
+    $this->endpoint_group_region = $endpoint_group_region ?? "";
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? 0;
     $this->health_check_protocol = $health_check_protocol ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
     $this->threshold_count = $threshold_count ?? 0;
     $this->traffic_dial_percentage = $traffic_dial_percentage ?? 0.0;
   }
@@ -309,7 +309,7 @@ class CreateListenerRequest {
   ?'port_ranges' => PortRanges,
   ?'protocol' => Protocol,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
     $this->client_affinity = $client_affinity ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
     $this->port_ranges = $port_ranges ?? [];
@@ -333,7 +333,7 @@ class DeleteAcceleratorRequest {
   public function __construct(shape(
   ?'accelerator_arn' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
   }
 }
 
@@ -343,7 +343,7 @@ class DeleteEndpointGroupRequest {
   public function __construct(shape(
   ?'endpoint_group_arn' => GenericString,
   ) $s = shape()) {
-    $this->endpoint_group_arn = $endpoint_group_arn ?? ;
+    $this->endpoint_group_arn = $endpoint_group_arn ?? "";
   }
 }
 
@@ -353,7 +353,7 @@ class DeleteListenerRequest {
   public function __construct(shape(
   ?'listener_arn' => GenericString,
   ) $s = shape()) {
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
   }
 }
 
@@ -363,7 +363,7 @@ class DeprovisionByoipCidrRequest {
   public function __construct(shape(
   ?'cidr' => GenericString,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
+    $this->cidr = $cidr ?? "";
   }
 }
 
@@ -383,7 +383,7 @@ class DescribeAcceleratorAttributesRequest {
   public function __construct(shape(
   ?'accelerator_arn' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
   }
 }
 
@@ -403,7 +403,7 @@ class DescribeAcceleratorRequest {
   public function __construct(shape(
   ?'accelerator_arn' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
   }
 }
 
@@ -423,7 +423,7 @@ class DescribeEndpointGroupRequest {
   public function __construct(shape(
   ?'endpoint_group_arn' => GenericString,
   ) $s = shape()) {
-    $this->endpoint_group_arn = $endpoint_group_arn ?? ;
+    $this->endpoint_group_arn = $endpoint_group_arn ?? "";
   }
 }
 
@@ -443,7 +443,7 @@ class DescribeListenerRequest {
   public function __construct(shape(
   ?'listener_arn' => GenericString,
   ) $s = shape()) {
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
   }
 }
 
@@ -467,9 +467,9 @@ class EndpointConfiguration {
   ?'endpoint_id' => GenericString,
   ?'weight' => EndpointWeight,
   ) $s = shape()) {
-    $this->client_ip_preservation_enabled = $client_ip_preservation_enabled ?? ;
-    $this->endpoint_id = $endpoint_id ?? ;
-    $this->weight = $weight ?? ;
+    $this->client_ip_preservation_enabled = $client_ip_preservation_enabled ?? false;
+    $this->endpoint_id = $endpoint_id ?? "";
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -489,11 +489,11 @@ class EndpointDescription {
   ?'health_state' => HealthState,
   ?'weight' => EndpointWeight,
   ) $s = shape()) {
-    $this->client_ip_preservation_enabled = $client_ip_preservation_enabled ?? ;
-    $this->endpoint_id = $endpoint_id ?? ;
-    $this->health_reason = $health_reason ?? ;
+    $this->client_ip_preservation_enabled = $client_ip_preservation_enabled ?? false;
+    $this->endpoint_id = $endpoint_id ?? "";
+    $this->health_reason = $health_reason ?? "";
     $this->health_state = $health_state ?? "";
-    $this->weight = $weight ?? ;
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -522,10 +522,10 @@ class EndpointGroup {
   ?'traffic_dial_percentage' => TrafficDialPercentage,
   ) $s = shape()) {
     $this->endpoint_descriptions = $endpoint_descriptions ?? [];
-    $this->endpoint_group_arn = $endpoint_group_arn ?? ;
-    $this->endpoint_group_region = $endpoint_group_region ?? ;
+    $this->endpoint_group_arn = $endpoint_group_arn ?? "";
+    $this->endpoint_group_region = $endpoint_group_region ?? "";
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? 0;
     $this->health_check_protocol = $health_check_protocol ?? "";
     $this->threshold_count = $threshold_count ?? 0;
@@ -539,7 +539,7 @@ class EndpointGroupAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -549,7 +549,7 @@ class EndpointGroupNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -579,7 +579,7 @@ class IncorrectCidrStateException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -589,7 +589,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -599,7 +599,7 @@ class InvalidArgumentException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -609,7 +609,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -619,7 +619,7 @@ class InvalidPortRangeException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -638,7 +638,7 @@ class IpSet {
   ?'ip_family' => GenericString,
   ) $s = shape()) {
     $this->ip_addresses = $ip_addresses ?? [];
-    $this->ip_family = $ip_family ?? ;
+    $this->ip_family = $ip_family ?? "";
   }
 }
 
@@ -650,7 +650,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -663,7 +663,7 @@ class ListAcceleratorsRequest {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -676,7 +676,7 @@ class ListAcceleratorsResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->accelerators = $accelerators ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -689,7 +689,7 @@ class ListByoipCidrsRequest {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -702,7 +702,7 @@ class ListByoipCidrsResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->byoip_cidrs = $byoip_cidrs ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -716,9 +716,9 @@ class ListEndpointGroupsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => GenericString,
   ) $s = shape()) {
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -731,7 +731,7 @@ class ListEndpointGroupsResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->endpoint_groups = $endpoint_groups ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -745,9 +745,9 @@ class ListListenersRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -760,7 +760,7 @@ class ListListenersResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->listeners = $listeners ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -797,7 +797,7 @@ class Listener {
   ?'protocol' => Protocol,
   ) $s = shape()) {
     $this->client_affinity = $client_affinity ?? "";
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
     $this->port_ranges = $port_ranges ?? [];
     $this->protocol = $protocol ?? "";
   }
@@ -809,7 +809,7 @@ class ListenerNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -827,8 +827,8 @@ class PortRange {
   ?'from_port' => PortNumber,
   ?'to_port' => PortNumber,
   ) $s = shape()) {
-    $this->from_port = $from_port ?? ;
-    $this->to_port = $to_port ?? ;
+    $this->from_port = $from_port ?? 0;
+    $this->to_port = $to_port ?? 0;
   }
 }
 
@@ -844,7 +844,7 @@ class ProvisionByoipCidrRequest {
   ?'cidr' => GenericString,
   ?'cidr_authorization_context' => CidrAuthorizationContext,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
+    $this->cidr = $cidr ?? "";
     $this->cidr_authorization_context = $cidr_authorization_context ?? null;
   }
 }
@@ -869,8 +869,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -940,10 +940,10 @@ class UpdateAcceleratorAttributesRequest {
   ?'flow_logs_s_3_bucket' => GenericString,
   ?'flow_logs_s_3_prefix' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
-    $this->flow_logs_enabled = $flow_logs_enabled ?? ;
-    $this->flow_logs_s_3_bucket = $flow_logs_s_3_bucket ?? ;
-    $this->flow_logs_s_3_prefix = $flow_logs_s_3_prefix ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
+    $this->flow_logs_enabled = $flow_logs_enabled ?? false;
+    $this->flow_logs_s_3_bucket = $flow_logs_s_3_bucket ?? "";
+    $this->flow_logs_s_3_prefix = $flow_logs_s_3_prefix ?? "";
   }
 }
 
@@ -969,10 +969,10 @@ class UpdateAcceleratorRequest {
   ?'ip_address_type' => IpAddressType,
   ?'name' => GenericString,
   ) $s = shape()) {
-    $this->accelerator_arn = $accelerator_arn ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->accelerator_arn = $accelerator_arn ?? "";
+    $this->enabled = $enabled ?? false;
     $this->ip_address_type = $ip_address_type ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1007,9 +1007,9 @@ class UpdateEndpointGroupRequest {
   ?'traffic_dial_percentage' => TrafficDialPercentage,
   ) $s = shape()) {
     $this->endpoint_configurations = $endpoint_configurations ?? [];
-    $this->endpoint_group_arn = $endpoint_group_arn ?? ;
+    $this->endpoint_group_arn = $endpoint_group_arn ?? "";
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? 0;
     $this->health_check_protocol = $health_check_protocol ?? "";
     $this->threshold_count = $threshold_count ?? 0;
@@ -1040,7 +1040,7 @@ class UpdateListenerRequest {
   ?'protocol' => Protocol,
   ) $s = shape()) {
     $this->client_affinity = $client_affinity ?? "";
-    $this->listener_arn = $listener_arn ?? ;
+    $this->listener_arn = $listener_arn ?? "";
     $this->port_ranges = $port_ranges ?? [];
     $this->protocol = $protocol ?? "";
   }
@@ -1062,7 +1062,7 @@ class WithdrawByoipCidrRequest {
   public function __construct(shape(
   ?'cidr' => GenericString,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
+    $this->cidr = $cidr ?? "";
   }
 }
 

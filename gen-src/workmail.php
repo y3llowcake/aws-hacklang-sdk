@@ -70,17 +70,17 @@ class AccessControlRule {
   ?'not_user_ids' => UserIdList,
   ?'user_ids' => UserIdList,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->date_created = $date_created ?? ;
-    $this->date_modified = $date_modified ?? ;
-    $this->description = $description ?? ;
-    $this->effect = $effect ?? ;
-    $this->ip_ranges = $ip_ranges ?? ;
-    $this->name = $name ?? ;
-    $this->not_actions = $not_actions ?? ;
-    $this->not_ip_ranges = $not_ip_ranges ?? ;
-    $this->not_user_ids = $not_user_ids ?? ;
-    $this->user_ids = $user_ids ?? ;
+    $this->actions = $actions ?? [];
+    $this->date_created = $date_created ?? 0;
+    $this->date_modified = $date_modified ?? 0;
+    $this->description = $description ?? "";
+    $this->effect = $effect ?? "";
+    $this->ip_ranges = $ip_ranges ?? [];
+    $this->name = $name ?? "";
+    $this->not_actions = $not_actions ?? [];
+    $this->not_ip_ranges = $not_ip_ranges ?? [];
+    $this->not_user_ids = $not_user_ids ?? [];
+    $this->user_ids = $user_ids ?? [];
   }
 }
 
@@ -112,7 +112,7 @@ class AssociateDelegateToResourceRequest {
   ?'organization_id' => OrganizationId,
   ?'resource_id' => ResourceId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -135,8 +135,8 @@ class AssociateMemberToGroupRequest {
   ?'member_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->member_id = $member_id ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->member_id = $member_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -158,9 +158,9 @@ class BookingOptions {
   ?'auto_decline_conflicting_requests' => boolean,
   ?'auto_decline_recurring_requests' => boolean,
   ) $s = shape()) {
-    $this->auto_accept_requests = $auto_accept_requests ?? ;
-    $this->auto_decline_conflicting_requests = $auto_decline_conflicting_requests ?? ;
-    $this->auto_decline_recurring_requests = $auto_decline_recurring_requests ?? ;
+    $this->auto_accept_requests = $auto_accept_requests ?? false;
+    $this->auto_decline_conflicting_requests = $auto_decline_conflicting_requests ?? false;
+    $this->auto_decline_recurring_requests = $auto_decline_recurring_requests ?? false;
   }
 }
 
@@ -176,8 +176,8 @@ class CreateAliasRequest {
   ?'entity_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
-    $this->entity_id = $entity_id ?? ;
+    $this->alias = $alias ?? "";
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -197,7 +197,7 @@ class CreateGroupRequest {
   ?'name' => GroupName,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -208,7 +208,7 @@ class CreateGroupResponse {
   public function __construct(shape(
   ?'group_id' => WorkMailIdentifier,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -222,9 +222,9 @@ class CreateResourceRequest {
   ?'organization_id' => OrganizationId,
   ?'type' => ResourceType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->organization_id = $organization_id ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -250,8 +250,8 @@ class CreateUserRequest {
   ?'organization_id' => OrganizationId,
   ?'password' => Password,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->name = $name ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->name = $name ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->password = $password ?? "";
   }
@@ -263,7 +263,7 @@ class CreateUserResponse {
   public function __construct(shape(
   ?'user_id' => WorkMailIdentifier,
   ) $s = shape()) {
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -275,8 +275,8 @@ class Delegate {
   ?'id' => string,
   ?'type' => MemberType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -288,7 +288,7 @@ class DeleteAccessControlRuleRequest {
   ?'name' => AccessControlRuleName,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -310,8 +310,8 @@ class DeleteAliasRequest {
   ?'entity_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
-    $this->entity_id = $entity_id ?? ;
+    $this->alias = $alias ?? "";
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -331,7 +331,7 @@ class DeleteGroupRequest {
   ?'group_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -353,8 +353,8 @@ class DeleteMailboxPermissionsRequest {
   ?'grantee_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
-    $this->grantee_id = $grantee_id ?? ;
+    $this->entity_id = $entity_id ?? "";
+    $this->grantee_id = $grantee_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -395,7 +395,7 @@ class DeleteUserRequest {
   ?'user_id' => WorkMailIdentifier,
   ) $s = shape()) {
     $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -414,7 +414,7 @@ class DeregisterFromWorkMailRequest {
   ?'entity_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -434,7 +434,7 @@ class DescribeGroupRequest {
   ?'group_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -455,12 +455,12 @@ class DescribeGroupResponse {
   ?'name' => GroupName,
   ?'state' => EntityState,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->group_id = $group_id ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -496,15 +496,15 @@ class DescribeOrganizationResponse {
   ?'organization_id' => OrganizationId,
   ?'state' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->alias = $alias ?? ;
-    $this->completed_date = $completed_date ?? ;
-    $this->default_mail_domain = $default_mail_domain ?? ;
-    $this->directory_id = $directory_id ?? ;
-    $this->directory_type = $directory_type ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->arn = $arn ?? "";
+    $this->alias = $alias ?? "";
+    $this->completed_date = $completed_date ?? 0;
+    $this->default_mail_domain = $default_mail_domain ?? "";
+    $this->directory_id = $directory_id ?? "";
+    $this->directory_type = $directory_type ?? "";
+    $this->error_message = $error_message ?? "";
     $this->organization_id = $organization_id ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -542,13 +542,13 @@ class DescribeResourceResponse {
   ?'type' => ResourceType,
   ) $s = shape()) {
     $this->booking_options = $booking_options ?? null;
-    $this->disabled_date = $disabled_date ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->name = $name ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->name = $name ?? "";
     $this->resource_id = $resource_id ?? "";
-    $this->state = $state ?? ;
-    $this->type = $type ?? ;
+    $this->state = $state ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -561,7 +561,7 @@ class DescribeUserRequest {
   ?'user_id' => WorkMailIdentifier,
   ) $s = shape()) {
     $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -585,13 +585,13 @@ class DescribeUserResponse {
   ?'user_id' => WorkMailIdentifier,
   ?'user_role' => UserRole,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->display_name = $display_name ?? "";
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
+    $this->user_id = $user_id ?? "";
     $this->user_role = $user_role ?? "";
   }
 }
@@ -602,7 +602,7 @@ class DirectoryServiceAuthenticationFailedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -612,7 +612,7 @@ class DirectoryUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -626,7 +626,7 @@ class DisassociateDelegateFromResourceRequest {
   ?'organization_id' => OrganizationId,
   ?'resource_id' => ResourceId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -649,8 +649,8 @@ class DisassociateMemberFromGroupRequest {
   ?'member_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->member_id = $member_id ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->member_id = $member_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -670,7 +670,7 @@ class EmailAddressInUseException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -680,7 +680,7 @@ class EntityAlreadyRegisteredException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -690,7 +690,7 @@ class EntityNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -702,7 +702,7 @@ class EntityStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -718,10 +718,10 @@ class GetAccessControlEffectRequest {
   ?'organization_id' => OrganizationId,
   ?'user_id' => WorkMailIdentifier,
   ) $s = shape()) {
-    $this->action = $action ?? ;
+    $this->action = $action ?? "";
     $this->ip_address = $ip_address ?? "";
     $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -733,8 +733,8 @@ class GetAccessControlEffectResponse {
   ?'effect' => AccessControlRuleEffect,
   ?'matched_rules' => AccessControlRuleNameList,
   ) $s = shape()) {
-    $this->effect = $effect ?? ;
-    $this->matched_rules = $matched_rules ?? ;
+    $this->effect = $effect ?? "";
+    $this->matched_rules = $matched_rules ?? [];
   }
 }
 
@@ -747,7 +747,7 @@ class GetMailboxDetailsRequest {
   ?'user_id' => WorkMailIdentifier,
   ) $s = shape()) {
     $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -780,12 +780,12 @@ class Group {
   ?'name' => GroupName,
   ?'state' => EntityState,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -799,7 +799,7 @@ class InvalidConfigurationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -809,7 +809,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -819,7 +819,7 @@ class InvalidPasswordException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -835,7 +835,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -855,7 +855,7 @@ class ListAccessControlRulesResponse {
   public function __construct(shape(
   ?'rules' => AccessControlRulesList,
   ) $s = shape()) {
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -871,7 +871,7 @@ class ListAliasesRequest {
   ?'next_token' => NextToken,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->organization_id = $organization_id ?? "";
@@ -903,7 +903,7 @@ class ListGroupMembersRequest {
   ?'next_token' => NextToken,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->organization_id = $organization_id ?? "";
@@ -964,7 +964,7 @@ class ListMailboxPermissionsRequest {
   ?'next_token' => NextToken,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
+    $this->entity_id = $entity_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->organization_id = $organization_id ?? "";
@@ -1037,7 +1037,7 @@ class ListResourceDelegatesResponse {
   ?'delegates' => ResourceDelegates,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->delegates = $delegates ?? ;
+    $this->delegates = $delegates ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1077,7 +1077,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1087,7 +1087,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1126,7 +1126,7 @@ class MailDomainNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1136,7 +1136,7 @@ class MailDomainStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1162,12 +1162,12 @@ class Member {
   ?'state' => EntityState,
   ?'type' => MemberType,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
-    $this->type = $type ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1181,7 +1181,7 @@ class NameAvailabilityException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1197,7 +1197,7 @@ class OrganizationNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1207,7 +1207,7 @@ class OrganizationStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1225,10 +1225,10 @@ class OrganizationSummary {
   ?'organization_id' => OrganizationId,
   ?'state' => string,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->alias = $alias ?? "";
+    $this->error_message = $error_message ?? "";
     $this->organization_id = $organization_id ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1244,8 +1244,8 @@ class Permission {
   ?'grantee_type' => MemberType,
   ?'permission_values' => PermissionValues,
   ) $s = shape()) {
-    $this->grantee_id = $grantee_id ?? ;
-    $this->grantee_type = $grantee_type ?? ;
+    $this->grantee_id = $grantee_id ?? "";
+    $this->grantee_type = $grantee_type ?? "";
     $this->permission_values = $permission_values ?? [];
   }
 }
@@ -1280,16 +1280,16 @@ class PutAccessControlRuleRequest {
   ?'organization_id' => OrganizationId,
   ?'user_ids' => UserIdList,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->description = $description ?? ;
-    $this->effect = $effect ?? ;
-    $this->ip_ranges = $ip_ranges ?? ;
-    $this->name = $name ?? ;
-    $this->not_actions = $not_actions ?? ;
-    $this->not_ip_ranges = $not_ip_ranges ?? ;
-    $this->not_user_ids = $not_user_ids ?? ;
+    $this->actions = $actions ?? [];
+    $this->description = $description ?? "";
+    $this->effect = $effect ?? "";
+    $this->ip_ranges = $ip_ranges ?? [];
+    $this->name = $name ?? "";
+    $this->not_actions = $not_actions ?? [];
+    $this->not_ip_ranges = $not_ip_ranges ?? [];
+    $this->not_user_ids = $not_user_ids ?? [];
     $this->organization_id = $organization_id ?? "";
-    $this->user_ids = $user_ids ?? ;
+    $this->user_ids = $user_ids ?? [];
   }
 }
 
@@ -1312,8 +1312,8 @@ class PutMailboxPermissionsRequest {
   ?'organization_id' => OrganizationId,
   ?'permission_values' => PermissionValues,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
-    $this->grantee_id = $grantee_id ?? ;
+    $this->entity_id = $entity_id ?? "";
+    $this->grantee_id = $grantee_id ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->permission_values = $permission_values ?? [];
   }
@@ -1336,8 +1336,8 @@ class RegisterToWorkMailRequest {
   ?'entity_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->email = $email ?? ;
-    $this->entity_id = $entity_id ?? ;
+    $this->email = $email ?? "";
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -1355,7 +1355,7 @@ class ReservedNameException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1371,7 +1371,7 @@ class ResetPasswordRequest {
   ) $s = shape()) {
     $this->organization_id = $organization_id ?? "";
     $this->password = $password ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1400,13 +1400,13 @@ class Resource {
   ?'state' => EntityState,
   ?'type' => ResourceType,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
-    $this->type = $type ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1422,7 +1422,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1440,8 +1440,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1459,8 +1459,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1481,7 +1481,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1491,7 +1491,7 @@ class UnsupportedOperationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1503,8 +1503,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1527,7 +1527,7 @@ class UpdateMailboxQuotaRequest {
   ) $s = shape()) {
     $this->mailbox_quota = $mailbox_quota ?? 0;
     $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1548,8 +1548,8 @@ class UpdatePrimaryEmailAddressRequest {
   ?'entity_id' => WorkMailIdentifier,
   ?'organization_id' => OrganizationId,
   ) $s = shape()) {
-    $this->email = $email ?? ;
-    $this->entity_id = $entity_id ?? ;
+    $this->email = $email ?? "";
+    $this->entity_id = $entity_id ?? "";
     $this->organization_id = $organization_id ?? "";
   }
 }
@@ -1574,7 +1574,7 @@ class UpdateResourceRequest {
   ?'resource_id' => ResourceId,
   ) $s = shape()) {
     $this->booking_options = $booking_options ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -1607,13 +1607,13 @@ class User {
   ?'state' => EntityState,
   ?'user_role' => UserRole,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->email = $email ?? ;
-    $this->enabled_date = $enabled_date ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->disabled_date = $disabled_date ?? 0;
+    $this->display_name = $display_name ?? "";
+    $this->email = $email ?? "";
+    $this->enabled_date = $enabled_date ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
     $this->user_role = $user_role ?? "";
   }
 }

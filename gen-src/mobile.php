@@ -19,7 +19,7 @@ class AccountActionRequiredException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -35,7 +35,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -59,12 +59,12 @@ class BundleDetails {
   ?'title' => BundleTitle,
   ?'version' => BundleVersion,
   ) $s = shape()) {
-    $this->available_platforms = $available_platforms ?? ;
-    $this->bundle_id = $bundle_id ?? ;
-    $this->description = $description ?? ;
-    $this->icon_url = $icon_url ?? ;
-    $this->title = $title ?? ;
-    $this->version = $version ?? ;
+    $this->available_platforms = $available_platforms ?? [];
+    $this->bundle_id = $bundle_id ?? "";
+    $this->description = $description ?? "";
+    $this->icon_url = $icon_url ?? "";
+    $this->title = $title ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -92,10 +92,10 @@ class CreateProjectRequest {
   ?'region' => ProjectRegion,
   ?'snapshot_id' => SnapshotId,
   ) $s = shape()) {
-    $this->contents = $contents ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->snapshot_id = $snapshot_id ?? ;
+    $this->contents = $contents ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->snapshot_id = $snapshot_id ?? "";
   }
 }
 
@@ -105,7 +105,7 @@ class CreateProjectResult {
   public function __construct(shape(
   ?'details' => ProjectDetails,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 
@@ -117,7 +117,7 @@ class DeleteProjectRequest {
   public function __construct(shape(
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->project_id = $project_id ?? ;
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -129,8 +129,8 @@ class DeleteProjectResult {
   ?'deleted_resources' => Resources,
   ?'orphaned_resources' => Resources,
   ) $s = shape()) {
-    $this->deleted_resources = $deleted_resources ?? ;
-    $this->orphaned_resources = $orphaned_resources ?? ;
+    $this->deleted_resources = $deleted_resources ?? [];
+    $this->orphaned_resources = $orphaned_resources ?? [];
   }
 }
 
@@ -140,7 +140,7 @@ class DescribeBundleRequest {
   public function __construct(shape(
   ?'bundle_id' => BundleId,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
   }
 }
 
@@ -150,7 +150,7 @@ class DescribeBundleResult {
   public function __construct(shape(
   ?'details' => BundleDetails,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 
@@ -162,8 +162,8 @@ class DescribeProjectRequest {
   ?'project_id' => ProjectId,
   ?'sync_from_resources' => boolean,
   ) $s = shape()) {
-    $this->project_id = $project_id ?? ;
-    $this->sync_from_resources = $sync_from_resources ?? ;
+    $this->project_id = $project_id ?? "";
+    $this->sync_from_resources = $sync_from_resources ?? false;
   }
 }
 
@@ -173,7 +173,7 @@ class DescribeProjectResult {
   public function __construct(shape(
   ?'details' => ProjectDetails,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 
@@ -191,9 +191,9 @@ class ExportBundleRequest {
   ?'platform' => Platform,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->bundle_id = $bundle_id ?? ;
-    $this->platform = $platform ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->bundle_id = $bundle_id ?? "";
+    $this->platform = $platform ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -203,7 +203,7 @@ class ExportBundleResult {
   public function __construct(shape(
   ?'download_url' => DownloadUrl,
   ) $s = shape()) {
-    $this->download_url = $download_url ?? ;
+    $this->download_url = $download_url ?? "";
   }
 }
 
@@ -213,7 +213,7 @@ class ExportProjectRequest {
   public function __construct(shape(
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->project_id = $project_id ?? ;
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -227,9 +227,9 @@ class ExportProjectResult {
   ?'share_url' => ShareUrl,
   ?'snapshot_id' => SnapshotId,
   ) $s = shape()) {
-    $this->download_url = $download_url ?? ;
-    $this->share_url = $share_url ?? ;
-    $this->snapshot_id = $snapshot_id ?? ;
+    $this->download_url = $download_url ?? "";
+    $this->share_url = $share_url ?? "";
+    $this->snapshot_id = $snapshot_id ?? "";
   }
 }
 
@@ -243,7 +243,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -255,8 +255,8 @@ class LimitExceededException {
   ?'message' => ErrorMessage,
   ?'retry_after_seconds' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -268,8 +268,8 @@ class ListBundlesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -281,8 +281,8 @@ class ListBundlesResult {
   ?'bundle_list' => BundleList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->bundle_list = $bundle_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bundle_list = $bundle_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -294,8 +294,8 @@ class ListProjectsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -307,8 +307,8 @@ class ListProjectsResult {
   ?'next_token' => NextToken,
   ?'projects' => ProjectSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -322,7 +322,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -350,14 +350,14 @@ class ProjectDetails {
   ?'resources' => Resources,
   ?'state' => ProjectState,
   ) $s = shape()) {
-    $this->console_url = $console_url ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->name = $name ?? ;
-    $this->project_id = $project_id ?? ;
-    $this->region = $region ?? ;
-    $this->resources = $resources ?? ;
-    $this->state = $state ?? ;
+    $this->console_url = $console_url ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->project_id = $project_id ?? "";
+    $this->region = $region ?? "";
+    $this->resources = $resources ?? [];
+    $this->state = $state ?? "";
   }
 }
 
@@ -379,8 +379,8 @@ class ProjectSummary {
   ?'name' => ProjectName,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->name = $name ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -398,11 +398,11 @@ class Resource {
   ?'name' => ResourceName,
   ?'type' => ResourceType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->feature = $feature ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->feature = $feature ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -422,8 +422,8 @@ class ServiceUnavailableException {
   ?'message' => ErrorMessage,
   ?'retry_after_seconds' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -439,8 +439,8 @@ class TooManyRequestsException {
   ?'message' => ErrorMessage,
   ?'retry_after_seconds' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -450,7 +450,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -462,8 +462,8 @@ class UpdateProjectRequest {
   ?'contents' => Contents,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->contents = $contents ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->contents = $contents ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -473,7 +473,7 @@ class UpdateProjectResult {
   public function __construct(shape(
   ?'details' => ProjectDetails,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 

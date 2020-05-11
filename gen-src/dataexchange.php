@@ -32,7 +32,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -48,9 +48,9 @@ class AssetDestinationEntry {
   ?'bucket' => __string,
   ?'key' => __string,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -91,13 +91,13 @@ class AssetEntry {
     $this->arn = $arn ?? "";
     $this->asset_details = $asset_details ?? null;
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
-    $this->revision_id = $revision_id ?? ;
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -111,8 +111,8 @@ class AssetSourceEntry {
   ?'bucket' => __string,
   ?'key' => __string,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class CancelJobRequest {
   public function __construct(shape(
   ?'job_id' => __string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -140,8 +140,8 @@ class ConflictException {
   ?'resource_id' => __string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -161,7 +161,7 @@ class CreateDataSetRequest {
     $this->asset_type = $asset_type ?? "";
     $this->description = $description ?? "";
     $this->name = $name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -193,15 +193,15 @@ class CreateDataSetResponse {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
     $this->origin = $origin ?? "";
     $this->origin_details = $origin_details ?? null;
-    $this->source_id = $source_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -239,13 +239,13 @@ class CreateJobResponse {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->details = $details ?? null;
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
     $this->id = $id ?? "";
     $this->state = $state ?? "";
     $this->type = $type ?? "";
-    $this->updated_at = $updated_at ?? ;
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -259,9 +259,9 @@ class CreateRevisionRequest {
   ?'data_set_id' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->comment = $comment ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -288,14 +288,14 @@ class CreateRevisionResponse {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->comment = $comment ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->finalized = $finalized ?? ;
+    $this->comment = $comment ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->finalized = $finalized ?? false;
     $this->id = $id ?? "";
-    $this->source_id = $source_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -325,14 +325,14 @@ class DataSetEntry {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
     $this->origin = $origin ?? "";
     $this->origin_details = $origin_details ?? null;
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -346,9 +346,9 @@ class DeleteAssetRequest {
   ?'data_set_id' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -358,7 +358,7 @@ class DeleteDataSetRequest {
   public function __construct(shape(
   ?'data_set_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
   }
 }
 
@@ -370,8 +370,8 @@ class DeleteRevisionRequest {
   ?'data_set_id' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -386,7 +386,7 @@ class Details {
   ?'import_assets_from_s_3_job_error_details' => ListOfAssetSourceEntry,
   ) $s = shape()) {
     $this->import_asset_from_signed_url_job_error_details = $import_asset_from_signed_url_job_error_details ?? null;
-    $this->import_assets_from_s_3_job_error_details = $import_assets_from_s_3_job_error_details ?? ;
+    $this->import_assets_from_s_3_job_error_details = $import_assets_from_s_3_job_error_details ?? [];
   }
 }
 
@@ -400,9 +400,9 @@ class ExportAssetToSignedUrlRequestDetails {
   ?'data_set_id' => Id,
   ?'revision_id' => Id,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -420,11 +420,11 @@ class ExportAssetToSignedUrlResponseDetails {
   ?'signed_url' => __string,
   ?'signed_url_expires_at' => Timestamp,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->signed_url = $signed_url ?? ;
-    $this->signed_url_expires_at = $signed_url_expires_at ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->signed_url = $signed_url ?? "";
+    $this->signed_url_expires_at = $signed_url_expires_at ?? 0;
   }
 }
 
@@ -440,10 +440,10 @@ class ExportAssetsToS3RequestDetails {
   ?'encryption' => ExportServerSideEncryption,
   ?'revision_id' => Id,
   ) $s = shape()) {
-    $this->asset_destinations = $asset_destinations ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->encryption = $encryption ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_destinations = $asset_destinations ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->encryption = $encryption ?? null;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -459,10 +459,10 @@ class ExportAssetsToS3ResponseDetails {
   ?'encryption' => ExportServerSideEncryption,
   ?'revision_id' => Id,
   ) $s = shape()) {
-    $this->asset_destinations = $asset_destinations ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->encryption = $encryption ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_destinations = $asset_destinations ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->encryption = $encryption ?? null;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -474,7 +474,7 @@ class ExportServerSideEncryption {
   ?'kms_key_arn' => __string,
   ?'type' => ServerSideEncryptionTypes,
   ) $s = shape()) {
-    $this->kms_key_arn = $kms_key_arn ?? ;
+    $this->kms_key_arn = $kms_key_arn ?? "";
     $this->type = $type ?? "";
   }
 }
@@ -489,9 +489,9 @@ class GetAssetRequest {
   ?'data_set_id' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -522,13 +522,13 @@ class GetAssetResponse {
     $this->arn = $arn ?? "";
     $this->asset_details = $asset_details ?? null;
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
-    $this->revision_id = $revision_id ?? ;
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -538,7 +538,7 @@ class GetDataSetRequest {
   public function __construct(shape(
   ?'data_set_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
   }
 }
 
@@ -570,15 +570,15 @@ class GetDataSetResponse {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
     $this->origin = $origin ?? "";
     $this->origin_details = $origin_details ?? null;
-    $this->source_id = $source_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -588,7 +588,7 @@ class GetJobRequest {
   public function __construct(shape(
   ?'job_id' => __string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -613,13 +613,13 @@ class GetJobResponse {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->details = $details ?? null;
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
     $this->id = $id ?? "";
     $this->state = $state ?? "";
     $this->type = $type ?? "";
-    $this->updated_at = $updated_at ?? ;
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -631,8 +631,8 @@ class GetRevisionRequest {
   ?'data_set_id' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -659,14 +659,14 @@ class GetRevisionResponse {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->comment = $comment ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->finalized = $finalized ?? ;
+    $this->comment = $comment ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->finalized = $finalized ?? false;
     $this->id = $id ?? "";
-    $this->source_id = $source_id ?? ;
-    $this->tags = $tags ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -695,9 +695,9 @@ class ImportAssetFromSignedUrlRequestDetails {
   ?'revision_id' => Id,
   ) $s = shape()) {
     $this->asset_name = $asset_name ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->md_5_hash = $md_5_hash ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->md_5_hash = $md_5_hash ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -718,11 +718,11 @@ class ImportAssetFromSignedUrlResponseDetails {
   ?'signed_url_expires_at' => Timestamp,
   ) $s = shape()) {
     $this->asset_name = $asset_name ?? "";
-    $this->data_set_id = $data_set_id ?? ;
-    $this->md_5_hash = $md_5_hash ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->signed_url = $signed_url ?? ;
-    $this->signed_url_expires_at = $signed_url_expires_at ?? ;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->md_5_hash = $md_5_hash ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->signed_url = $signed_url ?? "";
+    $this->signed_url_expires_at = $signed_url_expires_at ?? 0;
   }
 }
 
@@ -736,9 +736,9 @@ class ImportAssetsFromS3RequestDetails {
   ?'data_set_id' => Id,
   ?'revision_id' => Id,
   ) $s = shape()) {
-    $this->asset_sources = $asset_sources ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_sources = $asset_sources ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -752,9 +752,9 @@ class ImportAssetsFromS3ResponseDetails {
   ?'data_set_id' => Id,
   ?'revision_id' => Id,
   ) $s = shape()) {
-    $this->asset_sources = $asset_sources ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->asset_sources = $asset_sources ?? [];
+    $this->data_set_id = $data_set_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -764,7 +764,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -789,13 +789,13 @@ class JobEntry {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->details = $details ?? null;
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
     $this->id = $id ?? "";
     $this->state = $state ?? "";
     $this->type = $type ?? "";
-    $this->updated_at = $updated_at ?? ;
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -820,9 +820,9 @@ class JobError {
     $this->code = $code ?? "";
     $this->details = $details ?? null;
     $this->limit_name = $limit_name ?? "";
-    $this->limit_value = $limit_value ?? ;
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->limit_value = $limit_value ?? 0.0;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -843,7 +843,7 @@ class ListDataSetRevisionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -858,7 +858,7 @@ class ListDataSetRevisionsResponse {
   ?'revisions' => ListOfRevisionEntry,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->revisions = $revisions ?? ;
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -886,7 +886,7 @@ class ListDataSetsResponse {
   ?'data_sets' => ListOfDataSetEntry,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->data_sets = $data_sets ?? ;
+    $this->data_sets = $data_sets ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -903,10 +903,10 @@ class ListJobsRequest {
   ?'next_token' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -918,7 +918,7 @@ class ListJobsResponse {
   ?'jobs' => ListOfJobEntry,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -951,10 +951,10 @@ class ListRevisionAssetsRequest {
   ?'next_token' => __string,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -966,7 +966,7 @@ class ListRevisionAssetsResponse {
   ?'assets' => ListOfAssetEntry,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->assets = $assets ?? ;
+    $this->assets = $assets ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -977,7 +977,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -987,7 +987,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1007,7 +1007,7 @@ class OriginDetails {
   public function __construct(shape(
   ?'product_id' => __string,
   ) $s = shape()) {
-    $this->product_id = $product_id ?? ;
+    $this->product_id = $product_id ?? "";
   }
 }
 
@@ -1023,10 +1023,10 @@ class RequestDetails {
   ?'import_asset_from_signed_url' => ImportAssetFromSignedUrlRequestDetails,
   ?'import_assets_from_s_3' => ImportAssetsFromS3RequestDetails,
   ) $s = shape()) {
-    $this->export_asset_to_signed_url = $export_asset_to_signed_url ?? ;
-    $this->export_assets_to_s_3 = $export_assets_to_s_3 ?? ;
-    $this->import_asset_from_signed_url = $import_asset_from_signed_url ?? ;
-    $this->import_assets_from_s_3 = $import_assets_from_s_3 ?? ;
+    $this->export_asset_to_signed_url = $export_asset_to_signed_url ?? null;
+    $this->export_assets_to_s_3 = $export_assets_to_s_3 ?? null;
+    $this->import_asset_from_signed_url = $import_asset_from_signed_url ?? null;
+    $this->import_assets_from_s_3 = $import_assets_from_s_3 ?? null;
   }
 }
 
@@ -1040,8 +1040,8 @@ class ResourceNotFoundException {
   ?'resource_id' => __string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->message = $message ?? "";
+    $this->resource_id = $resource_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -1060,10 +1060,10 @@ class ResponseDetails {
   ?'import_asset_from_signed_url' => ImportAssetFromSignedUrlResponseDetails,
   ?'import_assets_from_s_3' => ImportAssetsFromS3ResponseDetails,
   ) $s = shape()) {
-    $this->export_asset_to_signed_url = $export_asset_to_signed_url ?? ;
-    $this->export_assets_to_s_3 = $export_assets_to_s_3 ?? ;
-    $this->import_asset_from_signed_url = $import_asset_from_signed_url ?? ;
-    $this->import_assets_from_s_3 = $import_assets_from_s_3 ?? ;
+    $this->export_asset_to_signed_url = $export_asset_to_signed_url ?? null;
+    $this->export_assets_to_s_3 = $export_assets_to_s_3 ?? null;
+    $this->import_asset_from_signed_url = $import_asset_from_signed_url ?? null;
+    $this->import_assets_from_s_3 = $import_assets_from_s_3 ?? null;
   }
 }
 
@@ -1088,13 +1088,13 @@ class RevisionEntry {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->comment = $comment ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->finalized = $finalized ?? ;
+    $this->comment = $comment ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->finalized = $finalized ?? false;
     $this->id = $id ?? "";
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1104,7 +1104,7 @@ class S3SnapshotAsset {
   public function __construct(shape(
   ?'size' => __doubleMin0,
   ) $s = shape()) {
-    $this->size = $size ?? ;
+    $this->size = $size ?? 0.0;
   }
 }
 
@@ -1121,8 +1121,8 @@ class ServiceLimitExceededException {
   ?'message' => __string,
   ) $s = shape()) {
     $this->limit_name = $limit_name ?? "";
-    $this->limit_value = $limit_value ?? ;
-    $this->message = $message ?? ;
+    $this->limit_value = $limit_value ?? 0.0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1132,7 +1132,7 @@ class StartJobRequest {
   public function __construct(shape(
   ?'job_id' => __string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1153,8 +1153,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => MapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1164,7 +1164,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1180,8 +1180,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => ListOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1197,10 +1197,10 @@ class UpdateAssetRequest {
   ?'name' => AssetName,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->asset_id = $asset_id ?? ;
-    $this->data_set_id = $data_set_id ?? ;
+    $this->asset_id = $asset_id ?? "";
+    $this->data_set_id = $data_set_id ?? "";
     $this->name = $name ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -1231,13 +1231,13 @@ class UpdateAssetResponse {
     $this->arn = $arn ?? "";
     $this->asset_details = $asset_details ?? null;
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
-    $this->revision_id = $revision_id ?? ;
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1251,7 +1251,7 @@ class UpdateDataSetRequest {
   ?'description' => Description,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->data_set_id = $data_set_id ?? ;
+    $this->data_set_id = $data_set_id ?? "";
     $this->description = $description ?? "";
     $this->name = $name ?? "";
   }
@@ -1283,14 +1283,14 @@ class UpdateDataSetResponse {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->asset_type = $asset_type ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->id = $id ?? "";
     $this->name = $name ?? "";
     $this->origin = $origin ?? "";
     $this->origin_details = $origin_details ?? null;
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1306,10 +1306,10 @@ class UpdateRevisionRequest {
   ?'finalized' => __boolean,
   ?'revision_id' => __string,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->finalized = $finalized ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->comment = $comment ?? "";
+    $this->data_set_id = $data_set_id ?? "";
+    $this->finalized = $finalized ?? false;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -1334,13 +1334,13 @@ class UpdateRevisionResponse {
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->comment = $comment ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->data_set_id = $data_set_id ?? ;
-    $this->finalized = $finalized ?? ;
+    $this->comment = $comment ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->data_set_id = $data_set_id ?? "";
+    $this->finalized = $finalized ?? false;
     $this->id = $id ?? "";
-    $this->source_id = $source_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->source_id = $source_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1350,7 +1350,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

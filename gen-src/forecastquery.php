@@ -20,7 +20,7 @@ class DataPoint {
   ?'value' => Double,
   ) $s = shape()) {
     $this->timestamp = $timestamp ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -48,7 +48,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -58,7 +58,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -68,7 +68,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -90,11 +90,11 @@ class QueryForecastRequest {
   ?'next_token' => NextToken,
   ?'start_date' => DateTime,
   ) $s = shape()) {
-    $this->end_date = $end_date ?? ;
+    $this->end_date = $end_date ?? "";
     $this->filters = $filters ?? [];
-    $this->forecast_arn = $forecast_arn ?? ;
+    $this->forecast_arn = $forecast_arn ?? "";
     $this->next_token = $next_token ?? "";
-    $this->start_date = $start_date ?? ;
+    $this->start_date = $start_date ?? "";
   }
 }
 
@@ -114,7 +114,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

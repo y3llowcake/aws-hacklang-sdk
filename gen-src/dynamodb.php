@@ -57,8 +57,8 @@ class ArchivalSummary {
   ?'archival_date_time' => Date,
   ?'archival_reason' => ArchivalReason,
   ) $s = shape()) {
-    $this->archival_backup_arn = $archival_backup_arn ?? ;
-    $this->archival_date_time = $archival_date_time ?? ;
+    $this->archival_backup_arn = $archival_backup_arn ?? "";
+    $this->archival_date_time = $archival_date_time ?? 0;
     $this->archival_reason = $archival_reason ?? "";
   }
 }
@@ -74,7 +74,7 @@ class AttributeDefinition {
   ?'attribute_type' => ScalarAttributeType,
   ) $s = shape()) {
     $this->attribute_name = $attribute_name ?? "";
-    $this->attribute_type = $attribute_type ?? ;
+    $this->attribute_type = $attribute_type ?? "";
   }
 }
 
@@ -112,16 +112,16 @@ class AttributeValue {
   ?'s' => StringAttributeValue,
   ?'ss' => StringSetAttributeValue,
   ) $s = shape()) {
-    $this->b = $b ?? ;
-    $this->bool = $bool ?? ;
-    $this->bs = $bs ?? ;
-    $this->l = $l ?? ;
-    $this->m = $m ?? ;
-    $this->n = $n ?? ;
-    $this->ns = $ns ?? ;
-    $this->null = $null ?? ;
-    $this->s = $s ?? ;
-    $this->ss = $ss ?? ;
+    $this->b = $b ?? "";
+    $this->bool = $bool ?? false;
+    $this->bs = $bs ?? [];
+    $this->l = $l ?? [];
+    $this->m = $m ?? [];
+    $this->n = $n ?? "";
+    $this->ns = $ns ?? [];
+    $this->null = $null ?? false;
+    $this->s = $s ?? "";
+    $this->ss = $ss ?? [];
   }
 }
 
@@ -135,8 +135,8 @@ class AttributeValueUpdate {
   ?'action' => AttributeAction,
   ?'value' => AttributeValue,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->value = $value ?? ;
+    $this->action = $action ?? "";
+    $this->value = $value ?? null;
   }
 }
 
@@ -148,8 +148,8 @@ class AutoScalingPolicyDescription {
   ?'policy_name' => AutoScalingPolicyName,
   ?'target_tracking_scaling_policy_configuration' => AutoScalingTargetTrackingScalingPolicyConfigurationDescription,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->target_tracking_scaling_policy_configuration = $target_tracking_scaling_policy_configuration ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->target_tracking_scaling_policy_configuration = $target_tracking_scaling_policy_configuration ?? null;
   }
 }
 
@@ -165,8 +165,8 @@ class AutoScalingPolicyUpdate {
   ?'policy_name' => AutoScalingPolicyName,
   ?'target_tracking_scaling_policy_configuration' => AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->target_tracking_scaling_policy_configuration = $target_tracking_scaling_policy_configuration ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->target_tracking_scaling_policy_configuration = $target_tracking_scaling_policy_configuration ?? null;
   }
 }
 
@@ -186,11 +186,11 @@ class AutoScalingSettingsDescription {
   ?'minimum_units' => PositiveLongObject,
   ?'scaling_policies' => AutoScalingPolicyDescriptionList,
   ) $s = shape()) {
-    $this->auto_scaling_disabled = $auto_scaling_disabled ?? ;
+    $this->auto_scaling_disabled = $auto_scaling_disabled ?? false;
     $this->auto_scaling_role_arn = $auto_scaling_role_arn ?? "";
-    $this->maximum_units = $maximum_units ?? ;
-    $this->minimum_units = $minimum_units ?? ;
-    $this->scaling_policies = $scaling_policies ?? ;
+    $this->maximum_units = $maximum_units ?? 0;
+    $this->minimum_units = $minimum_units ?? 0;
+    $this->scaling_policies = $scaling_policies ?? [];
   }
 }
 
@@ -208,11 +208,11 @@ class AutoScalingSettingsUpdate {
   ?'minimum_units' => PositiveLongObject,
   ?'scaling_policy_update' => AutoScalingPolicyUpdate,
   ) $s = shape()) {
-    $this->auto_scaling_disabled = $auto_scaling_disabled ?? ;
+    $this->auto_scaling_disabled = $auto_scaling_disabled ?? false;
     $this->auto_scaling_role_arn = $auto_scaling_role_arn ?? "";
-    $this->maximum_units = $maximum_units ?? ;
-    $this->minimum_units = $minimum_units ?? ;
-    $this->scaling_policy_update = $scaling_policy_update ?? ;
+    $this->maximum_units = $maximum_units ?? 0;
+    $this->minimum_units = $minimum_units ?? 0;
+    $this->scaling_policy_update = $scaling_policy_update ?? null;
   }
 }
 
@@ -228,10 +228,10 @@ class AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
   ?'scale_out_cooldown' => IntegerObject,
   ?'target_value' => Double,
   ) $s = shape()) {
-    $this->disable_scale_in = $disable_scale_in ?? ;
-    $this->scale_in_cooldown = $scale_in_cooldown ?? ;
-    $this->scale_out_cooldown = $scale_out_cooldown ?? ;
-    $this->target_value = $target_value ?? ;
+    $this->disable_scale_in = $disable_scale_in ?? false;
+    $this->scale_in_cooldown = $scale_in_cooldown ?? 0;
+    $this->scale_out_cooldown = $scale_out_cooldown ?? 0;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -247,10 +247,10 @@ class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   ?'scale_out_cooldown' => IntegerObject,
   ?'target_value' => Double,
   ) $s = shape()) {
-    $this->disable_scale_in = $disable_scale_in ?? ;
-    $this->scale_in_cooldown = $scale_in_cooldown ?? ;
-    $this->scale_out_cooldown = $scale_out_cooldown ?? ;
-    $this->target_value = $target_value ?? ;
+    $this->disable_scale_in = $disable_scale_in ?? false;
+    $this->scale_in_cooldown = $scale_in_cooldown ?? 0;
+    $this->scale_out_cooldown = $scale_out_cooldown ?? 0;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -296,7 +296,7 @@ class BackupDetails {
   ) $s = shape()) {
     $this->backup_arn = $backup_arn ?? "";
     $this->backup_creation_date_time = $backup_creation_date_time ?? 0;
-    $this->backup_expiry_date_time = $backup_expiry_date_time ?? ;
+    $this->backup_expiry_date_time = $backup_expiry_date_time ?? 0;
     $this->backup_name = $backup_name ?? "";
     $this->backup_size_bytes = $backup_size_bytes ?? 0;
     $this->backup_status = $backup_status ?? "";
@@ -310,7 +310,7 @@ class BackupInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -322,7 +322,7 @@ class BackupNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -358,7 +358,7 @@ class BackupSummary {
   ) $s = shape()) {
     $this->backup_arn = $backup_arn ?? "";
     $this->backup_creation_date_time = $backup_creation_date_time ?? 0;
-    $this->backup_expiry_date_time = $backup_expiry_date_time ?? ;
+    $this->backup_expiry_date_time = $backup_expiry_date_time ?? 0;
     $this->backup_name = $backup_name ?? "";
     $this->backup_size_bytes = $backup_size_bytes ?? 0;
     $this->backup_status = $backup_status ?? "";
@@ -383,7 +383,7 @@ class BatchGetItemInput {
   ?'request_items' => BatchGetRequestMap,
   ?'return_consumed_capacity' => ReturnConsumedCapacity,
   ) $s = shape()) {
-    $this->request_items = $request_items ?? ;
+    $this->request_items = $request_items ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
   }
 }
@@ -398,9 +398,9 @@ class BatchGetItemOutput {
   ?'responses' => BatchGetResponseMap,
   ?'unprocessed_keys' => BatchGetRequestMap,
   ) $s = shape()) {
-    $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->responses = $responses ?? ;
-    $this->unprocessed_keys = $unprocessed_keys ?? ;
+    $this->consumed_capacity = $consumed_capacity ?? [];
+    $this->responses = $responses ?? [];
+    $this->unprocessed_keys = $unprocessed_keys ?? [];
   }
 }
 
@@ -418,7 +418,7 @@ class BatchWriteItemInput {
   ?'return_consumed_capacity' => ReturnConsumedCapacity,
   ?'return_item_collection_metrics' => ReturnItemCollectionMetrics,
   ) $s = shape()) {
-    $this->request_items = $request_items ?? ;
+    $this->request_items = $request_items ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
     $this->return_item_collection_metrics = $return_item_collection_metrics ?? "";
   }
@@ -434,9 +434,9 @@ class BatchWriteItemOutput {
   ?'item_collection_metrics' => ItemCollectionMetricsPerTable,
   ?'unprocessed_items' => BatchWriteItemRequestMap,
   ) $s = shape()) {
-    $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->item_collection_metrics = $item_collection_metrics ?? null;
-    $this->unprocessed_items = $unprocessed_items ?? ;
+    $this->consumed_capacity = $consumed_capacity ?? [];
+    $this->item_collection_metrics = $item_collection_metrics ?? [];
+    $this->unprocessed_items = $unprocessed_items ?? [];
   }
 }
 
@@ -453,7 +453,7 @@ class BillingModeSummary {
   ?'last_update_to_pay_per_request_date_time' => Date,
   ) $s = shape()) {
     $this->billing_mode = $billing_mode ?? "";
-    $this->last_update_to_pay_per_request_date_time = $last_update_to_pay_per_request_date_time ?? ;
+    $this->last_update_to_pay_per_request_date_time = $last_update_to_pay_per_request_date_time ?? 0;
   }
 }
 
@@ -476,8 +476,8 @@ class CancellationReason {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->code = $code ?? "";
-    $this->item = $item ?? ;
-    $this->message = $message ?? ;
+    $this->item = $item ?? [];
+    $this->message = $message ?? "";
   }
 }
 
@@ -493,9 +493,9 @@ class Capacity {
   ?'read_capacity_units' => ConsumedCapacityUnits,
   ?'write_capacity_units' => ConsumedCapacityUnits,
   ) $s = shape()) {
-    $this->capacity_units = $capacity_units ?? ;
-    $this->read_capacity_units = $read_capacity_units ?? ;
-    $this->write_capacity_units = $write_capacity_units ?? ;
+    $this->capacity_units = $capacity_units ?? 0.0;
+    $this->read_capacity_units = $read_capacity_units ?? 0.0;
+    $this->write_capacity_units = $write_capacity_units ?? 0.0;
   }
 }
 
@@ -535,8 +535,8 @@ class ConditionCheck {
   ?'table_name' => TableName,
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
     $this->key = $key ?? [];
     $this->return_values_on_condition_check_failure = $return_values_on_condition_check_failure ?? "";
     $this->table_name = $table_name ?? "";
@@ -551,7 +551,7 @@ class ConditionalCheckFailedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -577,13 +577,13 @@ class ConsumedCapacity {
   ?'table_name' => TableName,
   ?'write_capacity_units' => ConsumedCapacityUnits,
   ) $s = shape()) {
-    $this->capacity_units = $capacity_units ?? ;
+    $this->capacity_units = $capacity_units ?? 0.0;
     $this->global_secondary_indexes = $global_secondary_indexes ?? [];
     $this->local_secondary_indexes = $local_secondary_indexes ?? [];
-    $this->read_capacity_units = $read_capacity_units ?? ;
-    $this->table = $table ?? ;
+    $this->read_capacity_units = $read_capacity_units ?? 0.0;
+    $this->table = $table ?? null;
     $this->table_name = $table_name ?? "";
-    $this->write_capacity_units = $write_capacity_units ?? ;
+    $this->write_capacity_units = $write_capacity_units ?? 0.0;
   }
 }
 
@@ -612,7 +612,7 @@ class ContinuousBackupsUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -692,8 +692,8 @@ class CreateGlobalTableInput {
   ?'global_table_name' => TableName,
   ?'replication_group' => ReplicaList,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
-    $this->replication_group = $replication_group ?? ;
+    $this->global_table_name = $global_table_name ?? "";
+    $this->replication_group = $replication_group ?? [];
   }
 }
 
@@ -769,7 +769,7 @@ class CreateTableInput {
     $this->sse_specification = $sse_specification ?? null;
     $this->stream_specification = $stream_specification ?? null;
     $this->table_name = $table_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -802,8 +802,8 @@ class Delete {
   ?'table_name' => TableName,
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
     $this->key = $key ?? [];
     $this->return_values_on_condition_check_failure = $return_values_on_condition_check_failure ?? "";
     $this->table_name = $table_name ?? "";
@@ -866,13 +866,13 @@ class DeleteItemInput {
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
     $this->conditional_operator = $conditional_operator ?? "";
-    $this->expected = $expected ?? ;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
+    $this->expected = $expected ?? [];
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
     $this->key = $key ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
     $this->return_item_collection_metrics = $return_item_collection_metrics ?? "";
-    $this->return_values = $return_values ?? ;
+    $this->return_values = $return_values ?? "";
     $this->table_name = $table_name ?? "";
   }
 }
@@ -887,7 +887,7 @@ class DeleteItemOutput {
   ?'consumed_capacity' => ConsumedCapacity,
   ?'item_collection_metrics' => ItemCollectionMetrics,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->consumed_capacity = $consumed_capacity ?? null;
     $this->item_collection_metrics = $item_collection_metrics ?? null;
   }
@@ -1044,7 +1044,7 @@ class DescribeGlobalTableInput {
   public function __construct(shape(
   ?'global_table_name' => TableName,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
+    $this->global_table_name = $global_table_name ?? "";
   }
 }
 
@@ -1064,7 +1064,7 @@ class DescribeGlobalTableSettingsInput {
   public function __construct(shape(
   ?'global_table_name' => TableName,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
+    $this->global_table_name = $global_table_name ?? "";
   }
 }
 
@@ -1076,8 +1076,8 @@ class DescribeGlobalTableSettingsOutput {
   ?'global_table_name' => TableName,
   ?'replica_settings' => ReplicaSettingsDescriptionList,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
-    $this->replica_settings = $replica_settings ?? ;
+    $this->global_table_name = $global_table_name ?? "";
+    $this->replica_settings = $replica_settings ?? [];
   }
 }
 
@@ -1100,10 +1100,10 @@ class DescribeLimitsOutput {
   ?'table_max_read_capacity_units' => PositiveLongObject,
   ?'table_max_write_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
-    $this->account_max_read_capacity_units = $account_max_read_capacity_units ?? ;
-    $this->account_max_write_capacity_units = $account_max_write_capacity_units ?? ;
-    $this->table_max_read_capacity_units = $table_max_read_capacity_units ?? ;
-    $this->table_max_write_capacity_units = $table_max_write_capacity_units ?? ;
+    $this->account_max_read_capacity_units = $account_max_read_capacity_units ?? 0;
+    $this->account_max_write_capacity_units = $account_max_write_capacity_units ?? 0;
+    $this->table_max_read_capacity_units = $table_max_read_capacity_units ?? 0;
+    $this->table_max_write_capacity_units = $table_max_write_capacity_units ?? 0;
   }
 }
 
@@ -1123,7 +1123,7 @@ class DescribeTableOutput {
   public function __construct(shape(
   ?'table' => TableDescription,
   ) $s = shape()) {
-    $this->table = $table ?? ;
+    $this->table = $table ?? null;
   }
 }
 
@@ -1177,8 +1177,8 @@ class Endpoint {
   ?'address' => string,
   ?'cache_period_in_minutes' => Long,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->cache_period_in_minutes = $cache_period_in_minutes ?? ;
+    $this->address = $address ?? "";
+    $this->cache_period_in_minutes = $cache_period_in_minutes ?? 0;
   }
 }
 
@@ -1206,8 +1206,8 @@ class ExpectedAttributeValue {
   ) $s = shape()) {
     $this->attribute_value_list = $attribute_value_list ?? [];
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->exists = $exists ?? ;
-    $this->value = $value ?? ;
+    $this->exists = $exists ?? false;
+    $this->value = $value ?? null;
   }
 }
 
@@ -1246,7 +1246,7 @@ class Get {
   ?'projection_expression' => ProjectionExpression,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
     $this->key = $key ?? [];
     $this->projection_expression = $projection_expression ?? "";
     $this->table_name = $table_name ?? "";
@@ -1271,9 +1271,9 @@ class GetItemInput {
   ?'return_consumed_capacity' => ReturnConsumedCapacity,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->attributes_to_get = $attributes_to_get ?? ;
+    $this->attributes_to_get = $attributes_to_get ?? [];
     $this->consistent_read = $consistent_read ?? false;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
     $this->key = $key ?? [];
     $this->projection_expression = $projection_expression ?? "";
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
@@ -1290,7 +1290,7 @@ class GetItemOutput {
   ?'item' => AttributeMap,
   ) $s = shape()) {
     $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->item = $item ?? ;
+    $this->item = $item ?? [];
   }
 }
 
@@ -1322,7 +1322,7 @@ class GlobalSecondaryIndexAutoScalingUpdate {
   ?'provisioned_write_capacity_auto_scaling_update' => AutoScalingSettingsUpdate,
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
-    $this->provisioned_write_capacity_auto_scaling_update = $provisioned_write_capacity_auto_scaling_update ?? ;
+    $this->provisioned_write_capacity_auto_scaling_update = $provisioned_write_capacity_auto_scaling_update ?? null;
   }
 }
 
@@ -1351,9 +1351,9 @@ class GlobalSecondaryIndexDescription {
   ?'provisioned_throughput' => ProvisionedThroughputDescription,
   ) $s = shape()) {
     $this->backfilling = $backfilling ?? false;
-    $this->index_arn = $index_arn ?? ;
+    $this->index_arn = $index_arn ?? "";
     $this->index_name = $index_name ?? "";
-    $this->index_size_bytes = $index_size_bytes ?? ;
+    $this->index_size_bytes = $index_size_bytes ?? 0;
     $this->index_status = $index_status ?? "";
     $this->item_count = $item_count ?? 0;
     $this->key_schema = $key_schema ?? [];
@@ -1395,7 +1395,7 @@ class GlobalSecondaryIndexUpdate {
   ?'delete' => DeleteGlobalSecondaryIndexAction,
   ?'update' => UpdateGlobalSecondaryIndexAction,
   ) $s = shape()) {
-    $this->create = $create ?? ;
+    $this->create = $create ?? null;
     $this->delete = $delete ?? null;
     $this->update = $update ?? null;
   }
@@ -1413,8 +1413,8 @@ class GlobalTable {
   ?'global_table_name' => TableName,
   ?'replication_group' => ReplicaList,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
-    $this->replication_group = $replication_group ?? ;
+    $this->global_table_name = $global_table_name ?? "";
+    $this->replication_group = $replication_group ?? [];
   }
 }
 
@@ -1424,7 +1424,7 @@ class GlobalTableAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1444,11 +1444,11 @@ class GlobalTableDescription {
   ?'global_table_status' => GlobalTableStatus,
   ?'replication_group' => ReplicaDescriptionList,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->global_table_arn = $global_table_arn ?? ;
-    $this->global_table_name = $global_table_name ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->global_table_arn = $global_table_arn ?? "";
+    $this->global_table_name = $global_table_name ?? "";
     $this->global_table_status = $global_table_status ?? "";
-    $this->replication_group = $replication_group ?? ;
+    $this->replication_group = $replication_group ?? [];
   }
 }
 
@@ -1463,8 +1463,8 @@ class GlobalTableGlobalSecondaryIndexSettingsUpdate {
   ?'provisioned_write_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
-    $this->provisioned_write_capacity_auto_scaling_settings_update = $provisioned_write_capacity_auto_scaling_settings_update ?? ;
-    $this->provisioned_write_capacity_units = $provisioned_write_capacity_units ?? ;
+    $this->provisioned_write_capacity_auto_scaling_settings_update = $provisioned_write_capacity_auto_scaling_settings_update ?? null;
+    $this->provisioned_write_capacity_units = $provisioned_write_capacity_units ?? 0;
   }
 }
 
@@ -1478,7 +1478,7 @@ class GlobalTableNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1490,7 +1490,7 @@ class IdempotentParameterMismatchException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1502,7 +1502,7 @@ class IndexNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1518,7 +1518,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1528,7 +1528,7 @@ class InvalidRestoreTimeException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1542,8 +1542,8 @@ class ItemCollectionMetrics {
   ?'item_collection_key' => ItemCollectionKeyAttributeMap,
   ?'size_estimate_range_gb' => ItemCollectionSizeEstimateRange,
   ) $s = shape()) {
-    $this->item_collection_key = $item_collection_key ?? ;
-    $this->size_estimate_range_gb = $size_estimate_range_gb ?? ;
+    $this->item_collection_key = $item_collection_key ?? [];
+    $this->size_estimate_range_gb = $size_estimate_range_gb ?? [];
   }
 }
 
@@ -1561,7 +1561,7 @@ class ItemCollectionSizeLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1575,7 +1575,7 @@ class ItemResponse {
   public function __construct(shape(
   ?'item' => AttributeMap,
   ) $s = shape()) {
-    $this->item = $item ?? ;
+    $this->item = $item ?? [];
   }
 }
 
@@ -1626,10 +1626,10 @@ class KeysAndAttributes {
   ?'keys' => KeyList,
   ?'projection_expression' => ProjectionExpression,
   ) $s = shape()) {
-    $this->attributes_to_get = $attributes_to_get ?? ;
+    $this->attributes_to_get = $attributes_to_get ?? [];
     $this->consistent_read = $consistent_read ?? false;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->keys = $keys ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->keys = $keys ?? [];
     $this->projection_expression = $projection_expression ?? "";
   }
 }
@@ -1642,7 +1642,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1665,8 +1665,8 @@ class ListBackupsInput {
   ?'time_range_upper_bound' => TimeRangeUpperBound,
   ) $s = shape()) {
     $this->backup_type = $backup_type ?? "";
-    $this->exclusive_start_backup_arn = $exclusive_start_backup_arn ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_backup_arn = $exclusive_start_backup_arn ?? "";
+    $this->limit = $limit ?? 0;
     $this->table_name = $table_name ?? "";
     $this->time_range_lower_bound = $time_range_lower_bound ?? 0;
     $this->time_range_upper_bound = $time_range_upper_bound ?? 0;
@@ -1682,7 +1682,7 @@ class ListBackupsOutput {
   ?'last_evaluated_backup_arn' => BackupArn,
   ) $s = shape()) {
     $this->backup_summaries = $backup_summaries ?? [];
-    $this->last_evaluated_backup_arn = $last_evaluated_backup_arn ?? ;
+    $this->last_evaluated_backup_arn = $last_evaluated_backup_arn ?? "";
   }
 }
 
@@ -1696,8 +1696,8 @@ class ListContributorInsightsInput {
   ?'next_token' => NextTokenString,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->table_name = $table_name ?? "";
   }
 }
@@ -1713,7 +1713,7 @@ class ListContributorInsightsOutput {
   ?'next_token' => NextTokenString,
   ) $s = shape()) {
     $this->contributor_insights_summaries = $contributor_insights_summaries ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1727,8 +1727,8 @@ class ListGlobalTablesInput {
   ?'limit' => PositiveIntegerObject,
   ?'region_name' => RegionName,
   ) $s = shape()) {
-    $this->exclusive_start_global_table_name = $exclusive_start_global_table_name ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_global_table_name = $exclusive_start_global_table_name ?? "";
+    $this->limit = $limit ?? 0;
     $this->region_name = $region_name ?? "";
   }
 }
@@ -1741,8 +1741,8 @@ class ListGlobalTablesOutput {
   ?'global_tables' => GlobalTableList,
   ?'last_evaluated_global_table_name' => TableName,
   ) $s = shape()) {
-    $this->global_tables = $global_tables ?? ;
-    $this->last_evaluated_global_table_name = $last_evaluated_global_table_name ?? ;
+    $this->global_tables = $global_tables ?? [];
+    $this->last_evaluated_global_table_name = $last_evaluated_global_table_name ?? "";
   }
 }
 
@@ -1754,8 +1754,8 @@ class ListTablesInput {
   ?'exclusive_start_table_name' => TableName,
   ?'limit' => ListTablesInputLimit,
   ) $s = shape()) {
-    $this->exclusive_start_table_name = $exclusive_start_table_name ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_table_name = $exclusive_start_table_name ?? "";
+    $this->limit = $limit ?? 0;
   }
 }
 
@@ -1769,8 +1769,8 @@ class ListTablesOutput {
   ?'last_evaluated_table_name' => TableName,
   ?'table_names' => TableNameList,
   ) $s = shape()) {
-    $this->last_evaluated_table_name = $last_evaluated_table_name ?? ;
-    $this->table_names = $table_names ?? ;
+    $this->last_evaluated_table_name = $last_evaluated_table_name ?? "";
+    $this->table_names = $table_names ?? [];
   }
 }
 
@@ -1782,8 +1782,8 @@ class ListTagsOfResourceInput {
   ?'next_token' => NextTokenString,
   ?'resource_arn' => ResourceArnString,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1795,8 +1795,8 @@ class ListTagsOfResourceOutput {
   ?'next_token' => NextTokenString,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1832,9 +1832,9 @@ class LocalSecondaryIndexDescription {
   ?'key_schema' => KeySchema,
   ?'projection' => Projection,
   ) $s = shape()) {
-    $this->index_arn = $index_arn ?? ;
+    $this->index_arn = $index_arn ?? "";
     $this->index_name = $index_name ?? "";
-    $this->index_size_bytes = $index_size_bytes ?? ;
+    $this->index_size_bytes = $index_size_bytes ?? 0;
     $this->item_count = $item_count ?? 0;
     $this->key_schema = $key_schema ?? [];
     $this->projection = $projection ?? null;
@@ -1891,8 +1891,8 @@ class PointInTimeRecoveryDescription {
   ?'latest_restorable_date_time' => Date,
   ?'point_in_time_recovery_status' => PointInTimeRecoveryStatus,
   ) $s = shape()) {
-    $this->earliest_restorable_date_time = $earliest_restorable_date_time ?? ;
-    $this->latest_restorable_date_time = $latest_restorable_date_time ?? ;
+    $this->earliest_restorable_date_time = $earliest_restorable_date_time ?? 0;
+    $this->latest_restorable_date_time = $latest_restorable_date_time ?? 0;
     $this->point_in_time_recovery_status = $point_in_time_recovery_status ?? "";
   }
 }
@@ -1903,7 +1903,7 @@ class PointInTimeRecoverySpecification {
   public function __construct(shape(
   ?'point_in_time_recovery_enabled' => BooleanObject,
   ) $s = shape()) {
-    $this->point_in_time_recovery_enabled = $point_in_time_recovery_enabled ?? ;
+    $this->point_in_time_recovery_enabled = $point_in_time_recovery_enabled ?? false;
   }
 }
 
@@ -1915,7 +1915,7 @@ class PointInTimeRecoveryUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1931,7 +1931,7 @@ class Projection {
   ?'non_key_attributes' => NonKeyAttributeNameList,
   ?'projection_type' => ProjectionType,
   ) $s = shape()) {
-    $this->non_key_attributes = $non_key_attributes ?? ;
+    $this->non_key_attributes = $non_key_attributes ?? [];
     $this->projection_type = $projection_type ?? "";
   }
 }
@@ -1948,8 +1948,8 @@ class ProvisionedThroughput {
   ?'read_capacity_units' => PositiveLongObject,
   ?'write_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
-    $this->read_capacity_units = $read_capacity_units ?? ;
-    $this->write_capacity_units = $write_capacity_units ?? ;
+    $this->read_capacity_units = $read_capacity_units ?? 0;
+    $this->write_capacity_units = $write_capacity_units ?? 0;
   }
 }
 
@@ -1967,11 +1967,11 @@ class ProvisionedThroughputDescription {
   ?'read_capacity_units' => NonNegativeLongObject,
   ?'write_capacity_units' => NonNegativeLongObject,
   ) $s = shape()) {
-    $this->last_decrease_date_time = $last_decrease_date_time ?? ;
-    $this->last_increase_date_time = $last_increase_date_time ?? ;
-    $this->number_of_decreases_today = $number_of_decreases_today ?? ;
-    $this->read_capacity_units = $read_capacity_units ?? ;
-    $this->write_capacity_units = $write_capacity_units ?? ;
+    $this->last_decrease_date_time = $last_decrease_date_time ?? 0;
+    $this->last_increase_date_time = $last_increase_date_time ?? 0;
+    $this->number_of_decreases_today = $number_of_decreases_today ?? 0;
+    $this->read_capacity_units = $read_capacity_units ?? 0;
+    $this->write_capacity_units = $write_capacity_units ?? 0;
   }
 }
 
@@ -1981,7 +1981,7 @@ class ProvisionedThroughputExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1991,7 +1991,7 @@ class ProvisionedThroughputOverride {
   public function __construct(shape(
   ?'read_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
-    $this->read_capacity_units = $read_capacity_units ?? ;
+    $this->read_capacity_units = $read_capacity_units ?? 0;
   }
 }
 
@@ -2012,9 +2012,9 @@ class Put {
   ?'table_name' => TableName,
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
-    $this->item = $item ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
+    $this->item = $item ?? [];
     $this->return_values_on_condition_check_failure = $return_values_on_condition_check_failure ?? "";
     $this->table_name = $table_name ?? "";
   }
@@ -2046,13 +2046,13 @@ class PutItemInput {
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
     $this->conditional_operator = $conditional_operator ?? "";
-    $this->expected = $expected ?? ;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
-    $this->item = $item ?? ;
+    $this->expected = $expected ?? [];
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
+    $this->item = $item ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
     $this->return_item_collection_metrics = $return_item_collection_metrics ?? "";
-    $this->return_values = $return_values ?? ;
+    $this->return_values = $return_values ?? "";
     $this->table_name = $table_name ?? "";
   }
 }
@@ -2069,7 +2069,7 @@ class PutItemOutput {
   ?'consumed_capacity' => ConsumedCapacity,
   ?'item_collection_metrics' => ItemCollectionMetrics,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->consumed_capacity = $consumed_capacity ?? null;
     $this->item_collection_metrics = $item_collection_metrics ?? null;
   }
@@ -2081,7 +2081,7 @@ class PutRequest {
   public function __construct(shape(
   ?'item' => PutItemInputAttributeMap,
   ) $s = shape()) {
-    $this->item = $item ?? ;
+    $this->item = $item ?? [];
   }
 }
 
@@ -2123,21 +2123,21 @@ class QueryInput {
   ?'select' => Select,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->attributes_to_get = $attributes_to_get ?? ;
+    $this->attributes_to_get = $attributes_to_get ?? [];
     $this->conditional_operator = $conditional_operator ?? "";
     $this->consistent_read = $consistent_read ?? false;
-    $this->exclusive_start_key = $exclusive_start_key ?? ;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
-    $this->filter_expression = $filter_expression ?? ;
+    $this->exclusive_start_key = $exclusive_start_key ?? [];
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
+    $this->filter_expression = $filter_expression ?? "";
     $this->index_name = $index_name ?? "";
-    $this->key_condition_expression = $key_condition_expression ?? ;
+    $this->key_condition_expression = $key_condition_expression ?? "";
     $this->key_conditions = $key_conditions ?? [];
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->projection_expression = $projection_expression ?? "";
-    $this->query_filter = $query_filter ?? ;
+    $this->query_filter = $query_filter ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
-    $this->scan_index_forward = $scan_index_forward ?? ;
+    $this->scan_index_forward = $scan_index_forward ?? false;
     $this->select = $select ?? "";
     $this->table_name = $table_name ?? "";
   }
@@ -2158,10 +2158,10 @@ class QueryOutput {
   ?'scanned_count' => int,
   ) $s = shape()) {
     $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->count = $count ?? ;
-    $this->items = $items ?? ;
-    $this->last_evaluated_key = $last_evaluated_key ?? ;
-    $this->scanned_count = $scanned_count ?? ;
+    $this->count = $count ?? 0;
+    $this->items = $items ?? [];
+    $this->last_evaluated_key = $last_evaluated_key ?? [];
+    $this->scanned_count = $scanned_count ?? 0;
   }
 }
 
@@ -2183,7 +2183,7 @@ class ReplicaAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2203,8 +2203,8 @@ class ReplicaAutoScalingDescription {
   ) $s = shape()) {
     $this->global_secondary_indexes = $global_secondary_indexes ?? [];
     $this->region_name = $region_name ?? "";
-    $this->replica_provisioned_read_capacity_auto_scaling_settings = $replica_provisioned_read_capacity_auto_scaling_settings ?? ;
-    $this->replica_provisioned_write_capacity_auto_scaling_settings = $replica_provisioned_write_capacity_auto_scaling_settings ?? ;
+    $this->replica_provisioned_read_capacity_auto_scaling_settings = $replica_provisioned_read_capacity_auto_scaling_settings ?? null;
+    $this->replica_provisioned_write_capacity_auto_scaling_settings = $replica_provisioned_write_capacity_auto_scaling_settings ?? null;
     $this->replica_status = $replica_status ?? "";
   }
 }
@@ -2222,8 +2222,8 @@ class ReplicaAutoScalingUpdate {
   ?'replica_provisioned_read_capacity_auto_scaling_update' => AutoScalingSettingsUpdate,
   ) $s = shape()) {
     $this->region_name = $region_name ?? "";
-    $this->replica_global_secondary_index_updates = $replica_global_secondary_index_updates ?? ;
-    $this->replica_provisioned_read_capacity_auto_scaling_update = $replica_provisioned_read_capacity_auto_scaling_update ?? ;
+    $this->replica_global_secondary_index_updates = $replica_global_secondary_index_updates ?? [];
+    $this->replica_provisioned_read_capacity_auto_scaling_update = $replica_provisioned_read_capacity_auto_scaling_update ?? null;
   }
 }
 
@@ -2286,8 +2286,8 @@ class ReplicaGlobalSecondaryIndexAutoScalingDescription {
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
     $this->index_status = $index_status ?? "";
-    $this->provisioned_read_capacity_auto_scaling_settings = $provisioned_read_capacity_auto_scaling_settings ?? ;
-    $this->provisioned_write_capacity_auto_scaling_settings = $provisioned_write_capacity_auto_scaling_settings ?? ;
+    $this->provisioned_read_capacity_auto_scaling_settings = $provisioned_read_capacity_auto_scaling_settings ?? null;
+    $this->provisioned_write_capacity_auto_scaling_settings = $provisioned_write_capacity_auto_scaling_settings ?? null;
   }
 }
 
@@ -2302,7 +2302,7 @@ class ReplicaGlobalSecondaryIndexAutoScalingUpdate {
   ?'provisioned_read_capacity_auto_scaling_update' => AutoScalingSettingsUpdate,
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
-    $this->provisioned_read_capacity_auto_scaling_update = $provisioned_read_capacity_auto_scaling_update ?? ;
+    $this->provisioned_read_capacity_auto_scaling_update = $provisioned_read_capacity_auto_scaling_update ?? null;
   }
 }
 
@@ -2343,10 +2343,10 @@ class ReplicaGlobalSecondaryIndexSettingsDescription {
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
     $this->index_status = $index_status ?? "";
-    $this->provisioned_read_capacity_auto_scaling_settings = $provisioned_read_capacity_auto_scaling_settings ?? ;
-    $this->provisioned_read_capacity_units = $provisioned_read_capacity_units ?? ;
-    $this->provisioned_write_capacity_auto_scaling_settings = $provisioned_write_capacity_auto_scaling_settings ?? ;
-    $this->provisioned_write_capacity_units = $provisioned_write_capacity_units ?? ;
+    $this->provisioned_read_capacity_auto_scaling_settings = $provisioned_read_capacity_auto_scaling_settings ?? null;
+    $this->provisioned_read_capacity_units = $provisioned_read_capacity_units ?? 0;
+    $this->provisioned_write_capacity_auto_scaling_settings = $provisioned_write_capacity_auto_scaling_settings ?? null;
+    $this->provisioned_write_capacity_units = $provisioned_write_capacity_units ?? 0;
   }
 }
 
@@ -2363,8 +2363,8 @@ class ReplicaGlobalSecondaryIndexSettingsUpdate {
   ?'provisioned_read_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
     $this->index_name = $index_name ?? "";
-    $this->provisioned_read_capacity_auto_scaling_settings_update = $provisioned_read_capacity_auto_scaling_settings_update ?? ;
-    $this->provisioned_read_capacity_units = $provisioned_read_capacity_units ?? ;
+    $this->provisioned_read_capacity_auto_scaling_settings_update = $provisioned_read_capacity_auto_scaling_settings_update ?? null;
+    $this->provisioned_read_capacity_units = $provisioned_read_capacity_units ?? 0;
   }
 }
 
@@ -2378,7 +2378,7 @@ class ReplicaNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2403,12 +2403,12 @@ class ReplicaSettingsDescription {
   ?'replica_status' => ReplicaStatus,
   ) $s = shape()) {
     $this->region_name = $region_name ?? "";
-    $this->replica_billing_mode_summary = $replica_billing_mode_summary ?? ;
-    $this->replica_global_secondary_index_settings = $replica_global_secondary_index_settings ?? ;
-    $this->replica_provisioned_read_capacity_auto_scaling_settings = $replica_provisioned_read_capacity_auto_scaling_settings ?? ;
-    $this->replica_provisioned_read_capacity_units = $replica_provisioned_read_capacity_units ?? ;
-    $this->replica_provisioned_write_capacity_auto_scaling_settings = $replica_provisioned_write_capacity_auto_scaling_settings ?? ;
-    $this->replica_provisioned_write_capacity_units = $replica_provisioned_write_capacity_units ?? ;
+    $this->replica_billing_mode_summary = $replica_billing_mode_summary ?? null;
+    $this->replica_global_secondary_index_settings = $replica_global_secondary_index_settings ?? [];
+    $this->replica_provisioned_read_capacity_auto_scaling_settings = $replica_provisioned_read_capacity_auto_scaling_settings ?? null;
+    $this->replica_provisioned_read_capacity_units = $replica_provisioned_read_capacity_units ?? 0;
+    $this->replica_provisioned_write_capacity_auto_scaling_settings = $replica_provisioned_write_capacity_auto_scaling_settings ?? null;
+    $this->replica_provisioned_write_capacity_units = $replica_provisioned_write_capacity_units ?? 0;
     $this->replica_status = $replica_status ?? "";
   }
 }
@@ -2428,9 +2428,9 @@ class ReplicaSettingsUpdate {
   ?'replica_provisioned_read_capacity_units' => PositiveLongObject,
   ) $s = shape()) {
     $this->region_name = $region_name ?? "";
-    $this->replica_global_secondary_index_settings_update = $replica_global_secondary_index_settings_update ?? null;
-    $this->replica_provisioned_read_capacity_auto_scaling_settings_update = $replica_provisioned_read_capacity_auto_scaling_settings_update ?? ;
-    $this->replica_provisioned_read_capacity_units = $replica_provisioned_read_capacity_units ?? ;
+    $this->replica_global_secondary_index_settings_update = $replica_global_secondary_index_settings_update ?? [];
+    $this->replica_provisioned_read_capacity_auto_scaling_settings_update = $replica_provisioned_read_capacity_auto_scaling_settings_update ?? null;
+    $this->replica_provisioned_read_capacity_units = $replica_provisioned_read_capacity_units ?? 0;
   }
 }
 
@@ -2450,7 +2450,7 @@ class ReplicaUpdate {
   ?'create' => CreateReplicaAction,
   ?'delete' => DeleteReplicaAction,
   ) $s = shape()) {
-    $this->create = $create ?? ;
+    $this->create = $create ?? null;
     $this->delete = $delete ?? null;
   }
 }
@@ -2467,7 +2467,7 @@ class ReplicationGroupUpdate {
   ?'delete' => DeleteReplicationGroupMemberAction,
   ?'update' => UpdateReplicationGroupMemberAction,
   ) $s = shape()) {
-    $this->create = $create ?? ;
+    $this->create = $create ?? null;
     $this->delete = $delete ?? null;
     $this->update = $update ?? null;
   }
@@ -2481,7 +2481,7 @@ class RequestLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2493,7 +2493,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2503,7 +2503,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2521,10 +2521,10 @@ class RestoreSummary {
   ?'source_backup_arn' => BackupArn,
   ?'source_table_arn' => TableArn,
   ) $s = shape()) {
-    $this->restore_date_time = $restore_date_time ?? ;
+    $this->restore_date_time = $restore_date_time ?? 0;
     $this->restore_in_progress = $restore_in_progress ?? false;
-    $this->source_backup_arn = $source_backup_arn ?? ;
-    $this->source_table_arn = $source_table_arn ?? ;
+    $this->source_backup_arn = $source_backup_arn ?? "";
+    $this->source_table_arn = $source_table_arn ?? "";
   }
 }
 
@@ -2547,12 +2547,12 @@ class RestoreTableFromBackupInput {
   ?'target_table_name' => TableName,
   ) $s = shape()) {
     $this->backup_arn = $backup_arn ?? "";
-    $this->billing_mode_override = $billing_mode_override ?? ;
-    $this->global_secondary_index_override = $global_secondary_index_override ?? ;
-    $this->local_secondary_index_override = $local_secondary_index_override ?? ;
+    $this->billing_mode_override = $billing_mode_override ?? "";
+    $this->global_secondary_index_override = $global_secondary_index_override ?? [];
+    $this->local_secondary_index_override = $local_secondary_index_override ?? [];
     $this->provisioned_throughput_override = $provisioned_throughput_override ?? null;
-    $this->sse_specification_override = $sse_specification_override ?? ;
-    $this->target_table_name = $target_table_name ?? ;
+    $this->sse_specification_override = $sse_specification_override ?? null;
+    $this->target_table_name = $target_table_name ?? "";
   }
 }
 
@@ -2590,16 +2590,16 @@ class RestoreTableToPointInTimeInput {
   ?'target_table_name' => TableName,
   ?'use_latest_restorable_time' => BooleanObject,
   ) $s = shape()) {
-    $this->billing_mode_override = $billing_mode_override ?? ;
-    $this->global_secondary_index_override = $global_secondary_index_override ?? ;
-    $this->local_secondary_index_override = $local_secondary_index_override ?? ;
+    $this->billing_mode_override = $billing_mode_override ?? "";
+    $this->global_secondary_index_override = $global_secondary_index_override ?? [];
+    $this->local_secondary_index_override = $local_secondary_index_override ?? [];
     $this->provisioned_throughput_override = $provisioned_throughput_override ?? null;
-    $this->restore_date_time = $restore_date_time ?? ;
-    $this->sse_specification_override = $sse_specification_override ?? ;
-    $this->source_table_arn = $source_table_arn ?? ;
-    $this->source_table_name = $source_table_name ?? ;
-    $this->target_table_name = $target_table_name ?? ;
-    $this->use_latest_restorable_time = $use_latest_restorable_time ?? ;
+    $this->restore_date_time = $restore_date_time ?? 0;
+    $this->sse_specification_override = $sse_specification_override ?? null;
+    $this->source_table_arn = $source_table_arn ?? "";
+    $this->source_table_name = $source_table_name ?? "";
+    $this->target_table_name = $target_table_name ?? "";
+    $this->use_latest_restorable_time = $use_latest_restorable_time ?? false;
   }
 }
 
@@ -2633,10 +2633,10 @@ class SSEDescription {
   ?'sse_type' => SSEType,
   ?'status' => SSEStatus,
   ) $s = shape()) {
-    $this->inaccessible_encryption_date_time = $inaccessible_encryption_date_time ?? ;
+    $this->inaccessible_encryption_date_time = $inaccessible_encryption_date_time ?? 0;
     $this->kms_master_key_arn = $kms_master_key_arn ?? "";
     $this->sse_type = $sse_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2652,7 +2652,7 @@ class SSESpecification {
   ?'kms_master_key_id' => KMSMasterKeyId,
   ?'sse_type' => SSEType,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->kms_master_key_id = $kms_master_key_id ?? "";
     $this->sse_type = $sse_type ?? "";
   }
@@ -2700,22 +2700,22 @@ class ScanInput {
   ?'table_name' => TableName,
   ?'total_segments' => ScanTotalSegments,
   ) $s = shape()) {
-    $this->attributes_to_get = $attributes_to_get ?? ;
+    $this->attributes_to_get = $attributes_to_get ?? [];
     $this->conditional_operator = $conditional_operator ?? "";
     $this->consistent_read = $consistent_read ?? false;
-    $this->exclusive_start_key = $exclusive_start_key ?? ;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
-    $this->filter_expression = $filter_expression ?? ;
+    $this->exclusive_start_key = $exclusive_start_key ?? [];
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
+    $this->filter_expression = $filter_expression ?? "";
     $this->index_name = $index_name ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->projection_expression = $projection_expression ?? "";
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
-    $this->scan_filter = $scan_filter ?? ;
-    $this->segment = $segment ?? ;
+    $this->scan_filter = $scan_filter ?? [];
+    $this->segment = $segment ?? 0;
     $this->select = $select ?? "";
     $this->table_name = $table_name ?? "";
-    $this->total_segments = $total_segments ?? ;
+    $this->total_segments = $total_segments ?? 0;
   }
 }
 
@@ -2734,10 +2734,10 @@ class ScanOutput {
   ?'scanned_count' => int,
   ) $s = shape()) {
     $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->count = $count ?? ;
-    $this->items = $items ?? ;
-    $this->last_evaluated_key = $last_evaluated_key ?? ;
-    $this->scanned_count = $scanned_count ?? ;
+    $this->count = $count ?? 0;
+    $this->items = $items ?? [];
+    $this->last_evaluated_key = $last_evaluated_key ?? [];
+    $this->scanned_count = $scanned_count ?? 0;
   }
 }
 
@@ -2779,7 +2779,7 @@ class SourceTableDetails {
     $this->table_creation_date_time = $table_creation_date_time ?? 0;
     $this->table_id = $table_id ?? "";
     $this->table_name = $table_name ?? "";
-    $this->table_size_bytes = $table_size_bytes ?? ;
+    $this->table_size_bytes = $table_size_bytes ?? 0;
   }
 }
 
@@ -2800,7 +2800,7 @@ class SourceTableFeatureDetails {
     $this->global_secondary_indexes = $global_secondary_indexes ?? [];
     $this->local_secondary_indexes = $local_secondary_indexes ?? [];
     $this->sse_description = $sse_description ?? null;
-    $this->stream_description = $stream_description ?? ;
+    $this->stream_description = $stream_description ?? null;
     $this->time_to_live_description = $time_to_live_description ?? null;
   }
 }
@@ -2836,7 +2836,7 @@ class TableAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2852,7 +2852,7 @@ class TableAutoScalingDescription {
   ?'table_name' => TableName,
   ?'table_status' => TableStatus,
   ) $s = shape()) {
-    $this->replicas = $replicas ?? ;
+    $this->replicas = $replicas ?? [];
     $this->table_name = $table_name ?? "";
     $this->table_status = $table_status ?? "";
   }
@@ -2909,23 +2909,23 @@ class TableDescription {
     $this->archival_summary = $archival_summary ?? null;
     $this->attribute_definitions = $attribute_definitions ?? [];
     $this->billing_mode_summary = $billing_mode_summary ?? null;
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
     $this->global_secondary_indexes = $global_secondary_indexes ?? [];
-    $this->global_table_version = $global_table_version ?? ;
+    $this->global_table_version = $global_table_version ?? "";
     $this->item_count = $item_count ?? 0;
     $this->key_schema = $key_schema ?? [];
-    $this->latest_stream_arn = $latest_stream_arn ?? ;
-    $this->latest_stream_label = $latest_stream_label ?? ;
+    $this->latest_stream_arn = $latest_stream_arn ?? "";
+    $this->latest_stream_label = $latest_stream_label ?? "";
     $this->local_secondary_indexes = $local_secondary_indexes ?? [];
     $this->provisioned_throughput = $provisioned_throughput ?? null;
-    $this->replicas = $replicas ?? ;
+    $this->replicas = $replicas ?? [];
     $this->restore_summary = $restore_summary ?? null;
     $this->sse_description = $sse_description ?? null;
     $this->stream_specification = $stream_specification ?? null;
     $this->table_arn = $table_arn ?? "";
     $this->table_id = $table_id ?? "";
     $this->table_name = $table_name ?? "";
-    $this->table_size_bytes = $table_size_bytes ?? ;
+    $this->table_size_bytes = $table_size_bytes ?? 0;
     $this->table_status = $table_status ?? "";
   }
 }
@@ -2938,7 +2938,7 @@ class TableInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2952,7 +2952,7 @@ class TableNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2966,8 +2966,8 @@ class Tag {
   ?'key' => TagKeyString,
   ?'value' => TagValueString,
   ) $s = shape()) {
-    $this->key = $key ?? [];
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2985,8 +2985,8 @@ class TagResourceInput {
   ?'resource_arn' => ResourceArnString,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3022,7 +3022,7 @@ class TimeToLiveSpecification {
   ?'enabled' => TimeToLiveEnabled,
   ) $s = shape()) {
     $this->attribute_name = $attribute_name ?? "";
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -3049,7 +3049,7 @@ class TransactGetItemsInput {
   ?'transact_items' => TransactGetItemList,
   ) $s = shape()) {
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
-    $this->transact_items = $transact_items ?? ;
+    $this->transact_items = $transact_items ?? [];
   }
 }
 
@@ -3061,8 +3061,8 @@ class TransactGetItemsOutput {
   ?'consumed_capacity' => ConsumedCapacityMultiple,
   ?'responses' => ItemResponseList,
   ) $s = shape()) {
-    $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->responses = $responses ?? ;
+    $this->consumed_capacity = $consumed_capacity ?? [];
+    $this->responses = $responses ?? [];
   }
 }
 
@@ -3102,7 +3102,7 @@ class TransactWriteItemsInput {
     $this->client_request_token = $client_request_token ?? "";
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
     $this->return_item_collection_metrics = $return_item_collection_metrics ?? "";
-    $this->transact_items = $transact_items ?? ;
+    $this->transact_items = $transact_items ?? [];
   }
 }
 
@@ -3114,8 +3114,8 @@ class TransactWriteItemsOutput {
   ?'consumed_capacity' => ConsumedCapacityMultiple,
   ?'item_collection_metrics' => ItemCollectionMetricsPerTable,
   ) $s = shape()) {
-    $this->consumed_capacity = $consumed_capacity ?? null;
-    $this->item_collection_metrics = $item_collection_metrics ?? null;
+    $this->consumed_capacity = $consumed_capacity ?? [];
+    $this->item_collection_metrics = $item_collection_metrics ?? [];
   }
 }
 
@@ -3127,8 +3127,8 @@ class TransactionCanceledException {
   ?'cancellation_reasons' => CancellationReasonList,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->cancellation_reasons = $cancellation_reasons ?? ;
-    $this->message = $message ?? ;
+    $this->cancellation_reasons = $cancellation_reasons ?? [];
+    $this->message = $message ?? "";
   }
 }
 
@@ -3138,7 +3138,7 @@ class TransactionConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3148,7 +3148,7 @@ class TransactionInProgressException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3160,8 +3160,8 @@ class UntagResourceInput {
   ?'resource_arn' => ResourceArnString,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3184,8 +3184,8 @@ class Update {
   ?'update_expression' => UpdateExpression,
   ) $s = shape()) {
     $this->condition_expression = $condition_expression ?? "";
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
     $this->key = $key ?? [];
     $this->return_values_on_condition_check_failure = $return_values_on_condition_check_failure ?? "";
     $this->table_name = $table_name ?? "";
@@ -3271,8 +3271,8 @@ class UpdateGlobalTableInput {
   ?'global_table_name' => TableName,
   ?'replica_updates' => ReplicaUpdateList,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
-    $this->replica_updates = $replica_updates ?? ;
+    $this->global_table_name = $global_table_name ?? "";
+    $this->replica_updates = $replica_updates ?? [];
   }
 }
 
@@ -3302,12 +3302,12 @@ class UpdateGlobalTableSettingsInput {
   ?'global_table_provisioned_write_capacity_units' => PositiveLongObject,
   ?'replica_settings_update' => ReplicaSettingsUpdateList,
   ) $s = shape()) {
-    $this->global_table_billing_mode = $global_table_billing_mode ?? ;
-    $this->global_table_global_secondary_index_settings_update = $global_table_global_secondary_index_settings_update ?? null;
-    $this->global_table_name = $global_table_name ?? ;
-    $this->global_table_provisioned_write_capacity_auto_scaling_settings_update = $global_table_provisioned_write_capacity_auto_scaling_settings_update ?? ;
-    $this->global_table_provisioned_write_capacity_units = $global_table_provisioned_write_capacity_units ?? ;
-    $this->replica_settings_update = $replica_settings_update ?? null;
+    $this->global_table_billing_mode = $global_table_billing_mode ?? "";
+    $this->global_table_global_secondary_index_settings_update = $global_table_global_secondary_index_settings_update ?? [];
+    $this->global_table_name = $global_table_name ?? "";
+    $this->global_table_provisioned_write_capacity_auto_scaling_settings_update = $global_table_provisioned_write_capacity_auto_scaling_settings_update ?? null;
+    $this->global_table_provisioned_write_capacity_units = $global_table_provisioned_write_capacity_units ?? 0;
+    $this->replica_settings_update = $replica_settings_update ?? [];
   }
 }
 
@@ -3319,8 +3319,8 @@ class UpdateGlobalTableSettingsOutput {
   ?'global_table_name' => TableName,
   ?'replica_settings' => ReplicaSettingsDescriptionList,
   ) $s = shape()) {
-    $this->global_table_name = $global_table_name ?? ;
-    $this->replica_settings = $replica_settings ?? ;
+    $this->global_table_name = $global_table_name ?? "";
+    $this->replica_settings = $replica_settings ?? [];
   }
 }
 
@@ -3355,13 +3355,13 @@ class UpdateItemInput {
     $this->attribute_updates = $attribute_updates ?? [];
     $this->condition_expression = $condition_expression ?? "";
     $this->conditional_operator = $conditional_operator ?? "";
-    $this->expected = $expected ?? ;
-    $this->expression_attribute_names = $expression_attribute_names ?? ;
-    $this->expression_attribute_values = $expression_attribute_values ?? ;
+    $this->expected = $expected ?? [];
+    $this->expression_attribute_names = $expression_attribute_names ?? [];
+    $this->expression_attribute_values = $expression_attribute_values ?? [];
     $this->key = $key ?? [];
     $this->return_consumed_capacity = $return_consumed_capacity ?? "";
     $this->return_item_collection_metrics = $return_item_collection_metrics ?? "";
-    $this->return_values = $return_values ?? ;
+    $this->return_values = $return_values ?? "";
     $this->table_name = $table_name ?? "";
     $this->update_expression = $update_expression ?? "";
   }
@@ -3377,7 +3377,7 @@ class UpdateItemOutput {
   ?'consumed_capacity' => ConsumedCapacity,
   ?'item_collection_metrics' => ItemCollectionMetrics,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->consumed_capacity = $consumed_capacity ?? null;
     $this->item_collection_metrics = $item_collection_metrics ?? null;
   }
@@ -3424,9 +3424,9 @@ class UpdateTableInput {
   ) $s = shape()) {
     $this->attribute_definitions = $attribute_definitions ?? [];
     $this->billing_mode = $billing_mode ?? "";
-    $this->global_secondary_index_updates = $global_secondary_index_updates ?? ;
+    $this->global_secondary_index_updates = $global_secondary_index_updates ?? [];
     $this->provisioned_throughput = $provisioned_throughput ?? null;
-    $this->replica_updates = $replica_updates ?? ;
+    $this->replica_updates = $replica_updates ?? [];
     $this->sse_specification = $sse_specification ?? null;
     $this->stream_specification = $stream_specification ?? null;
     $this->table_name = $table_name ?? "";
@@ -3455,9 +3455,9 @@ class UpdateTableReplicaAutoScalingInput {
   ?'replica_updates' => ReplicaAutoScalingUpdateList,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->global_secondary_index_updates = $global_secondary_index_updates ?? ;
-    $this->provisioned_write_capacity_auto_scaling_update = $provisioned_write_capacity_auto_scaling_update ?? ;
-    $this->replica_updates = $replica_updates ?? ;
+    $this->global_secondary_index_updates = $global_secondary_index_updates ?? [];
+    $this->provisioned_write_capacity_auto_scaling_update = $provisioned_write_capacity_auto_scaling_update ?? null;
+    $this->replica_updates = $replica_updates ?? [];
     $this->table_name = $table_name ?? "";
   }
 }

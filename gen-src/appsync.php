@@ -51,7 +51,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -65,9 +65,9 @@ class AdditionalAuthenticationProvider {
   ?'open_id_connect_config' => OpenIDConnectConfig,
   ?'user_pool_config' => CognitoUserPoolConfig,
   ) $s = shape()) {
-    $this->authentication_type = $authentication_type ?? ;
-    $this->open_id_connect_config = $open_id_connect_config ?? ;
-    $this->user_pool_config = $user_pool_config ?? ;
+    $this->authentication_type = $authentication_type ?? "";
+    $this->open_id_connect_config = $open_id_connect_config ?? null;
+    $this->user_pool_config = $user_pool_config ?? null;
   }
 }
 
@@ -89,12 +89,12 @@ class ApiCache {
   ?'ttl' => Long,
   ?'type' => ApiCacheType,
   ) $s = shape()) {
-    $this->api_caching_behavior = $api_caching_behavior ?? ;
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->status = $status ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
-    $this->ttl = $ttl ?? ;
-    $this->type = $type ?? ;
+    $this->api_caching_behavior = $api_caching_behavior ?? "";
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->status = $status ?? "";
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
+    $this->ttl = $ttl ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -114,9 +114,9 @@ class ApiKey {
   ?'expires' => Long,
   ?'id' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->expires = $expires ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->expires = $expires ?? 0;
+    $this->id = $id ?? "";
   }
 }
 
@@ -126,7 +126,7 @@ class ApiKeyLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -136,7 +136,7 @@ class ApiKeyValidityOutOfBoundsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -148,7 +148,7 @@ class ApiLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -162,8 +162,8 @@ class AuthorizationConfig {
   ?'authorization_type' => AuthorizationType,
   ?'aws_iam_config' => AwsIamConfig,
   ) $s = shape()) {
-    $this->authorization_type = $authorization_type ?? ;
-    $this->aws_iam_config = $aws_iam_config ?? ;
+    $this->authorization_type = $authorization_type ?? "";
+    $this->aws_iam_config = $aws_iam_config ?? null;
   }
 }
 
@@ -177,8 +177,8 @@ class AwsIamConfig {
   ?'signing_region' => string,
   ?'signing_service_name' => string,
   ) $s = shape()) {
-    $this->signing_region = $signing_region ?? ;
-    $this->signing_service_name = $signing_service_name ?? ;
+    $this->signing_region = $signing_region ?? "";
+    $this->signing_service_name = $signing_service_name ?? "";
   }
 }
 
@@ -188,7 +188,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -206,8 +206,8 @@ class CachingConfig {
   ?'caching_keys' => CachingKeys,
   ?'ttl' => Long,
   ) $s = shape()) {
-    $this->caching_keys = $caching_keys ?? ;
-    $this->ttl = $ttl ?? ;
+    $this->caching_keys = $caching_keys ?? [];
+    $this->ttl = $ttl ?? 0;
   }
 }
 
@@ -223,9 +223,9 @@ class CognitoUserPoolConfig {
   ?'aws_region' => string,
   ?'user_pool_id' => string,
   ) $s = shape()) {
-    $this->app_id_client_regex = $app_id_client_regex ?? ;
-    $this->aws_region = $aws_region ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->app_id_client_regex = $app_id_client_regex ?? "";
+    $this->aws_region = $aws_region ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -235,7 +235,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -259,12 +259,12 @@ class CreateApiCacheRequest {
   ?'ttl' => Long,
   ?'type' => ApiCacheType,
   ) $s = shape()) {
-    $this->api_caching_behavior = $api_caching_behavior ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
-    $this->ttl = $ttl ?? ;
-    $this->type = $type ?? ;
+    $this->api_caching_behavior = $api_caching_behavior ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
+    $this->ttl = $ttl ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -274,7 +274,7 @@ class CreateApiCacheResponse {
   public function __construct(shape(
   ?'api_cache' => ApiCache,
   ) $s = shape()) {
-    $this->api_cache = $api_cache ?? ;
+    $this->api_cache = $api_cache ?? null;
   }
 }
 
@@ -288,9 +288,9 @@ class CreateApiKeyRequest {
   ?'description' => string,
   ?'expires' => Long,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->description = $description ?? ;
-    $this->expires = $expires ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->description = $description ?? "";
+    $this->expires = $expires ?? 0;
   }
 }
 
@@ -300,7 +300,7 @@ class CreateApiKeyResponse {
   public function __construct(shape(
   ?'api_key' => ApiKey,
   ) $s = shape()) {
-    $this->api_key = $api_key ?? ;
+    $this->api_key = $api_key ?? null;
   }
 }
 
@@ -328,16 +328,16 @@ class CreateDataSourceRequest {
   ?'service_role_arn' => string,
   ?'type' => DataSourceType,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->description = $description ?? ;
-    $this->dynamodb_config = $dynamodb_config ?? ;
-    $this->elasticsearch_config = $elasticsearch_config ?? ;
-    $this->http_config = $http_config ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->name = $name ?? ;
-    $this->relational_database_config = $relational_database_config ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->type = $type ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->description = $description ?? "";
+    $this->dynamodb_config = $dynamodb_config ?? null;
+    $this->elasticsearch_config = $elasticsearch_config ?? null;
+    $this->http_config = $http_config ?? null;
+    $this->lambda_config = $lambda_config ?? null;
+    $this->name = $name ?? "";
+    $this->relational_database_config = $relational_database_config ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -347,7 +347,7 @@ class CreateDataSourceResponse {
   public function __construct(shape(
   ?'data_source' => DataSource,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
+    $this->data_source = $data_source ?? null;
   }
 }
 
@@ -369,13 +369,13 @@ class CreateFunctionRequest {
   ?'request_mapping_template' => MappingTemplate,
   ?'response_mapping_template' => MappingTemplate,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->description = $description ?? ;
-    $this->function_version = $function_version ?? ;
-    $this->name = $name ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
+    $this->description = $description ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? "";
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
   }
 }
 
@@ -385,7 +385,7 @@ class CreateFunctionResponse {
   public function __construct(shape(
   ?'function_configuration' => FunctionConfiguration,
   ) $s = shape()) {
-    $this->function_configuration = $function_configuration ?? ;
+    $this->function_configuration = $function_configuration ?? null;
   }
 }
 
@@ -409,14 +409,14 @@ class CreateGraphqlApiRequest {
   ?'user_pool_config' => UserPoolConfig,
   ?'xray_enabled' => boolean,
   ) $s = shape()) {
-    $this->additional_authentication_providers = $additional_authentication_providers ?? ;
-    $this->authentication_type = $authentication_type ?? ;
-    $this->log_config = $log_config ?? ;
-    $this->name = $name ?? ;
-    $this->open_id_connect_config = $open_id_connect_config ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_pool_config = $user_pool_config ?? ;
-    $this->xray_enabled = $xray_enabled ?? ;
+    $this->additional_authentication_providers = $additional_authentication_providers ?? [];
+    $this->authentication_type = $authentication_type ?? "";
+    $this->log_config = $log_config ?? null;
+    $this->name = $name ?? "";
+    $this->open_id_connect_config = $open_id_connect_config ?? null;
+    $this->tags = $tags ?? [];
+    $this->user_pool_config = $user_pool_config ?? null;
+    $this->xray_enabled = $xray_enabled ?? false;
   }
 }
 
@@ -426,7 +426,7 @@ class CreateGraphqlApiResponse {
   public function __construct(shape(
   ?'graphql_api' => GraphqlApi,
   ) $s = shape()) {
-    $this->graphql_api = $graphql_api ?? ;
+    $this->graphql_api = $graphql_api ?? null;
   }
 }
 
@@ -454,16 +454,16 @@ class CreateResolverRequest {
   ?'sync_config' => SyncConfig,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->caching_config = $caching_config ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->kind = $kind ?? ;
-    $this->pipeline_config = $pipeline_config ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
-    $this->sync_config = $sync_config ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->caching_config = $caching_config ?? null;
+    $this->data_source_name = $data_source_name ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->kind = $kind ?? "";
+    $this->pipeline_config = $pipeline_config ?? null;
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
+    $this->sync_config = $sync_config ?? null;
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -473,7 +473,7 @@ class CreateResolverResponse {
   public function __construct(shape(
   ?'resolver' => Resolver,
   ) $s = shape()) {
-    $this->resolver = $resolver ?? ;
+    $this->resolver = $resolver ?? null;
   }
 }
 
@@ -487,9 +487,9 @@ class CreateTypeRequest {
   ?'definition' => string,
   ?'format' => TypeDefinitionFormat,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->definition = $definition ?? ;
-    $this->format = $format ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->definition = $definition ?? "";
+    $this->format = $format ?? "";
   }
 }
 
@@ -499,7 +499,7 @@ class CreateTypeResponse {
   public function __construct(shape(
   ?'type' => Type,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? null;
   }
 }
 
@@ -527,16 +527,16 @@ class DataSource {
   ?'service_role_arn' => string,
   ?'type' => DataSourceType,
   ) $s = shape()) {
-    $this->data_source_arn = $data_source_arn ?? ;
-    $this->description = $description ?? ;
-    $this->dynamodb_config = $dynamodb_config ?? ;
-    $this->elasticsearch_config = $elasticsearch_config ?? ;
-    $this->http_config = $http_config ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->name = $name ?? ;
-    $this->relational_database_config = $relational_database_config ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->type = $type ?? ;
+    $this->data_source_arn = $data_source_arn ?? "";
+    $this->description = $description ?? "";
+    $this->dynamodb_config = $dynamodb_config ?? null;
+    $this->elasticsearch_config = $elasticsearch_config ?? null;
+    $this->http_config = $http_config ?? null;
+    $this->lambda_config = $lambda_config ?? null;
+    $this->name = $name ?? "";
+    $this->relational_database_config = $relational_database_config ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -552,7 +552,7 @@ class DeleteApiCacheRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -571,8 +571,8 @@ class DeleteApiKeyRequest {
   ?'api_id' => string,
   ?'id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->id = $id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -591,8 +591,8 @@ class DeleteDataSourceRequest {
   ?'api_id' => string,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->name = $name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -611,8 +611,8 @@ class DeleteFunctionRequest {
   ?'api_id' => string,
   ?'function_id' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->function_id = $function_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->function_id = $function_id ?? "";
   }
 }
 
@@ -629,7 +629,7 @@ class DeleteGraphqlApiRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -650,9 +650,9 @@ class DeleteResolverRequest {
   ?'field_name' => ResourceName,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -671,8 +671,8 @@ class DeleteTypeRequest {
   ?'api_id' => string,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -693,9 +693,9 @@ class DeltaSyncConfig {
   ?'delta_sync_table_name' => string,
   ?'delta_sync_table_ttl' => Long,
   ) $s = shape()) {
-    $this->base_table_ttl = $base_table_ttl ?? ;
-    $this->delta_sync_table_name = $delta_sync_table_name ?? ;
-    $this->delta_sync_table_ttl = $delta_sync_table_ttl ?? ;
+    $this->base_table_ttl = $base_table_ttl ?? 0;
+    $this->delta_sync_table_name = $delta_sync_table_name ?? "";
+    $this->delta_sync_table_ttl = $delta_sync_table_ttl ?? 0;
   }
 }
 
@@ -713,11 +713,11 @@ class DynamodbDataSourceConfig {
   ?'use_caller_credentials' => boolean,
   ?'versioned' => boolean,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->delta_sync_config = $delta_sync_config ?? ;
-    $this->table_name = $table_name ?? ;
-    $this->use_caller_credentials = $use_caller_credentials ?? ;
-    $this->versioned = $versioned ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->delta_sync_config = $delta_sync_config ?? null;
+    $this->table_name = $table_name ?? "";
+    $this->use_caller_credentials = $use_caller_credentials ?? false;
+    $this->versioned = $versioned ?? false;
   }
 }
 
@@ -729,8 +729,8 @@ class ElasticsearchDataSourceConfig {
   ?'aws_region' => string,
   ?'endpoint' => string,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->endpoint = $endpoint ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->endpoint = $endpoint ?? "";
   }
 }
 
@@ -744,7 +744,7 @@ class FlushApiCacheRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -775,14 +775,14 @@ class FunctionConfiguration {
   ?'request_mapping_template' => MappingTemplate,
   ?'response_mapping_template' => MappingTemplate,
   ) $s = shape()) {
-    $this->data_source_name = $data_source_name ?? ;
-    $this->description = $description ?? ;
-    $this->function_arn = $function_arn ?? ;
-    $this->function_id = $function_id ?? ;
-    $this->function_version = $function_version ?? ;
-    $this->name = $name ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
+    $this->data_source_name = $data_source_name ?? "";
+    $this->description = $description ?? "";
+    $this->function_arn = $function_arn ?? "";
+    $this->function_id = $function_id ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? "";
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
   }
 }
 
@@ -796,7 +796,7 @@ class GetApiCacheRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -806,7 +806,7 @@ class GetApiCacheResponse {
   public function __construct(shape(
   ?'api_cache' => ApiCache,
   ) $s = shape()) {
-    $this->api_cache = $api_cache ?? ;
+    $this->api_cache = $api_cache ?? null;
   }
 }
 
@@ -818,8 +818,8 @@ class GetDataSourceRequest {
   ?'api_id' => string,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->name = $name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -829,7 +829,7 @@ class GetDataSourceResponse {
   public function __construct(shape(
   ?'data_source' => DataSource,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
+    $this->data_source = $data_source ?? null;
   }
 }
 
@@ -841,8 +841,8 @@ class GetFunctionRequest {
   ?'api_id' => string,
   ?'function_id' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->function_id = $function_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->function_id = $function_id ?? "";
   }
 }
 
@@ -852,7 +852,7 @@ class GetFunctionResponse {
   public function __construct(shape(
   ?'function_configuration' => FunctionConfiguration,
   ) $s = shape()) {
-    $this->function_configuration = $function_configuration ?? ;
+    $this->function_configuration = $function_configuration ?? null;
   }
 }
 
@@ -862,7 +862,7 @@ class GetGraphqlApiRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -872,7 +872,7 @@ class GetGraphqlApiResponse {
   public function __construct(shape(
   ?'graphql_api' => GraphqlApi,
   ) $s = shape()) {
-    $this->graphql_api = $graphql_api ?? ;
+    $this->graphql_api = $graphql_api ?? null;
   }
 }
 
@@ -886,9 +886,9 @@ class GetIntrospectionSchemaRequest {
   ?'format' => OutputType,
   ?'include_directives' => BooleanValue,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->format = $format ?? ;
-    $this->include_directives = $include_directives ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->format = $format ?? "";
+    $this->include_directives = $include_directives ?? false;
   }
 }
 
@@ -898,7 +898,7 @@ class GetIntrospectionSchemaResponse {
   public function __construct(shape(
   ?'schema' => Blob,
   ) $s = shape()) {
-    $this->schema = $schema ?? ;
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -912,9 +912,9 @@ class GetResolverRequest {
   ?'field_name' => ResourceName,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -924,7 +924,7 @@ class GetResolverResponse {
   public function __construct(shape(
   ?'resolver' => Resolver,
   ) $s = shape()) {
-    $this->resolver = $resolver ?? ;
+    $this->resolver = $resolver ?? null;
   }
 }
 
@@ -934,7 +934,7 @@ class GetSchemaCreationStatusRequest {
   public function __construct(shape(
   ?'api_id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -946,8 +946,8 @@ class GetSchemaCreationStatusResponse {
   ?'details' => string,
   ?'status' => SchemaStatus,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->status = $status ?? ;
+    $this->details = $details ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -961,9 +961,9 @@ class GetTypeRequest {
   ?'format' => TypeDefinitionFormat,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->format = $format ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->format = $format ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -973,7 +973,7 @@ class GetTypeResponse {
   public function __construct(shape(
   ?'type' => Type,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? null;
   }
 }
 
@@ -983,7 +983,7 @@ class GraphQLSchemaException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1013,17 +1013,17 @@ class GraphqlApi {
   ?'user_pool_config' => UserPoolConfig,
   ?'xray_enabled' => boolean,
   ) $s = shape()) {
-    $this->additional_authentication_providers = $additional_authentication_providers ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->authentication_type = $authentication_type ?? ;
-    $this->log_config = $log_config ?? ;
-    $this->name = $name ?? ;
-    $this->open_id_connect_config = $open_id_connect_config ?? ;
-    $this->tags = $tags ?? ;
-    $this->uris = $uris ?? ;
-    $this->user_pool_config = $user_pool_config ?? ;
-    $this->xray_enabled = $xray_enabled ?? ;
+    $this->additional_authentication_providers = $additional_authentication_providers ?? [];
+    $this->api_id = $api_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->authentication_type = $authentication_type ?? "";
+    $this->log_config = $log_config ?? null;
+    $this->name = $name ?? "";
+    $this->open_id_connect_config = $open_id_connect_config ?? null;
+    $this->tags = $tags ?? [];
+    $this->uris = $uris ?? [];
+    $this->user_pool_config = $user_pool_config ?? null;
+    $this->xray_enabled = $xray_enabled ?? false;
   }
 }
 
@@ -1037,8 +1037,8 @@ class HttpDataSourceConfig {
   ?'authorization_config' => AuthorizationConfig,
   ?'endpoint' => string,
   ) $s = shape()) {
-    $this->authorization_config = $authorization_config ?? ;
-    $this->endpoint = $endpoint ?? ;
+    $this->authorization_config = $authorization_config ?? null;
+    $this->endpoint = $endpoint ?? "";
   }
 }
 
@@ -1048,7 +1048,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1058,7 +1058,7 @@ class LambdaConflictHandlerConfig {
   public function __construct(shape(
   ?'lambda_conflict_handler_arn' => string,
   ) $s = shape()) {
-    $this->lambda_conflict_handler_arn = $lambda_conflict_handler_arn ?? ;
+    $this->lambda_conflict_handler_arn = $lambda_conflict_handler_arn ?? "";
   }
 }
 
@@ -1068,7 +1068,7 @@ class LambdaDataSourceConfig {
   public function __construct(shape(
   ?'lambda_function_arn' => string,
   ) $s = shape()) {
-    $this->lambda_function_arn = $lambda_function_arn ?? ;
+    $this->lambda_function_arn = $lambda_function_arn ?? "";
   }
 }
 
@@ -1078,7 +1078,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1092,9 +1092,9 @@ class ListApiKeysRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1106,8 +1106,8 @@ class ListApiKeysResponse {
   ?'api_keys' => ApiKeys,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_keys = $api_keys ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_keys = $api_keys ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1121,9 +1121,9 @@ class ListDataSourcesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1135,8 +1135,8 @@ class ListDataSourcesResponse {
   ?'data_sources' => DataSources,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->data_sources = $data_sources ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->data_sources = $data_sources ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1150,9 +1150,9 @@ class ListFunctionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1164,8 +1164,8 @@ class ListFunctionsResponse {
   ?'functions' => Functions,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->functions = $functions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->functions = $functions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1177,8 +1177,8 @@ class ListGraphqlApisRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1190,8 +1190,8 @@ class ListGraphqlApisResponse {
   ?'graphql_apis' => GraphqlApis,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->graphql_apis = $graphql_apis ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->graphql_apis = $graphql_apis ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1207,10 +1207,10 @@ class ListResolversByFunctionRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->function_id = $function_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->function_id = $function_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1222,8 +1222,8 @@ class ListResolversByFunctionResponse {
   ?'next_token' => PaginationToken,
   ?'resolvers' => Resolvers,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resolvers = $resolvers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resolvers = $resolvers ?? [];
   }
 }
 
@@ -1239,10 +1239,10 @@ class ListResolversRequest {
   ?'next_token' => PaginationToken,
   ?'type_name' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -1254,8 +1254,8 @@ class ListResolversResponse {
   ?'next_token' => PaginationToken,
   ?'resolvers' => Resolvers,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resolvers = $resolvers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resolvers = $resolvers ?? [];
   }
 }
 
@@ -1265,7 +1265,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1275,7 +1275,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1291,10 +1291,10 @@ class ListTypesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->format = $format ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->format = $format ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1306,8 +1306,8 @@ class ListTypesResponse {
   ?'next_token' => PaginationToken,
   ?'types' => TypeList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->types = $types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->types = $types ?? [];
   }
 }
 
@@ -1321,9 +1321,9 @@ class LogConfig {
   ?'exclude_verbose_content' => boolean,
   ?'field_log_level' => FieldLogLevel,
   ) $s = shape()) {
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->exclude_verbose_content = $exclude_verbose_content ?? ;
-    $this->field_log_level = $field_log_level ?? ;
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->exclude_verbose_content = $exclude_verbose_content ?? false;
+    $this->field_log_level = $field_log_level ?? "";
   }
 }
 
@@ -1341,7 +1341,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1357,10 +1357,10 @@ class OpenIDConnectConfig {
   ?'iat_ttl' => Long,
   ?'issuer' => string,
   ) $s = shape()) {
-    $this->auth_ttl = $auth_ttl ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->iat_ttl = $iat_ttl ?? ;
-    $this->issuer = $issuer ?? ;
+    $this->auth_ttl = $auth_ttl ?? 0;
+    $this->client_id = $client_id ?? "";
+    $this->iat_ttl = $iat_ttl ?? 0;
+    $this->issuer = $issuer ?? "";
   }
 }
 
@@ -1374,7 +1374,7 @@ class PipelineConfig {
   public function __construct(shape(
   ?'functions' => FunctionsIds,
   ) $s = shape()) {
-    $this->functions = $functions ?? ;
+    $this->functions = $functions ?? [];
   }
 }
 
@@ -1392,11 +1392,11 @@ class RdsHttpEndpointConfig {
   ?'db_cluster_identifier' => string,
   ?'schema' => string,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->aws_secret_store_arn = $aws_secret_store_arn ?? ;
-    $this->database_name = $database_name ?? ;
-    $this->db_cluster_identifier = $db_cluster_identifier ?? ;
-    $this->schema = $schema ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->aws_secret_store_arn = $aws_secret_store_arn ?? "";
+    $this->database_name = $database_name ?? "";
+    $this->db_cluster_identifier = $db_cluster_identifier ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -1408,8 +1408,8 @@ class RelationalDatabaseDataSourceConfig {
   ?'rds_http_endpoint_config' => RdsHttpEndpointConfig,
   ?'relational_database_source_type' => RelationalDatabaseSourceType,
   ) $s = shape()) {
-    $this->rds_http_endpoint_config = $rds_http_endpoint_config ?? ;
-    $this->relational_database_source_type = $relational_database_source_type ?? ;
+    $this->rds_http_endpoint_config = $rds_http_endpoint_config ?? null;
+    $this->relational_database_source_type = $relational_database_source_type ?? "";
   }
 }
 
@@ -1439,16 +1439,16 @@ class Resolver {
   ?'sync_config' => SyncConfig,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->caching_config = $caching_config ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->kind = $kind ?? ;
-    $this->pipeline_config = $pipeline_config ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->resolver_arn = $resolver_arn ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
-    $this->sync_config = $sync_config ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->caching_config = $caching_config ?? null;
+    $this->data_source_name = $data_source_name ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->kind = $kind ?? "";
+    $this->pipeline_config = $pipeline_config ?? null;
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->resolver_arn = $resolver_arn ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
+    $this->sync_config = $sync_config ?? null;
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -1470,8 +1470,8 @@ class StartSchemaCreationRequest {
   ?'api_id' => string,
   ?'definition' => Blob,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->definition = $definition ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->definition = $definition ?? "";
   }
 }
 
@@ -1481,7 +1481,7 @@ class StartSchemaCreationResponse {
   public function __construct(shape(
   ?'status' => SchemaStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1497,9 +1497,9 @@ class SyncConfig {
   ?'conflict_handler' => ConflictHandlerType,
   ?'lambda_conflict_handler_config' => LambdaConflictHandlerConfig,
   ) $s = shape()) {
-    $this->conflict_detection = $conflict_detection ?? ;
-    $this->conflict_handler = $conflict_handler ?? ;
-    $this->lambda_conflict_handler_config = $lambda_conflict_handler_config ?? ;
+    $this->conflict_detection = $conflict_detection ?? "";
+    $this->conflict_handler = $conflict_handler ?? "";
+    $this->lambda_conflict_handler_config = $lambda_conflict_handler_config ?? null;
   }
 }
 
@@ -1517,8 +1517,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1545,11 +1545,11 @@ class Type {
   ?'format' => TypeDefinitionFormat,
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->definition = $definition ?? ;
-    $this->description = $description ?? ;
-    $this->format = $format ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->definition = $definition ?? "";
+    $this->description = $description ?? "";
+    $this->format = $format ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1563,7 +1563,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1575,8 +1575,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1599,10 +1599,10 @@ class UpdateApiCacheRequest {
   ?'ttl' => Long,
   ?'type' => ApiCacheType,
   ) $s = shape()) {
-    $this->api_caching_behavior = $api_caching_behavior ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->ttl = $ttl ?? ;
-    $this->type = $type ?? ;
+    $this->api_caching_behavior = $api_caching_behavior ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->ttl = $ttl ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1612,7 +1612,7 @@ class UpdateApiCacheResponse {
   public function __construct(shape(
   ?'api_cache' => ApiCache,
   ) $s = shape()) {
-    $this->api_cache = $api_cache ?? ;
+    $this->api_cache = $api_cache ?? null;
   }
 }
 
@@ -1628,10 +1628,10 @@ class UpdateApiKeyRequest {
   ?'expires' => Long,
   ?'id' => string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->description = $description ?? ;
-    $this->expires = $expires ?? ;
-    $this->id = $id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->description = $description ?? "";
+    $this->expires = $expires ?? 0;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1641,7 +1641,7 @@ class UpdateApiKeyResponse {
   public function __construct(shape(
   ?'api_key' => ApiKey,
   ) $s = shape()) {
-    $this->api_key = $api_key ?? ;
+    $this->api_key = $api_key ?? null;
   }
 }
 
@@ -1669,16 +1669,16 @@ class UpdateDataSourceRequest {
   ?'service_role_arn' => string,
   ?'type' => DataSourceType,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->description = $description ?? ;
-    $this->dynamodb_config = $dynamodb_config ?? ;
-    $this->elasticsearch_config = $elasticsearch_config ?? ;
-    $this->http_config = $http_config ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->name = $name ?? ;
-    $this->relational_database_config = $relational_database_config ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->type = $type ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->description = $description ?? "";
+    $this->dynamodb_config = $dynamodb_config ?? null;
+    $this->elasticsearch_config = $elasticsearch_config ?? null;
+    $this->http_config = $http_config ?? null;
+    $this->lambda_config = $lambda_config ?? null;
+    $this->name = $name ?? "";
+    $this->relational_database_config = $relational_database_config ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1688,7 +1688,7 @@ class UpdateDataSourceResponse {
   public function __construct(shape(
   ?'data_source' => DataSource,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
+    $this->data_source = $data_source ?? null;
   }
 }
 
@@ -1712,14 +1712,14 @@ class UpdateFunctionRequest {
   ?'request_mapping_template' => MappingTemplate,
   ?'response_mapping_template' => MappingTemplate,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->description = $description ?? ;
-    $this->function_id = $function_id ?? ;
-    $this->function_version = $function_version ?? ;
-    $this->name = $name ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
+    $this->description = $description ?? "";
+    $this->function_id = $function_id ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? "";
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
   }
 }
 
@@ -1729,7 +1729,7 @@ class UpdateFunctionResponse {
   public function __construct(shape(
   ?'function_configuration' => FunctionConfiguration,
   ) $s = shape()) {
-    $this->function_configuration = $function_configuration ?? ;
+    $this->function_configuration = $function_configuration ?? null;
   }
 }
 
@@ -1753,14 +1753,14 @@ class UpdateGraphqlApiRequest {
   ?'user_pool_config' => UserPoolConfig,
   ?'xray_enabled' => boolean,
   ) $s = shape()) {
-    $this->additional_authentication_providers = $additional_authentication_providers ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->authentication_type = $authentication_type ?? ;
-    $this->log_config = $log_config ?? ;
-    $this->name = $name ?? ;
-    $this->open_id_connect_config = $open_id_connect_config ?? ;
-    $this->user_pool_config = $user_pool_config ?? ;
-    $this->xray_enabled = $xray_enabled ?? ;
+    $this->additional_authentication_providers = $additional_authentication_providers ?? [];
+    $this->api_id = $api_id ?? "";
+    $this->authentication_type = $authentication_type ?? "";
+    $this->log_config = $log_config ?? null;
+    $this->name = $name ?? "";
+    $this->open_id_connect_config = $open_id_connect_config ?? null;
+    $this->user_pool_config = $user_pool_config ?? null;
+    $this->xray_enabled = $xray_enabled ?? false;
   }
 }
 
@@ -1770,7 +1770,7 @@ class UpdateGraphqlApiResponse {
   public function __construct(shape(
   ?'graphql_api' => GraphqlApi,
   ) $s = shape()) {
-    $this->graphql_api = $graphql_api ?? ;
+    $this->graphql_api = $graphql_api ?? null;
   }
 }
 
@@ -1798,16 +1798,16 @@ class UpdateResolverRequest {
   ?'sync_config' => SyncConfig,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->caching_config = $caching_config ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->kind = $kind ?? ;
-    $this->pipeline_config = $pipeline_config ?? ;
-    $this->request_mapping_template = $request_mapping_template ?? ;
-    $this->response_mapping_template = $response_mapping_template ?? ;
-    $this->sync_config = $sync_config ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->caching_config = $caching_config ?? null;
+    $this->data_source_name = $data_source_name ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->kind = $kind ?? "";
+    $this->pipeline_config = $pipeline_config ?? null;
+    $this->request_mapping_template = $request_mapping_template ?? "";
+    $this->response_mapping_template = $response_mapping_template ?? "";
+    $this->sync_config = $sync_config ?? null;
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -1817,7 +1817,7 @@ class UpdateResolverResponse {
   public function __construct(shape(
   ?'resolver' => Resolver,
   ) $s = shape()) {
-    $this->resolver = $resolver ?? ;
+    $this->resolver = $resolver ?? null;
   }
 }
 
@@ -1833,10 +1833,10 @@ class UpdateTypeRequest {
   ?'format' => TypeDefinitionFormat,
   ?'type_name' => ResourceName,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->definition = $definition ?? ;
-    $this->format = $format ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->definition = $definition ?? "";
+    $this->format = $format ?? "";
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -1846,7 +1846,7 @@ class UpdateTypeResponse {
   public function __construct(shape(
   ?'type' => Type,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? null;
   }
 }
 
@@ -1862,10 +1862,10 @@ class UserPoolConfig {
   ?'default_action' => DefaultAction,
   ?'user_pool_id' => string,
   ) $s = shape()) {
-    $this->app_id_client_regex = $app_id_client_regex ?? ;
-    $this->aws_region = $aws_region ?? ;
-    $this->default_action = $default_action ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->app_id_client_regex = $app_id_client_regex ?? "";
+    $this->aws_region = $aws_region ?? "";
+    $this->default_action = $default_action ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 

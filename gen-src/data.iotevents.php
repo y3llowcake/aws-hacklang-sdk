@@ -20,9 +20,9 @@ class BatchPutMessageErrorEntry {
   ?'error_message' => ErrorMessage,
   ?'message_id' => MessageId,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
+    $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -32,7 +32,7 @@ class BatchPutMessageRequest {
   public function __construct(shape(
   ?'messages' => Messages,
   ) $s = shape()) {
-    $this->messages = $messages ?? ;
+    $this->messages = $messages ?? [];
   }
 }
 
@@ -58,9 +58,9 @@ class BatchUpdateDetectorErrorEntry {
   ?'error_message' => ErrorMessage,
   ?'message_id' => MessageId,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
+    $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -70,7 +70,7 @@ class BatchUpdateDetectorRequest {
   public function __construct(shape(
   ?'detectors' => UpdateDetectorRequests,
   ) $s = shape()) {
-    $this->detectors = $detectors ?? ;
+    $this->detectors = $detectors ?? [];
   }
 }
 
@@ -80,7 +80,7 @@ class BatchUpdateDetectorResponse {
   public function __construct(shape(
   ?'batch_update_detector_error_entries' => BatchUpdateDetectorErrorEntries,
   ) $s = shape()) {
-    $this->batch_update_detector_error_entries = $batch_update_detector_error_entries ?? ;
+    $this->batch_update_detector_error_entries = $batch_update_detector_error_entries ?? [];
   }
 }
 
@@ -92,8 +92,8 @@ class DescribeDetectorRequest {
   ?'detector_model_name' => DetectorModelName,
   ?'key_value' => KeyValue,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->key_value = $key_value ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->key_value = $key_value ?? "";
   }
 }
 
@@ -103,7 +103,7 @@ class DescribeDetectorResponse {
   public function __construct(shape(
   ?'detector' => Detector,
   ) $s = shape()) {
-    $this->detector = $detector ?? ;
+    $this->detector = $detector ?? null;
   }
 }
 
@@ -123,12 +123,12 @@ class Detector {
   ?'last_update_time' => Timestamp,
   ?'state' => DetectorState,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->detector_model_version = $detector_model_version ?? ;
-    $this->key_value = $key_value ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->state = $state ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->detector_model_version = $detector_model_version ?? "";
+    $this->key_value = $key_value ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->state = $state ?? null;
   }
 }
 
@@ -146,9 +146,9 @@ class DetectorState {
   ?'timers' => Timers,
   ?'variables' => Variables,
   ) $s = shape()) {
-    $this->state_name = $state_name ?? ;
-    $this->timers = $timers ?? ;
-    $this->variables = $variables ?? ;
+    $this->state_name = $state_name ?? "";
+    $this->timers = $timers ?? [];
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -162,9 +162,9 @@ class DetectorStateDefinition {
   ?'timers' => TimerDefinitions,
   ?'variables' => VariableDefinitions,
   ) $s = shape()) {
-    $this->state_name = $state_name ?? ;
-    $this->timers = $timers ?? ;
-    $this->variables = $variables ?? ;
+    $this->state_name = $state_name ?? "";
+    $this->timers = $timers ?? [];
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -174,7 +174,7 @@ class DetectorStateSummary {
   public function __construct(shape(
   ?'state_name' => StateName,
   ) $s = shape()) {
-    $this->state_name = $state_name ?? ;
+    $this->state_name = $state_name ?? "";
   }
 }
 
@@ -196,12 +196,12 @@ class DetectorSummary {
   ?'last_update_time' => Timestamp,
   ?'state' => DetectorStateSummary,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->detector_model_version = $detector_model_version ?? ;
-    $this->key_value = $key_value ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->state = $state ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->detector_model_version = $detector_model_version ?? "";
+    $this->key_value = $key_value ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->state = $state ?? null;
   }
 }
 
@@ -217,7 +217,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -227,7 +227,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -245,10 +245,10 @@ class ListDetectorsRequest {
   ?'next_token' => NextToken,
   ?'state_name' => StateName,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->state_name = $state_name ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->state_name = $state_name ?? "";
   }
 }
 
@@ -260,8 +260,8 @@ class ListDetectorsResponse {
   ?'detector_summaries' => DetectorSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->detector_summaries = $detector_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_summaries = $detector_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -277,9 +277,9 @@ class Message {
   ?'message_id' => MessageId,
   ?'payload' => Payload,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->payload = $payload ?? ;
+    $this->input_name = $input_name ?? "";
+    $this->message_id = $message_id ?? "";
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -297,7 +297,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -309,7 +309,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -321,7 +321,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -333,8 +333,8 @@ class Timer {
   ?'name' => TimerName,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->name = $name ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -346,8 +346,8 @@ class TimerDefinition {
   ?'name' => TimerName,
   ?'seconds' => Seconds,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->seconds = $seconds ?? ;
+    $this->name = $name ?? "";
+    $this->seconds = $seconds ?? 0;
   }
 }
 
@@ -371,10 +371,10 @@ class UpdateDetectorRequest {
   ?'message_id' => MessageId,
   ?'state' => DetectorStateDefinition,
   ) $s = shape()) {
-    $this->detector_model_name = $detector_model_name ?? ;
-    $this->key_value = $key_value ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->state = $state ?? ;
+    $this->detector_model_name = $detector_model_name ?? "";
+    $this->key_value = $key_value ?? "";
+    $this->message_id = $message_id ?? "";
+    $this->state = $state ?? null;
   }
 }
 
@@ -388,8 +388,8 @@ class Variable {
   ?'name' => VariableName,
   ?'value' => VariableValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -401,8 +401,8 @@ class VariableDefinition {
   ?'name' => VariableName,
   ?'value' => VariableValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 

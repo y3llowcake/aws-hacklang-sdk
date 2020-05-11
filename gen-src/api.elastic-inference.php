@@ -26,9 +26,9 @@ class AcceleratorType {
   ?'memory_info' => MemoryInfo,
   ?'throughput_info' => ThroughputInfoList,
   ) $s = shape()) {
-    $this->accelerator_type_name = $accelerator_type_name ?? ;
-    $this->memory_info = $memory_info ?? ;
-    $this->throughput_info = $throughput_info ?? ;
+    $this->accelerator_type_name = $accelerator_type_name ?? "";
+    $this->memory_info = $memory_info ?? null;
+    $this->throughput_info = $throughput_info ?? [];
   }
 }
 
@@ -48,9 +48,9 @@ class AcceleratorTypeOffering {
   ?'location' => Location,
   ?'location_type' => LocationType,
   ) $s = shape()) {
-    $this->accelerator_type = $accelerator_type ?? ;
-    $this->location = $location ?? ;
-    $this->location_type = $location_type ?? ;
+    $this->accelerator_type = $accelerator_type ?? "";
+    $this->location = $location ?? "";
+    $this->location_type = $location_type ?? "";
   }
 }
 
@@ -64,7 +64,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -76,8 +76,8 @@ class DescribeAcceleratorOfferingsRequest {
   ?'accelerator_types' => AcceleratorTypeNameList,
   ?'location_type' => LocationType,
   ) $s = shape()) {
-    $this->accelerator_types = $accelerator_types ?? ;
-    $this->location_type = $location_type ?? ;
+    $this->accelerator_types = $accelerator_types ?? [];
+    $this->location_type = $location_type ?? "";
   }
 }
 
@@ -87,7 +87,7 @@ class DescribeAcceleratorOfferingsResponse {
   public function __construct(shape(
   ?'accelerator_type_offerings' => AcceleratorTypeOfferingList,
   ) $s = shape()) {
-    $this->accelerator_type_offerings = $accelerator_type_offerings ?? ;
+    $this->accelerator_type_offerings = $accelerator_type_offerings ?? [];
   }
 }
 
@@ -104,7 +104,7 @@ class DescribeAcceleratorTypesResponse {
   public function __construct(shape(
   ?'accelerator_types' => AcceleratorTypeList,
   ) $s = shape()) {
-    $this->accelerator_types = $accelerator_types ?? ;
+    $this->accelerator_types = $accelerator_types ?? [];
   }
 }
 
@@ -120,10 +120,10 @@ class DescribeAcceleratorsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->accelerator_ids = $accelerator_ids ?? ;
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->accelerator_ids = $accelerator_ids ?? [];
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -135,8 +135,8 @@ class DescribeAcceleratorsResponse {
   ?'accelerator_set' => ElasticInferenceAcceleratorSet,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->accelerator_set = $accelerator_set ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->accelerator_set = $accelerator_set ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -154,11 +154,11 @@ class ElasticInferenceAccelerator {
   ?'attached_resource' => ResourceArn,
   ?'availability_zone' => AvailabilityZone,
   ) $s = shape()) {
-    $this->accelerator_health = $accelerator_health ?? ;
-    $this->accelerator_id = $accelerator_id ?? ;
-    $this->accelerator_type = $accelerator_type ?? ;
-    $this->attached_resource = $attached_resource ?? ;
-    $this->availability_zone = $availability_zone ?? ;
+    $this->accelerator_health = $accelerator_health ?? null;
+    $this->accelerator_id = $accelerator_id ?? "";
+    $this->accelerator_type = $accelerator_type ?? "";
+    $this->attached_resource = $attached_resource ?? "";
+    $this->availability_zone = $availability_zone ?? "";
   }
 }
 
@@ -168,7 +168,7 @@ class ElasticInferenceAcceleratorHealth {
   public function __construct(shape(
   ?'status' => AcceleratorHealthStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -182,8 +182,8 @@ class Filter {
   ?'name' => FilterName,
   ?'values' => ValueStringList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -199,7 +199,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -213,8 +213,8 @@ class KeyValuePair {
   ?'key' => Key,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -224,7 +224,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -234,7 +234,7 @@ class ListTagsForResourceResult {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -250,7 +250,7 @@ class MemoryInfo {
   public function __construct(shape(
   ?'size_in_mi_b' => int,
   ) $s = shape()) {
-    $this->size_in_mi_b = $size_in_mi_b ?? ;
+    $this->size_in_mi_b = $size_in_mi_b ?? 0;
   }
 }
 
@@ -266,7 +266,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -286,8 +286,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceARN,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -310,8 +310,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceARN,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

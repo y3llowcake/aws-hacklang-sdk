@@ -49,9 +49,9 @@ class CognitoIdentityProvider {
   ?'provider_name' => CognitoIdentityProviderName,
   ?'server_side_token_check' => CognitoIdentityProviderTokenCheck,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->server_side_token_check = $server_side_token_check ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->server_side_token_check = $server_side_token_check ?? false;
   }
 }
 
@@ -69,7 +69,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -95,15 +95,15 @@ class CreateIdentityPoolInput {
   ?'saml_provider_ar_ns' => SAMLProviderList,
   ?'supported_login_providers' => IdentityProviders,
   ) $s = shape()) {
-    $this->allow_classic_flow = $allow_classic_flow ?? ;
-    $this->allow_unauthenticated_identities = $allow_unauthenticated_identities ?? ;
-    $this->cognito_identity_providers = $cognito_identity_providers ?? ;
+    $this->allow_classic_flow = $allow_classic_flow ?? false;
+    $this->allow_unauthenticated_identities = $allow_unauthenticated_identities ?? false;
+    $this->cognito_identity_providers = $cognito_identity_providers ?? [];
     $this->developer_provider_name = $developer_provider_name ?? "";
     $this->identity_pool_name = $identity_pool_name ?? "";
-    $this->identity_pool_tags = $identity_pool_tags ?? ;
-    $this->open_id_connect_provider_ar_ns = $open_id_connect_provider_ar_ns ?? ;
-    $this->saml_provider_ar_ns = $saml_provider_ar_ns ?? ;
-    $this->supported_login_providers = $supported_login_providers ?? ;
+    $this->identity_pool_tags = $identity_pool_tags ?? [];
+    $this->open_id_connect_provider_ar_ns = $open_id_connect_provider_ar_ns ?? [];
+    $this->saml_provider_ar_ns = $saml_provider_ar_ns ?? [];
+    $this->supported_login_providers = $supported_login_providers ?? [];
   }
 }
 
@@ -119,10 +119,10 @@ class Credentials {
   ?'secret_key' => SecretKeyString,
   ?'session_token' => SessionTokenString,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->expiration = $expiration ?? ;
-    $this->secret_key = $secret_key ?? ;
-    $this->session_token = $session_token ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->expiration = $expiration ?? 0;
+    $this->secret_key = $secret_key ?? "";
+    $this->session_token = $session_token ?? "";
   }
 }
 
@@ -134,7 +134,7 @@ class DeleteIdentitiesInput {
   public function __construct(shape(
   ?'identity_ids_to_delete' => IdentityIdList,
   ) $s = shape()) {
-    $this->identity_ids_to_delete = $identity_ids_to_delete ?? ;
+    $this->identity_ids_to_delete = $identity_ids_to_delete ?? [];
   }
 }
 
@@ -144,7 +144,7 @@ class DeleteIdentitiesResponse {
   public function __construct(shape(
   ?'unprocessed_identity_ids' => UnprocessedIdentityIdList,
   ) $s = shape()) {
-    $this->unprocessed_identity_ids = $unprocessed_identity_ids ?? ;
+    $this->unprocessed_identity_ids = $unprocessed_identity_ids ?? [];
   }
 }
 
@@ -186,7 +186,7 @@ class DeveloperUserAlreadyRegisteredException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -202,7 +202,7 @@ class ExternalServiceException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -216,9 +216,9 @@ class GetCredentialsForIdentityInput {
   ?'identity_id' => IdentityId,
   ?'logins' => LoginsMap,
   ) $s = shape()) {
-    $this->custom_role_arn = $custom_role_arn ?? ;
+    $this->custom_role_arn = $custom_role_arn ?? "";
     $this->identity_id = $identity_id ?? "";
-    $this->logins = $logins ?? ;
+    $this->logins = $logins ?? [];
   }
 }
 
@@ -247,7 +247,7 @@ class GetIdInput {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->logins = $logins ?? ;
+    $this->logins = $logins ?? [];
   }
 }
 
@@ -282,8 +282,8 @@ class GetIdentityPoolRolesResponse {
   ?'roles' => RolesMap,
   ) $s = shape()) {
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->role_mappings = $role_mappings ?? ;
-    $this->roles = $roles ?? ;
+    $this->role_mappings = $role_mappings ?? [];
+    $this->roles = $roles ?? [];
   }
 }
 
@@ -301,7 +301,7 @@ class GetOpenIdTokenForDeveloperIdentityInput {
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->logins = $logins ?? ;
+    $this->logins = $logins ?? [];
     $this->token_duration = $token_duration ?? 0;
   }
 }
@@ -315,7 +315,7 @@ class GetOpenIdTokenForDeveloperIdentityResponse {
   ?'token' => OIDCToken,
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
-    $this->token = $token ?? ;
+    $this->token = $token ?? "";
   }
 }
 
@@ -328,7 +328,7 @@ class GetOpenIdTokenInput {
   ?'logins' => LoginsMap,
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
-    $this->logins = $logins ?? ;
+    $this->logins = $logins ?? [];
   }
 }
 
@@ -341,7 +341,7 @@ class GetOpenIdTokenResponse {
   ?'token' => OIDCToken,
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
-    $this->token = $token ?? ;
+    $this->token = $token ?? "";
   }
 }
 
@@ -361,10 +361,10 @@ class IdentityDescription {
   ?'last_modified_date' => DateType,
   ?'logins' => LoginsList,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
+    $this->creation_date = $creation_date ?? 0;
     $this->identity_id = $identity_id ?? "";
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->logins = $logins ?? ;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->logins = $logins ?? [];
   }
 }
 
@@ -396,16 +396,16 @@ class IdentityPool {
   ?'saml_provider_ar_ns' => SAMLProviderList,
   ?'supported_login_providers' => IdentityProviders,
   ) $s = shape()) {
-    $this->allow_classic_flow = $allow_classic_flow ?? ;
-    $this->allow_unauthenticated_identities = $allow_unauthenticated_identities ?? ;
-    $this->cognito_identity_providers = $cognito_identity_providers ?? ;
+    $this->allow_classic_flow = $allow_classic_flow ?? false;
+    $this->allow_unauthenticated_identities = $allow_unauthenticated_identities ?? false;
+    $this->cognito_identity_providers = $cognito_identity_providers ?? [];
     $this->developer_provider_name = $developer_provider_name ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
     $this->identity_pool_name = $identity_pool_name ?? "";
-    $this->identity_pool_tags = $identity_pool_tags ?? ;
-    $this->open_id_connect_provider_ar_ns = $open_id_connect_provider_ar_ns ?? ;
-    $this->saml_provider_ar_ns = $saml_provider_ar_ns ?? ;
-    $this->supported_login_providers = $supported_login_providers ?? ;
+    $this->identity_pool_tags = $identity_pool_tags ?? [];
+    $this->open_id_connect_provider_ar_ns = $open_id_connect_provider_ar_ns ?? [];
+    $this->saml_provider_ar_ns = $saml_provider_ar_ns ?? [];
+    $this->supported_login_providers = $supported_login_providers ?? [];
   }
 }
 
@@ -448,7 +448,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -458,7 +458,7 @@ class InvalidIdentityPoolConfigurationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -468,7 +468,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -478,7 +478,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -496,8 +496,8 @@ class ListIdentitiesInput {
   ) $s = shape()) {
     $this->hide_disabled = $hide_disabled ?? false;
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -511,9 +511,9 @@ class ListIdentitiesResponse {
   ?'identity_pool_id' => IdentityPoolId,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->identities = $identities ?? ;
+    $this->identities = $identities ?? [];
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -525,8 +525,8 @@ class ListIdentityPoolsInput {
   ?'max_results' => QueryLimit,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -538,8 +538,8 @@ class ListIdentityPoolsResponse {
   ?'identity_pools' => IdentityPoolsList,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->identity_pools = $identity_pools ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->identity_pools = $identity_pools ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -549,7 +549,7 @@ class ListTagsForResourceInput {
   public function __construct(shape(
   ?'resource_arn' => ARNString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -559,7 +559,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => IdentityPoolTagsType,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -584,8 +584,8 @@ class LookupDeveloperIdentityInput {
     $this->developer_user_identifier = $developer_user_identifier ?? "";
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -601,7 +601,7 @@ class LookupDeveloperIdentityResponse {
   ) $s = shape()) {
     $this->developer_user_identifier_list = $developer_user_identifier_list ?? [];
     $this->identity_id = $identity_id ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -617,10 +617,10 @@ class MappingRule {
   ?'role_arn' => ARNString,
   ?'value' => ClaimValue,
   ) $s = shape()) {
-    $this->claim = $claim ?? ;
-    $this->match_type = $match_type ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->value = $value ?? ;
+    $this->claim = $claim ?? "";
+    $this->match_type = $match_type ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -640,10 +640,10 @@ class MergeDeveloperIdentitiesInput {
   ?'identity_pool_id' => IdentityPoolId,
   ?'source_user_identifier' => DeveloperUserIdentifier,
   ) $s = shape()) {
-    $this->destination_user_identifier = $destination_user_identifier ?? ;
+    $this->destination_user_identifier = $destination_user_identifier ?? "";
     $this->developer_provider_name = $developer_provider_name ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->source_user_identifier = $source_user_identifier ?? ;
+    $this->source_user_identifier = $source_user_identifier ?? "";
   }
 }
 
@@ -663,7 +663,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -681,7 +681,7 @@ class ResourceConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -691,7 +691,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -705,9 +705,9 @@ class RoleMapping {
   ?'rules_configuration' => RulesConfigurationType,
   ?'type' => RoleMappingType,
   ) $s = shape()) {
-    $this->ambiguous_role_resolution = $ambiguous_role_resolution ?? ;
-    $this->rules_configuration = $rules_configuration ?? ;
-    $this->type = $type ?? ;
+    $this->ambiguous_role_resolution = $ambiguous_role_resolution ?? "";
+    $this->rules_configuration = $rules_configuration ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -725,7 +725,7 @@ class RulesConfigurationType {
   public function __construct(shape(
   ?'rules' => MappingRulesList,
   ) $s = shape()) {
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -746,8 +746,8 @@ class SetIdentityPoolRolesInput {
   ?'roles' => RolesMap,
   ) $s = shape()) {
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->role_mappings = $role_mappings ?? ;
-    $this->roles = $roles ?? ;
+    $this->role_mappings = $role_mappings ?? [];
+    $this->roles = $roles ?? [];
   }
 }
 
@@ -763,8 +763,8 @@ class TagResourceInput {
   ?'resource_arn' => ARNString,
   ?'tags' => IdentityPoolTagsType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -785,7 +785,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -819,8 +819,8 @@ class UnlinkIdentityInput {
   ?'logins_to_remove' => LoginsList,
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
-    $this->logins = $logins ?? ;
-    $this->logins_to_remove = $logins_to_remove ?? ;
+    $this->logins = $logins ?? [];
+    $this->logins_to_remove = $logins_to_remove ?? [];
   }
 }
 
@@ -847,8 +847,8 @@ class UntagResourceInput {
   ?'resource_arn' => ARNString,
   ?'tag_keys' => IdentityPoolTagsListType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

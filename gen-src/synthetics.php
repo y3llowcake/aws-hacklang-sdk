@@ -59,21 +59,21 @@ class Canary {
   ?'timeline' => CanaryTimeline,
   ?'vpc_config' => VpcConfigOutput,
   ) $s = shape()) {
-    $this->artifact_s_3_location = $artifact_s_3_location ?? ;
-    $this->code = $code ?? ;
-    $this->engine_arn = $engine_arn ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->run_config = $run_config ?? ;
-    $this->runtime_version = $runtime_version ?? null;
-    $this->schedule = $schedule ?? ;
-    $this->status = $status ?? ;
-    $this->success_retention_period_in_days = $success_retention_period_in_days ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeline = $timeline ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->artifact_s_3_location = $artifact_s_3_location ?? "";
+    $this->code = $code ?? null;
+    $this->engine_arn = $engine_arn ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->run_config = $run_config ?? null;
+    $this->runtime_version = $runtime_version ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->status = $status ?? null;
+    $this->success_retention_period_in_days = $success_retention_period_in_days ?? 0;
+    $this->tags = $tags ?? [];
+    $this->timeline = $timeline ?? null;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -91,11 +91,11 @@ class CanaryCodeInput {
   ?'s_3_version' => string,
   ?'zip_file' => Blob,
   ) $s = shape()) {
-    $this->handler = $handler ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_key = $s_3_key ?? ;
-    $this->s_3_version = $s_3_version ?? ;
-    $this->zip_file = $zip_file ?? ;
+    $this->handler = $handler ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
+    $this->s_3_version = $s_3_version ?? "";
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -107,8 +107,8 @@ class CanaryCodeOutput {
   ?'handler' => string,
   ?'source_location_arn' => string,
   ) $s = shape()) {
-    $this->handler = $handler ?? ;
-    $this->source_location_arn = $source_location_arn ?? ;
+    $this->handler = $handler ?? "";
+    $this->source_location_arn = $source_location_arn ?? "";
   }
 }
 
@@ -121,7 +121,7 @@ class CanaryLastRun {
   ?'last_run' => CanaryRun,
   ) $s = shape()) {
     $this->canary_name = $canary_name ?? "";
-    $this->last_run = $last_run ?? ;
+    $this->last_run = $last_run ?? null;
   }
 }
 
@@ -139,10 +139,10 @@ class CanaryRun {
   ?'status' => CanaryRunStatus,
   ?'timeline' => CanaryRunTimeline,
   ) $s = shape()) {
-    $this->artifact_s_3_location = $artifact_s_3_location ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->artifact_s_3_location = $artifact_s_3_location ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -152,7 +152,7 @@ class CanaryRunConfigInput {
   public function __construct(shape(
   ?'timeout_in_seconds' => MaxFifteenMinutesInSeconds,
   ) $s = shape()) {
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -162,7 +162,7 @@ class CanaryRunConfigOutput {
   public function __construct(shape(
   ?'timeout_in_seconds' => MaxFifteenMinutesInSeconds,
   ) $s = shape()) {
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -180,9 +180,9 @@ class CanaryRunStatus {
   ?'state_reason' => string,
   ?'state_reason_code' => CanaryRunStateReasonCode,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_reason = $state_reason ?? ;
-    $this->state_reason_code = $state_reason_code ?? ;
+    $this->state = $state ?? "";
+    $this->state_reason = $state_reason ?? "";
+    $this->state_reason_code = $state_reason_code ?? "";
   }
 }
 
@@ -194,8 +194,8 @@ class CanaryRunTimeline {
   ?'completed' => Timestamp,
   ?'started' => Timestamp,
   ) $s = shape()) {
-    $this->completed = $completed ?? ;
-    $this->started = $started ?? ;
+    $this->completed = $completed ?? 0;
+    $this->started = $started ?? 0;
   }
 }
 
@@ -209,8 +209,8 @@ class CanaryScheduleInput {
   ?'duration_in_seconds' => MaxOneYearInSeconds,
   ?'expression' => string,
   ) $s = shape()) {
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->expression = $expression ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->expression = $expression ?? "";
   }
 }
 
@@ -222,8 +222,8 @@ class CanaryScheduleOutput {
   ?'duration_in_seconds' => MaxOneYearInSeconds,
   ?'expression' => string,
   ) $s = shape()) {
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->expression = $expression ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->expression = $expression ?? "";
   }
 }
 
@@ -241,9 +241,9 @@ class CanaryStatus {
   ?'state_reason' => string,
   ?'state_reason_code' => CanaryStateReasonCode,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_reason = $state_reason ?? ;
-    $this->state_reason_code = $state_reason_code ?? ;
+    $this->state = $state ?? "";
+    $this->state_reason = $state_reason ?? "";
+    $this->state_reason_code = $state_reason_code ?? "";
   }
 }
 
@@ -259,10 +259,10 @@ class CanaryTimeline {
   ?'last_started' => Timestamp,
   ?'last_stopped' => Timestamp,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->last_started = $last_started ?? ;
-    $this->last_stopped = $last_stopped ?? ;
+    $this->created = $created ?? 0;
+    $this->last_modified = $last_modified ?? 0;
+    $this->last_started = $last_started ?? 0;
+    $this->last_stopped = $last_stopped ?? 0;
   }
 }
 
@@ -272,7 +272,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -302,17 +302,17 @@ class CreateCanaryRequest {
   ?'tags' => TagMap,
   ?'vpc_config' => VpcConfigInput,
   ) $s = shape()) {
-    $this->artifact_s_3_location = $artifact_s_3_location ?? ;
-    $this->code = $code ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? ;
-    $this->name = $name ?? ;
-    $this->run_config = $run_config ?? ;
-    $this->runtime_version = $runtime_version ?? null;
-    $this->schedule = $schedule ?? ;
-    $this->success_retention_period_in_days = $success_retention_period_in_days ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->artifact_s_3_location = $artifact_s_3_location ?? "";
+    $this->code = $code ?? null;
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? 0;
+    $this->name = $name ?? "";
+    $this->run_config = $run_config ?? null;
+    $this->runtime_version = $runtime_version ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->success_retention_period_in_days = $success_retention_period_in_days ?? 0;
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -332,7 +332,7 @@ class DeleteCanaryRequest {
   public function __construct(shape(
   ?'name' => CanaryName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -351,8 +351,8 @@ class DescribeCanariesLastRunRequest {
   ?'max_results' => MaxSize100,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -365,7 +365,7 @@ class DescribeCanariesLastRunResponse {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->canaries_last_run = $canaries_last_run ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -377,8 +377,8 @@ class DescribeCanariesRequest {
   ?'max_results' => MaxCanaryResults,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -391,7 +391,7 @@ class DescribeCanariesResponse {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->canaries = $canaries ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -403,8 +403,8 @@ class DescribeRuntimeVersionsRequest {
   ?'max_results' => MaxSize100,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -416,8 +416,8 @@ class DescribeRuntimeVersionsResponse {
   ?'next_token' => Token,
   ?'runtime_versions' => RuntimeVersionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->runtime_versions = $runtime_versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->runtime_versions = $runtime_versions ?? [];
   }
 }
 
@@ -429,7 +429,7 @@ class GetCanaryRequest {
   public function __construct(shape(
   ?'name' => CanaryName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -453,9 +453,9 @@ class GetCanaryRunsRequest {
   ?'name' => CanaryName,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -468,7 +468,7 @@ class GetCanaryRunsResponse {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->canary_runs = $canary_runs ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -478,7 +478,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -498,7 +498,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -518,7 +518,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -534,10 +534,10 @@ class RuntimeVersion {
   ?'release_date' => Timestamp,
   ?'version_name' => string,
   ) $s = shape()) {
-    $this->deprecation_date = $deprecation_date ?? ;
-    $this->description = $description ?? ;
-    $this->release_date = $release_date ?? ;
-    $this->version_name = $version_name ?? ;
+    $this->deprecation_date = $deprecation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->release_date = $release_date ?? 0;
+    $this->version_name = $version_name ?? "";
   }
 }
 
@@ -553,7 +553,7 @@ class StartCanaryRequest {
   public function __construct(shape(
   ?'name' => CanaryName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -570,7 +570,7 @@ class StopCanaryRequest {
   public function __construct(shape(
   ?'name' => CanaryName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -601,8 +601,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -629,8 +629,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -663,15 +663,15 @@ class UpdateCanaryRequest {
   ?'success_retention_period_in_days' => MaxSize1024,
   ?'vpc_config' => VpcConfigInput,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? ;
-    $this->name = $name ?? ;
-    $this->run_config = $run_config ?? ;
-    $this->runtime_version = $runtime_version ?? null;
-    $this->schedule = $schedule ?? ;
-    $this->success_retention_period_in_days = $success_retention_period_in_days ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->code = $code ?? null;
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->failure_retention_period_in_days = $failure_retention_period_in_days ?? 0;
+    $this->name = $name ?? "";
+    $this->run_config = $run_config ?? null;
+    $this->runtime_version = $runtime_version ?? "";
+    $this->schedule = $schedule ?? null;
+    $this->success_retention_period_in_days = $success_retention_period_in_days ?? 0;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -688,7 +688,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

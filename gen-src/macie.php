@@ -21,8 +21,8 @@ class AccessDeniedException {
   ?'message' => ExceptionMessage,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -32,7 +32,7 @@ class AssociateMemberAccountRequest {
   public function __construct(shape(
   ?'member_account_id' => AWSAccountId,
   ) $s = shape()) {
-    $this->member_account_id = $member_account_id ?? ;
+    $this->member_account_id = $member_account_id ?? "";
   }
 }
 
@@ -44,8 +44,8 @@ class AssociateS3ResourcesRequest {
   ?'member_account_id' => AWSAccountId,
   ?'s_3_resources' => S3ResourcesClassification,
   ) $s = shape()) {
-    $this->member_account_id = $member_account_id ?? ;
-    $this->s_3_resources = $s_3_resources ?? ;
+    $this->member_account_id = $member_account_id ?? "";
+    $this->s_3_resources = $s_3_resources ?? [];
   }
 }
 
@@ -55,7 +55,7 @@ class AssociateS3ResourcesResult {
   public function __construct(shape(
   ?'failed_s_3_resources' => FailedS3Resources,
   ) $s = shape()) {
-    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+    $this->failed_s_3_resources = $failed_s_3_resources ?? [];
   }
 }
 
@@ -69,8 +69,8 @@ class ClassificationType {
   ?'continuous' => S3ContinuousClassificationType,
   ?'one_time' => S3OneTimeClassificationType,
   ) $s = shape()) {
-    $this->continuous = $continuous ?? ;
-    $this->one_time = $one_time ?? ;
+    $this->continuous = $continuous ?? "";
+    $this->one_time = $one_time ?? "";
   }
 }
 
@@ -82,8 +82,8 @@ class ClassificationTypeUpdate {
   ?'continuous' => S3ContinuousClassificationType,
   ?'one_time' => S3OneTimeClassificationType,
   ) $s = shape()) {
-    $this->continuous = $continuous ?? ;
-    $this->one_time = $one_time ?? ;
+    $this->continuous = $continuous ?? "";
+    $this->one_time = $one_time ?? "";
   }
 }
 
@@ -93,7 +93,7 @@ class DisassociateMemberAccountRequest {
   public function __construct(shape(
   ?'member_account_id' => AWSAccountId,
   ) $s = shape()) {
-    $this->member_account_id = $member_account_id ?? ;
+    $this->member_account_id = $member_account_id ?? "";
   }
 }
 
@@ -105,8 +105,8 @@ class DisassociateS3ResourcesRequest {
   ?'associated_s_3_resources' => S3Resources,
   ?'member_account_id' => AWSAccountId,
   ) $s = shape()) {
-    $this->associated_s_3_resources = $associated_s_3_resources ?? ;
-    $this->member_account_id = $member_account_id ?? ;
+    $this->associated_s_3_resources = $associated_s_3_resources ?? [];
+    $this->member_account_id = $member_account_id ?? "";
   }
 }
 
@@ -116,7 +116,7 @@ class DisassociateS3ResourcesResult {
   public function __construct(shape(
   ?'failed_s_3_resources' => FailedS3Resources,
   ) $s = shape()) {
-    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+    $this->failed_s_3_resources = $failed_s_3_resources ?? [];
   }
 }
 
@@ -134,9 +134,9 @@ class FailedS3Resource {
   ?'error_message' => ExceptionMessage,
   ?'failed_item' => S3Resource,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->failed_item = $failed_item ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->failed_item = $failed_item ?? null;
   }
 }
 
@@ -152,8 +152,8 @@ class InternalException {
   ?'error_code' => ErrorCode,
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -167,9 +167,9 @@ class InvalidInputException {
   ?'field_name' => FieldName,
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->field_name = $field_name ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->field_name = $field_name ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -183,9 +183,9 @@ class LimitExceededException {
   ?'message' => ExceptionMessage,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -197,8 +197,8 @@ class ListMemberAccountsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -210,8 +210,8 @@ class ListMemberAccountsResult {
   ?'member_accounts' => MemberAccounts,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->member_accounts = $member_accounts ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->member_accounts = $member_accounts ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -225,9 +225,9 @@ class ListS3ResourcesRequest {
   ?'member_account_id' => AWSAccountId,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->member_account_id = $member_account_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->member_account_id = $member_account_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -239,8 +239,8 @@ class ListS3ResourcesResult {
   ?'next_token' => NextToken,
   ?'s_3_resources' => S3ResourcesClassification,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->s_3_resources = $s_3_resources ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->s_3_resources = $s_3_resources ?? [];
   }
 }
 
@@ -252,7 +252,7 @@ class MemberAccount {
   public function __construct(shape(
   ?'account_id' => AWSAccountId,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -276,8 +276,8 @@ class S3Resource {
   ?'bucket_name' => BucketName,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -291,9 +291,9 @@ class S3ResourceClassification {
   ?'classification_type' => ClassificationType,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->classification_type = $classification_type ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->classification_type = $classification_type ?? null;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -307,9 +307,9 @@ class S3ResourceClassificationUpdate {
   ?'classification_type_update' => ClassificationTypeUpdate,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->classification_type_update = $classification_type_update ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->classification_type_update = $classification_type_update ?? null;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -327,8 +327,8 @@ class UpdateS3ResourcesRequest {
   ?'member_account_id' => AWSAccountId,
   ?'s_3_resources_update' => S3ResourcesClassificationUpdate,
   ) $s = shape()) {
-    $this->member_account_id = $member_account_id ?? ;
-    $this->s_3_resources_update = $s_3_resources_update ?? ;
+    $this->member_account_id = $member_account_id ?? "";
+    $this->s_3_resources_update = $s_3_resources_update ?? [];
   }
 }
 
@@ -338,7 +338,7 @@ class UpdateS3ResourcesResult {
   public function __construct(shape(
   ?'failed_s_3_resources' => FailedS3Resources,
   ) $s = shape()) {
-    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+    $this->failed_s_3_resources = $failed_s_3_resources ?? [];
   }
 }
 

@@ -27,7 +27,7 @@ class DeleteLexiconInput {
   public function __construct(shape(
   ?'name' => LexiconName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class DescribeVoicesOutput {
   ?'voices' => VoiceList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->voices = $voices ?? ;
+    $this->voices = $voices ?? [];
   }
 }
 
@@ -80,7 +80,7 @@ class EngineNotSupportedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -94,7 +94,7 @@ class GetLexiconInput {
   public function __construct(shape(
   ?'name' => LexiconName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -139,7 +139,7 @@ class InvalidLexiconException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -149,7 +149,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -159,7 +159,7 @@ class InvalidS3BucketException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -169,7 +169,7 @@ class InvalidS3KeyException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -179,7 +179,7 @@ class InvalidSampleRateException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -189,7 +189,7 @@ class InvalidSnsTopicArnException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -199,7 +199,7 @@ class InvalidSsmlException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -209,7 +209,7 @@ class InvalidTaskIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -225,7 +225,7 @@ class LanguageNotSupportedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -241,8 +241,8 @@ class Lexicon {
   ?'content' => LexiconContent,
   ?'name' => LexiconName,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->name = $name ?? ;
+    $this->content = $content ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -283,8 +283,8 @@ class LexiconDescription {
   ?'attributes' => LexiconAttributes,
   ?'name' => LexiconName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
+    $this->attributes = $attributes ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -300,7 +300,7 @@ class LexiconNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -310,7 +310,7 @@ class LexiconSizeExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -332,7 +332,7 @@ class ListLexiconsOutput {
   ?'lexicons' => LexiconDescriptionList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->lexicons = $lexicons ?? ;
+    $this->lexicons = $lexicons ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -349,7 +349,7 @@ class ListSpeechSynthesisTasksInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -372,7 +372,7 @@ class MarksNotSupportedForFormatException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -382,7 +382,7 @@ class MaxLexemeLengthExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -392,7 +392,7 @@ class MaxLexiconsNumberExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -416,8 +416,8 @@ class PutLexiconInput {
   ?'content' => LexiconContent,
   ?'name' => LexiconName,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->name = $name ?? ;
+    $this->content = $content ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -438,7 +438,7 @@ class ServiceFailureException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -456,7 +456,7 @@ class SsmlMarksNotSupportedForTextTypeException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -490,13 +490,13 @@ class StartSpeechSynthesisTaskInput {
   ) $s = shape()) {
     $this->engine = $engine ?? "";
     $this->language_code = $language_code ?? "";
-    $this->lexicon_names = $lexicon_names ?? ;
+    $this->lexicon_names = $lexicon_names ?? [];
     $this->output_format = $output_format ?? "";
     $this->output_s_3_bucket_name = $output_s_3_bucket_name ?? "";
     $this->output_s_3_key_prefix = $output_s_3_key_prefix ?? "";
     $this->sample_rate = $sample_rate ?? "";
     $this->sns_topic_arn = $sns_topic_arn ?? "";
-    $this->speech_mark_types = $speech_mark_types ?? ;
+    $this->speech_mark_types = $speech_mark_types ?? [];
     $this->text = $text ?? "";
     $this->text_type = $text_type ?? "";
     $this->voice_id = $voice_id ?? "";
@@ -547,16 +547,16 @@ class SynthesisTask {
   ?'text_type' => TextType,
   ?'voice_id' => VoiceId,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->engine = $engine ?? "";
     $this->language_code = $language_code ?? "";
-    $this->lexicon_names = $lexicon_names ?? ;
+    $this->lexicon_names = $lexicon_names ?? [];
     $this->output_format = $output_format ?? "";
     $this->output_uri = $output_uri ?? "";
     $this->request_characters = $request_characters ?? 0;
     $this->sample_rate = $sample_rate ?? "";
     $this->sns_topic_arn = $sns_topic_arn ?? "";
-    $this->speech_mark_types = $speech_mark_types ?? ;
+    $this->speech_mark_types = $speech_mark_types ?? [];
     $this->task_id = $task_id ?? "";
     $this->task_status = $task_status ?? "";
     $this->task_status_reason = $task_status_reason ?? "";
@@ -571,7 +571,7 @@ class SynthesisTaskNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -601,10 +601,10 @@ class SynthesizeSpeechInput {
   ) $s = shape()) {
     $this->engine = $engine ?? "";
     $this->language_code = $language_code ?? "";
-    $this->lexicon_names = $lexicon_names ?? ;
+    $this->lexicon_names = $lexicon_names ?? [];
     $this->output_format = $output_format ?? "";
     $this->sample_rate = $sample_rate ?? "";
-    $this->speech_mark_types = $speech_mark_types ?? ;
+    $this->speech_mark_types = $speech_mark_types ?? [];
     $this->text = $text ?? "";
     $this->text_type = $text_type ?? "";
     $this->voice_id = $voice_id ?? "";
@@ -641,7 +641,7 @@ class TextLengthExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -653,7 +653,7 @@ class UnsupportedPlsAlphabetException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -663,7 +663,7 @@ class UnsupportedPlsLanguageException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -685,13 +685,13 @@ class Voice {
   ?'name' => VoiceName,
   ?'supported_engines' => EngineList,
   ) $s = shape()) {
-    $this->additional_language_codes = $additional_language_codes ?? ;
+    $this->additional_language_codes = $additional_language_codes ?? [];
     $this->gender = $gender ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->language_code = $language_code ?? "";
     $this->language_name = $language_name ?? "";
-    $this->name = $name ?? ;
-    $this->supported_engines = $supported_engines ?? ;
+    $this->name = $name ?? "";
+    $this->supported_engines = $supported_engines ?? [];
   }
 }
 

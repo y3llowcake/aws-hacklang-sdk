@@ -76,7 +76,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -93,7 +93,7 @@ class AddFacetToObjectRequest {
   ?'schema_facet' => SchemaFacet,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->object_attribute_list = $object_attribute_list ?? ;
+    $this->object_attribute_list = $object_attribute_list ?? [];
     $this->object_reference = $object_reference ?? null;
     $this->schema_facet = $schema_facet ?? null;
   }
@@ -115,7 +115,7 @@ class ApplySchemaRequest {
   ?'published_schema_arn' => Arn,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->published_schema_arn = $published_schema_arn ?? ;
+    $this->published_schema_arn = $published_schema_arn ?? "";
   }
 }
 
@@ -127,7 +127,7 @@ class ApplySchemaResponse {
   ?'applied_schema_arn' => Arn,
   ?'directory_arn' => Arn,
   ) $s = shape()) {
-    $this->applied_schema_arn = $applied_schema_arn ?? ;
+    $this->applied_schema_arn = $applied_schema_arn ?? "";
     $this->directory_arn = $directory_arn ?? "";
   }
 }
@@ -148,10 +148,10 @@ class AttachObjectRequest {
   ?'link_name' => LinkName,
   ?'parent_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->child_reference = $child_reference ?? ;
+    $this->child_reference = $child_reference ?? null;
     $this->directory_arn = $directory_arn ?? "";
     $this->link_name = $link_name ?? "";
-    $this->parent_reference = $parent_reference ?? ;
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -161,7 +161,7 @@ class AttachObjectResponse {
   public function __construct(shape(
   ?'attached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->attached_object_identifier = $attached_object_identifier ?? ;
+    $this->attached_object_identifier = $attached_object_identifier ?? "";
   }
 }
 
@@ -177,7 +177,7 @@ class AttachPolicyRequest {
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
     $this->object_reference = $object_reference ?? null;
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -199,8 +199,8 @@ class AttachToIndexRequest {
   ?'target_reference' => ObjectReference,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->index_reference = $index_reference ?? ;
-    $this->target_reference = $target_reference ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -210,7 +210,7 @@ class AttachToIndexResponse {
   public function __construct(shape(
   ?'attached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->attached_object_identifier = $attached_object_identifier ?? ;
+    $this->attached_object_identifier = $attached_object_identifier ?? "";
   }
 }
 
@@ -228,10 +228,10 @@ class AttachTypedLinkRequest {
   ?'target_object_reference' => ObjectReference,
   ?'typed_link_facet' => TypedLinkSchemaAndFacetName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->directory_arn = $directory_arn ?? "";
-    $this->source_object_reference = $source_object_reference ?? ;
-    $this->target_object_reference = $target_object_reference ?? ;
+    $this->source_object_reference = $source_object_reference ?? null;
+    $this->target_object_reference = $target_object_reference ?? null;
     $this->typed_link_facet = $typed_link_facet ?? null;
   }
 }
@@ -257,8 +257,8 @@ class AttributeKey {
   ?'schema_arn' => Arn,
   ) $s = shape()) {
     $this->facet_name = $facet_name ?? "";
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -270,8 +270,8 @@ class AttributeKeyAndValue {
   ?'key' => AttributeKey,
   ?'value' => TypedAttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? null;
+    $this->value = $value ?? null;
   }
 }
 
@@ -290,7 +290,7 @@ class AttributeNameAndValue {
   ?'value' => TypedAttributeValue,
   ) $s = shape()) {
     $this->attribute_name = $attribute_name ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? null;
   }
 }
 
@@ -308,7 +308,7 @@ class BatchAddFacetToObject {
   ?'object_reference' => ObjectReference,
   ?'schema_facet' => SchemaFacet,
   ) $s = shape()) {
-    $this->object_attribute_list = $object_attribute_list ?? ;
+    $this->object_attribute_list = $object_attribute_list ?? [];
     $this->object_reference = $object_reference ?? null;
     $this->schema_facet = $schema_facet ?? null;
   }
@@ -331,9 +331,9 @@ class BatchAttachObject {
   ?'link_name' => LinkName,
   ?'parent_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->child_reference = $child_reference ?? ;
+    $this->child_reference = $child_reference ?? null;
     $this->link_name = $link_name ?? "";
-    $this->parent_reference = $parent_reference ?? ;
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -343,7 +343,7 @@ class BatchAttachObjectResponse {
   public function __construct(shape(
   ?'attached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->attached_object_identifier = $attached_object_identifier ?? ;
+    $this->attached_object_identifier = $attached_object_identifier ?? "";
   }
 }
 
@@ -356,7 +356,7 @@ class BatchAttachPolicy {
   ?'policy_reference' => ObjectReference,
   ) $s = shape()) {
     $this->object_reference = $object_reference ?? null;
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -375,8 +375,8 @@ class BatchAttachToIndex {
   ?'index_reference' => ObjectReference,
   ?'target_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->index_reference = $index_reference ?? ;
-    $this->target_reference = $target_reference ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -386,7 +386,7 @@ class BatchAttachToIndexResponse {
   public function __construct(shape(
   ?'attached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->attached_object_identifier = $attached_object_identifier ?? ;
+    $this->attached_object_identifier = $attached_object_identifier ?? "";
   }
 }
 
@@ -402,9 +402,9 @@ class BatchAttachTypedLink {
   ?'target_object_reference' => ObjectReference,
   ?'typed_link_facet' => TypedLinkSchemaAndFacetName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->source_object_reference = $source_object_reference ?? ;
-    $this->target_object_reference = $target_object_reference ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->source_object_reference = $source_object_reference ?? null;
+    $this->target_object_reference = $target_object_reference ?? null;
     $this->typed_link_facet = $typed_link_facet ?? null;
   }
 }
@@ -434,10 +434,10 @@ class BatchCreateIndex {
   ?'parent_reference' => ObjectReference,
   ) $s = shape()) {
     $this->batch_reference_name = $batch_reference_name ?? "";
-    $this->is_unique = $is_unique ?? ;
+    $this->is_unique = $is_unique ?? false;
     $this->link_name = $link_name ?? "";
-    $this->ordered_indexed_attribute_list = $ordered_indexed_attribute_list ?? ;
-    $this->parent_reference = $parent_reference ?? ;
+    $this->ordered_indexed_attribute_list = $ordered_indexed_attribute_list ?? [];
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -467,9 +467,9 @@ class BatchCreateObject {
   ) $s = shape()) {
     $this->batch_reference_name = $batch_reference_name ?? "";
     $this->link_name = $link_name ?? "";
-    $this->object_attribute_list = $object_attribute_list ?? ;
-    $this->parent_reference = $parent_reference ?? ;
-    $this->schema_facet = $schema_facet ?? null;
+    $this->object_attribute_list = $object_attribute_list ?? [];
+    $this->parent_reference = $parent_reference ?? null;
+    $this->schema_facet = $schema_facet ?? [];
   }
 }
 
@@ -508,8 +508,8 @@ class BatchDetachFromIndex {
   ?'index_reference' => ObjectReference,
   ?'target_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->index_reference = $index_reference ?? ;
-    $this->target_reference = $target_reference ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -519,7 +519,7 @@ class BatchDetachFromIndexResponse {
   public function __construct(shape(
   ?'detached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->detached_object_identifier = $detached_object_identifier ?? ;
+    $this->detached_object_identifier = $detached_object_identifier ?? "";
   }
 }
 
@@ -535,7 +535,7 @@ class BatchDetachObject {
   ) $s = shape()) {
     $this->batch_reference_name = $batch_reference_name ?? "";
     $this->link_name = $link_name ?? "";
-    $this->parent_reference = $parent_reference ?? ;
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -545,7 +545,7 @@ class BatchDetachObjectResponse {
   public function __construct(shape(
   ?'detached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->detached_object_identifier = $detached_object_identifier ?? ;
+    $this->detached_object_identifier = $detached_object_identifier ?? "";
   }
 }
 
@@ -558,7 +558,7 @@ class BatchDetachPolicy {
   ?'policy_reference' => ObjectReference,
   ) $s = shape()) {
     $this->object_reference = $object_reference ?? null;
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -594,7 +594,7 @@ class BatchGetLinkAttributes {
   ?'attribute_names' => AttributeNameList,
   ?'typed_link_specifier' => TypedLinkSpecifier,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
+    $this->attribute_names = $attribute_names ?? [];
     $this->typed_link_specifier = $typed_link_specifier ?? null;
   }
 }
@@ -605,7 +605,7 @@ class BatchGetLinkAttributesResponse {
   public function __construct(shape(
   ?'attributes' => AttributeKeyAndValueList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -619,7 +619,7 @@ class BatchGetObjectAttributes {
   ?'object_reference' => ObjectReference,
   ?'schema_facet' => SchemaFacet,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
+    $this->attribute_names = $attribute_names ?? [];
     $this->object_reference = $object_reference ?? null;
     $this->schema_facet = $schema_facet ?? null;
   }
@@ -631,7 +631,7 @@ class BatchGetObjectAttributesResponse {
   public function __construct(shape(
   ?'attributes' => AttributeKeyAndValueList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -654,7 +654,7 @@ class BatchGetObjectInformationResponse {
   ?'schema_facets' => SchemaFacetList,
   ) $s = shape()) {
     $this->object_identifier = $object_identifier ?? "";
-    $this->schema_facets = $schema_facets ?? ;
+    $this->schema_facets = $schema_facets ?? [];
   }
 }
 
@@ -668,9 +668,9 @@ class BatchListAttachedIndices {
   ?'next_token' => NextToken,
   ?'target_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->target_reference = $target_reference ?? ;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -682,7 +682,7 @@ class BatchListAttachedIndicesResponse {
   ?'index_attachments' => IndexAttachmentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->index_attachments = $index_attachments ?? ;
+    $this->index_attachments = $index_attachments ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -701,9 +701,9 @@ class BatchListIncomingTypedLinks {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->filter_attribute_ranges = $filter_attribute_ranges ?? ;
-    $this->filter_typed_link = $filter_typed_link ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->filter_attribute_ranges = $filter_attribute_ranges ?? [];
+    $this->filter_typed_link = $filter_typed_link ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -717,7 +717,7 @@ class BatchListIncomingTypedLinksResponse {
   ?'link_specifiers' => TypedLinkSpecifierList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->link_specifiers = $link_specifiers ?? ;
+    $this->link_specifiers = $link_specifiers ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -734,10 +734,10 @@ class BatchListIndex {
   ?'next_token' => NextToken,
   ?'ranges_on_indexed_values' => ObjectAttributeRangeList,
   ) $s = shape()) {
-    $this->index_reference = $index_reference ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->ranges_on_indexed_values = $ranges_on_indexed_values ?? ;
+    $this->ranges_on_indexed_values = $ranges_on_indexed_values ?? [];
   }
 }
 
@@ -749,7 +749,7 @@ class BatchListIndexResponse {
   ?'index_attachments' => IndexAttachmentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->index_attachments = $index_attachments ?? ;
+    $this->index_attachments = $index_attachments ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -766,8 +766,8 @@ class BatchListObjectAttributes {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->facet_filter = $facet_filter ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->facet_filter = $facet_filter ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -781,7 +781,7 @@ class BatchListObjectAttributesResponse {
   ?'attributes' => AttributeKeyAndValueList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -796,7 +796,7 @@ class BatchListObjectChildren {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -810,7 +810,7 @@ class BatchListObjectChildrenResponse {
   ?'children' => LinkNameToObjectIdentifierMap,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->children = $children ?? ;
+    $this->children = $children ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -825,7 +825,7 @@ class BatchListObjectParentPaths {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -854,7 +854,7 @@ class BatchListObjectParents {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -869,7 +869,7 @@ class BatchListObjectParentsResponse {
   ?'parent_links' => ObjectIdentifierAndLinkNameList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->parent_links = $parent_links ?? ;
+    $this->parent_links = $parent_links ?? [];
   }
 }
 
@@ -883,7 +883,7 @@ class BatchListObjectPolicies {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -897,7 +897,7 @@ class BatchListObjectPoliciesResponse {
   ?'attached_policy_ids' => ObjectIdentifierList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attached_policy_ids = $attached_policy_ids ?? ;
+    $this->attached_policy_ids = $attached_policy_ids ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -916,9 +916,9 @@ class BatchListOutgoingTypedLinks {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->filter_attribute_ranges = $filter_attribute_ranges ?? ;
-    $this->filter_typed_link = $filter_typed_link ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->filter_attribute_ranges = $filter_attribute_ranges ?? [];
+    $this->filter_typed_link = $filter_typed_link ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -933,7 +933,7 @@ class BatchListOutgoingTypedLinksResponse {
   ?'typed_link_specifiers' => TypedLinkSpecifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->typed_link_specifiers = $typed_link_specifiers ?? ;
+    $this->typed_link_specifiers = $typed_link_specifiers ?? [];
   }
 }
 
@@ -947,9 +947,9 @@ class BatchListPolicyAttachments {
   ?'next_token' => NextToken,
   ?'policy_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -962,7 +962,7 @@ class BatchListPolicyAttachmentsResponse {
   ?'object_identifiers' => ObjectIdentifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->object_identifiers = $object_identifiers ?? ;
+    $this->object_identifiers = $object_identifiers ?? [];
   }
 }
 
@@ -976,7 +976,7 @@ class BatchLookupPolicy {
   ?'next_token' => NextToken,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -1005,8 +1005,8 @@ class BatchReadException {
   ?'message' => ExceptionMessage,
   ?'type' => BatchReadExceptionType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1044,20 +1044,20 @@ class BatchReadOperation {
   ?'list_policy_attachments' => BatchListPolicyAttachments,
   ?'lookup_policy' => BatchLookupPolicy,
   ) $s = shape()) {
-    $this->get_link_attributes = $get_link_attributes ?? ;
-    $this->get_object_attributes = $get_object_attributes ?? ;
-    $this->get_object_information = $get_object_information ?? ;
-    $this->list_attached_indices = $list_attached_indices ?? ;
-    $this->list_incoming_typed_links = $list_incoming_typed_links ?? ;
-    $this->list_index = $list_index ?? ;
-    $this->list_object_attributes = $list_object_attributes ?? ;
-    $this->list_object_children = $list_object_children ?? ;
-    $this->list_object_parent_paths = $list_object_parent_paths ?? ;
-    $this->list_object_parents = $list_object_parents ?? ;
-    $this->list_object_policies = $list_object_policies ?? ;
-    $this->list_outgoing_typed_links = $list_outgoing_typed_links ?? ;
-    $this->list_policy_attachments = $list_policy_attachments ?? ;
-    $this->lookup_policy = $lookup_policy ?? ;
+    $this->get_link_attributes = $get_link_attributes ?? null;
+    $this->get_object_attributes = $get_object_attributes ?? null;
+    $this->get_object_information = $get_object_information ?? null;
+    $this->list_attached_indices = $list_attached_indices ?? null;
+    $this->list_incoming_typed_links = $list_incoming_typed_links ?? null;
+    $this->list_index = $list_index ?? null;
+    $this->list_object_attributes = $list_object_attributes ?? null;
+    $this->list_object_children = $list_object_children ?? null;
+    $this->list_object_parent_paths = $list_object_parent_paths ?? null;
+    $this->list_object_parents = $list_object_parents ?? null;
+    $this->list_object_policies = $list_object_policies ?? null;
+    $this->list_outgoing_typed_links = $list_outgoing_typed_links ?? null;
+    $this->list_policy_attachments = $list_policy_attachments ?? null;
+    $this->lookup_policy = $lookup_policy ?? null;
   }
 }
 
@@ -1071,8 +1071,8 @@ class BatchReadOperationResponse {
   ?'exception_response' => BatchReadException,
   ?'successful_response' => BatchReadSuccessfulResponse,
   ) $s = shape()) {
-    $this->exception_response = $exception_response ?? ;
-    $this->successful_response = $successful_response ?? ;
+    $this->exception_response = $exception_response ?? null;
+    $this->successful_response = $successful_response ?? null;
   }
 }
 
@@ -1090,7 +1090,7 @@ class BatchReadRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1100,7 +1100,7 @@ class BatchReadResponse {
   public function __construct(shape(
   ?'responses' => BatchReadOperationResponseList,
   ) $s = shape()) {
-    $this->responses = $responses ?? ;
+    $this->responses = $responses ?? [];
   }
 }
 
@@ -1136,20 +1136,20 @@ class BatchReadSuccessfulResponse {
   ?'list_policy_attachments' => BatchListPolicyAttachmentsResponse,
   ?'lookup_policy' => BatchLookupPolicyResponse,
   ) $s = shape()) {
-    $this->get_link_attributes = $get_link_attributes ?? ;
-    $this->get_object_attributes = $get_object_attributes ?? ;
-    $this->get_object_information = $get_object_information ?? ;
-    $this->list_attached_indices = $list_attached_indices ?? ;
-    $this->list_incoming_typed_links = $list_incoming_typed_links ?? ;
-    $this->list_index = $list_index ?? ;
-    $this->list_object_attributes = $list_object_attributes ?? ;
-    $this->list_object_children = $list_object_children ?? ;
-    $this->list_object_parent_paths = $list_object_parent_paths ?? ;
-    $this->list_object_parents = $list_object_parents ?? ;
-    $this->list_object_policies = $list_object_policies ?? ;
-    $this->list_outgoing_typed_links = $list_outgoing_typed_links ?? ;
-    $this->list_policy_attachments = $list_policy_attachments ?? ;
-    $this->lookup_policy = $lookup_policy ?? ;
+    $this->get_link_attributes = $get_link_attributes ?? null;
+    $this->get_object_attributes = $get_object_attributes ?? null;
+    $this->get_object_information = $get_object_information ?? null;
+    $this->list_attached_indices = $list_attached_indices ?? null;
+    $this->list_incoming_typed_links = $list_incoming_typed_links ?? null;
+    $this->list_index = $list_index ?? null;
+    $this->list_object_attributes = $list_object_attributes ?? null;
+    $this->list_object_children = $list_object_children ?? null;
+    $this->list_object_parent_paths = $list_object_parent_paths ?? null;
+    $this->list_object_parents = $list_object_parents ?? null;
+    $this->list_object_policies = $list_object_policies ?? null;
+    $this->list_outgoing_typed_links = $list_outgoing_typed_links ?? null;
+    $this->list_policy_attachments = $list_policy_attachments ?? null;
+    $this->lookup_policy = $lookup_policy ?? null;
   }
 }
 
@@ -1183,7 +1183,7 @@ class BatchUpdateLinkAttributes {
   ?'attribute_updates' => LinkAttributeUpdateList,
   ?'typed_link_specifier' => TypedLinkSpecifier,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
     $this->typed_link_specifier = $typed_link_specifier ?? null;
   }
 }
@@ -1203,7 +1203,7 @@ class BatchUpdateObjectAttributes {
   ?'attribute_updates' => ObjectAttributeUpdateList,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
     $this->object_reference = $object_reference ?? null;
   }
 }
@@ -1228,9 +1228,9 @@ class BatchWriteException {
   ?'message' => ExceptionMessage,
   ?'type' => BatchWriteExceptionType,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->index = $index ?? 0;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1270,21 +1270,21 @@ class BatchWriteOperation {
   ?'update_link_attributes' => BatchUpdateLinkAttributes,
   ?'update_object_attributes' => BatchUpdateObjectAttributes,
   ) $s = shape()) {
-    $this->add_facet_to_object = $add_facet_to_object ?? ;
-    $this->attach_object = $attach_object ?? ;
-    $this->attach_policy = $attach_policy ?? ;
-    $this->attach_to_index = $attach_to_index ?? ;
-    $this->attach_typed_link = $attach_typed_link ?? ;
-    $this->create_index = $create_index ?? ;
-    $this->create_object = $create_object ?? ;
-    $this->delete_object = $delete_object ?? ;
-    $this->detach_from_index = $detach_from_index ?? ;
-    $this->detach_object = $detach_object ?? ;
-    $this->detach_policy = $detach_policy ?? ;
-    $this->detach_typed_link = $detach_typed_link ?? ;
-    $this->remove_facet_from_object = $remove_facet_from_object ?? ;
-    $this->update_link_attributes = $update_link_attributes ?? ;
-    $this->update_object_attributes = $update_object_attributes ?? ;
+    $this->add_facet_to_object = $add_facet_to_object ?? null;
+    $this->attach_object = $attach_object ?? null;
+    $this->attach_policy = $attach_policy ?? null;
+    $this->attach_to_index = $attach_to_index ?? null;
+    $this->attach_typed_link = $attach_typed_link ?? null;
+    $this->create_index = $create_index ?? null;
+    $this->create_object = $create_object ?? null;
+    $this->delete_object = $delete_object ?? null;
+    $this->detach_from_index = $detach_from_index ?? null;
+    $this->detach_object = $detach_object ?? null;
+    $this->detach_policy = $detach_policy ?? null;
+    $this->detach_typed_link = $detach_typed_link ?? null;
+    $this->remove_facet_from_object = $remove_facet_from_object ?? null;
+    $this->update_link_attributes = $update_link_attributes ?? null;
+    $this->update_object_attributes = $update_object_attributes ?? null;
   }
 }
 
@@ -1324,21 +1324,21 @@ class BatchWriteOperationResponse {
   ?'update_link_attributes' => BatchUpdateLinkAttributesResponse,
   ?'update_object_attributes' => BatchUpdateObjectAttributesResponse,
   ) $s = shape()) {
-    $this->add_facet_to_object = $add_facet_to_object ?? ;
-    $this->attach_object = $attach_object ?? ;
-    $this->attach_policy = $attach_policy ?? ;
-    $this->attach_to_index = $attach_to_index ?? ;
-    $this->attach_typed_link = $attach_typed_link ?? ;
-    $this->create_index = $create_index ?? ;
-    $this->create_object = $create_object ?? ;
-    $this->delete_object = $delete_object ?? ;
-    $this->detach_from_index = $detach_from_index ?? ;
-    $this->detach_object = $detach_object ?? ;
-    $this->detach_policy = $detach_policy ?? ;
-    $this->detach_typed_link = $detach_typed_link ?? ;
-    $this->remove_facet_from_object = $remove_facet_from_object ?? ;
-    $this->update_link_attributes = $update_link_attributes ?? ;
-    $this->update_object_attributes = $update_object_attributes ?? ;
+    $this->add_facet_to_object = $add_facet_to_object ?? null;
+    $this->attach_object = $attach_object ?? null;
+    $this->attach_policy = $attach_policy ?? null;
+    $this->attach_to_index = $attach_to_index ?? null;
+    $this->attach_typed_link = $attach_typed_link ?? null;
+    $this->create_index = $create_index ?? null;
+    $this->create_object = $create_object ?? null;
+    $this->delete_object = $delete_object ?? null;
+    $this->detach_from_index = $detach_from_index ?? null;
+    $this->detach_object = $detach_object ?? null;
+    $this->detach_policy = $detach_policy ?? null;
+    $this->detach_typed_link = $detach_typed_link ?? null;
+    $this->remove_facet_from_object = $remove_facet_from_object ?? null;
+    $this->update_link_attributes = $update_link_attributes ?? null;
+    $this->update_object_attributes = $update_object_attributes ?? null;
   }
 }
 
@@ -1353,7 +1353,7 @@ class BatchWriteRequest {
   ?'operations' => BatchWriteOperationList,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -1363,7 +1363,7 @@ class BatchWriteResponse {
   public function __construct(shape(
   ?'responses' => BatchWriteOperationResponseList,
   ) $s = shape()) {
-    $this->responses = $responses ?? ;
+    $this->responses = $responses ?? [];
   }
 }
 
@@ -1379,7 +1379,7 @@ class CannotListParentOfRootException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1393,8 +1393,8 @@ class CreateDirectoryRequest {
   ?'name' => DirectoryName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1410,9 +1410,9 @@ class CreateDirectoryResponse {
   ?'name' => DirectoryName,
   ?'object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->applied_schema_arn = $applied_schema_arn ?? ;
+    $this->applied_schema_arn = $applied_schema_arn ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->object_identifier = $object_identifier ?? "";
   }
 }
@@ -1431,11 +1431,11 @@ class CreateFacetRequest {
   ?'object_type' => ObjectType,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->facet_style = $facet_style ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->object_type = $object_type ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1461,10 +1461,10 @@ class CreateIndexRequest {
   ?'parent_reference' => ObjectReference,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->is_unique = $is_unique ?? ;
+    $this->is_unique = $is_unique ?? false;
     $this->link_name = $link_name ?? "";
-    $this->ordered_indexed_attribute_list = $ordered_indexed_attribute_list ?? ;
-    $this->parent_reference = $parent_reference ?? ;
+    $this->ordered_indexed_attribute_list = $ordered_indexed_attribute_list ?? [];
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -1494,9 +1494,9 @@ class CreateObjectRequest {
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
     $this->link_name = $link_name ?? "";
-    $this->object_attribute_list = $object_attribute_list ?? ;
-    $this->parent_reference = $parent_reference ?? ;
-    $this->schema_facets = $schema_facets ?? ;
+    $this->object_attribute_list = $object_attribute_list ?? [];
+    $this->parent_reference = $parent_reference ?? null;
+    $this->schema_facets = $schema_facets ?? [];
   }
 }
 
@@ -1516,7 +1516,7 @@ class CreateSchemaRequest {
   public function __construct(shape(
   ?'name' => SchemaName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1526,7 +1526,7 @@ class CreateSchemaResponse {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1539,7 +1539,7 @@ class CreateTypedLinkFacetRequest {
   ?'schema_arn' => Arn,
   ) $s = shape()) {
     $this->facet = $facet ?? null;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1582,8 +1582,8 @@ class DeleteFacetRequest {
   ?'name' => FacetName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1620,7 +1620,7 @@ class DeleteSchemaRequest {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1630,7 +1630,7 @@ class DeleteSchemaResponse {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1642,8 +1642,8 @@ class DeleteTypedLinkFacetRequest {
   ?'name' => TypedLinkName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1665,8 +1665,8 @@ class DetachFromIndexRequest {
   ?'target_reference' => ObjectReference,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->index_reference = $index_reference ?? ;
-    $this->target_reference = $target_reference ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -1676,7 +1676,7 @@ class DetachFromIndexResponse {
   public function __construct(shape(
   ?'detached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->detached_object_identifier = $detached_object_identifier ?? ;
+    $this->detached_object_identifier = $detached_object_identifier ?? "";
   }
 }
 
@@ -1692,7 +1692,7 @@ class DetachObjectRequest {
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
     $this->link_name = $link_name ?? "";
-    $this->parent_reference = $parent_reference ?? ;
+    $this->parent_reference = $parent_reference ?? null;
   }
 }
 
@@ -1702,7 +1702,7 @@ class DetachObjectResponse {
   public function __construct(shape(
   ?'detached_object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->detached_object_identifier = $detached_object_identifier ?? ;
+    $this->detached_object_identifier = $detached_object_identifier ?? "";
   }
 }
 
@@ -1718,7 +1718,7 @@ class DetachPolicyRequest {
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
     $this->object_reference = $object_reference ?? null;
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -1754,10 +1754,10 @@ class Directory {
   ?'name' => DirectoryName,
   ?'state' => DirectoryState,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
     $this->directory_arn = $directory_arn ?? "";
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1767,7 +1767,7 @@ class DirectoryAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1779,7 +1779,7 @@ class DirectoryDeletedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1793,7 +1793,7 @@ class DirectoryNotDisabledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1803,7 +1803,7 @@ class DirectoryNotEnabledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1862,7 +1862,7 @@ class Facet {
   ?'object_type' => ObjectType,
   ) $s = shape()) {
     $this->facet_style = $facet_style ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->object_type = $object_type ?? "";
   }
 }
@@ -1873,7 +1873,7 @@ class FacetAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1889,10 +1889,10 @@ class FacetAttribute {
   ?'name' => AttributeName,
   ?'required_behavior' => RequiredAttributeBehavior,
   ) $s = shape()) {
-    $this->attribute_definition = $attribute_definition ?? ;
-    $this->attribute_reference = $attribute_reference ?? ;
-    $this->name = $name ?? ;
-    $this->required_behavior = $required_behavior ?? ;
+    $this->attribute_definition = $attribute_definition ?? null;
+    $this->attribute_reference = $attribute_reference ?? null;
+    $this->name = $name ?? "";
+    $this->required_behavior = $required_behavior ?? "";
   }
 }
 
@@ -1908,10 +1908,10 @@ class FacetAttributeDefinition {
   ?'rules' => RuleMap,
   ?'type' => FacetAttributeType,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->is_immutable = $is_immutable ?? ;
-    $this->rules = $rules ?? ;
-    $this->type = $type ?? ;
+    $this->default_value = $default_value ?? null;
+    $this->is_immutable = $is_immutable ?? false;
+    $this->rules = $rules ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1925,8 +1925,8 @@ class FacetAttributeReference {
   ?'target_attribute_name' => AttributeName,
   ?'target_facet_name' => FacetName,
   ) $s = shape()) {
-    $this->target_attribute_name = $target_attribute_name ?? ;
-    $this->target_facet_name = $target_facet_name ?? ;
+    $this->target_attribute_name = $target_attribute_name ?? "";
+    $this->target_facet_name = $target_facet_name ?? "";
   }
 }
 
@@ -1940,8 +1940,8 @@ class FacetAttributeUpdate {
   ?'action' => UpdateActionType,
   ?'attribute' => FacetAttribute,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->attribute = $attribute ?? ;
+    $this->action = $action ?? "";
+    $this->attribute = $attribute ?? null;
   }
 }
 
@@ -1953,7 +1953,7 @@ class FacetInUseException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1967,7 +1967,7 @@ class FacetNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1979,7 +1979,7 @@ class FacetValidationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1989,7 +1989,7 @@ class GetAppliedSchemaVersionRequest {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1999,7 +1999,7 @@ class GetAppliedSchemaVersionResponse {
   public function __construct(shape(
   ?'applied_schema_arn' => Arn,
   ) $s = shape()) {
-    $this->applied_schema_arn = $applied_schema_arn ?? ;
+    $this->applied_schema_arn = $applied_schema_arn ?? "";
   }
 }
 
@@ -2031,8 +2031,8 @@ class GetFacetRequest {
   ?'name' => FacetName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2058,7 +2058,7 @@ class GetLinkAttributesRequest {
   ?'directory_arn' => Arn,
   ?'typed_link_specifier' => TypedLinkSpecifier,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
+    $this->attribute_names = $attribute_names ?? [];
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
     $this->typed_link_specifier = $typed_link_specifier ?? null;
@@ -2071,7 +2071,7 @@ class GetLinkAttributesResponse {
   public function __construct(shape(
   ?'attributes' => AttributeKeyAndValueList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -2089,7 +2089,7 @@ class GetObjectAttributesRequest {
   ?'object_reference' => ObjectReference,
   ?'schema_facet' => SchemaFacet,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
+    $this->attribute_names = $attribute_names ?? [];
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
     $this->object_reference = $object_reference ?? null;
@@ -2103,7 +2103,7 @@ class GetObjectAttributesResponse {
   public function __construct(shape(
   ?'attributes' => AttributeKeyAndValueList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -2132,7 +2132,7 @@ class GetObjectInformationResponse {
   ?'schema_facets' => SchemaFacetList,
   ) $s = shape()) {
     $this->object_identifier = $object_identifier ?? "";
-    $this->schema_facets = $schema_facets ?? ;
+    $this->schema_facets = $schema_facets ?? [];
   }
 }
 
@@ -2142,7 +2142,7 @@ class GetSchemaAsJsonRequest {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2154,8 +2154,8 @@ class GetSchemaAsJsonResponse {
   ?'document' => SchemaJsonDocument,
   ?'name' => SchemaName,
   ) $s = shape()) {
-    $this->document = $document ?? ;
-    $this->name = $name ?? ;
+    $this->document = $document ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2167,8 +2167,8 @@ class GetTypedLinkFacetInformationRequest {
   ?'name' => TypedLinkName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2178,7 +2178,7 @@ class GetTypedLinkFacetInformationResponse {
   public function __construct(shape(
   ?'identity_attribute_order' => AttributeNameList,
   ) $s = shape()) {
-    $this->identity_attribute_order = $identity_attribute_order ?? ;
+    $this->identity_attribute_order = $identity_attribute_order ?? [];
   }
 }
 
@@ -2188,7 +2188,7 @@ class IncompatibleSchemaException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2200,7 +2200,7 @@ class IndexAttachment {
   ?'indexed_attributes' => AttributeKeyAndValueList,
   ?'object_identifier' => ObjectIdentifier,
   ) $s = shape()) {
-    $this->indexed_attributes = $indexed_attributes ?? ;
+    $this->indexed_attributes = $indexed_attributes ?? [];
     $this->object_identifier = $object_identifier ?? "";
   }
 }
@@ -2213,7 +2213,7 @@ class IndexedAttributeMissingException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2223,7 +2223,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2233,7 +2233,7 @@ class InvalidArnException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2243,7 +2243,7 @@ class InvalidAttachmentException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2253,7 +2253,7 @@ class InvalidFacetUpdateException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2263,7 +2263,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2273,7 +2273,7 @@ class InvalidRuleException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2283,7 +2283,7 @@ class InvalidSchemaDocException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2293,7 +2293,7 @@ class InvalidTaggingRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2303,7 +2303,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2315,8 +2315,8 @@ class LinkAttributeAction {
   ?'attribute_action_type' => UpdateActionType,
   ?'attribute_update_value' => TypedAttributeValue,
   ) $s = shape()) {
-    $this->attribute_action_type = $attribute_action_type ?? ;
-    $this->attribute_update_value = $attribute_update_value ?? ;
+    $this->attribute_action_type = $attribute_action_type ?? "";
+    $this->attribute_update_value = $attribute_update_value ?? null;
   }
 }
 
@@ -2328,7 +2328,7 @@ class LinkAttributeUpdate {
   ?'attribute_action' => LinkAttributeAction,
   ?'attribute_key' => AttributeKey,
   ) $s = shape()) {
-    $this->attribute_action = $attribute_action ?? ;
+    $this->attribute_action = $attribute_action ?? null;
     $this->attribute_key = $attribute_key ?? null;
   }
 }
@@ -2343,7 +2343,7 @@ class LinkNameAlreadyInUseException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2362,9 +2362,9 @@ class ListAppliedSchemaArnsRequest {
   ?'schema_arn' => Arn,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2377,7 +2377,7 @@ class ListAppliedSchemaArnsResponse {
   ?'schema_arns' => Arns,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->schema_arns = $schema_arns ?? ;
+    $this->schema_arns = $schema_arns ?? [];
   }
 }
 
@@ -2397,9 +2397,9 @@ class ListAttachedIndicesRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->target_reference = $target_reference ?? ;
+    $this->target_reference = $target_reference ?? null;
   }
 }
 
@@ -2411,7 +2411,7 @@ class ListAttachedIndicesResponse {
   ?'index_attachments' => IndexAttachmentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->index_attachments = $index_attachments ?? ;
+    $this->index_attachments = $index_attachments ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2424,7 +2424,7 @@ class ListDevelopmentSchemaArnsRequest {
   ?'max_results' => NumberResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2438,7 +2438,7 @@ class ListDevelopmentSchemaArnsResponse {
   ?'schema_arns' => Arns,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->schema_arns = $schema_arns ?? ;
+    $this->schema_arns = $schema_arns ?? [];
   }
 }
 
@@ -2452,9 +2452,9 @@ class ListDirectoriesRequest {
   ?'next_token' => NextToken,
   ?'state' => DirectoryState,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -2466,7 +2466,7 @@ class ListDirectoriesResponse {
   ?'directories' => DirectoryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->directories = $directories ?? ;
+    $this->directories = $directories ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2483,10 +2483,10 @@ class ListFacetAttributesRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2498,7 +2498,7 @@ class ListFacetAttributesResponse {
   ?'attributes' => FacetAttributeList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2513,9 +2513,9 @@ class ListFacetNamesRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2527,7 +2527,7 @@ class ListFacetNamesResponse {
   ?'facet_names' => FacetNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->facet_names = $facet_names ?? ;
+    $this->facet_names = $facet_names ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2552,9 +2552,9 @@ class ListIncomingTypedLinksRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->filter_attribute_ranges = $filter_attribute_ranges ?? ;
-    $this->filter_typed_link = $filter_typed_link ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->filter_attribute_ranges = $filter_attribute_ranges ?? [];
+    $this->filter_typed_link = $filter_typed_link ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2568,7 +2568,7 @@ class ListIncomingTypedLinksResponse {
   ?'link_specifiers' => TypedLinkSpecifierList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->link_specifiers = $link_specifiers ?? ;
+    $this->link_specifiers = $link_specifiers ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2591,10 +2591,10 @@ class ListIndexRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->index_reference = $index_reference ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->index_reference = $index_reference ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->ranges_on_indexed_values = $ranges_on_indexed_values ?? ;
+    $this->ranges_on_indexed_values = $ranges_on_indexed_values ?? [];
   }
 }
 
@@ -2606,7 +2606,7 @@ class ListIndexResponse {
   ?'index_attachments' => IndexAttachmentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->index_attachments = $index_attachments ?? ;
+    $this->index_attachments = $index_attachments ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2621,9 +2621,9 @@ class ListManagedSchemaArnsRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2636,7 +2636,7 @@ class ListManagedSchemaArnsResponse {
   ?'schema_arns' => Arns,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->schema_arns = $schema_arns ?? ;
+    $this->schema_arns = $schema_arns ?? [];
   }
 }
 
@@ -2658,8 +2658,8 @@ class ListObjectAttributesRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->facet_filter = $facet_filter ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->facet_filter = $facet_filter ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2673,7 +2673,7 @@ class ListObjectAttributesResponse {
   ?'attributes' => AttributeKeyAndValueList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2694,7 +2694,7 @@ class ListObjectChildrenRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2708,7 +2708,7 @@ class ListObjectChildrenResponse {
   ?'children' => LinkNameToObjectIdentifierMap,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->children = $children ?? ;
+    $this->children = $children ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2726,7 +2726,7 @@ class ListObjectParentPathsRequest {
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2763,8 +2763,8 @@ class ListObjectParentsRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->include_all_links_to_each_parent = $include_all_links_to_each_parent ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->include_all_links_to_each_parent = $include_all_links_to_each_parent ?? false;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2781,8 +2781,8 @@ class ListObjectParentsResponse {
   ?'parents' => ObjectIdentifierToLinkNameMap,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->parent_links = $parent_links ?? ;
-    $this->parents = $parents ?? ;
+    $this->parent_links = $parent_links ?? [];
+    $this->parents = $parents ?? [];
   }
 }
 
@@ -2802,7 +2802,7 @@ class ListObjectPoliciesRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2816,7 +2816,7 @@ class ListObjectPoliciesResponse {
   ?'attached_policy_ids' => ObjectIdentifierList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attached_policy_ids = $attached_policy_ids ?? ;
+    $this->attached_policy_ids = $attached_policy_ids ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2841,9 +2841,9 @@ class ListOutgoingTypedLinksRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->filter_attribute_ranges = $filter_attribute_ranges ?? ;
-    $this->filter_typed_link = $filter_typed_link ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->filter_attribute_ranges = $filter_attribute_ranges ?? [];
+    $this->filter_typed_link = $filter_typed_link ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -2858,7 +2858,7 @@ class ListOutgoingTypedLinksResponse {
   ?'typed_link_specifiers' => TypedLinkSpecifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->typed_link_specifiers = $typed_link_specifiers ?? ;
+    $this->typed_link_specifiers = $typed_link_specifiers ?? [];
   }
 }
 
@@ -2878,9 +2878,9 @@ class ListPolicyAttachmentsRequest {
   ) $s = shape()) {
     $this->consistency_level = $consistency_level ?? "";
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->policy_reference = $policy_reference ?? ;
+    $this->policy_reference = $policy_reference ?? null;
   }
 }
 
@@ -2893,7 +2893,7 @@ class ListPolicyAttachmentsResponse {
   ?'object_identifiers' => ObjectIdentifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->object_identifiers = $object_identifiers ?? ;
+    $this->object_identifiers = $object_identifiers ?? [];
   }
 }
 
@@ -2907,9 +2907,9 @@ class ListPublishedSchemaArnsRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2922,7 +2922,7 @@ class ListPublishedSchemaArnsResponse {
   ?'schema_arns' => Arns,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->schema_arns = $schema_arns ?? ;
+    $this->schema_arns = $schema_arns ?? [];
   }
 }
 
@@ -2936,9 +2936,9 @@ class ListTagsForResourceRequest {
   ?'next_token' => NextToken,
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2951,7 +2951,7 @@ class ListTagsForResourceResponse {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2967,10 +2967,10 @@ class ListTypedLinkFacetAttributesRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -2982,7 +2982,7 @@ class ListTypedLinkFacetAttributesResponse {
   ?'attributes' => TypedLinkAttributeDefinitionList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2997,9 +2997,9 @@ class ListTypedLinkFacetNamesRequest {
   ?'next_token' => NextToken,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3011,7 +3011,7 @@ class ListTypedLinkFacetNamesResponse {
   ?'facet_names' => TypedLinkNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->facet_names = $facet_names ?? ;
+    $this->facet_names = $facet_names ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -3029,7 +3029,7 @@ class LookupPolicyRequest {
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -3056,7 +3056,7 @@ class NotIndexException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3066,7 +3066,7 @@ class NotNodeException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3076,7 +3076,7 @@ class NotPolicyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3090,7 +3090,7 @@ class ObjectAlreadyDetachedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3102,8 +3102,8 @@ class ObjectAttributeAction {
   ?'object_attribute_action_type' => UpdateActionType,
   ?'object_attribute_update_value' => TypedAttributeValue,
   ) $s = shape()) {
-    $this->object_attribute_action_type = $object_attribute_action_type ?? ;
-    $this->object_attribute_update_value = $object_attribute_update_value ?? ;
+    $this->object_attribute_action_type = $object_attribute_action_type ?? "";
+    $this->object_attribute_update_value = $object_attribute_update_value ?? null;
   }
 }
 
@@ -3116,7 +3116,7 @@ class ObjectAttributeRange {
   ?'range' => TypedAttributeValueRange,
   ) $s = shape()) {
     $this->attribute_key = $attribute_key ?? null;
-    $this->range = $range ?? ;
+    $this->range = $range ?? null;
   }
 }
 
@@ -3131,7 +3131,7 @@ class ObjectAttributeUpdate {
   ?'object_attribute_key' => AttributeKey,
   ) $s = shape()) {
     $this->object_attribute_action = $object_attribute_action ?? null;
-    $this->object_attribute_key = $object_attribute_key ?? ;
+    $this->object_attribute_key = $object_attribute_key ?? null;
   }
 }
 
@@ -3164,7 +3164,7 @@ class ObjectNotDetachedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3174,7 +3174,7 @@ class ObjectReference {
   public function __construct(shape(
   ?'selector' => SelectorObjectReference,
   ) $s = shape()) {
-    $this->selector = $selector ?? ;
+    $this->selector = $selector ?? "";
   }
 }
 
@@ -3190,8 +3190,8 @@ class PathToObjectIdentifiers {
   ?'object_identifiers' => ObjectIdentifierList,
   ?'path' => PathString,
   ) $s = shape()) {
-    $this->object_identifiers = $object_identifiers ?? ;
-    $this->path = $path ?? ;
+    $this->object_identifiers = $object_identifiers ?? [];
+    $this->path = $path ?? "";
   }
 }
 
@@ -3208,7 +3208,7 @@ class PolicyAttachment {
   ?'policy_type' => PolicyType,
   ) $s = shape()) {
     $this->object_identifier = $object_identifier ?? "";
-    $this->policy_id = $policy_id ?? ;
+    $this->policy_id = $policy_id ?? "";
     $this->policy_type = $policy_type ?? "";
   }
 }
@@ -3223,8 +3223,8 @@ class PolicyToPath {
   ?'path' => PathString,
   ?'policies' => PolicyAttachmentList,
   ) $s = shape()) {
-    $this->path = $path ?? ;
-    $this->policies = $policies ?? ;
+    $this->path = $path ?? "";
+    $this->policies = $policies ?? [];
   }
 }
 
@@ -3244,9 +3244,9 @@ class PublishSchemaRequest {
   ?'name' => SchemaName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->development_schema_arn = $development_schema_arn ?? ;
-    $this->minor_version = $minor_version ?? ;
-    $this->name = $name ?? ;
+    $this->development_schema_arn = $development_schema_arn ?? "";
+    $this->minor_version = $minor_version ?? "";
+    $this->name = $name ?? "";
     $this->version = $version ?? "";
   }
 }
@@ -3257,7 +3257,7 @@ class PublishSchemaResponse {
   public function __construct(shape(
   ?'published_schema_arn' => Arn,
   ) $s = shape()) {
-    $this->published_schema_arn = $published_schema_arn ?? ;
+    $this->published_schema_arn = $published_schema_arn ?? "";
   }
 }
 
@@ -3269,8 +3269,8 @@ class PutSchemaFromJsonRequest {
   ?'document' => SchemaJsonDocument,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->document = $document ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->document = $document ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3317,7 +3317,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3327,7 +3327,7 @@ class RetryableConflictException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3339,8 +3339,8 @@ class Rule {
   ?'parameters' => RuleParameterMap,
   ?'type' => RuleType,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
-    $this->type = $type ?? ;
+    $this->parameters = $parameters ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -3362,7 +3362,7 @@ class SchemaAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3372,7 +3372,7 @@ class SchemaAlreadyPublishedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3385,7 +3385,7 @@ class SchemaFacet {
   ?'schema_arn' => Arn,
   ) $s = shape()) {
     $this->facet_name = $facet_name ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3403,7 +3403,7 @@ class StillContainsLinksException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3417,8 +3417,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3436,8 +3436,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3466,11 +3466,11 @@ class TypedAttributeValue {
   ?'number_value' => NumberAttributeValue,
   ?'string_value' => StringAttributeValue,
   ) $s = shape()) {
-    $this->binary_value = $binary_value ?? ;
-    $this->boolean_value = $boolean_value ?? ;
-    $this->datetime_value = $datetime_value ?? ;
-    $this->number_value = $number_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->binary_value = $binary_value ?? "";
+    $this->boolean_value = $boolean_value ?? false;
+    $this->datetime_value = $datetime_value ?? 0;
+    $this->number_value = $number_value ?? "";
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -3486,10 +3486,10 @@ class TypedAttributeValueRange {
   ?'start_mode' => RangeMode,
   ?'start_value' => TypedAttributeValue,
   ) $s = shape()) {
-    $this->end_mode = $end_mode ?? ;
-    $this->end_value = $end_value ?? ;
-    $this->start_mode = $start_mode ?? ;
-    $this->start_value = $start_value ?? ;
+    $this->end_mode = $end_mode ?? "";
+    $this->end_value = $end_value ?? null;
+    $this->start_mode = $start_mode ?? "";
+    $this->start_value = $start_value ?? null;
   }
 }
 
@@ -3509,12 +3509,12 @@ class TypedLinkAttributeDefinition {
   ?'rules' => RuleMap,
   ?'type' => FacetAttributeType,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->is_immutable = $is_immutable ?? ;
-    $this->name = $name ?? ;
-    $this->required_behavior = $required_behavior ?? ;
-    $this->rules = $rules ?? ;
-    $this->type = $type ?? ;
+    $this->default_value = $default_value ?? null;
+    $this->is_immutable = $is_immutable ?? false;
+    $this->name = $name ?? "";
+    $this->required_behavior = $required_behavior ?? "";
+    $this->rules = $rules ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -3529,7 +3529,7 @@ class TypedLinkAttributeRange {
   ?'range' => TypedAttributeValueRange,
   ) $s = shape()) {
     $this->attribute_name = $attribute_name ?? "";
-    $this->range = $range ?? ;
+    $this->range = $range ?? null;
   }
 }
 
@@ -3545,9 +3545,9 @@ class TypedLinkFacet {
   ?'identity_attribute_order' => AttributeNameList,
   ?'name' => TypedLinkName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->identity_attribute_order = $identity_attribute_order ?? ;
-    $this->name = $name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->identity_attribute_order = $identity_attribute_order ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -3559,8 +3559,8 @@ class TypedLinkFacetAttributeUpdate {
   ?'action' => UpdateActionType,
   ?'attribute' => TypedLinkAttributeDefinition,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->attribute = $attribute ?? ;
+    $this->action = $action ?? "";
+    $this->attribute = $attribute ?? null;
   }
 }
 
@@ -3578,7 +3578,7 @@ class TypedLinkSchemaAndFacetName {
   ?'schema_arn' => Arn,
   ?'typed_link_name' => TypedLinkName,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
     $this->typed_link_name = $typed_link_name ?? "";
   }
 }
@@ -3595,9 +3595,9 @@ class TypedLinkSpecifier {
   ?'target_object_reference' => ObjectReference,
   ?'typed_link_facet' => TypedLinkSchemaAndFacetName,
   ) $s = shape()) {
-    $this->identity_attribute_values = $identity_attribute_values ?? ;
-    $this->source_object_reference = $source_object_reference ?? ;
-    $this->target_object_reference = $target_object_reference ?? ;
+    $this->identity_attribute_values = $identity_attribute_values ?? [];
+    $this->source_object_reference = $source_object_reference ?? null;
+    $this->target_object_reference = $target_object_reference ?? null;
     $this->typed_link_facet = $typed_link_facet ?? null;
   }
 }
@@ -3610,7 +3610,7 @@ class UnsupportedIndexTypeException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3622,8 +3622,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3648,10 +3648,10 @@ class UpdateFacetRequest {
   ?'object_type' => ObjectType,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
-    $this->name = $name ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
+    $this->name = $name ?? "";
     $this->object_type = $object_type ?? "";
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3672,7 +3672,7 @@ class UpdateLinkAttributesRequest {
   ?'directory_arn' => Arn,
   ?'typed_link_specifier' => TypedLinkSpecifier,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
     $this->directory_arn = $directory_arn ?? "";
     $this->typed_link_specifier = $typed_link_specifier ?? null;
   }
@@ -3695,7 +3695,7 @@ class UpdateObjectAttributesRequest {
   ?'directory_arn' => Arn,
   ?'object_reference' => ObjectReference,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
     $this->directory_arn = $directory_arn ?? "";
     $this->object_reference = $object_reference ?? null;
   }
@@ -3719,8 +3719,8 @@ class UpdateSchemaRequest {
   ?'name' => SchemaName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3730,7 +3730,7 @@ class UpdateSchemaResponse {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3746,10 +3746,10 @@ class UpdateTypedLinkFacetRequest {
   ?'name' => TypedLinkName,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->attribute_updates = $attribute_updates ?? ;
-    $this->identity_attribute_order = $identity_attribute_order ?? ;
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->attribute_updates = $attribute_updates ?? [];
+    $this->identity_attribute_order = $identity_attribute_order ?? [];
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -3771,8 +3771,8 @@ class UpgradeAppliedSchemaRequest {
   ?'published_schema_arn' => Arn,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->dry_run = $dry_run ?? ;
-    $this->published_schema_arn = $published_schema_arn ?? ;
+    $this->dry_run = $dry_run ?? false;
+    $this->published_schema_arn = $published_schema_arn ?? "";
   }
 }
 
@@ -3785,7 +3785,7 @@ class UpgradeAppliedSchemaResponse {
   ?'upgraded_schema_arn' => Arn,
   ) $s = shape()) {
     $this->directory_arn = $directory_arn ?? "";
-    $this->upgraded_schema_arn = $upgraded_schema_arn ?? ;
+    $this->upgraded_schema_arn = $upgraded_schema_arn ?? "";
   }
 }
 
@@ -3801,10 +3801,10 @@ class UpgradePublishedSchemaRequest {
   ?'minor_version' => Version,
   ?'published_schema_arn' => Arn,
   ) $s = shape()) {
-    $this->development_schema_arn = $development_schema_arn ?? ;
-    $this->dry_run = $dry_run ?? ;
-    $this->minor_version = $minor_version ?? ;
-    $this->published_schema_arn = $published_schema_arn ?? ;
+    $this->development_schema_arn = $development_schema_arn ?? "";
+    $this->dry_run = $dry_run ?? false;
+    $this->minor_version = $minor_version ?? "";
+    $this->published_schema_arn = $published_schema_arn ?? "";
   }
 }
 
@@ -3814,7 +3814,7 @@ class UpgradePublishedSchemaResponse {
   public function __construct(shape(
   ?'upgraded_schema_arn' => Arn,
   ) $s = shape()) {
-    $this->upgraded_schema_arn = $upgraded_schema_arn ?? ;
+    $this->upgraded_schema_arn = $upgraded_schema_arn ?? "";
   }
 }
 
@@ -3824,7 +3824,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

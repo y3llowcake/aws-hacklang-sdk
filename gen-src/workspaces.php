@@ -53,7 +53,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -76,11 +76,11 @@ class AccountModification {
   ?'start_time' => Timestamp,
   ) $s = shape()) {
     $this->dedicated_tenancy_management_cidr_range = $dedicated_tenancy_management_cidr_range ?? "";
-    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->modification_state = $modification_state ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? "";
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->modification_state = $modification_state ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -97,7 +97,7 @@ class AssociateIpGroupsRequest {
   ?'group_ids' => IpGroupIdList,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->group_ids = $group_ids ?? ;
+    $this->group_ids = $group_ids ?? [];
   }
 }
 
@@ -116,8 +116,8 @@ class AuthorizeIpRulesRequest {
   ?'group_id' => IpGroupId,
   ?'user_rules' => IpRuleList,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->user_rules = $user_rules ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->user_rules = $user_rules ?? [];
   }
 }
 
@@ -144,7 +144,7 @@ class ClientProperties {
   public function __construct(shape(
   ?'reconnect_enabled' => ReconnectEnum,
   ) $s = shape()) {
-    $this->reconnect_enabled = $reconnect_enabled ?? ;
+    $this->reconnect_enabled = $reconnect_enabled ?? "";
   }
 }
 
@@ -159,7 +159,7 @@ class ClientPropertiesResult {
   ?'resource_id' => NonEmptyString,
   ) $s = shape()) {
     $this->client_properties = $client_properties ?? null;
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -171,7 +171,7 @@ class ComputeType {
   public function __construct(shape(
   ?'name' => Compute,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -194,10 +194,10 @@ class CopyWorkspaceImageRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
-    $this->source_image_id = $source_image_id ?? ;
-    $this->source_region = $source_region ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->source_image_id = $source_image_id ?? "";
+    $this->source_region = $source_region ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -207,7 +207,7 @@ class CopyWorkspaceImageResult {
   public function __construct(shape(
   ?'image_id' => WorkspaceImageId,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
+    $this->image_id = $image_id ?? "";
   }
 }
 
@@ -223,10 +223,10 @@ class CreateIpGroupRequest {
   ?'tags' => TagList,
   ?'user_rules' => IpRuleList,
   ) $s = shape()) {
-    $this->group_desc = $group_desc ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_rules = $user_rules ?? ;
+    $this->group_desc = $group_desc ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->user_rules = $user_rules ?? [];
   }
 }
 
@@ -236,7 +236,7 @@ class CreateIpGroupResult {
   public function __construct(shape(
   ?'group_id' => IpGroupId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -248,8 +248,8 @@ class CreateTagsRequest {
   ?'resource_id' => NonEmptyString,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -266,7 +266,7 @@ class CreateWorkspacesRequest {
   public function __construct(shape(
   ?'workspaces' => WorkspaceRequestList,
   ) $s = shape()) {
-    $this->workspaces = $workspaces ?? ;
+    $this->workspaces = $workspaces ?? [];
   }
 }
 
@@ -278,8 +278,8 @@ class CreateWorkspacesResult {
   ?'failed_requests' => FailedCreateWorkspaceRequests,
   ?'pending_requests' => WorkspaceList,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
-    $this->pending_requests = $pending_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
+    $this->pending_requests = $pending_requests ?? [];
   }
 }
 
@@ -311,12 +311,12 @@ class DefaultWorkspaceCreationProperties {
   ?'enable_work_docs' => BooleanObject,
   ?'user_enabled_as_local_administrator' => BooleanObject,
   ) $s = shape()) {
-    $this->custom_security_group_id = $custom_security_group_id ?? ;
+    $this->custom_security_group_id = $custom_security_group_id ?? "";
     $this->default_ou = $default_ou ?? "";
-    $this->enable_internet_access = $enable_internet_access ?? ;
-    $this->enable_maintenance_mode = $enable_maintenance_mode ?? ;
-    $this->enable_work_docs = $enable_work_docs ?? ;
-    $this->user_enabled_as_local_administrator = $user_enabled_as_local_administrator ?? ;
+    $this->enable_internet_access = $enable_internet_access ?? false;
+    $this->enable_maintenance_mode = $enable_maintenance_mode ?? false;
+    $this->enable_work_docs = $enable_work_docs ?? false;
+    $this->user_enabled_as_local_administrator = $user_enabled_as_local_administrator ?? false;
   }
 }
 
@@ -326,7 +326,7 @@ class DeleteIpGroupRequest {
   public function __construct(shape(
   ?'group_id' => IpGroupId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -345,8 +345,8 @@ class DeleteTagsRequest {
   ?'resource_id' => NonEmptyString,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -363,7 +363,7 @@ class DeleteWorkspaceImageRequest {
   public function __construct(shape(
   ?'image_id' => WorkspaceImageId,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
+    $this->image_id = $image_id ?? "";
   }
 }
 
@@ -397,7 +397,7 @@ class DescribeAccountModificationsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -409,8 +409,8 @@ class DescribeAccountModificationsResult {
   ?'account_modifications' => AccountModificationList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->account_modifications = $account_modifications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_modifications = $account_modifications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -430,7 +430,7 @@ class DescribeAccountResult {
   ?'dedicated_tenancy_support' => DedicatedTenancySupportResultEnum,
   ) $s = shape()) {
     $this->dedicated_tenancy_management_cidr_range = $dedicated_tenancy_management_cidr_range ?? "";
-    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? ;
+    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? "";
   }
 }
 
@@ -440,7 +440,7 @@ class DescribeClientPropertiesRequest {
   public function __construct(shape(
   ?'resource_ids' => ResourceIdList,
   ) $s = shape()) {
-    $this->resource_ids = $resource_ids ?? ;
+    $this->resource_ids = $resource_ids ?? [];
   }
 }
 
@@ -464,9 +464,9 @@ class DescribeIpGroupsRequest {
   ?'max_results' => Limit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->group_ids = $group_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->group_ids = $group_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -478,8 +478,8 @@ class DescribeIpGroupsResult {
   ?'next_token' => PaginationToken,
   ?'result' => WorkspacesIpGroupsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->result = $result ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->result = $result ?? [];
   }
 }
 
@@ -489,7 +489,7 @@ class DescribeTagsRequest {
   public function __construct(shape(
   ?'resource_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -513,9 +513,9 @@ class DescribeWorkspaceBundlesRequest {
   ?'next_token' => PaginationToken,
   ?'owner' => BundleOwner,
   ) $s = shape()) {
-    $this->bundle_ids = $bundle_ids ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->owner = $owner ?? ;
+    $this->bundle_ids = $bundle_ids ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->owner = $owner ?? "";
   }
 }
 
@@ -527,8 +527,8 @@ class DescribeWorkspaceBundlesResult {
   ?'bundles' => BundleList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->bundles = $bundles ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bundles = $bundles ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -542,9 +542,9 @@ class DescribeWorkspaceDirectoriesRequest {
   ?'limit' => Limit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->directory_ids = $directory_ids ?? ;
+    $this->directory_ids = $directory_ids ?? [];
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -556,8 +556,8 @@ class DescribeWorkspaceDirectoriesResult {
   ?'directories' => DirectoryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->directories = $directories ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->directories = $directories ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -571,9 +571,9 @@ class DescribeWorkspaceImagesRequest {
   ?'max_results' => Limit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->image_ids = $image_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->image_ids = $image_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -585,8 +585,8 @@ class DescribeWorkspaceImagesResult {
   ?'images' => WorkspaceImageList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->images = $images ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->images = $images ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -608,8 +608,8 @@ class DescribeWorkspaceSnapshotsResult {
   ?'rebuild_snapshots' => SnapshotList,
   ?'restore_snapshots' => SnapshotList,
   ) $s = shape()) {
-    $this->rebuild_snapshots = $rebuild_snapshots ?? ;
-    $this->restore_snapshots = $restore_snapshots ?? ;
+    $this->rebuild_snapshots = $rebuild_snapshots ?? [];
+    $this->restore_snapshots = $restore_snapshots ?? [];
   }
 }
 
@@ -621,8 +621,8 @@ class DescribeWorkspacesConnectionStatusRequest {
   ?'next_token' => PaginationToken,
   ?'workspace_ids' => WorkspaceIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->workspace_ids = $workspace_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->workspace_ids = $workspace_ids ?? [];
   }
 }
 
@@ -634,8 +634,8 @@ class DescribeWorkspacesConnectionStatusResult {
   ?'next_token' => PaginationToken,
   ?'workspaces_connection_status' => WorkspaceConnectionStatusList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->workspaces_connection_status = $workspaces_connection_status ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->workspaces_connection_status = $workspaces_connection_status ?? [];
   }
 }
 
@@ -658,9 +658,9 @@ class DescribeWorkspacesRequest {
     $this->bundle_id = $bundle_id ?? "";
     $this->directory_id = $directory_id ?? "";
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->user_name = $user_name ?? "";
-    $this->workspace_ids = $workspace_ids ?? ;
+    $this->workspace_ids = $workspace_ids ?? [];
   }
 }
 
@@ -672,8 +672,8 @@ class DescribeWorkspacesResult {
   ?'next_token' => PaginationToken,
   ?'workspaces' => WorkspaceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->workspaces = $workspaces ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->workspaces = $workspaces ?? [];
   }
 }
 
@@ -696,7 +696,7 @@ class DisassociateIpGroupsRequest {
   ?'group_ids' => IpGroupIdList,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->group_ids = $group_ids ?? ;
+    $this->group_ids = $group_ids ?? [];
   }
 }
 
@@ -725,8 +725,8 @@ class FailedCreateWorkspaceRequest {
   ?'error_message' => Description,
   ?'workspace_request' => WorkspaceRequest,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
     $this->workspace_request = $workspace_request ?? null;
   }
 }
@@ -753,8 +753,8 @@ class FailedWorkspaceChangeRequest {
   ?'error_message' => Description,
   ?'workspace_id' => WorkspaceId,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
     $this->workspace_id = $workspace_id ?? "";
   }
 }
@@ -774,10 +774,10 @@ class ImportWorkspaceImageRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->ec_2_image_id = $ec_2_image_id ?? "";
-    $this->image_description = $image_description ?? ;
-    $this->image_name = $image_name ?? ;
-    $this->ingestion_process = $ingestion_process ?? ;
-    $this->tags = $tags ?? ;
+    $this->image_description = $image_description ?? "";
+    $this->image_name = $image_name ?? "";
+    $this->ingestion_process = $ingestion_process ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -787,7 +787,7 @@ class ImportWorkspaceImageResult {
   public function __construct(shape(
   ?'image_id' => WorkspaceImageId,
   ) $s = shape()) {
-    $this->image_id = $image_id ?? ;
+    $this->image_id = $image_id ?? "";
   }
 }
 
@@ -797,7 +797,7 @@ class InvalidParameterValuesException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -807,7 +807,7 @@ class InvalidResourceStateException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -835,8 +835,8 @@ class IpRuleItem {
   ?'ip_rule' => IpRule,
   ?'rule_desc' => IpRuleDesc,
   ) $s = shape()) {
-    $this->ip_rule = $ip_rule ?? ;
-    $this->rule_desc = $rule_desc ?? ;
+    $this->ip_rule = $ip_rule ?? "";
+    $this->rule_desc = $rule_desc ?? "";
   }
 }
 
@@ -855,8 +855,8 @@ class ListAvailableManagementCidrRangesRequest {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->management_cidr_range_constraint = $management_cidr_range_constraint ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -868,8 +868,8 @@ class ListAvailableManagementCidrRangesResult {
   ?'management_cidr_ranges' => DedicatedTenancyCidrRangeList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->management_cidr_ranges = $management_cidr_ranges ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->management_cidr_ranges = $management_cidr_ranges ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -886,7 +886,7 @@ class MigrateWorkspaceRequest {
   ?'source_workspace_id' => WorkspaceId,
   ) $s = shape()) {
     $this->bundle_id = $bundle_id ?? "";
-    $this->source_workspace_id = $source_workspace_id ?? ;
+    $this->source_workspace_id = $source_workspace_id ?? "";
   }
 }
 
@@ -898,8 +898,8 @@ class MigrateWorkspaceResult {
   ?'source_workspace_id' => WorkspaceId,
   ?'target_workspace_id' => WorkspaceId,
   ) $s = shape()) {
-    $this->source_workspace_id = $source_workspace_id ?? ;
-    $this->target_workspace_id = $target_workspace_id ?? ;
+    $this->source_workspace_id = $source_workspace_id ?? "";
+    $this->target_workspace_id = $target_workspace_id ?? "";
   }
 }
 
@@ -913,8 +913,8 @@ class ModificationState {
   ?'resource' => ModificationResourceEnum,
   ?'state' => ModificationStateEnum,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->state = $state ?? ;
+    $this->resource = $resource ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -931,7 +931,7 @@ class ModifyAccountRequest {
   ?'dedicated_tenancy_support' => DedicatedTenancySupportEnum,
   ) $s = shape()) {
     $this->dedicated_tenancy_management_cidr_range = $dedicated_tenancy_management_cidr_range ?? "";
-    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? ;
+    $this->dedicated_tenancy_support = $dedicated_tenancy_support ?? "";
   }
 }
 
@@ -951,7 +951,7 @@ class ModifyClientPropertiesRequest {
   ?'resource_id' => NonEmptyString,
   ) $s = shape()) {
     $this->client_properties = $client_properties ?? null;
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -970,7 +970,7 @@ class ModifySelfservicePermissionsRequest {
   ?'resource_id' => DirectoryId,
   ?'selfservice_permissions' => SelfservicePermissions,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->selfservice_permissions = $selfservice_permissions ?? null;
   }
 }
@@ -990,7 +990,7 @@ class ModifyWorkspaceAccessPropertiesRequest {
   ?'resource_id' => DirectoryId,
   ?'workspace_access_properties' => WorkspaceAccessProperties,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->workspace_access_properties = $workspace_access_properties ?? null;
   }
 }
@@ -1010,7 +1010,7 @@ class ModifyWorkspaceCreationPropertiesRequest {
   ?'resource_id' => DirectoryId,
   ?'workspace_creation_properties' => WorkspaceCreationProperties,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->workspace_creation_properties = $workspace_creation_properties ?? null;
   }
 }
@@ -1070,7 +1070,7 @@ class OperatingSystem {
   public function __construct(shape(
   ?'type' => OperatingSystemType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1082,7 +1082,7 @@ class OperationInProgressException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1092,7 +1092,7 @@ class OperationNotSupportedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1126,7 +1126,7 @@ class RebootWorkspacesResult {
   public function __construct(shape(
   ?'failed_requests' => FailedRebootWorkspaceRequests,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
   }
 }
 
@@ -1158,7 +1158,7 @@ class RebuildWorkspacesResult {
   public function __construct(shape(
   ?'failed_requests' => FailedRebuildWorkspaceRequests,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
   }
 }
 
@@ -1183,10 +1183,10 @@ class RegisterWorkspaceDirectoryRequest {
   ?'tenancy' => Tenancy,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->enable_self_service = $enable_self_service ?? ;
-    $this->enable_work_docs = $enable_work_docs ?? ;
+    $this->enable_self_service = $enable_self_service ?? false;
+    $this->enable_work_docs = $enable_work_docs ?? false;
     $this->subnet_ids = $subnet_ids ?? [];
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->tenancy = $tenancy ?? "";
   }
 }
@@ -1206,7 +1206,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1216,7 +1216,7 @@ class ResourceAssociatedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1226,7 +1226,7 @@ class ResourceCreationFailedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1238,7 +1238,7 @@ class ResourceLimitExceededException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1250,8 +1250,8 @@ class ResourceNotFoundException {
   ?'resource_id' => NonEmptyString,
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->message = $message ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1263,8 +1263,8 @@ class ResourceUnavailableException {
   ?'resource_id' => NonEmptyString,
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->message = $message ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1293,8 +1293,8 @@ class RevokeIpRulesRequest {
   ?'group_id' => IpGroupId,
   ?'user_rules' => IpRevokedRuleList,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->user_rules = $user_rules ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->user_rules = $user_rules ?? [];
   }
 }
 
@@ -1311,7 +1311,7 @@ class RootStorage {
   public function __construct(shape(
   ?'capacity' => NonEmptyString,
   ) $s = shape()) {
-    $this->capacity = $capacity ?? ;
+    $this->capacity = $capacity ?? "";
   }
 }
 
@@ -1337,11 +1337,11 @@ class SelfservicePermissions {
   ?'restart_workspace' => ReconnectEnum,
   ?'switch_running_mode' => ReconnectEnum,
   ) $s = shape()) {
-    $this->change_compute_type = $change_compute_type ?? ;
-    $this->increase_volume_size = $increase_volume_size ?? ;
-    $this->rebuild_workspace = $rebuild_workspace ?? ;
-    $this->restart_workspace = $restart_workspace ?? ;
-    $this->switch_running_mode = $switch_running_mode ?? ;
+    $this->change_compute_type = $change_compute_type ?? "";
+    $this->increase_volume_size = $increase_volume_size ?? "";
+    $this->rebuild_workspace = $rebuild_workspace ?? "";
+    $this->restart_workspace = $restart_workspace ?? "";
+    $this->switch_running_mode = $switch_running_mode ?? "";
   }
 }
 
@@ -1351,7 +1351,7 @@ class Snapshot {
   public function __construct(shape(
   ?'snapshot_time' => Timestamp,
   ) $s = shape()) {
-    $this->snapshot_time = $snapshot_time ?? ;
+    $this->snapshot_time = $snapshot_time ?? 0;
   }
 }
 
@@ -1385,7 +1385,7 @@ class StartWorkspacesResult {
   public function __construct(shape(
   ?'failed_requests' => FailedStartWorkspaceRequests,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
   }
 }
 
@@ -1417,7 +1417,7 @@ class StopWorkspacesResult {
   public function __construct(shape(
   ?'failed_requests' => FailedStopWorkspaceRequests,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
   }
 }
 
@@ -1433,8 +1433,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1478,7 +1478,7 @@ class TerminateWorkspacesResult {
   public function __construct(shape(
   ?'failed_requests' => FailedTerminateWorkspaceRequests,
   ) $s = shape()) {
-    $this->failed_requests = $failed_requests ?? ;
+    $this->failed_requests = $failed_requests ?? [];
   }
 }
 
@@ -1490,7 +1490,7 @@ class UnsupportedNetworkConfigurationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1500,7 +1500,7 @@ class UnsupportedWorkspaceConfigurationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1512,8 +1512,8 @@ class UpdateRulesOfIpGroupRequest {
   ?'group_id' => IpGroupId,
   ?'user_rules' => IpRuleList,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->user_rules = $user_rules ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->user_rules = $user_rules ?? [];
   }
 }
 
@@ -1532,7 +1532,7 @@ class UserStorage {
   public function __construct(shape(
   ?'capacity' => NonEmptyString,
   ) $s = shape()) {
-    $this->capacity = $capacity ?? ;
+    $this->capacity = $capacity ?? "";
   }
 }
 
@@ -1577,15 +1577,15 @@ class Workspace {
     $this->bundle_id = $bundle_id ?? "";
     $this->computer_name = $computer_name ?? "";
     $this->directory_id = $directory_id ?? "";
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
     $this->ip_address = $ip_address ?? "";
-    $this->modification_states = $modification_states ?? ;
-    $this->root_volume_encryption_enabled = $root_volume_encryption_enabled ?? ;
-    $this->state = $state ?? ;
+    $this->modification_states = $modification_states ?? [];
+    $this->root_volume_encryption_enabled = $root_volume_encryption_enabled ?? false;
+    $this->state = $state ?? "";
     $this->subnet_id = $subnet_id ?? "";
     $this->user_name = $user_name ?? "";
-    $this->user_volume_encryption_enabled = $user_volume_encryption_enabled ?? ;
+    $this->user_volume_encryption_enabled = $user_volume_encryption_enabled ?? false;
     $this->volume_encryption_key = $volume_encryption_key ?? "";
     $this->workspace_id = $workspace_id ?? "";
     $this->workspace_properties = $workspace_properties ?? null;
@@ -1610,13 +1610,13 @@ class WorkspaceAccessProperties {
   ?'device_type_windows' => AccessPropertyValue,
   ?'device_type_zero_client' => AccessPropertyValue,
   ) $s = shape()) {
-    $this->device_type_android = $device_type_android ?? ;
-    $this->device_type_chrome_os = $device_type_chrome_os ?? ;
-    $this->device_type_ios = $device_type_ios ?? ;
-    $this->device_type_osx = $device_type_osx ?? ;
-    $this->device_type_web = $device_type_web ?? ;
-    $this->device_type_windows = $device_type_windows ?? ;
-    $this->device_type_zero_client = $device_type_zero_client ?? ;
+    $this->device_type_android = $device_type_android ?? "";
+    $this->device_type_chrome_os = $device_type_chrome_os ?? "";
+    $this->device_type_ios = $device_type_ios ?? "";
+    $this->device_type_osx = $device_type_osx ?? "";
+    $this->device_type_web = $device_type_web ?? "";
+    $this->device_type_windows = $device_type_windows ?? "";
+    $this->device_type_zero_client = $device_type_zero_client ?? "";
   }
 }
 
@@ -1645,10 +1645,10 @@ class WorkspaceBundle {
     $this->bundle_id = $bundle_id ?? "";
     $this->compute_type = $compute_type ?? null;
     $this->description = $description ?? "";
-    $this->image_id = $image_id ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
+    $this->image_id = $image_id ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
     $this->root_storage = $root_storage ?? null;
     $this->user_storage = $user_storage ?? null;
   }
@@ -1667,8 +1667,8 @@ class WorkspaceConnectionStatus {
   ?'workspace_id' => WorkspaceId,
   ) $s = shape()) {
     $this->connection_state = $connection_state ?? "";
-    $this->connection_state_check_timestamp = $connection_state_check_timestamp ?? ;
-    $this->last_known_user_connection_timestamp = $last_known_user_connection_timestamp ?? ;
+    $this->connection_state_check_timestamp = $connection_state_check_timestamp ?? 0;
+    $this->last_known_user_connection_timestamp = $last_known_user_connection_timestamp ?? 0;
     $this->workspace_id = $workspace_id ?? "";
   }
 }
@@ -1689,11 +1689,11 @@ class WorkspaceCreationProperties {
   ?'enable_maintenance_mode' => BooleanObject,
   ?'user_enabled_as_local_administrator' => BooleanObject,
   ) $s = shape()) {
-    $this->custom_security_group_id = $custom_security_group_id ?? ;
+    $this->custom_security_group_id = $custom_security_group_id ?? "";
     $this->default_ou = $default_ou ?? "";
-    $this->enable_internet_access = $enable_internet_access ?? ;
-    $this->enable_maintenance_mode = $enable_maintenance_mode ?? ;
-    $this->user_enabled_as_local_administrator = $user_enabled_as_local_administrator ?? ;
+    $this->enable_internet_access = $enable_internet_access ?? false;
+    $this->enable_maintenance_mode = $enable_maintenance_mode ?? false;
+    $this->user_enabled_as_local_administrator = $user_enabled_as_local_administrator ?? false;
   }
 }
 
@@ -1734,21 +1734,21 @@ class WorkspaceDirectory {
   ?'ip_group_ids' => IpGroupIdList,
   ) $s = shape()) {
     $this->alias = $alias ?? "";
-    $this->customer_user_name = $customer_user_name ?? ;
+    $this->customer_user_name = $customer_user_name ?? "";
     $this->directory_id = $directory_id ?? "";
     $this->directory_name = $directory_name ?? "";
-    $this->directory_type = $directory_type ?? ;
+    $this->directory_type = $directory_type ?? "";
     $this->dns_ip_addresses = $dns_ip_addresses ?? [];
-    $this->iam_role_id = $iam_role_id ?? ;
+    $this->iam_role_id = $iam_role_id ?? "";
     $this->registration_code = $registration_code ?? "";
     $this->selfservice_permissions = $selfservice_permissions ?? null;
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->tenancy = $tenancy ?? "";
     $this->workspace_access_properties = $workspace_access_properties ?? null;
     $this->workspace_creation_properties = $workspace_creation_properties ?? null;
-    $this->workspace_security_group_id = $workspace_security_group_id ?? ;
-    $this->ip_group_ids = $ip_group_ids ?? ;
+    $this->workspace_security_group_id = $workspace_security_group_id ?? "";
+    $this->ip_group_ids = $ip_group_ids ?? [];
   }
 }
 
@@ -1783,13 +1783,13 @@ class WorkspaceImage {
   ?'state' => WorkspaceImageState,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->image_id = $image_id ?? ;
-    $this->name = $name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->image_id = $image_id ?? "";
+    $this->name = $name ?? "";
     $this->operating_system = $operating_system ?? null;
-    $this->required_tenancy = $required_tenancy ?? ;
-    $this->state = $state ?? ;
+    $this->required_tenancy = $required_tenancy ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1827,7 +1827,7 @@ class WorkspaceProperties {
   ?'running_mode_auto_stop_timeout_in_minutes' => RunningModeAutoStopTimeoutInMinutes,
   ?'user_volume_size_gib' => UserVolumeSizeGib,
   ) $s = shape()) {
-    $this->compute_type_name = $compute_type_name ?? ;
+    $this->compute_type_name = $compute_type_name ?? "";
     $this->root_volume_size_gib = $root_volume_size_gib ?? 0;
     $this->running_mode = $running_mode ?? "";
     $this->running_mode_auto_stop_timeout_in_minutes = $running_mode_auto_stop_timeout_in_minutes ?? 0;
@@ -1857,10 +1857,10 @@ class WorkspaceRequest {
   ) $s = shape()) {
     $this->bundle_id = $bundle_id ?? "";
     $this->directory_id = $directory_id ?? "";
-    $this->root_volume_encryption_enabled = $root_volume_encryption_enabled ?? ;
-    $this->tags = $tags ?? ;
+    $this->root_volume_encryption_enabled = $root_volume_encryption_enabled ?? false;
+    $this->tags = $tags ?? [];
     $this->user_name = $user_name ?? "";
-    $this->user_volume_encryption_enabled = $user_volume_encryption_enabled ?? ;
+    $this->user_volume_encryption_enabled = $user_volume_encryption_enabled ?? false;
     $this->volume_encryption_key = $volume_encryption_key ?? "";
     $this->workspace_properties = $workspace_properties ?? null;
   }
@@ -1876,7 +1876,7 @@ class WorkspacesDefaultRoleNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1892,10 +1892,10 @@ class WorkspacesIpGroup {
   ?'group_name' => IpGroupName,
   ?'user_rules' => IpRuleList,
   ) $s = shape()) {
-    $this->group_desc = $group_desc ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->user_rules = $user_rules ?? ;
+    $this->group_desc = $group_desc ?? "";
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->user_rules = $user_rules ?? [];
   }
 }
 

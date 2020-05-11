@@ -81,7 +81,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -93,8 +93,8 @@ class AccessLogSettings {
   ?'destination_arn' => Arn,
   ?'format' => StringWithLengthBetween1And1024,
   ) $s = shape()) {
-    $this->destination_arn = $destination_arn ?? ;
-    $this->format = $format ?? ;
+    $this->destination_arn = $destination_arn ?? "";
+    $this->format = $format ?? "";
   }
 }
 
@@ -130,20 +130,20 @@ class Api {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -159,10 +159,10 @@ class ApiMapping {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -174,7 +174,7 @@ class ApiMappings {
   ?'items' => __listOfApiMapping,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -187,7 +187,7 @@ class Apis {
   ?'items' => __listOfApi,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -220,15 +220,15 @@ class Authorizer {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -242,7 +242,7 @@ class Authorizers {
   ?'items' => __listOfAuthorizer,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -253,7 +253,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -263,7 +263,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -287,12 +287,12 @@ class Cors {
   ?'expose_headers' => CorsHeaderList,
   ?'max_age' => IntegerWithLengthBetweenMinus1And86400,
   ) $s = shape()) {
-    $this->allow_credentials = $allow_credentials ?? ;
-    $this->allow_headers = $allow_headers ?? ;
-    $this->allow_methods = $allow_methods ?? ;
-    $this->allow_origins = $allow_origins ?? ;
-    $this->expose_headers = $expose_headers ?? ;
-    $this->max_age = $max_age ?? ;
+    $this->allow_credentials = $allow_credentials ?? false;
+    $this->allow_headers = $allow_headers ?? [];
+    $this->allow_methods = $allow_methods ?? [];
+    $this->allow_origins = $allow_origins ?? [];
+    $this->expose_headers = $expose_headers ?? [];
+    $this->max_age = $max_age ?? 0;
   }
 }
 
@@ -330,18 +330,18 @@ class CreateApiInput {
   ?'target' => UriWithLengthBetween1And2048,
   ?'version' => StringWithLengthBetween1And64,
   ) $s = shape()) {
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->name = $name ?? ;
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_key = $route_key ?? ;
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_key = $route_key ?? "";
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->target = $target ?? ;
-    $this->version = $version ?? ;
+    $this->target = $target ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -355,9 +355,9 @@ class CreateApiMappingInput {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -373,10 +373,10 @@ class CreateApiMappingRequest {
   ?'domain_name' => __string,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->domain_name = $domain_name ?? null;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -392,10 +392,10 @@ class CreateApiMappingResponse {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -427,18 +427,18 @@ class CreateApiRequest {
   ?'target' => UriWithLengthBetween1And2048,
   ?'version' => StringWithLengthBetween1And64,
   ) $s = shape()) {
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->name = $name ?? ;
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_key = $route_key ?? ;
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_key = $route_key ?? "";
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->target = $target ?? ;
-    $this->version = $version ?? ;
+    $this->target = $target ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -474,20 +474,20 @@ class CreateApiResponse {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -511,14 +511,14 @@ class CreateAuthorizerInput {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -544,15 +544,15 @@ class CreateAuthorizerRequest {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -578,15 +578,15 @@ class CreateAuthorizerResponse {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -598,8 +598,8 @@ class CreateDeploymentInput {
   ?'description' => StringWithLengthBetween0And1024,
   ?'stage_name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->description = $description ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -613,9 +613,9 @@ class CreateDeploymentRequest {
   ?'description' => StringWithLengthBetween0And1024,
   ?'stage_name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->description = $description ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->description = $description ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -635,12 +635,12 @@ class CreateDeploymentResponse {
   ?'deployment_status_message' => __string,
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->auto_deployed = $auto_deployed ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->auto_deployed = $auto_deployed ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_status = $deployment_status ?? "";
-    $this->deployment_status_message = $deployment_status_message ?? ;
-    $this->description = $description ?? ;
+    $this->deployment_status_message = $deployment_status_message ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -654,7 +654,7 @@ class CreateDomainNameInput {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -670,7 +670,7 @@ class CreateDomainNameRequest {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -688,8 +688,8 @@ class CreateDomainNameResponse {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? "";
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -729,20 +729,20 @@ class CreateIntegrationInput {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfigInput,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_method = $integration_method ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_method = $integration_method ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -783,21 +783,21 @@ class CreateIntegrationRequest {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfigInput,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_method = $integration_method ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_method = $integration_method ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -817,10 +817,10 @@ class CreateIntegrationResponseInput {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -842,13 +842,13 @@ class CreateIntegrationResponseRequest {
   ?'response_templates' => TemplateMap,
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -869,11 +869,11 @@ class CreateIntegrationResponseResponse {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_id = $integration_response_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_id = $integration_response_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -917,23 +917,23 @@ class CreateIntegrationResult {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfig,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_method = $integration_method ?? ;
-    $this->integration_response_selection_expression = $integration_response_selection_expression ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_method = $integration_method ?? "";
+    $this->integration_response_selection_expression = $integration_response_selection_expression ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -950,10 +950,10 @@ class CreateModelInput {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -971,11 +971,11 @@ class CreateModelRequest {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -993,11 +993,11 @@ class CreateModelResponse {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -1027,17 +1027,17 @@ class CreateRouteInput {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -1069,18 +1069,18 @@ class CreateRouteRequest {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -1096,10 +1096,10 @@ class CreateRouteResponseInput {
   ?'response_parameters' => RouteParameters,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -1119,12 +1119,12 @@ class CreateRouteResponseRequest {
   ?'route_id' => __string,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -1142,11 +1142,11 @@ class CreateRouteResponseResponse {
   ?'route_response_id' => Id,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_id = $route_response_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_id = $route_response_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -1180,19 +1180,19 @@ class CreateRouteResult {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -1221,14 +1221,14 @@ class CreateStageInput {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1260,15 +1260,15 @@ class CreateStageRequest {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_id = $api_id ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1306,18 +1306,18 @@ class CreateStageResponse {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->last_deployment_status_message = $last_deployment_status_message ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->last_deployment_status_message = $last_deployment_status_message ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1334,9 +1334,9 @@ class CreateVpcLinkInput {
   ?'subnet_ids' => SubnetIdList,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1353,9 +1353,9 @@ class CreateVpcLinkRequest {
   ?'subnet_ids' => SubnetIdList,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -1382,14 +1382,14 @@ class CreateVpcLinkResponse {
   ?'vpc_link_status_message' => StringWithLengthBetween0And1024,
   ?'vpc_link_version' => VpcLinkVersion,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
     $this->vpc_link_status = $vpc_link_status ?? "";
-    $this->vpc_link_status_message = $vpc_link_status_message ?? ;
+    $this->vpc_link_status_message = $vpc_link_status_message ?? "";
     $this->vpc_link_version = $vpc_link_version ?? "";
   }
 }
@@ -1402,8 +1402,8 @@ class DeleteAccessLogSettingsRequest {
   ?'api_id' => __string,
   ?'stage_name' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1415,8 +1415,8 @@ class DeleteApiMappingRequest {
   ?'api_mapping_id' => __string,
   ?'domain_name' => __string,
   ) $s = shape()) {
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -1426,7 +1426,7 @@ class DeleteApiRequest {
   public function __construct(shape(
   ?'api_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -1438,8 +1438,8 @@ class DeleteAuthorizerRequest {
   ?'api_id' => __string,
   ?'authorizer_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
   }
 }
 
@@ -1449,7 +1449,7 @@ class DeleteCorsConfigurationRequest {
   public function __construct(shape(
   ?'api_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -1461,8 +1461,8 @@ class DeleteDeploymentRequest {
   ?'api_id' => __string,
   ?'deployment_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -1472,7 +1472,7 @@ class DeleteDomainNameRequest {
   public function __construct(shape(
   ?'domain_name' => __string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -1484,8 +1484,8 @@ class DeleteIntegrationRequest {
   ?'api_id' => __string,
   ?'integration_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->integration_id = $integration_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->integration_id = $integration_id ?? "";
   }
 }
 
@@ -1499,9 +1499,9 @@ class DeleteIntegrationResponseRequest {
   ?'integration_id' => __string,
   ?'integration_response_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_response_id = $integration_response_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_response_id = $integration_response_id ?? "";
   }
 }
 
@@ -1513,8 +1513,8 @@ class DeleteModelRequest {
   ?'api_id' => __string,
   ?'model_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->model_id = $model_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->model_id = $model_id ?? "";
   }
 }
 
@@ -1526,8 +1526,8 @@ class DeleteRouteRequest {
   ?'api_id' => __string,
   ?'route_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->route_id = $route_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->route_id = $route_id ?? "";
   }
 }
 
@@ -1541,9 +1541,9 @@ class DeleteRouteRequestParameterRequest {
   ?'request_parameter_key' => __string,
   ?'route_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->request_parameter_key = $request_parameter_key ?? ;
-    $this->route_id = $route_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->request_parameter_key = $request_parameter_key ?? "";
+    $this->route_id = $route_id ?? "";
   }
 }
 
@@ -1557,9 +1557,9 @@ class DeleteRouteResponseRequest {
   ?'route_id' => __string,
   ?'route_response_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_response_id = $route_response_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->route_id = $route_id ?? "";
+    $this->route_response_id = $route_response_id ?? "";
   }
 }
 
@@ -1573,9 +1573,9 @@ class DeleteRouteSettingsRequest {
   ?'route_key' => __string,
   ?'stage_name' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1587,8 +1587,8 @@ class DeleteStageRequest {
   ?'api_id' => __string,
   ?'stage_name' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1598,7 +1598,7 @@ class DeleteVpcLinkRequest {
   public function __construct(shape(
   ?'vpc_link_id' => __string,
   ) $s = shape()) {
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
   }
 }
 
@@ -1625,12 +1625,12 @@ class Deployment {
   ?'deployment_status_message' => __string,
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->auto_deployed = $auto_deployed ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->auto_deployed = $auto_deployed ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_status = $deployment_status ?? "";
-    $this->deployment_status_message = $deployment_status_message ?? ;
-    $this->description = $description ?? ;
+    $this->deployment_status_message = $deployment_status_message ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -1644,7 +1644,7 @@ class Deployments {
   ?'items' => __listOfDeployment,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1661,8 +1661,8 @@ class DomainName {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? "";
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -1690,14 +1690,14 @@ class DomainNameConfiguration {
   ?'hosted_zone_id' => __string,
   ?'security_policy' => SecurityPolicy,
   ) $s = shape()) {
-    $this->api_gateway_domain_name = $api_gateway_domain_name ?? ;
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->certificate_name = $certificate_name ?? ;
-    $this->certificate_upload_date = $certificate_upload_date ?? ;
+    $this->api_gateway_domain_name = $api_gateway_domain_name ?? "";
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->certificate_name = $certificate_name ?? "";
+    $this->certificate_upload_date = $certificate_upload_date ?? 0;
     $this->domain_name_status = $domain_name_status ?? "";
-    $this->domain_name_status_message = $domain_name_status_message ?? ;
+    $this->domain_name_status_message = $domain_name_status_message ?? "";
     $this->endpoint_type = $endpoint_type ?? "";
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
     $this->security_policy = $security_policy ?? "";
   }
 }
@@ -1714,7 +1714,7 @@ class DomainNames {
   ?'items' => __listOfDomainName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1737,12 +1737,12 @@ class ExportApiRequest {
   ?'specification' => __string,
   ?'stage_name' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->export_version = $export_version ?? ;
-    $this->include_extensions = $include_extensions ?? ;
-    $this->output_type = $output_type ?? ;
-    $this->specification = $specification ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->export_version = $export_version ?? "";
+    $this->include_extensions = $include_extensions ?? false;
+    $this->output_type = $output_type ?? "";
+    $this->specification = $specification ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1752,7 +1752,7 @@ class ExportApiResponse {
   public function __construct(shape(
   ?'body' => ExportedApi,
   ) $s = shape()) {
-    $this->body = $body ?? ;
+    $this->body = $body ?? "";
   }
 }
 
@@ -1766,8 +1766,8 @@ class GetApiMappingRequest {
   ?'api_mapping_id' => __string,
   ?'domain_name' => __string,
   ) $s = shape()) {
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -1783,10 +1783,10 @@ class GetApiMappingResponse {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -1800,8 +1800,8 @@ class GetApiMappingsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
-    $this->max_results = $max_results ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1814,7 +1814,7 @@ class GetApiMappingsResponse {
   ?'items' => __listOfApiMapping,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1825,7 +1825,7 @@ class GetApiRequest {
   public function __construct(shape(
   ?'api_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
   }
 }
 
@@ -1861,20 +1861,20 @@ class GetApiResponse {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -1886,7 +1886,7 @@ class GetApisRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1899,7 +1899,7 @@ class GetApisResponse {
   ?'items' => __listOfApi,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1912,8 +1912,8 @@ class GetAuthorizerRequest {
   ?'api_id' => __string,
   ?'authorizer_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
   }
 }
 
@@ -1939,15 +1939,15 @@ class GetAuthorizerResponse {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1961,8 +1961,8 @@ class GetAuthorizersRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1975,7 +1975,7 @@ class GetAuthorizersResponse {
   ?'items' => __listOfAuthorizer,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1988,8 +1988,8 @@ class GetDeploymentRequest {
   ?'api_id' => __string,
   ?'deployment_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -2009,12 +2009,12 @@ class GetDeploymentResponse {
   ?'deployment_status_message' => __string,
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->auto_deployed = $auto_deployed ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->auto_deployed = $auto_deployed ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_status = $deployment_status ?? "";
-    $this->deployment_status_message = $deployment_status_message ?? ;
-    $this->description = $description ?? ;
+    $this->deployment_status_message = $deployment_status_message ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -2028,8 +2028,8 @@ class GetDeploymentsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2042,7 +2042,7 @@ class GetDeploymentsResponse {
   ?'items' => __listOfDeployment,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2053,7 +2053,7 @@ class GetDomainNameRequest {
   public function __construct(shape(
   ?'domain_name' => __string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -2069,8 +2069,8 @@ class GetDomainNameResponse {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? "";
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -2084,7 +2084,7 @@ class GetDomainNamesRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2097,7 +2097,7 @@ class GetDomainNamesResponse {
   ?'items' => __listOfDomainName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2110,8 +2110,8 @@ class GetIntegrationRequest {
   ?'api_id' => __string,
   ?'integration_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->integration_id = $integration_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->integration_id = $integration_id ?? "";
   }
 }
 
@@ -2125,9 +2125,9 @@ class GetIntegrationResponseRequest {
   ?'integration_id' => __string,
   ?'integration_response_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_response_id = $integration_response_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_response_id = $integration_response_id ?? "";
   }
 }
 
@@ -2148,11 +2148,11 @@ class GetIntegrationResponseResponse {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_id = $integration_response_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_id = $integration_response_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -2168,9 +2168,9 @@ class GetIntegrationResponsesRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2183,7 +2183,7 @@ class GetIntegrationResponsesResponse {
   ?'items' => __listOfIntegrationResponse,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2228,23 +2228,23 @@ class GetIntegrationResult {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfig,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_method = $integration_method ?? ;
-    $this->integration_response_selection_expression = $integration_response_selection_expression ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_method = $integration_method ?? "";
+    $this->integration_response_selection_expression = $integration_response_selection_expression ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -2259,8 +2259,8 @@ class GetIntegrationsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2273,7 +2273,7 @@ class GetIntegrationsResponse {
   ?'items' => __listOfIntegration,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2286,8 +2286,8 @@ class GetModelRequest {
   ?'api_id' => __string,
   ?'model_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->model_id = $model_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->model_id = $model_id ?? "";
   }
 }
 
@@ -2305,11 +2305,11 @@ class GetModelResponse {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -2321,8 +2321,8 @@ class GetModelTemplateRequest {
   ?'api_id' => __string,
   ?'model_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->model_id = $model_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->model_id = $model_id ?? "";
   }
 }
 
@@ -2332,7 +2332,7 @@ class GetModelTemplateResponse {
   public function __construct(shape(
   ?'value' => __string,
   ) $s = shape()) {
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -2346,8 +2346,8 @@ class GetModelsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2360,7 +2360,7 @@ class GetModelsResponse {
   ?'items' => __listOfModel,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2373,8 +2373,8 @@ class GetRouteRequest {
   ?'api_id' => __string,
   ?'route_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->route_id = $route_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->route_id = $route_id ?? "";
   }
 }
 
@@ -2388,9 +2388,9 @@ class GetRouteResponseRequest {
   ?'route_id' => __string,
   ?'route_response_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_response_id = $route_response_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->route_id = $route_id ?? "";
+    $this->route_response_id = $route_response_id ?? "";
   }
 }
 
@@ -2408,11 +2408,11 @@ class GetRouteResponseResponse {
   ?'route_response_id' => Id,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_id = $route_response_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_id = $route_response_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -2428,10 +2428,10 @@ class GetRouteResponsesRequest {
   ?'next_token' => __string,
   ?'route_id' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
-    $this->route_id = $route_id ?? ;
+    $this->route_id = $route_id ?? "";
   }
 }
 
@@ -2443,7 +2443,7 @@ class GetRouteResponsesResponse {
   ?'items' => __listOfRouteResponse,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2478,19 +2478,19 @@ class GetRouteResult {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -2504,8 +2504,8 @@ class GetRoutesRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2518,7 +2518,7 @@ class GetRoutesResponse {
   ?'items' => __listOfRoute,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2531,8 +2531,8 @@ class GetStageRequest {
   ?'api_id' => __string,
   ?'stage_name' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -2569,18 +2569,18 @@ class GetStageResponse {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->last_deployment_status_message = $last_deployment_status_message ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->last_deployment_status_message = $last_deployment_status_message ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -2595,8 +2595,8 @@ class GetStagesRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2609,7 +2609,7 @@ class GetStagesResponse {
   ?'items' => __listOfStage,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2620,7 +2620,7 @@ class GetTagsRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2640,7 +2640,7 @@ class GetVpcLinkRequest {
   public function __construct(shape(
   ?'vpc_link_id' => __string,
   ) $s = shape()) {
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
   }
 }
 
@@ -2666,14 +2666,14 @@ class GetVpcLinkResponse {
   ?'vpc_link_status_message' => StringWithLengthBetween0And1024,
   ?'vpc_link_version' => VpcLinkVersion,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
     $this->vpc_link_status = $vpc_link_status ?? "";
-    $this->vpc_link_status_message = $vpc_link_status_message ?? ;
+    $this->vpc_link_status_message = $vpc_link_status_message ?? "";
     $this->vpc_link_version = $vpc_link_version ?? "";
   }
 }
@@ -2686,7 +2686,7 @@ class GetVpcLinksRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2699,7 +2699,7 @@ class GetVpcLinksResponse {
   ?'items' => __listOfVpcLink,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2714,7 +2714,7 @@ class ImportApiInput {
   public function __construct(shape(
   ?'body' => __string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
+    $this->body = $body ?? "";
   }
 }
 
@@ -2728,9 +2728,9 @@ class ImportApiRequest {
   ?'body' => __string,
   ?'fail_on_warnings' => __boolean,
   ) $s = shape()) {
-    $this->basepath = $basepath ?? ;
-    $this->body = $body ?? ;
-    $this->fail_on_warnings = $fail_on_warnings ?? ;
+    $this->basepath = $basepath ?? "";
+    $this->body = $body ?? "";
+    $this->fail_on_warnings = $fail_on_warnings ?? false;
   }
 }
 
@@ -2766,20 +2766,20 @@ class ImportApiResponse {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -2829,23 +2829,23 @@ class Integration {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfig,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_method = $integration_method ?? ;
-    $this->integration_response_selection_expression = $integration_response_selection_expression ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_method = $integration_method ?? "";
+    $this->integration_response_selection_expression = $integration_response_selection_expression ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -2869,11 +2869,11 @@ class IntegrationResponse {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_id = $integration_response_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_id = $integration_response_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -2885,7 +2885,7 @@ class IntegrationResponses {
   ?'items' => __listOfIntegrationResponse,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2900,7 +2900,7 @@ class Integrations {
   ?'items' => __listOfIntegration,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2913,8 +2913,8 @@ class JWTConfiguration {
   ?'audience' => __listOf__string,
   ?'issuer' => UriWithLengthBetween1And2048,
   ) $s = shape()) {
-    $this->audience = $audience ?? ;
-    $this->issuer = $issuer ?? ;
+    $this->audience = $audience ?? [];
+    $this->issuer = $issuer ?? "";
   }
 }
 
@@ -2926,8 +2926,8 @@ class LimitExceededException {
   ?'limit_type' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->limit_type = $limit_type ?? ;
-    $this->message = $message ?? ;
+    $this->limit_type = $limit_type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2947,11 +2947,11 @@ class Model {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -2963,7 +2963,7 @@ class Models {
   ?'items' => __listOfModel,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2978,8 +2978,8 @@ class NotFoundException {
   ?'message' => __string,
   ?'resource_type' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2989,7 +2989,7 @@ class ParameterConstraints {
   public function __construct(shape(
   ?'required' => __boolean,
   ) $s = shape()) {
-    $this->required = $required ?? ;
+    $this->required = $required ?? false;
   }
 }
 
@@ -3003,7 +3003,7 @@ class ReimportApiInput {
   public function __construct(shape(
   ?'body' => __string,
   ) $s = shape()) {
-    $this->body = $body ?? ;
+    $this->body = $body ?? "";
   }
 }
 
@@ -3019,10 +3019,10 @@ class ReimportApiRequest {
   ?'body' => __string,
   ?'fail_on_warnings' => __boolean,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->basepath = $basepath ?? ;
-    $this->body = $body ?? ;
-    $this->fail_on_warnings = $fail_on_warnings ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->basepath = $basepath ?? "";
+    $this->body = $body ?? "";
+    $this->fail_on_warnings = $fail_on_warnings ?? false;
   }
 }
 
@@ -3058,20 +3058,20 @@ class ReimportApiResponse {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -3105,19 +3105,19 @@ class Route {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -3139,11 +3139,11 @@ class RouteResponse {
   ?'route_response_id' => Id,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_id = $route_response_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_id = $route_response_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -3155,7 +3155,7 @@ class RouteResponses {
   ?'items' => __listOfRouteResponse,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -3174,11 +3174,11 @@ class RouteSettings {
   ?'throttling_burst_limit' => __integer,
   ?'throttling_rate_limit' => __double,
   ) $s = shape()) {
-    $this->data_trace_enabled = $data_trace_enabled ?? ;
-    $this->detailed_metrics_enabled = $detailed_metrics_enabled ?? ;
+    $this->data_trace_enabled = $data_trace_enabled ?? false;
+    $this->detailed_metrics_enabled = $detailed_metrics_enabled ?? false;
     $this->logging_level = $logging_level ?? "";
-    $this->throttling_burst_limit = $throttling_burst_limit ?? ;
-    $this->throttling_rate_limit = $throttling_rate_limit ?? ;
+    $this->throttling_burst_limit = $throttling_burst_limit ?? 0;
+    $this->throttling_rate_limit = $throttling_rate_limit ?? 0.0;
   }
 }
 
@@ -3192,7 +3192,7 @@ class Routes {
   ?'items' => __listOfRoute,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -3238,18 +3238,18 @@ class Stage {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->last_deployment_status_message = $last_deployment_status_message ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->last_deployment_status_message = $last_deployment_status_message ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -3264,7 +3264,7 @@ class Stages {
   ?'items' => __listOfStage,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -3307,7 +3307,7 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -3327,7 +3327,7 @@ class Template {
   public function __construct(shape(
   ?'value' => __string,
   ) $s = shape()) {
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -3339,7 +3339,7 @@ class TlsConfig {
   public function __construct(shape(
   ?'server_name_to_verify' => StringWithLengthBetween1And512,
   ) $s = shape()) {
-    $this->server_name_to_verify = $server_name_to_verify ?? ;
+    $this->server_name_to_verify = $server_name_to_verify ?? "";
   }
 }
 
@@ -3349,7 +3349,7 @@ class TlsConfigInput {
   public function __construct(shape(
   ?'server_name_to_verify' => StringWithLengthBetween1And512,
   ) $s = shape()) {
-    $this->server_name_to_verify = $server_name_to_verify ?? ;
+    $this->server_name_to_verify = $server_name_to_verify ?? "";
   }
 }
 
@@ -3361,8 +3361,8 @@ class TooManyRequestsException {
   ?'limit_type' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->limit_type = $limit_type ?? ;
-    $this->message = $message ?? ;
+    $this->limit_type = $limit_type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3374,8 +3374,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3403,16 +3403,16 @@ class UpdateApiInput {
   ?'target' => UriWithLengthBetween1And2048,
   ?'version' => StringWithLengthBetween1And64,
   ) $s = shape()) {
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->name = $name ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_selection_expression = $route_selection_expression ?? ;
-    $this->target = $target ?? ;
-    $this->version = $version ?? ;
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->name = $name ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_selection_expression = $route_selection_expression ?? "";
+    $this->target = $target ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3426,9 +3426,9 @@ class UpdateApiMappingInput {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -3446,11 +3446,11 @@ class UpdateApiMappingRequest {
   ?'domain_name' => __string,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->domain_name = $domain_name ?? null;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -3466,10 +3466,10 @@ class UpdateApiMappingResponse {
   ?'api_mapping_key' => SelectionKey,
   ?'stage' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_mapping_id = $api_mapping_id ?? ;
-    $this->api_mapping_key = $api_mapping_key ?? ;
-    $this->stage = $stage ?? null;
+    $this->api_id = $api_id ?? "";
+    $this->api_mapping_id = $api_mapping_id ?? "";
+    $this->api_mapping_key = $api_mapping_key ?? "";
+    $this->stage = $stage ?? "";
   }
 }
 
@@ -3499,17 +3499,17 @@ class UpdateApiRequest {
   ?'target' => UriWithLengthBetween1And2048,
   ?'version' => StringWithLengthBetween1And64,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->name = $name ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_selection_expression = $route_selection_expression ?? ;
-    $this->target = $target ?? ;
-    $this->version = $version ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->name = $name ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_selection_expression = $route_selection_expression ?? "";
+    $this->target = $target ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3545,20 +3545,20 @@ class UpdateApiResponse {
   ?'version' => StringWithLengthBetween1And64,
   ?'warnings' => __listOf__string,
   ) $s = shape()) {
-    $this->api_endpoint = $api_endpoint ?? ;
-    $this->api_id = $api_id ?? ;
-    $this->api_key_selection_expression = $api_key_selection_expression ?? ;
-    $this->cors_configuration = $cors_configuration ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->description = $description ?? ;
-    $this->disable_schema_validation = $disable_schema_validation ?? ;
-    $this->import_info = $import_info ?? ;
-    $this->name = $name ?? ;
+    $this->api_endpoint = $api_endpoint ?? "";
+    $this->api_id = $api_id ?? "";
+    $this->api_key_selection_expression = $api_key_selection_expression ?? "";
+    $this->cors_configuration = $cors_configuration ?? null;
+    $this->created_date = $created_date ?? 0;
+    $this->description = $description ?? "";
+    $this->disable_schema_validation = $disable_schema_validation ?? false;
+    $this->import_info = $import_info ?? [];
+    $this->name = $name ?? "";
     $this->protocol_type = $protocol_type ?? "";
-    $this->route_selection_expression = $route_selection_expression ?? ;
+    $this->route_selection_expression = $route_selection_expression ?? "";
     $this->tags = $tags ?? [];
-    $this->version = $version ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->version = $version ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -3582,14 +3582,14 @@ class UpdateAuthorizerInput {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3617,16 +3617,16 @@ class UpdateAuthorizerRequest {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3652,15 +3652,15 @@ class UpdateAuthorizerResponse {
   ?'jwt_configuration' => JWTConfiguration,
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? ;
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? ;
+    $this->authorizer_credentials_arn = $authorizer_credentials_arn ?? "";
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->authorizer_result_ttl_in_seconds = $authorizer_result_ttl_in_seconds ?? 0;
     $this->authorizer_type = $authorizer_type ?? "";
-    $this->authorizer_uri = $authorizer_uri ?? ;
-    $this->identity_source = $identity_source ?? ;
-    $this->identity_validation_expression = $identity_validation_expression ?? ;
-    $this->jwt_configuration = $jwt_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->authorizer_uri = $authorizer_uri ?? "";
+    $this->identity_source = $identity_source ?? [];
+    $this->identity_validation_expression = $identity_validation_expression ?? "";
+    $this->jwt_configuration = $jwt_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3670,7 +3670,7 @@ class UpdateDeploymentInput {
   public function __construct(shape(
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
   }
 }
 
@@ -3684,9 +3684,9 @@ class UpdateDeploymentRequest {
   ?'deployment_id' => __string,
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -3706,12 +3706,12 @@ class UpdateDeploymentResponse {
   ?'deployment_status_message' => __string,
   ?'description' => StringWithLengthBetween0And1024,
   ) $s = shape()) {
-    $this->auto_deployed = $auto_deployed ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->auto_deployed = $auto_deployed ?? false;
+    $this->created_date = $created_date ?? 0;
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_status = $deployment_status ?? "";
-    $this->deployment_status_message = $deployment_status_message ?? ;
-    $this->description = $description ?? ;
+    $this->deployment_status_message = $deployment_status_message ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -3733,7 +3733,7 @@ class UpdateDomainNameRequest {
   ?'domain_name' => __string,
   ?'domain_name_configurations' => DomainNameConfigurations,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? null;
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
   }
 }
@@ -3750,8 +3750,8 @@ class UpdateDomainNameResponse {
   ?'domain_name_configurations' => DomainNameConfigurations,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? ;
-    $this->domain_name = $domain_name ?? null;
+    $this->api_mapping_selection_expression = $api_mapping_selection_expression ?? "";
+    $this->domain_name = $domain_name ?? "";
     $this->domain_name_configurations = $domain_name_configurations ?? [];
     $this->tags = $tags ?? [];
   }
@@ -3791,20 +3791,20 @@ class UpdateIntegrationInput {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfigInput,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_method = $integration_method ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_method = $integration_method ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -3847,22 +3847,22 @@ class UpdateIntegrationRequest {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfigInput,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_method = $integration_method ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_method = $integration_method ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -3882,10 +3882,10 @@ class UpdateIntegrationResponseInput {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -3909,14 +3909,14 @@ class UpdateIntegrationResponseRequest {
   ?'response_templates' => TemplateMap,
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
+    $this->api_id = $api_id ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_response_id = $integration_response_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_response_id = $integration_response_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -3937,11 +3937,11 @@ class UpdateIntegrationResponseResponse {
   ?'template_selection_expression' => SelectionExpression,
   ) $s = shape()) {
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->integration_response_id = $integration_response_id ?? ;
-    $this->integration_response_key = $integration_response_key ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->response_templates = $response_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
+    $this->integration_response_id = $integration_response_id ?? "";
+    $this->integration_response_key = $integration_response_key ?? "";
+    $this->response_parameters = $response_parameters ?? [];
+    $this->response_templates = $response_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
   }
 }
 
@@ -3985,23 +3985,23 @@ class UpdateIntegrationResult {
   ?'timeout_in_millis' => IntegerWithLengthBetween50And30000,
   ?'tls_config' => TlsConfig,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->connection_id = $connection_id ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->connection_id = $connection_id ?? "";
     $this->connection_type = $connection_type ?? "";
     $this->content_handling_strategy = $content_handling_strategy ?? "";
-    $this->credentials_arn = $credentials_arn ?? ;
-    $this->description = $description ?? ;
-    $this->integration_id = $integration_id ?? ;
-    $this->integration_method = $integration_method ?? ;
-    $this->integration_response_selection_expression = $integration_response_selection_expression ?? ;
+    $this->credentials_arn = $credentials_arn ?? "";
+    $this->description = $description ?? "";
+    $this->integration_id = $integration_id ?? "";
+    $this->integration_method = $integration_method ?? "";
+    $this->integration_response_selection_expression = $integration_response_selection_expression ?? "";
     $this->integration_type = $integration_type ?? "";
-    $this->integration_uri = $integration_uri ?? ;
+    $this->integration_uri = $integration_uri ?? "";
     $this->passthrough_behavior = $passthrough_behavior ?? "";
-    $this->payload_format_version = $payload_format_version ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->request_templates = $request_templates ?? ;
-    $this->template_selection_expression = $template_selection_expression ?? ;
-    $this->timeout_in_millis = $timeout_in_millis ?? ;
+    $this->payload_format_version = $payload_format_version ?? "";
+    $this->request_parameters = $request_parameters ?? [];
+    $this->request_templates = $request_templates ?? [];
+    $this->template_selection_expression = $template_selection_expression ?? "";
+    $this->timeout_in_millis = $timeout_in_millis ?? 0;
     $this->tls_config = $tls_config ?? null;
   }
 }
@@ -4018,10 +4018,10 @@ class UpdateModelInput {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -4041,12 +4041,12 @@ class UpdateModelRequest {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -4064,11 +4064,11 @@ class UpdateModelResponse {
   ?'name' => StringWithLengthBetween1And128,
   ?'schema' => StringWithLengthBetween0And32K,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->description = $description ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -4098,17 +4098,17 @@ class UpdateRouteInput {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -4142,19 +4142,19 @@ class UpdateRouteRequest {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -4170,10 +4170,10 @@ class UpdateRouteResponseInput {
   ?'response_parameters' => RouteParameters,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -4195,13 +4195,13 @@ class UpdateRouteResponseRequest {
   ?'route_response_id' => __string,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->api_id = $api_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_response_id = $route_response_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_response_id = $route_response_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -4219,11 +4219,11 @@ class UpdateRouteResponseResponse {
   ?'route_response_id' => Id,
   ?'route_response_key' => SelectionKey,
   ) $s = shape()) {
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->response_models = $response_models ?? ;
-    $this->response_parameters = $response_parameters ?? ;
-    $this->route_response_id = $route_response_id ?? ;
-    $this->route_response_key = $route_response_key ?? ;
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->response_models = $response_models ?? [];
+    $this->response_parameters = $response_parameters ?? [];
+    $this->route_response_id = $route_response_id ?? "";
+    $this->route_response_key = $route_response_key ?? "";
   }
 }
 
@@ -4257,19 +4257,19 @@ class UpdateRouteResult {
   ?'route_response_selection_expression' => SelectionExpression,
   ?'target' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->api_key_required = $api_key_required ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->api_key_required = $api_key_required ?? false;
     $this->authorization_scopes = $authorization_scopes ?? [];
     $this->authorization_type = $authorization_type ?? "";
-    $this->authorizer_id = $authorizer_id ?? ;
-    $this->model_selection_expression = $model_selection_expression ?? ;
-    $this->operation_name = $operation_name ?? ;
-    $this->request_models = $request_models ?? ;
-    $this->request_parameters = $request_parameters ?? ;
-    $this->route_id = $route_id ?? ;
-    $this->route_key = $route_key ?? ;
-    $this->route_response_selection_expression = $route_response_selection_expression ?? ;
-    $this->target = $target ?? ;
+    $this->authorizer_id = $authorizer_id ?? "";
+    $this->model_selection_expression = $model_selection_expression ?? "";
+    $this->operation_name = $operation_name ?? "";
+    $this->request_models = $request_models ?? [];
+    $this->request_parameters = $request_parameters ?? [];
+    $this->route_id = $route_id ?? "";
+    $this->route_key = $route_key ?? "";
+    $this->route_response_selection_expression = $route_response_selection_expression ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -4294,13 +4294,13 @@ class UpdateStageInput {
   ?'stage_variables' => StageVariablesMap,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_variables = $stage_variables ?? [];
   }
 }
 
@@ -4329,15 +4329,15 @@ class UpdateStageRequest {
   ?'stage_variables' => StageVariablesMap,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_id = $api_id ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_id = $api_id ?? "";
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
   }
 }
 
@@ -4374,18 +4374,18 @@ class UpdateStageResponse {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->access_log_settings = $access_log_settings ?? null;
-    $this->api_gateway_managed = $api_gateway_managed ?? ;
-    $this->auto_deploy = $auto_deploy ?? ;
-    $this->client_certificate_id = $client_certificate_id ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->default_route_settings = $default_route_settings ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->description = $description ?? ;
-    $this->last_deployment_status_message = $last_deployment_status_message ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
-    $this->route_settings = $route_settings ?? null;
-    $this->stage_name = $stage_name ?? ;
-    $this->stage_variables = $stage_variables ?? ;
+    $this->api_gateway_managed = $api_gateway_managed ?? false;
+    $this->auto_deploy = $auto_deploy ?? false;
+    $this->client_certificate_id = $client_certificate_id ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->default_route_settings = $default_route_settings ?? null;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->description = $description ?? "";
+    $this->last_deployment_status_message = $last_deployment_status_message ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
+    $this->route_settings = $route_settings ?? [];
+    $this->stage_name = $stage_name ?? "";
+    $this->stage_variables = $stage_variables ?? [];
     $this->tags = $tags ?? [];
   }
 }
@@ -4396,7 +4396,7 @@ class UpdateVpcLinkInput {
   public function __construct(shape(
   ?'name' => StringWithLengthBetween1And128,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -4408,8 +4408,8 @@ class UpdateVpcLinkRequest {
   ?'name' => StringWithLengthBetween1And128,
   ?'vpc_link_id' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->name = $name ?? "";
+    $this->vpc_link_id = $vpc_link_id ?? "";
   }
 }
 
@@ -4435,14 +4435,14 @@ class UpdateVpcLinkResponse {
   ?'vpc_link_status_message' => StringWithLengthBetween0And1024,
   ?'vpc_link_version' => VpcLinkVersion,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
     $this->vpc_link_status = $vpc_link_status ?? "";
-    $this->vpc_link_status_message = $vpc_link_status_message ?? ;
+    $this->vpc_link_status_message = $vpc_link_status_message ?? "";
     $this->vpc_link_version = $vpc_link_version ?? "";
   }
 }
@@ -4471,14 +4471,14 @@ class VpcLink {
   ?'vpc_link_status_message' => StringWithLengthBetween0And1024,
   ?'vpc_link_version' => VpcLinkVersion,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->name = $name ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->vpc_link_id = $vpc_link_id ?? ;
+    $this->vpc_link_id = $vpc_link_id ?? "";
     $this->vpc_link_status = $vpc_link_status ?? "";
-    $this->vpc_link_status_message = $vpc_link_status_message ?? ;
+    $this->vpc_link_status_message = $vpc_link_status_message ?? "";
     $this->vpc_link_version = $vpc_link_version ?? "";
   }
 }
@@ -4495,7 +4495,7 @@ class VpcLinks {
   ?'items' => __listOfVpcLink,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }

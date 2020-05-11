@@ -64,8 +64,8 @@ class AgeRange {
   ?'high' => UInteger,
   ?'low' => UInteger,
   ) $s = shape()) {
-    $this->high = $high ?? ;
-    $this->low = $low ?? ;
+    $this->high = $high ?? 0;
+    $this->low = $low ?? 0;
   }
 }
 
@@ -93,8 +93,8 @@ class Beard {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -112,10 +112,10 @@ class BoundingBox {
   ?'top' => Float,
   ?'width' => Float,
   ) $s = shape()) {
-    $this->height = $height ?? ;
-    $this->left = $left ?? ;
-    $this->top = $top ?? ;
-    $this->width = $width ?? ;
+    $this->height = $height ?? 0.0;
+    $this->left = $left ?? 0.0;
+    $this->top = $top ?? 0.0;
+    $this->width = $width ?? 0.0;
   }
 }
 
@@ -138,9 +138,9 @@ class Celebrity {
   ?'urls' => Urls,
   ) $s = shape()) {
     $this->face = $face ?? null;
-    $this->id = $id ?? ;
-    $this->match_confidence = $match_confidence ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->match_confidence = $match_confidence ?? 0.0;
+    $this->name = $name ?? "";
     $this->urls = $urls ?? [];
   }
 }
@@ -162,10 +162,10 @@ class CelebrityDetail {
   ?'urls' => Urls,
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->face = $face ?? null;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->urls = $urls ?? [];
   }
 }
@@ -204,7 +204,7 @@ class CompareFacesMatch {
   ?'similarity' => Percent,
   ) $s = shape()) {
     $this->face = $face ?? null;
-    $this->similarity = $similarity ?? ;
+    $this->similarity = $similarity ?? 0.0;
   }
 }
 
@@ -223,9 +223,9 @@ class CompareFacesRequest {
   ?'target_image' => Image,
   ) $s = shape()) {
     $this->quality_filter = $quality_filter ?? "";
-    $this->similarity_threshold = $similarity_threshold ?? ;
-    $this->source_image = $source_image ?? ;
-    $this->target_image = $target_image ?? ;
+    $this->similarity_threshold = $similarity_threshold ?? 0.0;
+    $this->source_image = $source_image ?? null;
+    $this->target_image = $target_image ?? null;
   }
 }
 
@@ -243,11 +243,11 @@ class CompareFacesResponse {
   ?'target_image_orientation_correction' => OrientationCorrection,
   ?'unmatched_faces' => CompareFacesUnmatchList,
   ) $s = shape()) {
-    $this->face_matches = $face_matches ?? ;
-    $this->source_image_face = $source_image_face ?? ;
-    $this->source_image_orientation_correction = $source_image_orientation_correction ?? ;
-    $this->target_image_orientation_correction = $target_image_orientation_correction ?? ;
-    $this->unmatched_faces = $unmatched_faces ?? ;
+    $this->face_matches = $face_matches ?? [];
+    $this->source_image_face = $source_image_face ?? null;
+    $this->source_image_orientation_correction = $source_image_orientation_correction ?? "";
+    $this->target_image_orientation_correction = $target_image_orientation_correction ?? "";
+    $this->unmatched_faces = $unmatched_faces ?? [];
   }
 }
 
@@ -268,10 +268,10 @@ class ComparedFace {
   ?'quality' => ImageQuality,
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->landmarks = $landmarks ?? [];
     $this->pose = $pose ?? null;
-    $this->quality = $quality ?? ;
+    $this->quality = $quality ?? null;
   }
 }
 
@@ -286,7 +286,7 @@ class ComparedSourceImageFace {
   ?'confidence' => Percent,
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
   }
 }
 
@@ -331,9 +331,9 @@ class CreateCollectionResponse {
   ?'face_model_version' => string,
   ?'status_code' => UInteger,
   ) $s = shape()) {
-    $this->collection_arn = $collection_arn ?? ;
-    $this->face_model_version = $face_model_version ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->collection_arn = $collection_arn ?? "";
+    $this->face_model_version = $face_model_version ?? "";
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -403,11 +403,11 @@ class CreateStreamProcessorRequest {
   ?'role_arn' => RoleArn,
   ?'settings' => StreamProcessorSettings,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
-    $this->output = $output ?? ;
+    $this->input = $input ?? null;
+    $this->name = $name ?? "";
+    $this->output = $output ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->settings = $settings ?? ;
+    $this->settings = $settings ?? null;
   }
 }
 
@@ -431,9 +431,9 @@ class CustomLabel {
   ?'geometry' => Geometry,
   ?'name' => string,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->geometry = $geometry ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -459,7 +459,7 @@ class DeleteCollectionResponse {
   public function __construct(shape(
   ?'status_code' => UInteger,
   ) $s = shape()) {
-    $this->status_code = $status_code ?? ;
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -472,7 +472,7 @@ class DeleteFacesRequest {
   ?'face_ids' => FaceIdList,
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
-    $this->face_ids = $face_ids ?? ;
+    $this->face_ids = $face_ids ?? [];
   }
 }
 
@@ -482,7 +482,7 @@ class DeleteFacesResponse {
   public function __construct(shape(
   ?'deleted_faces' => FaceIdList,
   ) $s = shape()) {
-    $this->deleted_faces = $deleted_faces ?? ;
+    $this->deleted_faces = $deleted_faces ?? [];
   }
 }
 
@@ -502,7 +502,7 @@ class DeleteProjectResponse {
   public function __construct(shape(
   ?'status' => ProjectStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -522,7 +522,7 @@ class DeleteProjectVersionResponse {
   public function __construct(shape(
   ?'status' => ProjectVersionStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -532,7 +532,7 @@ class DeleteStreamProcessorRequest {
   public function __construct(shape(
   ?'name' => StreamProcessorName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -565,10 +565,10 @@ class DescribeCollectionResponse {
   ?'face_count' => ULong,
   ?'face_model_version' => string,
   ) $s = shape()) {
-    $this->collection_arn = $collection_arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->face_count = $face_count ?? ;
-    $this->face_model_version = $face_model_version ?? ;
+    $this->collection_arn = $collection_arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? 0;
+    $this->face_count = $face_count ?? 0;
+    $this->face_model_version = $face_model_version ?? "";
   }
 }
 
@@ -585,7 +585,7 @@ class DescribeProjectVersionsRequest {
   ?'version_names' => VersionNames,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->project_arn = $project_arn ?? "";
     $this->version_names = $version_names ?? [];
   }
@@ -599,7 +599,7 @@ class DescribeProjectVersionsResponse {
   ?'next_token' => ExtendedPaginationToken,
   ?'project_version_descriptions' => ProjectVersionDescriptions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->project_version_descriptions = $project_version_descriptions ?? [];
   }
 }
@@ -613,7 +613,7 @@ class DescribeProjectsRequest {
   ?'next_token' => ExtendedPaginationToken,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -625,7 +625,7 @@ class DescribeProjectsResponse {
   ?'next_token' => ExtendedPaginationToken,
   ?'project_descriptions' => ProjectDescriptions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->project_descriptions = $project_descriptions ?? [];
   }
 }
@@ -636,7 +636,7 @@ class DescribeStreamProcessorRequest {
   public function __construct(shape(
   ?'name' => StreamProcessorName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -664,14 +664,14 @@ class DescribeStreamProcessorResponse {
   ?'status_message' => string,
   ?'stream_processor_arn' => StreamProcessorArn,
   ) $s = shape()) {
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->input = $input ?? ;
-    $this->last_update_timestamp = $last_update_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->output = $output ?? ;
+    $this->creation_timestamp = $creation_timestamp ?? 0;
+    $this->input = $input ?? null;
+    $this->last_update_timestamp = $last_update_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->output = $output ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->settings = $settings ?? ;
-    $this->status = $status ?? ;
+    $this->settings = $settings ?? null;
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
     $this->stream_processor_arn = $stream_processor_arn ?? "";
   }
@@ -691,7 +691,7 @@ class DetectCustomLabelsRequest {
   ) $s = shape()) {
     $this->image = $image ?? null;
     $this->max_results = $max_results ?? 0;
-    $this->min_confidence = $min_confidence ?? ;
+    $this->min_confidence = $min_confidence ?? 0.0;
     $this->project_version_arn = $project_version_arn ?? "";
   }
 }
@@ -727,7 +727,7 @@ class DetectFacesResponse {
   ?'face_details' => FaceDetailList,
   ?'orientation_correction' => OrientationCorrection,
   ) $s = shape()) {
-    $this->face_details = $face_details ?? ;
+    $this->face_details = $face_details ?? [];
     $this->orientation_correction = $orientation_correction ?? "";
   }
 }
@@ -743,8 +743,8 @@ class DetectLabelsRequest {
   ?'min_confidence' => Percent,
   ) $s = shape()) {
     $this->image = $image ?? null;
-    $this->max_labels = $max_labels ?? ;
-    $this->min_confidence = $min_confidence ?? ;
+    $this->max_labels = $max_labels ?? 0;
+    $this->min_confidence = $min_confidence ?? 0.0;
   }
 }
 
@@ -758,7 +758,7 @@ class DetectLabelsResponse {
   ?'labels' => Labels,
   ?'orientation_correction' => OrientationCorrection,
   ) $s = shape()) {
-    $this->label_model_version = $label_model_version ?? ;
+    $this->label_model_version = $label_model_version ?? "";
     $this->labels = $labels ?? [];
     $this->orientation_correction = $orientation_correction ?? "";
   }
@@ -776,7 +776,7 @@ class DetectModerationLabelsRequest {
   ) $s = shape()) {
     $this->human_loop_config = $human_loop_config ?? null;
     $this->image = $image ?? null;
-    $this->min_confidence = $min_confidence ?? ;
+    $this->min_confidence = $min_confidence ?? 0.0;
   }
 }
 
@@ -792,7 +792,7 @@ class DetectModerationLabelsResponse {
   ) $s = shape()) {
     $this->human_loop_activation_output = $human_loop_activation_output ?? null;
     $this->moderation_labels = $moderation_labels ?? [];
-    $this->moderation_model_version = $moderation_model_version ?? ;
+    $this->moderation_model_version = $moderation_model_version ?? "";
   }
 }
 
@@ -805,7 +805,7 @@ class DetectTextFilters {
   ?'word_filter' => DetectionFilter,
   ) $s = shape()) {
     $this->regions_of_interest = $regions_of_interest ?? [];
-    $this->word_filter = $word_filter ?? ;
+    $this->word_filter = $word_filter ?? null;
   }
 }
 
@@ -817,7 +817,7 @@ class DetectTextRequest {
   ?'filters' => DetectTextFilters,
   ?'image' => Image,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->image = $image ?? null;
   }
 }
@@ -830,8 +830,8 @@ class DetectTextResponse {
   ?'text_detections' => TextDetectionList,
   ?'text_model_version' => string,
   ) $s = shape()) {
-    $this->text_detections = $text_detections ?? ;
-    $this->text_model_version = $text_model_version ?? ;
+    $this->text_detections = $text_detections ?? [];
+    $this->text_model_version = $text_model_version ?? "";
   }
 }
 
@@ -845,9 +845,9 @@ class DetectionFilter {
   ?'min_bounding_box_width' => BoundingBoxWidth,
   ?'min_confidence' => Percent,
   ) $s = shape()) {
-    $this->min_bounding_box_height = $min_bounding_box_height ?? ;
-    $this->min_bounding_box_width = $min_bounding_box_width ?? ;
-    $this->min_confidence = $min_confidence ?? ;
+    $this->min_bounding_box_height = $min_bounding_box_height ?? 0.0;
+    $this->min_bounding_box_width = $min_bounding_box_width ?? 0.0;
+    $this->min_confidence = $min_confidence ?? 0.0;
   }
 }
 
@@ -859,8 +859,8 @@ class Emotion {
   ?'confidence' => Percent,
   ?'type' => EmotionName,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->type = $type ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -876,7 +876,7 @@ class EvaluationResult {
   ?'f_1_score' => Float,
   ?'summary' => Summary,
   ) $s = shape()) {
-    $this->f_1_score = $f_1_score ?? ;
+    $this->f_1_score = $f_1_score ?? 0.0;
     $this->summary = $summary ?? null;
   }
 }
@@ -893,8 +893,8 @@ class EyeOpen {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -906,8 +906,8 @@ class Eyeglasses {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -926,7 +926,7 @@ class Face {
   ?'image_id' => ImageId,
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->external_image_id = $external_image_id ?? "";
     $this->face_id = $face_id ?? "";
     $this->image_id = $image_id ?? "";
@@ -972,16 +972,16 @@ class FaceDetail {
     $this->age_range = $age_range ?? null;
     $this->beard = $beard ?? null;
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->emotions = $emotions ?? [];
     $this->eyeglasses = $eyeglasses ?? null;
-    $this->eyes_open = $eyes_open ?? ;
+    $this->eyes_open = $eyes_open ?? null;
     $this->gender = $gender ?? null;
     $this->landmarks = $landmarks ?? [];
     $this->mouth_open = $mouth_open ?? null;
     $this->mustache = $mustache ?? null;
     $this->pose = $pose ?? null;
-    $this->quality = $quality ?? ;
+    $this->quality = $quality ?? null;
     $this->smile = $smile ?? null;
     $this->sunglasses = $sunglasses ?? null;
   }
@@ -1019,7 +1019,7 @@ class FaceMatch {
   ?'similarity' => Percent,
   ) $s = shape()) {
     $this->face = $face ?? null;
-    $this->similarity = $similarity ?? ;
+    $this->similarity = $similarity ?? 0.0;
   }
 }
 
@@ -1051,7 +1051,7 @@ class FaceSearchSettings {
   ?'face_match_threshold' => Percent,
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
-    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->face_match_threshold = $face_match_threshold ?? 0.0;
   }
 }
 
@@ -1069,8 +1069,8 @@ class Gender {
   ?'confidence' => Percent,
   ?'value' => GenderType,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? "";
   }
 }
 
@@ -1095,7 +1095,7 @@ class GetCelebrityInfoRequest {
   public function __construct(shape(
   ?'id' => RekognitionUniqueId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1107,7 +1107,7 @@ class GetCelebrityInfoResponse {
   ?'name' => string,
   ?'urls' => Urls,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->urls = $urls ?? [];
   }
 }
@@ -1126,8 +1126,8 @@ class GetCelebrityRecognitionRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -1145,9 +1145,9 @@ class GetCelebrityRecognitionResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->celebrities = $celebrities ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->celebrities = $celebrities ?? [];
+    $this->job_status = $job_status ?? "";
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1167,8 +1167,8 @@ class GetContentModerationRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -1188,10 +1188,10 @@ class GetContentModerationResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->job_status = $job_status ?? ;
+    $this->job_status = $job_status ?? "";
     $this->moderation_labels = $moderation_labels ?? [];
-    $this->moderation_model_version = $moderation_model_version ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->moderation_model_version = $moderation_model_version ?? "";
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1209,7 +1209,7 @@ class GetFaceDetectionRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1227,9 +1227,9 @@ class GetFaceDetectionResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->faces = $faces ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->faces = $faces ?? [];
+    $this->job_status = $job_status ?? "";
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1249,8 +1249,8 @@ class GetFaceSearchRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -1268,9 +1268,9 @@ class GetFaceSearchResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->job_status = $job_status ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->persons = $persons ?? ;
+    $this->job_status = $job_status ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->persons = $persons ?? [];
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1290,8 +1290,8 @@ class GetLabelDetectionRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -1311,10 +1311,10 @@ class GetLabelDetectionResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->job_status = $job_status ?? ;
-    $this->label_model_version = $label_model_version ?? ;
+    $this->job_status = $job_status ?? "";
+    $this->label_model_version = $label_model_version ?? "";
     $this->labels = $labels ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1334,8 +1334,8 @@ class GetPersonTrackingRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -1353,9 +1353,9 @@ class GetPersonTrackingResponse {
   ?'status_message' => StatusMessage,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->job_status = $job_status ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->persons = $persons ?? ;
+    $this->job_status = $job_status ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->persons = $persons ?? [];
     $this->status_message = $status_message ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
@@ -1373,7 +1373,7 @@ class GetTextDetectionRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1393,11 +1393,11 @@ class GetTextDetectionResponse {
   ?'text_model_version' => string,
   ?'video_metadata' => VideoMetadata,
   ) $s = shape()) {
-    $this->job_status = $job_status ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_status = $job_status ?? "";
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
-    $this->text_detections = $text_detections ?? ;
-    $this->text_model_version = $text_model_version ?? ;
+    $this->text_detections = $text_detections ?? [];
+    $this->text_model_version = $text_model_version ?? "";
     $this->video_metadata = $video_metadata ?? null;
   }
 }
@@ -1446,7 +1446,7 @@ class HumanLoopConfig {
   ?'flow_definition_arn' => FlowDefinitionArn,
   ?'human_loop_name' => HumanLoopName,
   ) $s = shape()) {
-    $this->data_attributes = $data_attributes ?? ;
+    $this->data_attributes = $data_attributes ?? null;
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->human_loop_name = $human_loop_name ?? "";
   }
@@ -1474,9 +1474,9 @@ class HumanLoopQuotaExceededException {
   ?'resource_type' => string,
   ?'service_code' => string,
   ) $s = shape()) {
-    $this->quota_code = $quota_code ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->service_code = $service_code ?? ;
+    $this->quota_code = $quota_code ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->service_code = $service_code ?? "";
   }
 }
 
@@ -1495,7 +1495,7 @@ class Image {
   ?'bytes' => ImageBlob,
   ?'s_3_object' => S3Object,
   ) $s = shape()) {
-    $this->bytes = $bytes ?? ;
+    $this->bytes = $bytes ?? "";
     $this->s_3_object = $s_3_object ?? null;
   }
 }
@@ -1512,8 +1512,8 @@ class ImageQuality {
   ?'brightness' => Float,
   ?'sharpness' => Float,
   ) $s = shape()) {
-    $this->brightness = $brightness ?? ;
-    $this->sharpness = $sharpness ?? ;
+    $this->brightness = $brightness ?? 0.0;
+    $this->sharpness = $sharpness ?? 0.0;
   }
 }
 
@@ -1541,7 +1541,7 @@ class IndexFacesRequest {
   ?'quality_filter' => QualityFilter,
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
-    $this->detection_attributes = $detection_attributes ?? ;
+    $this->detection_attributes = $detection_attributes ?? [];
     $this->external_image_id = $external_image_id ?? "";
     $this->image = $image ?? null;
     $this->max_faces = $max_faces ?? 0;
@@ -1561,8 +1561,8 @@ class IndexFacesResponse {
   ?'orientation_correction' => OrientationCorrection,
   ?'unindexed_faces' => UnindexedFaces,
   ) $s = shape()) {
-    $this->face_model_version = $face_model_version ?? ;
-    $this->face_records = $face_records ?? ;
+    $this->face_model_version = $face_model_version ?? "";
+    $this->face_records = $face_records ?? [];
     $this->orientation_correction = $orientation_correction ?? "";
     $this->unindexed_faces = $unindexed_faces ?? [];
   }
@@ -1579,7 +1579,7 @@ class Instance {
   ?'confidence' => Percent,
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
   }
 }
 
@@ -1632,7 +1632,7 @@ class KinesisDataStream {
   public function __construct(shape(
   ?'arn' => KinesisDataArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1644,7 +1644,7 @@ class KinesisVideoStream {
   public function __construct(shape(
   ?'arn' => KinesisVideoArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1660,9 +1660,9 @@ class Label {
   ?'name' => string,
   ?'parents' => Parents,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
+    $this->confidence = $confidence ?? 0.0;
     $this->instances = $instances ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->parents = $parents ?? [];
   }
 }
@@ -1696,9 +1696,9 @@ class Landmark {
   ?'x' => Float,
   ?'y' => Float,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->x = $x ?? ;
-    $this->y = $y ?? ;
+    $this->type = $type ?? "";
+    $this->x = $x ?? 0.0;
+    $this->y = $y ?? 0.0;
   }
 }
 
@@ -1722,7 +1722,7 @@ class ListCollectionsRequest {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1736,9 +1736,9 @@ class ListCollectionsResponse {
   ?'face_model_versions' => FaceModelVersionList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->collection_ids = $collection_ids ?? ;
-    $this->face_model_versions = $face_model_versions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->collection_ids = $collection_ids ?? [];
+    $this->face_model_versions = $face_model_versions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1754,7 +1754,7 @@ class ListFacesRequest {
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1768,9 +1768,9 @@ class ListFacesResponse {
   ?'faces' => FaceList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->face_model_version = $face_model_version ?? ;
-    $this->faces = $faces ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->face_model_version = $face_model_version ?? "";
+    $this->faces = $faces ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1783,7 +1783,7 @@ class ListStreamProcessorsRequest {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1795,8 +1795,8 @@ class ListStreamProcessorsResponse {
   ?'next_token' => PaginationToken,
   ?'stream_processors' => StreamProcessorList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->stream_processors = $stream_processors ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->stream_processors = $stream_processors ?? [];
   }
 }
 
@@ -1816,9 +1816,9 @@ class ModerationLabel {
   ?'name' => string,
   ?'parent_name' => string,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->name = $name ?? ;
-    $this->parent_name = $parent_name ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->name = $name ?? "";
+    $this->parent_name = $parent_name ?? "";
   }
 }
 
@@ -1832,8 +1832,8 @@ class MouthOpen {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -1845,8 +1845,8 @@ class Mustache {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -1888,7 +1888,7 @@ class Parent {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1908,7 +1908,7 @@ class PersonDetail {
   ) $s = shape()) {
     $this->bounding_box = $bounding_box ?? null;
     $this->face = $face ?? null;
-    $this->index = $index ?? ;
+    $this->index = $index ?? 0;
   }
 }
 
@@ -1920,7 +1920,7 @@ class PersonDetection {
   ?'person' => PersonDetail,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->person = $person ?? ;
+    $this->person = $person ?? null;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -1939,8 +1939,8 @@ class PersonMatch {
   ?'person' => PersonDetail,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->face_matches = $face_matches ?? ;
-    $this->person = $person ?? ;
+    $this->face_matches = $face_matches ?? [];
+    $this->person = $person ?? null;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -1957,8 +1957,8 @@ class Point {
   ?'x' => Float,
   ?'y' => Float,
   ) $s = shape()) {
-    $this->x = $x ?? ;
-    $this->y = $y ?? ;
+    $this->x = $x ?? 0.0;
+    $this->y = $y ?? 0.0;
   }
 }
 
@@ -1974,9 +1974,9 @@ class Pose {
   ?'roll' => Degree,
   ?'yaw' => Degree,
   ) $s = shape()) {
-    $this->pitch = $pitch ?? ;
-    $this->roll = $roll ?? ;
-    $this->yaw = $yaw ?? ;
+    $this->pitch = $pitch ?? 0.0;
+    $this->roll = $roll ?? 0.0;
+    $this->yaw = $yaw ?? 0.0;
   }
 }
 
@@ -1992,9 +1992,9 @@ class ProjectDescription {
   ?'project_arn' => ProjectArn,
   ?'status' => ProjectStatus,
   ) $s = shape()) {
-    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->creation_timestamp = $creation_timestamp ?? 0;
     $this->project_arn = $project_arn ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2032,17 +2032,17 @@ class ProjectVersionDescription {
   ?'training_data_result' => TrainingDataResult,
   ?'training_end_timestamp' => DateTime,
   ) $s = shape()) {
-    $this->billable_training_time_in_seconds = $billable_training_time_in_seconds ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->billable_training_time_in_seconds = $billable_training_time_in_seconds ?? 0;
+    $this->creation_timestamp = $creation_timestamp ?? 0;
     $this->evaluation_result = $evaluation_result ?? null;
-    $this->min_inference_units = $min_inference_units ?? ;
+    $this->min_inference_units = $min_inference_units ?? 0;
     $this->output_config = $output_config ?? null;
     $this->project_version_arn = $project_version_arn ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
     $this->testing_data_result = $testing_data_result ?? null;
     $this->training_data_result = $training_data_result ?? null;
-    $this->training_end_timestamp = $training_end_timestamp ?? ;
+    $this->training_end_timestamp = $training_end_timestamp ?? 0;
   }
 }
 
@@ -2087,9 +2087,9 @@ class RecognizeCelebritiesResponse {
   ?'orientation_correction' => OrientationCorrection,
   ?'unrecognized_faces' => ComparedFaceList,
   ) $s = shape()) {
-    $this->celebrity_faces = $celebrity_faces ?? ;
+    $this->celebrity_faces = $celebrity_faces ?? [];
     $this->orientation_correction = $orientation_correction ?? "";
-    $this->unrecognized_faces = $unrecognized_faces ?? ;
+    $this->unrecognized_faces = $unrecognized_faces ?? [];
   }
 }
 
@@ -2151,9 +2151,9 @@ class S3Object {
   ?'name' => S3ObjectName,
   ?'version' => S3ObjectVersion,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2178,7 +2178,7 @@ class SearchFacesByImageRequest {
   ?'quality_filter' => QualityFilter,
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
-    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->face_match_threshold = $face_match_threshold ?? 0.0;
     $this->image = $image ?? null;
     $this->max_faces = $max_faces ?? 0;
     $this->quality_filter = $quality_filter ?? "";
@@ -2197,10 +2197,10 @@ class SearchFacesByImageResponse {
   ?'searched_face_bounding_box' => BoundingBox,
   ?'searched_face_confidence' => Percent,
   ) $s = shape()) {
-    $this->face_matches = $face_matches ?? ;
-    $this->face_model_version = $face_model_version ?? ;
-    $this->searched_face_bounding_box = $searched_face_bounding_box ?? ;
-    $this->searched_face_confidence = $searched_face_confidence ?? ;
+    $this->face_matches = $face_matches ?? [];
+    $this->face_model_version = $face_model_version ?? "";
+    $this->searched_face_bounding_box = $searched_face_bounding_box ?? null;
+    $this->searched_face_confidence = $searched_face_confidence ?? 0.0;
   }
 }
 
@@ -2218,7 +2218,7 @@ class SearchFacesRequest {
   ) $s = shape()) {
     $this->collection_id = $collection_id ?? "";
     $this->face_id = $face_id ?? "";
-    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->face_match_threshold = $face_match_threshold ?? 0.0;
     $this->max_faces = $max_faces ?? 0;
   }
 }
@@ -2233,9 +2233,9 @@ class SearchFacesResponse {
   ?'face_model_version' => string,
   ?'searched_face_id' => FaceId,
   ) $s = shape()) {
-    $this->face_matches = $face_matches ?? ;
-    $this->face_model_version = $face_model_version ?? ;
-    $this->searched_face_id = $searched_face_id ?? ;
+    $this->face_matches = $face_matches ?? [];
+    $this->face_model_version = $face_model_version ?? "";
+    $this->searched_face_id = $searched_face_id ?? "";
   }
 }
 
@@ -2247,8 +2247,8 @@ class Smile {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -2297,7 +2297,7 @@ class StartContentModerationRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->job_tag = $job_tag ?? "";
-    $this->min_confidence = $min_confidence ?? ;
+    $this->min_confidence = $min_confidence ?? 0.0;
     $this->notification_channel = $notification_channel ?? null;
     $this->video = $video ?? null;
   }
@@ -2363,7 +2363,7 @@ class StartFaceSearchRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->collection_id = $collection_id ?? "";
-    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->face_match_threshold = $face_match_threshold ?? 0.0;
     $this->job_tag = $job_tag ?? "";
     $this->notification_channel = $notification_channel ?? null;
     $this->video = $video ?? null;
@@ -2396,7 +2396,7 @@ class StartLabelDetectionRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->job_tag = $job_tag ?? "";
-    $this->min_confidence = $min_confidence ?? ;
+    $this->min_confidence = $min_confidence ?? 0.0;
     $this->notification_channel = $notification_channel ?? null;
     $this->video = $video ?? null;
   }
@@ -2449,7 +2449,7 @@ class StartProjectVersionRequest {
   ?'min_inference_units' => InferenceUnits,
   ?'project_version_arn' => ProjectVersionArn,
   ) $s = shape()) {
-    $this->min_inference_units = $min_inference_units ?? ;
+    $this->min_inference_units = $min_inference_units ?? 0;
     $this->project_version_arn = $project_version_arn ?? "";
   }
 }
@@ -2460,7 +2460,7 @@ class StartProjectVersionResponse {
   public function __construct(shape(
   ?'status' => ProjectVersionStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2470,7 +2470,7 @@ class StartStreamProcessorRequest {
   public function __construct(shape(
   ?'name' => StreamProcessorName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2490,7 +2490,7 @@ class StartTextDetectionFilters {
   ?'word_filter' => DetectionFilter,
   ) $s = shape()) {
     $this->regions_of_interest = $regions_of_interest ?? [];
-    $this->word_filter = $word_filter ?? ;
+    $this->word_filter = $word_filter ?? null;
   }
 }
 
@@ -2509,7 +2509,7 @@ class StartTextDetectionRequest {
   ?'video' => Video,
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->job_tag = $job_tag ?? "";
     $this->notification_channel = $notification_channel ?? null;
     $this->video = $video ?? null;
@@ -2544,7 +2544,7 @@ class StopProjectVersionResponse {
   public function __construct(shape(
   ?'status' => ProjectVersionStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2554,7 +2554,7 @@ class StopStreamProcessorRequest {
   public function __construct(shape(
   ?'name' => StreamProcessorName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2573,8 +2573,8 @@ class StreamProcessor {
   ?'name' => StreamProcessorName,
   ?'status' => StreamProcessorStatus,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2610,7 +2610,7 @@ class StreamProcessorSettings {
   public function __construct(shape(
   ?'face_search' => FaceSearchSettings,
   ) $s = shape()) {
-    $this->face_search = $face_search ?? ;
+    $this->face_search = $face_search ?? null;
   }
 }
 
@@ -2636,8 +2636,8 @@ class Sunglasses {
   ?'confidence' => Percent,
   ?'value' => boolean,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->value = $value ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->value = $value ?? false;
   }
 }
 
@@ -2650,7 +2650,7 @@ class TestingData {
   ?'auto_create' => boolean,
   ) $s = shape()) {
     $this->assets = $assets ?? [];
-    $this->auto_create = $auto_create ?? ;
+    $this->auto_create = $auto_create ?? false;
   }
 }
 
@@ -2662,8 +2662,8 @@ class TestingDataResult {
   ?'input' => TestingData,
   ?'output' => TestingData,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->output = $output ?? ;
+    $this->input = $input ?? null;
+    $this->output = $output ?? null;
   }
 }
 
@@ -2683,12 +2683,12 @@ class TextDetection {
   ?'parent_id' => UInteger,
   ?'type' => TextTypes,
   ) $s = shape()) {
-    $this->confidence = $confidence ?? ;
-    $this->detected_text = $detected_text ?? ;
+    $this->confidence = $confidence ?? 0.0;
+    $this->detected_text = $detected_text ?? "";
     $this->geometry = $geometry ?? null;
-    $this->id = $id ?? ;
-    $this->parent_id = $parent_id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? 0;
+    $this->parent_id = $parent_id ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -2738,8 +2738,8 @@ class TrainingDataResult {
   ?'input' => TrainingData,
   ?'output' => TrainingData,
   ) $s = shape()) {
-    $this->input = $input ?? ;
-    $this->output = $output ?? ;
+    $this->input = $input ?? null;
+    $this->output = $output ?? null;
   }
 }
 
@@ -2798,12 +2798,12 @@ class VideoMetadata {
   ?'frame_rate' => Float,
   ?'frame_width' => ULong,
   ) $s = shape()) {
-    $this->codec = $codec ?? ;
-    $this->duration_millis = $duration_millis ?? ;
-    $this->format = $format ?? ;
-    $this->frame_height = $frame_height ?? ;
-    $this->frame_rate = $frame_rate ?? ;
-    $this->frame_width = $frame_width ?? ;
+    $this->codec = $codec ?? "";
+    $this->duration_millis = $duration_millis ?? 0;
+    $this->format = $format ?? "";
+    $this->frame_height = $frame_height ?? 0;
+    $this->frame_rate = $frame_rate ?? 0.0;
+    $this->frame_width = $frame_width ?? 0;
   }
 }
 

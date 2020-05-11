@@ -34,7 +34,7 @@ class CreateLedgerRequest {
   ?'tags' => Tags,
   ) $s = shape()) {
     $this->deletion_protection = $deletion_protection ?? false;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->permissions_mode = $permissions_mode ?? "";
     $this->tags = $tags ?? [];
   }
@@ -55,10 +55,10 @@ class CreateLedgerResponse {
   ?'state' => LedgerState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
     $this->deletion_protection = $deletion_protection ?? false;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -68,7 +68,7 @@ class DeleteLedgerRequest {
   public function __construct(shape(
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -82,8 +82,8 @@ class DescribeJournalS3ExportRequest {
   ?'export_id' => UniqueId,
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->export_id = $export_id ?? ;
-    $this->name = $name ?? ;
+    $this->export_id = $export_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -93,7 +93,7 @@ class DescribeJournalS3ExportResponse {
   public function __construct(shape(
   ?'export_description' => JournalS3ExportDescription,
   ) $s = shape()) {
-    $this->export_description = $export_description ?? ;
+    $this->export_description = $export_description ?? null;
   }
 }
 
@@ -103,7 +103,7 @@ class DescribeLedgerRequest {
   public function __construct(shape(
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -122,10 +122,10 @@ class DescribeLedgerResponse {
   ?'state' => LedgerState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
     $this->deletion_protection = $deletion_protection ?? false;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -147,10 +147,10 @@ class ExportJournalToS3Request {
   ?'role_arn' => Arn,
   ?'s_3_export_configuration' => S3ExportConfiguration,
   ) $s = shape()) {
-    $this->exclusive_end_time = $exclusive_end_time ?? ;
-    $this->inclusive_start_time = $inclusive_start_time ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->exclusive_end_time = $exclusive_end_time ?? 0;
+    $this->inclusive_start_time = $inclusive_start_time ?? 0;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
     $this->s_3_export_configuration = $s_3_export_configuration ?? null;
   }
 }
@@ -161,7 +161,7 @@ class ExportJournalToS3Response {
   public function __construct(shape(
   ?'export_id' => UniqueId,
   ) $s = shape()) {
-    $this->export_id = $export_id ?? ;
+    $this->export_id = $export_id ?? "";
   }
 }
 
@@ -177,9 +177,9 @@ class GetBlockRequest {
   ?'digest_tip_address' => ValueHolder,
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->block_address = $block_address ?? ;
-    $this->digest_tip_address = $digest_tip_address ?? ;
-    $this->name = $name ?? ;
+    $this->block_address = $block_address ?? null;
+    $this->digest_tip_address = $digest_tip_address ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -191,8 +191,8 @@ class GetBlockResponse {
   ?'block' => ValueHolder,
   ?'proof' => ValueHolder,
   ) $s = shape()) {
-    $this->block = $block ?? ;
-    $this->proof = $proof ?? ;
+    $this->block = $block ?? null;
+    $this->proof = $proof ?? null;
   }
 }
 
@@ -202,7 +202,7 @@ class GetDigestRequest {
   public function __construct(shape(
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -215,7 +215,7 @@ class GetDigestResponse {
   ?'digest_tip_address' => ValueHolder,
   ) $s = shape()) {
     $this->digest = $digest ?? "";
-    $this->digest_tip_address = $digest_tip_address ?? ;
+    $this->digest_tip_address = $digest_tip_address ?? null;
   }
 }
 
@@ -231,10 +231,10 @@ class GetRevisionRequest {
   ?'document_id' => UniqueId,
   ?'name' => LedgerName,
   ) $s = shape()) {
-    $this->block_address = $block_address ?? ;
-    $this->digest_tip_address = $digest_tip_address ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->name = $name ?? ;
+    $this->block_address = $block_address ?? null;
+    $this->digest_tip_address = $digest_tip_address ?? null;
+    $this->document_id = $document_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -246,8 +246,8 @@ class GetRevisionResponse {
   ?'proof' => ValueHolder,
   ?'revision' => ValueHolder,
   ) $s = shape()) {
-    $this->proof = $proof ?? ;
-    $this->revision = $revision ?? ;
+    $this->proof = $proof ?? null;
+    $this->revision = $revision ?? null;
   }
 }
 
@@ -259,7 +259,7 @@ class InvalidParameterException {
   ?'message' => ErrorMessage,
   ?'parameter_name' => ParameterName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->parameter_name = $parameter_name ?? "";
   }
 }
@@ -286,14 +286,14 @@ class JournalS3ExportDescription {
   ?'s_3_export_configuration' => S3ExportConfiguration,
   ?'status' => ExportStatus,
   ) $s = shape()) {
-    $this->exclusive_end_time = $exclusive_end_time ?? ;
-    $this->export_creation_time = $export_creation_time ?? ;
-    $this->export_id = $export_id ?? ;
-    $this->inclusive_start_time = $inclusive_start_time ?? ;
+    $this->exclusive_end_time = $exclusive_end_time ?? 0;
+    $this->export_creation_time = $export_creation_time ?? 0;
+    $this->export_id = $export_id ?? "";
+    $this->inclusive_start_time = $inclusive_start_time ?? 0;
     $this->ledger_name = $ledger_name ?? "";
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
     $this->s_3_export_configuration = $s_3_export_configuration ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -315,9 +315,9 @@ class LedgerSummary {
   ?'name' => LedgerName,
   ?'state' => LedgerState,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -329,7 +329,7 @@ class LimitExceededException {
   ?'message' => ErrorMessage,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -345,7 +345,7 @@ class ListJournalS3ExportsForLedgerRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -358,7 +358,7 @@ class ListJournalS3ExportsForLedgerResponse {
   ?'journal_s_3_exports' => JournalS3ExportList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->journal_s_3_exports = $journal_s_3_exports ?? ;
+    $this->journal_s_3_exports = $journal_s_3_exports ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -384,7 +384,7 @@ class ListJournalS3ExportsResponse {
   ?'journal_s_3_exports' => JournalS3ExportList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->journal_s_3_exports = $journal_s_3_exports ?? ;
+    $this->journal_s_3_exports = $journal_s_3_exports ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -410,7 +410,7 @@ class ListLedgersResponse {
   ?'ledgers' => LedgerList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->ledgers = $ledgers ?? ;
+    $this->ledgers = $ledgers ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -421,7 +421,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -453,7 +453,7 @@ class ResourceAlreadyExistsException {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_name = $resource_name ?? "";
     $this->resource_type = $resource_type ?? "";
   }
@@ -469,7 +469,7 @@ class ResourceInUseException {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_name = $resource_name ?? "";
     $this->resource_type = $resource_type ?? "";
   }
@@ -487,7 +487,7 @@ class ResourceNotFoundException {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_name = $resource_name ?? "";
     $this->resource_type = $resource_type ?? "";
   }
@@ -503,7 +503,7 @@ class ResourcePreconditionNotMetException {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_name = $resource_name ?? "";
     $this->resource_type = $resource_type ?? "";
   }
@@ -521,8 +521,8 @@ class S3EncryptionConfiguration {
   ?'kms_key_arn' => Arn,
   ?'object_encryption_type' => S3ObjectEncryptionType,
   ) $s = shape()) {
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->object_encryption_type = $object_encryption_type ?? ;
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->object_encryption_type = $object_encryption_type ?? "";
   }
 }
 
@@ -536,9 +536,9 @@ class S3ExportConfiguration {
   ?'encryption_configuration' => S3EncryptionConfiguration,
   ?'prefix' => S3Prefix,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->encryption_configuration = $encryption_configuration ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->encryption_configuration = $encryption_configuration ?? null;
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -558,7 +558,7 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -586,8 +586,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -607,7 +607,7 @@ class UpdateLedgerRequest {
   ?'name' => LedgerName,
   ) $s = shape()) {
     $this->deletion_protection = $deletion_protection ?? false;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -626,10 +626,10 @@ class UpdateLedgerResponse {
   ?'state' => LedgerState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
     $this->deletion_protection = $deletion_protection ?? false;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 

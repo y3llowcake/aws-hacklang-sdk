@@ -104,7 +104,7 @@ class ActivateGatewayInput {
   ) $s = shape()) {
     $this->activation_key = $activation_key ?? "";
     $this->gateway_name = $gateway_name ?? "";
-    $this->gateway_region = $gateway_region ?? ;
+    $this->gateway_region = $gateway_region ?? "";
     $this->gateway_timezone = $gateway_timezone ?? "";
     $this->gateway_type = $gateway_type ?? "";
     $this->medium_changer_type = $medium_changer_type ?? "";
@@ -311,7 +311,7 @@ class AutomaticTapeCreationRule {
     $this->minimum_num_tapes = $minimum_num_tapes ?? 0;
     $this->pool_id = $pool_id ?? "";
     $this->tape_barcode_prefix = $tape_barcode_prefix ?? "";
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
   }
 }
 
@@ -359,13 +359,13 @@ class CachediSCSIVolume {
   ) $s = shape()) {
     $this->created_date = $created_date ?? 0;
     $this->kms_key = $kms_key ?? "";
-    $this->source_snapshot_id = $source_snapshot_id ?? ;
+    $this->source_snapshot_id = $source_snapshot_id ?? "";
     $this->target_name = $target_name ?? "";
     $this->volume_arn = $volume_arn ?? "";
     $this->volume_attachment_status = $volume_attachment_status ?? "";
     $this->volume_id = $volume_id ?? "";
-    $this->volume_progress = $volume_progress ?? ;
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_progress = $volume_progress ?? 0.0;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
     $this->volume_status = $volume_status ?? "";
     $this->volume_type = $volume_type ?? "";
     $this->volume_used_in_bytes = $volume_used_in_bytes ?? 0;
@@ -435,9 +435,9 @@ class ChapInfo {
   ?'secret_to_authenticate_target' => ChapSecret,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->initiator_name = $initiator_name ?? ;
-    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? ;
-    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? ;
+    $this->initiator_name = $initiator_name ?? "";
+    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? "";
+    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? "";
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -474,14 +474,14 @@ class CreateCachediSCSIVolumeInput {
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->network_interface_id = $network_interface_id ?? "";
     $this->snapshot_id = $snapshot_id ?? "";
-    $this->source_volume_arn = $source_volume_arn ?? ;
+    $this->source_volume_arn = $source_volume_arn ?? "";
     $this->tags = $tags ?? [];
     $this->target_name = $target_name ?? "";
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
   }
 }
 
@@ -532,18 +532,18 @@ class CreateNFSFileShareInput {
   ?'squash' => Squash,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->client_list = $client_list ?? ;
+    $this->client_list = $client_list ?? [];
     $this->client_token = $client_token ?? "";
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
     $this->object_acl = $object_acl ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
     $this->role = $role ?? "";
     $this->squash = $squash ?? "";
     $this->tags = $tags ?? [];
@@ -600,24 +600,24 @@ class CreateSMBFileShareInput {
   ?'tags' => Tags,
   ?'valid_user_list' => FileShareUserList,
   ) $s = shape()) {
-    $this->admin_user_list = $admin_user_list ?? ;
+    $this->admin_user_list = $admin_user_list ?? [];
     $this->audit_destination_arn = $audit_destination_arn ?? "";
     $this->authentication = $authentication ?? "";
     $this->client_token = $client_token ?? "";
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->invalid_user_list = $invalid_user_list ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->invalid_user_list = $invalid_user_list ?? [];
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->object_acl = $object_acl ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
     $this->role = $role ?? "";
-    $this->smbacl_enabled = $smbacl_enabled ?? ;
+    $this->smbacl_enabled = $smbacl_enabled ?? false;
     $this->tags = $tags ?? [];
-    $this->valid_user_list = $valid_user_list ?? ;
+    $this->valid_user_list = $valid_user_list ?? [];
   }
 }
 
@@ -659,7 +659,7 @@ class CreateSnapshotFromVolumeRecoveryPointOutput {
   ) $s = shape()) {
     $this->snapshot_id = $snapshot_id ?? "";
     $this->volume_arn = $volume_arn ?? "";
-    $this->volume_recovery_point_time = $volume_recovery_point_time ?? ;
+    $this->volume_recovery_point_time = $volume_recovery_point_time ?? "";
   }
 }
 
@@ -716,10 +716,10 @@ class CreateStorediSCSIVolumeInput {
   ) $s = shape()) {
     $this->disk_id = $disk_id ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->network_interface_id = $network_interface_id ?? "";
-    $this->preserve_existing_data = $preserve_existing_data ?? ;
+    $this->preserve_existing_data = $preserve_existing_data ?? false;
     $this->snapshot_id = $snapshot_id ?? "";
     $this->tags = $tags ?? [];
     $this->target_name = $target_name ?? "";
@@ -738,7 +738,7 @@ class CreateStorediSCSIVolumeOutput {
   ) $s = shape()) {
     $this->target_arn = $target_arn ?? "";
     $this->volume_arn = $volume_arn ?? "";
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
   }
 }
 
@@ -761,12 +761,12 @@ class CreateTapeWithBarcodeInput {
   ?'tape_size_in_bytes' => TapeSize,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->pool_id = $pool_id ?? "";
     $this->tags = $tags ?? [];
     $this->tape_barcode = $tape_barcode ?? "";
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
   }
 }
 
@@ -804,13 +804,13 @@ class CreateTapesInput {
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->num_tapes_to_create = $num_tapes_to_create ?? 0;
     $this->pool_id = $pool_id ?? "";
     $this->tags = $tags ?? [];
     $this->tape_barcode_prefix = $tape_barcode_prefix ?? "";
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
   }
 }
 
@@ -881,7 +881,7 @@ class DeleteChapCredentialsInput {
   ?'initiator_name' => IqnName,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->initiator_name = $initiator_name ?? ;
+    $this->initiator_name = $initiator_name ?? "";
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -894,7 +894,7 @@ class DeleteChapCredentialsOutput {
   ?'initiator_name' => IqnName,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->initiator_name = $initiator_name ?? ;
+    $this->initiator_name = $initiator_name ?? "";
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -908,7 +908,7 @@ class DeleteFileShareInput {
   ?'force_delete' => boolean,
   ) $s = shape()) {
     $this->file_share_arn = $file_share_arn ?? "";
-    $this->force_delete = $force_delete ?? ;
+    $this->force_delete = $force_delete ?? false;
   }
 }
 
@@ -1046,8 +1046,8 @@ class DescribeAvailabilityMonitorTestOutput {
   ?'status' => AvailabilityMonitorTestStatus,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1071,8 +1071,8 @@ class DescribeBandwidthRateLimitOutput {
   ?'average_upload_rate_limit_in_bits_per_sec' => BandwidthUploadRateLimit,
   ?'gateway_arn' => GatewayARN,
   ) $s = shape()) {
-    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? ;
-    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? ;
+    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? 0;
+    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? 0;
     $this->gateway_arn = $gateway_arn ?? "";
   }
 }
@@ -1105,11 +1105,11 @@ class DescribeCacheOutput {
   ?'disk_ids' => DiskIds,
   ?'gateway_arn' => GatewayARN,
   ) $s = shape()) {
-    $this->cache_allocated_in_bytes = $cache_allocated_in_bytes ?? ;
-    $this->cache_dirty_percentage = $cache_dirty_percentage ?? ;
-    $this->cache_hit_percentage = $cache_hit_percentage ?? ;
-    $this->cache_miss_percentage = $cache_miss_percentage ?? ;
-    $this->cache_used_percentage = $cache_used_percentage ?? ;
+    $this->cache_allocated_in_bytes = $cache_allocated_in_bytes ?? 0;
+    $this->cache_dirty_percentage = $cache_dirty_percentage ?? 0.0;
+    $this->cache_hit_percentage = $cache_hit_percentage ?? 0.0;
+    $this->cache_miss_percentage = $cache_miss_percentage ?? 0.0;
+    $this->cache_used_percentage = $cache_used_percentage ?? 0.0;
     $this->disk_ids = $disk_ids ?? [];
     $this->gateway_arn = $gateway_arn ?? "";
   }
@@ -1213,7 +1213,7 @@ class DescribeGatewayInformationOutput {
     $this->last_software_update = $last_software_update ?? "";
     $this->next_update_availability_date = $next_update_availability_date ?? "";
     $this->tags = $tags ?? [];
-    $this->vpc_endpoint = $vpc_endpoint ?? ;
+    $this->vpc_endpoint = $vpc_endpoint ?? "";
   }
 }
 
@@ -1248,7 +1248,7 @@ class DescribeMaintenanceStartTimeOutput {
     $this->gateway_arn = $gateway_arn ?? "";
     $this->hour_of_day = $hour_of_day ?? 0;
     $this->minute_of_hour = $minute_of_hour ?? 0;
-    $this->timezone = $timezone ?? ;
+    $this->timezone = $timezone ?? "";
   }
 }
 
@@ -1319,7 +1319,7 @@ class DescribeSMBSettingsOutput {
     $this->active_directory_status = $active_directory_status ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->smb_guest_password_set = $smb_guest_password_set ?? ;
+    $this->smb_guest_password_set = $smb_guest_password_set ?? false;
     $this->smb_security_strategy = $smb_security_strategy ?? "";
   }
 }
@@ -1352,9 +1352,9 @@ class DescribeSnapshotScheduleOutput {
   ) $s = shape()) {
     $this->description = $description ?? "";
     $this->recurrence_in_hours = $recurrence_in_hours ?? 0;
-    $this->start_at = $start_at ?? ;
+    $this->start_at = $start_at ?? 0;
     $this->tags = $tags ?? [];
-    $this->timezone = $timezone ?? ;
+    $this->timezone = $timezone ?? "";
     $this->volume_arn = $volume_arn ?? "";
   }
 }
@@ -1389,7 +1389,7 @@ class DescribeTapeArchivesInput {
   ?'marker' => Marker,
   ?'tape_ar_ns' => TapeARNs,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
     $this->tape_ar_ns = $tape_ar_ns ?? [];
   }
@@ -1419,7 +1419,7 @@ class DescribeTapeRecoveryPointsInput {
   ?'marker' => Marker,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
   }
 }
@@ -1453,7 +1453,7 @@ class DescribeTapesInput {
   ?'tape_ar_ns' => TapeARNs,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
     $this->tape_ar_ns = $tape_ar_ns ?? [];
   }
@@ -1496,8 +1496,8 @@ class DescribeUploadBufferOutput {
   ) $s = shape()) {
     $this->disk_ids = $disk_ids ?? [];
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->upload_buffer_allocated_in_bytes = $upload_buffer_allocated_in_bytes ?? ;
-    $this->upload_buffer_used_in_bytes = $upload_buffer_used_in_bytes ?? ;
+    $this->upload_buffer_allocated_in_bytes = $upload_buffer_allocated_in_bytes ?? 0;
+    $this->upload_buffer_used_in_bytes = $upload_buffer_used_in_bytes ?? 0;
   }
 }
 
@@ -1514,7 +1514,7 @@ class DescribeVTLDevicesInput {
   ?'vtl_device_ar_ns' => VTLDeviceARNs,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
     $this->vtl_device_ar_ns = $vtl_device_ar_ns ?? [];
   }
@@ -1560,8 +1560,8 @@ class DescribeWorkingStorageOutput {
   ) $s = shape()) {
     $this->disk_ids = $disk_ids ?? [];
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->working_storage_allocated_in_bytes = $working_storage_allocated_in_bytes ?? ;
-    $this->working_storage_used_in_bytes = $working_storage_used_in_bytes ?? ;
+    $this->working_storage_allocated_in_bytes = $working_storage_allocated_in_bytes ?? 0;
+    $this->working_storage_used_in_bytes = $working_storage_used_in_bytes ?? 0;
   }
 }
 
@@ -1575,7 +1575,7 @@ class DetachVolumeInput {
   ?'force_detach' => boolean,
   ?'volume_arn' => VolumeARN,
   ) $s = shape()) {
-    $this->force_detach = $force_detach ?? ;
+    $this->force_detach = $force_detach ?? false;
     $this->volume_arn = $volume_arn ?? "";
   }
 }
@@ -1604,9 +1604,9 @@ class DeviceiSCSIAttributes {
   ?'network_interface_port' => integer,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->chap_enabled = $chap_enabled ?? ;
+    $this->chap_enabled = $chap_enabled ?? false;
     $this->network_interface_id = $network_interface_id ?? "";
-    $this->network_interface_port = $network_interface_port ?? ;
+    $this->network_interface_port = $network_interface_port ?? 0;
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -1651,14 +1651,14 @@ class Disk {
   ?'disk_size_in_bytes' => long,
   ?'disk_status' => string,
   ) $s = shape()) {
-    $this->disk_allocation_resource = $disk_allocation_resource ?? ;
+    $this->disk_allocation_resource = $disk_allocation_resource ?? "";
     $this->disk_allocation_type = $disk_allocation_type ?? "";
     $this->disk_attribute_list = $disk_attribute_list ?? [];
     $this->disk_id = $disk_id ?? "";
-    $this->disk_node = $disk_node ?? ;
-    $this->disk_path = $disk_path ?? ;
-    $this->disk_size_in_bytes = $disk_size_in_bytes ?? ;
-    $this->disk_status = $disk_status ?? ;
+    $this->disk_node = $disk_node ?? "";
+    $this->disk_path = $disk_path ?? "";
+    $this->disk_size_in_bytes = $disk_size_in_bytes ?? 0;
+    $this->disk_status = $disk_status ?? "";
   }
 }
 
@@ -1800,8 +1800,8 @@ class InternalServerError {
   ?'error' => StorageGatewayError,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->message = $message ?? ;
+    $this->error = $error ?? null;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1813,8 +1813,8 @@ class InvalidGatewayRequestException {
   ?'error' => StorageGatewayError,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->message = $message ?? ;
+    $this->error = $error ?? null;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1838,13 +1838,13 @@ class JoinDomainInput {
   ?'timeout_in_seconds' => TimeoutInSeconds,
   ?'user_name' => DomainUserName,
   ) $s = shape()) {
-    $this->domain_controllers = $domain_controllers ?? ;
+    $this->domain_controllers = $domain_controllers ?? [];
     $this->domain_name = $domain_name ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
     $this->organizational_unit = $organizational_unit ?? "";
-    $this->password = $password ?? ;
+    $this->password = $password ?? "";
     $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1896,7 +1896,7 @@ class ListFileSharesInput {
   ?'marker' => Marker,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
   }
 }
@@ -1913,7 +1913,7 @@ class ListFileSharesOutput {
   ) $s = shape()) {
     $this->file_share_info_list = $file_share_info_list ?? [];
     $this->marker = $marker ?? "";
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1925,7 +1925,7 @@ class ListGatewaysInput {
   ?'limit' => PositiveIntObject,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
   }
 }
@@ -1976,7 +1976,7 @@ class ListTagsForResourceInput {
   ?'marker' => Marker,
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
@@ -2008,7 +2008,7 @@ class ListTapesInput {
   ?'marker' => Marker,
   ?'tape_ar_ns' => TapeARNs,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
     $this->tape_ar_ns = $tape_ar_ns ?? [];
   }
@@ -2081,7 +2081,7 @@ class ListVolumesInput {
   ?'marker' => Marker,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->marker = $marker ?? "";
   }
 }
@@ -2126,10 +2126,10 @@ class NFSFileShareDefaults {
   ?'group_id' => PermissionId,
   ?'owner_id' => PermissionId,
   ) $s = shape()) {
-    $this->directory_mode = $directory_mode ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->owner_id = $owner_id ?? ;
+    $this->directory_mode = $directory_mode ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->group_id = $group_id ?? 0;
+    $this->owner_id = $owner_id ?? 0;
   }
 }
 
@@ -2173,21 +2173,21 @@ class NFSFileShareInfo {
   ?'squash' => Squash,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->client_list = $client_list ?? ;
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->client_list = $client_list ?? [];
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->file_share_arn = $file_share_arn ?? "";
     $this->file_share_id = $file_share_id ?? "";
     $this->file_share_status = $file_share_status ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
     $this->object_acl = $object_acl ?? "";
     $this->path = $path ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
     $this->role = $role ?? "";
     $this->squash = $squash ?? "";
     $this->tags = $tags ?? [];
@@ -2206,9 +2206,9 @@ class NetworkInterface {
   ?'ipv_6_address' => string,
   ?'mac_address' => string,
   ) $s = shape()) {
-    $this->ipv_4_address = $ipv_4_address ?? ;
-    $this->ipv_6_address = $ipv_6_address ?? ;
-    $this->mac_address = $mac_address ?? ;
+    $this->ipv_4_address = $ipv_4_address ?? "";
+    $this->ipv_6_address = $ipv_6_address ?? "";
+    $this->mac_address = $mac_address ?? "";
   }
 }
 
@@ -2271,7 +2271,7 @@ class RefreshCacheInput {
   ) $s = shape()) {
     $this->file_share_arn = $file_share_arn ?? "";
     $this->folder_list = $folder_list ?? [];
-    $this->recursive = $recursive ?? ;
+    $this->recursive = $recursive ?? false;
   }
 }
 
@@ -2429,27 +2429,27 @@ class SMBFileShareInfo {
   ?'tags' => Tags,
   ?'valid_user_list' => FileShareUserList,
   ) $s = shape()) {
-    $this->admin_user_list = $admin_user_list ?? ;
+    $this->admin_user_list = $admin_user_list ?? [];
     $this->audit_destination_arn = $audit_destination_arn ?? "";
     $this->authentication = $authentication ?? "";
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->file_share_arn = $file_share_arn ?? "";
     $this->file_share_id = $file_share_id ?? "";
     $this->file_share_status = $file_share_status ?? "";
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->invalid_user_list = $invalid_user_list ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->invalid_user_list = $invalid_user_list ?? [];
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->location_arn = $location_arn ?? "";
     $this->object_acl = $object_acl ?? "";
     $this->path = $path ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
     $this->role = $role ?? "";
-    $this->smbacl_enabled = $smbacl_enabled ?? ;
+    $this->smbacl_enabled = $smbacl_enabled ?? false;
     $this->tags = $tags ?? [];
-    $this->valid_user_list = $valid_user_list ?? ;
+    $this->valid_user_list = $valid_user_list ?? [];
   }
 }
 
@@ -2467,8 +2467,8 @@ class ServiceUnavailableError {
   ?'error' => StorageGatewayError,
   ?'message' => string,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->message = $message ?? ;
+    $this->error = $error ?? null;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2504,7 +2504,7 @@ class SetSMBGuestPasswordInput {
   ?'password' => SMBGuestPassword,
   ) $s = shape()) {
     $this->gateway_arn = $gateway_arn ?? "";
-    $this->password = $password ?? ;
+    $this->password = $password ?? "";
   }
 }
 
@@ -2594,7 +2594,7 @@ class StorageGatewayError {
   ?'error_code' => ErrorCode,
   ?'error_details' => errorDetails,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
+    $this->error_code = $error_code ?? "";
     $this->error_details = $error_details ?? [];
   }
 }
@@ -2635,15 +2635,15 @@ class StorediSCSIVolume {
   ) $s = shape()) {
     $this->created_date = $created_date ?? 0;
     $this->kms_key = $kms_key ?? "";
-    $this->preserved_existing_data = $preserved_existing_data ?? ;
-    $this->source_snapshot_id = $source_snapshot_id ?? ;
+    $this->preserved_existing_data = $preserved_existing_data ?? false;
+    $this->source_snapshot_id = $source_snapshot_id ?? "";
     $this->target_name = $target_name ?? "";
     $this->volume_arn = $volume_arn ?? "";
     $this->volume_attachment_status = $volume_attachment_status ?? "";
-    $this->volume_disk_id = $volume_disk_id ?? ;
+    $this->volume_disk_id = $volume_disk_id ?? "";
     $this->volume_id = $volume_id ?? "";
-    $this->volume_progress = $volume_progress ?? ;
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_progress = $volume_progress ?? 0.0;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
     $this->volume_status = $volume_status ?? "";
     $this->volume_type = $volume_type ?? "";
     $this->volume_used_in_bytes = $volume_used_in_bytes ?? 0;
@@ -2661,8 +2661,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2700,14 +2700,14 @@ class Tape {
   ) $s = shape()) {
     $this->kms_key = $kms_key ?? "";
     $this->pool_id = $pool_id ?? "";
-    $this->progress = $progress ?? ;
+    $this->progress = $progress ?? 0.0;
     $this->tape_arn = $tape_arn ?? "";
     $this->tape_barcode = $tape_barcode ?? "";
-    $this->tape_created_date = $tape_created_date ?? ;
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_created_date = $tape_created_date ?? 0;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
     $this->tape_status = $tape_status ?? "";
-    $this->tape_used_in_bytes = $tape_used_in_bytes ?? ;
-    $this->vtl_device = $vtl_device ?? null;
+    $this->tape_used_in_bytes = $tape_used_in_bytes ?? 0;
+    $this->vtl_device = $vtl_device ?? "";
   }
 }
 
@@ -2739,16 +2739,16 @@ class TapeArchive {
   ?'tape_status' => TapeArchiveStatus,
   ?'tape_used_in_bytes' => TapeUsage,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
     $this->kms_key = $kms_key ?? "";
     $this->pool_id = $pool_id ?? "";
-    $this->retrieved_to = $retrieved_to ?? ;
+    $this->retrieved_to = $retrieved_to ?? "";
     $this->tape_arn = $tape_arn ?? "";
     $this->tape_barcode = $tape_barcode ?? "";
-    $this->tape_created_date = $tape_created_date ?? ;
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_created_date = $tape_created_date ?? 0;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
     $this->tape_status = $tape_status ?? "";
-    $this->tape_used_in_bytes = $tape_used_in_bytes ?? ;
+    $this->tape_used_in_bytes = $tape_used_in_bytes ?? 0;
   }
 }
 
@@ -2782,7 +2782,7 @@ class TapeInfo {
     $this->pool_id = $pool_id ?? "";
     $this->tape_arn = $tape_arn ?? "";
     $this->tape_barcode = $tape_barcode ?? "";
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
     $this->tape_status = $tape_status ?? "";
   }
 }
@@ -2802,8 +2802,8 @@ class TapeRecoveryPointInfo {
   ?'tape_status' => TapeRecoveryPointStatus,
   ) $s = shape()) {
     $this->tape_arn = $tape_arn ?? "";
-    $this->tape_recovery_point_time = $tape_recovery_point_time ?? ;
-    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_recovery_point_time = $tape_recovery_point_time ?? 0;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? 0;
     $this->tape_status = $tape_status ?? "";
   }
 }
@@ -2861,8 +2861,8 @@ class UpdateBandwidthRateLimitInput {
   ?'average_upload_rate_limit_in_bits_per_sec' => BandwidthUploadRateLimit,
   ?'gateway_arn' => GatewayARN,
   ) $s = shape()) {
-    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? ;
-    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? ;
+    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? 0;
+    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? 0;
     $this->gateway_arn = $gateway_arn ?? "";
   }
 }
@@ -2889,9 +2889,9 @@ class UpdateChapCredentialsInput {
   ?'secret_to_authenticate_target' => ChapSecret,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->initiator_name = $initiator_name ?? ;
-    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? ;
-    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? ;
+    $this->initiator_name = $initiator_name ?? "";
+    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? "";
+    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? "";
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -2904,7 +2904,7 @@ class UpdateChapCredentialsOutput {
   ?'initiator_name' => IqnName,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->initiator_name = $initiator_name ?? ;
+    $this->initiator_name = $initiator_name ?? "";
     $this->target_arn = $target_arn ?? "";
   }
 }
@@ -3019,16 +3019,16 @@ class UpdateNFSFileShareInput {
   ?'requester_pays' => boolean,
   ?'squash' => Squash,
   ) $s = shape()) {
-    $this->client_list = $client_list ?? ;
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->client_list = $client_list ?? [];
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->file_share_arn = $file_share_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
     $this->object_acl = $object_acl ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
     $this->squash = $squash ?? "";
   }
 }
@@ -3073,19 +3073,19 @@ class UpdateSMBFileShareInput {
   ?'smbacl_enabled' => boolean,
   ?'valid_user_list' => FileShareUserList,
   ) $s = shape()) {
-    $this->admin_user_list = $admin_user_list ?? ;
+    $this->admin_user_list = $admin_user_list ?? [];
     $this->audit_destination_arn = $audit_destination_arn ?? "";
-    $this->default_storage_class = $default_storage_class ?? ;
+    $this->default_storage_class = $default_storage_class ?? "";
     $this->file_share_arn = $file_share_arn ?? "";
-    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
-    $this->invalid_user_list = $invalid_user_list ?? ;
-    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? false;
+    $this->invalid_user_list = $invalid_user_list ?? [];
+    $this->kms_encrypted = $kms_encrypted ?? false;
     $this->kms_key = $kms_key ?? "";
     $this->object_acl = $object_acl ?? "";
-    $this->read_only = $read_only ?? ;
-    $this->requester_pays = $requester_pays ?? ;
-    $this->smbacl_enabled = $smbacl_enabled ?? ;
-    $this->valid_user_list = $valid_user_list ?? ;
+    $this->read_only = $read_only ?? false;
+    $this->requester_pays = $requester_pays ?? false;
+    $this->smbacl_enabled = $smbacl_enabled ?? false;
+    $this->valid_user_list = $valid_user_list ?? [];
   }
 }
 
@@ -3138,7 +3138,7 @@ class UpdateSnapshotScheduleInput {
   ) $s = shape()) {
     $this->description = $description ?? "";
     $this->recurrence_in_hours = $recurrence_in_hours ?? 0;
-    $this->start_at = $start_at ?? ;
+    $this->start_at = $start_at ?? 0;
     $this->tags = $tags ?? [];
     $this->volume_arn = $volume_arn ?? "";
   }
@@ -3242,7 +3242,7 @@ class VolumeInfo {
     $this->volume_arn = $volume_arn ?? "";
     $this->volume_attachment_status = $volume_attachment_status ?? "";
     $this->volume_id = $volume_id ?? "";
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -3262,9 +3262,9 @@ class VolumeRecoveryPointInfo {
   ?'volume_usage_in_bytes' => long,
   ) $s = shape()) {
     $this->volume_arn = $volume_arn ?? "";
-    $this->volume_recovery_point_time = $volume_recovery_point_time ?? ;
-    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
-    $this->volume_usage_in_bytes = $volume_usage_in_bytes ?? ;
+    $this->volume_recovery_point_time = $volume_recovery_point_time ?? "";
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? 0;
+    $this->volume_usage_in_bytes = $volume_usage_in_bytes ?? 0;
   }
 }
 
@@ -3290,10 +3290,10 @@ class VolumeiSCSIAttributes {
   ?'network_interface_port' => integer,
   ?'target_arn' => TargetARN,
   ) $s = shape()) {
-    $this->chap_enabled = $chap_enabled ?? ;
-    $this->lun_number = $lun_number ?? ;
+    $this->chap_enabled = $chap_enabled ?? false;
+    $this->lun_number = $lun_number ?? 0;
     $this->network_interface_id = $network_interface_id ?? "";
-    $this->network_interface_port = $network_interface_port ?? ;
+    $this->network_interface_port = $network_interface_port ?? 0;
     $this->target_arn = $target_arn ?? "";
   }
 }

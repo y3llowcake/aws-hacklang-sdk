@@ -47,12 +47,12 @@ class Container {
   ?'name' => ContainerName,
   ?'status' => ContainerStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->access_logging_enabled = $access_logging_enabled ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->arn = $arn ?? "";
+    $this->access_logging_enabled = $access_logging_enabled ?? false;
+    $this->creation_time = $creation_time ?? 0;
     $this->endpoint = $endpoint ?? "";
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class ContainerInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -84,7 +84,7 @@ class ContainerNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -100,7 +100,7 @@ class CorsPolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -135,7 +135,7 @@ class CreateContainerInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->container_name = $container_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -276,7 +276,7 @@ class GetContainerPolicyOutput {
   public function __construct(shape(
   ?'policy' => ContainerPolicy,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -348,7 +348,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -360,7 +360,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -372,8 +372,8 @@ class ListContainersInput {
   ?'max_results' => ContainerListLimit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -385,8 +385,8 @@ class ListContainersOutput {
   ?'containers' => ContainerList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->containers = $containers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->containers = $containers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -396,7 +396,7 @@ class ListTagsForResourceInput {
   public function __construct(shape(
   ?'resource' => ContainerARN,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
   }
 }
 
@@ -406,7 +406,7 @@ class ListTagsForResourceOutput {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -456,7 +456,7 @@ class PolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -469,7 +469,7 @@ class PutContainerPolicyInput {
   ?'policy' => ContainerPolicy,
   ) $s = shape()) {
     $this->container_name = $container_name ?? "";
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -582,8 +582,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -601,8 +601,8 @@ class TagResourceInput {
   ?'resource' => ContainerARN,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource = $resource ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -625,8 +625,8 @@ class UntagResourceInput {
   ?'resource' => ContainerARN,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource = $resource ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

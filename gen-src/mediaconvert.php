@@ -61,15 +61,15 @@ class AacSettings {
   ?'specification' => AacSpecification,
   ?'vbr_quality' => AacVbrQuality,
   ) $s = shape()) {
-    $this->audio_description_broadcaster_mix = $audio_description_broadcaster_mix ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->codec_profile = $codec_profile ?? ;
-    $this->coding_mode = $coding_mode ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->raw_format = $raw_format ?? ;
-    $this->sample_rate = $sample_rate ?? ;
-    $this->specification = $specification ?? ;
-    $this->vbr_quality = $vbr_quality ?? ;
+    $this->audio_description_broadcaster_mix = $audio_description_broadcaster_mix ?? "";
+    $this->bitrate = $bitrate ?? 0;
+    $this->codec_profile = $codec_profile ?? "";
+    $this->coding_mode = $coding_mode ?? "";
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->raw_format = $raw_format ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
+    $this->specification = $specification ?? "";
+    $this->vbr_quality = $vbr_quality ?? "";
   }
 }
 
@@ -107,14 +107,14 @@ class Ac3Settings {
   ?'metadata_control' => Ac3MetadataControl,
   ?'sample_rate' => __integerMin48000Max48000,
   ) $s = shape()) {
-    $this->bitrate = $bitrate ?? ;
-    $this->bitstream_mode = $bitstream_mode ?? ;
-    $this->coding_mode = $coding_mode ?? ;
-    $this->dialnorm = $dialnorm ?? ;
-    $this->dynamic_range_compression_profile = $dynamic_range_compression_profile ?? ;
-    $this->lfe_filter = $lfe_filter ?? ;
-    $this->metadata_control = $metadata_control ?? ;
-    $this->sample_rate = $sample_rate ?? ;
+    $this->bitrate = $bitrate ?? 0;
+    $this->bitstream_mode = $bitstream_mode ?? "";
+    $this->coding_mode = $coding_mode ?? "";
+    $this->dialnorm = $dialnorm ?? 0;
+    $this->dynamic_range_compression_profile = $dynamic_range_compression_profile ?? "";
+    $this->lfe_filter = $lfe_filter ?? "";
+    $this->metadata_control = $metadata_control ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
   }
 }
 
@@ -126,7 +126,7 @@ class AccelerationSettings {
   public function __construct(shape(
   ?'mode' => AccelerationMode,
   ) $s = shape()) {
-    $this->mode = $mode ?? ;
+    $this->mode = $mode ?? "";
   }
 }
 
@@ -144,9 +144,9 @@ class AiffSettings {
   ?'channels' => __integerMin1Max64,
   ?'sample_rate' => __integerMin8000Max192000,
   ) $s = shape()) {
-    $this->bit_depth = $bit_depth ?? ;
-    $this->channels = $channels ?? ;
-    $this->sample_rate = $sample_rate ?? ;
+    $this->bit_depth = $bit_depth ?? 0;
+    $this->channels = $channels ?? 0;
+    $this->sample_rate = $sample_rate ?? 0;
   }
 }
 
@@ -164,9 +164,9 @@ class AncillarySourceSettings {
   ?'source_ancillary_channel_number' => __integerMin1Max4,
   ?'terminate_captions' => AncillaryTerminateCaptions,
   ) $s = shape()) {
-    $this->convert_608_to_708 = $convert_608_to_708 ?? ;
-    $this->source_ancillary_channel_number = $source_ancillary_channel_number ?? ;
-    $this->terminate_captions = $terminate_captions ?? ;
+    $this->convert_608_to_708 = $convert_608_to_708 ?? "";
+    $this->source_ancillary_channel_number = $source_ancillary_channel_number ?? 0;
+    $this->terminate_captions = $terminate_captions ?? "";
   }
 }
 
@@ -180,7 +180,7 @@ class AssociateCertificateRequest {
   public function __construct(shape(
   ?'arn' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -218,7 +218,7 @@ class AudioCodecSettings {
     $this->aac_settings = $aac_settings ?? null;
     $this->ac_3_settings = $ac_3_settings ?? null;
     $this->aiff_settings = $aiff_settings ?? null;
-    $this->codec = $codec ?? ;
+    $this->codec = $codec ?? "";
     $this->eac_3_atmos_settings = $eac_3_atmos_settings ?? null;
     $this->eac_3_settings = $eac_3_settings ?? null;
     $this->mp_2_settings = $mp_2_settings ?? null;
@@ -254,15 +254,15 @@ class AudioDescription {
   ?'stream_name' => __stringPatternWS,
   ) $s = shape()) {
     $this->audio_normalization_settings = $audio_normalization_settings ?? null;
-    $this->audio_source_name = $audio_source_name ?? ;
-    $this->audio_type = $audio_type ?? ;
+    $this->audio_source_name = $audio_source_name ?? "";
+    $this->audio_type = $audio_type ?? 0;
     $this->audio_type_control = $audio_type_control ?? "";
-    $this->codec_settings = $codec_settings ?? ;
-    $this->custom_language_code = $custom_language_code ?? ;
+    $this->codec_settings = $codec_settings ?? null;
+    $this->custom_language_code = $custom_language_code ?? "";
     $this->language_code = $language_code ?? "";
-    $this->language_code_control = $language_code_control ?? ;
+    $this->language_code_control = $language_code_control ?? "";
     $this->remix_settings = $remix_settings ?? null;
-    $this->stream_name = $stream_name ?? ;
+    $this->stream_name = $stream_name ?? "";
   }
 }
 
@@ -292,12 +292,12 @@ class AudioNormalizationSettings {
   ?'peak_calculation' => AudioNormalizationPeakCalculation,
   ?'target_lkfs' => __doubleMinNegative59Max0,
   ) $s = shape()) {
-    $this->algorithm = $algorithm ?? ;
-    $this->algorithm_control = $algorithm_control ?? ;
-    $this->correction_gate_level = $correction_gate_level ?? ;
-    $this->loudness_logging = $loudness_logging ?? ;
-    $this->peak_calculation = $peak_calculation ?? ;
-    $this->target_lkfs = $target_lkfs ?? ;
+    $this->algorithm = $algorithm ?? "";
+    $this->algorithm_control = $algorithm_control ?? "";
+    $this->correction_gate_level = $correction_gate_level ?? 0;
+    $this->loudness_logging = $loudness_logging ?? "";
+    $this->peak_calculation = $peak_calculation ?? "";
+    $this->target_lkfs = $target_lkfs ?? 0.0;
   }
 }
 
@@ -325,16 +325,16 @@ class AudioSelector {
   ?'selector_type' => AudioSelectorType,
   ?'tracks' => __listOf__integerMin1Max2147483647,
   ) $s = shape()) {
-    $this->custom_language_code = $custom_language_code ?? ;
-    $this->default_selection = $default_selection ?? ;
-    $this->external_audio_file_input = $external_audio_file_input ?? ;
+    $this->custom_language_code = $custom_language_code ?? "";
+    $this->default_selection = $default_selection ?? "";
+    $this->external_audio_file_input = $external_audio_file_input ?? "";
     $this->language_code = $language_code ?? "";
-    $this->offset = $offset ?? ;
-    $this->pids = $pids ?? ;
-    $this->program_selection = $program_selection ?? ;
+    $this->offset = $offset ?? 0;
+    $this->pids = $pids ?? [];
+    $this->program_selection = $program_selection ?? 0;
     $this->remix_settings = $remix_settings ?? null;
-    $this->selector_type = $selector_type ?? ;
-    $this->tracks = $tracks ?? ;
+    $this->selector_type = $selector_type ?? "";
+    $this->tracks = $tracks ?? [];
   }
 }
 
@@ -344,7 +344,7 @@ class AudioSelectorGroup {
   public function __construct(shape(
   ?'audio_selector_names' => __listOf__stringMin1,
   ) $s = shape()) {
-    $this->audio_selector_names = $audio_selector_names ?? ;
+    $this->audio_selector_names = $audio_selector_names ?? [];
   }
 }
 
@@ -366,8 +366,8 @@ class Av1QvbrSettings {
   ?'qvbr_quality_level' => __integerMin1Max10,
   ?'qvbr_quality_level_fine_tune' => __doubleMin0Max1,
   ) $s = shape()) {
-    $this->qvbr_quality_level = $qvbr_quality_level ?? ;
-    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? ;
+    $this->qvbr_quality_level = $qvbr_quality_level ?? 0;
+    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? 0.0;
   }
 }
 
@@ -401,18 +401,18 @@ class Av1Settings {
   ?'slices' => __integerMin1Max32,
   ?'spatial_adaptive_quantization' => Av1SpatialAdaptiveQuantization,
   ) $s = shape()) {
-    $this->adaptive_quantization = $adaptive_quantization ?? ;
-    $this->framerate_control = $framerate_control ?? ;
-    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? ;
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->gop_size = $gop_size ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? ;
-    $this->qvbr_settings = $qvbr_settings ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->slices = $slices ?? ;
-    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? ;
+    $this->adaptive_quantization = $adaptive_quantization ?? "";
+    $this->framerate_control = $framerate_control ?? "";
+    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? "";
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->gop_size = $gop_size ?? 0.0;
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? 0;
+    $this->qvbr_settings = $qvbr_settings ?? null;
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->slices = $slices ?? 0;
+    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? "";
   }
 }
 
@@ -424,7 +424,7 @@ class AvailBlanking {
   public function __construct(shape(
   ?'avail_blanking_image' => __stringMin14PatternS3BmpBMPPngPNGHttpsBmpBMPPngPNG,
   ) $s = shape()) {
-    $this->avail_blanking_image = $avail_blanking_image ?? ;
+    $this->avail_blanking_image = $avail_blanking_image ?? "";
   }
 }
 
@@ -434,7 +434,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -478,23 +478,23 @@ class BurninDestinationSettings {
   ?'x_position' => __integerMin0Max2147483647,
   ?'y_position' => __integerMin0Max2147483647,
   ) $s = shape()) {
-    $this->alignment = $alignment ?? ;
-    $this->background_color = $background_color ?? ;
-    $this->background_opacity = $background_opacity ?? ;
-    $this->font_color = $font_color ?? ;
-    $this->font_opacity = $font_opacity ?? ;
-    $this->font_resolution = $font_resolution ?? ;
+    $this->alignment = $alignment ?? "";
+    $this->background_color = $background_color ?? "";
+    $this->background_opacity = $background_opacity ?? 0;
+    $this->font_color = $font_color ?? "";
+    $this->font_opacity = $font_opacity ?? 0;
+    $this->font_resolution = $font_resolution ?? 0;
     $this->font_script = $font_script ?? "";
-    $this->font_size = $font_size ?? ;
-    $this->outline_color = $outline_color ?? ;
-    $this->outline_size = $outline_size ?? ;
-    $this->shadow_color = $shadow_color ?? ;
-    $this->shadow_opacity = $shadow_opacity ?? ;
-    $this->shadow_x_offset = $shadow_x_offset ?? ;
-    $this->shadow_y_offset = $shadow_y_offset ?? ;
-    $this->teletext_spacing = $teletext_spacing ?? ;
-    $this->x_position = $x_position ?? ;
-    $this->y_position = $y_position ?? ;
+    $this->font_size = $font_size ?? 0;
+    $this->outline_color = $outline_color ?? "";
+    $this->outline_size = $outline_size ?? 0;
+    $this->shadow_color = $shadow_color ?? "";
+    $this->shadow_opacity = $shadow_opacity ?? 0;
+    $this->shadow_x_offset = $shadow_x_offset ?? 0;
+    $this->shadow_y_offset = $shadow_y_offset ?? 0;
+    $this->teletext_spacing = $teletext_spacing ?? "";
+    $this->x_position = $x_position ?? 0;
+    $this->y_position = $y_position ?? 0;
   }
 }
 
@@ -516,7 +516,7 @@ class CancelJobRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -541,11 +541,11 @@ class CaptionDescription {
   ?'language_code' => LanguageCode,
   ?'language_description' => __string,
   ) $s = shape()) {
-    $this->caption_selector_name = $caption_selector_name ?? ;
-    $this->custom_language_code = $custom_language_code ?? ;
+    $this->caption_selector_name = $caption_selector_name ?? "";
+    $this->custom_language_code = $custom_language_code ?? "";
     $this->destination_settings = $destination_settings ?? null;
     $this->language_code = $language_code ?? "";
-    $this->language_description = $language_description ?? ;
+    $this->language_description = $language_description ?? "";
   }
 }
 
@@ -561,10 +561,10 @@ class CaptionDescriptionPreset {
   ?'language_code' => LanguageCode,
   ?'language_description' => __string,
   ) $s = shape()) {
-    $this->custom_language_code = $custom_language_code ?? ;
+    $this->custom_language_code = $custom_language_code ?? "";
     $this->destination_settings = $destination_settings ?? null;
     $this->language_code = $language_code ?? "";
-    $this->language_description = $language_description ?? ;
+    $this->language_description = $language_description ?? "";
   }
 }
 
@@ -589,7 +589,7 @@ class CaptionDestinationSettings {
   ?'ttml_destination_settings' => TtmlDestinationSettings,
   ) $s = shape()) {
     $this->burnin_destination_settings = $burnin_destination_settings ?? null;
-    $this->destination_type = $destination_type ?? ;
+    $this->destination_type = $destination_type ?? "";
     $this->dvb_sub_destination_settings = $dvb_sub_destination_settings ?? null;
     $this->embedded_destination_settings = $embedded_destination_settings ?? null;
     $this->imsc_destination_settings = $imsc_destination_settings ?? null;
@@ -611,9 +611,9 @@ class CaptionSelector {
   ?'language_code' => LanguageCode,
   ?'source_settings' => CaptionSourceSettings,
   ) $s = shape()) {
-    $this->custom_language_code = $custom_language_code ?? ;
+    $this->custom_language_code = $custom_language_code ?? "";
     $this->language_code = $language_code ?? "";
-    $this->source_settings = $source_settings ?? ;
+    $this->source_settings = $source_settings ?? null;
   }
 }
 
@@ -625,8 +625,8 @@ class CaptionSourceFramerate {
   ?'framerate_denominator' => __integerMin1Max1001,
   ?'framerate_numerator' => __integerMin1Max60000,
   ) $s = shape()) {
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
   }
 }
 
@@ -652,7 +652,7 @@ class CaptionSourceSettings {
     $this->dvb_sub_source_settings = $dvb_sub_source_settings ?? null;
     $this->embedded_source_settings = $embedded_source_settings ?? null;
     $this->file_source_settings = $file_source_settings ?? null;
-    $this->source_type = $source_type ?? ;
+    $this->source_type = $source_type ?? "";
     $this->teletext_source_settings = $teletext_source_settings ?? null;
     $this->track_source_settings = $track_source_settings ?? null;
   }
@@ -666,7 +666,7 @@ class ChannelMapping {
   public function __construct(shape(
   ?'output_channels' => __listOfOutputChannelMapping,
   ) $s = shape()) {
-    $this->output_channels = $output_channels ?? ;
+    $this->output_channels = $output_channels ?? [];
   }
 }
 
@@ -678,8 +678,8 @@ class CmafAdditionalManifest {
   ?'manifest_name_modifier' => __stringMin1,
   ?'selected_outputs' => __listOf__stringMin1,
   ) $s = shape()) {
-    $this->manifest_name_modifier = $manifest_name_modifier ?? ;
-    $this->selected_outputs = $selected_outputs ?? ;
+    $this->manifest_name_modifier = $manifest_name_modifier ?? "";
+    $this->selected_outputs = $selected_outputs ?? [];
   }
 }
 
@@ -703,9 +703,9 @@ class CmafEncryptionSettings {
   ?'static_key_provider' => StaticKeyProvider,
   ?'type' => CmafKeyProviderType,
   ) $s = shape()) {
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
-    $this->encryption_method = $encryption_method ?? ;
-    $this->initialization_vector_in_manifest = $initialization_vector_in_manifest ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
+    $this->encryption_method = $encryption_method ?? "";
+    $this->initialization_vector_in_manifest = $initialization_vector_in_manifest ?? "";
     $this->speke_key_provider = $speke_key_provider ?? null;
     $this->static_key_provider = $static_key_provider ?? null;
     $this->type = $type ?? "";
@@ -756,25 +756,25 @@ class CmafGroupSettings {
   ?'write_hls_manifest' => CmafWriteHLSManifest,
   ?'write_segment_timeline_in_representation' => CmafWriteSegmentTimelineInRepresentation,
   ) $s = shape()) {
-    $this->additional_manifests = $additional_manifests ?? ;
-    $this->base_url = $base_url ?? ;
-    $this->client_cache = $client_cache ?? ;
-    $this->codec_specification = $codec_specification ?? ;
-    $this->destination = $destination ?? ;
+    $this->additional_manifests = $additional_manifests ?? [];
+    $this->base_url = $base_url ?? "";
+    $this->client_cache = $client_cache ?? "";
+    $this->codec_specification = $codec_specification ?? "";
+    $this->destination = $destination ?? "";
     $this->destination_settings = $destination_settings ?? null;
-    $this->encryption = $encryption ?? ;
-    $this->fragment_length = $fragment_length ?? ;
-    $this->manifest_compression = $manifest_compression ?? ;
-    $this->manifest_duration_format = $manifest_duration_format ?? ;
-    $this->min_buffer_time = $min_buffer_time ?? ;
-    $this->min_final_segment_length = $min_final_segment_length ?? ;
-    $this->mpd_profile = $mpd_profile ?? ;
-    $this->segment_control = $segment_control ?? ;
-    $this->segment_length = $segment_length ?? ;
-    $this->stream_inf_resolution = $stream_inf_resolution ?? ;
-    $this->write_dash_manifest = $write_dash_manifest ?? ;
-    $this->write_hls_manifest = $write_hls_manifest ?? ;
-    $this->write_segment_timeline_in_representation = $write_segment_timeline_in_representation ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->fragment_length = $fragment_length ?? 0;
+    $this->manifest_compression = $manifest_compression ?? "";
+    $this->manifest_duration_format = $manifest_duration_format ?? "";
+    $this->min_buffer_time = $min_buffer_time ?? 0;
+    $this->min_final_segment_length = $min_final_segment_length ?? 0.0;
+    $this->mpd_profile = $mpd_profile ?? "";
+    $this->segment_control = $segment_control ?? "";
+    $this->segment_length = $segment_length ?? 0;
+    $this->stream_inf_resolution = $stream_inf_resolution ?? "";
+    $this->write_dash_manifest = $write_dash_manifest ?? "";
+    $this->write_hls_manifest = $write_hls_manifest ?? "";
+    $this->write_segment_timeline_in_representation = $write_segment_timeline_in_representation ?? "";
   }
 }
 
@@ -810,8 +810,8 @@ class CmfcSettings {
   ?'scte_35_esam' => CmfcScte35Esam,
   ?'scte_35_source' => CmfcScte35Source,
   ) $s = shape()) {
-    $this->scte_35_esam = $scte_35_esam ?? ;
-    $this->scte_35_source = $scte_35_source ?? ;
+    $this->scte_35_esam = $scte_35_esam ?? "";
+    $this->scte_35_source = $scte_35_source ?? "";
   }
 }
 
@@ -831,12 +831,12 @@ class ColorCorrector {
   ?'hue' => __integerMinNegative180Max180,
   ?'saturation' => __integerMin1Max100,
   ) $s = shape()) {
-    $this->brightness = $brightness ?? ;
+    $this->brightness = $brightness ?? 0;
     $this->color_space_conversion = $color_space_conversion ?? "";
-    $this->contrast = $contrast ?? ;
+    $this->contrast = $contrast ?? 0;
     $this->hdr_10_metadata = $hdr_10_metadata ?? null;
-    $this->hue = $hue ?? ;
-    $this->saturation = $saturation ?? ;
+    $this->hue = $hue ?? 0;
+    $this->saturation = $saturation ?? 0;
   }
 }
 
@@ -856,7 +856,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -881,7 +881,7 @@ class ContainerSettings {
   ?'mpd_settings' => MpdSettings,
   ) $s = shape()) {
     $this->cmfc_settings = $cmfc_settings ?? null;
-    $this->container = $container ?? ;
+    $this->container = $container ?? "";
     $this->f_4_v_settings = $f_4_v_settings ?? null;
     $this->m_2_ts_settings = $m_2_ts_settings ?? null;
     $this->m_3_u8_settings = $m_3_u8_settings ?? null;
@@ -925,17 +925,17 @@ class CreateJobRequest {
   ) $s = shape()) {
     $this->acceleration_settings = $acceleration_settings ?? null;
     $this->billing_tags_source = $billing_tags_source ?? "";
-    $this->client_request_token = $client_request_token ?? ;
-    $this->hop_destinations = $hop_destinations ?? ;
-    $this->job_template = $job_template ?? null;
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->role = $role ?? ;
-    $this->settings = $settings ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->hop_destinations = $hop_destinations ?? [];
+    $this->job_template = $job_template ?? "";
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->role = $role ?? "";
+    $this->settings = $settings ?? null;
     $this->simulate_reserved_queue = $simulate_reserved_queue ?? "";
     $this->status_update_interval = $status_update_interval ?? "";
-    $this->tags = $tags ?? ;
-    $this->user_metadata = $user_metadata ?? ;
+    $this->tags = $tags ?? [];
+    $this->user_metadata = $user_metadata ?? [];
   }
 }
 
@@ -974,15 +974,15 @@ class CreateJobTemplateRequest {
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
     $this->acceleration_settings = $acceleration_settings ?? null;
-    $this->category = $category ?? ;
-    $this->description = $description ?? ;
-    $this->hop_destinations = $hop_destinations ?? ;
-    $this->name = $name ?? ;
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->settings = $settings ?? ;
+    $this->category = $category ?? "";
+    $this->description = $description ?? "";
+    $this->hop_destinations = $hop_destinations ?? [];
+    $this->name = $name ?? "";
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->settings = $settings ?? null;
     $this->status_update_interval = $status_update_interval ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1010,11 +1010,11 @@ class CreatePresetRequest {
   ?'settings' => PresetSettings,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->settings = $settings ?? ;
-    $this->tags = $tags ?? ;
+    $this->category = $category ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->settings = $settings ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1044,12 +1044,12 @@ class CreateQueueRequest {
   ?'status' => QueueStatus,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->pricing_plan = $pricing_plan ?? "";
     $this->reservation_plan_settings = $reservation_plan_settings ?? null;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1071,8 +1071,8 @@ class DashAdditionalManifest {
   ?'manifest_name_modifier' => __stringMin1,
   ?'selected_outputs' => __listOf__stringMin1,
   ) $s = shape()) {
-    $this->manifest_name_modifier = $manifest_name_modifier ?? ;
-    $this->selected_outputs = $selected_outputs ?? ;
+    $this->manifest_name_modifier = $manifest_name_modifier ?? "";
+    $this->selected_outputs = $selected_outputs ?? [];
   }
 }
 
@@ -1084,7 +1084,7 @@ class DashIsoEncryptionSettings {
   ?'playback_device_compatibility' => DashIsoPlaybackDeviceCompatibility,
   ?'speke_key_provider' => SpekeKeyProvider,
   ) $s = shape()) {
-    $this->playback_device_compatibility = $playback_device_compatibility ?? ;
+    $this->playback_device_compatibility = $playback_device_compatibility ?? "";
     $this->speke_key_provider = $speke_key_provider ?? null;
   }
 }
@@ -1117,18 +1117,18 @@ class DashIsoGroupSettings {
   ?'segment_length' => __integerMin1Max2147483647,
   ?'write_segment_timeline_in_representation' => DashIsoWriteSegmentTimelineInRepresentation,
   ) $s = shape()) {
-    $this->additional_manifests = $additional_manifests ?? ;
-    $this->base_url = $base_url ?? ;
-    $this->destination = $destination ?? ;
+    $this->additional_manifests = $additional_manifests ?? [];
+    $this->base_url = $base_url ?? "";
+    $this->destination = $destination ?? "";
     $this->destination_settings = $destination_settings ?? null;
-    $this->encryption = $encryption ?? ;
-    $this->fragment_length = $fragment_length ?? ;
-    $this->hbbtv_compliance = $hbbtv_compliance ?? ;
-    $this->min_buffer_time = $min_buffer_time ?? ;
-    $this->mpd_profile = $mpd_profile ?? ;
-    $this->segment_control = $segment_control ?? ;
-    $this->segment_length = $segment_length ?? ;
-    $this->write_segment_timeline_in_representation = $write_segment_timeline_in_representation ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->fragment_length = $fragment_length ?? 0;
+    $this->hbbtv_compliance = $hbbtv_compliance ?? "";
+    $this->min_buffer_time = $min_buffer_time ?? 0;
+    $this->mpd_profile = $mpd_profile ?? "";
+    $this->segment_control = $segment_control ?? "";
+    $this->segment_length = $segment_length ?? 0;
+    $this->write_segment_timeline_in_representation = $write_segment_timeline_in_representation ?? "";
   }
 }
 
@@ -1156,9 +1156,9 @@ class Deinterlacer {
   ?'control' => DeinterlacerControl,
   ?'mode' => DeinterlacerMode,
   ) $s = shape()) {
-    $this->algorithm = $algorithm ?? ;
-    $this->control = $control ?? ;
-    $this->mode = $mode ?? ;
+    $this->algorithm = $algorithm ?? "";
+    $this->control = $control ?? "";
+    $this->mode = $mode ?? "";
   }
 }
 
@@ -1172,7 +1172,7 @@ class DeleteJobTemplateRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1189,7 +1189,7 @@ class DeletePresetRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1206,7 +1206,7 @@ class DeleteQueueRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1229,9 +1229,9 @@ class DescribeEndpointsRequest {
   ?'mode' => DescribeEndpointsMode,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->mode = $mode ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->mode = $mode ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1243,8 +1243,8 @@ class DescribeEndpointsResponse {
   ?'endpoints' => __listOfEndpoint,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->endpoints = $endpoints ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->endpoints = $endpoints ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1254,7 +1254,7 @@ class DestinationSettings {
   public function __construct(shape(
   ?'s_3_settings' => S3DestinationSettings,
   ) $s = shape()) {
-    $this->s_3_settings = $s_3_settings ?? ;
+    $this->s_3_settings = $s_3_settings ?? null;
   }
 }
 
@@ -1264,7 +1264,7 @@ class DisassociateCertificateRequest {
   public function __construct(shape(
   ?'arn' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1285,9 +1285,9 @@ class DolbyVision {
   ?'l_6_mode' => DolbyVisionLevel6Mode,
   ?'profile' => DolbyVisionProfile,
   ) $s = shape()) {
-    $this->l_6_metadata = $l_6_metadata ?? ;
-    $this->l_6_mode = $l_6_mode ?? ;
-    $this->profile = $profile ?? ;
+    $this->l_6_metadata = $l_6_metadata ?? null;
+    $this->l_6_mode = $l_6_mode ?? "";
+    $this->profile = $profile ?? "";
   }
 }
 
@@ -1299,8 +1299,8 @@ class DolbyVisionLevel6Metadata {
   ?'max_cll' => __integerMin0Max65535,
   ?'max_fall' => __integerMin0Max65535,
   ) $s = shape()) {
-    $this->max_cll = $max_cll ?? ;
-    $this->max_fall = $max_fall ?? ;
+    $this->max_cll = $max_cll ?? 0;
+    $this->max_fall = $max_fall ?? 0;
   }
 }
 
@@ -1320,9 +1320,9 @@ class DvbNitSettings {
   ?'network_name' => __stringMin1Max256,
   ?'nit_interval' => __integerMin25Max10000,
   ) $s = shape()) {
-    $this->network_id = $network_id ?? ;
-    $this->network_name = $network_name ?? ;
-    $this->nit_interval = $nit_interval ?? ;
+    $this->network_id = $network_id ?? 0;
+    $this->network_name = $network_name ?? "";
+    $this->nit_interval = $nit_interval ?? 0;
   }
 }
 
@@ -1339,9 +1339,9 @@ class DvbSdtSettings {
   ?'service_provider_name' => __stringMin1Max256,
   ) $s = shape()) {
     $this->output_sdt = $output_sdt ?? "";
-    $this->sdt_interval = $sdt_interval ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_provider_name = $service_provider_name ?? ;
+    $this->sdt_interval = $sdt_interval ?? 0;
+    $this->service_name = $service_name ?? "";
+    $this->service_provider_name = $service_provider_name ?? "";
   }
 }
 
@@ -1385,24 +1385,24 @@ class DvbSubDestinationSettings {
   ?'x_position' => __integerMin0Max2147483647,
   ?'y_position' => __integerMin0Max2147483647,
   ) $s = shape()) {
-    $this->alignment = $alignment ?? ;
-    $this->background_color = $background_color ?? ;
-    $this->background_opacity = $background_opacity ?? ;
-    $this->font_color = $font_color ?? ;
-    $this->font_opacity = $font_opacity ?? ;
-    $this->font_resolution = $font_resolution ?? ;
+    $this->alignment = $alignment ?? "";
+    $this->background_color = $background_color ?? "";
+    $this->background_opacity = $background_opacity ?? 0;
+    $this->font_color = $font_color ?? "";
+    $this->font_opacity = $font_opacity ?? 0;
+    $this->font_resolution = $font_resolution ?? 0;
     $this->font_script = $font_script ?? "";
-    $this->font_size = $font_size ?? ;
-    $this->outline_color = $outline_color ?? ;
-    $this->outline_size = $outline_size ?? ;
-    $this->shadow_color = $shadow_color ?? ;
-    $this->shadow_opacity = $shadow_opacity ?? ;
-    $this->shadow_x_offset = $shadow_x_offset ?? ;
-    $this->shadow_y_offset = $shadow_y_offset ?? ;
-    $this->subtitling_type = $subtitling_type ?? ;
-    $this->teletext_spacing = $teletext_spacing ?? ;
-    $this->x_position = $x_position ?? ;
-    $this->y_position = $y_position ?? ;
+    $this->font_size = $font_size ?? 0;
+    $this->outline_color = $outline_color ?? "";
+    $this->outline_size = $outline_size ?? 0;
+    $this->shadow_color = $shadow_color ?? "";
+    $this->shadow_opacity = $shadow_opacity ?? 0;
+    $this->shadow_x_offset = $shadow_x_offset ?? 0;
+    $this->shadow_y_offset = $shadow_y_offset ?? 0;
+    $this->subtitling_type = $subtitling_type ?? "";
+    $this->teletext_spacing = $teletext_spacing ?? "";
+    $this->x_position = $x_position ?? 0;
+    $this->y_position = $y_position ?? 0;
   }
 }
 
@@ -1412,7 +1412,7 @@ class DvbSubSourceSettings {
   public function __construct(shape(
   ?'pid' => __integerMin1Max2147483647,
   ) $s = shape()) {
-    $this->pid = $pid ?? ;
+    $this->pid = $pid ?? 0;
   }
 }
 
@@ -1436,7 +1436,7 @@ class DvbTdtSettings {
   public function __construct(shape(
   ?'tdt_interval' => __integerMin1000Max30000,
   ) $s = shape()) {
-    $this->tdt_interval = $tdt_interval ?? ;
+    $this->tdt_interval = $tdt_interval ?? 0;
   }
 }
 
@@ -1486,21 +1486,21 @@ class Eac3AtmosSettings {
   ?'stereo_downmix' => Eac3AtmosStereoDownmix,
   ?'surround_ex_mode' => Eac3AtmosSurroundExMode,
   ) $s = shape()) {
-    $this->bitrate = $bitrate ?? ;
-    $this->bitstream_mode = $bitstream_mode ?? ;
-    $this->coding_mode = $coding_mode ?? ;
-    $this->dialogue_intelligence = $dialogue_intelligence ?? ;
-    $this->dynamic_range_compression_line = $dynamic_range_compression_line ?? ;
-    $this->dynamic_range_compression_rf = $dynamic_range_compression_rf ?? ;
-    $this->lo_ro_center_mix_level = $lo_ro_center_mix_level ?? ;
-    $this->lo_ro_surround_mix_level = $lo_ro_surround_mix_level ?? ;
-    $this->lt_rt_center_mix_level = $lt_rt_center_mix_level ?? ;
-    $this->lt_rt_surround_mix_level = $lt_rt_surround_mix_level ?? ;
-    $this->metering_mode = $metering_mode ?? ;
-    $this->sample_rate = $sample_rate ?? ;
-    $this->speech_threshold = $speech_threshold ?? ;
-    $this->stereo_downmix = $stereo_downmix ?? ;
-    $this->surround_ex_mode = $surround_ex_mode ?? ;
+    $this->bitrate = $bitrate ?? 0;
+    $this->bitstream_mode = $bitstream_mode ?? "";
+    $this->coding_mode = $coding_mode ?? "";
+    $this->dialogue_intelligence = $dialogue_intelligence ?? "";
+    $this->dynamic_range_compression_line = $dynamic_range_compression_line ?? "";
+    $this->dynamic_range_compression_rf = $dynamic_range_compression_rf ?? "";
+    $this->lo_ro_center_mix_level = $lo_ro_center_mix_level ?? 0.0;
+    $this->lo_ro_surround_mix_level = $lo_ro_surround_mix_level ?? 0.0;
+    $this->lt_rt_center_mix_level = $lt_rt_center_mix_level ?? 0.0;
+    $this->lt_rt_surround_mix_level = $lt_rt_surround_mix_level ?? 0.0;
+    $this->metering_mode = $metering_mode ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
+    $this->speech_threshold = $speech_threshold ?? 0;
+    $this->stereo_downmix = $stereo_downmix ?? "";
+    $this->surround_ex_mode = $surround_ex_mode ?? "";
   }
 }
 
@@ -1576,27 +1576,27 @@ class Eac3Settings {
   ?'surround_ex_mode' => Eac3SurroundExMode,
   ?'surround_mode' => Eac3SurroundMode,
   ) $s = shape()) {
-    $this->attenuation_control = $attenuation_control ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->bitstream_mode = $bitstream_mode ?? ;
-    $this->coding_mode = $coding_mode ?? ;
-    $this->dc_filter = $dc_filter ?? ;
-    $this->dialnorm = $dialnorm ?? ;
-    $this->dynamic_range_compression_line = $dynamic_range_compression_line ?? ;
-    $this->dynamic_range_compression_rf = $dynamic_range_compression_rf ?? ;
-    $this->lfe_control = $lfe_control ?? ;
-    $this->lfe_filter = $lfe_filter ?? ;
-    $this->lo_ro_center_mix_level = $lo_ro_center_mix_level ?? ;
-    $this->lo_ro_surround_mix_level = $lo_ro_surround_mix_level ?? ;
-    $this->lt_rt_center_mix_level = $lt_rt_center_mix_level ?? ;
-    $this->lt_rt_surround_mix_level = $lt_rt_surround_mix_level ?? ;
-    $this->metadata_control = $metadata_control ?? ;
-    $this->passthrough_control = $passthrough_control ?? ;
-    $this->phase_control = $phase_control ?? ;
-    $this->sample_rate = $sample_rate ?? ;
-    $this->stereo_downmix = $stereo_downmix ?? ;
-    $this->surround_ex_mode = $surround_ex_mode ?? ;
-    $this->surround_mode = $surround_mode ?? ;
+    $this->attenuation_control = $attenuation_control ?? "";
+    $this->bitrate = $bitrate ?? 0;
+    $this->bitstream_mode = $bitstream_mode ?? "";
+    $this->coding_mode = $coding_mode ?? "";
+    $this->dc_filter = $dc_filter ?? "";
+    $this->dialnorm = $dialnorm ?? 0;
+    $this->dynamic_range_compression_line = $dynamic_range_compression_line ?? "";
+    $this->dynamic_range_compression_rf = $dynamic_range_compression_rf ?? "";
+    $this->lfe_control = $lfe_control ?? "";
+    $this->lfe_filter = $lfe_filter ?? "";
+    $this->lo_ro_center_mix_level = $lo_ro_center_mix_level ?? 0.0;
+    $this->lo_ro_surround_mix_level = $lo_ro_surround_mix_level ?? 0.0;
+    $this->lt_rt_center_mix_level = $lt_rt_center_mix_level ?? 0.0;
+    $this->lt_rt_surround_mix_level = $lt_rt_surround_mix_level ?? 0.0;
+    $this->metadata_control = $metadata_control ?? "";
+    $this->passthrough_control = $passthrough_control ?? "";
+    $this->phase_control = $phase_control ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
+    $this->stereo_downmix = $stereo_downmix ?? "";
+    $this->surround_ex_mode = $surround_ex_mode ?? "";
+    $this->surround_mode = $surround_mode ?? "";
   }
 }
 
@@ -1616,8 +1616,8 @@ class EmbeddedDestinationSettings {
   ?'destination_608_channel_number' => __integerMin1Max4,
   ?'destination_708_service_number' => __integerMin1Max6,
   ) $s = shape()) {
-    $this->destination_608_channel_number = $destination_608_channel_number ?? ;
-    $this->destination_708_service_number = $destination_708_service_number ?? ;
+    $this->destination_608_channel_number = $destination_608_channel_number ?? 0;
+    $this->destination_708_service_number = $destination_708_service_number ?? 0;
   }
 }
 
@@ -1633,10 +1633,10 @@ class EmbeddedSourceSettings {
   ?'source_608_track_number' => __integerMin1Max1,
   ?'terminate_captions' => EmbeddedTerminateCaptions,
   ) $s = shape()) {
-    $this->convert_608_to_708 = $convert_608_to_708 ?? ;
-    $this->source_608_channel_number = $source_608_channel_number ?? ;
-    $this->source_608_track_number = $source_608_track_number ?? ;
-    $this->terminate_captions = $terminate_captions ?? ;
+    $this->convert_608_to_708 = $convert_608_to_708 ?? "";
+    $this->source_608_channel_number = $source_608_channel_number ?? 0;
+    $this->source_608_track_number = $source_608_track_number ?? 0;
+    $this->terminate_captions = $terminate_captions ?? "";
   }
 }
 
@@ -1648,7 +1648,7 @@ class Endpoint {
   public function __construct(shape(
   ?'url' => __string,
   ) $s = shape()) {
-    $this->url = $url ?? ;
+    $this->url = $url ?? "";
   }
 }
 
@@ -1658,7 +1658,7 @@ class EsamManifestConfirmConditionNotification {
   public function __construct(shape(
   ?'mcc_xml' => __stringPatternSNManifestConfirmConditionNotificationNS,
   ) $s = shape()) {
-    $this->mcc_xml = $mcc_xml ?? ;
+    $this->mcc_xml = $mcc_xml ?? "";
   }
 }
 
@@ -1672,9 +1672,9 @@ class EsamSettings {
   ?'response_signal_preroll' => __integerMin0Max30000,
   ?'signal_processing_notification' => EsamSignalProcessingNotification,
   ) $s = shape()) {
-    $this->manifest_confirm_condition_notification = $manifest_confirm_condition_notification ?? ;
-    $this->response_signal_preroll = $response_signal_preroll ?? ;
-    $this->signal_processing_notification = $signal_processing_notification ?? ;
+    $this->manifest_confirm_condition_notification = $manifest_confirm_condition_notification ?? null;
+    $this->response_signal_preroll = $response_signal_preroll ?? 0;
+    $this->signal_processing_notification = $signal_processing_notification ?? null;
   }
 }
 
@@ -1684,7 +1684,7 @@ class EsamSignalProcessingNotification {
   public function __construct(shape(
   ?'scc_xml' => __stringPatternSNSignalProcessingNotificationNS,
   ) $s = shape()) {
-    $this->scc_xml = $scc_xml ?? ;
+    $this->scc_xml = $scc_xml ?? "";
   }
 }
 
@@ -1694,7 +1694,7 @@ class ExceptionBody {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1706,7 +1706,7 @@ class F4vSettings {
   public function __construct(shape(
   ?'moov_placement' => F4vMoovPlacement,
   ) $s = shape()) {
-    $this->moov_placement = $moov_placement ?? ;
+    $this->moov_placement = $moov_placement ?? "";
   }
 }
 
@@ -1718,7 +1718,7 @@ class FileGroupSettings {
   ?'destination' => __stringPatternS3,
   ?'destination_settings' => DestinationSettings,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
+    $this->destination = $destination ?? "";
     $this->destination_settings = $destination_settings ?? null;
   }
 }
@@ -1737,10 +1737,10 @@ class FileSourceSettings {
   ?'source_file' => __stringMin14PatternS3SccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTXmlXMLSmiSMIHttpsSccSCCTtmlTTMLDfxpDFXPStlSTLSrtSRTXmlXMLSmiSMI,
   ?'time_delta' => __integerMinNegative2147483648Max2147483647,
   ) $s = shape()) {
-    $this->convert_608_to_708 = $convert_608_to_708 ?? ;
-    $this->framerate = $framerate ?? ;
-    $this->source_file = $source_file ?? ;
-    $this->time_delta = $time_delta ?? ;
+    $this->convert_608_to_708 = $convert_608_to_708 ?? "";
+    $this->framerate = $framerate ?? null;
+    $this->source_file = $source_file ?? "";
+    $this->time_delta = $time_delta ?? 0;
   }
 }
 
@@ -1752,7 +1752,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1768,10 +1768,10 @@ class FrameCaptureSettings {
   ?'max_captures' => __integerMin1Max10000000,
   ?'quality' => __integerMin1Max100,
   ) $s = shape()) {
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->max_captures = $max_captures ?? ;
-    $this->quality = $quality ?? ;
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->max_captures = $max_captures ?? 0;
+    $this->quality = $quality ?? 0;
   }
 }
 
@@ -1781,7 +1781,7 @@ class GetJobRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1801,7 +1801,7 @@ class GetJobTemplateRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1821,7 +1821,7 @@ class GetPresetRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1841,7 +1841,7 @@ class GetQueueRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1893,9 +1893,9 @@ class H264QvbrSettings {
   ?'qvbr_quality_level' => __integerMin1Max10,
   ?'qvbr_quality_level_fine_tune' => __doubleMin0Max1,
   ) $s = shape()) {
-    $this->max_average_bitrate = $max_average_bitrate ?? ;
-    $this->qvbr_quality_level = $qvbr_quality_level ?? ;
-    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? ;
+    $this->max_average_bitrate = $max_average_bitrate ?? 0;
+    $this->qvbr_quality_level = $qvbr_quality_level ?? 0;
+    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? 0.0;
   }
 }
 
@@ -1987,45 +1987,45 @@ class H264Settings {
   ?'temporal_adaptive_quantization' => H264TemporalAdaptiveQuantization,
   ?'unregistered_sei_timecode' => H264UnregisteredSeiTimecode,
   ) $s = shape()) {
-    $this->adaptive_quantization = $adaptive_quantization ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->codec_level = $codec_level ?? ;
-    $this->codec_profile = $codec_profile ?? ;
-    $this->dynamic_sub_gop = $dynamic_sub_gop ?? ;
-    $this->entropy_encoding = $entropy_encoding ?? ;
-    $this->field_encoding = $field_encoding ?? ;
-    $this->flicker_adaptive_quantization = $flicker_adaptive_quantization ?? ;
-    $this->framerate_control = $framerate_control ?? ;
-    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? ;
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->gop_b_reference = $gop_b_reference ?? ;
-    $this->gop_closed_cadence = $gop_closed_cadence ?? ;
-    $this->gop_size = $gop_size ?? ;
-    $this->gop_size_units = $gop_size_units ?? ;
-    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? ;
-    $this->hrd_buffer_size = $hrd_buffer_size ?? ;
-    $this->interlace_mode = $interlace_mode ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->min_i_interval = $min_i_interval ?? ;
-    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? ;
-    $this->number_reference_frames = $number_reference_frames ?? ;
-    $this->par_control = $par_control ?? ;
-    $this->par_denominator = $par_denominator ?? ;
-    $this->par_numerator = $par_numerator ?? ;
-    $this->quality_tuning_level = $quality_tuning_level ?? ;
-    $this->qvbr_settings = $qvbr_settings ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->repeat_pps = $repeat_pps ?? ;
-    $this->scene_change_detect = $scene_change_detect ?? ;
-    $this->slices = $slices ?? ;
-    $this->slow_pal = $slow_pal ?? ;
-    $this->softness = $softness ?? ;
-    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? ;
-    $this->syntax = $syntax ?? ;
-    $this->telecine = $telecine ?? ;
-    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? ;
-    $this->unregistered_sei_timecode = $unregistered_sei_timecode ?? ;
+    $this->adaptive_quantization = $adaptive_quantization ?? "";
+    $this->bitrate = $bitrate ?? 0;
+    $this->codec_level = $codec_level ?? "";
+    $this->codec_profile = $codec_profile ?? "";
+    $this->dynamic_sub_gop = $dynamic_sub_gop ?? "";
+    $this->entropy_encoding = $entropy_encoding ?? "";
+    $this->field_encoding = $field_encoding ?? "";
+    $this->flicker_adaptive_quantization = $flicker_adaptive_quantization ?? "";
+    $this->framerate_control = $framerate_control ?? "";
+    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? "";
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->gop_b_reference = $gop_b_reference ?? "";
+    $this->gop_closed_cadence = $gop_closed_cadence ?? 0;
+    $this->gop_size = $gop_size ?? 0.0;
+    $this->gop_size_units = $gop_size_units ?? "";
+    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? 0;
+    $this->hrd_buffer_size = $hrd_buffer_size ?? 0;
+    $this->interlace_mode = $interlace_mode ?? "";
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->min_i_interval = $min_i_interval ?? 0;
+    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? 0;
+    $this->number_reference_frames = $number_reference_frames ?? 0;
+    $this->par_control = $par_control ?? "";
+    $this->par_denominator = $par_denominator ?? 0;
+    $this->par_numerator = $par_numerator ?? 0;
+    $this->quality_tuning_level = $quality_tuning_level ?? "";
+    $this->qvbr_settings = $qvbr_settings ?? null;
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->repeat_pps = $repeat_pps ?? "";
+    $this->scene_change_detect = $scene_change_detect ?? "";
+    $this->slices = $slices ?? 0;
+    $this->slow_pal = $slow_pal ?? "";
+    $this->softness = $softness ?? 0;
+    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? "";
+    $this->syntax = $syntax ?? "";
+    $this->telecine = $telecine ?? "";
+    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? "";
+    $this->unregistered_sei_timecode = $unregistered_sei_timecode ?? "";
   }
 }
 
@@ -2077,9 +2077,9 @@ class H265QvbrSettings {
   ?'qvbr_quality_level' => __integerMin1Max10,
   ?'qvbr_quality_level_fine_tune' => __doubleMin0Max1,
   ) $s = shape()) {
-    $this->max_average_bitrate = $max_average_bitrate ?? ;
-    $this->qvbr_quality_level = $qvbr_quality_level ?? ;
-    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? ;
+    $this->max_average_bitrate = $max_average_bitrate ?? 0;
+    $this->qvbr_quality_level = $qvbr_quality_level ?? 0;
+    $this->qvbr_quality_level_fine_tune = $qvbr_quality_level_fine_tune ?? 0.0;
   }
 }
 
@@ -2171,45 +2171,45 @@ class H265Settings {
   ?'unregistered_sei_timecode' => H265UnregisteredSeiTimecode,
   ?'write_mp_4_packaging_type' => H265WriteMp4PackagingType,
   ) $s = shape()) {
-    $this->adaptive_quantization = $adaptive_quantization ?? ;
-    $this->alternate_transfer_function_sei = $alternate_transfer_function_sei ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->codec_level = $codec_level ?? ;
-    $this->codec_profile = $codec_profile ?? ;
-    $this->dynamic_sub_gop = $dynamic_sub_gop ?? ;
-    $this->flicker_adaptive_quantization = $flicker_adaptive_quantization ?? ;
-    $this->framerate_control = $framerate_control ?? ;
-    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? ;
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->gop_b_reference = $gop_b_reference ?? ;
-    $this->gop_closed_cadence = $gop_closed_cadence ?? ;
-    $this->gop_size = $gop_size ?? ;
-    $this->gop_size_units = $gop_size_units ?? ;
-    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? ;
-    $this->hrd_buffer_size = $hrd_buffer_size ?? ;
-    $this->interlace_mode = $interlace_mode ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->min_i_interval = $min_i_interval ?? ;
-    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? ;
-    $this->number_reference_frames = $number_reference_frames ?? ;
-    $this->par_control = $par_control ?? ;
-    $this->par_denominator = $par_denominator ?? ;
-    $this->par_numerator = $par_numerator ?? ;
-    $this->quality_tuning_level = $quality_tuning_level ?? ;
-    $this->qvbr_settings = $qvbr_settings ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->sample_adaptive_offset_filter_mode = $sample_adaptive_offset_filter_mode ?? ;
-    $this->scene_change_detect = $scene_change_detect ?? ;
-    $this->slices = $slices ?? ;
-    $this->slow_pal = $slow_pal ?? ;
-    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? ;
-    $this->telecine = $telecine ?? ;
-    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? ;
-    $this->temporal_ids = $temporal_ids ?? ;
-    $this->tiles = $tiles ?? ;
-    $this->unregistered_sei_timecode = $unregistered_sei_timecode ?? ;
-    $this->write_mp_4_packaging_type = $write_mp_4_packaging_type ?? ;
+    $this->adaptive_quantization = $adaptive_quantization ?? "";
+    $this->alternate_transfer_function_sei = $alternate_transfer_function_sei ?? "";
+    $this->bitrate = $bitrate ?? 0;
+    $this->codec_level = $codec_level ?? "";
+    $this->codec_profile = $codec_profile ?? "";
+    $this->dynamic_sub_gop = $dynamic_sub_gop ?? "";
+    $this->flicker_adaptive_quantization = $flicker_adaptive_quantization ?? "";
+    $this->framerate_control = $framerate_control ?? "";
+    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? "";
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->gop_b_reference = $gop_b_reference ?? "";
+    $this->gop_closed_cadence = $gop_closed_cadence ?? 0;
+    $this->gop_size = $gop_size ?? 0.0;
+    $this->gop_size_units = $gop_size_units ?? "";
+    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? 0;
+    $this->hrd_buffer_size = $hrd_buffer_size ?? 0;
+    $this->interlace_mode = $interlace_mode ?? "";
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->min_i_interval = $min_i_interval ?? 0;
+    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? 0;
+    $this->number_reference_frames = $number_reference_frames ?? 0;
+    $this->par_control = $par_control ?? "";
+    $this->par_denominator = $par_denominator ?? 0;
+    $this->par_numerator = $par_numerator ?? 0;
+    $this->quality_tuning_level = $quality_tuning_level ?? "";
+    $this->qvbr_settings = $qvbr_settings ?? null;
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->sample_adaptive_offset_filter_mode = $sample_adaptive_offset_filter_mode ?? "";
+    $this->scene_change_detect = $scene_change_detect ?? "";
+    $this->slices = $slices ?? 0;
+    $this->slow_pal = $slow_pal ?? "";
+    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? "";
+    $this->telecine = $telecine ?? "";
+    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? "";
+    $this->temporal_ids = $temporal_ids ?? "";
+    $this->tiles = $tiles ?? "";
+    $this->unregistered_sei_timecode = $unregistered_sei_timecode ?? "";
+    $this->write_mp_4_packaging_type = $write_mp_4_packaging_type ?? "";
   }
 }
 
@@ -2257,18 +2257,18 @@ class Hdr10Metadata {
   ?'white_point_x' => __integerMin0Max50000,
   ?'white_point_y' => __integerMin0Max50000,
   ) $s = shape()) {
-    $this->blue_primary_x = $blue_primary_x ?? ;
-    $this->blue_primary_y = $blue_primary_y ?? ;
-    $this->green_primary_x = $green_primary_x ?? ;
-    $this->green_primary_y = $green_primary_y ?? ;
-    $this->max_content_light_level = $max_content_light_level ?? ;
-    $this->max_frame_average_light_level = $max_frame_average_light_level ?? ;
-    $this->max_luminance = $max_luminance ?? ;
-    $this->min_luminance = $min_luminance ?? ;
-    $this->red_primary_x = $red_primary_x ?? ;
-    $this->red_primary_y = $red_primary_y ?? ;
-    $this->white_point_x = $white_point_x ?? ;
-    $this->white_point_y = $white_point_y ?? ;
+    $this->blue_primary_x = $blue_primary_x ?? 0;
+    $this->blue_primary_y = $blue_primary_y ?? 0;
+    $this->green_primary_x = $green_primary_x ?? 0;
+    $this->green_primary_y = $green_primary_y ?? 0;
+    $this->max_content_light_level = $max_content_light_level ?? 0;
+    $this->max_frame_average_light_level = $max_frame_average_light_level ?? 0;
+    $this->max_luminance = $max_luminance ?? 0;
+    $this->min_luminance = $min_luminance ?? 0;
+    $this->red_primary_x = $red_primary_x ?? 0;
+    $this->red_primary_y = $red_primary_y ?? 0;
+    $this->white_point_x = $white_point_x ?? 0;
+    $this->white_point_y = $white_point_y ?? 0;
   }
 }
 
@@ -2282,8 +2282,8 @@ class HlsAdditionalManifest {
   ?'manifest_name_modifier' => __stringMin1,
   ?'selected_outputs' => __listOf__stringMin1,
   ) $s = shape()) {
-    $this->manifest_name_modifier = $manifest_name_modifier ?? ;
-    $this->selected_outputs = $selected_outputs ?? ;
+    $this->manifest_name_modifier = $manifest_name_modifier ?? "";
+    $this->selected_outputs = $selected_outputs ?? [];
   }
 }
 
@@ -2303,10 +2303,10 @@ class HlsCaptionLanguageMapping {
   ?'language_code' => LanguageCode,
   ?'language_description' => __string,
   ) $s = shape()) {
-    $this->caption_channel = $caption_channel ?? ;
-    $this->custom_language_code = $custom_language_code ?? ;
+    $this->caption_channel = $caption_channel ?? 0;
+    $this->custom_language_code = $custom_language_code ?? "";
     $this->language_code = $language_code ?? "";
-    $this->language_description = $language_description ?? ;
+    $this->language_description = $language_description ?? "";
   }
 }
 
@@ -2336,10 +2336,10 @@ class HlsEncryptionSettings {
   ?'static_key_provider' => StaticKeyProvider,
   ?'type' => HlsKeyProviderType,
   ) $s = shape()) {
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
-    $this->encryption_method = $encryption_method ?? ;
-    $this->initialization_vector_in_manifest = $initialization_vector_in_manifest ?? ;
-    $this->offline_encrypted = $offline_encrypted ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
+    $this->encryption_method = $encryption_method ?? "";
+    $this->initialization_vector_in_manifest = $initialization_vector_in_manifest ?? "";
+    $this->offline_encrypted = $offline_encrypted ?? "";
     $this->speke_key_provider = $speke_key_provider ?? null;
     $this->static_key_provider = $static_key_provider ?? null;
     $this->type = $type ?? "";
@@ -2402,31 +2402,31 @@ class HlsGroupSettings {
   ?'timed_metadata_id_3_period' => __integerMinNegative2147483648Max2147483647,
   ?'timestamp_delta_milliseconds' => __integerMinNegative2147483648Max2147483647,
   ) $s = shape()) {
-    $this->ad_markers = $ad_markers ?? ;
-    $this->additional_manifests = $additional_manifests ?? ;
-    $this->base_url = $base_url ?? ;
-    $this->caption_language_mappings = $caption_language_mappings ?? ;
-    $this->caption_language_setting = $caption_language_setting ?? ;
-    $this->client_cache = $client_cache ?? ;
-    $this->codec_specification = $codec_specification ?? ;
-    $this->destination = $destination ?? ;
+    $this->ad_markers = $ad_markers ?? [];
+    $this->additional_manifests = $additional_manifests ?? [];
+    $this->base_url = $base_url ?? "";
+    $this->caption_language_mappings = $caption_language_mappings ?? [];
+    $this->caption_language_setting = $caption_language_setting ?? "";
+    $this->client_cache = $client_cache ?? "";
+    $this->codec_specification = $codec_specification ?? "";
+    $this->destination = $destination ?? "";
     $this->destination_settings = $destination_settings ?? null;
-    $this->directory_structure = $directory_structure ?? ;
-    $this->encryption = $encryption ?? ;
-    $this->manifest_compression = $manifest_compression ?? ;
-    $this->manifest_duration_format = $manifest_duration_format ?? ;
-    $this->min_final_segment_length = $min_final_segment_length ?? ;
-    $this->min_segment_length = $min_segment_length ?? ;
-    $this->output_selection = $output_selection ?? ;
-    $this->program_date_time = $program_date_time ?? ;
-    $this->program_date_time_period = $program_date_time_period ?? ;
-    $this->segment_control = $segment_control ?? ;
-    $this->segment_length = $segment_length ?? ;
-    $this->segments_per_subdirectory = $segments_per_subdirectory ?? ;
-    $this->stream_inf_resolution = $stream_inf_resolution ?? ;
-    $this->timed_metadata_id_3_frame = $timed_metadata_id_3_frame ?? ;
-    $this->timed_metadata_id_3_period = $timed_metadata_id_3_period ?? ;
-    $this->timestamp_delta_milliseconds = $timestamp_delta_milliseconds ?? ;
+    $this->directory_structure = $directory_structure ?? "";
+    $this->encryption = $encryption ?? null;
+    $this->manifest_compression = $manifest_compression ?? "";
+    $this->manifest_duration_format = $manifest_duration_format ?? "";
+    $this->min_final_segment_length = $min_final_segment_length ?? 0.0;
+    $this->min_segment_length = $min_segment_length ?? 0;
+    $this->output_selection = $output_selection ?? "";
+    $this->program_date_time = $program_date_time ?? "";
+    $this->program_date_time_period = $program_date_time_period ?? 0;
+    $this->segment_control = $segment_control ?? "";
+    $this->segment_length = $segment_length ?? 0;
+    $this->segments_per_subdirectory = $segments_per_subdirectory ?? 0;
+    $this->stream_inf_resolution = $stream_inf_resolution ?? "";
+    $this->timed_metadata_id_3_frame = $timed_metadata_id_3_frame ?? "";
+    $this->timed_metadata_id_3_period = $timed_metadata_id_3_period ?? 0;
+    $this->timestamp_delta_milliseconds = $timestamp_delta_milliseconds ?? 0;
   }
 }
 
@@ -2464,12 +2464,12 @@ class HlsSettings {
   ?'i_frame_only_manifest' => HlsIFrameOnlyManifest,
   ?'segment_modifier' => __string,
   ) $s = shape()) {
-    $this->audio_group_id = $audio_group_id ?? ;
-    $this->audio_only_container = $audio_only_container ?? ;
-    $this->audio_rendition_sets = $audio_rendition_sets ?? ;
-    $this->audio_track_type = $audio_track_type ?? ;
-    $this->i_frame_only_manifest = $i_frame_only_manifest ?? ;
-    $this->segment_modifier = $segment_modifier ?? ;
+    $this->audio_group_id = $audio_group_id ?? "";
+    $this->audio_only_container = $audio_only_container ?? "";
+    $this->audio_rendition_sets = $audio_rendition_sets ?? "";
+    $this->audio_track_type = $audio_track_type ?? "";
+    $this->i_frame_only_manifest = $i_frame_only_manifest ?? "";
+    $this->segment_modifier = $segment_modifier ?? "";
   }
 }
 
@@ -2487,9 +2487,9 @@ class HopDestination {
   ?'queue' => __string,
   ?'wait_minutes' => __integer,
   ) $s = shape()) {
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->wait_minutes = $wait_minutes ?? ;
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->wait_minutes = $wait_minutes ?? 0;
   }
 }
 
@@ -2501,8 +2501,8 @@ class Id3Insertion {
   ?'id_3' => __stringPatternAZaZ0902,
   ?'timecode' => __stringPattern010920405090509092,
   ) $s = shape()) {
-    $this->id_3 = $id_3 ?? ;
-    $this->timecode = $timecode ?? ;
+    $this->id_3 = $id_3 ?? "";
+    $this->timecode = $timecode ?? "";
   }
 }
 
@@ -2512,7 +2512,7 @@ class ImageInserter {
   public function __construct(shape(
   ?'insertable_images' => __listOfInsertableImage,
   ) $s = shape()) {
-    $this->insertable_images = $insertable_images ?? ;
+    $this->insertable_images = $insertable_images ?? [];
   }
 }
 
@@ -2522,7 +2522,7 @@ class ImscDestinationSettings {
   public function __construct(shape(
   ?'style_passthrough' => ImscStylePassthrough,
   ) $s = shape()) {
-    $this->style_passthrough = $style_passthrough ?? ;
+    $this->style_passthrough = $style_passthrough ?? "";
   }
 }
 
@@ -2570,24 +2570,24 @@ class Input {
   ?'timecode_start' => __stringMin11Max11Pattern01D20305D205D,
   ?'video_selector' => VideoSelector,
   ) $s = shape()) {
-    $this->audio_selector_groups = $audio_selector_groups ?? ;
-    $this->audio_selectors = $audio_selectors ?? ;
-    $this->caption_selectors = $caption_selectors ?? ;
-    $this->crop = $crop ?? ;
-    $this->deblock_filter = $deblock_filter ?? ;
-    $this->decryption_settings = $decryption_settings ?? ;
-    $this->denoise_filter = $denoise_filter ?? ;
-    $this->file_input = $file_input ?? ;
-    $this->filter_enable = $filter_enable ?? ;
-    $this->filter_strength = $filter_strength ?? ;
+    $this->audio_selector_groups = $audio_selector_groups ?? [];
+    $this->audio_selectors = $audio_selectors ?? [];
+    $this->caption_selectors = $caption_selectors ?? [];
+    $this->crop = $crop ?? null;
+    $this->deblock_filter = $deblock_filter ?? "";
+    $this->decryption_settings = $decryption_settings ?? null;
+    $this->denoise_filter = $denoise_filter ?? "";
+    $this->file_input = $file_input ?? "";
+    $this->filter_enable = $filter_enable ?? "";
+    $this->filter_strength = $filter_strength ?? 0;
     $this->image_inserter = $image_inserter ?? null;
-    $this->input_clippings = $input_clippings ?? ;
-    $this->position = $position ?? ;
-    $this->program_number = $program_number ?? ;
-    $this->psi_control = $psi_control ?? ;
-    $this->supplemental_imps = $supplemental_imps ?? ;
+    $this->input_clippings = $input_clippings ?? [];
+    $this->position = $position ?? null;
+    $this->program_number = $program_number ?? 0;
+    $this->psi_control = $psi_control ?? "";
+    $this->supplemental_imps = $supplemental_imps ?? [];
     $this->timecode_source = $timecode_source ?? "";
-    $this->timecode_start = $timecode_start ?? ;
+    $this->timecode_start = $timecode_start ?? "";
     $this->video_selector = $video_selector ?? null;
   }
 }
@@ -2600,8 +2600,8 @@ class InputClipping {
   ?'end_timecode' => __stringPattern010920405090509092,
   ?'start_timecode' => __stringPattern010920405090509092,
   ) $s = shape()) {
-    $this->end_timecode = $end_timecode ?? ;
-    $this->start_timecode = $start_timecode ?? ;
+    $this->end_timecode = $end_timecode ?? "";
+    $this->start_timecode = $start_timecode ?? "";
   }
 }
 
@@ -2620,9 +2620,9 @@ class InputDecryptionSettings {
   ?'kms_key_region' => __stringMin9Max19PatternAZ26EastWestCentralNorthSouthEastWest1912,
   ) $s = shape()) {
     $this->decryption_mode = $decryption_mode ?? "";
-    $this->encrypted_decryption_key = $encrypted_decryption_key ?? ;
-    $this->initialization_vector = $initialization_vector ?? ;
-    $this->kms_key_region = $kms_key_region ?? ;
+    $this->encrypted_decryption_key = $encrypted_decryption_key ?? "";
+    $this->initialization_vector = $initialization_vector ?? "";
+    $this->kms_key_region = $kms_key_region ?? "";
   }
 }
 
@@ -2670,21 +2670,21 @@ class InputTemplate {
   ?'timecode_start' => __stringMin11Max11Pattern01D20305D205D,
   ?'video_selector' => VideoSelector,
   ) $s = shape()) {
-    $this->audio_selector_groups = $audio_selector_groups ?? ;
-    $this->audio_selectors = $audio_selectors ?? ;
-    $this->caption_selectors = $caption_selectors ?? ;
-    $this->crop = $crop ?? ;
-    $this->deblock_filter = $deblock_filter ?? ;
-    $this->denoise_filter = $denoise_filter ?? ;
-    $this->filter_enable = $filter_enable ?? ;
-    $this->filter_strength = $filter_strength ?? ;
+    $this->audio_selector_groups = $audio_selector_groups ?? [];
+    $this->audio_selectors = $audio_selectors ?? [];
+    $this->caption_selectors = $caption_selectors ?? [];
+    $this->crop = $crop ?? null;
+    $this->deblock_filter = $deblock_filter ?? "";
+    $this->denoise_filter = $denoise_filter ?? "";
+    $this->filter_enable = $filter_enable ?? "";
+    $this->filter_strength = $filter_strength ?? 0;
     $this->image_inserter = $image_inserter ?? null;
-    $this->input_clippings = $input_clippings ?? ;
-    $this->position = $position ?? ;
-    $this->program_number = $program_number ?? ;
-    $this->psi_control = $psi_control ?? ;
+    $this->input_clippings = $input_clippings ?? [];
+    $this->position = $position ?? null;
+    $this->program_number = $program_number ?? 0;
+    $this->psi_control = $psi_control ?? "";
     $this->timecode_source = $timecode_source ?? "";
-    $this->timecode_start = $timecode_start ?? ;
+    $this->timecode_start = $timecode_start ?? "";
     $this->video_selector = $video_selector ?? null;
   }
 }
@@ -2717,17 +2717,17 @@ class InsertableImage {
   ?'start_time' => __stringPattern01D20305D205D,
   ?'width' => __integerMin0Max2147483647,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->fade_in = $fade_in ?? ;
-    $this->fade_out = $fade_out ?? ;
-    $this->height = $height ?? ;
-    $this->image_inserter_input = $image_inserter_input ?? ;
-    $this->image_x = $image_x ?? ;
-    $this->image_y = $image_y ?? ;
-    $this->layer = $layer ?? ;
-    $this->opacity = $opacity ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->width = $width ?? ;
+    $this->duration = $duration ?? 0;
+    $this->fade_in = $fade_in ?? 0;
+    $this->fade_out = $fade_out ?? 0;
+    $this->height = $height ?? 0;
+    $this->image_inserter_input = $image_inserter_input ?? "";
+    $this->image_x = $image_x ?? 0;
+    $this->image_y = $image_y ?? 0;
+    $this->layer = $layer ?? 0;
+    $this->opacity = $opacity ?? 0;
+    $this->start_time = $start_time ?? "";
+    $this->width = $width ?? 0;
   }
 }
 
@@ -2737,7 +2737,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2797,29 +2797,29 @@ class Job {
   ) $s = shape()) {
     $this->acceleration_settings = $acceleration_settings ?? null;
     $this->acceleration_status = $acceleration_status ?? "";
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->billing_tags_source = $billing_tags_source ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->current_phase = $current_phase ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->hop_destinations = $hop_destinations ?? ;
-    $this->id = $id ?? ;
-    $this->job_percent_complete = $job_percent_complete ?? ;
-    $this->job_template = $job_template ?? null;
-    $this->messages = $messages ?? ;
-    $this->output_group_details = $output_group_details ?? ;
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->queue_transitions = $queue_transitions ?? ;
-    $this->retry_count = $retry_count ?? ;
-    $this->role = $role ?? ;
-    $this->settings = $settings ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->current_phase = $current_phase ?? "";
+    $this->error_code = $error_code ?? 0;
+    $this->error_message = $error_message ?? "";
+    $this->hop_destinations = $hop_destinations ?? [];
+    $this->id = $id ?? "";
+    $this->job_percent_complete = $job_percent_complete ?? 0;
+    $this->job_template = $job_template ?? "";
+    $this->messages = $messages ?? null;
+    $this->output_group_details = $output_group_details ?? [];
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->queue_transitions = $queue_transitions ?? [];
+    $this->retry_count = $retry_count ?? 0;
+    $this->role = $role ?? "";
+    $this->settings = $settings ?? null;
     $this->simulate_reserved_queue = $simulate_reserved_queue ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->status_update_interval = $status_update_interval ?? "";
     $this->timing = $timing ?? null;
-    $this->user_metadata = $user_metadata ?? ;
+    $this->user_metadata = $user_metadata ?? [];
   }
 }
 
@@ -2831,8 +2831,8 @@ class JobMessages {
   ?'info' => __listOf__string,
   ?'warning' => __listOf__string,
   ) $s = shape()) {
-    $this->info = $info ?? ;
-    $this->warning = $warning ?? ;
+    $this->info = $info ?? [];
+    $this->warning = $warning ?? [];
   }
 }
 
@@ -2860,13 +2860,13 @@ class JobSettings {
   ?'timecode_config' => TimecodeConfig,
   ?'timed_metadata_insertion' => TimedMetadataInsertion,
   ) $s = shape()) {
-    $this->ad_avail_offset = $ad_avail_offset ?? ;
+    $this->ad_avail_offset = $ad_avail_offset ?? 0;
     $this->avail_blanking = $avail_blanking ?? null;
-    $this->esam = $esam ?? ;
-    $this->inputs = $inputs ?? ;
+    $this->esam = $esam ?? null;
+    $this->inputs = $inputs ?? [];
     $this->motion_image_inserter = $motion_image_inserter ?? null;
     $this->nielsen_configuration = $nielsen_configuration ?? null;
-    $this->output_groups = $output_groups ?? ;
+    $this->output_groups = $output_groups ?? [];
     $this->timecode_config = $timecode_config ?? null;
     $this->timed_metadata_insertion = $timed_metadata_insertion ?? null;
   }
@@ -2905,16 +2905,16 @@ class JobTemplate {
   ?'type' => Type,
   ) $s = shape()) {
     $this->acceleration_settings = $acceleration_settings ?? null;
-    $this->arn = $arn ?? ;
-    $this->category = $category ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->hop_destinations = $hop_destinations ?? ;
-    $this->last_updated = $last_updated ?? ;
-    $this->name = $name ?? ;
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->settings = $settings ?? ;
+    $this->arn = $arn ?? "";
+    $this->category = $category ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->hop_destinations = $hop_destinations ?? [];
+    $this->last_updated = $last_updated ?? 0;
+    $this->name = $name ?? "";
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->settings = $settings ?? null;
     $this->status_update_interval = $status_update_interval ?? "";
     $this->type = $type ?? "";
   }
@@ -2944,13 +2944,13 @@ class JobTemplateSettings {
   ?'timecode_config' => TimecodeConfig,
   ?'timed_metadata_insertion' => TimedMetadataInsertion,
   ) $s = shape()) {
-    $this->ad_avail_offset = $ad_avail_offset ?? ;
+    $this->ad_avail_offset = $ad_avail_offset ?? 0;
     $this->avail_blanking = $avail_blanking ?? null;
-    $this->esam = $esam ?? ;
-    $this->inputs = $inputs ?? ;
+    $this->esam = $esam ?? null;
+    $this->inputs = $inputs ?? [];
     $this->motion_image_inserter = $motion_image_inserter ?? null;
     $this->nielsen_configuration = $nielsen_configuration ?? null;
-    $this->output_groups = $output_groups ?? ;
+    $this->output_groups = $output_groups ?? [];
     $this->timecode_config = $timecode_config ?? null;
     $this->timed_metadata_insertion = $timed_metadata_insertion ?? null;
   }
@@ -2972,10 +2972,10 @@ class ListJobTemplatesRequest {
   ?'next_token' => __string,
   ?'order' => Order,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->list_by = $list_by ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->category = $category ?? "";
+    $this->list_by = $list_by ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->order = $order ?? "";
   }
 }
@@ -2988,8 +2988,8 @@ class ListJobTemplatesResponse {
   ?'job_templates' => __listOfJobTemplate,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->job_templates = $job_templates ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_templates = $job_templates ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -3007,11 +3007,11 @@ class ListJobsRequest {
   ?'queue' => __string,
   ?'status' => JobStatus,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->order = $order ?? "";
-    $this->queue = $queue ?? null;
-    $this->status = $status ?? ;
+    $this->queue = $queue ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -3023,8 +3023,8 @@ class ListJobsResponse {
   ?'jobs' => __listOfJob,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->jobs = $jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -3042,10 +3042,10 @@ class ListPresetsRequest {
   ?'next_token' => __string,
   ?'order' => Order,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->list_by = $list_by ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->category = $category ?? "";
+    $this->list_by = $list_by ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->order = $order ?? "";
   }
 }
@@ -3058,8 +3058,8 @@ class ListPresetsResponse {
   ?'next_token' => __string,
   ?'presets' => __listOfPreset,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->presets = $presets ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->presets = $presets ?? [];
   }
 }
 
@@ -3075,9 +3075,9 @@ class ListQueuesRequest {
   ?'next_token' => __string,
   ?'order' => Order,
   ) $s = shape()) {
-    $this->list_by = $list_by ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->list_by = $list_by ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->order = $order ?? "";
   }
 }
@@ -3090,8 +3090,8 @@ class ListQueuesResponse {
   ?'next_token' => __string,
   ?'queues' => __listOfQueue,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->queues = $queues ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->queues = $queues ?? [];
   }
 }
 
@@ -3101,7 +3101,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'arn' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -3139,7 +3139,7 @@ class M2tsScte35Esam {
   public function __construct(shape(
   ?'scte_35_esam_pid' => __integerMin32Max8182,
   ) $s = shape()) {
-    $this->scte_35_esam_pid = $scte_35_esam_pid ?? ;
+    $this->scte_35_esam_pid = $scte_35_esam_pid ?? 0;
   }
 }
 
@@ -3225,42 +3225,42 @@ class M2tsSettings {
   ?'transport_stream_id' => __integerMin0Max65535,
   ?'video_pid' => __integerMin32Max8182,
   ) $s = shape()) {
-    $this->audio_buffer_model = $audio_buffer_model ?? ;
-    $this->audio_frames_per_pes = $audio_frames_per_pes ?? ;
-    $this->audio_pids = $audio_pids ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->buffer_model = $buffer_model ?? ;
+    $this->audio_buffer_model = $audio_buffer_model ?? "";
+    $this->audio_frames_per_pes = $audio_frames_per_pes ?? 0;
+    $this->audio_pids = $audio_pids ?? [];
+    $this->bitrate = $bitrate ?? 0;
+    $this->buffer_model = $buffer_model ?? "";
     $this->dvb_nit_settings = $dvb_nit_settings ?? null;
     $this->dvb_sdt_settings = $dvb_sdt_settings ?? null;
-    $this->dvb_sub_pids = $dvb_sub_pids ?? ;
+    $this->dvb_sub_pids = $dvb_sub_pids ?? [];
     $this->dvb_tdt_settings = $dvb_tdt_settings ?? null;
-    $this->dvb_teletext_pid = $dvb_teletext_pid ?? ;
-    $this->ebp_audio_interval = $ebp_audio_interval ?? ;
-    $this->ebp_placement = $ebp_placement ?? ;
-    $this->es_rate_in_pes = $es_rate_in_pes ?? ;
-    $this->force_ts_video_ebp_order = $force_ts_video_ebp_order ?? ;
-    $this->fragment_time = $fragment_time ?? ;
-    $this->max_pcr_interval = $max_pcr_interval ?? ;
-    $this->min_ebp_interval = $min_ebp_interval ?? ;
-    $this->nielsen_id_3 = $nielsen_id_3 ?? ;
-    $this->null_packet_bitrate = $null_packet_bitrate ?? ;
-    $this->pat_interval = $pat_interval ?? ;
-    $this->pcr_control = $pcr_control ?? ;
-    $this->pcr_pid = $pcr_pid ?? ;
-    $this->pmt_interval = $pmt_interval ?? ;
-    $this->pmt_pid = $pmt_pid ?? ;
-    $this->private_metadata_pid = $private_metadata_pid ?? ;
-    $this->program_number = $program_number ?? ;
-    $this->rate_mode = $rate_mode ?? ;
-    $this->scte_35_esam = $scte_35_esam ?? ;
-    $this->scte_35_pid = $scte_35_pid ?? ;
-    $this->scte_35_source = $scte_35_source ?? ;
-    $this->segmentation_markers = $segmentation_markers ?? ;
-    $this->segmentation_style = $segmentation_style ?? ;
-    $this->segmentation_time = $segmentation_time ?? ;
-    $this->timed_metadata_pid = $timed_metadata_pid ?? ;
-    $this->transport_stream_id = $transport_stream_id ?? ;
-    $this->video_pid = $video_pid ?? ;
+    $this->dvb_teletext_pid = $dvb_teletext_pid ?? 0;
+    $this->ebp_audio_interval = $ebp_audio_interval ?? "";
+    $this->ebp_placement = $ebp_placement ?? "";
+    $this->es_rate_in_pes = $es_rate_in_pes ?? "";
+    $this->force_ts_video_ebp_order = $force_ts_video_ebp_order ?? "";
+    $this->fragment_time = $fragment_time ?? 0.0;
+    $this->max_pcr_interval = $max_pcr_interval ?? 0;
+    $this->min_ebp_interval = $min_ebp_interval ?? 0;
+    $this->nielsen_id_3 = $nielsen_id_3 ?? "";
+    $this->null_packet_bitrate = $null_packet_bitrate ?? 0.0;
+    $this->pat_interval = $pat_interval ?? 0;
+    $this->pcr_control = $pcr_control ?? "";
+    $this->pcr_pid = $pcr_pid ?? 0;
+    $this->pmt_interval = $pmt_interval ?? 0;
+    $this->pmt_pid = $pmt_pid ?? 0;
+    $this->private_metadata_pid = $private_metadata_pid ?? 0;
+    $this->program_number = $program_number ?? 0;
+    $this->rate_mode = $rate_mode ?? "";
+    $this->scte_35_esam = $scte_35_esam ?? null;
+    $this->scte_35_pid = $scte_35_pid ?? 0;
+    $this->scte_35_source = $scte_35_source ?? "";
+    $this->segmentation_markers = $segmentation_markers ?? "";
+    $this->segmentation_style = $segmentation_style ?? "";
+    $this->segmentation_time = $segmentation_time ?? 0.0;
+    $this->timed_metadata_pid = $timed_metadata_pid ?? 0;
+    $this->transport_stream_id = $transport_stream_id ?? 0;
+    $this->video_pid = $video_pid ?? 0;
   }
 }
 
@@ -3306,22 +3306,22 @@ class M3u8Settings {
   ?'transport_stream_id' => __integerMin0Max65535,
   ?'video_pid' => __integerMin32Max8182,
   ) $s = shape()) {
-    $this->audio_frames_per_pes = $audio_frames_per_pes ?? ;
-    $this->audio_pids = $audio_pids ?? ;
-    $this->nielsen_id_3 = $nielsen_id_3 ?? ;
-    $this->pat_interval = $pat_interval ?? ;
-    $this->pcr_control = $pcr_control ?? ;
-    $this->pcr_pid = $pcr_pid ?? ;
-    $this->pmt_interval = $pmt_interval ?? ;
-    $this->pmt_pid = $pmt_pid ?? ;
-    $this->private_metadata_pid = $private_metadata_pid ?? ;
-    $this->program_number = $program_number ?? ;
-    $this->scte_35_pid = $scte_35_pid ?? ;
-    $this->scte_35_source = $scte_35_source ?? ;
+    $this->audio_frames_per_pes = $audio_frames_per_pes ?? 0;
+    $this->audio_pids = $audio_pids ?? [];
+    $this->nielsen_id_3 = $nielsen_id_3 ?? "";
+    $this->pat_interval = $pat_interval ?? 0;
+    $this->pcr_control = $pcr_control ?? "";
+    $this->pcr_pid = $pcr_pid ?? 0;
+    $this->pmt_interval = $pmt_interval ?? 0;
+    $this->pmt_pid = $pmt_pid ?? 0;
+    $this->private_metadata_pid = $private_metadata_pid ?? 0;
+    $this->program_number = $program_number ?? 0;
+    $this->scte_35_pid = $scte_35_pid ?? 0;
+    $this->scte_35_source = $scte_35_source ?? "";
     $this->timed_metadata = $timed_metadata ?? "";
-    $this->timed_metadata_pid = $timed_metadata_pid ?? ;
-    $this->transport_stream_id = $transport_stream_id ?? ;
-    $this->video_pid = $video_pid ?? ;
+    $this->timed_metadata_pid = $timed_metadata_pid ?? 0;
+    $this->transport_stream_id = $transport_stream_id ?? 0;
+    $this->video_pid = $video_pid ?? 0;
   }
 }
 
@@ -3341,12 +3341,12 @@ class MotionImageInserter {
   ?'playback' => MotionImagePlayback,
   ?'start_time' => __stringMin11Max11Pattern01D20305D205D,
   ) $s = shape()) {
-    $this->framerate = $framerate ?? ;
-    $this->input = $input ?? null;
-    $this->insertion_mode = $insertion_mode ?? ;
-    $this->offset = $offset ?? ;
-    $this->playback = $playback ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->framerate = $framerate ?? null;
+    $this->input = $input ?? "";
+    $this->insertion_mode = $insertion_mode ?? "";
+    $this->offset = $offset ?? null;
+    $this->playback = $playback ?? "";
+    $this->start_time = $start_time ?? "";
   }
 }
 
@@ -3358,8 +3358,8 @@ class MotionImageInsertionFramerate {
   ?'framerate_denominator' => __integerMin1Max17895697,
   ?'framerate_numerator' => __integerMin1Max2147483640,
   ) $s = shape()) {
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
   }
 }
 
@@ -3373,8 +3373,8 @@ class MotionImageInsertionOffset {
   ?'image_x' => __integerMin0Max2147483647,
   ?'image_y' => __integerMin0Max2147483647,
   ) $s = shape()) {
-    $this->image_x = $image_x ?? ;
-    $this->image_y = $image_y ?? ;
+    $this->image_x = $image_x ?? 0;
+    $this->image_y = $image_y ?? 0;
   }
 }
 
@@ -3404,11 +3404,11 @@ class MovSettings {
   ?'padding_control' => MovPaddingControl,
   ?'reference' => MovReference,
   ) $s = shape()) {
-    $this->clap_atom = $clap_atom ?? ;
-    $this->cslg_atom = $cslg_atom ?? ;
-    $this->mpeg_2_four_cc_control = $mpeg_2_four_cc_control ?? ;
-    $this->padding_control = $padding_control ?? ;
-    $this->reference = $reference ?? ;
+    $this->clap_atom = $clap_atom ?? "";
+    $this->cslg_atom = $cslg_atom ?? "";
+    $this->mpeg_2_four_cc_control = $mpeg_2_four_cc_control ?? "";
+    $this->padding_control = $padding_control ?? "";
+    $this->reference = $reference ?? "";
   }
 }
 
@@ -3422,9 +3422,9 @@ class Mp2Settings {
   ?'channels' => __integerMin1Max2,
   ?'sample_rate' => __integerMin32000Max48000,
   ) $s = shape()) {
-    $this->bitrate = $bitrate ?? ;
-    $this->channels = $channels ?? ;
-    $this->sample_rate = $sample_rate ?? ;
+    $this->bitrate = $bitrate ?? 0;
+    $this->channels = $channels ?? 0;
+    $this->sample_rate = $sample_rate ?? 0;
   }
 }
 
@@ -3444,11 +3444,11 @@ class Mp3Settings {
   ?'sample_rate' => __integerMin22050Max48000,
   ?'vbr_quality' => __integerMin0Max9,
   ) $s = shape()) {
-    $this->bitrate = $bitrate ?? ;
-    $this->channels = $channels ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->sample_rate = $sample_rate ?? ;
-    $this->vbr_quality = $vbr_quality ?? ;
+    $this->bitrate = $bitrate ?? 0;
+    $this->channels = $channels ?? 0;
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
+    $this->vbr_quality = $vbr_quality ?? 0;
   }
 }
 
@@ -3472,11 +3472,11 @@ class Mp4Settings {
   ?'moov_placement' => Mp4MoovPlacement,
   ?'mp_4_major_brand' => __string,
   ) $s = shape()) {
-    $this->cslg_atom = $cslg_atom ?? ;
-    $this->ctts_version = $ctts_version ?? ;
-    $this->free_space_box = $free_space_box ?? ;
-    $this->moov_placement = $moov_placement ?? ;
-    $this->mp_4_major_brand = $mp_4_major_brand ?? ;
+    $this->cslg_atom = $cslg_atom ?? "";
+    $this->ctts_version = $ctts_version ?? 0;
+    $this->free_space_box = $free_space_box ?? "";
+    $this->moov_placement = $moov_placement ?? "";
+    $this->mp_4_major_brand = $mp_4_major_brand ?? "";
   }
 }
 
@@ -3496,9 +3496,9 @@ class MpdSettings {
   ?'scte_35_esam' => MpdScte35Esam,
   ?'scte_35_source' => MpdScte35Source,
   ) $s = shape()) {
-    $this->caption_container_type = $caption_container_type ?? ;
-    $this->scte_35_esam = $scte_35_esam ?? ;
-    $this->scte_35_source = $scte_35_source ?? ;
+    $this->caption_container_type = $caption_container_type ?? "";
+    $this->scte_35_esam = $scte_35_esam ?? "";
+    $this->scte_35_source = $scte_35_source ?? "";
   }
 }
 
@@ -3594,37 +3594,37 @@ class Mpeg2Settings {
   ?'telecine' => Mpeg2Telecine,
   ?'temporal_adaptive_quantization' => Mpeg2TemporalAdaptiveQuantization,
   ) $s = shape()) {
-    $this->adaptive_quantization = $adaptive_quantization ?? ;
-    $this->bitrate = $bitrate ?? ;
-    $this->codec_level = $codec_level ?? ;
-    $this->codec_profile = $codec_profile ?? ;
-    $this->dynamic_sub_gop = $dynamic_sub_gop ?? ;
-    $this->framerate_control = $framerate_control ?? ;
-    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? ;
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->gop_closed_cadence = $gop_closed_cadence ?? ;
-    $this->gop_size = $gop_size ?? ;
-    $this->gop_size_units = $gop_size_units ?? ;
-    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? ;
-    $this->hrd_buffer_size = $hrd_buffer_size ?? ;
-    $this->interlace_mode = $interlace_mode ?? ;
-    $this->intra_dc_precision = $intra_dc_precision ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->min_i_interval = $min_i_interval ?? ;
-    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? ;
-    $this->par_control = $par_control ?? ;
-    $this->par_denominator = $par_denominator ?? ;
-    $this->par_numerator = $par_numerator ?? ;
-    $this->quality_tuning_level = $quality_tuning_level ?? ;
-    $this->rate_control_mode = $rate_control_mode ?? ;
-    $this->scene_change_detect = $scene_change_detect ?? ;
-    $this->slow_pal = $slow_pal ?? ;
-    $this->softness = $softness ?? ;
-    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? ;
-    $this->syntax = $syntax ?? ;
-    $this->telecine = $telecine ?? ;
-    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? ;
+    $this->adaptive_quantization = $adaptive_quantization ?? "";
+    $this->bitrate = $bitrate ?? 0;
+    $this->codec_level = $codec_level ?? "";
+    $this->codec_profile = $codec_profile ?? "";
+    $this->dynamic_sub_gop = $dynamic_sub_gop ?? "";
+    $this->framerate_control = $framerate_control ?? "";
+    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? "";
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->gop_closed_cadence = $gop_closed_cadence ?? 0;
+    $this->gop_size = $gop_size ?? 0.0;
+    $this->gop_size_units = $gop_size_units ?? "";
+    $this->hrd_buffer_initial_fill_percentage = $hrd_buffer_initial_fill_percentage ?? 0;
+    $this->hrd_buffer_size = $hrd_buffer_size ?? 0;
+    $this->interlace_mode = $interlace_mode ?? "";
+    $this->intra_dc_precision = $intra_dc_precision ?? "";
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->min_i_interval = $min_i_interval ?? 0;
+    $this->number_b_frames_between_reference_frames = $number_b_frames_between_reference_frames ?? 0;
+    $this->par_control = $par_control ?? "";
+    $this->par_denominator = $par_denominator ?? 0;
+    $this->par_numerator = $par_numerator ?? 0;
+    $this->quality_tuning_level = $quality_tuning_level ?? "";
+    $this->rate_control_mode = $rate_control_mode ?? "";
+    $this->scene_change_detect = $scene_change_detect ?? "";
+    $this->slow_pal = $slow_pal ?? "";
+    $this->softness = $softness ?? 0;
+    $this->spatial_adaptive_quantization = $spatial_adaptive_quantization ?? "";
+    $this->syntax = $syntax ?? "";
+    $this->telecine = $telecine ?? "";
+    $this->temporal_adaptive_quantization = $temporal_adaptive_quantization ?? "";
   }
 }
 
@@ -3646,8 +3646,8 @@ class MsSmoothAdditionalManifest {
   ?'manifest_name_modifier' => __stringMin1,
   ?'selected_outputs' => __listOf__stringMin1,
   ) $s = shape()) {
-    $this->manifest_name_modifier = $manifest_name_modifier ?? ;
-    $this->selected_outputs = $selected_outputs ?? ;
+    $this->manifest_name_modifier = $manifest_name_modifier ?? "";
+    $this->selected_outputs = $selected_outputs ?? [];
   }
 }
 
@@ -3681,13 +3681,13 @@ class MsSmoothGroupSettings {
   ?'fragment_length' => __integerMin1Max2147483647,
   ?'manifest_encoding' => MsSmoothManifestEncoding,
   ) $s = shape()) {
-    $this->additional_manifests = $additional_manifests ?? ;
-    $this->audio_deduplication = $audio_deduplication ?? ;
-    $this->destination = $destination ?? ;
+    $this->additional_manifests = $additional_manifests ?? [];
+    $this->audio_deduplication = $audio_deduplication ?? "";
+    $this->destination = $destination ?? "";
     $this->destination_settings = $destination_settings ?? null;
-    $this->encryption = $encryption ?? ;
-    $this->fragment_length = $fragment_length ?? ;
-    $this->manifest_encoding = $manifest_encoding ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->fragment_length = $fragment_length ?? 0;
+    $this->manifest_encoding = $manifest_encoding ?? "";
   }
 }
 
@@ -3701,8 +3701,8 @@ class NielsenConfiguration {
   ?'breakout_code' => __integerMin0Max0,
   ?'distributor_id' => __string,
   ) $s = shape()) {
-    $this->breakout_code = $breakout_code ?? ;
-    $this->distributor_id = $distributor_id ?? ;
+    $this->breakout_code = $breakout_code ?? 0;
+    $this->distributor_id = $distributor_id ?? "";
   }
 }
 
@@ -3718,10 +3718,10 @@ class NoiseReducer {
   ?'spatial_filter_settings' => NoiseReducerSpatialFilterSettings,
   ?'temporal_filter_settings' => NoiseReducerTemporalFilterSettings,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->filter_settings = $filter_settings ?? ;
-    $this->spatial_filter_settings = $spatial_filter_settings ?? ;
-    $this->temporal_filter_settings = $temporal_filter_settings ?? ;
+    $this->filter = $filter ?? "";
+    $this->filter_settings = $filter_settings ?? null;
+    $this->spatial_filter_settings = $spatial_filter_settings ?? null;
+    $this->temporal_filter_settings = $temporal_filter_settings ?? null;
   }
 }
 
@@ -3733,7 +3733,7 @@ class NoiseReducerFilterSettings {
   public function __construct(shape(
   ?'strength' => __integerMin0Max3,
   ) $s = shape()) {
-    $this->strength = $strength ?? ;
+    $this->strength = $strength ?? 0;
   }
 }
 
@@ -3747,9 +3747,9 @@ class NoiseReducerSpatialFilterSettings {
   ?'speed' => __integerMinNegative2Max3,
   ?'strength' => __integerMin0Max16,
   ) $s = shape()) {
-    $this->post_filter_sharpen_strength = $post_filter_sharpen_strength ?? ;
-    $this->speed = $speed ?? ;
-    $this->strength = $strength ?? ;
+    $this->post_filter_sharpen_strength = $post_filter_sharpen_strength ?? 0;
+    $this->speed = $speed ?? 0;
+    $this->strength = $strength ?? 0;
   }
 }
 
@@ -3763,9 +3763,9 @@ class NoiseReducerTemporalFilterSettings {
   ?'speed' => __integerMinNegative1Max3,
   ?'strength' => __integerMin0Max16,
   ) $s = shape()) {
-    $this->aggressive_mode = $aggressive_mode ?? ;
-    $this->speed = $speed ?? ;
-    $this->strength = $strength ?? ;
+    $this->aggressive_mode = $aggressive_mode ?? 0;
+    $this->speed = $speed ?? 0;
+    $this->strength = $strength ?? 0;
   }
 }
 
@@ -3775,7 +3775,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3801,13 +3801,13 @@ class Output {
   ?'preset' => __stringMin0,
   ?'video_description' => VideoDescription,
   ) $s = shape()) {
-    $this->audio_descriptions = $audio_descriptions ?? ;
-    $this->caption_descriptions = $caption_descriptions ?? ;
+    $this->audio_descriptions = $audio_descriptions ?? [];
+    $this->caption_descriptions = $caption_descriptions ?? [];
     $this->container_settings = $container_settings ?? null;
-    $this->extension = $extension ?? ;
-    $this->name_modifier = $name_modifier ?? ;
+    $this->extension = $extension ?? "";
+    $this->name_modifier = $name_modifier ?? "";
     $this->output_settings = $output_settings ?? null;
-    $this->preset = $preset ?? null;
+    $this->preset = $preset ?? "";
     $this->video_description = $video_description ?? null;
   }
 }
@@ -3818,7 +3818,7 @@ class OutputChannelMapping {
   public function __construct(shape(
   ?'input_channels' => __listOf__integerMinNegative60Max6,
   ) $s = shape()) {
-    $this->input_channels = $input_channels ?? ;
+    $this->input_channels = $input_channels ?? [];
   }
 }
 
@@ -3830,8 +3830,8 @@ class OutputDetail {
   ?'duration_in_ms' => __integer,
   ?'video_details' => VideoDetail,
   ) $s = shape()) {
-    $this->duration_in_ms = $duration_in_ms ?? ;
-    $this->video_details = $video_details ?? ;
+    $this->duration_in_ms = $duration_in_ms ?? 0;
+    $this->video_details = $video_details ?? null;
   }
 }
 
@@ -3847,10 +3847,10 @@ class OutputGroup {
   ?'output_group_settings' => OutputGroupSettings,
   ?'outputs' => __listOfOutput,
   ) $s = shape()) {
-    $this->custom_name = $custom_name ?? ;
-    $this->name = $name ?? ;
+    $this->custom_name = $custom_name ?? "";
+    $this->name = $name ?? "";
     $this->output_group_settings = $output_group_settings ?? null;
-    $this->outputs = $outputs ?? ;
+    $this->outputs = $outputs ?? [];
   }
 }
 
@@ -3860,7 +3860,7 @@ class OutputGroupDetail {
   public function __construct(shape(
   ?'output_details' => __listOfOutputDetail,
   ) $s = shape()) {
-    $this->output_details = $output_details ?? ;
+    $this->output_details = $output_details ?? [];
   }
 }
 
@@ -3923,13 +3923,13 @@ class Preset {
   ?'settings' => PresetSettings,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->category = $category ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated = $last_updated ?? ;
-    $this->name = $name ?? ;
-    $this->settings = $settings ?? ;
+    $this->arn = $arn ?? "";
+    $this->category = $category ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated = $last_updated ?? 0;
+    $this->name = $name ?? "";
+    $this->settings = $settings ?? null;
     $this->type = $type ?? "";
   }
 }
@@ -3948,8 +3948,8 @@ class PresetSettings {
   ?'container_settings' => ContainerSettings,
   ?'video_description' => VideoDescription,
   ) $s = shape()) {
-    $this->audio_descriptions = $audio_descriptions ?? ;
-    $this->caption_descriptions = $caption_descriptions ?? ;
+    $this->audio_descriptions = $audio_descriptions ?? [];
+    $this->caption_descriptions = $caption_descriptions ?? [];
     $this->container_settings = $container_settings ?? null;
     $this->video_description = $video_description ?? null;
   }
@@ -3993,17 +3993,17 @@ class ProresSettings {
   ?'slow_pal' => ProresSlowPal,
   ?'telecine' => ProresTelecine,
   ) $s = shape()) {
-    $this->codec_profile = $codec_profile ?? ;
-    $this->framerate_control = $framerate_control ?? ;
-    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? ;
-    $this->framerate_denominator = $framerate_denominator ?? ;
-    $this->framerate_numerator = $framerate_numerator ?? ;
-    $this->interlace_mode = $interlace_mode ?? ;
-    $this->par_control = $par_control ?? ;
-    $this->par_denominator = $par_denominator ?? ;
-    $this->par_numerator = $par_numerator ?? ;
-    $this->slow_pal = $slow_pal ?? ;
-    $this->telecine = $telecine ?? ;
+    $this->codec_profile = $codec_profile ?? "";
+    $this->framerate_control = $framerate_control ?? "";
+    $this->framerate_conversion_algorithm = $framerate_conversion_algorithm ?? "";
+    $this->framerate_denominator = $framerate_denominator ?? 0;
+    $this->framerate_numerator = $framerate_numerator ?? 0;
+    $this->interlace_mode = $interlace_mode ?? "";
+    $this->par_control = $par_control ?? "";
+    $this->par_denominator = $par_denominator ?? 0;
+    $this->par_numerator = $par_numerator ?? 0;
+    $this->slow_pal = $slow_pal ?? "";
+    $this->telecine = $telecine ?? "";
   }
 }
 
@@ -4037,16 +4037,16 @@ class Queue {
   ?'submitted_jobs_count' => __integer,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated = $last_updated ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated = $last_updated ?? 0;
+    $this->name = $name ?? "";
     $this->pricing_plan = $pricing_plan ?? "";
-    $this->progressing_jobs_count = $progressing_jobs_count ?? ;
+    $this->progressing_jobs_count = $progressing_jobs_count ?? 0;
     $this->reservation_plan = $reservation_plan ?? null;
-    $this->status = $status ?? ;
-    $this->submitted_jobs_count = $submitted_jobs_count ?? ;
+    $this->status = $status ?? "";
+    $this->submitted_jobs_count = $submitted_jobs_count ?? 0;
     $this->type = $type ?? "";
   }
 }
@@ -4065,9 +4065,9 @@ class QueueTransition {
   ?'source_queue' => __string,
   ?'timestamp' => __timestampUnix,
   ) $s = shape()) {
-    $this->destination_queue = $destination_queue ?? ;
-    $this->source_queue = $source_queue ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->destination_queue = $destination_queue ?? "";
+    $this->source_queue = $source_queue ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -4083,10 +4083,10 @@ class Rectangle {
   ?'x' => __integerMin0Max2147483647,
   ?'y' => __integerMin0Max2147483647,
   ) $s = shape()) {
-    $this->height = $height ?? ;
-    $this->width = $width ?? ;
-    $this->x = $x ?? ;
-    $this->y = $y ?? ;
+    $this->height = $height ?? 0;
+    $this->width = $width ?? 0;
+    $this->x = $x ?? 0;
+    $this->y = $y ?? 0;
   }
 }
 
@@ -4101,8 +4101,8 @@ class RemixSettings {
   ?'channels_out' => __integerMin1Max64,
   ) $s = shape()) {
     $this->channel_mapping = $channel_mapping ?? null;
-    $this->channels_in = $channels_in ?? ;
-    $this->channels_out = $channels_out ?? ;
+    $this->channels_in = $channels_in ?? 0;
+    $this->channels_out = $channels_out ?? 0;
   }
 }
 
@@ -4125,11 +4125,11 @@ class ReservationPlan {
   ?'status' => ReservationPlanStatus,
   ) $s = shape()) {
     $this->commitment = $commitment ?? "";
-    $this->expires_at = $expires_at ?? ;
-    $this->purchased_at = $purchased_at ?? ;
+    $this->expires_at = $expires_at ?? 0;
+    $this->purchased_at = $purchased_at ?? 0;
     $this->renewal_type = $renewal_type ?? "";
-    $this->reserved_slots = $reserved_slots ?? ;
-    $this->status = $status ?? ;
+    $this->reserved_slots = $reserved_slots ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -4145,7 +4145,7 @@ class ReservationPlanSettings {
   ) $s = shape()) {
     $this->commitment = $commitment ?? "";
     $this->renewal_type = $renewal_type ?? "";
-    $this->reserved_slots = $reserved_slots ?? ;
+    $this->reserved_slots = $reserved_slots ?? 0;
   }
 }
 
@@ -4159,8 +4159,8 @@ class ResourceTags {
   ?'arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4172,7 +4172,7 @@ class S3DestinationAccessControl {
   public function __construct(shape(
   ?'canned_acl' => S3ObjectCannedAcl,
   ) $s = shape()) {
-    $this->canned_acl = $canned_acl ?? ;
+    $this->canned_acl = $canned_acl ?? "";
   }
 }
 
@@ -4184,8 +4184,8 @@ class S3DestinationSettings {
   ?'access_control' => S3DestinationAccessControl,
   ?'encryption' => S3EncryptionSettings,
   ) $s = shape()) {
-    $this->access_control = $access_control ?? ;
-    $this->encryption = $encryption ?? ;
+    $this->access_control = $access_control ?? null;
+    $this->encryption = $encryption ?? null;
   }
 }
 
@@ -4197,8 +4197,8 @@ class S3EncryptionSettings {
   ?'encryption_type' => S3ServerSideEncryptionType,
   ?'kms_key_arn' => __stringPatternArnAwsUsGovCnKmsAZ26EastWestCentralNorthSouthEastWest1912D12KeyAFAF098AFAF094AFAF094AFAF094AFAF0912,
   ) $s = shape()) {
-    $this->encryption_type = $encryption_type ?? ;
-    $this->kms_key_arn = $kms_key_arn ?? ;
+    $this->encryption_type = $encryption_type ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
   }
 }
 
@@ -4216,7 +4216,7 @@ class SccDestinationSettings {
   public function __construct(shape(
   ?'framerate' => SccDestinationFramerate,
   ) $s = shape()) {
-    $this->framerate = $framerate ?? ;
+    $this->framerate = $framerate ?? "";
   }
 }
 
@@ -4234,10 +4234,10 @@ class SpekeKeyProvider {
   ?'system_ids' => __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12,
   ?'url' => __stringPatternHttps,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->system_ids = $system_ids ?? ;
-    $this->url = $url ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->system_ids = $system_ids ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -4255,11 +4255,11 @@ class SpekeKeyProviderCmaf {
   ?'resource_id' => __stringPatternW,
   ?'url' => __stringPatternHttps,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->dash_signaled_system_ids = $dash_signaled_system_ids ?? ;
-    $this->hls_signaled_system_ids = $hls_signaled_system_ids ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->url = $url ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->dash_signaled_system_ids = $dash_signaled_system_ids ?? [];
+    $this->hls_signaled_system_ids = $hls_signaled_system_ids ?? [];
+    $this->resource_id = $resource_id ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -4275,10 +4275,10 @@ class StaticKeyProvider {
   ?'static_key_value' => __stringPatternAZaZ0932,
   ?'url' => __string,
   ) $s = shape()) {
-    $this->key_format = $key_format ?? ;
-    $this->key_format_versions = $key_format_versions ?? ;
-    $this->static_key_value = $static_key_value ?? ;
-    $this->url = $url ?? ;
+    $this->key_format = $key_format ?? "";
+    $this->key_format_versions = $key_format_versions ?? "";
+    $this->static_key_value = $static_key_value ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -4292,8 +4292,8 @@ class TagResourceRequest {
   ?'arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4312,8 +4312,8 @@ class TeletextDestinationSettings {
   ?'page_number' => __stringMin3Max3Pattern1809aFAF09aEAE,
   ?'page_types' => __listOfTeletextPageType,
   ) $s = shape()) {
-    $this->page_number = $page_number ?? ;
-    $this->page_types = $page_types ?? ;
+    $this->page_number = $page_number ?? "";
+    $this->page_types = $page_types ?? [];
   }
 }
 
@@ -4325,7 +4325,7 @@ class TeletextSourceSettings {
   public function __construct(shape(
   ?'page_number' => __stringMin3Max3Pattern1809aFAF09aEAE,
   ) $s = shape()) {
-    $this->page_number = $page_number ?? ;
+    $this->page_number = $page_number ?? "";
   }
 }
 
@@ -4339,9 +4339,9 @@ class TimecodeBurnin {
   ?'position' => TimecodeBurninPosition,
   ?'prefix' => __stringPattern,
   ) $s = shape()) {
-    $this->font_size = $font_size ?? ;
-    $this->position = $position ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->font_size = $font_size ?? 0;
+    $this->position = $position ?? "";
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -4359,10 +4359,10 @@ class TimecodeConfig {
   ?'start' => __stringPattern010920405090509092,
   ?'timestamp_offset' => __stringPattern0940191020191209301,
   ) $s = shape()) {
-    $this->anchor = $anchor ?? ;
-    $this->source = $source ?? ;
-    $this->start = $start ?? ;
-    $this->timestamp_offset = $timestamp_offset ?? ;
+    $this->anchor = $anchor ?? "";
+    $this->source = $source ?? "";
+    $this->start = $start ?? "";
+    $this->timestamp_offset = $timestamp_offset ?? "";
   }
 }
 
@@ -4376,7 +4376,7 @@ class TimedMetadataInsertion {
   public function __construct(shape(
   ?'id_3_insertions' => __listOfId3Insertion,
   ) $s = shape()) {
-    $this->id_3_insertions = $id_3_insertions ?? ;
+    $this->id_3_insertions = $id_3_insertions ?? [];
   }
 }
 
@@ -4390,9 +4390,9 @@ class Timing {
   ?'start_time' => __timestampUnix,
   ?'submit_time' => __timestampUnix,
   ) $s = shape()) {
-    $this->finish_time = $finish_time ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->submit_time = $submit_time ?? ;
+    $this->finish_time = $finish_time ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->submit_time = $submit_time ?? 0;
   }
 }
 
@@ -4402,7 +4402,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4412,7 +4412,7 @@ class TrackSourceSettings {
   public function __construct(shape(
   ?'track_number' => __integerMin1Max2147483647,
   ) $s = shape()) {
-    $this->track_number = $track_number ?? ;
+    $this->track_number = $track_number ?? 0;
   }
 }
 
@@ -4422,7 +4422,7 @@ class TtmlDestinationSettings {
   public function __construct(shape(
   ?'style_passthrough' => TtmlStylePassthrough,
   ) $s = shape()) {
-    $this->style_passthrough = $style_passthrough ?? ;
+    $this->style_passthrough = $style_passthrough ?? "";
   }
 }
 
@@ -4438,8 +4438,8 @@ class UntagResourceRequest {
   ?'arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->arn = $arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -4473,13 +4473,13 @@ class UpdateJobTemplateRequest {
   ?'status_update_interval' => StatusUpdateInterval,
   ) $s = shape()) {
     $this->acceleration_settings = $acceleration_settings ?? null;
-    $this->category = $category ?? ;
-    $this->description = $description ?? ;
-    $this->hop_destinations = $hop_destinations ?? ;
-    $this->name = $name ?? ;
-    $this->priority = $priority ?? ;
-    $this->queue = $queue ?? null;
-    $this->settings = $settings ?? ;
+    $this->category = $category ?? "";
+    $this->description = $description ?? "";
+    $this->hop_destinations = $hop_destinations ?? [];
+    $this->name = $name ?? "";
+    $this->priority = $priority ?? 0;
+    $this->queue = $queue ?? "";
+    $this->settings = $settings ?? null;
     $this->status_update_interval = $status_update_interval ?? "";
   }
 }
@@ -4506,10 +4506,10 @@ class UpdatePresetRequest {
   ?'name' => __string,
   ?'settings' => PresetSettings,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->settings = $settings ?? ;
+    $this->category = $category ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->settings = $settings ?? null;
   }
 }
 
@@ -4535,10 +4535,10 @@ class UpdateQueueRequest {
   ?'reservation_plan_settings' => ReservationPlanSettings,
   ?'status' => QueueStatus,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->reservation_plan_settings = $reservation_plan_settings ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -4573,7 +4573,7 @@ class VideoCodecSettings {
   ?'prores_settings' => ProresSettings,
   ) $s = shape()) {
     $this->av_1_settings = $av_1_settings ?? null;
-    $this->codec = $codec ?? ;
+    $this->codec = $codec ?? "";
     $this->frame_capture_settings = $frame_capture_settings ?? null;
     $this->h_264_settings = $h_264_settings ?? null;
     $this->h_265_settings = $h_265_settings ?? null;
@@ -4618,19 +4618,19 @@ class VideoDescription {
   ) $s = shape()) {
     $this->afd_signaling = $afd_signaling ?? "";
     $this->anti_alias = $anti_alias ?? "";
-    $this->codec_settings = $codec_settings ?? ;
+    $this->codec_settings = $codec_settings ?? null;
     $this->color_metadata = $color_metadata ?? "";
-    $this->crop = $crop ?? ;
+    $this->crop = $crop ?? null;
     $this->drop_frame_timecode = $drop_frame_timecode ?? "";
-    $this->fixed_afd = $fixed_afd ?? ;
-    $this->height = $height ?? ;
-    $this->position = $position ?? ;
+    $this->fixed_afd = $fixed_afd ?? 0;
+    $this->height = $height ?? 0;
+    $this->position = $position ?? null;
     $this->respond_to_afd = $respond_to_afd ?? "";
     $this->scaling_behavior = $scaling_behavior ?? "";
-    $this->sharpness = $sharpness ?? ;
-    $this->timecode_insertion = $timecode_insertion ?? ;
-    $this->video_preprocessors = $video_preprocessors ?? ;
-    $this->width = $width ?? ;
+    $this->sharpness = $sharpness ?? 0;
+    $this->timecode_insertion = $timecode_insertion ?? "";
+    $this->video_preprocessors = $video_preprocessors ?? null;
+    $this->width = $width ?? 0;
   }
 }
 
@@ -4642,8 +4642,8 @@ class VideoDetail {
   ?'height_in_px' => __integer,
   ?'width_in_px' => __integer,
   ) $s = shape()) {
-    $this->height_in_px = $height_in_px ?? ;
-    $this->width_in_px = $width_in_px ?? ;
+    $this->height_in_px = $height_in_px ?? 0;
+    $this->width_in_px = $width_in_px ?? 0;
   }
 }
 
@@ -4694,9 +4694,9 @@ class VideoSelector {
     $this->color_space = $color_space ?? "";
     $this->color_space_usage = $color_space_usage ?? "";
     $this->hdr_10_metadata = $hdr_10_metadata ?? null;
-    $this->pid = $pid ?? ;
-    $this->program_number = $program_number ?? ;
-    $this->rotate = $rotate ?? ;
+    $this->pid = $pid ?? 0;
+    $this->program_number = $program_number ?? 0;
+    $this->rotate = $rotate ?? "";
   }
 }
 
@@ -4716,10 +4716,10 @@ class WavSettings {
   ?'format' => WavFormat,
   ?'sample_rate' => __integerMin8000Max192000,
   ) $s = shape()) {
-    $this->bit_depth = $bit_depth ?? ;
-    $this->channels = $channels ?? ;
-    $this->format = $format ?? ;
-    $this->sample_rate = $sample_rate ?? ;
+    $this->bit_depth = $bit_depth ?? 0;
+    $this->channels = $channels ?? 0;
+    $this->format = $format ?? "";
+    $this->sample_rate = $sample_rate ?? 0;
   }
 }
 

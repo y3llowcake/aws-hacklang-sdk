@@ -99,7 +99,7 @@ class AnomalyDetector {
   ?'stat' => AnomalyDetectorMetricStat,
   ?'state_value' => AnomalyDetectorStateValue,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
     $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
     $this->namespace = $namespace ?? "";
@@ -116,8 +116,8 @@ class AnomalyDetectorConfiguration {
   ?'excluded_time_ranges' => AnomalyDetectorExcludedTimeRanges,
   ?'metric_timezone' => AnomalyDetectorMetricTimezone,
   ) $s = shape()) {
-    $this->excluded_time_ranges = $excluded_time_ranges ?? ;
-    $this->metric_timezone = $metric_timezone ?? ;
+    $this->excluded_time_ranges = $excluded_time_ranges ?? [];
+    $this->metric_timezone = $metric_timezone ?? "";
   }
 }
 
@@ -168,17 +168,17 @@ class CompositeAlarm {
   ?'state_value' => StateValue,
   ) $s = shape()) {
     $this->actions_enabled = $actions_enabled ?? false;
-    $this->alarm_actions = $alarm_actions ?? ;
+    $this->alarm_actions = $alarm_actions ?? [];
     $this->alarm_arn = $alarm_arn ?? "";
-    $this->alarm_configuration_updated_timestamp = $alarm_configuration_updated_timestamp ?? ;
+    $this->alarm_configuration_updated_timestamp = $alarm_configuration_updated_timestamp ?? 0;
     $this->alarm_description = $alarm_description ?? "";
     $this->alarm_name = $alarm_name ?? "";
     $this->alarm_rule = $alarm_rule ?? "";
-    $this->insufficient_data_actions = $insufficient_data_actions ?? ;
-    $this->ok_actions = $ok_actions ?? ;
+    $this->insufficient_data_actions = $insufficient_data_actions ?? [];
+    $this->ok_actions = $ok_actions ?? [];
     $this->state_reason = $state_reason ?? "";
     $this->state_reason_data = $state_reason_data ?? "";
-    $this->state_updated_timestamp = $state_updated_timestamp ?? ;
+    $this->state_updated_timestamp = $state_updated_timestamp ?? 0;
     $this->state_value = $state_value ?? "";
   }
 }
@@ -229,8 +229,8 @@ class DashboardInvalidInputError {
   ?'dashboard_validation_messages' => DashboardValidationMessages,
   ?'message' => DashboardErrorMessage,
   ) $s = shape()) {
-    $this->dashboard_validation_messages = $dashboard_validation_messages ?? ;
-    $this->message = $message ?? ;
+    $this->dashboard_validation_messages = $dashboard_validation_messages ?? [];
+    $this->message = $message ?? "";
   }
 }
 
@@ -246,7 +246,7 @@ class DashboardNotFoundError {
   public function __construct(shape(
   ?'message' => DashboardErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -287,14 +287,14 @@ class Datapoint {
   ?'timestamp' => Timestamp,
   ?'unit' => StandardUnit,
   ) $s = shape()) {
-    $this->average = $average ?? ;
+    $this->average = $average ?? 0.0;
     $this->extended_statistics = $extended_statistics ?? [];
-    $this->maximum = $maximum ?? ;
-    $this->minimum = $minimum ?? ;
-    $this->sample_count = $sample_count ?? ;
-    $this->sum = $sum ?? ;
+    $this->maximum = $maximum ?? 0.0;
+    $this->minimum = $minimum ?? 0.0;
+    $this->sample_count = $sample_count ?? 0.0;
+    $this->sum = $sum ?? 0.0;
     $this->timestamp = $timestamp ?? 0;
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -367,7 +367,7 @@ class DeleteInsightRulesInput {
   public function __construct(shape(
   ?'rule_names' => InsightRuleNames,
   ) $s = shape()) {
-    $this->rule_names = $rule_names ?? ;
+    $this->rule_names = $rule_names ?? [];
   }
 }
 
@@ -377,7 +377,7 @@ class DeleteInsightRulesOutput {
   public function __construct(shape(
   ?'failures' => BatchFailures,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -403,12 +403,12 @@ class DescribeAlarmHistoryInput {
   ) $s = shape()) {
     $this->alarm_name = $alarm_name ?? "";
     $this->alarm_types = $alarm_types ?? [];
-    $this->end_date = $end_date ?? ;
+    $this->end_date = $end_date ?? 0;
     $this->history_item_type = $history_item_type ?? "";
     $this->max_records = $max_records ?? 0;
     $this->next_token = $next_token ?? "";
     $this->scan_by = $scan_by ?? "";
-    $this->start_date = $start_date ?? ;
+    $this->start_date = $start_date ?? 0;
   }
 }
 
@@ -449,7 +449,7 @@ class DescribeAlarmsForMetricInput {
     $this->namespace = $namespace ?? "";
     $this->period = $period ?? 0;
     $this->statistic = $statistic ?? "";
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -489,10 +489,10 @@ class DescribeAlarmsInput {
     $this->alarm_name_prefix = $alarm_name_prefix ?? "";
     $this->alarm_names = $alarm_names ?? [];
     $this->alarm_types = $alarm_types ?? [];
-    $this->children_of_alarm_name = $children_of_alarm_name ?? ;
+    $this->children_of_alarm_name = $children_of_alarm_name ?? "";
     $this->max_records = $max_records ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->parents_of_alarm_name = $parents_of_alarm_name ?? ;
+    $this->parents_of_alarm_name = $parents_of_alarm_name ?? "";
     $this->state_value = $state_value ?? "";
   }
 }
@@ -528,7 +528,7 @@ class DescribeAnomalyDetectorsInput {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->dimensions = $dimensions ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->metric_name = $metric_name ?? "";
     $this->namespace = $namespace ?? "";
     $this->next_token = $next_token ?? "";
@@ -556,7 +556,7 @@ class DescribeInsightRulesInput {
   ?'max_results' => InsightRuleMaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -582,8 +582,8 @@ class Dimension {
   ?'name' => DimensionName,
   ?'value' => DimensionValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -595,8 +595,8 @@ class DimensionFilter {
   ?'name' => DimensionName,
   ?'value' => DimensionValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -624,7 +624,7 @@ class DisableInsightRulesInput {
   public function __construct(shape(
   ?'rule_names' => InsightRuleNames,
   ) $s = shape()) {
-    $this->rule_names = $rule_names ?? ;
+    $this->rule_names = $rule_names ?? [];
   }
 }
 
@@ -634,7 +634,7 @@ class DisableInsightRulesOutput {
   public function __construct(shape(
   ?'failures' => BatchFailures,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -654,7 +654,7 @@ class EnableInsightRulesInput {
   public function __construct(shape(
   ?'rule_names' => InsightRuleNames,
   ) $s = shape()) {
-    $this->rule_names = $rule_names ?? ;
+    $this->rule_names = $rule_names ?? [];
   }
 }
 
@@ -664,7 +664,7 @@ class EnableInsightRulesOutput {
   public function __construct(shape(
   ?'failures' => BatchFailures,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -732,13 +732,13 @@ class GetInsightRuleReportInput {
   ?'rule_name' => InsightRuleName,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->max_contributor_count = $max_contributor_count ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->max_contributor_count = $max_contributor_count ?? 0;
     $this->metrics = $metrics ?? [];
-    $this->order_by = $order_by ?? ;
+    $this->order_by = $order_by ?? "";
     $this->period = $period ?? 0;
-    $this->rule_name = $rule_name ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->rule_name = $rule_name ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -758,12 +758,12 @@ class GetInsightRuleReportOutput {
   ?'key_labels' => InsightRuleContributorKeyLabels,
   ?'metric_datapoints' => InsightRuleMetricDatapoints,
   ) $s = shape()) {
-    $this->aggregate_value = $aggregate_value ?? ;
-    $this->aggregation_statistic = $aggregation_statistic ?? ;
-    $this->approximate_unique_count = $approximate_unique_count ?? ;
-    $this->contributors = $contributors ?? ;
-    $this->key_labels = $key_labels ?? ;
-    $this->metric_datapoints = $metric_datapoints ?? ;
+    $this->aggregate_value = $aggregate_value ?? 0.0;
+    $this->aggregation_statistic = $aggregation_statistic ?? "";
+    $this->approximate_unique_count = $approximate_unique_count ?? 0;
+    $this->contributors = $contributors ?? [];
+    $this->key_labels = $key_labels ?? [];
+    $this->metric_datapoints = $metric_datapoints ?? [];
   }
 }
 
@@ -783,12 +783,12 @@ class GetMetricDataInput {
   ?'scan_by' => ScanBy,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->max_datapoints = $max_datapoints ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->max_datapoints = $max_datapoints ?? 0;
     $this->metric_data_queries = $metric_data_queries ?? [];
     $this->next_token = $next_token ?? "";
     $this->scan_by = $scan_by ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -804,7 +804,7 @@ class GetMetricDataOutput {
   ?'metric_data_results' => MetricDataResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->messages = $messages ?? ;
+    $this->messages = $messages ?? [];
     $this->metric_data_results = $metric_data_results ?? [];
     $this->next_token = $next_token ?? "";
   }
@@ -833,14 +833,14 @@ class GetMetricStatisticsInput {
   ?'unit' => StandardUnit,
   ) $s = shape()) {
     $this->dimensions = $dimensions ?? [];
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->extended_statistics = $extended_statistics ?? [];
     $this->metric_name = $metric_name ?? "";
     $this->namespace = $namespace ?? "";
     $this->period = $period ?? 0;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
     $this->statistics = $statistics ?? [];
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -853,7 +853,7 @@ class GetMetricStatisticsOutput {
   ?'label' => MetricLabel,
   ) $s = shape()) {
     $this->datapoints = $datapoints ?? [];
-    $this->label = $label ?? ;
+    $this->label = $label ?? "";
   }
 }
 
@@ -898,10 +898,10 @@ class InsightRule {
   ?'schema' => InsightRuleSchema,
   ?'state' => InsightRuleState,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
-    $this->state = $state ?? ;
+    $this->definition = $definition ?? "";
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -917,9 +917,9 @@ class InsightRuleContributor {
   ?'datapoints' => InsightRuleContributorDatapoints,
   ?'keys' => InsightRuleContributorKeys,
   ) $s = shape()) {
-    $this->approximate_aggregate_value = $approximate_aggregate_value ?? ;
+    $this->approximate_aggregate_value = $approximate_aggregate_value ?? 0.0;
     $this->datapoints = $datapoints ?? [];
-    $this->keys = $keys ?? ;
+    $this->keys = $keys ?? [];
   }
 }
 
@@ -931,7 +931,7 @@ class InsightRuleContributorDatapoint {
   ?'approximate_value' => InsightRuleUnboundDouble,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->approximate_value = $approximate_value ?? ;
+    $this->approximate_value = $approximate_value ?? 0.0;
     $this->timestamp = $timestamp ?? 0;
   }
 }
@@ -972,14 +972,14 @@ class InsightRuleMetricDatapoint {
   ?'timestamp' => Timestamp,
   ?'unique_contributors' => InsightRuleUnboundDouble,
   ) $s = shape()) {
-    $this->average = $average ?? ;
-    $this->max_contributor_value = $max_contributor_value ?? ;
-    $this->maximum = $maximum ?? ;
-    $this->minimum = $minimum ?? ;
-    $this->sample_count = $sample_count ?? ;
-    $this->sum = $sum ?? ;
+    $this->average = $average ?? 0.0;
+    $this->max_contributor_value = $max_contributor_value ?? 0.0;
+    $this->maximum = $maximum ?? 0.0;
+    $this->minimum = $minimum ?? 0.0;
+    $this->sample_count = $sample_count ?? 0.0;
+    $this->sum = $sum ?? 0.0;
     $this->timestamp = $timestamp ?? 0;
-    $this->unique_contributors = $unique_contributors ?? ;
+    $this->unique_contributors = $unique_contributors ?? 0.0;
   }
 }
 
@@ -1023,7 +1023,7 @@ class InvalidFormatFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1033,7 +1033,7 @@ class InvalidNextToken {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1043,7 +1043,7 @@ class InvalidParameterCombinationException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1053,7 +1053,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1072,7 +1072,7 @@ class LimitExceededFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1140,7 +1140,7 @@ class ListTagsForResourceInput {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1150,7 +1150,7 @@ class ListTagsForResourceOutput {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1168,8 +1168,8 @@ class MessageData {
   ?'code' => MessageDataCode,
   ?'value' => MessageDataValue,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->value = $value ?? ;
+    $this->code = $code ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1252,9 +1252,9 @@ class MetricAlarm {
   ?'unit' => StandardUnit,
   ) $s = shape()) {
     $this->actions_enabled = $actions_enabled ?? false;
-    $this->alarm_actions = $alarm_actions ?? ;
+    $this->alarm_actions = $alarm_actions ?? [];
     $this->alarm_arn = $alarm_arn ?? "";
-    $this->alarm_configuration_updated_timestamp = $alarm_configuration_updated_timestamp ?? ;
+    $this->alarm_configuration_updated_timestamp = $alarm_configuration_updated_timestamp ?? 0;
     $this->alarm_description = $alarm_description ?? "";
     $this->alarm_name = $alarm_name ?? "";
     $this->comparison_operator = $comparison_operator ?? "";
@@ -1263,21 +1263,21 @@ class MetricAlarm {
     $this->evaluate_low_sample_count_percentile = $evaluate_low_sample_count_percentile ?? "";
     $this->evaluation_periods = $evaluation_periods ?? 0;
     $this->extended_statistic = $extended_statistic ?? "";
-    $this->insufficient_data_actions = $insufficient_data_actions ?? ;
+    $this->insufficient_data_actions = $insufficient_data_actions ?? [];
     $this->metric_name = $metric_name ?? "";
     $this->metrics = $metrics ?? [];
     $this->namespace = $namespace ?? "";
-    $this->ok_actions = $ok_actions ?? ;
+    $this->ok_actions = $ok_actions ?? [];
     $this->period = $period ?? 0;
     $this->state_reason = $state_reason ?? "";
     $this->state_reason_data = $state_reason_data ?? "";
-    $this->state_updated_timestamp = $state_updated_timestamp ?? ;
+    $this->state_updated_timestamp = $state_updated_timestamp ?? 0;
     $this->state_value = $state_value ?? "";
     $this->statistic = $statistic ?? "";
     $this->threshold = $threshold ?? 0.0;
-    $this->threshold_metric_id = $threshold_metric_id ?? ;
+    $this->threshold_metric_id = $threshold_metric_id ?? "";
     $this->treat_missing_data = $treat_missing_data ?? "";
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -1303,9 +1303,9 @@ class MetricDataQuery {
   ?'period' => Period,
   ?'return_data' => ReturnData,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
-    $this->id = $id ?? ;
-    $this->label = $label ?? ;
+    $this->expression = $expression ?? "";
+    $this->id = $id ?? "";
+    $this->label = $label ?? "";
     $this->metric_stat = $metric_stat ?? null;
     $this->period = $period ?? 0;
     $this->return_data = $return_data ?? false;
@@ -1328,9 +1328,9 @@ class MetricDataResult {
   ?'timestamps' => Timestamps,
   ?'values' => DatapointValues,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->label = $label ?? ;
-    $this->messages = $messages ?? ;
+    $this->id = $id ?? "";
+    $this->label = $label ?? "";
+    $this->messages = $messages ?? [];
     $this->status_code = $status_code ?? "";
     $this->timestamps = $timestamps ?? [];
     $this->values = $values ?? [];
@@ -1366,11 +1366,11 @@ class MetricDatum {
     $this->counts = $counts ?? [];
     $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
-    $this->statistic_values = $statistic_values ?? ;
+    $this->statistic_values = $statistic_values ?? null;
     $this->storage_resolution = $storage_resolution ?? 0;
     $this->timestamp = $timestamp ?? 0;
-    $this->unit = $unit ?? ;
-    $this->value = $value ?? ;
+    $this->unit = $unit ?? "";
+    $this->value = $value ?? 0.0;
     $this->values = $values ?? [];
   }
 }
@@ -1398,7 +1398,7 @@ class MetricStat {
     $this->metric = $metric ?? null;
     $this->period = $period ?? 0;
     $this->stat = $stat ?? "";
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -1414,7 +1414,7 @@ class MissingRequiredParameterException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1459,7 +1459,7 @@ class PutAnomalyDetectorInput {
   ?'namespace' => Namespace,
   ?'stat' => AnomalyDetectorMetricStat,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
     $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
     $this->namespace = $namespace ?? "";
@@ -1495,13 +1495,13 @@ class PutCompositeAlarmInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->actions_enabled = $actions_enabled ?? false;
-    $this->alarm_actions = $alarm_actions ?? ;
+    $this->alarm_actions = $alarm_actions ?? [];
     $this->alarm_description = $alarm_description ?? "";
     $this->alarm_name = $alarm_name ?? "";
     $this->alarm_rule = $alarm_rule ?? "";
-    $this->insufficient_data_actions = $insufficient_data_actions ?? ;
-    $this->ok_actions = $ok_actions ?? ;
-    $this->tags = $tags ?? ;
+    $this->insufficient_data_actions = $insufficient_data_actions ?? [];
+    $this->ok_actions = $ok_actions ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1540,10 +1540,10 @@ class PutInsightRuleInput {
   ?'rule_state' => InsightRuleState,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->rule_definition = $rule_definition ?? ;
-    $this->rule_name = $rule_name ?? ;
-    $this->rule_state = $rule_state ?? ;
-    $this->tags = $tags ?? ;
+    $this->rule_definition = $rule_definition ?? "";
+    $this->rule_name = $rule_name ?? "";
+    $this->rule_state = $rule_state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1603,7 +1603,7 @@ class PutMetricAlarmInput {
   ?'unit' => StandardUnit,
   ) $s = shape()) {
     $this->actions_enabled = $actions_enabled ?? false;
-    $this->alarm_actions = $alarm_actions ?? ;
+    $this->alarm_actions = $alarm_actions ?? [];
     $this->alarm_description = $alarm_description ?? "";
     $this->alarm_name = $alarm_name ?? "";
     $this->comparison_operator = $comparison_operator ?? "";
@@ -1612,18 +1612,18 @@ class PutMetricAlarmInput {
     $this->evaluate_low_sample_count_percentile = $evaluate_low_sample_count_percentile ?? "";
     $this->evaluation_periods = $evaluation_periods ?? 0;
     $this->extended_statistic = $extended_statistic ?? "";
-    $this->insufficient_data_actions = $insufficient_data_actions ?? ;
+    $this->insufficient_data_actions = $insufficient_data_actions ?? [];
     $this->metric_name = $metric_name ?? "";
     $this->metrics = $metrics ?? [];
     $this->namespace = $namespace ?? "";
-    $this->ok_actions = $ok_actions ?? ;
+    $this->ok_actions = $ok_actions ?? [];
     $this->period = $period ?? 0;
     $this->statistic = $statistic ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->threshold = $threshold ?? 0.0;
-    $this->threshold_metric_id = $threshold_metric_id ?? ;
+    $this->threshold_metric_id = $threshold_metric_id ?? "";
     $this->treat_missing_data = $treat_missing_data ?? "";
-    $this->unit = $unit ?? ;
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -1648,8 +1648,8 @@ class Range {
   ?'end_time' => Timestamp,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1665,7 +1665,7 @@ class ResourceNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1733,10 +1733,10 @@ class StatisticSet {
   ?'sample_count' => DatapointValue,
   ?'sum' => DatapointValue,
   ) $s = shape()) {
-    $this->maximum = $maximum ?? ;
-    $this->minimum = $minimum ?? ;
-    $this->sample_count = $sample_count ?? ;
-    $this->sum = $sum ?? ;
+    $this->maximum = $maximum ?? 0.0;
+    $this->minimum = $minimum ?? 0.0;
+    $this->sample_count = $sample_count ?? 0.0;
+    $this->sum = $sum ?? 0.0;
   }
 }
 
@@ -1754,8 +1754,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1773,8 +1773,8 @@ class TagResourceInput {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1803,8 +1803,8 @@ class UntagResourceInput {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

@@ -18,7 +18,7 @@ class ApplicationSource {
   ?'cloud_formation_stack_arn' => XmlString,
   ?'tag_filters' => TagFilters,
   ) $s = shape()) {
-    $this->cloud_formation_stack_arn = $cloud_formation_stack_arn ?? ;
+    $this->cloud_formation_stack_arn = $cloud_formation_stack_arn ?? "";
     $this->tag_filters = $tag_filters ?? [];
   }
 }
@@ -31,7 +31,7 @@ class ConcurrentUpdateException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -77,11 +77,11 @@ class CustomizedLoadMetricSpecification {
   ?'statistic' => MetricStatistic,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
-    $this->namespace = $namespace ?? ;
-    $this->statistic = $statistic ?? ;
-    $this->unit = $unit ?? ;
+    $this->namespace = $namespace ?? "";
+    $this->statistic = $statistic ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -99,11 +99,11 @@ class CustomizedScalingMetricSpecification {
   ?'statistic' => MetricStatistic,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
-    $this->namespace = $namespace ?? ;
-    $this->statistic = $statistic ?? ;
-    $this->unit = $unit ?? ;
+    $this->namespace = $namespace ?? "";
+    $this->statistic = $statistic ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -115,8 +115,8 @@ class Datapoint {
   ?'timestamp' => TimestampType,
   ?'value' => MetricScale,
   ) $s = shape()) {
-    $this->timestamp = $timestamp ?? ;
-    $this->value = $value ?? ;
+    $this->timestamp = $timestamp ?? 0;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -237,14 +237,14 @@ class GetScalingPlanResourceForecastDataRequest {
   ?'service_namespace' => ServiceNamespace,
   ?'start_time' => TimestampType,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->forecast_data_type = $forecast_data_type ?? "";
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->scalable_dimension = $scalable_dimension ?? "";
     $this->scaling_plan_name = $scaling_plan_name ?? "";
     $this->scaling_plan_version = $scaling_plan_version ?? 0;
     $this->service_namespace = $service_namespace ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -264,7 +264,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -274,7 +274,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -284,7 +284,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -300,8 +300,8 @@ class MetricDimension {
   ?'name' => MetricDimensionName,
   ?'value' => MetricDimensionValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -329,7 +329,7 @@ class ObjectNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -345,7 +345,7 @@ class PredefinedLoadMetricSpecification {
   ?'predefined_load_metric_type' => LoadMetricType,
   ?'resource_label' => ResourceLabel,
   ) $s = shape()) {
-    $this->predefined_load_metric_type = $predefined_load_metric_type ?? ;
+    $this->predefined_load_metric_type = $predefined_load_metric_type ?? "";
     $this->resource_label = $resource_label ?? "";
   }
 }
@@ -358,7 +358,7 @@ class PredefinedScalingMetricSpecification {
   ?'predefined_scaling_metric_type' => ScalingMetricType,
   ?'resource_label' => ResourceLabel,
   ) $s = shape()) {
-    $this->predefined_scaling_metric_type = $predefined_scaling_metric_type ?? ;
+    $this->predefined_scaling_metric_type = $predefined_scaling_metric_type ?? "";
     $this->resource_label = $resource_label ?? "";
   }
 }
@@ -409,13 +409,13 @@ class ScalingInstruction {
   ) $s = shape()) {
     $this->customized_load_metric_specification = $customized_load_metric_specification ?? null;
     $this->disable_dynamic_scaling = $disable_dynamic_scaling ?? false;
-    $this->max_capacity = $max_capacity ?? ;
-    $this->min_capacity = $min_capacity ?? ;
+    $this->max_capacity = $max_capacity ?? 0;
+    $this->min_capacity = $min_capacity ?? 0;
     $this->predefined_load_metric_specification = $predefined_load_metric_specification ?? null;
     $this->predictive_scaling_max_capacity_behavior = $predictive_scaling_max_capacity_behavior ?? "";
-    $this->predictive_scaling_max_capacity_buffer = $predictive_scaling_max_capacity_buffer ?? ;
+    $this->predictive_scaling_max_capacity_buffer = $predictive_scaling_max_capacity_buffer ?? 0;
     $this->predictive_scaling_mode = $predictive_scaling_mode ?? "";
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->scalable_dimension = $scalable_dimension ?? "";
     $this->scaling_policy_update_behavior = $scaling_policy_update_behavior ?? "";
     $this->scheduled_action_buffer_time = $scheduled_action_buffer_time ?? 0;
@@ -449,13 +449,13 @@ class ScalingPlan {
   ?'status_start_time' => TimestampType,
   ) $s = shape()) {
     $this->application_source = $application_source ?? null;
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->scaling_instructions = $scaling_instructions ?? [];
     $this->scaling_plan_name = $scaling_plan_name ?? "";
     $this->scaling_plan_version = $scaling_plan_version ?? 0;
-    $this->status_code = $status_code ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->status_start_time = $status_start_time ?? ;
+    $this->status_code = $status_code ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->status_start_time = $status_start_time ?? 0;
   }
 }
 
@@ -483,13 +483,13 @@ class ScalingPlanResource {
   ?'scaling_status_message' => XmlString,
   ?'service_namespace' => ServiceNamespace,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->scalable_dimension = $scalable_dimension ?? "";
     $this->scaling_plan_name = $scaling_plan_name ?? "";
     $this->scaling_plan_version = $scaling_plan_version ?? 0;
     $this->scaling_policies = $scaling_policies ?? [];
     $this->scaling_status_code = $scaling_status_code ?? "";
-    $this->scaling_status_message = $scaling_status_message ?? ;
+    $this->scaling_status_message = $scaling_status_message ?? "";
     $this->service_namespace = $service_namespace ?? "";
   }
 }
@@ -536,8 +536,8 @@ class TagFilter {
   ?'key' => XmlStringMaxLen128,
   ?'values' => TagValues,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -565,11 +565,11 @@ class TargetTrackingConfiguration {
   ) $s = shape()) {
     $this->customized_scaling_metric_specification = $customized_scaling_metric_specification ?? null;
     $this->disable_scale_in = $disable_scale_in ?? false;
-    $this->estimated_instance_warmup = $estimated_instance_warmup ?? ;
+    $this->estimated_instance_warmup = $estimated_instance_warmup ?? 0;
     $this->predefined_scaling_metric_specification = $predefined_scaling_metric_specification ?? null;
-    $this->scale_in_cooldown = $scale_in_cooldown ?? ;
-    $this->scale_out_cooldown = $scale_out_cooldown ?? ;
-    $this->target_value = $target_value ?? ;
+    $this->scale_in_cooldown = $scale_in_cooldown ?? 0;
+    $this->scale_out_cooldown = $scale_out_cooldown ?? 0;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -609,7 +609,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

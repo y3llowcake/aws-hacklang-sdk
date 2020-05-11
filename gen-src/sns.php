@@ -51,10 +51,10 @@ class AddPermissionInput {
   ?'label' => label,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->action_name = $action_name ?? ;
-    $this->label = $label ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->aws_account_id = $aws_account_id ?? [];
+    $this->action_name = $action_name ?? [];
+    $this->label = $label ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -78,7 +78,7 @@ class CheckIfPhoneNumberIsOptedOutInput {
   public function __construct(shape(
   ?'phone_number' => PhoneNumber,
   ) $s = shape()) {
-    $this->phone_number = $phone_number ?? ;
+    $this->phone_number = $phone_number ?? "";
   }
 }
 
@@ -88,7 +88,7 @@ class CheckIfPhoneNumberIsOptedOutResponse {
   public function __construct(shape(
   ?'is_opted_out' => boolean,
   ) $s = shape()) {
-    $this->is_opted_out = $is_opted_out ?? ;
+    $this->is_opted_out = $is_opted_out ?? false;
   }
 }
 
@@ -112,9 +112,9 @@ class ConfirmSubscriptionInput {
   ?'token' => token,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->authenticate_on_unsubscribe = $authenticate_on_unsubscribe ?? ;
-    $this->token = $token ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->authenticate_on_unsubscribe = $authenticate_on_unsubscribe ?? "";
+    $this->token = $token ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class ConfirmSubscriptionResponse {
   public function __construct(shape(
   ?'subscription_arn' => subscriptionARN,
   ) $s = shape()) {
-    $this->subscription_arn = $subscription_arn ?? ;
+    $this->subscription_arn = $subscription_arn ?? "";
   }
 }
 
@@ -134,7 +134,7 @@ class CreateEndpointResponse {
   public function __construct(shape(
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -148,9 +148,9 @@ class CreatePlatformApplicationInput {
   ?'name' => string,
   ?'platform' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
-    $this->platform = $platform ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? "";
   }
 }
 
@@ -160,7 +160,7 @@ class CreatePlatformApplicationResponse {
   public function __construct(shape(
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -176,10 +176,10 @@ class CreatePlatformEndpointInput {
   ?'platform_application_arn' => string,
   ?'token' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->custom_user_data = $custom_user_data ?? ;
-    $this->platform_application_arn = $platform_application_arn ?? ;
-    $this->token = $token ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->custom_user_data = $custom_user_data ?? "";
+    $this->platform_application_arn = $platform_application_arn ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -193,9 +193,9 @@ class CreateTopicInput {
   ?'name' => topicName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -205,7 +205,7 @@ class CreateTopicResponse {
   public function __construct(shape(
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -217,7 +217,7 @@ class DeleteEndpointInput {
   public function __construct(shape(
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -227,7 +227,7 @@ class DeletePlatformApplicationInput {
   public function __construct(shape(
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -237,7 +237,7 @@ class DeleteTopicInput {
   public function __construct(shape(
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -249,8 +249,8 @@ class Endpoint {
   ?'attributes' => MapStringToString,
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -280,7 +280,7 @@ class GetEndpointAttributesInput {
   public function __construct(shape(
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -290,7 +290,7 @@ class GetEndpointAttributesResponse {
   public function __construct(shape(
   ?'attributes' => MapStringToString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -300,7 +300,7 @@ class GetPlatformApplicationAttributesInput {
   public function __construct(shape(
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -310,7 +310,7 @@ class GetPlatformApplicationAttributesResponse {
   public function __construct(shape(
   ?'attributes' => MapStringToString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -320,7 +320,7 @@ class GetSMSAttributesInput {
   public function __construct(shape(
   ?'attributes' => ListString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -330,7 +330,7 @@ class GetSMSAttributesResponse {
   public function __construct(shape(
   ?'attributes' => MapStringToString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -340,7 +340,7 @@ class GetSubscriptionAttributesInput {
   public function __construct(shape(
   ?'subscription_arn' => subscriptionARN,
   ) $s = shape()) {
-    $this->subscription_arn = $subscription_arn ?? ;
+    $this->subscription_arn = $subscription_arn ?? "";
   }
 }
 
@@ -350,7 +350,7 @@ class GetSubscriptionAttributesResponse {
   public function __construct(shape(
   ?'attributes' => SubscriptionAttributesMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -360,7 +360,7 @@ class GetTopicAttributesInput {
   public function __construct(shape(
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -370,7 +370,7 @@ class GetTopicAttributesResponse {
   public function __construct(shape(
   ?'attributes' => TopicAttributesMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -482,8 +482,8 @@ class ListEndpointsByPlatformApplicationInput {
   ?'next_token' => string,
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -495,8 +495,8 @@ class ListEndpointsByPlatformApplicationResponse {
   ?'endpoints' => ListOfEndpoints,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->endpoints = $endpoints ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->endpoints = $endpoints ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -523,7 +523,7 @@ class ListPhoneNumbersOptedOutResponse {
   ?'phone_numbers' => PhoneNumberList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->phone_numbers = $phone_numbers ?? ;
+    $this->phone_numbers = $phone_numbers ?? [];
   }
 }
 
@@ -533,7 +533,7 @@ class ListPlatformApplicationsInput {
   public function __construct(shape(
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -545,8 +545,8 @@ class ListPlatformApplicationsResponse {
   ?'next_token' => string,
   ?'platform_applications' => ListOfPlatformApplications,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->platform_applications = $platform_applications ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->platform_applications = $platform_applications ?? [];
   }
 }
 
@@ -560,8 +560,8 @@ class ListSubscriptionsByTopicInput {
   ?'next_token' => nextToken,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -573,8 +573,8 @@ class ListSubscriptionsByTopicResponse {
   ?'next_token' => nextToken,
   ?'subscriptions' => SubscriptionsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subscriptions = $subscriptions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -584,7 +584,7 @@ class ListSubscriptionsInput {
   public function __construct(shape(
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -596,8 +596,8 @@ class ListSubscriptionsResponse {
   ?'next_token' => nextToken,
   ?'subscriptions' => SubscriptionsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subscriptions = $subscriptions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -607,7 +607,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -617,7 +617,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -627,7 +627,7 @@ class ListTopicsInput {
   public function __construct(shape(
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -639,8 +639,8 @@ class ListTopicsResponse {
   ?'next_token' => nextToken,
   ?'topics' => TopicsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->topics = $topics ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->topics = $topics ?? [];
   }
 }
 
@@ -658,9 +658,9 @@ class MessageAttributeValue {
   ?'data_type' => string,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->binary_value = $binary_value ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->binary_value = $binary_value ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -680,7 +680,7 @@ class OptInPhoneNumberInput {
   public function __construct(shape(
   ?'phone_number' => PhoneNumber,
   ) $s = shape()) {
-    $this->phone_number = $phone_number ?? ;
+    $this->phone_number = $phone_number ?? "";
   }
 }
 
@@ -703,8 +703,8 @@ class PlatformApplication {
   ?'attributes' => MapStringToString,
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -736,13 +736,13 @@ class PublishInput {
   ?'target_arn' => string,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->message_attributes = $message_attributes ?? ;
-    $this->message_structure = $message_structure ?? ;
+    $this->message = $message ?? "";
+    $this->message_attributes = $message_attributes ?? [];
+    $this->message_structure = $message_structure ?? "";
     $this->phone_number = $phone_number ?? "";
-    $this->subject = $subject ?? ;
-    $this->target_arn = $target_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->subject = $subject ?? "";
+    $this->target_arn = $target_arn ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -752,7 +752,7 @@ class PublishResponse {
   public function __construct(shape(
   ?'message_id' => messageId,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -764,8 +764,8 @@ class RemovePermissionInput {
   ?'label' => label,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->label = $label ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->label = $label ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -787,8 +787,8 @@ class SetEndpointAttributesInput {
   ?'attributes' => MapStringToString,
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -800,8 +800,8 @@ class SetPlatformApplicationAttributesInput {
   ?'attributes' => MapStringToString,
   ?'platform_application_arn' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->platform_application_arn = $platform_application_arn ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->platform_application_arn = $platform_application_arn ?? "";
   }
 }
 
@@ -811,7 +811,7 @@ class SetSMSAttributesInput {
   public function __construct(shape(
   ?'attributes' => MapStringToString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -832,9 +832,9 @@ class SetSubscriptionAttributesInput {
   ?'attribute_value' => attributeValue,
   ?'subscription_arn' => subscriptionARN,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->attribute_value = $attribute_value ?? ;
-    $this->subscription_arn = $subscription_arn ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->attribute_value = $attribute_value ?? "";
+    $this->subscription_arn = $subscription_arn ?? "";
   }
 }
 
@@ -848,9 +848,9 @@ class SetTopicAttributesInput {
   ?'attribute_value' => attributeValue,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->attribute_value = $attribute_value ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->attribute_value = $attribute_value ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -880,11 +880,11 @@ class SubscribeInput {
   ?'return_subscription_arn' => boolean,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->endpoint = $endpoint ?? null;
-    $this->protocol = $protocol ?? ;
-    $this->return_subscription_arn = $return_subscription_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->endpoint = $endpoint ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->return_subscription_arn = $return_subscription_arn ?? false;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -894,7 +894,7 @@ class SubscribeResponse {
   public function __construct(shape(
   ?'subscription_arn' => subscriptionARN,
   ) $s = shape()) {
-    $this->subscription_arn = $subscription_arn ?? ;
+    $this->subscription_arn = $subscription_arn ?? "";
   }
 }
 
@@ -912,11 +912,11 @@ class Subscription {
   ?'subscription_arn' => subscriptionARN,
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? null;
-    $this->owner = $owner ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->subscription_arn = $subscription_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->endpoint = $endpoint ?? "";
+    $this->owner = $owner ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->subscription_arn = $subscription_arn ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -942,8 +942,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -981,8 +981,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1011,7 +1011,7 @@ class Topic {
   public function __construct(shape(
   ?'topic_arn' => topicARN,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1035,7 +1035,7 @@ class UnsubscribeInput {
   public function __construct(shape(
   ?'subscription_arn' => subscriptionARN,
   ) $s = shape()) {
-    $this->subscription_arn = $subscription_arn ?? ;
+    $this->subscription_arn = $subscription_arn ?? "";
   }
 }
 
@@ -1047,8 +1047,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

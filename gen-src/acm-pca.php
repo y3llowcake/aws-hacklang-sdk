@@ -56,20 +56,20 @@ class ASN1Subject {
   ?'surname' => String40,
   ?'title' => String64,
   ) $s = shape()) {
-    $this->common_name = $common_name ?? ;
-    $this->country = $country ?? ;
-    $this->distinguished_name_qualifier = $distinguished_name_qualifier ?? ;
-    $this->generation_qualifier = $generation_qualifier ?? ;
-    $this->given_name = $given_name ?? ;
-    $this->initials = $initials ?? ;
-    $this->locality = $locality ?? ;
-    $this->organization = $organization ?? ;
-    $this->organizational_unit = $organizational_unit ?? ;
-    $this->pseudonym = $pseudonym ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->state = $state ?? ;
-    $this->surname = $surname ?? ;
-    $this->title = $title ?? ;
+    $this->common_name = $common_name ?? "";
+    $this->country = $country ?? "";
+    $this->distinguished_name_qualifier = $distinguished_name_qualifier ?? "";
+    $this->generation_qualifier = $generation_qualifier ?? "";
+    $this->given_name = $given_name ?? "";
+    $this->initials = $initials ?? "";
+    $this->locality = $locality ?? "";
+    $this->organization = $organization ?? "";
+    $this->organizational_unit = $organizational_unit ?? "";
+    $this->pseudonym = $pseudonym ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->state = $state ?? "";
+    $this->surname = $surname ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -121,16 +121,16 @@ class CertificateAuthority {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->certificate_authority_configuration = $certificate_authority_configuration ?? null;
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->failure_reason = $failure_reason ?? "";
-    $this->last_state_change_at = $last_state_change_at ?? ;
-    $this->not_after = $not_after ?? ;
-    $this->not_before = $not_before ?? ;
-    $this->restorable_until = $restorable_until ?? ;
+    $this->last_state_change_at = $last_state_change_at ?? 0;
+    $this->not_after = $not_after ?? 0;
+    $this->not_before = $not_before ?? 0;
+    $this->restorable_until = $restorable_until ?? 0;
     $this->revocation_configuration = $revocation_configuration ?? null;
-    $this->serial = $serial ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->serial = $serial ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -146,7 +146,7 @@ class CertificateAuthorityConfiguration {
   ) $s = shape()) {
     $this->key_algorithm = $key_algorithm ?? "";
     $this->signing_algorithm = $signing_algorithm ?? "";
-    $this->subject = $subject ?? ;
+    $this->subject = $subject ?? null;
   }
 }
 
@@ -168,7 +168,7 @@ class CertificateMismatchException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -178,7 +178,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -195,8 +195,8 @@ class CreateCertificateAuthorityAuditReportRequest {
   ?'s_3_bucket_name' => string,
   ) $s = shape()) {
     $this->audit_report_response_format = $audit_report_response_format ?? "";
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
   }
 }
 
@@ -209,7 +209,7 @@ class CreateCertificateAuthorityAuditReportResponse {
   ?'s_3_key' => string,
   ) $s = shape()) {
     $this->audit_report_id = $audit_report_id ?? "";
-    $this->s_3_key = $s_3_key ?? ;
+    $this->s_3_key = $s_3_key ?? "";
   }
 }
 
@@ -231,7 +231,7 @@ class CreateCertificateAuthorityRequest {
     $this->certificate_authority_type = $certificate_authority_type ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
     $this->revocation_configuration = $revocation_configuration ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -241,7 +241,7 @@ class CreateCertificateAuthorityResponse {
   public function __construct(shape(
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -257,10 +257,10 @@ class CreatePermissionRequest {
   ?'principal' => Principal,
   ?'source_account' => AccountId,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->actions = $actions ?? [];
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->principal = $principal ?? "";
-    $this->source_account = $source_account ?? ;
+    $this->source_account = $source_account ?? "";
   }
 }
 
@@ -276,10 +276,10 @@ class CrlConfiguration {
   ?'expiration_in_days' => Integer1To5000,
   ?'s_3_bucket_name' => String3To255,
   ) $s = shape()) {
-    $this->custom_cname = $custom_cname ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->expiration_in_days = $expiration_in_days ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->custom_cname = $custom_cname ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->expiration_in_days = $expiration_in_days ?? 0;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
   }
 }
 
@@ -295,7 +295,7 @@ class DeleteCertificateAuthorityRequest {
   ?'certificate_authority_arn' => Arn,
   ?'permanent_deletion_time_in_days' => PermanentDeletionTimeInDays,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->permanent_deletion_time_in_days = $permanent_deletion_time_in_days ?? 0;
   }
 }
@@ -310,9 +310,9 @@ class DeletePermissionRequest {
   ?'principal' => Principal,
   ?'source_account' => AccountId,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->principal = $principal ?? "";
-    $this->source_account = $source_account ?? ;
+    $this->source_account = $source_account ?? "";
   }
 }
 
@@ -325,7 +325,7 @@ class DescribeCertificateAuthorityAuditReportRequest {
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
     $this->audit_report_id = $audit_report_id ?? "";
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -342,9 +342,9 @@ class DescribeCertificateAuthorityAuditReportResponse {
   ?'s_3_key' => string,
   ) $s = shape()) {
     $this->audit_report_status = $audit_report_status ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key = $s_3_key ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key = $s_3_key ?? "";
   }
 }
 
@@ -354,7 +354,7 @@ class DescribeCertificateAuthorityRequest {
   public function __construct(shape(
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -378,7 +378,7 @@ class GetCertificateAuthorityCertificateRequest {
   public function __construct(shape(
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -390,7 +390,7 @@ class GetCertificateAuthorityCertificateResponse {
   ?'certificate' => CertificateBody,
   ?'certificate_chain' => CertificateChain,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
   }
 }
@@ -401,7 +401,7 @@ class GetCertificateAuthorityCsrRequest {
   public function __construct(shape(
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -411,7 +411,7 @@ class GetCertificateAuthorityCsrResponse {
   public function __construct(shape(
   ?'csr' => CsrBody,
   ) $s = shape()) {
-    $this->csr = $csr ?? ;
+    $this->csr = $csr ?? "";
   }
 }
 
@@ -423,8 +423,8 @@ class GetCertificateRequest {
   ?'certificate_arn' => Arn,
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -436,7 +436,7 @@ class GetCertificateResponse {
   ?'certificate' => CertificateBody,
   ?'certificate_chain' => CertificateChain,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
   }
 }
@@ -453,8 +453,8 @@ class ImportCertificateAuthorityCertificateRequest {
   ?'certificate_authority_arn' => Arn,
   ?'certificate_chain' => CertificateChainBlob,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate = $certificate ?? "";
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
   }
 }
@@ -467,7 +467,7 @@ class InvalidArgsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -477,7 +477,7 @@ class InvalidArnException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -487,7 +487,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -497,7 +497,7 @@ class InvalidPolicyException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -507,7 +507,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class InvalidStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -527,7 +527,7 @@ class InvalidTagException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -547,11 +547,11 @@ class IssueCertificateRequest {
   ?'template_arn' => Arn,
   ?'validity' => Validity,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->csr = $csr ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->csr = $csr ?? "";
     $this->idempotency_token = $idempotency_token ?? "";
     $this->signing_algorithm = $signing_algorithm ?? "";
-    $this->template_arn = $template_arn ?? ;
+    $this->template_arn = $template_arn ?? "";
     $this->validity = $validity ?? null;
   }
 }
@@ -562,7 +562,7 @@ class IssueCertificateResponse {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -574,7 +574,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -614,7 +614,7 @@ class ListPermissionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -629,7 +629,7 @@ class ListPermissionsResponse {
   ?'permissions' => PermissionList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->permissions = $permissions ?? ;
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -643,7 +643,7 @@ class ListTagsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -658,7 +658,7 @@ class ListTagsResponse {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -668,7 +668,7 @@ class MalformedCSRException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -678,7 +678,7 @@ class MalformedCertificateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -704,12 +704,12 @@ class Permission {
   ?'principal' => string,
   ?'source_account' => string,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->policy = $policy ?? ;
+    $this->actions = $actions ?? [];
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->policy = $policy ?? "";
     $this->principal = $principal ?? "";
-    $this->source_account = $source_account ?? ;
+    $this->source_account = $source_account ?? "";
   }
 }
 
@@ -719,7 +719,7 @@ class PermissionAlreadyExistsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -735,7 +735,7 @@ class RequestAlreadyProcessedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -745,7 +745,7 @@ class RequestFailedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -755,7 +755,7 @@ class RequestInProgressException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -765,7 +765,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -775,7 +775,7 @@ class RestoreCertificateAuthorityRequest {
   public function __construct(shape(
   ?'certificate_authority_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
   }
 }
 
@@ -801,8 +801,8 @@ class RevokeCertificateRequest {
   ?'certificate_serial' => String128,
   ?'revocation_reason' => RevocationReason,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->certificate_serial = $certificate_serial ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->certificate_serial = $certificate_serial ?? "";
     $this->revocation_reason = $revocation_reason ?? "";
   }
 }
@@ -837,8 +837,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -850,8 +850,8 @@ class TagCertificateAuthorityRequest {
   ?'certificate_authority_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -867,7 +867,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -879,8 +879,8 @@ class UntagCertificateAuthorityRequest {
   ?'certificate_authority_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -894,9 +894,9 @@ class UpdateCertificateAuthorityRequest {
   ?'revocation_configuration' => RevocationConfiguration,
   ?'status' => CertificateAuthorityStatus,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
     $this->revocation_configuration = $revocation_configuration ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -908,8 +908,8 @@ class Validity {
   ?'type' => ValidityPeriodType,
   ?'value' => PositiveLong,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0;
   }
 }
 

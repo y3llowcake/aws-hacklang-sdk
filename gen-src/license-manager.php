@@ -46,7 +46,7 @@ class AutomatedDiscoveryInformation {
   public function __construct(shape(
   ?'last_run_time' => DateTime,
   ) $s = shape()) {
-    $this->last_run_time = $last_run_time ?? ;
+    $this->last_run_time = $last_run_time ?? 0;
   }
 }
 
@@ -66,7 +66,7 @@ class ConsumedLicenseSummary {
   ?'consumed_licenses' => BoxLong,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->consumed_licenses = $consumed_licenses ?? ;
+    $this->consumed_licenses = $consumed_licenses ?? 0;
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -93,14 +93,14 @@ class CreateLicenseConfigurationRequest {
   ?'product_information_list' => ProductInformationList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->license_count = $license_count ?? ;
-    $this->license_count_hard_limit = $license_count_hard_limit ?? ;
+    $this->description = $description ?? "";
+    $this->license_count = $license_count ?? 0;
+    $this->license_count_hard_limit = $license_count_hard_limit ?? false;
     $this->license_counting_type = $license_counting_type ?? "";
-    $this->license_rules = $license_rules ?? ;
-    $this->name = $name ?? ;
+    $this->license_rules = $license_rules ?? [];
+    $this->name = $name ?? "";
     $this->product_information_list = $product_information_list ?? [];
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -110,7 +110,7 @@ class CreateLicenseConfigurationResponse {
   public function __construct(shape(
   ?'license_configuration_arn' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
   }
 }
 
@@ -122,7 +122,7 @@ class DeleteLicenseConfigurationRequest {
   public function __construct(shape(
   ?'license_configuration_arn' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
   }
 }
 
@@ -151,8 +151,8 @@ class Filter {
   ?'name' => FilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -180,7 +180,7 @@ class GetLicenseConfigurationRequest {
   public function __construct(shape(
   ?'license_configuration_arn' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
   }
 }
 
@@ -222,20 +222,20 @@ class GetLicenseConfigurationResponse {
   ) $s = shape()) {
     $this->automated_discovery_information = $automated_discovery_information ?? null;
     $this->consumed_license_summary_list = $consumed_license_summary_list ?? [];
-    $this->consumed_licenses = $consumed_licenses ?? ;
-    $this->description = $description ?? ;
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
-    $this->license_configuration_id = $license_configuration_id ?? ;
-    $this->license_count = $license_count ?? ;
-    $this->license_count_hard_limit = $license_count_hard_limit ?? ;
+    $this->consumed_licenses = $consumed_licenses ?? 0;
+    $this->description = $description ?? "";
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
+    $this->license_configuration_id = $license_configuration_id ?? "";
+    $this->license_count = $license_count ?? 0;
+    $this->license_count_hard_limit = $license_count_hard_limit ?? false;
     $this->license_counting_type = $license_counting_type ?? "";
-    $this->license_rules = $license_rules ?? ;
+    $this->license_rules = $license_rules ?? [];
     $this->managed_resource_summary_list = $managed_resource_summary_list ?? [];
-    $this->name = $name ?? ;
-    $this->owner_account_id = $owner_account_id ?? ;
+    $this->name = $name ?? "";
+    $this->owner_account_id = $owner_account_id ?? "";
     $this->product_information_list = $product_information_list ?? [];
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -260,11 +260,11 @@ class GetServiceSettingsResponse {
   ?'s_3_bucket_arn' => string,
   ?'sns_topic_arn' => string,
   ) $s = shape()) {
-    $this->enable_cross_accounts_discovery = $enable_cross_accounts_discovery ?? ;
-    $this->license_manager_resource_share_arn = $license_manager_resource_share_arn ?? ;
+    $this->enable_cross_accounts_discovery = $enable_cross_accounts_discovery ?? false;
+    $this->license_manager_resource_share_arn = $license_manager_resource_share_arn ?? "";
     $this->organization_configuration = $organization_configuration ?? null;
-    $this->s_3_bucket_arn = $s_3_bucket_arn ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->s_3_bucket_arn = $s_3_bucket_arn ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -298,9 +298,9 @@ class InventoryFilter {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->condition = $condition ?? "";
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -344,19 +344,19 @@ class LicenseConfiguration {
   ) $s = shape()) {
     $this->automated_discovery_information = $automated_discovery_information ?? null;
     $this->consumed_license_summary_list = $consumed_license_summary_list ?? [];
-    $this->consumed_licenses = $consumed_licenses ?? ;
-    $this->description = $description ?? ;
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
-    $this->license_configuration_id = $license_configuration_id ?? ;
-    $this->license_count = $license_count ?? ;
-    $this->license_count_hard_limit = $license_count_hard_limit ?? ;
+    $this->consumed_licenses = $consumed_licenses ?? 0;
+    $this->description = $description ?? "";
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
+    $this->license_configuration_id = $license_configuration_id ?? "";
+    $this->license_count = $license_count ?? 0;
+    $this->license_count_hard_limit = $license_count_hard_limit ?? false;
     $this->license_counting_type = $license_counting_type ?? "";
-    $this->license_rules = $license_rules ?? ;
+    $this->license_rules = $license_rules ?? [];
     $this->managed_resource_summary_list = $managed_resource_summary_list ?? [];
-    $this->name = $name ?? ;
-    $this->owner_account_id = $owner_account_id ?? ;
+    $this->name = $name ?? "";
+    $this->owner_account_id = $owner_account_id ?? "";
     $this->product_information_list = $product_information_list ?? [];
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -372,9 +372,9 @@ class LicenseConfigurationAssociation {
   ?'resource_owner_id' => string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->association_time = $association_time ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner_id = $resource_owner_id ?? ;
+    $this->association_time = $association_time ?? 0;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner_id = $resource_owner_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -399,11 +399,11 @@ class LicenseConfigurationUsage {
   ?'resource_status' => string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->association_time = $association_time ?? ;
-    $this->consumed_licenses = $consumed_licenses ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner_id = $resource_owner_id ?? ;
-    $this->resource_status = $resource_status ?? ;
+    $this->association_time = $association_time ?? 0;
+    $this->consumed_licenses = $consumed_licenses ?? 0;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner_id = $resource_owner_id ?? "";
+    $this->resource_status = $resource_status ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -434,13 +434,13 @@ class LicenseOperationFailure {
   ?'resource_owner_id' => string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->error_message = $error_message ?? ;
-    $this->failure_time = $failure_time ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->failure_time = $failure_time ?? 0;
     $this->metadata_list = $metadata_list ?? [];
-    $this->operation_name = $operation_name ?? ;
-    $this->operation_requested_by = $operation_requested_by ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_owner_id = $resource_owner_id ?? ;
+    $this->operation_name = $operation_name ?? "";
+    $this->operation_requested_by = $operation_requested_by ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_owner_id = $resource_owner_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -453,7 +453,7 @@ class LicenseSpecification {
   public function __construct(shape(
   ?'license_configuration_arn' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
   }
 }
 
@@ -479,9 +479,9 @@ class ListAssociationsForLicenseConfigurationRequest {
   ?'max_results' => BoxInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -494,7 +494,7 @@ class ListAssociationsForLicenseConfigurationResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->license_configuration_associations = $license_configuration_associations ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -508,9 +508,9 @@ class ListFailuresForLicenseConfigurationOperationsRequest {
   ?'max_results' => BoxInteger,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -523,7 +523,7 @@ class ListFailuresForLicenseConfigurationOperationsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->license_operation_failure_list = $license_operation_failure_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -540,9 +540,9 @@ class ListLicenseConfigurationsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->filters = $filters ?? [];
-    $this->license_configuration_arns = $license_configuration_arns ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->license_configuration_arns = $license_configuration_arns ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -555,7 +555,7 @@ class ListLicenseConfigurationsResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->license_configurations = $license_configurations ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -569,9 +569,9 @@ class ListLicenseSpecificationsForResourceRequest {
   ?'next_token' => string,
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class ListLicenseSpecificationsForResourceResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->license_specifications = $license_specifications ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -599,8 +599,8 @@ class ListResourceInventoryRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->filters = $filters ?? [];
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -612,7 +612,7 @@ class ListResourceInventoryResponse {
   ?'next_token' => string,
   ?'resource_inventory_list' => ResourceInventoryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->resource_inventory_list = $resource_inventory_list ?? [];
   }
 }
@@ -623,7 +623,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -633,7 +633,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -650,9 +650,9 @@ class ListUsageForLicenseConfigurationRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->filters = $filters ?? [];
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -665,7 +665,7 @@ class ListUsageForLicenseConfigurationResponse {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->license_configuration_usage_list = $license_configuration_usage_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -677,7 +677,7 @@ class ManagedResourceSummary {
   ?'association_count' => BoxLong,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->association_count = $association_count ?? ;
+    $this->association_count = $association_count ?? 0;
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -694,8 +694,8 @@ class Metadata {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -707,7 +707,7 @@ class OrganizationConfiguration {
   public function __construct(shape(
   ?'enable_integration' => boolean,
   ) $s = shape()) {
-    $this->enable_integration = $enable_integration ?? ;
+    $this->enable_integration = $enable_integration ?? false;
   }
 }
 
@@ -734,9 +734,9 @@ class ProductInformationFilter {
   ?'product_information_filter_name' => string,
   ?'product_information_filter_value' => StringList,
   ) $s = shape()) {
-    $this->product_information_filter_comparator = $product_information_filter_comparator ?? ;
-    $this->product_information_filter_name = $product_information_filter_name ?? ;
-    $this->product_information_filter_value = $product_information_filter_value ?? ;
+    $this->product_information_filter_comparator = $product_information_filter_comparator ?? "";
+    $this->product_information_filter_name = $product_information_filter_name ?? "";
+    $this->product_information_filter_value = $product_information_filter_value ?? [];
   }
 }
 
@@ -770,11 +770,11 @@ class ResourceInventory {
   ?'resource_owning_account_id' => string,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->platform = $platform ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_owning_account_id = $resource_owning_account_id ?? ;
+    $this->platform = $platform ?? "";
+    $this->platform_version = $platform_version ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_owning_account_id = $resource_owning_account_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -815,8 +815,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -832,8 +832,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -852,8 +852,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -884,13 +884,13 @@ class UpdateLicenseConfigurationRequest {
   ?'name' => string,
   ?'product_information_list' => ProductInformationList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->license_configuration_arn = $license_configuration_arn ?? ;
+    $this->description = $description ?? "";
+    $this->license_configuration_arn = $license_configuration_arn ?? "";
     $this->license_configuration_status = $license_configuration_status ?? "";
-    $this->license_count = $license_count ?? ;
-    $this->license_count_hard_limit = $license_count_hard_limit ?? ;
-    $this->license_rules = $license_rules ?? ;
-    $this->name = $name ?? ;
+    $this->license_count = $license_count ?? 0;
+    $this->license_count_hard_limit = $license_count_hard_limit ?? false;
+    $this->license_rules = $license_rules ?? [];
+    $this->name = $name ?? "";
     $this->product_information_list = $product_information_list ?? [];
   }
 }
@@ -912,9 +912,9 @@ class UpdateLicenseSpecificationsForResourceRequest {
   ?'remove_license_specifications' => LicenseSpecifications,
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->add_license_specifications = $add_license_specifications ?? ;
-    $this->remove_license_specifications = $remove_license_specifications ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->add_license_specifications = $add_license_specifications ?? [];
+    $this->remove_license_specifications = $remove_license_specifications ?? [];
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -937,10 +937,10 @@ class UpdateServiceSettingsRequest {
   ?'s_3_bucket_arn' => string,
   ?'sns_topic_arn' => string,
   ) $s = shape()) {
-    $this->enable_cross_accounts_discovery = $enable_cross_accounts_discovery ?? ;
+    $this->enable_cross_accounts_discovery = $enable_cross_accounts_discovery ?? false;
     $this->organization_configuration = $organization_configuration ?? null;
-    $this->s_3_bucket_arn = $s_3_bucket_arn ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->s_3_bucket_arn = $s_3_bucket_arn ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 

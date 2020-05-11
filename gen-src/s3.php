@@ -126,10 +126,10 @@ class AbortMultipartUploadRequest {
   ?'request_payer' => RequestPayer,
   ?'upload_id' => MultipartUploadId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -141,7 +141,7 @@ class AccelerateConfiguration {
   public function __construct(shape(
   ?'status' => BucketAccelerateStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -166,7 +166,7 @@ class AccessControlTranslation {
   public function __construct(shape(
   ?'owner' => OwnerOverride,
   ) $s = shape()) {
-    $this->owner = $owner ?? null;
+    $this->owner = $owner ?? "";
   }
 }
 
@@ -195,7 +195,7 @@ class AnalyticsAndOperator {
   ?'tags' => TagSet,
   ) $s = shape()) {
     $this->prefix = $prefix ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -209,8 +209,8 @@ class AnalyticsConfiguration {
   ?'id' => AnalyticsId,
   ?'storage_class_analysis' => StorageClassAnalysis,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
     $this->storage_class_analysis = $storage_class_analysis ?? null;
   }
 }
@@ -223,7 +223,7 @@ class AnalyticsExportDestination {
   public function __construct(shape(
   ?'s_3_bucket_destination' => AnalyticsS3BucketDestination,
   ) $s = shape()) {
-    $this->s_3_bucket_destination = $s_3_bucket_destination ?? ;
+    $this->s_3_bucket_destination = $s_3_bucket_destination ?? null;
   }
 }
 
@@ -237,7 +237,7 @@ class AnalyticsFilter {
   ?'prefix' => Prefix,
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->and = $and ?? ;
+    $this->and = $and ?? null;
     $this->prefix = $prefix ?? "";
     $this->tag = $tag ?? null;
   }
@@ -257,9 +257,9 @@ class AnalyticsS3BucketDestination {
   ?'format' => AnalyticsS3ExportFileFormat,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->bucket_account_id = $bucket_account_id ?? ;
-    $this->format = $format ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->bucket_account_id = $bucket_account_id ?? "";
+    $this->format = $format ?? "";
     $this->prefix = $prefix ?? "";
   }
 }
@@ -277,7 +277,7 @@ class Bucket {
   ?'name' => BucketName,
   ) $s = shape()) {
     $this->creation_date = $creation_date ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -441,9 +441,9 @@ class CloudFunctionConfiguration {
   ) $s = shape()) {
     $this->cloud_function = $cloud_function ?? "";
     $this->event = $event ?? "";
-    $this->events = $events ?? ;
-    $this->id = $id ?? ;
-    $this->invocation_role = $invocation_role ?? ;
+    $this->events = $events ?? [];
+    $this->id = $id ?? "";
+    $this->invocation_role = $invocation_role ?? "";
   }
 }
 
@@ -487,15 +487,15 @@ class CompleteMultipartUploadOutput {
   ?'server_side_encryption' => ServerSideEncryption,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->e_tag = $e_tag ?? "";
     $this->expiration = $expiration ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->location = $location ?? "";
     $this->request_charged = $request_charged ?? "";
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -513,11 +513,11 @@ class CompleteMultipartUploadRequest {
   ?'request_payer' => RequestPayer,
   ?'upload_id' => MultipartUploadId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->multipart_upload = $multipart_upload ?? null;
     $this->request_payer = $request_payer ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -617,7 +617,7 @@ class CopyObjectOutput {
     $this->ssekms_encryption_context = $ssekms_encryption_context ?? "";
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -699,8 +699,8 @@ class CopyObjectRequest {
   ?'tagging_directive' => TaggingDirective,
   ?'website_redirect_location' => WebsiteRedirectLocation,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
-    $this->bucket = $bucket ?? null;
+    $this->acl = $acl ?? "";
+    $this->bucket = $bucket ?? "";
     $this->cache_control = $cache_control ?? "";
     $this->content_disposition = $content_disposition ?? "";
     $this->content_encoding = $content_encoding ?? "";
@@ -719,7 +719,7 @@ class CopyObjectRequest {
     $this->grant_read = $grant_read ?? "";
     $this->grant_read_acp = $grant_read_acp ?? "";
     $this->grant_write_acp = $grant_write_acp ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->metadata = $metadata ?? [];
     $this->metadata_directive = $metadata_directive ?? "";
     $this->object_lock_legal_hold_status = $object_lock_legal_hold_status ?? "";
@@ -733,7 +733,7 @@ class CopyObjectRequest {
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->tagging = $tagging ?? null;
+    $this->tagging = $tagging ?? "";
     $this->tagging_directive = $tagging_directive ?? "";
     $this->website_redirect_location = $website_redirect_location ?? "";
   }
@@ -791,7 +791,7 @@ class CreateBucketConfiguration {
   public function __construct(shape(
   ?'location_constraint' => BucketLocationConstraint,
   ) $s = shape()) {
-    $this->location_constraint = $location_constraint ?? ;
+    $this->location_constraint = $location_constraint ?? "";
   }
 }
 
@@ -827,8 +827,8 @@ class CreateBucketRequest {
   ?'grant_write_acp' => GrantWriteACP,
   ?'object_lock_enabled_for_bucket' => ObjectLockEnabledForBucket,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
-    $this->bucket = $bucket ?? null;
+    $this->acl = $acl ?? "";
+    $this->bucket = $bucket ?? "";
     $this->create_bucket_configuration = $create_bucket_configuration ?? null;
     $this->grant_full_control = $grant_full_control ?? "";
     $this->grant_read = $grant_read ?? "";
@@ -867,15 +867,15 @@ class CreateMultipartUploadOutput {
   ) $s = shape()) {
     $this->abort_date = $abort_date ?? 0;
     $this->abort_rule_id = $abort_rule_id ?? "";
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_charged = $request_charged ?? "";
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
     $this->sse_customer_key_md_5 = $sse_customer_key_md_5 ?? "";
     $this->ssekms_encryption_context = $ssekms_encryption_context ?? "";
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -937,8 +937,8 @@ class CreateMultipartUploadRequest {
   ?'tagging' => TaggingHeader,
   ?'website_redirect_location' => WebsiteRedirectLocation,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
-    $this->bucket = $bucket ?? null;
+    $this->acl = $acl ?? "";
+    $this->bucket = $bucket ?? "";
     $this->cache_control = $cache_control ?? "";
     $this->content_disposition = $content_disposition ?? "";
     $this->content_encoding = $content_encoding ?? "";
@@ -949,7 +949,7 @@ class CreateMultipartUploadRequest {
     $this->grant_read = $grant_read ?? "";
     $this->grant_read_acp = $grant_read_acp ?? "";
     $this->grant_write_acp = $grant_write_acp ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->metadata = $metadata ?? [];
     $this->object_lock_legal_hold_status = $object_lock_legal_hold_status ?? "";
     $this->object_lock_mode = $object_lock_mode ?? "";
@@ -962,7 +962,7 @@ class CreateMultipartUploadRequest {
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->tagging = $tagging ?? null;
+    $this->tagging = $tagging ?? "";
     $this->website_redirect_location = $website_redirect_location ?? "";
   }
 }
@@ -986,7 +986,7 @@ class DefaultRetention {
   ?'years' => Years,
   ) $s = shape()) {
     $this->days = $days ?? 0;
-    $this->mode = $mode ?? ;
+    $this->mode = $mode ?? "";
     $this->years = $years ?? 0;
   }
 }
@@ -999,7 +999,7 @@ class Delete {
   ?'objects' => ObjectIdentifierList,
   ?'quiet' => Quiet,
   ) $s = shape()) {
-    $this->objects = $objects ?? ;
+    $this->objects = $objects ?? [];
     $this->quiet = $quiet ?? false;
   }
 }
@@ -1012,8 +1012,8 @@ class DeleteBucketAnalyticsConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => AnalyticsId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1023,7 +1023,7 @@ class DeleteBucketCorsRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1033,7 +1033,7 @@ class DeleteBucketEncryptionRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1045,8 +1045,8 @@ class DeleteBucketInventoryConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => InventoryId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1056,7 +1056,7 @@ class DeleteBucketLifecycleRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1068,8 +1068,8 @@ class DeleteBucketMetricsConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => MetricsId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1079,7 +1079,7 @@ class DeleteBucketPolicyRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1089,7 +1089,7 @@ class DeleteBucketReplicationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1099,7 +1099,7 @@ class DeleteBucketRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1109,7 +1109,7 @@ class DeleteBucketTaggingRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1119,7 +1119,7 @@ class DeleteBucketWebsiteRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1140,10 +1140,10 @@ class DeleteMarkerEntry {
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
     $this->is_latest = $is_latest ?? false;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->last_modified = $last_modified ?? 0;
     $this->owner = $owner ?? null;
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1153,7 +1153,7 @@ class DeleteMarkerReplication {
   public function __construct(shape(
   ?'status' => DeleteMarkerReplicationStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1175,7 +1175,7 @@ class DeleteObjectOutput {
   ) $s = shape()) {
     $this->delete_marker = $delete_marker ?? false;
     $this->request_charged = $request_charged ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1195,12 +1195,12 @@ class DeleteObjectRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->bypass_governance_retention = $bypass_governance_retention ?? false;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->mfa = $mfa ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1210,7 +1210,7 @@ class DeleteObjectTaggingOutput {
   public function __construct(shape(
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1224,9 +1224,9 @@ class DeleteObjectTaggingRequest {
   ?'key' => ObjectKey,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1240,7 +1240,7 @@ class DeleteObjectsOutput {
   ?'errors' => Errors,
   ?'request_charged' => RequestCharged,
   ) $s = shape()) {
-    $this->deleted = $deleted ?? ;
+    $this->deleted = $deleted ?? [];
     $this->errors = $errors ?? [];
     $this->request_charged = $request_charged ?? "";
   }
@@ -1260,7 +1260,7 @@ class DeleteObjectsRequest {
   ?'mfa' => MFA,
   ?'request_payer' => RequestPayer,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->bypass_governance_retention = $bypass_governance_retention ?? false;
     $this->delete = $delete ?? null;
     $this->mfa = $mfa ?? "";
@@ -1274,7 +1274,7 @@ class DeletePublicAccessBlockRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1292,8 +1292,8 @@ class DeletedObject {
   ) $s = shape()) {
     $this->delete_marker = $delete_marker ?? false;
     $this->delete_marker_version_id = $delete_marker_version_id ?? "";
-    $this->key = $key ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->key = $key ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1322,8 +1322,8 @@ class Destination {
   ?'storage_class' => StorageClass,
   ) $s = shape()) {
     $this->access_control_translation = $access_control_translation ?? null;
-    $this->account = $account ?? ;
-    $this->bucket = $bucket ?? null;
+    $this->account = $account ?? "";
+    $this->bucket = $bucket ?? "";
     $this->encryption_configuration = $encryption_configuration ?? null;
     $this->metrics = $metrics ?? null;
     $this->replication_time = $replication_time ?? null;
@@ -1351,9 +1351,9 @@ class Encryption {
   ?'kms_context' => KMSContext,
   ?'kms_key_id' => SSEKMSKeyId,
   ) $s = shape()) {
-    $this->encryption_type = $encryption_type ?? ;
+    $this->encryption_type = $encryption_type ?? "";
     $this->kms_context = $kms_context ?? "";
-    $this->kms_key_id = $kms_key_id ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
   }
 }
 
@@ -1389,9 +1389,9 @@ class Error {
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
     $this->code = $code ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->message = $message ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1401,7 +1401,7 @@ class ErrorDocument {
   public function __construct(shape(
   ?'key' => ObjectKey,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
   }
 }
 
@@ -1417,7 +1417,7 @@ class ExistingObjectReplication {
   public function __construct(shape(
   ?'status' => ExistingObjectReplicationStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1453,7 +1453,7 @@ class FilterRule {
   ?'name' => FilterRuleName,
   ?'value' => FilterRuleValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -1470,7 +1470,7 @@ class GetBucketAccelerateConfigurationOutput {
   public function __construct(shape(
   ?'status' => BucketAccelerateStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1480,7 +1480,7 @@ class GetBucketAccelerateConfigurationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1503,7 +1503,7 @@ class GetBucketAclRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1525,8 +1525,8 @@ class GetBucketAnalyticsConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => AnalyticsId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1546,7 +1546,7 @@ class GetBucketCorsRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1566,7 +1566,7 @@ class GetBucketEncryptionRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1588,8 +1588,8 @@ class GetBucketInventoryConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => InventoryId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1609,7 +1609,7 @@ class GetBucketLifecycleConfigurationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1629,7 +1629,7 @@ class GetBucketLifecycleRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1639,7 +1639,7 @@ class GetBucketLocationOutput {
   public function __construct(shape(
   ?'location_constraint' => BucketLocationConstraint,
   ) $s = shape()) {
-    $this->location_constraint = $location_constraint ?? ;
+    $this->location_constraint = $location_constraint ?? "";
   }
 }
 
@@ -1649,7 +1649,7 @@ class GetBucketLocationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1669,7 +1669,7 @@ class GetBucketLoggingRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1691,8 +1691,8 @@ class GetBucketMetricsConfigurationRequest {
   ?'bucket' => BucketName,
   ?'id' => MetricsId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1702,7 +1702,7 @@ class GetBucketNotificationConfigurationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1722,7 +1722,7 @@ class GetBucketPolicyRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1742,7 +1742,7 @@ class GetBucketPolicyStatusRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1762,7 +1762,7 @@ class GetBucketReplicationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1782,7 +1782,7 @@ class GetBucketRequestPaymentRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1802,7 +1802,7 @@ class GetBucketTaggingRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1815,7 +1815,7 @@ class GetBucketVersioningOutput {
   ?'status' => BucketVersioningStatus,
   ) $s = shape()) {
     $this->mfa_delete = $mfa_delete ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1825,7 +1825,7 @@ class GetBucketVersioningRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1854,7 +1854,7 @@ class GetBucketWebsiteRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -1886,10 +1886,10 @@ class GetObjectAclRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1899,7 +1899,7 @@ class GetObjectLegalHoldOutput {
   public function __construct(shape(
   ?'legal_hold' => ObjectLockLegalHold,
   ) $s = shape()) {
-    $this->legal_hold = $legal_hold ?? ;
+    $this->legal_hold = $legal_hold ?? null;
   }
 }
 
@@ -1915,10 +1915,10 @@ class GetObjectLegalHoldRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1938,7 +1938,7 @@ class GetObjectLockConfigurationRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -2037,7 +2037,7 @@ class GetObjectOutput {
     $this->server_side_encryption = $server_side_encryption ?? "";
     $this->storage_class = $storage_class ?? "";
     $this->tag_count = $tag_count ?? 0;
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
     $this->website_redirect_location = $website_redirect_location ?? "";
   }
 }
@@ -2084,12 +2084,12 @@ class GetObjectRequest {
   ?'sse_customer_key_md_5' => SSECustomerKeyMD5,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->if_match = $if_match ?? "";
     $this->if_modified_since = $if_modified_since ?? 0;
     $this->if_none_match = $if_none_match ?? "";
     $this->if_unmodified_since = $if_unmodified_since ?? 0;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->part_number = $part_number ?? 0;
     $this->range = $range ?? "";
     $this->request_payer = $request_payer ?? "";
@@ -2102,7 +2102,7 @@ class GetObjectRequest {
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
     $this->sse_customer_key = $sse_customer_key ?? "";
     $this->sse_customer_key_md_5 = $sse_customer_key_md_5 ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2112,7 +2112,7 @@ class GetObjectRetentionOutput {
   public function __construct(shape(
   ?'retention' => ObjectLockRetention,
   ) $s = shape()) {
-    $this->retention = $retention ?? ;
+    $this->retention = $retention ?? null;
   }
 }
 
@@ -2128,10 +2128,10 @@ class GetObjectRetentionRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2144,7 +2144,7 @@ class GetObjectTaggingOutput {
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
     $this->tag_set = $tag_set ?? [];
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2158,9 +2158,9 @@ class GetObjectTaggingRequest {
   ?'key' => ObjectKey,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2187,8 +2187,8 @@ class GetObjectTorrentRequest {
   ?'key' => ObjectKey,
   ?'request_payer' => RequestPayer,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
   }
 }
@@ -2209,7 +2209,7 @@ class GetPublicAccessBlockRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -2276,7 +2276,7 @@ class HeadBucketRequest {
   public function __construct(shape(
   ?'bucket' => BucketName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -2366,7 +2366,7 @@ class HeadObjectOutput {
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
     $this->website_redirect_location = $website_redirect_location ?? "";
   }
 }
@@ -2401,19 +2401,19 @@ class HeadObjectRequest {
   ?'sse_customer_key_md_5' => SSECustomerKeyMD5,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->if_match = $if_match ?? "";
     $this->if_modified_since = $if_modified_since ?? 0;
     $this->if_none_match = $if_none_match ?? "";
     $this->if_unmodified_since = $if_unmodified_since ?? 0;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->part_number = $part_number ?? 0;
     $this->range = $range ?? "";
     $this->request_payer = $request_payer ?? "";
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
     $this->sse_customer_key = $sse_customer_key ?? "";
     $this->sse_customer_key_md_5 = $sse_customer_key_md_5 ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2470,10 +2470,10 @@ class InputSerialization {
   ?'json' => JSONInput,
   ?'parquet' => ParquetInput,
   ) $s = shape()) {
-    $this->csv = $csv ?? ;
+    $this->csv = $csv ?? null;
     $this->compression_type = $compression_type ?? "";
-    $this->json = $json ?? ;
-    $this->parquet = $parquet ?? ;
+    $this->json = $json ?? null;
+    $this->parquet = $parquet ?? null;
   }
 }
 
@@ -2496,12 +2496,12 @@ class InventoryConfiguration {
   ?'schedule' => InventorySchedule,
   ) $s = shape()) {
     $this->destination = $destination ?? null;
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
-    $this->included_object_versions = $included_object_versions ?? ;
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
+    $this->included_object_versions = $included_object_versions ?? "";
     $this->is_enabled = $is_enabled ?? false;
-    $this->optional_fields = $optional_fields ?? ;
-    $this->schedule = $schedule ?? ;
+    $this->optional_fields = $optional_fields ?? [];
+    $this->schedule = $schedule ?? null;
   }
 }
 
@@ -2513,7 +2513,7 @@ class InventoryDestination {
   public function __construct(shape(
   ?'s_3_bucket_destination' => InventoryS3BucketDestination,
   ) $s = shape()) {
-    $this->s_3_bucket_destination = $s_3_bucket_destination ?? ;
+    $this->s_3_bucket_destination = $s_3_bucket_destination ?? null;
   }
 }
 
@@ -2567,9 +2567,9 @@ class InventoryS3BucketDestination {
   ?'prefix' => Prefix,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->encryption = $encryption ?? null;
-    $this->format = $format ?? ;
+    $this->format = $format ?? "";
     $this->prefix = $prefix ?? "";
   }
 }
@@ -2580,7 +2580,7 @@ class InventorySchedule {
   public function __construct(shape(
   ?'frequency' => InventoryFrequency,
   ) $s = shape()) {
-    $this->frequency = $frequency ?? ;
+    $this->frequency = $frequency ?? "";
   }
 }
 
@@ -2636,9 +2636,9 @@ class LambdaFunctionConfiguration {
   ?'id' => NotificationId,
   ?'lambda_function_arn' => LambdaFunctionArn,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
+    $this->events = $events ?? [];
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
     $this->lambda_function_arn = $lambda_function_arn ?? "";
   }
 }
@@ -2696,14 +2696,14 @@ class LifecycleRule {
   ?'transitions' => TransitionList,
   ) $s = shape()) {
     $this->abort_incomplete_multipart_upload = $abort_incomplete_multipart_upload ?? null;
-    $this->expiration = $expiration ?? "";
-    $this->filter = $filter ?? ;
+    $this->expiration = $expiration ?? null;
+    $this->filter = $filter ?? null;
     $this->id = $id ?? "";
     $this->noncurrent_version_expiration = $noncurrent_version_expiration ?? null;
-    $this->noncurrent_version_transitions = $noncurrent_version_transitions ?? ;
+    $this->noncurrent_version_transitions = $noncurrent_version_transitions ?? [];
     $this->prefix = $prefix ?? "";
-    $this->status = $status ?? ;
-    $this->transitions = $transitions ?? ;
+    $this->status = $status ?? "";
+    $this->transitions = $transitions ?? [];
   }
 }
 
@@ -2716,7 +2716,7 @@ class LifecycleRuleAndOperator {
   ?'tags' => TagSet,
   ) $s = shape()) {
     $this->prefix = $prefix ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2730,7 +2730,7 @@ class LifecycleRuleFilter {
   ?'prefix' => Prefix,
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->and = $and ?? ;
+    $this->and = $and ?? null;
     $this->prefix = $prefix ?? "";
     $this->tag = $tag ?? null;
   }
@@ -2751,9 +2751,9 @@ class ListBucketAnalyticsConfigurationsOutput {
   ?'next_continuation_token' => NextToken,
   ) $s = shape()) {
     $this->analytics_configuration_list = $analytics_configuration_list ?? [];
-    $this->continuation_token = $continuation_token ?? ;
+    $this->continuation_token = $continuation_token ?? "";
     $this->is_truncated = $is_truncated ?? false;
-    $this->next_continuation_token = $next_continuation_token ?? ;
+    $this->next_continuation_token = $next_continuation_token ?? "";
   }
 }
 
@@ -2765,8 +2765,8 @@ class ListBucketAnalyticsConfigurationsRequest {
   ?'bucket' => BucketName,
   ?'continuation_token' => Token,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->continuation_token = $continuation_token ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->continuation_token = $continuation_token ?? "";
   }
 }
 
@@ -2782,10 +2782,10 @@ class ListBucketInventoryConfigurationsOutput {
   ?'is_truncated' => IsTruncated,
   ?'next_continuation_token' => NextToken,
   ) $s = shape()) {
-    $this->continuation_token = $continuation_token ?? ;
+    $this->continuation_token = $continuation_token ?? "";
     $this->inventory_configuration_list = $inventory_configuration_list ?? [];
     $this->is_truncated = $is_truncated ?? false;
-    $this->next_continuation_token = $next_continuation_token ?? ;
+    $this->next_continuation_token = $next_continuation_token ?? "";
   }
 }
 
@@ -2797,8 +2797,8 @@ class ListBucketInventoryConfigurationsRequest {
   ?'bucket' => BucketName,
   ?'continuation_token' => Token,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->continuation_token = $continuation_token ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->continuation_token = $continuation_token ?? "";
   }
 }
 
@@ -2814,10 +2814,10 @@ class ListBucketMetricsConfigurationsOutput {
   ?'metrics_configuration_list' => MetricsConfigurationList,
   ?'next_continuation_token' => NextToken,
   ) $s = shape()) {
-    $this->continuation_token = $continuation_token ?? ;
+    $this->continuation_token = $continuation_token ?? "";
     $this->is_truncated = $is_truncated ?? false;
     $this->metrics_configuration_list = $metrics_configuration_list ?? [];
-    $this->next_continuation_token = $next_continuation_token ?? ;
+    $this->next_continuation_token = $next_continuation_token ?? "";
   }
 }
 
@@ -2829,8 +2829,8 @@ class ListBucketMetricsConfigurationsRequest {
   ?'bucket' => BucketName,
   ?'continuation_token' => Token,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->continuation_token = $continuation_token ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->continuation_token = $continuation_token ?? "";
   }
 }
 
@@ -2875,8 +2875,8 @@ class ListMultipartUploadsOutput {
   ?'upload_id_marker' => UploadIdMarker,
   ?'uploads' => MultipartUploadList,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->common_prefixes = $common_prefixes ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->common_prefixes = $common_prefixes ?? [];
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->is_truncated = $is_truncated ?? false;
@@ -2886,7 +2886,7 @@ class ListMultipartUploadsOutput {
     $this->next_upload_id_marker = $next_upload_id_marker ?? "";
     $this->prefix = $prefix ?? "";
     $this->upload_id_marker = $upload_id_marker ?? "";
-    $this->uploads = $uploads ?? ;
+    $this->uploads = $uploads ?? [];
   }
 }
 
@@ -2908,7 +2908,7 @@ class ListMultipartUploadsRequest {
   ?'prefix' => Prefix,
   ?'upload_id_marker' => UploadIdMarker,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->key_marker = $key_marker ?? "";
@@ -2948,19 +2948,19 @@ class ListObjectVersionsOutput {
   ?'version_id_marker' => VersionIdMarker,
   ?'versions' => ObjectVersionList,
   ) $s = shape()) {
-    $this->common_prefixes = $common_prefixes ?? ;
+    $this->common_prefixes = $common_prefixes ?? [];
     $this->delete_markers = $delete_markers ?? [];
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->is_truncated = $is_truncated ?? false;
     $this->key_marker = $key_marker ?? "";
     $this->max_keys = $max_keys ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->next_key_marker = $next_key_marker ?? "";
     $this->next_version_id_marker = $next_version_id_marker ?? "";
     $this->prefix = $prefix ?? "";
     $this->version_id_marker = $version_id_marker ?? "";
-    $this->versions = $versions ?? ;
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2982,7 +2982,7 @@ class ListObjectVersionsRequest {
   ?'prefix' => Prefix,
   ?'version_id_marker' => VersionIdMarker,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->key_marker = $key_marker ?? "";
@@ -3016,14 +3016,14 @@ class ListObjectsOutput {
   ?'next_marker' => NextMarker,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->common_prefixes = $common_prefixes ?? ;
-    $this->contents = $contents ?? ;
+    $this->common_prefixes = $common_prefixes ?? [];
+    $this->contents = $contents ?? [];
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->is_truncated = $is_truncated ?? false;
     $this->marker = $marker ?? "";
     $this->max_keys = $max_keys ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->next_marker = $next_marker ?? "";
     $this->prefix = $prefix ?? "";
   }
@@ -3047,7 +3047,7 @@ class ListObjectsRequest {
   ?'prefix' => Prefix,
   ?'request_payer' => RequestPayer,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->marker = $marker ?? "";
@@ -3085,16 +3085,16 @@ class ListObjectsV2Output {
   ?'prefix' => Prefix,
   ?'start_after' => StartAfter,
   ) $s = shape()) {
-    $this->common_prefixes = $common_prefixes ?? ;
-    $this->contents = $contents ?? ;
-    $this->continuation_token = $continuation_token ?? ;
+    $this->common_prefixes = $common_prefixes ?? [];
+    $this->contents = $contents ?? [];
+    $this->continuation_token = $continuation_token ?? "";
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->is_truncated = $is_truncated ?? false;
     $this->key_count = $key_count ?? 0;
     $this->max_keys = $max_keys ?? 0;
-    $this->name = $name ?? ;
-    $this->next_continuation_token = $next_continuation_token ?? ;
+    $this->name = $name ?? "";
+    $this->next_continuation_token = $next_continuation_token ?? "";
     $this->prefix = $prefix ?? "";
     $this->start_after = $start_after ?? "";
   }
@@ -3122,8 +3122,8 @@ class ListObjectsV2Request {
   ?'request_payer' => RequestPayer,
   ?'start_after' => StartAfter,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->continuation_token = $continuation_token ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->continuation_token = $continuation_token ?? "";
     $this->delimiter = $delimiter ?? "";
     $this->encoding_type = $encoding_type ?? "";
     $this->fetch_owner = $fetch_owner ?? false;
@@ -3168,10 +3168,10 @@ class ListPartsOutput {
   ) $s = shape()) {
     $this->abort_date = $abort_date ?? 0;
     $this->abort_rule_id = $abort_rule_id ?? "";
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->initiator = $initiator ?? null;
     $this->is_truncated = $is_truncated ?? false;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->max_parts = $max_parts ?? 0;
     $this->next_part_number_marker = $next_part_number_marker ?? 0;
     $this->owner = $owner ?? null;
@@ -3179,7 +3179,7 @@ class ListPartsOutput {
     $this->parts = $parts ?? [];
     $this->request_charged = $request_charged ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -3199,12 +3199,12 @@ class ListPartsRequest {
   ?'request_payer' => RequestPayer,
   ?'upload_id' => MultipartUploadId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->max_parts = $max_parts ?? 0;
     $this->part_number_marker = $part_number_marker ?? 0;
     $this->request_payer = $request_payer ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -3258,7 +3258,7 @@ class MetadataEntry {
   ?'name' => MetadataKey,
   ?'value' => MetadataValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -3275,8 +3275,8 @@ class Metrics {
   ?'event_threshold' => ReplicationTimeValue,
   ?'status' => MetricsStatus,
   ) $s = shape()) {
-    $this->event_threshold = $event_threshold ?? ;
-    $this->status = $status ?? ;
+    $this->event_threshold = $event_threshold ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3289,7 +3289,7 @@ class MetricsAndOperator {
   ?'tags' => TagSet,
   ) $s = shape()) {
     $this->prefix = $prefix ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3301,8 +3301,8 @@ class MetricsConfiguration {
   ?'filter' => MetricsFilter,
   ?'id' => MetricsId,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
   }
 }
 
@@ -3318,7 +3318,7 @@ class MetricsFilter {
   ?'prefix' => Prefix,
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->and = $and ?? ;
+    $this->and = $and ?? null;
     $this->prefix = $prefix ?? "";
     $this->tag = $tag ?? null;
   }
@@ -3350,10 +3350,10 @@ class MultipartUpload {
   ) $s = shape()) {
     $this->initiated = $initiated ?? 0;
     $this->initiator = $initiator ?? null;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->owner = $owner ?? null;
     $this->storage_class = $storage_class ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -3400,7 +3400,7 @@ class NoncurrentVersionExpiration {
   public function __construct(shape(
   ?'noncurrent_days' => Days,
   ) $s = shape()) {
-    $this->noncurrent_days = $noncurrent_days ?? ;
+    $this->noncurrent_days = $noncurrent_days ?? 0;
   }
 }
 
@@ -3412,7 +3412,7 @@ class NoncurrentVersionTransition {
   ?'noncurrent_days' => Days,
   ?'storage_class' => TransitionStorageClass,
   ) $s = shape()) {
-    $this->noncurrent_days = $noncurrent_days ?? ;
+    $this->noncurrent_days = $noncurrent_days ?? 0;
     $this->storage_class = $storage_class ?? "";
   }
 }
@@ -3429,9 +3429,9 @@ class NotificationConfiguration {
   ?'queue_configurations' => QueueConfigurationList,
   ?'topic_configurations' => TopicConfigurationList,
   ) $s = shape()) {
-    $this->lambda_function_configurations = $lambda_function_configurations ?? ;
-    $this->queue_configurations = $queue_configurations ?? ;
-    $this->topic_configurations = $topic_configurations ?? ;
+    $this->lambda_function_configurations = $lambda_function_configurations ?? [];
+    $this->queue_configurations = $queue_configurations ?? [];
+    $this->topic_configurations = $topic_configurations ?? [];
   }
 }
 
@@ -3457,7 +3457,7 @@ class NotificationConfigurationFilter {
   public function __construct(shape(
   ?'key' => S3KeyFilter,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? null;
   }
 }
 
@@ -3480,7 +3480,7 @@ class Object {
   ?'storage_class' => ObjectStorageClass,
   ) $s = shape()) {
     $this->e_tag = $e_tag ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->last_modified = $last_modified ?? 0;
     $this->owner = $owner ?? null;
     $this->size = $size ?? 0;
@@ -3505,8 +3505,8 @@ class ObjectIdentifier {
   ?'key' => ObjectKey,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->key = $key ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -3539,7 +3539,7 @@ class ObjectLockLegalHold {
   public function __construct(shape(
   ?'status' => ObjectLockLegalHoldStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3557,8 +3557,8 @@ class ObjectLockRetention {
   ?'mode' => ObjectLockRetentionMode,
   ?'retain_until_date' => Date,
   ) $s = shape()) {
-    $this->mode = $mode ?? ;
-    $this->retain_until_date = $retain_until_date ?? ;
+    $this->mode = $mode ?? "";
+    $this->retain_until_date = $retain_until_date ?? 0;
   }
 }
 
@@ -3607,12 +3607,12 @@ class ObjectVersion {
   ) $s = shape()) {
     $this->e_tag = $e_tag ?? "";
     $this->is_latest = $is_latest ?? false;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->last_modified = $last_modified ?? 0;
     $this->owner = $owner ?? null;
     $this->size = $size ?? 0;
     $this->storage_class = $storage_class ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -3628,7 +3628,7 @@ class OutputLocation {
   public function __construct(shape(
   ?'s_3' => S3Location,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -3640,8 +3640,8 @@ class OutputSerialization {
   ?'csv' => CSVOutput,
   ?'json' => JSONOutput,
   ) $s = shape()) {
-    $this->csv = $csv ?? ;
-    $this->json = $json ?? ;
+    $this->csv = $csv ?? null;
+    $this->json = $json ?? null;
   }
 }
 
@@ -3736,7 +3736,7 @@ class ProgressEvent {
   public function __construct(shape(
   ?'details' => Progress,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 
@@ -3754,10 +3754,10 @@ class PublicAccessBlockConfiguration {
   ?'ignore_public_acls' => Setting,
   ?'restrict_public_buckets' => Setting,
   ) $s = shape()) {
-    $this->block_public_acls = $block_public_acls ?? ;
-    $this->block_public_policy = $block_public_policy ?? ;
-    $this->ignore_public_acls = $ignore_public_acls ?? ;
-    $this->restrict_public_buckets = $restrict_public_buckets ?? ;
+    $this->block_public_acls = $block_public_acls ?? false;
+    $this->block_public_policy = $block_public_policy ?? false;
+    $this->ignore_public_acls = $ignore_public_acls ?? false;
+    $this->restrict_public_buckets = $restrict_public_buckets ?? false;
   }
 }
 
@@ -3770,7 +3770,7 @@ class PutBucketAccelerateConfigurationRequest {
   ?'bucket' => BucketName,
   ) $s = shape()) {
     $this->accelerate_configuration = $accelerate_configuration ?? null;
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
   }
 }
 
@@ -3796,9 +3796,9 @@ class PutBucketAclRequest {
   ?'grant_write' => GrantWrite,
   ?'grant_write_acp' => GrantWriteACP,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
+    $this->acl = $acl ?? "";
     $this->access_control_policy = $access_control_policy ?? null;
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->grant_full_control = $grant_full_control ?? "";
     $this->grant_read = $grant_read ?? "";
@@ -3819,8 +3819,8 @@ class PutBucketAnalyticsConfigurationRequest {
   ?'id' => AnalyticsId,
   ) $s = shape()) {
     $this->analytics_configuration = $analytics_configuration ?? null;
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -3834,7 +3834,7 @@ class PutBucketCorsRequest {
   ?'cors_configuration' => CORSConfiguration,
   ?'content_md_5' => ContentMD5,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->cors_configuration = $cors_configuration ?? null;
     $this->content_md_5 = $content_md_5 ?? "";
   }
@@ -3850,7 +3850,7 @@ class PutBucketEncryptionRequest {
   ?'content_md_5' => ContentMD5,
   ?'server_side_encryption_configuration' => ServerSideEncryptionConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->server_side_encryption_configuration = $server_side_encryption_configuration ?? null;
   }
@@ -3866,8 +3866,8 @@ class PutBucketInventoryConfigurationRequest {
   ?'id' => InventoryId,
   ?'inventory_configuration' => InventoryConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
     $this->inventory_configuration = $inventory_configuration ?? null;
   }
 }
@@ -3880,7 +3880,7 @@ class PutBucketLifecycleConfigurationRequest {
   ?'bucket' => BucketName,
   ?'lifecycle_configuration' => BucketLifecycleConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->lifecycle_configuration = $lifecycle_configuration ?? null;
   }
 }
@@ -3895,7 +3895,7 @@ class PutBucketLifecycleRequest {
   ?'content_md_5' => ContentMD5,
   ?'lifecycle_configuration' => LifecycleConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->lifecycle_configuration = $lifecycle_configuration ?? null;
   }
@@ -3911,7 +3911,7 @@ class PutBucketLoggingRequest {
   ?'bucket_logging_status' => BucketLoggingStatus,
   ?'content_md_5' => ContentMD5,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->bucket_logging_status = $bucket_logging_status ?? null;
     $this->content_md_5 = $content_md_5 ?? "";
   }
@@ -3927,8 +3927,8 @@ class PutBucketMetricsConfigurationRequest {
   ?'id' => MetricsId,
   ?'metrics_configuration' => MetricsConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->id = $id ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->id = $id ?? "";
     $this->metrics_configuration = $metrics_configuration ?? null;
   }
 }
@@ -3941,7 +3941,7 @@ class PutBucketNotificationConfigurationRequest {
   ?'bucket' => BucketName,
   ?'notification_configuration' => NotificationConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->notification_configuration = $notification_configuration ?? null;
   }
 }
@@ -3956,7 +3956,7 @@ class PutBucketNotificationRequest {
   ?'content_md_5' => ContentMD5,
   ?'notification_configuration' => NotificationConfigurationDeprecated,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->notification_configuration = $notification_configuration ?? null;
   }
@@ -3974,7 +3974,7 @@ class PutBucketPolicyRequest {
   ?'content_md_5' => ContentMD5,
   ?'policy' => Policy,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->confirm_remove_self_bucket_access = $confirm_remove_self_bucket_access ?? false;
     $this->content_md_5 = $content_md_5 ?? "";
     $this->policy = $policy ?? "";
@@ -3993,7 +3993,7 @@ class PutBucketReplicationRequest {
   ?'replication_configuration' => ReplicationConfiguration,
   ?'token' => ObjectLockToken,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->replication_configuration = $replication_configuration ?? null;
     $this->token = $token ?? "";
@@ -4010,7 +4010,7 @@ class PutBucketRequestPaymentRequest {
   ?'content_md_5' => ContentMD5,
   ?'request_payment_configuration' => RequestPaymentConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->request_payment_configuration = $request_payment_configuration ?? null;
   }
@@ -4026,7 +4026,7 @@ class PutBucketTaggingRequest {
   ?'content_md_5' => ContentMD5,
   ?'tagging' => Tagging,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->tagging = $tagging ?? null;
   }
@@ -4044,7 +4044,7 @@ class PutBucketVersioningRequest {
   ?'mfa' => MFA,
   ?'versioning_configuration' => VersioningConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->mfa = $mfa ?? "";
     $this->versioning_configuration = $versioning_configuration ?? null;
@@ -4061,7 +4061,7 @@ class PutBucketWebsiteRequest {
   ?'content_md_5' => ContentMD5,
   ?'website_configuration' => WebsiteConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->website_configuration = $website_configuration ?? null;
   }
@@ -4105,18 +4105,18 @@ class PutObjectAclRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
+    $this->acl = $acl ?? "";
     $this->access_control_policy = $access_control_policy ?? null;
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->grant_full_control = $grant_full_control ?? "";
     $this->grant_read = $grant_read ?? "";
     $this->grant_read_acp = $grant_read_acp ?? "";
     $this->grant_write = $grant_write ?? "";
     $this->grant_write_acp = $grant_write_acp ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4146,12 +4146,12 @@ class PutObjectLegalHoldRequest {
   ?'request_payer' => RequestPayer,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
-    $this->key = $key ?? ;
-    $this->legal_hold = $legal_hold ?? ;
+    $this->key = $key ?? "";
+    $this->legal_hold = $legal_hold ?? null;
     $this->request_payer = $request_payer ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4179,7 +4179,7 @@ class PutObjectLockConfigurationRequest {
   ?'request_payer' => RequestPayer,
   ?'token' => ObjectLockToken,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->object_lock_configuration = $object_lock_configuration ?? null;
     $this->request_payer = $request_payer ?? "";
@@ -4217,7 +4217,7 @@ class PutObjectOutput {
     $this->ssekms_encryption_context = $ssekms_encryption_context ?? "";
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4285,9 +4285,9 @@ class PutObjectRequest {
   ?'tagging' => TaggingHeader,
   ?'website_redirect_location' => WebsiteRedirectLocation,
   ) $s = shape()) {
-    $this->acl = $acl ?? ;
+    $this->acl = $acl ?? "";
     $this->body = $body ?? "";
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->cache_control = $cache_control ?? "";
     $this->content_disposition = $content_disposition ?? "";
     $this->content_encoding = $content_encoding ?? "";
@@ -4300,7 +4300,7 @@ class PutObjectRequest {
     $this->grant_read = $grant_read ?? "";
     $this->grant_read_acp = $grant_read_acp ?? "";
     $this->grant_write_acp = $grant_write_acp ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->metadata = $metadata ?? [];
     $this->object_lock_legal_hold_status = $object_lock_legal_hold_status ?? "";
     $this->object_lock_mode = $object_lock_mode ?? "";
@@ -4313,7 +4313,7 @@ class PutObjectRequest {
     $this->ssekms_key_id = $ssekms_key_id ?? "";
     $this->server_side_encryption = $server_side_encryption ?? "";
     $this->storage_class = $storage_class ?? "";
-    $this->tagging = $tagging ?? null;
+    $this->tagging = $tagging ?? "";
     $this->website_redirect_location = $website_redirect_location ?? "";
   }
 }
@@ -4346,13 +4346,13 @@ class PutObjectRetentionRequest {
   ?'retention' => ObjectLockRetention,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->bypass_governance_retention = $bypass_governance_retention ?? false;
     $this->content_md_5 = $content_md_5 ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
-    $this->retention = $retention ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->retention = $retention ?? null;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4362,7 +4362,7 @@ class PutObjectTaggingOutput {
   public function __construct(shape(
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4380,11 +4380,11 @@ class PutObjectTaggingRequest {
   ?'tagging' => Tagging,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->tagging = $tagging ?? null;
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4398,7 +4398,7 @@ class PutPublicAccessBlockRequest {
   ?'content_md_5' => ContentMD5,
   ?'public_access_block_configuration' => PublicAccessBlockConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_md_5 = $content_md_5 ?? "";
     $this->public_access_block_configuration = $public_access_block_configuration ?? null;
   }
@@ -4418,9 +4418,9 @@ class QueueConfiguration {
   ?'id' => NotificationId,
   ?'queue_arn' => QueueArn,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
+    $this->events = $events ?? [];
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
     $this->queue_arn = $queue_arn ?? "";
   }
 }
@@ -4438,9 +4438,9 @@ class QueueConfigurationDeprecated {
   ?'queue' => QueueArn,
   ) $s = shape()) {
     $this->event = $event ?? "";
-    $this->events = $events ?? ;
-    $this->id = $id ?? ;
-    $this->queue = $queue ?? ;
+    $this->events = $events ?? [];
+    $this->id = $id ?? "";
+    $this->queue = $queue ?? "";
   }
 }
 
@@ -4464,7 +4464,7 @@ class RecordsEvent {
   public function __construct(shape(
   ?'payload' => Body,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -4547,12 +4547,12 @@ class ReplicationRule {
     $this->delete_marker_replication = $delete_marker_replication ?? null;
     $this->destination = $destination ?? null;
     $this->existing_object_replication = $existing_object_replication ?? null;
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->id = $id ?? "";
     $this->prefix = $prefix ?? "";
     $this->priority = $priority ?? 0;
     $this->source_selection_criteria = $source_selection_criteria ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -4565,7 +4565,7 @@ class ReplicationRuleAndOperator {
   ?'tags' => TagSet,
   ) $s = shape()) {
     $this->prefix = $prefix ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4579,7 +4579,7 @@ class ReplicationRuleFilter {
   ?'prefix' => Prefix,
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->and = $and ?? ;
+    $this->and = $and ?? null;
     $this->prefix = $prefix ?? "";
     $this->tag = $tag ?? null;
   }
@@ -4599,8 +4599,8 @@ class ReplicationTime {
   ?'status' => ReplicationTimeStatus,
   ?'time' => ReplicationTimeValue,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->time = $time ?? ;
+    $this->status = $status ?? "";
+    $this->time = $time ?? null;
   }
 }
 
@@ -4636,7 +4636,7 @@ class RequestProgress {
   public function __construct(shape(
   ?'enabled' => EnableRequestProgress,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -4681,11 +4681,11 @@ class RestoreObjectRequest {
   ?'restore_request' => RestoreRequest,
   ?'version_id' => ObjectVersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
     $this->request_payer = $request_payer ?? "";
     $this->restore_request = $restore_request ?? null;
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -4759,12 +4759,12 @@ class Rule {
   ?'transition' => Transition,
   ) $s = shape()) {
     $this->abort_incomplete_multipart_upload = $abort_incomplete_multipart_upload ?? null;
-    $this->expiration = $expiration ?? "";
+    $this->expiration = $expiration ?? null;
     $this->id = $id ?? "";
     $this->noncurrent_version_expiration = $noncurrent_version_expiration ?? null;
     $this->noncurrent_version_transition = $noncurrent_version_transition ?? null;
     $this->prefix = $prefix ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->transition = $transition ?? null;
   }
 }
@@ -4777,7 +4777,7 @@ class S3KeyFilter {
   public function __construct(shape(
   ?'filter_rules' => FilterRuleList,
   ) $s = shape()) {
-    $this->filter_rules = $filter_rules ?? ;
+    $this->filter_rules = $filter_rules ?? [];
   }
 }
 
@@ -4801,9 +4801,9 @@ class S3Location {
   ?'tagging' => Tagging,
   ?'user_metadata' => UserMetadata,
   ) $s = shape()) {
-    $this->access_control_list = $access_control_list ?? ;
+    $this->access_control_list = $access_control_list ?? [];
     $this->bucket_name = $bucket_name ?? "";
-    $this->canned_acl = $canned_acl ?? ;
+    $this->canned_acl = $canned_acl ?? "";
     $this->encryption = $encryption ?? null;
     $this->prefix = $prefix ?? "";
     $this->storage_class = $storage_class ?? "";
@@ -4824,7 +4824,7 @@ class SSEKMS {
   public function __construct(shape(
   ?'key_id' => SSEKMSKeyId,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -4866,10 +4866,10 @@ class SelectObjectContentEventStream {
   ?'records' => RecordsEvent,
   ?'stats' => StatsEvent,
   ) $s = shape()) {
-    $this->cont = $cont ?? ;
-    $this->end = $end ?? 0;
+    $this->cont = $cont ?? null;
+    $this->end = $end ?? null;
     $this->progress = $progress ?? null;
-    $this->records = $records ?? ;
+    $this->records = $records ?? null;
     $this->stats = $stats ?? null;
   }
 }
@@ -4880,7 +4880,7 @@ class SelectObjectContentOutput {
   public function __construct(shape(
   ?'payload' => SelectObjectContentEventStream,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? null;
   }
 }
 
@@ -4910,11 +4910,11 @@ class SelectObjectContentRequest {
   ?'sse_customer_key_md_5' => SSECustomerKeyMD5,
   ?'scan_range' => ScanRange,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->expression = $expression ?? "";
     $this->expression_type = $expression_type ?? "";
     $this->input_serialization = $input_serialization ?? null;
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->output_serialization = $output_serialization ?? null;
     $this->request_progress = $request_progress ?? null;
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
@@ -4953,8 +4953,8 @@ class ServerSideEncryptionByDefault {
   ?'kms_master_key_id' => SSEKMSKeyId,
   ?'sse_algorithm' => ServerSideEncryption,
   ) $s = shape()) {
-    $this->kms_master_key_id = $kms_master_key_id ?? ;
-    $this->sse_algorithm = $sse_algorithm ?? ;
+    $this->kms_master_key_id = $kms_master_key_id ?? "";
+    $this->sse_algorithm = $sse_algorithm ?? "";
   }
 }
 
@@ -4974,7 +4974,7 @@ class ServerSideEncryptionRule {
   public function __construct(shape(
   ?'apply_server_side_encryption_by_default' => ServerSideEncryptionByDefault,
   ) $s = shape()) {
-    $this->apply_server_side_encryption_by_default = $apply_server_side_encryption_by_default ?? ;
+    $this->apply_server_side_encryption_by_default = $apply_server_side_encryption_by_default ?? null;
   }
 }
 
@@ -5000,7 +5000,7 @@ class SseKmsEncryptedObjects {
   public function __construct(shape(
   ?'status' => SseKmsEncryptedObjectsStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -5032,7 +5032,7 @@ class StatsEvent {
   public function __construct(shape(
   ?'details' => Stats,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? null;
   }
 }
 
@@ -5044,7 +5044,7 @@ class StorageClassAnalysis {
   public function __construct(shape(
   ?'data_export' => StorageClassAnalysisDataExport,
   ) $s = shape()) {
-    $this->data_export = $data_export ?? ;
+    $this->data_export = $data_export ?? null;
   }
 }
 
@@ -5057,7 +5057,7 @@ class StorageClassAnalysisDataExport {
   ?'output_schema_version' => StorageClassAnalysisSchemaVersion,
   ) $s = shape()) {
     $this->destination = $destination ?? null;
-    $this->output_schema_version = $output_schema_version ?? ;
+    $this->output_schema_version = $output_schema_version ?? "";
   }
 }
 
@@ -5073,7 +5073,7 @@ class Tag {
   ?'key' => ObjectKey,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -5133,9 +5133,9 @@ class TopicConfiguration {
   ?'id' => NotificationId,
   ?'topic_arn' => TopicArn,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->filter = $filter ?? ;
-    $this->id = $id ?? ;
+    $this->events = $events ?? [];
+    $this->filter = $filter ?? null;
+    $this->id = $id ?? "";
     $this->topic_arn = $topic_arn ?? "";
   }
 }
@@ -5153,9 +5153,9 @@ class TopicConfigurationDeprecated {
   ?'topic' => TopicArn,
   ) $s = shape()) {
     $this->event = $event ?? "";
-    $this->events = $events ?? ;
-    $this->id = $id ?? ;
-    $this->topic = $topic ?? ;
+    $this->events = $events ?? [];
+    $this->id = $id ?? "";
+    $this->topic = $topic ?? "";
   }
 }
 
@@ -5253,7 +5253,7 @@ class UploadPartCopyRequest {
   ?'sse_customer_key_md_5' => SSECustomerKeyMD5,
   ?'upload_id' => MultipartUploadId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->copy_source = $copy_source ?? "";
     $this->copy_source_if_match = $copy_source_if_match ?? "";
     $this->copy_source_if_modified_since = $copy_source_if_modified_since ?? 0;
@@ -5263,13 +5263,13 @@ class UploadPartCopyRequest {
     $this->copy_source_sse_customer_algorithm = $copy_source_sse_customer_algorithm ?? "";
     $this->copy_source_sse_customer_key = $copy_source_sse_customer_key ?? "";
     $this->copy_source_sse_customer_key_md_5 = $copy_source_sse_customer_key_md_5 ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->part_number = $part_number ?? 0;
     $this->request_payer = $request_payer ?? "";
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
     $this->sse_customer_key = $sse_customer_key ?? "";
     $this->sse_customer_key_md_5 = $sse_customer_key_md_5 ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -5325,16 +5325,16 @@ class UploadPartRequest {
   ?'upload_id' => MultipartUploadId,
   ) $s = shape()) {
     $this->body = $body ?? "";
-    $this->bucket = $bucket ?? null;
+    $this->bucket = $bucket ?? "";
     $this->content_length = $content_length ?? 0;
     $this->content_md_5 = $content_md_5 ?? "";
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->part_number = $part_number ?? 0;
     $this->request_payer = $request_payer ?? "";
     $this->sse_customer_algorithm = $sse_customer_algorithm ?? "";
     $this->sse_customer_key = $sse_customer_key ?? "";
     $this->sse_customer_key_md_5 = $sse_customer_key_md_5 ?? "";
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -5353,7 +5353,7 @@ class VersioningConfiguration {
   ?'status' => BucketVersioningStatus,
   ) $s = shape()) {
     $this->mfa_delete = $mfa_delete ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 

@@ -35,8 +35,8 @@ class AccessPoint {
   ?'network_origin' => NetworkOrigin,
   ?'vpc_configuration' => VpcConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->name = $name ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->name = $name ?? "";
     $this->network_origin = $network_origin ?? "";
     $this->vpc_configuration = $vpc_configuration ?? null;
   }
@@ -54,7 +54,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -79,8 +79,8 @@ class CreateAccessPointRequest {
   ?'vpc_configuration' => VpcConfiguration,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->bucket = $bucket ?? ;
-    $this->name = $name ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->name = $name ?? "";
     $this->public_access_block_configuration = $public_access_block_configuration ?? null;
     $this->vpc_configuration = $vpc_configuration ?? null;
   }
@@ -111,15 +111,15 @@ class CreateJobRequest {
   ?'tags' => S3TagSet,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->client_request_token = $client_request_token ?? ;
+    $this->client_request_token = $client_request_token ?? "";
     $this->confirmation_required = $confirmation_required ?? false;
-    $this->description = $description ?? ;
-    $this->manifest = $manifest ?? ;
-    $this->operation = $operation ?? ;
-    $this->priority = $priority ?? ;
-    $this->report = $report ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->manifest = $manifest ?? null;
+    $this->operation = $operation ?? null;
+    $this->priority = $priority ?? 0;
+    $this->report = $report ?? null;
+    $this->role_arn = $role_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -144,7 +144,7 @@ class DeleteAccessPointPolicyRequest {
   ?'name' => AccessPointName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -157,7 +157,7 @@ class DeleteAccessPointRequest {
   ?'name' => AccessPointName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -210,7 +210,7 @@ class DescribeJobResult {
   public function __construct(shape(
   ?'job' => JobDescriptor,
   ) $s = shape()) {
-    $this->job = $job ?? ;
+    $this->job = $job ?? null;
   }
 }
 
@@ -225,7 +225,7 @@ class GetAccessPointPolicyRequest {
   ?'name' => AccessPointName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -248,7 +248,7 @@ class GetAccessPointPolicyStatusRequest {
   ?'name' => AccessPointName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -271,7 +271,7 @@ class GetAccessPointRequest {
   ?'name' => AccessPointName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -291,9 +291,9 @@ class GetAccessPointResult {
   ?'public_access_block_configuration' => PublicAccessBlockConfiguration,
   ?'vpc_configuration' => VpcConfiguration,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
+    $this->bucket = $bucket ?? "";
     $this->creation_date = $creation_date ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->network_origin = $network_origin ?? "";
     $this->public_access_block_configuration = $public_access_block_configuration ?? null;
     $this->vpc_configuration = $vpc_configuration ?? null;
@@ -319,7 +319,7 @@ class GetJobTaggingResult {
   public function __construct(shape(
   ?'tags' => S3TagSet,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -351,7 +351,7 @@ class IdempotencyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -361,7 +361,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -371,7 +371,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -381,7 +381,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -430,22 +430,22 @@ class JobDescriptor {
   ?'termination_date' => JobTerminationDate,
   ) $s = shape()) {
     $this->confirmation_required = $confirmation_required ?? false;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->failure_reasons = $failure_reasons ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->failure_reasons = $failure_reasons ?? [];
     $this->job_arn = $job_arn ?? "";
     $this->job_id = $job_id ?? "";
-    $this->manifest = $manifest ?? ;
-    $this->operation = $operation ?? ;
-    $this->priority = $priority ?? ;
-    $this->progress_summary = $progress_summary ?? ;
-    $this->report = $report ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
-    $this->status_update_reason = $status_update_reason ?? ;
+    $this->manifest = $manifest ?? null;
+    $this->operation = $operation ?? null;
+    $this->priority = $priority ?? 0;
+    $this->progress_summary = $progress_summary ?? null;
+    $this->report = $report ?? null;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
+    $this->status_update_reason = $status_update_reason ?? "";
     $this->suspended_cause = $suspended_cause ?? "";
     $this->suspended_date = $suspended_date ?? 0;
-    $this->termination_date = $termination_date ?? ;
+    $this->termination_date = $termination_date ?? 0;
   }
 }
 
@@ -457,8 +457,8 @@ class JobFailure {
   ?'failure_code' => JobFailureCode,
   ?'failure_reason' => JobFailureReason,
   ) $s = shape()) {
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
   }
 }
 
@@ -490,14 +490,14 @@ class JobListDescriptor {
   ?'status' => JobStatus,
   ?'termination_date' => JobTerminationDate,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
     $this->job_id = $job_id ?? "";
-    $this->operation = $operation ?? ;
-    $this->priority = $priority ?? ;
-    $this->progress_summary = $progress_summary ?? ;
-    $this->status = $status ?? ;
-    $this->termination_date = $termination_date ?? ;
+    $this->operation = $operation ?? "";
+    $this->priority = $priority ?? 0;
+    $this->progress_summary = $progress_summary ?? null;
+    $this->status = $status ?? "";
+    $this->termination_date = $termination_date ?? 0;
   }
 }
 
@@ -511,8 +511,8 @@ class JobManifest {
   ?'location' => JobManifestLocation,
   ?'spec' => JobManifestSpec,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->spec = $spec ?? ;
+    $this->location = $location ?? null;
+    $this->spec = $spec ?? null;
   }
 }
 
@@ -532,9 +532,9 @@ class JobManifestLocation {
   ?'object_arn' => S3KeyArnString,
   ?'object_version_id' => S3ObjectVersionId,
   ) $s = shape()) {
-    $this->e_tag = $e_tag ?? ;
-    $this->object_arn = $object_arn ?? ;
-    $this->object_version_id = $object_version_id ?? ;
+    $this->e_tag = $e_tag ?? "";
+    $this->object_arn = $object_arn ?? "";
+    $this->object_version_id = $object_version_id ?? "";
   }
 }
 
@@ -546,8 +546,8 @@ class JobManifestSpec {
   ?'fields' => JobManifestFieldList,
   ?'format' => JobManifestFormat,
   ) $s = shape()) {
-    $this->fields = $fields ?? ;
-    $this->format = $format ?? ;
+    $this->fields = $fields ?? [];
+    $this->format = $format ?? "";
   }
 }
 
@@ -569,11 +569,11 @@ class JobOperation {
   ?'s_3_put_object_copy' => S3CopyObjectOperation,
   ?'s_3_put_object_tagging' => S3SetObjectTaggingOperation,
   ) $s = shape()) {
-    $this->lambda_invoke = $lambda_invoke ?? ;
-    $this->s_3_initiate_restore_object = $s_3_initiate_restore_object ?? ;
-    $this->s_3_put_object_acl = $s_3_put_object_acl ?? ;
-    $this->s_3_put_object_copy = $s_3_put_object_copy ?? ;
-    $this->s_3_put_object_tagging = $s_3_put_object_tagging ?? ;
+    $this->lambda_invoke = $lambda_invoke ?? null;
+    $this->s_3_initiate_restore_object = $s_3_initiate_restore_object ?? null;
+    $this->s_3_put_object_acl = $s_3_put_object_acl ?? null;
+    $this->s_3_put_object_copy = $s_3_put_object_copy ?? null;
+    $this->s_3_put_object_tagging = $s_3_put_object_tagging ?? null;
   }
 }
 
@@ -589,9 +589,9 @@ class JobProgressSummary {
   ?'number_of_tasks_succeeded' => JobNumberOfTasksSucceeded,
   ?'total_number_of_tasks' => JobTotalNumberOfTasks,
   ) $s = shape()) {
-    $this->number_of_tasks_failed = $number_of_tasks_failed ?? ;
-    $this->number_of_tasks_succeeded = $number_of_tasks_succeeded ?? ;
-    $this->total_number_of_tasks = $total_number_of_tasks ?? ;
+    $this->number_of_tasks_failed = $number_of_tasks_failed ?? 0;
+    $this->number_of_tasks_succeeded = $number_of_tasks_succeeded ?? 0;
+    $this->total_number_of_tasks = $total_number_of_tasks ?? 0;
   }
 }
 
@@ -609,11 +609,11 @@ class JobReport {
   ?'prefix' => ReportPrefixString,
   ?'report_scope' => JobReportScope,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->format = $format ?? ;
-    $this->prefix = $prefix ?? ;
-    $this->report_scope = $report_scope ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->format = $format ?? "";
+    $this->prefix = $prefix ?? "";
+    $this->report_scope = $report_scope ?? "";
   }
 }
 
@@ -629,7 +629,7 @@ class JobStatusException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -649,7 +649,7 @@ class LambdaInvokeOperation {
   public function __construct(shape(
   ?'function_arn' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
-    $this->function_arn = $function_arn ?? ;
+    $this->function_arn = $function_arn ?? "";
   }
 }
 
@@ -666,9 +666,9 @@ class ListAccessPointsRequest {
   ?'next_token' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->bucket = $bucket ?? ;
+    $this->bucket = $bucket ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -681,7 +681,7 @@ class ListAccessPointsResult {
   ?'next_token' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
     $this->access_point_list = $access_point_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -698,9 +698,9 @@ class ListJobsRequest {
   ?'next_token' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->job_statuses = $job_statuses ?? ;
+    $this->job_statuses = $job_statuses ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -712,8 +712,8 @@ class ListJobsResult {
   ?'jobs' => JobListDescriptorList,
   ?'next_token' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->jobs = $jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -729,7 +729,7 @@ class NoSuchPublicAccessBlockConfiguration {
   public function __construct(shape(
   ?'message' => NoSuchPublicAccessBlockConfigurationMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -749,7 +749,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -779,10 +779,10 @@ class PublicAccessBlockConfiguration {
   ?'ignore_public_acls' => Setting,
   ?'restrict_public_buckets' => Setting,
   ) $s = shape()) {
-    $this->block_public_acls = $block_public_acls ?? ;
-    $this->block_public_policy = $block_public_policy ?? ;
-    $this->ignore_public_acls = $ignore_public_acls ?? ;
-    $this->restrict_public_buckets = $restrict_public_buckets ?? ;
+    $this->block_public_acls = $block_public_acls ?? false;
+    $this->block_public_policy = $block_public_policy ?? false;
+    $this->ignore_public_acls = $ignore_public_acls ?? false;
+    $this->restrict_public_buckets = $restrict_public_buckets ?? false;
   }
 }
 
@@ -797,7 +797,7 @@ class PutAccessPointPolicyRequest {
   ?'policy' => Policy,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->policy = $policy ?? "";
   }
 }
@@ -814,7 +814,7 @@ class PutJobTaggingRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->job_id = $job_id ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -850,8 +850,8 @@ class S3AccessControlList {
   ?'grants' => S3GrantList,
   ?'owner' => S3ObjectOwner,
   ) $s = shape()) {
-    $this->grants = $grants ?? ;
-    $this->owner = $owner ?? ;
+    $this->grants = $grants ?? [];
+    $this->owner = $owner ?? null;
   }
 }
 
@@ -863,8 +863,8 @@ class S3AccessControlPolicy {
   ?'access_control_list' => S3AccessControlList,
   ?'canned_access_control_list' => S3CannedAccessControlList,
   ) $s = shape()) {
-    $this->access_control_list = $access_control_list ?? ;
-    $this->canned_access_control_list = $canned_access_control_list ?? ;
+    $this->access_control_list = $access_control_list ?? null;
+    $this->canned_access_control_list = $canned_access_control_list ?? "";
   }
 }
 
@@ -910,22 +910,22 @@ class S3CopyObjectOperation {
   ?'target_resource' => S3BucketArnString,
   ?'un_modified_since_constraint' => TimeStamp,
   ) $s = shape()) {
-    $this->access_control_grants = $access_control_grants ?? ;
-    $this->canned_access_control_list = $canned_access_control_list ?? ;
-    $this->metadata_directive = $metadata_directive ?? ;
-    $this->modified_since_constraint = $modified_since_constraint ?? ;
-    $this->new_object_metadata = $new_object_metadata ?? ;
-    $this->new_object_tagging = $new_object_tagging ?? ;
-    $this->object_lock_legal_hold_status = $object_lock_legal_hold_status ?? ;
-    $this->object_lock_mode = $object_lock_mode ?? ;
-    $this->object_lock_retain_until_date = $object_lock_retain_until_date ?? ;
-    $this->redirect_location = $redirect_location ?? ;
-    $this->requester_pays = $requester_pays ?? ;
-    $this->sse_aws_kms_key_id = $sse_aws_kms_key_id ?? ;
-    $this->storage_class = $storage_class ?? ;
-    $this->target_key_prefix = $target_key_prefix ?? ;
-    $this->target_resource = $target_resource ?? ;
-    $this->un_modified_since_constraint = $un_modified_since_constraint ?? ;
+    $this->access_control_grants = $access_control_grants ?? [];
+    $this->canned_access_control_list = $canned_access_control_list ?? "";
+    $this->metadata_directive = $metadata_directive ?? "";
+    $this->modified_since_constraint = $modified_since_constraint ?? 0;
+    $this->new_object_metadata = $new_object_metadata ?? null;
+    $this->new_object_tagging = $new_object_tagging ?? [];
+    $this->object_lock_legal_hold_status = $object_lock_legal_hold_status ?? "";
+    $this->object_lock_mode = $object_lock_mode ?? "";
+    $this->object_lock_retain_until_date = $object_lock_retain_until_date ?? 0;
+    $this->redirect_location = $redirect_location ?? "";
+    $this->requester_pays = $requester_pays ?? false;
+    $this->sse_aws_kms_key_id = $sse_aws_kms_key_id ?? "";
+    $this->storage_class = $storage_class ?? "";
+    $this->target_key_prefix = $target_key_prefix ?? "";
+    $this->target_resource = $target_resource ?? "";
+    $this->un_modified_since_constraint = $un_modified_since_constraint ?? 0;
   }
 }
 
@@ -941,8 +941,8 @@ class S3Grant {
   ?'grantee' => S3Grantee,
   ?'permission' => S3Permission,
   ) $s = shape()) {
-    $this->grantee = $grantee ?? ;
-    $this->permission = $permission ?? ;
+    $this->grantee = $grantee ?? null;
+    $this->permission = $permission ?? "";
   }
 }
 
@@ -958,9 +958,9 @@ class S3Grantee {
   ?'identifier' => NonEmptyMaxLength1024String,
   ?'type_identifier' => S3GranteeTypeIdentifier,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->identifier = $identifier ?? ;
-    $this->type_identifier = $type_identifier ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->identifier = $identifier ?? "";
+    $this->type_identifier = $type_identifier ?? "";
   }
 }
 
@@ -974,8 +974,8 @@ class S3InitiateRestoreObjectOperation {
   ?'expiration_in_days' => S3ExpirationInDays,
   ?'glacier_job_tier' => S3GlacierJobTier,
   ) $s = shape()) {
-    $this->expiration_in_days = $expiration_in_days ?? ;
-    $this->glacier_job_tier = $glacier_job_tier ?? ;
+    $this->expiration_in_days = $expiration_in_days ?? 0;
+    $this->glacier_job_tier = $glacier_job_tier ?? "";
   }
 }
 
@@ -1013,17 +1013,17 @@ class S3ObjectMetadata {
   ?'sse_algorithm' => S3SSEAlgorithm,
   ?'user_metadata' => S3UserMetadata,
   ) $s = shape()) {
-    $this->cache_control = $cache_control ?? ;
-    $this->content_disposition = $content_disposition ?? ;
-    $this->content_encoding = $content_encoding ?? ;
-    $this->content_language = $content_language ?? ;
-    $this->content_length = $content_length ?? ;
-    $this->content_md_5 = $content_md_5 ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->http_expires_date = $http_expires_date ?? ;
-    $this->requester_charged = $requester_charged ?? ;
-    $this->sse_algorithm = $sse_algorithm ?? ;
-    $this->user_metadata = $user_metadata ?? ;
+    $this->cache_control = $cache_control ?? "";
+    $this->content_disposition = $content_disposition ?? "";
+    $this->content_encoding = $content_encoding ?? "";
+    $this->content_language = $content_language ?? "";
+    $this->content_length = $content_length ?? 0;
+    $this->content_md_5 = $content_md_5 ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->http_expires_date = $http_expires_date ?? 0;
+    $this->requester_charged = $requester_charged ?? false;
+    $this->sse_algorithm = $sse_algorithm ?? "";
+    $this->user_metadata = $user_metadata ?? [];
   }
 }
 
@@ -1035,8 +1035,8 @@ class S3ObjectOwner {
   ?'display_name' => NonEmptyMaxLength1024String,
   ?'id' => NonEmptyMaxLength1024String,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->id = $id ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1052,7 +1052,7 @@ class S3SetObjectAclOperation {
   public function __construct(shape(
   ?'access_control_policy' => S3AccessControlPolicy,
   ) $s = shape()) {
-    $this->access_control_policy = $access_control_policy ?? ;
+    $this->access_control_policy = $access_control_policy ?? null;
   }
 }
 
@@ -1062,7 +1062,7 @@ class S3SetObjectTaggingOperation {
   public function __construct(shape(
   ?'tag_set' => S3TagSet,
   ) $s = shape()) {
-    $this->tag_set = $tag_set ?? ;
+    $this->tag_set = $tag_set ?? [];
   }
 }
 
@@ -1076,8 +1076,8 @@ class S3Tag {
   ?'key' => NonEmptyMaxLength1024String,
   ?'value' => MaxLength1024String,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1099,7 +1099,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1109,7 +1109,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1125,7 +1125,7 @@ class UpdateJobPriorityRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->job_id = $job_id ?? "";
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
   }
 }
 
@@ -1138,7 +1138,7 @@ class UpdateJobPriorityResult {
   ?'priority' => JobPriority,
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
   }
 }
 
@@ -1157,7 +1157,7 @@ class UpdateJobStatusRequest {
     $this->account_id = $account_id ?? "";
     $this->job_id = $job_id ?? "";
     $this->requested_job_status = $requested_job_status ?? "";
-    $this->status_update_reason = $status_update_reason ?? ;
+    $this->status_update_reason = $status_update_reason ?? "";
   }
 }
 
@@ -1172,8 +1172,8 @@ class UpdateJobStatusResult {
   ?'status_update_reason' => JobStatusUpdateReason,
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
-    $this->status = $status ?? ;
-    $this->status_update_reason = $status_update_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_update_reason = $status_update_reason ?? "";
   }
 }
 

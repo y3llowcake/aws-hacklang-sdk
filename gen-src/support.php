@@ -26,8 +26,8 @@ class AddAttachmentsToSetRequest {
   ?'attachment_set_id' => AttachmentSetId,
   ?'attachments' => Attachments,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? ;
-    $this->attachments = $attachments ?? ;
+    $this->attachment_set_id = $attachment_set_id ?? "";
+    $this->attachments = $attachments ?? [];
   }
 }
 
@@ -39,8 +39,8 @@ class AddAttachmentsToSetResponse {
   ?'attachment_set_id' => AttachmentSetId,
   ?'expiry_time' => ExpiryTime,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? ;
-    $this->expiry_time = $expiry_time ?? ;
+    $this->attachment_set_id = $attachment_set_id ?? "";
+    $this->expiry_time = $expiry_time ?? "";
   }
 }
 
@@ -56,10 +56,10 @@ class AddCommunicationToCaseRequest {
   ?'cc_email_addresses' => CcEmailAddressList,
   ?'communication_body' => CommunicationBody,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? ;
-    $this->case_id = $case_id ?? ;
-    $this->cc_email_addresses = $cc_email_addresses ?? ;
-    $this->communication_body = $communication_body ?? ;
+    $this->attachment_set_id = $attachment_set_id ?? "";
+    $this->case_id = $case_id ?? "";
+    $this->cc_email_addresses = $cc_email_addresses ?? [];
+    $this->communication_body = $communication_body ?? "";
   }
 }
 
@@ -69,7 +69,7 @@ class AddCommunicationToCaseResponse {
   public function __construct(shape(
   ?'result' => Result,
   ) $s = shape()) {
-    $this->result = $result ?? ;
+    $this->result = $result ?? false;
   }
 }
 
@@ -83,8 +83,8 @@ class Attachment {
   ?'data' => Data,
   ?'file_name' => FileName,
   ) $s = shape()) {
-    $this->data = $data ?? ;
-    $this->file_name = $file_name ?? ;
+    $this->data = $data ?? "";
+    $this->file_name = $file_name ?? "";
   }
 }
 
@@ -96,8 +96,8 @@ class AttachmentDetails {
   ?'attachment_id' => AttachmentId,
   ?'file_name' => FileName,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? ;
-    $this->file_name = $file_name ?? ;
+    $this->attachment_id = $attachment_id ?? "";
+    $this->file_name = $file_name ?? "";
   }
 }
 
@@ -109,7 +109,7 @@ class AttachmentIdNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -119,7 +119,7 @@ class AttachmentLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -131,7 +131,7 @@ class AttachmentSetExpired {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -143,7 +143,7 @@ class AttachmentSetIdNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -153,7 +153,7 @@ class AttachmentSetSizeLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -169,7 +169,7 @@ class CaseCreationLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -201,18 +201,18 @@ class CaseDetails {
   ?'submitted_by' => SubmittedBy,
   ?'time_created' => TimeCreated,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? ;
-    $this->category_code = $category_code ?? ;
-    $this->cc_email_addresses = $cc_email_addresses ?? ;
-    $this->display_id = $display_id ?? ;
-    $this->language = $language ?? ;
-    $this->recent_communications = $recent_communications ?? ;
-    $this->service_code = $service_code ?? ;
-    $this->severity_code = $severity_code ?? ;
-    $this->status = $status ?? ;
-    $this->subject = $subject ?? ;
-    $this->submitted_by = $submitted_by ?? ;
-    $this->time_created = $time_created ?? ;
+    $this->case_id = $case_id ?? "";
+    $this->category_code = $category_code ?? "";
+    $this->cc_email_addresses = $cc_email_addresses ?? [];
+    $this->display_id = $display_id ?? "";
+    $this->language = $language ?? "";
+    $this->recent_communications = $recent_communications ?? null;
+    $this->service_code = $service_code ?? "";
+    $this->severity_code = $severity_code ?? "";
+    $this->status = $status ?? "";
+    $this->subject = $subject ?? "";
+    $this->submitted_by = $submitted_by ?? "";
+    $this->time_created = $time_created ?? "";
   }
 }
 
@@ -226,7 +226,7 @@ class CaseIdNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -242,8 +242,8 @@ class Category {
   ?'code' => CategoryCode,
   ?'name' => CategoryName,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->name = $name ?? ;
+    $this->code = $code ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -271,11 +271,11 @@ class Communication {
   ?'submitted_by' => SubmittedBy,
   ?'time_created' => TimeCreated,
   ) $s = shape()) {
-    $this->attachment_set = $attachment_set ?? ;
-    $this->body = $body ?? ;
-    $this->case_id = $case_id ?? ;
-    $this->submitted_by = $submitted_by ?? ;
-    $this->time_created = $time_created ?? ;
+    $this->attachment_set = $attachment_set ?? [];
+    $this->body = $body ?? "";
+    $this->case_id = $case_id ?? "";
+    $this->submitted_by = $submitted_by ?? "";
+    $this->time_created = $time_created ?? "";
   }
 }
 
@@ -305,15 +305,15 @@ class CreateCaseRequest {
   ?'severity_code' => SeverityCode,
   ?'subject' => Subject,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? ;
-    $this->category_code = $category_code ?? ;
-    $this->cc_email_addresses = $cc_email_addresses ?? ;
-    $this->communication_body = $communication_body ?? ;
-    $this->issue_type = $issue_type ?? ;
-    $this->language = $language ?? ;
-    $this->service_code = $service_code ?? ;
-    $this->severity_code = $severity_code ?? ;
-    $this->subject = $subject ?? ;
+    $this->attachment_set_id = $attachment_set_id ?? "";
+    $this->category_code = $category_code ?? "";
+    $this->cc_email_addresses = $cc_email_addresses ?? [];
+    $this->communication_body = $communication_body ?? "";
+    $this->issue_type = $issue_type ?? "";
+    $this->language = $language ?? "";
+    $this->service_code = $service_code ?? "";
+    $this->severity_code = $severity_code ?? "";
+    $this->subject = $subject ?? "";
   }
 }
 
@@ -323,7 +323,7 @@ class CreateCaseResponse {
   public function __construct(shape(
   ?'case_id' => CaseId,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? ;
+    $this->case_id = $case_id ?? "";
   }
 }
 
@@ -335,7 +335,7 @@ class DescribeAttachmentLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -345,7 +345,7 @@ class DescribeAttachmentRequest {
   public function __construct(shape(
   ?'attachment_id' => AttachmentId,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? ;
+    $this->attachment_id = $attachment_id ?? "";
   }
 }
 
@@ -355,7 +355,7 @@ class DescribeAttachmentResponse {
   public function __construct(shape(
   ?'attachment' => Attachment,
   ) $s = shape()) {
-    $this->attachment = $attachment ?? ;
+    $this->attachment = $attachment ?? null;
   }
 }
 
@@ -381,15 +381,15 @@ class DescribeCasesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->after_time = $after_time ?? ;
-    $this->before_time = $before_time ?? ;
-    $this->case_id_list = $case_id_list ?? ;
-    $this->display_id = $display_id ?? ;
-    $this->include_communications = $include_communications ?? ;
-    $this->include_resolved_cases = $include_resolved_cases ?? ;
-    $this->language = $language ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->after_time = $after_time ?? "";
+    $this->before_time = $before_time ?? "";
+    $this->case_id_list = $case_id_list ?? [];
+    $this->display_id = $display_id ?? "";
+    $this->include_communications = $include_communications ?? false;
+    $this->include_resolved_cases = $include_resolved_cases ?? false;
+    $this->language = $language ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -401,8 +401,8 @@ class DescribeCasesResponse {
   ?'cases' => CaseList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->cases = $cases ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cases = $cases ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -420,11 +420,11 @@ class DescribeCommunicationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->after_time = $after_time ?? ;
-    $this->before_time = $before_time ?? ;
-    $this->case_id = $case_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->after_time = $after_time ?? "";
+    $this->before_time = $before_time ?? "";
+    $this->case_id = $case_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -436,8 +436,8 @@ class DescribeCommunicationsResponse {
   ?'communications' => CommunicationList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->communications = $communications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->communications = $communications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -449,8 +449,8 @@ class DescribeServicesRequest {
   ?'language' => Language,
   ?'service_code_list' => ServiceCodeList,
   ) $s = shape()) {
-    $this->language = $language ?? ;
-    $this->service_code_list = $service_code_list ?? ;
+    $this->language = $language ?? "";
+    $this->service_code_list = $service_code_list ?? [];
   }
 }
 
@@ -460,7 +460,7 @@ class DescribeServicesResponse {
   public function __construct(shape(
   ?'services' => ServiceList,
   ) $s = shape()) {
-    $this->services = $services ?? ;
+    $this->services = $services ?? [];
   }
 }
 
@@ -470,7 +470,7 @@ class DescribeSeverityLevelsRequest {
   public function __construct(shape(
   ?'language' => Language,
   ) $s = shape()) {
-    $this->language = $language ?? ;
+    $this->language = $language ?? "";
   }
 }
 
@@ -480,7 +480,7 @@ class DescribeSeverityLevelsResponse {
   public function __construct(shape(
   ?'severity_levels' => SeverityLevelsList,
   ) $s = shape()) {
-    $this->severity_levels = $severity_levels ?? ;
+    $this->severity_levels = $severity_levels ?? [];
   }
 }
 
@@ -490,7 +490,7 @@ class DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   public function __construct(shape(
   ?'check_ids' => StringList,
   ) $s = shape()) {
-    $this->check_ids = $check_ids ?? ;
+    $this->check_ids = $check_ids ?? [];
   }
 }
 
@@ -500,7 +500,7 @@ class DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   public function __construct(shape(
   ?'statuses' => TrustedAdvisorCheckRefreshStatusList,
   ) $s = shape()) {
-    $this->statuses = $statuses ?? ;
+    $this->statuses = $statuses ?? [];
   }
 }
 
@@ -512,8 +512,8 @@ class DescribeTrustedAdvisorCheckResultRequest {
   ?'check_id' => string,
   ?'language' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? ;
-    $this->language = $language ?? ;
+    $this->check_id = $check_id ?? "";
+    $this->language = $language ?? "";
   }
 }
 
@@ -523,7 +523,7 @@ class DescribeTrustedAdvisorCheckResultResponse {
   public function __construct(shape(
   ?'result' => TrustedAdvisorCheckResult,
   ) $s = shape()) {
-    $this->result = $result ?? ;
+    $this->result = $result ?? null;
   }
 }
 
@@ -533,7 +533,7 @@ class DescribeTrustedAdvisorCheckSummariesRequest {
   public function __construct(shape(
   ?'check_ids' => StringList,
   ) $s = shape()) {
-    $this->check_ids = $check_ids ?? ;
+    $this->check_ids = $check_ids ?? [];
   }
 }
 
@@ -543,7 +543,7 @@ class DescribeTrustedAdvisorCheckSummariesResponse {
   public function __construct(shape(
   ?'summaries' => TrustedAdvisorCheckSummaryList,
   ) $s = shape()) {
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -553,7 +553,7 @@ class DescribeTrustedAdvisorChecksRequest {
   public function __construct(shape(
   ?'language' => string,
   ) $s = shape()) {
-    $this->language = $language ?? ;
+    $this->language = $language ?? "";
   }
 }
 
@@ -563,7 +563,7 @@ class DescribeTrustedAdvisorChecksResponse {
   public function __construct(shape(
   ?'checks' => TrustedAdvisorCheckList,
   ) $s = shape()) {
-    $this->checks = $checks ?? ;
+    $this->checks = $checks ?? [];
   }
 }
 
@@ -587,7 +587,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -609,8 +609,8 @@ class RecentCaseCommunications {
   ?'communications' => CommunicationList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->communications = $communications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->communications = $communications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -620,7 +620,7 @@ class RefreshTrustedAdvisorCheckRequest {
   public function __construct(shape(
   ?'check_id' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? ;
+    $this->check_id = $check_id ?? "";
   }
 }
 
@@ -630,7 +630,7 @@ class RefreshTrustedAdvisorCheckResponse {
   public function __construct(shape(
   ?'status' => TrustedAdvisorCheckRefreshStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? null;
   }
 }
 
@@ -640,7 +640,7 @@ class ResolveCaseRequest {
   public function __construct(shape(
   ?'case_id' => CaseId,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? ;
+    $this->case_id = $case_id ?? "";
   }
 }
 
@@ -652,8 +652,8 @@ class ResolveCaseResponse {
   ?'final_case_status' => CaseStatus,
   ?'initial_case_status' => CaseStatus,
   ) $s = shape()) {
-    $this->final_case_status = $final_case_status ?? ;
-    $this->initial_case_status = $initial_case_status ?? ;
+    $this->final_case_status = $final_case_status ?? "";
+    $this->initial_case_status = $initial_case_status ?? "";
   }
 }
 
@@ -669,9 +669,9 @@ class Service {
   ?'code' => ServiceCode,
   ?'name' => ServiceName,
   ) $s = shape()) {
-    $this->categories = $categories ?? ;
-    $this->code = $code ?? ;
-    $this->name = $name ?? ;
+    $this->categories = $categories ?? [];
+    $this->code = $code ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -693,8 +693,8 @@ class SeverityLevel {
   ?'code' => SeverityLevelCode,
   ?'name' => SeverityLevelName,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->name = $name ?? ;
+    $this->code = $code ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -722,7 +722,7 @@ class TrustedAdvisorCategorySpecificSummary {
   public function __construct(shape(
   ?'cost_optimizing' => TrustedAdvisorCostOptimizingSummary,
   ) $s = shape()) {
-    $this->cost_optimizing = $cost_optimizing ?? ;
+    $this->cost_optimizing = $cost_optimizing ?? null;
   }
 }
 
@@ -740,11 +740,11 @@ class TrustedAdvisorCheckDescription {
   ?'metadata' => StringList,
   ?'name' => string,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->name = $name ?? ;
+    $this->category = $category ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->metadata = $metadata ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -760,9 +760,9 @@ class TrustedAdvisorCheckRefreshStatus {
   ?'millis_until_next_refreshable' => Long,
   ?'status' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? ;
-    $this->millis_until_next_refreshable = $millis_until_next_refreshable ?? ;
-    $this->status = $status ?? ;
+    $this->check_id = $check_id ?? "";
+    $this->millis_until_next_refreshable = $millis_until_next_refreshable ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -784,12 +784,12 @@ class TrustedAdvisorCheckResult {
   ?'status' => string,
   ?'timestamp' => string,
   ) $s = shape()) {
-    $this->category_specific_summary = $category_specific_summary ?? ;
-    $this->check_id = $check_id ?? ;
-    $this->flagged_resources = $flagged_resources ?? ;
-    $this->resources_summary = $resources_summary ?? ;
-    $this->status = $status ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->category_specific_summary = $category_specific_summary ?? null;
+    $this->check_id = $check_id ?? "";
+    $this->flagged_resources = $flagged_resources ?? [];
+    $this->resources_summary = $resources_summary ?? null;
+    $this->status = $status ?? "";
+    $this->timestamp = $timestamp ?? "";
   }
 }
 
@@ -809,12 +809,12 @@ class TrustedAdvisorCheckSummary {
   ?'status' => string,
   ?'timestamp' => string,
   ) $s = shape()) {
-    $this->category_specific_summary = $category_specific_summary ?? ;
-    $this->check_id = $check_id ?? ;
-    $this->has_flagged_resources = $has_flagged_resources ?? ;
-    $this->resources_summary = $resources_summary ?? ;
-    $this->status = $status ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->category_specific_summary = $category_specific_summary ?? null;
+    $this->check_id = $check_id ?? "";
+    $this->has_flagged_resources = $has_flagged_resources ?? false;
+    $this->resources_summary = $resources_summary ?? null;
+    $this->status = $status ?? "";
+    $this->timestamp = $timestamp ?? "";
   }
 }
 
@@ -828,8 +828,8 @@ class TrustedAdvisorCostOptimizingSummary {
   ?'estimated_monthly_savings' => Double,
   ?'estimated_percent_monthly_savings' => Double,
   ) $s = shape()) {
-    $this->estimated_monthly_savings = $estimated_monthly_savings ?? ;
-    $this->estimated_percent_monthly_savings = $estimated_percent_monthly_savings ?? ;
+    $this->estimated_monthly_savings = $estimated_monthly_savings ?? 0.0;
+    $this->estimated_percent_monthly_savings = $estimated_percent_monthly_savings ?? 0.0;
   }
 }
 
@@ -847,11 +847,11 @@ class TrustedAdvisorResourceDetail {
   ?'resource_id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->is_suppressed = $is_suppressed ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->region = $region ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->status = $status ?? ;
+    $this->is_suppressed = $is_suppressed ?? false;
+    $this->metadata = $metadata ?? [];
+    $this->region = $region ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -869,10 +869,10 @@ class TrustedAdvisorResourcesSummary {
   ?'resources_processed' => Long,
   ?'resources_suppressed' => Long,
   ) $s = shape()) {
-    $this->resources_flagged = $resources_flagged ?? ;
-    $this->resources_ignored = $resources_ignored ?? ;
-    $this->resources_processed = $resources_processed ?? ;
-    $this->resources_suppressed = $resources_suppressed ?? ;
+    $this->resources_flagged = $resources_flagged ?? 0;
+    $this->resources_ignored = $resources_ignored ?? 0;
+    $this->resources_processed = $resources_processed ?? 0;
+    $this->resources_suppressed = $resources_suppressed ?? 0;
   }
 }
 

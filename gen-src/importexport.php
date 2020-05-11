@@ -33,7 +33,7 @@ class BucketPermissionException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class CanceledJobIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -125,7 +125,7 @@ class CreateJobQuotaExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -145,7 +145,7 @@ class ExpiredJobIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -183,7 +183,7 @@ class GetShippingLabelInput {
     $this->city = $city ?? "";
     $this->company = $company ?? "";
     $this->country = $country ?? "";
-    $this->job_ids = $job_ids ?? ;
+    $this->job_ids = $job_ids ?? [];
     $this->name = $name ?? "";
     $this->phone_number = $phone_number ?? "";
     $this->postal_code = $postal_code ?? "";
@@ -202,8 +202,8 @@ class GetShippingLabelOutput {
   ?'shipping_label_url' => GenericString,
   ?'warning' => GenericString,
   ) $s = shape()) {
-    $this->shipping_label_url = $shipping_label_url ?? ;
-    $this->warning = $warning ?? ;
+    $this->shipping_label_url = $shipping_label_url ?? "";
+    $this->warning = $warning ?? "";
   }
 }
 
@@ -281,7 +281,7 @@ class InvalidAccessKeyIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -291,7 +291,7 @@ class InvalidAddressException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -301,7 +301,7 @@ class InvalidCustomsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -311,7 +311,7 @@ class InvalidFileSystemException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -321,7 +321,7 @@ class InvalidJobIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -331,7 +331,7 @@ class InvalidManifestFieldException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -341,7 +341,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -351,7 +351,7 @@ class InvalidVersionException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -411,7 +411,7 @@ class ListJobsOutput {
   ?'jobs' => JobsList,
   ) $s = shape()) {
     $this->is_truncated = $is_truncated ?? false;
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -429,7 +429,7 @@ class MalformedManifestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -447,7 +447,7 @@ class MissingCustomsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -457,7 +457,7 @@ class MissingManifestFieldException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -467,7 +467,7 @@ class MissingParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -477,7 +477,7 @@ class MultipleRegionsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -487,7 +487,7 @@ class NoSuchBucketException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -511,7 +511,7 @@ class UnableToCancelJobIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -521,7 +521,7 @@ class UnableToUpdateJobIdException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

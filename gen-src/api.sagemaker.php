@@ -150,7 +150,7 @@ class AddTagsInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -160,7 +160,7 @@ class AddTagsOutput {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -186,10 +186,10 @@ class AlgorithmSpecification {
   ?'training_image' => AlgorithmImage,
   ?'training_input_mode' => TrainingInputMode,
   ) $s = shape()) {
-    $this->algorithm_name = $algorithm_name ?? ;
-    $this->enable_sage_maker_metrics_time_series = $enable_sage_maker_metrics_time_series ?? ;
-    $this->metric_definitions = $metric_definitions ?? ;
-    $this->training_image = $training_image ?? ;
+    $this->algorithm_name = $algorithm_name ?? "";
+    $this->enable_sage_maker_metrics_time_series = $enable_sage_maker_metrics_time_series ?? false;
+    $this->metric_definitions = $metric_definitions ?? [];
+    $this->training_image = $training_image ?? "";
     $this->training_input_mode = $training_input_mode ?? "";
   }
 }
@@ -204,8 +204,8 @@ class AlgorithmStatusDetails {
   ?'image_scan_statuses' => AlgorithmStatusItemList,
   ?'validation_statuses' => AlgorithmStatusItemList,
   ) $s = shape()) {
-    $this->image_scan_statuses = $image_scan_statuses ?? ;
-    $this->validation_statuses = $validation_statuses ?? ;
+    $this->image_scan_statuses = $image_scan_statuses ?? [];
+    $this->validation_statuses = $validation_statuses ?? [];
   }
 }
 
@@ -220,8 +220,8 @@ class AlgorithmStatusItem {
   ?'status' => DetailedAlgorithmStatus,
   ) $s = shape()) {
     $this->failure_reason = $failure_reason ?? "";
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -242,8 +242,8 @@ class AlgorithmSummary {
   ?'creation_time' => CreationTime,
   ) $s = shape()) {
     $this->algorithm_arn = $algorithm_arn ?? "";
-    $this->algorithm_description = $algorithm_description ?? ;
-    $this->algorithm_name = $algorithm_name ?? ;
+    $this->algorithm_description = $algorithm_description ?? "";
+    $this->algorithm_name = $algorithm_name ?? "";
     $this->algorithm_status = $algorithm_status ?? "";
     $this->creation_time = $creation_time ?? 0;
   }
@@ -261,7 +261,7 @@ class AlgorithmValidationProfile {
   ?'training_job_definition' => TrainingJobDefinition,
   ?'transform_job_definition' => TransformJobDefinition,
   ) $s = shape()) {
-    $this->profile_name = $profile_name ?? ;
+    $this->profile_name = $profile_name ?? "";
     $this->training_job_definition = $training_job_definition ?? null;
     $this->transform_job_definition = $transform_job_definition ?? null;
   }
@@ -277,8 +277,8 @@ class AlgorithmValidationSpecification {
   ?'validation_profiles' => AlgorithmValidationProfiles,
   ?'validation_role' => RoleArn,
   ) $s = shape()) {
-    $this->validation_profiles = $validation_profiles ?? ;
-    $this->validation_role = $validation_role ?? ;
+    $this->validation_profiles = $validation_profiles ?? [];
+    $this->validation_role = $validation_role ?? "";
   }
 }
 
@@ -288,7 +288,7 @@ class AnnotationConsolidationConfig {
   public function __construct(shape(
   ?'annotation_consolidation_lambda_arn' => LambdaFunctionArn,
   ) $s = shape()) {
-    $this->annotation_consolidation_lambda_arn = $annotation_consolidation_lambda_arn ?? ;
+    $this->annotation_consolidation_lambda_arn = $annotation_consolidation_lambda_arn ?? "";
   }
 }
 
@@ -314,7 +314,7 @@ class AppDetails {
     $this->app_type = $app_type ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->domain_id = $domain_id ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->user_profile_name = $user_profile_name ?? "";
   }
 }
@@ -359,8 +359,8 @@ class AssociateTrialComponentRequest {
   ?'trial_component_name' => ExperimentEntityName,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_component_name = $trial_component_name ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -411,10 +411,10 @@ class AutoMLCandidate {
     $this->candidate_status = $candidate_status ?? "";
     $this->candidate_steps = $candidate_steps ?? [];
     $this->creation_time = $creation_time ?? 0;
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->final_auto_ml_job_objective_metric = $final_auto_ml_job_objective_metric ?? null;
-    $this->inference_containers = $inference_containers ?? ;
+    $this->inference_containers = $inference_containers ?? [];
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->objective_status = $objective_status ?? "";
   }
@@ -464,9 +464,9 @@ class AutoMLContainerDefinition {
   ?'image' => Image,
   ?'model_data_url' => Url,
   ) $s = shape()) {
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->image = $image ?? "";
-    $this->model_data_url = $model_data_url ?? ;
+    $this->model_data_url = $model_data_url ?? "";
   }
 }
 
@@ -525,8 +525,8 @@ class AutoMLJobConfig {
   ?'completion_criteria' => AutoMLJobCompletionCriteria,
   ?'security_config' => AutoMLSecurityConfig,
   ) $s = shape()) {
-    $this->completion_criteria = $completion_criteria ?? ;
-    $this->security_config = $security_config ?? ;
+    $this->completion_criteria = $completion_criteria ?? null;
+    $this->security_config = $security_config ?? null;
   }
 }
 
@@ -575,7 +575,7 @@ class AutoMLJobSummary {
     $this->auto_ml_job_secondary_status = $auto_ml_job_secondary_status ?? "";
     $this->auto_ml_job_status = $auto_ml_job_status ?? "";
     $this->creation_time = $creation_time ?? 0;
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
   }
@@ -596,7 +596,7 @@ class AutoMLOutputDataConfig {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -625,8 +625,8 @@ class AutoMLSecurityConfig {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? ;
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? false;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -700,8 +700,8 @@ class CategoricalParameterRange {
   ?'name' => ParameterKey,
   ?'values' => ParameterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -711,7 +711,7 @@ class CategoricalParameterRangeSpecification {
   public function __construct(shape(
   ?'values' => ParameterValues,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -743,8 +743,8 @@ class Channel {
     $this->compression_type = $compression_type ?? "";
     $this->content_type = $content_type ?? "";
     $this->data_source = $data_source ?? null;
-    $this->input_mode = $input_mode ?? ;
-    $this->record_wrapper_type = $record_wrapper_type ?? ;
+    $this->input_mode = $input_mode ?? "";
+    $this->record_wrapper_type = $record_wrapper_type ?? "";
     $this->shuffle_config = $shuffle_config ?? null;
   }
 }
@@ -767,12 +767,12 @@ class ChannelSpecification {
   ?'supported_content_types' => ContentTypes,
   ?'supported_input_modes' => InputModes,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->is_required = $is_required ?? ;
-    $this->name = $name ?? ;
-    $this->supported_compression_types = $supported_compression_types ?? ;
-    $this->supported_content_types = $supported_content_types ?? ;
-    $this->supported_input_modes = $supported_input_modes ?? ;
+    $this->description = $description ?? "";
+    $this->is_required = $is_required ?? false;
+    $this->name = $name ?? "";
+    $this->supported_compression_types = $supported_compression_types ?? [];
+    $this->supported_content_types = $supported_content_types ?? [];
+    $this->supported_input_modes = $supported_input_modes ?? [];
   }
 }
 
@@ -786,7 +786,7 @@ class CheckpointConfig {
   ?'local_path' => DirectoryPath,
   ?'s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->local_path = $local_path ?? ;
+    $this->local_path = $local_path ?? "";
     $this->s_3_uri = $s_3_uri ?? "";
   }
 }
@@ -822,7 +822,7 @@ class CodeRepositorySummary {
   ?'last_modified_time' => LastModifiedTime,
   ) $s = shape()) {
     $this->code_repository_arn = $code_repository_arn ?? "";
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->git_config = $git_config ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
@@ -843,9 +843,9 @@ class CognitoMemberDefinition {
   ?'user_group' => CognitoUserGroup,
   ?'user_pool' => CognitoUserPool,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->user_group = $user_group ?? ;
-    $this->user_pool = $user_pool ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->user_group = $user_group ?? "";
+    $this->user_pool = $user_pool ?? "";
   }
 }
 
@@ -898,12 +898,12 @@ class CompilationJobSummary {
   ?'creation_time' => CreationTime,
   ?'last_modified_time' => LastModifiedTime,
   ) $s = shape()) {
-    $this->compilation_end_time = $compilation_end_time ?? ;
+    $this->compilation_end_time = $compilation_end_time ?? 0;
     $this->compilation_job_arn = $compilation_job_arn ?? "";
-    $this->compilation_job_name = $compilation_job_name ?? ;
+    $this->compilation_job_name = $compilation_job_name ?? "";
     $this->compilation_job_status = $compilation_job_status ?? "";
-    $this->compilation_start_time = $compilation_start_time ?? ;
-    $this->compilation_target_device = $compilation_target_device ?? ;
+    $this->compilation_start_time = $compilation_start_time ?? 0;
+    $this->compilation_target_device = $compilation_target_device ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->last_modified_time = $last_modified_time ?? 0;
   }
@@ -923,7 +923,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -948,11 +948,11 @@ class ContainerDefinition {
   ?'model_package_name' => ArnOrName,
   ) $s = shape()) {
     $this->container_hostname = $container_hostname ?? "";
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->image = $image ?? "";
-    $this->mode = $mode ?? ;
-    $this->model_data_url = $model_data_url ?? ;
-    $this->model_package_name = $model_package_name ?? ;
+    $this->mode = $mode ?? "";
+    $this->model_data_url = $model_data_url ?? "";
+    $this->model_package_name = $model_package_name ?? "";
   }
 }
 
@@ -986,10 +986,10 @@ class ContinuousParameterRange {
   ?'name' => ParameterKey,
   ?'scaling_type' => HyperParameterScalingType,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
-    $this->scaling_type = $scaling_type ?? ;
+    $this->max_value = $max_value ?? "";
+    $this->min_value = $min_value ?? "";
+    $this->name = $name ?? "";
+    $this->scaling_type = $scaling_type ?? "";
   }
 }
 
@@ -1001,8 +1001,8 @@ class ContinuousParameterRangeSpecification {
   ?'max_value' => ParameterValue,
   ?'min_value' => ParameterValue,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
+    $this->max_value = $max_value ?? "";
+    $this->min_value = $min_value ?? "";
   }
 }
 
@@ -1024,12 +1024,12 @@ class CreateAlgorithmInput {
   ?'training_specification' => TrainingSpecification,
   ?'validation_specification' => AlgorithmValidationSpecification,
   ) $s = shape()) {
-    $this->algorithm_description = $algorithm_description ?? ;
-    $this->algorithm_name = $algorithm_name ?? ;
+    $this->algorithm_description = $algorithm_description ?? "";
+    $this->algorithm_name = $algorithm_name ?? "";
     $this->certify_for_marketplace = $certify_for_marketplace ?? false;
     $this->inference_specification = $inference_specification ?? null;
     $this->training_specification = $training_specification ?? null;
-    $this->validation_specification = $validation_specification ?? ;
+    $this->validation_specification = $validation_specification ?? null;
   }
 }
 
@@ -1063,7 +1063,7 @@ class CreateAppRequest {
     $this->app_type = $app_type ?? "";
     $this->domain_id = $domain_id ?? "";
     $this->resource_spec = $resource_spec ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->user_profile_name = $user_profile_name ?? "";
   }
 }
@@ -1108,7 +1108,7 @@ class CreateAutoMLJobRequest {
     $this->output_data_config = $output_data_config ?? null;
     $this->problem_type = $problem_type ?? "";
     $this->role_arn = $role_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1130,7 +1130,7 @@ class CreateCodeRepositoryInput {
   ?'code_repository_name' => EntityName,
   ?'git_config' => GitConfig,
   ) $s = shape()) {
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
     $this->git_config = $git_config ?? null;
   }
 }
@@ -1159,7 +1159,7 @@ class CreateCompilationJobRequest {
   ?'role_arn' => RoleArn,
   ?'stopping_condition' => StoppingCondition,
   ) $s = shape()) {
-    $this->compilation_job_name = $compilation_job_name ?? ;
+    $this->compilation_job_name = $compilation_job_name ?? "";
     $this->input_config = $input_config ?? null;
     $this->output_config = $output_config ?? null;
     $this->role_arn = $role_arn ?? "";
@@ -1196,11 +1196,11 @@ class CreateDomainRequest {
   ?'vpc_id' => VpcId,
   ) $s = shape()) {
     $this->auth_mode = $auth_mode ?? "";
-    $this->default_user_settings = $default_user_settings ?? ;
+    $this->default_user_settings = $default_user_settings ?? null;
     $this->domain_name = $domain_name ?? "";
-    $this->home_efs_file_system_kms_key_id = $home_efs_file_system_kms_key_id ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? ;
+    $this->home_efs_file_system_kms_key_id = $home_efs_file_system_kms_key_id ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
     $this->vpc_id = $vpc_id ?? "";
   }
 }
@@ -1235,8 +1235,8 @@ class CreateEndpointConfigInput {
     $this->data_capture_config = $data_capture_config ?? null;
     $this->endpoint_config_name = $endpoint_config_name ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->production_variants = $production_variants ?? ;
-    $this->tags = $tags ?? ;
+    $this->production_variants = $production_variants ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1262,7 +1262,7 @@ class CreateEndpointInput {
   ) $s = shape()) {
     $this->endpoint_config_name = $endpoint_config_name ?? "";
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1288,10 +1288,10 @@ class CreateExperimentRequest {
   ?'experiment_name' => ExperimentEntityName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->experiment_name = $experiment_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->experiment_name = $experiment_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1329,7 +1329,7 @@ class CreateFlowDefinitionRequest {
     $this->human_loop_request_source = $human_loop_request_source ?? null;
     $this->output_config = $output_config ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1354,7 +1354,7 @@ class CreateHumanTaskUiRequest {
   ?'ui_template' => UiTemplate,
   ) $s = shape()) {
     $this->human_task_ui_name = $human_task_ui_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->ui_template = $ui_template ?? null;
   }
 }
@@ -1387,10 +1387,10 @@ class CreateHyperParameterTuningJobRequest {
   ) $s = shape()) {
     $this->hyper_parameter_tuning_job_config = $hyper_parameter_tuning_job_config ?? null;
     $this->hyper_parameter_tuning_job_name = $hyper_parameter_tuning_job_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->training_job_definition = $training_job_definition ?? null;
-    $this->training_job_definitions = $training_job_definitions ?? ;
-    $this->warm_start_config = $warm_start_config ?? ;
+    $this->training_job_definitions = $training_job_definitions ?? [];
+    $this->warm_start_config = $warm_start_config ?? null;
   }
 }
 
@@ -1431,13 +1431,13 @@ class CreateLabelingJobRequest {
     $this->human_task_config = $human_task_config ?? null;
     $this->input_config = $input_config ?? null;
     $this->label_attribute_name = $label_attribute_name ?? "";
-    $this->label_category_config_s_3_uri = $label_category_config_s_3_uri ?? ;
+    $this->label_category_config_s_3_uri = $label_category_config_s_3_uri ?? "";
     $this->labeling_job_algorithms_config = $labeling_job_algorithms_config ?? null;
     $this->labeling_job_name = $labeling_job_name ?? "";
     $this->output_config = $output_config ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->stopping_conditions = $stopping_conditions ?? ;
-    $this->tags = $tags ?? ;
+    $this->stopping_conditions = $stopping_conditions ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1469,12 +1469,12 @@ class CreateModelInput {
   ?'tags' => TagList,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->containers = $containers ?? ;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
+    $this->containers = $containers ?? [];
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
+    $this->execution_role_arn = $execution_role_arn ?? "";
     $this->model_name = $model_name ?? "";
-    $this->primary_container = $primary_container ?? ;
-    $this->tags = $tags ?? ;
+    $this->primary_container = $primary_container ?? null;
+    $this->tags = $tags ?? [];
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -1507,10 +1507,10 @@ class CreateModelPackageInput {
   ) $s = shape()) {
     $this->certify_for_marketplace = $certify_for_marketplace ?? false;
     $this->inference_specification = $inference_specification ?? null;
-    $this->model_package_description = $model_package_description ?? ;
-    $this->model_package_name = $model_package_name ?? ;
+    $this->model_package_description = $model_package_description ?? "";
+    $this->model_package_name = $model_package_name ?? "";
     $this->source_algorithm_specification = $source_algorithm_specification ?? null;
-    $this->validation_specification = $validation_specification ?? ;
+    $this->validation_specification = $validation_specification ?? null;
   }
 }
 
@@ -1536,7 +1536,7 @@ class CreateMonitoringScheduleRequest {
   ) $s = shape()) {
     $this->monitoring_schedule_config = $monitoring_schedule_config ?? null;
     $this->monitoring_schedule_name = $monitoring_schedule_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1582,19 +1582,19 @@ class CreateNotebookInstanceInput {
   ?'tags' => TagList,
   ?'volume_size_in_gb' => NotebookInstanceVolumeSizeInGB,
   ) $s = shape()) {
-    $this->accelerator_types = $accelerator_types ?? ;
-    $this->additional_code_repositories = $additional_code_repositories ?? ;
-    $this->default_code_repository = $default_code_repository ?? ;
+    $this->accelerator_types = $accelerator_types ?? [];
+    $this->additional_code_repositories = $additional_code_repositories ?? [];
+    $this->default_code_repository = $default_code_repository ?? "";
     $this->direct_internet_access = $direct_internet_access ?? "";
     $this->instance_type = $instance_type ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->lifecycle_config_name = $lifecycle_config_name ?? ;
+    $this->lifecycle_config_name = $lifecycle_config_name ?? "";
     $this->notebook_instance_name = $notebook_instance_name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->root_access = $root_access ?? "";
     $this->security_group_ids = $security_group_ids ?? [];
     $this->subnet_id = $subnet_id ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
@@ -1610,8 +1610,8 @@ class CreateNotebookInstanceLifecycleConfigInput {
   ?'on_start' => NotebookInstanceLifecycleConfigList,
   ) $s = shape()) {
     $this->notebook_instance_lifecycle_config_name = $notebook_instance_lifecycle_config_name ?? "";
-    $this->on_create = $on_create ?? ;
-    $this->on_start = $on_start ?? ;
+    $this->on_create = $on_create ?? [];
+    $this->on_start = $on_start ?? [];
   }
 }
 
@@ -1657,7 +1657,7 @@ class CreatePresignedDomainUrlResponse {
   public function __construct(shape(
   ?'authorized_url' => PresignedDomainUrl,
   ) $s = shape()) {
-    $this->authorized_url = $authorized_url ?? ;
+    $this->authorized_url = $authorized_url ?? "";
   }
 }
 
@@ -1680,7 +1680,7 @@ class CreatePresignedNotebookInstanceUrlOutput {
   public function __construct(shape(
   ?'authorized_url' => NotebookInstanceUrl,
   ) $s = shape()) {
-    $this->authorized_url = $authorized_url ?? ;
+    $this->authorized_url = $authorized_url ?? "";
   }
 }
 
@@ -1711,7 +1711,7 @@ class CreateProcessingJobRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->app_specification = $app_specification ?? null;
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->experiment_config = $experiment_config ?? null;
     $this->network_config = $network_config ?? null;
     $this->processing_inputs = $processing_inputs ?? [];
@@ -1720,7 +1720,7 @@ class CreateProcessingJobRequest {
     $this->processing_resources = $processing_resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->stopping_condition = $stopping_condition ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1778,9 +1778,9 @@ class CreateTrainingJobRequest {
     $this->checkpoint_config = $checkpoint_config ?? null;
     $this->debug_hook_config = $debug_hook_config ?? null;
     $this->debug_rule_configurations = $debug_rule_configurations ?? [];
-    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? ;
-    $this->enable_managed_spot_training = $enable_managed_spot_training ?? ;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
+    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? false;
+    $this->enable_managed_spot_training = $enable_managed_spot_training ?? false;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
     $this->experiment_config = $experiment_config ?? null;
     $this->hyper_parameters = $hyper_parameters ?? [];
     $this->input_data_config = $input_data_config ?? [];
@@ -1788,7 +1788,7 @@ class CreateTrainingJobRequest {
     $this->resource_config = $resource_config ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->stopping_condition = $stopping_condition ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->tensor_board_output_config = $tensor_board_output_config ?? null;
     $this->training_job_name = $training_job_name ?? "";
     $this->vpc_config = $vpc_config ?? null;
@@ -1835,12 +1835,12 @@ class CreateTransformJobRequest {
   ) $s = shape()) {
     $this->batch_strategy = $batch_strategy ?? "";
     $this->data_processing = $data_processing ?? null;
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->experiment_config = $experiment_config ?? null;
     $this->max_concurrent_transforms = $max_concurrent_transforms ?? 0;
     $this->max_payload_in_mb = $max_payload_in_mb ?? 0;
     $this->model_name = $model_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->transform_input = $transform_input ?? null;
     $this->transform_job_name = $transform_job_name ?? "";
     $this->transform_output = $transform_output ?? null;
@@ -1880,15 +1880,15 @@ class CreateTrialComponentRequest {
   ?'tags' => TagList,
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->parameters = $parameters ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? null;
+    $this->tags = $tags ?? [];
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -1914,10 +1914,10 @@ class CreateTrialRequest {
   ?'tags' => TagList,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->experiment_name = $experiment_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->experiment_name = $experiment_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -1949,8 +1949,8 @@ class CreateUserProfileRequest {
   ) $s = shape()) {
     $this->domain_id = $domain_id ?? "";
     $this->single_sign_on_user_identifier = $single_sign_on_user_identifier ?? "";
-    $this->single_sign_on_user_value = $single_sign_on_user_value ?? ;
-    $this->tags = $tags ?? ;
+    $this->single_sign_on_user_value = $single_sign_on_user_value ?? "";
+    $this->tags = $tags ?? [];
     $this->user_profile_name = $user_profile_name ?? "";
     $this->user_settings = $user_settings ?? null;
   }
@@ -1980,10 +1980,10 @@ class CreateWorkteamRequest {
   ?'tags' => TagList,
   ?'workteam_name' => WorkteamName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->member_definitions = $member_definitions ?? [];
     $this->notification_configuration = $notification_configuration ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->workteam_name = $workteam_name ?? "";
   }
 }
@@ -2021,10 +2021,10 @@ class DataCaptureConfig {
   ?'kms_key_id' => KmsKeyId,
   ) $s = shape()) {
     $this->capture_content_type_header = $capture_content_type_header ?? null;
-    $this->capture_options = $capture_options ?? ;
+    $this->capture_options = $capture_options ?? [];
     $this->destination_s_3_uri = $destination_s_3_uri ?? "";
     $this->enable_capture = $enable_capture ?? false;
-    $this->initial_sampling_percentage = $initial_sampling_percentage ?? ;
+    $this->initial_sampling_percentage = $initial_sampling_percentage ?? 0;
     $this->kms_key_id = $kms_key_id ?? "";
   }
 }
@@ -2044,7 +2044,7 @@ class DataCaptureConfigSummary {
   ?'kms_key_id' => KmsKeyId,
   ) $s = shape()) {
     $this->capture_status = $capture_status ?? "";
-    $this->current_sampling_percentage = $current_sampling_percentage ?? ;
+    $this->current_sampling_percentage = $current_sampling_percentage ?? 0;
     $this->destination_s_3_uri = $destination_s_3_uri ?? "";
     $this->enable_capture = $enable_capture ?? false;
     $this->kms_key_id = $kms_key_id ?? "";
@@ -2065,9 +2065,9 @@ class DataProcessing {
   ?'join_source' => JoinSource,
   ?'output_filter' => JsonPath,
   ) $s = shape()) {
-    $this->input_filter = $input_filter ?? ;
+    $this->input_filter = $input_filter ?? "";
     $this->join_source = $join_source ?? "";
-    $this->output_filter = $output_filter ?? ;
+    $this->output_filter = $output_filter ?? "";
   }
 }
 
@@ -2098,8 +2098,8 @@ class DebugHookConfig {
   ) $s = shape()) {
     $this->collection_configurations = $collection_configurations ?? [];
     $this->hook_parameters = $hook_parameters ?? [];
-    $this->local_path = $local_path ?? ;
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -2122,11 +2122,11 @@ class DebugRuleConfiguration {
   ?'volume_size_in_gb' => OptionalVolumeSizeInGB,
   ) $s = shape()) {
     $this->instance_type = $instance_type ?? "";
-    $this->local_path = $local_path ?? ;
+    $this->local_path = $local_path ?? "";
     $this->rule_configuration_name = $rule_configuration_name ?? "";
-    $this->rule_evaluator_image = $rule_evaluator_image ?? ;
+    $this->rule_evaluator_image = $rule_evaluator_image ?? "";
     $this->rule_parameters = $rule_parameters ?? [];
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
@@ -2149,7 +2149,7 @@ class DebugRuleEvaluationStatus {
   ) $s = shape()) {
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->rule_configuration_name = $rule_configuration_name ?? "";
-    $this->rule_evaluation_job_arn = $rule_evaluation_job_arn ?? ;
+    $this->rule_evaluation_job_arn = $rule_evaluation_job_arn ?? "";
     $this->rule_evaluation_status = $rule_evaluation_status ?? "";
     $this->status_details = $status_details ?? "";
   }
@@ -2163,7 +2163,7 @@ class DeleteAlgorithmInput {
   public function __construct(shape(
   ?'algorithm_name' => EntityName,
   ) $s = shape()) {
-    $this->algorithm_name = $algorithm_name ?? ;
+    $this->algorithm_name = $algorithm_name ?? "";
   }
 }
 
@@ -2192,7 +2192,7 @@ class DeleteCodeRepositoryInput {
   public function __construct(shape(
   ?'code_repository_name' => EntityName,
   ) $s = shape()) {
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
   }
 }
 
@@ -2235,7 +2235,7 @@ class DeleteExperimentRequest {
   public function __construct(shape(
   ?'experiment_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->experiment_name = $experiment_name ?? ;
+    $this->experiment_name = $experiment_name ?? "";
   }
 }
 
@@ -2282,7 +2282,7 @@ class DeleteModelPackageInput {
   public function __construct(shape(
   ?'model_package_name' => EntityName,
   ) $s = shape()) {
-    $this->model_package_name = $model_package_name ?? ;
+    $this->model_package_name = $model_package_name ?? "";
   }
 }
 
@@ -2325,7 +2325,7 @@ class DeleteTagsInput {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2342,7 +2342,7 @@ class DeleteTrialComponentRequest {
   public function __construct(shape(
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -2362,7 +2362,7 @@ class DeleteTrialRequest {
   public function __construct(shape(
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -2419,9 +2419,9 @@ class DeployedImage {
   ?'resolved_image' => Image,
   ?'specified_image' => Image,
   ) $s = shape()) {
-    $this->resolution_time = $resolution_time ?? ;
-    $this->resolved_image = $resolved_image ?? ;
-    $this->specified_image = $specified_image ?? ;
+    $this->resolution_time = $resolution_time ?? 0;
+    $this->resolved_image = $resolved_image ?? "";
+    $this->specified_image = $specified_image ?? "";
   }
 }
 
@@ -2433,7 +2433,7 @@ class DescribeAlgorithmInput {
   public function __construct(shape(
   ?'algorithm_name' => ArnOrName,
   ) $s = shape()) {
-    $this->algorithm_name = $algorithm_name ?? ;
+    $this->algorithm_name = $algorithm_name ?? "";
   }
 }
 
@@ -2464,8 +2464,8 @@ class DescribeAlgorithmOutput {
   ?'validation_specification' => AlgorithmValidationSpecification,
   ) $s = shape()) {
     $this->algorithm_arn = $algorithm_arn ?? "";
-    $this->algorithm_description = $algorithm_description ?? ;
-    $this->algorithm_name = $algorithm_name ?? ;
+    $this->algorithm_description = $algorithm_description ?? "";
+    $this->algorithm_name = $algorithm_name ?? "";
     $this->algorithm_status = $algorithm_status ?? "";
     $this->algorithm_status_details = $algorithm_status_details ?? null;
     $this->certify_for_marketplace = $certify_for_marketplace ?? false;
@@ -2473,7 +2473,7 @@ class DescribeAlgorithmOutput {
     $this->inference_specification = $inference_specification ?? null;
     $this->product_id = $product_id ?? "";
     $this->training_specification = $training_specification ?? null;
-    $this->validation_specification = $validation_specification ?? ;
+    $this->validation_specification = $validation_specification ?? null;
   }
 }
 
@@ -2528,10 +2528,10 @@ class DescribeAppResponse {
     $this->creation_time = $creation_time ?? 0;
     $this->domain_id = $domain_id ?? "";
     $this->failure_reason = $failure_reason ?? "";
-    $this->last_health_check_timestamp = $last_health_check_timestamp ?? ;
-    $this->last_user_activity_timestamp = $last_user_activity_timestamp ?? ;
+    $this->last_health_check_timestamp = $last_health_check_timestamp ?? 0;
+    $this->last_user_activity_timestamp = $last_user_activity_timestamp ?? 0;
     $this->resource_spec = $resource_spec ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->user_profile_name = $user_profile_name ?? "";
   }
 }
@@ -2593,9 +2593,9 @@ class DescribeAutoMLJobResponse {
     $this->auto_ml_job_objective = $auto_ml_job_objective ?? null;
     $this->auto_ml_job_secondary_status = $auto_ml_job_secondary_status ?? "";
     $this->auto_ml_job_status = $auto_ml_job_status ?? "";
-    $this->best_candidate = $best_candidate ?? ;
+    $this->best_candidate = $best_candidate ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->generate_candidate_definitions_only = $generate_candidate_definitions_only ?? false;
     $this->input_data_config = $input_data_config ?? [];
@@ -2613,7 +2613,7 @@ class DescribeCodeRepositoryInput {
   public function __construct(shape(
   ?'code_repository_name' => EntityName,
   ) $s = shape()) {
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
   }
 }
 
@@ -2632,7 +2632,7 @@ class DescribeCodeRepositoryOutput {
   ?'last_modified_time' => LastModifiedTime,
   ) $s = shape()) {
     $this->code_repository_arn = $code_repository_arn ?? "";
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->git_config = $git_config ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
@@ -2645,7 +2645,7 @@ class DescribeCompilationJobRequest {
   public function __construct(shape(
   ?'compilation_job_name' => EntityName,
   ) $s = shape()) {
-    $this->compilation_job_name = $compilation_job_name ?? ;
+    $this->compilation_job_name = $compilation_job_name ?? "";
   }
 }
 
@@ -2679,11 +2679,11 @@ class DescribeCompilationJobResponse {
   ?'role_arn' => RoleArn,
   ?'stopping_condition' => StoppingCondition,
   ) $s = shape()) {
-    $this->compilation_end_time = $compilation_end_time ?? ;
+    $this->compilation_end_time = $compilation_end_time ?? 0;
     $this->compilation_job_arn = $compilation_job_arn ?? "";
-    $this->compilation_job_name = $compilation_job_name ?? ;
+    $this->compilation_job_name = $compilation_job_name ?? "";
     $this->compilation_job_status = $compilation_job_status ?? "";
-    $this->compilation_start_time = $compilation_start_time ?? ;
+    $this->compilation_start_time = $compilation_start_time ?? 0;
     $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->input_config = $input_config ?? null;
@@ -2741,17 +2741,17 @@ class DescribeDomainResponse {
   ) $s = shape()) {
     $this->auth_mode = $auth_mode ?? "";
     $this->creation_time = $creation_time ?? 0;
-    $this->default_user_settings = $default_user_settings ?? ;
+    $this->default_user_settings = $default_user_settings ?? null;
     $this->domain_arn = $domain_arn ?? "";
     $this->domain_id = $domain_id ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->failure_reason = $failure_reason ?? "";
-    $this->home_efs_file_system_id = $home_efs_file_system_id ?? ;
-    $this->home_efs_file_system_kms_key_id = $home_efs_file_system_kms_key_id ?? ;
+    $this->home_efs_file_system_id = $home_efs_file_system_id ?? "";
+    $this->home_efs_file_system_kms_key_id = $home_efs_file_system_kms_key_id ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->single_sign_on_managed_application_instance_id = $single_sign_on_managed_application_instance_id ?? ;
-    $this->status = $status ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->single_sign_on_managed_application_instance_id = $single_sign_on_managed_application_instance_id ?? "";
+    $this->status = $status ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
     $this->url = $url ?? "";
     $this->vpc_id = $vpc_id ?? "";
   }
@@ -2788,7 +2788,7 @@ class DescribeEndpointConfigOutput {
     $this->endpoint_config_arn = $endpoint_config_arn ?? "";
     $this->endpoint_config_name = $endpoint_config_name ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->production_variants = $production_variants ?? ;
+    $this->production_variants = $production_variants ?? [];
   }
 }
 
@@ -2832,7 +2832,7 @@ class DescribeEndpointOutput {
     $this->endpoint_status = $endpoint_status ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->production_variants = $production_variants ?? ;
+    $this->production_variants = $production_variants ?? [];
   }
 }
 
@@ -2842,7 +2842,7 @@ class DescribeExperimentRequest {
   public function __construct(shape(
   ?'experiment_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->experiment_name = $experiment_name ?? ;
+    $this->experiment_name = $experiment_name ?? "";
   }
 }
 
@@ -2868,15 +2868,15 @@ class DescribeExperimentResponse {
   ?'last_modified_time' => Timestamp,
   ?'source' => ExperimentSource,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
     $this->experiment_arn = $experiment_arn ?? "";
-    $this->experiment_name = $experiment_name ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->experiment_name = $experiment_name ?? "";
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->source = $source ?? ;
+    $this->source = $source ?? null;
   }
 }
 
@@ -3000,21 +3000,21 @@ class DescribeHyperParameterTuningJobResponse {
   ?'training_job_status_counters' => TrainingJobStatusCounters,
   ?'warm_start_config' => HyperParameterTuningJobWarmStartConfig,
   ) $s = shape()) {
-    $this->best_training_job = $best_training_job ?? ;
+    $this->best_training_job = $best_training_job ?? null;
     $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
-    $this->hyper_parameter_tuning_end_time = $hyper_parameter_tuning_end_time ?? ;
+    $this->hyper_parameter_tuning_end_time = $hyper_parameter_tuning_end_time ?? 0;
     $this->hyper_parameter_tuning_job_arn = $hyper_parameter_tuning_job_arn ?? "";
     $this->hyper_parameter_tuning_job_config = $hyper_parameter_tuning_job_config ?? null;
     $this->hyper_parameter_tuning_job_name = $hyper_parameter_tuning_job_name ?? "";
     $this->hyper_parameter_tuning_job_status = $hyper_parameter_tuning_job_status ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->objective_status_counters = $objective_status_counters ?? null;
-    $this->overall_best_training_job = $overall_best_training_job ?? ;
+    $this->overall_best_training_job = $overall_best_training_job ?? null;
     $this->training_job_definition = $training_job_definition ?? null;
-    $this->training_job_definitions = $training_job_definitions ?? ;
+    $this->training_job_definitions = $training_job_definitions ?? [];
     $this->training_job_status_counters = $training_job_status_counters ?? null;
-    $this->warm_start_config = $warm_start_config ?? ;
+    $this->warm_start_config = $warm_start_config ?? null;
   }
 }
 
@@ -3074,7 +3074,7 @@ class DescribeLabelingJobResponse {
     $this->input_config = $input_config ?? null;
     $this->job_reference_code = $job_reference_code ?? "";
     $this->label_attribute_name = $label_attribute_name ?? "";
-    $this->label_category_config_s_3_uri = $label_category_config_s_3_uri ?? ;
+    $this->label_category_config_s_3_uri = $label_category_config_s_3_uri ?? "";
     $this->label_counters = $label_counters ?? null;
     $this->labeling_job_algorithms_config = $labeling_job_algorithms_config ?? null;
     $this->labeling_job_arn = $labeling_job_arn ?? "";
@@ -3084,8 +3084,8 @@ class DescribeLabelingJobResponse {
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->output_config = $output_config ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->stopping_conditions = $stopping_conditions ?? ;
-    $this->tags = $tags ?? ;
+    $this->stopping_conditions = $stopping_conditions ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3119,13 +3119,13 @@ class DescribeModelOutput {
   ?'primary_container' => ContainerDefinition,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->containers = $containers ?? ;
+    $this->containers = $containers ?? [];
     $this->creation_time = $creation_time ?? 0;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
+    $this->execution_role_arn = $execution_role_arn ?? "";
     $this->model_arn = $model_arn ?? "";
     $this->model_name = $model_name ?? "";
-    $this->primary_container = $primary_container ?? ;
+    $this->primary_container = $primary_container ?? null;
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -3136,7 +3136,7 @@ class DescribeModelPackageInput {
   public function __construct(shape(
   ?'model_package_name' => ArnOrName,
   ) $s = shape()) {
-    $this->model_package_name = $model_package_name ?? ;
+    $this->model_package_name = $model_package_name ?? "";
   }
 }
 
@@ -3168,12 +3168,12 @@ class DescribeModelPackageOutput {
     $this->creation_time = $creation_time ?? 0;
     $this->inference_specification = $inference_specification ?? null;
     $this->model_package_arn = $model_package_arn ?? "";
-    $this->model_package_description = $model_package_description ?? ;
-    $this->model_package_name = $model_package_name ?? ;
+    $this->model_package_description = $model_package_description ?? "";
+    $this->model_package_name = $model_package_name ?? "";
     $this->model_package_status = $model_package_status ?? "";
     $this->model_package_status_details = $model_package_status_details ?? null;
     $this->source_algorithm_specification = $source_algorithm_specification ?? null;
-    $this->validation_specification = $validation_specification ?? ;
+    $this->validation_specification = $validation_specification ?? null;
   }
 }
 
@@ -3213,11 +3213,11 @@ class DescribeMonitoringScheduleResponse {
     $this->endpoint_name = $endpoint_name ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->last_monitoring_execution_summary = $last_monitoring_execution_summary ?? ;
+    $this->last_monitoring_execution_summary = $last_monitoring_execution_summary ?? null;
     $this->monitoring_schedule_arn = $monitoring_schedule_arn ?? "";
     $this->monitoring_schedule_config = $monitoring_schedule_config ?? null;
     $this->monitoring_schedule_name = $monitoring_schedule_name ?? "";
-    $this->monitoring_schedule_status = $monitoring_schedule_status ?? ;
+    $this->monitoring_schedule_status = $monitoring_schedule_status ?? "";
   }
 }
 
@@ -3261,8 +3261,8 @@ class DescribeNotebookInstanceLifecycleConfigOutput {
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->notebook_instance_lifecycle_config_arn = $notebook_instance_lifecycle_config_arn ?? "";
     $this->notebook_instance_lifecycle_config_name = $notebook_instance_lifecycle_config_name ?? "";
-    $this->on_create = $on_create ?? ;
-    $this->on_start = $on_start ?? ;
+    $this->on_create = $on_create ?? [];
+    $this->on_start = $on_start ?? [];
   }
 }
 
@@ -3310,10 +3310,10 @@ class DescribeNotebookInstanceOutput {
   ?'url' => NotebookInstanceUrl,
   ?'volume_size_in_gb' => NotebookInstanceVolumeSizeInGB,
   ) $s = shape()) {
-    $this->accelerator_types = $accelerator_types ?? ;
-    $this->additional_code_repositories = $additional_code_repositories ?? ;
+    $this->accelerator_types = $accelerator_types ?? [];
+    $this->additional_code_repositories = $additional_code_repositories ?? [];
     $this->creation_time = $creation_time ?? 0;
-    $this->default_code_repository = $default_code_repository ?? ;
+    $this->default_code_repository = $default_code_repository ?? "";
     $this->direct_internet_access = $direct_internet_access ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->instance_type = $instance_type ?? "";
@@ -3326,7 +3326,7 @@ class DescribeNotebookInstanceOutput {
     $this->notebook_instance_status = $notebook_instance_status ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->root_access = $root_access ?? "";
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
     $this->subnet_id = $subnet_id ?? "";
     $this->url = $url ?? "";
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
@@ -3392,21 +3392,21 @@ class DescribeProcessingJobResponse {
     $this->app_specification = $app_specification ?? null;
     $this->auto_ml_job_arn = $auto_ml_job_arn ?? "";
     $this->creation_time = $creation_time ?? 0;
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->exit_message = $exit_message ?? "";
     $this->experiment_config = $experiment_config ?? null;
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->monitoring_schedule_arn = $monitoring_schedule_arn ?? "";
     $this->network_config = $network_config ?? null;
-    $this->processing_end_time = $processing_end_time ?? ;
+    $this->processing_end_time = $processing_end_time ?? 0;
     $this->processing_inputs = $processing_inputs ?? [];
     $this->processing_job_arn = $processing_job_arn ?? "";
     $this->processing_job_name = $processing_job_name ?? "";
     $this->processing_job_status = $processing_job_status ?? "";
     $this->processing_output_config = $processing_output_config ?? null;
     $this->processing_resources = $processing_resources ?? null;
-    $this->processing_start_time = $processing_start_time ?? ;
+    $this->processing_start_time = $processing_start_time ?? 0;
     $this->role_arn = $role_arn ?? "";
     $this->stopping_condition = $stopping_condition ?? null;
     $this->training_job_arn = $training_job_arn ?? "";
@@ -3523,9 +3523,9 @@ class DescribeTrainingJobResponse {
     $this->debug_hook_config = $debug_hook_config ?? null;
     $this->debug_rule_configurations = $debug_rule_configurations ?? [];
     $this->debug_rule_evaluation_statuses = $debug_rule_evaluation_statuses ?? [];
-    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? ;
-    $this->enable_managed_spot_training = $enable_managed_spot_training ?? ;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
+    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? false;
+    $this->enable_managed_spot_training = $enable_managed_spot_training ?? false;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
     $this->experiment_config = $experiment_config ?? null;
     $this->failure_reason = $failure_reason ?? "";
     $this->final_metric_data_list = $final_metric_data_list ?? [];
@@ -3541,13 +3541,13 @@ class DescribeTrainingJobResponse {
     $this->secondary_status_transitions = $secondary_status_transitions ?? [];
     $this->stopping_condition = $stopping_condition ?? null;
     $this->tensor_board_output_config = $tensor_board_output_config ?? null;
-    $this->training_end_time = $training_end_time ?? ;
+    $this->training_end_time = $training_end_time ?? 0;
     $this->training_job_arn = $training_job_arn ?? "";
     $this->training_job_name = $training_job_name ?? "";
     $this->training_job_status = $training_job_status ?? "";
-    $this->training_start_time = $training_start_time ?? ;
+    $this->training_start_time = $training_start_time ?? 0;
     $this->training_time_in_seconds = $training_time_in_seconds ?? 0;
-    $this->tuning_job_arn = $tuning_job_arn ?? ;
+    $this->tuning_job_arn = $tuning_job_arn ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -3608,21 +3608,21 @@ class DescribeTransformJobResponse {
     $this->batch_strategy = $batch_strategy ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->data_processing = $data_processing ?? null;
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->experiment_config = $experiment_config ?? null;
     $this->failure_reason = $failure_reason ?? "";
     $this->labeling_job_arn = $labeling_job_arn ?? "";
     $this->max_concurrent_transforms = $max_concurrent_transforms ?? 0;
     $this->max_payload_in_mb = $max_payload_in_mb ?? 0;
     $this->model_name = $model_name ?? "";
-    $this->transform_end_time = $transform_end_time ?? ;
+    $this->transform_end_time = $transform_end_time ?? 0;
     $this->transform_input = $transform_input ?? null;
     $this->transform_job_arn = $transform_job_arn ?? "";
     $this->transform_job_name = $transform_job_name ?? "";
     $this->transform_job_status = $transform_job_status ?? "";
     $this->transform_output = $transform_output ?? null;
     $this->transform_resources = $transform_resources ?? null;
-    $this->transform_start_time = $transform_start_time ?? ;
+    $this->transform_start_time = $transform_start_time ?? 0;
   }
 }
 
@@ -3632,7 +3632,7 @@ class DescribeTrialComponentRequest {
   public function __construct(shape(
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -3670,21 +3670,21 @@ class DescribeTrialComponentResponse {
   ?'trial_component_arn' => TrialComponentArn,
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->metrics = $metrics ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->source = $source ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->metrics = $metrics ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->parameters = $parameters ?? [];
+    $this->source = $source ?? null;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? null;
     $this->trial_component_arn = $trial_component_arn ?? "";
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -3694,7 +3694,7 @@ class DescribeTrialRequest {
   public function __construct(shape(
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -3720,15 +3720,15 @@ class DescribeTrialResponse {
   ?'trial_arn' => TrialArn,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
-    $this->experiment_name = $experiment_name ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->experiment_name = $experiment_name ?? "";
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->source = $source ?? ;
+    $this->source = $source ?? null;
     $this->trial_arn = $trial_arn ?? "";
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -3774,11 +3774,11 @@ class DescribeUserProfileResponse {
     $this->creation_time = $creation_time ?? 0;
     $this->domain_id = $domain_id ?? "";
     $this->failure_reason = $failure_reason ?? "";
-    $this->home_efs_file_system_uid = $home_efs_file_system_uid ?? ;
+    $this->home_efs_file_system_uid = $home_efs_file_system_uid ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->single_sign_on_user_identifier = $single_sign_on_user_identifier ?? "";
-    $this->single_sign_on_user_value = $single_sign_on_user_value ?? ;
-    $this->status = $status ?? ;
+    $this->single_sign_on_user_value = $single_sign_on_user_value ?? "";
+    $this->status = $status ?? "";
     $this->user_profile_arn = $user_profile_arn ?? "";
     $this->user_profile_name = $user_profile_name ?? "";
     $this->user_settings = $user_settings ?? null;
@@ -3835,8 +3835,8 @@ class DesiredWeightAndCapacity {
   ?'desired_weight' => VariantWeight,
   ?'variant_name' => VariantName,
   ) $s = shape()) {
-    $this->desired_instance_count = $desired_instance_count ?? ;
-    $this->desired_weight = $desired_weight ?? ;
+    $this->desired_instance_count = $desired_instance_count ?? 0;
+    $this->desired_weight = $desired_weight ?? 0.0;
     $this->variant_name = $variant_name ?? "";
   }
 }
@@ -3869,8 +3869,8 @@ class DisassociateTrialComponentRequest {
   ?'trial_component_name' => ExperimentEntityName,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->trial_component_name = $trial_component_name ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -3914,7 +3914,7 @@ class DomainDetails {
     $this->domain_id = $domain_id ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->url = $url ?? "";
   }
 }
@@ -3974,9 +3974,9 @@ class EndpointInput {
   ?'s_3_input_mode' => ProcessingS3InputMode,
   ) $s = shape()) {
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->local_path = $local_path ?? ;
-    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? ;
-    $this->s_3_input_mode = $s_3_input_mode ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? "";
+    $this->s_3_input_mode = $s_3_input_mode ?? "";
   }
 }
 
@@ -4050,16 +4050,16 @@ class Experiment {
   ?'source' => ExperimentSource,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
     $this->experiment_arn = $experiment_arn ?? "";
-    $this->experiment_name = $experiment_name ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->experiment_name = $experiment_name ?? "";
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->source = $source ?? ;
-    $this->tags = $tags ?? ;
+    $this->source = $source ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4075,9 +4075,9 @@ class ExperimentConfig {
   ?'trial_component_display_name' => ExperimentEntityName,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->experiment_name = $experiment_name ?? ;
-    $this->trial_component_display_name = $trial_component_display_name ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->experiment_name = $experiment_name ?? "";
+    $this->trial_component_display_name = $trial_component_display_name ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -4093,7 +4093,7 @@ class ExperimentSource {
   ?'source_arn' => ExperimentSourceArn,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->source_arn = $source_arn ?? ;
+    $this->source_arn = $source_arn ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -4119,9 +4119,9 @@ class ExperimentSummary {
   ?'last_modified_time' => Timestamp,
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
+    $this->display_name = $display_name ?? "";
     $this->experiment_arn = $experiment_arn ?? "";
-    $this->experiment_name = $experiment_name ?? ;
+    $this->experiment_name = $experiment_name ?? "";
     $this->experiment_source = $experiment_source ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
   }
@@ -4164,9 +4164,9 @@ class Filter {
   ?'operator' => Operator,
   ?'value' => FilterValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->operator = $operator ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -4185,8 +4185,8 @@ class FinalAutoMLJobObjectiveMetric {
   ?'value' => MetricValue,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -4201,8 +4201,8 @@ class FinalHyperParameterTuningJobObjectiveMetric {
   ?'value' => MetricValue,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -4223,7 +4223,7 @@ class FlowDefinitionOutputConfig {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -4279,7 +4279,7 @@ class GetSearchSuggestionsRequest {
   ?'resource' => ResourceType,
   ?'suggestion_query' => SuggestionQuery,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
     $this->suggestion_query = $suggestion_query ?? null;
   }
 }
@@ -4290,7 +4290,7 @@ class GetSearchSuggestionsResponse {
   public function __construct(shape(
   ?'property_name_suggestions' => PropertyNameSuggestionList,
   ) $s = shape()) {
-    $this->property_name_suggestions = $property_name_suggestions ?? ;
+    $this->property_name_suggestions = $property_name_suggestions ?? [];
   }
 }
 
@@ -4305,7 +4305,7 @@ class GitConfig {
   ?'secret_arn' => SecretArn,
   ) $s = shape()) {
     $this->branch = $branch ?? "";
-    $this->repository_url = $repository_url ?? ;
+    $this->repository_url = $repository_url ?? "";
     $this->secret_arn = $secret_arn ?? "";
   }
 }
@@ -4421,7 +4421,7 @@ class HumanTaskConfig {
     $this->annotation_consolidation_config = $annotation_consolidation_config ?? null;
     $this->max_concurrent_task_count = $max_concurrent_task_count ?? 0;
     $this->number_of_human_workers_per_data_object = $number_of_human_workers_per_data_object ?? 0;
-    $this->pre_human_task_lambda_arn = $pre_human_task_lambda_arn ?? ;
+    $this->pre_human_task_lambda_arn = $pre_human_task_lambda_arn ?? "";
     $this->public_workforce_task_price = $public_workforce_task_price ?? null;
     $this->task_availability_lifetime_in_seconds = $task_availability_lifetime_in_seconds ?? 0;
     $this->task_description = $task_description ?? "";
@@ -4467,9 +4467,9 @@ class HyperParameterAlgorithmSpecification {
   ?'training_image' => AlgorithmImage,
   ?'training_input_mode' => TrainingInputMode,
   ) $s = shape()) {
-    $this->algorithm_name = $algorithm_name ?? ;
-    $this->metric_definitions = $metric_definitions ?? ;
-    $this->training_image = $training_image ?? ;
+    $this->algorithm_name = $algorithm_name ?? "";
+    $this->metric_definitions = $metric_definitions ?? [];
+    $this->training_image = $training_image ?? "";
     $this->training_input_mode = $training_input_mode ?? "";
   }
 }
@@ -4494,13 +4494,13 @@ class HyperParameterSpecification {
   ?'range' => ParameterRange,
   ?'type' => ParameterType,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->description = $description ?? ;
-    $this->is_required = $is_required ?? ;
-    $this->is_tunable = $is_tunable ?? ;
-    $this->name = $name ?? ;
-    $this->range = $range ?? ;
-    $this->type = $type ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->description = $description ?? "";
+    $this->is_required = $is_required ?? false;
+    $this->is_tunable = $is_tunable ?? false;
+    $this->name = $name ?? "";
+    $this->range = $range ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -4542,18 +4542,18 @@ class HyperParameterTrainingJobDefinition {
   ) $s = shape()) {
     $this->algorithm_specification = $algorithm_specification ?? null;
     $this->checkpoint_config = $checkpoint_config ?? null;
-    $this->definition_name = $definition_name ?? ;
-    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? ;
-    $this->enable_managed_spot_training = $enable_managed_spot_training ?? ;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
-    $this->hyper_parameter_ranges = $hyper_parameter_ranges ?? ;
+    $this->definition_name = $definition_name ?? "";
+    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? false;
+    $this->enable_managed_spot_training = $enable_managed_spot_training ?? false;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
+    $this->hyper_parameter_ranges = $hyper_parameter_ranges ?? null;
     $this->input_data_config = $input_data_config ?? [];
     $this->output_data_config = $output_data_config ?? null;
     $this->resource_config = $resource_config ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->static_hyper_parameters = $static_hyper_parameters ?? ;
+    $this->static_hyper_parameters = $static_hyper_parameters ?? [];
     $this->stopping_condition = $stopping_condition ?? null;
-    $this->tuning_objective = $tuning_objective ?? ;
+    $this->tuning_objective = $tuning_objective ?? null;
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -4596,14 +4596,14 @@ class HyperParameterTrainingJobSummary {
     $this->failure_reason = $failure_reason ?? "";
     $this->final_hyper_parameter_tuning_job_objective_metric = $final_hyper_parameter_tuning_job_objective_metric ?? null;
     $this->objective_status = $objective_status ?? "";
-    $this->training_end_time = $training_end_time ?? ;
+    $this->training_end_time = $training_end_time ?? 0;
     $this->training_job_arn = $training_job_arn ?? "";
-    $this->training_job_definition_name = $training_job_definition_name ?? ;
+    $this->training_job_definition_name = $training_job_definition_name ?? "";
     $this->training_job_name = $training_job_name ?? "";
     $this->training_job_status = $training_job_status ?? "";
-    $this->training_start_time = $training_start_time ?? ;
-    $this->tuned_hyper_parameters = $tuned_hyper_parameters ?? ;
-    $this->tuning_job_name = $tuning_job_name ?? ;
+    $this->training_start_time = $training_start_time ?? 0;
+    $this->tuned_hyper_parameters = $tuned_hyper_parameters ?? [];
+    $this->tuning_job_name = $tuning_job_name ?? "";
   }
 }
 
@@ -4628,7 +4628,7 @@ class HyperParameterTuningJobConfig {
     $this->hyper_parameter_tuning_job_objective = $hyper_parameter_tuning_job_objective ?? null;
     $this->parameter_ranges = $parameter_ranges ?? null;
     $this->resource_limits = $resource_limits ?? null;
-    $this->strategy = $strategy ?? ;
+    $this->strategy = $strategy ?? "";
     $this->training_job_early_stopping_type = $training_job_early_stopping_type ?? "";
     $this->tuning_job_completion_criteria = $tuning_job_completion_criteria ?? null;
   }
@@ -4645,7 +4645,7 @@ class HyperParameterTuningJobObjective {
   ?'type' => HyperParameterTuningJobObjectiveType,
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -4686,14 +4686,14 @@ class HyperParameterTuningJobSummary {
   ?'training_job_status_counters' => TrainingJobStatusCounters,
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
-    $this->hyper_parameter_tuning_end_time = $hyper_parameter_tuning_end_time ?? ;
+    $this->hyper_parameter_tuning_end_time = $hyper_parameter_tuning_end_time ?? 0;
     $this->hyper_parameter_tuning_job_arn = $hyper_parameter_tuning_job_arn ?? "";
     $this->hyper_parameter_tuning_job_name = $hyper_parameter_tuning_job_name ?? "";
     $this->hyper_parameter_tuning_job_status = $hyper_parameter_tuning_job_status ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->objective_status_counters = $objective_status_counters ?? null;
     $this->resource_limits = $resource_limits ?? null;
-    $this->strategy = $strategy ?? ;
+    $this->strategy = $strategy ?? "";
     $this->training_job_status_counters = $training_job_status_counters ?? null;
   }
 }
@@ -4707,7 +4707,7 @@ class HyperParameterTuningJobWarmStartConfig {
   ?'warm_start_type' => HyperParameterTuningJobWarmStartType,
   ) $s = shape()) {
     $this->parent_hyper_parameter_tuning_jobs = $parent_hyper_parameter_tuning_jobs ?? [];
-    $this->warm_start_type = $warm_start_type ?? ;
+    $this->warm_start_type = $warm_start_type ?? "";
   }
 }
 
@@ -4735,11 +4735,11 @@ class InferenceSpecification {
   ?'supported_response_mime_types' => ResponseMIMETypes,
   ?'supported_transform_instance_types' => TransformInstanceTypes,
   ) $s = shape()) {
-    $this->containers = $containers ?? ;
-    $this->supported_content_types = $supported_content_types ?? ;
-    $this->supported_realtime_inference_instance_types = $supported_realtime_inference_instance_types ?? ;
-    $this->supported_response_mime_types = $supported_response_mime_types ?? ;
-    $this->supported_transform_instance_types = $supported_transform_instance_types ?? ;
+    $this->containers = $containers ?? [];
+    $this->supported_content_types = $supported_content_types ?? [];
+    $this->supported_realtime_inference_instance_types = $supported_realtime_inference_instance_types ?? [];
+    $this->supported_response_mime_types = $supported_response_mime_types ?? [];
+    $this->supported_transform_instance_types = $supported_transform_instance_types ?? [];
   }
 }
 
@@ -4777,10 +4777,10 @@ class IntegerParameterRange {
   ?'name' => ParameterKey,
   ?'scaling_type' => HyperParameterScalingType,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
-    $this->scaling_type = $scaling_type ?? ;
+    $this->max_value = $max_value ?? "";
+    $this->min_value = $min_value ?? "";
+    $this->name = $name ?? "";
+    $this->scaling_type = $scaling_type ?? "";
   }
 }
 
@@ -4792,8 +4792,8 @@ class IntegerParameterRangeSpecification {
   ?'max_value' => ParameterValue,
   ?'min_value' => ParameterValue,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
+    $this->max_value = $max_value ?? "";
+    $this->min_value = $min_value ?? "";
   }
 }
 
@@ -4817,7 +4817,7 @@ class JupyterServerAppSettings {
   public function __construct(shape(
   ?'default_resource_spec' => ResourceSpec,
   ) $s = shape()) {
-    $this->default_resource_spec = $default_resource_spec ?? ;
+    $this->default_resource_spec = $default_resource_spec ?? null;
   }
 }
 
@@ -4827,7 +4827,7 @@ class KernelGatewayAppSettings {
   public function __construct(shape(
   ?'default_resource_spec' => ResourceSpec,
   ) $s = shape()) {
-    $this->default_resource_spec = $default_resource_spec ?? ;
+    $this->default_resource_spec = $default_resource_spec ?? null;
   }
 }
 
@@ -4851,11 +4851,11 @@ class LabelCounters {
   ?'total_labeled' => LabelCounter,
   ?'unlabeled' => LabelCounter,
   ) $s = shape()) {
-    $this->failed_non_retryable_error = $failed_non_retryable_error ?? ;
-    $this->human_labeled = $human_labeled ?? ;
-    $this->machine_labeled = $machine_labeled ?? ;
-    $this->total_labeled = $total_labeled ?? ;
-    $this->unlabeled = $unlabeled ?? ;
+    $this->failed_non_retryable_error = $failed_non_retryable_error ?? 0;
+    $this->human_labeled = $human_labeled ?? 0;
+    $this->machine_labeled = $machine_labeled ?? 0;
+    $this->total_labeled = $total_labeled ?? 0;
+    $this->unlabeled = $unlabeled ?? 0;
   }
 }
 
@@ -4869,9 +4869,9 @@ class LabelCountersForWorkteam {
   ?'pending_human' => LabelCounter,
   ?'total' => LabelCounter,
   ) $s = shape()) {
-    $this->human_labeled = $human_labeled ?? ;
-    $this->pending_human = $pending_human ?? ;
-    $this->total = $total ?? ;
+    $this->human_labeled = $human_labeled ?? 0;
+    $this->pending_human = $pending_human ?? 0;
+    $this->total = $total ?? 0;
   }
 }
 
@@ -4887,7 +4887,7 @@ class LabelingJobAlgorithmsConfig {
   ?'labeling_job_algorithm_specification_arn' => LabelingJobAlgorithmSpecificationArn,
   ?'labeling_job_resource_config' => LabelingJobResourceConfig,
   ) $s = shape()) {
-    $this->initial_active_learning_model_arn = $initial_active_learning_model_arn ?? ;
+    $this->initial_active_learning_model_arn = $initial_active_learning_model_arn ?? "";
     $this->labeling_job_algorithm_specification_arn = $labeling_job_algorithm_specification_arn ?? "";
     $this->labeling_job_resource_config = $labeling_job_resource_config ?? null;
   }
@@ -4936,7 +4936,7 @@ class LabelingJobForWorkteamSummary {
     $this->label_counters = $label_counters ?? null;
     $this->labeling_job_name = $labeling_job_name ?? "";
     $this->number_of_human_workers_per_data_object = $number_of_human_workers_per_data_object ?? 0;
-    $this->work_requester_account_id = $work_requester_account_id ?? ;
+    $this->work_requester_account_id = $work_requester_account_id ?? "";
   }
 }
 
@@ -4950,7 +4950,7 @@ class LabelingJobInputConfig {
   ?'data_attributes' => LabelingJobDataAttributes,
   ?'data_source' => LabelingJobDataSource,
   ) $s = shape()) {
-    $this->data_attributes = $data_attributes ?? ;
+    $this->data_attributes = $data_attributes ?? null;
     $this->data_source = $data_source ?? null;
   }
 }
@@ -4965,8 +4965,8 @@ class LabelingJobOutput {
   ?'final_active_learning_model_arn' => ModelArn,
   ?'output_dataset_s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->final_active_learning_model_arn = $final_active_learning_model_arn ?? ;
-    $this->output_dataset_s_3_uri = $output_dataset_s_3_uri ?? ;
+    $this->final_active_learning_model_arn = $final_active_learning_model_arn ?? "";
+    $this->output_dataset_s_3_uri = $output_dataset_s_3_uri ?? "";
   }
 }
 
@@ -4979,7 +4979,7 @@ class LabelingJobOutputConfig {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -4989,7 +4989,7 @@ class LabelingJobResourceConfig {
   public function __construct(shape(
   ?'volume_kms_key_id' => KmsKeyId,
   ) $s = shape()) {
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
   }
 }
 
@@ -4999,7 +4999,7 @@ class LabelingJobS3DataSource {
   public function __construct(shape(
   ?'manifest_s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->manifest_s_3_uri = $manifest_s_3_uri ?? ;
+    $this->manifest_s_3_uri = $manifest_s_3_uri ?? "";
   }
 }
 
@@ -5046,7 +5046,7 @@ class LabelingJobSummary {
   ?'pre_human_task_lambda_arn' => LambdaFunctionArn,
   ?'workteam_arn' => WorkteamArn,
   ) $s = shape()) {
-    $this->annotation_consolidation_lambda_arn = $annotation_consolidation_lambda_arn ?? ;
+    $this->annotation_consolidation_lambda_arn = $annotation_consolidation_lambda_arn ?? "";
     $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->input_config = $input_config ?? null;
@@ -5056,7 +5056,7 @@ class LabelingJobSummary {
     $this->labeling_job_output = $labeling_job_output ?? null;
     $this->labeling_job_status = $labeling_job_status ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->pre_human_task_lambda_arn = $pre_human_task_lambda_arn ?? ;
+    $this->pre_human_task_lambda_arn = $pre_human_task_lambda_arn ?? "";
     $this->workteam_arn = $workteam_arn ?? "";
   }
 }
@@ -5085,8 +5085,8 @@ class ListAlgorithmsInput {
   ?'sort_by' => AlgorithmSortBy,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5124,12 +5124,12 @@ class ListAppsRequest {
   ?'sort_order' => SortOrder,
   ?'user_profile_name_equals' => UserProfileName,
   ) $s = shape()) {
-    $this->domain_id_equals = $domain_id_equals ?? ;
+    $this->domain_id_equals = $domain_id_equals ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->user_profile_name_equals = $user_profile_name_equals ?? ;
+    $this->user_profile_name_equals = $user_profile_name_equals ?? "";
   }
 }
 
@@ -5141,7 +5141,7 @@ class ListAppsResponse {
   ?'apps' => AppList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->apps = $apps ?? ;
+    $this->apps = $apps ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5170,16 +5170,16 @@ class ListAutoMLJobsRequest {
   ?'sort_order' => AutoMLSortOrder,
   ?'status_equals' => AutoMLJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5215,12 +5215,12 @@ class ListCandidatesForAutoMLJobRequest {
   ?'status_equals' => CandidateStatus,
   ) $s = shape()) {
     $this->auto_ml_job_name = $auto_ml_job_name ?? "";
-    $this->candidate_name_equals = $candidate_name_equals ?? ;
+    $this->candidate_name_equals = $candidate_name_equals ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5232,7 +5232,7 @@ class ListCandidatesForAutoMLJobResponse {
   ?'candidates' => AutoMLCandidates,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->candidates = $candidates ?? ;
+    $this->candidates = $candidates ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5259,10 +5259,10 @@ class ListCodeRepositoriesInput {
   ?'sort_by' => CodeRepositorySortBy,
   ?'sort_order' => CodeRepositorySortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5308,16 +5308,16 @@ class ListCompilationJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => CompilationJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5357,7 +5357,7 @@ class ListDomainsResponse {
   ?'domains' => DomainList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->domains = $domains ?? ;
+    $this->domains = $domains ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5380,8 +5380,8 @@ class ListEndpointConfigsInput {
   ?'sort_by' => EndpointConfigSortKey,
   ?'sort_order' => OrderKey,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5398,7 +5398,7 @@ class ListEndpointConfigsOutput {
   ?'endpoint_configs' => EndpointConfigSummaryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->endpoint_configs = $endpoint_configs ?? ;
+    $this->endpoint_configs = $endpoint_configs ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5427,16 +5427,16 @@ class ListEndpointsInput {
   ?'sort_order' => OrderKey,
   ?'status_equals' => EndpointStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5448,7 +5448,7 @@ class ListEndpointsOutput {
   ?'endpoints' => EndpointSummaryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->endpoints = $endpoints ?? ;
+    $this->endpoints = $endpoints ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5469,8 +5469,8 @@ class ListExperimentsRequest {
   ?'sort_by' => SortExperimentsBy,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->created_after = $created_after ?? ;
-    $this->created_before = $created_before ?? ;
+    $this->created_after = $created_after ?? 0;
+    $this->created_before = $created_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
@@ -5505,8 +5505,8 @@ class ListFlowDefinitionsRequest {
   ?'next_token' => NextToken,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_order = $sort_order ?? "";
@@ -5540,8 +5540,8 @@ class ListHumanTaskUisRequest {
   ?'next_token' => NextToken,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_order = $sort_order ?? "";
@@ -5585,16 +5585,16 @@ class ListHyperParameterTuningJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => HyperParameterTuningJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5631,8 +5631,8 @@ class ListLabelingJobsForWorkteamRequest {
   ?'sort_order' => SortOrder,
   ?'workteam_arn' => WorkteamArn,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->job_reference_code_contains = $job_reference_code_contains ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -5681,16 +5681,16 @@ class ListLabelingJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => LabelingJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5725,8 +5725,8 @@ class ListModelPackagesInput {
   ?'sort_by' => ModelPackageSortBy,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5766,8 +5766,8 @@ class ListModelsInput {
   ?'sort_by' => ModelSortKey,
   ?'sort_order' => OrderKey,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5784,7 +5784,7 @@ class ListModelsOutput {
   ?'models' => ModelSummaryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->models = $models ?? ;
+    $this->models = $models ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5819,19 +5819,19 @@ class ListMonitoringExecutionsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => ExecutionStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->monitoring_schedule_name = $monitoring_schedule_name ?? "";
     $this->next_token = $next_token ?? "";
-    $this->scheduled_time_after = $scheduled_time_after ?? ;
-    $this->scheduled_time_before = $scheduled_time_before ?? ;
+    $this->scheduled_time_after = $scheduled_time_after ?? 0;
+    $this->scheduled_time_before = $scheduled_time_before ?? 0;
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5843,7 +5843,7 @@ class ListMonitoringExecutionsResponse {
   ?'monitoring_execution_summaries' => MonitoringExecutionSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->monitoring_execution_summaries = $monitoring_execution_summaries ?? ;
+    $this->monitoring_execution_summaries = $monitoring_execution_summaries ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5874,17 +5874,17 @@ class ListMonitoringSchedulesRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => ScheduleStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -5896,7 +5896,7 @@ class ListMonitoringSchedulesResponse {
   ?'monitoring_schedule_summaries' => MonitoringScheduleSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->monitoring_schedule_summaries = $monitoring_schedule_summaries ?? ;
+    $this->monitoring_schedule_summaries = $monitoring_schedule_summaries ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -5923,10 +5923,10 @@ class ListNotebookInstanceLifecycleConfigsInput {
   ?'sort_by' => NotebookInstanceLifecycleConfigSortKey,
   ?'sort_order' => NotebookInstanceLifecycleConfigSortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
@@ -5944,7 +5944,7 @@ class ListNotebookInstanceLifecycleConfigsOutput {
   ?'notebook_instance_lifecycle_configs' => NotebookInstanceLifecycleConfigSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->notebook_instance_lifecycle_configs = $notebook_instance_lifecycle_configs ?? ;
+    $this->notebook_instance_lifecycle_configs = $notebook_instance_lifecycle_configs ?? [];
   }
 }
 
@@ -5978,19 +5978,19 @@ class ListNotebookInstancesInput {
   ?'sort_order' => NotebookInstanceSortOrder,
   ?'status_equals' => NotebookInstanceStatus,
   ) $s = shape()) {
-    $this->additional_code_repository_equals = $additional_code_repository_equals ?? ;
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->default_code_repository_contains = $default_code_repository_contains ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->additional_code_repository_equals = $additional_code_repository_equals ?? "";
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->default_code_repository_contains = $default_code_repository_contains ?? "";
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->notebook_instance_lifecycle_config_name_contains = $notebook_instance_lifecycle_config_name_contains ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -6003,7 +6003,7 @@ class ListNotebookInstancesOutput {
   ?'notebook_instances' => NotebookInstanceSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->notebook_instances = $notebook_instances ?? ;
+    $this->notebook_instances = $notebook_instances ?? [];
   }
 }
 
@@ -6031,16 +6031,16 @@ class ListProcessingJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => ProcessingJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -6113,7 +6113,7 @@ class ListTagsOutput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -6138,7 +6138,7 @@ class ListTrainingJobsForHyperParameterTuningJobRequest {
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -6179,16 +6179,16 @@ class ListTrainingJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => TrainingJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -6229,16 +6229,16 @@ class ListTransformJobsRequest {
   ?'sort_order' => SortOrder,
   ?'status_equals' => TransformJobStatus,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
-    $this->last_modified_time_after = $last_modified_time_after ?? ;
-    $this->last_modified_time_before = $last_modified_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
+    $this->last_modified_time_after = $last_modified_time_after ?? 0;
+    $this->last_modified_time_before = $last_modified_time_before ?? 0;
     $this->max_results = $max_results ?? 0;
     $this->name_contains = $name_contains ?? "";
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->status_equals = $status_equals ?? ;
+    $this->status_equals = $status_equals ?? "";
   }
 }
 
@@ -6279,15 +6279,15 @@ class ListTrialComponentsRequest {
   ?'source_arn' => String256,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_after = $created_after ?? ;
-    $this->created_before = $created_before ?? ;
-    $this->experiment_name = $experiment_name ?? ;
+    $this->created_after = $created_after ?? 0;
+    $this->created_before = $created_before ?? 0;
+    $this->experiment_name = $experiment_name ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->source_arn = $source_arn ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->source_arn = $source_arn ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -6324,14 +6324,14 @@ class ListTrialsRequest {
   ?'sort_order' => SortOrder,
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_after = $created_after ?? ;
-    $this->created_before = $created_before ?? ;
-    $this->experiment_name = $experiment_name ?? ;
+    $this->created_after = $created_after ?? 0;
+    $this->created_before = $created_before ?? 0;
+    $this->experiment_name = $experiment_name ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -6364,12 +6364,12 @@ class ListUserProfilesRequest {
   ?'sort_order' => SortOrder,
   ?'user_profile_name_contains' => UserProfileName,
   ) $s = shape()) {
-    $this->domain_id_equals = $domain_id_equals ?? ;
+    $this->domain_id_equals = $domain_id_equals ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
-    $this->user_profile_name_contains = $user_profile_name_contains ?? ;
+    $this->user_profile_name_contains = $user_profile_name_contains ?? "";
   }
 }
 
@@ -6382,7 +6382,7 @@ class ListUserProfilesResponse {
   ?'user_profiles' => UserProfileList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->user_profiles = $user_profiles ?? ;
+    $this->user_profiles = $user_profiles ?? [];
   }
 }
 
@@ -6475,7 +6475,7 @@ class MetricData {
   ) $s = shape()) {
     $this->metric_name = $metric_name ?? "";
     $this->timestamp = $timestamp ?? 0;
-    $this->value = $value ?? ;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -6487,8 +6487,8 @@ class MetricDefinition {
   ?'name' => MetricName,
   ?'regex' => MetricRegex,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->regex = $regex ?? ;
+    $this->name = $name ?? "";
+    $this->regex = $regex ?? "";
   }
 }
 
@@ -6508,7 +6508,7 @@ class ModelArtifacts {
   public function __construct(shape(
   ?'s_3_model_artifacts' => S3Uri,
   ) $s = shape()) {
-    $this->s_3_model_artifacts = $s_3_model_artifacts ?? ;
+    $this->s_3_model_artifacts = $s_3_model_artifacts ?? "";
   }
 }
 
@@ -6535,7 +6535,7 @@ class ModelPackageContainerDefinition {
     $this->container_hostname = $container_hostname ?? "";
     $this->image = $image ?? "";
     $this->image_digest = $image_digest ?? "";
-    $this->model_data_url = $model_data_url ?? ;
+    $this->model_data_url = $model_data_url ?? "";
     $this->product_id = $product_id ?? "";
   }
 }
@@ -6554,8 +6554,8 @@ class ModelPackageStatusDetails {
   ?'image_scan_statuses' => ModelPackageStatusItemList,
   ?'validation_statuses' => ModelPackageStatusItemList,
   ) $s = shape()) {
-    $this->image_scan_statuses = $image_scan_statuses ?? ;
-    $this->validation_statuses = $validation_statuses ?? ;
+    $this->image_scan_statuses = $image_scan_statuses ?? [];
+    $this->validation_statuses = $validation_statuses ?? [];
   }
 }
 
@@ -6570,8 +6570,8 @@ class ModelPackageStatusItem {
   ?'status' => DetailedModelPackageStatus,
   ) $s = shape()) {
     $this->failure_reason = $failure_reason ?? "";
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -6593,8 +6593,8 @@ class ModelPackageSummary {
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
     $this->model_package_arn = $model_package_arn ?? "";
-    $this->model_package_description = $model_package_description ?? ;
-    $this->model_package_name = $model_package_name ?? ;
+    $this->model_package_description = $model_package_description ?? "";
+    $this->model_package_name = $model_package_name ?? "";
     $this->model_package_status = $model_package_status ?? "";
   }
 }
@@ -6609,7 +6609,7 @@ class ModelPackageValidationProfile {
   ?'profile_name' => EntityName,
   ?'transform_job_definition' => TransformJobDefinition,
   ) $s = shape()) {
-    $this->profile_name = $profile_name ?? ;
+    $this->profile_name = $profile_name ?? "";
     $this->transform_job_definition = $transform_job_definition ?? null;
   }
 }
@@ -6624,8 +6624,8 @@ class ModelPackageValidationSpecification {
   ?'validation_profiles' => ModelPackageValidationProfiles,
   ?'validation_role' => RoleArn,
   ) $s = shape()) {
-    $this->validation_profiles = $validation_profiles ?? ;
-    $this->validation_role = $validation_role ?? ;
+    $this->validation_profiles = $validation_profiles ?? [];
+    $this->validation_role = $validation_role ?? "";
   }
 }
 
@@ -6666,8 +6666,8 @@ class MonitoringAppSpecification {
     $this->container_arguments = $container_arguments ?? [];
     $this->container_entrypoint = $container_entrypoint ?? [];
     $this->image_uri = $image_uri ?? "";
-    $this->post_analytics_processor_source_uri = $post_analytics_processor_source_uri ?? ;
-    $this->record_preprocessor_source_uri = $record_preprocessor_source_uri ?? ;
+    $this->post_analytics_processor_source_uri = $post_analytics_processor_source_uri ?? "";
+    $this->record_preprocessor_source_uri = $record_preprocessor_source_uri ?? "";
   }
 }
 
@@ -6679,8 +6679,8 @@ class MonitoringBaselineConfig {
   ?'constraints_resource' => MonitoringConstraintsResource,
   ?'statistics_resource' => MonitoringStatisticsResource,
   ) $s = shape()) {
-    $this->constraints_resource = $constraints_resource ?? ;
-    $this->statistics_resource = $statistics_resource ?? ;
+    $this->constraints_resource = $constraints_resource ?? null;
+    $this->statistics_resource = $statistics_resource ?? null;
   }
 }
 
@@ -6696,9 +6696,9 @@ class MonitoringClusterConfig {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'volume_size_in_gb' => ProcessingVolumeSizeInGB,
   ) $s = shape()) {
-    $this->instance_count = $instance_count ?? ;
+    $this->instance_count = $instance_count ?? 0;
     $this->instance_type = $instance_type ?? "";
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
@@ -6743,10 +6743,10 @@ class MonitoringExecutionSummary {
     $this->endpoint_name = $endpoint_name ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->monitoring_execution_status = $monitoring_execution_status ?? ;
+    $this->monitoring_execution_status = $monitoring_execution_status ?? "";
     $this->monitoring_schedule_name = $monitoring_schedule_name ?? "";
     $this->processing_job_arn = $processing_job_arn ?? "";
-    $this->scheduled_time = $scheduled_time ?? ;
+    $this->scheduled_time = $scheduled_time ?? 0;
   }
 }
 
@@ -6786,8 +6786,8 @@ class MonitoringJobDefinition {
   ?'role_arn' => RoleArn,
   ?'stopping_condition' => MonitoringStoppingCondition,
   ) $s = shape()) {
-    $this->baseline_config = $baseline_config ?? ;
-    $this->environment = $environment ?? ;
+    $this->baseline_config = $baseline_config ?? null;
+    $this->environment = $environment ?? [];
     $this->monitoring_app_specification = $monitoring_app_specification ?? null;
     $this->monitoring_inputs = $monitoring_inputs ?? [];
     $this->monitoring_output_config = $monitoring_output_config ?? null;
@@ -6806,7 +6806,7 @@ class MonitoringOutput {
   public function __construct(shape(
   ?'s_3_output' => MonitoringS3Output,
   ) $s = shape()) {
-    $this->s_3_output = $s_3_output ?? ;
+    $this->s_3_output = $s_3_output ?? null;
   }
 }
 
@@ -6831,7 +6831,7 @@ class MonitoringResources {
   public function __construct(shape(
   ?'cluster_config' => MonitoringClusterConfig,
   ) $s = shape()) {
-    $this->cluster_config = $cluster_config ?? ;
+    $this->cluster_config = $cluster_config ?? null;
   }
 }
 
@@ -6845,8 +6845,8 @@ class MonitoringS3Output {
   ?'s_3_upload_mode' => ProcessingS3UploadMode,
   ?'s_3_uri' => MonitoringS3Uri,
   ) $s = shape()) {
-    $this->local_path = $local_path ?? ;
-    $this->s_3_upload_mode = $s_3_upload_mode ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_upload_mode = $s_3_upload_mode ?? "";
     $this->s_3_uri = $s_3_uri ?? "";
   }
 }
@@ -6893,7 +6893,7 @@ class MonitoringScheduleSummary {
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->monitoring_schedule_arn = $monitoring_schedule_arn ?? "";
     $this->monitoring_schedule_name = $monitoring_schedule_name ?? "";
-    $this->monitoring_schedule_status = $monitoring_schedule_status ?? ;
+    $this->monitoring_schedule_status = $monitoring_schedule_status ?? "";
   }
 }
 
@@ -6929,8 +6929,8 @@ class NestedFilters {
   ?'filters' => FilterList,
   ?'nested_property_name' => ResourcePropertyName,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->nested_property_name = $nested_property_name ?? ;
+    $this->filters = $filters ?? [];
+    $this->nested_property_name = $nested_property_name ?? "";
   }
 }
 
@@ -6944,7 +6944,7 @@ class NetworkConfig {
   ?'enable_network_isolation' => boolean,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -7000,7 +7000,7 @@ class NotebookInstanceLifecycleHook {
   public function __construct(shape(
   ?'content' => NotebookInstanceLifecycleConfigContent,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
   }
 }
 
@@ -7038,9 +7038,9 @@ class NotebookInstanceSummary {
   ?'notebook_instance_status' => NotebookInstanceStatus,
   ?'url' => NotebookInstanceUrl,
   ) $s = shape()) {
-    $this->additional_code_repositories = $additional_code_repositories ?? ;
+    $this->additional_code_repositories = $additional_code_repositories ?? [];
     $this->creation_time = $creation_time ?? 0;
-    $this->default_code_repository = $default_code_repository ?? ;
+    $this->default_code_repository = $default_code_repository ?? "";
     $this->instance_type = $instance_type ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->notebook_instance_arn = $notebook_instance_arn ?? "";
@@ -7087,9 +7087,9 @@ class ObjectiveStatusCounters {
   ?'pending' => ObjectiveStatusCounter,
   ?'succeeded' => ObjectiveStatusCounter,
   ) $s = shape()) {
-    $this->failed = $failed ?? ;
-    $this->pending = $pending ?? ;
-    $this->succeeded = $succeeded ?? ;
+    $this->failed = $failed ?? 0;
+    $this->pending = $pending ?? 0;
+    $this->succeeded = $succeeded ?? 0;
   }
 }
 
@@ -7111,7 +7111,7 @@ class OutputConfig {
   ?'s_3_output_location' => S3Uri,
   ?'target_device' => TargetDevice,
   ) $s = shape()) {
-    $this->s_3_output_location = $s_3_output_location ?? ;
+    $this->s_3_output_location = $s_3_output_location ?? "";
     $this->target_device = $target_device ?? "";
   }
 }
@@ -7125,7 +7125,7 @@ class OutputDataConfig {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -7181,8 +7181,8 @@ class Parent {
   ?'experiment_name' => ExperimentEntityName,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->experiment_name = $experiment_name ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->experiment_name = $experiment_name ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -7216,9 +7216,9 @@ class ProcessingClusterConfig {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'volume_size_in_gb' => ProcessingVolumeSizeInGB,
   ) $s = shape()) {
-    $this->instance_count = $instance_count ?? ;
+    $this->instance_count = $instance_count ?? 0;
     $this->instance_type = $instance_type ?? "";
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
@@ -7237,8 +7237,8 @@ class ProcessingInput {
   ?'input_name' => string,
   ?'s_3_input' => ProcessingS3Input,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
-    $this->s_3_input = $s_3_input ?? ;
+    $this->input_name = $input_name ?? "";
+    $this->s_3_input = $s_3_input ?? null;
   }
 }
 
@@ -7299,24 +7299,24 @@ class ProcessingJob {
     $this->app_specification = $app_specification ?? null;
     $this->auto_ml_job_arn = $auto_ml_job_arn ?? "";
     $this->creation_time = $creation_time ?? 0;
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->exit_message = $exit_message ?? "";
     $this->experiment_config = $experiment_config ?? null;
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->monitoring_schedule_arn = $monitoring_schedule_arn ?? "";
     $this->network_config = $network_config ?? null;
-    $this->processing_end_time = $processing_end_time ?? ;
+    $this->processing_end_time = $processing_end_time ?? 0;
     $this->processing_inputs = $processing_inputs ?? [];
     $this->processing_job_arn = $processing_job_arn ?? "";
     $this->processing_job_name = $processing_job_name ?? "";
     $this->processing_job_status = $processing_job_status ?? "";
     $this->processing_output_config = $processing_output_config ?? null;
     $this->processing_resources = $processing_resources ?? null;
-    $this->processing_start_time = $processing_start_time ?? ;
+    $this->processing_start_time = $processing_start_time ?? 0;
     $this->role_arn = $role_arn ?? "";
     $this->stopping_condition = $stopping_condition ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->training_job_arn = $training_job_arn ?? "";
   }
 }
@@ -7353,7 +7353,7 @@ class ProcessingJobSummary {
     $this->exit_message = $exit_message ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->processing_end_time = $processing_end_time ?? ;
+    $this->processing_end_time = $processing_end_time ?? 0;
     $this->processing_job_arn = $processing_job_arn ?? "";
     $this->processing_job_name = $processing_job_name ?? "";
     $this->processing_job_status = $processing_job_status ?? "";
@@ -7372,8 +7372,8 @@ class ProcessingOutput {
   ?'output_name' => string,
   ?'s_3_output' => ProcessingS3Output,
   ) $s = shape()) {
-    $this->output_name = $output_name ?? ;
-    $this->s_3_output = $s_3_output ?? ;
+    $this->output_name = $output_name ?? "";
+    $this->s_3_output = $s_3_output ?? null;
   }
 }
 
@@ -7386,7 +7386,7 @@ class ProcessingOutputConfig {
   ?'outputs' => ProcessingOutputs,
   ) $s = shape()) {
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->outputs = $outputs ?? ;
+    $this->outputs = $outputs ?? [];
   }
 }
 
@@ -7398,7 +7398,7 @@ class ProcessingResources {
   public function __construct(shape(
   ?'cluster_config' => ProcessingClusterConfig,
   ) $s = shape()) {
-    $this->cluster_config = $cluster_config ?? ;
+    $this->cluster_config = $cluster_config ?? null;
   }
 }
 
@@ -7424,11 +7424,11 @@ class ProcessingS3Input {
   ?'s_3_input_mode' => ProcessingS3InputMode,
   ?'s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->local_path = $local_path ?? ;
-    $this->s_3_compression_type = $s_3_compression_type ?? ;
-    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_compression_type = $s_3_compression_type ?? "";
+    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? "";
     $this->s_3_data_type = $s_3_data_type ?? "";
-    $this->s_3_input_mode = $s_3_input_mode ?? ;
+    $this->s_3_input_mode = $s_3_input_mode ?? "";
     $this->s_3_uri = $s_3_uri ?? "";
   }
 }
@@ -7445,8 +7445,8 @@ class ProcessingS3Output {
   ?'s_3_upload_mode' => ProcessingS3UploadMode,
   ?'s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->local_path = $local_path ?? ;
-    $this->s_3_upload_mode = $s_3_upload_mode ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_upload_mode = $s_3_upload_mode ?? "";
     $this->s_3_uri = $s_3_uri ?? "";
   }
 }
@@ -7485,9 +7485,9 @@ class ProductionVariant {
   ?'model_name' => ModelName,
   ?'variant_name' => VariantName,
   ) $s = shape()) {
-    $this->accelerator_type = $accelerator_type ?? ;
-    $this->initial_instance_count = $initial_instance_count ?? ;
-    $this->initial_variant_weight = $initial_variant_weight ?? ;
+    $this->accelerator_type = $accelerator_type ?? "";
+    $this->initial_instance_count = $initial_instance_count ?? 0;
+    $this->initial_variant_weight = $initial_variant_weight ?? 0.0;
     $this->instance_type = $instance_type ?? "";
     $this->model_name = $model_name ?? "";
     $this->variant_name = $variant_name ?? "";
@@ -7516,11 +7516,11 @@ class ProductionVariantSummary {
   ?'desired_weight' => VariantWeight,
   ?'variant_name' => VariantName,
   ) $s = shape()) {
-    $this->current_instance_count = $current_instance_count ?? ;
-    $this->current_weight = $current_weight ?? ;
+    $this->current_instance_count = $current_instance_count ?? 0;
+    $this->current_weight = $current_weight ?? 0.0;
     $this->deployed_images = $deployed_images ?? [];
-    $this->desired_instance_count = $desired_instance_count ?? ;
-    $this->desired_weight = $desired_weight ?? ;
+    $this->desired_instance_count = $desired_instance_count ?? 0;
+    $this->desired_weight = $desired_weight ?? 0.0;
     $this->variant_name = $variant_name ?? "";
   }
 }
@@ -7545,7 +7545,7 @@ class PropertyNameSuggestion {
   public function __construct(shape(
   ?'property_name' => ResourcePropertyName,
   ) $s = shape()) {
-    $this->property_name = $property_name ?? ;
+    $this->property_name = $property_name ?? "";
   }
 }
 
@@ -7557,7 +7557,7 @@ class PublicWorkforceTaskPrice {
   public function __construct(shape(
   ?'amount_in_usd' => USD,
   ) $s = shape()) {
-    $this->amount_in_usd = $amount_in_usd ?? ;
+    $this->amount_in_usd = $amount_in_usd ?? null;
   }
 }
 
@@ -7576,7 +7576,7 @@ class RenderUiTemplateRequest {
   ?'ui_template' => UiTemplate,
   ) $s = shape()) {
     $this->role_arn = $role_arn ?? "";
-    $this->task = $task ?? ;
+    $this->task = $task ?? null;
     $this->ui_template = $ui_template ?? null;
   }
 }
@@ -7589,8 +7589,8 @@ class RenderUiTemplateResponse {
   ?'errors' => RenderingErrorList,
   ?'rendered_content' => string,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
-    $this->rendered_content = $rendered_content ?? ;
+    $this->errors = $errors ?? [];
+    $this->rendered_content = $rendered_content ?? "";
   }
 }
 
@@ -7600,7 +7600,7 @@ class RenderableTask {
   public function __construct(shape(
   ?'input' => TaskInput,
   ) $s = shape()) {
-    $this->input = $input ?? ;
+    $this->input = $input ?? "";
   }
 }
 
@@ -7612,8 +7612,8 @@ class RenderingError {
   ?'code' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -7630,7 +7630,7 @@ class ResolvedAttributes {
   ?'problem_type' => ProblemType,
   ) $s = shape()) {
     $this->auto_ml_job_objective = $auto_ml_job_objective ?? null;
-    $this->completion_criteria = $completion_criteria ?? ;
+    $this->completion_criteria = $completion_criteria ?? null;
     $this->problem_type = $problem_type ?? "";
   }
 }
@@ -7649,9 +7649,9 @@ class ResourceConfig {
   ?'volume_kms_key_id' => KmsKeyId,
   ?'volume_size_in_gb' => VolumeSizeInGB,
   ) $s = shape()) {
-    $this->instance_count = $instance_count ?? ;
+    $this->instance_count = $instance_count ?? 0;
     $this->instance_type = $instance_type ?? "";
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
     $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
@@ -7664,7 +7664,7 @@ class ResourceInUse {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -7674,7 +7674,7 @@ class ResourceLimitExceeded {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -7697,7 +7697,7 @@ class ResourceNotFound {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -7728,7 +7728,7 @@ class RetentionPolicy {
   public function __construct(shape(
   ?'home_efs_file_system' => RetentionType,
   ) $s = shape()) {
-    $this->home_efs_file_system = $home_efs_file_system ?? ;
+    $this->home_efs_file_system = $home_efs_file_system ?? "";
   }
 }
 
@@ -7759,7 +7759,7 @@ class S3DataSource {
   ?'s_3_uri' => S3Uri,
   ) $s = shape()) {
     $this->attribute_names = $attribute_names ?? [];
-    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? ;
+    $this->s_3_data_distribution_type = $s_3_data_distribution_type ?? "";
     $this->s_3_data_type = $s_3_data_type ?? "";
     $this->s_3_uri = $s_3_uri ?? "";
   }
@@ -7799,10 +7799,10 @@ class SearchExpression {
   ?'operator' => BooleanOperator,
   ?'sub_expressions' => SearchExpressionList,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->nested_filters = $nested_filters ?? null;
+    $this->filters = $filters ?? [];
+    $this->nested_filters = $nested_filters ?? [];
     $this->operator = $operator ?? "";
-    $this->sub_expressions = $sub_expressions ?? ;
+    $this->sub_expressions = $sub_expressions ?? [];
   }
 }
 
@@ -7845,7 +7845,7 @@ class SearchRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
     $this->search_expression = $search_expression ?? null;
     $this->sort_by = $sort_by ?? "";
     $this->sort_order = $sort_order ?? "";
@@ -7861,7 +7861,7 @@ class SearchResponse {
   ?'results' => SearchResultsList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->results = $results ?? ;
+    $this->results = $results ?? [];
   }
 }
 
@@ -7883,9 +7883,9 @@ class SecondaryStatusTransition {
   ?'status' => SecondaryStatus,
   ?'status_message' => StatusMessage,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
     $this->status_message = $status_message ?? "";
   }
 }
@@ -7913,8 +7913,8 @@ class SharingSettings {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->notebook_output_option = $notebook_output_option ?? "";
-    $this->s_3_kms_key_id = $s_3_kms_key_id ?? ;
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_kms_key_id = $s_3_kms_key_id ?? "";
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -7948,8 +7948,8 @@ class SourceAlgorithm {
   ?'algorithm_name' => ArnOrName,
   ?'model_data_url' => Url,
   ) $s = shape()) {
-    $this->algorithm_name = $algorithm_name ?? ;
-    $this->model_data_url = $model_data_url ?? ;
+    $this->algorithm_name = $algorithm_name ?? "";
+    $this->model_data_url = $model_data_url ?? "";
   }
 }
 
@@ -7961,7 +7961,7 @@ class SourceAlgorithmSpecification {
   public function __construct(shape(
   ?'source_algorithms' => SourceAlgorithmList,
   ) $s = shape()) {
-    $this->source_algorithms = $source_algorithms ?? ;
+    $this->source_algorithms = $source_algorithms ?? [];
   }
 }
 
@@ -8019,7 +8019,7 @@ class StopCompilationJobRequest {
   public function __construct(shape(
   ?'compilation_job_name' => EntityName,
   ) $s = shape()) {
-    $this->compilation_job_name = $compilation_job_name ?? ;
+    $this->compilation_job_name = $compilation_job_name ?? "";
   }
 }
 
@@ -8134,10 +8134,10 @@ class SubscribedWorkteam {
   ?'seller_name' => string,
   ?'workteam_arn' => WorkteamArn,
   ) $s = shape()) {
-    $this->listing_id = $listing_id ?? ;
-    $this->marketplace_description = $marketplace_description ?? ;
-    $this->marketplace_title = $marketplace_title ?? ;
-    $this->seller_name = $seller_name ?? ;
+    $this->listing_id = $listing_id ?? "";
+    $this->marketplace_description = $marketplace_description ?? "";
+    $this->marketplace_title = $marketplace_title ?? "";
+    $this->seller_name = $seller_name ?? "";
     $this->workteam_arn = $workteam_arn ?? "";
   }
 }
@@ -8164,8 +8164,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -8211,7 +8211,7 @@ class TensorBoardAppSettings {
   public function __construct(shape(
   ?'default_resource_spec' => ResourceSpec,
   ) $s = shape()) {
-    $this->default_resource_spec = $default_resource_spec ?? ;
+    $this->default_resource_spec = $default_resource_spec ?? null;
   }
 }
 
@@ -8223,8 +8223,8 @@ class TensorBoardOutputConfig {
   ?'local_path' => DirectoryPath,
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
-    $this->local_path = $local_path ?? ;
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->local_path = $local_path ?? "";
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -8322,9 +8322,9 @@ class TrainingJob {
     $this->debug_hook_config = $debug_hook_config ?? null;
     $this->debug_rule_configurations = $debug_rule_configurations ?? [];
     $this->debug_rule_evaluation_statuses = $debug_rule_evaluation_statuses ?? [];
-    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? ;
-    $this->enable_managed_spot_training = $enable_managed_spot_training ?? ;
-    $this->enable_network_isolation = $enable_network_isolation ?? ;
+    $this->enable_inter_container_traffic_encryption = $enable_inter_container_traffic_encryption ?? false;
+    $this->enable_managed_spot_training = $enable_managed_spot_training ?? false;
+    $this->enable_network_isolation = $enable_network_isolation ?? false;
     $this->experiment_config = $experiment_config ?? null;
     $this->failure_reason = $failure_reason ?? "";
     $this->final_metric_data_list = $final_metric_data_list ?? [];
@@ -8339,15 +8339,15 @@ class TrainingJob {
     $this->secondary_status = $secondary_status ?? "";
     $this->secondary_status_transitions = $secondary_status_transitions ?? [];
     $this->stopping_condition = $stopping_condition ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->tensor_board_output_config = $tensor_board_output_config ?? null;
-    $this->training_end_time = $training_end_time ?? ;
+    $this->training_end_time = $training_end_time ?? 0;
     $this->training_job_arn = $training_job_arn ?? "";
     $this->training_job_name = $training_job_name ?? "";
     $this->training_job_status = $training_job_status ?? "";
-    $this->training_start_time = $training_start_time ?? ;
+    $this->training_start_time = $training_start_time ?? 0;
     $this->training_time_in_seconds = $training_time_in_seconds ?? 0;
-    $this->tuning_job_arn = $tuning_job_arn ?? ;
+    $this->tuning_job_arn = $tuning_job_arn ?? "";
     $this->vpc_config = $vpc_config ?? null;
   }
 }
@@ -8403,11 +8403,11 @@ class TrainingJobStatusCounters {
   ?'retryable_error' => TrainingJobStatusCounter,
   ?'stopped' => TrainingJobStatusCounter,
   ) $s = shape()) {
-    $this->completed = $completed ?? ;
-    $this->in_progress = $in_progress ?? ;
-    $this->non_retryable_error = $non_retryable_error ?? ;
-    $this->retryable_error = $retryable_error ?? ;
-    $this->stopped = $stopped ?? ;
+    $this->completed = $completed ?? 0;
+    $this->in_progress = $in_progress ?? 0;
+    $this->non_retryable_error = $non_retryable_error ?? 0;
+    $this->retryable_error = $retryable_error ?? 0;
+    $this->stopped = $stopped ?? 0;
   }
 }
 
@@ -8431,7 +8431,7 @@ class TrainingJobSummary {
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->training_end_time = $training_end_time ?? ;
+    $this->training_end_time = $training_end_time ?? 0;
     $this->training_job_arn = $training_job_arn ?? "";
     $this->training_job_name = $training_job_name ?? "";
     $this->training_job_status = $training_job_status ?? "";
@@ -8458,14 +8458,14 @@ class TrainingSpecification {
   ?'training_image' => Image,
   ?'training_image_digest' => ImageDigest,
   ) $s = shape()) {
-    $this->metric_definitions = $metric_definitions ?? ;
-    $this->supported_hyper_parameters = $supported_hyper_parameters ?? ;
-    $this->supported_training_instance_types = $supported_training_instance_types ?? ;
-    $this->supported_tuning_job_objective_metrics = $supported_tuning_job_objective_metrics ?? ;
-    $this->supports_distributed_training = $supports_distributed_training ?? ;
-    $this->training_channels = $training_channels ?? ;
-    $this->training_image = $training_image ?? ;
-    $this->training_image_digest = $training_image_digest ?? ;
+    $this->metric_definitions = $metric_definitions ?? [];
+    $this->supported_hyper_parameters = $supported_hyper_parameters ?? [];
+    $this->supported_training_instance_types = $supported_training_instance_types ?? [];
+    $this->supported_tuning_job_objective_metrics = $supported_tuning_job_objective_metrics ?? [];
+    $this->supports_distributed_training = $supports_distributed_training ?? false;
+    $this->training_channels = $training_channels ?? [];
+    $this->training_image = $training_image ?? "";
+    $this->training_image_digest = $training_image_digest ?? "";
   }
 }
 
@@ -8533,7 +8533,7 @@ class TransformJobDefinition {
   ?'transform_resources' => TransformResources,
   ) $s = shape()) {
     $this->batch_strategy = $batch_strategy ?? "";
-    $this->environment = $environment ?? ;
+    $this->environment = $environment ?? [];
     $this->max_concurrent_transforms = $max_concurrent_transforms ?? 0;
     $this->max_payload_in_mb = $max_payload_in_mb ?? 0;
     $this->transform_input = $transform_input ?? null;
@@ -8569,7 +8569,7 @@ class TransformJobSummary {
     $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->transform_end_time = $transform_end_time ?? ;
+    $this->transform_end_time = $transform_end_time ?? 0;
     $this->transform_job_arn = $transform_job_arn ?? "";
     $this->transform_job_name = $transform_job_name ?? "";
     $this->transform_job_status = $transform_job_status ?? "";
@@ -8589,9 +8589,9 @@ class TransformOutput {
   ?'s_3_output_path' => S3Uri,
   ) $s = shape()) {
     $this->accept = $accept ?? "";
-    $this->assemble_with = $assemble_with ?? ;
+    $this->assemble_with = $assemble_with ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->s_3_output_path = $s_3_output_path ?? ;
+    $this->s_3_output_path = $s_3_output_path ?? "";
   }
 }
 
@@ -8605,9 +8605,9 @@ class TransformResources {
   ?'instance_type' => TransformInstanceType,
   ?'volume_kms_key_id' => KmsKeyId,
   ) $s = shape()) {
-    $this->instance_count = $instance_count ?? ;
+    $this->instance_count = $instance_count ?? 0;
     $this->instance_type = $instance_type ?? "";
-    $this->volume_kms_key_id = $volume_kms_key_id ?? ;
+    $this->volume_kms_key_id = $volume_kms_key_id ?? "";
   }
 }
 
@@ -8650,17 +8650,17 @@ class Trial {
   ?'trial_component_summaries' => TrialComponentSimpleSummaries,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
-    $this->experiment_name = $experiment_name ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->experiment_name = $experiment_name ?? "";
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->source = $source ?? ;
-    $this->tags = $tags ?? ;
+    $this->source = $source ?? null;
+    $this->tags = $tags ?? [];
     $this->trial_arn = $trial_arn ?? "";
     $this->trial_component_summaries = $trial_component_summaries ?? [];
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -8706,24 +8706,24 @@ class TrialComponent {
   ?'trial_component_arn' => TrialComponentArn,
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->metrics = $metrics ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->metrics = $metrics ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->parameters = $parameters ?? [];
     $this->parents = $parents ?? [];
-    $this->source = $source ?? ;
-    $this->source_detail = $source_detail ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->source = $source ?? null;
+    $this->source_detail = $source_detail ?? null;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? null;
+    $this->tags = $tags ?? [];
     $this->trial_component_arn = $trial_component_arn ?? "";
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -8738,7 +8738,7 @@ class TrialComponentArtifact {
   ?'value' => TrialComponentArtifactValue,
   ) $s = shape()) {
     $this->media_type = $media_type ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -8774,15 +8774,15 @@ class TrialComponentMetricSummary {
   ?'std_dev' => OptionalDouble,
   ?'time_stamp' => Timestamp,
   ) $s = shape()) {
-    $this->avg = $avg ?? ;
-    $this->count = $count ?? ;
-    $this->last = $last ?? ;
-    $this->max = $max ?? ;
+    $this->avg = $avg ?? 0.0;
+    $this->count = $count ?? 0;
+    $this->last = $last ?? 0.0;
+    $this->max = $max ?? 0.0;
     $this->metric_name = $metric_name ?? "";
-    $this->min = $min ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->std_dev = $std_dev ?? ;
-    $this->time_stamp = $time_stamp ?? ;
+    $this->min = $min ?? 0.0;
+    $this->source_arn = $source_arn ?? "";
+    $this->std_dev = $std_dev ?? 0.0;
+    $this->time_stamp = $time_stamp ?? 0;
   }
 }
 
@@ -8794,8 +8794,8 @@ class TrialComponentParameterValue {
   ?'number_value' => DoubleParameterValue,
   ?'string_value' => StringParameterValue,
   ) $s = shape()) {
-    $this->number_value = $number_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->number_value = $number_value ?? 0.0;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -8819,10 +8819,10 @@ class TrialComponentSimpleSummary {
   ?'trial_component_name' => ExperimentEntityName,
   ?'trial_component_source' => TrialComponentSource,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
     $this->trial_component_arn = $trial_component_arn ?? "";
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
     $this->trial_component_source = $trial_component_source ?? null;
   }
 }
@@ -8835,7 +8835,7 @@ class TrialComponentSource {
   ?'source_arn' => TrialComponentSourceArn,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->source_arn = $source_arn ?? ;
+    $this->source_arn = $source_arn ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -8853,7 +8853,7 @@ class TrialComponentSourceDetail {
   ?'training_job' => TrainingJob,
   ) $s = shape()) {
     $this->processing_job = $processing_job ?? null;
-    $this->source_arn = $source_arn ?? ;
+    $this->source_arn = $source_arn ?? "";
     $this->training_job = $training_job ?? null;
   }
 }
@@ -8866,8 +8866,8 @@ class TrialComponentStatus {
   ?'message' => TrialComponentStatusMessage,
   ?'primary_status' => TrialComponentPrimaryStatus,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->primary_status = $primary_status ?? ;
+    $this->message = $message ?? "";
+    $this->primary_status = $primary_status ?? "";
   }
 }
 
@@ -8901,16 +8901,16 @@ class TrialComponentSummary {
   ?'trial_component_name' => ExperimentEntityName,
   ?'trial_component_source' => TrialComponentSource,
   ) $s = shape()) {
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? null;
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->last_modified_by = $last_modified_by ?? null;
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? null;
     $this->trial_component_arn = $trial_component_arn ?? "";
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->trial_component_name = $trial_component_name ?? "";
     $this->trial_component_source = $trial_component_source ?? null;
   }
 }
@@ -8923,7 +8923,7 @@ class TrialSource {
   ?'source_arn' => TrialSourceArn,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->source_arn = $source_arn ?? ;
+    $this->source_arn = $source_arn ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -8949,10 +8949,10 @@ class TrialSummary {
   ?'trial_source' => TrialSource,
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
-    $this->display_name = $display_name ?? ;
+    $this->display_name = $display_name ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
     $this->trial_arn = $trial_arn ?? "";
-    $this->trial_name = $trial_name ?? ;
+    $this->trial_name = $trial_name ?? "";
     $this->trial_source = $trial_source ?? null;
   }
 }
@@ -8989,7 +8989,7 @@ class UiConfig {
   public function __construct(shape(
   ?'ui_template_s_3_uri' => S3Uri,
   ) $s = shape()) {
-    $this->ui_template_s_3_uri = $ui_template_s_3_uri ?? ;
+    $this->ui_template_s_3_uri = $ui_template_s_3_uri ?? "";
   }
 }
 
@@ -8999,7 +8999,7 @@ class UiTemplate {
   public function __construct(shape(
   ?'content' => TemplateContent,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
   }
 }
 
@@ -9011,7 +9011,7 @@ class UiTemplateInfo {
   ?'content_sha_256' => TemplateContentSha256,
   ?'url' => TemplateUrl,
   ) $s = shape()) {
-    $this->content_sha_256 = $content_sha_256 ?? ;
+    $this->content_sha_256 = $content_sha_256 ?? "";
     $this->url = $url ?? "";
   }
 }
@@ -9024,7 +9024,7 @@ class UpdateCodeRepositoryInput {
   ?'code_repository_name' => EntityName,
   ?'git_config' => GitConfigForUpdate,
   ) $s = shape()) {
-    $this->code_repository_name = $code_repository_name ?? ;
+    $this->code_repository_name = $code_repository_name ?? "";
     $this->git_config = $git_config ?? null;
   }
 }
@@ -9047,7 +9047,7 @@ class UpdateDomainRequest {
   ?'default_user_settings' => UserSettings,
   ?'domain_id' => DomainId,
   ) $s = shape()) {
-    $this->default_user_settings = $default_user_settings ?? ;
+    $this->default_user_settings = $default_user_settings ?? null;
     $this->domain_id = $domain_id ?? "";
   }
 }
@@ -9076,8 +9076,8 @@ class UpdateEndpointInput {
   ) $s = shape()) {
     $this->endpoint_config_name = $endpoint_config_name ?? "";
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->exclude_retained_variant_properties = $exclude_retained_variant_properties ?? ;
-    $this->retain_all_variant_properties = $retain_all_variant_properties ?? ;
+    $this->exclude_retained_variant_properties = $exclude_retained_variant_properties ?? [];
+    $this->retain_all_variant_properties = $retain_all_variant_properties ?? false;
   }
 }
 
@@ -9099,7 +9099,7 @@ class UpdateEndpointWeightsAndCapacitiesInput {
   ?'desired_weights_and_capacities' => DesiredWeightAndCapacityList,
   ?'endpoint_name' => EndpointName,
   ) $s = shape()) {
-    $this->desired_weights_and_capacities = $desired_weights_and_capacities ?? ;
+    $this->desired_weights_and_capacities = $desired_weights_and_capacities ?? [];
     $this->endpoint_name = $endpoint_name ?? "";
   }
 }
@@ -9124,9 +9124,9 @@ class UpdateExperimentRequest {
   ?'display_name' => ExperimentEntityName,
   ?'experiment_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->experiment_name = $experiment_name ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->experiment_name = $experiment_name ?? "";
   }
 }
 
@@ -9193,15 +9193,15 @@ class UpdateNotebookInstanceInput {
   ?'root_access' => RootAccess,
   ?'volume_size_in_gb' => NotebookInstanceVolumeSizeInGB,
   ) $s = shape()) {
-    $this->accelerator_types = $accelerator_types ?? ;
-    $this->additional_code_repositories = $additional_code_repositories ?? ;
-    $this->default_code_repository = $default_code_repository ?? ;
-    $this->disassociate_accelerator_types = $disassociate_accelerator_types ?? ;
+    $this->accelerator_types = $accelerator_types ?? [];
+    $this->additional_code_repositories = $additional_code_repositories ?? [];
+    $this->default_code_repository = $default_code_repository ?? "";
+    $this->disassociate_accelerator_types = $disassociate_accelerator_types ?? false;
     $this->disassociate_additional_code_repositories = $disassociate_additional_code_repositories ?? false;
     $this->disassociate_default_code_repository = $disassociate_default_code_repository ?? false;
-    $this->disassociate_lifecycle_config = $disassociate_lifecycle_config ?? ;
+    $this->disassociate_lifecycle_config = $disassociate_lifecycle_config ?? false;
     $this->instance_type = $instance_type ?? "";
-    $this->lifecycle_config_name = $lifecycle_config_name ?? ;
+    $this->lifecycle_config_name = $lifecycle_config_name ?? "";
     $this->notebook_instance_name = $notebook_instance_name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->root_access = $root_access ?? "";
@@ -9220,8 +9220,8 @@ class UpdateNotebookInstanceLifecycleConfigInput {
   ?'on_start' => NotebookInstanceLifecycleConfigList,
   ) $s = shape()) {
     $this->notebook_instance_lifecycle_config_name = $notebook_instance_lifecycle_config_name ?? "";
-    $this->on_create = $on_create ?? ;
-    $this->on_start = $on_start ?? ;
+    $this->on_create = $on_create ?? [];
+    $this->on_start = $on_start ?? [];
   }
 }
 
@@ -9265,17 +9265,17 @@ class UpdateTrialComponentRequest {
   ?'status' => TrialComponentStatus,
   ?'trial_component_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->input_artifacts_to_remove = $input_artifacts_to_remove ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->output_artifacts_to_remove = $output_artifacts_to_remove ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->parameters_to_remove = $parameters_to_remove ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->trial_component_name = $trial_component_name ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->input_artifacts_to_remove = $input_artifacts_to_remove ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->output_artifacts_to_remove = $output_artifacts_to_remove ?? [];
+    $this->parameters = $parameters ?? [];
+    $this->parameters_to_remove = $parameters_to_remove ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? null;
+    $this->trial_component_name = $trial_component_name ?? "";
   }
 }
 
@@ -9297,8 +9297,8 @@ class UpdateTrialRequest {
   ?'display_name' => ExperimentEntityName,
   ?'trial_name' => ExperimentEntityName,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->trial_name = $trial_name ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->trial_name = $trial_name ?? "";
   }
 }
 
@@ -9373,7 +9373,7 @@ class UpdateWorkteamRequest {
   ?'notification_configuration' => NotificationConfiguration,
   ?'workteam_name' => WorkteamName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->member_definitions = $member_definitions ?? [];
     $this->notification_configuration = $notification_configuration ?? null;
     $this->workteam_name = $workteam_name ?? "";
@@ -9427,7 +9427,7 @@ class UserProfileDetails {
     $this->creation_time = $creation_time ?? 0;
     $this->domain_id = $domain_id ?? "";
     $this->last_modified_time = $last_modified_time ?? 0;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->user_profile_name = $user_profile_name ?? "";
   }
 }
@@ -9456,10 +9456,10 @@ class UserSettings {
   ?'sharing_settings' => SharingSettings,
   ?'tensor_board_app_settings' => TensorBoardAppSettings,
   ) $s = shape()) {
-    $this->execution_role = $execution_role ?? ;
+    $this->execution_role = $execution_role ?? "";
     $this->jupyter_server_app_settings = $jupyter_server_app_settings ?? null;
     $this->kernel_gateway_app_settings = $kernel_gateway_app_settings ?? null;
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
     $this->sharing_settings = $sharing_settings ?? null;
     $this->tensor_board_app_settings = $tensor_board_app_settings ?? null;
   }
@@ -9514,7 +9514,7 @@ class Workforce {
   ?'workforce_arn' => WorkforceArn,
   ?'workforce_name' => WorkforceName,
   ) $s = shape()) {
-    $this->last_updated_date = $last_updated_date ?? ;
+    $this->last_updated_date = $last_updated_date ?? 0;
     $this->source_ip_config = $source_ip_config ?? null;
     $this->workforce_arn = $workforce_arn ?? "";
     $this->workforce_name = $workforce_name ?? "";
@@ -9547,13 +9547,13 @@ class Workteam {
   ?'workteam_arn' => WorkteamArn,
   ?'workteam_name' => WorkteamName,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_date = $last_updated_date ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_date = $last_updated_date ?? 0;
     $this->member_definitions = $member_definitions ?? [];
     $this->notification_configuration = $notification_configuration ?? null;
-    $this->product_listing_ids = $product_listing_ids ?? ;
-    $this->sub_domain = $sub_domain ?? ;
+    $this->product_listing_ids = $product_listing_ids ?? [];
+    $this->sub_domain = $sub_domain ?? "";
     $this->workteam_arn = $workteam_arn ?? "";
     $this->workteam_name = $workteam_name ?? "";
   }

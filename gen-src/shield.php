@@ -30,7 +30,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -40,7 +40,7 @@ class AccessDeniedForDependencyException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -118,14 +118,14 @@ class AttackDetail {
   ?'start_time' => AttackTimestamp,
   ?'sub_resources' => SubResourceSummaryList,
   ) $s = shape()) {
-    $this->attack_counters = $attack_counters ?? ;
+    $this->attack_counters = $attack_counters ?? [];
     $this->attack_id = $attack_id ?? "";
     $this->attack_properties = $attack_properties ?? [];
-    $this->end_time = $end_time ?? ;
-    $this->mitigations = $mitigations ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->mitigations = $mitigations ?? [];
     $this->resource_arn = $resource_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->sub_resources = $sub_resources ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->sub_resources = $sub_resources ?? [];
   }
 }
 
@@ -152,7 +152,7 @@ class AttackProperty {
     $this->attack_layer = $attack_layer ?? "";
     $this->attack_property_identifier = $attack_property_identifier ?? "";
     $this->top_contributors = $top_contributors ?? [];
-    $this->total = $total ?? ;
+    $this->total = $total ?? 0;
     $this->unit = $unit ?? "";
   }
 }
@@ -176,10 +176,10 @@ class AttackSummary {
   ?'start_time' => AttackTimestamp,
   ) $s = shape()) {
     $this->attack_id = $attack_id ?? "";
-    $this->attack_vectors = $attack_vectors ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->attack_vectors = $attack_vectors ?? [];
+    $this->end_time = $end_time ?? 0;
     $this->resource_arn = $resource_arn ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -191,7 +191,7 @@ class AttackVectorDescription {
   public function __construct(shape(
   ?'vector_type' => string,
   ) $s = shape()) {
-    $this->vector_type = $vector_type ?? ;
+    $this->vector_type = $vector_type ?? "";
   }
 }
 
@@ -207,8 +207,8 @@ class Contributor {
   ?'name' => string,
   ?'value' => Long,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -220,7 +220,7 @@ class CreateProtectionRequest {
   ?'name' => ProtectionName,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -296,7 +296,7 @@ class DescribeAttackResponse {
   public function __construct(shape(
   ?'attack' => AttackDetail,
   ) $s = shape()) {
-    $this->attack = $attack ?? ;
+    $this->attack = $attack ?? null;
   }
 }
 
@@ -477,7 +477,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -487,7 +487,7 @@ class InvalidOperationException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -497,7 +497,7 @@ class InvalidPaginationTokenException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -507,7 +507,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class InvalidResourceException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -529,8 +529,8 @@ class Limit {
   ?'max' => Long,
   ?'type' => string,
   ) $s = shape()) {
-    $this->max = $max ?? ;
-    $this->type = $type ?? ;
+    $this->max = $max ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -550,9 +550,9 @@ class LimitsExceededException {
   ?'type' => LimitType,
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->limit = $limit ?? null;
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->limit = $limit ?? 0;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -570,11 +570,11 @@ class ListAttacksRequest {
   ?'resource_arns' => ResourceArnFilterList,
   ?'start_time' => TimeRange,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? null;
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arns = $resource_arns ?? [];
+    $this->start_time = $start_time ?? null;
   }
 }
 
@@ -587,7 +587,7 @@ class ListAttacksResponse {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->attack_summaries = $attack_summaries ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -600,7 +600,7 @@ class ListProtectionsRequest {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -612,7 +612,7 @@ class ListProtectionsResponse {
   ?'next_token' => Token,
   ?'protections' => Protections,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->protections = $protections ?? [];
   }
 }
@@ -623,7 +623,7 @@ class LockedSubscriptionException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -641,7 +641,7 @@ class Mitigation {
   public function __construct(shape(
   ?'mitigation_name' => string,
   ) $s = shape()) {
-    $this->mitigation_name = $mitigation_name ?? ;
+    $this->mitigation_name = $mitigation_name ?? "";
   }
 }
 
@@ -653,7 +653,7 @@ class NoAssociatedRoleException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -663,7 +663,7 @@ class OptimisticLockException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -680,8 +680,8 @@ class Protection {
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
     $this->health_check_ids = $health_check_ids ?? [];
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -698,7 +698,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -712,7 +712,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -732,10 +732,10 @@ class SubResourceSummary {
   ?'id' => string,
   ?'type' => SubResourceType,
   ) $s = shape()) {
-    $this->attack_vectors = $attack_vectors ?? ;
-    $this->counters = $counters ?? ;
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->attack_vectors = $attack_vectors ?? [];
+    $this->counters = $counters ?? [];
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -758,10 +758,10 @@ class Subscription {
   ?'time_commitment_in_seconds' => DurationInSeconds,
   ) $s = shape()) {
     $this->auto_renew = $auto_renew ?? "";
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->limits = $limits ?? [];
-    $this->start_time = $start_time ?? ;
-    $this->time_commitment_in_seconds = $time_commitment_in_seconds ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->time_commitment_in_seconds = $time_commitment_in_seconds ?? 0;
   }
 }
 
@@ -775,8 +775,8 @@ class SummarizedAttackVector {
   ?'vector_counters' => SummarizedCounterList,
   ?'vector_type' => string,
   ) $s = shape()) {
-    $this->vector_counters = $vector_counters ?? ;
-    $this->vector_type = $vector_type ?? ;
+    $this->vector_counters = $vector_counters ?? [];
+    $this->vector_type = $vector_type ?? "";
   }
 }
 
@@ -798,11 +798,11 @@ class SummarizedCounter {
   ?'sum' => Double,
   ?'unit' => string,
   ) $s = shape()) {
-    $this->average = $average ?? ;
-    $this->max = $max ?? ;
-    $this->n = $n ?? ;
-    $this->name = $name ?? ;
-    $this->sum = $sum ?? ;
+    $this->average = $average ?? 0.0;
+    $this->max = $max ?? 0.0;
+    $this->n = $n ?? 0;
+    $this->name = $name ?? "";
+    $this->sum = $sum ?? 0.0;
     $this->unit = $unit ?? "";
   }
 }
@@ -817,8 +817,8 @@ class TimeRange {
   ?'from_inclusive' => AttackTimestamp,
   ?'to_exclusive' => AttackTimestamp,
   ) $s = shape()) {
-    $this->from_inclusive = $from_inclusive ?? ;
-    $this->to_exclusive = $to_exclusive ?? ;
+    $this->from_inclusive = $from_inclusive ?? 0;
+    $this->to_exclusive = $to_exclusive ?? 0;
   }
 }
 

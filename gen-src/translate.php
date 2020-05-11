@@ -21,8 +21,8 @@ class AppliedTerminology {
   ?'name' => ResourceName,
   ?'terms' => TermList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->terms = $terms ?? ;
+    $this->name = $name ?? "";
+    $this->terms = $terms ?? [];
   }
 }
 
@@ -40,7 +40,7 @@ class DeleteTerminologyRequest {
   public function __construct(shape(
   ?'name' => ResourceName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -74,8 +74,8 @@ class DetectedLanguageLowConfidenceException {
   ?'detected_language_code' => LanguageCodeString,
   ?'message' => string,
   ) $s = shape()) {
-    $this->detected_language_code = $detected_language_code ?? ;
-    $this->message = $message ?? ;
+    $this->detected_language_code = $detected_language_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -87,8 +87,8 @@ class EncryptionKey {
   ?'id' => EncryptionKeyID,
   ?'type' => EncryptionKeyType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -104,7 +104,7 @@ class GetTerminologyRequest {
   ?'name' => ResourceName,
   ?'terminology_data_format' => TerminologyDataFormat,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->terminology_data_format = $terminology_data_format ?? "";
   }
 }
@@ -141,7 +141,7 @@ class ImportTerminologyRequest {
     $this->description = $description ?? "";
     $this->encryption_key = $encryption_key ?? null;
     $this->merge_strategy = $merge_strategy ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->terminology_data = $terminology_data ?? null;
   }
 }
@@ -177,7 +177,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -187,7 +187,7 @@ class InvalidFilterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -197,7 +197,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -207,7 +207,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -221,9 +221,9 @@ class JobDetails {
   ?'input_documents_count' => int,
   ?'translated_documents_count' => int,
   ) $s = shape()) {
-    $this->documents_with_errors_count = $documents_with_errors_count ?? ;
-    $this->input_documents_count = $input_documents_count ?? ;
-    $this->translated_documents_count = $translated_documents_count ?? ;
+    $this->documents_with_errors_count = $documents_with_errors_count ?? 0;
+    $this->input_documents_count = $input_documents_count ?? 0;
+    $this->translated_documents_count = $translated_documents_count ?? 0;
   }
 }
 
@@ -243,7 +243,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -255,7 +255,7 @@ class ListTerminologiesRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -283,8 +283,8 @@ class ListTextTranslationJobsRequest {
   ?'max_results' => MaxResultsInteger,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -328,7 +328,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -340,7 +340,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -364,14 +364,14 @@ class StartTextTranslationJobRequest {
   ?'target_language_codes' => TargetLanguageCodeStringList,
   ?'terminology_names' => ResourceNameList,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
     $this->input_data_config = $input_data_config ?? null;
     $this->job_name = $job_name ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->source_language_code = $source_language_code ?? ;
-    $this->target_language_codes = $target_language_codes ?? ;
-    $this->terminology_names = $terminology_names ?? ;
+    $this->source_language_code = $source_language_code ?? "";
+    $this->target_language_codes = $target_language_codes ?? [];
+    $this->terminology_names = $terminology_names ?? [];
   }
 }
 
@@ -423,8 +423,8 @@ class Term {
   ?'source_text' => string,
   ?'target_text' => string,
   ) $s = shape()) {
-    $this->source_text = $source_text ?? ;
-    $this->target_text = $target_text ?? ;
+    $this->source_text = $source_text ?? "";
+    $this->target_text = $target_text ?? "";
   }
 }
 
@@ -440,8 +440,8 @@ class TerminologyData {
   ?'file' => TerminologyFile,
   ?'format' => TerminologyDataFormat,
   ) $s = shape()) {
-    $this->file = $file ?? ;
-    $this->format = $format ?? ;
+    $this->file = $file ?? "";
+    $this->format = $format ?? "";
   }
 }
 
@@ -455,8 +455,8 @@ class TerminologyDataLocation {
   ?'location' => string,
   ?'repository_type' => string,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->repository_type = $repository_type ?? ;
+    $this->location = $location ?? "";
+    $this->repository_type = $repository_type ?? "";
   }
 }
 
@@ -486,16 +486,16 @@ class TerminologyProperties {
   ?'target_language_codes' => LanguageCodeStringList,
   ?'term_count' => int,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->encryption_key = $encryption_key ?? null;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->name = $name ?? ;
-    $this->size_bytes = $size_bytes ?? ;
-    $this->source_language_code = $source_language_code ?? ;
-    $this->target_language_codes = $target_language_codes ?? ;
-    $this->term_count = $term_count ?? ;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->name = $name ?? "";
+    $this->size_bytes = $size_bytes ?? 0;
+    $this->source_language_code = $source_language_code ?? "";
+    $this->target_language_codes = $target_language_codes ?? [];
+    $this->term_count = $term_count ?? 0;
   }
 }
 
@@ -507,7 +507,7 @@ class TextSizeLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -525,8 +525,8 @@ class TextTranslationJobFilter {
   ) $s = shape()) {
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->submitted_after_time = $submitted_after_time ?? ;
-    $this->submitted_before_time = $submitted_before_time ?? ;
+    $this->submitted_after_time = $submitted_after_time ?? 0;
+    $this->submitted_before_time = $submitted_before_time ?? 0;
   }
 }
 
@@ -560,19 +560,19 @@ class TextTranslationJobProperties {
   ?'target_language_codes' => TargetLanguageCodeStringList,
   ?'terminology_names' => ResourceNameList,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->input_data_config = $input_data_config ?? null;
     $this->job_details = $job_details ?? null;
     $this->job_id = $job_id ?? "";
     $this->job_name = $job_name ?? "";
     $this->job_status = $job_status ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->output_data_config = $output_data_config ?? null;
-    $this->source_language_code = $source_language_code ?? ;
-    $this->submitted_time = $submitted_time ?? ;
-    $this->target_language_codes = $target_language_codes ?? ;
-    $this->terminology_names = $terminology_names ?? ;
+    $this->source_language_code = $source_language_code ?? "";
+    $this->submitted_time = $submitted_time ?? 0;
+    $this->target_language_codes = $target_language_codes ?? [];
+    $this->terminology_names = $terminology_names ?? [];
   }
 }
 
@@ -586,7 +586,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -602,10 +602,10 @@ class TranslateTextRequest {
   ?'terminology_names' => ResourceNameList,
   ?'text' => BoundedLengthString,
   ) $s = shape()) {
-    $this->source_language_code = $source_language_code ?? ;
-    $this->target_language_code = $target_language_code ?? ;
-    $this->terminology_names = $terminology_names ?? ;
-    $this->text = $text ?? ;
+    $this->source_language_code = $source_language_code ?? "";
+    $this->target_language_code = $target_language_code ?? "";
+    $this->terminology_names = $terminology_names ?? [];
+    $this->text = $text ?? "";
   }
 }
 
@@ -621,10 +621,10 @@ class TranslateTextResponse {
   ?'target_language_code' => LanguageCodeString,
   ?'translated_text' => string,
   ) $s = shape()) {
-    $this->applied_terminologies = $applied_terminologies ?? ;
-    $this->source_language_code = $source_language_code ?? ;
-    $this->target_language_code = $target_language_code ?? ;
-    $this->translated_text = $translated_text ?? ;
+    $this->applied_terminologies = $applied_terminologies ?? [];
+    $this->source_language_code = $source_language_code ?? "";
+    $this->target_language_code = $target_language_code ?? "";
+    $this->translated_text = $translated_text ?? "";
   }
 }
 
@@ -640,9 +640,9 @@ class UnsupportedLanguagePairException {
   ?'source_language_code' => LanguageCodeString,
   ?'target_language_code' => LanguageCodeString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->source_language_code = $source_language_code ?? ;
-    $this->target_language_code = $target_language_code ?? ;
+    $this->message = $message ?? "";
+    $this->source_language_code = $source_language_code ?? "";
+    $this->target_language_code = $target_language_code ?? "";
   }
 }
 

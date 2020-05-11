@@ -44,12 +44,12 @@ class Backup {
     $this->backup_id = $backup_id ?? "";
     $this->backup_state = $backup_state ?? "";
     $this->cluster_id = $cluster_id ?? "";
-    $this->copy_timestamp = $copy_timestamp ?? ;
-    $this->create_timestamp = $create_timestamp ?? ;
-    $this->delete_timestamp = $delete_timestamp ?? ;
-    $this->source_backup = $source_backup ?? ;
-    $this->source_cluster = $source_cluster ?? ;
-    $this->source_region = $source_region ?? ;
+    $this->copy_timestamp = $copy_timestamp ?? 0;
+    $this->create_timestamp = $create_timestamp ?? 0;
+    $this->delete_timestamp = $delete_timestamp ?? 0;
+    $this->source_backup = $source_backup ?? "";
+    $this->source_cluster = $source_cluster ?? "";
+    $this->source_region = $source_region ?? "";
     $this->tag_list = $tag_list ?? [];
   }
 }
@@ -80,11 +80,11 @@ class Certificates {
   ?'hsm_certificate' => Cert,
   ?'manufacturer_hardware_certificate' => Cert,
   ) $s = shape()) {
-    $this->aws_hardware_certificate = $aws_hardware_certificate ?? ;
-    $this->cluster_certificate = $cluster_certificate ?? ;
-    $this->cluster_csr = $cluster_csr ?? ;
-    $this->hsm_certificate = $hsm_certificate ?? ;
-    $this->manufacturer_hardware_certificate = $manufacturer_hardware_certificate ?? ;
+    $this->aws_hardware_certificate = $aws_hardware_certificate ?? "";
+    $this->cluster_certificate = $cluster_certificate ?? "";
+    $this->cluster_csr = $cluster_csr ?? "";
+    $this->hsm_certificate = $hsm_certificate ?? "";
+    $this->manufacturer_hardware_certificate = $manufacturer_hardware_certificate ?? "";
   }
 }
 
@@ -94,7 +94,7 @@ class CloudHsmAccessDeniedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -104,7 +104,7 @@ class CloudHsmInternalFailureException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -114,7 +114,7 @@ class CloudHsmInvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class CloudHsmResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -134,7 +134,7 @@ class CloudHsmServiceException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -144,7 +144,7 @@ class CloudHsmTagException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -183,15 +183,15 @@ class Cluster {
     $this->backup_policy = $backup_policy ?? "";
     $this->certificates = $certificates ?? null;
     $this->cluster_id = $cluster_id ?? "";
-    $this->create_timestamp = $create_timestamp ?? ;
+    $this->create_timestamp = $create_timestamp ?? 0;
     $this->hsm_type = $hsm_type ?? "";
     $this->hsms = $hsms ?? [];
     $this->pre_co_password = $pre_co_password ?? "";
     $this->security_group = $security_group ?? "";
-    $this->source_backup_id = $source_backup_id ?? ;
-    $this->state = $state ?? ;
+    $this->source_backup_id = $source_backup_id ?? "";
+    $this->state = $state ?? "";
     $this->state_message = $state_message ?? "";
-    $this->subnet_mapping = $subnet_mapping ?? ;
+    $this->subnet_mapping = $subnet_mapping ?? [];
     $this->tag_list = $tag_list ?? [];
     $this->vpc_id = $vpc_id ?? "";
   }
@@ -214,7 +214,7 @@ class CopyBackupToRegionRequest {
   ?'tag_list' => TagList,
   ) $s = shape()) {
     $this->backup_id = $backup_id ?? "";
-    $this->destination_region = $destination_region ?? ;
+    $this->destination_region = $destination_region ?? "";
     $this->tag_list = $tag_list ?? [];
   }
 }
@@ -242,7 +242,7 @@ class CreateClusterRequest {
   ?'tag_list' => TagList,
   ) $s = shape()) {
     $this->hsm_type = $hsm_type ?? "";
-    $this->source_backup_id = $source_backup_id ?? ;
+    $this->source_backup_id = $source_backup_id ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->tag_list = $tag_list ?? [];
   }
@@ -268,7 +268,7 @@ class CreateHsmRequest {
   ?'cluster_id' => ClusterId,
   ?'ip_address' => IpAddress,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->cluster_id = $cluster_id ?? "";
     $this->ip_address = $ip_address ?? "";
   }
@@ -338,7 +338,7 @@ class DeleteHsmRequest {
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
     $this->eni_id = $eni_id ?? "";
-    $this->eni_ip = $eni_ip ?? ;
+    $this->eni_ip = $eni_ip ?? "";
     $this->hsm_id = $hsm_id ?? "";
   }
 }
@@ -366,9 +366,9 @@ class DescribeBackupsRequest {
   ?'sort_ascending' => boolean,
   ) $s = shape()) {
     $this->filters = $filters ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->sort_ascending = $sort_ascending ?? ;
+    $this->sort_ascending = $sort_ascending ?? false;
   }
 }
 
@@ -396,7 +396,7 @@ class DescribeClustersRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->filters = $filters ?? [];
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -426,10 +426,10 @@ class DestinationBackup {
   ?'source_cluster' => ClusterId,
   ?'source_region' => Region,
   ) $s = shape()) {
-    $this->create_timestamp = $create_timestamp ?? ;
-    $this->source_backup = $source_backup ?? ;
-    $this->source_cluster = $source_cluster ?? ;
-    $this->source_region = $source_region ?? ;
+    $this->create_timestamp = $create_timestamp ?? 0;
+    $this->source_backup = $source_backup ?? "";
+    $this->source_cluster = $source_cluster ?? "";
+    $this->source_region = $source_region ?? "";
   }
 }
 
@@ -463,12 +463,12 @@ class Hsm {
   ?'state_message' => string,
   ?'subnet_id' => SubnetId,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->cluster_id = $cluster_id ?? "";
     $this->eni_id = $eni_id ?? "";
-    $this->eni_ip = $eni_ip ?? ;
+    $this->eni_ip = $eni_ip ?? "";
     $this->hsm_id = $hsm_id ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->state_message = $state_message ?? "";
     $this->subnet_id = $subnet_id ?? "";
   }
@@ -493,8 +493,8 @@ class InitializeClusterRequest {
   ?'trust_anchor' => Cert,
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
-    $this->signed_cert = $signed_cert ?? ;
-    $this->trust_anchor = $trust_anchor ?? ;
+    $this->signed_cert = $signed_cert ?? "";
+    $this->trust_anchor = $trust_anchor ?? "";
   }
 }
 
@@ -506,7 +506,7 @@ class InitializeClusterResponse {
   ?'state' => ClusterState,
   ?'state_message' => StateMessage,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->state_message = $state_message ?? "";
   }
 }
@@ -523,7 +523,7 @@ class ListTagsRequest {
   ?'next_token' => NextToken,
   ?'resource_id' => ResourceId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -592,8 +592,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 

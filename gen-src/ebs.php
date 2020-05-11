@@ -41,8 +41,8 @@ class ChangedBlock {
   ?'second_block_token' => BlockToken,
   ) $s = shape()) {
     $this->block_index = $block_index ?? 0;
-    $this->first_block_token = $first_block_token ?? ;
-    $this->second_block_token = $second_block_token ?? ;
+    $this->first_block_token = $first_block_token ?? "";
+    $this->second_block_token = $second_block_token ?? "";
   }
 }
 
@@ -105,11 +105,11 @@ class ListChangedBlocksRequest {
   ?'second_snapshot_id' => SnapshotId,
   ?'starting_block_index' => BlockIndex,
   ) $s = shape()) {
-    $this->first_snapshot_id = $first_snapshot_id ?? ;
+    $this->first_snapshot_id = $first_snapshot_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->second_snapshot_id = $second_snapshot_id ?? ;
-    $this->starting_block_index = $starting_block_index ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->second_snapshot_id = $second_snapshot_id ?? "";
+    $this->starting_block_index = $starting_block_index ?? 0;
   }
 }
 
@@ -129,8 +129,8 @@ class ListChangedBlocksResponse {
   ) $s = shape()) {
     $this->block_size = $block_size ?? 0;
     $this->changed_blocks = $changed_blocks ?? [];
-    $this->expiry_time = $expiry_time ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->expiry_time = $expiry_time ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->volume_size = $volume_size ?? 0;
   }
 }
@@ -148,9 +148,9 @@ class ListSnapshotBlocksRequest {
   ?'starting_block_index' => BlockIndex,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->snapshot_id = $snapshot_id ?? "";
-    $this->starting_block_index = $starting_block_index ?? ;
+    $this->starting_block_index = $starting_block_index ?? 0;
   }
 }
 
@@ -170,8 +170,8 @@ class ListSnapshotBlocksResponse {
   ) $s = shape()) {
     $this->block_size = $block_size ?? 0;
     $this->blocks = $blocks ?? [];
-    $this->expiry_time = $expiry_time ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->expiry_time = $expiry_time ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->volume_size = $volume_size ?? 0;
   }
 }
@@ -186,7 +186,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -202,8 +202,8 @@ class ValidationException {
   ?'message' => ErrorMessage,
   ?'reason' => ValidationExceptionReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 

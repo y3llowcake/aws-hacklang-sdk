@@ -27,7 +27,7 @@ class Connection {
     $this->connection_arn = $connection_arn ?? "";
     $this->connection_name = $connection_name ?? "";
     $this->connection_status = $connection_status ?? "";
-    $this->owner_account_id = $owner_account_id ?? ;
+    $this->owner_account_id = $owner_account_id ?? "";
     $this->provider_type = $provider_type ?? "";
   }
 }
@@ -108,7 +108,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class ListConnectionsInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->provider_type_filter = $provider_type_filter ?? ;
+    $this->provider_type_filter = $provider_type_filter ?? "";
   }
 }
 
@@ -136,7 +136,7 @@ class ListConnectionsOutput {
   ?'connections' => ConnectionList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->connections = $connections ?? ;
+    $this->connections = $connections ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -153,7 +153,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

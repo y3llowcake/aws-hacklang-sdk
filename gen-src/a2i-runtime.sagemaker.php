@@ -15,7 +15,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -70,8 +70,8 @@ class DescribeHumanLoopResponse {
   ?'human_loop_output' => HumanLoopOutput,
   ?'human_loop_status' => HumanLoopStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->failure_code = $failure_code ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->failure_code = $failure_code ?? "";
     $this->failure_reason = $failure_reason ?? "";
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->human_loop_arn = $human_loop_arn ?? "";
@@ -115,7 +115,7 @@ class HumanLoopOutput {
   public function __construct(shape(
   ?'output_s_3_uri' => string,
   ) $s = shape()) {
-    $this->output_s_3_uri = $output_s_3_uri ?? ;
+    $this->output_s_3_uri = $output_s_3_uri ?? "";
   }
 }
 
@@ -137,7 +137,7 @@ class HumanLoopSummary {
   ?'human_loop_name' => HumanLoopName,
   ?'human_loop_status' => HumanLoopStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->failure_reason = $failure_reason ?? "";
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->human_loop_name = $human_loop_name ?? "";
@@ -153,7 +153,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -173,8 +173,8 @@ class ListHumanLoopsRequest {
   ?'next_token' => NextToken,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->creation_time_after = $creation_time_after ?? ;
-    $this->creation_time_before = $creation_time_before ?? ;
+    $this->creation_time_after = $creation_time_after ?? 0;
+    $this->creation_time_before = $creation_time_before ?? 0;
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -205,7 +205,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -215,7 +215,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -233,7 +233,7 @@ class StartHumanLoopRequest {
   ?'human_loop_input' => HumanLoopInput,
   ?'human_loop_name' => HumanLoopName,
   ) $s = shape()) {
-    $this->data_attributes = $data_attributes ?? ;
+    $this->data_attributes = $data_attributes ?? null;
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->human_loop_input = $human_loop_input ?? null;
     $this->human_loop_name = $human_loop_name ?? "";
@@ -275,7 +275,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -287,7 +287,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => FailureReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

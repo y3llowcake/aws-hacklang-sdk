@@ -33,9 +33,9 @@ class ActivatePipelineInput {
   ?'pipeline_id' => id,
   ?'start_timestamp' => timestamp,
   ) $s = shape()) {
-    $this->parameter_values = $parameter_values ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->start_timestamp = $start_timestamp ?? ;
+    $this->parameter_values = $parameter_values ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->start_timestamp = $start_timestamp ?? 0;
   }
 }
 
@@ -54,8 +54,8 @@ class AddTagsInput {
   ?'pipeline_id' => id,
   ?'tags' => tagList,
   ) $s = shape()) {
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -78,10 +78,10 @@ class CreatePipelineInput {
   ?'tags' => tagList,
   ?'unique_id' => id,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
-    $this->unique_id = $unique_id ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->unique_id = $unique_id ?? "";
   }
 }
 
@@ -91,7 +91,7 @@ class CreatePipelineOutput {
   public function __construct(shape(
   ?'pipeline_id' => id,
   ) $s = shape()) {
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
   }
 }
 
@@ -104,7 +104,7 @@ class DeactivatePipelineInput {
   ?'pipeline_id' => id,
   ) $s = shape()) {
     $this->cancel_active = $cancel_active ?? false;
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
   }
 }
 
@@ -121,7 +121,7 @@ class DeletePipelineInput {
   public function __construct(shape(
   ?'pipeline_id' => id,
   ) $s = shape()) {
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
   }
 }
 
@@ -137,10 +137,10 @@ class DescribeObjectsInput {
   ?'object_ids' => idList,
   ?'pipeline_id' => id,
   ) $s = shape()) {
-    $this->evaluate_expressions = $evaluate_expressions ?? ;
-    $this->marker = $marker ?? ;
-    $this->object_ids = $object_ids ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->evaluate_expressions = $evaluate_expressions ?? false;
+    $this->marker = $marker ?? "";
+    $this->object_ids = $object_ids ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
   }
 }
 
@@ -154,9 +154,9 @@ class DescribeObjectsOutput {
   ?'marker' => string,
   ?'pipeline_objects' => PipelineObjectList,
   ) $s = shape()) {
-    $this->has_more_results = $has_more_results ?? ;
-    $this->marker = $marker ?? ;
-    $this->pipeline_objects = $pipeline_objects ?? ;
+    $this->has_more_results = $has_more_results ?? false;
+    $this->marker = $marker ?? "";
+    $this->pipeline_objects = $pipeline_objects ?? [];
   }
 }
 
@@ -166,7 +166,7 @@ class DescribePipelinesInput {
   public function __construct(shape(
   ?'pipeline_ids' => idList,
   ) $s = shape()) {
-    $this->pipeline_ids = $pipeline_ids ?? ;
+    $this->pipeline_ids = $pipeline_ids ?? [];
   }
 }
 
@@ -176,7 +176,7 @@ class DescribePipelinesOutput {
   public function __construct(shape(
   ?'pipeline_description_list' => PipelineDescriptionList,
   ) $s = shape()) {
-    $this->pipeline_description_list = $pipeline_description_list ?? ;
+    $this->pipeline_description_list = $pipeline_description_list ?? [];
   }
 }
 
@@ -190,9 +190,9 @@ class EvaluateExpressionInput {
   ?'object_id' => id,
   ?'pipeline_id' => id,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
-    $this->object_id = $object_id ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->expression = $expression ?? "";
+    $this->object_id = $object_id ?? "";
+    $this->pipeline_id = $pipeline_id ?? "";
   }
 }
 
@@ -202,7 +202,7 @@ class EvaluateExpressionOutput {
   public function __construct(shape(
   ?'evaluated_expression' => longString,
   ) $s = shape()) {
-    $this->evaluated_expression = $evaluated_expression ?? ;
+    $this->evaluated_expression = $evaluated_expression ?? "";
   }
 }
 
@@ -216,9 +216,9 @@ class Field {
   ?'ref_value' => fieldNameString,
   ?'string_value' => fieldStringValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->ref_value = $ref_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->key = $key ?? "";
+    $this->ref_value = $ref_value ?? "";
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -230,8 +230,8 @@ class GetPipelineDefinitionInput {
   ?'pipeline_id' => id,
   ?'version' => string,
   ) $s = shape()) {
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->version = $version ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -245,9 +245,9 @@ class GetPipelineDefinitionOutput {
   ?'parameter_values' => ParameterValueList,
   ?'pipeline_objects' => PipelineObjectList,
   ) $s = shape()) {
-    $this->parameter_objects = $parameter_objects ?? ;
-    $this->parameter_values = $parameter_values ?? ;
-    $this->pipeline_objects = $pipeline_objects ?? ;
+    $this->parameter_objects = $parameter_objects ?? [];
+    $this->parameter_values = $parameter_values ?? [];
+    $this->pipeline_objects = $pipeline_objects ?? [];
   }
 }
 
@@ -259,8 +259,8 @@ class InstanceIdentity {
   ?'document' => string,
   ?'signature' => string,
   ) $s = shape()) {
-    $this->document = $document ?? ;
-    $this->signature = $signature ?? ;
+    $this->document = $document ?? "";
+    $this->signature = $signature ?? "";
   }
 }
 
@@ -270,7 +270,7 @@ class InternalServiceError {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -280,7 +280,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -290,7 +290,7 @@ class ListPipelinesInput {
   public function __construct(shape(
   ?'marker' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -304,9 +304,9 @@ class ListPipelinesOutput {
   ?'marker' => string,
   ?'pipeline_id_list' => pipelineList,
   ) $s = shape()) {
-    $this->has_more_results = $has_more_results ?? ;
-    $this->marker = $marker ?? ;
-    $this->pipeline_id_list = $pipeline_id_list ?? ;
+    $this->has_more_results = $has_more_results ?? false;
+    $this->marker = $marker ?? "";
+    $this->pipeline_id_list = $pipeline_id_list ?? [];
   }
 }
 
@@ -318,8 +318,8 @@ class Operator {
   ?'type' => OperatorType,
   ?'values' => stringList,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->values = $values ?? ;
+    $this->type = $type ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -333,8 +333,8 @@ class ParameterAttribute {
   ?'key' => attributeNameString,
   ?'string_value' => attributeValueString,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->key = $key ?? "";
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -348,7 +348,7 @@ class ParameterObject {
   ?'attributes' => ParameterAttributeList,
   ?'id' => fieldNameString,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->id = $id ?? "";
   }
 }
@@ -364,7 +364,7 @@ class ParameterValue {
   ?'string_value' => fieldStringValue,
   ) $s = shape()) {
     $this->id = $id ?? "";
-    $this->string_value = $string_value ?? ;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -376,7 +376,7 @@ class PipelineDeletedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -394,11 +394,11 @@ class PipelineDescription {
   ?'pipeline_id' => id,
   ?'tags' => tagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->fields = $fields ?? ;
-    $this->name = $name ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->fields = $fields ?? [];
+    $this->name = $name ?? "";
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -413,7 +413,7 @@ class PipelineIdName {
   ?'name' => id,
   ) $s = shape()) {
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -423,7 +423,7 @@ class PipelineNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -437,9 +437,9 @@ class PipelineObject {
   ?'id' => id,
   ?'name' => id,
   ) $s = shape()) {
-    $this->fields = $fields ?? ;
+    $this->fields = $fields ?? [];
     $this->id = $id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -457,9 +457,9 @@ class PollForTaskInput {
   ?'instance_identity' => InstanceIdentity,
   ?'worker_group' => string,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
-    $this->instance_identity = $instance_identity ?? ;
-    $this->worker_group = $worker_group ?? ;
+    $this->hostname = $hostname ?? "";
+    $this->instance_identity = $instance_identity ?? null;
+    $this->worker_group = $worker_group ?? "";
   }
 }
 
@@ -469,7 +469,7 @@ class PollForTaskOutput {
   public function __construct(shape(
   ?'task_object' => TaskObject,
   ) $s = shape()) {
-    $this->task_object = $task_object ?? ;
+    $this->task_object = $task_object ?? null;
   }
 }
 
@@ -485,10 +485,10 @@ class PutPipelineDefinitionInput {
   ?'pipeline_id' => id,
   ?'pipeline_objects' => PipelineObjectList,
   ) $s = shape()) {
-    $this->parameter_objects = $parameter_objects ?? ;
-    $this->parameter_values = $parameter_values ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->pipeline_objects = $pipeline_objects ?? ;
+    $this->parameter_objects = $parameter_objects ?? [];
+    $this->parameter_values = $parameter_values ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->pipeline_objects = $pipeline_objects ?? [];
   }
 }
 
@@ -502,9 +502,9 @@ class PutPipelineDefinitionOutput {
   ?'validation_errors' => ValidationErrors,
   ?'validation_warnings' => ValidationWarnings,
   ) $s = shape()) {
-    $this->errored = $errored ?? ;
-    $this->validation_errors = $validation_errors ?? ;
-    $this->validation_warnings = $validation_warnings ?? ;
+    $this->errored = $errored ?? false;
+    $this->validation_errors = $validation_errors ?? [];
+    $this->validation_warnings = $validation_warnings ?? [];
   }
 }
 
@@ -514,7 +514,7 @@ class Query {
   public function __construct(shape(
   ?'selectors' => SelectorList,
   ) $s = shape()) {
-    $this->selectors = $selectors ?? ;
+    $this->selectors = $selectors ?? [];
   }
 }
 
@@ -532,11 +532,11 @@ class QueryObjectsInput {
   ?'query' => Query,
   ?'sphere' => string,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->query = $query ?? ;
-    $this->sphere = $sphere ?? ;
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->query = $query ?? null;
+    $this->sphere = $sphere ?? "";
   }
 }
 
@@ -550,9 +550,9 @@ class QueryObjectsOutput {
   ?'ids' => idList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->has_more_results = $has_more_results ?? ;
-    $this->ids = $ids ?? ;
-    $this->marker = $marker ?? ;
+    $this->has_more_results = $has_more_results ?? false;
+    $this->ids = $ids ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -564,8 +564,8 @@ class RemoveTagsInput {
   ?'pipeline_id' => id,
   ?'tag_keys' => stringList,
   ) $s = shape()) {
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -584,7 +584,7 @@ class ReportTaskProgressInput {
   ?'fields' => fieldList,
   ?'task_id' => taskId,
   ) $s = shape()) {
-    $this->fields = $fields ?? ;
+    $this->fields = $fields ?? [];
     $this->task_id = $task_id ?? "";
   }
 }
@@ -595,7 +595,7 @@ class ReportTaskProgressOutput {
   public function __construct(shape(
   ?'canceled' => boolean,
   ) $s = shape()) {
-    $this->canceled = $canceled ?? ;
+    $this->canceled = $canceled ?? false;
   }
 }
 
@@ -609,9 +609,9 @@ class ReportTaskRunnerHeartbeatInput {
   ?'taskrunner_id' => id,
   ?'worker_group' => string,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
-    $this->taskrunner_id = $taskrunner_id ?? ;
-    $this->worker_group = $worker_group ?? ;
+    $this->hostname = $hostname ?? "";
+    $this->taskrunner_id = $taskrunner_id ?? "";
+    $this->worker_group = $worker_group ?? "";
   }
 }
 
@@ -621,7 +621,7 @@ class ReportTaskRunnerHeartbeatOutput {
   public function __construct(shape(
   ?'terminate' => boolean,
   ) $s = shape()) {
-    $this->terminate = $terminate ?? ;
+    $this->terminate = $terminate ?? false;
   }
 }
 
@@ -633,8 +633,8 @@ class Selector {
   ?'field_name' => string,
   ?'operator' => Operator,
   ) $s = shape()) {
-    $this->field_name = $field_name ?? ;
-    $this->operator = $operator ?? ;
+    $this->field_name = $field_name ?? "";
+    $this->operator = $operator ?? null;
   }
 }
 
@@ -650,9 +650,9 @@ class SetStatusInput {
   ?'pipeline_id' => id,
   ?'status' => string,
   ) $s = shape()) {
-    $this->object_ids = $object_ids ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->status = $status ?? ;
+    $this->object_ids = $object_ids ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -670,11 +670,11 @@ class SetTaskStatusInput {
   ?'task_id' => taskId,
   ?'task_status' => TaskStatus,
   ) $s = shape()) {
-    $this->error_id = $error_id ?? ;
+    $this->error_id = $error_id ?? "";
     $this->error_message = $error_message ?? "";
-    $this->error_stack_trace = $error_stack_trace ?? ;
+    $this->error_stack_trace = $error_stack_trace ?? "";
     $this->task_id = $task_id ?? "";
-    $this->task_status = $task_status ?? ;
+    $this->task_status = $task_status ?? "";
   }
 }
 
@@ -693,8 +693,8 @@ class Tag {
   ?'key' => tagKey,
   ?'value' => tagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -704,7 +704,7 @@ class TaskNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -720,9 +720,9 @@ class TaskObject {
   ?'pipeline_id' => id,
   ?'task_id' => taskId,
   ) $s = shape()) {
-    $this->attempt_id = $attempt_id ?? ;
-    $this->objects = $objects ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
+    $this->attempt_id = $attempt_id ?? "";
+    $this->objects = $objects ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
     $this->task_id = $task_id ?? "";
   }
 }
@@ -741,10 +741,10 @@ class ValidatePipelineDefinitionInput {
   ?'pipeline_id' => id,
   ?'pipeline_objects' => PipelineObjectList,
   ) $s = shape()) {
-    $this->parameter_objects = $parameter_objects ?? ;
-    $this->parameter_values = $parameter_values ?? ;
-    $this->pipeline_id = $pipeline_id ?? ;
-    $this->pipeline_objects = $pipeline_objects ?? ;
+    $this->parameter_objects = $parameter_objects ?? [];
+    $this->parameter_values = $parameter_values ?? [];
+    $this->pipeline_id = $pipeline_id ?? "";
+    $this->pipeline_objects = $pipeline_objects ?? [];
   }
 }
 
@@ -758,9 +758,9 @@ class ValidatePipelineDefinitionOutput {
   ?'validation_errors' => ValidationErrors,
   ?'validation_warnings' => ValidationWarnings,
   ) $s = shape()) {
-    $this->errored = $errored ?? ;
-    $this->validation_errors = $validation_errors ?? ;
-    $this->validation_warnings = $validation_warnings ?? ;
+    $this->errored = $errored ?? false;
+    $this->validation_errors = $validation_errors ?? [];
+    $this->validation_warnings = $validation_warnings ?? [];
   }
 }
 
@@ -772,7 +772,7 @@ class ValidationError {
   ?'errors' => validationMessages,
   ?'id' => id,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
     $this->id = $id ?? "";
   }
 }
@@ -788,7 +788,7 @@ class ValidationWarning {
   ?'warnings' => validationMessages,
   ) $s = shape()) {
     $this->id = $id ?? "";
-    $this->warnings = $warnings ?? ;
+    $this->warnings = $warnings ?? [];
   }
 }
 

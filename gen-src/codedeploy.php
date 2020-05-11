@@ -58,8 +58,8 @@ class AddTagsToOnPremisesInstancesInput {
   ?'instance_names' => InstanceNameList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
-    $this->tags = $tags ?? ;
+    $this->instance_names = $instance_names ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -71,7 +71,7 @@ class Alarm {
   public function __construct(shape(
   ?'name' => AlarmName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -85,9 +85,9 @@ class AlarmConfiguration {
   ?'enabled' => boolean,
   ?'ignore_poll_alarm_failure' => boolean,
   ) $s = shape()) {
-    $this->alarms = $alarms ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->ignore_poll_alarm_failure = $ignore_poll_alarm_failure ?? ;
+    $this->alarms = $alarms ?? [];
+    $this->enabled = $enabled ?? false;
+    $this->ignore_poll_alarm_failure = $ignore_poll_alarm_failure ?? false;
   }
 }
 
@@ -110,8 +110,8 @@ class AppSpecContent {
   ?'content' => RawStringContent,
   ?'sha_256' => RawStringSha256,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->sha_256 = $sha_256 ?? ;
+    $this->content = $content ?? "";
+    $this->sha_256 = $sha_256 ?? "";
   }
 }
 
@@ -147,12 +147,12 @@ class ApplicationInfo {
   ?'git_hub_account_name' => GitHubAccountTokenName,
   ?'linked_to_git_hub' => boolean,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->application_name = $application_name ?? ;
-    $this->compute_platform = $compute_platform ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->git_hub_account_name = $git_hub_account_name ?? ;
-    $this->linked_to_git_hub = $linked_to_git_hub ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->application_name = $application_name ?? "";
+    $this->compute_platform = $compute_platform ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->git_hub_account_name = $git_hub_account_name ?? "";
+    $this->linked_to_git_hub = $linked_to_git_hub ?? false;
   }
 }
 
@@ -195,8 +195,8 @@ class AutoRollbackConfiguration {
   ?'enabled' => boolean,
   ?'events' => AutoRollbackEventsList,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->events = $events ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->events = $events ?? [];
   }
 }
 
@@ -212,8 +212,8 @@ class AutoScalingGroup {
   ?'hook' => AutoScalingGroupHook,
   ?'name' => AutoScalingGroupName,
   ) $s = shape()) {
-    $this->hook = $hook ?? ;
-    $this->name = $name ?? ;
+    $this->hook = $hook ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -233,8 +233,8 @@ class BatchGetApplicationRevisionsInput {
   ?'application_name' => ApplicationName,
   ?'revisions' => RevisionLocationList,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -248,9 +248,9 @@ class BatchGetApplicationRevisionsOutput {
   ?'error_message' => ErrorMessage,
   ?'revisions' => RevisionInfoList,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -260,7 +260,7 @@ class BatchGetApplicationsInput {
   public function __construct(shape(
   ?'application_names' => ApplicationsList,
   ) $s = shape()) {
-    $this->application_names = $application_names ?? ;
+    $this->application_names = $application_names ?? [];
   }
 }
 
@@ -270,7 +270,7 @@ class BatchGetApplicationsOutput {
   public function __construct(shape(
   ?'applications_info' => ApplicationsInfoList,
   ) $s = shape()) {
-    $this->applications_info = $applications_info ?? ;
+    $this->applications_info = $applications_info ?? [];
   }
 }
 
@@ -282,8 +282,8 @@ class BatchGetDeploymentGroupsInput {
   ?'application_name' => ApplicationName,
   ?'deployment_group_names' => DeploymentGroupsList,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->deployment_group_names = $deployment_group_names ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->deployment_group_names = $deployment_group_names ?? [];
   }
 }
 
@@ -295,8 +295,8 @@ class BatchGetDeploymentGroupsOutput {
   ?'deployment_groups_info' => DeploymentGroupInfoList,
   ?'error_message' => ErrorMessage,
   ) $s = shape()) {
-    $this->deployment_groups_info = $deployment_groups_info ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->deployment_groups_info = $deployment_groups_info ?? [];
+    $this->error_message = $error_message ?? "";
   }
 }
 
@@ -308,8 +308,8 @@ class BatchGetDeploymentInstancesInput {
   ?'deployment_id' => DeploymentId,
   ?'instance_ids' => InstancesList,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_ids = $instance_ids ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_ids = $instance_ids ?? [];
   }
 }
 
@@ -321,8 +321,8 @@ class BatchGetDeploymentInstancesOutput {
   ?'error_message' => ErrorMessage,
   ?'instances_summary' => InstanceSummaryList,
   ) $s = shape()) {
-    $this->error_message = $error_message ?? ;
-    $this->instances_summary = $instances_summary ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->instances_summary = $instances_summary ?? [];
   }
 }
 
@@ -334,8 +334,8 @@ class BatchGetDeploymentTargetsInput {
   ?'deployment_id' => DeploymentId,
   ?'target_ids' => TargetIdList,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->target_ids = $target_ids ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->target_ids = $target_ids ?? [];
   }
 }
 
@@ -345,7 +345,7 @@ class BatchGetDeploymentTargetsOutput {
   public function __construct(shape(
   ?'deployment_targets' => DeploymentTargetList,
   ) $s = shape()) {
-    $this->deployment_targets = $deployment_targets ?? ;
+    $this->deployment_targets = $deployment_targets ?? [];
   }
 }
 
@@ -355,7 +355,7 @@ class BatchGetDeploymentsInput {
   public function __construct(shape(
   ?'deployment_ids' => DeploymentsList,
   ) $s = shape()) {
-    $this->deployment_ids = $deployment_ids ?? ;
+    $this->deployment_ids = $deployment_ids ?? [];
   }
 }
 
@@ -365,7 +365,7 @@ class BatchGetDeploymentsOutput {
   public function __construct(shape(
   ?'deployments_info' => DeploymentsInfoList,
   ) $s = shape()) {
-    $this->deployments_info = $deployments_info ?? ;
+    $this->deployments_info = $deployments_info ?? [];
   }
 }
 
@@ -375,7 +375,7 @@ class BatchGetOnPremisesInstancesInput {
   public function __construct(shape(
   ?'instance_names' => InstanceNameList,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
+    $this->instance_names = $instance_names ?? [];
   }
 }
 
@@ -385,7 +385,7 @@ class BatchGetOnPremisesInstancesOutput {
   public function __construct(shape(
   ?'instance_infos' => InstanceInfoList,
   ) $s = shape()) {
-    $this->instance_infos = $instance_infos ?? ;
+    $this->instance_infos = $instance_infos ?? [];
   }
 }
 
@@ -406,9 +406,9 @@ class BlueGreenDeploymentConfiguration {
   ?'green_fleet_provisioning_option' => GreenFleetProvisioningOption,
   ?'terminate_blue_instances_on_deployment_success' => BlueInstanceTerminationOption,
   ) $s = shape()) {
-    $this->deployment_ready_option = $deployment_ready_option ?? ;
-    $this->green_fleet_provisioning_option = $green_fleet_provisioning_option ?? ;
-    $this->terminate_blue_instances_on_deployment_success = $terminate_blue_instances_on_deployment_success ?? ;
+    $this->deployment_ready_option = $deployment_ready_option ?? null;
+    $this->green_fleet_provisioning_option = $green_fleet_provisioning_option ?? null;
+    $this->terminate_blue_instances_on_deployment_success = $terminate_blue_instances_on_deployment_success ?? null;
   }
 }
 
@@ -420,8 +420,8 @@ class BlueInstanceTerminationOption {
   ?'action' => InstanceAction,
   ?'termination_wait_time_in_minutes' => Duration,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->termination_wait_time_in_minutes = $termination_wait_time_in_minutes ?? ;
+    $this->action = $action ?? "";
+    $this->termination_wait_time_in_minutes = $termination_wait_time_in_minutes ?? 0;
   }
 }
 
@@ -448,8 +448,8 @@ class ContinueDeploymentInput {
   ?'deployment_id' => DeploymentId,
   ?'deployment_wait_type' => DeploymentWaitType,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->deployment_wait_type = $deployment_wait_type ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->deployment_wait_type = $deployment_wait_type ?? "";
   }
 }
 
@@ -463,9 +463,9 @@ class CreateApplicationInput {
   ?'compute_platform' => ComputePlatform,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->compute_platform = $compute_platform ?? ;
-    $this->tags = $tags ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->compute_platform = $compute_platform ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -475,7 +475,7 @@ class CreateApplicationOutput {
   public function __construct(shape(
   ?'application_id' => ApplicationId,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -491,10 +491,10 @@ class CreateDeploymentConfigInput {
   ?'minimum_healthy_hosts' => MinimumHealthyHosts,
   ?'traffic_routing_config' => TrafficRoutingConfig,
   ) $s = shape()) {
-    $this->compute_platform = $compute_platform ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->minimum_healthy_hosts = $minimum_healthy_hosts ?? ;
-    $this->traffic_routing_config = $traffic_routing_config ?? ;
+    $this->compute_platform = $compute_platform ?? "";
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->minimum_healthy_hosts = $minimum_healthy_hosts ?? null;
+    $this->traffic_routing_config = $traffic_routing_config ?? null;
   }
 }
 
@@ -504,7 +504,7 @@ class CreateDeploymentConfigOutput {
   public function __construct(shape(
   ?'deployment_config_id' => DeploymentConfigId,
   ) $s = shape()) {
-    $this->deployment_config_id = $deployment_config_id ?? ;
+    $this->deployment_config_id = $deployment_config_id ?? "";
   }
 }
 
@@ -546,23 +546,23 @@ class CreateDeploymentGroupInput {
   ?'tags' => TagList,
   ?'trigger_configurations' => TriggerConfigList,
   ) $s = shape()) {
-    $this->alarm_configuration = $alarm_configuration ?? ;
-    $this->application_name = $application_name ?? ;
-    $this->auto_rollback_configuration = $auto_rollback_configuration ?? ;
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
-    $this->deployment_style = $deployment_style ?? ;
-    $this->ec_2_tag_filters = $ec_2_tag_filters ?? ;
-    $this->ec_2_tag_set = $ec_2_tag_set ?? ;
-    $this->ecs_services = $ecs_services ?? ;
-    $this->load_balancer_info = $load_balancer_info ?? ;
-    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? ;
-    $this->on_premises_tag_set = $on_premises_tag_set ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->tags = $tags ?? ;
-    $this->trigger_configurations = $trigger_configurations ?? ;
+    $this->alarm_configuration = $alarm_configuration ?? null;
+    $this->application_name = $application_name ?? "";
+    $this->auto_rollback_configuration = $auto_rollback_configuration ?? null;
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? null;
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
+    $this->deployment_style = $deployment_style ?? null;
+    $this->ec_2_tag_filters = $ec_2_tag_filters ?? [];
+    $this->ec_2_tag_set = $ec_2_tag_set ?? null;
+    $this->ecs_services = $ecs_services ?? [];
+    $this->load_balancer_info = $load_balancer_info ?? null;
+    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? [];
+    $this->on_premises_tag_set = $on_premises_tag_set ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->tags = $tags ?? [];
+    $this->trigger_configurations = $trigger_configurations ?? [];
   }
 }
 
@@ -572,7 +572,7 @@ class CreateDeploymentGroupOutput {
   public function __construct(shape(
   ?'deployment_group_id' => DeploymentGroupId,
   ) $s = shape()) {
-    $this->deployment_group_id = $deployment_group_id ?? ;
+    $this->deployment_group_id = $deployment_group_id ?? "";
   }
 }
 
@@ -600,16 +600,16 @@ class CreateDeploymentInput {
   ?'target_instances' => TargetInstances,
   ?'update_outdated_instances_only' => boolean,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->auto_rollback_configuration = $auto_rollback_configuration ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->file_exists_behavior = $file_exists_behavior ?? ;
-    $this->ignore_application_stop_failures = $ignore_application_stop_failures ?? ;
-    $this->revision = $revision ?? ;
-    $this->target_instances = $target_instances ?? ;
-    $this->update_outdated_instances_only = $update_outdated_instances_only ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->auto_rollback_configuration = $auto_rollback_configuration ?? null;
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->file_exists_behavior = $file_exists_behavior ?? "";
+    $this->ignore_application_stop_failures = $ignore_application_stop_failures ?? false;
+    $this->revision = $revision ?? null;
+    $this->target_instances = $target_instances ?? null;
+    $this->update_outdated_instances_only = $update_outdated_instances_only ?? false;
   }
 }
 
@@ -619,7 +619,7 @@ class CreateDeploymentOutput {
   public function __construct(shape(
   ?'deployment_id' => DeploymentId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -629,7 +629,7 @@ class DeleteApplicationInput {
   public function __construct(shape(
   ?'application_name' => ApplicationName,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
+    $this->application_name = $application_name ?? "";
   }
 }
 
@@ -639,7 +639,7 @@ class DeleteDeploymentConfigInput {
   public function __construct(shape(
   ?'deployment_config_name' => DeploymentConfigName,
   ) $s = shape()) {
-    $this->deployment_config_name = $deployment_config_name ?? ;
+    $this->deployment_config_name = $deployment_config_name ?? "";
   }
 }
 
@@ -651,8 +651,8 @@ class DeleteDeploymentGroupInput {
   ?'application_name' => ApplicationName,
   ?'deployment_group_name' => DeploymentGroupName,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
   }
 }
 
@@ -662,7 +662,7 @@ class DeleteDeploymentGroupOutput {
   public function __construct(shape(
   ?'hooks_not_cleaned_up' => AutoScalingGroupList,
   ) $s = shape()) {
-    $this->hooks_not_cleaned_up = $hooks_not_cleaned_up ?? ;
+    $this->hooks_not_cleaned_up = $hooks_not_cleaned_up ?? [];
   }
 }
 
@@ -672,7 +672,7 @@ class DeleteGitHubAccountTokenInput {
   public function __construct(shape(
   ?'token_name' => GitHubAccountTokenName,
   ) $s = shape()) {
-    $this->token_name = $token_name ?? ;
+    $this->token_name = $token_name ?? "";
   }
 }
 
@@ -682,7 +682,7 @@ class DeleteGitHubAccountTokenOutput {
   public function __construct(shape(
   ?'token_name' => GitHubAccountTokenName,
   ) $s = shape()) {
-    $this->token_name = $token_name ?? ;
+    $this->token_name = $token_name ?? "";
   }
 }
 
@@ -739,12 +739,12 @@ class DeploymentConfigInfo {
   ?'minimum_healthy_hosts' => MinimumHealthyHosts,
   ?'traffic_routing_config' => TrafficRoutingConfig,
   ) $s = shape()) {
-    $this->compute_platform = $compute_platform ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->deployment_config_id = $deployment_config_id ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->minimum_healthy_hosts = $minimum_healthy_hosts ?? ;
-    $this->traffic_routing_config = $traffic_routing_config ?? ;
+    $this->compute_platform = $compute_platform ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->deployment_config_id = $deployment_config_id ?? "";
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->minimum_healthy_hosts = $minimum_healthy_hosts ?? null;
+    $this->traffic_routing_config = $traffic_routing_config ?? null;
   }
 }
 
@@ -837,27 +837,27 @@ class DeploymentGroupInfo {
   ?'target_revision' => RevisionLocation,
   ?'trigger_configurations' => TriggerConfigList,
   ) $s = shape()) {
-    $this->alarm_configuration = $alarm_configuration ?? ;
-    $this->application_name = $application_name ?? ;
-    $this->auto_rollback_configuration = $auto_rollback_configuration ?? ;
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? ;
-    $this->compute_platform = $compute_platform ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->deployment_group_id = $deployment_group_id ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
-    $this->deployment_style = $deployment_style ?? ;
-    $this->ec_2_tag_filters = $ec_2_tag_filters ?? ;
-    $this->ec_2_tag_set = $ec_2_tag_set ?? ;
-    $this->ecs_services = $ecs_services ?? ;
-    $this->last_attempted_deployment = $last_attempted_deployment ?? ;
-    $this->last_successful_deployment = $last_successful_deployment ?? ;
-    $this->load_balancer_info = $load_balancer_info ?? ;
-    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? ;
-    $this->on_premises_tag_set = $on_premises_tag_set ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->target_revision = $target_revision ?? ;
-    $this->trigger_configurations = $trigger_configurations ?? ;
+    $this->alarm_configuration = $alarm_configuration ?? null;
+    $this->application_name = $application_name ?? "";
+    $this->auto_rollback_configuration = $auto_rollback_configuration ?? null;
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? null;
+    $this->compute_platform = $compute_platform ?? "";
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->deployment_group_id = $deployment_group_id ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
+    $this->deployment_style = $deployment_style ?? null;
+    $this->ec_2_tag_filters = $ec_2_tag_filters ?? [];
+    $this->ec_2_tag_set = $ec_2_tag_set ?? null;
+    $this->ecs_services = $ecs_services ?? [];
+    $this->last_attempted_deployment = $last_attempted_deployment ?? null;
+    $this->last_successful_deployment = $last_successful_deployment ?? null;
+    $this->load_balancer_info = $load_balancer_info ?? null;
+    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? [];
+    $this->on_premises_tag_set = $on_premises_tag_set ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->target_revision = $target_revision ?? null;
+    $this->trigger_configurations = $trigger_configurations ?? [];
   }
 }
 
@@ -948,33 +948,33 @@ class DeploymentInfo {
   ?'target_instances' => TargetInstances,
   ?'update_outdated_instances_only' => boolean,
   ) $s = shape()) {
-    $this->additional_deployment_status_info = $additional_deployment_status_info ?? ;
-    $this->application_name = $application_name ?? ;
-    $this->auto_rollback_configuration = $auto_rollback_configuration ?? ;
-    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? ;
-    $this->complete_time = $complete_time ?? ;
-    $this->compute_platform = $compute_platform ?? ;
-    $this->create_time = $create_time ?? ;
-    $this->creator = $creator ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->deployment_overview = $deployment_overview ?? ;
-    $this->deployment_status_messages = $deployment_status_messages ?? ;
-    $this->deployment_style = $deployment_style ?? ;
-    $this->description = $description ?? ;
-    $this->error_information = $error_information ?? ;
-    $this->file_exists_behavior = $file_exists_behavior ?? ;
-    $this->ignore_application_stop_failures = $ignore_application_stop_failures ?? ;
-    $this->instance_termination_wait_time_started = $instance_termination_wait_time_started ?? ;
-    $this->load_balancer_info = $load_balancer_info ?? ;
-    $this->previous_revision = $previous_revision ?? ;
-    $this->revision = $revision ?? ;
-    $this->rollback_info = $rollback_info ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->target_instances = $target_instances ?? ;
-    $this->update_outdated_instances_only = $update_outdated_instances_only ?? ;
+    $this->additional_deployment_status_info = $additional_deployment_status_info ?? "";
+    $this->application_name = $application_name ?? "";
+    $this->auto_rollback_configuration = $auto_rollback_configuration ?? null;
+    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? null;
+    $this->complete_time = $complete_time ?? 0;
+    $this->compute_platform = $compute_platform ?? "";
+    $this->create_time = $create_time ?? 0;
+    $this->creator = $creator ?? "";
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
+    $this->deployment_id = $deployment_id ?? "";
+    $this->deployment_overview = $deployment_overview ?? null;
+    $this->deployment_status_messages = $deployment_status_messages ?? [];
+    $this->deployment_style = $deployment_style ?? null;
+    $this->description = $description ?? "";
+    $this->error_information = $error_information ?? null;
+    $this->file_exists_behavior = $file_exists_behavior ?? "";
+    $this->ignore_application_stop_failures = $ignore_application_stop_failures ?? false;
+    $this->instance_termination_wait_time_started = $instance_termination_wait_time_started ?? false;
+    $this->load_balancer_info = $load_balancer_info ?? null;
+    $this->previous_revision = $previous_revision ?? null;
+    $this->revision = $revision ?? null;
+    $this->rollback_info = $rollback_info ?? null;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
+    $this->target_instances = $target_instances ?? null;
+    $this->update_outdated_instances_only = $update_outdated_instances_only ?? false;
   }
 }
 
@@ -1017,12 +1017,12 @@ class DeploymentOverview {
   ?'skipped' => InstanceCount,
   ?'succeeded' => InstanceCount,
   ) $s = shape()) {
-    $this->failed = $failed ?? ;
-    $this->in_progress = $in_progress ?? ;
-    $this->pending = $pending ?? ;
-    $this->ready = $ready ?? ;
-    $this->skipped = $skipped ?? ;
-    $this->succeeded = $succeeded ?? ;
+    $this->failed = $failed ?? 0;
+    $this->in_progress = $in_progress ?? 0;
+    $this->pending = $pending ?? 0;
+    $this->ready = $ready ?? 0;
+    $this->skipped = $skipped ?? 0;
+    $this->succeeded = $succeeded ?? 0;
   }
 }
 
@@ -1036,8 +1036,8 @@ class DeploymentReadyOption {
   ?'action_on_timeout' => DeploymentReadyAction,
   ?'wait_time_in_minutes' => Duration,
   ) $s = shape()) {
-    $this->action_on_timeout = $action_on_timeout ?? ;
-    $this->wait_time_in_minutes = $wait_time_in_minutes ?? ;
+    $this->action_on_timeout = $action_on_timeout ?? "";
+    $this->wait_time_in_minutes = $wait_time_in_minutes ?? 0;
   }
 }
 
@@ -1055,8 +1055,8 @@ class DeploymentStyle {
   ?'deployment_option' => DeploymentOption,
   ?'deployment_type' => DeploymentType,
   ) $s = shape()) {
-    $this->deployment_option = $deployment_option ?? ;
-    $this->deployment_type = $deployment_type ?? ;
+    $this->deployment_option = $deployment_option ?? "";
+    $this->deployment_type = $deployment_type ?? "";
   }
 }
 
@@ -1072,10 +1072,10 @@ class DeploymentTarget {
   ?'instance_target' => InstanceTarget,
   ?'lambda_target' => LambdaTarget,
   ) $s = shape()) {
-    $this->deployment_target_type = $deployment_target_type ?? ;
-    $this->ecs_target = $ecs_target ?? ;
-    $this->instance_target = $instance_target ?? ;
-    $this->lambda_target = $lambda_target ?? ;
+    $this->deployment_target_type = $deployment_target_type ?? "";
+    $this->ecs_target = $ecs_target ?? null;
+    $this->instance_target = $instance_target ?? null;
+    $this->lambda_target = $lambda_target ?? null;
   }
 }
 
@@ -1118,7 +1118,7 @@ class DeregisterOnPremisesInstanceInput {
   public function __construct(shape(
   ?'instance_name' => InstanceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -1143,10 +1143,10 @@ class Diagnostics {
   ?'message' => LifecycleMessage,
   ?'script_name' => ScriptName,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->log_tail = $log_tail ?? ;
-    $this->message = $message ?? ;
-    $this->script_name = $script_name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->log_tail = $log_tail ?? "";
+    $this->message = $message ?? "";
+    $this->script_name = $script_name ?? "";
   }
 }
 
@@ -1163,7 +1163,7 @@ class EC2TagFilter {
   ?'value' => Value,
   ) $s = shape()) {
     $this->key = $key ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -1178,7 +1178,7 @@ class EC2TagSet {
   public function __construct(shape(
   ?'ec_2_tag_set_list' => EC2TagSetList,
   ) $s = shape()) {
-    $this->ec_2_tag_set_list = $ec_2_tag_set_list ?? ;
+    $this->ec_2_tag_set_list = $ec_2_tag_set_list ?? [];
   }
 }
 
@@ -1194,8 +1194,8 @@ class ECSService {
   ?'cluster_name' => ECSClusterName,
   ?'service_name' => ECSServiceName,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->service_name = $service_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -1228,13 +1228,13 @@ class ECSTarget {
   ?'target_id' => TargetId,
   ?'task_sets_info' => ECSTaskSetList,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->lifecycle_events = $lifecycle_events ?? ;
-    $this->status = $status ?? ;
-    $this->target_arn = $target_arn ?? ;
-    $this->target_id = $target_id ?? ;
-    $this->task_sets_info = $task_sets_info ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->lifecycle_events = $lifecycle_events ?? [];
+    $this->status = $status ?? "";
+    $this->target_arn = $target_arn ?? "";
+    $this->target_id = $target_id ?? "";
+    $this->task_sets_info = $task_sets_info ?? [];
   }
 }
 
@@ -1258,14 +1258,14 @@ class ECSTaskSet {
   ?'task_set_label' => TargetLabel,
   ?'traffic_weight' => TrafficWeight,
   ) $s = shape()) {
-    $this->desired_count = $desired_count ?? ;
-    $this->identifer = $identifer ?? ;
-    $this->pending_count = $pending_count ?? ;
-    $this->running_count = $running_count ?? ;
-    $this->status = $status ?? ;
-    $this->target_group = $target_group ?? ;
-    $this->task_set_label = $task_set_label ?? ;
-    $this->traffic_weight = $traffic_weight ?? ;
+    $this->desired_count = $desired_count ?? 0;
+    $this->identifer = $identifer ?? "";
+    $this->pending_count = $pending_count ?? 0;
+    $this->running_count = $running_count ?? 0;
+    $this->status = $status ?? "";
+    $this->target_group = $target_group ?? null;
+    $this->task_set_label = $task_set_label ?? "";
+    $this->traffic_weight = $traffic_weight ?? 0.0;
   }
 }
 
@@ -1283,7 +1283,7 @@ class ELBInfo {
   public function __construct(shape(
   ?'name' => ELBName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1303,8 +1303,8 @@ class ErrorInformation {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1330,11 +1330,11 @@ class GenericRevisionInfo {
   ?'last_used_time' => Timestamp,
   ?'register_time' => Timestamp,
   ) $s = shape()) {
-    $this->deployment_groups = $deployment_groups ?? ;
-    $this->description = $description ?? ;
-    $this->first_used_time = $first_used_time ?? ;
-    $this->last_used_time = $last_used_time ?? ;
-    $this->register_time = $register_time ?? ;
+    $this->deployment_groups = $deployment_groups ?? [];
+    $this->description = $description ?? "";
+    $this->first_used_time = $first_used_time ?? 0;
+    $this->last_used_time = $last_used_time ?? 0;
+    $this->register_time = $register_time ?? 0;
   }
 }
 
@@ -1344,7 +1344,7 @@ class GetApplicationInput {
   public function __construct(shape(
   ?'application_name' => ApplicationName,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
+    $this->application_name = $application_name ?? "";
   }
 }
 
@@ -1354,7 +1354,7 @@ class GetApplicationOutput {
   public function __construct(shape(
   ?'application' => ApplicationInfo,
   ) $s = shape()) {
-    $this->application = $application ?? ;
+    $this->application = $application ?? null;
   }
 }
 
@@ -1366,8 +1366,8 @@ class GetApplicationRevisionInput {
   ?'application_name' => ApplicationName,
   ?'revision' => RevisionLocation,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->revision = $revision ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->revision = $revision ?? null;
   }
 }
 
@@ -1381,9 +1381,9 @@ class GetApplicationRevisionOutput {
   ?'revision' => RevisionLocation,
   ?'revision_info' => GenericRevisionInfo,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->revision = $revision ?? ;
-    $this->revision_info = $revision_info ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->revision = $revision ?? null;
+    $this->revision_info = $revision_info ?? null;
   }
 }
 
@@ -1393,7 +1393,7 @@ class GetDeploymentConfigInput {
   public function __construct(shape(
   ?'deployment_config_name' => DeploymentConfigName,
   ) $s = shape()) {
-    $this->deployment_config_name = $deployment_config_name ?? ;
+    $this->deployment_config_name = $deployment_config_name ?? "";
   }
 }
 
@@ -1403,7 +1403,7 @@ class GetDeploymentConfigOutput {
   public function __construct(shape(
   ?'deployment_config_info' => DeploymentConfigInfo,
   ) $s = shape()) {
-    $this->deployment_config_info = $deployment_config_info ?? ;
+    $this->deployment_config_info = $deployment_config_info ?? null;
   }
 }
 
@@ -1415,8 +1415,8 @@ class GetDeploymentGroupInput {
   ?'application_name' => ApplicationName,
   ?'deployment_group_name' => DeploymentGroupName,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->deployment_group_name = $deployment_group_name ?? "";
   }
 }
 
@@ -1426,7 +1426,7 @@ class GetDeploymentGroupOutput {
   public function __construct(shape(
   ?'deployment_group_info' => DeploymentGroupInfo,
   ) $s = shape()) {
-    $this->deployment_group_info = $deployment_group_info ?? ;
+    $this->deployment_group_info = $deployment_group_info ?? null;
   }
 }
 
@@ -1436,7 +1436,7 @@ class GetDeploymentInput {
   public function __construct(shape(
   ?'deployment_id' => DeploymentId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -1448,8 +1448,8 @@ class GetDeploymentInstanceInput {
   ?'deployment_id' => DeploymentId,
   ?'instance_id' => InstanceId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_id = $instance_id ?? "";
   }
 }
 
@@ -1459,7 +1459,7 @@ class GetDeploymentInstanceOutput {
   public function __construct(shape(
   ?'instance_summary' => InstanceSummary,
   ) $s = shape()) {
-    $this->instance_summary = $instance_summary ?? ;
+    $this->instance_summary = $instance_summary ?? null;
   }
 }
 
@@ -1469,7 +1469,7 @@ class GetDeploymentOutput {
   public function __construct(shape(
   ?'deployment_info' => DeploymentInfo,
   ) $s = shape()) {
-    $this->deployment_info = $deployment_info ?? ;
+    $this->deployment_info = $deployment_info ?? null;
   }
 }
 
@@ -1481,8 +1481,8 @@ class GetDeploymentTargetInput {
   ?'deployment_id' => DeploymentId,
   ?'target_id' => TargetId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->target_id = $target_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -1492,7 +1492,7 @@ class GetDeploymentTargetOutput {
   public function __construct(shape(
   ?'deployment_target' => DeploymentTarget,
   ) $s = shape()) {
-    $this->deployment_target = $deployment_target ?? ;
+    $this->deployment_target = $deployment_target ?? null;
   }
 }
 
@@ -1502,7 +1502,7 @@ class GetOnPremisesInstanceInput {
   public function __construct(shape(
   ?'instance_name' => InstanceName,
   ) $s = shape()) {
-    $this->instance_name = $instance_name ?? ;
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -1512,7 +1512,7 @@ class GetOnPremisesInstanceOutput {
   public function __construct(shape(
   ?'instance_info' => InstanceInfo,
   ) $s = shape()) {
-    $this->instance_info = $instance_info ?? ;
+    $this->instance_info = $instance_info ?? null;
   }
 }
 
@@ -1542,8 +1542,8 @@ class GitHubLocation {
   ?'commit_id' => CommitId,
   ?'repository' => Repository,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->repository = $repository ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->repository = $repository ?? "";
   }
 }
 
@@ -1555,7 +1555,7 @@ class GreenFleetProvisioningOption {
   public function __construct(shape(
   ?'action' => GreenFleetProvisioningAction,
   ) $s = shape()) {
-    $this->action = $action ?? ;
+    $this->action = $action ?? "";
   }
 }
 
@@ -1631,13 +1631,13 @@ class InstanceInfo {
   ?'register_time' => Timestamp,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->deregister_time = $deregister_time ?? ;
-    $this->iam_session_arn = $iam_session_arn ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->instance_name = $instance_name ?? ;
-    $this->register_time = $register_time ?? ;
-    $this->tags = $tags ?? ;
+    $this->deregister_time = $deregister_time ?? 0;
+    $this->iam_session_arn = $iam_session_arn ?? "";
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->instance_arn = $instance_arn ?? "";
+    $this->instance_name = $instance_name ?? "";
+    $this->register_time = $register_time ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1695,12 +1695,12 @@ class InstanceSummary {
   ?'lifecycle_events' => LifecycleEventList,
   ?'status' => InstanceStatus,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->lifecycle_events = $lifecycle_events ?? ;
-    $this->status = $status ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->lifecycle_events = $lifecycle_events ?? [];
+    $this->status = $status ?? "";
   }
 }
 
@@ -1724,13 +1724,13 @@ class InstanceTarget {
   ?'target_arn' => TargetArn,
   ?'target_id' => TargetId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_label = $instance_label ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->lifecycle_events = $lifecycle_events ?? ;
-    $this->status = $status ?? ;
-    $this->target_arn = $target_arn ?? ;
-    $this->target_id = $target_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_label = $instance_label ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->lifecycle_events = $lifecycle_events ?? [];
+    $this->status = $status ?? "";
+    $this->target_arn = $target_arn ?? "";
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -2150,11 +2150,11 @@ class LambdaFunctionInfo {
   ?'target_version' => Version,
   ?'target_version_weight' => TrafficWeight,
   ) $s = shape()) {
-    $this->current_version = $current_version ?? ;
-    $this->function_alias = $function_alias ?? ;
-    $this->function_name = $function_name ?? ;
-    $this->target_version = $target_version ?? ;
-    $this->target_version_weight = $target_version_weight ?? ;
+    $this->current_version = $current_version ?? "";
+    $this->function_alias = $function_alias ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->target_version = $target_version ?? "";
+    $this->target_version_weight = $target_version_weight ?? 0.0;
   }
 }
 
@@ -2178,13 +2178,13 @@ class LambdaTarget {
   ?'target_arn' => TargetArn,
   ?'target_id' => TargetId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->lambda_function_info = $lambda_function_info ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->lifecycle_events = $lifecycle_events ?? ;
-    $this->status = $status ?? ;
-    $this->target_arn = $target_arn ?? ;
-    $this->target_id = $target_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->lambda_function_info = $lambda_function_info ?? null;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->lifecycle_events = $lifecycle_events ?? [];
+    $this->status = $status ?? "";
+    $this->target_arn = $target_arn ?? "";
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -2200,10 +2200,10 @@ class LastDeploymentInfo {
   ?'end_time' => Timestamp,
   ?'status' => DeploymentStatus,
   ) $s = shape()) {
-    $this->create_time = $create_time ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->status = $status ?? ;
+    $this->create_time = $create_time ?? 0;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2223,11 +2223,11 @@ class LifecycleEvent {
   ?'start_time' => Timestamp,
   ?'status' => LifecycleEventStatus,
   ) $s = shape()) {
-    $this->diagnostics = $diagnostics ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->lifecycle_event_name = $lifecycle_event_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->diagnostics = $diagnostics ?? null;
+    $this->end_time = $end_time ?? 0;
+    $this->lifecycle_event_name = $lifecycle_event_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2273,13 +2273,13 @@ class ListApplicationRevisionsInput {
   ?'sort_by' => ApplicationRevisionSortBy,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->deployed = $deployed ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sort_by = $sort_by ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->deployed = $deployed ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sort_by = $sort_by ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -2291,8 +2291,8 @@ class ListApplicationRevisionsOutput {
   ?'next_token' => NextToken,
   ?'revisions' => RevisionLocationList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -2302,7 +2302,7 @@ class ListApplicationsInput {
   public function __construct(shape(
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2314,8 +2314,8 @@ class ListApplicationsOutput {
   ?'applications' => ApplicationsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->applications = $applications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->applications = $applications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2325,7 +2325,7 @@ class ListDeploymentConfigsInput {
   public function __construct(shape(
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2337,8 +2337,8 @@ class ListDeploymentConfigsOutput {
   ?'deployment_configs_list' => DeploymentConfigsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->deployment_configs_list = $deployment_configs_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->deployment_configs_list = $deployment_configs_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2350,8 +2350,8 @@ class ListDeploymentGroupsInput {
   ?'application_name' => ApplicationName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2365,9 +2365,9 @@ class ListDeploymentGroupsOutput {
   ?'deployment_groups' => DeploymentGroupsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->deployment_groups = $deployment_groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->deployment_groups = $deployment_groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2383,10 +2383,10 @@ class ListDeploymentInstancesInput {
   ?'instance_type_filter' => InstanceTypeList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->instance_status_filter = $instance_status_filter ?? ;
-    $this->instance_type_filter = $instance_type_filter ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->instance_status_filter = $instance_status_filter ?? [];
+    $this->instance_type_filter = $instance_type_filter ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2398,8 +2398,8 @@ class ListDeploymentInstancesOutput {
   ?'instances_list' => InstancesList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->instances_list = $instances_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->instances_list = $instances_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2413,9 +2413,9 @@ class ListDeploymentTargetsInput {
   ?'next_token' => NextToken,
   ?'target_filters' => TargetFilters,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->target_filters = $target_filters ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->target_filters = $target_filters ?? [];
   }
 }
 
@@ -2427,8 +2427,8 @@ class ListDeploymentTargetsOutput {
   ?'next_token' => NextToken,
   ?'target_ids' => TargetIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->target_ids = $target_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->target_ids = $target_ids ?? [];
   }
 }
 
@@ -2446,11 +2446,11 @@ class ListDeploymentsInput {
   ?'include_only_statuses' => DeploymentStatusList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->create_time_range = $create_time_range ?? ;
-    $this->deployment_group_name = $deployment_group_name ?? ;
-    $this->include_only_statuses = $include_only_statuses ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->create_time_range = $create_time_range ?? null;
+    $this->deployment_group_name = $deployment_group_name ?? "";
+    $this->include_only_statuses = $include_only_statuses ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2462,8 +2462,8 @@ class ListDeploymentsOutput {
   ?'deployments' => DeploymentsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->deployments = $deployments ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->deployments = $deployments ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2473,7 +2473,7 @@ class ListGitHubAccountTokenNamesInput {
   public function __construct(shape(
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2485,8 +2485,8 @@ class ListGitHubAccountTokenNamesOutput {
   ?'next_token' => NextToken,
   ?'token_name_list' => GitHubAccountTokenNameList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->token_name_list = $token_name_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->token_name_list = $token_name_list ?? [];
   }
 }
 
@@ -2500,9 +2500,9 @@ class ListOnPremisesInstancesInput {
   ?'registration_status' => RegistrationStatus,
   ?'tag_filters' => TagFilterList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->registration_status = $registration_status ?? ;
-    $this->tag_filters = $tag_filters ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registration_status = $registration_status ?? "";
+    $this->tag_filters = $tag_filters ?? [];
   }
 }
 
@@ -2514,8 +2514,8 @@ class ListOnPremisesInstancesOutput {
   ?'instance_names' => InstanceNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->instance_names = $instance_names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2530,7 +2530,7 @@ class ListTagsForResourceInput {
   ?'resource_arn' => Arn,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2543,7 +2543,7 @@ class ListTagsForResourceOutput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2561,9 +2561,9 @@ class LoadBalancerInfo {
   ?'target_group_info_list' => TargetGroupInfoList,
   ?'target_group_pair_info_list' => TargetGroupPairInfoList,
   ) $s = shape()) {
-    $this->elb_info_list = $elb_info_list ?? ;
-    $this->target_group_info_list = $target_group_info_list ?? ;
-    $this->target_group_pair_info_list = $target_group_pair_info_list ?? ;
+    $this->elb_info_list = $elb_info_list ?? [];
+    $this->target_group_info_list = $target_group_info_list ?? [];
+    $this->target_group_pair_info_list = $target_group_pair_info_list ?? [];
   }
 }
 
@@ -2579,8 +2579,8 @@ class MinimumHealthyHosts {
   ?'type' => MinimumHealthyHostsType,
   ?'value' => MinimumHealthyHostsValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -2605,7 +2605,7 @@ class OnPremisesTagSet {
   public function __construct(shape(
   ?'on_premises_tag_set_list' => OnPremisesTagSetList,
   ) $s = shape()) {
-    $this->on_premises_tag_set_list = $on_premises_tag_set_list ?? ;
+    $this->on_premises_tag_set_list = $on_premises_tag_set_list ?? [];
   }
 }
 
@@ -2630,9 +2630,9 @@ class PutLifecycleEventHookExecutionStatusInput {
   ?'lifecycle_event_hook_execution_id' => LifecycleEventHookExecutionId,
   ?'status' => LifecycleEventStatus,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->lifecycle_event_hook_execution_id = $lifecycle_event_hook_execution_id ?? ;
-    $this->status = $status ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->lifecycle_event_hook_execution_id = $lifecycle_event_hook_execution_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2642,7 +2642,7 @@ class PutLifecycleEventHookExecutionStatusOutput {
   public function __construct(shape(
   ?'lifecycle_event_hook_execution_id' => LifecycleEventHookExecutionId,
   ) $s = shape()) {
-    $this->lifecycle_event_hook_execution_id = $lifecycle_event_hook_execution_id ?? ;
+    $this->lifecycle_event_hook_execution_id = $lifecycle_event_hook_execution_id ?? "";
   }
 }
 
@@ -2654,8 +2654,8 @@ class RawString {
   ?'content' => RawStringContent,
   ?'sha_256' => RawStringSha256,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->sha_256 = $sha_256 ?? ;
+    $this->content = $content ?? "";
+    $this->sha_256 = $sha_256 ?? "";
   }
 }
 
@@ -2673,9 +2673,9 @@ class RegisterApplicationRevisionInput {
   ?'description' => Description,
   ?'revision' => RevisionLocation,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->description = $description ?? ;
-    $this->revision = $revision ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->description = $description ?? "";
+    $this->revision = $revision ?? null;
   }
 }
 
@@ -2689,9 +2689,9 @@ class RegisterOnPremisesInstanceInput {
   ?'iam_user_arn' => IamUserArn,
   ?'instance_name' => InstanceName,
   ) $s = shape()) {
-    $this->iam_session_arn = $iam_session_arn ?? ;
-    $this->iam_user_arn = $iam_user_arn ?? ;
-    $this->instance_name = $instance_name ?? ;
+    $this->iam_session_arn = $iam_session_arn ?? "";
+    $this->iam_user_arn = $iam_user_arn ?? "";
+    $this->instance_name = $instance_name ?? "";
   }
 }
 
@@ -2705,8 +2705,8 @@ class RemoveTagsFromOnPremisesInstancesInput {
   ?'instance_names' => InstanceNameList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->instance_names = $instance_names ?? ;
-    $this->tags = $tags ?? ;
+    $this->instance_names = $instance_names ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2741,8 +2741,8 @@ class RevisionInfo {
   ?'generic_revision_info' => GenericRevisionInfo,
   ?'revision_location' => RevisionLocation,
   ) $s = shape()) {
-    $this->generic_revision_info = $generic_revision_info ?? ;
-    $this->revision_location = $revision_location ?? ;
+    $this->generic_revision_info = $generic_revision_info ?? null;
+    $this->revision_location = $revision_location ?? null;
   }
 }
 
@@ -2762,11 +2762,11 @@ class RevisionLocation {
   ?'s_3_location' => S3Location,
   ?'string' => RawString,
   ) $s = shape()) {
-    $this->app_spec_content = $app_spec_content ?? ;
-    $this->git_hub_location = $git_hub_location ?? ;
-    $this->revision_type = $revision_type ?? ;
-    $this->s_3_location = $s_3_location ?? ;
-    $this->string = $string ?? ;
+    $this->app_spec_content = $app_spec_content ?? null;
+    $this->git_hub_location = $git_hub_location ?? null;
+    $this->revision_type = $revision_type ?? "";
+    $this->s_3_location = $s_3_location ?? null;
+    $this->string = $string ?? null;
   }
 }
 
@@ -2800,9 +2800,9 @@ class RollbackInfo {
   ?'rollback_message' => Description,
   ?'rollback_triggering_deployment_id' => DeploymentId,
   ) $s = shape()) {
-    $this->rollback_deployment_id = $rollback_deployment_id ?? ;
-    $this->rollback_message = $rollback_message ?? ;
-    $this->rollback_triggering_deployment_id = $rollback_triggering_deployment_id ?? ;
+    $this->rollback_deployment_id = $rollback_deployment_id ?? "";
+    $this->rollback_message = $rollback_message ?? "";
+    $this->rollback_triggering_deployment_id = $rollback_triggering_deployment_id ?? "";
   }
 }
 
@@ -2824,11 +2824,11 @@ class S3Location {
   ?'key' => S3Key,
   ?'version' => VersionId,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->bundle_type = $bundle_type ?? ;
-    $this->e_tag = $e_tag ?? ;
-    $this->key = $key ?? ;
-    $this->version = $version ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->bundle_type = $bundle_type ?? "";
+    $this->e_tag = $e_tag ?? "";
+    $this->key = $key ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2840,7 +2840,7 @@ class SkipWaitTimeForInstanceTerminationInput {
   public function __construct(shape(
   ?'deployment_id' => DeploymentId,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -2854,8 +2854,8 @@ class StopDeploymentInput {
   ?'auto_rollback_enabled' => NullableBoolean,
   ?'deployment_id' => DeploymentId,
   ) $s = shape()) {
-    $this->auto_rollback_enabled = $auto_rollback_enabled ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->auto_rollback_enabled = $auto_rollback_enabled ?? false;
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -2867,8 +2867,8 @@ class StopDeploymentOutput {
   ?'status' => StopStatus,
   ?'status_message' => Message,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -2898,7 +2898,7 @@ class TagFilter {
   ?'value' => Value,
   ) $s = shape()) {
     $this->key = $key ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -2933,8 +2933,8 @@ class TagResourceInput {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2964,7 +2964,7 @@ class TargetGroupInfo {
   public function __construct(shape(
   ?'name' => TargetGroupName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2982,9 +2982,9 @@ class TargetGroupPairInfo {
   ?'target_groups' => TargetGroupInfoList,
   ?'test_traffic_route' => TrafficRoute,
   ) $s = shape()) {
-    $this->prod_traffic_route = $prod_traffic_route ?? ;
-    $this->target_groups = $target_groups ?? ;
-    $this->test_traffic_route = $test_traffic_route ?? ;
+    $this->prod_traffic_route = $prod_traffic_route ?? null;
+    $this->target_groups = $target_groups ?? [];
+    $this->test_traffic_route = $test_traffic_route ?? null;
   }
 }
 
@@ -3004,9 +3004,9 @@ class TargetInstances {
   ?'ec_2_tag_set' => EC2TagSet,
   ?'tag_filters' => EC2TagFilterList,
   ) $s = shape()) {
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->ec_2_tag_set = $ec_2_tag_set ?? ;
-    $this->tag_filters = $tag_filters ?? ;
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->ec_2_tag_set = $ec_2_tag_set ?? null;
+    $this->tag_filters = $tag_filters ?? [];
   }
 }
 
@@ -3031,8 +3031,8 @@ class TimeBasedCanary {
   ?'canary_interval' => WaitTimeInMins,
   ?'canary_percentage' => Percentage,
   ) $s = shape()) {
-    $this->canary_interval = $canary_interval ?? ;
-    $this->canary_percentage = $canary_percentage ?? ;
+    $this->canary_interval = $canary_interval ?? 0;
+    $this->canary_percentage = $canary_percentage ?? 0;
   }
 }
 
@@ -3044,8 +3044,8 @@ class TimeBasedLinear {
   ?'linear_interval' => WaitTimeInMins,
   ?'linear_percentage' => Percentage,
   ) $s = shape()) {
-    $this->linear_interval = $linear_interval ?? ;
-    $this->linear_percentage = $linear_percentage ?? ;
+    $this->linear_interval = $linear_interval ?? 0;
+    $this->linear_percentage = $linear_percentage ?? 0;
   }
 }
 
@@ -3057,8 +3057,8 @@ class TimeRange {
   ?'end' => Timestamp,
   ?'start' => Timestamp,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? 0;
+    $this->start = $start ?? 0;
   }
 }
 
@@ -3070,7 +3070,7 @@ class TrafficRoute {
   public function __construct(shape(
   ?'listener_arns' => ListenerArnList,
   ) $s = shape()) {
-    $this->listener_arns = $listener_arns ?? ;
+    $this->listener_arns = $listener_arns ?? [];
   }
 }
 
@@ -3084,9 +3084,9 @@ class TrafficRoutingConfig {
   ?'time_based_linear' => TimeBasedLinear,
   ?'type' => TrafficRoutingType,
   ) $s = shape()) {
-    $this->time_based_canary = $time_based_canary ?? ;
-    $this->time_based_linear = $time_based_linear ?? ;
-    $this->type = $type ?? ;
+    $this->time_based_canary = $time_based_canary ?? null;
+    $this->time_based_linear = $time_based_linear ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -3104,9 +3104,9 @@ class TriggerConfig {
   ?'trigger_name' => TriggerName,
   ?'trigger_target_arn' => TriggerTargetArn,
   ) $s = shape()) {
-    $this->trigger_events = $trigger_events ?? ;
-    $this->trigger_name = $trigger_name ?? ;
-    $this->trigger_target_arn = $trigger_target_arn ?? ;
+    $this->trigger_events = $trigger_events ?? [];
+    $this->trigger_name = $trigger_name ?? "";
+    $this->trigger_target_arn = $trigger_target_arn ?? "";
   }
 }
 
@@ -3142,8 +3142,8 @@ class UntagResourceInput {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3162,8 +3162,8 @@ class UpdateApplicationInput {
   ?'application_name' => ApplicationName,
   ?'new_application_name' => ApplicationName,
   ) $s = shape()) {
-    $this->application_name = $application_name ?? ;
-    $this->new_application_name = $new_application_name ?? ;
+    $this->application_name = $application_name ?? "";
+    $this->new_application_name = $new_application_name ?? "";
   }
 }
 
@@ -3205,23 +3205,23 @@ class UpdateDeploymentGroupInput {
   ?'service_role_arn' => Role,
   ?'trigger_configurations' => TriggerConfigList,
   ) $s = shape()) {
-    $this->alarm_configuration = $alarm_configuration ?? ;
-    $this->application_name = $application_name ?? ;
-    $this->auto_rollback_configuration = $auto_rollback_configuration ?? ;
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? ;
-    $this->current_deployment_group_name = $current_deployment_group_name ?? ;
-    $this->deployment_config_name = $deployment_config_name ?? ;
-    $this->deployment_style = $deployment_style ?? ;
-    $this->ec_2_tag_filters = $ec_2_tag_filters ?? ;
-    $this->ec_2_tag_set = $ec_2_tag_set ?? ;
-    $this->ecs_services = $ecs_services ?? ;
-    $this->load_balancer_info = $load_balancer_info ?? ;
-    $this->new_deployment_group_name = $new_deployment_group_name ?? ;
-    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? ;
-    $this->on_premises_tag_set = $on_premises_tag_set ?? ;
-    $this->service_role_arn = $service_role_arn ?? ;
-    $this->trigger_configurations = $trigger_configurations ?? ;
+    $this->alarm_configuration = $alarm_configuration ?? null;
+    $this->application_name = $application_name ?? "";
+    $this->auto_rollback_configuration = $auto_rollback_configuration ?? null;
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->blue_green_deployment_configuration = $blue_green_deployment_configuration ?? null;
+    $this->current_deployment_group_name = $current_deployment_group_name ?? "";
+    $this->deployment_config_name = $deployment_config_name ?? "";
+    $this->deployment_style = $deployment_style ?? null;
+    $this->ec_2_tag_filters = $ec_2_tag_filters ?? [];
+    $this->ec_2_tag_set = $ec_2_tag_set ?? null;
+    $this->ecs_services = $ecs_services ?? [];
+    $this->load_balancer_info = $load_balancer_info ?? null;
+    $this->new_deployment_group_name = $new_deployment_group_name ?? "";
+    $this->on_premises_instance_tag_filters = $on_premises_instance_tag_filters ?? [];
+    $this->on_premises_tag_set = $on_premises_tag_set ?? null;
+    $this->service_role_arn = $service_role_arn ?? "";
+    $this->trigger_configurations = $trigger_configurations ?? [];
   }
 }
 
@@ -3231,7 +3231,7 @@ class UpdateDeploymentGroupOutput {
   public function __construct(shape(
   ?'hooks_not_cleaned_up' => AutoScalingGroupList,
   ) $s = shape()) {
-    $this->hooks_not_cleaned_up = $hooks_not_cleaned_up ?? ;
+    $this->hooks_not_cleaned_up = $hooks_not_cleaned_up ?? [];
   }
 }
 

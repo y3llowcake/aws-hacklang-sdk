@@ -32,7 +32,7 @@ class AddFlowOutputs420Exception {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -44,8 +44,8 @@ class AddFlowOutputsRequest {
   ?'flow_arn' => __string,
   ?'outputs' => __listOfAddOutputRequest,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->outputs = $outputs ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->outputs = $outputs ?? [];
   }
 }
 
@@ -57,8 +57,8 @@ class AddFlowOutputsResponse {
   ?'flow_arn' => __string,
   ?'outputs' => __listOfOutput,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->outputs = $outputs ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->outputs = $outputs ?? [];
   }
 }
 
@@ -70,8 +70,8 @@ class AddFlowSourcesRequest {
   ?'flow_arn' => __string,
   ?'sources' => __listOfSetSourceRequest,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->sources = $sources ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->sources = $sources ?? [];
   }
 }
 
@@ -83,8 +83,8 @@ class AddFlowSourcesResponse {
   ?'flow_arn' => __string,
   ?'sources' => __listOfSource,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->sources = $sources ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->sources = $sources ?? [];
   }
 }
 
@@ -96,8 +96,8 @@ class AddFlowVpcInterfacesRequest {
   ?'flow_arn' => __string,
   ?'vpc_interfaces' => __listOfVpcInterfaceRequest,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->vpc_interfaces = $vpc_interfaces ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->vpc_interfaces = $vpc_interfaces ?? [];
   }
 }
 
@@ -109,8 +109,8 @@ class AddFlowVpcInterfacesResponse {
   ?'flow_arn' => __string,
   ?'vpc_interfaces' => __listOfVpcInterface,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->vpc_interfaces = $vpc_interfaces ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->vpc_interfaces = $vpc_interfaces ?? [];
   }
 }
 
@@ -142,17 +142,17 @@ class AddOutputRequest {
   ?'stream_id' => __string,
   ?'vpc_interface_attachment' => VpcInterfaceAttachment,
   ) $s = shape()) {
-    $this->cidr_allow_list = $cidr_allow_list ?? ;
-    $this->description = $description ?? ;
-    $this->destination = $destination ?? ;
+    $this->cidr_allow_list = $cidr_allow_list ?? [];
+    $this->description = $description ?? "";
+    $this->destination = $destination ?? "";
     $this->encryption = $encryption ?? null;
-    $this->max_latency = $max_latency ?? ;
-    $this->name = $name ?? ;
-    $this->port = $port ?? ;
+    $this->max_latency = $max_latency ?? 0;
+    $this->name = $name ?? "";
+    $this->port = $port ?? 0;
     $this->protocol = $protocol ?? "";
-    $this->remote_id = $remote_id ?? ;
-    $this->smoothing_latency = $smoothing_latency ?? ;
-    $this->stream_id = $stream_id ?? ;
+    $this->remote_id = $remote_id ?? "";
+    $this->smoothing_latency = $smoothing_latency ?? 0;
+    $this->stream_id = $stream_id ?? "";
     $this->vpc_interface_attachment = $vpc_interface_attachment ?? null;
   }
 }
@@ -165,7 +165,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -175,7 +175,7 @@ class CreateFlow420Exception {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -199,14 +199,14 @@ class CreateFlowRequest {
   ?'sources' => __listOfSetSourceRequest,
   ?'vpc_interfaces' => __listOfVpcInterfaceRequest,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->entitlements = $entitlements ?? ;
-    $this->name = $name ?? ;
-    $this->outputs = $outputs ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->entitlements = $entitlements ?? [];
+    $this->name = $name ?? "";
+    $this->outputs = $outputs ?? [];
     $this->source = $source ?? null;
-    $this->source_failover_config = $source_failover_config ?? ;
-    $this->sources = $sources ?? ;
-    $this->vpc_interfaces = $vpc_interfaces ?? ;
+    $this->source_failover_config = $source_failover_config ?? null;
+    $this->sources = $sources ?? [];
+    $this->vpc_interfaces = $vpc_interfaces ?? [];
   }
 }
 
@@ -226,7 +226,7 @@ class DeleteFlowRequest {
   public function __construct(shape(
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -238,7 +238,7 @@ class DeleteFlowResponse {
   ?'flow_arn' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -249,7 +249,7 @@ class DescribeFlowRequest {
   public function __construct(shape(
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -289,14 +289,14 @@ class Encryption {
   ?'url' => __string,
   ) $s = shape()) {
     $this->algorithm = $algorithm ?? "";
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
-    $this->device_id = $device_id ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
+    $this->device_id = $device_id ?? "";
     $this->key_type = $key_type ?? "";
-    $this->region = $region ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->url = $url ?? ;
+    $this->region = $region ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -316,12 +316,12 @@ class Entitlement {
   ?'name' => __string,
   ?'subscribers' => __listOf__string,
   ) $s = shape()) {
-    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? ;
-    $this->description = $description ?? ;
+    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? 0;
+    $this->description = $description ?? "";
     $this->encryption = $encryption ?? null;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->name = $name ?? ;
-    $this->subscribers = $subscribers ?? ;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->name = $name ?? "";
+    $this->subscribers = $subscribers ?? [];
   }
 }
 
@@ -333,7 +333,7 @@ class FailoverConfig {
   ?'recovery_window' => __integer,
   ?'state' => State,
   ) $s = shape()) {
-    $this->recovery_window = $recovery_window ?? ;
+    $this->recovery_window = $recovery_window ?? 0;
     $this->state = $state ?? "";
   }
 }
@@ -366,18 +366,18 @@ class Flow {
   ?'status' => Status,
   ?'vpc_interfaces' => __listOfVpcInterface,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->description = $description ?? ;
-    $this->egress_ip = $egress_ip ?? ;
-    $this->entitlements = $entitlements ?? ;
-    $this->flow_arn = $flow_arn ?? ;
-    $this->name = $name ?? ;
-    $this->outputs = $outputs ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->description = $description ?? "";
+    $this->egress_ip = $egress_ip ?? "";
+    $this->entitlements = $entitlements ?? [];
+    $this->flow_arn = $flow_arn ?? "";
+    $this->name = $name ?? "";
+    $this->outputs = $outputs ?? [];
     $this->source = $source ?? null;
-    $this->source_failover_config = $source_failover_config ?? ;
-    $this->sources = $sources ?? ;
+    $this->source_failover_config = $source_failover_config ?? null;
+    $this->sources = $sources ?? [];
     $this->status = $status ?? "";
-    $this->vpc_interfaces = $vpc_interfaces ?? ;
+    $this->vpc_interfaces = $vpc_interfaces ?? [];
   }
 }
 
@@ -387,7 +387,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -405,11 +405,11 @@ class GrantEntitlementRequest {
   ?'name' => __string,
   ?'subscribers' => __listOf__string,
   ) $s = shape()) {
-    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? ;
-    $this->description = $description ?? ;
+    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? 0;
+    $this->description = $description ?? "";
     $this->encryption = $encryption ?? null;
-    $this->name = $name ?? ;
-    $this->subscribers = $subscribers ?? ;
+    $this->name = $name ?? "";
+    $this->subscribers = $subscribers ?? [];
   }
 }
 
@@ -419,7 +419,7 @@ class GrantFlowEntitlements420Exception {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -431,8 +431,8 @@ class GrantFlowEntitlementsRequest {
   ?'entitlements' => __listOfGrantEntitlementRequest,
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->entitlements = $entitlements ?? ;
-    $this->flow_arn = $flow_arn ?? ;
+    $this->entitlements = $entitlements ?? [];
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -444,8 +444,8 @@ class GrantFlowEntitlementsResponse {
   ?'entitlements' => __listOfEntitlement,
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->entitlements = $entitlements ?? ;
-    $this->flow_arn = $flow_arn ?? ;
+    $this->entitlements = $entitlements ?? [];
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -455,7 +455,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -470,7 +470,7 @@ class ListEntitlementsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -482,8 +482,8 @@ class ListEntitlementsResponse {
   ?'entitlements' => __listOfListedEntitlement,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->entitlements = $entitlements ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->entitlements = $entitlements ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -496,7 +496,7 @@ class ListFlowsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -508,8 +508,8 @@ class ListFlowsResponse {
   ?'flows' => __listOfListedFlow,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->flows = $flows ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->flows = $flows ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -519,7 +519,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -529,7 +529,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -543,9 +543,9 @@ class ListedEntitlement {
   ?'entitlement_arn' => __string,
   ?'entitlement_name' => __string,
   ) $s = shape()) {
-    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? ;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->entitlement_name = $entitlement_name ?? ;
+    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? 0;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->entitlement_name = $entitlement_name ?? "";
   }
 }
 
@@ -565,10 +565,10 @@ class ListedFlow {
   ?'source_type' => SourceType,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->description = $description ?? ;
-    $this->flow_arn = $flow_arn ?? ;
-    $this->name = $name ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->description = $description ?? "";
+    $this->flow_arn = $flow_arn ?? "";
+    $this->name = $name ?? "";
     $this->source_type = $source_type ?? "";
     $this->status = $status ?? "";
   }
@@ -582,7 +582,7 @@ class Messages {
   public function __construct(shape(
   ?'errors' => __listOf__string,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -592,7 +592,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -622,15 +622,15 @@ class Output {
   ?'transport' => Transport,
   ?'vpc_interface_attachment' => VpcInterfaceAttachment,
   ) $s = shape()) {
-    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? ;
-    $this->description = $description ?? ;
-    $this->destination = $destination ?? ;
+    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? 0;
+    $this->description = $description ?? "";
+    $this->destination = $destination ?? "";
     $this->encryption = $encryption ?? null;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->media_live_input_arn = $media_live_input_arn ?? ;
-    $this->name = $name ?? ;
-    $this->output_arn = $output_arn ?? ;
-    $this->port = $port ?? ;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->media_live_input_arn = $media_live_input_arn ?? "";
+    $this->name = $name ?? "";
+    $this->output_arn = $output_arn ?? "";
+    $this->port = $port ?? 0;
     $this->transport = $transport ?? null;
     $this->vpc_interface_attachment = $vpc_interface_attachment ?? null;
   }
@@ -646,8 +646,8 @@ class RemoveFlowOutputRequest {
   ?'flow_arn' => __string,
   ?'output_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->output_arn = $output_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->output_arn = $output_arn ?? "";
   }
 }
 
@@ -659,8 +659,8 @@ class RemoveFlowOutputResponse {
   ?'flow_arn' => __string,
   ?'output_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->output_arn = $output_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->output_arn = $output_arn ?? "";
   }
 }
 
@@ -672,8 +672,8 @@ class RemoveFlowSourceRequest {
   ?'flow_arn' => __string,
   ?'source_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->source_arn = $source_arn ?? "";
   }
 }
 
@@ -685,8 +685,8 @@ class RemoveFlowSourceResponse {
   ?'flow_arn' => __string,
   ?'source_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->source_arn = $source_arn ?? "";
   }
 }
 
@@ -698,8 +698,8 @@ class RemoveFlowVpcInterfaceRequest {
   ?'flow_arn' => __string,
   ?'vpc_interface_name' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
   }
 }
 
@@ -713,9 +713,9 @@ class RemoveFlowVpcInterfaceResponse {
   ?'non_deleted_network_interface_ids' => __listOf__string,
   ?'vpc_interface_name' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->non_deleted_network_interface_ids = $non_deleted_network_interface_ids ?? ;
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->non_deleted_network_interface_ids = $non_deleted_network_interface_ids ?? [];
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
   }
 }
 
@@ -725,7 +725,7 @@ class ResponseError {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -737,8 +737,8 @@ class RevokeFlowEntitlementRequest {
   ?'entitlement_arn' => __string,
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->flow_arn = $flow_arn ?? ;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -750,8 +750,8 @@ class RevokeFlowEntitlementResponse {
   ?'entitlement_arn' => __string,
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->flow_arn = $flow_arn ?? ;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -761,7 +761,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -791,17 +791,17 @@ class SetSourceRequest {
   ?'vpc_interface_name' => __string,
   ?'whitelist_cidr' => __string,
   ) $s = shape()) {
-    $this->decryption = $decryption ?? ;
-    $this->description = $description ?? ;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->ingest_port = $ingest_port ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->max_latency = $max_latency ?? ;
-    $this->name = $name ?? ;
+    $this->decryption = $decryption ?? null;
+    $this->description = $description ?? "";
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->ingest_port = $ingest_port ?? 0;
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->max_latency = $max_latency ?? 0;
+    $this->name = $name ?? "";
     $this->protocol = $protocol ?? "";
-    $this->stream_id = $stream_id ?? ;
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
-    $this->whitelist_cidr = $whitelist_cidr ?? ;
+    $this->stream_id = $stream_id ?? "";
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
+    $this->whitelist_cidr = $whitelist_cidr ?? "";
   }
 }
 
@@ -831,17 +831,17 @@ class Source {
   ?'vpc_interface_name' => __string,
   ?'whitelist_cidr' => __string,
   ) $s = shape()) {
-    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? ;
-    $this->decryption = $decryption ?? ;
-    $this->description = $description ?? ;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->ingest_ip = $ingest_ip ?? ;
-    $this->ingest_port = $ingest_port ?? ;
-    $this->name = $name ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->data_transfer_subscriber_fee_percent = $data_transfer_subscriber_fee_percent ?? 0;
+    $this->decryption = $decryption ?? null;
+    $this->description = $description ?? "";
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->ingest_ip = $ingest_ip ?? "";
+    $this->ingest_port = $ingest_port ?? 0;
+    $this->name = $name ?? "";
+    $this->source_arn = $source_arn ?? "";
     $this->transport = $transport ?? null;
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
-    $this->whitelist_cidr = $whitelist_cidr ?? ;
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
+    $this->whitelist_cidr = $whitelist_cidr ?? "";
   }
 }
 
@@ -853,7 +853,7 @@ class StartFlowRequest {
   public function __construct(shape(
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -865,7 +865,7 @@ class StartFlowResponse {
   ?'flow_arn' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -880,7 +880,7 @@ class StopFlowRequest {
   public function __construct(shape(
   ?'flow_arn' => __string,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -892,7 +892,7 @@ class StopFlowResponse {
   ?'flow_arn' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -905,8 +905,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -916,7 +916,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -938,13 +938,13 @@ class Transport {
   ?'smoothing_latency' => __integer,
   ?'stream_id' => __string,
   ) $s = shape()) {
-    $this->cidr_allow_list = $cidr_allow_list ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->max_latency = $max_latency ?? ;
+    $this->cidr_allow_list = $cidr_allow_list ?? [];
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->max_latency = $max_latency ?? 0;
     $this->protocol = $protocol ?? "";
-    $this->remote_id = $remote_id ?? ;
-    $this->smoothing_latency = $smoothing_latency ?? ;
-    $this->stream_id = $stream_id ?? ;
+    $this->remote_id = $remote_id ?? "";
+    $this->smoothing_latency = $smoothing_latency ?? 0;
+    $this->stream_id = $stream_id ?? "";
   }
 }
 
@@ -956,8 +956,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -984,14 +984,14 @@ class UpdateEncryption {
   ?'url' => __string,
   ) $s = shape()) {
     $this->algorithm = $algorithm ?? "";
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
-    $this->device_id = $device_id ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
+    $this->device_id = $device_id ?? "";
     $this->key_type = $key_type ?? "";
-    $this->region = $region ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->url = $url ?? ;
+    $this->region = $region ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -1003,7 +1003,7 @@ class UpdateFailoverConfig {
   ?'recovery_window' => __integer,
   ?'state' => State,
   ) $s = shape()) {
-    $this->recovery_window = $recovery_window ?? ;
+    $this->recovery_window = $recovery_window ?? 0;
     $this->state = $state ?? "";
   }
 }
@@ -1022,11 +1022,11 @@ class UpdateFlowEntitlementRequest {
   ?'flow_arn' => __string,
   ?'subscribers' => __listOf__string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->encryption = $encryption ?? null;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->flow_arn = $flow_arn ?? ;
-    $this->subscribers = $subscribers ?? ;
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->flow_arn = $flow_arn ?? "";
+    $this->subscribers = $subscribers ?? [];
   }
 }
 
@@ -1039,7 +1039,7 @@ class UpdateFlowEntitlementResponse {
   ?'flow_arn' => __string,
   ) $s = shape()) {
     $this->entitlement = $entitlement ?? null;
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
   }
 }
 
@@ -1073,18 +1073,18 @@ class UpdateFlowOutputRequest {
   ?'stream_id' => __string,
   ?'vpc_interface_attachment' => VpcInterfaceAttachment,
   ) $s = shape()) {
-    $this->cidr_allow_list = $cidr_allow_list ?? ;
-    $this->description = $description ?? ;
-    $this->destination = $destination ?? ;
+    $this->cidr_allow_list = $cidr_allow_list ?? [];
+    $this->description = $description ?? "";
+    $this->destination = $destination ?? "";
     $this->encryption = $encryption ?? null;
-    $this->flow_arn = $flow_arn ?? ;
-    $this->max_latency = $max_latency ?? ;
-    $this->output_arn = $output_arn ?? ;
-    $this->port = $port ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->max_latency = $max_latency ?? 0;
+    $this->output_arn = $output_arn ?? "";
+    $this->port = $port ?? 0;
     $this->protocol = $protocol ?? "";
-    $this->remote_id = $remote_id ?? ;
-    $this->smoothing_latency = $smoothing_latency ?? ;
-    $this->stream_id = $stream_id ?? ;
+    $this->remote_id = $remote_id ?? "";
+    $this->smoothing_latency = $smoothing_latency ?? 0;
+    $this->stream_id = $stream_id ?? "";
     $this->vpc_interface_attachment = $vpc_interface_attachment ?? null;
   }
 }
@@ -1097,7 +1097,7 @@ class UpdateFlowOutputResponse {
   ?'flow_arn' => __string,
   ?'output' => Output,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
     $this->output = $output ?? null;
   }
 }
@@ -1110,8 +1110,8 @@ class UpdateFlowRequest {
   ?'flow_arn' => __string,
   ?'source_failover_config' => UpdateFailoverConfig,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
-    $this->source_failover_config = $source_failover_config ?? ;
+    $this->flow_arn = $flow_arn ?? "";
+    $this->source_failover_config = $source_failover_config ?? null;
   }
 }
 
@@ -1153,18 +1153,18 @@ class UpdateFlowSourceRequest {
   ?'vpc_interface_name' => __string,
   ?'whitelist_cidr' => __string,
   ) $s = shape()) {
-    $this->decryption = $decryption ?? ;
-    $this->description = $description ?? ;
-    $this->entitlement_arn = $entitlement_arn ?? ;
-    $this->flow_arn = $flow_arn ?? ;
-    $this->ingest_port = $ingest_port ?? ;
-    $this->max_bitrate = $max_bitrate ?? ;
-    $this->max_latency = $max_latency ?? ;
+    $this->decryption = $decryption ?? null;
+    $this->description = $description ?? "";
+    $this->entitlement_arn = $entitlement_arn ?? "";
+    $this->flow_arn = $flow_arn ?? "";
+    $this->ingest_port = $ingest_port ?? 0;
+    $this->max_bitrate = $max_bitrate ?? 0;
+    $this->max_latency = $max_latency ?? 0;
     $this->protocol = $protocol ?? "";
-    $this->source_arn = $source_arn ?? ;
-    $this->stream_id = $stream_id ?? ;
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
-    $this->whitelist_cidr = $whitelist_cidr ?? ;
+    $this->source_arn = $source_arn ?? "";
+    $this->stream_id = $stream_id ?? "";
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
+    $this->whitelist_cidr = $whitelist_cidr ?? "";
   }
 }
 
@@ -1176,7 +1176,7 @@ class UpdateFlowSourceResponse {
   ?'flow_arn' => __string,
   ?'source' => Source,
   ) $s = shape()) {
-    $this->flow_arn = $flow_arn ?? ;
+    $this->flow_arn = $flow_arn ?? "";
     $this->source = $source ?? null;
   }
 }
@@ -1195,11 +1195,11 @@ class VpcInterface {
   ?'security_group_ids' => __listOf__string,
   ?'subnet_id' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->network_interface_ids = $network_interface_ids ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_id = $subnet_id ?? ;
+    $this->name = $name ?? "";
+    $this->network_interface_ids = $network_interface_ids ?? [];
+    $this->role_arn = $role_arn ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_id = $subnet_id ?? "";
   }
 }
 
@@ -1209,7 +1209,7 @@ class VpcInterfaceAttachment {
   public function __construct(shape(
   ?'vpc_interface_name' => __string,
   ) $s = shape()) {
-    $this->vpc_interface_name = $vpc_interface_name ?? ;
+    $this->vpc_interface_name = $vpc_interface_name ?? "";
   }
 }
 
@@ -1225,10 +1225,10 @@ class VpcInterfaceRequest {
   ?'security_group_ids' => __listOf__string,
   ?'subnet_id' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_id = $subnet_id ?? ;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_id = $subnet_id ?? "";
   }
 }
 

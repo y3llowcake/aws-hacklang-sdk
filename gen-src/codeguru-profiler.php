@@ -26,8 +26,8 @@ class AgentConfiguration {
   ?'period_in_seconds' => int,
   ?'should_profile' => boolean,
   ) $s = shape()) {
-    $this->period_in_seconds = $period_in_seconds ?? ;
-    $this->should_profile = $should_profile ?? ;
+    $this->period_in_seconds = $period_in_seconds ?? 0;
+    $this->should_profile = $should_profile ?? false;
   }
 }
 
@@ -37,7 +37,7 @@ class AgentOrchestrationConfig {
   public function __construct(shape(
   ?'profiling_enabled' => boolean,
   ) $s = shape()) {
-    $this->profiling_enabled = $profiling_enabled ?? ;
+    $this->profiling_enabled = $profiling_enabled ?? false;
   }
 }
 
@@ -53,8 +53,8 @@ class AggregatedProfileTime {
   ?'period' => AggregationPeriod,
   ?'start' => Timestamp,
   ) $s = shape()) {
-    $this->period = $period ?? ;
-    $this->start = $start ?? ;
+    $this->period = $period ?? "";
+    $this->start = $start ?? 0;
   }
 }
 
@@ -72,8 +72,8 @@ class ConfigureAgentRequest {
   ?'fleet_instance_id' => FleetInstanceId,
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->fleet_instance_id = $fleet_instance_id ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->fleet_instance_id = $fleet_instance_id ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -83,7 +83,7 @@ class ConfigureAgentResponse {
   public function __construct(shape(
   ?'configuration' => AgentConfiguration,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
   }
 }
 
@@ -93,7 +93,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -107,9 +107,9 @@ class CreateProfilingGroupRequest {
   ?'client_token' => ClientToken,
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->agent_orchestration_config = $agent_orchestration_config ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->agent_orchestration_config = $agent_orchestration_config ?? null;
+    $this->client_token = $client_token ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -119,7 +119,7 @@ class CreateProfilingGroupResponse {
   public function __construct(shape(
   ?'profiling_group' => ProfilingGroupDescription,
   ) $s = shape()) {
-    $this->profiling_group = $profiling_group ?? ;
+    $this->profiling_group = $profiling_group ?? null;
   }
 }
 
@@ -129,7 +129,7 @@ class DeleteProfilingGroupRequest {
   public function __construct(shape(
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -146,7 +146,7 @@ class DescribeProfilingGroupRequest {
   public function __construct(shape(
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -156,7 +156,7 @@ class DescribeProfilingGroupResponse {
   public function __construct(shape(
   ?'profiling_group' => ProfilingGroupDescription,
   ) $s = shape()) {
-    $this->profiling_group = $profiling_group ?? ;
+    $this->profiling_group = $profiling_group ?? null;
   }
 }
 
@@ -168,7 +168,7 @@ class GetPolicyRequest {
   public function __construct(shape(
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -180,8 +180,8 @@ class GetPolicyResponse {
   ?'policy' => string,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -201,12 +201,12 @@ class GetProfileRequest {
   ?'profiling_group_name' => ProfilingGroupName,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->accept = $accept ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_depth = $max_depth ?? ;
-    $this->period = $period ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->accept = $accept ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->max_depth = $max_depth ?? 0;
+    $this->period = $period ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -220,9 +220,9 @@ class GetProfileResponse {
   ?'content_type' => string,
   ?'profile' => AggregatedProfile,
   ) $s = shape()) {
-    $this->content_encoding = $content_encoding ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->profile = $profile ?? ;
+    $this->content_encoding = $content_encoding ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->profile = $profile ?? "";
   }
 }
 
@@ -234,7 +234,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -256,13 +256,13 @@ class ListProfileTimesRequest {
   ?'profiling_group_name' => ProfilingGroupName,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->order_by = $order_by ?? ;
-    $this->period = $period ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->order_by = $order_by ?? "";
+    $this->period = $period ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -274,8 +274,8 @@ class ListProfileTimesResponse {
   ?'next_token' => PaginationToken,
   ?'profile_times' => ProfileTimes,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->profile_times = $profile_times ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->profile_times = $profile_times ?? [];
   }
 }
 
@@ -289,9 +289,9 @@ class ListProfilingGroupsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->include_description = $include_description ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->include_description = $include_description ?? false;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -305,9 +305,9 @@ class ListProfilingGroupsResponse {
   ?'profiling_group_names' => ProfilingGroupNames,
   ?'profiling_groups' => ProfilingGroupDescriptions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->profiling_group_names = $profiling_group_names ?? ;
-    $this->profiling_groups = $profiling_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->profiling_group_names = $profiling_group_names ?? [];
+    $this->profiling_groups = $profiling_groups ?? [];
   }
 }
 
@@ -333,10 +333,10 @@ class PostAgentProfileRequest {
   ?'profile_token' => ClientToken,
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->agent_profile = $agent_profile ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->profile_token = $profile_token ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->agent_profile = $agent_profile ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->profile_token = $profile_token ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -357,7 +357,7 @@ class ProfileTime {
   public function __construct(shape(
   ?'start' => Timestamp,
   ) $s = shape()) {
-    $this->start = $start ?? ;
+    $this->start = $start ?? 0;
   }
 }
 
@@ -381,12 +381,12 @@ class ProfilingGroupDescription {
   ?'profiling_status' => ProfilingStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->agent_orchestration_config = $agent_orchestration_config ?? ;
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->name = $name ?? ;
-    $this->profiling_status = $profiling_status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->agent_orchestration_config = $agent_orchestration_config ?? null;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->name = $name ?? "";
+    $this->profiling_status = $profiling_status ?? null;
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -406,9 +406,9 @@ class ProfilingStatus {
   ?'latest_agent_profile_reported_at' => Timestamp,
   ?'latest_aggregated_profile' => AggregatedProfileTime,
   ) $s = shape()) {
-    $this->latest_agent_orchestrated_at = $latest_agent_orchestrated_at ?? ;
-    $this->latest_agent_profile_reported_at = $latest_agent_profile_reported_at ?? ;
-    $this->latest_aggregated_profile = $latest_aggregated_profile ?? ;
+    $this->latest_agent_orchestrated_at = $latest_agent_orchestrated_at ?? 0;
+    $this->latest_agent_profile_reported_at = $latest_agent_profile_reported_at ?? 0;
+    $this->latest_aggregated_profile = $latest_aggregated_profile ?? null;
   }
 }
 
@@ -424,10 +424,10 @@ class PutPermissionRequest {
   ?'profiling_group_name' => ProfilingGroupName,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->action_group = $action_group ?? ;
-    $this->principals = $principals ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->action_group = $action_group ?? "";
+    $this->principals = $principals ?? [];
+    $this->profiling_group_name = $profiling_group_name ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -439,8 +439,8 @@ class PutPermissionResponse {
   ?'policy' => string,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -454,9 +454,9 @@ class RemovePermissionRequest {
   ?'profiling_group_name' => ProfilingGroupName,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->action_group = $action_group ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->action_group = $action_group ?? "";
+    $this->profiling_group_name = $profiling_group_name ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -468,8 +468,8 @@ class RemovePermissionResponse {
   ?'policy' => string,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -479,7 +479,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -491,7 +491,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -503,7 +503,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -517,8 +517,8 @@ class UpdateProfilingGroupRequest {
   ?'agent_orchestration_config' => AgentOrchestrationConfig,
   ?'profiling_group_name' => ProfilingGroupName,
   ) $s = shape()) {
-    $this->agent_orchestration_config = $agent_orchestration_config ?? ;
-    $this->profiling_group_name = $profiling_group_name ?? ;
+    $this->agent_orchestration_config = $agent_orchestration_config ?? null;
+    $this->profiling_group_name = $profiling_group_name ?? "";
   }
 }
 
@@ -528,7 +528,7 @@ class UpdateProfilingGroupResponse {
   public function __construct(shape(
   ?'profiling_group' => ProfilingGroupDescription,
   ) $s = shape()) {
-    $this->profiling_group = $profiling_group ?? ;
+    $this->profiling_group = $profiling_group ?? null;
   }
 }
 
@@ -538,7 +538,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

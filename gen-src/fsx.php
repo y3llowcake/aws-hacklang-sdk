@@ -28,8 +28,8 @@ class ActiveDirectoryBackupAttributes {
   ?'active_directory_id' => DirectoryId,
   ?'domain_name' => ActiveDirectoryFullyQualifiedName,
   ) $s = shape()) {
-    $this->active_directory_id = $active_directory_id ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->active_directory_id = $active_directory_id ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -43,9 +43,9 @@ class ActiveDirectoryError {
   ?'message' => ErrorMessage,
   ?'type' => ActiveDirectoryErrorType,
   ) $s = shape()) {
-    $this->active_directory_id = $active_directory_id ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->active_directory_id = $active_directory_id ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -85,15 +85,15 @@ class Backup {
   ) $s = shape()) {
     $this->backup_id = $backup_id ?? "";
     $this->creation_time = $creation_time ?? 0;
-    $this->directory_information = $directory_information ?? ;
-    $this->failure_details = $failure_details ?? ;
+    $this->directory_information = $directory_information ?? null;
+    $this->failure_details = $failure_details ?? null;
     $this->file_system = $file_system ?? null;
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->lifecycle = $lifecycle ?? ;
+    $this->lifecycle = $lifecycle ?? "";
     $this->progress_percent = $progress_percent ?? 0;
     $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -103,7 +103,7 @@ class BackupFailureDetails {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -117,7 +117,7 @@ class BackupInProgress {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -129,7 +129,7 @@ class BackupNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -142,7 +142,7 @@ class BackupRestoring {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->file_system_id = $file_system_id ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -156,7 +156,7 @@ class BadRequest {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -178,7 +178,7 @@ class CancelDataRepositoryTaskResponse {
   ?'lifecycle' => DataRepositoryTaskLifecycle,
   ?'task_id' => TaskId,
   ) $s = shape()) {
-    $this->lifecycle = $lifecycle ?? ;
+    $this->lifecycle = $lifecycle ?? "";
     $this->task_id = $task_id ?? "";
   }
 }
@@ -197,10 +197,10 @@ class CompletionReport {
   ?'path' => ArchivePath,
   ?'scope' => ReportScope,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->format = $format ?? ;
-    $this->path = $path ?? ;
-    $this->scope = $scope ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->format = $format ?? "";
+    $this->path = $path ?? "";
+    $this->scope = $scope ?? "";
   }
 }
 
@@ -248,10 +248,10 @@ class CreateDataRepositoryTaskRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->file_system_id = $file_system_id ?? "";
-    $this->paths = $paths ?? ;
-    $this->report = $report ?? ;
+    $this->paths = $paths ?? [];
+    $this->report = $report ?? null;
     $this->tags = $tags ?? [];
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -289,7 +289,7 @@ class CreateFileSystemFromBackupRequest {
     $this->storage_type = $storage_type ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->windows_configuration = $windows_configuration ?? ;
+    $this->windows_configuration = $windows_configuration ?? null;
   }
 }
 
@@ -319,12 +319,12 @@ class CreateFileSystemLustreConfiguration {
   ?'per_unit_storage_throughput' => PerUnitStorageThroughput,
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
-    $this->deployment_type = $deployment_type ?? ;
-    $this->export_path = $export_path ?? ;
-    $this->import_path = $import_path ?? ;
-    $this->imported_file_chunk_size = $imported_file_chunk_size ?? ;
+    $this->deployment_type = $deployment_type ?? "";
+    $this->export_path = $export_path ?? "";
+    $this->import_path = $import_path ?? "";
+    $this->imported_file_chunk_size = $imported_file_chunk_size ?? 0;
     $this->per_unit_storage_throughput = $per_unit_storage_throughput ?? 0;
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 
@@ -355,13 +355,13 @@ class CreateFileSystemRequest {
     $this->client_request_token = $client_request_token ?? "";
     $this->file_system_type = $file_system_type ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->lustre_configuration = $lustre_configuration ?? ;
+    $this->lustre_configuration = $lustre_configuration ?? null;
     $this->security_group_ids = $security_group_ids ?? [];
     $this->storage_capacity = $storage_capacity ?? 0;
     $this->storage_type = $storage_type ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
-    $this->windows_configuration = $windows_configuration ?? ;
+    $this->windows_configuration = $windows_configuration ?? null;
   }
 }
 
@@ -397,15 +397,15 @@ class CreateFileSystemWindowsConfiguration {
   ?'throughput_capacity' => MegabytesPerSecond,
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
-    $this->active_directory_id = $active_directory_id ?? ;
+    $this->active_directory_id = $active_directory_id ?? "";
     $this->automatic_backup_retention_days = $automatic_backup_retention_days ?? 0;
-    $this->copy_tags_to_backups = $copy_tags_to_backups ?? ;
-    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? ;
-    $this->deployment_type = $deployment_type ?? ;
-    $this->preferred_subnet_id = $preferred_subnet_id ?? ;
+    $this->copy_tags_to_backups = $copy_tags_to_backups ?? false;
+    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? "";
+    $this->deployment_type = $deployment_type ?? "";
+    $this->preferred_subnet_id = $preferred_subnet_id ?? "";
     $this->self_managed_active_directory_configuration = $self_managed_active_directory_configuration ?? null;
-    $this->throughput_capacity = $throughput_capacity ?? ;
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->throughput_capacity = $throughput_capacity ?? 0;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 
@@ -425,9 +425,9 @@ class DataRepositoryConfiguration {
   ?'import_path' => ArchivePath,
   ?'imported_file_chunk_size' => Megabytes,
   ) $s = shape()) {
-    $this->export_path = $export_path ?? ;
-    $this->import_path = $import_path ?? ;
-    $this->imported_file_chunk_size = $imported_file_chunk_size ?? ;
+    $this->export_path = $export_path ?? "";
+    $this->import_path = $import_path ?? "";
+    $this->imported_file_chunk_size = $imported_file_chunk_size ?? 0;
   }
 }
 
@@ -463,17 +463,17 @@ class DataRepositoryTask {
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
     $this->end_time = $end_time ?? 0;
-    $this->failure_details = $failure_details ?? ;
+    $this->failure_details = $failure_details ?? null;
     $this->file_system_id = $file_system_id ?? "";
-    $this->lifecycle = $lifecycle ?? ;
-    $this->paths = $paths ?? ;
-    $this->report = $report ?? ;
+    $this->lifecycle = $lifecycle ?? "";
+    $this->paths = $paths ?? [];
+    $this->report = $report ?? null;
     $this->resource_arn = $resource_arn ?? "";
     $this->start_time = $start_time ?? 0;
-    $this->status = $status ?? ;
+    $this->status = $status ?? null;
     $this->tags = $tags ?? [];
     $this->task_id = $task_id ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -483,7 +483,7 @@ class DataRepositoryTaskEnded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -493,7 +493,7 @@ class DataRepositoryTaskExecuting {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -503,7 +503,7 @@ class DataRepositoryTaskFailureDetails {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -515,8 +515,8 @@ class DataRepositoryTaskFilter {
   ?'name' => DataRepositoryTaskFilterName,
   ?'values' => DataRepositoryTaskFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -536,7 +536,7 @@ class DataRepositoryTaskNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -589,7 +589,7 @@ class DeleteBackupResponse {
   ?'lifecycle' => BackupLifecycle,
   ) $s = shape()) {
     $this->backup_id = $backup_id ?? "";
-    $this->lifecycle = $lifecycle ?? ;
+    $this->lifecycle = $lifecycle ?? "";
   }
 }
 
@@ -605,7 +605,7 @@ class DeleteFileSystemRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->file_system_id = $file_system_id ?? "";
-    $this->windows_configuration = $windows_configuration ?? ;
+    $this->windows_configuration = $windows_configuration ?? null;
   }
 }
 
@@ -620,8 +620,8 @@ class DeleteFileSystemResponse {
   ?'windows_response' => DeleteFileSystemWindowsResponse,
   ) $s = shape()) {
     $this->file_system_id = $file_system_id ?? "";
-    $this->lifecycle = $lifecycle ?? ;
-    $this->windows_response = $windows_response ?? ;
+    $this->lifecycle = $lifecycle ?? "";
+    $this->windows_response = $windows_response ?? null;
   }
 }
 
@@ -633,8 +633,8 @@ class DeleteFileSystemWindowsConfiguration {
   ?'final_backup_tags' => Tags,
   ?'skip_final_backup' => Flag,
   ) $s = shape()) {
-    $this->final_backup_tags = $final_backup_tags ?? ;
-    $this->skip_final_backup = $skip_final_backup ?? ;
+    $this->final_backup_tags = $final_backup_tags ?? [];
+    $this->skip_final_backup = $skip_final_backup ?? false;
   }
 }
 
@@ -646,8 +646,8 @@ class DeleteFileSystemWindowsResponse {
   ?'final_backup_id' => BackupId,
   ?'final_backup_tags' => Tags,
   ) $s = shape()) {
-    $this->final_backup_id = $final_backup_id ?? ;
-    $this->final_backup_tags = $final_backup_tags ?? ;
+    $this->final_backup_id = $final_backup_id ?? "";
+    $this->final_backup_tags = $final_backup_tags ?? [];
   }
 }
 
@@ -798,21 +798,21 @@ class FileSystem {
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
     $this->dns_name = $dns_name ?? "";
-    $this->failure_details = $failure_details ?? ;
+    $this->failure_details = $failure_details ?? null;
     $this->file_system_id = $file_system_id ?? "";
     $this->file_system_type = $file_system_type ?? "";
     $this->kms_key_id = $kms_key_id ?? "";
-    $this->lifecycle = $lifecycle ?? ;
-    $this->lustre_configuration = $lustre_configuration ?? ;
+    $this->lifecycle = $lifecycle ?? "";
+    $this->lustre_configuration = $lustre_configuration ?? null;
     $this->network_interface_ids = $network_interface_ids ?? [];
-    $this->owner_id = $owner_id ?? ;
+    $this->owner_id = $owner_id ?? "";
     $this->resource_arn = $resource_arn ?? "";
     $this->storage_capacity = $storage_capacity ?? 0;
     $this->storage_type = $storage_type ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->tags = $tags ?? [];
     $this->vpc_id = $vpc_id ?? "";
-    $this->windows_configuration = $windows_configuration ?? ;
+    $this->windows_configuration = $windows_configuration ?? null;
   }
 }
 
@@ -824,7 +824,7 @@ class FileSystemFailureDetails {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -844,7 +844,7 @@ class FileSystemNotFound {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -860,8 +860,8 @@ class Filter {
   ?'name' => FilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -883,7 +883,7 @@ class IncompatibleParameterError {
   ?'message' => ErrorMessage,
   ?'parameter' => Parameter,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->parameter = $parameter ?? "";
   }
 }
@@ -894,7 +894,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -904,7 +904,7 @@ class InvalidExportPath {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -914,7 +914,7 @@ class InvalidImportPath {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -928,9 +928,9 @@ class InvalidNetworkSettings {
   ?'invalid_subnet_id' => SubnetId,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->invalid_security_group_id = $invalid_security_group_id ?? ;
-    $this->invalid_subnet_id = $invalid_subnet_id ?? ;
-    $this->message = $message ?? ;
+    $this->invalid_security_group_id = $invalid_security_group_id ?? "";
+    $this->invalid_subnet_id = $invalid_subnet_id ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -940,7 +940,7 @@ class InvalidPerUnitStorageThroughput {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -996,10 +996,10 @@ class LustreFileSystemConfiguration {
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
     $this->data_repository_configuration = $data_repository_configuration ?? null;
-    $this->deployment_type = $deployment_type ?? ;
-    $this->mount_name = $mount_name ?? ;
+    $this->deployment_type = $deployment_type ?? "";
+    $this->mount_name = $mount_name ?? "";
     $this->per_unit_storage_throughput = $per_unit_storage_throughput ?? 0;
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 
@@ -1017,7 +1017,7 @@ class MissingFileSystemConfiguration {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1035,7 +1035,7 @@ class NotServiceResourceError {
   ?'message' => ErrorMessage,
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -1062,7 +1062,7 @@ class ResourceDoesNotSupportTagging {
   ?'message' => ErrorMessage,
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -1075,7 +1075,7 @@ class ResourceNotFound {
   ?'message' => ErrorMessage,
   ?'resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -1099,10 +1099,10 @@ class SelfManagedActiveDirectoryAttributes {
   ?'user_name' => DirectoryUserName,
   ) $s = shape()) {
     $this->dns_ips = $dns_ips ?? [];
-    $this->domain_name = $domain_name ?? ;
-    $this->file_system_administrators_group = $file_system_administrators_group ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->file_system_administrators_group = $file_system_administrators_group ?? "";
     $this->organizational_unit_distinguished_name = $organizational_unit_distinguished_name ?? "";
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1123,11 +1123,11 @@ class SelfManagedActiveDirectoryConfiguration {
   ?'user_name' => DirectoryUserName,
   ) $s = shape()) {
     $this->dns_ips = $dns_ips ?? [];
-    $this->domain_name = $domain_name ?? ;
-    $this->file_system_administrators_group = $file_system_administrators_group ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->file_system_administrators_group = $file_system_administrators_group ?? "";
     $this->organizational_unit_distinguished_name = $organizational_unit_distinguished_name ?? "";
-    $this->password = $password ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->password = $password ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1142,8 +1142,8 @@ class SelfManagedActiveDirectoryConfigurationUpdates {
   ?'user_name' => DirectoryUserName,
   ) $s = shape()) {
     $this->dns_ips = $dns_ips ?? [];
-    $this->password = $password ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->password = $password ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1157,8 +1157,8 @@ class ServiceLimitExceeded {
   ?'limit' => ServiceLimit,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->message = $message ?? ;
+    $this->limit = $limit ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1182,8 +1182,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1227,7 +1227,7 @@ class UnsupportedOperation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1257,7 +1257,7 @@ class UpdateFileSystemLustreConfiguration {
   public function __construct(shape(
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 
@@ -1275,8 +1275,8 @@ class UpdateFileSystemRequest {
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
     $this->file_system_id = $file_system_id ?? "";
-    $this->lustre_configuration = $lustre_configuration ?? ;
-    $this->windows_configuration = $windows_configuration ?? ;
+    $this->lustre_configuration = $lustre_configuration ?? null;
+    $this->windows_configuration = $windows_configuration ?? null;
   }
 }
 
@@ -1303,9 +1303,9 @@ class UpdateFileSystemWindowsConfiguration {
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
     $this->automatic_backup_retention_days = $automatic_backup_retention_days ?? 0;
-    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? ;
+    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? "";
     $this->self_managed_active_directory_configuration = $self_managed_active_directory_configuration ?? null;
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 
@@ -1343,18 +1343,18 @@ class WindowsFileSystemConfiguration {
   ?'throughput_capacity' => MegabytesPerSecond,
   ?'weekly_maintenance_start_time' => WeeklyTime,
   ) $s = shape()) {
-    $this->active_directory_id = $active_directory_id ?? ;
+    $this->active_directory_id = $active_directory_id ?? "";
     $this->automatic_backup_retention_days = $automatic_backup_retention_days ?? 0;
-    $this->copy_tags_to_backups = $copy_tags_to_backups ?? ;
-    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? ;
-    $this->deployment_type = $deployment_type ?? ;
-    $this->maintenance_operations_in_progress = $maintenance_operations_in_progress ?? ;
-    $this->preferred_file_server_ip = $preferred_file_server_ip ?? ;
-    $this->preferred_subnet_id = $preferred_subnet_id ?? ;
-    $this->remote_administration_endpoint = $remote_administration_endpoint ?? ;
+    $this->copy_tags_to_backups = $copy_tags_to_backups ?? false;
+    $this->daily_automatic_backup_start_time = $daily_automatic_backup_start_time ?? "";
+    $this->deployment_type = $deployment_type ?? "";
+    $this->maintenance_operations_in_progress = $maintenance_operations_in_progress ?? [];
+    $this->preferred_file_server_ip = $preferred_file_server_ip ?? "";
+    $this->preferred_subnet_id = $preferred_subnet_id ?? "";
+    $this->remote_administration_endpoint = $remote_administration_endpoint ?? "";
     $this->self_managed_active_directory_configuration = $self_managed_active_directory_configuration ?? null;
-    $this->throughput_capacity = $throughput_capacity ?? ;
-    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? ;
+    $this->throughput_capacity = $throughput_capacity ?? 0;
+    $this->weekly_maintenance_start_time = $weekly_maintenance_start_time ?? "";
   }
 }
 

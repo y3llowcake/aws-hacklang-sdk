@@ -53,9 +53,9 @@ class AccessDeniedException {
   ?'error_code' => AccessDeniedErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -67,8 +67,8 @@ class AddAttributesToFindingsRequest {
   ?'attributes' => UserAttributeList,
   ?'finding_arns' => AddRemoveAttributesFindingArnList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->finding_arns = $finding_arns ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->finding_arns = $finding_arns ?? [];
   }
 }
 
@@ -78,7 +78,7 @@ class AddAttributesToFindingsResponse {
   public function __construct(shape(
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -92,8 +92,8 @@ class AgentAlreadyRunningAssessment {
   ?'agent_id' => AgentId,
   ?'assessment_run_arn' => Arn,
   ) $s = shape()) {
-    $this->agent_id = $agent_id ?? ;
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
+    $this->agent_id = $agent_id ?? "";
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
   }
 }
 
@@ -107,8 +107,8 @@ class AgentFilter {
   ?'agent_health_codes' => AgentHealthCodeList,
   ?'agent_healths' => AgentHealthList,
   ) $s = shape()) {
-    $this->agent_health_codes = $agent_health_codes ?? ;
-    $this->agent_healths = $agent_healths ?? ;
+    $this->agent_health_codes = $agent_health_codes ?? [];
+    $this->agent_healths = $agent_healths ?? [];
   }
 }
 
@@ -144,14 +144,14 @@ class AgentPreview {
   ?'kernel_version' => KernelVersion,
   ?'operating_system' => OperatingSystem,
   ) $s = shape()) {
-    $this->agent_health = $agent_health ?? ;
-    $this->agent_id = $agent_id ?? ;
-    $this->agent_version = $agent_version ?? ;
-    $this->auto_scaling_group = $auto_scaling_group ?? ;
-    $this->hostname = $hostname ?? ;
-    $this->ipv_4_address = $ipv_4_address ?? ;
-    $this->kernel_version = $kernel_version ?? ;
-    $this->operating_system = $operating_system ?? ;
+    $this->agent_health = $agent_health ?? "";
+    $this->agent_id = $agent_id ?? "";
+    $this->agent_version = $agent_version ?? "";
+    $this->auto_scaling_group = $auto_scaling_group ?? "";
+    $this->hostname = $hostname ?? "";
+    $this->ipv_4_address = $ipv_4_address ?? "";
+    $this->kernel_version = $kernel_version ?? "";
+    $this->operating_system = $operating_system ?? "";
   }
 }
 
@@ -171,10 +171,10 @@ class AgentsAlreadyRunningAssessmentException {
   ?'can_retry' => Bool,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->agents = $agents ?? ;
-    $this->agents_truncated = $agents_truncated ?? ;
-    $this->can_retry = $can_retry ?? ;
-    $this->message = $message ?? ;
+    $this->agents = $agents ?? [];
+    $this->agents_truncated = $agents_truncated ?? false;
+    $this->can_retry = $can_retry ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -220,21 +220,21 @@ class AssessmentRun {
   ?'state_changes' => AssessmentRunStateChangeList,
   ?'user_attributes_for_findings' => UserAttributeList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
-    $this->completed_at = $completed_at ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->data_collected = $data_collected ?? ;
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->finding_counts = $finding_counts ?? ;
-    $this->name = $name ?? ;
-    $this->notifications = $notifications ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->state = $state ?? ;
-    $this->state_changed_at = $state_changed_at ?? ;
-    $this->state_changes = $state_changes ?? ;
-    $this->user_attributes_for_findings = $user_attributes_for_findings ?? ;
+    $this->arn = $arn ?? "";
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
+    $this->completed_at = $completed_at ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->data_collected = $data_collected ?? false;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->finding_counts = $finding_counts ?? [];
+    $this->name = $name ?? "";
+    $this->notifications = $notifications ?? [];
+    $this->rules_package_arns = $rules_package_arns ?? [];
+    $this->started_at = $started_at ?? 0;
+    $this->state = $state ?? "";
+    $this->state_changed_at = $state_changed_at ?? 0;
+    $this->state_changes = $state_changes ?? [];
+    $this->user_attributes_for_findings = $user_attributes_for_findings ?? [];
   }
 }
 
@@ -256,13 +256,13 @@ class AssessmentRunAgent {
   ?'auto_scaling_group' => AutoScalingGroup,
   ?'telemetry_metadata' => TelemetryMetadataList,
   ) $s = shape()) {
-    $this->agent_health = $agent_health ?? ;
-    $this->agent_health_code = $agent_health_code ?? ;
-    $this->agent_health_details = $agent_health_details ?? ;
-    $this->agent_id = $agent_id ?? ;
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->auto_scaling_group = $auto_scaling_group ?? ;
-    $this->telemetry_metadata = $telemetry_metadata ?? ;
+    $this->agent_health = $agent_health ?? "";
+    $this->agent_health_code = $agent_health_code ?? "";
+    $this->agent_health_details = $agent_health_details ?? "";
+    $this->agent_id = $agent_id ?? "";
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->auto_scaling_group = $auto_scaling_group ?? "";
+    $this->telemetry_metadata = $telemetry_metadata ?? [];
   }
 }
 
@@ -288,13 +288,13 @@ class AssessmentRunFilter {
   ?'state_change_time_range' => TimestampRange,
   ?'states' => AssessmentRunStateList,
   ) $s = shape()) {
-    $this->completion_time_range = $completion_time_range ?? ;
-    $this->duration_range = $duration_range ?? ;
-    $this->name_pattern = $name_pattern ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
-    $this->start_time_range = $start_time_range ?? ;
-    $this->state_change_time_range = $state_change_time_range ?? ;
-    $this->states = $states ?? ;
+    $this->completion_time_range = $completion_time_range ?? null;
+    $this->duration_range = $duration_range ?? null;
+    $this->name_pattern = $name_pattern ?? "";
+    $this->rules_package_arns = $rules_package_arns ?? [];
+    $this->start_time_range = $start_time_range ?? null;
+    $this->state_change_time_range = $state_change_time_range ?? null;
+    $this->states = $states ?? [];
   }
 }
 
@@ -314,10 +314,10 @@ class AssessmentRunInProgressException {
   ?'can_retry' => Bool,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->assessment_run_arns = $assessment_run_arns ?? ;
-    $this->assessment_run_arns_truncated = $assessment_run_arns_truncated ?? ;
-    $this->can_retry = $can_retry ?? ;
-    $this->message = $message ?? ;
+    $this->assessment_run_arns = $assessment_run_arns ?? [];
+    $this->assessment_run_arns_truncated = $assessment_run_arns_truncated ?? false;
+    $this->can_retry = $can_retry ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -341,12 +341,12 @@ class AssessmentRunNotification {
   ?'sns_publish_status_code' => AssessmentRunNotificationSnsStatusCode,
   ?'sns_topic_arn' => Arn,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->error = $error ?? ;
-    $this->event = $event ?? ;
-    $this->message = $message ?? ;
-    $this->sns_publish_status_code = $sns_publish_status_code ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->date = $date ?? 0;
+    $this->error = $error ?? false;
+    $this->event = $event ?? "";
+    $this->message = $message ?? "";
+    $this->sns_publish_status_code = $sns_publish_status_code ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -364,8 +364,8 @@ class AssessmentRunStateChange {
   ?'state' => AssessmentRunState,
   ?'state_changed_at' => Timestamp,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_changed_at = $state_changed_at ?? ;
+    $this->state = $state ?? "";
+    $this->state_changed_at = $state_changed_at ?? 0;
   }
 }
 
@@ -387,11 +387,11 @@ class AssessmentTarget {
   ?'resource_group_arn' => Arn,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->name = $name ?? ;
-    $this->resource_group_arn = $resource_group_arn ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->name = $name ?? "";
+    $this->resource_group_arn = $resource_group_arn ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -401,7 +401,7 @@ class AssessmentTargetFilter {
   public function __construct(shape(
   ?'assessment_target_name_pattern' => NamePattern,
   ) $s = shape()) {
-    $this->assessment_target_name_pattern = $assessment_target_name_pattern ?? ;
+    $this->assessment_target_name_pattern = $assessment_target_name_pattern ?? "";
   }
 }
 
@@ -431,15 +431,15 @@ class AssessmentTemplate {
   ?'rules_package_arns' => AssessmentTemplateRulesPackageArnList,
   ?'user_attributes_for_findings' => UserAttributeList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->assessment_run_count = $assessment_run_count ?? ;
-    $this->assessment_target_arn = $assessment_target_arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->last_assessment_run_arn = $last_assessment_run_arn ?? ;
-    $this->name = $name ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
-    $this->user_attributes_for_findings = $user_attributes_for_findings ?? ;
+    $this->arn = $arn ?? "";
+    $this->assessment_run_count = $assessment_run_count ?? 0;
+    $this->assessment_target_arn = $assessment_target_arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->last_assessment_run_arn = $last_assessment_run_arn ?? "";
+    $this->name = $name ?? "";
+    $this->rules_package_arns = $rules_package_arns ?? [];
+    $this->user_attributes_for_findings = $user_attributes_for_findings ?? [];
   }
 }
 
@@ -453,9 +453,9 @@ class AssessmentTemplateFilter {
   ?'name_pattern' => NamePattern,
   ?'rules_package_arns' => FilterRulesPackageArnList,
   ) $s = shape()) {
-    $this->duration_range = $duration_range ?? ;
-    $this->name_pattern = $name_pattern ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
+    $this->duration_range = $duration_range ?? null;
+    $this->name_pattern = $name_pattern ?? "";
+    $this->rules_package_arns = $rules_package_arns ?? [];
   }
 }
 
@@ -485,14 +485,14 @@ class AssetAttributes {
   ?'schema_version' => NumericVersion,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->agent_id = $agent_id ?? ;
-    $this->ami_id = $ami_id ?? ;
-    $this->auto_scaling_group = $auto_scaling_group ?? ;
-    $this->hostname = $hostname ?? ;
-    $this->ipv_4_addresses = $ipv_4_addresses ?? ;
-    $this->network_interfaces = $network_interfaces ?? ;
-    $this->schema_version = $schema_version ?? ;
-    $this->tags = $tags ?? ;
+    $this->agent_id = $agent_id ?? "";
+    $this->ami_id = $ami_id ?? "";
+    $this->auto_scaling_group = $auto_scaling_group ?? "";
+    $this->hostname = $hostname ?? "";
+    $this->ipv_4_addresses = $ipv_4_addresses ?? [];
+    $this->network_interfaces = $network_interfaces ?? [];
+    $this->schema_version = $schema_version ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -506,8 +506,8 @@ class Attribute {
   ?'key' => AttributeKey,
   ?'value' => AttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -535,8 +535,8 @@ class CreateAssessmentTargetRequest {
   ?'assessment_target_name' => AssessmentTargetName,
   ?'resource_group_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_target_name = $assessment_target_name ?? ;
-    $this->resource_group_arn = $resource_group_arn ?? ;
+    $this->assessment_target_name = $assessment_target_name ?? "";
+    $this->resource_group_arn = $resource_group_arn ?? "";
   }
 }
 
@@ -546,7 +546,7 @@ class CreateAssessmentTargetResponse {
   public function __construct(shape(
   ?'assessment_target_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_target_arn = $assessment_target_arn ?? ;
+    $this->assessment_target_arn = $assessment_target_arn ?? "";
   }
 }
 
@@ -564,11 +564,11 @@ class CreateAssessmentTemplateRequest {
   ?'rules_package_arns' => AssessmentTemplateRulesPackageArnList,
   ?'user_attributes_for_findings' => UserAttributeList,
   ) $s = shape()) {
-    $this->assessment_target_arn = $assessment_target_arn ?? ;
-    $this->assessment_template_name = $assessment_template_name ?? ;
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
-    $this->user_attributes_for_findings = $user_attributes_for_findings ?? ;
+    $this->assessment_target_arn = $assessment_target_arn ?? "";
+    $this->assessment_template_name = $assessment_template_name ?? "";
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->rules_package_arns = $rules_package_arns ?? [];
+    $this->user_attributes_for_findings = $user_attributes_for_findings ?? [];
   }
 }
 
@@ -578,7 +578,7 @@ class CreateAssessmentTemplateResponse {
   public function __construct(shape(
   ?'assessment_template_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
   }
 }
 
@@ -588,7 +588,7 @@ class CreateExclusionsPreviewRequest {
   public function __construct(shape(
   ?'assessment_template_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
   }
 }
 
@@ -598,7 +598,7 @@ class CreateExclusionsPreviewResponse {
   public function __construct(shape(
   ?'preview_token' => UUID,
   ) $s = shape()) {
-    $this->preview_token = $preview_token ?? ;
+    $this->preview_token = $preview_token ?? "";
   }
 }
 
@@ -608,7 +608,7 @@ class CreateResourceGroupRequest {
   public function __construct(shape(
   ?'resource_group_tags' => ResourceGroupTags,
   ) $s = shape()) {
-    $this->resource_group_tags = $resource_group_tags ?? ;
+    $this->resource_group_tags = $resource_group_tags ?? [];
   }
 }
 
@@ -618,7 +618,7 @@ class CreateResourceGroupResponse {
   public function __construct(shape(
   ?'resource_group_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_group_arn = $resource_group_arn ?? ;
+    $this->resource_group_arn = $resource_group_arn ?? "";
   }
 }
 
@@ -628,7 +628,7 @@ class DeleteAssessmentRunRequest {
   public function __construct(shape(
   ?'assessment_run_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
   }
 }
 
@@ -638,7 +638,7 @@ class DeleteAssessmentTargetRequest {
   public function __construct(shape(
   ?'assessment_target_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_target_arn = $assessment_target_arn ?? ;
+    $this->assessment_target_arn = $assessment_target_arn ?? "";
   }
 }
 
@@ -648,7 +648,7 @@ class DeleteAssessmentTemplateRequest {
   public function __construct(shape(
   ?'assessment_template_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
   }
 }
 
@@ -658,7 +658,7 @@ class DescribeAssessmentRunsRequest {
   public function __construct(shape(
   ?'assessment_run_arns' => BatchDescribeArnList,
   ) $s = shape()) {
-    $this->assessment_run_arns = $assessment_run_arns ?? ;
+    $this->assessment_run_arns = $assessment_run_arns ?? [];
   }
 }
 
@@ -670,8 +670,8 @@ class DescribeAssessmentRunsResponse {
   ?'assessment_runs' => AssessmentRunList,
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->assessment_runs = $assessment_runs ?? ;
-    $this->failed_items = $failed_items ?? ;
+    $this->assessment_runs = $assessment_runs ?? [];
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -681,7 +681,7 @@ class DescribeAssessmentTargetsRequest {
   public function __construct(shape(
   ?'assessment_target_arns' => BatchDescribeArnList,
   ) $s = shape()) {
-    $this->assessment_target_arns = $assessment_target_arns ?? ;
+    $this->assessment_target_arns = $assessment_target_arns ?? [];
   }
 }
 
@@ -693,8 +693,8 @@ class DescribeAssessmentTargetsResponse {
   ?'assessment_targets' => AssessmentTargetList,
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->assessment_targets = $assessment_targets ?? ;
-    $this->failed_items = $failed_items ?? ;
+    $this->assessment_targets = $assessment_targets ?? [];
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -704,7 +704,7 @@ class DescribeAssessmentTemplatesRequest {
   public function __construct(shape(
   ?'assessment_template_arns' => BatchDescribeArnList,
   ) $s = shape()) {
-    $this->assessment_template_arns = $assessment_template_arns ?? ;
+    $this->assessment_template_arns = $assessment_template_arns ?? [];
   }
 }
 
@@ -716,8 +716,8 @@ class DescribeAssessmentTemplatesResponse {
   ?'assessment_templates' => AssessmentTemplateList,
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->assessment_templates = $assessment_templates ?? ;
-    $this->failed_items = $failed_items ?? ;
+    $this->assessment_templates = $assessment_templates ?? [];
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -731,9 +731,9 @@ class DescribeCrossAccountAccessRoleResponse {
   ?'role_arn' => Arn,
   ?'valid' => Bool,
   ) $s = shape()) {
-    $this->registered_at = $registered_at ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->valid = $valid ?? ;
+    $this->registered_at = $registered_at ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->valid = $valid ?? false;
   }
 }
 
@@ -745,8 +745,8 @@ class DescribeExclusionsRequest {
   ?'exclusion_arns' => BatchDescribeExclusionsArnList,
   ?'locale' => Locale,
   ) $s = shape()) {
-    $this->exclusion_arns = $exclusion_arns ?? ;
-    $this->locale = $locale ?? ;
+    $this->exclusion_arns = $exclusion_arns ?? [];
+    $this->locale = $locale ?? "";
   }
 }
 
@@ -758,8 +758,8 @@ class DescribeExclusionsResponse {
   ?'exclusions' => ExclusionMap,
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->exclusions = $exclusions ?? ;
-    $this->failed_items = $failed_items ?? ;
+    $this->exclusions = $exclusions ?? [];
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -771,8 +771,8 @@ class DescribeFindingsRequest {
   ?'finding_arns' => BatchDescribeArnList,
   ?'locale' => Locale,
   ) $s = shape()) {
-    $this->finding_arns = $finding_arns ?? ;
-    $this->locale = $locale ?? ;
+    $this->finding_arns = $finding_arns ?? [];
+    $this->locale = $locale ?? "";
   }
 }
 
@@ -784,8 +784,8 @@ class DescribeFindingsResponse {
   ?'failed_items' => FailedItems,
   ?'findings' => FindingList,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->findings = $findings ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->findings = $findings ?? [];
   }
 }
 
@@ -795,7 +795,7 @@ class DescribeResourceGroupsRequest {
   public function __construct(shape(
   ?'resource_group_arns' => BatchDescribeArnList,
   ) $s = shape()) {
-    $this->resource_group_arns = $resource_group_arns ?? ;
+    $this->resource_group_arns = $resource_group_arns ?? [];
   }
 }
 
@@ -807,8 +807,8 @@ class DescribeResourceGroupsResponse {
   ?'failed_items' => FailedItems,
   ?'resource_groups' => ResourceGroupList,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->resource_groups = $resource_groups ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->resource_groups = $resource_groups ?? [];
   }
 }
 
@@ -820,8 +820,8 @@ class DescribeRulesPackagesRequest {
   ?'locale' => Locale,
   ?'rules_package_arns' => BatchDescribeArnList,
   ) $s = shape()) {
-    $this->locale = $locale ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
+    $this->locale = $locale ?? "";
+    $this->rules_package_arns = $rules_package_arns ?? [];
   }
 }
 
@@ -833,8 +833,8 @@ class DescribeRulesPackagesResponse {
   ?'failed_items' => FailedItems,
   ?'rules_packages' => RulesPackageList,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->rules_packages = $rules_packages ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->rules_packages = $rules_packages ?? [];
   }
 }
 
@@ -846,8 +846,8 @@ class DurationRange {
   ?'max_seconds' => AssessmentRunDuration,
   ?'min_seconds' => AssessmentRunDuration,
   ) $s = shape()) {
-    $this->max_seconds = $max_seconds ?? ;
-    $this->min_seconds = $min_seconds ?? ;
+    $this->max_seconds = $max_seconds ?? 0;
+    $this->min_seconds = $min_seconds ?? 0;
   }
 }
 
@@ -861,8 +861,8 @@ class EventSubscription {
   ?'event' => InspectorEvent,
   ?'subscribed_at' => Timestamp,
   ) $s = shape()) {
-    $this->event = $event ?? ;
-    $this->subscribed_at = $subscribed_at ?? ;
+    $this->event = $event ?? "";
+    $this->subscribed_at = $subscribed_at ?? 0;
   }
 }
 
@@ -884,12 +884,12 @@ class Exclusion {
   ?'scopes' => ScopeList,
   ?'title' => Text,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->description = $description ?? ;
-    $this->recommendation = $recommendation ?? ;
-    $this->scopes = $scopes ?? ;
-    $this->title = $title ?? ;
+    $this->arn = $arn ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->description = $description ?? "";
+    $this->recommendation = $recommendation ?? "";
+    $this->scopes = $scopes ?? [];
+    $this->title = $title ?? "";
   }
 }
 
@@ -909,11 +909,11 @@ class ExclusionPreview {
   ?'scopes' => ScopeList,
   ?'title' => Text,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->description = $description ?? ;
-    $this->recommendation = $recommendation ?? ;
-    $this->scopes = $scopes ?? ;
-    $this->title = $title ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->description = $description ?? "";
+    $this->recommendation = $recommendation ?? "";
+    $this->scopes = $scopes ?? [];
+    $this->title = $title ?? "";
   }
 }
 
@@ -927,8 +927,8 @@ class FailedItemDetails {
   ?'failure_code' => FailedItemErrorCode,
   ?'retryable' => Bool,
   ) $s = shape()) {
-    $this->failure_code = $failure_code ?? ;
-    $this->retryable = $retryable ?? ;
+    $this->failure_code = $failure_code ?? "";
+    $this->retryable = $retryable ?? false;
   }
 }
 
@@ -978,24 +978,24 @@ class Finding {
   ?'updated_at' => Timestamp,
   ?'user_attributes' => UserAttributeList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->asset_attributes = $asset_attributes ?? ;
-    $this->asset_type = $asset_type ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->confidence = $confidence ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->indicator_of_compromise = $indicator_of_compromise ?? ;
-    $this->numeric_severity = $numeric_severity ?? ;
-    $this->recommendation = $recommendation ?? ;
-    $this->schema_version = $schema_version ?? ;
-    $this->service = $service ?? ;
-    $this->service_attributes = $service_attributes ?? ;
-    $this->severity = $severity ?? ;
-    $this->title = $title ?? ;
-    $this->updated_at = $updated_at ?? ;
-    $this->user_attributes = $user_attributes ?? ;
+    $this->arn = $arn ?? "";
+    $this->asset_attributes = $asset_attributes ?? null;
+    $this->asset_type = $asset_type ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->confidence = $confidence ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->indicator_of_compromise = $indicator_of_compromise ?? false;
+    $this->numeric_severity = $numeric_severity ?? 0.0;
+    $this->recommendation = $recommendation ?? "";
+    $this->schema_version = $schema_version ?? 0;
+    $this->service = $service ?? "";
+    $this->service_attributes = $service_attributes ?? null;
+    $this->severity = $severity ?? "";
+    $this->title = $title ?? "";
+    $this->updated_at = $updated_at ?? 0;
+    $this->user_attributes = $user_attributes ?? [];
   }
 }
 
@@ -1021,14 +1021,14 @@ class FindingFilter {
   ?'severities' => SeverityList,
   ?'user_attributes' => AttributeList,
   ) $s = shape()) {
-    $this->agent_ids = $agent_ids ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->creation_time_range = $creation_time_range ?? ;
-    $this->rule_names = $rule_names ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
-    $this->severities = $severities ?? ;
-    $this->user_attributes = $user_attributes ?? ;
+    $this->agent_ids = $agent_ids ?? [];
+    $this->attributes = $attributes ?? [];
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->creation_time_range = $creation_time_range ?? null;
+    $this->rule_names = $rule_names ?? [];
+    $this->rules_package_arns = $rules_package_arns ?? [];
+    $this->severities = $severities ?? [];
+    $this->user_attributes = $user_attributes ?? [];
   }
 }
 
@@ -1046,9 +1046,9 @@ class GetAssessmentReportRequest {
   ?'report_file_format' => ReportFileFormat,
   ?'report_type' => ReportType,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->report_file_format = $report_file_format ?? ;
-    $this->report_type = $report_type ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->report_file_format = $report_file_format ?? "";
+    $this->report_type = $report_type ?? "";
   }
 }
 
@@ -1060,8 +1060,8 @@ class GetAssessmentReportResponse {
   ?'status' => ReportStatus,
   ?'url' => Url,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->url = $url ?? ;
+    $this->status = $status ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -1079,11 +1079,11 @@ class GetExclusionsPreviewRequest {
   ?'next_token' => PaginationToken,
   ?'preview_token' => UUID,
   ) $s = shape()) {
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
-    $this->locale = $locale ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->preview_token = $preview_token ?? ;
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
+    $this->locale = $locale ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->preview_token = $preview_token ?? "";
   }
 }
 
@@ -1097,9 +1097,9 @@ class GetExclusionsPreviewResponse {
   ?'next_token' => PaginationToken,
   ?'preview_status' => PreviewStatus,
   ) $s = shape()) {
-    $this->exclusion_previews = $exclusion_previews ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->preview_status = $preview_status ?? ;
+    $this->exclusion_previews = $exclusion_previews ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->preview_status = $preview_status ?? "";
   }
 }
 
@@ -1109,7 +1109,7 @@ class GetTelemetryMetadataRequest {
   public function __construct(shape(
   ?'assessment_run_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
   }
 }
 
@@ -1119,7 +1119,7 @@ class GetTelemetryMetadataResponse {
   public function __construct(shape(
   ?'telemetry_metadata' => TelemetryMetadataList,
   ) $s = shape()) {
-    $this->telemetry_metadata = $telemetry_metadata ?? ;
+    $this->telemetry_metadata = $telemetry_metadata ?? [];
   }
 }
 
@@ -1137,9 +1137,9 @@ class InspectorServiceAttributes {
   ?'rules_package_arn' => Arn,
   ?'schema_version' => NumericVersion,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->rules_package_arn = $rules_package_arn ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->rules_package_arn = $rules_package_arn ?? "";
+    $this->schema_version = $schema_version ?? 0;
   }
 }
 
@@ -1151,8 +1151,8 @@ class InternalException {
   ?'can_retry' => Bool,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1168,9 +1168,9 @@ class InvalidCrossAccountRoleException {
   ?'error_code' => InvalidCrossAccountRoleErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1186,9 +1186,9 @@ class InvalidInputException {
   ?'error_code' => InvalidInputErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1214,9 +1214,9 @@ class LimitExceededException {
   ?'error_code' => LimitExceededErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1232,10 +1232,10 @@ class ListAssessmentRunAgentsRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1247,8 +1247,8 @@ class ListAssessmentRunAgentsResponse {
   ?'assessment_run_agents' => AssessmentRunAgentList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_run_agents = $assessment_run_agents ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_run_agents = $assessment_run_agents ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1264,10 +1264,10 @@ class ListAssessmentRunsRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_template_arns = $assessment_template_arns ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_template_arns = $assessment_template_arns ?? [];
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1279,8 +1279,8 @@ class ListAssessmentRunsResponse {
   ?'assessment_run_arns' => ListReturnedArnList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_run_arns = $assessment_run_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_run_arns = $assessment_run_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1294,9 +1294,9 @@ class ListAssessmentTargetsRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1308,8 +1308,8 @@ class ListAssessmentTargetsResponse {
   ?'assessment_target_arns' => ListReturnedArnList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_target_arns = $assessment_target_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_target_arns = $assessment_target_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1325,10 +1325,10 @@ class ListAssessmentTemplatesRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_target_arns = $assessment_target_arns ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_target_arns = $assessment_target_arns ?? [];
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1340,8 +1340,8 @@ class ListAssessmentTemplatesResponse {
   ?'assessment_template_arns' => ListReturnedArnList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_template_arns = $assessment_template_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_template_arns = $assessment_template_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1357,9 +1357,9 @@ class ListEventSubscriptionsRequest {
   ?'next_token' => PaginationToken,
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1371,8 +1371,8 @@ class ListEventSubscriptionsResponse {
   ?'next_token' => PaginationToken,
   ?'subscriptions' => SubscriptionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subscriptions = $subscriptions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -1386,9 +1386,9 @@ class ListExclusionsRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1400,8 +1400,8 @@ class ListExclusionsResponse {
   ?'exclusion_arns' => ListReturnedArnList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->exclusion_arns = $exclusion_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->exclusion_arns = $exclusion_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1417,10 +1417,10 @@ class ListFindingsRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assessment_run_arns = $assessment_run_arns ?? ;
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assessment_run_arns = $assessment_run_arns ?? [];
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1432,8 +1432,8 @@ class ListFindingsResponse {
   ?'finding_arns' => ListReturnedArnList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->finding_arns = $finding_arns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->finding_arns = $finding_arns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1451,8 +1451,8 @@ class ListRulesPackagesRequest {
   ?'max_results' => ListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1464,8 +1464,8 @@ class ListRulesPackagesResponse {
   ?'next_token' => PaginationToken,
   ?'rules_package_arns' => ListReturnedArnList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->rules_package_arns = $rules_package_arns ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->rules_package_arns = $rules_package_arns ?? [];
   }
 }
 
@@ -1475,7 +1475,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1485,7 +1485,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1523,16 +1523,16 @@ class NetworkInterface {
   ?'subnet_id' => Text,
   ?'vpc_id' => Text,
   ) $s = shape()) {
-    $this->ipv_6_addresses = $ipv_6_addresses ?? ;
-    $this->network_interface_id = $network_interface_id ?? ;
-    $this->private_dns_name = $private_dns_name ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
-    $this->private_ip_addresses = $private_ip_addresses ?? ;
-    $this->public_dns_name = $public_dns_name ?? ;
-    $this->public_ip = $public_ip ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->ipv_6_addresses = $ipv_6_addresses ?? [];
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->private_dns_name = $private_dns_name ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
+    $this->private_ip_addresses = $private_ip_addresses ?? [];
+    $this->public_dns_name = $public_dns_name ?? "";
+    $this->public_ip = $public_ip ?? "";
+    $this->security_groups = $security_groups ?? [];
+    $this->subnet_id = $subnet_id ?? "";
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -1550,9 +1550,9 @@ class NoSuchEntityException {
   ?'error_code' => NoSuchEntityErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1576,9 +1576,9 @@ class PreviewAgentsRequest {
   ?'next_token' => PaginationToken,
   ?'preview_agents_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->preview_agents_arn = $preview_agents_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->preview_agents_arn = $preview_agents_arn ?? "";
   }
 }
 
@@ -1590,8 +1590,8 @@ class PreviewAgentsResponse {
   ?'agent_previews' => AgentPreviewList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->agent_previews = $agent_previews ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->agent_previews = $agent_previews ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1601,7 +1601,7 @@ class PreviewGenerationInProgressException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1615,8 +1615,8 @@ class PrivateIp {
   ?'private_dns_name' => Text,
   ?'private_ip_address' => Text,
   ) $s = shape()) {
-    $this->private_dns_name = $private_dns_name ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
+    $this->private_dns_name = $private_dns_name ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
   }
 }
 
@@ -1630,7 +1630,7 @@ class RegisterCrossAccountAccessRoleRequest {
   public function __construct(shape(
   ?'role_arn' => Arn,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1642,8 +1642,8 @@ class RemoveAttributesFromFindingsRequest {
   ?'attribute_keys' => UserAttributeKeyList,
   ?'finding_arns' => AddRemoveAttributesFindingArnList,
   ) $s = shape()) {
-    $this->attribute_keys = $attribute_keys ?? ;
-    $this->finding_arns = $finding_arns ?? ;
+    $this->attribute_keys = $attribute_keys ?? [];
+    $this->finding_arns = $finding_arns ?? [];
   }
 }
 
@@ -1653,7 +1653,7 @@ class RemoveAttributesFromFindingsResponse {
   public function __construct(shape(
   ?'failed_items' => FailedItems,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
+    $this->failed_items = $failed_items ?? [];
   }
 }
 
@@ -1673,9 +1673,9 @@ class ResourceGroup {
   ?'created_at' => Timestamp,
   ?'tags' => ResourceGroupTags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1689,8 +1689,8 @@ class ResourceGroupTag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1714,11 +1714,11 @@ class RulesPackage {
   ?'provider' => ProviderName,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->provider = $provider ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->provider = $provider ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1734,8 +1734,8 @@ class Scope {
   ?'key' => ScopeType,
   ?'value' => ScopeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1753,8 +1753,8 @@ class SecurityGroup {
   ?'group_id' => Text,
   ?'group_name' => Text,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -1770,8 +1770,8 @@ class ServiceTemporarilyUnavailableException {
   ?'can_retry' => Bool,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1783,8 +1783,8 @@ class SetTagsForResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1800,8 +1800,8 @@ class StartAssessmentRunRequest {
   ?'assessment_run_name' => AssessmentRunName,
   ?'assessment_template_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_run_name = $assessment_run_name ?? ;
-    $this->assessment_template_arn = $assessment_template_arn ?? ;
+    $this->assessment_run_name = $assessment_run_name ?? "";
+    $this->assessment_template_arn = $assessment_template_arn ?? "";
   }
 }
 
@@ -1811,7 +1811,7 @@ class StartAssessmentRunResponse {
   public function __construct(shape(
   ?'assessment_run_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
   }
 }
 
@@ -1825,8 +1825,8 @@ class StopAssessmentRunRequest {
   ?'assessment_run_arn' => Arn,
   ?'stop_action' => StopAction,
   ) $s = shape()) {
-    $this->assessment_run_arn = $assessment_run_arn ?? ;
-    $this->stop_action = $stop_action ?? ;
+    $this->assessment_run_arn = $assessment_run_arn ?? "";
+    $this->stop_action = $stop_action ?? "";
   }
 }
 
@@ -1840,9 +1840,9 @@ class SubscribeToEventRequest {
   ?'resource_arn' => Arn,
   ?'topic_arn' => Arn,
   ) $s = shape()) {
-    $this->event = $event ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->event = $event ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1856,9 +1856,9 @@ class Subscription {
   ?'resource_arn' => Arn,
   ?'topic_arn' => Arn,
   ) $s = shape()) {
-    $this->event_subscriptions = $event_subscriptions ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->event_subscriptions = $event_subscriptions ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1872,8 +1872,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1895,9 +1895,9 @@ class TelemetryMetadata {
   ?'data_size' => Long,
   ?'message_type' => MessageType,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->data_size = $data_size ?? ;
-    $this->message_type = $message_type ?? ;
+    $this->count = $count ?? 0;
+    $this->data_size = $data_size ?? 0;
+    $this->message_type = $message_type ?? "";
   }
 }
 
@@ -1915,8 +1915,8 @@ class TimestampRange {
   ?'begin_date' => Timestamp,
   ?'end_date' => Timestamp,
   ) $s = shape()) {
-    $this->begin_date = $begin_date ?? ;
-    $this->end_date = $end_date ?? ;
+    $this->begin_date = $begin_date ?? 0;
+    $this->end_date = $end_date ?? 0;
   }
 }
 
@@ -1932,9 +1932,9 @@ class UnsubscribeFromEventRequest {
   ?'resource_arn' => Arn,
   ?'topic_arn' => Arn,
   ) $s = shape()) {
-    $this->event = $event ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->event = $event ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1946,8 +1946,8 @@ class UnsupportedFeatureException {
   ?'can_retry' => Bool,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->can_retry = $can_retry ?? ;
-    $this->message = $message ?? ;
+    $this->can_retry = $can_retry ?? false;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1961,9 +1961,9 @@ class UpdateAssessmentTargetRequest {
   ?'assessment_target_name' => AssessmentTargetName,
   ?'resource_group_arn' => Arn,
   ) $s = shape()) {
-    $this->assessment_target_arn = $assessment_target_arn ?? ;
-    $this->assessment_target_name = $assessment_target_name ?? ;
-    $this->resource_group_arn = $resource_group_arn ?? ;
+    $this->assessment_target_arn = $assessment_target_arn ?? "";
+    $this->assessment_target_name = $assessment_target_name ?? "";
+    $this->resource_group_arn = $resource_group_arn ?? "";
   }
 }
 

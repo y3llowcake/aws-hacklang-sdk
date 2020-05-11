@@ -20,7 +20,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -93,17 +93,17 @@ class CodeReview {
   ?'state_reason' => StateReason,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
-    $this->created_time_stamp = $created_time_stamp ?? ;
-    $this->last_updated_time_stamp = $last_updated_time_stamp ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
+    $this->created_time_stamp = $created_time_stamp ?? 0;
+    $this->last_updated_time_stamp = $last_updated_time_stamp ?? 0;
     $this->metrics = $metrics ?? null;
     $this->name = $name ?? "";
     $this->owner = $owner ?? "";
     $this->provider_type = $provider_type ?? "";
     $this->pull_request_id = $pull_request_id ?? "";
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_name = $repository_name ?? "";
     $this->source_code_type = $source_code_type ?? null;
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->state_reason = $state_reason ?? "";
     $this->type = $type ?? "";
   }
@@ -137,16 +137,16 @@ class CodeReviewSummary {
   ?'state' => JobState,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
-    $this->created_time_stamp = $created_time_stamp ?? ;
-    $this->last_updated_time_stamp = $last_updated_time_stamp ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
+    $this->created_time_stamp = $created_time_stamp ?? 0;
+    $this->last_updated_time_stamp = $last_updated_time_stamp ?? 0;
     $this->metrics_summary = $metrics_summary ?? null;
     $this->name = $name ?? "";
     $this->owner = $owner ?? "";
     $this->provider_type = $provider_type ?? "";
     $this->pull_request_id = $pull_request_id ?? "";
-    $this->repository_name = $repository_name ?? ;
-    $this->state = $state ?? ;
+    $this->repository_name = $repository_name ?? "";
+    $this->state = $state ?? "";
     $this->type = $type ?? "";
   }
 }
@@ -159,8 +159,8 @@ class CommitDiffSourceCodeType {
   ?'destination_commit' => CommitId,
   ?'source_commit' => CommitId,
   ) $s = shape()) {
-    $this->destination_commit = $destination_commit ?? ;
-    $this->source_commit = $source_commit ?? ;
+    $this->destination_commit = $destination_commit ?? "";
+    $this->source_commit = $source_commit ?? "";
   }
 }
 
@@ -172,7 +172,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -182,7 +182,7 @@ class DescribeCodeReviewRequest {
   public function __construct(shape(
   ?'code_review_arn' => Arn,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
   }
 }
 
@@ -206,7 +206,7 @@ class DescribeRecommendationFeedbackRequest {
   ?'recommendation_id' => RecommendationId,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
     $this->recommendation_id = $recommendation_id ?? "";
     $this->user_id = $user_id ?? "";
   }
@@ -228,7 +228,7 @@ class DescribeRepositoryAssociationRequest {
   public function __construct(shape(
   ?'association_arn' => Arn,
   ) $s = shape()) {
-    $this->association_arn = $association_arn ?? ;
+    $this->association_arn = $association_arn ?? "";
   }
 }
 
@@ -248,7 +248,7 @@ class DisassociateRepositoryRequest {
   public function __construct(shape(
   ?'association_arn' => Arn,
   ) $s = shape()) {
-    $this->association_arn = $association_arn ?? ;
+    $this->association_arn = $association_arn ?? "";
   }
 }
 
@@ -274,7 +274,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -306,7 +306,7 @@ class ListCodeReviewsRequest {
     $this->next_token = $next_token ?? "";
     $this->provider_types = $provider_types ?? [];
     $this->repository_names = $repository_names ?? [];
-    $this->states = $states ?? ;
+    $this->states = $states ?? [];
     $this->type = $type ?? "";
   }
 }
@@ -338,7 +338,7 @@ class ListRecommendationFeedbackRequest {
   ?'recommendation_ids' => RecommendationIds,
   ?'user_ids' => UserIds,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->recommendation_ids = $recommendation_ids ?? [];
@@ -369,7 +369,7 @@ class ListRecommendationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -409,7 +409,7 @@ class ListRepositoryAssociationsRequest {
     $this->next_token = $next_token ?? "";
     $this->owners = $owners ?? [];
     $this->provider_types = $provider_types ?? [];
-    $this->states = $states ?? ;
+    $this->states = $states ?? [];
   }
 }
 
@@ -468,7 +468,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -492,7 +492,7 @@ class PutRecommendationFeedbackRequest {
   ?'reactions' => Reactions,
   ?'recommendation_id' => RecommendationId,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
     $this->reactions = $reactions ?? [];
     $this->recommendation_id = $recommendation_id ?? "";
   }
@@ -525,9 +525,9 @@ class RecommendationFeedback {
   ?'recommendation_id' => RecommendationId,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->code_review_arn = $code_review_arn ?? ;
-    $this->created_time_stamp = $created_time_stamp ?? ;
-    $this->last_updated_time_stamp = $last_updated_time_stamp ?? ;
+    $this->code_review_arn = $code_review_arn ?? "";
+    $this->created_time_stamp = $created_time_stamp ?? 0;
+    $this->last_updated_time_stamp = $last_updated_time_stamp ?? 0;
     $this->reactions = $reactions ?? [];
     $this->recommendation_id = $recommendation_id ?? "";
     $this->user_id = $user_id ?? "";
@@ -572,11 +572,11 @@ class RecommendationSummary {
   ?'recommendation_id' => RecommendationId,
   ?'start_line' => LineNumber,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->end_line = $end_line ?? ;
+    $this->description = $description ?? "";
+    $this->end_line = $end_line ?? 0;
     $this->file_path = $file_path ?? "";
     $this->recommendation_id = $recommendation_id ?? "";
-    $this->start_line = $start_line ?? ;
+    $this->start_line = $start_line ?? 0;
   }
 }
 
@@ -586,7 +586,7 @@ class Repository {
   public function __construct(shape(
   ?'code_commit' => CodeCommitRepository,
   ) $s = shape()) {
-    $this->code_commit = $code_commit ?? ;
+    $this->code_commit = $code_commit ?? null;
   }
 }
 
@@ -612,14 +612,14 @@ class RepositoryAssociation {
   ?'state' => RepositoryAssociationState,
   ?'state_reason' => StateReason,
   ) $s = shape()) {
-    $this->association_arn = $association_arn ?? ;
+    $this->association_arn = $association_arn ?? "";
     $this->association_id = $association_id ?? "";
-    $this->created_time_stamp = $created_time_stamp ?? ;
-    $this->last_updated_time_stamp = $last_updated_time_stamp ?? ;
+    $this->created_time_stamp = $created_time_stamp ?? 0;
+    $this->last_updated_time_stamp = $last_updated_time_stamp ?? 0;
     $this->name = $name ?? "";
     $this->owner = $owner ?? "";
     $this->provider_type = $provider_type ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
     $this->state_reason = $state_reason ?? "";
   }
 }
@@ -648,13 +648,13 @@ class RepositoryAssociationSummary {
   ?'provider_type' => ProviderType,
   ?'state' => RepositoryAssociationState,
   ) $s = shape()) {
-    $this->association_arn = $association_arn ?? ;
+    $this->association_arn = $association_arn ?? "";
     $this->association_id = $association_id ?? "";
-    $this->last_updated_time_stamp = $last_updated_time_stamp ?? ;
+    $this->last_updated_time_stamp = $last_updated_time_stamp ?? 0;
     $this->name = $name ?? "";
     $this->owner = $owner ?? "";
     $this->provider_type = $provider_type ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -666,7 +666,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -676,7 +676,7 @@ class SourceCodeType {
   public function __construct(shape(
   ?'commit_diff' => CommitDiffSourceCodeType,
   ) $s = shape()) {
-    $this->commit_diff = $commit_diff ?? ;
+    $this->commit_diff = $commit_diff ?? null;
   }
 }
 
@@ -690,7 +690,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -708,7 +708,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

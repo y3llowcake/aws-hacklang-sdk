@@ -27,7 +27,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -47,7 +47,7 @@ class ApplicationState {
   ) $s = shape()) {
     $this->application_id = $application_id ?? "";
     $this->application_status = $application_status ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
   }
 }
 
@@ -118,7 +118,7 @@ class CreateProgressUpdateStreamRequest {
   ?'progress_update_stream_name' => ProgressUpdateStream,
   ) $s = shape()) {
     $this->dry_run = $dry_run ?? false;
-    $this->progress_update_stream_name = $progress_update_stream_name ?? ;
+    $this->progress_update_stream_name = $progress_update_stream_name ?? "";
   }
 }
 
@@ -137,8 +137,8 @@ class CreatedArtifact {
   ?'description' => CreatedArtifactDescription,
   ?'name' => CreatedArtifactName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -157,7 +157,7 @@ class DeleteProgressUpdateStreamRequest {
   ?'progress_update_stream_name' => ProgressUpdateStream,
   ) $s = shape()) {
     $this->dry_run = $dry_run ?? false;
-    $this->progress_update_stream_name = $progress_update_stream_name ?? ;
+    $this->progress_update_stream_name = $progress_update_stream_name ?? "";
   }
 }
 
@@ -187,7 +187,7 @@ class DescribeApplicationStateResult {
   ?'last_updated_time' => UpdateDateTime,
   ) $s = shape()) {
     $this->application_status = $application_status ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
   }
 }
 
@@ -275,7 +275,7 @@ class DiscoveredResource {
   ?'description' => DiscoveredResourceDescription,
   ) $s = shape()) {
     $this->configuration_id = $configuration_id ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
   }
 }
 
@@ -291,7 +291,7 @@ class DryRunOperation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -303,7 +303,7 @@ class HomeRegionNotSetException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -336,7 +336,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -346,7 +346,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -364,7 +364,7 @@ class ListApplicationStatesRequest {
   ) $s = shape()) {
     $this->application_ids = $application_ids ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class ListApplicationStatesResult {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->application_state_list = $application_state_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -395,7 +395,7 @@ class ListCreatedArtifactsRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->migration_task_name = $migration_task_name ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->progress_update_stream = $progress_update_stream ?? "";
   }
 }
@@ -409,7 +409,7 @@ class ListCreatedArtifactsResult {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->created_artifact_list = $created_artifact_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -427,7 +427,7 @@ class ListDiscoveredResourcesRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->migration_task_name = $migration_task_name ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->progress_update_stream = $progress_update_stream ?? "";
   }
 }
@@ -441,7 +441,7 @@ class ListDiscoveredResourcesResult {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->discovered_resource_list = $discovered_resource_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -456,7 +456,7 @@ class ListMigrationTasksRequest {
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->resource_name = $resource_name ?? "";
   }
 }
@@ -470,7 +470,7 @@ class ListMigrationTasksResult {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->migration_task_summary_list = $migration_task_summary_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -483,7 +483,7 @@ class ListProgressUpdateStreamsRequest {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -495,7 +495,7 @@ class ListProgressUpdateStreamsResult {
   ?'next_token' => Token,
   ?'progress_update_stream_summary_list' => ProgressUpdateStreamSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->progress_update_stream_summary_list = $progress_update_stream_summary_list ?? [];
   }
 }
@@ -623,7 +623,7 @@ class PolicyErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -637,7 +637,7 @@ class ProgressUpdateStreamSummary {
   public function __construct(shape(
   ?'progress_update_stream_name' => ProgressUpdateStream,
   ) $s = shape()) {
-    $this->progress_update_stream_name = $progress_update_stream_name ?? ;
+    $this->progress_update_stream_name = $progress_update_stream_name ?? "";
   }
 }
 
@@ -677,8 +677,8 @@ class ResourceAttribute {
   ?'type' => ResourceAttributeType,
   ?'value' => ResourceAttributeValue,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -696,7 +696,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -708,7 +708,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -740,7 +740,7 @@ class ThrottlingException {
   ?'message' => ErrorMessage,
   ?'retry_after_seconds' => RetryAfterSeconds,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }
@@ -753,7 +753,7 @@ class UnauthorizedOperation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

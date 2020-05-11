@@ -68,12 +68,12 @@ class AlreadyExistsException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -115,23 +115,23 @@ class BackupJob {
   ?'state' => BackupJobState,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->backup_job_id = $backup_job_id ?? ;
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_job_id = $backup_job_id ?? "";
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->bytes_transferred = $bytes_transferred ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->expected_completion_date = $expected_completion_date ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->percent_done = $percent_done ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->bytes_transferred = $bytes_transferred ?? 0;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_by = $created_by ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->expected_completion_date = $expected_completion_date ?? 0;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->percent_done = $percent_done ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->start_by = $start_by ?? ;
-    $this->state = $state ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->start_by = $start_by ?? 0;
+    $this->state = $state ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -148,7 +148,7 @@ class BackupPlan {
   ?'rules' => BackupRules,
   ) $s = shape()) {
     $this->backup_plan_name = $backup_plan_name ?? "";
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -161,7 +161,7 @@ class BackupPlanInput {
   ?'rules' => BackupRulesInput,
   ) $s = shape()) {
     $this->backup_plan_name = $backup_plan_name ?? "";
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -177,8 +177,8 @@ class BackupPlanTemplatesListMember {
   ?'backup_plan_template_id' => string,
   ?'backup_plan_template_name' => string,
   ) $s = shape()) {
-    $this->backup_plan_template_id = $backup_plan_template_id ?? ;
-    $this->backup_plan_template_name = $backup_plan_template_name ?? ;
+    $this->backup_plan_template_id = $backup_plan_template_id ?? "";
+    $this->backup_plan_template_name = $backup_plan_template_name ?? "";
   }
 }
 
@@ -206,14 +206,14 @@ class BackupPlansListMember {
   ?'last_execution_date' => timestamp,
   ?'version_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
     $this->backup_plan_name = $backup_plan_name ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->deletion_date = $deletion_date ?? ;
-    $this->last_execution_date = $last_execution_date ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->last_execution_date = $last_execution_date ?? 0;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -239,15 +239,15 @@ class BackupRule {
   ?'start_window_minutes' => WindowMinutes,
   ?'target_backup_vault_name' => BackupVaultName,
   ) $s = shape()) {
-    $this->completion_window_minutes = $completion_window_minutes ?? ;
+    $this->completion_window_minutes = $completion_window_minutes ?? 0;
     $this->copy_actions = $copy_actions ?? [];
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_tags = $recovery_point_tags ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->rule_name = $rule_name ?? ;
-    $this->schedule_expression = $schedule_expression ?? ;
-    $this->start_window_minutes = $start_window_minutes ?? ;
-    $this->target_backup_vault_name = $target_backup_vault_name ?? ;
+    $this->recovery_point_tags = $recovery_point_tags ?? [];
+    $this->rule_id = $rule_id ?? "";
+    $this->rule_name = $rule_name ?? "";
+    $this->schedule_expression = $schedule_expression ?? "";
+    $this->start_window_minutes = $start_window_minutes ?? 0;
+    $this->target_backup_vault_name = $target_backup_vault_name ?? "";
   }
 }
 
@@ -271,14 +271,14 @@ class BackupRuleInput {
   ?'start_window_minutes' => WindowMinutes,
   ?'target_backup_vault_name' => BackupVaultName,
   ) $s = shape()) {
-    $this->completion_window_minutes = $completion_window_minutes ?? ;
+    $this->completion_window_minutes = $completion_window_minutes ?? 0;
     $this->copy_actions = $copy_actions ?? [];
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_tags = $recovery_point_tags ?? ;
-    $this->rule_name = $rule_name ?? ;
-    $this->schedule_expression = $schedule_expression ?? ;
-    $this->start_window_minutes = $start_window_minutes ?? ;
-    $this->target_backup_vault_name = $target_backup_vault_name ?? ;
+    $this->recovery_point_tags = $recovery_point_tags ?? [];
+    $this->rule_name = $rule_name ?? "";
+    $this->schedule_expression = $schedule_expression ?? "";
+    $this->start_window_minutes = $start_window_minutes ?? 0;
+    $this->target_backup_vault_name = $target_backup_vault_name ?? "";
   }
 }
 
@@ -300,10 +300,10 @@ class BackupSelection {
   ?'resources' => ResourceArns,
   ?'selection_name' => BackupSelectionName,
   ) $s = shape()) {
-    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? "";
     $this->list_of_tags = $list_of_tags ?? [];
-    $this->resources = $resources ?? ;
-    $this->selection_name = $selection_name ?? ;
+    $this->resources = $resources ?? [];
+    $this->selection_name = $selection_name ?? "";
   }
 }
 
@@ -327,12 +327,12 @@ class BackupSelectionsListMember {
   ?'selection_id' => string,
   ?'selection_name' => BackupSelectionName,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->selection_id = $selection_id ?? ;
-    $this->selection_name = $selection_name ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->selection_id = $selection_id ?? "";
+    $this->selection_name = $selection_name ?? "";
   }
 }
 
@@ -358,12 +358,12 @@ class BackupVaultListMember {
   ?'encryption_key_arn' => ARN,
   ?'number_of_recovery_points' => long,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
-    $this->number_of_recovery_points = $number_of_recovery_points ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
+    $this->number_of_recovery_points = $number_of_recovery_points ?? 0;
   }
 }
 
@@ -379,8 +379,8 @@ class CalculatedLifecycle {
   ?'delete_at' => timestamp,
   ?'move_to_cold_storage_at' => timestamp,
   ) $s = shape()) {
-    $this->delete_at = $delete_at ?? ;
-    $this->move_to_cold_storage_at = $move_to_cold_storage_at ?? ;
+    $this->delete_at = $delete_at ?? 0;
+    $this->move_to_cold_storage_at = $move_to_cold_storage_at ?? 0;
   }
 }
 
@@ -414,7 +414,7 @@ class CopyAction {
   ?'destination_backup_vault_arn' => ARN,
   ?'lifecycle' => Lifecycle,
   ) $s = shape()) {
-    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? ;
+    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? "";
     $this->lifecycle = $lifecycle ?? null;
   }
 }
@@ -453,20 +453,20 @@ class CopyJob {
   ?'state' => CopyJobState,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->copy_job_id = $copy_job_id ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? ;
-    $this->destination_recovery_point_arn = $destination_recovery_point_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->completion_date = $completion_date ?? 0;
+    $this->copy_job_id = $copy_job_id ?? "";
+    $this->created_by = $created_by ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? "";
+    $this->destination_recovery_point_arn = $destination_recovery_point_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->source_backup_vault_arn = $source_backup_vault_arn ?? ;
-    $this->source_recovery_point_arn = $source_recovery_point_arn ?? ;
-    $this->state = $state ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->source_backup_vault_arn = $source_backup_vault_arn ?? "";
+    $this->source_recovery_point_arn = $source_recovery_point_arn ?? "";
+    $this->state = $state ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -485,8 +485,8 @@ class CreateBackupPlanInput {
   ?'creator_request_id' => string,
   ) $s = shape()) {
     $this->backup_plan = $backup_plan ?? null;
-    $this->backup_plan_tags = $backup_plan_tags ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->backup_plan_tags = $backup_plan_tags ?? [];
+    $this->creator_request_id = $creator_request_id ?? "";
   }
 }
 
@@ -502,10 +502,10 @@ class CreateBackupPlanOutput {
   ?'creation_date' => timestamp,
   ?'version_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -519,9 +519,9 @@ class CreateBackupSelectionInput {
   ?'backup_selection' => BackupSelection,
   ?'creator_request_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
     $this->backup_selection = $backup_selection ?? null;
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
   }
 }
 
@@ -535,9 +535,9 @@ class CreateBackupSelectionOutput {
   ?'creation_date' => timestamp,
   ?'selection_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->selection_id = $selection_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->selection_id = $selection_id ?? "";
   }
 }
 
@@ -554,9 +554,9 @@ class CreateBackupVaultInput {
   ?'encryption_key_arn' => ARN,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->backup_vault_tags = $backup_vault_tags ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
+    $this->backup_vault_tags = $backup_vault_tags ?? [];
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
   }
 }
 
@@ -570,9 +570,9 @@ class CreateBackupVaultOutput {
   ?'backup_vault_name' => BackupVaultName,
   ?'creation_date' => timestamp,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->creation_date = $creation_date ?? ;
+    $this->creation_date = $creation_date ?? 0;
   }
 }
 
@@ -584,7 +584,7 @@ class DeleteBackupPlanInput {
   public function __construct(shape(
   ?'backup_plan_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
   }
 }
 
@@ -600,10 +600,10 @@ class DeleteBackupPlanOutput {
   ?'deletion_date' => timestamp,
   ?'version_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->deletion_date = $deletion_date ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -615,8 +615,8 @@ class DeleteBackupSelectionInput {
   ?'backup_plan_id' => string,
   ?'selection_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->selection_id = $selection_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->selection_id = $selection_id ?? "";
   }
 }
 
@@ -659,7 +659,7 @@ class DeleteRecoveryPointInput {
   ?'recovery_point_arn' => ARN,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 
@@ -675,10 +675,10 @@ class DependencyFailureException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -688,7 +688,7 @@ class DescribeBackupJobInput {
   public function __construct(shape(
   ?'backup_job_id' => string,
   ) $s = shape()) {
-    $this->backup_job_id = $backup_job_id ?? ;
+    $this->backup_job_id = $backup_job_id ?? "";
   }
 }
 
@@ -730,23 +730,23 @@ class DescribeBackupJobOutput {
   ?'state' => BackupJobState,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->backup_job_id = $backup_job_id ?? ;
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_job_id = $backup_job_id ?? "";
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->bytes_transferred = $bytes_transferred ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->expected_completion_date = $expected_completion_date ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->percent_done = $percent_done ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->bytes_transferred = $bytes_transferred ?? 0;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_by = $created_by ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->expected_completion_date = $expected_completion_date ?? 0;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->percent_done = $percent_done ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->start_by = $start_by ?? ;
-    $this->state = $state ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->start_by = $start_by ?? 0;
+    $this->state = $state ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -776,12 +776,12 @@ class DescribeBackupVaultOutput {
   ?'encryption_key_arn' => ARN,
   ?'number_of_recovery_points' => long,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
-    $this->number_of_recovery_points = $number_of_recovery_points ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
+    $this->number_of_recovery_points = $number_of_recovery_points ?? 0;
   }
 }
 
@@ -791,7 +791,7 @@ class DescribeCopyJobInput {
   public function __construct(shape(
   ?'copy_job_id' => string,
   ) $s = shape()) {
-    $this->copy_job_id = $copy_job_id ?? ;
+    $this->copy_job_id = $copy_job_id ?? "";
   }
 }
 
@@ -811,7 +811,7 @@ class DescribeProtectedResourceInput {
   public function __construct(shape(
   ?'resource_arn' => ARN,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -825,8 +825,8 @@ class DescribeProtectedResourceOutput {
   ?'resource_arn' => ARN,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->last_backup_time = $last_backup_time ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->last_backup_time = $last_backup_time ?? 0;
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -840,7 +840,7 @@ class DescribeRecoveryPointInput {
   ?'recovery_point_arn' => ARN,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 
@@ -882,22 +882,22 @@ class DescribeRecoveryPointOutput {
   ?'status' => RecoveryPointStatus,
   ?'storage_class' => StorageClass,
   ) $s = shape()) {
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
     $this->calculated_lifecycle = $calculated_lifecycle ?? null;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->is_encrypted = $is_encrypted ?? ;
-    $this->last_restore_time = $last_restore_time ?? ;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_by = $created_by ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->is_encrypted = $is_encrypted ?? false;
+    $this->last_restore_time = $last_restore_time ?? 0;
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->storage_class = $storage_class ?? "";
   }
 }
@@ -938,17 +938,17 @@ class DescribeRestoreJobOutput {
   ?'status' => RestoreJobStatus,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_resource_arn = $created_resource_arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->expected_completion_time_minutes = $expected_completion_time_minutes ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->percent_done = $percent_done ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_resource_arn = $created_resource_arn ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->expected_completion_time_minutes = $expected_completion_time_minutes ?? 0;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->percent_done = $percent_done ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
     $this->restore_job_id = $restore_job_id ?? "";
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -958,7 +958,7 @@ class ExportBackupPlanTemplateInput {
   public function __construct(shape(
   ?'backup_plan_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
   }
 }
 
@@ -968,7 +968,7 @@ class ExportBackupPlanTemplateOutput {
   public function __construct(shape(
   ?'backup_plan_template_json' => string,
   ) $s = shape()) {
-    $this->backup_plan_template_json = $backup_plan_template_json ?? ;
+    $this->backup_plan_template_json = $backup_plan_template_json ?? "";
   }
 }
 
@@ -978,7 +978,7 @@ class GetBackupPlanFromJSONInput {
   public function __construct(shape(
   ?'backup_plan_template_json' => string,
   ) $s = shape()) {
-    $this->backup_plan_template_json = $backup_plan_template_json ?? ;
+    $this->backup_plan_template_json = $backup_plan_template_json ?? "";
   }
 }
 
@@ -998,7 +998,7 @@ class GetBackupPlanFromTemplateInput {
   public function __construct(shape(
   ?'backup_plan_template_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_template_id = $backup_plan_template_id ?? ;
+    $this->backup_plan_template_id = $backup_plan_template_id ?? "";
   }
 }
 
@@ -1008,7 +1008,7 @@ class GetBackupPlanFromTemplateOutput {
   public function __construct(shape(
   ?'backup_plan_document' => BackupPlan,
   ) $s = shape()) {
-    $this->backup_plan_document = $backup_plan_document ?? ;
+    $this->backup_plan_document = $backup_plan_document ?? null;
   }
 }
 
@@ -1020,8 +1020,8 @@ class GetBackupPlanInput {
   ?'backup_plan_id' => string,
   ?'version_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1046,13 +1046,13 @@ class GetBackupPlanOutput {
   ?'version_id' => string,
   ) $s = shape()) {
     $this->backup_plan = $backup_plan ?? null;
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->deletion_date = $deletion_date ?? ;
-    $this->last_execution_date = $last_execution_date ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->last_execution_date = $last_execution_date ?? 0;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1064,8 +1064,8 @@ class GetBackupSelectionInput {
   ?'backup_plan_id' => string,
   ?'selection_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->selection_id = $selection_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->selection_id = $selection_id ?? "";
   }
 }
 
@@ -1083,11 +1083,11 @@ class GetBackupSelectionOutput {
   ?'creator_request_id' => string,
   ?'selection_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
     $this->backup_selection = $backup_selection ?? null;
-    $this->creation_date = $creation_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->selection_id = $selection_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->selection_id = $selection_id ?? "";
   }
 }
 
@@ -1111,9 +1111,9 @@ class GetBackupVaultAccessPolicyOutput {
   ?'backup_vault_name' => BackupVaultName,
   ?'policy' => IAMPolicy,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1139,10 +1139,10 @@ class GetBackupVaultNotificationsOutput {
   ?'backup_vault_name' => BackupVaultName,
   ?'sns_topic_arn' => ARN,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_events = $backup_vault_events ?? [];
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -1155,7 +1155,7 @@ class GetRecoveryPointRestoreMetadataInput {
   ?'recovery_point_arn' => ARN,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 
@@ -1169,9 +1169,9 @@ class GetRecoveryPointRestoreMetadataOutput {
   ?'recovery_point_arn' => ARN,
   ?'restore_metadata' => Metadata,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->restore_metadata = $restore_metadata ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->restore_metadata = $restore_metadata ?? [];
   }
 }
 
@@ -1201,10 +1201,10 @@ class InvalidParameterValueException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1220,10 +1220,10 @@ class InvalidRequestException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1235,8 +1235,8 @@ class Lifecycle {
   ?'delete_after_days' => Long,
   ?'move_to_cold_storage_after_days' => Long,
   ) $s = shape()) {
-    $this->delete_after_days = $delete_after_days ?? ;
-    $this->move_to_cold_storage_after_days = $move_to_cold_storage_after_days ?? ;
+    $this->delete_after_days = $delete_after_days ?? 0;
+    $this->move_to_cold_storage_after_days = $move_to_cold_storage_after_days ?? 0;
   }
 }
 
@@ -1252,10 +1252,10 @@ class LimitExceededException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1279,14 +1279,14 @@ class ListBackupJobsInput {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->by_backup_vault_name = $by_backup_vault_name ?? ;
-    $this->by_created_after = $by_created_after ?? ;
-    $this->by_created_before = $by_created_before ?? ;
-    $this->by_resource_arn = $by_resource_arn ?? ;
-    $this->by_resource_type = $by_resource_type ?? ;
-    $this->by_state = $by_state ?? ;
+    $this->by_backup_vault_name = $by_backup_vault_name ?? "";
+    $this->by_created_after = $by_created_after ?? 0;
+    $this->by_created_before = $by_created_before ?? 0;
+    $this->by_resource_arn = $by_resource_arn ?? "";
+    $this->by_resource_type = $by_resource_type ?? "";
+    $this->by_state = $by_state ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1298,8 +1298,8 @@ class ListBackupJobsOutput {
   ?'backup_jobs' => BackupJobsList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->backup_jobs = $backup_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->backup_jobs = $backup_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1312,7 +1312,7 @@ class ListBackupPlanTemplatesInput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1325,7 +1325,7 @@ class ListBackupPlanTemplatesOutput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_plan_templates_list = $backup_plan_templates_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1339,9 +1339,9 @@ class ListBackupPlanVersionsInput {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1354,7 +1354,7 @@ class ListBackupPlanVersionsOutput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_plan_versions_list = $backup_plan_versions_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1368,9 +1368,9 @@ class ListBackupPlansInput {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->include_deleted = $include_deleted ?? ;
+    $this->include_deleted = $include_deleted ?? false;
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1383,7 +1383,7 @@ class ListBackupPlansOutput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_plans_list = $backup_plans_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1397,9 +1397,9 @@ class ListBackupSelectionsInput {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1412,7 +1412,7 @@ class ListBackupSelectionsOutput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_selections_list = $backup_selections_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1425,7 +1425,7 @@ class ListBackupVaultsInput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1438,7 +1438,7 @@ class ListBackupVaultsOutput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_vault_list = $backup_vault_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1462,14 +1462,14 @@ class ListCopyJobsInput {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->by_created_after = $by_created_after ?? ;
-    $this->by_created_before = $by_created_before ?? ;
-    $this->by_destination_vault_arn = $by_destination_vault_arn ?? ;
-    $this->by_resource_arn = $by_resource_arn ?? ;
-    $this->by_resource_type = $by_resource_type ?? ;
-    $this->by_state = $by_state ?? ;
+    $this->by_created_after = $by_created_after ?? 0;
+    $this->by_created_before = $by_created_before ?? 0;
+    $this->by_destination_vault_arn = $by_destination_vault_arn ?? "";
+    $this->by_resource_arn = $by_resource_arn ?? "";
+    $this->by_resource_type = $by_resource_type ?? "";
+    $this->by_state = $by_state ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1481,8 +1481,8 @@ class ListCopyJobsOutput {
   ?'copy_jobs' => CopyJobsList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->copy_jobs = $copy_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->copy_jobs = $copy_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1497,7 +1497,7 @@ class ListProtectedResourcesInput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1509,8 +1509,8 @@ class ListProtectedResourcesOutput {
   ?'next_token' => string,
   ?'results' => ProtectedResourcesList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->results = $results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->results = $results ?? [];
   }
 }
 
@@ -1535,13 +1535,13 @@ class ListRecoveryPointsByBackupVaultInput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->by_backup_plan_id = $by_backup_plan_id ?? ;
-    $this->by_created_after = $by_created_after ?? ;
-    $this->by_created_before = $by_created_before ?? ;
-    $this->by_resource_arn = $by_resource_arn ?? ;
-    $this->by_resource_type = $by_resource_type ?? ;
+    $this->by_backup_plan_id = $by_backup_plan_id ?? "";
+    $this->by_created_after = $by_created_after ?? 0;
+    $this->by_created_before = $by_created_before ?? 0;
+    $this->by_resource_arn = $by_resource_arn ?? "";
+    $this->by_resource_type = $by_resource_type ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1553,8 +1553,8 @@ class ListRecoveryPointsByBackupVaultOutput {
   ?'next_token' => string,
   ?'recovery_points' => RecoveryPointByBackupVaultList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->recovery_points = $recovery_points ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->recovery_points = $recovery_points ?? [];
   }
 }
 
@@ -1569,8 +1569,8 @@ class ListRecoveryPointsByResourceInput {
   ?'resource_arn' => ARN,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1582,8 +1582,8 @@ class ListRecoveryPointsByResourceOutput {
   ?'next_token' => string,
   ?'recovery_points' => RecoveryPointByResourceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->recovery_points = $recovery_points ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->recovery_points = $recovery_points ?? [];
   }
 }
 
@@ -1596,7 +1596,7 @@ class ListRestoreJobsInput {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1608,8 +1608,8 @@ class ListRestoreJobsOutput {
   ?'next_token' => string,
   ?'restore_jobs' => RestoreJobsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->restore_jobs = $restore_jobs ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->restore_jobs = $restore_jobs ?? [];
   }
 }
 
@@ -1624,8 +1624,8 @@ class ListTagsInput {
   ?'resource_arn' => ARN,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1637,7 +1637,7 @@ class ListTagsOutput {
   ?'next_token' => string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1664,10 +1664,10 @@ class MissingParameterValueException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1681,8 +1681,8 @@ class ProtectedResource {
   ?'resource_arn' => ARN,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->last_backup_time = $last_backup_time ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->last_backup_time = $last_backup_time ?? 0;
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -1698,7 +1698,7 @@ class PutBackupVaultAccessPolicyInput {
   ?'policy' => IAMPolicy,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -1714,7 +1714,7 @@ class PutBackupVaultNotificationsInput {
   ) $s = shape()) {
     $this->backup_vault_events = $backup_vault_events ?? [];
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -1754,22 +1754,22 @@ class RecoveryPointByBackupVault {
   ?'resource_type' => ResourceType,
   ?'status' => RecoveryPointStatus,
   ) $s = shape()) {
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->backup_vault_name = $backup_vault_name ?? "";
     $this->calculated_lifecycle = $calculated_lifecycle ?? null;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->is_encrypted = $is_encrypted ?? ;
-    $this->last_restore_time = $last_restore_time ?? ;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_by = $created_by ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->is_encrypted = $is_encrypted ?? false;
+    $this->last_restore_time = $last_restore_time ?? 0;
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->resource_arn = $resource_arn ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1791,12 +1791,12 @@ class RecoveryPointByResource {
   ?'recovery_point_arn' => ARN,
   ?'status' => RecoveryPointStatus,
   ) $s = shape()) {
-    $this->backup_size_bytes = $backup_size_bytes ?? ;
+    $this->backup_size_bytes = $backup_size_bytes ?? 0;
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->encryption_key_arn = $encryption_key_arn ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->encryption_key_arn = $encryption_key_arn ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1814,10 +1814,10 @@ class RecoveryPointCreator {
   ?'backup_plan_version' => string,
   ?'backup_rule_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->backup_plan_version = $backup_plan_version ?? ;
-    $this->backup_rule_id = $backup_rule_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->backup_plan_version = $backup_plan_version ?? "";
+    $this->backup_rule_id = $backup_rule_id ?? "";
   }
 }
 
@@ -1837,10 +1837,10 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1880,17 +1880,17 @@ class RestoreJobsListMember {
   ?'status' => RestoreJobStatus,
   ?'status_message' => string,
   ) $s = shape()) {
-    $this->backup_size_in_bytes = $backup_size_in_bytes ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->created_resource_arn = $created_resource_arn ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->expected_completion_time_minutes = $expected_completion_time_minutes ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->percent_done = $percent_done ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->backup_size_in_bytes = $backup_size_in_bytes ?? 0;
+    $this->completion_date = $completion_date ?? 0;
+    $this->created_resource_arn = $created_resource_arn ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->expected_completion_time_minutes = $expected_completion_time_minutes ?? 0;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->percent_done = $percent_done ?? "";
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
     $this->restore_job_id = $restore_job_id ?? "";
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -1906,10 +1906,10 @@ class ServiceUnavailableException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->context = $context ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->code = $code ?? "";
+    $this->context = $context ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1934,13 +1934,13 @@ class StartBackupJobInput {
   ?'start_window_minutes' => WindowMinutes,
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
-    $this->complete_window_minutes = $complete_window_minutes ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->idempotency_token = $idempotency_token ?? ;
+    $this->complete_window_minutes = $complete_window_minutes ?? 0;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_tags = $recovery_point_tags ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->start_window_minutes = $start_window_minutes ?? ;
+    $this->recovery_point_tags = $recovery_point_tags ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->start_window_minutes = $start_window_minutes ?? 0;
   }
 }
 
@@ -1954,9 +1954,9 @@ class StartBackupJobOutput {
   ?'creation_date' => timestamp,
   ?'recovery_point_arn' => ARN,
   ) $s = shape()) {
-    $this->backup_job_id = $backup_job_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->backup_job_id = $backup_job_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 
@@ -1976,12 +1976,12 @@ class StartCopyJobInput {
   ?'recovery_point_arn' => ARN,
   ?'source_backup_vault_name' => BackupVaultName,
   ) $s = shape()) {
-    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->idempotency_token = $idempotency_token ?? ;
+    $this->destination_backup_vault_arn = $destination_backup_vault_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
-    $this->source_backup_vault_name = $source_backup_vault_name ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
+    $this->source_backup_vault_name = $source_backup_vault_name ?? "";
   }
 }
 
@@ -1993,8 +1993,8 @@ class StartCopyJobOutput {
   ?'copy_job_id' => string,
   ?'creation_date' => timestamp,
   ) $s = shape()) {
-    $this->copy_job_id = $copy_job_id ?? ;
-    $this->creation_date = $creation_date ?? ;
+    $this->copy_job_id = $copy_job_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
   }
 }
 
@@ -2012,10 +2012,10 @@ class StartRestoreJobInput {
   ?'recovery_point_arn' => ARN,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->idempotency_token = $idempotency_token ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
     $this->metadata = $metadata ?? [];
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -2036,7 +2036,7 @@ class StopBackupJobInput {
   public function __construct(shape(
   ?'backup_job_id' => string,
   ) $s = shape()) {
-    $this->backup_job_id = $backup_job_id ?? ;
+    $this->backup_job_id = $backup_job_id ?? "";
   }
 }
 
@@ -2054,7 +2054,7 @@ class TagResourceInput {
   ?'resource_arn' => ARN,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -2071,7 +2071,7 @@ class UntagResourceInput {
   ?'resource_arn' => ARN,
   ?'tag_key_list' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tag_key_list = $tag_key_list ?? [];
   }
 }
@@ -2085,7 +2085,7 @@ class UpdateBackupPlanInput {
   ?'backup_plan_id' => string,
   ) $s = shape()) {
     $this->backup_plan = $backup_plan ?? null;
-    $this->backup_plan_id = $backup_plan_id ?? ;
+    $this->backup_plan_id = $backup_plan_id ?? "";
   }
 }
 
@@ -2101,10 +2101,10 @@ class UpdateBackupPlanOutput {
   ?'creation_date' => timestamp,
   ?'version_id' => string,
   ) $s = shape()) {
-    $this->backup_plan_arn = $backup_plan_arn ?? ;
-    $this->backup_plan_id = $backup_plan_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->backup_plan_arn = $backup_plan_arn ?? "";
+    $this->backup_plan_id = $backup_plan_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2120,7 +2120,7 @@ class UpdateRecoveryPointLifecycleInput {
   ) $s = shape()) {
     $this->backup_vault_name = $backup_vault_name ?? "";
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 
@@ -2136,10 +2136,10 @@ class UpdateRecoveryPointLifecycleOutput {
   ?'lifecycle' => Lifecycle,
   ?'recovery_point_arn' => ARN,
   ) $s = shape()) {
-    $this->backup_vault_arn = $backup_vault_arn ?? ;
+    $this->backup_vault_arn = $backup_vault_arn ?? "";
     $this->calculated_lifecycle = $calculated_lifecycle ?? null;
     $this->lifecycle = $lifecycle ?? null;
-    $this->recovery_point_arn = $recovery_point_arn ?? ;
+    $this->recovery_point_arn = $recovery_point_arn ?? "";
   }
 }
 

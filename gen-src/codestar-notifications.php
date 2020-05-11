@@ -72,9 +72,9 @@ class CreateNotificationRuleRequest {
     $this->client_request_token = $client_request_token ?? "";
     $this->detail_type = $detail_type ?? "";
     $this->event_type_ids = $event_type_ids ?? [];
-    $this->name = $name ?? ;
-    $this->resource = $resource ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->resource = $resource ?? "";
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
     $this->targets = $targets ?? [];
   }
@@ -86,7 +86,7 @@ class CreateNotificationRuleResult {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -98,7 +98,7 @@ class DeleteNotificationRuleRequest {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -108,7 +108,7 @@ class DeleteNotificationRuleResult {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -138,7 +138,7 @@ class DescribeNotificationRuleRequest {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -168,15 +168,15 @@ class DescribeNotificationRuleResult {
   ?'tags' => Tags,
   ?'targets' => TargetsBatch,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_by = $created_by ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_by = $created_by ?? "";
     $this->created_timestamp = $created_timestamp ?? 0;
     $this->detail_type = $detail_type ?? "";
-    $this->event_types = $event_types ?? ;
+    $this->event_types = $event_types ?? [];
     $this->last_modified_timestamp = $last_modified_timestamp ?? 0;
-    $this->name = $name ?? ;
-    $this->resource = $resource ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->resource = $resource ?? "";
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
     $this->targets = $targets ?? [];
   }
@@ -243,8 +243,8 @@ class ListEventTypesFilter {
   ?'name' => ListEventTypesFilterName,
   ?'value' => ListEventTypesFilterValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -264,7 +264,7 @@ class ListEventTypesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -278,7 +278,7 @@ class ListEventTypesResult {
   ?'event_types' => EventTypeBatch,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->event_types = $event_types ?? ;
+    $this->event_types = $event_types ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -291,8 +291,8 @@ class ListNotificationRulesFilter {
   ?'name' => ListNotificationRulesFilterName,
   ?'value' => ListNotificationRulesFilterValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -312,7 +312,7 @@ class ListNotificationRulesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -327,7 +327,7 @@ class ListNotificationRulesResult {
   ?'notification_rules' => NotificationRuleBatch,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->notification_rules = $notification_rules ?? ;
+    $this->notification_rules = $notification_rules ?? [];
   }
 }
 
@@ -337,7 +337,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -359,8 +359,8 @@ class ListTargetsFilter {
   ?'name' => ListTargetsFilterName,
   ?'value' => ListTargetsFilterValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -380,7 +380,7 @@ class ListTargetsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -427,8 +427,8 @@ class NotificationRuleSummary {
   ?'arn' => NotificationRuleArn,
   ?'id' => NotificationRuleId,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -466,7 +466,7 @@ class SubscribeRequest {
   ?'client_request_token' => ClientRequestToken,
   ?'target' => Target,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->client_request_token = $client_request_token ?? "";
     $this->target = $target ?? null;
   }
@@ -478,7 +478,7 @@ class SubscribeResult {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -494,7 +494,7 @@ class TagResourceRequest {
   ?'arn' => NotificationRuleArn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -560,7 +560,7 @@ class UnsubscribeRequest {
   ?'arn' => NotificationRuleArn,
   ?'target_address' => TargetAddress,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->target_address = $target_address ?? "";
   }
 }
@@ -571,7 +571,7 @@ class UnsubscribeResult {
   public function __construct(shape(
   ?'arn' => NotificationRuleArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -583,7 +583,7 @@ class UntagResourceRequest {
   ?'arn' => NotificationRuleArn,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->tag_keys = $tag_keys ?? [];
   }
 }
@@ -611,11 +611,11 @@ class UpdateNotificationRuleRequest {
   ?'status' => NotificationRuleStatus,
   ?'targets' => Targets,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->detail_type = $detail_type ?? "";
     $this->event_type_ids = $event_type_ids ?? [];
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
     $this->targets = $targets ?? [];
   }
 }

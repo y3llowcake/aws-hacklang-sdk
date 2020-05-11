@@ -53,9 +53,9 @@ class AWSSessionCredentials {
   ?'secret_access_key' => SecretAccessKey,
   ?'session_token' => SessionToken,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->secret_access_key = $secret_access_key ?? ;
-    $this->session_token = $session_token ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->secret_access_key = $secret_access_key ?? "";
+    $this->session_token = $session_token ?? "";
   }
 }
 
@@ -71,8 +71,8 @@ class AcknowledgeJobInput {
   ?'job_id' => JobId,
   ?'nonce' => Nonce,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->nonce = $nonce ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->nonce = $nonce ?? "";
   }
 }
 
@@ -82,7 +82,7 @@ class AcknowledgeJobOutput {
   public function __construct(shape(
   ?'status' => JobStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -96,9 +96,9 @@ class AcknowledgeThirdPartyJobInput {
   ?'job_id' => ThirdPartyJobId,
   ?'nonce' => Nonce,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->nonce = $nonce ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->nonce = $nonce ?? "";
   }
 }
 
@@ -108,7 +108,7 @@ class AcknowledgeThirdPartyJobOutput {
   public function __construct(shape(
   ?'status' => JobStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -120,7 +120,7 @@ class ActionConfiguration {
   public function __construct(shape(
   ?'configuration' => ActionConfigurationMap,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? [];
   }
 }
 
@@ -146,13 +146,13 @@ class ActionConfigurationProperty {
   ?'secret' => boolean,
   ?'type' => ActionConfigurationPropertyType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->key = $key ?? ;
-    $this->name = $name ?? ;
-    $this->queryable = $queryable ?? ;
-    $this->required = $required ?? ;
-    $this->secret = $secret ?? ;
-    $this->type = $type ?? ;
+    $this->description = $description ?? "";
+    $this->key = $key ?? false;
+    $this->name = $name ?? "";
+    $this->queryable = $queryable ?? false;
+    $this->required = $required ?? false;
+    $this->secret = $secret ?? false;
+    $this->type = $type ?? "";
   }
 }
 
@@ -172,8 +172,8 @@ class ActionContext {
   ?'action_execution_id' => ActionExecutionId,
   ?'name' => ActionName,
   ) $s = shape()) {
-    $this->action_execution_id = $action_execution_id ?? ;
-    $this->name = $name ?? ;
+    $this->action_execution_id = $action_execution_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -199,15 +199,15 @@ class ActionDeclaration {
   ?'role_arn' => RoleArn,
   ?'run_order' => ActionRunOrder,
   ) $s = shape()) {
-    $this->action_type_id = $action_type_id ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->name = $name ?? ;
-    $this->namespace = $namespace ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->region = $region ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->run_order = $run_order ?? ;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->configuration = $configuration ?? [];
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->name = $name ?? "";
+    $this->namespace = $namespace ?? "";
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->region = $region ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->run_order = $run_order ?? 0;
   }
 }
 
@@ -233,15 +233,15 @@ class ActionExecution {
   ?'summary' => ExecutionSummary,
   ?'token' => ActionExecutionToken,
   ) $s = shape()) {
-    $this->error_details = $error_details ?? ;
-    $this->external_execution_id = $external_execution_id ?? ;
-    $this->external_execution_url = $external_execution_url ?? ;
-    $this->last_status_change = $last_status_change ?? ;
-    $this->last_updated_by = $last_updated_by ?? ;
-    $this->percent_complete = $percent_complete ?? ;
-    $this->status = $status ?? ;
-    $this->summary = $summary ?? ;
-    $this->token = $token ?? ;
+    $this->error_details = $error_details ?? null;
+    $this->external_execution_id = $external_execution_id ?? "";
+    $this->external_execution_url = $external_execution_url ?? "";
+    $this->last_status_change = $last_status_change ?? 0;
+    $this->last_updated_by = $last_updated_by ?? "";
+    $this->percent_complete = $percent_complete ?? 0;
+    $this->status = $status ?? "";
+    $this->summary = $summary ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -269,16 +269,16 @@ class ActionExecutionDetail {
   ?'start_time' => Timestamp,
   ?'status' => ActionExecutionStatus,
   ) $s = shape()) {
-    $this->action_execution_id = $action_execution_id ?? ;
-    $this->action_name = $action_name ?? ;
-    $this->input = $input ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->output = $output ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_version = $pipeline_version ?? ;
-    $this->stage_name = $stage_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->action_execution_id = $action_execution_id ?? "";
+    $this->action_name = $action_name ?? "";
+    $this->input = $input ?? null;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->output = $output ?? null;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_version = $pipeline_version ?? 0;
+    $this->stage_name = $stage_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -290,7 +290,7 @@ class ActionExecutionFilter {
   public function __construct(shape(
   ?'pipeline_execution_id' => PipelineExecutionId,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
   }
 }
 
@@ -314,13 +314,13 @@ class ActionExecutionInput {
   ?'resolved_configuration' => ResolvedActionConfigurationMap,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->action_type_id = $action_type_id ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->namespace = $namespace ?? ;
-    $this->region = $region ?? ;
-    $this->resolved_configuration = $resolved_configuration ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->configuration = $configuration ?? [];
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->namespace = $namespace ?? "";
+    $this->region = $region ?? "";
+    $this->resolved_configuration = $resolved_configuration ?? [];
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -334,9 +334,9 @@ class ActionExecutionOutput {
   ?'output_artifacts' => ArtifactDetailList,
   ?'output_variables' => OutputVariablesMap,
   ) $s = shape()) {
-    $this->execution_result = $execution_result ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->output_variables = $output_variables ?? ;
+    $this->execution_result = $execution_result ?? null;
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->output_variables = $output_variables ?? [];
   }
 }
 
@@ -350,9 +350,9 @@ class ActionExecutionResult {
   ?'external_execution_summary' => ExternalExecutionSummary,
   ?'external_execution_url' => Url,
   ) $s = shape()) {
-    $this->external_execution_id = $external_execution_id ?? ;
-    $this->external_execution_summary = $external_execution_summary ?? ;
-    $this->external_execution_url = $external_execution_url ?? ;
+    $this->external_execution_id = $external_execution_id ?? "";
+    $this->external_execution_summary = $external_execution_summary ?? "";
+    $this->external_execution_url = $external_execution_url ?? "";
   }
 }
 
@@ -385,9 +385,9 @@ class ActionRevision {
   ?'revision_change_id' => RevisionChangeIdentifier,
   ?'revision_id' => Revision,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->revision_change_id = $revision_change_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->created = $created ?? 0;
+    $this->revision_change_id = $revision_change_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -407,11 +407,11 @@ class ActionState {
   ?'latest_execution' => ActionExecution,
   ?'revision_url' => Url,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->current_revision = $current_revision ?? ;
-    $this->entity_url = $entity_url ?? ;
-    $this->latest_execution = $latest_execution ?? ;
-    $this->revision_url = $revision_url ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->current_revision = $current_revision ?? null;
+    $this->entity_url = $entity_url ?? "";
+    $this->latest_execution = $latest_execution ?? null;
+    $this->revision_url = $revision_url ?? "";
   }
 }
 
@@ -431,11 +431,11 @@ class ActionType {
   ?'output_artifact_details' => ArtifactDetails,
   ?'settings' => ActionTypeSettings,
   ) $s = shape()) {
-    $this->action_configuration_properties = $action_configuration_properties ?? ;
-    $this->id = $id ?? ;
-    $this->input_artifact_details = $input_artifact_details ?? ;
-    $this->output_artifact_details = $output_artifact_details ?? ;
-    $this->settings = $settings ?? ;
+    $this->action_configuration_properties = $action_configuration_properties ?? [];
+    $this->id = $id ?? null;
+    $this->input_artifact_details = $input_artifact_details ?? null;
+    $this->output_artifact_details = $output_artifact_details ?? null;
+    $this->settings = $settings ?? null;
   }
 }
 
@@ -451,10 +451,10 @@ class ActionTypeId {
   ?'provider' => ActionProvider,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->owner = $owner ?? ;
-    $this->provider = $provider ?? ;
-    $this->version = $version ?? ;
+    $this->category = $category ?? "";
+    $this->owner = $owner ?? "";
+    $this->provider = $provider ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -479,10 +479,10 @@ class ActionTypeSettings {
   ?'revision_url_template' => UrlTemplate,
   ?'third_party_configuration_url' => Url,
   ) $s = shape()) {
-    $this->entity_url_template = $entity_url_template ?? ;
-    $this->execution_url_template = $execution_url_template ?? ;
-    $this->revision_url_template = $revision_url_template ?? ;
-    $this->third_party_configuration_url = $third_party_configuration_url ?? ;
+    $this->entity_url_template = $entity_url_template ?? "";
+    $this->execution_url_template = $execution_url_template ?? "";
+    $this->revision_url_template = $revision_url_template ?? "";
+    $this->third_party_configuration_url = $third_party_configuration_url ?? "";
   }
 }
 
@@ -501,8 +501,8 @@ class ApprovalResult {
   ?'status' => ApprovalStatus,
   ?'summary' => ApprovalSummary,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->summary = $summary ?? ;
+    $this->status = $status ?? "";
+    $this->summary = $summary ?? "";
   }
 }
 
@@ -522,9 +522,9 @@ class Artifact {
   ?'name' => ArtifactName,
   ?'revision' => Revision,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->revision = $revision ?? ;
+    $this->location = $location ?? null;
+    $this->name = $name ?? "";
+    $this->revision = $revision ?? "";
   }
 }
 
@@ -536,8 +536,8 @@ class ArtifactDetail {
   ?'name' => ArtifactName,
   ?'s_3_location' => S3Location,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->s_3_location = $s_3_location ?? ;
+    $this->name = $name ?? "";
+    $this->s_3_location = $s_3_location ?? null;
   }
 }
 
@@ -551,8 +551,8 @@ class ArtifactDetails {
   ?'maximum_count' => MaximumArtifactCount,
   ?'minimum_count' => MinimumArtifactCount,
   ) $s = shape()) {
-    $this->maximum_count = $maximum_count ?? ;
-    $this->minimum_count = $minimum_count ?? ;
+    $this->maximum_count = $maximum_count ?? 0;
+    $this->minimum_count = $minimum_count ?? 0;
   }
 }
 
@@ -566,8 +566,8 @@ class ArtifactLocation {
   ?'s_3_location' => S3ArtifactLocation,
   ?'type' => ArtifactLocationType,
   ) $s = shape()) {
-    $this->s_3_location = $s_3_location ?? ;
-    $this->type = $type ?? ;
+    $this->s_3_location = $s_3_location ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -591,12 +591,12 @@ class ArtifactRevision {
   ?'revision_summary' => RevisionSummary,
   ?'revision_url' => Url,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->name = $name ?? ;
-    $this->revision_change_identifier = $revision_change_identifier ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->revision_summary = $revision_summary ?? ;
-    $this->revision_url = $revision_url ?? ;
+    $this->created = $created ?? 0;
+    $this->name = $name ?? "";
+    $this->revision_change_identifier = $revision_change_identifier ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->revision_summary = $revision_summary ?? "";
+    $this->revision_url = $revision_url ?? "";
   }
 }
 
@@ -612,9 +612,9 @@ class ArtifactStore {
   ?'location' => ArtifactStoreLocation,
   ?'type' => ArtifactStoreType,
   ) $s = shape()) {
-    $this->encryption_key = $encryption_key ?? ;
-    $this->location = $location ?? ;
-    $this->type = $type ?? ;
+    $this->encryption_key = $encryption_key ?? null;
+    $this->location = $location ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -632,8 +632,8 @@ class BlockerDeclaration {
   ?'name' => BlockerName,
   ?'type' => BlockerType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -657,7 +657,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -683,14 +683,14 @@ class CreateCustomActionTypeInput {
   ?'tags' => TagList,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->configuration_properties = $configuration_properties ?? ;
-    $this->input_artifact_details = $input_artifact_details ?? ;
-    $this->output_artifact_details = $output_artifact_details ?? ;
-    $this->provider = $provider ?? ;
-    $this->settings = $settings ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->category = $category ?? "";
+    $this->configuration_properties = $configuration_properties ?? [];
+    $this->input_artifact_details = $input_artifact_details ?? null;
+    $this->output_artifact_details = $output_artifact_details ?? null;
+    $this->provider = $provider ?? "";
+    $this->settings = $settings ?? null;
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -702,8 +702,8 @@ class CreateCustomActionTypeOutput {
   ?'action_type' => ActionType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->action_type = $action_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->action_type = $action_type ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -715,8 +715,8 @@ class CreatePipelineInput {
   ?'pipeline' => PipelineDeclaration,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->pipeline = $pipeline ?? ;
-    $this->tags = $tags ?? ;
+    $this->pipeline = $pipeline ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -728,8 +728,8 @@ class CreatePipelineOutput {
   ?'pipeline' => PipelineDeclaration,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->pipeline = $pipeline ?? ;
-    $this->tags = $tags ?? ;
+    $this->pipeline = $pipeline ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -745,10 +745,10 @@ class CurrentRevision {
   ?'revision' => Revision,
   ?'revision_summary' => RevisionSummary,
   ) $s = shape()) {
-    $this->change_identifier = $change_identifier ?? ;
-    $this->created = $created ?? ;
-    $this->revision = $revision ?? ;
-    $this->revision_summary = $revision_summary ?? ;
+    $this->change_identifier = $change_identifier ?? "";
+    $this->created = $created ?? 0;
+    $this->revision = $revision ?? "";
+    $this->revision_summary = $revision_summary ?? "";
   }
 }
 
@@ -762,9 +762,9 @@ class DeleteCustomActionTypeInput {
   ?'provider' => ActionProvider,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->provider = $provider ?? ;
-    $this->version = $version ?? ;
+    $this->category = $category ?? "";
+    $this->provider = $provider ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -774,7 +774,7 @@ class DeletePipelineInput {
   public function __construct(shape(
   ?'name' => PipelineName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -784,7 +784,7 @@ class DeleteWebhookInput {
   public function __construct(shape(
   ?'name' => WebhookName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -801,7 +801,7 @@ class DeregisterWebhookWithThirdPartyInput {
   public function __construct(shape(
   ?'webhook_name' => WebhookName,
   ) $s = shape()) {
-    $this->webhook_name = $webhook_name ?? ;
+    $this->webhook_name = $webhook_name ?? "";
   }
 }
 
@@ -826,10 +826,10 @@ class DisableStageTransitionInput {
   ?'stage_name' => StageName,
   ?'transition_type' => StageTransitionType,
   ) $s = shape()) {
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->reason = $reason ?? ;
-    $this->stage_name = $stage_name ?? ;
-    $this->transition_type = $transition_type ?? ;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->reason = $reason ?? "";
+    $this->stage_name = $stage_name ?? "";
+    $this->transition_type = $transition_type ?? "";
   }
 }
 
@@ -841,7 +841,7 @@ class DuplicatedStopRequestException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -855,9 +855,9 @@ class EnableStageTransitionInput {
   ?'stage_name' => StageName,
   ?'transition_type' => StageTransitionType,
   ) $s = shape()) {
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->stage_name = $stage_name ?? ;
-    $this->transition_type = $transition_type ?? ;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->stage_name = $stage_name ?? "";
+    $this->transition_type = $transition_type ?? "";
   }
 }
 
@@ -871,8 +871,8 @@ class EncryptionKey {
   ?'id' => EncryptionKeyId,
   ?'type' => EncryptionKeyType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -888,8 +888,8 @@ class ErrorDetails {
   ?'code' => Code,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -903,9 +903,9 @@ class ExecutionDetails {
   ?'percent_complete' => Percentage,
   ?'summary' => ExecutionSummary,
   ) $s = shape()) {
-    $this->external_execution_id = $external_execution_id ?? ;
-    $this->percent_complete = $percent_complete ?? ;
-    $this->summary = $summary ?? ;
+    $this->external_execution_id = $external_execution_id ?? "";
+    $this->percent_complete = $percent_complete ?? 0;
+    $this->summary = $summary ?? "";
   }
 }
 
@@ -921,8 +921,8 @@ class ExecutionTrigger {
   ?'trigger_detail' => TriggerDetail,
   ?'trigger_type' => TriggerType,
   ) $s = shape()) {
-    $this->trigger_detail = $trigger_detail ?? ;
-    $this->trigger_type = $trigger_type ?? ;
+    $this->trigger_detail = $trigger_detail ?? "";
+    $this->trigger_type = $trigger_type ?? "";
   }
 }
 
@@ -940,9 +940,9 @@ class FailureDetails {
   ?'message' => Message,
   ?'type' => FailureType,
   ) $s = shape()) {
-    $this->external_execution_id = $external_execution_id ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->external_execution_id = $external_execution_id ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -954,7 +954,7 @@ class GetJobDetailsInput {
   public function __construct(shape(
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -964,7 +964,7 @@ class GetJobDetailsOutput {
   public function __construct(shape(
   ?'job_details' => JobDetails,
   ) $s = shape()) {
-    $this->job_details = $job_details ?? ;
+    $this->job_details = $job_details ?? null;
   }
 }
 
@@ -976,8 +976,8 @@ class GetPipelineExecutionInput {
   ?'pipeline_execution_id' => PipelineExecutionId,
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -987,7 +987,7 @@ class GetPipelineExecutionOutput {
   public function __construct(shape(
   ?'pipeline_execution' => PipelineExecution,
   ) $s = shape()) {
-    $this->pipeline_execution = $pipeline_execution ?? ;
+    $this->pipeline_execution = $pipeline_execution ?? null;
   }
 }
 
@@ -999,8 +999,8 @@ class GetPipelineInput {
   ?'name' => PipelineName,
   ?'version' => PipelineVersion,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1012,8 +1012,8 @@ class GetPipelineOutput {
   ?'metadata' => PipelineMetadata,
   ?'pipeline' => PipelineDeclaration,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
-    $this->pipeline = $pipeline ?? ;
+    $this->metadata = $metadata ?? null;
+    $this->pipeline = $pipeline ?? null;
   }
 }
 
@@ -1023,7 +1023,7 @@ class GetPipelineStateInput {
   public function __construct(shape(
   ?'name' => PipelineName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1041,11 +1041,11 @@ class GetPipelineStateOutput {
   ?'stage_states' => StageStateList,
   ?'updated' => Timestamp,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->pipeline_version = $pipeline_version ?? ;
-    $this->stage_states = $stage_states ?? ;
-    $this->updated = $updated ?? ;
+    $this->created = $created ?? 0;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->pipeline_version = $pipeline_version ?? 0;
+    $this->stage_states = $stage_states ?? [];
+    $this->updated = $updated ?? 0;
   }
 }
 
@@ -1057,8 +1057,8 @@ class GetThirdPartyJobDetailsInput {
   ?'client_token' => ClientToken,
   ?'job_id' => ThirdPartyJobId,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1068,7 +1068,7 @@ class GetThirdPartyJobDetailsOutput {
   public function __construct(shape(
   ?'job_details' => ThirdPartyJobDetails,
   ) $s = shape()) {
-    $this->job_details = $job_details ?? ;
+    $this->job_details = $job_details ?? null;
   }
 }
 
@@ -1078,7 +1078,7 @@ class InputArtifact {
   public function __construct(shape(
   ?'name' => ArtifactName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1104,7 +1104,7 @@ class InvalidArnException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1170,7 +1170,7 @@ class InvalidTagsException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1200,10 +1200,10 @@ class Job {
   ?'id' => JobId,
   ?'nonce' => Nonce,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->data = $data ?? ;
-    $this->id = $id ?? ;
-    $this->nonce = $nonce ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->data = $data ?? null;
+    $this->id = $id ?? "";
+    $this->nonce = $nonce ?? "";
   }
 }
 
@@ -1227,14 +1227,14 @@ class JobData {
   ?'output_artifacts' => ArtifactList,
   ?'pipeline_context' => PipelineContext,
   ) $s = shape()) {
-    $this->action_configuration = $action_configuration ?? ;
-    $this->action_type_id = $action_type_id ?? ;
-    $this->artifact_credentials = $artifact_credentials ?? ;
-    $this->continuation_token = $continuation_token ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->pipeline_context = $pipeline_context ?? ;
+    $this->action_configuration = $action_configuration ?? null;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->artifact_credentials = $artifact_credentials ?? null;
+    $this->continuation_token = $continuation_token ?? "";
+    $this->encryption_key = $encryption_key ?? null;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->pipeline_context = $pipeline_context ?? null;
   }
 }
 
@@ -1248,9 +1248,9 @@ class JobDetails {
   ?'data' => JobData,
   ?'id' => JobId,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->data = $data ?? ;
-    $this->id = $id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->data = $data ?? null;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1294,10 +1294,10 @@ class ListActionExecutionsInput {
   ?'next_token' => NextToken,
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -1309,8 +1309,8 @@ class ListActionExecutionsOutput {
   ?'action_execution_details' => ActionExecutionDetailList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->action_execution_details = $action_execution_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->action_execution_details = $action_execution_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1322,8 +1322,8 @@ class ListActionTypesInput {
   ?'action_owner_filter' => ActionOwner,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->action_owner_filter = $action_owner_filter ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->action_owner_filter = $action_owner_filter ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1335,8 +1335,8 @@ class ListActionTypesOutput {
   ?'action_types' => ActionTypeList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->action_types = $action_types ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->action_types = $action_types ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1350,9 +1350,9 @@ class ListPipelineExecutionsInput {
   ?'next_token' => NextToken,
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -1364,8 +1364,8 @@ class ListPipelineExecutionsOutput {
   ?'next_token' => NextToken,
   ?'pipeline_execution_summaries' => PipelineExecutionSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->pipeline_execution_summaries = $pipeline_execution_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->pipeline_execution_summaries = $pipeline_execution_summaries ?? [];
   }
 }
 
@@ -1375,7 +1375,7 @@ class ListPipelinesInput {
   public function __construct(shape(
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1387,8 +1387,8 @@ class ListPipelinesOutput {
   ?'next_token' => NextToken,
   ?'pipelines' => PipelineList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->pipelines = $pipelines ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->pipelines = $pipelines ?? [];
   }
 }
 
@@ -1402,9 +1402,9 @@ class ListTagsForResourceInput {
   ?'next_token' => NextToken,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1416,8 +1416,8 @@ class ListTagsForResourceOutput {
   ?'next_token' => NextToken,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1439,13 +1439,13 @@ class ListWebhookItem {
   ?'tags' => TagList,
   ?'url' => WebhookUrl,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->definition = $definition ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->last_triggered = $last_triggered ?? ;
-    $this->tags = $tags ?? ;
-    $this->url = $url ?? ;
+    $this->arn = $arn ?? "";
+    $this->definition = $definition ?? null;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->last_triggered = $last_triggered ?? 0;
+    $this->tags = $tags ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -1471,7 +1471,7 @@ class ListWebhooksOutput {
   ?'webhooks' => WebhookList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->webhooks = $webhooks ?? ;
+    $this->webhooks = $webhooks ?? [];
   }
 }
 
@@ -1504,7 +1504,7 @@ class OutputArtifact {
   public function __construct(shape(
   ?'name' => ArtifactName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1520,7 +1520,7 @@ class OutputVariablesSizeExceededException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1544,11 +1544,11 @@ class PipelineContext {
   ?'pipeline_name' => PipelineName,
   ?'stage' => StageContext,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->pipeline_arn = $pipeline_arn ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->stage = $stage ?? ;
+    $this->action = $action ?? null;
+    $this->pipeline_arn = $pipeline_arn ?? "";
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->stage = $stage ?? null;
   }
 }
 
@@ -1568,12 +1568,12 @@ class PipelineDeclaration {
   ?'stages' => PipelineStageDeclarationList,
   ?'version' => PipelineVersion,
   ) $s = shape()) {
-    $this->artifact_store = $artifact_store ?? ;
-    $this->artifact_stores = $artifact_stores ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->stages = $stages ?? ;
-    $this->version = $version ?? ;
+    $this->artifact_store = $artifact_store ?? null;
+    $this->artifact_stores = $artifact_stores ?? [];
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->stages = $stages ?? [];
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1591,11 +1591,11 @@ class PipelineExecution {
   ?'pipeline_version' => PipelineVersion,
   ?'status' => PipelineExecutionStatus,
   ) $s = shape()) {
-    $this->artifact_revisions = $artifact_revisions ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->pipeline_version = $pipeline_version ?? ;
-    $this->status = $status ?? ;
+    $this->artifact_revisions = $artifact_revisions ?? [];
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->pipeline_version = $pipeline_version ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1614,7 +1614,7 @@ class PipelineExecutionNotStoppableException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1638,13 +1638,13 @@ class PipelineExecutionSummary {
   ?'stop_trigger' => StopExecutionTrigger,
   ?'trigger' => ExecutionTrigger,
   ) $s = shape()) {
-    $this->last_update_time = $last_update_time ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->source_revisions = $source_revisions ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->stop_trigger = $stop_trigger ?? ;
-    $this->trigger = $trigger ?? ;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->source_revisions = $source_revisions ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
+    $this->stop_trigger = $stop_trigger ?? null;
+    $this->trigger = $trigger ?? null;
   }
 }
 
@@ -1662,9 +1662,9 @@ class PipelineMetadata {
   ?'pipeline_arn' => PipelineArn,
   ?'updated' => Timestamp,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->pipeline_arn = $pipeline_arn ?? ;
-    $this->updated = $updated ?? ;
+    $this->created = $created ?? 0;
+    $this->pipeline_arn = $pipeline_arn ?? "";
+    $this->updated = $updated ?? 0;
   }
 }
 
@@ -1698,10 +1698,10 @@ class PipelineSummary {
   ?'updated' => Timestamp,
   ?'version' => PipelineVersion,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->name = $name ?? ;
-    $this->updated = $updated ?? ;
-    $this->version = $version ?? ;
+    $this->created = $created ?? 0;
+    $this->name = $name ?? "";
+    $this->updated = $updated ?? 0;
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1724,9 +1724,9 @@ class PollForJobsInput {
   ?'max_batch_size' => MaxBatchSize,
   ?'query_param' => QueryParamMap,
   ) $s = shape()) {
-    $this->action_type_id = $action_type_id ?? ;
-    $this->max_batch_size = $max_batch_size ?? ;
-    $this->query_param = $query_param ?? ;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->max_batch_size = $max_batch_size ?? 0;
+    $this->query_param = $query_param ?? [];
   }
 }
 
@@ -1736,7 +1736,7 @@ class PollForJobsOutput {
   public function __construct(shape(
   ?'jobs' => JobList,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -1748,8 +1748,8 @@ class PollForThirdPartyJobsInput {
   ?'action_type_id' => ActionTypeId,
   ?'max_batch_size' => MaxBatchSize,
   ) $s = shape()) {
-    $this->action_type_id = $action_type_id ?? ;
-    $this->max_batch_size = $max_batch_size ?? ;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->max_batch_size = $max_batch_size ?? 0;
   }
 }
 
@@ -1759,7 +1759,7 @@ class PollForThirdPartyJobsOutput {
   public function __construct(shape(
   ?'jobs' => ThirdPartyJobList,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -1775,10 +1775,10 @@ class PutActionRevisionInput {
   ?'pipeline_name' => PipelineName,
   ?'stage_name' => StageName,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->action_revision = $action_revision ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->action_revision = $action_revision ?? null;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1790,8 +1790,8 @@ class PutActionRevisionOutput {
   ?'new_revision' => boolean,
   ?'pipeline_execution_id' => PipelineExecutionId,
   ) $s = shape()) {
-    $this->new_revision = $new_revision ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->new_revision = $new_revision ?? false;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
   }
 }
 
@@ -1809,11 +1809,11 @@ class PutApprovalResultInput {
   ?'stage_name' => StageName,
   ?'token' => ApprovalToken,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->result = $result ?? ;
-    $this->stage_name = $stage_name ?? ;
-    $this->token = $token ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->result = $result ?? null;
+    $this->stage_name = $stage_name ?? "";
+    $this->token = $token ?? "";
   }
 }
 
@@ -1823,7 +1823,7 @@ class PutApprovalResultOutput {
   public function __construct(shape(
   ?'approved_at' => Timestamp,
   ) $s = shape()) {
-    $this->approved_at = $approved_at ?? ;
+    $this->approved_at = $approved_at ?? 0;
   }
 }
 
@@ -1835,8 +1835,8 @@ class PutJobFailureResultInput {
   ?'failure_details' => FailureDetails,
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->failure_details = $failure_details ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->failure_details = $failure_details ?? null;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1854,11 +1854,11 @@ class PutJobSuccessResultInput {
   ?'job_id' => JobId,
   ?'output_variables' => OutputVariablesMap,
   ) $s = shape()) {
-    $this->continuation_token = $continuation_token ?? ;
-    $this->current_revision = $current_revision ?? ;
-    $this->execution_details = $execution_details ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->output_variables = $output_variables ?? ;
+    $this->continuation_token = $continuation_token ?? "";
+    $this->current_revision = $current_revision ?? null;
+    $this->execution_details = $execution_details ?? null;
+    $this->job_id = $job_id ?? "";
+    $this->output_variables = $output_variables ?? [];
   }
 }
 
@@ -1872,9 +1872,9 @@ class PutThirdPartyJobFailureResultInput {
   ?'failure_details' => FailureDetails,
   ?'job_id' => ThirdPartyJobId,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->failure_details = $failure_details ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->failure_details = $failure_details ?? null;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1892,11 +1892,11 @@ class PutThirdPartyJobSuccessResultInput {
   ?'execution_details' => ExecutionDetails,
   ?'job_id' => ThirdPartyJobId,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->continuation_token = $continuation_token ?? ;
-    $this->current_revision = $current_revision ?? ;
-    $this->execution_details = $execution_details ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->continuation_token = $continuation_token ?? "";
+    $this->current_revision = $current_revision ?? null;
+    $this->execution_details = $execution_details ?? null;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1908,8 +1908,8 @@ class PutWebhookInput {
   ?'tags' => TagList,
   ?'webhook' => WebhookDefinition,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
-    $this->webhook = $webhook ?? ;
+    $this->tags = $tags ?? [];
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -1919,7 +1919,7 @@ class PutWebhookOutput {
   public function __construct(shape(
   ?'webhook' => ListWebhookItem,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -1931,7 +1931,7 @@ class RegisterWebhookWithThirdPartyInput {
   public function __construct(shape(
   ?'webhook_name' => WebhookName,
   ) $s = shape()) {
-    $this->webhook_name = $webhook_name ?? ;
+    $this->webhook_name = $webhook_name ?? "";
   }
 }
 
@@ -1965,10 +1965,10 @@ class RetryStageExecutionInput {
   ?'retry_mode' => StageRetryMode,
   ?'stage_name' => StageName,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->retry_mode = $retry_mode ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->retry_mode = $retry_mode ?? "";
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -1978,7 +1978,7 @@ class RetryStageExecutionOutput {
   public function __construct(shape(
   ?'pipeline_execution_id' => PipelineExecutionId,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
   }
 }
 
@@ -1998,8 +1998,8 @@ class S3ArtifactLocation {
   ?'bucket_name' => S3BucketName,
   ?'object_key' => S3ObjectKey,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->object_key = $object_key ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->object_key = $object_key ?? "";
   }
 }
 
@@ -2017,8 +2017,8 @@ class S3Location {
   ?'bucket' => S3Bucket,
   ?'key' => S3Key,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -2040,10 +2040,10 @@ class SourceRevision {
   ?'revision_summary' => RevisionSummary,
   ?'revision_url' => Url,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->revision_summary = $revision_summary ?? ;
-    $this->revision_url = $revision_url ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->revision_summary = $revision_summary ?? "";
+    $this->revision_url = $revision_url ?? "";
   }
 }
 
@@ -2059,7 +2059,7 @@ class StageContext {
   public function __construct(shape(
   ?'name' => StageName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2073,9 +2073,9 @@ class StageDeclaration {
   ?'blockers' => StageBlockerDeclarationList,
   ?'name' => StageName,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->blockers = $blockers ?? ;
-    $this->name = $name ?? ;
+    $this->actions = $actions ?? [];
+    $this->blockers = $blockers ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -2087,8 +2087,8 @@ class StageExecution {
   ?'pipeline_execution_id' => PipelineExecutionId,
   ?'status' => StageExecutionStatus,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->status = $status ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2124,10 +2124,10 @@ class StageState {
   ?'latest_execution' => StageExecution,
   ?'stage_name' => StageName,
   ) $s = shape()) {
-    $this->action_states = $action_states ?? ;
-    $this->inbound_transition_state = $inbound_transition_state ?? ;
-    $this->latest_execution = $latest_execution ?? ;
-    $this->stage_name = $stage_name ?? ;
+    $this->action_states = $action_states ?? [];
+    $this->inbound_transition_state = $inbound_transition_state ?? null;
+    $this->latest_execution = $latest_execution ?? null;
+    $this->stage_name = $stage_name ?? "";
   }
 }
 
@@ -2143,8 +2143,8 @@ class StartPipelineExecutionInput {
   ?'client_request_token' => ClientRequestToken,
   ?'name' => PipelineName,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->name = $name ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2154,7 +2154,7 @@ class StartPipelineExecutionOutput {
   public function __construct(shape(
   ?'pipeline_execution_id' => PipelineExecutionId,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
   }
 }
 
@@ -2164,7 +2164,7 @@ class StopExecutionTrigger {
   public function __construct(shape(
   ?'reason' => StopPipelineExecutionReason,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -2180,10 +2180,10 @@ class StopPipelineExecutionInput {
   ?'pipeline_name' => PipelineName,
   ?'reason' => StopPipelineExecutionReason,
   ) $s = shape()) {
-    $this->abandon = $abandon ?? ;
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->reason = $reason ?? ;
+    $this->abandon = $abandon ?? false;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -2193,7 +2193,7 @@ class StopPipelineExecutionOutput {
   public function __construct(shape(
   ?'pipeline_execution_id' => PipelineExecutionId,
   ) $s = shape()) {
-    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? "";
   }
 }
 
@@ -2209,8 +2209,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2228,8 +2228,8 @@ class TagResourceInput {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2250,8 +2250,8 @@ class ThirdPartyJob {
   ?'client_id' => ClientId,
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->job_id = $job_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -2275,14 +2275,14 @@ class ThirdPartyJobData {
   ?'output_artifacts' => ArtifactList,
   ?'pipeline_context' => PipelineContext,
   ) $s = shape()) {
-    $this->action_configuration = $action_configuration ?? ;
-    $this->action_type_id = $action_type_id ?? ;
-    $this->artifact_credentials = $artifact_credentials ?? ;
-    $this->continuation_token = $continuation_token ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->input_artifacts = $input_artifacts ?? ;
-    $this->output_artifacts = $output_artifacts ?? ;
-    $this->pipeline_context = $pipeline_context ?? ;
+    $this->action_configuration = $action_configuration ?? null;
+    $this->action_type_id = $action_type_id ?? null;
+    $this->artifact_credentials = $artifact_credentials ?? null;
+    $this->continuation_token = $continuation_token ?? "";
+    $this->encryption_key = $encryption_key ?? null;
+    $this->input_artifacts = $input_artifacts ?? [];
+    $this->output_artifacts = $output_artifacts ?? [];
+    $this->pipeline_context = $pipeline_context ?? null;
   }
 }
 
@@ -2296,9 +2296,9 @@ class ThirdPartyJobDetails {
   ?'id' => ThirdPartyJobId,
   ?'nonce' => Nonce,
   ) $s = shape()) {
-    $this->data = $data ?? ;
-    $this->id = $id ?? ;
-    $this->nonce = $nonce ?? ;
+    $this->data = $data ?? null;
+    $this->id = $id ?? "";
+    $this->nonce = $nonce ?? "";
   }
 }
 
@@ -2316,7 +2316,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => Message,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2332,10 +2332,10 @@ class TransitionState {
   ?'last_changed_at' => LastChangedAt,
   ?'last_changed_by' => LastChangedBy,
   ) $s = shape()) {
-    $this->disabled_reason = $disabled_reason ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->last_changed_at = $last_changed_at ?? ;
-    $this->last_changed_by = $last_changed_by ?? ;
+    $this->disabled_reason = $disabled_reason ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->last_changed_at = $last_changed_at ?? 0;
+    $this->last_changed_by = $last_changed_by ?? "";
   }
 }
 
@@ -2351,8 +2351,8 @@ class UntagResourceInput {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2369,7 +2369,7 @@ class UpdatePipelineInput {
   public function __construct(shape(
   ?'pipeline' => PipelineDeclaration,
   ) $s = shape()) {
-    $this->pipeline = $pipeline ?? ;
+    $this->pipeline = $pipeline ?? null;
   }
 }
 
@@ -2379,7 +2379,7 @@ class UpdatePipelineOutput {
   public function __construct(shape(
   ?'pipeline' => PipelineDeclaration,
   ) $s = shape()) {
-    $this->pipeline = $pipeline ?? ;
+    $this->pipeline = $pipeline ?? null;
   }
 }
 
@@ -2406,8 +2406,8 @@ class WebhookAuthConfiguration {
   ?'allowed_ip_range' => WebhookAuthConfigurationAllowedIPRange,
   ?'secret_token' => WebhookAuthConfigurationSecretToken,
   ) $s = shape()) {
-    $this->allowed_ip_range = $allowed_ip_range ?? ;
-    $this->secret_token = $secret_token ?? ;
+    $this->allowed_ip_range = $allowed_ip_range ?? "";
+    $this->secret_token = $secret_token ?? "";
   }
 }
 
@@ -2433,12 +2433,12 @@ class WebhookDefinition {
   ?'target_action' => ActionName,
   ?'target_pipeline' => PipelineName,
   ) $s = shape()) {
-    $this->authentication = $authentication ?? ;
-    $this->authentication_configuration = $authentication_configuration ?? ;
-    $this->filters = $filters ?? ;
-    $this->name = $name ?? ;
-    $this->target_action = $target_action ?? ;
-    $this->target_pipeline = $target_pipeline ?? ;
+    $this->authentication = $authentication ?? "";
+    $this->authentication_configuration = $authentication_configuration ?? null;
+    $this->filters = $filters ?? [];
+    $this->name = $name ?? "";
+    $this->target_action = $target_action ?? "";
+    $this->target_pipeline = $target_pipeline ?? "";
   }
 }
 
@@ -2454,8 +2454,8 @@ class WebhookFilterRule {
   ?'json_path' => JsonPath,
   ?'match_equals' => MatchEquals,
   ) $s = shape()) {
-    $this->json_path = $json_path ?? ;
-    $this->match_equals = $match_equals ?? ;
+    $this->json_path = $json_path ?? "";
+    $this->match_equals = $match_equals ?? "";
   }
 }
 

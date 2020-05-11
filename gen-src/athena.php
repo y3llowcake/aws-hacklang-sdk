@@ -31,7 +31,7 @@ class BatchGetNamedQueryInput {
   public function __construct(shape(
   ?'named_query_ids' => NamedQueryIdList,
   ) $s = shape()) {
-    $this->named_query_ids = $named_query_ids ?? ;
+    $this->named_query_ids = $named_query_ids ?? [];
   }
 }
 
@@ -43,8 +43,8 @@ class BatchGetNamedQueryOutput {
   ?'named_queries' => NamedQueryList,
   ?'unprocessed_named_query_ids' => UnprocessedNamedQueryIdList,
   ) $s = shape()) {
-    $this->named_queries = $named_queries ?? ;
-    $this->unprocessed_named_query_ids = $unprocessed_named_query_ids ?? ;
+    $this->named_queries = $named_queries ?? [];
+    $this->unprocessed_named_query_ids = $unprocessed_named_query_ids ?? [];
   }
 }
 
@@ -54,7 +54,7 @@ class BatchGetQueryExecutionInput {
   public function __construct(shape(
   ?'query_execution_ids' => QueryExecutionIdList,
   ) $s = shape()) {
-    $this->query_execution_ids = $query_execution_ids ?? ;
+    $this->query_execution_ids = $query_execution_ids ?? [];
   }
 }
 
@@ -66,8 +66,8 @@ class BatchGetQueryExecutionOutput {
   ?'query_executions' => QueryExecutionList,
   ?'unprocessed_query_execution_ids' => UnprocessedQueryExecutionIdList,
   ) $s = shape()) {
-    $this->query_executions = $query_executions ?? ;
-    $this->unprocessed_query_execution_ids = $unprocessed_query_execution_ids ?? ;
+    $this->query_executions = $query_executions ?? [];
+    $this->unprocessed_query_execution_ids = $unprocessed_query_execution_ids ?? [];
   }
 }
 
@@ -101,16 +101,16 @@ class ColumnInfo {
   ?'table_name' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->case_sensitive = $case_sensitive ?? ;
-    $this->catalog_name = $catalog_name ?? ;
-    $this->label = $label ?? ;
-    $this->name = $name ?? ;
-    $this->nullable = $nullable ?? ;
-    $this->precision = $precision ?? ;
-    $this->scale = $scale ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->table_name = $table_name ?? ;
-    $this->type = $type ?? ;
+    $this->case_sensitive = $case_sensitive ?? false;
+    $this->catalog_name = $catalog_name ?? "";
+    $this->label = $label ?? "";
+    $this->name = $name ?? "";
+    $this->nullable = $nullable ?? "";
+    $this->precision = $precision ?? 0;
+    $this->scale = $scale ?? 0;
+    $this->schema_name = $schema_name ?? "";
+    $this->table_name = $table_name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -134,12 +134,12 @@ class CreateNamedQueryInput {
   ?'query_string' => QueryString,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->database = $database ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->database = $database ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->query_string = $query_string ?? "";
-    $this->work_group = $work_group ?? null;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -165,10 +165,10 @@ class CreateWorkGroupInput {
   ?'name' => WorkGroupName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -189,7 +189,7 @@ class Datum {
   public function __construct(shape(
   ?'var_char_value' => datumString,
   ) $s = shape()) {
-    $this->var_char_value = $var_char_value ?? ;
+    $this->var_char_value = $var_char_value ?? "";
   }
 }
 
@@ -218,8 +218,8 @@ class DeleteWorkGroupInput {
   ?'recursive_delete_option' => BoxedBoolean,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->recursive_delete_option = $recursive_delete_option ?? ;
-    $this->work_group = $work_group ?? null;
+    $this->recursive_delete_option = $recursive_delete_option ?? false;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -241,7 +241,7 @@ class EncryptionConfiguration {
   ?'kms_key' => string,
   ) $s = shape()) {
     $this->encryption_option = $encryption_option ?? "";
-    $this->kms_key = $kms_key ?? ;
+    $this->kms_key = $kms_key ?? "";
   }
 }
 
@@ -301,8 +301,8 @@ class GetQueryResultsInput {
   ?'next_token' => Token,
   ?'query_execution_id' => QueryExecutionId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->query_execution_id = $query_execution_id ?? "";
   }
 }
@@ -317,9 +317,9 @@ class GetQueryResultsOutput {
   ?'result_set' => ResultSet,
   ?'update_count' => Long,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->result_set = $result_set ?? null;
-    $this->update_count = $update_count ?? ;
+    $this->update_count = $update_count ?? 0;
   }
 }
 
@@ -329,7 +329,7 @@ class GetWorkGroupInput {
   public function __construct(shape(
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->work_group = $work_group ?? null;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -353,7 +353,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -365,8 +365,8 @@ class InvalidRequestException {
   ?'athena_error_code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->athena_error_code = $athena_error_code ?? ;
-    $this->message = $message ?? ;
+    $this->athena_error_code = $athena_error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -380,9 +380,9 @@ class ListNamedQueriesInput {
   ?'next_token' => Token,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->work_group = $work_group ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -394,8 +394,8 @@ class ListNamedQueriesOutput {
   ?'named_query_ids' => NamedQueryIdList,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->named_query_ids = $named_query_ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->named_query_ids = $named_query_ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -409,9 +409,9 @@ class ListQueryExecutionsInput {
   ?'next_token' => Token,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->work_group = $work_group ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -423,8 +423,8 @@ class ListQueryExecutionsOutput {
   ?'next_token' => Token,
   ?'query_execution_ids' => QueryExecutionIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->query_execution_ids = $query_execution_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->query_execution_ids = $query_execution_ids ?? [];
   }
 }
 
@@ -438,9 +438,9 @@ class ListTagsForResourceInput {
   ?'next_token' => Token,
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -452,8 +452,8 @@ class ListTagsForResourceOutput {
   ?'next_token' => Token,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -465,8 +465,8 @@ class ListWorkGroupsInput {
   ?'max_results' => MaxWorkGroupsCount,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -478,8 +478,8 @@ class ListWorkGroupsOutput {
   ?'next_token' => Token,
   ?'work_groups' => WorkGroupsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->work_groups = $work_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->work_groups = $work_groups ?? [];
   }
 }
 
@@ -513,12 +513,12 @@ class NamedQuery {
   ?'query_string' => QueryString,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->database = $database ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->database = $database ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->named_query_id = $named_query_id ?? "";
     $this->query_string = $query_string ?? "";
-    $this->work_group = $work_group ?? null;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -548,14 +548,14 @@ class QueryExecution {
   ?'status' => QueryExecutionStatus,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->query = $query ?? ;
+    $this->query = $query ?? "";
     $this->query_execution_context = $query_execution_context ?? null;
     $this->query_execution_id = $query_execution_id ?? "";
     $this->result_configuration = $result_configuration ?? null;
     $this->statement_type = $statement_type ?? "";
-    $this->statistics = $statistics ?? ;
-    $this->status = $status ?? ;
-    $this->work_group = $work_group ?? null;
+    $this->statistics = $statistics ?? null;
+    $this->status = $status ?? null;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -565,7 +565,7 @@ class QueryExecutionContext {
   public function __construct(shape(
   ?'database' => DatabaseString,
   ) $s = shape()) {
-    $this->database = $database ?? ;
+    $this->database = $database ?? "";
   }
 }
 
@@ -595,13 +595,13 @@ class QueryExecutionStatistics {
   ?'service_processing_time_in_millis' => Long,
   ?'total_execution_time_in_millis' => Long,
   ) $s = shape()) {
-    $this->data_manifest_location = $data_manifest_location ?? ;
-    $this->data_scanned_in_bytes = $data_scanned_in_bytes ?? ;
-    $this->engine_execution_time_in_millis = $engine_execution_time_in_millis ?? ;
-    $this->query_planning_time_in_millis = $query_planning_time_in_millis ?? ;
-    $this->query_queue_time_in_millis = $query_queue_time_in_millis ?? ;
-    $this->service_processing_time_in_millis = $service_processing_time_in_millis ?? ;
-    $this->total_execution_time_in_millis = $total_execution_time_in_millis ?? ;
+    $this->data_manifest_location = $data_manifest_location ?? "";
+    $this->data_scanned_in_bytes = $data_scanned_in_bytes ?? 0;
+    $this->engine_execution_time_in_millis = $engine_execution_time_in_millis ?? 0;
+    $this->query_planning_time_in_millis = $query_planning_time_in_millis ?? 0;
+    $this->query_queue_time_in_millis = $query_queue_time_in_millis ?? 0;
+    $this->service_processing_time_in_millis = $service_processing_time_in_millis ?? 0;
+    $this->total_execution_time_in_millis = $total_execution_time_in_millis ?? 0;
   }
 }
 
@@ -617,10 +617,10 @@ class QueryExecutionStatus {
   ?'state_change_reason' => string,
   ?'submission_date_time' => Date,
   ) $s = shape()) {
-    $this->completion_date_time = $completion_date_time ?? ;
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->submission_date_time = $submission_date_time ?? ;
+    $this->completion_date_time = $completion_date_time ?? 0;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? "";
+    $this->submission_date_time = $submission_date_time ?? 0;
   }
 }
 
@@ -634,8 +634,8 @@ class ResourceNotFoundException {
   ?'message' => ErrorMessage,
   ?'resource_name' => AmazonResourceName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -648,7 +648,7 @@ class ResultConfiguration {
   ?'output_location' => string,
   ) $s = shape()) {
     $this->encryption_configuration = $encryption_configuration ?? null;
-    $this->output_location = $output_location ?? ;
+    $this->output_location = $output_location ?? "";
   }
 }
 
@@ -665,9 +665,9 @@ class ResultConfigurationUpdates {
   ?'remove_output_location' => BoxedBoolean,
   ) $s = shape()) {
     $this->encryption_configuration = $encryption_configuration ?? null;
-    $this->output_location = $output_location ?? ;
-    $this->remove_encryption_configuration = $remove_encryption_configuration ?? ;
-    $this->remove_output_location = $remove_output_location ?? ;
+    $this->output_location = $output_location ?? "";
+    $this->remove_encryption_configuration = $remove_encryption_configuration ?? false;
+    $this->remove_output_location = $remove_output_location ?? false;
   }
 }
 
@@ -680,7 +680,7 @@ class ResultSet {
   ?'rows' => RowList,
   ) $s = shape()) {
     $this->result_set_metadata = $result_set_metadata ?? null;
-    $this->rows = $rows ?? ;
+    $this->rows = $rows ?? [];
   }
 }
 
@@ -690,7 +690,7 @@ class ResultSetMetadata {
   public function __construct(shape(
   ?'column_info' => ColumnInfoList,
   ) $s = shape()) {
-    $this->column_info = $column_info ?? null;
+    $this->column_info = $column_info ?? [];
   }
 }
 
@@ -700,7 +700,7 @@ class Row {
   public function __construct(shape(
   ?'data' => datumList,
   ) $s = shape()) {
-    $this->data = $data ?? ;
+    $this->data = $data ?? [];
   }
 }
 
@@ -720,11 +720,11 @@ class StartQueryExecutionInput {
   ?'result_configuration' => ResultConfiguration,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
+    $this->client_request_token = $client_request_token ?? "";
     $this->query_execution_context = $query_execution_context ?? null;
     $this->query_string = $query_string ?? "";
     $this->result_configuration = $result_configuration ?? null;
-    $this->work_group = $work_group ?? null;
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -767,8 +767,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -786,8 +786,8 @@ class TagResourceInput {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -812,8 +812,8 @@ class TooManyRequestsException {
   ?'message' => ErrorMessage,
   ?'reason' => ThrottleReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -861,8 +861,8 @@ class UntagResourceInput {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -885,10 +885,10 @@ class UpdateWorkGroupInput {
   ?'state' => WorkGroupState,
   ?'work_group' => WorkGroupName,
   ) $s = shape()) {
-    $this->configuration_updates = $configuration_updates ?? ;
-    $this->description = $description ?? ;
-    $this->state = $state ?? ;
-    $this->work_group = $work_group ?? null;
+    $this->configuration_updates = $configuration_updates ?? null;
+    $this->description = $description ?? "";
+    $this->state = $state ?? "";
+    $this->work_group = $work_group ?? "";
   }
 }
 
@@ -913,11 +913,11 @@ class WorkGroup {
   ?'name' => WorkGroupName,
   ?'state' => WorkGroupState,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -935,10 +935,10 @@ class WorkGroupConfiguration {
   ?'requester_pays_enabled' => BoxedBoolean,
   ?'result_configuration' => ResultConfiguration,
   ) $s = shape()) {
-    $this->bytes_scanned_cutoff_per_query = $bytes_scanned_cutoff_per_query ?? ;
-    $this->enforce_work_group_configuration = $enforce_work_group_configuration ?? ;
-    $this->publish_cloud_watch_metrics_enabled = $publish_cloud_watch_metrics_enabled ?? ;
-    $this->requester_pays_enabled = $requester_pays_enabled ?? ;
+    $this->bytes_scanned_cutoff_per_query = $bytes_scanned_cutoff_per_query ?? 0;
+    $this->enforce_work_group_configuration = $enforce_work_group_configuration ?? false;
+    $this->publish_cloud_watch_metrics_enabled = $publish_cloud_watch_metrics_enabled ?? false;
+    $this->requester_pays_enabled = $requester_pays_enabled ?? false;
     $this->result_configuration = $result_configuration ?? null;
   }
 }
@@ -959,11 +959,11 @@ class WorkGroupConfigurationUpdates {
   ?'requester_pays_enabled' => BoxedBoolean,
   ?'result_configuration_updates' => ResultConfigurationUpdates,
   ) $s = shape()) {
-    $this->bytes_scanned_cutoff_per_query = $bytes_scanned_cutoff_per_query ?? ;
-    $this->enforce_work_group_configuration = $enforce_work_group_configuration ?? ;
-    $this->publish_cloud_watch_metrics_enabled = $publish_cloud_watch_metrics_enabled ?? ;
-    $this->remove_bytes_scanned_cutoff_per_query = $remove_bytes_scanned_cutoff_per_query ?? ;
-    $this->requester_pays_enabled = $requester_pays_enabled ?? ;
+    $this->bytes_scanned_cutoff_per_query = $bytes_scanned_cutoff_per_query ?? 0;
+    $this->enforce_work_group_configuration = $enforce_work_group_configuration ?? false;
+    $this->publish_cloud_watch_metrics_enabled = $publish_cloud_watch_metrics_enabled ?? false;
+    $this->remove_bytes_scanned_cutoff_per_query = $remove_bytes_scanned_cutoff_per_query ?? false;
+    $this->requester_pays_enabled = $requester_pays_enabled ?? false;
     $this->result_configuration_updates = $result_configuration_updates ?? null;
   }
 }
@@ -986,10 +986,10 @@ class WorkGroupSummary {
   ?'name' => WorkGroupName,
   ?'state' => WorkGroupState,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 

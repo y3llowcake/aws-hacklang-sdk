@@ -30,7 +30,7 @@ class ClaimDevicesByClaimCodeRequest {
   public function __construct(shape(
   ?'claim_code' => __string,
   ) $s = shape()) {
-    $this->claim_code = $claim_code ?? ;
+    $this->claim_code = $claim_code ?? "";
   }
 }
 
@@ -42,8 +42,8 @@ class ClaimDevicesByClaimCodeResponse {
   ?'claim_code' => __stringMin12Max40,
   ?'total' => __integer,
   ) $s = shape()) {
-    $this->claim_code = $claim_code ?? ;
-    $this->total = $total ?? ;
+    $this->claim_code = $claim_code ?? "";
+    $this->total = $total ?? 0;
   }
 }
 
@@ -53,7 +53,7 @@ class DescribeDeviceRequest {
   public function __construct(shape(
   ?'device_id' => __string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
   }
 }
 
@@ -78,8 +78,8 @@ class Device {
   ?'type' => __string,
   ) $s = shape()) {
     $this->attributes = $attributes ?? null;
-    $this->device_id = $device_id ?? ;
-    $this->type = $type ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -91,7 +91,7 @@ class DeviceClaimResponse {
   public function __construct(shape(
   ?'state' => __string,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -113,13 +113,13 @@ class DeviceDescription {
   ?'tags' => __mapOf__string,
   ?'type' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attributes = $attributes ?? null;
-    $this->device_id = $device_id ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->remaining_life = $remaining_life ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->device_id = $device_id ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->remaining_life = $remaining_life ?? 0.0;
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -132,7 +132,7 @@ class DeviceEvent {
   ?'std_event' => __string,
   ) $s = shape()) {
     $this->device = $device ?? null;
-    $this->std_event = $std_event ?? ;
+    $this->std_event = $std_event ?? "";
   }
 }
 
@@ -144,8 +144,8 @@ class DeviceEventsResponse {
   ?'events' => __listOfDeviceEvent,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -157,8 +157,8 @@ class DeviceMethod {
   ?'device_type' => __string,
   ?'method_name' => __string,
   ) $s = shape()) {
-    $this->device_type = $device_type ?? ;
-    $this->method_name = $method_name ?? ;
+    $this->device_type = $device_type ?? "";
+    $this->method_name = $method_name ?? "";
   }
 }
 
@@ -177,8 +177,8 @@ class FinalizeDeviceClaimRequest {
   ?'device_id' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -188,7 +188,7 @@ class FinalizeDeviceClaimResponse {
   public function __construct(shape(
   ?'state' => __string,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -200,8 +200,8 @@ class ForbiddenException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -211,7 +211,7 @@ class GetDeviceMethodsRequest {
   public function __construct(shape(
   ?'device_id' => __string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
   }
 }
 
@@ -221,7 +221,7 @@ class GetDeviceMethodsResponse {
   public function __construct(shape(
   ?'device_methods' => __listOfDeviceMethod,
   ) $s = shape()) {
-    $this->device_methods = $device_methods ?? ;
+    $this->device_methods = $device_methods ?? [];
   }
 }
 
@@ -231,7 +231,7 @@ class InitiateDeviceClaimRequest {
   public function __construct(shape(
   ?'device_id' => __string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
   }
 }
 
@@ -241,7 +241,7 @@ class InitiateDeviceClaimResponse {
   public function __construct(shape(
   ?'state' => __string,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -253,8 +253,8 @@ class InternalFailureException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -266,8 +266,8 @@ class InvalidRequestException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -281,9 +281,9 @@ class InvokeDeviceMethodRequest {
   ?'device_method' => DeviceMethod,
   ?'device_method_parameters' => __string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
     $this->device_method = $device_method ?? null;
-    $this->device_method_parameters = $device_method_parameters ?? ;
+    $this->device_method_parameters = $device_method_parameters ?? "";
   }
 }
 
@@ -293,7 +293,7 @@ class InvokeDeviceMethodResponse {
   public function __construct(shape(
   ?'device_method_response' => __string,
   ) $s = shape()) {
-    $this->device_method_response = $device_method_response ?? ;
+    $this->device_method_response = $device_method_response ?? "";
   }
 }
 
@@ -311,11 +311,11 @@ class ListDeviceEventsRequest {
   ?'next_token' => __string,
   ?'to_time_stamp' => __timestampIso8601,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->from_time_stamp = $from_time_stamp ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->from_time_stamp = $from_time_stamp ?? 0;
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->to_time_stamp = $to_time_stamp ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->to_time_stamp = $to_time_stamp ?? 0;
   }
 }
 
@@ -327,8 +327,8 @@ class ListDeviceEventsResponse {
   ?'events' => __listOfDeviceEvent,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -342,9 +342,9 @@ class ListDevicesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->device_type = $device_type ?? ;
+    $this->device_type = $device_type ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -356,8 +356,8 @@ class ListDevicesResponse {
   ?'devices' => __listOfDeviceDescription,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->devices = $devices ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -367,7 +367,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -391,8 +391,8 @@ class PreconditionFailedException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -404,8 +404,8 @@ class RangeNotSatisfiableException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -417,8 +417,8 @@ class ResourceConflictException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -430,8 +430,8 @@ class ResourceNotFoundException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -443,8 +443,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -454,7 +454,7 @@ class UnclaimDeviceRequest {
   public function __construct(shape(
   ?'device_id' => __string,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
   }
 }
 
@@ -464,7 +464,7 @@ class UnclaimDeviceResponse {
   public function __construct(shape(
   ?'state' => __string,
   ) $s = shape()) {
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -476,8 +476,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -489,8 +489,8 @@ class UpdateDeviceStateRequest {
   ?'device_id' => __string,
   ?'enabled' => __boolean,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->device_id = $device_id ?? "";
+    $this->enabled = $enabled ?? false;
   }
 }
 

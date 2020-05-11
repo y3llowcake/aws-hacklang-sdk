@@ -69,7 +69,7 @@ class ActivitiesType {
   ?'next_token' => XmlString,
   ) $s = shape()) {
     $this->activities = $activities ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -97,16 +97,16 @@ class Activity {
   ?'status_code' => ScalingActivityStatusCode,
   ?'status_message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->cause = $cause ?? ;
-    $this->description = $description ?? ;
-    $this->details = $details ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->cause = $cause ?? "";
+    $this->description = $description ?? "";
+    $this->details = $details ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->progress = $progress ?? 0;
-    $this->start_time = $start_time ?? ;
-    $this->status_code = $status_code ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status_code = $status_code ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -128,7 +128,7 @@ class AdjustmentType {
   public function __construct(shape(
   ?'adjustment_type' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->adjustment_type = $adjustment_type ?? null;
+    $this->adjustment_type = $adjustment_type ?? "";
   }
 }
 
@@ -142,8 +142,8 @@ class Alarm {
   ?'alarm_arn' => ResourceName,
   ?'alarm_name' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->alarm_arn = $alarm_arn ?? ;
-    $this->alarm_name = $alarm_name ?? ;
+    $this->alarm_arn = $alarm_arn ?? "";
+    $this->alarm_name = $alarm_name ?? "";
   }
 }
 
@@ -155,7 +155,7 @@ class AlreadyExistsFault {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -171,7 +171,7 @@ class AttachInstancesQuery {
   ?'auto_scaling_group_name' => ResourceName,
   ?'instance_ids' => InstanceIds,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->instance_ids = $instance_ids ?? [];
   }
 }
@@ -191,7 +191,7 @@ class AttachLoadBalancerTargetGroupsType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'target_group_ar_ns' => TargetGroupARNs,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->target_group_ar_ns = $target_group_ar_ns ?? [];
   }
 }
@@ -211,7 +211,7 @@ class AttachLoadBalancersType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'load_balancer_names' => LoadBalancerNames,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->load_balancer_names = $load_balancer_names ?? [];
   }
 }
@@ -272,32 +272,32 @@ class AutoScalingGroup {
   ?'termination_policies' => TerminationPolicies,
   ?'vpc_zone_identifier' => XmlStringMaxLen2047,
   ) $s = shape()) {
-    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? ;
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? "";
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->availability_zones = $availability_zones ?? [];
-    $this->created_time = $created_time ?? ;
-    $this->default_cooldown = $default_cooldown ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->default_cooldown = $default_cooldown ?? 0;
+    $this->desired_capacity = $desired_capacity ?? 0;
     $this->enabled_metrics = $enabled_metrics ?? [];
     $this->health_check_grace_period = $health_check_grace_period ?? 0;
-    $this->health_check_type = $health_check_type ?? ;
+    $this->health_check_type = $health_check_type ?? "";
     $this->instances = $instances ?? [];
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
     $this->launch_template = $launch_template ?? null;
     $this->load_balancer_names = $load_balancer_names ?? [];
     $this->max_instance_lifetime = $max_instance_lifetime ?? 0;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
     $this->mixed_instances_policy = $mixed_instances_policy ?? null;
-    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? ;
-    $this->placement_group = $placement_group ?? ;
-    $this->service_linked_role_arn = $service_linked_role_arn ?? ;
-    $this->status = $status ?? ;
+    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? false;
+    $this->placement_group = $placement_group ?? "";
+    $this->service_linked_role_arn = $service_linked_role_arn ?? "";
+    $this->status = $status ?? "";
     $this->suspended_processes = $suspended_processes ?? [];
     $this->tags = $tags ?? [];
     $this->target_group_ar_ns = $target_group_ar_ns ?? [];
     $this->termination_policies = $termination_policies ?? [];
-    $this->vpc_zone_identifier = $vpc_zone_identifier ?? ;
+    $this->vpc_zone_identifier = $vpc_zone_identifier ?? "";
   }
 }
 
@@ -321,7 +321,7 @@ class AutoScalingGroupNamesType {
   ) $s = shape()) {
     $this->auto_scaling_group_names = $auto_scaling_group_names ?? [];
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -336,7 +336,7 @@ class AutoScalingGroupsType {
   ?'next_token' => XmlString,
   ) $s = shape()) {
     $this->auto_scaling_groups = $auto_scaling_groups ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -364,16 +364,16 @@ class AutoScalingInstanceDetails {
   ?'protected_from_scale_in' => InstanceProtected,
   ?'weighted_capacity' => XmlStringMaxLen32,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->health_status = $health_status ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->availability_zone = $availability_zone ?? "";
+    $this->health_status = $health_status ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
     $this->launch_template = $launch_template ?? null;
     $this->lifecycle_state = $lifecycle_state ?? "";
     $this->protected_from_scale_in = $protected_from_scale_in ?? false;
-    $this->weighted_capacity = $weighted_capacity ?? ;
+    $this->weighted_capacity = $weighted_capacity ?? "";
   }
 }
 
@@ -388,7 +388,7 @@ class AutoScalingInstancesType {
   ?'next_token' => XmlString,
   ) $s = shape()) {
     $this->auto_scaling_instances = $auto_scaling_instances ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -402,7 +402,7 @@ class BatchDeleteScheduledActionAnswer {
   public function __construct(shape(
   ?'failed_scheduled_actions' => FailedScheduledUpdateGroupActionRequests,
   ) $s = shape()) {
-    $this->failed_scheduled_actions = $failed_scheduled_actions ?? ;
+    $this->failed_scheduled_actions = $failed_scheduled_actions ?? [];
   }
 }
 
@@ -414,7 +414,7 @@ class BatchDeleteScheduledActionType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'scheduled_action_names' => ScheduledActionNames,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->scheduled_action_names = $scheduled_action_names ?? [];
   }
 }
@@ -425,7 +425,7 @@ class BatchPutScheduledUpdateGroupActionAnswer {
   public function __construct(shape(
   ?'failed_scheduled_update_group_actions' => FailedScheduledUpdateGroupActionRequests,
   ) $s = shape()) {
-    $this->failed_scheduled_update_group_actions = $failed_scheduled_update_group_actions ?? ;
+    $this->failed_scheduled_update_group_actions = $failed_scheduled_update_group_actions ?? [];
   }
 }
 
@@ -437,7 +437,7 @@ class BatchPutScheduledUpdateGroupActionType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'scheduled_update_group_actions' => ScheduledUpdateGroupActionRequests,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->scheduled_update_group_actions = $scheduled_update_group_actions ?? [];
   }
 }
@@ -464,10 +464,10 @@ class BlockDeviceMapping {
   ?'no_device' => NoDevice,
   ?'virtual_name' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->device_name = $device_name ?? ;
+    $this->device_name = $device_name ?? "";
     $this->ebs = $ebs ?? null;
     $this->no_device = $no_device ?? false;
-    $this->virtual_name = $virtual_name ?? ;
+    $this->virtual_name = $virtual_name ?? "";
   }
 }
 
@@ -496,11 +496,11 @@ class CompleteLifecycleActionType {
   ?'lifecycle_action_token' => LifecycleActionToken,
   ?'lifecycle_hook_name' => AsciiStringMaxLen255,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->instance_id = $instance_id ?? "";
     $this->lifecycle_action_result = $lifecycle_action_result ?? "";
     $this->lifecycle_action_token = $lifecycle_action_token ?? "";
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
   }
 }
 
@@ -554,28 +554,28 @@ class CreateAutoScalingGroupType {
   ?'termination_policies' => TerminationPolicies,
   ?'vpc_zone_identifier' => XmlStringMaxLen2047,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->availability_zones = $availability_zones ?? [];
-    $this->default_cooldown = $default_cooldown ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
+    $this->default_cooldown = $default_cooldown ?? 0;
+    $this->desired_capacity = $desired_capacity ?? 0;
     $this->health_check_grace_period = $health_check_grace_period ?? 0;
-    $this->health_check_type = $health_check_type ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->health_check_type = $health_check_type ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
     $this->launch_template = $launch_template ?? null;
-    $this->lifecycle_hook_specification_list = $lifecycle_hook_specification_list ?? ;
+    $this->lifecycle_hook_specification_list = $lifecycle_hook_specification_list ?? [];
     $this->load_balancer_names = $load_balancer_names ?? [];
     $this->max_instance_lifetime = $max_instance_lifetime ?? 0;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
     $this->mixed_instances_policy = $mixed_instances_policy ?? null;
-    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? ;
-    $this->placement_group = $placement_group ?? ;
-    $this->service_linked_role_arn = $service_linked_role_arn ?? ;
+    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? false;
+    $this->placement_group = $placement_group ?? "";
+    $this->service_linked_role_arn = $service_linked_role_arn ?? "";
     $this->tags = $tags ?? [];
     $this->target_group_ar_ns = $target_group_ar_ns ?? [];
     $this->termination_policies = $termination_policies ?? [];
-    $this->vpc_zone_identifier = $vpc_zone_identifier ?? ;
+    $this->vpc_zone_identifier = $vpc_zone_identifier ?? "";
   }
 }
 
@@ -621,22 +621,22 @@ class CreateLaunchConfigurationType {
   ) $s = shape()) {
     $this->associate_public_ip_address = $associate_public_ip_address ?? false;
     $this->block_device_mappings = $block_device_mappings ?? [];
-    $this->classic_link_vpc_id = $classic_link_vpc_id ?? ;
+    $this->classic_link_vpc_id = $classic_link_vpc_id ?? "";
     $this->classic_link_vpc_security_groups = $classic_link_vpc_security_groups ?? [];
     $this->ebs_optimized = $ebs_optimized ?? false;
-    $this->iam_instance_profile = $iam_instance_profile ?? ;
-    $this->image_id = $image_id ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->iam_instance_profile = $iam_instance_profile ?? "";
+    $this->image_id = $image_id ?? "";
+    $this->instance_id = $instance_id ?? "";
     $this->instance_monitoring = $instance_monitoring ?? null;
-    $this->instance_type = $instance_type ?? ;
-    $this->kernel_id = $kernel_id ?? ;
-    $this->key_name = $key_name ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
-    $this->placement_tenancy = $placement_tenancy ?? ;
-    $this->ramdisk_id = $ramdisk_id ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->kernel_id = $kernel_id ?? "";
+    $this->key_name = $key_name ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
+    $this->placement_tenancy = $placement_tenancy ?? "";
+    $this->ramdisk_id = $ramdisk_id ?? "";
     $this->security_groups = $security_groups ?? [];
     $this->spot_price = $spot_price ?? "";
-    $this->user_data = $user_data ?? ;
+    $this->user_data = $user_data ?? "";
   }
 }
 
@@ -664,11 +664,11 @@ class CustomizedMetricSpecification {
   ?'statistic' => MetricStatistic,
   ?'unit' => MetricUnit,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? [];
     $this->metric_name = $metric_name ?? "";
-    $this->namespace = $namespace ?? ;
-    $this->statistic = $statistic ?? ;
-    $this->unit = $unit ?? ;
+    $this->namespace = $namespace ?? "";
+    $this->statistic = $statistic ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -680,7 +680,7 @@ class DeleteAutoScalingGroupType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'force_delete' => ForceDelete,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->force_delete = $force_delete ?? false;
   }
 }
@@ -700,8 +700,8 @@ class DeleteLifecycleHookType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'lifecycle_hook_name' => AsciiStringMaxLen255,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
   }
 }
 
@@ -713,8 +713,8 @@ class DeleteNotificationConfigurationType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'topic_arn' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -726,8 +726,8 @@ class DeletePolicyType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'policy_name' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -739,8 +739,8 @@ class DeleteScheduledActionType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'scheduled_action_name' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
   }
 }
 
@@ -795,7 +795,7 @@ class DescribeAutoScalingInstancesType {
   ) $s = shape()) {
     $this->instance_ids = $instance_ids ?? [];
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -815,7 +815,7 @@ class DescribeLifecycleHookTypesAnswer {
   public function __construct(shape(
   ?'lifecycle_hook_types' => AutoScalingNotificationTypes,
   ) $s = shape()) {
-    $this->lifecycle_hook_types = $lifecycle_hook_types ?? ;
+    $this->lifecycle_hook_types = $lifecycle_hook_types ?? [];
   }
 }
 
@@ -837,7 +837,7 @@ class DescribeLifecycleHooksType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'lifecycle_hook_names' => LifecycleHookNames,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->lifecycle_hook_names = $lifecycle_hook_names ?? [];
   }
 }
@@ -852,9 +852,9 @@ class DescribeLoadBalancerTargetGroupsRequest {
   ?'max_records' => MaxRecords,
   ?'next_token' => XmlString,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -866,8 +866,8 @@ class DescribeLoadBalancerTargetGroupsResponse {
   ?'load_balancer_target_groups' => LoadBalancerTargetGroupStates,
   ?'next_token' => XmlString,
   ) $s = shape()) {
-    $this->load_balancer_target_groups = $load_balancer_target_groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->load_balancer_target_groups = $load_balancer_target_groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -881,9 +881,9 @@ class DescribeLoadBalancersRequest {
   ?'max_records' => MaxRecords,
   ?'next_token' => XmlString,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -895,8 +895,8 @@ class DescribeLoadBalancersResponse {
   ?'load_balancers' => LoadBalancerStates,
   ?'next_token' => XmlString,
   ) $s = shape()) {
-    $this->load_balancers = $load_balancers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->load_balancers = $load_balancers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -908,7 +908,7 @@ class DescribeMetricCollectionTypesAnswer {
   ?'granularities' => MetricGranularityTypes,
   ?'metrics' => MetricCollectionTypes,
   ) $s = shape()) {
-    $this->granularities = $granularities ?? ;
+    $this->granularities = $granularities ?? [];
     $this->metrics = $metrics ?? [];
   }
 }
@@ -921,7 +921,7 @@ class DescribeNotificationConfigurationsAnswer {
   ?'next_token' => XmlString,
   ?'notification_configurations' => NotificationConfigurations,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->notification_configurations = $notification_configurations ?? [];
   }
 }
@@ -938,7 +938,7 @@ class DescribeNotificationConfigurationsType {
   ) $s = shape()) {
     $this->auto_scaling_group_names = $auto_scaling_group_names ?? [];
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -956,9 +956,9 @@ class DescribePoliciesType {
   ?'policy_names' => PolicyNames,
   ?'policy_types' => PolicyTypes,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->policy_names = $policy_names ?? [];
     $this->policy_types = $policy_types ?? [];
   }
@@ -977,9 +977,9 @@ class DescribeScalingActivitiesType {
   ?'next_token' => XmlString,
   ) $s = shape()) {
     $this->activity_ids = $activity_ids ?? [];
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -999,12 +999,12 @@ class DescribeScheduledActionsType {
   ?'scheduled_action_names' => ScheduledActionNames,
   ?'start_time' => TimestampType,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->scheduled_action_names = $scheduled_action_names ?? [];
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1020,7 +1020,7 @@ class DescribeTagsType {
   ) $s = shape()) {
     $this->filters = $filters ?? [];
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1030,7 +1030,7 @@ class DescribeTerminationPolicyTypesAnswer {
   public function __construct(shape(
   ?'termination_policy_types' => TerminationPolicies,
   ) $s = shape()) {
-    $this->termination_policy_types = $termination_policy_types ?? ;
+    $this->termination_policy_types = $termination_policy_types ?? [];
   }
 }
 
@@ -1054,7 +1054,7 @@ class DetachInstancesQuery {
   ?'instance_ids' => InstanceIds,
   ?'should_decrement_desired_capacity' => ShouldDecrementDesiredCapacity,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->instance_ids = $instance_ids ?? [];
     $this->should_decrement_desired_capacity = $should_decrement_desired_capacity ?? false;
   }
@@ -1075,7 +1075,7 @@ class DetachLoadBalancerTargetGroupsType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'target_group_ar_ns' => TargetGroupARNs,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->target_group_ar_ns = $target_group_ar_ns ?? [];
   }
 }
@@ -1095,7 +1095,7 @@ class DetachLoadBalancersType {
   ?'auto_scaling_group_name' => ResourceName,
   ?'load_balancer_names' => LoadBalancerNames,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->load_balancer_names = $load_balancer_names ?? [];
   }
 }
@@ -1108,7 +1108,7 @@ class DisableMetricsCollectionQuery {
   ?'auto_scaling_group_name' => ResourceName,
   ?'metrics' => Metrics,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->metrics = $metrics ?? [];
   }
 }
@@ -1131,12 +1131,12 @@ class Ebs {
   ?'volume_size' => BlockDeviceEbsVolumeSize,
   ?'volume_type' => BlockDeviceEbsVolumeType,
   ) $s = shape()) {
-    $this->delete_on_termination = $delete_on_termination ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->iops = $iops ?? ;
-    $this->snapshot_id = $snapshot_id ?? ;
-    $this->volume_size = $volume_size ?? ;
-    $this->volume_type = $volume_type ?? ;
+    $this->delete_on_termination = $delete_on_termination ?? false;
+    $this->encrypted = $encrypted ?? false;
+    $this->iops = $iops ?? 0;
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->volume_size = $volume_size ?? 0;
+    $this->volume_type = $volume_type ?? "";
   }
 }
 
@@ -1152,8 +1152,8 @@ class EnableMetricsCollectionQuery {
   ?'granularity' => XmlStringMaxLen255,
   ?'metrics' => Metrics,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->granularity = $granularity ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->granularity = $granularity ?? "";
     $this->metrics = $metrics ?? [];
   }
 }
@@ -1166,8 +1166,8 @@ class EnabledMetric {
   ?'granularity' => XmlStringMaxLen255,
   ?'metric' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->granularity = $granularity ?? ;
-    $this->metric = $metric ?? ;
+    $this->granularity = $granularity ?? "";
+    $this->metric = $metric ?? "";
   }
 }
 
@@ -1193,7 +1193,7 @@ class EnterStandbyQuery {
   ?'instance_ids' => InstanceIds,
   ?'should_decrement_desired_capacity' => ShouldDecrementDesiredCapacity,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->instance_ids = $instance_ids ?? [];
     $this->should_decrement_desired_capacity = $should_decrement_desired_capacity ?? false;
   }
@@ -1215,11 +1215,11 @@ class ExecutePolicyType {
   ?'metric_value' => MetricScale,
   ?'policy_name' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->breach_threshold = $breach_threshold ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->breach_threshold = $breach_threshold ?? 0.0;
     $this->honor_cooldown = $honor_cooldown ?? false;
-    $this->metric_value = $metric_value ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->metric_value = $metric_value ?? 0.0;
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1241,7 +1241,7 @@ class ExitStandbyQuery {
   ?'auto_scaling_group_name' => ResourceName,
   ?'instance_ids' => InstanceIds,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->instance_ids = $instance_ids ?? [];
   }
 }
@@ -1256,9 +1256,9 @@ class FailedScheduledUpdateGroupActionRequest {
   ?'error_message' => XmlString,
   ?'scheduled_action_name' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
   }
 }
 
@@ -1272,7 +1272,7 @@ class Filter {
   ?'name' => XmlString,
   ?'values' => Values,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->values = $values ?? [];
   }
 }
@@ -1311,15 +1311,15 @@ class Instance {
   ?'protected_from_scale_in' => InstanceProtected,
   ?'weighted_capacity' => XmlStringMaxLen32,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->health_status = $health_status ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->health_status = $health_status ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
     $this->launch_template = $launch_template ?? null;
     $this->lifecycle_state = $lifecycle_state ?? "";
     $this->protected_from_scale_in = $protected_from_scale_in ?? false;
-    $this->weighted_capacity = $weighted_capacity ?? ;
+    $this->weighted_capacity = $weighted_capacity ?? "";
   }
 }
 
@@ -1331,7 +1331,7 @@ class InstanceMonitoring {
   public function __construct(shape(
   ?'enabled' => MonitoringEnabled,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -1355,12 +1355,12 @@ class InstancesDistribution {
   ?'spot_instance_pools' => SpotInstancePools,
   ?'spot_max_price' => MixedInstanceSpotPrice,
   ) $s = shape()) {
-    $this->on_demand_allocation_strategy = $on_demand_allocation_strategy ?? ;
+    $this->on_demand_allocation_strategy = $on_demand_allocation_strategy ?? "";
     $this->on_demand_base_capacity = $on_demand_base_capacity ?? 0;
     $this->on_demand_percentage_above_base_capacity = $on_demand_percentage_above_base_capacity ?? 0;
-    $this->spot_allocation_strategy = $spot_allocation_strategy ?? ;
+    $this->spot_allocation_strategy = $spot_allocation_strategy ?? "";
     $this->spot_instance_pools = $spot_instance_pools ?? 0;
-    $this->spot_max_price = $spot_max_price ?? ;
+    $this->spot_max_price = $spot_max_price ?? "";
   }
 }
 
@@ -1370,7 +1370,7 @@ class InvalidNextToken {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1418,23 +1418,23 @@ class LaunchConfiguration {
   ) $s = shape()) {
     $this->associate_public_ip_address = $associate_public_ip_address ?? false;
     $this->block_device_mappings = $block_device_mappings ?? [];
-    $this->classic_link_vpc_id = $classic_link_vpc_id ?? ;
+    $this->classic_link_vpc_id = $classic_link_vpc_id ?? "";
     $this->classic_link_vpc_security_groups = $classic_link_vpc_security_groups ?? [];
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->ebs_optimized = $ebs_optimized ?? false;
-    $this->iam_instance_profile = $iam_instance_profile ?? ;
-    $this->image_id = $image_id ?? ;
+    $this->iam_instance_profile = $iam_instance_profile ?? "";
+    $this->image_id = $image_id ?? "";
     $this->instance_monitoring = $instance_monitoring ?? null;
-    $this->instance_type = $instance_type ?? ;
-    $this->kernel_id = $kernel_id ?? ;
-    $this->key_name = $key_name ?? ;
-    $this->launch_configuration_arn = $launch_configuration_arn ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
-    $this->placement_tenancy = $placement_tenancy ?? ;
-    $this->ramdisk_id = $ramdisk_id ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->kernel_id = $kernel_id ?? "";
+    $this->key_name = $key_name ?? "";
+    $this->launch_configuration_arn = $launch_configuration_arn ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
+    $this->placement_tenancy = $placement_tenancy ?? "";
+    $this->ramdisk_id = $ramdisk_id ?? "";
     $this->security_groups = $security_groups ?? [];
     $this->spot_price = $spot_price ?? "";
-    $this->user_data = $user_data ?? ;
+    $this->user_data = $user_data ?? "";
   }
 }
 
@@ -1444,7 +1444,7 @@ class LaunchConfigurationNameType {
   public function __construct(shape(
   ?'launch_configuration_name' => ResourceName,
   ) $s = shape()) {
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
   }
 }
 
@@ -1462,7 +1462,7 @@ class LaunchConfigurationNamesType {
   ) $s = shape()) {
     $this->launch_configuration_names = $launch_configuration_names ?? [];
     $this->max_records = $max_records ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1477,7 +1477,7 @@ class LaunchConfigurationsType {
   ?'next_token' => XmlString,
   ) $s = shape()) {
     $this->launch_configurations = $launch_configurations ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1504,8 +1504,8 @@ class LaunchTemplateOverrides {
   ?'instance_type' => XmlStringMaxLen255,
   ?'weighted_capacity' => XmlStringMaxLen32,
   ) $s = shape()) {
-    $this->instance_type = $instance_type ?? ;
-    $this->weighted_capacity = $weighted_capacity ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->weighted_capacity = $weighted_capacity ?? "";
   }
 }
 
@@ -1519,9 +1519,9 @@ class LaunchTemplateSpecification {
   ?'launch_template_name' => LaunchTemplateName,
   ?'version' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->launch_template_id = $launch_template_id ?? ;
+    $this->launch_template_id = $launch_template_id ?? "";
     $this->launch_template_name = $launch_template_name ?? "";
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -1551,15 +1551,15 @@ class LifecycleHook {
   ?'notification_target_arn' => ResourceName,
   ?'role_arn' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->default_result = $default_result ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->default_result = $default_result ?? "";
     $this->global_timeout = $global_timeout ?? 0;
     $this->heartbeat_timeout = $heartbeat_timeout ?? 0;
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
     $this->lifecycle_transition = $lifecycle_transition ?? "";
-    $this->notification_metadata = $notification_metadata ?? ;
-    $this->notification_target_arn = $notification_target_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->notification_metadata = $notification_metadata ?? "";
+    $this->notification_target_arn = $notification_target_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1583,13 +1583,13 @@ class LifecycleHookSpecification {
   ?'notification_target_arn' => NotificationTargetResourceName,
   ?'role_arn' => ResourceName,
   ) $s = shape()) {
-    $this->default_result = $default_result ?? ;
+    $this->default_result = $default_result ?? "";
     $this->heartbeat_timeout = $heartbeat_timeout ?? 0;
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
     $this->lifecycle_transition = $lifecycle_transition ?? "";
-    $this->notification_metadata = $notification_metadata ?? ;
-    $this->notification_target_arn = $notification_target_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->notification_metadata = $notification_metadata ?? "";
+    $this->notification_target_arn = $notification_target_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1607,7 +1607,7 @@ class LimitExceededFault {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1621,8 +1621,8 @@ class LoadBalancerState {
   ?'load_balancer_name' => XmlStringMaxLen255,
   ?'state' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->load_balancer_name = $load_balancer_name ?? ;
-    $this->state = $state ?? ;
+    $this->load_balancer_name = $load_balancer_name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1636,8 +1636,8 @@ class LoadBalancerTargetGroupState {
   ?'load_balancer_target_group_arn' => XmlStringMaxLen511,
   ?'state' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->load_balancer_target_group_arn = $load_balancer_target_group_arn ?? ;
-    $this->state = $state ?? ;
+    $this->load_balancer_target_group_arn = $load_balancer_target_group_arn ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1657,7 +1657,7 @@ class MetricCollectionType {
   public function __construct(shape(
   ?'metric' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->metric = $metric ?? ;
+    $this->metric = $metric ?? "";
   }
 }
 
@@ -1671,8 +1671,8 @@ class MetricDimension {
   ?'name' => MetricDimensionName,
   ?'value' => MetricDimensionValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1688,7 +1688,7 @@ class MetricGranularityType {
   public function __construct(shape(
   ?'granularity' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->granularity = $granularity ?? ;
+    $this->granularity = $granularity ?? "";
   }
 }
 
@@ -1741,9 +1741,9 @@ class NotificationConfiguration {
   ?'notification_type' => XmlStringMaxLen255,
   ?'topic_arn' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->notification_type = $notification_type ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->notification_type = $notification_type ?? "";
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1769,7 +1769,7 @@ class PoliciesType {
   ?'next_token' => XmlString,
   ?'scaling_policies' => ScalingPolicies,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->scaling_policies = $scaling_policies ?? [];
   }
 }
@@ -1783,7 +1783,7 @@ class PolicyARNType {
   ?'policy_arn' => ResourceName,
   ) $s = shape()) {
     $this->alarms = $alarms ?? [];
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -1801,8 +1801,8 @@ class PredefinedMetricSpecification {
   ?'predefined_metric_type' => MetricType,
   ?'resource_label' => XmlStringMaxLen1023,
   ) $s = shape()) {
-    $this->predefined_metric_type = $predefined_metric_type ?? ;
-    $this->resource_label = $resource_label ?? ;
+    $this->predefined_metric_type = $predefined_metric_type ?? "";
+    $this->resource_label = $resource_label ?? "";
   }
 }
 
@@ -1814,7 +1814,7 @@ class ProcessType {
   public function __construct(shape(
   ?'process_name' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->process_name = $process_name ?? ;
+    $this->process_name = $process_name ?? "";
   }
 }
 
@@ -1863,14 +1863,14 @@ class PutLifecycleHookType {
   ?'notification_target_arn' => NotificationTargetResourceName,
   ?'role_arn' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->default_result = $default_result ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->default_result = $default_result ?? "";
     $this->heartbeat_timeout = $heartbeat_timeout ?? 0;
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
     $this->lifecycle_transition = $lifecycle_transition ?? "";
-    $this->notification_metadata = $notification_metadata ?? ;
-    $this->notification_target_arn = $notification_target_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->notification_metadata = $notification_metadata ?? "";
+    $this->notification_target_arn = $notification_target_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1884,9 +1884,9 @@ class PutNotificationConfigurationType {
   ?'notification_types' => AutoScalingNotificationTypes,
   ?'topic_arn' => ResourceName,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->notification_types = $notification_types ?? ;
-    $this->topic_arn = $topic_arn ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->notification_types = $notification_types ?? [];
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1920,17 +1920,17 @@ class PutScalingPolicyType {
   ?'step_adjustments' => StepAdjustments,
   ?'target_tracking_configuration' => TargetTrackingConfiguration,
   ) $s = shape()) {
-    $this->adjustment_type = $adjustment_type ?? null;
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->adjustment_type = $adjustment_type ?? "";
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->cooldown = $cooldown ?? 0;
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->estimated_instance_warmup = $estimated_instance_warmup ?? 0;
-    $this->metric_aggregation_type = $metric_aggregation_type ?? ;
+    $this->metric_aggregation_type = $metric_aggregation_type ?? "";
     $this->min_adjustment_magnitude = $min_adjustment_magnitude ?? 0;
     $this->min_adjustment_step = $min_adjustment_step ?? 0;
-    $this->policy_name = $policy_name ?? ;
-    $this->policy_type = $policy_type ?? ;
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->policy_type = $policy_type ?? "";
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
     $this->step_adjustments = $step_adjustments ?? [];
     $this->target_tracking_configuration = $target_tracking_configuration ?? null;
   }
@@ -1958,15 +1958,15 @@ class PutScheduledUpdateGroupActionType {
   ?'start_time' => TimestampType,
   ?'time' => TimestampType,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
-    $this->recurrence = $recurrence ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->time = $time ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->desired_capacity = $desired_capacity ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
+    $this->recurrence = $recurrence ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->time = $time ?? 0;
   }
 }
 
@@ -1989,10 +1989,10 @@ class RecordLifecycleActionHeartbeatType {
   ?'lifecycle_action_token' => LifecycleActionToken,
   ?'lifecycle_hook_name' => AsciiStringMaxLen255,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->instance_id = $instance_id ?? "";
     $this->lifecycle_action_token = $lifecycle_action_token ?? "";
-    $this->lifecycle_hook_name = $lifecycle_hook_name ?? ;
+    $this->lifecycle_hook_name = $lifecycle_hook_name ?? "";
   }
 }
 
@@ -2002,7 +2002,7 @@ class ResourceContentionFault {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2012,7 +2012,7 @@ class ResourceInUseFault {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2024,7 +2024,7 @@ class ScalingActivityInProgressFault {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2066,19 +2066,19 @@ class ScalingPolicy {
   ?'step_adjustments' => StepAdjustments,
   ?'target_tracking_configuration' => TargetTrackingConfiguration,
   ) $s = shape()) {
-    $this->adjustment_type = $adjustment_type ?? null;
+    $this->adjustment_type = $adjustment_type ?? "";
     $this->alarms = $alarms ?? [];
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->cooldown = $cooldown ?? 0;
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->estimated_instance_warmup = $estimated_instance_warmup ?? 0;
-    $this->metric_aggregation_type = $metric_aggregation_type ?? ;
+    $this->metric_aggregation_type = $metric_aggregation_type ?? "";
     $this->min_adjustment_magnitude = $min_adjustment_magnitude ?? 0;
     $this->min_adjustment_step = $min_adjustment_step ?? 0;
-    $this->policy_arn = $policy_arn ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->policy_type = $policy_type ?? ;
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->policy_type = $policy_type ?? "";
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
     $this->step_adjustments = $step_adjustments ?? [];
     $this->target_tracking_configuration = $target_tracking_configuration ?? null;
   }
@@ -2094,8 +2094,8 @@ class ScalingProcessQuery {
   ?'auto_scaling_group_name' => ResourceName,
   ?'scaling_processes' => ProcessNames,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->scaling_processes = $scaling_processes ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->scaling_processes = $scaling_processes ?? [];
   }
 }
 
@@ -2109,7 +2109,7 @@ class ScheduledActionsType {
   ?'next_token' => XmlString,
   ?'scheduled_update_group_actions' => ScheduledUpdateGroupActions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->scheduled_update_group_actions = $scheduled_update_group_actions ?? [];
   }
 }
@@ -2138,16 +2138,16 @@ class ScheduledUpdateGroupAction {
   ?'start_time' => TimestampType,
   ?'time' => TimestampType,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
-    $this->recurrence = $recurrence ?? ;
-    $this->scheduled_action_arn = $scheduled_action_arn ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->time = $time ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->desired_capacity = $desired_capacity ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
+    $this->recurrence = $recurrence ?? "";
+    $this->scheduled_action_arn = $scheduled_action_arn ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->time = $time ?? 0;
   }
 }
 
@@ -2169,13 +2169,13 @@ class ScheduledUpdateGroupActionRequest {
   ?'scheduled_action_name' => XmlStringMaxLen255,
   ?'start_time' => TimestampType,
   ) $s = shape()) {
-    $this->desired_capacity = $desired_capacity ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
-    $this->recurrence = $recurrence ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->desired_capacity = $desired_capacity ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
+    $this->recurrence = $recurrence ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -2191,7 +2191,7 @@ class ServiceLinkedRoleFailure {
   public function __construct(shape(
   ?'message' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2205,8 +2205,8 @@ class SetDesiredCapacityType {
   ?'desired_capacity' => AutoScalingGroupDesiredCapacity,
   ?'honor_cooldown' => HonorCooldown,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->desired_capacity = $desired_capacity ?? 0;
     $this->honor_cooldown = $honor_cooldown ?? false;
   }
 }
@@ -2221,8 +2221,8 @@ class SetInstanceHealthQuery {
   ?'instance_id' => XmlStringMaxLen19,
   ?'should_respect_grace_period' => ShouldRespectGracePeriod,
   ) $s = shape()) {
-    $this->health_status = $health_status ?? ;
-    $this->instance_id = $instance_id ?? ;
+    $this->health_status = $health_status ?? "";
+    $this->instance_id = $instance_id ?? "";
     $this->should_respect_grace_period = $should_respect_grace_period ?? false;
   }
 }
@@ -2244,7 +2244,7 @@ class SetInstanceProtectionQuery {
   ?'instance_ids' => InstanceIds,
   ?'protected_from_scale_in' => ProtectedFromScaleIn,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->instance_ids = $instance_ids ?? [];
     $this->protected_from_scale_in = $protected_from_scale_in ?? false;
   }
@@ -2268,9 +2268,9 @@ class StepAdjustment {
   ?'metric_interval_upper_bound' => MetricScale,
   ?'scaling_adjustment' => PolicyIncrement,
   ) $s = shape()) {
-    $this->metric_interval_lower_bound = $metric_interval_lower_bound ?? ;
-    $this->metric_interval_upper_bound = $metric_interval_upper_bound ?? ;
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->metric_interval_lower_bound = $metric_interval_lower_bound ?? 0.0;
+    $this->metric_interval_upper_bound = $metric_interval_upper_bound ?? 0.0;
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
   }
 }
 
@@ -2284,8 +2284,8 @@ class SuspendedProcess {
   ?'process_name' => XmlStringMaxLen255,
   ?'suspension_reason' => XmlStringMaxLen255,
   ) $s = shape()) {
-    $this->process_name = $process_name ?? ;
-    $this->suspension_reason = $suspension_reason ?? ;
+    $this->process_name = $process_name ?? "";
+    $this->suspension_reason = $suspension_reason ?? "";
   }
 }
 
@@ -2305,11 +2305,11 @@ class Tag {
   ?'resource_type' => XmlString,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->propagate_at_launch = $propagate_at_launch ?? false;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->value = $value ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2327,11 +2327,11 @@ class TagDescription {
   ?'resource_type' => XmlString,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->propagate_at_launch = $propagate_at_launch ?? false;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->value = $value ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2351,7 +2351,7 @@ class TagsType {
   ?'next_token' => XmlString,
   ?'tags' => TagDescriptionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -2373,7 +2373,7 @@ class TargetTrackingConfiguration {
     $this->customized_metric_specification = $customized_metric_specification ?? null;
     $this->disable_scale_in = $disable_scale_in ?? false;
     $this->predefined_metric_specification = $predefined_metric_specification ?? null;
-    $this->target_value = $target_value ?? ;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -2385,7 +2385,7 @@ class TerminateInstanceInAutoScalingGroupType {
   ?'instance_id' => XmlStringMaxLen19,
   ?'should_decrement_desired_capacity' => ShouldDecrementDesiredCapacity,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
     $this->should_decrement_desired_capacity = $should_decrement_desired_capacity ?? false;
   }
 }
@@ -2432,23 +2432,23 @@ class UpdateAutoScalingGroupType {
   ?'termination_policies' => TerminationPolicies,
   ?'vpc_zone_identifier' => XmlStringMaxLen2047,
   ) $s = shape()) {
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
     $this->availability_zones = $availability_zones ?? [];
-    $this->default_cooldown = $default_cooldown ?? ;
-    $this->desired_capacity = $desired_capacity ?? ;
+    $this->default_cooldown = $default_cooldown ?? 0;
+    $this->desired_capacity = $desired_capacity ?? 0;
     $this->health_check_grace_period = $health_check_grace_period ?? 0;
-    $this->health_check_type = $health_check_type ?? ;
-    $this->launch_configuration_name = $launch_configuration_name ?? ;
+    $this->health_check_type = $health_check_type ?? "";
+    $this->launch_configuration_name = $launch_configuration_name ?? "";
     $this->launch_template = $launch_template ?? null;
     $this->max_instance_lifetime = $max_instance_lifetime ?? 0;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
     $this->mixed_instances_policy = $mixed_instances_policy ?? null;
-    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? ;
-    $this->placement_group = $placement_group ?? ;
-    $this->service_linked_role_arn = $service_linked_role_arn ?? ;
+    $this->new_instances_protected_from_scale_in = $new_instances_protected_from_scale_in ?? false;
+    $this->placement_group = $placement_group ?? "";
+    $this->service_linked_role_arn = $service_linked_role_arn ?? "";
     $this->termination_policies = $termination_policies ?? [];
-    $this->vpc_zone_identifier = $vpc_zone_identifier ?? ;
+    $this->vpc_zone_identifier = $vpc_zone_identifier ?? "";
   }
 }
 

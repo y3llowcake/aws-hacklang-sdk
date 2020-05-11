@@ -22,7 +22,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -32,7 +32,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -44,7 +44,7 @@ class CancelSigningProfileRequest {
   public function __construct(shape(
   ?'profile_name' => ProfileName,
   ) $s = shape()) {
-    $this->profile_name = $profile_name ?? ;
+    $this->profile_name = $profile_name ?? "";
   }
 }
 
@@ -64,7 +64,7 @@ class DescribeSigningJobRequest {
   public function __construct(shape(
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -98,19 +98,19 @@ class DescribeSigningJobResponse {
   ?'status' => SigningStatus,
   ?'status_reason' => StatusReason,
   ) $s = shape()) {
-    $this->completed_at = $completed_at ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->overrides = $overrides ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->profile_name = $profile_name ?? ;
-    $this->requested_by = $requested_by ?? ;
-    $this->signed_object = $signed_object ?? ;
-    $this->signing_material = $signing_material ?? ;
-    $this->signing_parameters = $signing_parameters ?? ;
-    $this->source = $source ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->completed_at = $completed_at ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->overrides = $overrides ?? null;
+    $this->platform_id = $platform_id ?? "";
+    $this->profile_name = $profile_name ?? "";
+    $this->requested_by = $requested_by ?? "";
+    $this->signed_object = $signed_object ?? null;
+    $this->signing_material = $signing_material ?? null;
+    $this->signing_parameters = $signing_parameters ?? [];
+    $this->source = $source ?? null;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -120,7 +120,7 @@ class Destination {
   public function __construct(shape(
   ?'s_3' => S3Destination,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -136,8 +136,8 @@ class EncryptionAlgorithmOptions {
   ?'allowed_values' => EncryptionAlgorithms,
   ?'default_value' => EncryptionAlgorithm,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
-    $this->default_value = $default_value ?? ;
+    $this->allowed_values = $allowed_values ?? [];
+    $this->default_value = $default_value ?? "";
   }
 }
 
@@ -151,7 +151,7 @@ class GetSigningPlatformRequest {
   public function __construct(shape(
   ?'platform_id' => PlatformId,
   ) $s = shape()) {
-    $this->platform_id = $platform_id ?? ;
+    $this->platform_id = $platform_id ?? "";
   }
 }
 
@@ -175,14 +175,14 @@ class GetSigningPlatformResponse {
   ?'signing_image_format' => SigningImageFormat,
   ?'target' => string,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->max_size_in_mb = $max_size_in_mb ?? ;
-    $this->partner = $partner ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->signing_configuration = $signing_configuration ?? ;
-    $this->signing_image_format = $signing_image_format ?? ;
-    $this->target = $target ?? ;
+    $this->category = $category ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->max_size_in_mb = $max_size_in_mb ?? 0;
+    $this->partner = $partner ?? "";
+    $this->platform_id = $platform_id ?? "";
+    $this->signing_configuration = $signing_configuration ?? null;
+    $this->signing_image_format = $signing_image_format ?? null;
+    $this->target = $target ?? "";
   }
 }
 
@@ -192,7 +192,7 @@ class GetSigningProfileRequest {
   public function __construct(shape(
   ?'profile_name' => ProfileName,
   ) $s = shape()) {
-    $this->profile_name = $profile_name ?? ;
+    $this->profile_name = $profile_name ?? "";
   }
 }
 
@@ -216,14 +216,14 @@ class GetSigningProfileResponse {
   ?'status' => SigningProfileStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->overrides = $overrides ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->profile_name = $profile_name ?? ;
-    $this->signing_material = $signing_material ?? ;
-    $this->signing_parameters = $signing_parameters ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->overrides = $overrides ?? null;
+    $this->platform_id = $platform_id ?? "";
+    $this->profile_name = $profile_name ?? "";
+    $this->signing_material = $signing_material ?? null;
+    $this->signing_parameters = $signing_parameters ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -237,8 +237,8 @@ class HashAlgorithmOptions {
   ?'allowed_values' => HashAlgorithms,
   ?'default_value' => HashAlgorithm,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
-    $this->default_value = $default_value ?? ;
+    $this->allowed_values = $allowed_values ?? [];
+    $this->default_value = $default_value ?? "";
   }
 }
 
@@ -254,7 +254,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -276,11 +276,11 @@ class ListSigningJobsRequest {
   ?'requested_by' => RequestedBy,
   ?'status' => SigningStatus,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->requested_by = $requested_by ?? ;
-    $this->status = $status ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->platform_id = $platform_id ?? "";
+    $this->requested_by = $requested_by ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -292,8 +292,8 @@ class ListSigningJobsResponse {
   ?'jobs' => SigningJobs,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->jobs = $jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -311,11 +311,11 @@ class ListSigningPlatformsRequest {
   ?'partner' => string,
   ?'target' => string,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->partner = $partner ?? ;
-    $this->target = $target ?? ;
+    $this->category = $category ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->partner = $partner ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -327,8 +327,8 @@ class ListSigningPlatformsResponse {
   ?'next_token' => string,
   ?'platforms' => SigningPlatforms,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->platforms = $platforms ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->platforms = $platforms ?? [];
   }
 }
 
@@ -342,9 +342,9 @@ class ListSigningProfilesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->include_canceled = $include_canceled ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->include_canceled = $include_canceled ?? false;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -356,8 +356,8 @@ class ListSigningProfilesResponse {
   ?'next_token' => NextToken,
   ?'profiles' => SigningProfiles,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->profiles = $profiles ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->profiles = $profiles ?? [];
   }
 }
 
@@ -367,7 +367,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -393,7 +393,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -419,12 +419,12 @@ class PutSigningProfileRequest {
   ?'signing_parameters' => SigningParameters,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->overrides = $overrides ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->profile_name = $profile_name ?? ;
-    $this->signing_material = $signing_material ?? ;
-    $this->signing_parameters = $signing_parameters ?? ;
-    $this->tags = $tags ?? ;
+    $this->overrides = $overrides ?? null;
+    $this->platform_id = $platform_id ?? "";
+    $this->profile_name = $profile_name ?? "";
+    $this->signing_material = $signing_material ?? null;
+    $this->signing_parameters = $signing_parameters ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -434,7 +434,7 @@ class PutSigningProfileResponse {
   public function __construct(shape(
   ?'arn' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -446,7 +446,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -458,8 +458,8 @@ class S3Destination {
   ?'bucket_name' => BucketName,
   ?'prefix' => Prefix,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->prefix = $prefix ?? "";
   }
 }
 
@@ -471,7 +471,7 @@ class S3SignedObject {
   ?'bucket_name' => BucketName,
   ?'key' => key,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
+    $this->bucket_name = $bucket_name ?? "";
     $this->key = $key ?? "";
   }
 }
@@ -486,9 +486,9 @@ class S3Source {
   ?'key' => Key,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
+    $this->bucket_name = $bucket_name ?? "";
     $this->key = $key ?? "";
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -498,7 +498,7 @@ class SignedObject {
   public function __construct(shape(
   ?'s_3' => S3SignedObject,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -510,8 +510,8 @@ class SigningConfiguration {
   ?'encryption_algorithm_options' => EncryptionAlgorithmOptions,
   ?'hash_algorithm_options' => HashAlgorithmOptions,
   ) $s = shape()) {
-    $this->encryption_algorithm_options = $encryption_algorithm_options ?? ;
-    $this->hash_algorithm_options = $hash_algorithm_options ?? ;
+    $this->encryption_algorithm_options = $encryption_algorithm_options ?? null;
+    $this->hash_algorithm_options = $hash_algorithm_options ?? null;
   }
 }
 
@@ -523,8 +523,8 @@ class SigningConfigurationOverrides {
   ?'encryption_algorithm' => EncryptionAlgorithm,
   ?'hash_algorithm' => HashAlgorithm,
   ) $s = shape()) {
-    $this->encryption_algorithm = $encryption_algorithm ?? ;
-    $this->hash_algorithm = $hash_algorithm ?? ;
+    $this->encryption_algorithm = $encryption_algorithm ?? "";
+    $this->hash_algorithm = $hash_algorithm ?? "";
   }
 }
 
@@ -536,8 +536,8 @@ class SigningImageFormat {
   ?'default_format' => ImageFormat,
   ?'supported_formats' => ImageFormats,
   ) $s = shape()) {
-    $this->default_format = $default_format ?? ;
-    $this->supported_formats = $supported_formats ?? ;
+    $this->default_format = $default_format ?? "";
+    $this->supported_formats = $supported_formats ?? [];
   }
 }
 
@@ -557,12 +557,12 @@ class SigningJob {
   ?'source' => Source,
   ?'status' => SigningStatus,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->signed_object = $signed_object ?? ;
-    $this->signing_material = $signing_material ?? ;
-    $this->source = $source ?? ;
-    $this->status = $status ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->signed_object = $signed_object ?? null;
+    $this->signing_material = $signing_material ?? null;
+    $this->source = $source ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -574,7 +574,7 @@ class SigningMaterial {
   public function __construct(shape(
   ?'certificate_arn' => CertificateArn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -604,14 +604,14 @@ class SigningPlatform {
   ?'signing_image_format' => SigningImageFormat,
   ?'target' => string,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->max_size_in_mb = $max_size_in_mb ?? ;
-    $this->partner = $partner ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->signing_configuration = $signing_configuration ?? ;
-    $this->signing_image_format = $signing_image_format ?? ;
-    $this->target = $target ?? ;
+    $this->category = $category ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->max_size_in_mb = $max_size_in_mb ?? 0;
+    $this->partner = $partner ?? "";
+    $this->platform_id = $platform_id ?? "";
+    $this->signing_configuration = $signing_configuration ?? null;
+    $this->signing_image_format = $signing_image_format ?? null;
+    $this->target = $target ?? "";
   }
 }
 
@@ -623,8 +623,8 @@ class SigningPlatformOverrides {
   ?'signing_configuration' => SigningConfigurationOverrides,
   ?'signing_image_format' => ImageFormat,
   ) $s = shape()) {
-    $this->signing_configuration = $signing_configuration ?? ;
-    $this->signing_image_format = $signing_image_format ?? ;
+    $this->signing_configuration = $signing_configuration ?? null;
+    $this->signing_image_format = $signing_image_format ?? "";
   }
 }
 
@@ -648,13 +648,13 @@ class SigningProfile {
   ?'status' => SigningProfileStatus,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->platform_id = $platform_id ?? ;
-    $this->profile_name = $profile_name ?? ;
-    $this->signing_material = $signing_material ?? ;
-    $this->signing_parameters = $signing_parameters ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->platform_id = $platform_id ?? "";
+    $this->profile_name = $profile_name ?? "";
+    $this->signing_material = $signing_material ?? null;
+    $this->signing_parameters = $signing_parameters ?? [];
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -670,7 +670,7 @@ class Source {
   public function __construct(shape(
   ?'s_3' => S3Source,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -686,10 +686,10 @@ class StartSigningJobRequest {
   ?'profile_name' => ProfileName,
   ?'source' => Source,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->destination = $destination ?? ;
-    $this->profile_name = $profile_name ?? ;
-    $this->source = $source ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->destination = $destination ?? null;
+    $this->profile_name = $profile_name ?? "";
+    $this->source = $source ?? null;
   }
 }
 
@@ -699,7 +699,7 @@ class StartSigningJobResponse {
   public function __construct(shape(
   ?'job_id' => JobId,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -721,8 +721,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -741,7 +741,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -753,8 +753,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -771,7 +771,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

@@ -43,14 +43,14 @@ class Asset {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->egress_endpoints = $egress_endpoints ?? ;
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->egress_endpoints = $egress_endpoints ?? [];
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -71,11 +71,11 @@ class AssetCreateParameters {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -88,8 +88,8 @@ class AssetList {
   ?'assets' => __listOfAssetShallow,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->assets = $assets ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assets = $assets ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -113,13 +113,13 @@ class AssetShallow {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -144,9 +144,9 @@ class CmafPackage {
   ?'hls_manifests' => __listOfHlsManifest,
   ?'segment_duration_seconds' => __integer,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->hls_manifests = $hls_manifests ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->hls_manifests = $hls_manifests ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
   }
 }
 
@@ -166,11 +166,11 @@ class CreateAssetRequest {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -197,14 +197,14 @@ class CreateAssetResponse {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->egress_endpoints = $egress_endpoints ?? ;
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->egress_endpoints = $egress_endpoints ?? [];
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -230,9 +230,9 @@ class CreatePackagingConfigurationRequest {
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->mss_package = $mss_package ?? null;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->packaging_group_id = $packaging_group_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -257,13 +257,13 @@ class CreatePackagingConfigurationResponse {
   ?'packaging_group_id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->mss_package = $mss_package ?? null;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->packaging_group_id = $packaging_group_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -276,7 +276,7 @@ class CreatePackagingGroupRequest {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -293,9 +293,9 @@ class CreatePackagingGroupResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -325,8 +325,8 @@ class DashManifest {
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
     $this->manifest_layout = $manifest_layout ?? "";
-    $this->manifest_name = $manifest_name ?? ;
-    $this->min_buffer_time_seconds = $min_buffer_time_seconds ?? ;
+    $this->manifest_name = $manifest_name ?? "";
+    $this->min_buffer_time_seconds = $min_buffer_time_seconds ?? 0;
     $this->profile = $profile ?? "";
     $this->stream_selection = $stream_selection ?? null;
   }
@@ -346,10 +346,10 @@ class DashPackage {
   ?'segment_duration_seconds' => __integer,
   ?'segment_template_format' => SegmentTemplateFormat,
   ) $s = shape()) {
-    $this->dash_manifests = $dash_manifests ?? ;
-    $this->encryption = $encryption ?? ;
-    $this->period_triggers = $period_triggers ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->dash_manifests = $dash_manifests ?? [];
+    $this->encryption = $encryption ?? null;
+    $this->period_triggers = $period_triggers ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
     $this->segment_template_format = $segment_template_format ?? "";
   }
 }
@@ -360,7 +360,7 @@ class DeleteAssetRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class DeletePackagingConfigurationRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -394,7 +394,7 @@ class DeletePackagingGroupRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -411,7 +411,7 @@ class DescribeAssetRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -437,14 +437,14 @@ class DescribeAssetResponse {
   ?'source_role_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->egress_endpoints = $egress_endpoints ?? ;
-    $this->id = $id ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->source_role_arn = $source_role_arn ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->egress_endpoints = $egress_endpoints ?? [];
+    $this->id = $id ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->source_role_arn = $source_role_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -455,7 +455,7 @@ class DescribePackagingConfigurationRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -479,13 +479,13 @@ class DescribePackagingConfigurationResponse {
   ?'packaging_group_id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->mss_package = $mss_package ?? null;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->packaging_group_id = $packaging_group_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -496,7 +496,7 @@ class DescribePackagingGroupRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -512,9 +512,9 @@ class DescribePackagingGroupResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -527,8 +527,8 @@ class EgressEndpoint {
   ?'packaging_configuration_id' => __string,
   ?'url' => __string,
   ) $s = shape()) {
-    $this->packaging_configuration_id = $packaging_configuration_id ?? ;
-    $this->url = $url ?? ;
+    $this->packaging_configuration_id = $packaging_configuration_id ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -554,7 +554,7 @@ class HlsEncryption {
   ?'encryption_method' => EncryptionMethod,
   ?'speke_key_provider' => SpekeKeyProvider,
   ) $s = shape()) {
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
     $this->encryption_method = $encryption_method ?? "";
     $this->speke_key_provider = $speke_key_provider ?? null;
   }
@@ -577,10 +577,10 @@ class HlsManifest {
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
     $this->ad_markers = $ad_markers ?? "";
-    $this->include_iframe_only_stream = $include_iframe_only_stream ?? ;
-    $this->manifest_name = $manifest_name ?? ;
-    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? ;
-    $this->repeat_ext_x_key = $repeat_ext_x_key ?? ;
+    $this->include_iframe_only_stream = $include_iframe_only_stream ?? false;
+    $this->manifest_name = $manifest_name ?? "";
+    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? 0;
+    $this->repeat_ext_x_key = $repeat_ext_x_key ?? false;
     $this->stream_selection = $stream_selection ?? null;
   }
 }
@@ -597,10 +597,10 @@ class HlsPackage {
   ?'segment_duration_seconds' => __integer,
   ?'use_audio_rendition_group' => __boolean,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->hls_manifests = $hls_manifests ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
-    $this->use_audio_rendition_group = $use_audio_rendition_group ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->hls_manifests = $hls_manifests ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
+    $this->use_audio_rendition_group = $use_audio_rendition_group ?? false;
   }
 }
 
@@ -610,7 +610,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -625,8 +625,8 @@ class ListAssetsRequest {
   ?'packaging_group_id' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
   }
 }
 
@@ -638,8 +638,8 @@ class ListAssetsResponse {
   ?'assets' => __listOfAssetShallow,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->assets = $assets ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assets = $assets ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -654,8 +654,8 @@ class ListPackagingConfigurationsRequest {
   ?'packaging_group_id' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_group_id = $packaging_group_id ?? "";
   }
 }
 
@@ -667,8 +667,8 @@ class ListPackagingConfigurationsResponse {
   ?'next_token' => __string,
   ?'packaging_configurations' => __listOfPackagingConfiguration,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->packaging_configurations = $packaging_configurations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_configurations = $packaging_configurations ?? [];
   }
 }
 
@@ -681,7 +681,7 @@ class ListPackagingGroupsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -693,8 +693,8 @@ class ListPackagingGroupsResponse {
   ?'next_token' => __string,
   ?'packaging_groups' => __listOfPackagingGroup,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->packaging_groups = $packaging_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_groups = $packaging_groups ?? [];
   }
 }
 
@@ -704,7 +704,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -740,7 +740,7 @@ class MssManifest {
   ?'manifest_name' => __string,
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
-    $this->manifest_name = $manifest_name ?? ;
+    $this->manifest_name = $manifest_name ?? "";
     $this->stream_selection = $stream_selection ?? null;
   }
 }
@@ -755,9 +755,9 @@ class MssPackage {
   ?'mss_manifests' => __listOfMssManifest,
   ?'segment_duration_seconds' => __integer,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->mss_manifests = $mss_manifests ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->mss_manifests = $mss_manifests ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
   }
 }
 
@@ -767,7 +767,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -791,13 +791,13 @@ class PackagingConfiguration {
   ?'packaging_group_id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->mss_package = $mss_package ?? null;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->packaging_group_id = $packaging_group_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -823,9 +823,9 @@ class PackagingConfigurationCreateParameters {
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->mss_package = $mss_package ?? null;
-    $this->packaging_group_id = $packaging_group_id ?? ;
+    $this->packaging_group_id = $packaging_group_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -838,8 +838,8 @@ class PackagingConfigurationList {
   ?'next_token' => __string,
   ?'packaging_configurations' => __listOfPackagingConfiguration,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->packaging_configurations = $packaging_configurations ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_configurations = $packaging_configurations ?? [];
   }
 }
 
@@ -855,9 +855,9 @@ class PackagingGroup {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -870,7 +870,7 @@ class PackagingGroupCreateParameters {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -883,8 +883,8 @@ class PackagingGroupList {
   ?'next_token' => __string,
   ?'packaging_groups' => __listOfPackagingGroup,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->packaging_groups = $packaging_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->packaging_groups = $packaging_groups ?? [];
   }
 }
 
@@ -898,7 +898,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -912,9 +912,9 @@ class SpekeKeyProvider {
   ?'system_ids' => __listOf__string,
   ?'url' => __string,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->system_ids = $system_ids ?? ;
-    $this->url = $url ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->system_ids = $system_ids ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -930,8 +930,8 @@ class StreamSelection {
   ?'min_video_bits_per_second' => __integer,
   ?'stream_order' => StreamOrder,
   ) $s = shape()) {
-    $this->max_video_bits_per_second = $max_video_bits_per_second ?? ;
-    $this->min_video_bits_per_second = $min_video_bits_per_second ?? ;
+    $this->max_video_bits_per_second = $max_video_bits_per_second ?? 0;
+    $this->min_video_bits_per_second = $min_video_bits_per_second ?? 0;
     $this->stream_order = $stream_order ?? "";
   }
 }
@@ -944,7 +944,7 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -967,7 +967,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -977,7 +977,7 @@ class UnprocessableEntityException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -989,8 +989,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

@@ -69,16 +69,16 @@ class Algorithm {
   ?'role_arn' => Arn,
   ?'training_input_mode' => TrainingInputMode,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
-    $this->algorithm_image = $algorithm_image ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->default_hyper_parameter_ranges = $default_hyper_parameter_ranges ?? ;
-    $this->default_hyper_parameters = $default_hyper_parameters ?? ;
-    $this->default_resource_config = $default_resource_config ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->training_input_mode = $training_input_mode ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
+    $this->algorithm_image = $algorithm_image ?? null;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->default_hyper_parameter_ranges = $default_hyper_parameter_ranges ?? null;
+    $this->default_hyper_parameters = $default_hyper_parameters ?? [];
+    $this->default_resource_config = $default_resource_config ?? [];
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->training_input_mode = $training_input_mode ?? "";
   }
 }
 
@@ -90,8 +90,8 @@ class AlgorithmImage {
   ?'docker_uri' => DockerURI,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->docker_uri = $docker_uri ?? ;
-    $this->name = $name ?? ;
+    $this->docker_uri = $docker_uri ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -107,8 +107,8 @@ class AutoMLConfig {
   ?'metric_name' => MetricName,
   ?'recipe_list' => ArnList,
   ) $s = shape()) {
-    $this->metric_name = $metric_name ?? ;
-    $this->recipe_list = $recipe_list ?? ;
+    $this->metric_name = $metric_name ?? "";
+    $this->recipe_list = $recipe_list ?? [];
   }
 }
 
@@ -118,7 +118,7 @@ class AutoMLResult {
   public function __construct(shape(
   ?'best_recipe_arn' => Arn,
   ) $s = shape()) {
-    $this->best_recipe_arn = $best_recipe_arn ?? ;
+    $this->best_recipe_arn = $best_recipe_arn ?? "";
   }
 }
 
@@ -150,17 +150,17 @@ class BatchInferenceJob {
   ?'solution_version_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->batch_inference_job_arn = $batch_inference_job_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->job_input = $job_input ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->job_output = $job_output ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
+    $this->batch_inference_job_arn = $batch_inference_job_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->job_input = $job_input ?? null;
+    $this->job_name = $job_name ?? "";
+    $this->job_output = $job_output ?? null;
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->num_results = $num_results ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -170,7 +170,7 @@ class BatchInferenceJobInput {
   public function __construct(shape(
   ?'s_3_data_source' => S3DataConfig,
   ) $s = shape()) {
-    $this->s_3_data_source = $s_3_data_source ?? ;
+    $this->s_3_data_source = $s_3_data_source ?? null;
   }
 }
 
@@ -180,7 +180,7 @@ class BatchInferenceJobOutput {
   public function __construct(shape(
   ?'s_3_data_destination' => S3DataConfig,
   ) $s = shape()) {
-    $this->s_3_data_destination = $s_3_data_destination ?? ;
+    $this->s_3_data_destination = $s_3_data_destination ?? null;
   }
 }
 
@@ -202,13 +202,13 @@ class BatchInferenceJobSummary {
   ?'solution_version_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->batch_inference_job_arn = $batch_inference_job_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
+    $this->batch_inference_job_arn = $batch_inference_job_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -238,15 +238,15 @@ class Campaign {
   ?'solution_version_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->latest_campaign_update = $latest_campaign_update ?? ;
-    $this->min_provisioned_tps = $min_provisioned_tps ?? ;
-    $this->name = $name ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->latest_campaign_update = $latest_campaign_update ?? null;
+    $this->min_provisioned_tps = $min_provisioned_tps ?? 0;
+    $this->name = $name ?? "";
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -266,12 +266,12 @@ class CampaignSummary {
   ?'name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -291,12 +291,12 @@ class CampaignUpdateSummary {
   ?'solution_version_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->min_provisioned_tps = $min_provisioned_tps ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->min_provisioned_tps = $min_provisioned_tps ?? 0;
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -310,8 +310,8 @@ class CategoricalHyperParameterRange {
   ?'name' => ParameterName,
   ?'values' => CategoricalValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -331,9 +331,9 @@ class ContinuousHyperParameterRange {
   ?'min_value' => ContinuousMinValue,
   ?'name' => ParameterName,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
+    $this->max_value = $max_value ?? 0.0;
+    $this->min_value = $min_value ?? 0.0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -359,12 +359,12 @@ class CreateBatchInferenceJobRequest {
   ?'role_arn' => RoleArn,
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->job_input = $job_input ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->job_output = $job_output ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->job_input = $job_input ?? null;
+    $this->job_name = $job_name ?? "";
+    $this->job_output = $job_output ?? null;
+    $this->num_results = $num_results ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -374,7 +374,7 @@ class CreateBatchInferenceJobResponse {
   public function __construct(shape(
   ?'batch_inference_job_arn' => Arn,
   ) $s = shape()) {
-    $this->batch_inference_job_arn = $batch_inference_job_arn ?? ;
+    $this->batch_inference_job_arn = $batch_inference_job_arn ?? "";
   }
 }
 
@@ -388,9 +388,9 @@ class CreateCampaignRequest {
   ?'name' => Name,
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->min_provisioned_tps = $min_provisioned_tps ?? ;
-    $this->name = $name ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->min_provisioned_tps = $min_provisioned_tps ?? 0;
+    $this->name = $name ?? "";
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -400,7 +400,7 @@ class CreateCampaignResponse {
   public function __construct(shape(
   ?'campaign_arn' => Arn,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
   }
 }
 
@@ -414,9 +414,9 @@ class CreateDatasetGroupRequest {
   ?'name' => Name,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -426,7 +426,7 @@ class CreateDatasetGroupResponse {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -442,10 +442,10 @@ class CreateDatasetImportJobRequest {
   ?'job_name' => Name,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->data_source = $data_source ?? null;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -455,7 +455,7 @@ class CreateDatasetImportJobResponse {
   public function __construct(shape(
   ?'dataset_import_job_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
   }
 }
 
@@ -471,10 +471,10 @@ class CreateDatasetRequest {
   ?'name' => Name,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->dataset_type = $dataset_type ?? ;
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->dataset_type = $dataset_type ?? "";
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -484,7 +484,7 @@ class CreateDatasetResponse {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -496,8 +496,8 @@ class CreateEventTrackerRequest {
   ?'dataset_group_arn' => Arn,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->name = $name ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -509,8 +509,8 @@ class CreateEventTrackerResponse {
   ?'event_tracker_arn' => Arn,
   ?'tracking_id' => TrackingId,
   ) $s = shape()) {
-    $this->event_tracker_arn = $event_tracker_arn ?? ;
-    $this->tracking_id = $tracking_id ?? ;
+    $this->event_tracker_arn = $event_tracker_arn ?? "";
+    $this->tracking_id = $tracking_id ?? "";
   }
 }
 
@@ -522,8 +522,8 @@ class CreateSchemaRequest {
   ?'name' => Name,
   ?'schema' => AvroSchema,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
   }
 }
 
@@ -533,7 +533,7 @@ class CreateSchemaResponse {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -555,13 +555,13 @@ class CreateSolutionRequest {
   ?'recipe_arn' => Arn,
   ?'solution_config' => SolutionConfig,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->name = $name ?? ;
-    $this->perform_auto_ml = $perform_auto_ml ?? ;
-    $this->perform_hpo = $perform_hpo ?? ;
-    $this->recipe_arn = $recipe_arn ?? ;
-    $this->solution_config = $solution_config ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->event_type = $event_type ?? "";
+    $this->name = $name ?? "";
+    $this->perform_auto_ml = $perform_auto_ml ?? false;
+    $this->perform_hpo = $perform_hpo ?? false;
+    $this->recipe_arn = $recipe_arn ?? "";
+    $this->solution_config = $solution_config ?? null;
   }
 }
 
@@ -571,7 +571,7 @@ class CreateSolutionResponse {
   public function __construct(shape(
   ?'solution_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_arn = $solution_arn ?? ;
+    $this->solution_arn = $solution_arn ?? "";
   }
 }
 
@@ -583,8 +583,8 @@ class CreateSolutionVersionRequest {
   ?'solution_arn' => Arn,
   ?'training_mode' => TrainingMode,
   ) $s = shape()) {
-    $this->solution_arn = $solution_arn ?? ;
-    $this->training_mode = $training_mode ?? ;
+    $this->solution_arn = $solution_arn ?? "";
+    $this->training_mode = $training_mode ?? "";
   }
 }
 
@@ -594,7 +594,7 @@ class CreateSolutionVersionResponse {
   public function __construct(shape(
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -604,7 +604,7 @@ class DataSource {
   public function __construct(shape(
   ?'data_location' => S3Location,
   ) $s = shape()) {
-    $this->data_location = $data_location ?? ;
+    $this->data_location = $data_location ?? "";
   }
 }
 
@@ -628,14 +628,14 @@ class Dataset {
   ?'schema_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->dataset_type = $dataset_type ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->dataset_type = $dataset_type ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -659,14 +659,14 @@ class DatasetGroup {
   ?'role_arn' => RoleArn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -686,12 +686,12 @@ class DatasetGroupSummary {
   ?'name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -719,15 +719,15 @@ class DatasetImportJob {
   ?'role_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->data_source = $data_source ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->data_source = $data_source ?? null;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -747,12 +747,12 @@ class DatasetImportJobSummary {
   ?'last_updated_date_time' => Date,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -772,11 +772,11 @@ class DatasetSchema {
   ?'schema' => AvroSchema,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->schema = $schema ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->schema = $schema ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -792,10 +792,10 @@ class DatasetSchemaSummary {
   ?'name' => Name,
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -815,12 +815,12 @@ class DatasetSummary {
   ?'name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_type = $dataset_type ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_type = $dataset_type ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -840,9 +840,9 @@ class DefaultCategoricalHyperParameterRange {
   ?'name' => ParameterName,
   ?'values' => CategoricalValues,
   ) $s = shape()) {
-    $this->is_tunable = $is_tunable ?? ;
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->is_tunable = $is_tunable ?? false;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -860,10 +860,10 @@ class DefaultContinuousHyperParameterRange {
   ?'min_value' => ContinuousMinValue,
   ?'name' => ParameterName,
   ) $s = shape()) {
-    $this->is_tunable = $is_tunable ?? ;
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
+    $this->is_tunable = $is_tunable ?? false;
+    $this->max_value = $max_value ?? 0.0;
+    $this->min_value = $min_value ?? 0.0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -879,9 +879,9 @@ class DefaultHyperParameterRanges {
   ?'continuous_hyper_parameter_ranges' => DefaultContinuousHyperParameterRanges,
   ?'integer_hyper_parameter_ranges' => DefaultIntegerHyperParameterRanges,
   ) $s = shape()) {
-    $this->categorical_hyper_parameter_ranges = $categorical_hyper_parameter_ranges ?? ;
-    $this->continuous_hyper_parameter_ranges = $continuous_hyper_parameter_ranges ?? ;
-    $this->integer_hyper_parameter_ranges = $integer_hyper_parameter_ranges ?? ;
+    $this->categorical_hyper_parameter_ranges = $categorical_hyper_parameter_ranges ?? [];
+    $this->continuous_hyper_parameter_ranges = $continuous_hyper_parameter_ranges ?? [];
+    $this->integer_hyper_parameter_ranges = $integer_hyper_parameter_ranges ?? [];
   }
 }
 
@@ -897,10 +897,10 @@ class DefaultIntegerHyperParameterRange {
   ?'min_value' => IntegerMinValue,
   ?'name' => ParameterName,
   ) $s = shape()) {
-    $this->is_tunable = $is_tunable ?? ;
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
+    $this->is_tunable = $is_tunable ?? false;
+    $this->max_value = $max_value ?? 0;
+    $this->min_value = $min_value ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -912,7 +912,7 @@ class DeleteCampaignRequest {
   public function __construct(shape(
   ?'campaign_arn' => Arn,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
   }
 }
 
@@ -922,7 +922,7 @@ class DeleteDatasetGroupRequest {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -932,7 +932,7 @@ class DeleteDatasetRequest {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -942,7 +942,7 @@ class DeleteEventTrackerRequest {
   public function __construct(shape(
   ?'event_tracker_arn' => Arn,
   ) $s = shape()) {
-    $this->event_tracker_arn = $event_tracker_arn ?? ;
+    $this->event_tracker_arn = $event_tracker_arn ?? "";
   }
 }
 
@@ -952,7 +952,7 @@ class DeleteSchemaRequest {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -962,7 +962,7 @@ class DeleteSolutionRequest {
   public function __construct(shape(
   ?'solution_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_arn = $solution_arn ?? ;
+    $this->solution_arn = $solution_arn ?? "";
   }
 }
 
@@ -972,7 +972,7 @@ class DescribeAlgorithmRequest {
   public function __construct(shape(
   ?'algorithm_arn' => Arn,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
   }
 }
 
@@ -982,7 +982,7 @@ class DescribeAlgorithmResponse {
   public function __construct(shape(
   ?'algorithm' => Algorithm,
   ) $s = shape()) {
-    $this->algorithm = $algorithm ?? ;
+    $this->algorithm = $algorithm ?? null;
   }
 }
 
@@ -992,7 +992,7 @@ class DescribeBatchInferenceJobRequest {
   public function __construct(shape(
   ?'batch_inference_job_arn' => Arn,
   ) $s = shape()) {
-    $this->batch_inference_job_arn = $batch_inference_job_arn ?? ;
+    $this->batch_inference_job_arn = $batch_inference_job_arn ?? "";
   }
 }
 
@@ -1002,7 +1002,7 @@ class DescribeBatchInferenceJobResponse {
   public function __construct(shape(
   ?'batch_inference_job' => BatchInferenceJob,
   ) $s = shape()) {
-    $this->batch_inference_job = $batch_inference_job ?? ;
+    $this->batch_inference_job = $batch_inference_job ?? null;
   }
 }
 
@@ -1012,7 +1012,7 @@ class DescribeCampaignRequest {
   public function __construct(shape(
   ?'campaign_arn' => Arn,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
   }
 }
 
@@ -1022,7 +1022,7 @@ class DescribeCampaignResponse {
   public function __construct(shape(
   ?'campaign' => Campaign,
   ) $s = shape()) {
-    $this->campaign = $campaign ?? ;
+    $this->campaign = $campaign ?? null;
   }
 }
 
@@ -1032,7 +1032,7 @@ class DescribeDatasetGroupRequest {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -1042,7 +1042,7 @@ class DescribeDatasetGroupResponse {
   public function __construct(shape(
   ?'dataset_group' => DatasetGroup,
   ) $s = shape()) {
-    $this->dataset_group = $dataset_group ?? ;
+    $this->dataset_group = $dataset_group ?? null;
   }
 }
 
@@ -1052,7 +1052,7 @@ class DescribeDatasetImportJobRequest {
   public function __construct(shape(
   ?'dataset_import_job_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
   }
 }
 
@@ -1062,7 +1062,7 @@ class DescribeDatasetImportJobResponse {
   public function __construct(shape(
   ?'dataset_import_job' => DatasetImportJob,
   ) $s = shape()) {
-    $this->dataset_import_job = $dataset_import_job ?? ;
+    $this->dataset_import_job = $dataset_import_job ?? null;
   }
 }
 
@@ -1072,7 +1072,7 @@ class DescribeDatasetRequest {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -1082,7 +1082,7 @@ class DescribeDatasetResponse {
   public function __construct(shape(
   ?'dataset' => Dataset,
   ) $s = shape()) {
-    $this->dataset = $dataset ?? ;
+    $this->dataset = $dataset ?? null;
   }
 }
 
@@ -1092,7 +1092,7 @@ class DescribeEventTrackerRequest {
   public function __construct(shape(
   ?'event_tracker_arn' => Arn,
   ) $s = shape()) {
-    $this->event_tracker_arn = $event_tracker_arn ?? ;
+    $this->event_tracker_arn = $event_tracker_arn ?? "";
   }
 }
 
@@ -1102,7 +1102,7 @@ class DescribeEventTrackerResponse {
   public function __construct(shape(
   ?'event_tracker' => EventTracker,
   ) $s = shape()) {
-    $this->event_tracker = $event_tracker ?? ;
+    $this->event_tracker = $event_tracker ?? null;
   }
 }
 
@@ -1112,7 +1112,7 @@ class DescribeFeatureTransformationRequest {
   public function __construct(shape(
   ?'feature_transformation_arn' => Arn,
   ) $s = shape()) {
-    $this->feature_transformation_arn = $feature_transformation_arn ?? ;
+    $this->feature_transformation_arn = $feature_transformation_arn ?? "";
   }
 }
 
@@ -1122,7 +1122,7 @@ class DescribeFeatureTransformationResponse {
   public function __construct(shape(
   ?'feature_transformation' => FeatureTransformation,
   ) $s = shape()) {
-    $this->feature_transformation = $feature_transformation ?? ;
+    $this->feature_transformation = $feature_transformation ?? null;
   }
 }
 
@@ -1132,7 +1132,7 @@ class DescribeRecipeRequest {
   public function __construct(shape(
   ?'recipe_arn' => Arn,
   ) $s = shape()) {
-    $this->recipe_arn = $recipe_arn ?? ;
+    $this->recipe_arn = $recipe_arn ?? "";
   }
 }
 
@@ -1142,7 +1142,7 @@ class DescribeRecipeResponse {
   public function __construct(shape(
   ?'recipe' => Recipe,
   ) $s = shape()) {
-    $this->recipe = $recipe ?? ;
+    $this->recipe = $recipe ?? null;
   }
 }
 
@@ -1152,7 +1152,7 @@ class DescribeSchemaRequest {
   public function __construct(shape(
   ?'schema_arn' => Arn,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
+    $this->schema_arn = $schema_arn ?? "";
   }
 }
 
@@ -1162,7 +1162,7 @@ class DescribeSchemaResponse {
   public function __construct(shape(
   ?'schema' => DatasetSchema,
   ) $s = shape()) {
-    $this->schema = $schema ?? ;
+    $this->schema = $schema ?? null;
   }
 }
 
@@ -1172,7 +1172,7 @@ class DescribeSolutionRequest {
   public function __construct(shape(
   ?'solution_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_arn = $solution_arn ?? ;
+    $this->solution_arn = $solution_arn ?? "";
   }
 }
 
@@ -1182,7 +1182,7 @@ class DescribeSolutionResponse {
   public function __construct(shape(
   ?'solution' => Solution,
   ) $s = shape()) {
-    $this->solution = $solution ?? ;
+    $this->solution = $solution ?? null;
   }
 }
 
@@ -1192,7 +1192,7 @@ class DescribeSolutionVersionRequest {
   public function __construct(shape(
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -1202,7 +1202,7 @@ class DescribeSolutionVersionResponse {
   public function __construct(shape(
   ?'solution_version' => SolutionVersion,
   ) $s = shape()) {
-    $this->solution_version = $solution_version ?? ;
+    $this->solution_version = $solution_version ?? null;
   }
 }
 
@@ -1232,14 +1232,14 @@ class EventTracker {
   ?'status' => Status,
   ?'tracking_id' => TrackingId,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->event_tracker_arn = $event_tracker_arn ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->tracking_id = $tracking_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->event_tracker_arn = $event_tracker_arn ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->tracking_id = $tracking_id ?? "";
   }
 }
 
@@ -1257,11 +1257,11 @@ class EventTrackerSummary {
   ?'name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->event_tracker_arn = $event_tracker_arn ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->event_tracker_arn = $event_tracker_arn ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1289,12 +1289,12 @@ class FeatureTransformation {
   ?'name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->default_parameters = $default_parameters ?? ;
-    $this->feature_transformation_arn = $feature_transformation_arn ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->default_parameters = $default_parameters ?? [];
+    $this->feature_transformation_arn = $feature_transformation_arn ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1308,7 +1308,7 @@ class GetSolutionMetricsRequest {
   public function __construct(shape(
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -1320,8 +1320,8 @@ class GetSolutionMetricsResponse {
   ?'metrics' => Metrics,
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->metrics = $metrics ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->metrics = $metrics ?? [];
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -1335,9 +1335,9 @@ class HPOConfig {
   ?'hpo_objective' => HPOObjective,
   ?'hpo_resource_config' => HPOResourceConfig,
   ) $s = shape()) {
-    $this->algorithm_hyper_parameter_ranges = $algorithm_hyper_parameter_ranges ?? ;
-    $this->hpo_objective = $hpo_objective ?? ;
-    $this->hpo_resource_config = $hpo_resource_config ?? ;
+    $this->algorithm_hyper_parameter_ranges = $algorithm_hyper_parameter_ranges ?? null;
+    $this->hpo_objective = $hpo_objective ?? null;
+    $this->hpo_resource_config = $hpo_resource_config ?? null;
   }
 }
 
@@ -1351,9 +1351,9 @@ class HPOObjective {
   ?'metric_regex' => MetricRegex,
   ?'type' => HPOObjectiveType,
   ) $s = shape()) {
-    $this->metric_name = $metric_name ?? ;
-    $this->metric_regex = $metric_regex ?? ;
-    $this->type = $type ?? ;
+    $this->metric_name = $metric_name ?? "";
+    $this->metric_regex = $metric_regex ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1369,8 +1369,8 @@ class HPOResourceConfig {
   ?'max_number_of_training_jobs' => HPOResource,
   ?'max_parallel_training_jobs' => HPOResource,
   ) $s = shape()) {
-    $this->max_number_of_training_jobs = $max_number_of_training_jobs ?? ;
-    $this->max_parallel_training_jobs = $max_parallel_training_jobs ?? ;
+    $this->max_number_of_training_jobs = $max_number_of_training_jobs ?? "";
+    $this->max_parallel_training_jobs = $max_parallel_training_jobs ?? "";
   }
 }
 
@@ -1384,9 +1384,9 @@ class HyperParameterRanges {
   ?'continuous_hyper_parameter_ranges' => ContinuousHyperParameterRanges,
   ?'integer_hyper_parameter_ranges' => IntegerHyperParameterRanges,
   ) $s = shape()) {
-    $this->categorical_hyper_parameter_ranges = $categorical_hyper_parameter_ranges ?? ;
-    $this->continuous_hyper_parameter_ranges = $continuous_hyper_parameter_ranges ?? ;
-    $this->integer_hyper_parameter_ranges = $integer_hyper_parameter_ranges ?? ;
+    $this->categorical_hyper_parameter_ranges = $categorical_hyper_parameter_ranges ?? [];
+    $this->continuous_hyper_parameter_ranges = $continuous_hyper_parameter_ranges ?? [];
+    $this->integer_hyper_parameter_ranges = $integer_hyper_parameter_ranges ?? [];
   }
 }
 
@@ -1402,9 +1402,9 @@ class IntegerHyperParameterRange {
   ?'min_value' => IntegerMinValue,
   ?'name' => ParameterName,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
+    $this->max_value = $max_value ?? 0;
+    $this->min_value = $min_value ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1420,7 +1420,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1430,7 +1430,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1442,7 +1442,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1456,9 +1456,9 @@ class ListBatchInferenceJobsRequest {
   ?'next_token' => NextToken,
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -1470,8 +1470,8 @@ class ListBatchInferenceJobsResponse {
   ?'batch_inference_jobs' => BatchInferenceJobs,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->batch_inference_jobs = $batch_inference_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->batch_inference_jobs = $batch_inference_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1485,9 +1485,9 @@ class ListCampaignsRequest {
   ?'next_token' => NextToken,
   ?'solution_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->solution_arn = $solution_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->solution_arn = $solution_arn ?? "";
   }
 }
 
@@ -1499,8 +1499,8 @@ class ListCampaignsResponse {
   ?'campaigns' => Campaigns,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->campaigns = $campaigns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->campaigns = $campaigns ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1512,8 +1512,8 @@ class ListDatasetGroupsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1525,8 +1525,8 @@ class ListDatasetGroupsResponse {
   ?'dataset_groups' => DatasetGroups,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_groups = $dataset_groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_groups = $dataset_groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1540,9 +1540,9 @@ class ListDatasetImportJobsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1554,8 +1554,8 @@ class ListDatasetImportJobsResponse {
   ?'dataset_import_jobs' => DatasetImportJobs,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_import_jobs = $dataset_import_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_import_jobs = $dataset_import_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1569,9 +1569,9 @@ class ListDatasetsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1583,8 +1583,8 @@ class ListDatasetsResponse {
   ?'datasets' => Datasets,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->datasets = $datasets ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->datasets = $datasets ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1598,9 +1598,9 @@ class ListEventTrackersRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1612,8 +1612,8 @@ class ListEventTrackersResponse {
   ?'event_trackers' => EventTrackers,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->event_trackers = $event_trackers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->event_trackers = $event_trackers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1627,9 +1627,9 @@ class ListRecipesRequest {
   ?'next_token' => NextToken,
   ?'recipe_provider' => RecipeProvider,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->recipe_provider = $recipe_provider ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->recipe_provider = $recipe_provider ?? "";
   }
 }
 
@@ -1641,8 +1641,8 @@ class ListRecipesResponse {
   ?'next_token' => NextToken,
   ?'recipes' => Recipes,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->recipes = $recipes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->recipes = $recipes ?? [];
   }
 }
 
@@ -1654,8 +1654,8 @@ class ListSchemasRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1667,8 +1667,8 @@ class ListSchemasResponse {
   ?'next_token' => NextToken,
   ?'schemas' => Schemas,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -1682,9 +1682,9 @@ class ListSolutionVersionsRequest {
   ?'next_token' => NextToken,
   ?'solution_arn' => Arn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->solution_arn = $solution_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->solution_arn = $solution_arn ?? "";
   }
 }
 
@@ -1696,8 +1696,8 @@ class ListSolutionVersionsResponse {
   ?'next_token' => NextToken,
   ?'solution_versions' => SolutionVersions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->solution_versions = $solution_versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->solution_versions = $solution_versions ?? [];
   }
 }
 
@@ -1711,9 +1711,9 @@ class ListSolutionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1725,8 +1725,8 @@ class ListSolutionsResponse {
   ?'next_token' => NextToken,
   ?'solutions' => Solutions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->solutions = $solutions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->solutions = $solutions ?? [];
   }
 }
 
@@ -1776,15 +1776,15 @@ class Recipe {
   ?'recipe_type' => RecipeType,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->description = $description ?? ;
-    $this->feature_transformation_arn = $feature_transformation_arn ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->recipe_arn = $recipe_arn ?? ;
-    $this->recipe_type = $recipe_type ?? ;
-    $this->status = $status ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->description = $description ?? "";
+    $this->feature_transformation_arn = $feature_transformation_arn ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->recipe_arn = $recipe_arn ?? "";
+    $this->recipe_type = $recipe_type ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1804,11 +1804,11 @@ class RecipeSummary {
   ?'recipe_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->recipe_arn = $recipe_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->recipe_arn = $recipe_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1822,7 +1822,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1834,7 +1834,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1844,7 +1844,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1858,8 +1858,8 @@ class S3DataConfig {
   ?'kms_key_arn' => KmsKeyArn,
   ?'path' => S3Location,
   ) $s = shape()) {
-    $this->kms_key_arn = $kms_key_arn ?? ;
-    $this->path = $path ?? ;
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -1897,19 +1897,19 @@ class Solution {
   ?'solution_config' => SolutionConfig,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->auto_ml_result = $auto_ml_result ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->latest_solution_version = $latest_solution_version ?? ;
-    $this->name = $name ?? ;
-    $this->perform_auto_ml = $perform_auto_ml ?? ;
-    $this->perform_hpo = $perform_hpo ?? ;
-    $this->recipe_arn = $recipe_arn ?? ;
-    $this->solution_arn = $solution_arn ?? ;
-    $this->solution_config = $solution_config ?? ;
-    $this->status = $status ?? ;
+    $this->auto_ml_result = $auto_ml_result ?? null;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->event_type = $event_type ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->latest_solution_version = $latest_solution_version ?? null;
+    $this->name = $name ?? "";
+    $this->perform_auto_ml = $perform_auto_ml ?? false;
+    $this->perform_hpo = $perform_hpo ?? false;
+    $this->recipe_arn = $recipe_arn ?? "";
+    $this->solution_arn = $solution_arn ?? "";
+    $this->solution_config = $solution_config ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1927,11 +1927,11 @@ class SolutionConfig {
   ?'feature_transformation_parameters' => FeatureTransformationParameters,
   ?'hpo_config' => HPOConfig,
   ) $s = shape()) {
-    $this->algorithm_hyper_parameters = $algorithm_hyper_parameters ?? ;
-    $this->auto_ml_config = $auto_ml_config ?? ;
-    $this->event_value_threshold = $event_value_threshold ?? ;
-    $this->feature_transformation_parameters = $feature_transformation_parameters ?? ;
-    $this->hpo_config = $hpo_config ?? ;
+    $this->algorithm_hyper_parameters = $algorithm_hyper_parameters ?? [];
+    $this->auto_ml_config = $auto_ml_config ?? null;
+    $this->event_value_threshold = $event_value_threshold ?? "";
+    $this->feature_transformation_parameters = $feature_transformation_parameters ?? [];
+    $this->hpo_config = $hpo_config ?? null;
   }
 }
 
@@ -1949,11 +1949,11 @@ class SolutionSummary {
   ?'solution_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->solution_arn = $solution_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->solution_arn = $solution_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1991,21 +1991,21 @@ class SolutionVersion {
   ?'training_mode' => TrainingMode,
   ?'tuned_hpo_params' => TunedHPOParams,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->perform_auto_ml = $perform_auto_ml ?? ;
-    $this->perform_hpo = $perform_hpo ?? ;
-    $this->recipe_arn = $recipe_arn ?? ;
-    $this->solution_arn = $solution_arn ?? ;
-    $this->solution_config = $solution_config ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
-    $this->training_hours = $training_hours ?? ;
-    $this->training_mode = $training_mode ?? ;
-    $this->tuned_hpo_params = $tuned_hpo_params ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->event_type = $event_type ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->perform_auto_ml = $perform_auto_ml ?? false;
+    $this->perform_hpo = $perform_hpo ?? false;
+    $this->recipe_arn = $recipe_arn ?? "";
+    $this->solution_arn = $solution_arn ?? "";
+    $this->solution_config = $solution_config ?? null;
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
+    $this->training_hours = $training_hours ?? 0.0;
+    $this->training_mode = $training_mode ?? "";
+    $this->tuned_hpo_params = $tuned_hpo_params ?? null;
   }
 }
 
@@ -2023,11 +2023,11 @@ class SolutionVersionSummary {
   ?'solution_version_arn' => Arn,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->last_updated_date_time = $last_updated_date_time ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_updated_date_time = $last_updated_date_time ?? 0;
+    $this->solution_version_arn = $solution_version_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2055,7 +2055,7 @@ class TunedHPOParams {
   public function __construct(shape(
   ?'algorithm_hyper_parameters' => HyperParameters,
   ) $s = shape()) {
-    $this->algorithm_hyper_parameters = $algorithm_hyper_parameters ?? ;
+    $this->algorithm_hyper_parameters = $algorithm_hyper_parameters ?? [];
   }
 }
 
@@ -2069,9 +2069,9 @@ class UpdateCampaignRequest {
   ?'min_provisioned_tps' => TransactionsPerSecond,
   ?'solution_version_arn' => Arn,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
-    $this->min_provisioned_tps = $min_provisioned_tps ?? ;
-    $this->solution_version_arn = $solution_version_arn ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
+    $this->min_provisioned_tps = $min_provisioned_tps ?? 0;
+    $this->solution_version_arn = $solution_version_arn ?? "";
   }
 }
 
@@ -2081,7 +2081,7 @@ class UpdateCampaignResponse {
   public function __construct(shape(
   ?'campaign_arn' => Arn,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
   }
 }
 

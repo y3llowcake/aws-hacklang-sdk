@@ -32,7 +32,7 @@ class AvailabilityZone {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -44,8 +44,8 @@ class BadRequestException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -58,7 +58,7 @@ class BrokerEngineType {
   ?'engine_versions' => __listOfEngineVersion,
   ) $s = shape()) {
     $this->engine_type = $engine_type ?? "";
-    $this->engine_versions = $engine_versions ?? ;
+    $this->engine_versions = $engine_versions ?? [];
   }
 }
 
@@ -72,9 +72,9 @@ class BrokerEngineTypeOutput {
   ?'max_results' => __integerMin5Max100,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_engine_types = $broker_engine_types ?? ;
+    $this->broker_engine_types = $broker_engine_types ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -88,9 +88,9 @@ class BrokerInstance {
   ?'endpoints' => __listOf__string,
   ?'ip_address' => __string,
   ) $s = shape()) {
-    $this->console_url = $console_url ?? ;
-    $this->endpoints = $endpoints ?? ;
-    $this->ip_address = $ip_address ?? ;
+    $this->console_url = $console_url ?? "";
+    $this->endpoints = $endpoints ?? [];
+    $this->ip_address = $ip_address ?? "";
   }
 }
 
@@ -110,12 +110,12 @@ class BrokerInstanceOption {
   ?'supported_deployment_modes' => __listOfDeploymentMode,
   ?'supported_engine_versions' => __listOf__string,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
+    $this->availability_zones = $availability_zones ?? [];
     $this->engine_type = $engine_type ?? "";
-    $this->host_instance_type = $host_instance_type ?? ;
-    $this->storage_type = $storage_type ?? ;
-    $this->supported_deployment_modes = $supported_deployment_modes ?? ;
-    $this->supported_engine_versions = $supported_engine_versions ?? ;
+    $this->host_instance_type = $host_instance_type ?? "";
+    $this->storage_type = $storage_type ?? "";
+    $this->supported_deployment_modes = $supported_deployment_modes ?? [];
+    $this->supported_engine_versions = $supported_engine_versions ?? [];
   }
 }
 
@@ -129,9 +129,9 @@ class BrokerInstanceOptionsOutput {
   ?'max_results' => __integerMin5Max100,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_instance_options = $broker_instance_options ?? ;
+    $this->broker_instance_options = $broker_instance_options ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -157,13 +157,13 @@ class BrokerSummary {
   ?'deployment_mode' => DeploymentMode,
   ?'host_instance_type' => __string,
   ) $s = shape()) {
-    $this->broker_arn = $broker_arn ?? ;
-    $this->broker_id = $broker_id ?? ;
-    $this->broker_name = $broker_name ?? ;
+    $this->broker_arn = $broker_arn ?? "";
+    $this->broker_id = $broker_id ?? "";
+    $this->broker_name = $broker_name ?? "";
     $this->broker_state = $broker_state ?? "";
-    $this->created = $created ?? ;
+    $this->created = $created ?? 0;
     $this->deployment_mode = $deployment_mode ?? "";
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->host_instance_type = $host_instance_type ?? "";
   }
 }
 
@@ -191,15 +191,15 @@ class Configuration {
   ?'name' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->description = $description ?? "";
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? null;
+    $this->engine_version = $engine_version ?? "";
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -211,8 +211,8 @@ class ConfigurationId {
   ?'id' => __string,
   ?'revision' => __integer,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->revision = $revision ?? ;
+    $this->id = $id ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -226,9 +226,9 @@ class ConfigurationRevision {
   ?'description' => __string,
   ?'revision' => __integer,
   ) $s = shape()) {
-    $this->created = $created ?? ;
-    $this->description = $description ?? ;
-    $this->revision = $revision ?? ;
+    $this->created = $created ?? 0;
+    $this->description = $description ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -242,9 +242,9 @@ class Configurations {
   ?'history' => __listOfConfigurationId,
   ?'pending' => ConfigurationId,
   ) $s = shape()) {
-    $this->current = $current ?? ;
-    $this->history = $history ?? ;
-    $this->pending = $pending ?? ;
+    $this->current = $current ?? null;
+    $this->history = $history ?? [];
+    $this->pending = $pending ?? null;
   }
 }
 
@@ -256,8 +256,8 @@ class ConflictException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -299,23 +299,23 @@ class CreateBrokerInput {
   ?'tags' => __mapOf__string,
   ?'users' => __listOfUser,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_name = $broker_name ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_name = $broker_name ?? "";
     $this->configuration = $configuration ?? null;
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
     $this->deployment_mode = $deployment_mode ?? "";
     $this->encryption_options = $encryption_options ?? null;
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->maintenance_window_start_time = $maintenance_window_start_time ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->storage_type = $storage_type ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? null;
-    $this->users = $users ?? ;
+    $this->maintenance_window_start_time = $maintenance_window_start_time ?? null;
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->storage_type = $storage_type ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
+    $this->users = $users ?? [];
   }
 }
 
@@ -327,8 +327,8 @@ class CreateBrokerOutput {
   ?'broker_arn' => __string,
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_arn = $broker_arn ?? ;
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_arn = $broker_arn ?? "";
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -370,23 +370,23 @@ class CreateBrokerRequest {
   ?'tags' => __mapOf__string,
   ?'users' => __listOfUser,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_name = $broker_name ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_name = $broker_name ?? "";
     $this->configuration = $configuration ?? null;
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
     $this->deployment_mode = $deployment_mode ?? "";
     $this->encryption_options = $encryption_options ?? null;
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->maintenance_window_start_time = $maintenance_window_start_time ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->storage_type = $storage_type ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? null;
-    $this->users = $users ?? ;
+    $this->maintenance_window_start_time = $maintenance_window_start_time ?? null;
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->storage_type = $storage_type ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
+    $this->users = $users ?? [];
   }
 }
 
@@ -398,8 +398,8 @@ class CreateBrokerResponse {
   ?'broker_arn' => __string,
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_arn = $broker_arn ?? ;
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_arn = $broker_arn ?? "";
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -416,9 +416,9 @@ class CreateConfigurationInput {
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? null;
+    $this->engine_version = $engine_version ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -436,11 +436,11 @@ class CreateConfigurationOutput {
   ?'latest_revision' => ConfigurationRevision,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -457,9 +457,9 @@ class CreateConfigurationRequest {
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? null;
+    $this->engine_version = $engine_version ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -477,11 +477,11 @@ class CreateConfigurationResponse {
   ?'latest_revision' => ConfigurationRevision,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -493,8 +493,8 @@ class CreateTagsRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? null;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -508,9 +508,9 @@ class CreateUserInput {
   ?'groups' => __listOf__string,
   ?'password' => __string,
   ) $s = shape()) {
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->password = $password ?? ;
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->password = $password ?? "";
   }
 }
 
@@ -528,11 +528,11 @@ class CreateUserRequest {
   ?'password' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -551,7 +551,7 @@ class DeleteBrokerOutput {
   public function __construct(shape(
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -561,7 +561,7 @@ class DeleteBrokerRequest {
   public function __construct(shape(
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -571,7 +571,7 @@ class DeleteBrokerResponse {
   public function __construct(shape(
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -583,8 +583,8 @@ class DeleteTagsRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -596,8 +596,8 @@ class DeleteUserRequest {
   ?'broker_id' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -622,7 +622,7 @@ class DescribeBrokerEngineTypesRequest {
   ) $s = shape()) {
     $this->engine_type = $engine_type ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -636,9 +636,9 @@ class DescribeBrokerEngineTypesResponse {
   ?'max_results' => __integerMin5Max100,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_engine_types = $broker_engine_types ?? ;
+    $this->broker_engine_types = $broker_engine_types ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -657,10 +657,10 @@ class DescribeBrokerInstanceOptionsRequest {
   ?'storage_type' => __string,
   ) $s = shape()) {
     $this->engine_type = $engine_type ?? "";
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->storage_type = $storage_type ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->storage_type = $storage_type ?? "";
   }
 }
 
@@ -674,9 +674,9 @@ class DescribeBrokerInstanceOptionsResponse {
   ?'max_results' => __integerMin5Max100,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_instance_options = $broker_instance_options ?? ;
+    $this->broker_instance_options = $broker_instance_options ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -732,30 +732,30 @@ class DescribeBrokerOutput {
   ?'tags' => __mapOf__string,
   ?'users' => __listOfUserSummary,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_arn = $broker_arn ?? ;
-    $this->broker_id = $broker_id ?? ;
-    $this->broker_instances = $broker_instances ?? ;
-    $this->broker_name = $broker_name ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_arn = $broker_arn ?? "";
+    $this->broker_id = $broker_id ?? "";
+    $this->broker_instances = $broker_instances ?? [];
+    $this->broker_name = $broker_name ?? "";
     $this->broker_state = $broker_state ?? "";
     $this->configurations = $configurations ?? null;
-    $this->created = $created ?? ;
+    $this->created = $created ?? 0;
     $this->deployment_mode = $deployment_mode ?? "";
     $this->encryption_options = $encryption_options ?? null;
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->maintenance_window_start_time = $maintenance_window_start_time ?? ;
-    $this->pending_engine_version = $pending_engine_version ?? ;
-    $this->pending_host_instance_type = $pending_host_instance_type ?? ;
-    $this->pending_security_groups = $pending_security_groups ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->storage_type = $storage_type ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? null;
-    $this->users = $users ?? ;
+    $this->maintenance_window_start_time = $maintenance_window_start_time ?? null;
+    $this->pending_engine_version = $pending_engine_version ?? "";
+    $this->pending_host_instance_type = $pending_host_instance_type ?? "";
+    $this->pending_security_groups = $pending_security_groups ?? [];
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->storage_type = $storage_type ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
+    $this->users = $users ?? [];
   }
 }
 
@@ -765,7 +765,7 @@ class DescribeBrokerRequest {
   public function __construct(shape(
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -821,30 +821,30 @@ class DescribeBrokerResponse {
   ?'tags' => __mapOf__string,
   ?'users' => __listOfUserSummary,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_arn = $broker_arn ?? ;
-    $this->broker_id = $broker_id ?? ;
-    $this->broker_instances = $broker_instances ?? ;
-    $this->broker_name = $broker_name ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_arn = $broker_arn ?? "";
+    $this->broker_id = $broker_id ?? "";
+    $this->broker_instances = $broker_instances ?? [];
+    $this->broker_name = $broker_name ?? "";
     $this->broker_state = $broker_state ?? "";
     $this->configurations = $configurations ?? null;
-    $this->created = $created ?? ;
+    $this->created = $created ?? 0;
     $this->deployment_mode = $deployment_mode ?? "";
     $this->encryption_options = $encryption_options ?? null;
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->maintenance_window_start_time = $maintenance_window_start_time ?? ;
-    $this->pending_engine_version = $pending_engine_version ?? ;
-    $this->pending_host_instance_type = $pending_host_instance_type ?? ;
-    $this->pending_security_groups = $pending_security_groups ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->storage_type = $storage_type ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? null;
-    $this->users = $users ?? ;
+    $this->maintenance_window_start_time = $maintenance_window_start_time ?? null;
+    $this->pending_engine_version = $pending_engine_version ?? "";
+    $this->pending_host_instance_type = $pending_host_instance_type ?? "";
+    $this->pending_security_groups = $pending_security_groups ?? [];
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->security_groups = $security_groups ?? [];
+    $this->storage_type = $storage_type ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
+    $this->users = $users ?? [];
   }
 }
 
@@ -854,7 +854,7 @@ class DescribeConfigurationRequest {
   public function __construct(shape(
   ?'configuration_id' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
+    $this->configuration_id = $configuration_id ?? "";
   }
 }
 
@@ -880,15 +880,15 @@ class DescribeConfigurationResponse {
   ?'name' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->description = $description ?? "";
     $this->engine_type = $engine_type ?? "";
-    $this->engine_version = $engine_version ?? null;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? null;
+    $this->engine_version = $engine_version ?? "";
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -904,10 +904,10 @@ class DescribeConfigurationRevisionOutput {
   ?'data' => __string,
   ?'description' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
-    $this->created = $created ?? ;
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
+    $this->configuration_id = $configuration_id ?? "";
+    $this->created = $created ?? 0;
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -919,8 +919,8 @@ class DescribeConfigurationRevisionRequest {
   ?'configuration_id' => __string,
   ?'configuration_revision' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
-    $this->configuration_revision = $configuration_revision ?? null;
+    $this->configuration_id = $configuration_id ?? "";
+    $this->configuration_revision = $configuration_revision ?? "";
   }
 }
 
@@ -936,10 +936,10 @@ class DescribeConfigurationRevisionResponse {
   ?'data' => __string,
   ?'description' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
-    $this->created = $created ?? ;
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
+    $this->configuration_id = $configuration_id ?? "";
+    $this->created = $created ?? 0;
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -957,11 +957,11 @@ class DescribeUserOutput {
   ?'pending' => UserPendingChanges,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->pending = $pending ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->pending = $pending ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -973,8 +973,8 @@ class DescribeUserRequest {
   ?'broker_id' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -992,11 +992,11 @@ class DescribeUserResponse {
   ?'pending' => UserPendingChanges,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->pending = $pending ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->pending = $pending ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -1008,8 +1008,8 @@ class EncryptionOptions {
   ?'kms_key_id' => __string,
   ?'use_aws_owned_key' => __boolean,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->use_aws_owned_key = $use_aws_owned_key ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->use_aws_owned_key = $use_aws_owned_key ?? false;
   }
 }
 
@@ -1021,7 +1021,7 @@ class EngineVersion {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1033,8 +1033,8 @@ class Error {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1046,8 +1046,8 @@ class ForbiddenException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1059,8 +1059,8 @@ class InternalServerErrorException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1072,8 +1072,8 @@ class ListBrokersOutput {
   ?'broker_summaries' => __listOfBrokerSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_summaries = $broker_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->broker_summaries = $broker_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1086,7 +1086,7 @@ class ListBrokersRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1098,8 +1098,8 @@ class ListBrokersResponse {
   ?'broker_summaries' => __listOfBrokerSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_summaries = $broker_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->broker_summaries = $broker_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1115,10 +1115,10 @@ class ListConfigurationRevisionsOutput {
   ?'next_token' => __string,
   ?'revisions' => __listOfConfigurationRevision,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
+    $this->configuration_id = $configuration_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -1132,9 +1132,9 @@ class ListConfigurationRevisionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
+    $this->configuration_id = $configuration_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1150,10 +1150,10 @@ class ListConfigurationRevisionsResponse {
   ?'next_token' => __string,
   ?'revisions' => __listOfConfigurationRevision,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
+    $this->configuration_id = $configuration_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->revisions = $revisions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->revisions = $revisions ?? [];
   }
 }
 
@@ -1167,9 +1167,9 @@ class ListConfigurationsOutput {
   ?'max_results' => __integer,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->configurations = $configurations ?? null;
+    $this->configurations = $configurations ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1182,7 +1182,7 @@ class ListConfigurationsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1196,9 +1196,9 @@ class ListConfigurationsResponse {
   ?'max_results' => __integer,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->configurations = $configurations ?? null;
+    $this->configurations = $configurations ?? [];
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1208,7 +1208,7 @@ class ListTagsRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1218,7 +1218,7 @@ class ListTagsResponse {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1234,10 +1234,10 @@ class ListUsersOutput {
   ?'next_token' => __string,
   ?'users' => __listOfUserSummary,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->users = $users ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -1251,9 +1251,9 @@ class ListUsersRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1269,10 +1269,10 @@ class ListUsersResponse {
   ?'next_token' => __string,
   ?'users' => __listOfUserSummary,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->users = $users ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -1284,8 +1284,8 @@ class Logs {
   ?'audit' => __boolean,
   ?'general' => __boolean,
   ) $s = shape()) {
-    $this->audit = $audit ?? ;
-    $this->general = $general ?? ;
+    $this->audit = $audit ?? false;
+    $this->general = $general ?? false;
   }
 }
 
@@ -1303,11 +1303,11 @@ class LogsSummary {
   ?'general_log_group' => __string,
   ?'pending' => PendingLogs,
   ) $s = shape()) {
-    $this->audit = $audit ?? ;
-    $this->audit_log_group = $audit_log_group ?? ;
-    $this->general = $general ?? ;
-    $this->general_log_group = $general_log_group ?? ;
-    $this->pending = $pending ?? ;
+    $this->audit = $audit ?? false;
+    $this->audit_log_group = $audit_log_group ?? "";
+    $this->general = $general ?? false;
+    $this->general_log_group = $general_log_group ?? "";
+    $this->pending = $pending ?? null;
   }
 }
 
@@ -1321,8 +1321,8 @@ class NotFoundException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1334,8 +1334,8 @@ class PendingLogs {
   ?'audit' => __boolean,
   ?'general' => __boolean,
   ) $s = shape()) {
-    $this->audit = $audit ?? ;
-    $this->general = $general ?? ;
+    $this->audit = $audit ?? false;
+    $this->general = $general ?? false;
   }
 }
 
@@ -1345,7 +1345,7 @@ class RebootBrokerRequest {
   public function __construct(shape(
   ?'broker_id' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
+    $this->broker_id = $broker_id ?? "";
   }
 }
 
@@ -1366,9 +1366,9 @@ class SanitizationWarning {
   ?'element_name' => __string,
   ?'reason' => SanitizationWarningReason,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->element_name = $element_name ?? ;
-    $this->reason = $reason ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->element_name = $element_name ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1380,7 +1380,7 @@ class Tags {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1392,8 +1392,8 @@ class UnauthorizedException {
   ?'error_attribute' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_attribute = $error_attribute ?? ;
-    $this->message = $message ?? ;
+    $this->error_attribute = $error_attribute ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1413,12 +1413,12 @@ class UpdateBrokerInput {
   ?'logs' => Logs,
   ?'security_groups' => __listOf__string,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
     $this->configuration = $configuration ?? null;
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
   }
 }
 
@@ -1440,13 +1440,13 @@ class UpdateBrokerOutput {
   ?'logs' => Logs,
   ?'security_groups' => __listOf__string,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_id = $broker_id ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_id = $broker_id ?? "";
     $this->configuration = $configuration ?? null;
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
   }
 }
 
@@ -1468,13 +1468,13 @@ class UpdateBrokerRequest {
   ?'logs' => Logs,
   ?'security_groups' => __listOf__string,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_id = $broker_id ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_id = $broker_id ?? "";
     $this->configuration = $configuration ?? null;
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
   }
 }
 
@@ -1496,13 +1496,13 @@ class UpdateBrokerResponse {
   ?'logs' => Logs,
   ?'security_groups' => __listOf__string,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->broker_id = $broker_id ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->broker_id = $broker_id ?? "";
     $this->configuration = $configuration ?? null;
-    $this->engine_version = $engine_version ?? null;
-    $this->host_instance_type = $host_instance_type ?? ;
+    $this->engine_version = $engine_version ?? "";
+    $this->host_instance_type = $host_instance_type ?? "";
     $this->logs = $logs ?? null;
-    $this->security_groups = $security_groups ?? ;
+    $this->security_groups = $security_groups ?? [];
   }
 }
 
@@ -1514,8 +1514,8 @@ class UpdateConfigurationInput {
   ?'data' => __string,
   ?'description' => __string,
   ) $s = shape()) {
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -1535,12 +1535,12 @@ class UpdateConfigurationOutput {
   ?'name' => __string,
   ?'warnings' => __listOfSanitizationWarning,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -1554,9 +1554,9 @@ class UpdateConfigurationRequest {
   ?'data' => __string,
   ?'description' => __string,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? null;
-    $this->data = $data ?? ;
-    $this->description = $description ?? ;
+    $this->configuration_id = $configuration_id ?? "";
+    $this->data = $data ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -1576,12 +1576,12 @@ class UpdateConfigurationResponse {
   ?'name' => __string,
   ?'warnings' => __listOfSanitizationWarning,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->id = $id ?? ;
-    $this->latest_revision = $latest_revision ?? ;
-    $this->name = $name ?? ;
-    $this->warnings = $warnings ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->id = $id ?? "";
+    $this->latest_revision = $latest_revision ?? null;
+    $this->name = $name ?? "";
+    $this->warnings = $warnings ?? [];
   }
 }
 
@@ -1595,9 +1595,9 @@ class UpdateUserInput {
   ?'groups' => __listOf__string,
   ?'password' => __string,
   ) $s = shape()) {
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->password = $password ?? ;
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->password = $password ?? "";
   }
 }
 
@@ -1615,11 +1615,11 @@ class UpdateUserRequest {
   ?'password' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->broker_id = $broker_id ?? ;
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->broker_id = $broker_id ?? "";
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1642,10 +1642,10 @@ class User {
   ?'password' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1659,9 +1659,9 @@ class UserPendingChanges {
   ?'groups' => __listOf__string,
   ?'pending_change' => ChangeType,
   ) $s = shape()) {
-    $this->console_access = $console_access ?? ;
-    $this->groups = $groups ?? ;
-    $this->pending_change = $pending_change ?? ;
+    $this->console_access = $console_access ?? false;
+    $this->groups = $groups ?? [];
+    $this->pending_change = $pending_change ?? "";
   }
 }
 
@@ -1673,8 +1673,8 @@ class UserSummary {
   ?'pending_change' => ChangeType,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->pending_change = $pending_change ?? ;
-    $this->username = $username ?? ;
+    $this->pending_change = $pending_change ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1689,8 +1689,8 @@ class WeeklyStartTime {
   ?'time_zone' => __string,
   ) $s = shape()) {
     $this->day_of_week = $day_of_week ?? "";
-    $this->time_of_day = $time_of_day ?? ;
-    $this->time_zone = $time_zone ?? ;
+    $this->time_of_day = $time_of_day ?? "";
+    $this->time_zone = $time_zone ?? "";
   }
 }
 

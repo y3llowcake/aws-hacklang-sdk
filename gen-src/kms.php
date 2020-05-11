@@ -66,9 +66,9 @@ class AliasListEntry {
   ?'alias_name' => AliasNameType,
   ?'target_key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->alias_arn = $alias_arn ?? ;
-    $this->alias_name = $alias_name ?? ;
-    $this->target_key_id = $target_key_id ?? ;
+    $this->alias_arn = $alias_arn ?? "";
+    $this->alias_name = $alias_name ?? "";
+    $this->target_key_id = $target_key_id ?? "";
   }
 }
 
@@ -80,7 +80,7 @@ class AlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -94,7 +94,7 @@ class CancelKeyDeletionRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -104,7 +104,7 @@ class CancelKeyDeletionResponse {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -118,7 +118,7 @@ class CloudHsmClusterInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -128,7 +128,7 @@ class CloudHsmClusterInvalidConfigurationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -138,7 +138,7 @@ class CloudHsmClusterNotActiveException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -148,7 +148,7 @@ class CloudHsmClusterNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -158,7 +158,7 @@ class CloudHsmClusterNotRelatedException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -168,7 +168,7 @@ class ConnectCustomKeyStoreRequest {
   public function __construct(shape(
   ?'custom_key_store_id' => CustomKeyStoreIdType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
   }
 }
 
@@ -191,8 +191,8 @@ class CreateAliasRequest {
   ?'alias_name' => AliasNameType,
   ?'target_key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->alias_name = $alias_name ?? ;
-    $this->target_key_id = $target_key_id ?? ;
+    $this->alias_name = $alias_name ?? "";
+    $this->target_key_id = $target_key_id ?? "";
   }
 }
 
@@ -208,10 +208,10 @@ class CreateCustomKeyStoreRequest {
   ?'key_store_password' => KeyStorePasswordType,
   ?'trust_anchor_certificate' => TrustAnchorCertificateType,
   ) $s = shape()) {
-    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? ;
-    $this->custom_key_store_name = $custom_key_store_name ?? ;
-    $this->key_store_password = $key_store_password ?? ;
-    $this->trust_anchor_certificate = $trust_anchor_certificate ?? ;
+    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? "";
+    $this->custom_key_store_name = $custom_key_store_name ?? "";
+    $this->key_store_password = $key_store_password ?? "";
+    $this->trust_anchor_certificate = $trust_anchor_certificate ?? "";
   }
 }
 
@@ -221,7 +221,7 @@ class CreateCustomKeyStoreResponse {
   public function __construct(shape(
   ?'custom_key_store_id' => CustomKeyStoreIdType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
   }
 }
 
@@ -243,13 +243,13 @@ class CreateGrantRequest {
   ?'operations' => GrantOperationList,
   ?'retiring_principal' => PrincipalIdType,
   ) $s = shape()) {
-    $this->constraints = $constraints ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->grantee_principal = $grantee_principal ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->name = $name ?? ;
-    $this->operations = $operations ?? ;
-    $this->retiring_principal = $retiring_principal ?? ;
+    $this->constraints = $constraints ?? null;
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->grantee_principal = $grantee_principal ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->name = $name ?? "";
+    $this->operations = $operations ?? [];
+    $this->retiring_principal = $retiring_principal ?? "";
   }
 }
 
@@ -261,8 +261,8 @@ class CreateGrantResponse {
   ?'grant_id' => GrantIdType,
   ?'grant_token' => GrantTokenType,
   ) $s = shape()) {
-    $this->grant_id = $grant_id ?? ;
-    $this->grant_token = $grant_token ?? ;
+    $this->grant_id = $grant_id ?? "";
+    $this->grant_token = $grant_token ?? "";
   }
 }
 
@@ -286,14 +286,14 @@ class CreateKeyRequest {
   ?'policy' => PolicyType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->bypass_policy_lockout_safety_check = $bypass_policy_lockout_safety_check ?? ;
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->bypass_policy_lockout_safety_check = $bypass_policy_lockout_safety_check ?? false;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
     $this->customer_master_key_spec = $customer_master_key_spec ?? "";
-    $this->description = $description ?? ;
-    $this->key_usage = $key_usage ?? ;
-    $this->origin = $origin ?? ;
-    $this->policy = $policy ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->key_usage = $key_usage ?? "";
+    $this->origin = $origin ?? "";
+    $this->policy = $policy ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -313,7 +313,7 @@ class CustomKeyStoreHasCMKsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -325,7 +325,7 @@ class CustomKeyStoreInvalidStateException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -335,7 +335,7 @@ class CustomKeyStoreNameInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -347,7 +347,7 @@ class CustomKeyStoreNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -371,13 +371,13 @@ class CustomKeyStoresListEntry {
   ?'custom_key_store_name' => CustomKeyStoreNameType,
   ?'trust_anchor_certificate' => TrustAnchorCertificateType,
   ) $s = shape()) {
-    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? ;
-    $this->connection_error_code = $connection_error_code ?? ;
-    $this->connection_state = $connection_state ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
-    $this->custom_key_store_name = $custom_key_store_name ?? ;
-    $this->trust_anchor_certificate = $trust_anchor_certificate ?? ;
+    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? "";
+    $this->connection_error_code = $connection_error_code ?? "";
+    $this->connection_state = $connection_state ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
+    $this->custom_key_store_name = $custom_key_store_name ?? "";
+    $this->trust_anchor_certificate = $trust_anchor_certificate ?? "";
   }
 }
 
@@ -403,11 +403,11 @@ class DecryptRequest {
   ?'grant_tokens' => GrantTokenList,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->encryption_algorithm = $encryption_algorithm ?? ;
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->encryption_algorithm = $encryption_algorithm ?? "";
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -421,9 +421,9 @@ class DecryptResponse {
   ?'key_id' => KeyIdType,
   ?'plaintext' => PlaintextType,
   ) $s = shape()) {
-    $this->encryption_algorithm = $encryption_algorithm ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->plaintext = $plaintext ?? ;
+    $this->encryption_algorithm = $encryption_algorithm ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->plaintext = $plaintext ?? "";
   }
 }
 
@@ -433,7 +433,7 @@ class DeleteAliasRequest {
   public function __construct(shape(
   ?'alias_name' => AliasNameType,
   ) $s = shape()) {
-    $this->alias_name = $alias_name ?? ;
+    $this->alias_name = $alias_name ?? "";
   }
 }
 
@@ -443,7 +443,7 @@ class DeleteCustomKeyStoreRequest {
   public function __construct(shape(
   ?'custom_key_store_id' => CustomKeyStoreIdType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
   }
 }
 
@@ -460,7 +460,7 @@ class DeleteImportedKeyMaterialRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -470,7 +470,7 @@ class DependencyTimeoutException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -486,10 +486,10 @@ class DescribeCustomKeyStoresRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
-    $this->custom_key_store_name = $custom_key_store_name ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
+    $this->custom_key_store_name = $custom_key_store_name ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -503,9 +503,9 @@ class DescribeCustomKeyStoresResponse {
   ?'next_marker' => MarkerType,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->custom_key_stores = $custom_key_stores ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->custom_key_stores = $custom_key_stores ?? [];
+    $this->next_marker = $next_marker ?? "";
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -517,8 +517,8 @@ class DescribeKeyRequest {
   ?'grant_tokens' => GrantTokenList,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class DisableKeyRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -550,7 +550,7 @@ class DisableKeyRotationRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -560,7 +560,7 @@ class DisabledException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -570,7 +570,7 @@ class DisconnectCustomKeyStoreRequest {
   public function __construct(shape(
   ?'custom_key_store_id' => CustomKeyStoreIdType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
   }
 }
 
@@ -587,7 +587,7 @@ class EnableKeyRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -597,7 +597,7 @@ class EnableKeyRotationRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -615,11 +615,11 @@ class EncryptRequest {
   ?'key_id' => KeyIdType,
   ?'plaintext' => PlaintextType,
   ) $s = shape()) {
-    $this->encryption_algorithm = $encryption_algorithm ?? ;
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->plaintext = $plaintext ?? ;
+    $this->encryption_algorithm = $encryption_algorithm ?? "";
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->plaintext = $plaintext ?? "";
   }
 }
 
@@ -633,9 +633,9 @@ class EncryptResponse {
   ?'encryption_algorithm' => EncryptionAlgorithmSpec,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->encryption_algorithm = $encryption_algorithm ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->encryption_algorithm = $encryption_algorithm ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -659,7 +659,7 @@ class ExpiredImportTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -675,10 +675,10 @@ class GenerateDataKeyPairRequest {
   ?'key_id' => KeyIdType,
   ?'key_pair_spec' => DataKeyPairSpec,
   ) $s = shape()) {
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_pair_spec = $key_pair_spec ?? ;
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->key_pair_spec = $key_pair_spec ?? "";
   }
 }
 
@@ -696,11 +696,11 @@ class GenerateDataKeyPairResponse {
   ?'private_key_plaintext' => PlaintextType,
   ?'public_key' => PublicKeyType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->key_pair_spec = $key_pair_spec ?? ;
-    $this->private_key_ciphertext_blob = $private_key_ciphertext_blob ?? ;
-    $this->private_key_plaintext = $private_key_plaintext ?? ;
-    $this->public_key = $public_key ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->key_pair_spec = $key_pair_spec ?? "";
+    $this->private_key_ciphertext_blob = $private_key_ciphertext_blob ?? "";
+    $this->private_key_plaintext = $private_key_plaintext ?? "";
+    $this->public_key = $public_key ?? "";
   }
 }
 
@@ -716,10 +716,10 @@ class GenerateDataKeyPairWithoutPlaintextRequest {
   ?'key_id' => KeyIdType,
   ?'key_pair_spec' => DataKeyPairSpec,
   ) $s = shape()) {
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_pair_spec = $key_pair_spec ?? ;
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->key_pair_spec = $key_pair_spec ?? "";
   }
 }
 
@@ -735,10 +735,10 @@ class GenerateDataKeyPairWithoutPlaintextResponse {
   ?'private_key_ciphertext_blob' => CiphertextType,
   ?'public_key' => PublicKeyType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->key_pair_spec = $key_pair_spec ?? ;
-    $this->private_key_ciphertext_blob = $private_key_ciphertext_blob ?? ;
-    $this->public_key = $public_key ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->key_pair_spec = $key_pair_spec ?? "";
+    $this->private_key_ciphertext_blob = $private_key_ciphertext_blob ?? "";
+    $this->public_key = $public_key ?? "";
   }
 }
 
@@ -756,11 +756,11 @@ class GenerateDataKeyRequest {
   ?'key_spec' => DataKeySpec,
   ?'number_of_bytes' => NumberOfBytesType,
   ) $s = shape()) {
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_spec = $key_spec ?? ;
-    $this->number_of_bytes = $number_of_bytes ?? ;
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->key_spec = $key_spec ?? "";
+    $this->number_of_bytes = $number_of_bytes ?? 0;
   }
 }
 
@@ -774,9 +774,9 @@ class GenerateDataKeyResponse {
   ?'key_id' => KeyIdType,
   ?'plaintext' => PlaintextType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->plaintext = $plaintext ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->plaintext = $plaintext ?? "";
   }
 }
 
@@ -794,11 +794,11 @@ class GenerateDataKeyWithoutPlaintextRequest {
   ?'key_spec' => DataKeySpec,
   ?'number_of_bytes' => NumberOfBytesType,
   ) $s = shape()) {
-    $this->encryption_context = $encryption_context ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_spec = $key_spec ?? ;
-    $this->number_of_bytes = $number_of_bytes ?? ;
+    $this->encryption_context = $encryption_context ?? [];
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->key_spec = $key_spec ?? "";
+    $this->number_of_bytes = $number_of_bytes ?? 0;
   }
 }
 
@@ -810,8 +810,8 @@ class GenerateDataKeyWithoutPlaintextResponse {
   ?'ciphertext_blob' => CiphertextType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -823,8 +823,8 @@ class GenerateRandomRequest {
   ?'custom_key_store_id' => CustomKeyStoreIdType,
   ?'number_of_bytes' => NumberOfBytesType,
   ) $s = shape()) {
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
-    $this->number_of_bytes = $number_of_bytes ?? ;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
+    $this->number_of_bytes = $number_of_bytes ?? 0;
   }
 }
 
@@ -834,7 +834,7 @@ class GenerateRandomResponse {
   public function __construct(shape(
   ?'plaintext' => PlaintextType,
   ) $s = shape()) {
-    $this->plaintext = $plaintext ?? ;
+    $this->plaintext = $plaintext ?? "";
   }
 }
 
@@ -846,8 +846,8 @@ class GetKeyPolicyRequest {
   ?'key_id' => KeyIdType,
   ?'policy_name' => PolicyNameType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -857,7 +857,7 @@ class GetKeyPolicyResponse {
   public function __construct(shape(
   ?'policy' => PolicyType,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -867,7 +867,7 @@ class GetKeyRotationStatusRequest {
   public function __construct(shape(
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -877,7 +877,7 @@ class GetKeyRotationStatusResponse {
   public function __construct(shape(
   ?'key_rotation_enabled' => BooleanType,
   ) $s = shape()) {
-    $this->key_rotation_enabled = $key_rotation_enabled ?? ;
+    $this->key_rotation_enabled = $key_rotation_enabled ?? false;
   }
 }
 
@@ -891,8 +891,8 @@ class GetParametersForImportRequest {
   ?'wrapping_algorithm' => AlgorithmSpec,
   ?'wrapping_key_spec' => WrappingKeySpec,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->wrapping_algorithm = $wrapping_algorithm ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->wrapping_algorithm = $wrapping_algorithm ?? "";
     $this->wrapping_key_spec = $wrapping_key_spec ?? "";
   }
 }
@@ -909,10 +909,10 @@ class GetParametersForImportResponse {
   ?'parameters_valid_to' => DateType,
   ?'public_key' => PlaintextType,
   ) $s = shape()) {
-    $this->import_token = $import_token ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->parameters_valid_to = $parameters_valid_to ?? ;
-    $this->public_key = $public_key ?? ;
+    $this->import_token = $import_token ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->parameters_valid_to = $parameters_valid_to ?? 0;
+    $this->public_key = $public_key ?? "";
   }
 }
 
@@ -924,8 +924,8 @@ class GetPublicKeyRequest {
   ?'grant_tokens' => GrantTokenList,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -946,11 +946,11 @@ class GetPublicKeyResponse {
   ?'signing_algorithms' => SigningAlgorithmSpecList,
   ) $s = shape()) {
     $this->customer_master_key_spec = $customer_master_key_spec ?? "";
-    $this->encryption_algorithms = $encryption_algorithms ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_usage = $key_usage ?? ;
-    $this->public_key = $public_key ?? ;
-    $this->signing_algorithms = $signing_algorithms ?? ;
+    $this->encryption_algorithms = $encryption_algorithms ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->key_usage = $key_usage ?? "";
+    $this->public_key = $public_key ?? "";
+    $this->signing_algorithms = $signing_algorithms ?? [];
   }
 }
 
@@ -962,8 +962,8 @@ class GrantConstraints {
   ?'encryption_context_equals' => EncryptionContextType,
   ?'encryption_context_subset' => EncryptionContextType,
   ) $s = shape()) {
-    $this->encryption_context_equals = $encryption_context_equals ?? ;
-    $this->encryption_context_subset = $encryption_context_subset ?? ;
+    $this->encryption_context_equals = $encryption_context_equals ?? [];
+    $this->encryption_context_subset = $encryption_context_subset ?? [];
   }
 }
 
@@ -993,15 +993,15 @@ class GrantListEntry {
   ?'operations' => GrantOperationList,
   ?'retiring_principal' => PrincipalIdType,
   ) $s = shape()) {
-    $this->constraints = $constraints ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->grant_id = $grant_id ?? ;
-    $this->grantee_principal = $grantee_principal ?? ;
-    $this->issuing_account = $issuing_account ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->name = $name ?? ;
-    $this->operations = $operations ?? ;
-    $this->retiring_principal = $retiring_principal ?? ;
+    $this->constraints = $constraints ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->grant_id = $grant_id ?? "";
+    $this->grantee_principal = $grantee_principal ?? "";
+    $this->issuing_account = $issuing_account ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->name = $name ?? "";
+    $this->operations = $operations ?? [];
+    $this->retiring_principal = $retiring_principal ?? "";
   }
 }
 
@@ -1029,11 +1029,11 @@ class ImportKeyMaterialRequest {
   ?'key_id' => KeyIdType,
   ?'valid_to' => DateType,
   ) $s = shape()) {
-    $this->encrypted_key_material = $encrypted_key_material ?? ;
-    $this->expiration_model = $expiration_model ?? ;
-    $this->import_token = $import_token ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->valid_to = $valid_to ?? ;
+    $this->encrypted_key_material = $encrypted_key_material ?? "";
+    $this->expiration_model = $expiration_model ?? "";
+    $this->import_token = $import_token ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->valid_to = $valid_to ?? 0;
   }
 }
 
@@ -1050,7 +1050,7 @@ class IncorrectKeyException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1060,7 +1060,7 @@ class IncorrectKeyMaterialException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1070,7 +1070,7 @@ class IncorrectTrustAnchorException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1080,7 +1080,7 @@ class InvalidAliasNameException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1090,7 +1090,7 @@ class InvalidArnException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1100,7 +1100,7 @@ class InvalidCiphertextException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1110,7 +1110,7 @@ class InvalidGrantIdException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1120,7 +1120,7 @@ class InvalidGrantTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1130,7 +1130,7 @@ class InvalidImportTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1140,7 +1140,7 @@ class InvalidKeyUsageException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1150,7 +1150,7 @@ class InvalidMarkerException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1160,7 +1160,7 @@ class KMSInternalException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1170,7 +1170,7 @@ class KMSInvalidSignatureException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1180,7 +1180,7 @@ class KMSInvalidStateException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1196,8 +1196,8 @@ class KeyListEntry {
   ?'key_arn' => ArnType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->key_arn = $key_arn ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->key_arn = $key_arn ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -1243,24 +1243,24 @@ class KeyMetadata {
   ?'signing_algorithms' => SigningAlgorithmSpecList,
   ?'valid_to' => DateType,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
     $this->customer_master_key_spec = $customer_master_key_spec ?? "";
-    $this->deletion_date = $deletion_date ?? ;
-    $this->description = $description ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->encryption_algorithms = $encryption_algorithms ?? ;
-    $this->expiration_model = $expiration_model ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->key_manager = $key_manager ?? ;
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->description = $description ?? "";
+    $this->enabled = $enabled ?? false;
+    $this->encryption_algorithms = $encryption_algorithms ?? [];
+    $this->expiration_model = $expiration_model ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->key_manager = $key_manager ?? "";
     $this->key_state = $key_state ?? "";
-    $this->key_usage = $key_usage ?? ;
-    $this->origin = $origin ?? ;
-    $this->signing_algorithms = $signing_algorithms ?? ;
-    $this->valid_to = $valid_to ?? ;
+    $this->key_usage = $key_usage ?? "";
+    $this->origin = $origin ?? "";
+    $this->signing_algorithms = $signing_algorithms ?? [];
+    $this->valid_to = $valid_to ?? 0;
   }
 }
 
@@ -1274,7 +1274,7 @@ class KeyUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1286,7 +1286,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1302,9 +1302,9 @@ class ListAliasesRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1318,9 +1318,9 @@ class ListAliasesResponse {
   ?'next_marker' => MarkerType,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->aliases = $aliases ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->aliases = $aliases ?? [];
+    $this->next_marker = $next_marker ?? "";
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1334,9 +1334,9 @@ class ListGrantsRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1350,9 +1350,9 @@ class ListGrantsResponse {
   ?'next_marker' => MarkerType,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->grants = $grants ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->grants = $grants ?? [];
+    $this->next_marker = $next_marker ?? "";
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1366,9 +1366,9 @@ class ListKeyPoliciesRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1382,9 +1382,9 @@ class ListKeyPoliciesResponse {
   ?'policy_names' => PolicyNameList,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
-    $this->policy_names = $policy_names ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->next_marker = $next_marker ?? "";
+    $this->policy_names = $policy_names ?? [];
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1396,8 +1396,8 @@ class ListKeysRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1411,9 +1411,9 @@ class ListKeysResponse {
   ?'next_marker' => MarkerType,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->keys = $keys ?? ;
-    $this->next_marker = $next_marker ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->keys = $keys ?? [];
+    $this->next_marker = $next_marker ?? "";
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1427,9 +1427,9 @@ class ListResourceTagsRequest {
   ?'limit' => LimitType,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1443,9 +1443,9 @@ class ListResourceTagsResponse {
   ?'tags' => TagList,
   ?'truncated' => BooleanType,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
-    $this->tags = $tags ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->next_marker = $next_marker ?? "";
+    $this->tags = $tags ?? [];
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1459,9 +1459,9 @@ class ListRetirableGrantsRequest {
   ?'marker' => MarkerType,
   ?'retiring_principal' => PrincipalIdType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->retiring_principal = $retiring_principal ?? ;
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->retiring_principal = $retiring_principal ?? "";
   }
 }
 
@@ -1471,7 +1471,7 @@ class MalformedPolicyDocumentException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1485,7 +1485,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1519,10 +1519,10 @@ class PutKeyPolicyRequest {
   ?'policy' => PolicyType,
   ?'policy_name' => PolicyNameType,
   ) $s = shape()) {
-    $this->bypass_policy_lockout_safety_check = $bypass_policy_lockout_safety_check ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->policy = $policy ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->bypass_policy_lockout_safety_check = $bypass_policy_lockout_safety_check ?? false;
+    $this->key_id = $key_id ?? "";
+    $this->policy = $policy ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1546,14 +1546,14 @@ class ReEncryptRequest {
   ?'source_encryption_context' => EncryptionContextType,
   ?'source_key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->destination_encryption_algorithm = $destination_encryption_algorithm ?? ;
-    $this->destination_encryption_context = $destination_encryption_context ?? ;
-    $this->destination_key_id = $destination_key_id ?? ;
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->source_encryption_algorithm = $source_encryption_algorithm ?? ;
-    $this->source_encryption_context = $source_encryption_context ?? ;
-    $this->source_key_id = $source_key_id ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->destination_encryption_algorithm = $destination_encryption_algorithm ?? "";
+    $this->destination_encryption_context = $destination_encryption_context ?? [];
+    $this->destination_key_id = $destination_key_id ?? "";
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->source_encryption_algorithm = $source_encryption_algorithm ?? "";
+    $this->source_encryption_context = $source_encryption_context ?? [];
+    $this->source_key_id = $source_key_id ?? "";
   }
 }
 
@@ -1571,11 +1571,11 @@ class ReEncryptResponse {
   ?'source_encryption_algorithm' => EncryptionAlgorithmSpec,
   ?'source_key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->ciphertext_blob = $ciphertext_blob ?? ;
-    $this->destination_encryption_algorithm = $destination_encryption_algorithm ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->source_encryption_algorithm = $source_encryption_algorithm ?? ;
-    $this->source_key_id = $source_key_id ?? ;
+    $this->ciphertext_blob = $ciphertext_blob ?? "";
+    $this->destination_encryption_algorithm = $destination_encryption_algorithm ?? "";
+    $this->key_id = $key_id ?? "";
+    $this->source_encryption_algorithm = $source_encryption_algorithm ?? "";
+    $this->source_key_id = $source_key_id ?? "";
   }
 }
 
@@ -1589,9 +1589,9 @@ class RetireGrantRequest {
   ?'grant_token' => GrantTokenType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->grant_id = $grant_id ?? ;
-    $this->grant_token = $grant_token ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->grant_id = $grant_id ?? "";
+    $this->grant_token = $grant_token ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -1603,8 +1603,8 @@ class RevokeGrantRequest {
   ?'grant_id' => GrantIdType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->grant_id = $grant_id ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->grant_id = $grant_id ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -1616,8 +1616,8 @@ class ScheduleKeyDeletionRequest {
   ?'key_id' => KeyIdType,
   ?'pending_window_in_days' => PendingWindowInDaysType,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->pending_window_in_days = $pending_window_in_days ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->pending_window_in_days = $pending_window_in_days ?? 0;
   }
 }
 
@@ -1629,8 +1629,8 @@ class ScheduleKeyDeletionResponse {
   ?'deletion_date' => DateType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->deletion_date = $deletion_date ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -1648,11 +1648,11 @@ class SignRequest {
   ?'message_type' => MessageType,
   ?'signing_algorithm' => SigningAlgorithmSpec,
   ) $s = shape()) {
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->message = $message ?? ;
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->message = $message ?? "";
     $this->message_type = $message_type ?? "";
-    $this->signing_algorithm = $signing_algorithm ?? ;
+    $this->signing_algorithm = $signing_algorithm ?? "";
   }
 }
 
@@ -1666,9 +1666,9 @@ class SignResponse {
   ?'signature' => CiphertextType,
   ?'signing_algorithm' => SigningAlgorithmSpec,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->signature = $signature ?? ;
-    $this->signing_algorithm = $signing_algorithm ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->signature = $signature ?? "";
+    $this->signing_algorithm = $signing_algorithm ?? "";
   }
 }
 
@@ -1684,8 +1684,8 @@ class Tag {
   ?'tag_key' => TagKeyType,
   ?'tag_value' => TagValueType,
   ) $s = shape()) {
-    $this->tag_key = $tag_key ?? ;
-    $this->tag_value = $tag_value ?? ;
+    $this->tag_key = $tag_key ?? "";
+    $this->tag_value = $tag_value ?? "";
   }
 }
 
@@ -1695,7 +1695,7 @@ class TagException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1713,8 +1713,8 @@ class TagResourceRequest {
   ?'key_id' => KeyIdType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1728,7 +1728,7 @@ class UnsupportedOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1740,8 +1740,8 @@ class UntagResourceRequest {
   ?'key_id' => KeyIdType,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1753,8 +1753,8 @@ class UpdateAliasRequest {
   ?'alias_name' => AliasNameType,
   ?'target_key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->alias_name = $alias_name ?? ;
-    $this->target_key_id = $target_key_id ?? ;
+    $this->alias_name = $alias_name ?? "";
+    $this->target_key_id = $target_key_id ?? "";
   }
 }
 
@@ -1770,10 +1770,10 @@ class UpdateCustomKeyStoreRequest {
   ?'key_store_password' => KeyStorePasswordType,
   ?'new_custom_key_store_name' => CustomKeyStoreNameType,
   ) $s = shape()) {
-    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? ;
-    $this->custom_key_store_id = $custom_key_store_id ?? ;
-    $this->key_store_password = $key_store_password ?? ;
-    $this->new_custom_key_store_name = $new_custom_key_store_name ?? ;
+    $this->cloud_hsm_cluster_id = $cloud_hsm_cluster_id ?? "";
+    $this->custom_key_store_id = $custom_key_store_id ?? "";
+    $this->key_store_password = $key_store_password ?? "";
+    $this->new_custom_key_store_name = $new_custom_key_store_name ?? "";
   }
 }
 
@@ -1792,8 +1792,8 @@ class UpdateKeyDescriptionRequest {
   ?'description' => DescriptionType,
   ?'key_id' => KeyIdType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->key_id = $key_id ?? ;
+    $this->description = $description ?? "";
+    $this->key_id = $key_id ?? "";
   }
 }
 
@@ -1813,12 +1813,12 @@ class VerifyRequest {
   ?'signature' => CiphertextType,
   ?'signing_algorithm' => SigningAlgorithmSpec,
   ) $s = shape()) {
-    $this->grant_tokens = $grant_tokens ?? ;
-    $this->key_id = $key_id ?? ;
-    $this->message = $message ?? ;
+    $this->grant_tokens = $grant_tokens ?? [];
+    $this->key_id = $key_id ?? "";
+    $this->message = $message ?? "";
     $this->message_type = $message_type ?? "";
-    $this->signature = $signature ?? ;
-    $this->signing_algorithm = $signing_algorithm ?? ;
+    $this->signature = $signature ?? "";
+    $this->signing_algorithm = $signing_algorithm ?? "";
   }
 }
 
@@ -1832,9 +1832,9 @@ class VerifyResponse {
   ?'signature_valid' => BooleanType,
   ?'signing_algorithm' => SigningAlgorithmSpec,
   ) $s = shape()) {
-    $this->key_id = $key_id ?? ;
-    $this->signature_valid = $signature_valid ?? ;
-    $this->signing_algorithm = $signing_algorithm ?? ;
+    $this->key_id = $key_id ?? "";
+    $this->signature_valid = $signature_valid ?? false;
+    $this->signing_algorithm = $signing_algorithm ?? "";
   }
 }
 

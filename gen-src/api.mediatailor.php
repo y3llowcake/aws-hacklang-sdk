@@ -20,7 +20,7 @@ class AvailSuppression {
   ?'value' => __string,
   ) $s = shape()) {
     $this->mode = $mode ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? "";
   }
 }
 
@@ -30,7 +30,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -42,8 +42,8 @@ class CdnConfiguration {
   ?'ad_segment_url_prefix' => __string,
   ?'content_segment_url_prefix' => __string,
   ) $s = shape()) {
-    $this->ad_segment_url_prefix = $ad_segment_url_prefix ?? ;
-    $this->content_segment_url_prefix = $content_segment_url_prefix ?? ;
+    $this->ad_segment_url_prefix = $ad_segment_url_prefix ?? "";
+    $this->content_segment_url_prefix = $content_segment_url_prefix ?? "";
   }
 }
 
@@ -57,8 +57,8 @@ class DashConfiguration {
   ?'mpd_location' => __string,
   ?'origin_manifest_type' => OriginManifestType,
   ) $s = shape()) {
-    $this->manifest_endpoint_prefix = $manifest_endpoint_prefix ?? ;
-    $this->mpd_location = $mpd_location ?? ;
+    $this->manifest_endpoint_prefix = $manifest_endpoint_prefix ?? "";
+    $this->mpd_location = $mpd_location ?? "";
     $this->origin_manifest_type = $origin_manifest_type ?? "";
   }
 }
@@ -71,7 +71,7 @@ class DashConfigurationForPut {
   ?'mpd_location' => __string,
   ?'origin_manifest_type' => OriginManifestType,
   ) $s = shape()) {
-    $this->mpd_location = $mpd_location ?? ;
+    $this->mpd_location = $mpd_location ?? "";
     $this->origin_manifest_type = $origin_manifest_type ?? "";
   }
 }
@@ -82,7 +82,7 @@ class DeletePlaybackConfigurationRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -99,7 +99,7 @@ class GetPlaybackConfigurationRequest {
   public function __construct(shape(
   ?'name' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -137,21 +137,21 @@ class GetPlaybackConfigurationResponse {
   ?'transcode_profile_name' => __string,
   ?'video_content_source_url' => __string,
   ) $s = shape()) {
-    $this->ad_decision_server_url = $ad_decision_server_url ?? ;
+    $this->ad_decision_server_url = $ad_decision_server_url ?? "";
     $this->avail_suppression = $avail_suppression ?? null;
     $this->cdn_configuration = $cdn_configuration ?? null;
     $this->dash_configuration = $dash_configuration ?? null;
     $this->hls_configuration = $hls_configuration ?? null;
     $this->live_pre_roll_configuration = $live_pre_roll_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? ;
-    $this->playback_configuration_arn = $playback_configuration_arn ?? ;
-    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? ;
-    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? ;
-    $this->slate_ad_url = $slate_ad_url ?? ;
-    $this->tags = $tags ?? ;
-    $this->transcode_profile_name = $transcode_profile_name ?? ;
-    $this->video_content_source_url = $video_content_source_url ?? ;
+    $this->name = $name ?? "";
+    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? 0;
+    $this->playback_configuration_arn = $playback_configuration_arn ?? "";
+    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? "";
+    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? "";
+    $this->slate_ad_url = $slate_ad_url ?? "";
+    $this->tags = $tags ?? [];
+    $this->transcode_profile_name = $transcode_profile_name ?? "";
+    $this->video_content_source_url = $video_content_source_url ?? "";
   }
 }
 
@@ -161,7 +161,7 @@ class HlsConfiguration {
   public function __construct(shape(
   ?'manifest_endpoint_prefix' => __string,
   ) $s = shape()) {
-    $this->manifest_endpoint_prefix = $manifest_endpoint_prefix ?? ;
+    $this->manifest_endpoint_prefix = $manifest_endpoint_prefix ?? "";
   }
 }
 
@@ -173,8 +173,8 @@ class ListPlaybackConfigurationsRequest {
   ?'max_results' => __integerMin1Max100,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -186,8 +186,8 @@ class ListPlaybackConfigurationsResponse {
   ?'items' => __listOfPlaybackConfigurations,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->items = $items ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -197,7 +197,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -207,7 +207,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -219,8 +219,8 @@ class LivePreRollConfiguration {
   ?'ad_decision_server_url' => __string,
   ?'max_duration_seconds' => __integer,
   ) $s = shape()) {
-    $this->ad_decision_server_url = $ad_decision_server_url ?? ;
-    $this->max_duration_seconds = $max_duration_seconds ?? ;
+    $this->ad_decision_server_url = $ad_decision_server_url ?? "";
+    $this->max_duration_seconds = $max_duration_seconds ?? 0;
   }
 }
 
@@ -258,19 +258,19 @@ class PlaybackConfiguration {
   ?'transcode_profile_name' => __string,
   ?'video_content_source_url' => __string,
   ) $s = shape()) {
-    $this->ad_decision_server_url = $ad_decision_server_url ?? ;
+    $this->ad_decision_server_url = $ad_decision_server_url ?? "";
     $this->cdn_configuration = $cdn_configuration ?? null;
     $this->dash_configuration = $dash_configuration ?? null;
     $this->hls_configuration = $hls_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? ;
-    $this->playback_configuration_arn = $playback_configuration_arn ?? ;
-    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? ;
-    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? ;
-    $this->slate_ad_url = $slate_ad_url ?? ;
-    $this->tags = $tags ?? ;
-    $this->transcode_profile_name = $transcode_profile_name ?? ;
-    $this->video_content_source_url = $video_content_source_url ?? ;
+    $this->name = $name ?? "";
+    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? 0;
+    $this->playback_configuration_arn = $playback_configuration_arn ?? "";
+    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? "";
+    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? "";
+    $this->slate_ad_url = $slate_ad_url ?? "";
+    $this->tags = $tags ?? [];
+    $this->transcode_profile_name = $transcode_profile_name ?? "";
+    $this->video_content_source_url = $video_content_source_url ?? "";
   }
 }
 
@@ -300,17 +300,17 @@ class PutPlaybackConfigurationRequest {
   ?'transcode_profile_name' => __string,
   ?'video_content_source_url' => __string,
   ) $s = shape()) {
-    $this->ad_decision_server_url = $ad_decision_server_url ?? ;
+    $this->ad_decision_server_url = $ad_decision_server_url ?? "";
     $this->avail_suppression = $avail_suppression ?? null;
     $this->cdn_configuration = $cdn_configuration ?? null;
     $this->dash_configuration = $dash_configuration ?? null;
     $this->live_pre_roll_configuration = $live_pre_roll_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? ;
-    $this->slate_ad_url = $slate_ad_url ?? ;
-    $this->tags = $tags ?? ;
-    $this->transcode_profile_name = $transcode_profile_name ?? ;
-    $this->video_content_source_url = $video_content_source_url ?? ;
+    $this->name = $name ?? "";
+    $this->personalization_threshold_seconds = $personalization_threshold_seconds ?? 0;
+    $this->slate_ad_url = $slate_ad_url ?? "";
+    $this->tags = $tags ?? [];
+    $this->transcode_profile_name = $transcode_profile_name ?? "";
+    $this->video_content_source_url = $video_content_source_url ?? "";
   }
 }
 
@@ -346,20 +346,20 @@ class PutPlaybackConfigurationResponse {
   ?'transcode_profile_name' => __string,
   ?'video_content_source_url' => __string,
   ) $s = shape()) {
-    $this->ad_decision_server_url = $ad_decision_server_url ?? ;
+    $this->ad_decision_server_url = $ad_decision_server_url ?? "";
     $this->avail_suppression = $avail_suppression ?? null;
     $this->cdn_configuration = $cdn_configuration ?? null;
     $this->dash_configuration = $dash_configuration ?? null;
     $this->hls_configuration = $hls_configuration ?? null;
     $this->live_pre_roll_configuration = $live_pre_roll_configuration ?? null;
-    $this->name = $name ?? ;
-    $this->playback_configuration_arn = $playback_configuration_arn ?? ;
-    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? ;
-    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? ;
-    $this->slate_ad_url = $slate_ad_url ?? ;
-    $this->tags = $tags ?? ;
-    $this->transcode_profile_name = $transcode_profile_name ?? ;
-    $this->video_content_source_url = $video_content_source_url ?? ;
+    $this->name = $name ?? "";
+    $this->playback_configuration_arn = $playback_configuration_arn ?? "";
+    $this->playback_endpoint_prefix = $playback_endpoint_prefix ?? "";
+    $this->session_initialization_endpoint_prefix = $session_initialization_endpoint_prefix ?? "";
+    $this->slate_ad_url = $slate_ad_url ?? "";
+    $this->tags = $tags ?? [];
+    $this->transcode_profile_name = $transcode_profile_name ?? "";
+    $this->video_content_source_url = $video_content_source_url ?? "";
   }
 }
 
@@ -371,8 +371,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -382,7 +382,7 @@ class TagsModel {
   public function __construct(shape(
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -394,8 +394,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

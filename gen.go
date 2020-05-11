@@ -40,7 +40,7 @@ type (
 	named struct {
 		defaultValue string
 	}
-	namespace map[string]named
+	namespace map[string]*named
 )
 
 func defaultValue(t string) string {
@@ -94,7 +94,7 @@ func genModel(m *Model, w *writer) {
 	ns := namespace{}
 	sorted = []string{}
 	for k, s := range m.Shapes {
-		ns[k] = named{defaultValue(s.Type)}
+		ns[k] = &named{defaultValue(s.Type)}
 		sorted = append(sorted, k)
 	}
 	sort.Strings(sorted)
@@ -146,9 +146,9 @@ func memberShapeToHackType(t string) string {
 }
 
 type member struct {
-	name     string
-	varName  string
-	typeName string
+	shapeName    string
+	varName      string
+	hackTypeName string
 }
 
 func (s Shape) sortedMembers() []member {
@@ -161,7 +161,7 @@ func (s Shape) sortedMembers() []member {
 	members := []member{}
 	for _, mname := range sorted {
 		members = append(members, member{
-			mname,
+			s.Members[mname].Shape,
 			strcase.ToSnake(mname),
 			memberShapeToHackType(s.Members[mname].Shape),
 		})
@@ -173,16 +173,16 @@ func genTopLevelStructure(name string, s Shape, ns namespace, w *writer) {
 	members := s.sortedMembers()
 	w.p("class %s {", name)
 	for _, m := range members {
-		w.p("public %s $%s;", m.typeName, m.varName)
+		w.p("public %s $%s;", m.hackTypeName, m.varName)
 	}
 	w.ln()
 	w.p("public function __construct(shape(")
 	for _, m := range members {
-		w.p("?'%s' => %s,", m.varName, m.typeName)
+		w.p("?'%s' => %s,", m.varName, m.hackTypeName)
 	}
 	w.p(") $s = shape()) {")
 	for _, m := range members {
-		w.p("$this->%s = $%s ?? %s;", m.varName, m.varName, ns[m.name].defaultValue)
+		w.p("$this->%s = $%s ?? %s;", m.varName, m.varName, ns[m.shapeName].defaultValue)
 	}
 	w.p("}")
 

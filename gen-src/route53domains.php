@@ -41,7 +41,7 @@ class AcceptDomainTransferFromAnotherAwsAccountRequest {
   ?'password' => string,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->password = $password ?? ;
+    $this->password = $password ?? "";
   }
 }
 
@@ -73,10 +73,10 @@ class BillingRecord {
   ?'operation' => OperationType,
   ?'price' => Price,
   ) $s = shape()) {
-    $this->bill_date = $bill_date ?? ;
+    $this->bill_date = $bill_date ?? 0;
     $this->domain_name = $domain_name ?? "";
     $this->invoice_id = $invoice_id ?? "";
-    $this->operation = $operation ?? ;
+    $this->operation = $operation ?? "";
     $this->price = $price ?? 0.0;
   }
 }
@@ -114,7 +114,7 @@ class CheckDomainAvailabilityRequest {
   ?'idn_lang_code' => LangCode,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->idn_lang_code = $idn_lang_code ?? ;
+    $this->idn_lang_code = $idn_lang_code ?? "";
   }
 }
 
@@ -124,7 +124,7 @@ class CheckDomainAvailabilityResponse {
   public function __construct(shape(
   ?'availability' => DomainAvailability,
   ) $s = shape()) {
-    $this->availability = $availability ?? ;
+    $this->availability = $availability ?? "";
   }
 }
 
@@ -136,7 +136,7 @@ class CheckDomainTransferabilityRequest {
   ?'auth_code' => DomainAuthCode,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->auth_code = $auth_code ?? ;
+    $this->auth_code = $auth_code ?? "";
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -147,7 +147,7 @@ class CheckDomainTransferabilityResponse {
   public function __construct(shape(
   ?'transferability' => DomainTransferability,
   ) $s = shape()) {
-    $this->transferability = $transferability ?? ;
+    $this->transferability = $transferability ?? null;
   }
 }
 
@@ -185,18 +185,18 @@ class ContactDetail {
   ?'state' => State,
   ?'zip_code' => ZipCode,
   ) $s = shape()) {
-    $this->address_line_1 = $address_line_1 ?? ;
-    $this->address_line_2 = $address_line_2 ?? ;
+    $this->address_line_1 = $address_line_1 ?? "";
+    $this->address_line_2 = $address_line_2 ?? "";
     $this->city = $city ?? "";
     $this->contact_type = $contact_type ?? "";
     $this->country_code = $country_code ?? "";
     $this->email = $email ?? "";
-    $this->extra_params = $extra_params ?? ;
-    $this->fax = $fax ?? ;
-    $this->first_name = $first_name ?? ;
-    $this->last_name = $last_name ?? ;
-    $this->organization_name = $organization_name ?? ;
-    $this->phone_number = $phone_number ?? ;
+    $this->extra_params = $extra_params ?? [];
+    $this->fax = $fax ?? "";
+    $this->first_name = $first_name ?? "";
+    $this->last_name = $last_name ?? "";
+    $this->organization_name = $organization_name ?? "";
+    $this->phone_number = $phone_number ?? "";
     $this->state = $state ?? "";
     $this->zip_code = $zip_code ?? "";
   }
@@ -223,7 +223,7 @@ class DeleteTagsForDomainRequest {
   ?'tags_to_delete' => TagKeyList,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->tags_to_delete = $tags_to_delete ?? ;
+    $this->tags_to_delete = $tags_to_delete ?? [];
   }
 }
 
@@ -281,7 +281,7 @@ class DomainLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -299,7 +299,7 @@ class DomainSuggestion {
   ?'availability' => string,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->availability = $availability ?? ;
+    $this->availability = $availability ?? "";
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -318,10 +318,10 @@ class DomainSummary {
   ?'expiry' => Timestamp,
   ?'transfer_lock' => boolean,
   ) $s = shape()) {
-    $this->auto_renew = $auto_renew ?? ;
+    $this->auto_renew = $auto_renew ?? false;
     $this->domain_name = $domain_name ?? "";
-    $this->expiry = $expiry ?? ;
-    $this->transfer_lock = $transfer_lock ?? ;
+    $this->expiry = $expiry ?? 0;
+    $this->transfer_lock = $transfer_lock ?? false;
   }
 }
 
@@ -343,7 +343,7 @@ class DuplicateRequest {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -398,8 +398,8 @@ class ExtraParam {
   ?'name' => ExtraParamName,
   ?'value' => ExtraParamValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -417,7 +417,7 @@ class GetContactReachabilityStatusRequest {
   public function __construct(shape(
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -429,8 +429,8 @@ class GetContactReachabilityStatusResponse {
   ?'domain_name' => DomainName,
   ?'status' => ReachabilityStatus,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->status = $status ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -490,27 +490,27 @@ class GetDomainDetailResponse {
   ?'updated_date' => Timestamp,
   ?'who_is_server' => RegistrarWhoIsServer,
   ) $s = shape()) {
-    $this->abuse_contact_email = $abuse_contact_email ?? ;
-    $this->abuse_contact_phone = $abuse_contact_phone ?? ;
-    $this->admin_contact = $admin_contact ?? ;
-    $this->admin_privacy = $admin_privacy ?? ;
-    $this->auto_renew = $auto_renew ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->dns_sec = $dns_sec ?? ;
+    $this->abuse_contact_email = $abuse_contact_email ?? "";
+    $this->abuse_contact_phone = $abuse_contact_phone ?? "";
+    $this->admin_contact = $admin_contact ?? null;
+    $this->admin_privacy = $admin_privacy ?? false;
+    $this->auto_renew = $auto_renew ?? false;
+    $this->creation_date = $creation_date ?? 0;
+    $this->dns_sec = $dns_sec ?? "";
     $this->domain_name = $domain_name ?? "";
-    $this->expiration_date = $expiration_date ?? ;
-    $this->nameservers = $nameservers ?? ;
-    $this->registrant_contact = $registrant_contact ?? ;
-    $this->registrant_privacy = $registrant_privacy ?? ;
+    $this->expiration_date = $expiration_date ?? 0;
+    $this->nameservers = $nameservers ?? [];
+    $this->registrant_contact = $registrant_contact ?? null;
+    $this->registrant_privacy = $registrant_privacy ?? false;
     $this->registrar_name = $registrar_name ?? "";
     $this->registrar_url = $registrar_url ?? "";
     $this->registry_domain_id = $registry_domain_id ?? "";
     $this->reseller = $reseller ?? "";
-    $this->status_list = $status_list ?? ;
-    $this->tech_contact = $tech_contact ?? ;
-    $this->tech_privacy = $tech_privacy ?? ;
-    $this->updated_date = $updated_date ?? ;
-    $this->who_is_server = $who_is_server ?? ;
+    $this->status_list = $status_list ?? [];
+    $this->tech_contact = $tech_contact ?? null;
+    $this->tech_privacy = $tech_privacy ?? false;
+    $this->updated_date = $updated_date ?? 0;
+    $this->who_is_server = $who_is_server ?? "";
   }
 }
 
@@ -525,8 +525,8 @@ class GetDomainSuggestionsRequest {
   ?'suggestion_count' => int,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->only_available = $only_available ?? ;
-    $this->suggestion_count = $suggestion_count ?? ;
+    $this->only_available = $only_available ?? false;
+    $this->suggestion_count = $suggestion_count ?? 0;
   }
 }
 
@@ -536,7 +536,7 @@ class GetDomainSuggestionsResponse {
   public function __construct(shape(
   ?'suggestions_list' => DomainSuggestionsList,
   ) $s = shape()) {
-    $this->suggestions_list = $suggestions_list ?? ;
+    $this->suggestions_list = $suggestions_list ?? [];
   }
 }
 
@@ -567,11 +567,11 @@ class GetOperationDetailResponse {
   ?'type' => OperationType,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->operation_id = $operation_id ?? "";
-    $this->status = $status ?? ;
-    $this->submitted_date = $submitted_date ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->submitted_date = $submitted_date ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -589,7 +589,7 @@ class InvalidInput {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -605,8 +605,8 @@ class ListDomainsRequest {
   ?'marker' => PageMarker,
   ?'max_items' => PageMaxItems,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -618,8 +618,8 @@ class ListDomainsResponse {
   ?'domains' => DomainSummaryList,
   ?'next_page_marker' => PageMarker,
   ) $s = shape()) {
-    $this->domains = $domains ?? ;
-    $this->next_page_marker = $next_page_marker ?? ;
+    $this->domains = $domains ?? [];
+    $this->next_page_marker = $next_page_marker ?? "";
   }
 }
 
@@ -633,9 +633,9 @@ class ListOperationsRequest {
   ?'max_items' => PageMaxItems,
   ?'submitted_since' => Timestamp,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->submitted_since = $submitted_since ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->submitted_since = $submitted_since ?? 0;
   }
 }
 
@@ -647,8 +647,8 @@ class ListOperationsResponse {
   ?'next_page_marker' => PageMarker,
   ?'operations' => OperationSummaryList,
   ) $s = shape()) {
-    $this->next_page_marker = $next_page_marker ?? ;
-    $this->operations = $operations ?? ;
+    $this->next_page_marker = $next_page_marker ?? "";
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -680,8 +680,8 @@ class Nameserver {
   ?'glue_ips' => GlueIpList,
   ?'name' => HostName,
   ) $s = shape()) {
-    $this->glue_ips = $glue_ips ?? ;
-    $this->name = $name ?? ;
+    $this->glue_ips = $glue_ips ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -695,7 +695,7 @@ class OperationLimitExceeded {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -714,9 +714,9 @@ class OperationSummary {
   ?'type' => OperationType,
   ) $s = shape()) {
     $this->operation_id = $operation_id ?? "";
-    $this->status = $status ?? ;
-    $this->submitted_date = $submitted_date ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->submitted_date = $submitted_date ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -756,16 +756,16 @@ class RegisterDomainRequest {
   ?'registrant_contact' => ContactDetail,
   ?'tech_contact' => ContactDetail,
   ) $s = shape()) {
-    $this->admin_contact = $admin_contact ?? ;
-    $this->auto_renew = $auto_renew ?? ;
+    $this->admin_contact = $admin_contact ?? null;
+    $this->auto_renew = $auto_renew ?? false;
     $this->domain_name = $domain_name ?? "";
     $this->duration_in_years = $duration_in_years ?? 0;
-    $this->idn_lang_code = $idn_lang_code ?? ;
-    $this->privacy_protect_admin_contact = $privacy_protect_admin_contact ?? ;
-    $this->privacy_protect_registrant_contact = $privacy_protect_registrant_contact ?? ;
-    $this->privacy_protect_tech_contact = $privacy_protect_tech_contact ?? ;
-    $this->registrant_contact = $registrant_contact ?? ;
-    $this->tech_contact = $tech_contact ?? ;
+    $this->idn_lang_code = $idn_lang_code ?? "";
+    $this->privacy_protect_admin_contact = $privacy_protect_admin_contact ?? false;
+    $this->privacy_protect_registrant_contact = $privacy_protect_registrant_contact ?? false;
+    $this->privacy_protect_tech_contact = $privacy_protect_tech_contact ?? false;
+    $this->registrant_contact = $registrant_contact ?? null;
+    $this->tech_contact = $tech_contact ?? null;
   }
 }
 
@@ -841,7 +841,7 @@ class ResendContactReachabilityEmailRequest {
   public function __construct(shape(
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -855,9 +855,9 @@ class ResendContactReachabilityEmailResponse {
   ?'email_address' => Email,
   ?'is_already_verified' => boolean,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->is_already_verified = $is_already_verified ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->is_already_verified = $is_already_verified ?? false;
   }
 }
 
@@ -877,7 +877,7 @@ class RetrieveDomainAuthCodeResponse {
   public function __construct(shape(
   ?'auth_code' => DomainAuthCode,
   ) $s = shape()) {
-    $this->auth_code = $auth_code ?? ;
+    $this->auth_code = $auth_code ?? "";
   }
 }
 
@@ -891,7 +891,7 @@ class TLDRulesViolation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -903,8 +903,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -946,18 +946,18 @@ class TransferDomainRequest {
   ?'registrant_contact' => ContactDetail,
   ?'tech_contact' => ContactDetail,
   ) $s = shape()) {
-    $this->admin_contact = $admin_contact ?? ;
-    $this->auth_code = $auth_code ?? ;
-    $this->auto_renew = $auto_renew ?? ;
+    $this->admin_contact = $admin_contact ?? null;
+    $this->auth_code = $auth_code ?? "";
+    $this->auto_renew = $auto_renew ?? false;
     $this->domain_name = $domain_name ?? "";
     $this->duration_in_years = $duration_in_years ?? 0;
-    $this->idn_lang_code = $idn_lang_code ?? ;
-    $this->nameservers = $nameservers ?? ;
-    $this->privacy_protect_admin_contact = $privacy_protect_admin_contact ?? ;
-    $this->privacy_protect_registrant_contact = $privacy_protect_registrant_contact ?? ;
-    $this->privacy_protect_tech_contact = $privacy_protect_tech_contact ?? ;
-    $this->registrant_contact = $registrant_contact ?? ;
-    $this->tech_contact = $tech_contact ?? ;
+    $this->idn_lang_code = $idn_lang_code ?? "";
+    $this->nameservers = $nameservers ?? [];
+    $this->privacy_protect_admin_contact = $privacy_protect_admin_contact ?? false;
+    $this->privacy_protect_registrant_contact = $privacy_protect_registrant_contact ?? false;
+    $this->privacy_protect_tech_contact = $privacy_protect_tech_contact ?? false;
+    $this->registrant_contact = $registrant_contact ?? null;
+    $this->tech_contact = $tech_contact ?? null;
   }
 }
 
@@ -993,7 +993,7 @@ class TransferDomainToAnotherAwsAccountResponse {
   ?'password' => string,
   ) $s = shape()) {
     $this->operation_id = $operation_id ?? "";
-    $this->password = $password ?? ;
+    $this->password = $password ?? "";
   }
 }
 
@@ -1005,7 +1005,7 @@ class UnsupportedTLD {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1021,10 +1021,10 @@ class UpdateDomainContactPrivacyRequest {
   ?'registrant_privacy' => boolean,
   ?'tech_privacy' => boolean,
   ) $s = shape()) {
-    $this->admin_privacy = $admin_privacy ?? ;
+    $this->admin_privacy = $admin_privacy ?? false;
     $this->domain_name = $domain_name ?? "";
-    $this->registrant_privacy = $registrant_privacy ?? ;
-    $this->tech_privacy = $tech_privacy ?? ;
+    $this->registrant_privacy = $registrant_privacy ?? false;
+    $this->tech_privacy = $tech_privacy ?? false;
   }
 }
 
@@ -1050,10 +1050,10 @@ class UpdateDomainContactRequest {
   ?'registrant_contact' => ContactDetail,
   ?'tech_contact' => ContactDetail,
   ) $s = shape()) {
-    $this->admin_contact = $admin_contact ?? ;
+    $this->admin_contact = $admin_contact ?? null;
     $this->domain_name = $domain_name ?? "";
-    $this->registrant_contact = $registrant_contact ?? ;
-    $this->tech_contact = $tech_contact ?? ;
+    $this->registrant_contact = $registrant_contact ?? null;
+    $this->tech_contact = $tech_contact ?? null;
   }
 }
 
@@ -1079,7 +1079,7 @@ class UpdateDomainNameserversRequest {
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
     $this->fi_auth_key = $fi_auth_key ?? "";
-    $this->nameservers = $nameservers ?? ;
+    $this->nameservers = $nameservers ?? [];
   }
 }
 
@@ -1102,7 +1102,7 @@ class UpdateTagsForDomainRequest {
   ?'tags_to_update' => TagList,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->tags_to_update = $tags_to_update ?? ;
+    $this->tags_to_update = $tags_to_update ?? [];
   }
 }
 
@@ -1125,10 +1125,10 @@ class ViewBillingRequest {
   ?'max_items' => PageMaxItems,
   ?'start' => Timestamp,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? 0;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->start = $start ?? 0;
   }
 }
 
@@ -1141,7 +1141,7 @@ class ViewBillingResponse {
   ?'next_page_marker' => PageMarker,
   ) $s = shape()) {
     $this->billing_records = $billing_records ?? [];
-    $this->next_page_marker = $next_page_marker ?? ;
+    $this->next_page_marker = $next_page_marker ?? "";
   }
 }
 

@@ -41,8 +41,8 @@ class BadRequestException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -60,10 +60,10 @@ class CodeBindingOutput {
   ?'schema_version' => __string,
   ?'status' => CodeGenerationStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_version = $schema_version ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_version = $schema_version ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -77,8 +77,8 @@ class ConflictException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -92,8 +92,8 @@ class CreateDiscovererInput {
   ?'source_arn' => __stringMin20Max1600,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->description = $description ?? "";
+    $this->source_arn = $source_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -108,8 +108,8 @@ class CreateDiscovererRequest {
   ?'source_arn' => __stringMin20Max1600,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->description = $description ?? "";
+    $this->source_arn = $source_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -130,11 +130,11 @@ class CreateDiscovererResponse {
   ?'state' => DiscovererState,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->discoverer_arn = $discoverer_arn ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->discoverer_arn = $discoverer_arn ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->state = $state ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -147,7 +147,7 @@ class CreateRegistryInput {
   ?'description' => __stringMin0Max256,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -162,8 +162,8 @@ class CreateRegistryRequest {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -180,9 +180,9 @@ class CreateRegistryResponse {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_arn = $registry_arn ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_arn = $registry_arn ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -199,8 +199,8 @@ class CreateSchemaInput {
   ?'tags' => Tags,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
   }
@@ -222,10 +222,10 @@ class CreateSchemaRequest {
   ?'tags' => Tags,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
   }
@@ -251,14 +251,14 @@ class CreateSchemaResponse {
   ?'type' => __string,
   ?'version_created_date' => __timestampIso8601,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
-    $this->version_created_date = $version_created_date ?? ;
+    $this->version_created_date = $version_created_date ?? 0;
   }
 }
 
@@ -268,7 +268,7 @@ class DeleteDiscovererRequest {
   public function __construct(shape(
   ?'discoverer_id' => __string,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
   }
 }
 
@@ -278,7 +278,7 @@ class DeleteRegistryRequest {
   public function __construct(shape(
   ?'registry_name' => __string,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
+    $this->registry_name = $registry_name ?? "";
   }
 }
 
@@ -290,8 +290,8 @@ class DeleteSchemaRequest {
   ?'registry_name' => __string,
   ?'schema_name' => __string,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
   }
 }
 
@@ -305,9 +305,9 @@ class DeleteSchemaVersionRequest {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -323,10 +323,10 @@ class DescribeCodeBindingRequest {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->language = $language ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->language = $language ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -342,10 +342,10 @@ class DescribeCodeBindingResponse {
   ?'schema_version' => __string,
   ?'status' => CodeGenerationStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_version = $schema_version ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_version = $schema_version ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -355,7 +355,7 @@ class DescribeDiscovererRequest {
   public function __construct(shape(
   ?'discoverer_id' => __string,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
   }
 }
 
@@ -375,11 +375,11 @@ class DescribeDiscovererResponse {
   ?'state' => DiscovererState,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->discoverer_arn = $discoverer_arn ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->discoverer_arn = $discoverer_arn ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->state = $state ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -390,7 +390,7 @@ class DescribeRegistryRequest {
   public function __construct(shape(
   ?'registry_name' => __string,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
+    $this->registry_name = $registry_name ?? "";
   }
 }
 
@@ -406,9 +406,9 @@ class DescribeRegistryResponse {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_arn = $registry_arn ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_arn = $registry_arn ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -435,15 +435,15 @@ class DescribeSchemaOutput {
   ?'type' => __string,
   ?'version_created_date' => __timestampIso8601,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
-    $this->version_created_date = $version_created_date ?? ;
+    $this->version_created_date = $version_created_date ?? 0;
   }
 }
 
@@ -457,9 +457,9 @@ class DescribeSchemaRequest {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -485,15 +485,15 @@ class DescribeSchemaResponse {
   ?'type' => __string,
   ?'version_created_date' => __timestampIso8601,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
-    $this->version_created_date = $version_created_date ?? ;
+    $this->version_created_date = $version_created_date ?? 0;
   }
 }
 
@@ -513,11 +513,11 @@ class DiscovererOutput {
   ?'state' => DiscovererState,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->discoverer_arn = $discoverer_arn ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->discoverer_arn = $discoverer_arn ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->state = $state ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -532,8 +532,8 @@ class DiscovererStateOutput {
   ?'discoverer_id' => __string,
   ?'state' => DiscovererState,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->state = $state ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -551,10 +551,10 @@ class DiscovererSummary {
   ?'state' => DiscovererState,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->discoverer_arn = $discoverer_arn ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->state = $state ?? ;
+    $this->discoverer_arn = $discoverer_arn ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->state = $state ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -567,8 +567,8 @@ class ErrorOutput {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -580,8 +580,8 @@ class ForbiddenException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -599,10 +599,10 @@ class GetCodeBindingSourceRequest {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->language = $language ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->language = $language ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -624,7 +624,7 @@ class GetDiscoveredSchemaInput {
   ?'events' => __listOfGetDiscoveredSchemaVersionItemInput,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->type = $type ?? "";
   }
 }
@@ -635,7 +635,7 @@ class GetDiscoveredSchemaOutput {
   public function __construct(shape(
   ?'content' => __string,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
   }
 }
 
@@ -647,7 +647,7 @@ class GetDiscoveredSchemaRequest {
   ?'events' => __listOfGetDiscoveredSchemaVersionItemInput,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->type = $type ?? "";
   }
 }
@@ -658,7 +658,7 @@ class GetDiscoveredSchemaResponse {
   public function __construct(shape(
   ?'content' => __string,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
   }
 }
 
@@ -672,8 +672,8 @@ class GoneException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -685,8 +685,8 @@ class InternalServerErrorException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -700,8 +700,8 @@ class ListDiscoverersOutput {
   ?'discoverers' => __listOfDiscovererSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->discoverers = $discoverers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->discoverers = $discoverers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -717,10 +717,10 @@ class ListDiscoverersRequest {
   ?'next_token' => __string,
   ?'source_arn_prefix' => __string,
   ) $s = shape()) {
-    $this->discoverer_id_prefix = $discoverer_id_prefix ?? ;
+    $this->discoverer_id_prefix = $discoverer_id_prefix ?? "";
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->source_arn_prefix = $source_arn_prefix ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->source_arn_prefix = $source_arn_prefix ?? "";
   }
 }
 
@@ -732,8 +732,8 @@ class ListDiscoverersResponse {
   ?'discoverers' => __listOfDiscovererSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->discoverers = $discoverers ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->discoverers = $discoverers ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -745,8 +745,8 @@ class ListRegistriesOutput {
   ?'next_token' => __string,
   ?'registries' => __listOfRegistrySummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->registries = $registries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registries = $registries ?? [];
   }
 }
 
@@ -763,9 +763,9 @@ class ListRegistriesRequest {
   ?'scope' => __string,
   ) $s = shape()) {
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->registry_name_prefix = $registry_name_prefix ?? ;
-    $this->scope = $scope ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registry_name_prefix = $registry_name_prefix ?? "";
+    $this->scope = $scope ?? "";
   }
 }
 
@@ -777,8 +777,8 @@ class ListRegistriesResponse {
   ?'next_token' => __string,
   ?'registries' => __listOfRegistrySummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->registries = $registries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registries = $registries ?? [];
   }
 }
 
@@ -790,8 +790,8 @@ class ListSchemaVersionsOutput {
   ?'next_token' => __string,
   ?'schema_versions' => __listOfSchemaVersionSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schema_versions = $schema_versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schema_versions = $schema_versions ?? [];
   }
 }
 
@@ -808,9 +808,9 @@ class ListSchemaVersionsRequest {
   ?'schema_name' => __string,
   ) $s = shape()) {
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
   }
 }
 
@@ -822,8 +822,8 @@ class ListSchemaVersionsResponse {
   ?'next_token' => __string,
   ?'schema_versions' => __listOfSchemaVersionSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schema_versions = $schema_versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schema_versions = $schema_versions ?? [];
   }
 }
 
@@ -835,8 +835,8 @@ class ListSchemasOutput {
   ?'next_token' => __string,
   ?'schemas' => __listOfSchemaSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -853,9 +853,9 @@ class ListSchemasRequest {
   ?'schema_name_prefix' => __string,
   ) $s = shape()) {
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name_prefix = $schema_name_prefix ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name_prefix = $schema_name_prefix ?? "";
   }
 }
 
@@ -867,8 +867,8 @@ class ListSchemasResponse {
   ?'next_token' => __string,
   ?'schemas' => __listOfSchemaSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -878,7 +878,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -900,8 +900,8 @@ class LockServiceLinkedRoleInput {
   ?'role_arn' => __stringMin1Max1600,
   ?'timeout' => __integerMin1Max29000,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->timeout = $timeout ?? 0;
   }
 }
 
@@ -915,9 +915,9 @@ class LockServiceLinkedRoleOutput {
   ?'reason_of_failure' => __stringMin1Max1600,
   ?'related_resources' => __listOfDiscovererSummary,
   ) $s = shape()) {
-    $this->can_be_deleted = $can_be_deleted ?? ;
-    $this->reason_of_failure = $reason_of_failure ?? ;
-    $this->related_resources = $related_resources ?? ;
+    $this->can_be_deleted = $can_be_deleted ?? false;
+    $this->reason_of_failure = $reason_of_failure ?? "";
+    $this->related_resources = $related_resources ?? [];
   }
 }
 
@@ -929,8 +929,8 @@ class LockServiceLinkedRoleRequest {
   ?'role_arn' => __stringMin1Max1600,
   ?'timeout' => __integerMin1Max29000,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->timeout = $timeout ?? 0;
   }
 }
 
@@ -944,9 +944,9 @@ class LockServiceLinkedRoleResponse {
   ?'reason_of_failure' => __stringMin1Max1600,
   ?'related_resources' => __listOfDiscovererSummary,
   ) $s = shape()) {
-    $this->can_be_deleted = $can_be_deleted ?? ;
-    $this->reason_of_failure = $reason_of_failure ?? ;
-    $this->related_resources = $related_resources ?? ;
+    $this->can_be_deleted = $can_be_deleted ?? false;
+    $this->reason_of_failure = $reason_of_failure ?? "";
+    $this->related_resources = $related_resources ?? [];
   }
 }
 
@@ -958,8 +958,8 @@ class NotFoundException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -975,10 +975,10 @@ class PutCodeBindingRequest {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->language = $language ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->language = $language ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -994,10 +994,10 @@ class PutCodeBindingResponse {
   ?'schema_version' => __string,
   ?'status' => CodeGenerationStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_version = $schema_version ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_version = $schema_version ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1013,9 +1013,9 @@ class RegistryOutput {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_arn = $registry_arn ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_arn = $registry_arn ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1030,8 +1030,8 @@ class RegistrySummary {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->registry_arn = $registry_arn ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->registry_arn = $registry_arn ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1056,14 +1056,14 @@ class SchemaOutput {
   ?'type' => __string,
   ?'version_created_date' => __timestampIso8601,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
-    $this->version_created_date = $version_created_date ?? ;
+    $this->version_created_date = $version_created_date ?? 0;
   }
 }
 
@@ -1081,11 +1081,11 @@ class SchemaSummary {
   ?'tags' => Tags,
   ?'version_count' => __long,
   ) $s = shape()) {
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
     $this->tags = $tags ?? [];
-    $this->version_count = $version_count ?? ;
+    $this->version_count = $version_count ?? 0;
   }
 }
 
@@ -1099,9 +1099,9 @@ class SchemaVersionSummary {
   ?'schema_name' => __string,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -1117,10 +1117,10 @@ class SearchSchemaSummary {
   ?'schema_name' => __string,
   ?'schema_versions' => __listOfSearchSchemaVersionSummary,
   ) $s = shape()) {
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_versions = $schema_versions ?? ;
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_versions = $schema_versions ?? [];
   }
 }
 
@@ -1132,8 +1132,8 @@ class SearchSchemaVersionSummary {
   ?'created_date' => __timestampIso8601,
   ?'schema_version' => __string,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->schema_version = $schema_version ?? "";
   }
 }
 
@@ -1145,8 +1145,8 @@ class SearchSchemasOutput {
   ?'next_token' => __string,
   ?'schemas' => __listOfSearchSchemaSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -1162,10 +1162,10 @@ class SearchSchemasRequest {
   ?'next_token' => __string,
   ?'registry_name' => __string,
   ) $s = shape()) {
-    $this->keywords = $keywords ?? ;
+    $this->keywords = $keywords ?? "";
     $this->limit = $limit ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->registry_name = $registry_name ?? "";
   }
 }
 
@@ -1177,8 +1177,8 @@ class SearchSchemasResponse {
   ?'next_token' => __string,
   ?'schemas' => __listOfSearchSchemaSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -1190,8 +1190,8 @@ class ServiceUnavailableException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1201,7 +1201,7 @@ class StartDiscovererRequest {
   public function __construct(shape(
   ?'discoverer_id' => __string,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
   }
 }
 
@@ -1213,8 +1213,8 @@ class StartDiscovererResponse {
   ?'discoverer_id' => __string,
   ?'state' => DiscovererState,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->state = $state ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1224,7 +1224,7 @@ class StopDiscovererRequest {
   public function __construct(shape(
   ?'discoverer_id' => __string,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
   }
 }
 
@@ -1236,8 +1236,8 @@ class StopDiscovererResponse {
   ?'discoverer_id' => __string,
   ?'state' => DiscovererState,
   ) $s = shape()) {
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->state = $state ?? ;
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1259,7 +1259,7 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1274,8 +1274,8 @@ class TooManyRequestsException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1289,8 +1289,8 @@ class UnauthorizedException {
   ?'code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1300,7 +1300,7 @@ class UnlockServiceLinkedRoleInput {
   public function __construct(shape(
   ?'role_arn' => __stringMin1Max1600,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1310,7 +1310,7 @@ class UnlockServiceLinkedRoleRequest {
   public function __construct(shape(
   ?'role_arn' => __stringMin1Max1600,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1329,8 +1329,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1340,7 +1340,7 @@ class UpdateDiscovererInput {
   public function __construct(shape(
   ?'description' => __stringMin0Max256,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
   }
 }
 
@@ -1352,8 +1352,8 @@ class UpdateDiscovererRequest {
   ?'description' => __stringMin0Max256,
   ?'discoverer_id' => __string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
+    $this->description = $description ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
   }
 }
 
@@ -1373,11 +1373,11 @@ class UpdateDiscovererResponse {
   ?'state' => DiscovererState,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->discoverer_arn = $discoverer_arn ?? ;
-    $this->discoverer_id = $discoverer_id ?? ;
-    $this->source_arn = $source_arn ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->discoverer_arn = $discoverer_arn ?? "";
+    $this->discoverer_id = $discoverer_id ?? "";
+    $this->source_arn = $source_arn ?? "";
+    $this->state = $state ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1388,7 +1388,7 @@ class UpdateRegistryInput {
   public function __construct(shape(
   ?'description' => __stringMin0Max256,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
   }
 }
 
@@ -1400,8 +1400,8 @@ class UpdateRegistryRequest {
   ?'description' => __stringMin0Max256,
   ?'registry_name' => __string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_name = $registry_name ?? "";
   }
 }
 
@@ -1417,9 +1417,9 @@ class UpdateRegistryResponse {
   ?'registry_name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->registry_arn = $registry_arn ?? ;
-    $this->registry_name = $registry_name ?? ;
+    $this->description = $description ?? "";
+    $this->registry_arn = $registry_arn ?? "";
+    $this->registry_name = $registry_name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1436,9 +1436,9 @@ class UpdateSchemaInput {
   ?'description' => __stringMin0Max256,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->client_token_id = $client_token_id ?? ;
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
+    $this->client_token_id = $client_token_id ?? "";
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
     $this->type = $type ?? "";
   }
 }
@@ -1459,11 +1459,11 @@ class UpdateSchemaRequest {
   ?'schema_name' => __string,
   ?'type' => Type,
   ) $s = shape()) {
-    $this->client_token_id = $client_token_id ?? ;
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->registry_name = $registry_name ?? ;
-    $this->schema_name = $schema_name ?? ;
+    $this->client_token_id = $client_token_id ?? "";
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->registry_name = $registry_name ?? "";
+    $this->schema_name = $schema_name ?? "";
     $this->type = $type ?? "";
   }
 }
@@ -1488,14 +1488,14 @@ class UpdateSchemaResponse {
   ?'type' => __string,
   ?'version_created_date' => __timestampIso8601,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->schema_arn = $schema_arn ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->schema_version = $schema_version ?? ;
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->schema_arn = $schema_arn ?? "";
+    $this->schema_name = $schema_name ?? "";
+    $this->schema_version = $schema_version ?? "";
     $this->tags = $tags ?? [];
     $this->type = $type ?? "";
-    $this->version_created_date = $version_created_date ?? ;
+    $this->version_created_date = $version_created_date ?? 0;
   }
 }
 

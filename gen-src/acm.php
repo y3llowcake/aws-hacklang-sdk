@@ -25,8 +25,8 @@ class AddTagsToCertificateRequest {
   ?'certificate_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -96,32 +96,32 @@ class CertificateDetail {
   ?'subject_alternative_names' => DomainList,
   ?'type' => CertificateType,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->domain_validation_options = $domain_validation_options ?? ;
-    $this->extended_key_usages = $extended_key_usages ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->domain_name = $domain_name ?? "";
+    $this->domain_validation_options = $domain_validation_options ?? [];
+    $this->extended_key_usages = $extended_key_usages ?? [];
     $this->failure_reason = $failure_reason ?? "";
-    $this->imported_at = $imported_at ?? ;
-    $this->in_use_by = $in_use_by ?? ;
-    $this->issued_at = $issued_at ?? ;
-    $this->issuer = $issuer ?? ;
+    $this->imported_at = $imported_at ?? 0;
+    $this->in_use_by = $in_use_by ?? [];
+    $this->issued_at = $issued_at ?? 0;
+    $this->issuer = $issuer ?? "";
     $this->key_algorithm = $key_algorithm ?? "";
-    $this->key_usages = $key_usages ?? ;
-    $this->not_after = $not_after ?? ;
-    $this->not_before = $not_before ?? ;
-    $this->options = $options ?? ;
+    $this->key_usages = $key_usages ?? [];
+    $this->not_after = $not_after ?? 0;
+    $this->not_before = $not_before ?? 0;
+    $this->options = $options ?? null;
     $this->renewal_eligibility = $renewal_eligibility ?? "";
     $this->renewal_summary = $renewal_summary ?? null;
     $this->revocation_reason = $revocation_reason ?? "";
-    $this->revoked_at = $revoked_at ?? ;
-    $this->serial = $serial ?? ;
-    $this->signature_algorithm = $signature_algorithm ?? ;
-    $this->status = $status ?? ;
-    $this->subject = $subject ?? ;
-    $this->subject_alternative_names = $subject_alternative_names ?? ;
-    $this->type = $type ?? ;
+    $this->revoked_at = $revoked_at ?? 0;
+    $this->serial = $serial ?? "";
+    $this->signature_algorithm = $signature_algorithm ?? "";
+    $this->status = $status ?? "";
+    $this->subject = $subject ?? "";
+    $this->subject_alternative_names = $subject_alternative_names ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -147,8 +147,8 @@ class CertificateSummary {
   ?'certificate_arn' => Arn,
   ?'domain_name' => DomainNameString,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->domain_name = $domain_name ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -164,7 +164,7 @@ class DeleteCertificateRequest {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -174,7 +174,7 @@ class DescribeCertificateRequest {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -184,7 +184,7 @@ class DescribeCertificateResponse {
   public function __construct(shape(
   ?'certificate' => CertificateDetail,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? null;
   }
 }
 
@@ -210,12 +210,12 @@ class DomainValidation {
   ?'validation_method' => ValidationMethod,
   ?'validation_status' => DomainStatus,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
     $this->resource_record = $resource_record ?? null;
-    $this->validation_domain = $validation_domain ?? ;
-    $this->validation_emails = $validation_emails ?? ;
+    $this->validation_domain = $validation_domain ?? "";
+    $this->validation_emails = $validation_emails ?? [];
     $this->validation_method = $validation_method ?? "";
-    $this->validation_status = $validation_status ?? ;
+    $this->validation_status = $validation_status ?? "";
   }
 }
 
@@ -229,8 +229,8 @@ class DomainValidationOption {
   ?'domain_name' => DomainNameString,
   ?'validation_domain' => DomainNameString,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->validation_domain = $validation_domain ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->validation_domain = $validation_domain ?? "";
   }
 }
 
@@ -244,8 +244,8 @@ class ExportCertificateRequest {
   ?'certificate_arn' => Arn,
   ?'passphrase' => PassphraseBlob,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->passphrase = $passphrase ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->passphrase = $passphrase ?? "";
   }
 }
 
@@ -259,7 +259,7 @@ class ExportCertificateResponse {
   ?'certificate_chain' => CertificateChain,
   ?'private_key' => PrivateKey,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
     $this->private_key = $private_key ?? "";
   }
@@ -273,8 +273,8 @@ class ExtendedKeyUsage {
   ?'name' => ExtendedKeyUsageName,
   ?'oid' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->oid = $oid ?? ;
+    $this->name = $name ?? "";
+    $this->oid = $oid ?? "";
   }
 }
 
@@ -296,9 +296,9 @@ class Filters {
   ?'key_types' => KeyAlgorithmList,
   ?'key_usage' => KeyUsageFilterList,
   ) $s = shape()) {
-    $this->extended_key_usage = $extended_key_usage ?? ;
-    $this->key_types = $key_types ?? ;
-    $this->key_usage = $key_usage ?? ;
+    $this->extended_key_usage = $extended_key_usage ?? [];
+    $this->key_types = $key_types ?? [];
+    $this->key_usage = $key_usage ?? [];
   }
 }
 
@@ -308,7 +308,7 @@ class GetCertificateRequest {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -320,7 +320,7 @@ class GetCertificateResponse {
   ?'certificate' => CertificateBody,
   ?'certificate_chain' => CertificateChain,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
   }
 }
@@ -341,11 +341,11 @@ class ImportCertificateRequest {
   ?'private_key' => PrivateKeyBlob,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate = $certificate ?? "";
+    $this->certificate_arn = $certificate_arn ?? "";
     $this->certificate_chain = $certificate_chain ?? "";
     $this->private_key = $private_key ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -355,7 +355,7 @@ class ImportCertificateResponse {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -367,7 +367,7 @@ class InvalidArgsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class InvalidArnException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -387,7 +387,7 @@ class InvalidDomainValidationOptionsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -397,7 +397,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -407,7 +407,7 @@ class InvalidStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -417,7 +417,7 @@ class InvalidTagException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -431,7 +431,7 @@ class KeyUsage {
   public function __construct(shape(
   ?'name' => KeyUsageName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -447,7 +447,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -464,7 +464,7 @@ class ListCertificatesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->certificate_statuses = $certificate_statuses ?? [];
-    $this->includes = $includes ?? ;
+    $this->includes = $includes ?? null;
     $this->max_items = $max_items ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -489,7 +489,7 @@ class ListTagsForCertificateRequest {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -499,7 +499,7 @@ class ListTagsForCertificateResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -523,8 +523,8 @@ class RemoveTagsFromCertificateRequest {
   ?'certificate_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -534,7 +534,7 @@ class RenewCertificateRequest {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -554,10 +554,10 @@ class RenewalSummary {
   ?'renewal_status_reason' => FailureReason,
   ?'updated_at' => TStamp,
   ) $s = shape()) {
-    $this->domain_validation_options = $domain_validation_options ?? ;
+    $this->domain_validation_options = $domain_validation_options ?? [];
     $this->renewal_status = $renewal_status ?? "";
-    $this->renewal_status_reason = $renewal_status_reason ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->renewal_status_reason = $renewal_status_reason ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -581,13 +581,13 @@ class RequestCertificateRequest {
   ?'tags' => TagList,
   ?'validation_method' => ValidationMethod,
   ) $s = shape()) {
-    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->domain_validation_options = $domain_validation_options ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->domain_validation_options = $domain_validation_options ?? [];
     $this->idempotency_token = $idempotency_token ?? "";
-    $this->options = $options ?? ;
-    $this->subject_alternative_names = $subject_alternative_names ?? ;
-    $this->tags = $tags ?? ;
+    $this->options = $options ?? null;
+    $this->subject_alternative_names = $subject_alternative_names ?? [];
+    $this->tags = $tags ?? [];
     $this->validation_method = $validation_method ?? "";
   }
 }
@@ -598,7 +598,7 @@ class RequestCertificateResponse {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -608,7 +608,7 @@ class RequestInProgressException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -622,9 +622,9 @@ class ResendValidationEmailRequest {
   ?'domain' => DomainNameString,
   ?'validation_domain' => DomainNameString,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->domain = $domain ?? ;
-    $this->validation_domain = $validation_domain ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->domain = $domain ?? "";
+    $this->validation_domain = $validation_domain ?? "";
   }
 }
 
@@ -634,7 +634,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -644,7 +644,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -658,9 +658,9 @@ class ResourceRecord {
   ?'type' => RecordType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -678,8 +678,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -693,7 +693,7 @@ class TagPolicyException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -705,7 +705,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -717,8 +717,8 @@ class UpdateCertificateOptionsRequest {
   ?'certificate_arn' => Arn,
   ?'options' => CertificateOptions,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->options = $options ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->options = $options ?? null;
   }
 }
 

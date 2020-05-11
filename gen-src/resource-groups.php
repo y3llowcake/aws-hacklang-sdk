@@ -22,7 +22,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -38,8 +38,8 @@ class CreateGroupInput {
   ?'resource_query' => ResourceQuery,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->resource_query = $resource_query ?? null;
     $this->tags = $tags ?? [];
   }
@@ -89,7 +89,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -139,7 +139,7 @@ class GetTagsInput {
   public function __construct(shape(
   ?'arn' => GroupArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -151,7 +151,7 @@ class GetTagsOutput {
   ?'arn' => GroupArn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -166,9 +166,9 @@ class Group {
   ?'group_arn' => GroupArn,
   ?'name' => GroupName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->group_arn = $group_arn ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -184,8 +184,8 @@ class GroupFilter {
   ?'name' => GroupFilterName,
   ?'values' => GroupFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -235,7 +235,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -251,7 +251,7 @@ class ListGroupResourcesInput {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->group_name = $group_name ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -269,8 +269,8 @@ class ListGroupResourcesOutput {
   ?'resource_identifiers' => ResourceIdentifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->query_errors = $query_errors ?? ;
-    $this->resource_identifiers = $resource_identifiers ?? ;
+    $this->query_errors = $query_errors ?? [];
+    $this->resource_identifiers = $resource_identifiers ?? [];
   }
 }
 
@@ -284,7 +284,7 @@ class ListGroupsInput {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -300,8 +300,8 @@ class ListGroupsOutput {
   ?'groups' => GroupList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->group_identifiers = $group_identifiers ?? ;
-    $this->groups = $groups ?? ;
+    $this->group_identifiers = $group_identifiers ?? [];
+    $this->groups = $groups ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -314,7 +314,7 @@ class MethodNotAllowedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -326,7 +326,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -340,8 +340,8 @@ class QueryError {
   ?'error_code' => QueryErrorCode,
   ?'message' => QueryErrorMessage,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -363,8 +363,8 @@ class ResourceFilter {
   ?'name' => ResourceFilterName,
   ?'values' => ResourceFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -400,7 +400,7 @@ class ResourceQuery {
   ?'type' => QueryType,
   ) $s = shape()) {
     $this->query = $query ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -433,8 +433,8 @@ class SearchResourcesOutput {
   ?'resource_identifiers' => ResourceIdentifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->query_errors = $query_errors ?? ;
-    $this->resource_identifiers = $resource_identifiers ?? ;
+    $this->query_errors = $query_errors ?? [];
+    $this->resource_identifiers = $resource_identifiers ?? [];
   }
 }
 
@@ -446,7 +446,7 @@ class TagInput {
   ?'arn' => GroupArn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -463,7 +463,7 @@ class TagOutput {
   ?'arn' => GroupArn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -478,7 +478,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -500,8 +500,8 @@ class UntagInput {
   ?'arn' => GroupArn,
   ?'keys' => TagKeyList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->keys = $keys ?? ;
+    $this->arn = $arn ?? "";
+    $this->keys = $keys ?? [];
   }
 }
 
@@ -513,8 +513,8 @@ class UntagOutput {
   ?'arn' => GroupArn,
   ?'keys' => TagKeyList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->keys = $keys ?? ;
+    $this->arn = $arn ?? "";
+    $this->keys = $keys ?? [];
   }
 }
 
@@ -526,7 +526,7 @@ class UpdateGroupInput {
   ?'description' => GroupDescription,
   ?'group_name' => GroupName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->group_name = $group_name ?? "";
   }
 }

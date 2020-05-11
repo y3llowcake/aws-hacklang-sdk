@@ -38,7 +38,7 @@ class AccessLog {
   public function __construct(shape(
   ?'file' => FileAccessLog,
   ) $s = shape()) {
-    $this->file = $file ?? ;
+    $this->file = $file ?? null;
   }
 }
 
@@ -54,8 +54,8 @@ class AwsCloudMapInstanceAttribute {
   ?'key' => AwsCloudMapInstanceAttributeKey,
   ?'value' => AwsCloudMapInstanceAttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -77,9 +77,9 @@ class AwsCloudMapServiceDiscovery {
   ?'namespace_name' => AwsCloudMapName,
   ?'service_name' => AwsCloudMapName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->namespace_name = $namespace_name ?? ;
-    $this->service_name = $service_name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->namespace_name = $namespace_name ?? "";
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -89,7 +89,7 @@ class Backend {
   public function __construct(shape(
   ?'virtual_service' => VirtualServiceBackend,
   ) $s = shape()) {
-    $this->virtual_service = $virtual_service ?? ;
+    $this->virtual_service = $virtual_service ?? null;
   }
 }
 
@@ -99,7 +99,7 @@ class BackendDefaults {
   public function __construct(shape(
   ?'client_policy' => ClientPolicy,
   ) $s = shape()) {
-    $this->client_policy = $client_policy ?? ;
+    $this->client_policy = $client_policy ?? null;
   }
 }
 
@@ -111,7 +111,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -125,7 +125,7 @@ class ClientPolicy {
   public function __construct(shape(
   ?'tls' => ClientPolicyTls,
   ) $s = shape()) {
-    $this->tls = $tls ?? ;
+    $this->tls = $tls ?? null;
   }
 }
 
@@ -139,9 +139,9 @@ class ClientPolicyTls {
   ?'ports' => PortSet,
   ?'validation' => TlsValidationContext,
   ) $s = shape()) {
-    $this->enforce = $enforce ?? ;
-    $this->ports = $ports ?? ;
-    $this->validation = $validation ?? ;
+    $this->enforce = $enforce ?? false;
+    $this->ports = $ports ?? [];
+    $this->validation = $validation ?? null;
   }
 }
 
@@ -151,7 +151,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -167,10 +167,10 @@ class CreateMeshInput {
   ?'spec' => MeshSpec,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->spec = $spec ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->spec = $spec ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -180,7 +180,7 @@ class CreateMeshOutput {
   public function __construct(shape(
   ?'mesh' => MeshData,
   ) $s = shape()) {
-    $this->mesh = $mesh ?? ;
+    $this->mesh = $mesh ?? null;
   }
 }
 
@@ -202,13 +202,13 @@ class CreateRouteInput {
   ?'tags' => TagList,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->spec = $spec ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->route_name = $route_name ?? "";
+    $this->spec = $spec ?? null;
+    $this->tags = $tags ?? [];
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -218,7 +218,7 @@ class CreateRouteOutput {
   public function __construct(shape(
   ?'route' => RouteData,
   ) $s = shape()) {
-    $this->route = $route ?? ;
+    $this->route = $route ?? null;
   }
 }
 
@@ -238,12 +238,12 @@ class CreateVirtualNodeInput {
   ?'tags' => TagList,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->tags = $tags ?? [];
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -253,7 +253,7 @@ class CreateVirtualNodeOutput {
   public function __construct(shape(
   ?'virtual_node' => VirtualNodeData,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
+    $this->virtual_node = $virtual_node ?? null;
   }
 }
 
@@ -273,12 +273,12 @@ class CreateVirtualRouterInput {
   ?'tags' => TagList,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->tags = $tags ?? [];
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -288,7 +288,7 @@ class CreateVirtualRouterOutput {
   public function __construct(shape(
   ?'virtual_router' => VirtualRouterData,
   ) $s = shape()) {
-    $this->virtual_router = $virtual_router ?? ;
+    $this->virtual_router = $virtual_router ?? null;
   }
 }
 
@@ -308,12 +308,12 @@ class CreateVirtualServiceInput {
   ?'tags' => TagList,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->tags = $tags ?? [];
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -323,7 +323,7 @@ class CreateVirtualServiceOutput {
   public function __construct(shape(
   ?'virtual_service' => VirtualServiceData,
   ) $s = shape()) {
-    $this->virtual_service = $virtual_service ?? ;
+    $this->virtual_service = $virtual_service ?? null;
   }
 }
 
@@ -333,7 +333,7 @@ class DeleteMeshInput {
   public function __construct(shape(
   ?'mesh_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
   }
 }
 
@@ -343,7 +343,7 @@ class DeleteMeshOutput {
   public function __construct(shape(
   ?'mesh' => MeshData,
   ) $s = shape()) {
-    $this->mesh = $mesh ?? ;
+    $this->mesh = $mesh ?? null;
   }
 }
 
@@ -359,10 +359,10 @@ class DeleteRouteInput {
   ?'route_name' => ResourceName,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->route_name = $route_name ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -372,7 +372,7 @@ class DeleteRouteOutput {
   public function __construct(shape(
   ?'route' => RouteData,
   ) $s = shape()) {
-    $this->route = $route ?? ;
+    $this->route = $route ?? null;
   }
 }
 
@@ -386,9 +386,9 @@ class DeleteVirtualNodeInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -398,7 +398,7 @@ class DeleteVirtualNodeOutput {
   public function __construct(shape(
   ?'virtual_node' => VirtualNodeData,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
+    $this->virtual_node = $virtual_node ?? null;
   }
 }
 
@@ -412,9 +412,9 @@ class DeleteVirtualRouterInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -424,7 +424,7 @@ class DeleteVirtualRouterOutput {
   public function __construct(shape(
   ?'virtual_router' => VirtualRouterData,
   ) $s = shape()) {
-    $this->virtual_router = $virtual_router ?? ;
+    $this->virtual_router = $virtual_router ?? null;
   }
 }
 
@@ -438,9 +438,9 @@ class DeleteVirtualServiceInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -450,7 +450,7 @@ class DeleteVirtualServiceOutput {
   public function __construct(shape(
   ?'virtual_service' => VirtualServiceData,
   ) $s = shape()) {
-    $this->virtual_service = $virtual_service ?? ;
+    $this->virtual_service = $virtual_service ?? null;
   }
 }
 
@@ -462,8 +462,8 @@ class DescribeMeshInput {
   ?'mesh_name' => ResourceName,
   ?'mesh_owner' => AccountId,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
   }
 }
 
@@ -473,7 +473,7 @@ class DescribeMeshOutput {
   public function __construct(shape(
   ?'mesh' => MeshData,
   ) $s = shape()) {
-    $this->mesh = $mesh ?? ;
+    $this->mesh = $mesh ?? null;
   }
 }
 
@@ -489,10 +489,10 @@ class DescribeRouteInput {
   ?'route_name' => ResourceName,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->route_name = $route_name ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class DescribeRouteOutput {
   public function __construct(shape(
   ?'route' => RouteData,
   ) $s = shape()) {
-    $this->route = $route ?? ;
+    $this->route = $route ?? null;
   }
 }
 
@@ -516,9 +516,9 @@ class DescribeVirtualNodeInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -528,7 +528,7 @@ class DescribeVirtualNodeOutput {
   public function __construct(shape(
   ?'virtual_node' => VirtualNodeData,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
+    $this->virtual_node = $virtual_node ?? null;
   }
 }
 
@@ -542,9 +542,9 @@ class DescribeVirtualRouterInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -554,7 +554,7 @@ class DescribeVirtualRouterOutput {
   public function __construct(shape(
   ?'virtual_router' => VirtualRouterData,
   ) $s = shape()) {
-    $this->virtual_router = $virtual_router ?? ;
+    $this->virtual_router = $virtual_router ?? null;
   }
 }
 
@@ -568,9 +568,9 @@ class DescribeVirtualServiceInput {
   ?'mesh_owner' => AccountId,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -580,7 +580,7 @@ class DescribeVirtualServiceOutput {
   public function __construct(shape(
   ?'virtual_service' => VirtualServiceData,
   ) $s = shape()) {
-    $this->virtual_service = $virtual_service ?? ;
+    $this->virtual_service = $virtual_service ?? null;
   }
 }
 
@@ -590,7 +590,7 @@ class DnsServiceDiscovery {
   public function __construct(shape(
   ?'hostname' => Hostname,
   ) $s = shape()) {
-    $this->hostname = $hostname ?? ;
+    $this->hostname = $hostname ?? "";
   }
 }
 
@@ -602,8 +602,8 @@ class Duration {
   ?'unit' => DurationUnit,
   ?'value' => DurationValue,
   ) $s = shape()) {
-    $this->unit = $unit ?? ;
-    $this->value = $value ?? ;
+    $this->unit = $unit ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -617,7 +617,7 @@ class EgressFilter {
   public function __construct(shape(
   ?'type' => EgressFilterType,
   ) $s = shape()) {
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -629,7 +629,7 @@ class FileAccessLog {
   public function __construct(shape(
   ?'path' => FilePath,
   ) $s = shape()) {
-    $this->path = $path ?? ;
+    $this->path = $path ?? "";
   }
 }
 
@@ -641,7 +641,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -659,11 +659,11 @@ class GrpcRetryPolicy {
   ?'per_retry_timeout' => Duration,
   ?'tcp_retry_events' => TcpRetryPolicyEvents,
   ) $s = shape()) {
-    $this->grpc_retry_events = $grpc_retry_events ?? ;
-    $this->http_retry_events = $http_retry_events ?? ;
-    $this->max_retries = $max_retries ?? ;
-    $this->per_retry_timeout = $per_retry_timeout ?? ;
-    $this->tcp_retry_events = $tcp_retry_events ?? ;
+    $this->grpc_retry_events = $grpc_retry_events ?? [];
+    $this->http_retry_events = $http_retry_events ?? [];
+    $this->max_retries = $max_retries ?? 0;
+    $this->per_retry_timeout = $per_retry_timeout ?? null;
+    $this->tcp_retry_events = $tcp_retry_events ?? [];
   }
 }
 
@@ -681,9 +681,9 @@ class GrpcRoute {
   ?'match' => GrpcRouteMatch,
   ?'retry_policy' => GrpcRetryPolicy,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->match = $match ?? ;
-    $this->retry_policy = $retry_policy ?? ;
+    $this->action = $action ?? null;
+    $this->match = $match ?? null;
+    $this->retry_policy = $retry_policy ?? null;
   }
 }
 
@@ -693,7 +693,7 @@ class GrpcRouteAction {
   public function __construct(shape(
   ?'weighted_targets' => WeightedTargets,
   ) $s = shape()) {
-    $this->weighted_targets = $weighted_targets ?? ;
+    $this->weighted_targets = $weighted_targets ?? [];
   }
 }
 
@@ -707,9 +707,9 @@ class GrpcRouteMatch {
   ?'method_name' => MethodName,
   ?'service_name' => ServiceName,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
-    $this->method_name = $method_name ?? ;
-    $this->service_name = $service_name ?? ;
+    $this->metadata = $metadata ?? [];
+    $this->method_name = $method_name ?? "";
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -723,9 +723,9 @@ class GrpcRouteMetadata {
   ?'match' => GrpcRouteMetadataMatchMethod,
   ?'name' => HeaderName,
   ) $s = shape()) {
-    $this->invert = $invert ?? ;
-    $this->match = $match ?? ;
-    $this->name = $name ?? ;
+    $this->invert = $invert ?? false;
+    $this->match = $match ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -745,11 +745,11 @@ class GrpcRouteMetadataMatchMethod {
   ?'regex' => HeaderMatch,
   ?'suffix' => HeaderMatch,
   ) $s = shape()) {
-    $this->exact = $exact ?? ;
-    $this->prefix = $prefix ?? ;
-    $this->range = $range ?? ;
-    $this->regex = $regex ?? ;
-    $this->suffix = $suffix ?? ;
+    $this->exact = $exact ?? "";
+    $this->prefix = $prefix ?? "";
+    $this->range = $range ?? null;
+    $this->regex = $regex ?? "";
+    $this->suffix = $suffix ?? "";
   }
 }
 
@@ -769,11 +769,11 @@ class HeaderMatchMethod {
   ?'regex' => HeaderMatch,
   ?'suffix' => HeaderMatch,
   ) $s = shape()) {
-    $this->exact = $exact ?? ;
-    $this->prefix = $prefix ?? ;
-    $this->range = $range ?? ;
-    $this->regex = $regex ?? ;
-    $this->suffix = $suffix ?? ;
+    $this->exact = $exact ?? "";
+    $this->prefix = $prefix ?? "";
+    $this->range = $range ?? null;
+    $this->regex = $regex ?? "";
+    $this->suffix = $suffix ?? "";
   }
 }
 
@@ -799,13 +799,13 @@ class HealthCheckPolicy {
   ?'timeout_millis' => HealthCheckTimeoutMillis,
   ?'unhealthy_threshold' => HealthCheckThreshold,
   ) $s = shape()) {
-    $this->healthy_threshold = $healthy_threshold ?? ;
-    $this->interval_millis = $interval_millis ?? ;
-    $this->path = $path ?? ;
-    $this->port = $port ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->timeout_millis = $timeout_millis ?? ;
-    $this->unhealthy_threshold = $unhealthy_threshold ?? ;
+    $this->healthy_threshold = $healthy_threshold ?? 0;
+    $this->interval_millis = $interval_millis ?? 0;
+    $this->path = $path ?? "";
+    $this->port = $port ?? 0;
+    $this->protocol = $protocol ?? "";
+    $this->timeout_millis = $timeout_millis ?? 0;
+    $this->unhealthy_threshold = $unhealthy_threshold ?? 0;
   }
 }
 
@@ -829,10 +829,10 @@ class HttpRetryPolicy {
   ?'per_retry_timeout' => Duration,
   ?'tcp_retry_events' => TcpRetryPolicyEvents,
   ) $s = shape()) {
-    $this->http_retry_events = $http_retry_events ?? ;
-    $this->max_retries = $max_retries ?? ;
-    $this->per_retry_timeout = $per_retry_timeout ?? ;
-    $this->tcp_retry_events = $tcp_retry_events ?? ;
+    $this->http_retry_events = $http_retry_events ?? [];
+    $this->max_retries = $max_retries ?? 0;
+    $this->per_retry_timeout = $per_retry_timeout ?? null;
+    $this->tcp_retry_events = $tcp_retry_events ?? [];
   }
 }
 
@@ -850,9 +850,9 @@ class HttpRoute {
   ?'match' => HttpRouteMatch,
   ?'retry_policy' => HttpRetryPolicy,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->match = $match ?? ;
-    $this->retry_policy = $retry_policy ?? ;
+    $this->action = $action ?? null;
+    $this->match = $match ?? null;
+    $this->retry_policy = $retry_policy ?? null;
   }
 }
 
@@ -862,7 +862,7 @@ class HttpRouteAction {
   public function __construct(shape(
   ?'weighted_targets' => WeightedTargets,
   ) $s = shape()) {
-    $this->weighted_targets = $weighted_targets ?? ;
+    $this->weighted_targets = $weighted_targets ?? [];
   }
 }
 
@@ -876,9 +876,9 @@ class HttpRouteHeader {
   ?'match' => HeaderMatchMethod,
   ?'name' => HeaderName,
   ) $s = shape()) {
-    $this->invert = $invert ?? ;
-    $this->match = $match ?? ;
-    $this->name = $name ?? ;
+    $this->invert = $invert ?? false;
+    $this->match = $match ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -896,10 +896,10 @@ class HttpRouteMatch {
   ?'prefix' => string,
   ?'scheme' => HttpScheme,
   ) $s = shape()) {
-    $this->headers = $headers ?? ;
-    $this->method = $method ?? ;
-    $this->prefix = $prefix ?? ;
-    $this->scheme = $scheme ?? ;
+    $this->headers = $headers ?? [];
+    $this->method = $method ?? "";
+    $this->prefix = $prefix ?? "";
+    $this->scheme = $scheme ?? "";
   }
 }
 
@@ -911,7 +911,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -921,7 +921,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -933,8 +933,8 @@ class ListMeshesInput {
   ?'limit' => ListMeshesLimit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -948,8 +948,8 @@ class ListMeshesOutput {
   ?'meshes' => MeshList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->meshes = $meshes ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->meshes = $meshes ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -967,11 +967,11 @@ class ListRoutesInput {
   ?'next_token' => string,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->limit = $limit ?? 0;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -985,8 +985,8 @@ class ListRoutesOutput {
   ?'next_token' => string,
   ?'routes' => RouteList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->routes = $routes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->routes = $routes ?? [];
   }
 }
 
@@ -1000,9 +1000,9 @@ class ListTagsForResourceInput {
   ?'next_token' => string,
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1014,8 +1014,8 @@ class ListTagsForResourceOutput {
   ?'next_token' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1031,10 +1031,10 @@ class ListVirtualNodesInput {
   ?'mesh_owner' => AccountId,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1048,8 +1048,8 @@ class ListVirtualNodesOutput {
   ?'next_token' => string,
   ?'virtual_nodes' => VirtualNodeList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->virtual_nodes = $virtual_nodes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->virtual_nodes = $virtual_nodes ?? [];
   }
 }
 
@@ -1065,10 +1065,10 @@ class ListVirtualRoutersInput {
   ?'mesh_owner' => AccountId,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1082,8 +1082,8 @@ class ListVirtualRoutersOutput {
   ?'next_token' => string,
   ?'virtual_routers' => VirtualRouterList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->virtual_routers = $virtual_routers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->virtual_routers = $virtual_routers ?? [];
   }
 }
 
@@ -1099,10 +1099,10 @@ class ListVirtualServicesInput {
   ?'mesh_owner' => AccountId,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1116,8 +1116,8 @@ class ListVirtualServicesOutput {
   ?'next_token' => string,
   ?'virtual_services' => VirtualServiceList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->virtual_services = $virtual_services ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->virtual_services = $virtual_services ?? [];
   }
 }
 
@@ -1131,9 +1131,9 @@ class Listener {
   ?'port_mapping' => PortMapping,
   ?'tls' => ListenerTls,
   ) $s = shape()) {
-    $this->health_check = $health_check ?? ;
-    $this->port_mapping = $port_mapping ?? ;
-    $this->tls = $tls ?? ;
+    $this->health_check = $health_check ?? null;
+    $this->port_mapping = $port_mapping ?? null;
+    $this->tls = $tls ?? null;
   }
 }
 
@@ -1145,8 +1145,8 @@ class ListenerTls {
   ?'certificate' => ListenerTlsCertificate,
   ?'mode' => ListenerTlsMode,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
-    $this->mode = $mode ?? ;
+    $this->certificate = $certificate ?? null;
+    $this->mode = $mode ?? "";
   }
 }
 
@@ -1156,7 +1156,7 @@ class ListenerTlsAcmCertificate {
   public function __construct(shape(
   ?'certificate_arn' => Arn,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -1168,8 +1168,8 @@ class ListenerTlsCertificate {
   ?'acm' => ListenerTlsAcmCertificate,
   ?'file' => ListenerTlsFileCertificate,
   ) $s = shape()) {
-    $this->acm = $acm ?? ;
-    $this->file = $file ?? ;
+    $this->acm = $acm ?? null;
+    $this->file = $file ?? null;
   }
 }
 
@@ -1181,8 +1181,8 @@ class ListenerTlsFileCertificate {
   ?'certificate_chain' => FilePath,
   ?'private_key' => FilePath,
   ) $s = shape()) {
-    $this->certificate_chain = $certificate_chain ?? ;
-    $this->private_key = $private_key ?? ;
+    $this->certificate_chain = $certificate_chain ?? "";
+    $this->private_key = $private_key ?? "";
   }
 }
 
@@ -1196,7 +1196,7 @@ class Logging {
   public function __construct(shape(
   ?'access_log' => AccessLog,
   ) $s = shape()) {
-    $this->access_log = $access_log ?? ;
+    $this->access_log = $access_log ?? null;
   }
 }
 
@@ -1210,8 +1210,8 @@ class MatchRange {
   ?'end' => Long,
   ?'start' => Long,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? 0;
+    $this->start = $start ?? 0;
   }
 }
 
@@ -1229,10 +1229,10 @@ class MeshData {
   ?'spec' => MeshSpec,
   ?'status' => MeshStatus,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->spec = $spec ?? ;
-    $this->status = $status ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->metadata = $metadata ?? null;
+    $this->spec = $spec ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1250,10 +1250,10 @@ class MeshRef {
   ?'mesh_owner' => AccountId,
   ?'resource_owner' => AccountId,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
+    $this->arn = $arn ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
   }
 }
 
@@ -1263,7 +1263,7 @@ class MeshSpec {
   public function __construct(shape(
   ?'egress_filter' => EgressFilter,
   ) $s = shape()) {
-    $this->egress_filter = $egress_filter ?? ;
+    $this->egress_filter = $egress_filter ?? null;
   }
 }
 
@@ -1273,7 +1273,7 @@ class MeshStatus {
   public function __construct(shape(
   ?'status' => MeshStatusCode,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1287,7 +1287,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1301,8 +1301,8 @@ class PortMapping {
   ?'port' => PortNumber,
   ?'protocol' => PortProtocol,
   ) $s = shape()) {
-    $this->port = $port ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->port = $port ?? 0;
+    $this->protocol = $protocol ?? "";
   }
 }
 
@@ -1318,7 +1318,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1340,13 +1340,13 @@ class ResourceMetadata {
   ?'uid' => string,
   ?'version' => Long,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->uid = $uid ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->uid = $uid ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1368,12 +1368,12 @@ class RouteData {
   ?'status' => RouteStatus,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->spec = $spec ?? ;
-    $this->status = $status ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->metadata = $metadata ?? null;
+    $this->route_name = $route_name ?? "";
+    $this->spec = $spec ?? null;
+    $this->status = $status ?? null;
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1397,12 +1397,12 @@ class RouteRef {
   ?'route_name' => ResourceName,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->route_name = $route_name ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1420,11 +1420,11 @@ class RouteSpec {
   ?'priority' => RoutePriority,
   ?'tcp_route' => TcpRoute,
   ) $s = shape()) {
-    $this->grpc_route = $grpc_route ?? ;
-    $this->http_2_route = $http_2_route ?? ;
-    $this->http_route = $http_route ?? ;
-    $this->priority = $priority ?? ;
-    $this->tcp_route = $tcp_route ?? ;
+    $this->grpc_route = $grpc_route ?? null;
+    $this->http_2_route = $http_2_route ?? null;
+    $this->http_route = $http_route ?? null;
+    $this->priority = $priority ?? 0;
+    $this->tcp_route = $tcp_route ?? null;
   }
 }
 
@@ -1434,7 +1434,7 @@ class RouteStatus {
   public function __construct(shape(
   ?'status' => RouteStatusCode,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1448,8 +1448,8 @@ class ServiceDiscovery {
   ?'aws_cloud_map' => AwsCloudMapServiceDiscovery,
   ?'dns' => DnsServiceDiscovery,
   ) $s = shape()) {
-    $this->aws_cloud_map = $aws_cloud_map ?? ;
-    $this->dns = $dns ?? ;
+    $this->aws_cloud_map = $aws_cloud_map ?? null;
+    $this->dns = $dns ?? null;
   }
 }
 
@@ -1461,7 +1461,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1481,8 +1481,8 @@ class TagRef {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1494,8 +1494,8 @@ class TagResourceInput {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1520,7 +1520,7 @@ class TcpRoute {
   public function __construct(shape(
   ?'action' => TcpRouteAction,
   ) $s = shape()) {
-    $this->action = $action ?? ;
+    $this->action = $action ?? null;
   }
 }
 
@@ -1530,7 +1530,7 @@ class TcpRouteAction {
   public function __construct(shape(
   ?'weighted_targets' => WeightedTargets,
   ) $s = shape()) {
-    $this->weighted_targets = $weighted_targets ?? ;
+    $this->weighted_targets = $weighted_targets ?? [];
   }
 }
 
@@ -1542,7 +1542,7 @@ class TlsValidationContext {
   public function __construct(shape(
   ?'trust' => TlsValidationContextTrust,
   ) $s = shape()) {
-    $this->trust = $trust ?? ;
+    $this->trust = $trust ?? null;
   }
 }
 
@@ -1552,7 +1552,7 @@ class TlsValidationContextAcmTrust {
   public function __construct(shape(
   ?'certificate_authority_arns' => CertificateAuthorityArns,
   ) $s = shape()) {
-    $this->certificate_authority_arns = $certificate_authority_arns ?? ;
+    $this->certificate_authority_arns = $certificate_authority_arns ?? [];
   }
 }
 
@@ -1562,7 +1562,7 @@ class TlsValidationContextFileTrust {
   public function __construct(shape(
   ?'certificate_chain' => FilePath,
   ) $s = shape()) {
-    $this->certificate_chain = $certificate_chain ?? ;
+    $this->certificate_chain = $certificate_chain ?? "";
   }
 }
 
@@ -1574,8 +1574,8 @@ class TlsValidationContextTrust {
   ?'acm' => TlsValidationContextAcmTrust,
   ?'file' => TlsValidationContextFileTrust,
   ) $s = shape()) {
-    $this->acm = $acm ?? ;
-    $this->file = $file ?? ;
+    $this->acm = $acm ?? null;
+    $this->file = $file ?? null;
   }
 }
 
@@ -1585,7 +1585,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1595,7 +1595,7 @@ class TooManyTagsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1607,8 +1607,8 @@ class UntagResourceInput {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1629,9 +1629,9 @@ class UpdateMeshInput {
   ?'mesh_name' => ResourceName,
   ?'spec' => MeshSpec,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->spec = $spec ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->spec = $spec ?? null;
   }
 }
 
@@ -1641,7 +1641,7 @@ class UpdateMeshOutput {
   public function __construct(shape(
   ?'mesh' => MeshData,
   ) $s = shape()) {
-    $this->mesh = $mesh ?? ;
+    $this->mesh = $mesh ?? null;
   }
 }
 
@@ -1661,12 +1661,12 @@ class UpdateRouteInput {
   ?'spec' => RouteSpec,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->route_name = $route_name ?? ;
-    $this->spec = $spec ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->route_name = $route_name ?? "";
+    $this->spec = $spec ?? null;
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1676,7 +1676,7 @@ class UpdateRouteOutput {
   public function __construct(shape(
   ?'route' => RouteData,
   ) $s = shape()) {
-    $this->route = $route ?? ;
+    $this->route = $route ?? null;
   }
 }
 
@@ -1694,11 +1694,11 @@ class UpdateVirtualNodeInput {
   ?'spec' => VirtualNodeSpec,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -1708,7 +1708,7 @@ class UpdateVirtualNodeOutput {
   public function __construct(shape(
   ?'virtual_node' => VirtualNodeData,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
+    $this->virtual_node = $virtual_node ?? null;
   }
 }
 
@@ -1726,11 +1726,11 @@ class UpdateVirtualRouterInput {
   ?'spec' => VirtualRouterSpec,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1740,7 +1740,7 @@ class UpdateVirtualRouterOutput {
   public function __construct(shape(
   ?'virtual_router' => VirtualRouterData,
   ) $s = shape()) {
-    $this->virtual_router = $virtual_router ?? ;
+    $this->virtual_router = $virtual_router ?? null;
   }
 }
 
@@ -1758,11 +1758,11 @@ class UpdateVirtualServiceInput {
   ?'spec' => VirtualServiceSpec,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->spec = $spec ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->spec = $spec ?? null;
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -1772,7 +1772,7 @@ class UpdateVirtualServiceOutput {
   public function __construct(shape(
   ?'virtual_service' => VirtualServiceData,
   ) $s = shape()) {
-    $this->virtual_service = $virtual_service ?? ;
+    $this->virtual_service = $virtual_service ?? null;
   }
 }
 
@@ -1790,11 +1790,11 @@ class VirtualNodeData {
   ?'status' => VirtualNodeStatus,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->spec = $spec ?? ;
-    $this->status = $status ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->metadata = $metadata ?? null;
+    $this->spec = $spec ?? null;
+    $this->status = $status ?? null;
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -1814,11 +1814,11 @@ class VirtualNodeRef {
   ?'resource_owner' => AccountId,
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -1828,7 +1828,7 @@ class VirtualNodeServiceProvider {
   public function __construct(shape(
   ?'virtual_node_name' => ResourceName,
   ) $s = shape()) {
-    $this->virtual_node_name = $virtual_node_name ?? ;
+    $this->virtual_node_name = $virtual_node_name ?? "";
   }
 }
 
@@ -1846,11 +1846,11 @@ class VirtualNodeSpec {
   ?'logging' => Logging,
   ?'service_discovery' => ServiceDiscovery,
   ) $s = shape()) {
-    $this->backend_defaults = $backend_defaults ?? ;
-    $this->backends = $backends ?? ;
-    $this->listeners = $listeners ?? ;
-    $this->logging = $logging ?? ;
-    $this->service_discovery = $service_discovery ?? ;
+    $this->backend_defaults = $backend_defaults ?? null;
+    $this->backends = $backends ?? [];
+    $this->listeners = $listeners ?? [];
+    $this->logging = $logging ?? null;
+    $this->service_discovery = $service_discovery ?? null;
   }
 }
 
@@ -1860,7 +1860,7 @@ class VirtualNodeStatus {
   public function __construct(shape(
   ?'status' => VirtualNodeStatusCode,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1880,11 +1880,11 @@ class VirtualRouterData {
   ?'status' => VirtualRouterStatus,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->spec = $spec ?? ;
-    $this->status = $status ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->metadata = $metadata ?? null;
+    $this->spec = $spec ?? null;
+    $this->status = $status ?? null;
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1896,7 +1896,7 @@ class VirtualRouterListener {
   public function __construct(shape(
   ?'port_mapping' => PortMapping,
   ) $s = shape()) {
-    $this->port_mapping = $port_mapping ?? ;
+    $this->port_mapping = $port_mapping ?? null;
   }
 }
 
@@ -1916,11 +1916,11 @@ class VirtualRouterRef {
   ?'resource_owner' => AccountId,
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1930,7 +1930,7 @@ class VirtualRouterServiceProvider {
   public function __construct(shape(
   ?'virtual_router_name' => ResourceName,
   ) $s = shape()) {
-    $this->virtual_router_name = $virtual_router_name ?? ;
+    $this->virtual_router_name = $virtual_router_name ?? "";
   }
 }
 
@@ -1940,7 +1940,7 @@ class VirtualRouterSpec {
   public function __construct(shape(
   ?'listeners' => VirtualRouterListeners,
   ) $s = shape()) {
-    $this->listeners = $listeners ?? ;
+    $this->listeners = $listeners ?? [];
   }
 }
 
@@ -1950,7 +1950,7 @@ class VirtualRouterStatus {
   public function __construct(shape(
   ?'status' => VirtualRouterStatusCode,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1964,8 +1964,8 @@ class VirtualServiceBackend {
   ?'client_policy' => ClientPolicy,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->client_policy = $client_policy ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->client_policy = $client_policy ?? null;
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -1983,11 +1983,11 @@ class VirtualServiceData {
   ?'status' => VirtualServiceStatus,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->mesh_name = $mesh_name ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->spec = $spec ?? ;
-    $this->status = $status ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->mesh_name = $mesh_name ?? "";
+    $this->metadata = $metadata ?? null;
+    $this->spec = $spec ?? null;
+    $this->status = $status ?? null;
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -2001,8 +2001,8 @@ class VirtualServiceProvider {
   ?'virtual_node' => VirtualNodeServiceProvider,
   ?'virtual_router' => VirtualRouterServiceProvider,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
-    $this->virtual_router = $virtual_router ?? ;
+    $this->virtual_node = $virtual_node ?? null;
+    $this->virtual_router = $virtual_router ?? null;
   }
 }
 
@@ -2020,11 +2020,11 @@ class VirtualServiceRef {
   ?'resource_owner' => AccountId,
   ?'virtual_service_name' => ServiceName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->mesh_name = $mesh_name ?? ;
-    $this->mesh_owner = $mesh_owner ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->virtual_service_name = $virtual_service_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->mesh_name = $mesh_name ?? "";
+    $this->mesh_owner = $mesh_owner ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->virtual_service_name = $virtual_service_name ?? "";
   }
 }
 
@@ -2034,7 +2034,7 @@ class VirtualServiceSpec {
   public function __construct(shape(
   ?'provider' => VirtualServiceProvider,
   ) $s = shape()) {
-    $this->provider = $provider ?? ;
+    $this->provider = $provider ?? null;
   }
 }
 
@@ -2044,7 +2044,7 @@ class VirtualServiceStatus {
   public function __construct(shape(
   ?'status' => VirtualServiceStatusCode,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2058,8 +2058,8 @@ class WeightedTarget {
   ?'virtual_node' => ResourceName,
   ?'weight' => PercentInt,
   ) $s = shape()) {
-    $this->virtual_node = $virtual_node ?? ;
-    $this->weight = $weight ?? ;
+    $this->virtual_node = $virtual_node ?? "";
+    $this->weight = $weight ?? 0;
   }
 }
 

@@ -48,18 +48,18 @@ class Application {
   ?'verified_author_url' => __string,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->is_verified_author = $is_verified_author ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->verified_author_url = $verified_author_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->is_verified_author = $is_verified_author ?? false;
+    $this->labels = $labels ?? [];
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->verified_author_url = $verified_author_url ?? "";
     $this->version = $version ?? null;
   }
 }
@@ -72,8 +72,8 @@ class ApplicationDependencyPage {
   ?'dependencies' => __listOfApplicationDependencySummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->dependencies = $dependencies ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dependencies = $dependencies ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -85,8 +85,8 @@ class ApplicationDependencySummary {
   ?'application_id' => __string,
   ?'semantic_version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
   }
 }
 
@@ -98,8 +98,8 @@ class ApplicationPage {
   ?'applications' => __listOfApplicationSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->applications = $applications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->applications = $applications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -109,7 +109,7 @@ class ApplicationPolicy {
   public function __construct(shape(
   ?'statements' => __listOfApplicationPolicyStatement,
   ) $s = shape()) {
-    $this->statements = $statements ?? ;
+    $this->statements = $statements ?? [];
   }
 }
 
@@ -125,10 +125,10 @@ class ApplicationPolicyStatement {
   ?'principals' => __listOf__string,
   ?'statement_id' => __string,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->principal_org_i_ds = $principal_org_i_ds ?? ;
-    $this->principals = $principals ?? ;
-    $this->statement_id = $statement_id ?? ;
+    $this->actions = $actions ?? [];
+    $this->principal_org_i_ds = $principal_org_i_ds ?? [];
+    $this->principals = $principals ?? [];
+    $this->statement_id = $statement_id ?? "";
   }
 }
 
@@ -152,14 +152,14 @@ class ApplicationSummary {
   ?'name' => __string,
   ?'spdx_license_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->labels = $labels ?? ;
-    $this->name = $name ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->labels = $labels ?? [];
+    $this->name = $name ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
   }
 }
 
@@ -171,8 +171,8 @@ class ApplicationVersionPage {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -184,8 +184,8 @@ class BadRequestException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -203,10 +203,10 @@ class ChangeSetDetails {
   ?'semantic_version' => __string,
   ?'stack_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->change_set_id = $change_set_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->change_set_id = $change_set_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -218,8 +218,8 @@ class ConflictException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -257,21 +257,21 @@ class CreateApplicationInput {
   ?'template_body' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->author = $author ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_body = $license_body ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_body = $readme_body ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->template_body = $template_body ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->author = $author ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->labels = $labels ?? [];
+    $this->license_body = $license_body ?? "";
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_body = $readme_body ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->template_body = $template_body ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -309,21 +309,21 @@ class CreateApplicationRequest {
   ?'template_body' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->author = $author ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_body = $license_body ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_body = $readme_body ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->template_body = $template_body ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->author = $author ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->labels = $labels ?? [];
+    $this->license_body = $license_body ?? "";
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_body = $readme_body ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->template_body = $template_body ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -357,18 +357,18 @@ class CreateApplicationResponse {
   ?'verified_author_url' => __string,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->is_verified_author = $is_verified_author ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->verified_author_url = $verified_author_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->is_verified_author = $is_verified_author ?? false;
+    $this->labels = $labels ?? [];
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->verified_author_url = $verified_author_url ?? "";
     $this->version = $version ?? null;
   }
 }
@@ -385,10 +385,10 @@ class CreateApplicationVersionInput {
   ?'template_body' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->template_body = $template_body ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->template_body = $template_body ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -408,12 +408,12 @@ class CreateApplicationVersionRequest {
   ?'template_body' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->template_body = $template_body ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->template_body = $template_body ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -439,15 +439,15 @@ class CreateApplicationVersionResponse {
   ?'source_code_url' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->parameter_definitions = $parameter_definitions ?? ;
-    $this->required_capabilities = $required_capabilities ?? ;
-    $this->resources_supported = $resources_supported ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->parameter_definitions = $parameter_definitions ?? [];
+    $this->required_capabilities = $required_capabilities ?? [];
+    $this->resources_supported = $resources_supported ?? false;
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -479,18 +479,18 @@ class CreateCloudFormationChangeSetInput {
   ?'tags' => __listOfTag,
   ?'template_id' => __string,
   ) $s = shape()) {
-    $this->capabilities = $capabilities ?? ;
-    $this->change_set_name = $change_set_name ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->notification_arns = $notification_arns ?? ;
-    $this->parameter_overrides = $parameter_overrides ?? ;
-    $this->resource_types = $resource_types ?? ;
+    $this->capabilities = $capabilities ?? [];
+    $this->change_set_name = $change_set_name ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->notification_arns = $notification_arns ?? [];
+    $this->parameter_overrides = $parameter_overrides ?? [];
+    $this->resource_types = $resource_types ?? [];
     $this->rollback_configuration = $rollback_configuration ?? null;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->stack_name = $stack_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->semantic_version = $semantic_version ?? "";
+    $this->stack_name = $stack_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -524,19 +524,19 @@ class CreateCloudFormationChangeSetRequest {
   ?'tags' => __listOfTag,
   ?'template_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->capabilities = $capabilities ?? ;
-    $this->change_set_name = $change_set_name ?? ;
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->notification_arns = $notification_arns ?? ;
-    $this->parameter_overrides = $parameter_overrides ?? ;
-    $this->resource_types = $resource_types ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->capabilities = $capabilities ?? [];
+    $this->change_set_name = $change_set_name ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->notification_arns = $notification_arns ?? [];
+    $this->parameter_overrides = $parameter_overrides ?? [];
+    $this->resource_types = $resource_types ?? [];
     $this->rollback_configuration = $rollback_configuration ?? null;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->stack_name = $stack_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->semantic_version = $semantic_version ?? "";
+    $this->stack_name = $stack_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -552,10 +552,10 @@ class CreateCloudFormationChangeSetResponse {
   ?'semantic_version' => __string,
   ?'stack_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->change_set_id = $change_set_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->change_set_id = $change_set_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -567,8 +567,8 @@ class CreateCloudFormationTemplateRequest {
   ?'application_id' => __string,
   ?'semantic_version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
   }
 }
 
@@ -590,13 +590,13 @@ class CreateCloudFormationTemplateResponse {
   ?'template_id' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->expiration_time = $expiration_time ?? "";
+    $this->semantic_version = $semantic_version ?? "";
     $this->status = $status ?? "";
-    $this->template_id = $template_id ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->template_id = $template_id ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -606,7 +606,7 @@ class DeleteApplicationRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -618,8 +618,8 @@ class ForbiddenException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -629,7 +629,7 @@ class GetApplicationPolicyRequest {
   public function __construct(shape(
   ?'application_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -639,7 +639,7 @@ class GetApplicationPolicyResponse {
   public function __construct(shape(
   ?'statements' => __listOfApplicationPolicyStatement,
   ) $s = shape()) {
-    $this->statements = $statements ?? ;
+    $this->statements = $statements ?? [];
   }
 }
 
@@ -651,8 +651,8 @@ class GetApplicationRequest {
   ?'application_id' => __string,
   ?'semantic_version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->semantic_version = $semantic_version ?? "";
   }
 }
 
@@ -686,18 +686,18 @@ class GetApplicationResponse {
   ?'verified_author_url' => __string,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->is_verified_author = $is_verified_author ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->verified_author_url = $verified_author_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->is_verified_author = $is_verified_author ?? false;
+    $this->labels = $labels ?? [];
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->verified_author_url = $verified_author_url ?? "";
     $this->version = $version ?? null;
   }
 }
@@ -710,8 +710,8 @@ class GetCloudFormationTemplateRequest {
   ?'application_id' => __string,
   ?'template_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->template_id = $template_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->template_id = $template_id ?? "";
   }
 }
 
@@ -733,13 +733,13 @@ class GetCloudFormationTemplateResponse {
   ?'template_id' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->expiration_time = $expiration_time ?? "";
+    $this->semantic_version = $semantic_version ?? "";
     $this->status = $status ?? "";
-    $this->template_id = $template_id ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->template_id = $template_id ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -751,8 +751,8 @@ class InternalServerErrorException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -768,10 +768,10 @@ class ListApplicationDependenciesRequest {
   ?'next_token' => __string,
   ?'semantic_version' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->max_items = $max_items ?? 0;
-    $this->next_token = $next_token ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->semantic_version = $semantic_version ?? "";
   }
 }
 
@@ -783,8 +783,8 @@ class ListApplicationDependenciesResponse {
   ?'dependencies' => __listOfApplicationDependencySummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->dependencies = $dependencies ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dependencies = $dependencies ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -798,9 +798,9 @@ class ListApplicationVersionsRequest {
   ?'max_items' => MaxItems,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->max_items = $max_items ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -812,8 +812,8 @@ class ListApplicationVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionSummary,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -826,7 +826,7 @@ class ListApplicationsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_items = $max_items ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -838,8 +838,8 @@ class ListApplicationsResponse {
   ?'applications' => __listOfApplicationSummary,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->applications = $applications ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->applications = $applications ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -853,8 +853,8 @@ class NotFoundException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -888,19 +888,19 @@ class ParameterDefinition {
   ?'referenced_by_resources' => __listOf__string,
   ?'type' => __string,
   ) $s = shape()) {
-    $this->allowed_pattern = $allowed_pattern ?? ;
-    $this->allowed_values = $allowed_values ?? ;
-    $this->constraint_description = $constraint_description ?? ;
-    $this->default_value = $default_value ?? ;
-    $this->description = $description ?? ;
-    $this->max_length = $max_length ?? ;
-    $this->max_value = $max_value ?? ;
-    $this->min_length = $min_length ?? ;
-    $this->min_value = $min_value ?? ;
-    $this->name = $name ?? ;
-    $this->no_echo = $no_echo ?? ;
-    $this->referenced_by_resources = $referenced_by_resources ?? ;
-    $this->type = $type ?? ;
+    $this->allowed_pattern = $allowed_pattern ?? "";
+    $this->allowed_values = $allowed_values ?? [];
+    $this->constraint_description = $constraint_description ?? "";
+    $this->default_value = $default_value ?? "";
+    $this->description = $description ?? "";
+    $this->max_length = $max_length ?? 0;
+    $this->max_value = $max_value ?? 0;
+    $this->min_length = $min_length ?? 0;
+    $this->min_value = $min_value ?? 0;
+    $this->name = $name ?? "";
+    $this->no_echo = $no_echo ?? false;
+    $this->referenced_by_resources = $referenced_by_resources ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -912,8 +912,8 @@ class ParameterValue {
   ?'name' => __string,
   ?'value' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -925,8 +925,8 @@ class PutApplicationPolicyRequest {
   ?'application_id' => __string,
   ?'statements' => __listOfApplicationPolicyStatement,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->statements = $statements ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->statements = $statements ?? [];
   }
 }
 
@@ -936,7 +936,7 @@ class PutApplicationPolicyResponse {
   public function __construct(shape(
   ?'statements' => __listOfApplicationPolicyStatement,
   ) $s = shape()) {
-    $this->statements = $statements ?? ;
+    $this->statements = $statements ?? [];
   }
 }
 
@@ -948,8 +948,8 @@ class RollbackConfiguration {
   ?'monitoring_time_in_minutes' => __integer,
   ?'rollback_triggers' => __listOfRollbackTrigger,
   ) $s = shape()) {
-    $this->monitoring_time_in_minutes = $monitoring_time_in_minutes ?? ;
-    $this->rollback_triggers = $rollback_triggers ?? ;
+    $this->monitoring_time_in_minutes = $monitoring_time_in_minutes ?? 0;
+    $this->rollback_triggers = $rollback_triggers ?? [];
   }
 }
 
@@ -961,8 +961,8 @@ class RollbackTrigger {
   ?'arn' => __string,
   ?'type' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -976,8 +976,8 @@ class Tag {
   ?'key' => __string,
   ?'value' => __string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -999,13 +999,13 @@ class TemplateDetails {
   ?'template_id' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->semantic_version = $semantic_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->expiration_time = $expiration_time ?? "";
+    $this->semantic_version = $semantic_version ?? "";
     $this->status = $status ?? "";
-    $this->template_id = $template_id ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->template_id = $template_id ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -1017,8 +1017,8 @@ class TooManyRequestsException {
   ?'error_code' => __string,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1028,7 +1028,7 @@ class UnshareApplicationInput {
   public function __construct(shape(
   ?'organization_id' => __string,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? ;
+    $this->organization_id = $organization_id ?? "";
   }
 }
 
@@ -1040,8 +1040,8 @@ class UnshareApplicationRequest {
   ?'application_id' => __string,
   ?'organization_id' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->organization_id = $organization_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->organization_id = $organization_id ?? "";
   }
 }
 
@@ -1061,12 +1061,12 @@ class UpdateApplicationInput {
   ?'readme_body' => __string,
   ?'readme_url' => __string,
   ) $s = shape()) {
-    $this->author = $author ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->labels = $labels ?? ;
-    $this->readme_body = $readme_body ?? ;
-    $this->readme_url = $readme_url ?? ;
+    $this->author = $author ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->labels = $labels ?? [];
+    $this->readme_body = $readme_body ?? "";
+    $this->readme_url = $readme_url ?? "";
   }
 }
 
@@ -1088,13 +1088,13 @@ class UpdateApplicationRequest {
   ?'readme_body' => __string,
   ?'readme_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->labels = $labels ?? ;
-    $this->readme_body = $readme_body ?? ;
-    $this->readme_url = $readme_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->labels = $labels ?? [];
+    $this->readme_body = $readme_body ?? "";
+    $this->readme_url = $readme_url ?? "";
   }
 }
 
@@ -1128,18 +1128,18 @@ class UpdateApplicationResponse {
   ?'verified_author_url' => __string,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->author = $author ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->home_page_url = $home_page_url ?? ;
-    $this->is_verified_author = $is_verified_author ?? ;
-    $this->labels = $labels ?? ;
-    $this->license_url = $license_url ?? ;
-    $this->name = $name ?? ;
-    $this->readme_url = $readme_url ?? ;
-    $this->spdx_license_id = $spdx_license_id ?? ;
-    $this->verified_author_url = $verified_author_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->author = $author ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->description = $description ?? "";
+    $this->home_page_url = $home_page_url ?? "";
+    $this->is_verified_author = $is_verified_author ?? false;
+    $this->labels = $labels ?? [];
+    $this->license_url = $license_url ?? "";
+    $this->name = $name ?? "";
+    $this->readme_url = $readme_url ?? "";
+    $this->spdx_license_id = $spdx_license_id ?? "";
+    $this->verified_author_url = $verified_author_url ?? "";
     $this->version = $version ?? null;
   }
 }
@@ -1166,15 +1166,15 @@ class Version {
   ?'source_code_url' => __string,
   ?'template_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->parameter_definitions = $parameter_definitions ?? ;
-    $this->required_capabilities = $required_capabilities ?? ;
-    $this->resources_supported = $resources_supported ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_archive_url = $source_code_archive_url ?? ;
-    $this->source_code_url = $source_code_url ?? ;
-    $this->template_url = $template_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->parameter_definitions = $parameter_definitions ?? [];
+    $this->required_capabilities = $required_capabilities ?? [];
+    $this->resources_supported = $resources_supported ?? false;
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_archive_url = $source_code_archive_url ?? "";
+    $this->source_code_url = $source_code_url ?? "";
+    $this->template_url = $template_url ?? "";
   }
 }
 
@@ -1190,10 +1190,10 @@ class VersionSummary {
   ?'semantic_version' => __string,
   ?'source_code_url' => __string,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->semantic_version = $semantic_version ?? ;
-    $this->source_code_url = $source_code_url ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->creation_time = $creation_time ?? "";
+    $this->semantic_version = $semantic_version ?? "";
+    $this->source_code_url = $source_code_url ?? "";
   }
 }
 

@@ -55,8 +55,8 @@ class AssociateKmsKeyRequest {
   ?'kms_key_id' => KmsKeyId,
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_group_name = $log_group_name ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class CancelExportTaskRequest {
   public function __construct(shape(
   ?'task_id' => ExportTaskId,
   ) $s = shape()) {
-    $this->task_id = $task_id ?? ;
+    $this->task_id = $task_id ?? "";
   }
 }
 
@@ -88,13 +88,13 @@ class CreateExportTaskRequest {
   ?'task_name' => ExportTaskName,
   ?'to' => Timestamp,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->destination_prefix = $destination_prefix ?? ;
-    $this->from = $from ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name_prefix = $log_stream_name_prefix ?? ;
-    $this->task_name = $task_name ?? ;
-    $this->to = $to ?? ;
+    $this->destination = $destination ?? "";
+    $this->destination_prefix = $destination_prefix ?? "";
+    $this->from = $from ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name_prefix = $log_stream_name_prefix ?? "";
+    $this->task_name = $task_name ?? "";
+    $this->to = $to ?? 0;
   }
 }
 
@@ -104,7 +104,7 @@ class CreateExportTaskResponse {
   public function __construct(shape(
   ?'task_id' => ExportTaskId,
   ) $s = shape()) {
-    $this->task_id = $task_id ?? ;
+    $this->task_id = $task_id ?? "";
   }
 }
 
@@ -118,9 +118,9 @@ class CreateLogGroupRequest {
   ?'log_group_name' => LogGroupName,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -132,8 +132,8 @@ class CreateLogStreamRequest {
   ?'log_group_name' => LogGroupName,
   ?'log_stream_name' => LogStreamName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name = $log_stream_name ?? "";
   }
 }
 
@@ -143,7 +143,7 @@ class DataAlreadyAcceptedException {
   public function __construct(shape(
   ?'expected_sequence_token' => SequenceToken,
   ) $s = shape()) {
-    $this->expected_sequence_token = $expected_sequence_token ?? ;
+    $this->expected_sequence_token = $expected_sequence_token ?? "";
   }
 }
 
@@ -157,7 +157,7 @@ class DeleteDestinationRequest {
   public function __construct(shape(
   ?'destination_name' => DestinationName,
   ) $s = shape()) {
-    $this->destination_name = $destination_name ?? ;
+    $this->destination_name = $destination_name ?? "";
   }
 }
 
@@ -167,7 +167,7 @@ class DeleteLogGroupRequest {
   public function __construct(shape(
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -179,8 +179,8 @@ class DeleteLogStreamRequest {
   ?'log_group_name' => LogGroupName,
   ?'log_stream_name' => LogStreamName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name = $log_stream_name ?? "";
   }
 }
 
@@ -192,8 +192,8 @@ class DeleteMetricFilterRequest {
   ?'filter_name' => FilterName,
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->filter_name = $filter_name ?? ;
-    $this->log_group_name = $log_group_name ?? ;
+    $this->filter_name = $filter_name ?? "";
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -203,7 +203,7 @@ class DeleteResourcePolicyRequest {
   public function __construct(shape(
   ?'policy_name' => PolicyName,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -213,7 +213,7 @@ class DeleteRetentionPolicyRequest {
   public function __construct(shape(
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -225,8 +225,8 @@ class DeleteSubscriptionFilterRequest {
   ?'filter_name' => FilterName,
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->filter_name = $filter_name ?? ;
-    $this->log_group_name = $log_group_name ?? ;
+    $this->filter_name = $filter_name ?? "";
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -242,9 +242,9 @@ class DescribeDestinationsRequest {
   ?'limit' => DescribeLimit,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->destination_name_prefix = $destination_name_prefix ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->destination_name_prefix = $destination_name_prefix ?? "";
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -256,8 +256,8 @@ class DescribeDestinationsResponse {
   ?'destinations' => Destinations,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->destinations = $destinations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->destinations = $destinations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -273,10 +273,10 @@ class DescribeExportTasksRequest {
   ?'status_code' => ExportTaskStatusCode,
   ?'task_id' => ExportTaskId,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status_code = $status_code ?? ;
-    $this->task_id = $task_id ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status_code = $status_code ?? "";
+    $this->task_id = $task_id ?? "";
   }
 }
 
@@ -288,8 +288,8 @@ class DescribeExportTasksResponse {
   ?'export_tasks' => ExportTasks,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->export_tasks = $export_tasks ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->export_tasks = $export_tasks ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -305,9 +305,9 @@ class DescribeLogGroupsRequest {
   ?'log_group_name_prefix' => LogGroupName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->log_group_name_prefix = $log_group_name_prefix ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->log_group_name_prefix = $log_group_name_prefix ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -319,8 +319,8 @@ class DescribeLogGroupsResponse {
   ?'log_groups' => LogGroups,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->log_groups = $log_groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->log_groups = $log_groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -340,12 +340,12 @@ class DescribeLogStreamsRequest {
   ?'next_token' => NextToken,
   ?'order_by' => OrderBy,
   ) $s = shape()) {
-    $this->descending = $descending ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name_prefix = $log_stream_name_prefix ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->order_by = $order_by ?? ;
+    $this->descending = $descending ?? false;
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name_prefix = $log_stream_name_prefix ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->order_by = $order_by ?? "";
   }
 }
 
@@ -357,8 +357,8 @@ class DescribeLogStreamsResponse {
   ?'log_streams' => LogStreams,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->log_streams = $log_streams ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->log_streams = $log_streams ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -378,12 +378,12 @@ class DescribeMetricFiltersRequest {
   ?'metric_namespace' => MetricNamespace,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter_name_prefix = $filter_name_prefix ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->metric_namespace = $metric_namespace ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter_name_prefix = $filter_name_prefix ?? "";
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->metric_name = $metric_name ?? "";
+    $this->metric_namespace = $metric_namespace ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -395,8 +395,8 @@ class DescribeMetricFiltersResponse {
   ?'metric_filters' => MetricFilters,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->metric_filters = $metric_filters ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->metric_filters = $metric_filters ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -414,10 +414,10 @@ class DescribeQueriesRequest {
   ?'next_token' => NextToken,
   ?'status' => QueryStatus,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -429,8 +429,8 @@ class DescribeQueriesResponse {
   ?'next_token' => NextToken,
   ?'queries' => QueryInfoList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->queries = $queries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->queries = $queries ?? [];
   }
 }
 
@@ -442,8 +442,8 @@ class DescribeResourcePoliciesRequest {
   ?'limit' => DescribeLimit,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -455,8 +455,8 @@ class DescribeResourcePoliciesResponse {
   ?'next_token' => NextToken,
   ?'resource_policies' => ResourcePolicies,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_policies = $resource_policies ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_policies = $resource_policies ?? [];
   }
 }
 
@@ -472,10 +472,10 @@ class DescribeSubscriptionFiltersRequest {
   ?'log_group_name' => LogGroupName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter_name_prefix = $filter_name_prefix ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter_name_prefix = $filter_name_prefix ?? "";
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -487,8 +487,8 @@ class DescribeSubscriptionFiltersResponse {
   ?'next_token' => NextToken,
   ?'subscription_filters' => SubscriptionFilters,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subscription_filters = $subscription_filters ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subscription_filters = $subscription_filters ?? [];
   }
 }
 
@@ -508,12 +508,12 @@ class Destination {
   ?'role_arn' => RoleArn,
   ?'target_arn' => TargetArn,
   ) $s = shape()) {
-    $this->access_policy = $access_policy ?? ;
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->destination_name = $destination_name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->target_arn = $target_arn ?? ;
+    $this->access_policy = $access_policy ?? "";
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->destination_name = $destination_name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->target_arn = $target_arn ?? "";
   }
 }
 
@@ -529,7 +529,7 @@ class DisassociateKmsKeyRequest {
   public function __construct(shape(
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -569,15 +569,15 @@ class ExportTask {
   ?'task_name' => ExportTaskName,
   ?'to' => Timestamp,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->destination_prefix = $destination_prefix ?? ;
-    $this->execution_info = $execution_info ?? ;
-    $this->from = $from ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->status = $status ?? ;
-    $this->task_id = $task_id ?? ;
-    $this->task_name = $task_name ?? ;
-    $this->to = $to ?? ;
+    $this->destination = $destination ?? "";
+    $this->destination_prefix = $destination_prefix ?? "";
+    $this->execution_info = $execution_info ?? null;
+    $this->from = $from ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->status = $status ?? null;
+    $this->task_id = $task_id ?? "";
+    $this->task_name = $task_name ?? "";
+    $this->to = $to ?? 0;
   }
 }
 
@@ -589,8 +589,8 @@ class ExportTaskExecutionInfo {
   ?'completion_time' => Timestamp,
   ?'creation_time' => Timestamp,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->completion_time = $completion_time ?? 0;
+    $this->creation_time = $creation_time ?? 0;
   }
 }
 
@@ -606,8 +606,8 @@ class ExportTaskStatus {
   ?'code' => ExportTaskStatusCode,
   ?'message' => ExportTaskStatusMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -645,15 +645,15 @@ class FilterLogEventsRequest {
   ?'next_token' => NextToken,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->interleaved = $interleaved ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name_prefix = $log_stream_name_prefix ?? ;
-    $this->log_stream_names = $log_stream_names ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->interleaved = $interleaved ?? false;
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name_prefix = $log_stream_name_prefix ?? "";
+    $this->log_stream_names = $log_stream_names ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -667,9 +667,9 @@ class FilterLogEventsResponse {
   ?'next_token' => NextToken,
   ?'searched_log_streams' => SearchedLogStreams,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->searched_log_streams = $searched_log_streams ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->searched_log_streams = $searched_log_streams ?? [];
   }
 }
 
@@ -691,11 +691,11 @@ class FilteredLogEvent {
   ?'message' => EventMessage,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? ;
-    $this->ingestion_time = $ingestion_time ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->message = $message ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->event_id = $event_id ?? "";
+    $this->ingestion_time = $ingestion_time ?? 0;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->message = $message ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -719,13 +719,13 @@ class GetLogEventsRequest {
   ?'start_from_head' => StartFromHead,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_from_head = $start_from_head ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->start_from_head = $start_from_head ?? false;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -739,9 +739,9 @@ class GetLogEventsResponse {
   ?'next_backward_token' => NextToken,
   ?'next_forward_token' => NextToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_backward_token = $next_backward_token ?? ;
-    $this->next_forward_token = $next_forward_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_backward_token = $next_backward_token ?? "";
+    $this->next_forward_token = $next_forward_token ?? "";
   }
 }
 
@@ -753,8 +753,8 @@ class GetLogGroupFieldsRequest {
   ?'log_group_name' => LogGroupName,
   ?'time' => Timestamp,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->time = $time ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->time = $time ?? 0;
   }
 }
 
@@ -764,7 +764,7 @@ class GetLogGroupFieldsResponse {
   public function __construct(shape(
   ?'log_group_fields' => LogGroupFieldList,
   ) $s = shape()) {
-    $this->log_group_fields = $log_group_fields ?? ;
+    $this->log_group_fields = $log_group_fields ?? [];
   }
 }
 
@@ -774,7 +774,7 @@ class GetLogRecordRequest {
   public function __construct(shape(
   ?'log_record_pointer' => LogRecordPointer,
   ) $s = shape()) {
-    $this->log_record_pointer = $log_record_pointer ?? ;
+    $this->log_record_pointer = $log_record_pointer ?? "";
   }
 }
 
@@ -784,7 +784,7 @@ class GetLogRecordResponse {
   public function __construct(shape(
   ?'log_record' => LogRecord,
   ) $s = shape()) {
-    $this->log_record = $log_record ?? ;
+    $this->log_record = $log_record ?? [];
   }
 }
 
@@ -794,7 +794,7 @@ class GetQueryResultsRequest {
   public function __construct(shape(
   ?'query_id' => QueryId,
   ) $s = shape()) {
-    $this->query_id = $query_id ?? ;
+    $this->query_id = $query_id ?? "";
   }
 }
 
@@ -808,9 +808,9 @@ class GetQueryResultsResponse {
   ?'statistics' => QueryStatistics,
   ?'status' => QueryStatus,
   ) $s = shape()) {
-    $this->results = $results ?? ;
-    $this->statistics = $statistics ?? ;
-    $this->status = $status ?? ;
+    $this->results = $results ?? [];
+    $this->statistics = $statistics ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -822,8 +822,8 @@ class InputLogEvent {
   ?'message' => EventMessage,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->message = $message ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -853,7 +853,7 @@ class InvalidSequenceTokenException {
   public function __construct(shape(
   ?'expected_sequence_token' => SequenceToken,
   ) $s = shape()) {
-    $this->expected_sequence_token = $expected_sequence_token ?? ;
+    $this->expected_sequence_token = $expected_sequence_token ?? "";
   }
 }
 
@@ -872,7 +872,7 @@ class ListTagsLogGroupRequest {
   public function __construct(shape(
   ?'log_group_name' => LogGroupName,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
+    $this->log_group_name = $log_group_name ?? "";
   }
 }
 
@@ -882,7 +882,7 @@ class ListTagsLogGroupResponse {
   public function __construct(shape(
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -906,13 +906,13 @@ class LogGroup {
   ?'retention_in_days' => Days,
   ?'stored_bytes' => StoredBytes,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->metric_filter_count = $metric_filter_count ?? ;
-    $this->retention_in_days = $retention_in_days ?? ;
-    $this->stored_bytes = $stored_bytes ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->metric_filter_count = $metric_filter_count ?? 0;
+    $this->retention_in_days = $retention_in_days ?? 0;
+    $this->stored_bytes = $stored_bytes ?? 0;
   }
 }
 
@@ -924,8 +924,8 @@ class LogGroupField {
   ?'name' => Field,
   ?'percent' => Percentage,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->percent = $percent ?? ;
+    $this->name = $name ?? "";
+    $this->percent = $percent ?? 0;
   }
 }
 
@@ -961,14 +961,14 @@ class LogStream {
   ?'stored_bytes' => StoredBytes,
   ?'upload_sequence_token' => SequenceToken,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->first_event_timestamp = $first_event_timestamp ?? ;
-    $this->last_event_timestamp = $last_event_timestamp ?? ;
-    $this->last_ingestion_time = $last_ingestion_time ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->stored_bytes = $stored_bytes ?? ;
-    $this->upload_sequence_token = $upload_sequence_token ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->first_event_timestamp = $first_event_timestamp ?? 0;
+    $this->last_event_timestamp = $last_event_timestamp ?? 0;
+    $this->last_ingestion_time = $last_ingestion_time ?? 0;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->stored_bytes = $stored_bytes ?? 0;
+    $this->upload_sequence_token = $upload_sequence_token ?? "";
   }
 }
 
@@ -984,7 +984,7 @@ class MalformedQueryException {
   public function __construct(shape(
   ?'query_compile_error' => QueryCompileError,
   ) $s = shape()) {
-    $this->query_compile_error = $query_compile_error ?? ;
+    $this->query_compile_error = $query_compile_error ?? null;
   }
 }
 
@@ -1004,11 +1004,11 @@ class MetricFilter {
   ?'log_group_name' => LogGroupName,
   ?'metric_transformations' => MetricTransformations,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->filter_name = $filter_name ?? ;
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->metric_transformations = $metric_transformations ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->filter_name = $filter_name ?? "";
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->metric_transformations = $metric_transformations ?? [];
   }
 }
 
@@ -1022,9 +1022,9 @@ class MetricFilterMatchRecord {
   ?'event_number' => EventNumber,
   ?'extracted_values' => ExtractedValues,
   ) $s = shape()) {
-    $this->event_message = $event_message ?? ;
-    $this->event_number = $event_number ?? ;
-    $this->extracted_values = $extracted_values ?? ;
+    $this->event_message = $event_message ?? "";
+    $this->event_number = $event_number ?? 0;
+    $this->extracted_values = $extracted_values ?? [];
   }
 }
 
@@ -1048,10 +1048,10 @@ class MetricTransformation {
   ?'metric_namespace' => MetricNamespace,
   ?'metric_value' => MetricValue,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->metric_namespace = $metric_namespace ?? ;
-    $this->metric_value = $metric_value ?? ;
+    $this->default_value = $default_value ?? 0.0;
+    $this->metric_name = $metric_name ?? "";
+    $this->metric_namespace = $metric_namespace ?? "";
+    $this->metric_value = $metric_value ?? "";
   }
 }
 
@@ -1080,9 +1080,9 @@ class OutputLogEvent {
   ?'message' => EventMessage,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->ingestion_time = $ingestion_time ?? ;
-    $this->message = $message ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->ingestion_time = $ingestion_time ?? 0;
+    $this->message = $message ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -1102,8 +1102,8 @@ class PutDestinationPolicyRequest {
   ?'access_policy' => AccessPolicy,
   ?'destination_name' => DestinationName,
   ) $s = shape()) {
-    $this->access_policy = $access_policy ?? ;
-    $this->destination_name = $destination_name ?? ;
+    $this->access_policy = $access_policy ?? "";
+    $this->destination_name = $destination_name ?? "";
   }
 }
 
@@ -1117,9 +1117,9 @@ class PutDestinationRequest {
   ?'role_arn' => RoleArn,
   ?'target_arn' => TargetArn,
   ) $s = shape()) {
-    $this->destination_name = $destination_name ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->target_arn = $target_arn ?? ;
+    $this->destination_name = $destination_name ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->target_arn = $target_arn ?? "";
   }
 }
 
@@ -1129,7 +1129,7 @@ class PutDestinationResponse {
   public function __construct(shape(
   ?'destination' => Destination,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
+    $this->destination = $destination ?? null;
   }
 }
 
@@ -1145,10 +1145,10 @@ class PutLogEventsRequest {
   ?'log_stream_name' => LogStreamName,
   ?'sequence_token' => SequenceToken,
   ) $s = shape()) {
-    $this->log_events = $log_events ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->sequence_token = $sequence_token ?? ;
+    $this->log_events = $log_events ?? [];
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->sequence_token = $sequence_token ?? "";
   }
 }
 
@@ -1160,8 +1160,8 @@ class PutLogEventsResponse {
   ?'next_sequence_token' => SequenceToken,
   ?'rejected_log_events_info' => RejectedLogEventsInfo,
   ) $s = shape()) {
-    $this->next_sequence_token = $next_sequence_token ?? ;
-    $this->rejected_log_events_info = $rejected_log_events_info ?? ;
+    $this->next_sequence_token = $next_sequence_token ?? "";
+    $this->rejected_log_events_info = $rejected_log_events_info ?? null;
   }
 }
 
@@ -1177,10 +1177,10 @@ class PutMetricFilterRequest {
   ?'log_group_name' => LogGroupName,
   ?'metric_transformations' => MetricTransformations,
   ) $s = shape()) {
-    $this->filter_name = $filter_name ?? ;
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->metric_transformations = $metric_transformations ?? ;
+    $this->filter_name = $filter_name ?? "";
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->metric_transformations = $metric_transformations ?? [];
   }
 }
 
@@ -1192,8 +1192,8 @@ class PutResourcePolicyRequest {
   ?'policy_document' => PolicyDocument,
   ?'policy_name' => PolicyName,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1203,7 +1203,7 @@ class PutResourcePolicyResponse {
   public function __construct(shape(
   ?'resource_policy' => ResourcePolicy,
   ) $s = shape()) {
-    $this->resource_policy = $resource_policy ?? ;
+    $this->resource_policy = $resource_policy ?? null;
   }
 }
 
@@ -1215,8 +1215,8 @@ class PutRetentionPolicyRequest {
   ?'log_group_name' => LogGroupName,
   ?'retention_in_days' => Days,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->retention_in_days = $retention_in_days ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->retention_in_days = $retention_in_days ?? 0;
   }
 }
 
@@ -1236,12 +1236,12 @@ class PutSubscriptionFilterRequest {
   ?'log_group_name' => LogGroupName,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->destination_arn = $destination_arn ?? ;
-    $this->distribution = $distribution ?? ;
-    $this->filter_name = $filter_name ?? ;
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->destination_arn = $destination_arn ?? "";
+    $this->distribution = $distribution ?? "";
+    $this->filter_name = $filter_name ?? "";
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1255,8 +1255,8 @@ class QueryCompileError {
   ?'location' => QueryCompileErrorLocation,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->message = $message ?? ;
+    $this->location = $location ?? null;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1268,8 +1268,8 @@ class QueryCompileErrorLocation {
   ?'end_char_offset' => QueryCharOffset,
   ?'start_char_offset' => QueryCharOffset,
   ) $s = shape()) {
-    $this->end_char_offset = $end_char_offset ?? ;
-    $this->start_char_offset = $start_char_offset ?? ;
+    $this->end_char_offset = $end_char_offset ?? 0;
+    $this->start_char_offset = $start_char_offset ?? 0;
   }
 }
 
@@ -1289,11 +1289,11 @@ class QueryInfo {
   ?'query_string' => QueryString,
   ?'status' => QueryStatus,
   ) $s = shape()) {
-    $this->create_time = $create_time ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->query_id = $query_id ?? ;
-    $this->query_string = $query_string ?? ;
-    $this->status = $status ?? ;
+    $this->create_time = $create_time ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->query_id = $query_id ?? "";
+    $this->query_string = $query_string ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1311,9 +1311,9 @@ class QueryStatistics {
   ?'records_matched' => StatsValue,
   ?'records_scanned' => StatsValue,
   ) $s = shape()) {
-    $this->bytes_scanned = $bytes_scanned ?? ;
-    $this->records_matched = $records_matched ?? ;
-    $this->records_scanned = $records_scanned ?? ;
+    $this->bytes_scanned = $bytes_scanned ?? 0.0;
+    $this->records_matched = $records_matched ?? 0.0;
+    $this->records_scanned = $records_scanned ?? 0.0;
   }
 }
 
@@ -1331,9 +1331,9 @@ class RejectedLogEventsInfo {
   ?'too_new_log_event_start_index' => LogEventIndex,
   ?'too_old_log_event_end_index' => LogEventIndex,
   ) $s = shape()) {
-    $this->expired_log_event_end_index = $expired_log_event_end_index ?? ;
-    $this->too_new_log_event_start_index = $too_new_log_event_start_index ?? ;
-    $this->too_old_log_event_end_index = $too_old_log_event_end_index ?? ;
+    $this->expired_log_event_end_index = $expired_log_event_end_index ?? 0;
+    $this->too_new_log_event_start_index = $too_new_log_event_start_index ?? 0;
+    $this->too_old_log_event_end_index = $too_old_log_event_end_index ?? 0;
   }
 }
 
@@ -1363,9 +1363,9 @@ class ResourcePolicy {
   ?'policy_document' => PolicyDocument,
   ?'policy_name' => PolicyName,
   ) $s = shape()) {
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1377,8 +1377,8 @@ class ResultField {
   ?'field' => Field,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->field = $field ?? ;
-    $this->value = $value ?? ;
+    $this->field = $field ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1394,8 +1394,8 @@ class SearchedLogStream {
   ?'log_stream_name' => LogStreamName,
   ?'searched_completely' => LogStreamSearchedCompletely,
   ) $s = shape()) {
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->searched_completely = $searched_completely ?? ;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->searched_completely = $searched_completely ?? false;
   }
 }
 
@@ -1428,12 +1428,12 @@ class StartQueryRequest {
   ?'query_string' => QueryString,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->limit = $limit ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->log_group_names = $log_group_names ?? ;
-    $this->query_string = $query_string ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->limit = $limit ?? 0;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->log_group_names = $log_group_names ?? [];
+    $this->query_string = $query_string ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1443,7 +1443,7 @@ class StartQueryResponse {
   public function __construct(shape(
   ?'query_id' => QueryId,
   ) $s = shape()) {
-    $this->query_id = $query_id ?? ;
+    $this->query_id = $query_id ?? "";
   }
 }
 
@@ -1455,7 +1455,7 @@ class StopQueryRequest {
   public function __construct(shape(
   ?'query_id' => QueryId,
   ) $s = shape()) {
-    $this->query_id = $query_id ?? ;
+    $this->query_id = $query_id ?? "";
   }
 }
 
@@ -1465,7 +1465,7 @@ class StopQueryResponse {
   public function __construct(shape(
   ?'success' => Success,
   ) $s = shape()) {
-    $this->success = $success ?? ;
+    $this->success = $success ?? false;
   }
 }
 
@@ -1489,13 +1489,13 @@ class SubscriptionFilter {
   ?'log_group_name' => LogGroupName,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->destination_arn = $destination_arn ?? ;
-    $this->distribution = $distribution ?? ;
-    $this->filter_name = $filter_name ?? ;
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->log_group_name = $log_group_name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->destination_arn = $destination_arn ?? "";
+    $this->distribution = $distribution ?? "";
+    $this->filter_name = $filter_name ?? "";
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->log_group_name = $log_group_name ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1515,8 +1515,8 @@ class TagLogGroupRequest {
   ?'log_group_name' => LogGroupName,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1536,8 +1536,8 @@ class TestMetricFilterRequest {
   ?'filter_pattern' => FilterPattern,
   ?'log_event_messages' => TestEventMessages,
   ) $s = shape()) {
-    $this->filter_pattern = $filter_pattern ?? ;
-    $this->log_event_messages = $log_event_messages ?? ;
+    $this->filter_pattern = $filter_pattern ?? "";
+    $this->log_event_messages = $log_event_messages ?? [];
   }
 }
 
@@ -1547,7 +1547,7 @@ class TestMetricFilterResponse {
   public function __construct(shape(
   ?'matches' => MetricFilterMatches,
   ) $s = shape()) {
-    $this->matches = $matches ?? ;
+    $this->matches = $matches ?? [];
   }
 }
 
@@ -1570,8 +1570,8 @@ class UntagLogGroupRequest {
   ?'log_group_name' => LogGroupName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->log_group_name = $log_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->log_group_name = $log_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 

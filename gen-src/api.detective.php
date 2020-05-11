@@ -51,7 +51,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -75,9 +75,9 @@ class CreateMembersRequest {
   ?'graph_arn' => GraphArn,
   ?'message' => EmailMessage,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
+    $this->accounts = $accounts ?? [];
     $this->graph_arn = $graph_arn ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -89,8 +89,8 @@ class CreateMembersResponse {
   ?'members' => MemberDetailList,
   ?'unprocessed_accounts' => UnprocessedAccountList,
   ) $s = shape()) {
-    $this->members = $members ?? ;
-    $this->unprocessed_accounts = $unprocessed_accounts ?? ;
+    $this->members = $members ?? [];
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
   }
 }
 
@@ -112,7 +112,7 @@ class DeleteMembersRequest {
   ?'account_ids' => AccountIdList,
   ?'graph_arn' => GraphArn,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
+    $this->account_ids = $account_ids ?? [];
     $this->graph_arn = $graph_arn ?? "";
   }
 }
@@ -125,8 +125,8 @@ class DeleteMembersResponse {
   ?'account_ids' => AccountIdList,
   ?'unprocessed_accounts' => UnprocessedAccountList,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
-    $this->unprocessed_accounts = $unprocessed_accounts ?? ;
+    $this->account_ids = $account_ids ?? [];
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
   }
 }
 
@@ -154,7 +154,7 @@ class GetMembersRequest {
   ?'account_ids' => AccountIdList,
   ?'graph_arn' => GraphArn,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
+    $this->account_ids = $account_ids ?? [];
     $this->graph_arn = $graph_arn ?? "";
   }
 }
@@ -167,8 +167,8 @@ class GetMembersResponse {
   ?'member_details' => MemberDetailList,
   ?'unprocessed_accounts' => UnprocessedAccountList,
   ) $s = shape()) {
-    $this->member_details = $member_details ?? ;
-    $this->unprocessed_accounts = $unprocessed_accounts ?? ;
+    $this->member_details = $member_details ?? [];
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
   }
 }
 
@@ -180,8 +180,8 @@ class Graph {
   ?'arn' => GraphArn,
   ?'created_time' => Timestamp,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_time = $created_time ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_time = $created_time ?? 0;
   }
 }
 
@@ -195,7 +195,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -207,8 +207,8 @@ class ListGraphsRequest {
   ?'max_results' => MemberResultsLimit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -221,7 +221,7 @@ class ListGraphsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->graph_list = $graph_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -233,8 +233,8 @@ class ListInvitationsRequest {
   ?'max_results' => MemberResultsLimit,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -246,8 +246,8 @@ class ListInvitationsResponse {
   ?'invitations' => MemberDetailList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->invitations = $invitations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->invitations = $invitations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -262,8 +262,8 @@ class ListMembersRequest {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->graph_arn = $graph_arn ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -275,8 +275,8 @@ class ListMembersResponse {
   ?'member_details' => MemberDetailList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->member_details = $member_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->member_details = $member_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -305,15 +305,15 @@ class MemberDetail {
   ?'updated_time' => Timestamp,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->disabled_reason = $disabled_reason ?? ;
+    $this->disabled_reason = $disabled_reason ?? "";
     $this->email_address = $email_address ?? "";
     $this->graph_arn = $graph_arn ?? "";
-    $this->invited_time = $invited_time ?? ;
-    $this->master_id = $master_id ?? ;
-    $this->percent_of_graph_utilization = $percent_of_graph_utilization ?? ;
-    $this->percent_of_graph_utilization_updated_time = $percent_of_graph_utilization_updated_time ?? ;
-    $this->status = $status ?? ;
-    $this->updated_time = $updated_time ?? ;
+    $this->invited_time = $invited_time ?? 0;
+    $this->master_id = $master_id ?? "";
+    $this->percent_of_graph_utilization = $percent_of_graph_utilization ?? 0.0;
+    $this->percent_of_graph_utilization_updated_time = $percent_of_graph_utilization_updated_time ?? 0;
+    $this->status = $status ?? "";
+    $this->updated_time = $updated_time ?? 0;
   }
 }
 
@@ -345,7 +345,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -355,7 +355,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -383,7 +383,7 @@ class UnprocessedAccount {
   ?'reason' => UnprocessedReason,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->reason = $reason ?? ;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -397,7 +397,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

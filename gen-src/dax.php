@@ -69,23 +69,23 @@ class Cluster {
   ?'subnet_group' => string,
   ?'total_nodes' => IntegerOptional,
   ) $s = shape()) {
-    $this->active_nodes = $active_nodes ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->cluster_discovery_endpoint = $cluster_discovery_endpoint ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->description = $description ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->node_ids_to_remove = $node_ids_to_remove ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->nodes = $nodes ?? ;
+    $this->active_nodes = $active_nodes ?? 0;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->cluster_discovery_endpoint = $cluster_discovery_endpoint ?? null;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->description = $description ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->node_ids_to_remove = $node_ids_to_remove ?? [];
+    $this->node_type = $node_type ?? "";
+    $this->nodes = $nodes ?? [];
     $this->notification_configuration = $notification_configuration ?? null;
     $this->parameter_group = $parameter_group ?? null;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
     $this->sse_description = $sse_description ?? null;
-    $this->security_groups = $security_groups ?? ;
-    $this->status = $status ?? ;
-    $this->subnet_group = $subnet_group ?? null;
-    $this->total_nodes = $total_nodes ?? ;
+    $this->security_groups = $security_groups ?? [];
+    $this->status = $status ?? "";
+    $this->subnet_group = $subnet_group ?? "";
+    $this->total_nodes = $total_nodes ?? 0;
   }
 }
 
@@ -144,19 +144,19 @@ class CreateClusterRequest {
   ?'subnet_group_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->description = $description ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->replication_factor = $replication_factor ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->cluster_name = $cluster_name ?? "";
+    $this->description = $description ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->replication_factor = $replication_factor ?? 0;
     $this->sse_specification = $sse_specification ?? null;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_group_name = $subnet_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_group_name = $subnet_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -178,8 +178,8 @@ class CreateParameterGroupRequest {
   ?'description' => string,
   ?'parameter_group_name' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->description = $description ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -203,9 +203,9 @@ class CreateSubnetGroupRequest {
   ?'subnet_group_name' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->subnet_group_name = $subnet_group_name ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->description = $description ?? "";
+    $this->subnet_group_name = $subnet_group_name ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -231,10 +231,10 @@ class DecreaseReplicationFactorRequest {
   ?'new_replication_factor' => int,
   ?'node_ids_to_remove' => NodeIdentifierList,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->new_replication_factor = $new_replication_factor ?? ;
-    $this->node_ids_to_remove = $node_ids_to_remove ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->cluster_name = $cluster_name ?? "";
+    $this->new_replication_factor = $new_replication_factor ?? 0;
+    $this->node_ids_to_remove = $node_ids_to_remove ?? [];
   }
 }
 
@@ -254,7 +254,7 @@ class DeleteClusterRequest {
   public function __construct(shape(
   ?'cluster_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
   }
 }
 
@@ -274,7 +274,7 @@ class DeleteParameterGroupRequest {
   public function __construct(shape(
   ?'parameter_group_name' => string,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -284,7 +284,7 @@ class DeleteParameterGroupResponse {
   public function __construct(shape(
   ?'deletion_message' => string,
   ) $s = shape()) {
-    $this->deletion_message = $deletion_message ?? ;
+    $this->deletion_message = $deletion_message ?? "";
   }
 }
 
@@ -294,7 +294,7 @@ class DeleteSubnetGroupRequest {
   public function __construct(shape(
   ?'subnet_group_name' => string,
   ) $s = shape()) {
-    $this->subnet_group_name = $subnet_group_name ?? ;
+    $this->subnet_group_name = $subnet_group_name ?? "";
   }
 }
 
@@ -304,7 +304,7 @@ class DeleteSubnetGroupResponse {
   public function __construct(shape(
   ?'deletion_message' => string,
   ) $s = shape()) {
-    $this->deletion_message = $deletion_message ?? ;
+    $this->deletion_message = $deletion_message ?? "";
   }
 }
 
@@ -318,9 +318,9 @@ class DescribeClustersRequest {
   ?'max_results' => IntegerOptional,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->cluster_names = $cluster_names ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_names = $cluster_names ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -332,8 +332,8 @@ class DescribeClustersResponse {
   ?'clusters' => ClusterList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->clusters = $clusters ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -345,8 +345,8 @@ class DescribeDefaultParametersRequest {
   ?'max_results' => IntegerOptional,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -358,8 +358,8 @@ class DescribeDefaultParametersResponse {
   ?'next_token' => string,
   ?'parameters' => ParameterList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -381,13 +381,13 @@ class DescribeEventsRequest {
   ?'source_type' => SourceType,
   ?'start_time' => TStamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->source_name = $source_name ?? ;
+    $this->duration = $duration ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->source_name = $source_name ?? "";
     $this->source_type = $source_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -399,8 +399,8 @@ class DescribeEventsResponse {
   ?'events' => EventList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -414,9 +414,9 @@ class DescribeParameterGroupsRequest {
   ?'next_token' => string,
   ?'parameter_group_names' => ParameterGroupNameList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->parameter_group_names = $parameter_group_names ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->parameter_group_names = $parameter_group_names ?? [];
   }
 }
 
@@ -428,8 +428,8 @@ class DescribeParameterGroupsResponse {
   ?'next_token' => string,
   ?'parameter_groups' => ParameterGroupList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->parameter_groups = $parameter_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->parameter_groups = $parameter_groups ?? [];
   }
 }
 
@@ -445,10 +445,10 @@ class DescribeParametersRequest {
   ?'parameter_group_name' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->source = $source ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -460,8 +460,8 @@ class DescribeParametersResponse {
   ?'next_token' => string,
   ?'parameters' => ParameterList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -475,9 +475,9 @@ class DescribeSubnetGroupsRequest {
   ?'next_token' => string,
   ?'subnet_group_names' => SubnetGroupNameList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->subnet_group_names = $subnet_group_names ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->subnet_group_names = $subnet_group_names ?? [];
   }
 }
 
@@ -489,8 +489,8 @@ class DescribeSubnetGroupsResponse {
   ?'next_token' => string,
   ?'subnet_groups' => SubnetGroupList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subnet_groups = $subnet_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subnet_groups = $subnet_groups ?? [];
   }
 }
 
@@ -502,8 +502,8 @@ class Endpoint {
   ?'address' => string,
   ?'port' => int,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->port = $port ?? ;
+    $this->address = $address ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -519,9 +519,9 @@ class Event {
   ?'source_name' => string,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->message = $message ?? ;
-    $this->source_name = $source_name ?? ;
+    $this->date = $date ?? 0;
+    $this->message = $message ?? "";
+    $this->source_name = $source_name ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -538,9 +538,9 @@ class IncreaseReplicationFactorRequest {
   ?'cluster_name' => string,
   ?'new_replication_factor' => int,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->new_replication_factor = $new_replication_factor ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->cluster_name = $cluster_name ?? "";
+    $this->new_replication_factor = $new_replication_factor ?? 0;
   }
 }
 
@@ -585,7 +585,7 @@ class InvalidParameterCombinationException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -602,7 +602,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -632,8 +632,8 @@ class ListTagsRequest {
   ?'next_token' => string,
   ?'resource_name' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -645,8 +645,8 @@ class ListTagsResponse {
   ?'next_token' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -666,12 +666,12 @@ class Node {
   ?'node_status' => string,
   ?'parameter_group_status' => string,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->endpoint = $endpoint ?? null;
-    $this->node_create_time = $node_create_time ?? ;
-    $this->node_id = $node_id ?? ;
-    $this->node_status = $node_status ?? ;
-    $this->parameter_group_status = $parameter_group_status ?? null;
+    $this->node_create_time = $node_create_time ?? 0;
+    $this->node_id = $node_id ?? "";
+    $this->node_status = $node_status ?? "";
+    $this->parameter_group_status = $parameter_group_status ?? "";
   }
 }
 
@@ -708,8 +708,8 @@ class NodeTypeSpecificValue {
   ?'node_type' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->node_type = $node_type ?? ;
-    $this->value = $value ?? ;
+    $this->node_type = $node_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -723,8 +723,8 @@ class NotificationConfiguration {
   ?'topic_arn' => string,
   ?'topic_status' => string,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
-    $this->topic_status = $topic_status ?? ;
+    $this->topic_arn = $topic_arn ?? "";
+    $this->topic_status = $topic_status ?? "";
   }
 }
 
@@ -752,16 +752,16 @@ class Parameter {
   ?'parameter_value' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
+    $this->allowed_values = $allowed_values ?? "";
     $this->change_type = $change_type ?? "";
-    $this->data_type = $data_type ?? ;
-    $this->description = $description ?? ;
+    $this->data_type = $data_type ?? "";
+    $this->description = $description ?? "";
     $this->is_modifiable = $is_modifiable ?? "";
-    $this->node_type_specific_values = $node_type_specific_values ?? ;
-    $this->parameter_name = $parameter_name ?? ;
+    $this->node_type_specific_values = $node_type_specific_values ?? [];
+    $this->parameter_name = $parameter_name ?? "";
     $this->parameter_type = $parameter_type ?? "";
-    $this->parameter_value = $parameter_value ?? ;
-    $this->source = $source ?? ;
+    $this->parameter_value = $parameter_value ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -773,8 +773,8 @@ class ParameterGroup {
   ?'description' => string,
   ?'parameter_group_name' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->description = $description ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -813,9 +813,9 @@ class ParameterGroupStatus {
   ?'parameter_apply_status' => string,
   ?'parameter_group_name' => string,
   ) $s = shape()) {
-    $this->node_ids_to_reboot = $node_ids_to_reboot ?? ;
-    $this->parameter_apply_status = $parameter_apply_status ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->node_ids_to_reboot = $node_ids_to_reboot ?? [];
+    $this->parameter_apply_status = $parameter_apply_status ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -829,8 +829,8 @@ class ParameterNameValue {
   ?'parameter_name' => string,
   ?'parameter_value' => string,
   ) $s = shape()) {
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
   }
 }
 
@@ -846,8 +846,8 @@ class RebootNodeRequest {
   ?'cluster_name' => string,
   ?'node_id' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->node_id = $node_id ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->node_id = $node_id ?? "";
   }
 }
 
@@ -867,7 +867,7 @@ class SSEDescription {
   public function __construct(shape(
   ?'status' => SSEStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -879,7 +879,7 @@ class SSESpecification {
   public function __construct(shape(
   ?'enabled' => SSEEnabled,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -895,8 +895,8 @@ class SecurityGroupMembership {
   ?'security_group_identifier' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->security_group_identifier = $security_group_identifier ?? ;
-    $this->status = $status ?? ;
+    $this->security_group_identifier = $security_group_identifier ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -921,8 +921,8 @@ class Subnet {
   ?'subnet_availability_zone' => string,
   ?'subnet_identifier' => string,
   ) $s = shape()) {
-    $this->subnet_availability_zone = $subnet_availability_zone ?? ;
-    $this->subnet_identifier = $subnet_identifier ?? ;
+    $this->subnet_availability_zone = $subnet_availability_zone ?? "";
+    $this->subnet_identifier = $subnet_identifier ?? "";
   }
 }
 
@@ -938,10 +938,10 @@ class SubnetGroup {
   ?'subnets' => SubnetList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->subnet_group_name = $subnet_group_name ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->description = $description ?? "";
+    $this->subnet_group_name = $subnet_group_name ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -1005,8 +1005,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1034,8 +1034,8 @@ class TagResourceRequest {
   ?'resource_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1045,7 +1045,7 @@ class TagResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1057,8 +1057,8 @@ class UntagResourceRequest {
   ?'resource_name' => string,
   ?'tag_keys' => KeyList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1068,7 +1068,7 @@ class UntagResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1090,13 +1090,13 @@ class UpdateClusterRequest {
   ?'preferred_maintenance_window' => string,
   ?'security_group_ids' => SecurityGroupIdentifierList,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->description = $description ?? ;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->notification_topic_status = $notification_topic_status ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->description = $description ?? "";
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->notification_topic_status = $notification_topic_status ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
   }
 }
 
@@ -1118,8 +1118,8 @@ class UpdateParameterGroupRequest {
   ?'parameter_group_name' => string,
   ?'parameter_name_values' => ParameterNameValueList,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->parameter_name_values = $parameter_name_values ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->parameter_name_values = $parameter_name_values ?? [];
   }
 }
 
@@ -1143,9 +1143,9 @@ class UpdateSubnetGroupRequest {
   ?'subnet_group_name' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->subnet_group_name = $subnet_group_name ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->description = $description ?? "";
+    $this->subnet_group_name = $subnet_group_name ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 

@@ -32,7 +32,7 @@ class CancelRotateSecretRequest {
   public function __construct(shape(
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -46,9 +46,9 @@ class CancelRotateSecretResponse {
   ?'name' => SecretNameType,
   ?'version_id' => SecretVersionIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -72,13 +72,13 @@ class CreateSecretRequest {
   ?'secret_string' => SecretStringType,
   ?'tags' => TagListType,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->secret_binary = $secret_binary ?? ;
-    $this->secret_string = $secret_string ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->secret_binary = $secret_binary ?? "";
+    $this->secret_string = $secret_string ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -92,9 +92,9 @@ class CreateSecretResponse {
   ?'name' => SecretNameType,
   ?'version_id' => SecretVersionIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -106,7 +106,7 @@ class DecryptionFailure {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -116,7 +116,7 @@ class DeleteResourcePolicyRequest {
   public function __construct(shape(
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -128,8 +128,8 @@ class DeleteResourcePolicyResponse {
   ?'arn' => SecretARNType,
   ?'name' => NameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -143,9 +143,9 @@ class DeleteSecretRequest {
   ?'recovery_window_in_days' => RecoveryWindowInDaysType,
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->force_delete_without_recovery = $force_delete_without_recovery ?? ;
-    $this->recovery_window_in_days = $recovery_window_in_days ?? ;
-    $this->secret_id = $secret_id ?? ;
+    $this->force_delete_without_recovery = $force_delete_without_recovery ?? false;
+    $this->recovery_window_in_days = $recovery_window_in_days ?? 0;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -159,9 +159,9 @@ class DeleteSecretResponse {
   ?'deletion_date' => DeletionDateType,
   ?'name' => SecretNameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->deletion_date = $deletion_date ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->deletion_date = $deletion_date ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -175,7 +175,7 @@ class DescribeSecretRequest {
   public function __construct(shape(
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -211,20 +211,20 @@ class DescribeSecretResponse {
   ?'tags' => TagListType,
   ?'version_ids_to_stages' => SecretVersionsToStagesMapType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->deleted_date = $deleted_date ?? ;
-    $this->description = $description ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->last_accessed_date = $last_accessed_date ?? ;
-    $this->last_changed_date = $last_changed_date ?? ;
-    $this->last_rotated_date = $last_rotated_date ?? ;
-    $this->name = $name ?? ;
-    $this->owning_service = $owning_service ?? ;
-    $this->rotation_enabled = $rotation_enabled ?? ;
-    $this->rotation_lambda_arn = $rotation_lambda_arn ?? ;
-    $this->rotation_rules = $rotation_rules ?? ;
-    $this->tags = $tags ?? ;
-    $this->version_ids_to_stages = $version_ids_to_stages ?? ;
+    $this->arn = $arn ?? "";
+    $this->deleted_date = $deleted_date ?? 0;
+    $this->description = $description ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->last_accessed_date = $last_accessed_date ?? 0;
+    $this->last_changed_date = $last_changed_date ?? 0;
+    $this->last_rotated_date = $last_rotated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->owning_service = $owning_service ?? "";
+    $this->rotation_enabled = $rotation_enabled ?? false;
+    $this->rotation_lambda_arn = $rotation_lambda_arn ?? "";
+    $this->rotation_rules = $rotation_rules ?? null;
+    $this->tags = $tags ?? [];
+    $this->version_ids_to_stages = $version_ids_to_stages ?? [];
   }
 }
 
@@ -236,7 +236,7 @@ class EncryptionFailure {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -272,14 +272,14 @@ class GetRandomPasswordRequest {
   ?'password_length' => PasswordLengthType,
   ?'require_each_included_type' => RequireEachIncludedTypeType,
   ) $s = shape()) {
-    $this->exclude_characters = $exclude_characters ?? ;
-    $this->exclude_lowercase = $exclude_lowercase ?? ;
-    $this->exclude_numbers = $exclude_numbers ?? ;
-    $this->exclude_punctuation = $exclude_punctuation ?? ;
-    $this->exclude_uppercase = $exclude_uppercase ?? ;
-    $this->include_space = $include_space ?? ;
-    $this->password_length = $password_length ?? ;
-    $this->require_each_included_type = $require_each_included_type ?? ;
+    $this->exclude_characters = $exclude_characters ?? "";
+    $this->exclude_lowercase = $exclude_lowercase ?? false;
+    $this->exclude_numbers = $exclude_numbers ?? false;
+    $this->exclude_punctuation = $exclude_punctuation ?? false;
+    $this->exclude_uppercase = $exclude_uppercase ?? false;
+    $this->include_space = $include_space ?? false;
+    $this->password_length = $password_length ?? 0;
+    $this->require_each_included_type = $require_each_included_type ?? false;
   }
 }
 
@@ -289,7 +289,7 @@ class GetRandomPasswordResponse {
   public function __construct(shape(
   ?'random_password' => RandomPasswordType,
   ) $s = shape()) {
-    $this->random_password = $random_password ?? ;
+    $this->random_password = $random_password ?? "";
   }
 }
 
@@ -299,7 +299,7 @@ class GetResourcePolicyRequest {
   public function __construct(shape(
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -313,9 +313,9 @@ class GetResourcePolicyResponse {
   ?'name' => NameType,
   ?'resource_policy' => NonEmptyResourcePolicyType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->resource_policy = $resource_policy ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->resource_policy = $resource_policy ?? "";
   }
 }
 
@@ -329,9 +329,9 @@ class GetSecretValueRequest {
   ?'version_id' => SecretVersionIdType,
   ?'version_stage' => SecretVersionStageType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->version_stage = $version_stage ?? ;
+    $this->secret_id = $secret_id ?? "";
+    $this->version_id = $version_id ?? "";
+    $this->version_stage = $version_stage ?? "";
   }
 }
 
@@ -353,13 +353,13 @@ class GetSecretValueResponse {
   ?'version_id' => SecretVersionIdType,
   ?'version_stages' => SecretVersionStagesType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_date = $created_date ?? ;
-    $this->name = $name ?? ;
-    $this->secret_binary = $secret_binary ?? ;
-    $this->secret_string = $secret_string ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->version_stages = $version_stages ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_date = $created_date ?? 0;
+    $this->name = $name ?? "";
+    $this->secret_binary = $secret_binary ?? "";
+    $this->secret_string = $secret_string ?? "";
+    $this->version_id = $version_id ?? "";
+    $this->version_stages = $version_stages ?? [];
   }
 }
 
@@ -371,7 +371,7 @@ class InternalServiceError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -381,7 +381,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -391,7 +391,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -401,7 +401,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -419,7 +419,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -435,10 +435,10 @@ class ListSecretVersionIdsRequest {
   ?'next_token' => NextTokenType,
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->include_deprecated = $include_deprecated ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->secret_id = $secret_id ?? ;
+    $this->include_deprecated = $include_deprecated ?? false;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -454,10 +454,10 @@ class ListSecretVersionIdsResponse {
   ?'next_token' => NextTokenType,
   ?'versions' => SecretVersionsListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -469,8 +469,8 @@ class ListSecretsRequest {
   ?'max_results' => MaxResultsType,
   ?'next_token' => NextTokenType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -482,8 +482,8 @@ class ListSecretsResponse {
   ?'next_token' => NextTokenType,
   ?'secret_list' => SecretListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->secret_list = $secret_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->secret_list = $secret_list ?? [];
   }
 }
 
@@ -493,7 +493,7 @@ class MalformedPolicyDocumentException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -515,7 +515,7 @@ class PreconditionNotMetException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -527,8 +527,8 @@ class PutResourcePolicyRequest {
   ?'resource_policy' => NonEmptyResourcePolicyType,
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->resource_policy = $resource_policy ?? ;
-    $this->secret_id = $secret_id ?? ;
+    $this->resource_policy = $resource_policy ?? "";
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -540,8 +540,8 @@ class PutResourcePolicyResponse {
   ?'arn' => SecretARNType,
   ?'name' => NameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -559,11 +559,11 @@ class PutSecretValueRequest {
   ?'secret_string' => SecretStringType,
   ?'version_stages' => SecretVersionStagesType,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->secret_binary = $secret_binary ?? ;
-    $this->secret_id = $secret_id ?? ;
-    $this->secret_string = $secret_string ?? ;
-    $this->version_stages = $version_stages ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->secret_binary = $secret_binary ?? "";
+    $this->secret_id = $secret_id ?? "";
+    $this->secret_string = $secret_string ?? "";
+    $this->version_stages = $version_stages ?? [];
   }
 }
 
@@ -579,10 +579,10 @@ class PutSecretValueResponse {
   ?'version_id' => SecretVersionIdType,
   ?'version_stages' => SecretVersionStagesType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->version_stages = $version_stages ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->version_id = $version_id ?? "";
+    $this->version_stages = $version_stages ?? [];
   }
 }
 
@@ -598,7 +598,7 @@ class ResourceExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -608,7 +608,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -618,7 +618,7 @@ class RestoreSecretRequest {
   public function __construct(shape(
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -630,8 +630,8 @@ class RestoreSecretResponse {
   ?'arn' => SecretARNType,
   ?'name' => SecretNameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -647,10 +647,10 @@ class RotateSecretRequest {
   ?'rotation_rules' => RotationRulesType,
   ?'secret_id' => SecretIdType,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->rotation_lambda_arn = $rotation_lambda_arn ?? ;
-    $this->rotation_rules = $rotation_rules ?? ;
-    $this->secret_id = $secret_id ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->rotation_lambda_arn = $rotation_lambda_arn ?? "";
+    $this->rotation_rules = $rotation_rules ?? null;
+    $this->secret_id = $secret_id ?? "";
   }
 }
 
@@ -664,9 +664,9 @@ class RotateSecretResponse {
   ?'name' => SecretNameType,
   ?'version_id' => SecretVersionIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -680,7 +680,7 @@ class RotationRulesType {
   public function __construct(shape(
   ?'automatically_after_days' => AutomaticallyRotateAfterDaysType,
   ) $s = shape()) {
-    $this->automatically_after_days = $automatically_after_days ?? ;
+    $this->automatically_after_days = $automatically_after_days ?? 0;
   }
 }
 
@@ -722,20 +722,20 @@ class SecretListEntry {
   ?'secret_versions_to_stages' => SecretVersionsToStagesMapType,
   ?'tags' => TagListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->deleted_date = $deleted_date ?? ;
-    $this->description = $description ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->last_accessed_date = $last_accessed_date ?? ;
-    $this->last_changed_date = $last_changed_date ?? ;
-    $this->last_rotated_date = $last_rotated_date ?? ;
-    $this->name = $name ?? ;
-    $this->owning_service = $owning_service ?? ;
-    $this->rotation_enabled = $rotation_enabled ?? ;
-    $this->rotation_lambda_arn = $rotation_lambda_arn ?? ;
-    $this->rotation_rules = $rotation_rules ?? ;
-    $this->secret_versions_to_stages = $secret_versions_to_stages ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->deleted_date = $deleted_date ?? 0;
+    $this->description = $description ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->last_accessed_date = $last_accessed_date ?? 0;
+    $this->last_changed_date = $last_changed_date ?? 0;
+    $this->last_rotated_date = $last_rotated_date ?? 0;
+    $this->name = $name ?? "";
+    $this->owning_service = $owning_service ?? "";
+    $this->rotation_enabled = $rotation_enabled ?? false;
+    $this->rotation_lambda_arn = $rotation_lambda_arn ?? "";
+    $this->rotation_rules = $rotation_rules ?? null;
+    $this->secret_versions_to_stages = $secret_versions_to_stages ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -763,10 +763,10 @@ class SecretVersionsListEntry {
   ?'version_id' => SecretVersionIdType,
   ?'version_stages' => SecretVersionStagesType,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->last_accessed_date = $last_accessed_date ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->version_stages = $version_stages ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->last_accessed_date = $last_accessed_date ?? 0;
+    $this->version_id = $version_id ?? "";
+    $this->version_stages = $version_stages ?? [];
   }
 }
 
@@ -782,8 +782,8 @@ class Tag {
   ?'key' => TagKeyType,
   ?'value' => TagValueType,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -801,8 +801,8 @@ class TagResourceRequest {
   ?'secret_id' => SecretIdType,
   ?'tags' => TagListType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->secret_id = $secret_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -816,8 +816,8 @@ class UntagResourceRequest {
   ?'secret_id' => SecretIdType,
   ?'tag_keys' => TagKeyListType,
   ) $s = shape()) {
-    $this->secret_id = $secret_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->secret_id = $secret_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -837,12 +837,12 @@ class UpdateSecretRequest {
   ?'secret_id' => SecretIdType,
   ?'secret_string' => SecretStringType,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->secret_binary = $secret_binary ?? ;
-    $this->secret_id = $secret_id ?? ;
-    $this->secret_string = $secret_string ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->secret_binary = $secret_binary ?? "";
+    $this->secret_id = $secret_id ?? "";
+    $this->secret_string = $secret_string ?? "";
   }
 }
 
@@ -856,9 +856,9 @@ class UpdateSecretResponse {
   ?'name' => SecretNameType,
   ?'version_id' => SecretVersionIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -874,10 +874,10 @@ class UpdateSecretVersionStageRequest {
   ?'secret_id' => SecretIdType,
   ?'version_stage' => SecretVersionStageType,
   ) $s = shape()) {
-    $this->move_to_version_id = $move_to_version_id ?? ;
-    $this->remove_from_version_id = $remove_from_version_id ?? ;
-    $this->secret_id = $secret_id ?? ;
-    $this->version_stage = $version_stage ?? ;
+    $this->move_to_version_id = $move_to_version_id ?? "";
+    $this->remove_from_version_id = $remove_from_version_id ?? "";
+    $this->secret_id = $secret_id ?? "";
+    $this->version_stage = $version_stage ?? "";
   }
 }
 
@@ -889,8 +889,8 @@ class UpdateSecretVersionStageResponse {
   ?'arn' => SecretARNType,
   ?'name' => SecretNameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 

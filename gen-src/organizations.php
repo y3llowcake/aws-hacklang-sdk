@@ -61,7 +61,7 @@ class AWSOrganizationsNotInUseException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -91,7 +91,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -103,8 +103,8 @@ class AccessDeniedForDependencyException {
   ?'message' => ExceptionMessage,
   ?'reason' => AccessDeniedForDependencyExceptionReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -128,13 +128,13 @@ class Account {
   ?'name' => AccountName,
   ?'status' => AccountStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->email = $email ?? "";
-    $this->id = $id ?? ;
-    $this->joined_method = $joined_method ?? ;
-    $this->joined_timestamp = $joined_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->id = $id ?? "";
+    $this->joined_method = $joined_method ?? "";
+    $this->joined_timestamp = $joined_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -144,7 +144,7 @@ class AccountAlreadyRegisteredException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -162,7 +162,7 @@ class AccountNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -172,7 +172,7 @@ class AccountNotRegisteredException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -182,7 +182,7 @@ class AccountOwnerNotVerifiedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -198,7 +198,7 @@ class AlreadyInOrganizationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -211,7 +211,7 @@ class AttachPolicyRequest {
   ?'target_id' => PolicyTargetId,
   ) $s = shape()) {
     $this->policy_id = $policy_id ?? "";
-    $this->target_id = $target_id ?? ;
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -245,8 +245,8 @@ class Child {
   ?'id' => ChildId,
   ?'type' => ChildType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -258,7 +258,7 @@ class ChildNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -272,7 +272,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -284,8 +284,8 @@ class ConstraintViolationException {
   ?'message' => ExceptionMessage,
   ?'reason' => ConstraintViolationExceptionReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -307,7 +307,7 @@ class CreateAccountRequest {
   ) $s = shape()) {
     $this->account_name = $account_name ?? "";
     $this->email = $email ?? "";
-    $this->iam_user_access_to_billing = $iam_user_access_to_billing ?? ;
+    $this->iam_user_access_to_billing = $iam_user_access_to_billing ?? "";
     $this->role_name = $role_name ?? "";
   }
 }
@@ -350,12 +350,12 @@ class CreateAccountStatus {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->account_name = $account_name ?? "";
-    $this->completed_timestamp = $completed_timestamp ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->gov_cloud_account_id = $gov_cloud_account_id ?? ;
-    $this->id = $id ?? ;
-    $this->requested_timestamp = $requested_timestamp ?? ;
-    $this->state = $state ?? ;
+    $this->completed_timestamp = $completed_timestamp ?? 0;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->gov_cloud_account_id = $gov_cloud_account_id ?? "";
+    $this->id = $id ?? "";
+    $this->requested_timestamp = $requested_timestamp ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -365,7 +365,7 @@ class CreateAccountStatusNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -385,7 +385,7 @@ class CreateGovCloudAccountRequest {
   ) $s = shape()) {
     $this->account_name = $account_name ?? "";
     $this->email = $email ?? "";
-    $this->iam_user_access_to_billing = $iam_user_access_to_billing ?? ;
+    $this->iam_user_access_to_billing = $iam_user_access_to_billing ?? "";
     $this->role_name = $role_name ?? "";
   }
 }
@@ -406,7 +406,7 @@ class CreateOrganizationRequest {
   public function __construct(shape(
   ?'feature_set' => OrganizationFeatureSet,
   ) $s = shape()) {
-    $this->feature_set = $feature_set ?? ;
+    $this->feature_set = $feature_set ?? "";
   }
 }
 
@@ -428,7 +428,7 @@ class CreateOrganizationalUnitRequest {
   ?'name' => OrganizationalUnitName,
   ?'parent_id' => ParentId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->parent_id = $parent_id ?? "";
   }
 }
@@ -455,10 +455,10 @@ class CreatePolicyRequest {
   ?'name' => PolicyName,
   ?'type' => PolicyType,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -512,14 +512,14 @@ class DelegatedAdministrator {
   ?'name' => AccountName,
   ?'status' => AccountStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->delegation_enabled_date = $delegation_enabled_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->delegation_enabled_date = $delegation_enabled_date ?? 0;
     $this->email = $email ?? "";
-    $this->id = $id ?? ;
-    $this->joined_method = $joined_method ?? ;
-    $this->joined_timestamp = $joined_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->id = $id ?? "";
+    $this->joined_method = $joined_method ?? "";
+    $this->joined_timestamp = $joined_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -533,7 +533,7 @@ class DelegatedService {
   ?'delegation_enabled_date' => Timestamp,
   ?'service_principal' => ServicePrincipal,
   ) $s = shape()) {
-    $this->delegation_enabled_date = $delegation_enabled_date ?? ;
+    $this->delegation_enabled_date = $delegation_enabled_date ?? 0;
     $this->service_principal = $service_principal ?? "";
   }
 }
@@ -622,7 +622,7 @@ class DescribeEffectivePolicyRequest {
   ?'target_id' => PolicyTargetId,
   ) $s = shape()) {
     $this->policy_type = $policy_type ?? "";
-    $this->target_id = $target_id ?? ;
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -712,7 +712,7 @@ class DestinationParentNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -725,7 +725,7 @@ class DetachPolicyRequest {
   ?'target_id' => PolicyTargetId,
   ) $s = shape()) {
     $this->policy_id = $policy_id ?? "";
-    $this->target_id = $target_id ?? ;
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -768,7 +768,7 @@ class DuplicateAccountException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -778,7 +778,7 @@ class DuplicateHandshakeException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -788,7 +788,7 @@ class DuplicateOrganizationalUnitException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -798,7 +798,7 @@ class DuplicatePolicyAttachmentException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -808,7 +808,7 @@ class DuplicatePolicyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -824,10 +824,10 @@ class EffectivePolicy {
   ?'policy_type' => EffectivePolicyType,
   ?'target_id' => PolicyTargetId,
   ) $s = shape()) {
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
+    $this->last_updated_timestamp = $last_updated_timestamp ?? 0;
     $this->policy_content = $policy_content ?? "";
     $this->policy_type = $policy_type ?? "";
-    $this->target_id = $target_id ?? ;
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -837,7 +837,7 @@ class EffectivePolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -903,7 +903,7 @@ class EnabledServicePrincipal {
   ?'date_enabled' => Timestamp,
   ?'service_principal' => ServicePrincipal,
   ) $s = shape()) {
-    $this->date_enabled = $date_enabled ?? ;
+    $this->date_enabled = $date_enabled ?? 0;
     $this->service_principal = $service_principal ?? "";
   }
 }
@@ -920,7 +920,7 @@ class FinalizingOrganizationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -946,14 +946,14 @@ class Handshake {
   ?'resources' => HandshakeResources,
   ?'state' => HandshakeState,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->arn = $arn ?? ;
-    $this->expiration_timestamp = $expiration_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->parties = $parties ?? ;
-    $this->requested_timestamp = $requested_timestamp ?? ;
-    $this->resources = $resources ?? ;
-    $this->state = $state ?? ;
+    $this->action = $action ?? "";
+    $this->arn = $arn ?? "";
+    $this->expiration_timestamp = $expiration_timestamp ?? 0;
+    $this->id = $id ?? "";
+    $this->parties = $parties ?? [];
+    $this->requested_timestamp = $requested_timestamp ?? 0;
+    $this->resources = $resources ?? [];
+    $this->state = $state ?? "";
   }
 }
 
@@ -963,7 +963,7 @@ class HandshakeAlreadyInStateException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -977,8 +977,8 @@ class HandshakeConstraintViolationException {
   ?'message' => ExceptionMessage,
   ?'reason' => HandshakeConstraintViolationExceptionReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -993,7 +993,7 @@ class HandshakeFilter {
   ?'parent_handshake_id' => HandshakeId,
   ) $s = shape()) {
     $this->action_type = $action_type ?? "";
-    $this->parent_handshake_id = $parent_handshake_id ?? ;
+    $this->parent_handshake_id = $parent_handshake_id ?? "";
   }
 }
 
@@ -1005,7 +1005,7 @@ class HandshakeNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1021,8 +1021,8 @@ class HandshakeParty {
   ?'id' => HandshakePartyId,
   ?'type' => HandshakePartyType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1040,9 +1040,9 @@ class HandshakeResource {
   ?'type' => HandshakeResourceType,
   ?'value' => HandshakeResourceValue,
   ) $s = shape()) {
-    $this->resources = $resources ?? ;
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->resources = $resources ?? [];
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1064,7 +1064,7 @@ class InvalidHandshakeTransitionException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1076,8 +1076,8 @@ class InvalidInputException {
   ?'message' => ExceptionMessage,
   ?'reason' => InvalidInputExceptionReason,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1091,8 +1091,8 @@ class InviteAccountToOrganizationRequest {
   ?'notes' => HandshakeNotes,
   ?'target' => HandshakeParty,
   ) $s = shape()) {
-    $this->notes = $notes ?? ;
-    $this->target = $target ?? ;
+    $this->notes = $notes ?? "";
+    $this->target = $target ?? null;
   }
 }
 
@@ -1231,7 +1231,7 @@ class ListCreateAccountStatusRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->states = $states ?? ;
+    $this->states = $states ?? [];
   }
 }
 
@@ -1316,7 +1316,7 @@ class ListHandshakesForAccountRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1345,7 +1345,7 @@ class ListHandshakesForOrganizationRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1434,10 +1434,10 @@ class ListPoliciesForTargetRequest {
   ?'next_token' => NextToken,
   ?'target_id' => PolicyTargetId,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->target_id = $target_id ?? ;
+    $this->target_id = $target_id ?? "";
   }
 }
 
@@ -1464,7 +1464,7 @@ class ListPoliciesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1518,7 +1518,7 @@ class ListTagsForResourceRequest {
   ?'resource_id' => TaggableResourceId,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -1560,7 +1560,7 @@ class ListTargetsForPolicyResponse {
   ?'targets' => PolicyTargets,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->targets = $targets ?? ;
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -1570,7 +1570,7 @@ class MalformedPolicyDocumentException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1580,7 +1580,7 @@ class MasterCannotLeaveOrganizationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1597,8 +1597,8 @@ class MoveAccountRequest {
   ?'source_parent_id' => ParentId,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->destination_parent_id = $destination_parent_id ?? ;
-    $this->source_parent_id = $source_parent_id ?? ;
+    $this->destination_parent_id = $destination_parent_id ?? "";
+    $this->source_parent_id = $source_parent_id ?? "";
   }
 }
 
@@ -1622,13 +1622,13 @@ class Organization {
   ?'master_account_email' => Email,
   ?'master_account_id' => AccountId,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->available_policy_types = $available_policy_types ?? ;
-    $this->feature_set = $feature_set ?? ;
-    $this->id = $id ?? ;
-    $this->master_account_arn = $master_account_arn ?? ;
-    $this->master_account_email = $master_account_email ?? ;
-    $this->master_account_id = $master_account_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->available_policy_types = $available_policy_types ?? [];
+    $this->feature_set = $feature_set ?? "";
+    $this->id = $id ?? "";
+    $this->master_account_arn = $master_account_arn ?? "";
+    $this->master_account_email = $master_account_email ?? "";
+    $this->master_account_id = $master_account_id ?? "";
   }
 }
 
@@ -1644,7 +1644,7 @@ class OrganizationNotEmptyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1658,9 +1658,9 @@ class OrganizationalUnit {
   ?'id' => OrganizationalUnitId,
   ?'name' => OrganizationalUnitName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1676,7 +1676,7 @@ class OrganizationalUnitNotEmptyException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1686,7 +1686,7 @@ class OrganizationalUnitNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1700,8 +1700,8 @@ class Parent {
   ?'id' => ParentId,
   ?'type' => ParentType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1713,7 +1713,7 @@ class ParentNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1731,7 +1731,7 @@ class Policy {
   ?'content' => PolicyContent,
   ?'policy_summary' => PolicySummary,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
     $this->policy_summary = $policy_summary ?? null;
   }
 }
@@ -1744,7 +1744,7 @@ class PolicyChangesInProgressException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1760,7 +1760,7 @@ class PolicyInUseException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1772,7 +1772,7 @@ class PolicyNotAttachedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1782,7 +1782,7 @@ class PolicyNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1802,12 +1802,12 @@ class PolicySummary {
   ?'name' => PolicyName,
   ?'type' => PolicyType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->aws_managed = $aws_managed ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->aws_managed = $aws_managed ?? false;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1825,10 +1825,10 @@ class PolicyTargetSummary {
   ?'target_id' => PolicyTargetId,
   ?'type' => TargetType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
-    $this->target_id = $target_id ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
+    $this->target_id = $target_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1842,7 +1842,7 @@ class PolicyTypeAlreadyEnabledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1852,7 +1852,7 @@ class PolicyTypeNotAvailableForOrganizationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1862,7 +1862,7 @@ class PolicyTypeNotEnabledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1876,8 +1876,8 @@ class PolicyTypeSummary {
   ?'status' => PolicyTypeStatus,
   ?'type' => PolicyType,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1920,9 +1920,9 @@ class Root {
   ?'name' => RootName,
   ?'policy_types' => PolicyTypes,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->policy_types = $policy_types ?? [];
   }
 }
@@ -1939,7 +1939,7 @@ class RootNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1951,7 +1951,7 @@ class ServiceException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1963,7 +1963,7 @@ class SourceParentNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1975,8 +1975,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1992,7 +1992,7 @@ class TagResourceRequest {
   ?'resource_id' => TaggableResourceId,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -2011,7 +2011,7 @@ class TargetNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2027,8 +2027,8 @@ class TooManyRequestsException {
   ?'message' => ExceptionMessage,
   ?'type' => ExceptionType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2038,7 +2038,7 @@ class UnsupportedAPIEndpointException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2050,7 +2050,7 @@ class UntagResourceRequest {
   ?'resource_id' => TaggableResourceId,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->tag_keys = $tag_keys ?? [];
   }
 }
@@ -2063,7 +2063,7 @@ class UpdateOrganizationalUnitRequest {
   ?'name' => OrganizationalUnitName,
   ?'organizational_unit_id' => OrganizationalUnitId,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->organizational_unit_id = $organizational_unit_id ?? "";
   }
 }
@@ -2090,9 +2090,9 @@ class UpdatePolicyRequest {
   ?'name' => PolicyName,
   ?'policy_id' => PolicyId,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->content = $content ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->policy_id = $policy_id ?? "";
   }
 }

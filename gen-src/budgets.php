@@ -24,7 +24,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -54,13 +54,13 @@ class Budget {
   ?'time_period' => TimePeriod,
   ?'time_unit' => TimeUnit,
   ) $s = shape()) {
-    $this->budget_limit = $budget_limit ?? ;
+    $this->budget_limit = $budget_limit ?? null;
     $this->budget_name = $budget_name ?? "";
     $this->budget_type = $budget_type ?? "";
     $this->calculated_spend = $calculated_spend ?? null;
     $this->cost_filters = $cost_filters ?? [];
     $this->cost_types = $cost_types ?? null;
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->planned_budget_limits = $planned_budget_limits ?? [];
     $this->time_period = $time_period ?? null;
     $this->time_unit = $time_unit ?? "";
@@ -106,8 +106,8 @@ class BudgetedAndActualAmounts {
   ?'budgeted_amount' => Spend,
   ?'time_period' => TimePeriod,
   ) $s = shape()) {
-    $this->actual_amount = $actual_amount ?? ;
-    $this->budgeted_amount = $budgeted_amount ?? ;
+    $this->actual_amount = $actual_amount ?? null;
+    $this->budgeted_amount = $budgeted_amount ?? null;
     $this->time_period = $time_period ?? null;
   }
 }
@@ -124,8 +124,8 @@ class CalculatedSpend {
   ?'actual_spend' => Spend,
   ?'forecasted_spend' => Spend,
   ) $s = shape()) {
-    $this->actual_spend = $actual_spend ?? ;
-    $this->forecasted_spend = $forecasted_spend ?? ;
+    $this->actual_spend = $actual_spend ?? null;
+    $this->forecasted_spend = $forecasted_spend ?? null;
   }
 }
 
@@ -159,17 +159,17 @@ class CostTypes {
   ?'use_amortized' => NullableBoolean,
   ?'use_blended' => NullableBoolean,
   ) $s = shape()) {
-    $this->include_credit = $include_credit ?? ;
-    $this->include_discount = $include_discount ?? ;
-    $this->include_other_subscription = $include_other_subscription ?? ;
-    $this->include_recurring = $include_recurring ?? ;
-    $this->include_refund = $include_refund ?? ;
-    $this->include_subscription = $include_subscription ?? ;
-    $this->include_support = $include_support ?? ;
-    $this->include_tax = $include_tax ?? ;
-    $this->include_upfront = $include_upfront ?? ;
-    $this->use_amortized = $use_amortized ?? ;
-    $this->use_blended = $use_blended ?? ;
+    $this->include_credit = $include_credit ?? false;
+    $this->include_discount = $include_discount ?? false;
+    $this->include_other_subscription = $include_other_subscription ?? false;
+    $this->include_recurring = $include_recurring ?? false;
+    $this->include_refund = $include_refund ?? false;
+    $this->include_subscription = $include_subscription ?? false;
+    $this->include_support = $include_support ?? false;
+    $this->include_tax = $include_tax ?? false;
+    $this->include_upfront = $include_upfront ?? false;
+    $this->use_amortized = $use_amortized ?? false;
+    $this->use_blended = $use_blended ?? false;
   }
 }
 
@@ -185,7 +185,7 @@ class CreateBudgetRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->budget = $budget ?? null;
-    $this->notifications_with_subscribers = $notifications_with_subscribers ?? ;
+    $this->notifications_with_subscribers = $notifications_with_subscribers ?? [];
   }
 }
 
@@ -254,7 +254,7 @@ class CreationLimitExceededException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -344,7 +344,7 @@ class DescribeBudgetPerformanceHistoryRequest {
     $this->account_id = $account_id ?? "";
     $this->budget_name = $budget_name ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->time_period = $time_period ?? null;
   }
 }
@@ -358,7 +358,7 @@ class DescribeBudgetPerformanceHistoryResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->budget_performance_history = $budget_performance_history ?? null;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -397,7 +397,7 @@ class DescribeBudgetsRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -410,7 +410,7 @@ class DescribeBudgetsResponse {
   ?'next_token' => GenericString,
   ) $s = shape()) {
     $this->budgets = $budgets ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -429,7 +429,7 @@ class DescribeNotificationsForBudgetRequest {
     $this->account_id = $account_id ?? "";
     $this->budget_name = $budget_name ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -441,7 +441,7 @@ class DescribeNotificationsForBudgetResponse {
   ?'next_token' => GenericString,
   ?'notifications' => Notifications,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->notifications = $notifications ?? [];
   }
 }
@@ -463,7 +463,7 @@ class DescribeSubscribersForNotificationRequest {
     $this->account_id = $account_id ?? "";
     $this->budget_name = $budget_name ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->notification = $notification ?? null;
   }
 }
@@ -476,7 +476,7 @@ class DescribeSubscribersForNotificationResponse {
   ?'next_token' => GenericString,
   ?'subscribers' => Subscribers,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->subscribers = $subscribers ?? [];
   }
 }
@@ -489,7 +489,7 @@ class DuplicateRecordException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -499,7 +499,7 @@ class ExpiredNextTokenException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -513,7 +513,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -523,7 +523,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -533,7 +533,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -545,7 +545,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -566,7 +566,7 @@ class Notification {
     $this->comparison_operator = $comparison_operator ?? "";
     $this->notification_state = $notification_state ?? "";
     $this->notification_type = $notification_type ?? "";
-    $this->threshold = $threshold ?? ;
+    $this->threshold = $threshold ?? 0.0;
     $this->threshold_type = $threshold_type ?? "";
   }
 }
@@ -608,8 +608,8 @@ class Spend {
   ?'amount' => NumericValue,
   ?'unit' => UnitValue,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->unit = $unit ?? ;
+    $this->amount = $amount ?? "";
+    $this->unit = $unit ?? "";
   }
 }
 
@@ -621,7 +621,7 @@ class Subscriber {
   ?'address' => SubscriberAddress,
   ?'subscription_type' => SubscriptionType,
   ) $s = shape()) {
-    $this->address = $address ?? ;
+    $this->address = $address ?? "";
     $this->subscription_type = $subscription_type ?? "";
   }
 }
@@ -642,8 +642,8 @@ class TimePeriod {
   ?'end' => GenericTimestamp,
   ?'start' => GenericTimestamp,
   ) $s = shape()) {
-    $this->end = $end ?? ;
-    $this->start = $start ?? ;
+    $this->end = $end ?? 0;
+    $this->start = $start ?? 0;
   }
 }
 
@@ -660,7 +660,7 @@ class UpdateBudgetRequest {
   ?'new_budget' => Budget,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->new_budget = $new_budget ?? ;
+    $this->new_budget = $new_budget ?? null;
   }
 }
 
@@ -685,8 +685,8 @@ class UpdateNotificationRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->budget_name = $budget_name ?? "";
-    $this->new_notification = $new_notification ?? ;
-    $this->old_notification = $old_notification ?? ;
+    $this->new_notification = $new_notification ?? null;
+    $this->old_notification = $old_notification ?? null;
   }
 }
 
@@ -713,9 +713,9 @@ class UpdateSubscriberRequest {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->budget_name = $budget_name ?? "";
-    $this->new_subscriber = $new_subscriber ?? ;
+    $this->new_subscriber = $new_subscriber ?? null;
     $this->notification = $notification ?? null;
-    $this->old_subscriber = $old_subscriber ?? ;
+    $this->old_subscriber = $old_subscriber ?? null;
   }
 }
 

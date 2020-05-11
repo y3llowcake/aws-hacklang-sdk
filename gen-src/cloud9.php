@@ -57,14 +57,14 @@ class CreateEnvironmentEC2Request {
   ?'subnet_id' => SubnetId,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->automatic_stop_time_minutes = $automatic_stop_time_minutes ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->name = $name ?? ;
-    $this->owner_arn = $owner_arn ?? ;
-    $this->subnet_id = $subnet_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->automatic_stop_time_minutes = $automatic_stop_time_minutes ?? 0;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->name = $name ?? "";
+    $this->owner_arn = $owner_arn ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -74,7 +74,7 @@ class CreateEnvironmentEC2Result {
   public function __construct(shape(
   ?'environment_id' => EnvironmentId,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -88,9 +88,9 @@ class CreateEnvironmentMembershipRequest {
   ?'permissions' => MemberPermissions,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->permissions = $permissions ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -100,7 +100,7 @@ class CreateEnvironmentMembershipResult {
   public function __construct(shape(
   ?'membership' => EnvironmentMember,
   ) $s = shape()) {
-    $this->membership = $membership ?? ;
+    $this->membership = $membership ?? null;
   }
 }
 
@@ -112,8 +112,8 @@ class DeleteEnvironmentMembershipRequest {
   ?'environment_id' => EnvironmentId,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -130,7 +130,7 @@ class DeleteEnvironmentRequest {
   public function __construct(shape(
   ?'environment_id' => EnvironmentId,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -155,11 +155,11 @@ class DescribeEnvironmentMembershipsRequest {
   ?'permissions' => PermissionsList,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -171,8 +171,8 @@ class DescribeEnvironmentMembershipsResult {
   ?'memberships' => EnvironmentMembersList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->memberships = $memberships ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->memberships = $memberships ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -182,7 +182,7 @@ class DescribeEnvironmentStatusRequest {
   public function __construct(shape(
   ?'environment_id' => EnvironmentId,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -194,8 +194,8 @@ class DescribeEnvironmentStatusResult {
   ?'message' => string,
   ?'status' => EnvironmentStatus,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->status = $status ?? ;
+    $this->message = $message ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -205,7 +205,7 @@ class DescribeEnvironmentsRequest {
   public function __construct(shape(
   ?'environment_ids' => BoundedEnvironmentIdList,
   ) $s = shape()) {
-    $this->environment_ids = $environment_ids ?? ;
+    $this->environment_ids = $environment_ids ?? [];
   }
 }
 
@@ -215,7 +215,7 @@ class DescribeEnvironmentsResult {
   public function __construct(shape(
   ?'environments' => EnvironmentList,
   ) $s = shape()) {
-    $this->environments = $environments ?? ;
+    $this->environments = $environments ?? [];
   }
 }
 
@@ -237,13 +237,13 @@ class Environment {
   ?'owner_arn' => string,
   ?'type' => EnvironmentType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->lifecycle = $lifecycle ?? ;
-    $this->name = $name ?? ;
-    $this->owner_arn = $owner_arn ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->lifecycle = $lifecycle ?? null;
+    $this->name = $name ?? "";
+    $this->owner_arn = $owner_arn ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -265,9 +265,9 @@ class EnvironmentLifecycle {
   ?'reason' => string,
   ?'status' => EnvironmentLifecycleStatus,
   ) $s = shape()) {
-    $this->failure_resource = $failure_resource ?? ;
-    $this->reason = $reason ?? ;
-    $this->status = $status ?? ;
+    $this->failure_resource = $failure_resource ?? "";
+    $this->reason = $reason ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -289,11 +289,11 @@ class EnvironmentMember {
   ?'user_arn' => UserArn,
   ?'user_id' => string,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
-    $this->last_access = $last_access ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->user_arn = $user_arn ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->last_access = $last_access ?? 0;
+    $this->permissions = $permissions ?? "";
+    $this->user_arn = $user_arn ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -336,8 +336,8 @@ class ListEnvironmentsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -349,8 +349,8 @@ class ListEnvironmentsResult {
   ?'environment_ids' => EnvironmentIdList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->environment_ids = $environment_ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->environment_ids = $environment_ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -360,7 +360,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => EnvironmentArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -370,7 +370,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -401,8 +401,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -420,8 +420,8 @@ class TagResourceRequest {
   ?'resource_arn' => EnvironmentArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -451,8 +451,8 @@ class UntagResourceRequest {
   ?'resource_arn' => EnvironmentArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -473,9 +473,9 @@ class UpdateEnvironmentMembershipRequest {
   ?'permissions' => MemberPermissions,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->environment_id = $environment_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->permissions = $permissions ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -485,7 +485,7 @@ class UpdateEnvironmentMembershipResult {
   public function __construct(shape(
   ?'membership' => EnvironmentMember,
   ) $s = shape()) {
-    $this->membership = $membership ?? ;
+    $this->membership = $membership ?? null;
   }
 }
 
@@ -499,9 +499,9 @@ class UpdateEnvironmentRequest {
   ?'environment_id' => EnvironmentId,
   ?'name' => EnvironmentName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->environment_id = $environment_id ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->environment_id = $environment_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 

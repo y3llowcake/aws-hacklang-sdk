@@ -104,8 +104,8 @@ class AcceptReservedNodeExchangeInputMessage {
   ?'reserved_node_id' => string,
   ?'target_reserved_node_offering_id' => string,
   ) $s = shape()) {
-    $this->reserved_node_id = $reserved_node_id ?? ;
-    $this->target_reserved_node_offering_id = $target_reserved_node_offering_id ?? ;
+    $this->reserved_node_id = $reserved_node_id ?? "";
+    $this->target_reserved_node_offering_id = $target_reserved_node_offering_id ?? "";
   }
 }
 
@@ -115,7 +115,7 @@ class AcceptReservedNodeExchangeOutputMessage {
   public function __construct(shape(
   ?'exchanged_reserved_node' => ReservedNode,
   ) $s = shape()) {
-    $this->exchanged_reserved_node = $exchanged_reserved_node ?? ;
+    $this->exchanged_reserved_node = $exchanged_reserved_node ?? null;
   }
 }
 
@@ -134,8 +134,8 @@ class AccountAttribute {
   ?'attribute_name' => string,
   ?'attribute_values' => AttributeValueList,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->attribute_values = $attribute_values ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->attribute_values = $attribute_values ?? [];
   }
 }
 
@@ -145,7 +145,7 @@ class AccountAttributeList {
   public function __construct(shape(
   ?'account_attributes' => AttributeList,
   ) $s = shape()) {
-    $this->account_attributes = $account_attributes ?? ;
+    $this->account_attributes = $account_attributes ?? [];
   }
 }
 
@@ -157,8 +157,8 @@ class AccountWithRestoreAccess {
   ?'account_alias' => string,
   ?'account_id' => string,
   ) $s = shape()) {
-    $this->account_alias = $account_alias ?? ;
-    $this->account_id = $account_id ?? ;
+    $this->account_alias = $account_alias ?? "";
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -180,7 +180,7 @@ class AttributeValueTarget {
   public function __construct(shape(
   ?'attribute_value' => string,
   ) $s = shape()) {
-    $this->attribute_value = $attribute_value ?? ;
+    $this->attribute_value = $attribute_value ?? "";
   }
 }
 
@@ -217,10 +217,10 @@ class AuthorizeClusterSecurityGroupIngressMessage {
   ?'ec_2_security_group_name' => string,
   ?'ec_2_security_group_owner_id' => string,
   ) $s = shape()) {
-    $this->cidrip = $cidrip ?? ;
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
+    $this->cidrip = $cidrip ?? "";
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
   }
 }
 
@@ -244,9 +244,9 @@ class AuthorizeSnapshotAccessMessage {
   ?'snapshot_cluster_identifier' => string,
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->account_with_restore_access = $account_with_restore_access ?? null;
-    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->account_with_restore_access = $account_with_restore_access ?? "";
+    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -268,8 +268,8 @@ class AvailabilityZone {
   ?'name' => string,
   ?'supported_platforms' => SupportedPlatformsList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->supported_platforms = $supported_platforms ?? ;
+    $this->name = $name ?? "";
+    $this->supported_platforms = $supported_platforms ?? [];
   }
 }
 
@@ -281,7 +281,7 @@ class BatchDeleteClusterSnapshotsRequest {
   public function __construct(shape(
   ?'identifiers' => DeleteClusterSnapshotMessageList,
   ) $s = shape()) {
-    $this->identifiers = $identifiers ?? ;
+    $this->identifiers = $identifiers ?? [];
   }
 }
 
@@ -293,8 +293,8 @@ class BatchDeleteClusterSnapshotsResult {
   ?'errors' => BatchSnapshotOperationErrorList,
   ?'resources' => SnapshotIdentifierList,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
-    $this->resources = $resources ?? ;
+    $this->errors = $errors ?? [];
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -322,8 +322,8 @@ class BatchModifyClusterSnapshotsMessage {
   ?'manual_snapshot_retention_period' => IntegerOptional,
   ?'snapshot_identifier_list' => SnapshotIdentifierList,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
+    $this->force = $force ?? false;
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
     $this->snapshot_identifier_list = $snapshot_identifier_list ?? [];
   }
 }
@@ -336,8 +336,8 @@ class BatchModifyClusterSnapshotsOutputMessage {
   ?'errors' => BatchSnapshotOperationErrors,
   ?'resources' => SnapshotIdentifierList,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
-    $this->resources = $resources ?? ;
+    $this->errors = $errors ?? [];
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -362,7 +362,7 @@ class CancelResizeMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -462,52 +462,52 @@ class Cluster {
   ?'vpc_id' => string,
   ?'vpc_security_groups' => VpcSecurityGroupMembershipList,
   ) $s = shape()) {
-    $this->allow_version_upgrade = $allow_version_upgrade ?? ;
-    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->cluster_availability_status = $cluster_availability_status ?? ;
-    $this->cluster_create_time = $cluster_create_time ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_nodes = $cluster_nodes ?? ;
-    $this->cluster_parameter_groups = $cluster_parameter_groups ?? ;
-    $this->cluster_public_key = $cluster_public_key ?? ;
-    $this->cluster_revision_number = $cluster_revision_number ?? ;
+    $this->allow_version_upgrade = $allow_version_upgrade ?? false;
+    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? 0;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->cluster_availability_status = $cluster_availability_status ?? "";
+    $this->cluster_create_time = $cluster_create_time ?? 0;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_nodes = $cluster_nodes ?? [];
+    $this->cluster_parameter_groups = $cluster_parameter_groups ?? [];
+    $this->cluster_public_key = $cluster_public_key ?? "";
+    $this->cluster_revision_number = $cluster_revision_number ?? "";
     $this->cluster_security_groups = $cluster_security_groups ?? [];
     $this->cluster_snapshot_copy_status = $cluster_snapshot_copy_status ?? null;
-    $this->cluster_status = $cluster_status ?? ;
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->db_name = $db_name ?? ;
+    $this->cluster_status = $cluster_status ?? "";
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->db_name = $db_name ?? "";
     $this->data_transfer_progress = $data_transfer_progress ?? null;
-    $this->deferred_maintenance_windows = $deferred_maintenance_windows ?? ;
+    $this->deferred_maintenance_windows = $deferred_maintenance_windows ?? [];
     $this->elastic_ip_status = $elastic_ip_status ?? null;
-    $this->elastic_resize_number_of_node_options = $elastic_resize_number_of_node_options ?? ;
-    $this->encrypted = $encrypted ?? ;
+    $this->elastic_resize_number_of_node_options = $elastic_resize_number_of_node_options ?? "";
+    $this->encrypted = $encrypted ?? false;
     $this->endpoint = $endpoint ?? null;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->expected_next_snapshot_schedule_time = $expected_next_snapshot_schedule_time ?? ;
-    $this->expected_next_snapshot_schedule_time_status = $expected_next_snapshot_schedule_time_status ?? ;
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->expected_next_snapshot_schedule_time = $expected_next_snapshot_schedule_time ?? 0;
+    $this->expected_next_snapshot_schedule_time_status = $expected_next_snapshot_schedule_time_status ?? "";
     $this->hsm_status = $hsm_status ?? null;
-    $this->iam_roles = $iam_roles ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->master_username = $master_username ?? ;
-    $this->modify_status = $modify_status ?? ;
-    $this->next_maintenance_window_start_time = $next_maintenance_window_start_time ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->pending_actions = $pending_actions ?? ;
+    $this->iam_roles = $iam_roles ?? [];
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->master_username = $master_username ?? "";
+    $this->modify_status = $modify_status ?? "";
+    $this->next_maintenance_window_start_time = $next_maintenance_window_start_time ?? 0;
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->pending_actions = $pending_actions ?? [];
     $this->pending_modified_values = $pending_modified_values ?? null;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
     $this->resize_info = $resize_info ?? null;
     $this->restore_status = $restore_status ?? null;
-    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? ;
-    $this->snapshot_schedule_state = $snapshot_schedule_state ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_id = $vpc_id ?? ;
-    $this->vpc_security_groups = $vpc_security_groups ?? ;
+    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? "";
+    $this->snapshot_schedule_state = $snapshot_schedule_state ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_id = $vpc_id ?? "";
+    $this->vpc_security_groups = $vpc_security_groups ?? [];
   }
 }
 
@@ -526,8 +526,8 @@ class ClusterAssociatedToSchedule {
   ?'cluster_identifier' => string,
   ?'schedule_association_state' => ScheduleState,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->schedule_association_state = $schedule_association_state ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->schedule_association_state = $schedule_association_state ?? "";
   }
 }
 
@@ -541,9 +541,9 @@ class ClusterCredentials {
   ?'db_user' => string,
   ?'expiration' => TStamp,
   ) $s = shape()) {
-    $this->db_password = $db_password ?? ;
-    $this->db_user = $db_user ?? ;
-    $this->expiration = $expiration ?? ;
+    $this->db_password = $db_password ?? "";
+    $this->db_user = $db_user ?? "";
+    $this->expiration = $expiration ?? 0;
   }
 }
 
@@ -559,10 +559,10 @@ class ClusterDbRevision {
   ?'database_revision_release_date' => TStamp,
   ?'revision_targets' => RevisionTargetsList,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->current_database_revision = $current_database_revision ?? ;
-    $this->database_revision_release_date = $database_revision_release_date ?? ;
-    $this->revision_targets = $revision_targets ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->current_database_revision = $current_database_revision ?? "";
+    $this->database_revision_release_date = $database_revision_release_date ?? 0;
+    $this->revision_targets = $revision_targets ?? [];
   }
 }
 
@@ -576,8 +576,8 @@ class ClusterDbRevisionsMessage {
   ?'cluster_db_revisions' => ClusterDbRevisionsList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->cluster_db_revisions = $cluster_db_revisions ?? ;
-    $this->marker = $marker ?? ;
+    $this->cluster_db_revisions = $cluster_db_revisions ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -589,8 +589,8 @@ class ClusterIamRole {
   ?'apply_status' => string,
   ?'iam_role_arn' => string,
   ) $s = shape()) {
-    $this->apply_status = $apply_status ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->apply_status = $apply_status ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
   }
 }
 
@@ -608,9 +608,9 @@ class ClusterNode {
   ?'private_ip_address' => string,
   ?'public_ip_address' => string,
   ) $s = shape()) {
-    $this->node_role = $node_role ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
-    $this->public_ip_address = $public_ip_address ?? ;
+    $this->node_role = $node_role ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
+    $this->public_ip_address = $public_ip_address ?? "";
   }
 }
 
@@ -642,10 +642,10 @@ class ClusterParameterGroup {
   ?'parameter_group_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->parameter_group_family = $parameter_group_family ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->parameter_group_family = $parameter_group_family ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -664,8 +664,8 @@ class ClusterParameterGroupDetails {
   ?'marker' => string,
   ?'parameters' => ParametersList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->marker = $marker ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -677,8 +677,8 @@ class ClusterParameterGroupNameMessage {
   ?'parameter_group_name' => string,
   ?'parameter_group_status' => string,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->parameter_group_status = $parameter_group_status ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->parameter_group_status = $parameter_group_status ?? "";
   }
 }
 
@@ -707,8 +707,8 @@ class ClusterParameterGroupStatus {
   ?'parameter_group_name' => string,
   ) $s = shape()) {
     $this->cluster_parameter_status_list = $cluster_parameter_status_list ?? [];
-    $this->parameter_apply_status = $parameter_apply_status ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->parameter_apply_status = $parameter_apply_status ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -722,8 +722,8 @@ class ClusterParameterGroupsMessage {
   ?'marker' => string,
   ?'parameter_groups' => ParameterGroupList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->parameter_groups = $parameter_groups ?? ;
+    $this->marker = $marker ?? "";
+    $this->parameter_groups = $parameter_groups ?? [];
   }
 }
 
@@ -737,9 +737,9 @@ class ClusterParameterStatus {
   ?'parameter_apply_status' => string,
   ?'parameter_name' => string,
   ) $s = shape()) {
-    $this->parameter_apply_error_description = $parameter_apply_error_description ?? ;
-    $this->parameter_apply_status = $parameter_apply_status ?? ;
-    $this->parameter_name = $parameter_name ?? ;
+    $this->parameter_apply_error_description = $parameter_apply_error_description ?? "";
+    $this->parameter_apply_status = $parameter_apply_status ?? "";
+    $this->parameter_name = $parameter_name ?? "";
   }
 }
 
@@ -766,11 +766,11 @@ class ClusterSecurityGroup {
   ?'ip_ranges' => IPRangeList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->ec_2_security_groups = $ec_2_security_groups ?? ;
-    $this->ip_ranges = $ip_ranges ?? ;
-    $this->tags = $tags ?? ;
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->ec_2_security_groups = $ec_2_security_groups ?? [];
+    $this->ip_ranges = $ip_ranges ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -789,8 +789,8 @@ class ClusterSecurityGroupMembership {
   ?'cluster_security_group_name' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->status = $status ?? ;
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -805,7 +805,7 @@ class ClusterSecurityGroupMessage {
   ?'marker' => string,
   ) $s = shape()) {
     $this->cluster_security_groups = $cluster_security_groups ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -846,10 +846,10 @@ class ClusterSnapshotCopyStatus {
   ?'retention_period' => Long,
   ?'snapshot_copy_grant_name' => string,
   ) $s = shape()) {
-    $this->destination_region = $destination_region ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
+    $this->destination_region = $destination_region ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->retention_period = $retention_period ?? 0;
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
   }
 }
 
@@ -883,12 +883,12 @@ class ClusterSubnetGroup {
   ?'tags' => TagList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->subnet_group_status = $subnet_group_status ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->subnet_group_status = $subnet_group_status ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -908,7 +908,7 @@ class ClusterSubnetGroupMessage {
   ?'marker' => string,
   ) $s = shape()) {
     $this->cluster_subnet_groups = $cluster_subnet_groups ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -945,9 +945,9 @@ class ClusterVersion {
   ?'cluster_version' => string,
   ?'description' => string,
   ) $s = shape()) {
-    $this->cluster_parameter_group_family = $cluster_parameter_group_family ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->description = $description ?? ;
+    $this->cluster_parameter_group_family = $cluster_parameter_group_family ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -961,8 +961,8 @@ class ClusterVersionsMessage {
   ?'cluster_versions' => ClusterVersionList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->cluster_versions = $cluster_versions ?? ;
-    $this->marker = $marker ?? ;
+    $this->cluster_versions = $cluster_versions ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -974,8 +974,8 @@ class ClustersMessage {
   ?'clusters' => ClusterList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
-    $this->marker = $marker ?? ;
+    $this->clusters = $clusters ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -991,10 +991,10 @@ class CopyClusterSnapshotMessage {
   ?'source_snapshot_identifier' => string,
   ?'target_snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->source_snapshot_cluster_identifier = $source_snapshot_cluster_identifier ?? ;
-    $this->source_snapshot_identifier = $source_snapshot_identifier ?? ;
-    $this->target_snapshot_identifier = $target_snapshot_identifier ?? ;
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->source_snapshot_cluster_identifier = $source_snapshot_cluster_identifier ?? "";
+    $this->source_snapshot_identifier = $source_snapshot_identifier ?? "";
+    $this->target_snapshot_identifier = $target_snapshot_identifier ?? "";
   }
 }
 
@@ -1079,36 +1079,36 @@ class CreateClusterMessage {
   ?'tags' => TagList,
   ?'vpc_security_group_ids' => VpcSecurityGroupIdList,
   ) $s = shape()) {
-    $this->additional_info = $additional_info ?? ;
-    $this->allow_version_upgrade = $allow_version_upgrade ?? ;
-    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? ;
+    $this->additional_info = $additional_info ?? "";
+    $this->allow_version_upgrade = $allow_version_upgrade ?? false;
+    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? 0;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? "";
     $this->cluster_security_groups = $cluster_security_groups ?? [];
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->cluster_type = $cluster_type ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->db_name = $db_name ?? ;
-    $this->elastic_ip = $elastic_ip ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->iam_roles = $iam_roles ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->master_user_password = $master_user_password ?? ;
-    $this->master_username = $master_username ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->port = $port ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_security_group_ids = $vpc_security_group_ids ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->cluster_type = $cluster_type ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->db_name = $db_name ?? "";
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->iam_roles = $iam_roles ?? [];
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->master_user_password = $master_user_password ?? "";
+    $this->master_username = $master_username ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->port = $port ?? 0;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_security_group_ids = $vpc_security_group_ids ?? [];
   }
 }
 
@@ -1124,10 +1124,10 @@ class CreateClusterParameterGroupMessage {
   ?'parameter_group_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->parameter_group_family = $parameter_group_family ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->parameter_group_family = $parameter_group_family ?? "";
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1161,9 +1161,9 @@ class CreateClusterSecurityGroupMessage {
   ?'description' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->tags = $tags ?? ;
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1189,10 +1189,10 @@ class CreateClusterSnapshotMessage {
   ?'snapshot_identifier' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->tags = $tags ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1218,10 +1218,10 @@ class CreateClusterSubnetGroupMessage {
   ?'subnet_ids' => SubnetIdentifierList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1255,14 +1255,14 @@ class CreateEventSubscriptionMessage {
   ?'subscription_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->severity = $severity ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->source_ids = $source_ids ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->event_categories = $event_categories ?? [];
+    $this->severity = $severity ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->source_ids = $source_ids ?? [];
     $this->source_type = $source_type ?? "";
-    $this->subscription_name = $subscription_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->subscription_name = $subscription_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1284,8 +1284,8 @@ class CreateHsmClientCertificateMessage {
   ?'hsm_client_certificate_identifier' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->tags = $tags ?? ;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1317,13 +1317,13 @@ class CreateHsmConfigurationMessage {
   ?'hsm_server_public_certificate' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->hsm_ip_address = $hsm_ip_address ?? ;
-    $this->hsm_partition_name = $hsm_partition_name ?? ;
-    $this->hsm_partition_password = $hsm_partition_password ?? ;
-    $this->hsm_server_public_certificate = $hsm_server_public_certificate ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->hsm_ip_address = $hsm_ip_address ?? "";
+    $this->hsm_partition_name = $hsm_partition_name ?? "";
+    $this->hsm_partition_password = $hsm_partition_password ?? "";
+    $this->hsm_server_public_certificate = $hsm_server_public_certificate ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1357,14 +1357,14 @@ class CreateScheduledActionMessage {
   ?'start_time' => TStamp,
   ?'target_action' => ScheduledActionType,
   ) $s = shape()) {
-    $this->enable = $enable ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->scheduled_action_description = $scheduled_action_description ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->target_action = $target_action ?? ;
+    $this->enable = $enable ?? false;
+    $this->end_time = $end_time ?? 0;
+    $this->iam_role = $iam_role ?? "";
+    $this->schedule = $schedule ?? "";
+    $this->scheduled_action_description = $scheduled_action_description ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->target_action = $target_action ?? null;
   }
 }
 
@@ -1378,9 +1378,9 @@ class CreateSnapshotCopyGrantMessage {
   ?'snapshot_copy_grant_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1410,12 +1410,12 @@ class CreateSnapshotScheduleMessage {
   ?'schedule_identifier' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->dry_run = $dry_run ?? ;
-    $this->next_invocations = $next_invocations ?? ;
-    $this->schedule_definitions = $schedule_definitions ?? ;
-    $this->schedule_description = $schedule_description ?? ;
-    $this->schedule_identifier = $schedule_identifier ?? ;
-    $this->tags = $tags ?? ;
+    $this->dry_run = $dry_run ?? false;
+    $this->next_invocations = $next_invocations ?? 0;
+    $this->schedule_definitions = $schedule_definitions ?? [];
+    $this->schedule_description = $schedule_description ?? "";
+    $this->schedule_identifier = $schedule_identifier ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1427,8 +1427,8 @@ class CreateTagsMessage {
   ?'resource_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1450,13 +1450,13 @@ class CreateUsageLimitMessage {
   ?'period' => UsageLimitPeriod,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->breach_action = $breach_action ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->feature_type = $feature_type ?? ;
-    $this->limit_type = $limit_type ?? ;
-    $this->period = $period ?? ;
-    $this->tags = $tags ?? ;
+    $this->amount = $amount ?? 0;
+    $this->breach_action = $breach_action ?? "";
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->feature_type = $feature_type ?? "";
+    $this->limit_type = $limit_type ?? "";
+    $this->period = $period ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1468,8 +1468,8 @@ class CustomerStorageMessage {
   ?'total_backup_size_in_mega_bytes' => Double,
   ?'total_provisioned_storage_in_mega_bytes' => Double,
   ) $s = shape()) {
-    $this->total_backup_size_in_mega_bytes = $total_backup_size_in_mega_bytes ?? ;
-    $this->total_provisioned_storage_in_mega_bytes = $total_provisioned_storage_in_mega_bytes ?? ;
+    $this->total_backup_size_in_mega_bytes = $total_backup_size_in_mega_bytes ?? 0.0;
+    $this->total_provisioned_storage_in_mega_bytes = $total_provisioned_storage_in_mega_bytes ?? 0.0;
   }
 }
 
@@ -1489,12 +1489,12 @@ class DataTransferProgress {
   ?'status' => string,
   ?'total_data_in_mega_bytes' => Long,
   ) $s = shape()) {
-    $this->current_rate_in_mega_bytes_per_second = $current_rate_in_mega_bytes_per_second ?? ;
-    $this->data_transferred_in_mega_bytes = $data_transferred_in_mega_bytes ?? ;
-    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? ;
-    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? ;
-    $this->status = $status ?? ;
-    $this->total_data_in_mega_bytes = $total_data_in_mega_bytes ?? ;
+    $this->current_rate_in_mega_bytes_per_second = $current_rate_in_mega_bytes_per_second ?? 0.0;
+    $this->data_transferred_in_mega_bytes = $data_transferred_in_mega_bytes ?? 0;
+    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? 0;
+    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? 0;
+    $this->status = $status ?? "";
+    $this->total_data_in_mega_bytes = $total_data_in_mega_bytes ?? 0;
   }
 }
 
@@ -1510,9 +1510,9 @@ class DefaultClusterParameters {
   ?'parameter_group_family' => string,
   ?'parameters' => ParametersList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->parameter_group_family = $parameter_group_family ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->marker = $marker ?? "";
+    $this->parameter_group_family = $parameter_group_family ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -1526,9 +1526,9 @@ class DeferredMaintenanceWindow {
   ?'defer_maintenance_identifier' => string,
   ?'defer_maintenance_start_time' => TStamp,
   ) $s = shape()) {
-    $this->defer_maintenance_end_time = $defer_maintenance_end_time ?? ;
-    $this->defer_maintenance_identifier = $defer_maintenance_identifier ?? ;
-    $this->defer_maintenance_start_time = $defer_maintenance_start_time ?? ;
+    $this->defer_maintenance_end_time = $defer_maintenance_end_time ?? 0;
+    $this->defer_maintenance_identifier = $defer_maintenance_identifier ?? "";
+    $this->defer_maintenance_start_time = $defer_maintenance_start_time ?? 0;
   }
 }
 
@@ -1546,10 +1546,10 @@ class DeleteClusterMessage {
   ?'final_cluster_snapshot_retention_period' => IntegerOptional,
   ?'skip_final_cluster_snapshot' => boolean,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->final_cluster_snapshot_identifier = $final_cluster_snapshot_identifier ?? ;
-    $this->final_cluster_snapshot_retention_period = $final_cluster_snapshot_retention_period ?? ;
-    $this->skip_final_cluster_snapshot = $skip_final_cluster_snapshot ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->final_cluster_snapshot_identifier = $final_cluster_snapshot_identifier ?? "";
+    $this->final_cluster_snapshot_retention_period = $final_cluster_snapshot_retention_period ?? 0;
+    $this->skip_final_cluster_snapshot = $skip_final_cluster_snapshot ?? false;
   }
 }
 
@@ -1559,7 +1559,7 @@ class DeleteClusterParameterGroupMessage {
   public function __construct(shape(
   ?'parameter_group_name' => string,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
   }
 }
 
@@ -1579,7 +1579,7 @@ class DeleteClusterSecurityGroupMessage {
   public function __construct(shape(
   ?'cluster_security_group_name' => string,
   ) $s = shape()) {
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
   }
 }
 
@@ -1591,8 +1591,8 @@ class DeleteClusterSnapshotMessage {
   ?'snapshot_cluster_identifier' => string,
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -1614,7 +1614,7 @@ class DeleteClusterSubnetGroupMessage {
   public function __construct(shape(
   ?'cluster_subnet_group_name' => string,
   ) $s = shape()) {
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
   }
 }
 
@@ -1624,7 +1624,7 @@ class DeleteEventSubscriptionMessage {
   public function __construct(shape(
   ?'subscription_name' => string,
   ) $s = shape()) {
-    $this->subscription_name = $subscription_name ?? ;
+    $this->subscription_name = $subscription_name ?? "";
   }
 }
 
@@ -1634,7 +1634,7 @@ class DeleteHsmClientCertificateMessage {
   public function __construct(shape(
   ?'hsm_client_certificate_identifier' => string,
   ) $s = shape()) {
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
   }
 }
 
@@ -1644,7 +1644,7 @@ class DeleteHsmConfigurationMessage {
   public function __construct(shape(
   ?'hsm_configuration_identifier' => string,
   ) $s = shape()) {
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
   }
 }
 
@@ -1654,7 +1654,7 @@ class DeleteScheduledActionMessage {
   public function __construct(shape(
   ?'scheduled_action_name' => string,
   ) $s = shape()) {
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
   }
 }
 
@@ -1664,7 +1664,7 @@ class DeleteSnapshotCopyGrantMessage {
   public function __construct(shape(
   ?'snapshot_copy_grant_name' => string,
   ) $s = shape()) {
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
   }
 }
 
@@ -1674,7 +1674,7 @@ class DeleteSnapshotScheduleMessage {
   public function __construct(shape(
   ?'schedule_identifier' => string,
   ) $s = shape()) {
-    $this->schedule_identifier = $schedule_identifier ?? ;
+    $this->schedule_identifier = $schedule_identifier ?? "";
   }
 }
 
@@ -1686,8 +1686,8 @@ class DeleteTagsMessage {
   ?'resource_name' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1697,7 +1697,7 @@ class DeleteUsageLimitMessage {
   public function __construct(shape(
   ?'usage_limit_id' => string,
   ) $s = shape()) {
-    $this->usage_limit_id = $usage_limit_id ?? ;
+    $this->usage_limit_id = $usage_limit_id ?? "";
   }
 }
 
@@ -1721,7 +1721,7 @@ class DescribeAccountAttributesMessage {
   public function __construct(shape(
   ?'attribute_names' => AttributeNameList,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
+    $this->attribute_names = $attribute_names ?? [];
   }
 }
 
@@ -1735,9 +1735,9 @@ class DescribeClusterDbRevisionsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1755,11 +1755,11 @@ class DescribeClusterParameterGroupsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1775,10 +1775,10 @@ class DescribeClusterParametersMessage {
   ?'parameter_group_name' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->source = $source ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -1796,11 +1796,11 @@ class DescribeClusterSecurityGroupsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1832,18 +1832,18 @@ class DescribeClusterSnapshotsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->cluster_exists = $cluster_exists ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->snapshot_type = $snapshot_type ?? ;
-    $this->sorting_entities = $sorting_entities ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->cluster_exists = $cluster_exists ?? false;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->snapshot_type = $snapshot_type ?? "";
+    $this->sorting_entities = $sorting_entities ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1861,11 +1861,11 @@ class DescribeClusterSubnetGroupsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1879,9 +1879,9 @@ class DescribeClusterTracksMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1897,10 +1897,10 @@ class DescribeClusterVersionsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cluster_parameter_group_family = $cluster_parameter_group_family ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cluster_parameter_group_family = $cluster_parameter_group_family ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1918,11 +1918,11 @@ class DescribeClustersMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -1936,9 +1936,9 @@ class DescribeDefaultClusterParametersMessage {
   ?'max_records' => IntegerOptional,
   ?'parameter_group_family' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->parameter_group_family = $parameter_group_family ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->parameter_group_family = $parameter_group_family ?? "";
   }
 }
 
@@ -1976,11 +1976,11 @@ class DescribeEventSubscriptionsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->subscription_name = $subscription_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->subscription_name = $subscription_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2002,13 +2002,13 @@ class DescribeEventsMessage {
   ?'source_type' => SourceType,
   ?'start_time' => TStamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->duration = $duration ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -2026,11 +2026,11 @@ class DescribeHsmClientCertificatesMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2048,11 +2048,11 @@ class DescribeHsmConfigurationsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2062,7 +2062,7 @@ class DescribeLoggingStatusMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -2085,12 +2085,12 @@ class DescribeNodeConfigurationOptionsMessage {
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
     $this->action_type = $action_type ?? "";
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -2106,10 +2106,10 @@ class DescribeOrderableClusterOptionsMessage {
   ?'max_records' => IntegerOptional,
   ?'node_type' => string,
   ) $s = shape()) {
-    $this->cluster_version = $cluster_version ?? null;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->node_type = $node_type ?? ;
+    $this->cluster_version = $cluster_version ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->node_type = $node_type ?? "";
   }
 }
 
@@ -2123,9 +2123,9 @@ class DescribeReservedNodeOfferingsMessage {
   ?'max_records' => IntegerOptional,
   ?'reserved_node_offering_id' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->reserved_node_offering_id = $reserved_node_offering_id ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->reserved_node_offering_id = $reserved_node_offering_id ?? "";
   }
 }
 
@@ -2139,9 +2139,9 @@ class DescribeReservedNodesMessage {
   ?'max_records' => IntegerOptional,
   ?'reserved_node_id' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->reserved_node_id = $reserved_node_id ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->reserved_node_id = $reserved_node_id ?? "";
   }
 }
 
@@ -2151,7 +2151,7 @@ class DescribeResizeMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -2175,14 +2175,14 @@ class DescribeScheduledActionsMessage {
   ?'start_time' => TStamp,
   ?'target_action_type' => ScheduledActionTypeValues,
   ) $s = shape()) {
-    $this->active = $active ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->target_action_type = $target_action_type ?? ;
+    $this->active = $active ?? false;
+    $this->end_time = $end_time ?? 0;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->target_action_type = $target_action_type ?? "";
   }
 }
 
@@ -2200,11 +2200,11 @@ class DescribeSnapshotCopyGrantsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2224,12 +2224,12 @@ class DescribeSnapshotSchedulesMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->schedule_identifier = $schedule_identifier ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->schedule_identifier = $schedule_identifier ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2241,8 +2241,8 @@ class DescribeSnapshotSchedulesOutputMessage {
   ?'marker' => string,
   ?'snapshot_schedules' => SnapshotScheduleList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->snapshot_schedules = $snapshot_schedules ?? ;
+    $this->marker = $marker ?? "";
+    $this->snapshot_schedules = $snapshot_schedules ?? [];
   }
 }
 
@@ -2258,10 +2258,10 @@ class DescribeTableRestoreStatusMessage {
   ?'max_records' => IntegerOptional,
   ?'table_restore_request_id' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->table_restore_request_id = $table_restore_request_id ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->table_restore_request_id = $table_restore_request_id ?? "";
   }
 }
 
@@ -2281,12 +2281,12 @@ class DescribeTagsMessage {
   ?'tag_keys' => TagKeyList,
   ?'tag_values' => TagValueList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
   }
 }
 
@@ -2308,13 +2308,13 @@ class DescribeUsageLimitsMessage {
   ?'tag_values' => TagValueList,
   ?'usage_limit_id' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->feature_type = $feature_type ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->tag_keys = $tag_keys ?? ;
-    $this->tag_values = $tag_values ?? ;
-    $this->usage_limit_id = $usage_limit_id ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->feature_type = $feature_type ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->tag_values = $tag_values ?? [];
+    $this->usage_limit_id = $usage_limit_id ?? "";
   }
 }
 
@@ -2324,7 +2324,7 @@ class DisableLoggingMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -2334,7 +2334,7 @@ class DisableSnapshotCopyMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -2364,10 +2364,10 @@ class EC2SecurityGroup {
   ?'status' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2381,8 +2381,8 @@ class ElasticIpStatus {
   ?'elastic_ip' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->elastic_ip = $elastic_ip ?? ;
-    $this->status = $status ?? ;
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2398,9 +2398,9 @@ class EnableLoggingMessage {
   ?'cluster_identifier' => string,
   ?'s_3_key_prefix' => string,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
   }
 }
 
@@ -2418,11 +2418,11 @@ class EnableSnapshotCopyMessage {
   ?'retention_period' => IntegerOptional,
   ?'snapshot_copy_grant_name' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->destination_region = $destination_region ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->destination_region = $destination_region ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->retention_period = $retention_period ?? 0;
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
   }
 }
 
@@ -2444,8 +2444,8 @@ class Endpoint {
   ?'address' => string,
   ?'port' => int,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->port = $port ?? ;
+    $this->address = $address ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -2467,12 +2467,12 @@ class Event {
   ?'source_identifier' => string,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->message = $message ?? ;
-    $this->severity = $severity ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->date = $date ?? 0;
+    $this->event_categories = $event_categories ?? [];
+    $this->event_id = $event_id ?? "";
+    $this->message = $message ?? "";
+    $this->severity = $severity ?? "";
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -2487,7 +2487,7 @@ class EventCategoriesMap {
   ?'events' => EventInfoMapList,
   ?'source_type' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->source_type = $source_type ?? "";
   }
 }
@@ -2516,10 +2516,10 @@ class EventInfoMap {
   ?'event_id' => string,
   ?'severity' => string,
   ) $s = shape()) {
-    $this->event_categories = $event_categories ?? ;
-    $this->event_description = $event_description ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->severity = $severity ?? ;
+    $this->event_categories = $event_categories ?? [];
+    $this->event_description = $event_description ?? "";
+    $this->event_id = $event_id ?? "";
+    $this->severity = $severity ?? "";
   }
 }
 
@@ -2553,17 +2553,17 @@ class EventSubscription {
   ?'subscription_creation_time' => TStamp,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cust_subscription_id = $cust_subscription_id ?? ;
-    $this->customer_aws_id = $customer_aws_id ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->cust_subscription_id = $cust_subscription_id ?? "";
+    $this->customer_aws_id = $customer_aws_id ?? "";
+    $this->enabled = $enabled ?? false;
     $this->event_categories_list = $event_categories_list ?? [];
-    $this->severity = $severity ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->severity = $severity ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
     $this->source_ids_list = $source_ids_list ?? [];
     $this->source_type = $source_type ?? "";
-    $this->status = $status ?? ;
-    $this->subscription_creation_time = $subscription_creation_time ?? ;
-    $this->tags = $tags ?? ;
+    $this->status = $status ?? "";
+    $this->subscription_creation_time = $subscription_creation_time ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2585,7 +2585,7 @@ class EventSubscriptionsMessage {
   ?'marker' => string,
   ) $s = shape()) {
     $this->event_subscriptions_list = $event_subscriptions_list ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2597,8 +2597,8 @@ class EventsMessage {
   ?'events' => EventList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->marker = $marker ?? ;
+    $this->events = $events ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2618,12 +2618,12 @@ class GetClusterCredentialsMessage {
   ?'db_user' => string,
   ?'duration_seconds' => IntegerOptional,
   ) $s = shape()) {
-    $this->auto_create = $auto_create ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->db_groups = $db_groups ?? ;
-    $this->db_name = $db_name ?? ;
-    $this->db_user = $db_user ?? ;
-    $this->duration_seconds = $duration_seconds ?? ;
+    $this->auto_create = $auto_create ?? false;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->db_groups = $db_groups ?? [];
+    $this->db_name = $db_name ?? "";
+    $this->db_user = $db_user ?? "";
+    $this->duration_seconds = $duration_seconds ?? 0;
   }
 }
 
@@ -2637,9 +2637,9 @@ class GetReservedNodeExchangeOfferingsInputMessage {
   ?'max_records' => IntegerOptional,
   ?'reserved_node_id' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->reserved_node_id = $reserved_node_id ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->reserved_node_id = $reserved_node_id ?? "";
   }
 }
 
@@ -2651,8 +2651,8 @@ class GetReservedNodeExchangeOfferingsOutputMessage {
   ?'marker' => string,
   ?'reserved_node_offerings' => ReservedNodeOfferingList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->reserved_node_offerings = $reserved_node_offerings ?? ;
+    $this->marker = $marker ?? "";
+    $this->reserved_node_offerings = $reserved_node_offerings ?? [];
   }
 }
 
@@ -2666,9 +2666,9 @@ class HsmClientCertificate {
   ?'hsm_client_certificate_public_key' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->hsm_client_certificate_public_key = $hsm_client_certificate_public_key ?? ;
-    $this->tags = $tags ?? ;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->hsm_client_certificate_public_key = $hsm_client_certificate_public_key ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2689,8 +2689,8 @@ class HsmClientCertificateMessage {
   ?'hsm_client_certificates' => HsmClientCertificateList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->hsm_client_certificates = $hsm_client_certificates ?? ;
-    $this->marker = $marker ?? ;
+    $this->hsm_client_certificates = $hsm_client_certificates ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2722,11 +2722,11 @@ class HsmConfiguration {
   ?'hsm_partition_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->hsm_ip_address = $hsm_ip_address ?? ;
-    $this->hsm_partition_name = $hsm_partition_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->description = $description ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->hsm_ip_address = $hsm_ip_address ?? "";
+    $this->hsm_partition_name = $hsm_partition_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2747,8 +2747,8 @@ class HsmConfigurationMessage {
   ?'hsm_configurations' => HsmConfigurationList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->hsm_configurations = $hsm_configurations ?? ;
-    $this->marker = $marker ?? ;
+    $this->hsm_configurations = $hsm_configurations ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2776,9 +2776,9 @@ class HsmStatus {
   ?'hsm_configuration_identifier' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->status = $status ?? ;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2792,9 +2792,9 @@ class IPRange {
   ?'status' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->cidrip = $cidrip ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
+    $this->cidrip = $cidrip ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3038,12 +3038,12 @@ class LoggingStatus {
   ?'logging_enabled' => boolean,
   ?'s_3_key_prefix' => string,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->last_failure_message = $last_failure_message ?? ;
-    $this->last_failure_time = $last_failure_time ?? ;
-    $this->last_successful_delivery_time = $last_successful_delivery_time ?? ;
-    $this->logging_enabled = $logging_enabled ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->last_failure_message = $last_failure_message ?? "";
+    $this->last_failure_time = $last_failure_time ?? 0;
+    $this->last_successful_delivery_time = $last_successful_delivery_time ?? 0;
+    $this->logging_enabled = $logging_enabled ?? false;
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
   }
 }
 
@@ -3061,9 +3061,9 @@ class MaintenanceTrack {
   ?'maintenance_track_name' => string,
   ?'update_targets' => EligibleTracksToUpdateList,
   ) $s = shape()) {
-    $this->database_version = $database_version ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->update_targets = $update_targets ?? ;
+    $this->database_version = $database_version ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->update_targets = $update_targets ?? [];
   }
 }
 
@@ -3077,8 +3077,8 @@ class ModifyClusterDbRevisionMessage {
   ?'cluster_identifier' => string,
   ?'revision_target' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->revision_target = $revision_target ?? null;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->revision_target = $revision_target ?? "";
   }
 }
 
@@ -3102,9 +3102,9 @@ class ModifyClusterIamRolesMessage {
   ?'cluster_identifier' => string,
   ?'remove_iam_roles' => IamRoleArnList,
   ) $s = shape()) {
-    $this->add_iam_roles = $add_iam_roles ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->remove_iam_roles = $remove_iam_roles ?? ;
+    $this->add_iam_roles = $add_iam_roles ?? [];
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->remove_iam_roles = $remove_iam_roles ?? [];
   }
 }
 
@@ -3134,12 +3134,12 @@ class ModifyClusterMaintenanceMessage {
   ?'defer_maintenance_identifier' => string,
   ?'defer_maintenance_start_time' => TStamp,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->defer_maintenance = $defer_maintenance ?? ;
-    $this->defer_maintenance_duration = $defer_maintenance_duration ?? ;
-    $this->defer_maintenance_end_time = $defer_maintenance_end_time ?? ;
-    $this->defer_maintenance_identifier = $defer_maintenance_identifier ?? ;
-    $this->defer_maintenance_start_time = $defer_maintenance_start_time ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->defer_maintenance = $defer_maintenance ?? false;
+    $this->defer_maintenance_duration = $defer_maintenance_duration ?? 0;
+    $this->defer_maintenance_end_time = $defer_maintenance_end_time ?? 0;
+    $this->defer_maintenance_identifier = $defer_maintenance_identifier ?? "";
+    $this->defer_maintenance_start_time = $defer_maintenance_start_time ?? 0;
   }
 }
 
@@ -3201,28 +3201,28 @@ class ModifyClusterMessage {
   ?'publicly_accessible' => BooleanOptional,
   ?'vpc_security_group_ids' => VpcSecurityGroupIdList,
   ) $s = shape()) {
-    $this->allow_version_upgrade = $allow_version_upgrade ?? ;
-    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? ;
+    $this->allow_version_upgrade = $allow_version_upgrade ?? false;
+    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? 0;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? "";
     $this->cluster_security_groups = $cluster_security_groups ?? [];
-    $this->cluster_type = $cluster_type ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->elastic_ip = $elastic_ip ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->master_user_password = $master_user_password ?? ;
-    $this->new_cluster_identifier = $new_cluster_identifier ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->vpc_security_group_ids = $vpc_security_group_ids ?? ;
+    $this->cluster_type = $cluster_type ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->master_user_password = $master_user_password ?? "";
+    $this->new_cluster_identifier = $new_cluster_identifier ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->vpc_security_group_ids = $vpc_security_group_ids ?? [];
   }
 }
 
@@ -3234,8 +3234,8 @@ class ModifyClusterParameterGroupMessage {
   ?'parameter_group_name' => string,
   ?'parameters' => ParametersList,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -3259,9 +3259,9 @@ class ModifyClusterSnapshotMessage {
   ?'manual_snapshot_retention_period' => IntegerOptional,
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->force = $force ?? false;
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -3285,9 +3285,9 @@ class ModifyClusterSnapshotScheduleMessage {
   ?'disassociate_schedule' => BooleanOptional,
   ?'schedule_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->disassociate_schedule = $disassociate_schedule ?? ;
-    $this->schedule_identifier = $schedule_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->disassociate_schedule = $disassociate_schedule ?? false;
+    $this->schedule_identifier = $schedule_identifier ?? "";
   }
 }
 
@@ -3301,9 +3301,9 @@ class ModifyClusterSubnetGroupMessage {
   ?'description' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -3335,13 +3335,13 @@ class ModifyEventSubscriptionMessage {
   ?'source_type' => string,
   ?'subscription_name' => string,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->severity = $severity ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->source_ids = $source_ids ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->event_categories = $event_categories ?? [];
+    $this->severity = $severity ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->source_ids = $source_ids ?? [];
     $this->source_type = $source_type ?? "";
-    $this->subscription_name = $subscription_name ?? ;
+    $this->subscription_name = $subscription_name ?? "";
   }
 }
 
@@ -3375,14 +3375,14 @@ class ModifyScheduledActionMessage {
   ?'start_time' => TStamp,
   ?'target_action' => ScheduledActionType,
   ) $s = shape()) {
-    $this->enable = $enable ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->scheduled_action_description = $scheduled_action_description ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->target_action = $target_action ?? ;
+    $this->enable = $enable ?? false;
+    $this->end_time = $end_time ?? 0;
+    $this->iam_role = $iam_role ?? "";
+    $this->schedule = $schedule ?? "";
+    $this->scheduled_action_description = $scheduled_action_description ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->target_action = $target_action ?? null;
   }
 }
 
@@ -3396,9 +3396,9 @@ class ModifySnapshotCopyRetentionPeriodMessage {
   ?'manual' => boolean,
   ?'retention_period' => int,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->manual = $manual ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->manual = $manual ?? false;
+    $this->retention_period = $retention_period ?? 0;
   }
 }
 
@@ -3420,8 +3420,8 @@ class ModifySnapshotScheduleMessage {
   ?'schedule_definitions' => ScheduleDefinitionList,
   ?'schedule_identifier' => string,
   ) $s = shape()) {
-    $this->schedule_definitions = $schedule_definitions ?? ;
-    $this->schedule_identifier = $schedule_identifier ?? ;
+    $this->schedule_definitions = $schedule_definitions ?? [];
+    $this->schedule_identifier = $schedule_identifier ?? "";
   }
 }
 
@@ -3435,9 +3435,9 @@ class ModifyUsageLimitMessage {
   ?'breach_action' => UsageLimitBreachAction,
   ?'usage_limit_id' => string,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->breach_action = $breach_action ?? ;
-    $this->usage_limit_id = $usage_limit_id ?? ;
+    $this->amount = $amount ?? 0;
+    $this->breach_action = $breach_action ?? "";
+    $this->usage_limit_id = $usage_limit_id ?? "";
   }
 }
 
@@ -3453,10 +3453,10 @@ class NodeConfigurationOption {
   ?'node_type' => string,
   ?'number_of_nodes' => int,
   ) $s = shape()) {
-    $this->estimated_disk_utilization_percent = $estimated_disk_utilization_percent ?? ;
+    $this->estimated_disk_utilization_percent = $estimated_disk_utilization_percent ?? 0.0;
     $this->mode = $mode ?? "";
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
   }
 }
 
@@ -3472,9 +3472,9 @@ class NodeConfigurationOptionsFilter {
   ?'operator' => OperatorType,
   ?'values' => ValueStringList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->operator = $operator ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->operator = $operator ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -3490,7 +3490,7 @@ class NodeConfigurationOptionsMessage {
   ?'marker' => string,
   ?'node_configuration_option_list' => NodeConfigurationOptionList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->node_configuration_option_list = $node_configuration_option_list ?? [];
   }
 }
@@ -3523,10 +3523,10 @@ class OrderableClusterOption {
   ?'cluster_version' => string,
   ?'node_type' => string,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->cluster_type = $cluster_type ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->node_type = $node_type ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->cluster_type = $cluster_type ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->node_type = $node_type ?? "";
   }
 }
 
@@ -3540,8 +3540,8 @@ class OrderableClusterOptionsMessage {
   ?'marker' => string,
   ?'orderable_cluster_options' => OrderableClusterOptionsList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->orderable_cluster_options = $orderable_cluster_options ?? ;
+    $this->marker = $marker ?? "";
+    $this->orderable_cluster_options = $orderable_cluster_options ?? [];
   }
 }
 
@@ -3567,15 +3567,15 @@ class Parameter {
   ?'parameter_value' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
-    $this->apply_type = $apply_type ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->description = $description ?? ;
-    $this->is_modifiable = $is_modifiable ?? ;
-    $this->minimum_engine_version = $minimum_engine_version ?? ;
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
-    $this->source = $source ?? ;
+    $this->allowed_values = $allowed_values ?? "";
+    $this->apply_type = $apply_type ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->description = $description ?? "";
+    $this->is_modifiable = $is_modifiable ?? false;
+    $this->minimum_engine_version = $minimum_engine_version ?? "";
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -3591,7 +3591,7 @@ class PauseClusterMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -3633,17 +3633,17 @@ class PendingModifiedValues {
   ?'number_of_nodes' => IntegerOptional,
   ?'publicly_accessible' => BooleanOptional,
   ) $s = shape()) {
-    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_type = $cluster_type ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->encryption_type = $encryption_type ?? ;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->master_user_password = $master_user_password ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
+    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? 0;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_type = $cluster_type ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->encryption_type = $encryption_type ?? "";
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->master_user_password = $master_user_password ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->publicly_accessible = $publicly_accessible ?? false;
   }
 }
 
@@ -3655,8 +3655,8 @@ class PurchaseReservedNodeOfferingMessage {
   ?'node_count' => IntegerOptional,
   ?'reserved_node_offering_id' => string,
   ) $s = shape()) {
-    $this->node_count = $node_count ?? ;
-    $this->reserved_node_offering_id = $reserved_node_offering_id ?? ;
+    $this->node_count = $node_count ?? 0;
+    $this->reserved_node_offering_id = $reserved_node_offering_id ?? "";
   }
 }
 
@@ -3676,7 +3676,7 @@ class RebootClusterMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -3698,8 +3698,8 @@ class RecurringCharge {
   ?'recurring_charge_amount' => Double,
   ?'recurring_charge_frequency' => string,
   ) $s = shape()) {
-    $this->recurring_charge_amount = $recurring_charge_amount ?? ;
-    $this->recurring_charge_frequency = $recurring_charge_frequency ?? ;
+    $this->recurring_charge_amount = $recurring_charge_amount ?? 0.0;
+    $this->recurring_charge_frequency = $recurring_charge_frequency ?? "";
   }
 }
 
@@ -3735,19 +3735,19 @@ class ReservedNode {
   ?'state' => string,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->duration = $duration ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->node_count = $node_count ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reserved_node_id = $reserved_node_id ?? ;
-    $this->reserved_node_offering_id = $reserved_node_offering_id ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->duration = $duration ?? 0;
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->node_count = $node_count ?? 0;
+    $this->node_type = $node_type ?? "";
+    $this->offering_type = $offering_type ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reserved_node_id = $reserved_node_id ?? "";
+    $this->reserved_node_offering_id = $reserved_node_offering_id ?? "";
     $this->reserved_node_offering_type = $reserved_node_offering_type ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->usage_price = $usage_price ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -3796,15 +3796,15 @@ class ReservedNodeOffering {
   ?'reserved_node_offering_type' => ReservedNodeOfferingType,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->duration = $duration ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reserved_node_offering_id = $reserved_node_offering_id ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->duration = $duration ?? 0;
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->node_type = $node_type ?? "";
+    $this->offering_type = $offering_type ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reserved_node_offering_id = $reserved_node_offering_id ?? "";
     $this->reserved_node_offering_type = $reserved_node_offering_type ?? "";
-    $this->usage_price = $usage_price ?? ;
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -3827,8 +3827,8 @@ class ReservedNodeOfferingsMessage {
   ?'marker' => string,
   ?'reserved_node_offerings' => ReservedNodeOfferingList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->reserved_node_offerings = $reserved_node_offerings ?? ;
+    $this->marker = $marker ?? "";
+    $this->reserved_node_offerings = $reserved_node_offerings ?? [];
   }
 }
 
@@ -3847,8 +3847,8 @@ class ReservedNodesMessage {
   ?'marker' => string,
   ?'reserved_nodes' => ReservedNodeList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->reserved_nodes = $reserved_nodes ?? ;
+    $this->marker = $marker ?? "";
+    $this->reserved_nodes = $reserved_nodes ?? [];
   }
 }
 
@@ -3862,9 +3862,9 @@ class ResetClusterParameterGroupMessage {
   ?'parameters' => ParametersList,
   ?'reset_all_parameters' => boolean,
   ) $s = shape()) {
-    $this->parameter_group_name = $parameter_group_name ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->reset_all_parameters = $reset_all_parameters ?? ;
+    $this->parameter_group_name = $parameter_group_name ?? "";
+    $this->parameters = $parameters ?? [];
+    $this->reset_all_parameters = $reset_all_parameters ?? false;
   }
 }
 
@@ -3882,11 +3882,11 @@ class ResizeClusterMessage {
   ?'node_type' => string,
   ?'number_of_nodes' => int,
   ) $s = shape()) {
-    $this->classic = $classic ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_type = $cluster_type ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
+    $this->classic = $classic ?? false;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_type = $cluster_type ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
   }
 }
 
@@ -3908,8 +3908,8 @@ class ResizeInfo {
   ?'allow_cancel_resize' => boolean,
   ?'resize_type' => string,
   ) $s = shape()) {
-    $this->allow_cancel_resize = $allow_cancel_resize ?? ;
-    $this->resize_type = $resize_type ?? ;
+    $this->allow_cancel_resize = $allow_cancel_resize ?? false;
+    $this->resize_type = $resize_type ?? "";
   }
 }
 
@@ -3956,22 +3956,22 @@ class ResizeProgressMessage {
   ?'target_number_of_nodes' => IntegerOptional,
   ?'total_resize_data_in_mega_bytes' => LongOptional,
   ) $s = shape()) {
-    $this->avg_resize_rate_in_mega_bytes_per_second = $avg_resize_rate_in_mega_bytes_per_second ?? ;
-    $this->data_transfer_progress_percent = $data_transfer_progress_percent ?? ;
-    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? ;
-    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? ;
+    $this->avg_resize_rate_in_mega_bytes_per_second = $avg_resize_rate_in_mega_bytes_per_second ?? 0.0;
+    $this->data_transfer_progress_percent = $data_transfer_progress_percent ?? 0.0;
+    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? 0;
+    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? 0;
     $this->import_tables_completed = $import_tables_completed ?? [];
     $this->import_tables_in_progress = $import_tables_in_progress ?? [];
     $this->import_tables_not_started = $import_tables_not_started ?? [];
-    $this->message = $message ?? ;
-    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? ;
-    $this->resize_type = $resize_type ?? ;
-    $this->status = $status ?? ;
-    $this->target_cluster_type = $target_cluster_type ?? ;
-    $this->target_encryption_type = $target_encryption_type ?? ;
-    $this->target_node_type = $target_node_type ?? ;
-    $this->target_number_of_nodes = $target_number_of_nodes ?? ;
-    $this->total_resize_data_in_mega_bytes = $total_resize_data_in_mega_bytes ?? ;
+    $this->message = $message ?? "";
+    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? 0;
+    $this->resize_type = $resize_type ?? "";
+    $this->status = $status ?? "";
+    $this->target_cluster_type = $target_cluster_type ?? "";
+    $this->target_encryption_type = $target_encryption_type ?? "";
+    $this->target_node_type = $target_node_type ?? "";
+    $this->target_number_of_nodes = $target_number_of_nodes ?? 0;
+    $this->total_resize_data_in_mega_bytes = $total_resize_data_in_mega_bytes ?? 0;
   }
 }
 
@@ -4040,32 +4040,32 @@ class RestoreFromClusterSnapshotMessage {
   ?'snapshot_schedule_identifier' => string,
   ?'vpc_security_group_ids' => VpcSecurityGroupIdList,
   ) $s = shape()) {
-    $this->additional_info = $additional_info ?? ;
-    $this->allow_version_upgrade = $allow_version_upgrade ?? ;
-    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? ;
+    $this->additional_info = $additional_info ?? "";
+    $this->allow_version_upgrade = $allow_version_upgrade ?? false;
+    $this->automated_snapshot_retention_period = $automated_snapshot_retention_period ?? 0;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_parameter_group_name = $cluster_parameter_group_name ?? "";
     $this->cluster_security_groups = $cluster_security_groups ?? [];
-    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? ;
-    $this->elastic_ip = $elastic_ip ?? ;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? ;
-    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? ;
-    $this->iam_roles = $iam_roles ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->port = $port ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? ;
-    $this->vpc_security_group_ids = $vpc_security_group_ids ?? ;
+    $this->cluster_subnet_group_name = $cluster_subnet_group_name ?? "";
+    $this->elastic_ip = $elastic_ip ?? "";
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->hsm_client_certificate_identifier = $hsm_client_certificate_identifier ?? "";
+    $this->hsm_configuration_identifier = $hsm_configuration_identifier ?? "";
+    $this->iam_roles = $iam_roles ?? [];
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->port = $port ?? 0;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->snapshot_schedule_identifier = $snapshot_schedule_identifier ?? "";
+    $this->vpc_security_group_ids = $vpc_security_group_ids ?? [];
   }
 }
 
@@ -4095,12 +4095,12 @@ class RestoreStatus {
   ?'snapshot_size_in_mega_bytes' => Long,
   ?'status' => string,
   ) $s = shape()) {
-    $this->current_restore_rate_in_mega_bytes_per_second = $current_restore_rate_in_mega_bytes_per_second ?? ;
-    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? ;
-    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? ;
-    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? ;
-    $this->snapshot_size_in_mega_bytes = $snapshot_size_in_mega_bytes ?? ;
-    $this->status = $status ?? ;
+    $this->current_restore_rate_in_mega_bytes_per_second = $current_restore_rate_in_mega_bytes_per_second ?? 0.0;
+    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? 0;
+    $this->estimated_time_to_completion_in_seconds = $estimated_time_to_completion_in_seconds ?? 0;
+    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? 0;
+    $this->snapshot_size_in_mega_bytes = $snapshot_size_in_mega_bytes ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -4124,14 +4124,14 @@ class RestoreTableFromClusterSnapshotMessage {
   ?'target_database_name' => string,
   ?'target_schema_name' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->new_table_name = $new_table_name ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->source_database_name = $source_database_name ?? ;
-    $this->source_schema_name = $source_schema_name ?? ;
-    $this->source_table_name = $source_table_name ?? ;
-    $this->target_database_name = $target_database_name ?? ;
-    $this->target_schema_name = $target_schema_name ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->new_table_name = $new_table_name ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->source_database_name = $source_database_name ?? "";
+    $this->source_schema_name = $source_schema_name ?? "";
+    $this->source_table_name = $source_table_name ?? "";
+    $this->target_database_name = $target_database_name ?? "";
+    $this->target_schema_name = $target_schema_name ?? "";
   }
 }
 
@@ -4151,7 +4151,7 @@ class ResumeClusterMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -4175,9 +4175,9 @@ class RevisionTarget {
   ?'database_revision_release_date' => TStamp,
   ?'description' => string,
   ) $s = shape()) {
-    $this->database_revision = $database_revision ?? ;
-    $this->database_revision_release_date = $database_revision_release_date ?? ;
-    $this->description = $description ?? ;
+    $this->database_revision = $database_revision ?? "";
+    $this->database_revision_release_date = $database_revision_release_date ?? 0;
+    $this->description = $description ?? "";
   }
 }
 
@@ -4195,10 +4195,10 @@ class RevokeClusterSecurityGroupIngressMessage {
   ?'ec_2_security_group_name' => string,
   ?'ec_2_security_group_owner_id' => string,
   ) $s = shape()) {
-    $this->cidrip = $cidrip ?? ;
-    $this->cluster_security_group_name = $cluster_security_group_name ?? ;
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
+    $this->cidrip = $cidrip ?? "";
+    $this->cluster_security_group_name = $cluster_security_group_name ?? "";
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
   }
 }
 
@@ -4222,9 +4222,9 @@ class RevokeSnapshotAccessMessage {
   ?'snapshot_cluster_identifier' => string,
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->account_with_restore_access = $account_with_restore_access ?? null;
-    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->account_with_restore_access = $account_with_restore_access ?? "";
+    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -4244,7 +4244,7 @@ class RotateEncryptionKeyMessage {
   public function __construct(shape(
   ?'cluster_identifier' => string,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
   }
 }
 
@@ -4312,15 +4312,15 @@ class ScheduledAction {
   ?'state' => ScheduledActionState,
   ?'target_action' => ScheduledActionType,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->iam_role = $iam_role ?? ;
-    $this->next_invocations = $next_invocations ?? ;
-    $this->schedule = $schedule ?? ;
-    $this->scheduled_action_description = $scheduled_action_description ?? ;
-    $this->scheduled_action_name = $scheduled_action_name ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->target_action = $target_action ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->iam_role = $iam_role ?? "";
+    $this->next_invocations = $next_invocations ?? [];
+    $this->schedule = $schedule ?? "";
+    $this->scheduled_action_description = $scheduled_action_description ?? "";
+    $this->scheduled_action_name = $scheduled_action_name ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->target_action = $target_action ?? null;
   }
 }
 
@@ -4339,8 +4339,8 @@ class ScheduledActionFilter {
   ?'name' => ScheduledActionFilterName,
   ?'values' => ValueStringList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -4378,9 +4378,9 @@ class ScheduledActionType {
   ?'resize_cluster' => ResizeClusterMessage,
   ?'resume_cluster' => ResumeClusterMessage,
   ) $s = shape()) {
-    $this->pause_cluster = $pause_cluster ?? ;
-    $this->resize_cluster = $resize_cluster ?? ;
-    $this->resume_cluster = $resume_cluster ?? ;
+    $this->pause_cluster = $pause_cluster ?? null;
+    $this->resize_cluster = $resize_cluster ?? null;
+    $this->resume_cluster = $resume_cluster ?? null;
   }
 }
 
@@ -4401,8 +4401,8 @@ class ScheduledActionsMessage {
   ?'marker' => string,
   ?'scheduled_actions' => ScheduledActionList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->scheduled_actions = $scheduled_actions ?? ;
+    $this->marker = $marker ?? "";
+    $this->scheduled_actions = $scheduled_actions ?? [];
   }
 }
 
@@ -4480,39 +4480,39 @@ class Snapshot {
   ?'total_backup_size_in_mega_bytes' => Double,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->accounts_with_restore_access = $accounts_with_restore_access ?? ;
-    $this->actual_incremental_backup_size_in_mega_bytes = $actual_incremental_backup_size_in_mega_bytes ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->backup_progress_in_mega_bytes = $backup_progress_in_mega_bytes ?? ;
-    $this->cluster_create_time = $cluster_create_time ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->cluster_version = $cluster_version ?? null;
-    $this->current_backup_rate_in_mega_bytes_per_second = $current_backup_rate_in_mega_bytes_per_second ?? ;
-    $this->db_name = $db_name ?? ;
-    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->encrypted_with_hsm = $encrypted_with_hsm ?? ;
-    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? ;
-    $this->estimated_seconds_to_completion = $estimated_seconds_to_completion ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->manual_snapshot_remaining_days = $manual_snapshot_remaining_days ?? ;
-    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? ;
-    $this->master_username = $master_username ?? ;
-    $this->node_type = $node_type ?? ;
-    $this->number_of_nodes = $number_of_nodes ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->port = $port ?? ;
-    $this->restorable_node_types = $restorable_node_types ?? ;
-    $this->snapshot_create_time = $snapshot_create_time ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->snapshot_retention_start_time = $snapshot_retention_start_time ?? ;
-    $this->snapshot_type = $snapshot_type ?? ;
-    $this->source_region = $source_region ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->total_backup_size_in_mega_bytes = $total_backup_size_in_mega_bytes ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->accounts_with_restore_access = $accounts_with_restore_access ?? [];
+    $this->actual_incremental_backup_size_in_mega_bytes = $actual_incremental_backup_size_in_mega_bytes ?? 0.0;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->backup_progress_in_mega_bytes = $backup_progress_in_mega_bytes ?? 0.0;
+    $this->cluster_create_time = $cluster_create_time ?? 0;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->cluster_version = $cluster_version ?? "";
+    $this->current_backup_rate_in_mega_bytes_per_second = $current_backup_rate_in_mega_bytes_per_second ?? 0.0;
+    $this->db_name = $db_name ?? "";
+    $this->elapsed_time_in_seconds = $elapsed_time_in_seconds ?? 0;
+    $this->encrypted = $encrypted ?? false;
+    $this->encrypted_with_hsm = $encrypted_with_hsm ?? false;
+    $this->enhanced_vpc_routing = $enhanced_vpc_routing ?? false;
+    $this->estimated_seconds_to_completion = $estimated_seconds_to_completion ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->manual_snapshot_remaining_days = $manual_snapshot_remaining_days ?? 0;
+    $this->manual_snapshot_retention_period = $manual_snapshot_retention_period ?? 0;
+    $this->master_username = $master_username ?? "";
+    $this->node_type = $node_type ?? "";
+    $this->number_of_nodes = $number_of_nodes ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->port = $port ?? 0;
+    $this->restorable_node_types = $restorable_node_types ?? [];
+    $this->snapshot_create_time = $snapshot_create_time ?? 0;
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->snapshot_retention_start_time = $snapshot_retention_start_time ?? 0;
+    $this->snapshot_type = $snapshot_type ?? "";
+    $this->source_region = $source_region ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->total_backup_size_in_mega_bytes = $total_backup_size_in_mega_bytes ?? 0.0;
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -4549,9 +4549,9 @@ class SnapshotCopyGrant {
   ?'snapshot_copy_grant_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->snapshot_copy_grant_name = $snapshot_copy_grant_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4572,8 +4572,8 @@ class SnapshotCopyGrantMessage {
   ?'marker' => string,
   ?'snapshot_copy_grants' => SnapshotCopyGrantList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->snapshot_copy_grants = $snapshot_copy_grants ?? ;
+    $this->marker = $marker ?? "";
+    $this->snapshot_copy_grants = $snapshot_copy_grants ?? [];
   }
 }
 
@@ -4603,10 +4603,10 @@ class SnapshotErrorMessage {
   ?'snapshot_cluster_identifier' => string,
   ?'snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->failure_code = $failure_code ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
+    $this->failure_code = $failure_code ?? "";
+    $this->failure_reason = $failure_reason ?? "";
+    $this->snapshot_cluster_identifier = $snapshot_cluster_identifier ?? "";
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
   }
 }
 
@@ -4622,8 +4622,8 @@ class SnapshotMessage {
   ?'marker' => string,
   ?'snapshots' => SnapshotList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->snapshots = $snapshots ?? ;
+    $this->marker = $marker ?? "";
+    $this->snapshots = $snapshots ?? [];
   }
 }
 
@@ -4645,13 +4645,13 @@ class SnapshotSchedule {
   ?'schedule_identifier' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->associated_cluster_count = $associated_cluster_count ?? ;
-    $this->associated_clusters = $associated_clusters ?? ;
-    $this->next_invocations = $next_invocations ?? ;
-    $this->schedule_definitions = $schedule_definitions ?? ;
-    $this->schedule_description = $schedule_description ?? ;
-    $this->schedule_identifier = $schedule_identifier ?? ;
-    $this->tags = $tags ?? ;
+    $this->associated_cluster_count = $associated_cluster_count ?? 0;
+    $this->associated_clusters = $associated_clusters ?? [];
+    $this->next_invocations = $next_invocations ?? [];
+    $this->schedule_definitions = $schedule_definitions ?? [];
+    $this->schedule_description = $schedule_description ?? "";
+    $this->schedule_identifier = $schedule_identifier ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4693,8 +4693,8 @@ class SnapshotSortingEntity {
   ?'attribute' => SnapshotAttributeToSortBy,
   ?'sort_order' => SortByOrder,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -4725,9 +4725,9 @@ class Subnet {
   ?'subnet_identifier' => string,
   ?'subnet_status' => string,
   ) $s = shape()) {
-    $this->subnet_availability_zone = $subnet_availability_zone ?? ;
-    $this->subnet_identifier = $subnet_identifier ?? ;
-    $this->subnet_status = $subnet_status ?? ;
+    $this->subnet_availability_zone = $subnet_availability_zone ?? null;
+    $this->subnet_identifier = $subnet_identifier ?? "";
+    $this->subnet_status = $subnet_status ?? "";
   }
 }
 
@@ -4783,7 +4783,7 @@ class SupportedOperation {
   public function __construct(shape(
   ?'operation_name' => string,
   ) $s = shape()) {
-    $this->operation_name = $operation_name ?? ;
+    $this->operation_name = $operation_name ?? "";
   }
 }
 
@@ -4795,7 +4795,7 @@ class SupportedPlatform {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -4849,20 +4849,20 @@ class TableRestoreStatus {
   ?'target_schema_name' => string,
   ?'total_data_in_mega_bytes' => LongOptional,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->message = $message ?? ;
-    $this->new_table_name = $new_table_name ?? ;
-    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? ;
-    $this->request_time = $request_time ?? ;
-    $this->snapshot_identifier = $snapshot_identifier ?? ;
-    $this->source_database_name = $source_database_name ?? ;
-    $this->source_schema_name = $source_schema_name ?? ;
-    $this->source_table_name = $source_table_name ?? ;
-    $this->status = $status ?? ;
-    $this->table_restore_request_id = $table_restore_request_id ?? ;
-    $this->target_database_name = $target_database_name ?? ;
-    $this->target_schema_name = $target_schema_name ?? ;
-    $this->total_data_in_mega_bytes = $total_data_in_mega_bytes ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->message = $message ?? "";
+    $this->new_table_name = $new_table_name ?? "";
+    $this->progress_in_mega_bytes = $progress_in_mega_bytes ?? 0;
+    $this->request_time = $request_time ?? 0;
+    $this->snapshot_identifier = $snapshot_identifier ?? "";
+    $this->source_database_name = $source_database_name ?? "";
+    $this->source_schema_name = $source_schema_name ?? "";
+    $this->source_table_name = $source_table_name ?? "";
+    $this->status = $status ?? "";
+    $this->table_restore_request_id = $table_restore_request_id ?? "";
+    $this->target_database_name = $target_database_name ?? "";
+    $this->target_schema_name = $target_schema_name ?? "";
+    $this->total_data_in_mega_bytes = $total_data_in_mega_bytes ?? 0;
   }
 }
 
@@ -4876,8 +4876,8 @@ class TableRestoreStatusMessage {
   ?'marker' => string,
   ?'table_restore_status_details' => TableRestoreStatusList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->table_restore_status_details = $table_restore_status_details ?? ;
+    $this->marker = $marker ?? "";
+    $this->table_restore_status_details = $table_restore_status_details ?? [];
   }
 }
 
@@ -4891,8 +4891,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -4919,8 +4919,8 @@ class TaggedResource {
   ?'resource_type' => string,
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
     $this->tag = $tag ?? null;
   }
 }
@@ -4935,8 +4935,8 @@ class TaggedResourceListMessage {
   ?'marker' => string,
   ?'tagged_resources' => TaggedResourceList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->tagged_resources = $tagged_resources ?? ;
+    $this->marker = $marker ?? "";
+    $this->tagged_resources = $tagged_resources ?? [];
   }
 }
 
@@ -4950,8 +4950,8 @@ class TrackListMessage {
   ?'maintenance_tracks' => TrackList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->maintenance_tracks = $maintenance_tracks ?? ;
-    $this->marker = $marker ?? ;
+    $this->maintenance_tracks = $maintenance_tracks ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -4993,9 +4993,9 @@ class UpdateTarget {
   ?'maintenance_track_name' => string,
   ?'supported_operations' => SupportedOperationList,
   ) $s = shape()) {
-    $this->database_version = $database_version ?? ;
-    $this->maintenance_track_name = $maintenance_track_name ?? ;
-    $this->supported_operations = $supported_operations ?? ;
+    $this->database_version = $database_version ?? "";
+    $this->maintenance_track_name = $maintenance_track_name ?? "";
+    $this->supported_operations = $supported_operations ?? [];
   }
 }
 
@@ -5019,14 +5019,14 @@ class UsageLimit {
   ?'tags' => TagList,
   ?'usage_limit_id' => string,
   ) $s = shape()) {
-    $this->amount = $amount ?? ;
-    $this->breach_action = $breach_action ?? ;
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->feature_type = $feature_type ?? ;
-    $this->limit_type = $limit_type ?? ;
-    $this->period = $period ?? ;
-    $this->tags = $tags ?? ;
-    $this->usage_limit_id = $usage_limit_id ?? ;
+    $this->amount = $amount ?? 0;
+    $this->breach_action = $breach_action ?? "";
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->feature_type = $feature_type ?? "";
+    $this->limit_type = $limit_type ?? "";
+    $this->period = $period ?? "";
+    $this->tags = $tags ?? [];
+    $this->usage_limit_id = $usage_limit_id ?? "";
   }
 }
 
@@ -5051,7 +5051,7 @@ class UsageLimitList {
   ?'marker' => string,
   ?'usage_limits' => UsageLimits,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->usage_limits = $usage_limits ?? [];
   }
 }
@@ -5079,8 +5079,8 @@ class VpcSecurityGroupMembership {
   ?'status' => string,
   ?'vpc_security_group_id' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->vpc_security_group_id = $vpc_security_group_id ?? ;
+    $this->status = $status ?? "";
+    $this->vpc_security_group_id = $vpc_security_group_id ?? "";
   }
 }
 

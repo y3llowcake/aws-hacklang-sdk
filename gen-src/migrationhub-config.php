@@ -13,7 +13,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -63,8 +63,8 @@ class DescribeHomeRegionControlsRequest {
   ) $s = shape()) {
     $this->control_id = $control_id ?? "";
     $this->home_region = $home_region ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->target = $target ?? null;
   }
 }
@@ -78,7 +78,7 @@ class DescribeHomeRegionControlsResult {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->home_region_controls = $home_region_controls ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -90,7 +90,7 @@ class DryRunOperation {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -142,7 +142,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -152,7 +152,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -166,7 +166,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -178,8 +178,8 @@ class Target {
   ?'id' => TargetId,
   ?'type' => TargetType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -195,7 +195,7 @@ class ThrottlingException {
   ?'message' => ErrorMessage,
   ?'retry_after_seconds' => RetryAfterSeconds,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->retry_after_seconds = $retry_after_seconds ?? 0;
   }
 }

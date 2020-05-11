@@ -67,8 +67,8 @@ class ChatMessage {
   ?'content' => ChatContent,
   ?'content_type' => ChatContentType,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
   }
 }
 
@@ -92,10 +92,10 @@ class ContactFlowSummary {
   ?'id' => ContactFlowId,
   ?'name' => ContactFlowName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->contact_flow_type = $contact_flow_type ?? "";
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -143,14 +143,14 @@ class CreateUserRequest {
   ) $s = shape()) {
     $this->directory_user_id = $directory_user_id ?? "";
     $this->hierarchy_group_id = $hierarchy_group_id ?? "";
-    $this->identity_info = $identity_info ?? ;
+    $this->identity_info = $identity_info ?? null;
     $this->instance_id = $instance_id ?? "";
     $this->password = $password ?? "";
-    $this->phone_config = $phone_config ?? ;
+    $this->phone_config = $phone_config ?? null;
     $this->routing_profile_id = $routing_profile_id ?? "";
     $this->security_profile_ids = $security_profile_ids ?? [];
-    $this->tags = $tags ?? ;
-    $this->username = $username ?? ;
+    $this->tags = $tags ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -162,7 +162,7 @@ class CreateUserResponse {
   ?'user_arn' => ARN,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->user_arn = $user_arn ?? ;
+    $this->user_arn = $user_arn ?? "";
     $this->user_id = $user_id ?? "";
   }
 }
@@ -179,10 +179,10 @@ class Credentials {
   ?'refresh_token' => SecurityToken,
   ?'refresh_token_expiration' => timestamp,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->access_token_expiration = $access_token_expiration ?? ;
-    $this->refresh_token = $refresh_token ?? ;
-    $this->refresh_token_expiration = $refresh_token_expiration ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->access_token_expiration = $access_token_expiration ?? 0;
+    $this->refresh_token = $refresh_token ?? "";
+    $this->refresh_token_expiration = $refresh_token_expiration ?? 0;
   }
 }
 
@@ -194,7 +194,7 @@ class CurrentMetric {
   ?'name' => CurrentMetricName,
   ?'unit' => Unit,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->unit = $unit ?? "";
   }
 }
@@ -207,7 +207,7 @@ class CurrentMetricData {
   ?'metric' => CurrentMetric,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->metric = $metric ?? ;
+    $this->metric = $metric ?? null;
     $this->value = $value ?? 0.0;
   }
 }
@@ -224,7 +224,7 @@ class CurrentMetricResult {
   ?'collections' => CurrentMetricDataCollections,
   ?'dimensions' => Dimensions,
   ) $s = shape()) {
-    $this->collections = $collections ?? ;
+    $this->collections = $collections ?? [];
     $this->dimensions = $dimensions ?? null;
   }
 }
@@ -331,7 +331,7 @@ class Dimensions {
   ?'queue' => QueueReference,
   ) $s = shape()) {
     $this->channel = $channel ?? "";
-    $this->queue = $queue ?? ;
+    $this->queue = $queue ?? null;
   }
 }
 
@@ -372,7 +372,7 @@ class GetContactAttributesRequest {
   ?'initial_contact_id' => ContactId,
   ?'instance_id' => InstanceId,
   ) $s = shape()) {
-    $this->initial_contact_id = $initial_contact_id ?? ;
+    $this->initial_contact_id = $initial_contact_id ?? "";
     $this->instance_id = $instance_id ?? "";
   }
 }
@@ -407,7 +407,7 @@ class GetCurrentMetricDataRequest {
     $this->filters = $filters ?? null;
     $this->groupings = $groupings ?? [];
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -422,8 +422,8 @@ class GetCurrentMetricDataResponse {
   ?'metric_results' => CurrentMetricResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->data_snapshot_time = $data_snapshot_time ?? ;
-    $this->metric_results = $metric_results ?? ;
+    $this->data_snapshot_time = $data_snapshot_time ?? 0;
+    $this->metric_results = $metric_results ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -468,14 +468,14 @@ class GetMetricDataRequest {
   ?'next_token' => NextToken,
   ?'start_time' => timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->filters = $filters ?? null;
     $this->groupings = $groupings ?? [];
     $this->historical_metrics = $historical_metrics ?? [];
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -487,7 +487,7 @@ class GetMetricDataResponse {
   ?'metric_results' => HistoricalMetricResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->metric_results = $metric_results ?? ;
+    $this->metric_results = $metric_results ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -510,11 +510,11 @@ class HierarchyGroup {
   ?'level_id' => HierarchyLevelId,
   ?'name' => HierarchyGroupName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->hierarchy_path = $hierarchy_path ?? null;
-    $this->id = $id ?? ;
-    $this->level_id = $level_id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->level_id = $level_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -532,9 +532,9 @@ class HierarchyGroupSummary {
   ?'id' => HierarchyGroupId,
   ?'name' => HierarchyGroupName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -550,9 +550,9 @@ class HierarchyLevel {
   ?'id' => HierarchyLevelId,
   ?'name' => HierarchyLevelName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -574,11 +574,11 @@ class HierarchyPath {
   ?'level_three' => HierarchyGroupSummary,
   ?'level_two' => HierarchyGroupSummary,
   ) $s = shape()) {
-    $this->level_five = $level_five ?? ;
-    $this->level_four = $level_four ?? ;
-    $this->level_one = $level_one ?? ;
-    $this->level_three = $level_three ?? ;
-    $this->level_two = $level_two ?? ;
+    $this->level_five = $level_five ?? null;
+    $this->level_four = $level_four ?? null;
+    $this->level_one = $level_one ?? null;
+    $this->level_three = $level_three ?? null;
+    $this->level_two = $level_two ?? null;
   }
 }
 
@@ -596,11 +596,11 @@ class HierarchyStructure {
   ?'level_three' => HierarchyLevel,
   ?'level_two' => HierarchyLevel,
   ) $s = shape()) {
-    $this->level_five = $level_five ?? ;
-    $this->level_four = $level_four ?? ;
-    $this->level_one = $level_one ?? ;
-    $this->level_three = $level_three ?? ;
-    $this->level_two = $level_two ?? ;
+    $this->level_five = $level_five ?? null;
+    $this->level_four = $level_four ?? null;
+    $this->level_one = $level_one ?? null;
+    $this->level_three = $level_three ?? null;
+    $this->level_two = $level_two ?? null;
   }
 }
 
@@ -616,7 +616,7 @@ class HistoricalMetric {
   ?'threshold' => Threshold,
   ?'unit' => Unit,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->statistic = $statistic ?? "";
     $this->threshold = $threshold ?? null;
     $this->unit = $unit ?? "";
@@ -631,7 +631,7 @@ class HistoricalMetricData {
   ?'metric' => HistoricalMetric,
   ?'value' => Value,
   ) $s = shape()) {
-    $this->metric = $metric ?? ;
+    $this->metric = $metric ?? null;
     $this->value = $value ?? 0.0;
   }
 }
@@ -648,7 +648,7 @@ class HistoricalMetricResult {
   ?'collections' => HistoricalMetricDataCollections,
   ?'dimensions' => Dimensions,
   ) $s = shape()) {
-    $this->collections = $collections ?? ;
+    $this->collections = $collections ?? [];
     $this->dimensions = $dimensions ?? null;
   }
 }
@@ -671,9 +671,9 @@ class HoursOfOperationSummary {
   ?'id' => HoursOfOperationId,
   ?'name' => HoursOfOperationName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -735,7 +735,7 @@ class ListContactFlowsRequest {
   ) $s = shape()) {
     $this->contact_flow_types = $contact_flow_types ?? [];
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -764,7 +764,7 @@ class ListHoursOfOperationsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -797,7 +797,7 @@ class ListPhoneNumbersRequest {
   ?'phone_number_types' => PhoneNumberTypes,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->phone_number_country_codes = $phone_number_country_codes ?? [];
     $this->phone_number_types = $phone_number_types ?? [];
@@ -830,7 +830,7 @@ class ListQueuesRequest {
   ?'queue_types' => QueueTypes,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
     $this->queue_types = $queue_types ?? [];
   }
@@ -860,7 +860,7 @@ class ListRoutingProfilesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -889,7 +889,7 @@ class ListSecurityProfilesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -913,7 +913,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ARN,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -923,7 +923,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -938,7 +938,7 @@ class ListUserHierarchyGroupsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -952,7 +952,7 @@ class ListUserHierarchyGroupsResponse {
   ?'user_hierarchy_group_summary_list' => HierarchyGroupSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->user_hierarchy_group_summary_list = $user_hierarchy_group_summary_list ?? ;
+    $this->user_hierarchy_group_summary_list = $user_hierarchy_group_summary_list ?? [];
   }
 }
 
@@ -967,7 +967,7 @@ class ListUsersRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1041,8 +1041,8 @@ class PhoneNumberSummary {
   ?'phone_number_country_code' => PhoneNumberCountryCode,
   ?'phone_number_type' => PhoneNumberType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
     $this->phone_number = $phone_number ?? "";
     $this->phone_number_country_code = $phone_number_country_code ?? "";
     $this->phone_number_type = $phone_number_type ?? "";
@@ -1069,8 +1069,8 @@ class QueueReference {
   ?'arn' => ARN,
   ?'id' => QueueId,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1086,9 +1086,9 @@ class QueueSummary {
   ?'name' => QueueName,
   ?'queue_type' => QueueType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->queue_type = $queue_type ?? "";
   }
 }
@@ -1125,9 +1125,9 @@ class RoutingProfileSummary {
   ?'id' => RoutingProfileId,
   ?'name' => RoutingProfileName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1149,9 +1149,9 @@ class SecurityProfileSummary {
   ?'id' => SecurityProfileId,
   ?'name' => SecurityProfileName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1178,7 +1178,7 @@ class StartChatContactRequest {
     $this->attributes = $attributes ?? [];
     $this->client_token = $client_token ?? "";
     $this->contact_flow_id = $contact_flow_id ?? "";
-    $this->initial_message = $initial_message ?? ;
+    $this->initial_message = $initial_message ?? null;
     $this->instance_id = $instance_id ?? "";
     $this->participant_details = $participant_details ?? null;
   }
@@ -1221,10 +1221,10 @@ class StartOutboundVoiceContactRequest {
     $this->attributes = $attributes ?? [];
     $this->client_token = $client_token ?? "";
     $this->contact_flow_id = $contact_flow_id ?? "";
-    $this->destination_phone_number = $destination_phone_number ?? ;
+    $this->destination_phone_number = $destination_phone_number ?? "";
     $this->instance_id = $instance_id ?? "";
     $this->queue_id = $queue_id ?? "";
-    $this->source_phone_number = $source_phone_number ?? ;
+    $this->source_phone_number = $source_phone_number ?? "";
   }
 }
 
@@ -1274,8 +1274,8 @@ class TagResourceRequest {
   ?'resource_arn' => ARN,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1316,8 +1316,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ARN,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1332,7 +1332,7 @@ class UpdateContactAttributesRequest {
   ?'instance_id' => InstanceId,
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
-    $this->initial_contact_id = $initial_contact_id ?? ;
+    $this->initial_contact_id = $initial_contact_id ?? "";
     $this->instance_id = $instance_id ?? "";
   }
 }
@@ -1370,7 +1370,7 @@ class UpdateUserIdentityInfoRequest {
   ?'instance_id' => InstanceId,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->identity_info = $identity_info ?? ;
+    $this->identity_info = $identity_info ?? null;
     $this->instance_id = $instance_id ?? "";
     $this->user_id = $user_id ?? "";
   }
@@ -1387,7 +1387,7 @@ class UpdateUserPhoneConfigRequest {
   ?'user_id' => UserId,
   ) $s = shape()) {
     $this->instance_id = $instance_id ?? "";
-    $this->phone_config = $phone_config ?? ;
+    $this->phone_config = $phone_config ?? null;
     $this->user_id = $user_id ?? "";
   }
 }
@@ -1448,16 +1448,16 @@ class User {
   ?'tags' => TagMap,
   ?'username' => AgentUsername,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->directory_user_id = $directory_user_id ?? "";
     $this->hierarchy_group_id = $hierarchy_group_id ?? "";
-    $this->id = $id ?? ;
-    $this->identity_info = $identity_info ?? ;
-    $this->phone_config = $phone_config ?? ;
+    $this->id = $id ?? "";
+    $this->identity_info = $identity_info ?? null;
+    $this->phone_config = $phone_config ?? null;
     $this->routing_profile_id = $routing_profile_id ?? "";
     $this->security_profile_ids = $security_profile_ids ?? [];
-    $this->tags = $tags ?? ;
-    $this->username = $username ?? ;
+    $this->tags = $tags ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -1474,8 +1474,8 @@ class UserIdentityInfo {
   ?'last_name' => AgentLastName,
   ) $s = shape()) {
     $this->email = $email ?? "";
-    $this->first_name = $first_name ?? ;
-    $this->last_name = $last_name ?? ;
+    $this->first_name = $first_name ?? "";
+    $this->last_name = $last_name ?? "";
   }
 }
 
@@ -1503,7 +1503,7 @@ class UserPhoneConfig {
   ) $s = shape()) {
     $this->after_contact_work_time_limit = $after_contact_work_time_limit ?? 0;
     $this->auto_accept = $auto_accept ?? false;
-    $this->desk_phone_number = $desk_phone_number ?? ;
+    $this->desk_phone_number = $desk_phone_number ?? "";
     $this->phone_type = $phone_type ?? "";
   }
 }
@@ -1518,9 +1518,9 @@ class UserSummary {
   ?'id' => UserId,
   ?'username' => AgentUsername,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->username = $username ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->username = $username ?? "";
   }
 }
 

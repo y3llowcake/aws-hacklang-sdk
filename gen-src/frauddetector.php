@@ -46,9 +46,9 @@ class BatchCreateVariableError {
   ?'message' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -60,7 +60,7 @@ class BatchCreateVariableRequest {
   public function __construct(shape(
   ?'variable_entries' => VariableEntryList,
   ) $s = shape()) {
-    $this->variable_entries = $variable_entries ?? ;
+    $this->variable_entries = $variable_entries ?? [];
   }
 }
 
@@ -70,7 +70,7 @@ class BatchCreateVariableResult {
   public function __construct(shape(
   ?'errors' => BatchCreateVariableErrorList,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -84,9 +84,9 @@ class BatchGetVariableError {
   ?'message' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -98,7 +98,7 @@ class BatchGetVariableRequest {
   public function __construct(shape(
   ?'names' => NameList,
   ) $s = shape()) {
-    $this->names = $names ?? ;
+    $this->names = $names ?? [];
   }
 }
 
@@ -110,8 +110,8 @@ class BatchGetVariableResult {
   ?'errors' => BatchGetVariableErrorList,
   ?'variables' => VariableList,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
-    $this->variables = $variables ?? ;
+    $this->errors = $errors ?? [];
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -121,7 +121,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -142,11 +142,11 @@ class CreateDetectorVersionRequest {
   ?'rules' => RuleList,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->external_model_endpoints = $external_model_endpoints ?? ;
-    $this->model_versions = $model_versions ?? ;
-    $this->rule_execution_mode = $rule_execution_mode ?? ;
-    $this->rules = $rules ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->external_model_endpoints = $external_model_endpoints ?? [];
+    $this->model_versions = $model_versions ?? [];
+    $this->rule_execution_mode = $rule_execution_mode ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -160,9 +160,9 @@ class CreateDetectorVersionResult {
   ?'detector_version_id' => nonEmptyString,
   ?'status' => DetectorVersionStatus,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->status = $status ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -177,8 +177,8 @@ class CreateModelVersionRequest {
   ?'model_type' => ModelTypeEnum,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
   }
 }
 
@@ -194,10 +194,10 @@ class CreateModelVersionResult {
   ?'model_version_number' => nonEmptyString,
   ?'status' => string,
   ) $s = shape()) {
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
-    $this->status = $status ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -218,11 +218,11 @@ class CreateRuleRequest {
   ?'rule_id' => identifier,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->expression = $expression ?? ;
-    $this->language = $language ?? ;
-    $this->outcomes = $outcomes ?? ;
-    $this->rule_id = $rule_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->expression = $expression ?? "";
+    $this->language = $language ?? "";
+    $this->outcomes = $outcomes ?? [];
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -232,7 +232,7 @@ class CreateRuleResult {
   public function __construct(shape(
   ?'rule' => Rule,
   ) $s = shape()) {
-    $this->rule = $rule ?? ;
+    $this->rule = $rule ?? null;
   }
 }
 
@@ -252,12 +252,12 @@ class CreateVariableRequest {
   ?'name' => string,
   ?'variable_type' => string,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->default_value = $default_value ?? ;
+    $this->data_source = $data_source ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
-    $this->variable_type = $variable_type ?? ;
+    $this->name = $name ?? "";
+    $this->variable_type = $variable_type ?? "";
   }
 }
 
@@ -280,7 +280,7 @@ class DeleteDetectorRequest {
   public function __construct(shape(
   ?'detector_id' => identifier,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
+    $this->detector_id = $detector_id ?? "";
   }
 }
 
@@ -299,8 +299,8 @@ class DeleteDetectorVersionRequest {
   ?'detector_id' => identifier,
   ?'detector_version_id' => nonEmptyString,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
   }
 }
 
@@ -317,7 +317,7 @@ class DeleteEventRequest {
   public function __construct(shape(
   ?'event_id' => string,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? ;
+    $this->event_id = $event_id ?? "";
   }
 }
 
@@ -338,9 +338,9 @@ class DeleteRuleVersionRequest {
   ?'rule_id' => identifier,
   ?'rule_version' => nonEmptyString,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->rule_version = $rule_version ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->rule_id = $rule_id ?? "";
+    $this->rule_version = $rule_version ?? "";
   }
 }
 
@@ -361,9 +361,9 @@ class DescribeDetectorRequest {
   ?'max_results' => DetectorVersionMaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -377,9 +377,9 @@ class DescribeDetectorResult {
   ?'detector_version_summaries' => DetectorVersionSummaryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_summaries = $detector_version_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_summaries = $detector_version_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -397,11 +397,11 @@ class DescribeModelVersionsRequest {
   ?'model_version_number' => nonEmptyString,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -413,8 +413,8 @@ class DescribeModelVersionsResult {
   ?'model_version_details' => ModelVersionDetailList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->model_version_details = $model_version_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->model_version_details = $model_version_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -430,10 +430,10 @@ class Detector {
   ?'detector_id' => identifier,
   ?'last_updated_time' => time,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->last_updated_time = $last_updated_time ?? "";
   }
 }
 
@@ -456,9 +456,9 @@ class DetectorVersionSummary {
   ?'status' => DetectorVersionStatus,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->status = $status ?? ;
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -488,14 +488,14 @@ class ExternalModel {
   ?'output_configuration' => ModelOutputConfiguration,
   ?'role' => Role,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
-    $this->input_configuration = $input_configuration ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->model_endpoint = $model_endpoint ?? ;
-    $this->model_endpoint_status = $model_endpoint_status ?? ;
-    $this->model_source = $model_source ?? ;
-    $this->output_configuration = $output_configuration ?? ;
-    $this->role = $role ?? ;
+    $this->created_time = $created_time ?? "";
+    $this->input_configuration = $input_configuration ?? null;
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->model_endpoint = $model_endpoint ?? "";
+    $this->model_endpoint_status = $model_endpoint_status ?? "";
+    $this->model_source = $model_source ?? "";
+    $this->output_configuration = $output_configuration ?? null;
+    $this->role = $role ?? null;
   }
 }
 
@@ -513,8 +513,8 @@ class GetDetectorVersionRequest {
   ?'detector_id' => identifier,
   ?'detector_version_id' => nonEmptyString,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
   }
 }
 
@@ -542,16 +542,16 @@ class GetDetectorVersionResult {
   ?'rules' => RuleList,
   ?'status' => DetectorVersionStatus,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->external_model_endpoints = $external_model_endpoints ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->model_versions = $model_versions ?? ;
-    $this->rule_execution_mode = $rule_execution_mode ?? ;
-    $this->rules = $rules ?? ;
-    $this->status = $status ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->external_model_endpoints = $external_model_endpoints ?? [];
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->model_versions = $model_versions ?? [];
+    $this->rule_execution_mode = $rule_execution_mode ?? "";
+    $this->rules = $rules ?? [];
+    $this->status = $status ?? "";
   }
 }
 
@@ -565,9 +565,9 @@ class GetDetectorsRequest {
   ?'max_results' => DetectorsMaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -579,8 +579,8 @@ class GetDetectorsResult {
   ?'detectors' => DetectorList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->detectors = $detectors ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->detectors = $detectors ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -594,9 +594,9 @@ class GetExternalModelsRequest {
   ?'model_endpoint' => string,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->model_endpoint = $model_endpoint ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->model_endpoint = $model_endpoint ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -608,8 +608,8 @@ class GetExternalModelsResult {
   ?'external_models' => ExternalModelList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->external_models = $external_models ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->external_models = $external_models ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -623,9 +623,9 @@ class GetModelVersionRequest {
   ?'model_type' => ModelTypeEnum,
   ?'model_version_number' => nonEmptyString,
   ) $s = shape()) {
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
   }
 }
 
@@ -644,10 +644,10 @@ class GetModelVersionResult {
   ?'status' => string,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
-    $this->status = $status ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -663,10 +663,10 @@ class GetModelsRequest {
   ?'model_type' => ModelTypeEnum,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -678,8 +678,8 @@ class GetModelsResult {
   ?'models' => ModelList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->models = $models ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->models = $models ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -693,9 +693,9 @@ class GetOutcomesRequest {
   ?'name' => identifier,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -707,8 +707,8 @@ class GetOutcomesResult {
   ?'next_token' => string,
   ?'outcomes' => OutcomeList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->outcomes = $outcomes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->outcomes = $outcomes ?? [];
   }
 }
 
@@ -726,11 +726,11 @@ class GetPredictionRequest {
   ?'event_id' => string,
   ?'external_model_endpoint_data_blobs' => ExternalModelEndpointDataBlobMap,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->event_attributes = $event_attributes ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->external_model_endpoint_data_blobs = $external_model_endpoint_data_blobs ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->event_attributes = $event_attributes ?? [];
+    $this->event_id = $event_id ?? "";
+    $this->external_model_endpoint_data_blobs = $external_model_endpoint_data_blobs ?? [];
   }
 }
 
@@ -744,9 +744,9 @@ class GetPredictionResult {
   ?'outcomes' => ListOfStrings,
   ?'rule_results' => ListOfRuleResults,
   ) $s = shape()) {
-    $this->model_scores = $model_scores ?? ;
-    $this->outcomes = $outcomes ?? ;
-    $this->rule_results = $rule_results ?? ;
+    $this->model_scores = $model_scores ?? [];
+    $this->outcomes = $outcomes ?? [];
+    $this->rule_results = $rule_results ?? [];
   }
 }
 
@@ -764,11 +764,11 @@ class GetRulesRequest {
   ?'rule_id' => identifier,
   ?'rule_version' => nonEmptyString,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->rule_version = $rule_version ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->rule_id = $rule_id ?? "";
+    $this->rule_version = $rule_version ?? "";
   }
 }
 
@@ -780,8 +780,8 @@ class GetRulesResult {
   ?'next_token' => string,
   ?'rule_details' => RuleDetailList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->rule_details = $rule_details ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->rule_details = $rule_details ?? [];
   }
 }
 
@@ -795,9 +795,9 @@ class GetVariablesRequest {
   ?'name' => string,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -809,8 +809,8 @@ class GetVariablesResult {
   ?'next_token' => string,
   ?'variables' => VariableList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->variables = $variables ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -820,7 +820,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -838,8 +838,8 @@ class LabelSchema {
   ?'label_key' => string,
   ?'label_mapper' => LabelMapper,
   ) $s = shape()) {
-    $this->label_key = $label_key ?? ;
-    $this->label_mapper = $label_mapper ?? ;
+    $this->label_key = $label_key ?? "";
+    $this->label_mapper = $label_mapper ?? [];
   }
 }
 
@@ -877,14 +877,14 @@ class Model {
   ?'model_variables' => ModelVariablesList,
   ?'training_data_source' => TrainingDataSource,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->label_schema = $label_schema ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_variables = $model_variables ?? ;
-    $this->training_data_source = $training_data_source ?? ;
+    $this->label_schema = $label_schema ?? null;
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_variables = $model_variables ?? [];
+    $this->training_data_source = $training_data_source ?? null;
   }
 }
 
@@ -896,7 +896,7 @@ class ModelEndpointDataBlob {
   ?'byte_buffer' => blob,
   ?'content_type' => contentType,
   ) $s = shape()) {
-    $this->byte_buffer = $byte_buffer ?? ;
+    $this->byte_buffer = $byte_buffer ?? "";
     $this->content_type = $content_type ?? "";
   }
 }
@@ -915,10 +915,10 @@ class ModelInputConfiguration {
   ?'is_opaque' => IsOpaque,
   ?'json_input_template' => string,
   ) $s = shape()) {
-    $this->csv_input_template = $csv_input_template ?? ;
-    $this->format = $format ?? ;
-    $this->is_opaque = $is_opaque ?? ;
-    $this->json_input_template = $json_input_template ?? ;
+    $this->csv_input_template = $csv_input_template ?? "";
+    $this->format = $format ?? "";
+    $this->is_opaque = $is_opaque ?? false;
+    $this->json_input_template = $json_input_template ?? "";
   }
 }
 
@@ -936,9 +936,9 @@ class ModelOutputConfiguration {
   ?'format' => ModelOutputDataFormat,
   ?'json_key_to_variable_map' => JsonKeyToVariableMap,
   ) $s = shape()) {
-    $this->csv_index_to_variable_map = $csv_index_to_variable_map ?? ;
-    $this->format = $format ?? ;
-    $this->json_key_to_variable_map = $json_key_to_variable_map ?? ;
+    $this->csv_index_to_variable_map = $csv_index_to_variable_map ?? [];
+    $this->format = $format ?? "";
+    $this->json_key_to_variable_map = $json_key_to_variable_map ?? [];
   }
 }
 
@@ -954,8 +954,8 @@ class ModelScores {
   ?'model_version' => ModelVersion,
   ?'scores' => ModelPredictionMap,
   ) $s = shape()) {
-    $this->model_version = $model_version ?? ;
-    $this->scores = $scores ?? ;
+    $this->model_version = $model_version ?? null;
+    $this->scores = $scores ?? [];
   }
 }
 
@@ -971,8 +971,8 @@ class ModelVariable {
   ?'index' => ModelVariableIndex,
   ?'name' => string,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->name = $name ?? ;
+    $this->index = $index ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -990,9 +990,9 @@ class ModelVersion {
   ?'model_type' => ModelTypeEnum,
   ?'model_version_number' => nonEmptyString,
   ) $s = shape()) {
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
   }
 }
 
@@ -1024,18 +1024,18 @@ class ModelVersionDetail {
   ?'training_metrics' => MetricsMap,
   ?'validation_metrics' => MetricsMap,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->label_schema = $label_schema ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_variables = $model_variables ?? ;
-    $this->model_version_number = $model_version_number ?? ;
-    $this->status = $status ?? ;
-    $this->training_data_source = $training_data_source ?? ;
-    $this->training_metrics = $training_metrics ?? ;
-    $this->validation_metrics = $validation_metrics ?? ;
+    $this->label_schema = $label_schema ?? null;
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_variables = $model_variables ?? [];
+    $this->model_version_number = $model_version_number ?? "";
+    $this->status = $status ?? "";
+    $this->training_data_source = $training_data_source ?? null;
+    $this->training_metrics = $training_metrics ?? [];
+    $this->validation_metrics = $validation_metrics ?? [];
   }
 }
 
@@ -1059,10 +1059,10 @@ class Outcome {
   ?'last_updated_time' => time,
   ?'name' => identifier,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1079,7 +1079,7 @@ class PutDetectorRequest {
   ?'detector_id' => identifier,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
+    $this->detector_id = $detector_id ?? "";
   }
 }
 
@@ -1106,12 +1106,12 @@ class PutExternalModelRequest {
   ?'output_configuration' => ModelOutputConfiguration,
   ?'role' => Role,
   ) $s = shape()) {
-    $this->input_configuration = $input_configuration ?? ;
-    $this->model_endpoint = $model_endpoint ?? ;
-    $this->model_endpoint_status = $model_endpoint_status ?? ;
-    $this->model_source = $model_source ?? ;
-    $this->output_configuration = $output_configuration ?? ;
-    $this->role = $role ?? ;
+    $this->input_configuration = $input_configuration ?? null;
+    $this->model_endpoint = $model_endpoint ?? "";
+    $this->model_endpoint_status = $model_endpoint_status ?? "";
+    $this->model_source = $model_source ?? "";
+    $this->output_configuration = $output_configuration ?? null;
+    $this->role = $role ?? null;
   }
 }
 
@@ -1139,11 +1139,11 @@ class PutModelRequest {
   ?'training_data_source' => TrainingDataSource,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->label_schema = $label_schema ?? ;
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_variables = $model_variables ?? ;
-    $this->training_data_source = $training_data_source ?? ;
+    $this->label_schema = $label_schema ?? null;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_variables = $model_variables ?? [];
+    $this->training_data_source = $training_data_source ?? null;
   }
 }
 
@@ -1163,7 +1163,7 @@ class PutOutcomeRequest {
   ?'name' => identifier,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1180,7 +1180,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1192,8 +1192,8 @@ class Role {
   ?'arn' => string,
   ?'name' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1207,9 +1207,9 @@ class Rule {
   ?'rule_id' => identifier,
   ?'rule_version' => nonEmptyString,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->rule_version = $rule_version ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->rule_id = $rule_id ?? "";
+    $this->rule_version = $rule_version ?? "";
   }
 }
 
@@ -1235,15 +1235,15 @@ class RuleDetail {
   ?'rule_id' => identifier,
   ?'rule_version' => nonEmptyString,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? "";
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->expression = $expression ?? ;
-    $this->language = $language ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->outcomes = $outcomes ?? ;
-    $this->rule_id = $rule_id ?? ;
-    $this->rule_version = $rule_version ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->expression = $expression ?? "";
+    $this->language = $language ?? "";
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->outcomes = $outcomes ?? [];
+    $this->rule_id = $rule_id ?? "";
+    $this->rule_version = $rule_version ?? "";
   }
 }
 
@@ -1261,8 +1261,8 @@ class RuleResult {
   ?'outcomes' => ListOfStrings,
   ?'rule_id' => string,
   ) $s = shape()) {
-    $this->outcomes = $outcomes ?? ;
-    $this->rule_id = $rule_id ?? ;
+    $this->outcomes = $outcomes ?? [];
+    $this->rule_id = $rule_id ?? "";
   }
 }
 
@@ -1274,7 +1274,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1286,8 +1286,8 @@ class TrainingDataSource {
   ?'data_access_role_arn' => iamRoleArn,
   ?'data_location' => s3BucketLocation,
   ) $s = shape()) {
-    $this->data_access_role_arn = $data_access_role_arn ?? ;
-    $this->data_location = $data_location ?? ;
+    $this->data_access_role_arn = $data_access_role_arn ?? "";
+    $this->data_location = $data_location ?? "";
   }
 }
 
@@ -1302,8 +1302,8 @@ class UpdateDetectorVersionMetadataRequest {
   ?'detector_version_id' => nonEmptyString,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
   }
 }
 
@@ -1333,12 +1333,12 @@ class UpdateDetectorVersionRequest {
   ?'rules' => RuleList,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->external_model_endpoints = $external_model_endpoints ?? ;
-    $this->model_versions = $model_versions ?? ;
-    $this->rule_execution_mode = $rule_execution_mode ?? ;
-    $this->rules = $rules ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->external_model_endpoints = $external_model_endpoints ?? [];
+    $this->model_versions = $model_versions ?? [];
+    $this->rule_execution_mode = $rule_execution_mode ?? "";
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -1359,9 +1359,9 @@ class UpdateDetectorVersionStatusRequest {
   ?'detector_version_id' => nonEmptyString,
   ?'status' => DetectorVersionStatus,
   ) $s = shape()) {
-    $this->detector_id = $detector_id ?? ;
-    $this->detector_version_id = $detector_version_id ?? ;
-    $this->status = $status ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->detector_version_id = $detector_version_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1387,10 +1387,10 @@ class UpdateModelVersionRequest {
   ?'status' => ModelVersionStatus,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->model_id = $model_id ?? ;
-    $this->model_type = $model_type ?? ;
-    $this->model_version_number = $model_version_number ?? ;
-    $this->status = $status ?? ;
+    $this->model_id = $model_id ?? "";
+    $this->model_type = $model_type ?? "";
+    $this->model_version_number = $model_version_number ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1410,7 +1410,7 @@ class UpdateRuleMetadataRequest {
   ?'rule' => Rule,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->rule = $rule ?? ;
+    $this->rule = $rule ?? null;
   }
 }
 
@@ -1436,10 +1436,10 @@ class UpdateRuleVersionRequest {
   ?'rule' => Rule,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->expression = $expression ?? ;
-    $this->language = $language ?? ;
-    $this->outcomes = $outcomes ?? ;
-    $this->rule = $rule ?? ;
+    $this->expression = $expression ?? "";
+    $this->language = $language ?? "";
+    $this->outcomes = $outcomes ?? [];
+    $this->rule = $rule ?? null;
   }
 }
 
@@ -1449,7 +1449,7 @@ class UpdateRuleVersionResult {
   public function __construct(shape(
   ?'rule' => Rule,
   ) $s = shape()) {
-    $this->rule = $rule ?? ;
+    $this->rule = $rule ?? null;
   }
 }
 
@@ -1465,10 +1465,10 @@ class UpdateVariableRequest {
   ?'name' => string,
   ?'variable_type' => string,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
-    $this->variable_type = $variable_type ?? ;
+    $this->name = $name ?? "";
+    $this->variable_type = $variable_type ?? "";
   }
 }
 
@@ -1485,7 +1485,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1509,14 +1509,14 @@ class Variable {
   ?'name' => string,
   ?'variable_type' => string,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
-    $this->data_source = $data_source ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->default_value = $default_value ?? ;
+    $this->created_time = $created_time ?? "";
+    $this->data_source = $data_source ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
-    $this->variable_type = $variable_type ?? ;
+    $this->last_updated_time = $last_updated_time ?? "";
+    $this->name = $name ?? "";
+    $this->variable_type = $variable_type ?? "";
   }
 }
 
@@ -1536,12 +1536,12 @@ class VariableEntry {
   ?'name' => string,
   ?'variable_type' => string,
   ) $s = shape()) {
-    $this->data_source = $data_source ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->default_value = $default_value ?? ;
+    $this->data_source = $data_source ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
-    $this->variable_type = $variable_type ?? ;
+    $this->name = $name ?? "";
+    $this->variable_type = $variable_type ?? "";
   }
 }
 

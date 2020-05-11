@@ -95,9 +95,9 @@ class AccountAggregationSource {
   ?'all_aws_regions' => boolean,
   ?'aws_regions' => AggregatorRegionList,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
-    $this->all_aws_regions = $all_aws_regions ?? ;
-    $this->aws_regions = $aws_regions ?? ;
+    $this->account_ids = $account_ids ?? [];
+    $this->all_aws_regions = $all_aws_regions ?? false;
+    $this->aws_regions = $aws_regions ?? [];
   }
 }
 
@@ -137,7 +137,7 @@ class AggregateComplianceCount {
   ?'group_name' => StringWithCharLimit256,
   ) $s = shape()) {
     $this->compliance_summary = $compliance_summary ?? null;
-    $this->group_name = $group_name ?? ;
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -165,9 +165,9 @@ class AggregateEvaluationResult {
     $this->annotation = $annotation ?? "";
     $this->aws_region = $aws_region ?? "";
     $this->compliance_type = $compliance_type ?? "";
-    $this->config_rule_invoked_time = $config_rule_invoked_time ?? ;
+    $this->config_rule_invoked_time = $config_rule_invoked_time ?? 0;
     $this->evaluation_result_identifier = $evaluation_result_identifier ?? null;
-    $this->result_recorded_time = $result_recorded_time ?? ;
+    $this->result_recorded_time = $result_recorded_time ?? 0;
   }
 }
 
@@ -190,8 +190,8 @@ class AggregateResourceIdentifier {
     $this->resource_id = $resource_id ?? "";
     $this->resource_name = $resource_name ?? "";
     $this->resource_type = $resource_type ?? "";
-    $this->source_account_id = $source_account_id ?? ;
-    $this->source_region = $source_region ?? ;
+    $this->source_account_id = $source_account_id ?? "";
+    $this->source_region = $source_region ?? "";
   }
 }
 
@@ -214,12 +214,12 @@ class AggregatedSourceStatus {
   ?'source_type' => AggregatedSourceType,
   ) $s = shape()) {
     $this->aws_region = $aws_region ?? "";
-    $this->last_error_code = $last_error_code ?? ;
-    $this->last_error_message = $last_error_message ?? ;
-    $this->last_update_status = $last_update_status ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->source_id = $source_id ?? ;
-    $this->source_type = $source_type ?? ;
+    $this->last_error_code = $last_error_code ?? "";
+    $this->last_error_message = $last_error_message ?? "";
+    $this->last_update_status = $last_update_status ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->source_id = $source_id ?? "";
+    $this->source_type = $source_type ?? "";
   }
 }
 
@@ -243,10 +243,10 @@ class AggregationAuthorization {
   ?'authorized_aws_region' => AwsRegion,
   ?'creation_time' => Date,
   ) $s = shape()) {
-    $this->aggregation_authorization_arn = $aggregation_authorization_arn ?? ;
-    $this->authorized_account_id = $authorized_account_id ?? ;
-    $this->authorized_aws_region = $authorized_aws_region ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->aggregation_authorization_arn = $aggregation_authorization_arn ?? "";
+    $this->authorized_account_id = $authorized_account_id ?? "";
+    $this->authorized_aws_region = $authorized_aws_region ?? "";
+    $this->creation_time = $creation_time ?? 0;
   }
 }
 
@@ -300,20 +300,20 @@ class BaseConfigurationItem {
   ?'supplementary_configuration' => SupplementaryConfiguration,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->aws_region = $aws_region ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->configuration_item_capture_time = $configuration_item_capture_time ?? ;
-    $this->configuration_item_status = $configuration_item_status ?? ;
-    $this->configuration_state_id = $configuration_state_id ?? ;
-    $this->resource_creation_time = $resource_creation_time ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->supplementary_configuration = $supplementary_configuration ?? ;
-    $this->version = $version ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->availability_zone = $availability_zone ?? "";
+    $this->aws_region = $aws_region ?? "";
+    $this->configuration = $configuration ?? "";
+    $this->configuration_item_capture_time = $configuration_item_capture_time ?? 0;
+    $this->configuration_item_status = $configuration_item_status ?? "";
+    $this->configuration_state_id = $configuration_state_id ?? "";
+    $this->resource_creation_time = $resource_creation_time ?? 0;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->supplementary_configuration = $supplementary_configuration ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -330,7 +330,7 @@ class BatchGetAggregateResourceConfigRequest {
   ?'resource_identifiers' => ResourceIdentifiersList,
   ) $s = shape()) {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->resource_identifiers = $resource_identifiers ?? ;
+    $this->resource_identifiers = $resource_identifiers ?? [];
   }
 }
 
@@ -343,7 +343,7 @@ class BatchGetAggregateResourceConfigResponse {
   ?'unprocessed_resource_identifiers' => UnprocessedResourceIdentifierList,
   ) $s = shape()) {
     $this->base_configuration_items = $base_configuration_items ?? [];
-    $this->unprocessed_resource_identifiers = $unprocessed_resource_identifiers ?? ;
+    $this->unprocessed_resource_identifiers = $unprocessed_resource_identifiers ?? [];
   }
 }
 
@@ -353,7 +353,7 @@ class BatchGetResourceConfigRequest {
   public function __construct(shape(
   ?'resource_keys' => ResourceKeys,
   ) $s = shape()) {
-    $this->resource_keys = $resource_keys ?? ;
+    $this->resource_keys = $resource_keys ?? [];
   }
 }
 
@@ -365,8 +365,8 @@ class BatchGetResourceConfigResponse {
   ?'base_configuration_items' => BaseConfigurationItems,
   ?'unprocessed_resource_keys' => ResourceKeys,
   ) $s = shape()) {
-    $this->base_configuration_items = $base_configuration_items ?? ;
-    $this->unprocessed_resource_keys = $unprocessed_resource_keys ?? ;
+    $this->base_configuration_items = $base_configuration_items ?? [];
+    $this->unprocessed_resource_keys = $unprocessed_resource_keys ?? [];
   }
 }
 
@@ -430,8 +430,8 @@ class ComplianceContributorCount {
   ?'cap_exceeded' => boolean,
   ?'capped_count' => int,
   ) $s = shape()) {
-    $this->cap_exceeded = $cap_exceeded ?? ;
-    $this->capped_count = $capped_count ?? ;
+    $this->cap_exceeded = $cap_exceeded ?? false;
+    $this->capped_count = $capped_count ?? 0;
   }
 }
 
@@ -449,9 +449,9 @@ class ComplianceSummary {
   ?'compliant_resource_count' => ComplianceContributorCount,
   ?'non_compliant_resource_count' => ComplianceContributorCount,
   ) $s = shape()) {
-    $this->compliance_summary_timestamp = $compliance_summary_timestamp ?? ;
-    $this->compliant_resource_count = $compliant_resource_count ?? ;
-    $this->non_compliant_resource_count = $non_compliant_resource_count ?? ;
+    $this->compliance_summary_timestamp = $compliance_summary_timestamp ?? 0;
+    $this->compliant_resource_count = $compliant_resource_count ?? null;
+    $this->non_compliant_resource_count = $non_compliant_resource_count ?? null;
   }
 }
 
@@ -488,12 +488,12 @@ class ConfigExportDeliveryInfo {
   ?'last_successful_time' => Date,
   ?'next_delivery_time' => Date,
   ) $s = shape()) {
-    $this->last_attempt_time = $last_attempt_time ?? ;
-    $this->last_error_code = $last_error_code ?? ;
-    $this->last_error_message = $last_error_message ?? ;
-    $this->last_status = $last_status ?? ;
-    $this->last_successful_time = $last_successful_time ?? ;
-    $this->next_delivery_time = $next_delivery_time ?? ;
+    $this->last_attempt_time = $last_attempt_time ?? 0;
+    $this->last_error_code = $last_error_code ?? "";
+    $this->last_error_message = $last_error_message ?? "";
+    $this->last_status = $last_status ?? "";
+    $this->last_successful_time = $last_successful_time ?? 0;
+    $this->next_delivery_time = $next_delivery_time ?? 0;
   }
 }
 
@@ -521,13 +521,13 @@ class ConfigRule {
   ?'scope' => Scope,
   ?'source' => Source,
   ) $s = shape()) {
-    $this->config_rule_arn = $config_rule_arn ?? ;
-    $this->config_rule_id = $config_rule_id ?? ;
+    $this->config_rule_arn = $config_rule_arn ?? "";
+    $this->config_rule_id = $config_rule_id ?? "";
     $this->config_rule_name = $config_rule_name ?? "";
     $this->config_rule_state = $config_rule_state ?? "";
-    $this->created_by = $created_by ?? ;
-    $this->description = $description ?? ;
-    $this->input_parameters = $input_parameters ?? ;
+    $this->created_by = $created_by ?? "";
+    $this->description = $description ?? "";
+    $this->input_parameters = $input_parameters ?? "";
     $this->maximum_execution_frequency = $maximum_execution_frequency ?? "";
     $this->scope = $scope ?? null;
     $this->source = $source ?? null;
@@ -596,18 +596,18 @@ class ConfigRuleEvaluationStatus {
   ?'last_successful_evaluation_time' => Date,
   ?'last_successful_invocation_time' => Date,
   ) $s = shape()) {
-    $this->config_rule_arn = $config_rule_arn ?? ;
-    $this->config_rule_id = $config_rule_id ?? ;
+    $this->config_rule_arn = $config_rule_arn ?? "";
+    $this->config_rule_id = $config_rule_id ?? "";
     $this->config_rule_name = $config_rule_name ?? "";
-    $this->first_activated_time = $first_activated_time ?? ;
-    $this->first_evaluation_started = $first_evaluation_started ?? ;
-    $this->last_deactivated_time = $last_deactivated_time ?? ;
-    $this->last_error_code = $last_error_code ?? ;
-    $this->last_error_message = $last_error_message ?? ;
-    $this->last_failed_evaluation_time = $last_failed_evaluation_time ?? ;
-    $this->last_failed_invocation_time = $last_failed_invocation_time ?? ;
-    $this->last_successful_evaluation_time = $last_successful_evaluation_time ?? ;
-    $this->last_successful_invocation_time = $last_successful_invocation_time ?? ;
+    $this->first_activated_time = $first_activated_time ?? 0;
+    $this->first_evaluation_started = $first_evaluation_started ?? false;
+    $this->last_deactivated_time = $last_deactivated_time ?? 0;
+    $this->last_error_code = $last_error_code ?? "";
+    $this->last_error_message = $last_error_message ?? "";
+    $this->last_failed_evaluation_time = $last_failed_evaluation_time ?? 0;
+    $this->last_failed_invocation_time = $last_failed_invocation_time ?? 0;
+    $this->last_successful_evaluation_time = $last_successful_evaluation_time ?? 0;
+    $this->last_successful_invocation_time = $last_successful_invocation_time ?? 0;
   }
 }
 
@@ -627,7 +627,7 @@ class ConfigSnapshotDeliveryProperties {
   public function __construct(shape(
   ?'delivery_frequency' => MaximumExecutionFrequency,
   ) $s = shape()) {
-    $this->delivery_frequency = $delivery_frequency ?? ;
+    $this->delivery_frequency = $delivery_frequency ?? "";
   }
 }
 
@@ -643,10 +643,10 @@ class ConfigStreamDeliveryInfo {
   ?'last_status' => DeliveryStatus,
   ?'last_status_change_time' => Date,
   ) $s = shape()) {
-    $this->last_error_code = $last_error_code ?? ;
-    $this->last_error_message = $last_error_message ?? ;
-    $this->last_status = $last_status ?? ;
-    $this->last_status_change_time = $last_status_change_time ?? ;
+    $this->last_error_code = $last_error_code ?? "";
+    $this->last_error_message = $last_error_message ?? "";
+    $this->last_status = $last_status ?? "";
+    $this->last_status_change_time = $last_status_change_time ?? 0;
   }
 }
 
@@ -668,11 +668,11 @@ class ConfigurationAggregator {
   ?'last_updated_time' => Date,
   ?'organization_aggregation_source' => OrganizationAggregationSource,
   ) $s = shape()) {
-    $this->account_aggregation_sources = $account_aggregation_sources ?? ;
+    $this->account_aggregation_sources = $account_aggregation_sources ?? [];
     $this->configuration_aggregator_arn = $configuration_aggregator_arn ?? "";
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->creation_time = $creation_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->organization_aggregation_source = $organization_aggregation_source ?? null;
   }
 }
@@ -725,24 +725,24 @@ class ConfigurationItem {
   ?'tags' => Tags,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->arn = $arn ?? ;
-    $this->availability_zone = $availability_zone ?? ;
-    $this->aws_region = $aws_region ?? ;
-    $this->configuration = $configuration ?? ;
-    $this->configuration_item_capture_time = $configuration_item_capture_time ?? ;
-    $this->configuration_item_md_5_hash = $configuration_item_md_5_hash ?? ;
-    $this->configuration_item_status = $configuration_item_status ?? ;
-    $this->configuration_state_id = $configuration_state_id ?? ;
-    $this->related_events = $related_events ?? ;
-    $this->relationships = $relationships ?? ;
-    $this->resource_creation_time = $resource_creation_time ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->supplementary_configuration = $supplementary_configuration ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->arn = $arn ?? "";
+    $this->availability_zone = $availability_zone ?? "";
+    $this->aws_region = $aws_region ?? "";
+    $this->configuration = $configuration ?? "";
+    $this->configuration_item_capture_time = $configuration_item_capture_time ?? 0;
+    $this->configuration_item_md_5_hash = $configuration_item_md_5_hash ?? "";
+    $this->configuration_item_status = $configuration_item_status ?? "";
+    $this->configuration_state_id = $configuration_state_id ?? "";
+    $this->related_events = $related_events ?? [];
+    $this->relationships = $relationships ?? [];
+    $this->resource_creation_time = $resource_creation_time ?? 0;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->supplementary_configuration = $supplementary_configuration ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -764,9 +764,9 @@ class ConfigurationRecorder {
   ?'recording_group' => RecordingGroup,
   ?'role_arn' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->recording_group = $recording_group ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->name = $name ?? "";
+    $this->recording_group = $recording_group ?? null;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -794,14 +794,14 @@ class ConfigurationRecorderStatus {
   ?'name' => string,
   ?'recording' => boolean,
   ) $s = shape()) {
-    $this->last_error_code = $last_error_code ?? ;
-    $this->last_error_message = $last_error_message ?? ;
-    $this->last_start_time = $last_start_time ?? ;
-    $this->last_status = $last_status ?? ;
-    $this->last_status_change_time = $last_status_change_time ?? ;
-    $this->last_stop_time = $last_stop_time ?? ;
-    $this->name = $name ?? ;
-    $this->recording = $recording ?? ;
+    $this->last_error_code = $last_error_code ?? "";
+    $this->last_error_message = $last_error_message ?? "";
+    $this->last_start_time = $last_start_time ?? 0;
+    $this->last_status = $last_status ?? "";
+    $this->last_status_change_time = $last_status_change_time ?? 0;
+    $this->last_stop_time = $last_stop_time ?? 0;
+    $this->name = $name ?? "";
+    $this->recording = $recording ?? false;
   }
 }
 
@@ -834,7 +834,7 @@ class ConformancePackComplianceSummary {
   ?'conformance_pack_compliance_status' => ConformancePackComplianceType,
   ?'conformance_pack_name' => ConformancePackName,
   ) $s = shape()) {
-    $this->conformance_pack_compliance_status = $conformance_pack_compliance_status ?? ;
+    $this->conformance_pack_compliance_status = $conformance_pack_compliance_status ?? "";
     $this->conformance_pack_name = $conformance_pack_name ?? "";
   }
 }
@@ -869,10 +869,10 @@ class ConformancePackDetail {
     $this->conformance_pack_id = $conformance_pack_id ?? "";
     $this->conformance_pack_input_parameters = $conformance_pack_input_parameters ?? [];
     $this->conformance_pack_name = $conformance_pack_name ?? "";
-    $this->created_by = $created_by ?? ;
+    $this->created_by = $created_by ?? "";
     $this->delivery_s_3_bucket = $delivery_s_3_bucket ?? "";
     $this->delivery_s_3_key_prefix = $delivery_s_3_key_prefix ?? "";
-    $this->last_update_requested_time = $last_update_requested_time ?? ;
+    $this->last_update_requested_time = $last_update_requested_time ?? 0;
   }
 }
 
@@ -892,7 +892,7 @@ class ConformancePackEvaluationFilters {
   ) $s = shape()) {
     $this->compliance_type = $compliance_type ?? "";
     $this->config_rule_names = $config_rule_names ?? [];
-    $this->resource_ids = $resource_ids ?? ;
+    $this->resource_ids = $resource_ids ?? [];
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -913,9 +913,9 @@ class ConformancePackEvaluationResult {
   ) $s = shape()) {
     $this->annotation = $annotation ?? "";
     $this->compliance_type = $compliance_type ?? "";
-    $this->config_rule_invoked_time = $config_rule_invoked_time ?? ;
+    $this->config_rule_invoked_time = $config_rule_invoked_time ?? 0;
     $this->evaluation_result_identifier = $evaluation_result_identifier ?? null;
-    $this->result_recorded_time = $result_recorded_time ?? ;
+    $this->result_recorded_time = $result_recorded_time ?? 0;
   }
 }
 
@@ -986,8 +986,8 @@ class ConformancePackStatusDetail {
     $this->conformance_pack_name = $conformance_pack_name ?? "";
     $this->conformance_pack_state = $conformance_pack_state ?? "";
     $this->conformance_pack_status_reason = $conformance_pack_status_reason ?? "";
-    $this->last_update_completed_time = $last_update_completed_time ?? ;
-    $this->last_update_requested_time = $last_update_requested_time ?? ;
+    $this->last_update_completed_time = $last_update_completed_time ?? 0;
+    $this->last_update_requested_time = $last_update_requested_time ?? 0;
     $this->stack_arn = $stack_arn ?? "";
   }
 }
@@ -1015,8 +1015,8 @@ class DeleteAggregationAuthorizationRequest {
   ?'authorized_account_id' => AccountId,
   ?'authorized_aws_region' => AwsRegion,
   ) $s = shape()) {
-    $this->authorized_account_id = $authorized_account_id ?? ;
-    $this->authorized_aws_region = $authorized_aws_region ?? ;
+    $this->authorized_account_id = $authorized_account_id ?? "";
+    $this->authorized_aws_region = $authorized_aws_region ?? "";
   }
 }
 
@@ -1046,7 +1046,7 @@ class DeleteConfigurationRecorderRequest {
   public function __construct(shape(
   ?'configuration_recorder_name' => RecorderName,
   ) $s = shape()) {
-    $this->configuration_recorder_name = $configuration_recorder_name ?? ;
+    $this->configuration_recorder_name = $configuration_recorder_name ?? "";
   }
 }
 
@@ -1066,7 +1066,7 @@ class DeleteDeliveryChannelRequest {
   public function __construct(shape(
   ?'delivery_channel_name' => ChannelName,
   ) $s = shape()) {
-    $this->delivery_channel_name = $delivery_channel_name ?? ;
+    $this->delivery_channel_name = $delivery_channel_name ?? "";
   }
 }
 
@@ -1115,8 +1115,8 @@ class DeletePendingAggregationRequestRequest {
   ?'requester_account_id' => AccountId,
   ?'requester_aws_region' => AwsRegion,
   ) $s = shape()) {
-    $this->requester_account_id = $requester_account_id ?? ;
-    $this->requester_aws_region = $requester_aws_region ?? ;
+    $this->requester_account_id = $requester_account_id ?? "";
+    $this->requester_aws_region = $requester_aws_region ?? "";
   }
 }
 
@@ -1159,7 +1159,7 @@ class DeleteRemediationExceptionsResponse {
   public function __construct(shape(
   ?'failed_batches' => FailedDeleteRemediationExceptionsBatches,
   ) $s = shape()) {
-    $this->failed_batches = $failed_batches ?? ;
+    $this->failed_batches = $failed_batches ?? [];
   }
 }
 
@@ -1192,7 +1192,7 @@ class DeliverConfigSnapshotRequest {
   public function __construct(shape(
   ?'delivery_channel_name' => ChannelName,
   ) $s = shape()) {
-    $this->delivery_channel_name = $delivery_channel_name ?? ;
+    $this->delivery_channel_name = $delivery_channel_name ?? "";
   }
 }
 
@@ -1202,7 +1202,7 @@ class DeliverConfigSnapshotResponse {
   public function __construct(shape(
   ?'config_snapshot_id' => string,
   ) $s = shape()) {
-    $this->config_snapshot_id = $config_snapshot_id ?? ;
+    $this->config_snapshot_id = $config_snapshot_id ?? "";
   }
 }
 
@@ -1220,11 +1220,11 @@ class DeliveryChannel {
   ?'s_3_key_prefix' => string,
   ?'sns_topic_arn' => string,
   ) $s = shape()) {
-    $this->config_snapshot_delivery_properties = $config_snapshot_delivery_properties ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->config_snapshot_delivery_properties = $config_snapshot_delivery_properties ?? null;
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -1244,10 +1244,10 @@ class DeliveryChannelStatus {
   ?'config_stream_delivery_info' => ConfigStreamDeliveryInfo,
   ?'name' => string,
   ) $s = shape()) {
-    $this->config_history_delivery_info = $config_history_delivery_info ?? ;
-    $this->config_snapshot_delivery_info = $config_snapshot_delivery_info ?? ;
-    $this->config_stream_delivery_info = $config_stream_delivery_info ?? ;
-    $this->name = $name ?? ;
+    $this->config_history_delivery_info = $config_history_delivery_info ?? null;
+    $this->config_snapshot_delivery_info = $config_snapshot_delivery_info ?? null;
+    $this->config_stream_delivery_info = $config_stream_delivery_info ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1272,7 +1272,7 @@ class DescribeAggregateComplianceByConfigRulesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1286,7 +1286,7 @@ class DescribeAggregateComplianceByConfigRulesResponse {
   ?'aggregate_compliance_by_config_rules' => AggregateComplianceByConfigRuleList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->aggregate_compliance_by_config_rules = $aggregate_compliance_by_config_rules ?? ;
+    $this->aggregate_compliance_by_config_rules = $aggregate_compliance_by_config_rules ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1312,7 +1312,7 @@ class DescribeAggregationAuthorizationsResponse {
   ?'aggregation_authorizations' => AggregationAuthorizationList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->aggregation_authorizations = $aggregation_authorizations ?? ;
+    $this->aggregation_authorizations = $aggregation_authorizations ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1405,7 +1405,7 @@ class DescribeConfigRuleEvaluationStatusResponse {
   ?'config_rules_evaluation_status' => ConfigRuleEvaluationStatusList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->config_rules_evaluation_status = $config_rules_evaluation_status ?? ;
+    $this->config_rules_evaluation_status = $config_rules_evaluation_status ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1451,7 +1451,7 @@ class DescribeConfigurationAggregatorSourcesStatusRequest {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->update_status = $update_status ?? ;
+    $this->update_status = $update_status ?? [];
   }
 }
 
@@ -1478,7 +1478,7 @@ class DescribeConfigurationAggregatorsRequest {
   ?'limit' => Limit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->configuration_aggregator_names = $configuration_aggregator_names ?? ;
+    $this->configuration_aggregator_names = $configuration_aggregator_names ?? [];
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1492,7 +1492,7 @@ class DescribeConfigurationAggregatorsResponse {
   ?'configuration_aggregators' => ConfigurationAggregatorList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->configuration_aggregators = $configuration_aggregators ?? ;
+    $this->configuration_aggregators = $configuration_aggregators ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1503,7 +1503,7 @@ class DescribeConfigurationRecorderStatusRequest {
   public function __construct(shape(
   ?'configuration_recorder_names' => ConfigurationRecorderNameList,
   ) $s = shape()) {
-    $this->configuration_recorder_names = $configuration_recorder_names ?? ;
+    $this->configuration_recorder_names = $configuration_recorder_names ?? [];
   }
 }
 
@@ -1513,7 +1513,7 @@ class DescribeConfigurationRecorderStatusResponse {
   public function __construct(shape(
   ?'configuration_recorders_status' => ConfigurationRecorderStatusList,
   ) $s = shape()) {
-    $this->configuration_recorders_status = $configuration_recorders_status ?? ;
+    $this->configuration_recorders_status = $configuration_recorders_status ?? [];
   }
 }
 
@@ -1523,7 +1523,7 @@ class DescribeConfigurationRecordersRequest {
   public function __construct(shape(
   ?'configuration_recorder_names' => ConfigurationRecorderNameList,
   ) $s = shape()) {
-    $this->configuration_recorder_names = $configuration_recorder_names ?? ;
+    $this->configuration_recorder_names = $configuration_recorder_names ?? [];
   }
 }
 
@@ -1533,7 +1533,7 @@ class DescribeConfigurationRecordersResponse {
   public function __construct(shape(
   ?'configuration_recorders' => ConfigurationRecorderList,
   ) $s = shape()) {
-    $this->configuration_recorders = $configuration_recorders ?? ;
+    $this->configuration_recorders = $configuration_recorders ?? [];
   }
 }
 
@@ -1552,7 +1552,7 @@ class DescribeConformancePackComplianceRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->conformance_pack_name = $conformance_pack_name ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1584,7 +1584,7 @@ class DescribeConformancePackStatusRequest {
   ?'limit' => PageSizeLimit,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->conformance_pack_names = $conformance_pack_names ?? ;
+    $this->conformance_pack_names = $conformance_pack_names ?? [];
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1598,7 +1598,7 @@ class DescribeConformancePackStatusResponse {
   ?'conformance_pack_status_details' => ConformancePackStatusDetailsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->conformance_pack_status_details = $conformance_pack_status_details ?? ;
+    $this->conformance_pack_status_details = $conformance_pack_status_details ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1613,7 +1613,7 @@ class DescribeConformancePacksRequest {
   ?'limit' => PageSizeLimit,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->conformance_pack_names = $conformance_pack_names ?? ;
+    $this->conformance_pack_names = $conformance_pack_names ?? [];
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1627,7 +1627,7 @@ class DescribeConformancePacksResponse {
   ?'conformance_pack_details' => ConformancePackDetailList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->conformance_pack_details = $conformance_pack_details ?? ;
+    $this->conformance_pack_details = $conformance_pack_details ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1638,7 +1638,7 @@ class DescribeDeliveryChannelStatusRequest {
   public function __construct(shape(
   ?'delivery_channel_names' => DeliveryChannelNameList,
   ) $s = shape()) {
-    $this->delivery_channel_names = $delivery_channel_names ?? ;
+    $this->delivery_channel_names = $delivery_channel_names ?? [];
   }
 }
 
@@ -1648,7 +1648,7 @@ class DescribeDeliveryChannelStatusResponse {
   public function __construct(shape(
   ?'delivery_channels_status' => DeliveryChannelStatusList,
   ) $s = shape()) {
-    $this->delivery_channels_status = $delivery_channels_status ?? ;
+    $this->delivery_channels_status = $delivery_channels_status ?? [];
   }
 }
 
@@ -1658,7 +1658,7 @@ class DescribeDeliveryChannelsRequest {
   public function __construct(shape(
   ?'delivery_channel_names' => DeliveryChannelNameList,
   ) $s = shape()) {
-    $this->delivery_channel_names = $delivery_channel_names ?? ;
+    $this->delivery_channel_names = $delivery_channel_names ?? [];
   }
 }
 
@@ -1668,7 +1668,7 @@ class DescribeDeliveryChannelsResponse {
   public function __construct(shape(
   ?'delivery_channels' => DeliveryChannelList,
   ) $s = shape()) {
-    $this->delivery_channels = $delivery_channels ?? ;
+    $this->delivery_channels = $delivery_channels ?? [];
   }
 }
 
@@ -1812,7 +1812,7 @@ class DescribePendingAggregationRequestsResponse {
   ?'pending_aggregation_requests' => PendingAggregationRequestList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->pending_aggregation_requests = $pending_aggregation_requests ?? ;
+    $this->pending_aggregation_requests = $pending_aggregation_requests ?? [];
   }
 }
 
@@ -1909,7 +1909,7 @@ class DescribeRetentionConfigurationsRequest {
   ?'retention_configuration_names' => RetentionConfigurationNameList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->retention_configuration_names = $retention_configuration_names ?? ;
+    $this->retention_configuration_names = $retention_configuration_names ?? [];
   }
 }
 
@@ -1922,7 +1922,7 @@ class DescribeRetentionConfigurationsResponse {
   ?'retention_configurations' => RetentionConfigurationList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->retention_configurations = $retention_configurations ?? ;
+    $this->retention_configurations = $retention_configurations ?? [];
   }
 }
 
@@ -1947,8 +1947,8 @@ class Evaluation {
   ?'ordering_timestamp' => OrderingTimestamp,
   ) $s = shape()) {
     $this->annotation = $annotation ?? "";
-    $this->compliance_resource_id = $compliance_resource_id ?? ;
-    $this->compliance_resource_type = $compliance_resource_type ?? ;
+    $this->compliance_resource_id = $compliance_resource_id ?? "";
+    $this->compliance_resource_type = $compliance_resource_type ?? "";
     $this->compliance_type = $compliance_type ?? "";
     $this->ordering_timestamp = $ordering_timestamp ?? 0;
   }
@@ -1972,10 +1972,10 @@ class EvaluationResult {
   ) $s = shape()) {
     $this->annotation = $annotation ?? "";
     $this->compliance_type = $compliance_type ?? "";
-    $this->config_rule_invoked_time = $config_rule_invoked_time ?? ;
+    $this->config_rule_invoked_time = $config_rule_invoked_time ?? 0;
     $this->evaluation_result_identifier = $evaluation_result_identifier ?? null;
-    $this->result_recorded_time = $result_recorded_time ?? ;
-    $this->result_token = $result_token ?? ;
+    $this->result_recorded_time = $result_recorded_time ?? 0;
+    $this->result_token = $result_token ?? "";
   }
 }
 
@@ -2036,8 +2036,8 @@ class FailedDeleteRemediationExceptionsBatch {
   ?'failed_items' => RemediationExceptionResourceKeys,
   ?'failure_message' => string,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->failure_message = $failure_message ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->failure_message = $failure_message ?? "";
   }
 }
 
@@ -2051,8 +2051,8 @@ class FailedRemediationBatch {
   ?'failed_items' => RemediationConfigurations,
   ?'failure_message' => string,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->failure_message = $failure_message ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->failure_message = $failure_message ?? "";
   }
 }
 
@@ -2066,8 +2066,8 @@ class FailedRemediationExceptionBatch {
   ?'failed_items' => RemediationExceptions,
   ?'failure_message' => string,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->failure_message = $failure_message ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->failure_message = $failure_message ?? "";
   }
 }
 
@@ -2123,7 +2123,7 @@ class GetAggregateComplianceDetailsByConfigRuleResponse {
   ?'aggregate_evaluation_results' => AggregateEvaluationResultList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->aggregate_evaluation_results = $aggregate_evaluation_results ?? ;
+    $this->aggregate_evaluation_results = $aggregate_evaluation_results ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2143,8 +2143,8 @@ class GetAggregateConfigRuleComplianceSummaryRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->filters = $filters ?? ;
-    $this->group_by_key = $group_by_key ?? ;
+    $this->filters = $filters ?? null;
+    $this->group_by_key = $group_by_key ?? "";
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -2160,8 +2160,8 @@ class GetAggregateConfigRuleComplianceSummaryResponse {
   ?'group_by_key' => StringWithCharLimit256,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->aggregate_compliance_counts = $aggregate_compliance_counts ?? ;
-    $this->group_by_key = $group_by_key ?? ;
+    $this->aggregate_compliance_counts = $aggregate_compliance_counts ?? [];
+    $this->group_by_key = $group_by_key ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2181,8 +2181,8 @@ class GetAggregateDiscoveredResourceCountsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->filters = $filters ?? ;
-    $this->group_by_key = $group_by_key ?? ;
+    $this->filters = $filters ?? null;
+    $this->group_by_key = $group_by_key ?? "";
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -2200,10 +2200,10 @@ class GetAggregateDiscoveredResourceCountsResponse {
   ?'next_token' => NextToken,
   ?'total_discovered_resources' => Long,
   ) $s = shape()) {
-    $this->group_by_key = $group_by_key ?? ;
-    $this->grouped_resource_counts = $grouped_resource_counts ?? ;
+    $this->group_by_key = $group_by_key ?? "";
+    $this->grouped_resource_counts = $grouped_resource_counts ?? [];
     $this->next_token = $next_token ?? "";
-    $this->total_discovered_resources = $total_discovered_resources ?? ;
+    $this->total_discovered_resources = $total_discovered_resources ?? 0;
   }
 }
 
@@ -2339,7 +2339,7 @@ class GetConformancePackComplianceDetailsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->conformance_pack_name = $conformance_pack_name ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -2356,7 +2356,7 @@ class GetConformancePackComplianceDetailsResponse {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->conformance_pack_name = $conformance_pack_name ?? "";
-    $this->conformance_pack_rule_evaluation_results = $conformance_pack_rule_evaluation_results ?? ;
+    $this->conformance_pack_rule_evaluation_results = $conformance_pack_rule_evaluation_results ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -2371,7 +2371,7 @@ class GetConformancePackComplianceSummaryRequest {
   ?'limit' => PageSizeLimit,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->conformance_pack_names = $conformance_pack_names ?? ;
+    $this->conformance_pack_names = $conformance_pack_names ?? [];
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -2400,9 +2400,9 @@ class GetDiscoveredResourceCountsRequest {
   ?'next_token' => NextToken,
   ?'resource_types' => ResourceTypes,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_types = $resource_types ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_types = $resource_types ?? [];
   }
 }
 
@@ -2416,9 +2416,9 @@ class GetDiscoveredResourceCountsResponse {
   ?'resource_counts' => ResourceCounts,
   ?'total_discovered_resources' => Long,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_counts = $resource_counts ?? ;
-    $this->total_discovered_resources = $total_discovered_resources ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_counts = $resource_counts ?? [];
+    $this->total_discovered_resources = $total_discovered_resources ?? 0;
   }
 }
 
@@ -2434,7 +2434,7 @@ class GetOrganizationConfigRuleDetailedStatusRequest {
   ?'next_token' => string,
   ?'organization_config_rule_name' => OrganizationConfigRuleName,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
     $this->organization_config_rule_name = $organization_config_rule_name ?? "";
@@ -2466,7 +2466,7 @@ class GetOrganizationConformancePackDetailedStatusRequest {
   ?'next_token' => string,
   ?'organization_conformance_pack_name' => OrganizationConformancePackName,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
     $this->organization_conformance_pack_name = $organization_conformance_pack_name ?? "";
@@ -2504,13 +2504,13 @@ class GetResourceConfigHistoryRequest {
   ?'resource_id' => ResourceId,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->chronological_order = $chronological_order ?? ;
-    $this->earlier_time = $earlier_time ?? ;
-    $this->later_time = $later_time ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->chronological_order = $chronological_order ?? "";
+    $this->earlier_time = $earlier_time ?? 0;
+    $this->later_time = $later_time ?? 0;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2522,8 +2522,8 @@ class GetResourceConfigHistoryResponse {
   ?'configuration_items' => ConfigurationItemList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->configuration_items = $configuration_items ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->configuration_items = $configuration_items ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2537,8 +2537,8 @@ class GroupedResourceCount {
   ?'group_name' => StringWithCharLimit256,
   ?'resource_count' => Long,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->resource_count = $resource_count ?? null;
+    $this->group_name = $group_name ?? "";
+    $this->resource_count = $resource_count ?? 0;
   }
 }
 
@@ -2679,7 +2679,7 @@ class ListAggregateDiscoveredResourcesRequest {
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? null;
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
     $this->resource_type = $resource_type ?? "";
@@ -2695,7 +2695,7 @@ class ListAggregateDiscoveredResourcesResponse {
   ?'resource_identifiers' => DiscoveredResourceIdentifierList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->resource_identifiers = $resource_identifiers ?? ;
+    $this->resource_identifiers = $resource_identifiers ?? [];
   }
 }
 
@@ -2715,12 +2715,12 @@ class ListDiscoveredResourcesRequest {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->include_deleted_resources = $include_deleted_resources ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_ids = $resource_ids ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->include_deleted_resources = $include_deleted_resources ?? false;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_ids = $resource_ids ?? [];
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -2732,8 +2732,8 @@ class ListDiscoveredResourcesResponse {
   ?'next_token' => NextToken,
   ?'resource_identifiers' => ResourceIdentifierList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_identifiers = $resource_identifiers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_identifiers = $resource_identifiers ?? [];
   }
 }
 
@@ -2749,7 +2749,7 @@ class ListTagsForResourceRequest {
   ) $s = shape()) {
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2846,9 +2846,9 @@ class MemberAccountStatus {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->config_rule_name = $config_rule_name ?? "";
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->last_update_time = $last_update_time ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
     $this->member_account_rule_status = $member_account_rule_status ?? "";
   }
 }
@@ -2990,9 +2990,9 @@ class OrganizationAggregationSource {
   ?'aws_regions' => AggregatorRegionList,
   ?'role_arn' => string,
   ) $s = shape()) {
-    $this->all_aws_regions = $all_aws_regions ?? ;
-    $this->aws_regions = $aws_regions ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->all_aws_regions = $all_aws_regions ?? false;
+    $this->aws_regions = $aws_regions ?? [];
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -3020,8 +3020,8 @@ class OrganizationConfigRule {
   ?'organization_managed_rule_metadata' => OrganizationManagedRuleMetadata,
   ) $s = shape()) {
     $this->excluded_accounts = $excluded_accounts ?? [];
-    $this->last_update_time = $last_update_time ?? ;
-    $this->organization_config_rule_arn = $organization_config_rule_arn ?? ;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->organization_config_rule_arn = $organization_config_rule_arn ?? "";
     $this->organization_config_rule_name = $organization_config_rule_name ?? "";
     $this->organization_custom_rule_metadata = $organization_custom_rule_metadata ?? null;
     $this->organization_managed_rule_metadata = $organization_managed_rule_metadata ?? null;
@@ -3048,9 +3048,9 @@ class OrganizationConfigRuleStatus {
   ?'organization_config_rule_name' => OrganizationConfigRuleName,
   ?'organization_rule_status' => OrganizationRuleStatus,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->last_update_time = $last_update_time ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
     $this->organization_config_rule_name = $organization_config_rule_name ?? "";
     $this->organization_rule_status = $organization_rule_status ?? "";
   }
@@ -3086,8 +3086,8 @@ class OrganizationConformancePack {
     $this->delivery_s_3_bucket = $delivery_s_3_bucket ?? "";
     $this->delivery_s_3_key_prefix = $delivery_s_3_key_prefix ?? "";
     $this->excluded_accounts = $excluded_accounts ?? [];
-    $this->last_update_time = $last_update_time ?? ;
-    $this->organization_conformance_pack_arn = $organization_conformance_pack_arn ?? ;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->organization_conformance_pack_arn = $organization_conformance_pack_arn ?? "";
     $this->organization_conformance_pack_name = $organization_conformance_pack_name ?? "";
   }
 }
@@ -3110,10 +3110,10 @@ class OrganizationConformancePackDetailedStatus {
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
     $this->conformance_pack_name = $conformance_pack_name ?? "";
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3137,11 +3137,11 @@ class OrganizationConformancePackStatus {
   ?'organization_conformance_pack_name' => OrganizationConformancePackName,
   ?'status' => OrganizationResourceStatus,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->last_update_time = $last_update_time ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
     $this->organization_conformance_pack_name = $organization_conformance_pack_name ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3178,15 +3178,15 @@ class OrganizationCustomRuleMetadata {
   ?'tag_key_scope' => StringWithCharLimit128,
   ?'tag_value_scope' => StringWithCharLimit256,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->input_parameters = $input_parameters ?? ;
-    $this->lambda_function_arn = $lambda_function_arn ?? ;
+    $this->description = $description ?? "";
+    $this->input_parameters = $input_parameters ?? "";
+    $this->lambda_function_arn = $lambda_function_arn ?? "";
     $this->maximum_execution_frequency = $maximum_execution_frequency ?? "";
     $this->organization_config_rule_trigger_types = $organization_config_rule_trigger_types ?? [];
-    $this->resource_id_scope = $resource_id_scope ?? ;
+    $this->resource_id_scope = $resource_id_scope ?? "";
     $this->resource_types_scope = $resource_types_scope ?? [];
-    $this->tag_key_scope = $tag_key_scope ?? ;
-    $this->tag_value_scope = $tag_value_scope ?? ;
+    $this->tag_key_scope = $tag_key_scope ?? "";
+    $this->tag_value_scope = $tag_value_scope ?? "";
   }
 }
 
@@ -3210,14 +3210,14 @@ class OrganizationManagedRuleMetadata {
   ?'tag_key_scope' => StringWithCharLimit128,
   ?'tag_value_scope' => StringWithCharLimit256,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->input_parameters = $input_parameters ?? ;
+    $this->description = $description ?? "";
+    $this->input_parameters = $input_parameters ?? "";
     $this->maximum_execution_frequency = $maximum_execution_frequency ?? "";
-    $this->resource_id_scope = $resource_id_scope ?? ;
+    $this->resource_id_scope = $resource_id_scope ?? "";
     $this->resource_types_scope = $resource_types_scope ?? [];
-    $this->rule_identifier = $rule_identifier ?? ;
-    $this->tag_key_scope = $tag_key_scope ?? ;
-    $this->tag_value_scope = $tag_value_scope ?? ;
+    $this->rule_identifier = $rule_identifier ?? "";
+    $this->tag_key_scope = $tag_key_scope ?? "";
+    $this->tag_value_scope = $tag_value_scope ?? "";
   }
 }
 
@@ -3232,7 +3232,7 @@ class OrganizationResourceDetailedStatusFilters {
   ?'status' => OrganizationResourceDetailedStatus,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3263,8 +3263,8 @@ class PendingAggregationRequest {
   ?'requester_account_id' => AccountId,
   ?'requester_aws_region' => AwsRegion,
   ) $s = shape()) {
-    $this->requester_account_id = $requester_account_id ?? ;
-    $this->requester_aws_region = $requester_aws_region ?? ;
+    $this->requester_account_id = $requester_account_id ?? "";
+    $this->requester_aws_region = $requester_aws_region ?? "";
   }
 }
 
@@ -3282,8 +3282,8 @@ class PutAggregationAuthorizationRequest {
   ?'authorized_aws_region' => AwsRegion,
   ?'tags' => TagsList,
   ) $s = shape()) {
-    $this->authorized_account_id = $authorized_account_id ?? ;
-    $this->authorized_aws_region = $authorized_aws_region ?? ;
+    $this->authorized_account_id = $authorized_account_id ?? "";
+    $this->authorized_aws_region = $authorized_aws_region ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -3323,7 +3323,7 @@ class PutConfigurationAggregatorRequest {
   ?'organization_aggregation_source' => OrganizationAggregationSource,
   ?'tags' => TagsList,
   ) $s = shape()) {
-    $this->account_aggregation_sources = $account_aggregation_sources ?? ;
+    $this->account_aggregation_sources = $account_aggregation_sources ?? [];
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
     $this->organization_aggregation_source = $organization_aggregation_source ?? null;
     $this->tags = $tags ?? [];
@@ -3406,8 +3406,8 @@ class PutEvaluationsRequest {
   ?'test_mode' => boolean,
   ) $s = shape()) {
     $this->evaluations = $evaluations ?? [];
-    $this->result_token = $result_token ?? ;
-    $this->test_mode = $test_mode ?? ;
+    $this->result_token = $result_token ?? "";
+    $this->test_mode = $test_mode ?? false;
   }
 }
 
@@ -3417,7 +3417,7 @@ class PutEvaluationsResponse {
   public function __construct(shape(
   ?'failed_evaluations' => Evaluations,
   ) $s = shape()) {
-    $this->failed_evaluations = $failed_evaluations ?? ;
+    $this->failed_evaluations = $failed_evaluations ?? [];
   }
 }
 
@@ -3446,7 +3446,7 @@ class PutOrganizationConfigRuleResponse {
   public function __construct(shape(
   ?'organization_config_rule_arn' => StringWithCharLimit256,
   ) $s = shape()) {
-    $this->organization_config_rule_arn = $organization_config_rule_arn ?? ;
+    $this->organization_config_rule_arn = $organization_config_rule_arn ?? "";
   }
 }
 
@@ -3484,7 +3484,7 @@ class PutOrganizationConformancePackResponse {
   public function __construct(shape(
   ?'organization_conformance_pack_arn' => StringWithCharLimit256,
   ) $s = shape()) {
-    $this->organization_conformance_pack_arn = $organization_conformance_pack_arn ?? ;
+    $this->organization_conformance_pack_arn = $organization_conformance_pack_arn ?? "";
   }
 }
 
@@ -3504,7 +3504,7 @@ class PutRemediationConfigurationsResponse {
   public function __construct(shape(
   ?'failed_batches' => FailedRemediationBatches,
   ) $s = shape()) {
-    $this->failed_batches = $failed_batches ?? ;
+    $this->failed_batches = $failed_batches ?? [];
   }
 }
 
@@ -3521,8 +3521,8 @@ class PutRemediationExceptionsRequest {
   ?'resource_keys' => RemediationExceptionResourceKeys,
   ) $s = shape()) {
     $this->config_rule_name = $config_rule_name ?? "";
-    $this->expiration_time = $expiration_time ?? ;
-    $this->message = $message ?? ;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->message = $message ?? "";
     $this->resource_keys = $resource_keys ?? [];
   }
 }
@@ -3533,7 +3533,7 @@ class PutRemediationExceptionsResponse {
   public function __construct(shape(
   ?'failed_batches' => FailedRemediationExceptionBatches,
   ) $s = shape()) {
-    $this->failed_batches = $failed_batches ?? ;
+    $this->failed_batches = $failed_batches ?? [];
   }
 }
 
@@ -3588,7 +3588,7 @@ class QueryInfo {
   public function __construct(shape(
   ?'select_fields' => FieldInfoList,
   ) $s = shape()) {
-    $this->select_fields = $select_fields ?? ;
+    $this->select_fields = $select_fields ?? [];
   }
 }
 
@@ -3606,9 +3606,9 @@ class RecordingGroup {
   ?'include_global_resource_types' => IncludeGlobalResourceTypes,
   ?'resource_types' => ResourceTypeList,
   ) $s = shape()) {
-    $this->all_supported = $all_supported ?? ;
-    $this->include_global_resource_types = $include_global_resource_types ?? ;
-    $this->resource_types = $resource_types ?? ;
+    $this->all_supported = $all_supported ?? false;
+    $this->include_global_resource_types = $include_global_resource_types ?? false;
+    $this->resource_types = $resource_types ?? [];
   }
 }
 
@@ -3630,10 +3630,10 @@ class Relationship {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->relationship_name = $relationship_name ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->relationship_name = $relationship_name ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3669,18 +3669,18 @@ class RemediationConfiguration {
   ?'target_type' => RemediationTargetType,
   ?'target_version' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->automatic = $automatic ?? ;
+    $this->arn = $arn ?? "";
+    $this->automatic = $automatic ?? false;
     $this->config_rule_name = $config_rule_name ?? "";
-    $this->created_by_service = $created_by_service ?? ;
+    $this->created_by_service = $created_by_service ?? "";
     $this->execution_controls = $execution_controls ?? null;
-    $this->maximum_automatic_attempts = $maximum_automatic_attempts ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->maximum_automatic_attempts = $maximum_automatic_attempts ?? 0;
+    $this->parameters = $parameters ?? [];
     $this->resource_type = $resource_type ?? "";
-    $this->retry_attempt_seconds = $retry_attempt_seconds ?? ;
-    $this->target_id = $target_id ?? ;
-    $this->target_type = $target_type ?? ;
-    $this->target_version = $target_version ?? ;
+    $this->retry_attempt_seconds = $retry_attempt_seconds ?? 0;
+    $this->target_id = $target_id ?? "";
+    $this->target_type = $target_type ?? "";
+    $this->target_version = $target_version ?? "";
   }
 }
 
@@ -3701,8 +3701,8 @@ class RemediationException {
   ?'resource_type' => StringWithCharLimit256,
   ) $s = shape()) {
     $this->config_rule_name = $config_rule_name ?? "";
-    $this->expiration_time = $expiration_time ?? ;
-    $this->message = $message ?? ;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->message = $message ?? "";
     $this->resource_id = $resource_id ?? "";
     $this->resource_type = $resource_type ?? "";
   }
@@ -3741,11 +3741,11 @@ class RemediationExecutionStatus {
   ?'state' => RemediationExecutionState,
   ?'step_details' => RemediationExecutionSteps,
   ) $s = shape()) {
-    $this->invocation_time = $invocation_time ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->invocation_time = $invocation_time ?? 0;
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->resource_key = $resource_key ?? null;
-    $this->state = $state ?? ;
-    $this->step_details = $step_details ?? ;
+    $this->state = $state ?? "";
+    $this->step_details = $step_details ?? [];
   }
 }
 
@@ -3765,11 +3765,11 @@ class RemediationExecutionStep {
   ?'state' => RemediationExecutionStepState,
   ?'stop_time' => Date,
   ) $s = shape()) {
-    $this->error_message = $error_message ?? ;
+    $this->error_message = $error_message ?? "";
     $this->name = $name ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->stop_time = $stop_time ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->stop_time = $stop_time ?? 0;
   }
 }
 
@@ -3809,8 +3809,8 @@ class ResourceCount {
   ?'count' => Long,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->count = $count ?? 0;
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3825,7 +3825,7 @@ class ResourceCountFilters {
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->region = $region ?? ;
+    $this->region = $region ?? "";
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -3851,7 +3851,7 @@ class ResourceFilters {
   ?'resource_name' => ResourceName,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->region = $region ?? ;
+    $this->region = $region ?? "";
     $this->resource_id = $resource_id ?? "";
     $this->resource_name = $resource_name ?? "";
   }
@@ -3873,10 +3873,10 @@ class ResourceIdentifier {
   ?'resource_name' => ResourceName,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->resource_deletion_time = $resource_deletion_time ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_deletion_time = $resource_deletion_time ?? 0;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3899,8 +3899,8 @@ class ResourceKey {
   ?'resource_id' => ResourceId,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -3983,7 +3983,7 @@ class Scope {
   ?'tag_key' => StringWithCharLimit128,
   ?'tag_value' => StringWithCharLimit256,
   ) $s = shape()) {
-    $this->compliance_resource_id = $compliance_resource_id ?? ;
+    $this->compliance_resource_id = $compliance_resource_id ?? "";
     $this->compliance_resource_types = $compliance_resource_types ?? [];
     $this->tag_key = $tag_key ?? "";
     $this->tag_value = $tag_value ?? "";
@@ -4007,7 +4007,7 @@ class SelectAggregateResourceConfigRequest {
     $this->configuration_aggregator_name = $configuration_aggregator_name ?? "";
     $this->expression = $expression ?? "";
     $this->limit = $limit ?? 0;
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -4072,7 +4072,7 @@ class Source {
   ) $s = shape()) {
     $this->owner = $owner ?? "";
     $this->source_details = $source_details ?? [];
-    $this->source_identifier = $source_identifier ?? ;
+    $this->source_identifier = $source_identifier ?? "";
   }
 }
 
@@ -4102,8 +4102,8 @@ class SsmControls {
   ?'concurrent_execution_rate_percentage' => Percentage,
   ?'error_percentage' => Percentage,
   ) $s = shape()) {
-    $this->concurrent_execution_rate_percentage = $concurrent_execution_rate_percentage ?? ;
-    $this->error_percentage = $error_percentage ?? ;
+    $this->concurrent_execution_rate_percentage = $concurrent_execution_rate_percentage ?? 0;
+    $this->error_percentage = $error_percentage ?? 0;
   }
 }
 
@@ -4132,7 +4132,7 @@ class StartConfigurationRecorderRequest {
   public function __construct(shape(
   ?'configuration_recorder_name' => RecorderName,
   ) $s = shape()) {
-    $this->configuration_recorder_name = $configuration_recorder_name ?? ;
+    $this->configuration_recorder_name = $configuration_recorder_name ?? "";
   }
 }
 
@@ -4157,8 +4157,8 @@ class StartRemediationExecutionResponse {
   ?'failed_items' => ResourceKeys,
   ?'failure_message' => string,
   ) $s = shape()) {
-    $this->failed_items = $failed_items ?? ;
-    $this->failure_message = $failure_message ?? ;
+    $this->failed_items = $failed_items ?? [];
+    $this->failure_message = $failure_message ?? "";
   }
 }
 
@@ -4170,7 +4170,7 @@ class StaticValue {
   public function __construct(shape(
   ?'values' => StaticParameterValues,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -4193,7 +4193,7 @@ class StopConfigurationRecorderRequest {
   public function __construct(shape(
   ?'configuration_recorder_name' => RecorderName,
   ) $s = shape()) {
-    $this->configuration_recorder_name = $configuration_recorder_name ?? ;
+    $this->configuration_recorder_name = $configuration_recorder_name ?? "";
   }
 }
 
@@ -4227,7 +4227,7 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
+    $this->key = $key ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -4246,7 +4246,7 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -4278,8 +4278,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

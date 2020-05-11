@@ -56,19 +56,19 @@ class Address {
   ?'street_3' => string,
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
-    $this->city = $city ?? ;
-    $this->company = $company ?? ;
-    $this->country = $country ?? ;
-    $this->is_restricted = $is_restricted ?? ;
-    $this->landmark = $landmark ?? ;
-    $this->name = $name ?? ;
-    $this->phone_number = $phone_number ?? ;
-    $this->postal_code = $postal_code ?? ;
-    $this->prefecture_or_district = $prefecture_or_district ?? ;
-    $this->state_or_province = $state_or_province ?? ;
-    $this->street_1 = $street_1 ?? ;
-    $this->street_2 = $street_2 ?? ;
-    $this->street_3 = $street_3 ?? ;
+    $this->city = $city ?? "";
+    $this->company = $company ?? "";
+    $this->country = $country ?? "";
+    $this->is_restricted = $is_restricted ?? false;
+    $this->landmark = $landmark ?? "";
+    $this->name = $name ?? "";
+    $this->phone_number = $phone_number ?? "";
+    $this->postal_code = $postal_code ?? "";
+    $this->prefecture_or_district = $prefecture_or_district ?? "";
+    $this->state_or_province = $state_or_province ?? "";
+    $this->street_1 = $street_1 ?? "";
+    $this->street_2 = $street_2 ?? "";
+    $this->street_3 = $street_3 ?? "";
   }
 }
 
@@ -122,7 +122,7 @@ class ClusterLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -140,8 +140,8 @@ class ClusterListEntry {
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
     $this->cluster_state = $cluster_state ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
   }
 }
 
@@ -182,13 +182,13 @@ class ClusterMetadata {
     $this->address_id = $address_id ?? "";
     $this->cluster_id = $cluster_id ?? "";
     $this->cluster_state = $cluster_state ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->job_type = $job_type ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_option = $shipping_option ?? "";
     $this->snowball_type = $snowball_type ?? "";
@@ -207,7 +207,7 @@ class CompatibleImage {
   ?'name' => string,
   ) $s = shape()) {
     $this->ami_id = $ami_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -260,12 +260,12 @@ class CreateClusterRequest {
   ?'tax_documents' => TaxDocuments,
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->job_type = $job_type ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_option = $shipping_option ?? "";
     $this->snowball_type = $snowball_type ?? "";
@@ -315,15 +315,15 @@ class CreateJobRequest {
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
     $this->cluster_id = $cluster_id ?? "";
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->job_type = $job_type ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_option = $shipping_option ?? "";
-    $this->snowball_capacity_preference = $snowball_capacity_preference ?? ;
+    $this->snowball_capacity_preference = $snowball_capacity_preference ?? "";
     $this->snowball_type = $snowball_type ?? "";
     $this->tax_documents = $tax_documents ?? null;
   }
@@ -351,10 +351,10 @@ class DataTransfer {
   ?'total_bytes' => Long,
   ?'total_objects' => Long,
   ) $s = shape()) {
-    $this->bytes_transferred = $bytes_transferred ?? ;
-    $this->objects_transferred = $objects_transferred ?? ;
-    $this->total_bytes = $total_bytes ?? ;
-    $this->total_objects = $total_objects ?? ;
+    $this->bytes_transferred = $bytes_transferred ?? 0;
+    $this->objects_transferred = $objects_transferred ?? 0;
+    $this->total_bytes = $total_bytes ?? 0;
+    $this->total_objects = $total_objects ?? 0;
   }
 }
 
@@ -386,8 +386,8 @@ class DescribeAddressesRequest {
   ?'max_results' => ListLimit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -399,8 +399,8 @@ class DescribeAddressesResult {
   ?'addresses' => AddressList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->addresses = $addresses ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->addresses = $addresses ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -443,7 +443,7 @@ class DescribeJobResult {
   ?'sub_job_metadata' => JobMetadataList,
   ) $s = shape()) {
     $this->job_metadata = $job_metadata ?? null;
-    $this->sub_job_metadata = $sub_job_metadata ?? ;
+    $this->sub_job_metadata = $sub_job_metadata ?? [];
   }
 }
 
@@ -456,7 +456,7 @@ class Ec2AmiResource {
   ?'snowball_ami_id' => string,
   ) $s = shape()) {
     $this->ami_id = $ami_id ?? "";
-    $this->snowball_ami_id = $snowball_ami_id ?? ;
+    $this->snowball_ami_id = $snowball_ami_id ?? "";
   }
 }
 
@@ -468,7 +468,7 @@ class Ec2RequestFailedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -478,7 +478,7 @@ class EventTriggerDefinition {
   public function __construct(shape(
   ?'event_resource_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->event_resource_arn = $event_resource_arn ?? ;
+    $this->event_resource_arn = $event_resource_arn ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class GetJobManifestResult {
   public function __construct(shape(
   ?'manifest_uri' => string,
   ) $s = shape()) {
-    $this->manifest_uri = $manifest_uri ?? ;
+    $this->manifest_uri = $manifest_uri ?? "";
   }
 }
 
@@ -522,7 +522,7 @@ class GetJobUnlockCodeResult {
   public function __construct(shape(
   ?'unlock_code' => string,
   ) $s = shape()) {
-    $this->unlock_code = $unlock_code ?? ;
+    $this->unlock_code = $unlock_code ?? "";
   }
 }
 
@@ -541,8 +541,8 @@ class GetSnowballUsageResult {
   ?'snowball_limit' => int,
   ?'snowballs_in_use' => int,
   ) $s = shape()) {
-    $this->snowball_limit = $snowball_limit ?? ;
-    $this->snowballs_in_use = $snowballs_in_use ?? ;
+    $this->snowball_limit = $snowball_limit ?? 0;
+    $this->snowballs_in_use = $snowballs_in_use ?? 0;
   }
 }
 
@@ -562,7 +562,7 @@ class GetSoftwareUpdatesResult {
   public function __construct(shape(
   ?'updates_uri' => string,
   ) $s = shape()) {
-    $this->updates_uri = $updates_uri ?? ;
+    $this->updates_uri = $updates_uri ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class InvalidAddressException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -594,7 +594,7 @@ class InvalidInputCombinationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -604,7 +604,7 @@ class InvalidJobStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -614,7 +614,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -626,8 +626,8 @@ class InvalidResourceException {
   ?'message' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->message = $message ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -651,9 +651,9 @@ class JobListEntry {
   ?'job_type' => JobType,
   ?'snowball_type' => SnowballType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->is_master = $is_master ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->is_master = $is_master ?? false;
     $this->job_id = $job_id ?? "";
     $this->job_state = $job_state ?? "";
     $this->job_type = $job_type ?? "";
@@ -673,9 +673,9 @@ class JobLogs {
   ?'job_failure_log_uri' => string,
   ?'job_success_log_uri' => string,
   ) $s = shape()) {
-    $this->job_completion_report_uri = $job_completion_report_uri ?? ;
-    $this->job_failure_log_uri = $job_failure_log_uri ?? ;
-    $this->job_success_log_uri = $job_success_log_uri ?? ;
+    $this->job_completion_report_uri = $job_completion_report_uri ?? "";
+    $this->job_failure_log_uri = $job_failure_log_uri ?? "";
+    $this->job_success_log_uri = $job_success_log_uri ?? "";
   }
 }
 
@@ -721,20 +721,20 @@ class JobMetadata {
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
     $this->cluster_id = $cluster_id ?? "";
-    $this->creation_date = $creation_date ?? ;
-    $this->data_transfer_progress = $data_transfer_progress ?? ;
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->data_transfer_progress = $data_transfer_progress ?? null;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->job_id = $job_id ?? "";
-    $this->job_log_info = $job_log_info ?? ;
+    $this->job_log_info = $job_log_info ?? null;
     $this->job_state = $job_state ?? "";
     $this->job_type = $job_type ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_details = $shipping_details ?? null;
-    $this->snowball_capacity_preference = $snowball_capacity_preference ?? ;
+    $this->snowball_capacity_preference = $snowball_capacity_preference ?? "";
     $this->snowball_type = $snowball_type ?? "";
     $this->tax_documents = $tax_documents ?? null;
   }
@@ -752,9 +752,9 @@ class JobResource {
   ?'lambda_resources' => LambdaResourceList,
   ?'s_3_resources' => S3ResourceList,
   ) $s = shape()) {
-    $this->ec_2_ami_resources = $ec_2_ami_resources ?? ;
-    $this->lambda_resources = $lambda_resources ?? ;
-    $this->s_3_resources = $s_3_resources ?? ;
+    $this->ec_2_ami_resources = $ec_2_ami_resources ?? [];
+    $this->lambda_resources = $lambda_resources ?? [];
+    $this->s_3_resources = $s_3_resources ?? [];
   }
 }
 
@@ -770,7 +770,7 @@ class KMSRequestFailedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -782,8 +782,8 @@ class KeyRange {
   ?'begin_marker' => string,
   ?'end_marker' => string,
   ) $s = shape()) {
-    $this->begin_marker = $begin_marker ?? ;
-    $this->end_marker = $end_marker ?? ;
+    $this->begin_marker = $begin_marker ?? "";
+    $this->end_marker = $end_marker ?? "";
   }
 }
 
@@ -797,8 +797,8 @@ class LambdaResource {
   ?'event_triggers' => EventTriggerDefinitionList,
   ?'lambda_arn' => ResourceARN,
   ) $s = shape()) {
-    $this->event_triggers = $event_triggers ?? ;
-    $this->lambda_arn = $lambda_arn ?? ;
+    $this->event_triggers = $event_triggers ?? [];
+    $this->lambda_arn = $lambda_arn ?? "";
   }
 }
 
@@ -815,8 +815,8 @@ class ListClusterJobsRequest {
   ?'next_token' => string,
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -828,8 +828,8 @@ class ListClusterJobsResult {
   ?'job_list_entries' => JobListEntryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_list_entries = $job_list_entries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_list_entries = $job_list_entries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -841,8 +841,8 @@ class ListClustersRequest {
   ?'max_results' => ListLimit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -854,8 +854,8 @@ class ListClustersResult {
   ?'cluster_list_entries' => ClusterListEntryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->cluster_list_entries = $cluster_list_entries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_list_entries = $cluster_list_entries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -867,8 +867,8 @@ class ListCompatibleImagesRequest {
   ?'max_results' => ListLimit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -880,8 +880,8 @@ class ListCompatibleImagesResult {
   ?'compatible_images' => CompatibleImageList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->compatible_images = $compatible_images ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->compatible_images = $compatible_images ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -893,8 +893,8 @@ class ListJobsRequest {
   ?'max_results' => ListLimit,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -906,8 +906,8 @@ class ListJobsResult {
   ?'job_list_entries' => JobListEntryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_list_entries = $job_list_entries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_list_entries = $job_list_entries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -925,8 +925,8 @@ class Notification {
   ?'notify_all' => boolean,
   ?'sns_topic_arn' => SnsTopicARN,
   ) $s = shape()) {
-    $this->job_states_to_notify = $job_states_to_notify ?? ;
-    $this->notify_all = $notify_all ?? ;
+    $this->job_states_to_notify = $job_states_to_notify ?? [];
+    $this->notify_all = $notify_all ?? false;
     $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
@@ -943,7 +943,7 @@ class S3Resource {
   ?'bucket_arn' => ResourceARN,
   ?'key_range' => KeyRange,
   ) $s = shape()) {
-    $this->bucket_arn = $bucket_arn ?? ;
+    $this->bucket_arn = $bucket_arn ?? "";
     $this->key_range = $key_range ?? null;
   }
 }
@@ -958,8 +958,8 @@ class Shipment {
   ?'status' => string,
   ?'tracking_number' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->tracking_number = $tracking_number ?? ;
+    $this->status = $status ?? "";
+    $this->tracking_number = $tracking_number ?? "";
   }
 }
 
@@ -973,8 +973,8 @@ class ShippingDetails {
   ?'outbound_shipment' => Shipment,
   ?'shipping_option' => ShippingOption,
   ) $s = shape()) {
-    $this->inbound_shipment = $inbound_shipment ?? ;
-    $this->outbound_shipment = $outbound_shipment ?? ;
+    $this->inbound_shipment = $inbound_shipment ?? null;
+    $this->outbound_shipment = $outbound_shipment ?? null;
     $this->shipping_option = $shipping_option ?? "";
   }
 }
@@ -995,7 +995,7 @@ class TaxDocuments {
   public function __construct(shape(
   ?'ind' => INDTaxDocuments,
   ) $s = shape()) {
-    $this->ind = $ind ?? ;
+    $this->ind = $ind ?? null;
   }
 }
 
@@ -1007,7 +1007,7 @@ class UnsupportedAddressException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1033,10 +1033,10 @@ class UpdateClusterRequest {
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
     $this->cluster_id = $cluster_id ?? "";
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_option = $shipping_option ?? "";
   }
@@ -1072,14 +1072,14 @@ class UpdateJobRequest {
   ?'snowball_capacity_preference' => SnowballCapacity,
   ) $s = shape()) {
     $this->address_id = $address_id ?? "";
-    $this->description = $description ?? ;
-    $this->forwarding_address_id = $forwarding_address_id ?? ;
+    $this->description = $description ?? "";
+    $this->forwarding_address_id = $forwarding_address_id ?? "";
     $this->job_id = $job_id ?? "";
     $this->notification = $notification ?? null;
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->shipping_option = $shipping_option ?? "";
-    $this->snowball_capacity_preference = $snowball_capacity_preference ?? ;
+    $this->snowball_capacity_preference = $snowball_capacity_preference ?? "";
   }
 }
 

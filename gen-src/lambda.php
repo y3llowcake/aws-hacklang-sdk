@@ -67,10 +67,10 @@ class AccountLimit {
   ?'total_code_size' => Long,
   ?'unreserved_concurrent_executions' => UnreservedConcurrentExecutions,
   ) $s = shape()) {
-    $this->code_size_unzipped = $code_size_unzipped ?? ;
-    $this->code_size_zipped = $code_size_zipped ?? ;
-    $this->concurrent_executions = $concurrent_executions ?? ;
-    $this->total_code_size = $total_code_size ?? ;
+    $this->code_size_unzipped = $code_size_unzipped ?? 0;
+    $this->code_size_zipped = $code_size_zipped ?? 0;
+    $this->concurrent_executions = $concurrent_executions ?? 0;
+    $this->total_code_size = $total_code_size ?? 0;
     $this->unreserved_concurrent_executions = $unreserved_concurrent_executions ?? 0;
   }
 }
@@ -83,8 +83,8 @@ class AccountUsage {
   ?'function_count' => Long,
   ?'total_code_size' => Long,
   ) $s = shape()) {
-    $this->function_count = $function_count ?? ;
-    $this->total_code_size = $total_code_size ?? ;
+    $this->function_count = $function_count ?? 0;
+    $this->total_code_size = $total_code_size ?? 0;
   }
 }
 
@@ -112,9 +112,9 @@ class AddLayerVersionPermissionRequest {
     $this->layer_name = $layer_name ?? "";
     $this->organization_id = $organization_id ?? "";
     $this->principal = $principal ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
     $this->statement_id = $statement_id ?? "";
-    $this->version_number = $version_number ?? ;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -126,8 +126,8 @@ class AddLayerVersionPermissionResponse {
   ?'revision_id' => string,
   ?'statement' => string,
   ) $s = shape()) {
-    $this->revision_id = $revision_id ?? ;
-    $this->statement = $statement ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->statement = $statement ?? "";
   }
 }
 
@@ -158,9 +158,9 @@ class AddPermissionRequest {
     $this->function_name = $function_name ?? "";
     $this->principal = $principal ?? "";
     $this->qualifier = $qualifier ?? "";
-    $this->revision_id = $revision_id ?? ;
-    $this->source_account = $source_account ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->source_account = $source_account ?? "";
+    $this->source_arn = $source_arn ?? "";
     $this->statement_id = $statement_id ?? "";
   }
 }
@@ -171,7 +171,7 @@ class AddPermissionResponse {
   public function __construct(shape(
   ?'statement' => string,
   ) $s = shape()) {
-    $this->statement = $statement ?? ;
+    $this->statement = $statement ?? "";
   }
 }
 
@@ -197,12 +197,12 @@ class AliasConfiguration {
   ?'revision_id' => string,
   ?'routing_config' => AliasRoutingConfiguration,
   ) $s = shape()) {
-    $this->alias_arn = $alias_arn ?? ;
+    $this->alias_arn = $alias_arn ?? "";
     $this->description = $description ?? "";
     $this->function_version = $function_version ?? "";
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->routing_config = $routing_config ?? ;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->routing_config = $routing_config ?? null;
   }
 }
 
@@ -238,8 +238,8 @@ class CodeStorageExceededException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -272,8 +272,8 @@ class CreateAliasRequest {
     $this->description = $description ?? "";
     $this->function_name = $function_name ?? "";
     $this->function_version = $function_version ?? "";
-    $this->name = $name ?? ;
-    $this->routing_config = $routing_config ?? ;
+    $this->name = $name ?? "";
+    $this->routing_config = $routing_config ?? null;
   }
 }
 
@@ -309,14 +309,14 @@ class CreateEventSourceMappingRequest {
     $this->bisect_batch_on_function_error = $bisect_batch_on_function_error ?? false;
     $this->destination_config = $destination_config ?? null;
     $this->enabled = $enabled ?? false;
-    $this->event_source_arn = $event_source_arn ?? ;
+    $this->event_source_arn = $event_source_arn ?? "";
     $this->function_name = $function_name ?? "";
     $this->maximum_batching_window_in_seconds = $maximum_batching_window_in_seconds ?? 0;
     $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
     $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
     $this->parallelization_factor = $parallelization_factor ?? 0;
-    $this->starting_position = $starting_position ?? ;
-    $this->starting_position_timestamp = $starting_position_timestamp ?? ;
+    $this->starting_position = $starting_position ?? "";
+    $this->starting_position_timestamp = $starting_position_timestamp ?? 0;
   }
 }
 
@@ -356,17 +356,17 @@ class CreateFunctionRequest {
   ?'tracing_config' => TracingConfig,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->code = $code ?? ;
+    $this->code = $code ?? null;
     $this->dead_letter_config = $dead_letter_config ?? null;
     $this->description = $description ?? "";
     $this->environment = $environment ?? null;
     $this->function_name = $function_name ?? "";
     $this->handler = $handler ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
-    $this->layers = $layers ?? ;
+    $this->layers = $layers ?? [];
     $this->memory_size = $memory_size ?? 0;
-    $this->publish = $publish ?? ;
-    $this->role = $role ?? ;
+    $this->publish = $publish ?? false;
+    $this->role = $role ?? "";
     $this->runtime = $runtime ?? "";
     $this->tags = $tags ?? [];
     $this->timeout = $timeout ?? 0;
@@ -383,7 +383,7 @@ class DeadLetterConfig {
   public function __construct(shape(
   ?'target_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->target_arn = $target_arn ?? ;
+    $this->target_arn = $target_arn ?? "";
   }
 }
 
@@ -396,7 +396,7 @@ class DeleteAliasRequest {
   ?'name' => Alias,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -406,7 +406,7 @@ class DeleteEventSourceMappingRequest {
   public function __construct(shape(
   ?'uuid' => string,
   ) $s = shape()) {
-    $this->uuid = $uuid ?? ;
+    $this->uuid = $uuid ?? "";
   }
 }
 
@@ -455,7 +455,7 @@ class DeleteLayerVersionRequest {
   ?'version_number' => LayerVersionNumber,
   ) $s = shape()) {
     $this->layer_name = $layer_name ?? "";
-    $this->version_number = $version_number ?? ;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -497,8 +497,8 @@ class EC2AccessDeniedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -510,8 +510,8 @@ class EC2ThrottledException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -525,9 +525,9 @@ class EC2UnexpectedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->ec_2_error_code = $ec_2_error_code ?? ;
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->ec_2_error_code = $ec_2_error_code ?? "";
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -539,8 +539,8 @@ class ENILimitReachedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -552,7 +552,7 @@ class Environment {
   public function __construct(shape(
   ?'variables' => EnvironmentVariables,
   ) $s = shape()) {
-    $this->variables = $variables ?? ;
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -564,8 +564,8 @@ class EnvironmentError {
   ?'error_code' => string,
   ?'message' => SensitiveString,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->message = $message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -577,8 +577,8 @@ class EnvironmentResponse {
   ?'error' => EnvironmentError,
   ?'variables' => EnvironmentVariables,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->variables = $variables ?? ;
+    $this->error = $error ?? null;
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -623,17 +623,17 @@ class EventSourceMappingConfiguration {
     $this->batch_size = $batch_size ?? 0;
     $this->bisect_batch_on_function_error = $bisect_batch_on_function_error ?? false;
     $this->destination_config = $destination_config ?? null;
-    $this->event_source_arn = $event_source_arn ?? ;
+    $this->event_source_arn = $event_source_arn ?? "";
     $this->function_arn = $function_arn ?? "";
-    $this->last_modified = $last_modified ?? ;
-    $this->last_processing_result = $last_processing_result ?? ;
+    $this->last_modified = $last_modified ?? 0;
+    $this->last_processing_result = $last_processing_result ?? "";
     $this->maximum_batching_window_in_seconds = $maximum_batching_window_in_seconds ?? 0;
     $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
     $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
     $this->parallelization_factor = $parallelization_factor ?? 0;
     $this->state = $state ?? "";
-    $this->state_transition_reason = $state_transition_reason ?? ;
-    $this->uuid = $uuid ?? ;
+    $this->state_transition_reason = $state_transition_reason ?? "";
+    $this->uuid = $uuid ?? "";
   }
 }
 
@@ -660,7 +660,7 @@ class FunctionCode {
     $this->s_3_bucket = $s_3_bucket ?? "";
     $this->s_3_key = $s_3_key ?? "";
     $this->s_3_object_version = $s_3_object_version ?? "";
-    $this->zip_file = $zip_file ?? ;
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -672,8 +672,8 @@ class FunctionCodeLocation {
   ?'location' => string,
   ?'repository_type' => string,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->repository_type = $repository_type ?? ;
+    $this->location = $location ?? "";
+    $this->repository_type = $repository_type ?? "";
   }
 }
 
@@ -733,8 +733,8 @@ class FunctionConfiguration {
   ?'version' => Version,
   ?'vpc_config' => VpcConfigResponse,
   ) $s = shape()) {
-    $this->code_sha_256 = $code_sha_256 ?? ;
-    $this->code_size = $code_size ?? ;
+    $this->code_sha_256 = $code_sha_256 ?? "";
+    $this->code_size = $code_size ?? 0;
     $this->dead_letter_config = $dead_letter_config ?? null;
     $this->description = $description ?? "";
     $this->environment = $environment ?? null;
@@ -742,15 +742,15 @@ class FunctionConfiguration {
     $this->function_name = $function_name ?? "";
     $this->handler = $handler ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
-    $this->last_modified = $last_modified ?? ;
+    $this->last_modified = $last_modified ?? "";
     $this->last_update_status = $last_update_status ?? "";
     $this->last_update_status_reason = $last_update_status_reason ?? "";
     $this->last_update_status_reason_code = $last_update_status_reason_code ?? "";
-    $this->layers = $layers ?? ;
-    $this->master_arn = $master_arn ?? ;
+    $this->layers = $layers ?? [];
+    $this->master_arn = $master_arn ?? "";
     $this->memory_size = $memory_size ?? 0;
-    $this->revision_id = $revision_id ?? ;
-    $this->role = $role ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->role = $role ?? "";
     $this->runtime = $runtime ?? "";
     $this->state = $state ?? "";
     $this->state_reason = $state_reason ?? "";
@@ -778,7 +778,7 @@ class FunctionEventInvokeConfig {
   ) $s = shape()) {
     $this->destination_config = $destination_config ?? null;
     $this->function_arn = $function_arn ?? "";
-    $this->last_modified = $last_modified ?? ;
+    $this->last_modified = $last_modified ?? 0;
     $this->maximum_event_age_in_seconds = $maximum_event_age_in_seconds ?? 0;
     $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
   }
@@ -821,7 +821,7 @@ class GetAliasRequest {
   ?'name' => Alias,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -831,7 +831,7 @@ class GetEventSourceMappingRequest {
   public function __construct(shape(
   ?'uuid' => string,
   ) $s = shape()) {
-    $this->uuid = $uuid ?? ;
+    $this->uuid = $uuid ?? "";
   }
 }
 
@@ -906,9 +906,9 @@ class GetFunctionResponse {
   ?'configuration' => FunctionConfiguration,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->code = $code ?? ;
+    $this->code = $code ?? null;
     $this->concurrency = $concurrency ?? null;
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
     $this->tags = $tags ?? [];
   }
 }
@@ -932,7 +932,7 @@ class GetLayerVersionPolicyRequest {
   ?'version_number' => LayerVersionNumber,
   ) $s = shape()) {
     $this->layer_name = $layer_name ?? "";
-    $this->version_number = $version_number ?? ;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -944,8 +944,8 @@ class GetLayerVersionPolicyResponse {
   ?'policy' => string,
   ?'revision_id' => string,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -958,7 +958,7 @@ class GetLayerVersionRequest {
   ?'version_number' => LayerVersionNumber,
   ) $s = shape()) {
     $this->layer_name = $layer_name ?? "";
-    $this->version_number = $version_number ?? ;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -983,13 +983,13 @@ class GetLayerVersionResponse {
   ?'version' => LayerVersionNumber,
   ) $s = shape()) {
     $this->compatible_runtimes = $compatible_runtimes ?? [];
-    $this->content = $content ?? ;
-    $this->created_date = $created_date ?? ;
+    $this->content = $content ?? null;
+    $this->created_date = $created_date ?? "";
     $this->description = $description ?? "";
     $this->layer_arn = $layer_arn ?? "";
     $this->layer_version_arn = $layer_version_arn ?? "";
     $this->license_info = $license_info ?? "";
-    $this->version = $version ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1014,8 +1014,8 @@ class GetPolicyResponse {
   ?'policy' => string,
   ?'revision_id' => string,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->policy = $policy ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -1048,12 +1048,12 @@ class GetProvisionedConcurrencyConfigResponse {
   ?'status' => ProvisionedConcurrencyStatusEnum,
   ?'status_reason' => string,
   ) $s = shape()) {
-    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
-    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? 0;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? 0;
+    $this->last_modified = $last_modified ?? "";
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -1071,8 +1071,8 @@ class InvalidParameterValueException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1084,8 +1084,8 @@ class InvalidRequestContentException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1097,8 +1097,8 @@ class InvalidRuntimeException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1110,8 +1110,8 @@ class InvalidSecurityGroupIDException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1123,8 +1123,8 @@ class InvalidSubnetIDException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1136,8 +1136,8 @@ class InvalidZipFileException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1157,11 +1157,11 @@ class InvocationRequest {
   ?'payload' => Blob,
   ?'qualifier' => Qualifier,
   ) $s = shape()) {
-    $this->client_context = $client_context ?? ;
+    $this->client_context = $client_context ?? "";
     $this->function_name = $function_name ?? "";
     $this->invocation_type = $invocation_type ?? "";
     $this->log_type = $log_type ?? "";
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? "";
     $this->qualifier = $qualifier ?? "";
   }
 }
@@ -1180,11 +1180,11 @@ class InvocationResponse {
   ?'payload' => Blob,
   ?'status_code' => int,
   ) $s = shape()) {
-    $this->executed_version = $executed_version ?? ;
-    $this->function_error = $function_error ?? ;
-    $this->log_result = $log_result ?? ;
-    $this->payload = $payload ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->executed_version = $executed_version ?? "";
+    $this->function_error = $function_error ?? "";
+    $this->log_result = $log_result ?? "";
+    $this->payload = $payload ?? "";
+    $this->status_code = $status_code ?? 0;
   }
 }
 
@@ -1199,7 +1199,7 @@ class InvokeAsyncRequest {
   ?'invoke_args' => BlobStream,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->invoke_args = $invoke_args ?? ;
+    $this->invoke_args = $invoke_args ?? "";
   }
 }
 
@@ -1209,7 +1209,7 @@ class InvokeAsyncResponse {
   public function __construct(shape(
   ?'status' => HttpStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? 0;
   }
 }
 
@@ -1221,8 +1221,8 @@ class KMSAccessDeniedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1234,8 +1234,8 @@ class KMSDisabledException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1247,8 +1247,8 @@ class KMSInvalidStateException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1262,8 +1262,8 @@ class KMSNotFoundException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1282,7 +1282,7 @@ class Layer {
   ?'code_size' => Long,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->code_size = $code_size ?? ;
+    $this->code_size = $code_size ?? 0;
   }
 }
 
@@ -1313,7 +1313,7 @@ class LayerVersionContentInput {
     $this->s_3_bucket = $s_3_bucket ?? "";
     $this->s_3_key = $s_3_key ?? "";
     $this->s_3_object_version = $s_3_object_version ?? "";
-    $this->zip_file = $zip_file ?? ;
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -1327,9 +1327,9 @@ class LayerVersionContentOutput {
   ?'code_size' => Long,
   ?'location' => string,
   ) $s = shape()) {
-    $this->code_sha_256 = $code_sha_256 ?? ;
-    $this->code_size = $code_size ?? ;
-    $this->location = $location ?? ;
+    $this->code_sha_256 = $code_sha_256 ?? "";
+    $this->code_size = $code_size ?? 0;
+    $this->location = $location ?? "";
   }
 }
 
@@ -1354,11 +1354,11 @@ class LayerVersionsListItem {
   ?'version' => LayerVersionNumber,
   ) $s = shape()) {
     $this->compatible_runtimes = $compatible_runtimes ?? [];
-    $this->created_date = $created_date ?? ;
+    $this->created_date = $created_date ?? "";
     $this->description = $description ?? "";
     $this->layer_version_arn = $layer_version_arn ?? "";
     $this->license_info = $license_info ?? "";
-    $this->version = $version ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1374,7 +1374,7 @@ class LayersListItem {
   ?'layer_arn' => LayerArn,
   ?'layer_name' => LayerName,
   ) $s = shape()) {
-    $this->latest_matching_version = $latest_matching_version ?? ;
+    $this->latest_matching_version = $latest_matching_version ?? null;
     $this->layer_arn = $layer_arn ?? "";
     $this->layer_name = $layer_name ?? "";
   }
@@ -1398,8 +1398,8 @@ class ListAliasesRequest {
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
     $this->function_version = $function_version ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1411,8 +1411,8 @@ class ListAliasesResponse {
   ?'aliases' => AliasList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->aliases = $aliases ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->aliases = $aliases ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1428,10 +1428,10 @@ class ListEventSourceMappingsRequest {
   ?'marker' => string,
   ?'max_items' => MaxListItems,
   ) $s = shape()) {
-    $this->event_source_arn = $event_source_arn ?? ;
+    $this->event_source_arn = $event_source_arn ?? "";
     $this->function_name = $function_name ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1443,8 +1443,8 @@ class ListEventSourceMappingsResponse {
   ?'event_source_mappings' => EventSourceMappingsList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->event_source_mappings = $event_source_mappings ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->event_source_mappings = $event_source_mappings ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1459,8 +1459,8 @@ class ListFunctionEventInvokeConfigsRequest {
   ?'max_items' => MaxFunctionEventInvokeConfigListItems,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1472,8 +1472,8 @@ class ListFunctionEventInvokeConfigsResponse {
   ?'function_event_invoke_configs' => FunctionEventInvokeConfigList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->function_event_invoke_configs = $function_event_invoke_configs ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->function_event_invoke_configs = $function_event_invoke_configs ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1490,9 +1490,9 @@ class ListFunctionsRequest {
   ?'max_items' => MaxListItems,
   ) $s = shape()) {
     $this->function_version = $function_version ?? "";
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->master_region = $master_region ?? "";
-    $this->max_items = $max_items ?? ;
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1504,8 +1504,8 @@ class ListFunctionsResponse {
   ?'functions' => FunctionList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->functions = $functions ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->functions = $functions ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1521,10 +1521,10 @@ class ListLayerVersionsRequest {
   ?'marker' => string,
   ?'max_items' => MaxLayerListItems,
   ) $s = shape()) {
-    $this->compatible_runtime = $compatible_runtime ?? ;
+    $this->compatible_runtime = $compatible_runtime ?? "";
     $this->layer_name = $layer_name ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1536,8 +1536,8 @@ class ListLayerVersionsResponse {
   ?'layer_versions' => LayerVersionsList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->layer_versions = $layer_versions ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->layer_versions = $layer_versions ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1551,9 +1551,9 @@ class ListLayersRequest {
   ?'marker' => string,
   ?'max_items' => MaxLayerListItems,
   ) $s = shape()) {
-    $this->compatible_runtime = $compatible_runtime ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->compatible_runtime = $compatible_runtime ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1565,8 +1565,8 @@ class ListLayersResponse {
   ?'layers' => LayersList,
   ?'next_marker' => string,
   ) $s = shape()) {
-    $this->layers = $layers ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->layers = $layers ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -1581,8 +1581,8 @@ class ListProvisionedConcurrencyConfigsRequest {
   ?'max_items' => MaxProvisionedConcurrencyConfigListItems,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1594,8 +1594,8 @@ class ListProvisionedConcurrencyConfigsResponse {
   ?'next_marker' => string,
   ?'provisioned_concurrency_configs' => ProvisionedConcurrencyConfigList,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
-    $this->provisioned_concurrency_configs = $provisioned_concurrency_configs ?? ;
+    $this->next_marker = $next_marker ?? "";
+    $this->provisioned_concurrency_configs = $provisioned_concurrency_configs ?? [];
   }
 }
 
@@ -1605,7 +1605,7 @@ class ListTagsRequest {
   public function __construct(shape(
   ?'resource' => FunctionArn,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
   }
 }
 
@@ -1630,8 +1630,8 @@ class ListVersionsByFunctionRequest {
   ?'max_items' => MaxListItems,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1643,8 +1643,8 @@ class ListVersionsByFunctionResponse {
   ?'next_marker' => string,
   ?'versions' => FunctionList,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_marker = $next_marker ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -1688,7 +1688,7 @@ class OnFailure {
   public function __construct(shape(
   ?'destination' => DestinationArn,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
+    $this->destination = $destination ?? "";
   }
 }
 
@@ -1698,7 +1698,7 @@ class OnSuccess {
   public function __construct(shape(
   ?'destination' => DestinationArn,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
+    $this->destination = $destination ?? "";
   }
 }
 
@@ -1714,8 +1714,8 @@ class PolicyLengthExceededException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1729,8 +1729,8 @@ class PreconditionFailedException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1756,13 +1756,13 @@ class ProvisionedConcurrencyConfigListItem {
   ?'status' => ProvisionedConcurrencyStatusEnum,
   ?'status_reason' => string,
   ) $s = shape()) {
-    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
-    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? 0;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? 0;
     $this->function_arn = $function_arn ?? "";
-    $this->last_modified = $last_modified ?? ;
-    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->last_modified = $last_modified ?? "";
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -1774,8 +1774,8 @@ class ProvisionedConcurrencyConfigNotFoundException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1796,7 +1796,7 @@ class PublishLayerVersionRequest {
   ?'license_info' => LicenseInfo,
   ) $s = shape()) {
     $this->compatible_runtimes = $compatible_runtimes ?? [];
-    $this->content = $content ?? ;
+    $this->content = $content ?? null;
     $this->description = $description ?? "";
     $this->layer_name = $layer_name ?? "";
     $this->license_info = $license_info ?? "";
@@ -1824,13 +1824,13 @@ class PublishLayerVersionResponse {
   ?'version' => LayerVersionNumber,
   ) $s = shape()) {
     $this->compatible_runtimes = $compatible_runtimes ?? [];
-    $this->content = $content ?? ;
-    $this->created_date = $created_date ?? ;
+    $this->content = $content ?? null;
+    $this->created_date = $created_date ?? "";
     $this->description = $description ?? "";
     $this->layer_arn = $layer_arn ?? "";
     $this->layer_version_arn = $layer_version_arn ?? "";
     $this->license_info = $license_info ?? "";
-    $this->version = $version ?? "";
+    $this->version = $version ?? 0;
   }
 }
 
@@ -1846,10 +1846,10 @@ class PublishVersionRequest {
   ?'function_name' => FunctionName,
   ?'revision_id' => string,
   ) $s = shape()) {
-    $this->code_sha_256 = $code_sha_256 ?? ;
+    $this->code_sha_256 = $code_sha_256 ?? "";
     $this->description = $description ?? "";
     $this->function_name = $function_name ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -1899,7 +1899,7 @@ class PutProvisionedConcurrencyConfigRequest {
   ?'qualifier' => Qualifier,
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
-    $this->provisioned_concurrent_executions = $provisioned_concurrent_executions ?? ;
+    $this->provisioned_concurrent_executions = $provisioned_concurrent_executions ?? 0;
     $this->qualifier = $qualifier ?? "";
   }
 }
@@ -1920,12 +1920,12 @@ class PutProvisionedConcurrencyConfigResponse {
   ?'status' => ProvisionedConcurrencyStatusEnum,
   ?'status_reason' => string,
   ) $s = shape()) {
-    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
-    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? 0;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? 0;
+    $this->last_modified = $last_modified ?? "";
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -1944,9 +1944,9 @@ class RemoveLayerVersionPermissionRequest {
   ?'version_number' => LayerVersionNumber,
   ) $s = shape()) {
     $this->layer_name = $layer_name ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
     $this->statement_id = $statement_id ?? "";
-    $this->version_number = $version_number ?? ;
+    $this->version_number = $version_number ?? 0;
   }
 }
 
@@ -1964,7 +1964,7 @@ class RemovePermissionRequest {
   ) $s = shape()) {
     $this->function_name = $function_name ?? "";
     $this->qualifier = $qualifier ?? "";
-    $this->revision_id = $revision_id ?? ;
+    $this->revision_id = $revision_id ?? "";
     $this->statement_id = $statement_id ?? "";
   }
 }
@@ -1977,8 +1977,8 @@ class RequestTooLargeException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1994,8 +1994,8 @@ class ResourceConflictException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2007,8 +2007,8 @@ class ResourceInUseException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2020,8 +2020,8 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2033,8 +2033,8 @@ class ResourceNotReadyException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2062,8 +2062,8 @@ class ServiceException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2087,8 +2087,8 @@ class SubnetIPAddressLimitReachedException {
   ?'message' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2108,7 +2108,7 @@ class TagResourceRequest {
   ?'resource' => FunctionArn,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
+    $this->resource = $resource ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -2135,10 +2135,10 @@ class TooManyRequestsException {
   ?'message' => string,
   ?'retry_after_seconds' => string,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->reason = $reason ?? "";
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -2148,7 +2148,7 @@ class TracingConfig {
   public function __construct(shape(
   ?'mode' => TracingMode,
   ) $s = shape()) {
-    $this->mode = $mode ?? ;
+    $this->mode = $mode ?? "";
   }
 }
 
@@ -2158,7 +2158,7 @@ class TracingConfigResponse {
   public function __construct(shape(
   ?'mode' => TracingMode,
   ) $s = shape()) {
-    $this->mode = $mode ?? ;
+    $this->mode = $mode ?? "";
   }
 }
 
@@ -2174,8 +2174,8 @@ class UnsupportedMediaTypeException {
   ?'type' => string,
   ?'message' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->message = $message ?? ;
+    $this->type = $type ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2187,8 +2187,8 @@ class UntagResourceRequest {
   ?'resource' => FunctionArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource = $resource ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2211,9 +2211,9 @@ class UpdateAliasRequest {
     $this->description = $description ?? "";
     $this->function_name = $function_name ?? "";
     $this->function_version = $function_version ?? "";
-    $this->name = $name ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->routing_config = $routing_config ?? ;
+    $this->name = $name ?? "";
+    $this->revision_id = $revision_id ?? "";
+    $this->routing_config = $routing_config ?? null;
   }
 }
 
@@ -2250,7 +2250,7 @@ class UpdateEventSourceMappingRequest {
     $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
     $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
     $this->parallelization_factor = $parallelization_factor ?? 0;
-    $this->uuid = $uuid ?? ;
+    $this->uuid = $uuid ?? "";
   }
 }
 
@@ -2274,14 +2274,14 @@ class UpdateFunctionCodeRequest {
   ?'s_3_object_version' => S3ObjectVersion,
   ?'zip_file' => Blob,
   ) $s = shape()) {
-    $this->dry_run = $dry_run ?? ;
+    $this->dry_run = $dry_run ?? false;
     $this->function_name = $function_name ?? "";
-    $this->publish = $publish ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->publish = $publish ?? false;
+    $this->revision_id = $revision_id ?? "";
     $this->s_3_bucket = $s_3_bucket ?? "";
     $this->s_3_key = $s_3_key ?? "";
     $this->s_3_object_version = $s_3_object_version ?? "";
-    $this->zip_file = $zip_file ?? ;
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -2323,10 +2323,10 @@ class UpdateFunctionConfigurationRequest {
     $this->function_name = $function_name ?? "";
     $this->handler = $handler ?? "";
     $this->kms_key_arn = $kms_key_arn ?? "";
-    $this->layers = $layers ?? ;
+    $this->layers = $layers ?? [];
     $this->memory_size = $memory_size ?? 0;
-    $this->revision_id = $revision_id ?? ;
-    $this->role = $role ?? ;
+    $this->revision_id = $revision_id ?? "";
+    $this->role = $role ?? "";
     $this->runtime = $runtime ?? "";
     $this->timeout = $timeout ?? 0;
     $this->tracing_config = $tracing_config ?? null;

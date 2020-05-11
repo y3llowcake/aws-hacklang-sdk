@@ -14,8 +14,8 @@ class DataPoint {
   ?'timestamp' => ISOTimestamp,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->timestamp = $timestamp ?? ;
-    $this->value = $value ?? ;
+    $this->timestamp = $timestamp ?? 0;
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -47,17 +47,17 @@ class DescribeDimensionKeysRequest {
   ?'service_type' => ServiceType,
   ?'start_time' => ISOTimestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->filter = $filter ?? ;
-    $this->group_by = $group_by ?? ;
-    $this->identifier = $identifier ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->filter = $filter ?? [];
+    $this->group_by = $group_by ?? null;
+    $this->identifier = $identifier ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->metric = $metric ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->partition_by = $partition_by ?? ;
-    $this->period_in_seconds = $period_in_seconds ?? ;
+    $this->metric = $metric ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->partition_by = $partition_by ?? null;
+    $this->period_in_seconds = $period_in_seconds ?? 0;
     $this->service_type = $service_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -75,11 +75,11 @@ class DescribeDimensionKeysResponse {
   ?'next_token' => string,
   ?'partition_keys' => ResponsePartitionKeyList,
   ) $s = shape()) {
-    $this->aligned_end_time = $aligned_end_time ?? ;
-    $this->aligned_start_time = $aligned_start_time ?? ;
-    $this->keys = $keys ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->partition_keys = $partition_keys ?? ;
+    $this->aligned_end_time = $aligned_end_time ?? 0;
+    $this->aligned_start_time = $aligned_start_time ?? 0;
+    $this->keys = $keys ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->partition_keys = $partition_keys ?? [];
   }
 }
 
@@ -93,8 +93,8 @@ class DimensionGroup {
   ?'group' => string,
   ?'limit' => Limit,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->group = $group ?? ;
+    $this->dimensions = $dimensions ?? [];
+    $this->group = $group ?? "";
     $this->limit = $limit ?? 0;
   }
 }
@@ -109,9 +109,9 @@ class DimensionKeyDescription {
   ?'partitions' => MetricValuesList,
   ?'total' => Double,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->partitions = $partitions ?? ;
-    $this->total = $total ?? ;
+    $this->dimensions = $dimensions ?? [];
+    $this->partitions = $partitions ?? [];
+    $this->total = $total ?? 0.0;
   }
 }
 
@@ -141,14 +141,14 @@ class GetResourceMetricsRequest {
   ?'service_type' => ServiceType,
   ?'start_time' => ISOTimestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->identifier = $identifier ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->identifier = $identifier ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->metric_queries = $metric_queries ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->period_in_seconds = $period_in_seconds ?? ;
+    $this->metric_queries = $metric_queries ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->period_in_seconds = $period_in_seconds ?? 0;
     $this->service_type = $service_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -166,11 +166,11 @@ class GetResourceMetricsResponse {
   ?'metric_list' => MetricKeyDataPointsList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->aligned_end_time = $aligned_end_time ?? ;
-    $this->aligned_start_time = $aligned_start_time ?? ;
-    $this->identifier = $identifier ?? ;
-    $this->metric_list = $metric_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->aligned_end_time = $aligned_end_time ?? 0;
+    $this->aligned_start_time = $aligned_start_time ?? 0;
+    $this->identifier = $identifier ?? "";
+    $this->metric_list = $metric_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -184,7 +184,7 @@ class InternalServiceError {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -194,7 +194,7 @@ class InvalidArgumentException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -210,8 +210,8 @@ class MetricKeyDataPoints {
   ?'data_points' => DataPointsList,
   ?'key' => ResponseResourceMetricKey,
   ) $s = shape()) {
-    $this->data_points = $data_points ?? ;
-    $this->key = $key ?? ;
+    $this->data_points = $data_points ?? [];
+    $this->key = $key ?? null;
   }
 }
 
@@ -227,9 +227,9 @@ class MetricQuery {
   ?'group_by' => DimensionGroup,
   ?'metric' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->group_by = $group_by ?? ;
-    $this->metric = $metric ?? ;
+    $this->filter = $filter ?? [];
+    $this->group_by = $group_by ?? null;
+    $this->metric = $metric ?? "";
   }
 }
 
@@ -245,7 +245,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -255,7 +255,7 @@ class ResponsePartitionKey {
   public function __construct(shape(
   ?'dimensions' => DimensionMap,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
+    $this->dimensions = $dimensions ?? [];
   }
 }
 
@@ -269,8 +269,8 @@ class ResponseResourceMetricKey {
   ?'dimensions' => DimensionMap,
   ?'metric' => string,
   ) $s = shape()) {
-    $this->dimensions = $dimensions ?? ;
-    $this->metric = $metric ?? ;
+    $this->dimensions = $dimensions ?? [];
+    $this->metric = $metric ?? "";
   }
 }
 

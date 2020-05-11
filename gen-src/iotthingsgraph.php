@@ -51,9 +51,9 @@ class AssociateEntityToThingRequest {
   ?'namespace_version' => Version,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
-    $this->namespace_version = $namespace_version ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->entity_id = $entity_id ?? "";
+    $this->namespace_version = $namespace_version ?? 0;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -72,8 +72,8 @@ class CreateFlowTemplateRequest {
   ?'compatible_namespace_version' => Version,
   ?'definition' => DefinitionDocument,
   ) $s = shape()) {
-    $this->compatible_namespace_version = $compatible_namespace_version ?? ;
-    $this->definition = $definition ?? ;
+    $this->compatible_namespace_version = $compatible_namespace_version ?? 0;
+    $this->definition = $definition ?? null;
   }
 }
 
@@ -83,7 +83,7 @@ class CreateFlowTemplateResponse {
   public function __construct(shape(
   ?'summary' => FlowTemplateSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -105,13 +105,13 @@ class CreateSystemInstanceRequest {
   ?'tags' => TagList,
   ?'target' => DeploymentTarget,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->flow_actions_role_arn = $flow_actions_role_arn ?? ;
-    $this->greengrass_group_name = $greengrass_group_name ?? ;
-    $this->metrics_configuration = $metrics_configuration ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->tags = $tags ?? ;
-    $this->target = $target ?? ;
+    $this->definition = $definition ?? null;
+    $this->flow_actions_role_arn = $flow_actions_role_arn ?? "";
+    $this->greengrass_group_name = $greengrass_group_name ?? "";
+    $this->metrics_configuration = $metrics_configuration ?? null;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->tags = $tags ?? [];
+    $this->target = $target ?? "";
   }
 }
 
@@ -121,7 +121,7 @@ class CreateSystemInstanceResponse {
   public function __construct(shape(
   ?'summary' => SystemInstanceSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -133,8 +133,8 @@ class CreateSystemTemplateRequest {
   ?'compatible_namespace_version' => Version,
   ?'definition' => DefinitionDocument,
   ) $s = shape()) {
-    $this->compatible_namespace_version = $compatible_namespace_version ?? ;
-    $this->definition = $definition ?? ;
+    $this->compatible_namespace_version = $compatible_namespace_version ?? 0;
+    $this->definition = $definition ?? null;
   }
 }
 
@@ -144,7 +144,7 @@ class CreateSystemTemplateResponse {
   public function __construct(shape(
   ?'summary' => SystemTemplateSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -156,8 +156,8 @@ class DefinitionDocument {
   ?'language' => DefinitionLanguage,
   ?'text' => DefinitionText,
   ) $s = shape()) {
-    $this->language = $language ?? ;
-    $this->text = $text ?? ;
+    $this->language = $language ?? "";
+    $this->text = $text ?? "";
   }
 }
 
@@ -171,7 +171,7 @@ class DeleteFlowTemplateRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -197,8 +197,8 @@ class DeleteNamespaceResponse {
   ?'namespace_arn' => Arn,
   ?'namespace_name' => NamespaceName,
   ) $s = shape()) {
-    $this->namespace_arn = $namespace_arn ?? ;
-    $this->namespace_name = $namespace_name ?? ;
+    $this->namespace_arn = $namespace_arn ?? "";
+    $this->namespace_name = $namespace_name ?? "";
   }
 }
 
@@ -208,7 +208,7 @@ class DeleteSystemInstanceRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -225,7 +225,7 @@ class DeleteSystemTemplateRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -244,8 +244,8 @@ class DependencyRevision {
   ?'id' => Urn,
   ?'revision_number' => Version,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->revision_number = $revision_number ?? ;
+    $this->id = $id ?? "";
+    $this->revision_number = $revision_number ?? 0;
   }
 }
 
@@ -257,7 +257,7 @@ class DeploySystemInstanceRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -269,8 +269,8 @@ class DeploySystemInstanceResponse {
   ?'greengrass_deployment_id' => GreengrassDeploymentId,
   ?'summary' => SystemInstanceSummary,
   ) $s = shape()) {
-    $this->greengrass_deployment_id = $greengrass_deployment_id ?? ;
-    $this->summary = $summary ?? ;
+    $this->greengrass_deployment_id = $greengrass_deployment_id ?? "";
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -284,7 +284,7 @@ class DeprecateFlowTemplateRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -301,7 +301,7 @@ class DeprecateSystemTemplateRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -318,7 +318,7 @@ class DescribeNamespaceRequest {
   public function __construct(shape(
   ?'namespace_name' => NamespaceName,
   ) $s = shape()) {
-    $this->namespace_name = $namespace_name ?? ;
+    $this->namespace_name = $namespace_name ?? "";
   }
 }
 
@@ -336,11 +336,11 @@ class DescribeNamespaceResponse {
   ?'tracking_namespace_name' => NamespaceName,
   ?'tracking_namespace_version' => Version,
   ) $s = shape()) {
-    $this->namespace_arn = $namespace_arn ?? ;
-    $this->namespace_name = $namespace_name ?? ;
-    $this->namespace_version = $namespace_version ?? ;
-    $this->tracking_namespace_name = $tracking_namespace_name ?? ;
-    $this->tracking_namespace_version = $tracking_namespace_version ?? ;
+    $this->namespace_arn = $namespace_arn ?? "";
+    $this->namespace_name = $namespace_name ?? "";
+    $this->namespace_version = $namespace_version ?? 0;
+    $this->tracking_namespace_name = $tracking_namespace_name ?? "";
+    $this->tracking_namespace_version = $tracking_namespace_version ?? 0;
   }
 }
 
@@ -352,8 +352,8 @@ class DissociateEntityFromThingRequest {
   ?'entity_type' => EntityType,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->entity_type = $entity_type ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->entity_type = $entity_type ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -380,11 +380,11 @@ class EntityDescription {
   ?'id' => Urn,
   ?'type' => EntityType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -398,8 +398,8 @@ class EntityFilter {
   ?'name' => EntityFilterName,
   ?'value' => EntityFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? [];
   }
 }
 
@@ -433,10 +433,10 @@ class FlowExecutionMessage {
   ?'payload' => FlowExecutionMessagePayload,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->event_type = $event_type ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->payload = $payload ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->event_type = $event_type ?? "";
+    $this->message_id = $message_id ?? "";
+    $this->payload = $payload ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -466,12 +466,12 @@ class FlowExecutionSummary {
   ?'system_instance_id' => Urn,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->flow_execution_id = $flow_execution_id ?? ;
-    $this->flow_template_id = $flow_template_id ?? ;
-    $this->status = $status ?? ;
-    $this->system_instance_id = $system_instance_id ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->flow_execution_id = $flow_execution_id ?? "";
+    $this->flow_template_id = $flow_template_id ?? "";
+    $this->status = $status ?? "";
+    $this->system_instance_id = $system_instance_id ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -485,9 +485,9 @@ class FlowTemplateDescription {
   ?'summary' => FlowTemplateSummary,
   ?'validated_namespace_version' => Version,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->summary = $summary ?? ;
-    $this->validated_namespace_version = $validated_namespace_version ?? ;
+    $this->definition = $definition ?? null;
+    $this->summary = $summary ?? null;
+    $this->validated_namespace_version = $validated_namespace_version ?? 0;
   }
 }
 
@@ -499,8 +499,8 @@ class FlowTemplateFilter {
   ?'name' => FlowTemplateFilterName,
   ?'value' => FlowTemplateFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? [];
   }
 }
 
@@ -526,10 +526,10 @@ class FlowTemplateSummary {
   ?'id' => Urn,
   ?'revision_number' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->revision_number = $revision_number ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->revision_number = $revision_number ?? 0;
   }
 }
 
@@ -541,8 +541,8 @@ class GetEntitiesRequest {
   ?'ids' => Urns,
   ?'namespace_version' => Version,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
-    $this->namespace_version = $namespace_version ?? ;
+    $this->ids = $ids ?? [];
+    $this->namespace_version = $namespace_version ?? 0;
   }
 }
 
@@ -552,7 +552,7 @@ class GetEntitiesResponse {
   public function __construct(shape(
   ?'descriptions' => EntityDescriptions,
   ) $s = shape()) {
-    $this->descriptions = $descriptions ?? ;
+    $this->descriptions = $descriptions ?? [];
   }
 }
 
@@ -564,8 +564,8 @@ class GetFlowTemplateRequest {
   ?'id' => Urn,
   ?'revision_number' => Version,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->revision_number = $revision_number ?? ;
+    $this->id = $id ?? "";
+    $this->revision_number = $revision_number ?? 0;
   }
 }
 
@@ -575,7 +575,7 @@ class GetFlowTemplateResponse {
   public function __construct(shape(
   ?'description' => FlowTemplateDescription,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? null;
   }
 }
 
@@ -589,9 +589,9 @@ class GetFlowTemplateRevisionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->id = $id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -603,8 +603,8 @@ class GetFlowTemplateRevisionsResponse {
   ?'next_token' => NextToken,
   ?'summaries' => FlowTemplateSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -629,11 +629,11 @@ class GetNamespaceDeletionStatusResponse {
   ?'namespace_name' => NamespaceName,
   ?'status' => NamespaceDeletionStatus,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->namespace_arn = $namespace_arn ?? ;
-    $this->namespace_name = $namespace_name ?? ;
-    $this->status = $status ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->namespace_arn = $namespace_arn ?? "";
+    $this->namespace_name = $namespace_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -643,7 +643,7 @@ class GetSystemInstanceRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -653,7 +653,7 @@ class GetSystemInstanceResponse {
   public function __construct(shape(
   ?'description' => SystemInstanceDescription,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? null;
   }
 }
 
@@ -665,8 +665,8 @@ class GetSystemTemplateRequest {
   ?'id' => Urn,
   ?'revision_number' => Version,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->revision_number = $revision_number ?? ;
+    $this->id = $id ?? "";
+    $this->revision_number = $revision_number ?? 0;
   }
 }
 
@@ -676,7 +676,7 @@ class GetSystemTemplateResponse {
   public function __construct(shape(
   ?'description' => SystemTemplateDescription,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? null;
   }
 }
 
@@ -690,9 +690,9 @@ class GetSystemTemplateRevisionsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->id = $id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -704,8 +704,8 @@ class GetSystemTemplateRevisionsResponse {
   ?'next_token' => NextToken,
   ?'summaries' => SystemTemplateSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -715,7 +715,7 @@ class GetUploadStatusRequest {
   public function __construct(shape(
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 
@@ -737,13 +737,13 @@ class GetUploadStatusResponse {
   ?'upload_id' => UploadId,
   ?'upload_status' => UploadStatus,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? ;
-    $this->failure_reason = $failure_reason ?? ;
-    $this->namespace_arn = $namespace_arn ?? ;
-    $this->namespace_name = $namespace_name ?? ;
-    $this->namespace_version = $namespace_version ?? ;
-    $this->upload_id = $upload_id ?? ;
-    $this->upload_status = $upload_status ?? ;
+    $this->created_date = $created_date ?? 0;
+    $this->failure_reason = $failure_reason ?? [];
+    $this->namespace_arn = $namespace_arn ?? "";
+    $this->namespace_name = $namespace_name ?? "";
+    $this->namespace_version = $namespace_version ?? 0;
+    $this->upload_id = $upload_id ?? "";
+    $this->upload_status = $upload_status ?? "";
   }
 }
 
@@ -761,7 +761,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -771,7 +771,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -781,7 +781,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -795,9 +795,9 @@ class ListFlowExecutionMessagesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->flow_execution_id = $flow_execution_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->flow_execution_id = $flow_execution_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -809,8 +809,8 @@ class ListFlowExecutionMessagesResponse {
   ?'messages' => FlowExecutionMessages,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->messages = $messages ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->messages = $messages ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -824,9 +824,9 @@ class ListTagsForResourceRequest {
   ?'next_token' => NextToken,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -838,8 +838,8 @@ class ListTagsForResourceResponse {
   ?'next_token' => NextToken,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -853,8 +853,8 @@ class MetricsConfiguration {
   ?'cloud_metric_enabled' => Enabled,
   ?'metric_rule_role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->cloud_metric_enabled = $cloud_metric_enabled ?? ;
-    $this->metric_rule_role_arn = $metric_rule_role_arn ?? ;
+    $this->cloud_metric_enabled = $cloud_metric_enabled ?? false;
+    $this->metric_rule_role_arn = $metric_rule_role_arn ?? "";
   }
 }
 
@@ -872,7 +872,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -884,7 +884,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -894,7 +894,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -916,11 +916,11 @@ class SearchEntitiesRequest {
   ?'namespace_version' => Version,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->entity_types = $entity_types ?? ;
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->namespace_version = $namespace_version ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->entity_types = $entity_types ?? [];
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->namespace_version = $namespace_version ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -932,8 +932,8 @@ class SearchEntitiesResponse {
   ?'descriptions' => EntityDescriptions,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->descriptions = $descriptions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->descriptions = $descriptions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -953,12 +953,12 @@ class SearchFlowExecutionsRequest {
   ?'start_time' => Timestamp,
   ?'system_instance_id' => Urn,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->flow_execution_id = $flow_execution_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->system_instance_id = $system_instance_id ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->flow_execution_id = $flow_execution_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->system_instance_id = $system_instance_id ?? "";
   }
 }
 
@@ -970,8 +970,8 @@ class SearchFlowExecutionsResponse {
   ?'next_token' => NextToken,
   ?'summaries' => FlowExecutionSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -985,9 +985,9 @@ class SearchFlowTemplatesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -999,8 +999,8 @@ class SearchFlowTemplatesResponse {
   ?'next_token' => NextToken,
   ?'summaries' => FlowTemplateSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1014,9 +1014,9 @@ class SearchSystemInstancesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1028,8 +1028,8 @@ class SearchSystemInstancesResponse {
   ?'next_token' => NextToken,
   ?'summaries' => SystemInstanceSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1043,9 +1043,9 @@ class SearchSystemTemplatesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1057,8 +1057,8 @@ class SearchSystemTemplatesResponse {
   ?'next_token' => NextToken,
   ?'summaries' => SystemTemplateSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1074,10 +1074,10 @@ class SearchThingsRequest {
   ?'namespace_version' => Version,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->namespace_version = $namespace_version ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->entity_id = $entity_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->namespace_version = $namespace_version ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1089,8 +1089,8 @@ class SearchThingsResponse {
   ?'next_token' => NextToken,
   ?'things' => Things,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->things = $things ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->things = $things ?? [];
   }
 }
 
@@ -1120,13 +1120,13 @@ class SystemInstanceDescription {
   ?'validated_dependency_revisions' => DependencyRevisions,
   ?'validated_namespace_version' => Version,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->flow_actions_role_arn = $flow_actions_role_arn ?? ;
-    $this->metrics_configuration = $metrics_configuration ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->summary = $summary ?? ;
-    $this->validated_dependency_revisions = $validated_dependency_revisions ?? ;
-    $this->validated_namespace_version = $validated_namespace_version ?? ;
+    $this->definition = $definition ?? null;
+    $this->flow_actions_role_arn = $flow_actions_role_arn ?? "";
+    $this->metrics_configuration = $metrics_configuration ?? null;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->summary = $summary ?? null;
+    $this->validated_dependency_revisions = $validated_dependency_revisions ?? [];
+    $this->validated_namespace_version = $validated_namespace_version ?? 0;
   }
 }
 
@@ -1138,8 +1138,8 @@ class SystemInstanceFilter {
   ?'name' => SystemInstanceFilterName,
   ?'value' => SystemInstanceFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? [];
   }
 }
 
@@ -1175,15 +1175,15 @@ class SystemInstanceSummary {
   ?'target' => DeploymentTarget,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->greengrass_group_id = $greengrass_group_id ?? ;
-    $this->greengrass_group_name = $greengrass_group_name ?? ;
-    $this->greengrass_group_version_id = $greengrass_group_version_id ?? ;
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
-    $this->target = $target ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->greengrass_group_id = $greengrass_group_id ?? "";
+    $this->greengrass_group_name = $greengrass_group_name ?? "";
+    $this->greengrass_group_version_id = $greengrass_group_version_id ?? "";
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
+    $this->target = $target ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1197,9 +1197,9 @@ class SystemTemplateDescription {
   ?'summary' => SystemTemplateSummary,
   ?'validated_namespace_version' => Version,
   ) $s = shape()) {
-    $this->definition = $definition ?? ;
-    $this->summary = $summary ?? ;
-    $this->validated_namespace_version = $validated_namespace_version ?? ;
+    $this->definition = $definition ?? null;
+    $this->summary = $summary ?? null;
+    $this->validated_namespace_version = $validated_namespace_version ?? 0;
   }
 }
 
@@ -1211,8 +1211,8 @@ class SystemTemplateFilter {
   ?'name' => SystemTemplateFilterName,
   ?'value' => SystemTemplateFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? [];
   }
 }
 
@@ -1238,10 +1238,10 @@ class SystemTemplateSummary {
   ?'id' => Urn,
   ?'revision_number' => Version,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->revision_number = $revision_number ?? ;
+    $this->arn = $arn ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->revision_number = $revision_number ?? 0;
   }
 }
 
@@ -1253,8 +1253,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1272,8 +1272,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1294,8 +1294,8 @@ class Thing {
   ?'thing_arn' => ThingArn,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->thing_arn = $thing_arn ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->thing_arn = $thing_arn ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -1311,7 +1311,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1323,7 +1323,7 @@ class UndeploySystemInstanceRequest {
   public function __construct(shape(
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1333,7 +1333,7 @@ class UndeploySystemInstanceResponse {
   public function __construct(shape(
   ?'summary' => SystemInstanceSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -1345,8 +1345,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1367,9 +1367,9 @@ class UpdateFlowTemplateRequest {
   ?'definition' => DefinitionDocument,
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->compatible_namespace_version = $compatible_namespace_version ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
+    $this->compatible_namespace_version = $compatible_namespace_version ?? 0;
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1379,7 +1379,7 @@ class UpdateFlowTemplateResponse {
   public function __construct(shape(
   ?'summary' => FlowTemplateSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -1393,9 +1393,9 @@ class UpdateSystemTemplateRequest {
   ?'definition' => DefinitionDocument,
   ?'id' => Urn,
   ) $s = shape()) {
-    $this->compatible_namespace_version = $compatible_namespace_version ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
+    $this->compatible_namespace_version = $compatible_namespace_version ?? 0;
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1405,7 +1405,7 @@ class UpdateSystemTemplateResponse {
   public function __construct(shape(
   ?'summary' => SystemTemplateSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -1419,9 +1419,9 @@ class UploadEntityDefinitionsRequest {
   ?'document' => DefinitionDocument,
   ?'sync_with_public_namespace' => SyncWithPublicNamespace,
   ) $s = shape()) {
-    $this->deprecate_existing_entities = $deprecate_existing_entities ?? ;
-    $this->document = $document ?? ;
-    $this->sync_with_public_namespace = $sync_with_public_namespace ?? ;
+    $this->deprecate_existing_entities = $deprecate_existing_entities ?? false;
+    $this->document = $document ?? null;
+    $this->sync_with_public_namespace = $sync_with_public_namespace ?? false;
   }
 }
 
@@ -1431,7 +1431,7 @@ class UploadEntityDefinitionsResponse {
   public function __construct(shape(
   ?'upload_id' => UploadId,
   ) $s = shape()) {
-    $this->upload_id = $upload_id ?? ;
+    $this->upload_id = $upload_id ?? "";
   }
 }
 

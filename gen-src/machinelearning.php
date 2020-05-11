@@ -42,9 +42,9 @@ class AddTagsInput {
   ?'resource_type' => TaggableResourceType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -56,8 +56,8 @@ class AddTagsOutput {
   ?'resource_id' => EntityId,
   ?'resource_type' => TaggableResourceType,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -101,22 +101,22 @@ class BatchPrediction {
   ?'status' => EntityStatus,
   ?'total_record_count' => LongType,
   ) $s = shape()) {
-    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? ;
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->invalid_record_count = $invalid_record_count ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? "";
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->invalid_record_count = $invalid_record_count ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
-    $this->output_uri = $output_uri ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->total_record_count = $total_record_count ?? ;
+    $this->name = $name ?? "";
+    $this->output_uri = $output_uri ?? "";
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->total_record_count = $total_record_count ?? 0;
   }
 }
 
@@ -142,11 +142,11 @@ class CreateBatchPredictionInput {
   ?'ml_model_id' => EntityId,
   ?'output_uri' => S3Url,
   ) $s = shape()) {
-    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? ;
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
-    $this->batch_prediction_name = $batch_prediction_name ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
-    $this->output_uri = $output_uri ?? ;
+    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? "";
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
+    $this->batch_prediction_name = $batch_prediction_name ?? "";
+    $this->ml_model_id = $ml_model_id ?? "";
+    $this->output_uri = $output_uri ?? "";
   }
 }
 
@@ -156,7 +156,7 @@ class CreateBatchPredictionOutput {
   public function __construct(shape(
   ?'batch_prediction_id' => EntityId,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
   }
 }
 
@@ -175,9 +175,9 @@ class CreateDataSourceFromRDSInput {
   ?'role_arn' => RoleARN,
   ) $s = shape()) {
     $this->compute_statistics = $compute_statistics ?? false;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->rds_data = $rds_data ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
+    $this->rds_data = $rds_data ?? null;
     $this->role_arn = $role_arn ?? "";
   }
 }
@@ -188,7 +188,7 @@ class CreateDataSourceFromRDSOutput {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -207,9 +207,9 @@ class CreateDataSourceFromRedshiftInput {
   ?'role_arn' => RoleARN,
   ) $s = shape()) {
     $this->compute_statistics = $compute_statistics ?? false;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->data_spec = $data_spec ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
+    $this->data_spec = $data_spec ?? null;
     $this->role_arn = $role_arn ?? "";
   }
 }
@@ -220,7 +220,7 @@ class CreateDataSourceFromRedshiftOutput {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -237,9 +237,9 @@ class CreateDataSourceFromS3Input {
   ?'data_spec' => S3DataSpec,
   ) $s = shape()) {
     $this->compute_statistics = $compute_statistics ?? false;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
-    $this->data_spec = $data_spec ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
+    $this->data_spec = $data_spec ?? null;
   }
 }
 
@@ -249,7 +249,7 @@ class CreateDataSourceFromS3Output {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -265,10 +265,10 @@ class CreateEvaluationInput {
   ?'evaluation_name' => EntityName,
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_data_source_id = $evaluation_data_source_id ?? ;
-    $this->evaluation_id = $evaluation_id ?? ;
-    $this->evaluation_name = $evaluation_name ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->evaluation_data_source_id = $evaluation_data_source_id ?? "";
+    $this->evaluation_id = $evaluation_id ?? "";
+    $this->evaluation_name = $evaluation_name ?? "";
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -278,7 +278,7 @@ class CreateEvaluationOutput {
   public function __construct(shape(
   ?'evaluation_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
   }
 }
 
@@ -300,13 +300,13 @@ class CreateMLModelInput {
   ?'recipe_uri' => S3Url,
   ?'training_data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->ml_model_name = $ml_model_name ?? "";
     $this->ml_model_type = $ml_model_type ?? "";
-    $this->parameters = $parameters ?? ;
+    $this->parameters = $parameters ?? [];
     $this->recipe = $recipe ?? "";
-    $this->recipe_uri = $recipe_uri ?? ;
-    $this->training_data_source_id = $training_data_source_id ?? ;
+    $this->recipe_uri = $recipe_uri ?? "";
+    $this->training_data_source_id = $training_data_source_id ?? "";
   }
 }
 
@@ -316,7 +316,7 @@ class CreateMLModelOutput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -326,7 +326,7 @@ class CreateRealtimeEndpointInput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -338,7 +338,7 @@ class CreateRealtimeEndpointOutput {
   ?'ml_model_id' => EntityId,
   ?'realtime_endpoint_info' => RealtimeEndpointInfo,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->realtime_endpoint_info = $realtime_endpoint_info ?? null;
   }
 }
@@ -388,23 +388,23 @@ class DataSource {
   ?'status' => EntityStatus,
   ) $s = shape()) {
     $this->compute_statistics = $compute_statistics ?? false;
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->data_location_s_3 = $data_location_s_3 ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->data_location_s_3 = $data_location_s_3 ?? "";
     $this->data_rearrangement = $data_rearrangement ?? "";
-    $this->data_size_in_bytes = $data_size_in_bytes ?? ;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
+    $this->data_size_in_bytes = $data_size_in_bytes ?? 0;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
-    $this->number_of_files = $number_of_files ?? ;
+    $this->name = $name ?? "";
+    $this->number_of_files = $number_of_files ?? 0;
     $this->rds_metadata = $rds_metadata ?? null;
     $this->redshift_metadata = $redshift_metadata ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -418,7 +418,7 @@ class DeleteBatchPredictionInput {
   public function __construct(shape(
   ?'batch_prediction_id' => EntityId,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
   }
 }
 
@@ -428,7 +428,7 @@ class DeleteBatchPredictionOutput {
   public function __construct(shape(
   ?'batch_prediction_id' => EntityId,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
   }
 }
 
@@ -438,7 +438,7 @@ class DeleteDataSourceInput {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -448,7 +448,7 @@ class DeleteDataSourceOutput {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -458,7 +458,7 @@ class DeleteEvaluationInput {
   public function __construct(shape(
   ?'evaluation_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
   }
 }
 
@@ -468,7 +468,7 @@ class DeleteEvaluationOutput {
   public function __construct(shape(
   ?'evaluation_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
   }
 }
 
@@ -478,7 +478,7 @@ class DeleteMLModelInput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class DeleteMLModelOutput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -498,7 +498,7 @@ class DeleteRealtimeEndpointInput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 
@@ -510,7 +510,7 @@ class DeleteRealtimeEndpointOutput {
   ?'ml_model_id' => EntityId,
   ?'realtime_endpoint_info' => RealtimeEndpointInfo,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->realtime_endpoint_info = $realtime_endpoint_info ?? null;
   }
 }
@@ -525,9 +525,9 @@ class DeleteTagsInput {
   ?'resource_type' => TaggableResourceType,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -539,8 +539,8 @@ class DeleteTagsOutput {
   ?'resource_id' => EntityId,
   ?'resource_type' => TaggableResourceType,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -570,16 +570,16 @@ class DescribeBatchPredictionsInput {
   ?'prefix' => ComparatorValue,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->eq = $eq ?? ;
-    $this->filter_variable = $filter_variable ?? ;
-    $this->ge = $ge ?? ;
-    $this->gt = $gt ?? ;
-    $this->le = $le ?? ;
-    $this->lt = $lt ?? ;
-    $this->limit = $limit ?? ;
-    $this->ne = $ne ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->eq = $eq ?? "";
+    $this->filter_variable = $filter_variable ?? "";
+    $this->ge = $ge ?? "";
+    $this->gt = $gt ?? "";
+    $this->le = $le ?? "";
+    $this->lt = $lt ?? "";
+    $this->limit = $limit ?? 0;
+    $this->ne = $ne ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->prefix = $prefix ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -592,8 +592,8 @@ class DescribeBatchPredictionsOutput {
   ?'next_token' => StringType,
   ?'results' => BatchPredictions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->results = $results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->results = $results ?? [];
   }
 }
 
@@ -623,16 +623,16 @@ class DescribeDataSourcesInput {
   ?'prefix' => ComparatorValue,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->eq = $eq ?? ;
-    $this->filter_variable = $filter_variable ?? ;
-    $this->ge = $ge ?? ;
-    $this->gt = $gt ?? ;
-    $this->le = $le ?? ;
-    $this->lt = $lt ?? ;
-    $this->limit = $limit ?? ;
-    $this->ne = $ne ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->eq = $eq ?? "";
+    $this->filter_variable = $filter_variable ?? "";
+    $this->ge = $ge ?? "";
+    $this->gt = $gt ?? "";
+    $this->le = $le ?? "";
+    $this->lt = $lt ?? "";
+    $this->limit = $limit ?? 0;
+    $this->ne = $ne ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->prefix = $prefix ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -645,8 +645,8 @@ class DescribeDataSourcesOutput {
   ?'next_token' => StringType,
   ?'results' => DataSources,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->results = $results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->results = $results ?? [];
   }
 }
 
@@ -676,16 +676,16 @@ class DescribeEvaluationsInput {
   ?'prefix' => ComparatorValue,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->eq = $eq ?? ;
-    $this->filter_variable = $filter_variable ?? ;
-    $this->ge = $ge ?? ;
-    $this->gt = $gt ?? ;
-    $this->le = $le ?? ;
-    $this->lt = $lt ?? ;
-    $this->limit = $limit ?? ;
-    $this->ne = $ne ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->eq = $eq ?? "";
+    $this->filter_variable = $filter_variable ?? "";
+    $this->ge = $ge ?? "";
+    $this->gt = $gt ?? "";
+    $this->le = $le ?? "";
+    $this->lt = $lt ?? "";
+    $this->limit = $limit ?? 0;
+    $this->ne = $ne ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->prefix = $prefix ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -698,8 +698,8 @@ class DescribeEvaluationsOutput {
   ?'next_token' => StringType,
   ?'results' => Evaluations,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->results = $results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->results = $results ?? [];
   }
 }
 
@@ -729,16 +729,16 @@ class DescribeMLModelsInput {
   ?'prefix' => ComparatorValue,
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
-    $this->eq = $eq ?? ;
-    $this->filter_variable = $filter_variable ?? ;
-    $this->ge = $ge ?? ;
-    $this->gt = $gt ?? ;
-    $this->le = $le ?? ;
-    $this->lt = $lt ?? ;
-    $this->limit = $limit ?? ;
-    $this->ne = $ne ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->prefix = $prefix ?? ;
+    $this->eq = $eq ?? "";
+    $this->filter_variable = $filter_variable ?? "";
+    $this->ge = $ge ?? "";
+    $this->gt = $gt ?? "";
+    $this->le = $le ?? "";
+    $this->lt = $lt ?? "";
+    $this->limit = $limit ?? 0;
+    $this->ne = $ne ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->prefix = $prefix ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -751,8 +751,8 @@ class DescribeMLModelsOutput {
   ?'next_token' => StringType,
   ?'results' => MLModels,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->results = $results ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->results = $results ?? [];
   }
 }
 
@@ -764,8 +764,8 @@ class DescribeTagsInput {
   ?'resource_id' => EntityId,
   ?'resource_type' => TaggableResourceType,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -779,9 +779,9 @@ class DescribeTagsOutput {
   ?'resource_type' => TaggableResourceType,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_id = $resource_id ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -847,20 +847,20 @@ class Evaluation {
   ?'started_at' => EpochTime,
   ?'status' => EntityStatus,
   ) $s = shape()) {
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->evaluation_data_source_id = $evaluation_data_source_id ?? ;
-    $this->evaluation_id = $evaluation_id ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->evaluation_data_source_id = $evaluation_data_source_id ?? "";
+    $this->evaluation_id = $evaluation_id ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->performance_metrics = $performance_metrics ?? null;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -874,7 +874,7 @@ class GetBatchPredictionInput {
   public function __construct(shape(
   ?'batch_prediction_id' => EntityId,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
   }
 }
 
@@ -916,23 +916,23 @@ class GetBatchPredictionOutput {
   ?'status' => EntityStatus,
   ?'total_record_count' => LongType,
   ) $s = shape()) {
-    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? ;
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->invalid_record_count = $invalid_record_count ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->log_uri = $log_uri ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->batch_prediction_data_source_id = $batch_prediction_data_source_id ?? "";
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->invalid_record_count = $invalid_record_count ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->log_uri = $log_uri ?? "";
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
-    $this->output_uri = $output_uri ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->total_record_count = $total_record_count ?? ;
+    $this->name = $name ?? "";
+    $this->output_uri = $output_uri ?? "";
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->total_record_count = $total_record_count ?? 0;
   }
 }
 
@@ -944,7 +944,7 @@ class GetDataSourceInput {
   ?'data_source_id' => EntityId,
   ?'verbose' => Verbose,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
     $this->verbose = $verbose ?? false;
   }
 }
@@ -994,25 +994,25 @@ class GetDataSourceOutput {
   ?'status' => EntityStatus,
   ) $s = shape()) {
     $this->compute_statistics = $compute_statistics ?? false;
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->data_location_s_3 = $data_location_s_3 ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->data_location_s_3 = $data_location_s_3 ?? "";
     $this->data_rearrangement = $data_rearrangement ?? "";
-    $this->data_size_in_bytes = $data_size_in_bytes ?? ;
-    $this->data_source_id = $data_source_id ?? ;
-    $this->data_source_schema = $data_source_schema ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->log_uri = $log_uri ?? ;
+    $this->data_size_in_bytes = $data_size_in_bytes ?? 0;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->data_source_schema = $data_source_schema ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->log_uri = $log_uri ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
-    $this->number_of_files = $number_of_files ?? ;
+    $this->name = $name ?? "";
+    $this->number_of_files = $number_of_files ?? 0;
     $this->rds_metadata = $rds_metadata ?? null;
     $this->redshift_metadata = $redshift_metadata ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1022,7 +1022,7 @@ class GetEvaluationInput {
   public function __construct(shape(
   ?'evaluation_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
   }
 }
 
@@ -1060,21 +1060,21 @@ class GetEvaluationOutput {
   ?'started_at' => EpochTime,
   ?'status' => EntityStatus,
   ) $s = shape()) {
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->evaluation_data_source_id = $evaluation_data_source_id ?? ;
-    $this->evaluation_id = $evaluation_id ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->log_uri = $log_uri ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->evaluation_data_source_id = $evaluation_data_source_id ?? "";
+    $this->evaluation_id = $evaluation_id ?? "";
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->log_uri = $log_uri ?? "";
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->performance_metrics = $performance_metrics ?? null;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1086,7 +1086,7 @@ class GetMLModelInput {
   ?'ml_model_id' => EntityId,
   ?'verbose' => Verbose,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->verbose = $verbose ?? false;
   }
 }
@@ -1137,26 +1137,26 @@ class GetMLModelOutput {
   ?'training_data_source_id' => EntityId,
   ?'training_parameters' => TrainingParameters,
   ) $s = shape()) {
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->endpoint_info = $endpoint_info ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->log_uri = $log_uri ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->endpoint_info = $endpoint_info ?? null;
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->log_uri = $log_uri ?? "";
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->ml_model_type = $ml_model_type ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->recipe = $recipe ?? "";
-    $this->schema = $schema ?? ;
+    $this->schema = $schema ?? "";
     $this->score_threshold = $score_threshold ?? 0.0;
-    $this->score_threshold_last_updated_at = $score_threshold_last_updated_at ?? ;
-    $this->size_in_bytes = $size_in_bytes ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->training_data_source_id = $training_data_source_id ?? ;
+    $this->score_threshold_last_updated_at = $score_threshold_last_updated_at ?? 0;
+    $this->size_in_bytes = $size_in_bytes ?? 0;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->training_data_source_id = $training_data_source_id ?? "";
     $this->training_parameters = $training_parameters ?? [];
   }
 }
@@ -1169,8 +1169,8 @@ class IdempotentParameterMismatchException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1184,8 +1184,8 @@ class InternalServerException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1197,8 +1197,8 @@ class InvalidInputException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1208,7 +1208,7 @@ class InvalidTagException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1222,8 +1222,8 @@ class LimitExceededException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1272,23 +1272,23 @@ class MLModel {
   ?'training_parameters' => TrainingParameters,
   ) $s = shape()) {
     $this->algorithm = $algorithm ?? "";
-    $this->compute_time = $compute_time ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->created_by_iam_user = $created_by_iam_user ?? ;
-    $this->endpoint_info = $endpoint_info ?? ;
-    $this->finished_at = $finished_at ?? ;
-    $this->input_data_location_s_3 = $input_data_location_s_3 ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->compute_time = $compute_time ?? 0;
+    $this->created_at = $created_at ?? 0;
+    $this->created_by_iam_user = $created_by_iam_user ?? "";
+    $this->endpoint_info = $endpoint_info ?? null;
+    $this->finished_at = $finished_at ?? 0;
+    $this->input_data_location_s_3 = $input_data_location_s_3 ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->ml_model_type = $ml_model_type ?? "";
     $this->message = $message ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->score_threshold = $score_threshold ?? 0.0;
-    $this->score_threshold_last_updated_at = $score_threshold_last_updated_at ?? ;
-    $this->size_in_bytes = $size_in_bytes ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->training_data_source_id = $training_data_source_id ?? ;
+    $this->score_threshold_last_updated_at = $score_threshold_last_updated_at ?? 0;
+    $this->size_in_bytes = $size_in_bytes ?? 0;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->training_data_source_id = $training_data_source_id ?? "";
     $this->training_parameters = $training_parameters ?? [];
   }
 }
@@ -1311,7 +1311,7 @@ class PerformanceMetrics {
   public function __construct(shape(
   ?'properties' => PerformanceMetricsProperties,
   ) $s = shape()) {
-    $this->properties = $properties ?? ;
+    $this->properties = $properties ?? [];
   }
 }
 
@@ -1331,8 +1331,8 @@ class PredictInput {
   ?'predict_endpoint' => VipURL,
   ?'record' => Record,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
-    $this->predict_endpoint = $predict_endpoint ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
+    $this->predict_endpoint = $predict_endpoint ?? "";
     $this->record = $record ?? [];
   }
 }
@@ -1359,10 +1359,10 @@ class Prediction {
   ?'predicted_scores' => ScoreValuePerLabelMap,
   ?'predicted_value' => floatLabel,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->predicted_label = $predicted_label ?? ;
-    $this->predicted_scores = $predicted_scores ?? ;
-    $this->predicted_value = $predicted_value ?? ;
+    $this->details = $details ?? [];
+    $this->predicted_label = $predicted_label ?? "";
+    $this->predicted_scores = $predicted_scores ?? [];
+    $this->predicted_value = $predicted_value ?? 0.0;
   }
 }
 
@@ -1372,7 +1372,7 @@ class PredictorNotMountedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1406,15 +1406,15 @@ class RDSDataSpec {
   ) $s = shape()) {
     $this->data_rearrangement = $data_rearrangement ?? "";
     $this->data_schema = $data_schema ?? "";
-    $this->data_schema_uri = $data_schema_uri ?? ;
-    $this->database_credentials = $database_credentials ?? ;
-    $this->database_information = $database_information ?? ;
-    $this->resource_role = $resource_role ?? ;
-    $this->s_3_staging_location = $s_3_staging_location ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->select_sql_query = $select_sql_query ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->subnet_id = $subnet_id ?? ;
+    $this->data_schema_uri = $data_schema_uri ?? "";
+    $this->database_credentials = $database_credentials ?? null;
+    $this->database_information = $database_information ?? null;
+    $this->resource_role = $resource_role ?? "";
+    $this->s_3_staging_location = $s_3_staging_location ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->select_sql_query = $select_sql_query ?? "";
+    $this->service_role = $service_role ?? "";
+    $this->subnet_id = $subnet_id ?? "";
   }
 }
 
@@ -1426,8 +1426,8 @@ class RDSDatabase {
   ?'database_name' => RDSDatabaseName,
   ?'instance_identifier' => RDSInstanceIdentifier,
   ) $s = shape()) {
-    $this->database_name = $database_name ?? ;
-    $this->instance_identifier = $instance_identifier ?? ;
+    $this->database_name = $database_name ?? "";
+    $this->instance_identifier = $instance_identifier ?? "";
   }
 }
 
@@ -1439,8 +1439,8 @@ class RDSDatabaseCredentials {
   ?'password' => RDSDatabasePassword,
   ?'username' => RDSDatabaseUsername,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1468,12 +1468,12 @@ class RDSMetadata {
   ?'select_sql_query' => RDSSelectSqlQuery,
   ?'service_role' => EDPServiceRole,
   ) $s = shape()) {
-    $this->data_pipeline_id = $data_pipeline_id ?? ;
-    $this->database = $database ?? ;
-    $this->database_user_name = $database_user_name ?? ;
-    $this->resource_role = $resource_role ?? ;
-    $this->select_sql_query = $select_sql_query ?? ;
-    $this->service_role = $service_role ?? ;
+    $this->data_pipeline_id = $data_pipeline_id ?? "";
+    $this->database = $database ?? null;
+    $this->database_user_name = $database_user_name ?? "";
+    $this->resource_role = $resource_role ?? "";
+    $this->select_sql_query = $select_sql_query ?? "";
+    $this->service_role = $service_role ?? "";
   }
 }
 
@@ -1491,10 +1491,10 @@ class RealtimeEndpointInfo {
   ?'endpoint_url' => VipURL,
   ?'peak_requests_per_second' => IntegerType,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->endpoint_status = $endpoint_status ?? ;
-    $this->endpoint_url = $endpoint_url ?? ;
-    $this->peak_requests_per_second = $peak_requests_per_second ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->endpoint_status = $endpoint_status ?? "";
+    $this->endpoint_url = $endpoint_url ?? "";
+    $this->peak_requests_per_second = $peak_requests_per_second ?? 0;
   }
 }
 
@@ -1526,11 +1526,11 @@ class RedshiftDataSpec {
   ) $s = shape()) {
     $this->data_rearrangement = $data_rearrangement ?? "";
     $this->data_schema = $data_schema ?? "";
-    $this->data_schema_uri = $data_schema_uri ?? ;
-    $this->database_credentials = $database_credentials ?? ;
-    $this->database_information = $database_information ?? ;
-    $this->s_3_staging_location = $s_3_staging_location ?? ;
-    $this->select_sql_query = $select_sql_query ?? ;
+    $this->data_schema_uri = $data_schema_uri ?? "";
+    $this->database_credentials = $database_credentials ?? null;
+    $this->database_information = $database_information ?? null;
+    $this->s_3_staging_location = $s_3_staging_location ?? "";
+    $this->select_sql_query = $select_sql_query ?? "";
   }
 }
 
@@ -1542,8 +1542,8 @@ class RedshiftDatabase {
   ?'cluster_identifier' => RedshiftClusterIdentifier,
   ?'database_name' => RedshiftDatabaseName,
   ) $s = shape()) {
-    $this->cluster_identifier = $cluster_identifier ?? ;
-    $this->database_name = $database_name ?? ;
+    $this->cluster_identifier = $cluster_identifier ?? "";
+    $this->database_name = $database_name ?? "";
   }
 }
 
@@ -1555,8 +1555,8 @@ class RedshiftDatabaseCredentials {
   ?'password' => RedshiftDatabasePassword,
   ?'username' => RedshiftDatabaseUsername,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1576,9 +1576,9 @@ class RedshiftMetadata {
   ?'redshift_database' => RedshiftDatabase,
   ?'select_sql_query' => RedshiftSelectSqlQuery,
   ) $s = shape()) {
-    $this->database_user_name = $database_user_name ?? ;
+    $this->database_user_name = $database_user_name ?? "";
     $this->redshift_database = $redshift_database ?? null;
-    $this->select_sql_query = $select_sql_query ?? ;
+    $this->select_sql_query = $select_sql_query ?? "";
   }
 }
 
@@ -1592,8 +1592,8 @@ class ResourceNotFoundException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1611,10 +1611,10 @@ class S3DataSpec {
   ?'data_schema' => DataSchema,
   ?'data_schema_location_s_3' => S3Url,
   ) $s = shape()) {
-    $this->data_location_s_3 = $data_location_s_3 ?? ;
+    $this->data_location_s_3 = $data_location_s_3 ?? "";
     $this->data_rearrangement = $data_rearrangement ?? "";
     $this->data_schema = $data_schema ?? "";
-    $this->data_schema_location_s_3 = $data_schema_location_s_3 ?? ;
+    $this->data_schema_location_s_3 = $data_schema_location_s_3 ?? "";
   }
 }
 
@@ -1638,8 +1638,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1653,7 +1653,7 @@ class TagLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1673,8 +1673,8 @@ class UpdateBatchPredictionInput {
   ?'batch_prediction_id' => EntityId,
   ?'batch_prediction_name' => EntityName,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
-    $this->batch_prediction_name = $batch_prediction_name ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
+    $this->batch_prediction_name = $batch_prediction_name ?? "";
   }
 }
 
@@ -1684,7 +1684,7 @@ class UpdateBatchPredictionOutput {
   public function __construct(shape(
   ?'batch_prediction_id' => EntityId,
   ) $s = shape()) {
-    $this->batch_prediction_id = $batch_prediction_id ?? ;
+    $this->batch_prediction_id = $batch_prediction_id ?? "";
   }
 }
 
@@ -1696,8 +1696,8 @@ class UpdateDataSourceInput {
   ?'data_source_id' => EntityId,
   ?'data_source_name' => EntityName,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
-    $this->data_source_name = $data_source_name ?? ;
+    $this->data_source_id = $data_source_id ?? "";
+    $this->data_source_name = $data_source_name ?? "";
   }
 }
 
@@ -1707,7 +1707,7 @@ class UpdateDataSourceOutput {
   public function __construct(shape(
   ?'data_source_id' => EntityId,
   ) $s = shape()) {
-    $this->data_source_id = $data_source_id ?? ;
+    $this->data_source_id = $data_source_id ?? "";
   }
 }
 
@@ -1719,8 +1719,8 @@ class UpdateEvaluationInput {
   ?'evaluation_id' => EntityId,
   ?'evaluation_name' => EntityName,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
-    $this->evaluation_name = $evaluation_name ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
+    $this->evaluation_name = $evaluation_name ?? "";
   }
 }
 
@@ -1730,7 +1730,7 @@ class UpdateEvaluationOutput {
   public function __construct(shape(
   ?'evaluation_id' => EntityId,
   ) $s = shape()) {
-    $this->evaluation_id = $evaluation_id ?? ;
+    $this->evaluation_id = $evaluation_id ?? "";
   }
 }
 
@@ -1744,7 +1744,7 @@ class UpdateMLModelInput {
   ?'ml_model_name' => EntityName,
   ?'score_threshold' => ScoreThreshold,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
     $this->ml_model_name = $ml_model_name ?? "";
     $this->score_threshold = $score_threshold ?? 0.0;
   }
@@ -1756,7 +1756,7 @@ class UpdateMLModelOutput {
   public function __construct(shape(
   ?'ml_model_id' => EntityId,
   ) $s = shape()) {
-    $this->ml_model_id = $ml_model_id ?? ;
+    $this->ml_model_id = $ml_model_id ?? "";
   }
 }
 

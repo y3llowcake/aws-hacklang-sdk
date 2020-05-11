@@ -51,8 +51,8 @@ class AcceptQualificationRequestRequest {
   ?'integer_value' => int,
   ?'qualification_request_id' => string,
   ) $s = shape()) {
-    $this->integer_value = $integer_value ?? ;
-    $this->qualification_request_id = $qualification_request_id ?? ;
+    $this->integer_value = $integer_value ?? 0;
+    $this->qualification_request_id = $qualification_request_id ?? "";
   }
 }
 
@@ -73,9 +73,9 @@ class ApproveAssignmentRequest {
   ?'override_rejection' => boolean,
   ?'requester_feedback' => string,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->override_rejection = $override_rejection ?? ;
-    $this->requester_feedback = $requester_feedback ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->override_rejection = $override_rejection ?? false;
+    $this->requester_feedback = $requester_feedback ?? "";
   }
 }
 
@@ -114,18 +114,18 @@ class Assignment {
   ?'submit_time' => Timestamp,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->accept_time = $accept_time ?? ;
-    $this->answer = $answer ?? ;
-    $this->approval_time = $approval_time ?? ;
-    $this->assignment_id = $assignment_id ?? ;
+    $this->accept_time = $accept_time ?? 0;
+    $this->answer = $answer ?? "";
+    $this->approval_time = $approval_time ?? 0;
+    $this->assignment_id = $assignment_id ?? "";
     $this->assignment_status = $assignment_status ?? "";
-    $this->auto_approval_time = $auto_approval_time ?? ;
-    $this->deadline = $deadline ?? ;
-    $this->hit_id = $hit_id ?? ;
-    $this->rejection_time = $rejection_time ?? ;
-    $this->requester_feedback = $requester_feedback ?? ;
-    $this->submit_time = $submit_time ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->auto_approval_time = $auto_approval_time ?? 0;
+    $this->deadline = $deadline ?? 0;
+    $this->hit_id = $hit_id ?? "";
+    $this->rejection_time = $rejection_time ?? 0;
+    $this->requester_feedback = $requester_feedback ?? "";
+    $this->submit_time = $submit_time ?? 0;
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -147,10 +147,10 @@ class AssociateQualificationWithWorkerRequest {
   ?'send_notification' => boolean,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->integer_value = $integer_value ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->send_notification = $send_notification ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->integer_value = $integer_value ?? 0;
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->send_notification = $send_notification ?? false;
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -175,11 +175,11 @@ class BonusPayment {
   ?'reason' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->bonus_amount = $bonus_amount ?? ;
-    $this->grant_time = $grant_time ?? ;
-    $this->reason = $reason ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->bonus_amount = $bonus_amount ?? "";
+    $this->grant_time = $grant_time ?? 0;
+    $this->reason = $reason ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -201,9 +201,9 @@ class CreateAdditionalAssignmentsForHITRequest {
   ?'number_of_additional_assignments' => int,
   ?'unique_request_token' => IdempotencyToken,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
-    $this->number_of_additional_assignments = $number_of_additional_assignments ?? ;
-    $this->unique_request_token = $unique_request_token ?? ;
+    $this->hit_id = $hit_id ?? "";
+    $this->number_of_additional_assignments = $number_of_additional_assignments ?? 0;
+    $this->unique_request_token = $unique_request_token ?? "";
   }
 }
 
@@ -250,22 +250,22 @@ class CreateHITRequest {
   ?'title' => string,
   ?'unique_request_token' => IdempotencyToken,
   ) $s = shape()) {
-    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
-    $this->assignment_review_policy = $assignment_review_policy ?? ;
-    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
-    $this->description = $description ?? ;
-    $this->hit_layout_id = $hit_layout_id ?? ;
-    $this->hit_layout_parameters = $hit_layout_parameters ?? ;
-    $this->hit_review_policy = $hit_review_policy ?? ;
-    $this->keywords = $keywords ?? ;
-    $this->lifetime_in_seconds = $lifetime_in_seconds ?? ;
-    $this->max_assignments = $max_assignments ?? ;
-    $this->qualification_requirements = $qualification_requirements ?? ;
-    $this->question = $question ?? ;
-    $this->requester_annotation = $requester_annotation ?? ;
-    $this->reward = $reward ?? ;
-    $this->title = $title ?? ;
-    $this->unique_request_token = $unique_request_token ?? ;
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? 0;
+    $this->assignment_review_policy = $assignment_review_policy ?? null;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? 0;
+    $this->description = $description ?? "";
+    $this->hit_layout_id = $hit_layout_id ?? "";
+    $this->hit_layout_parameters = $hit_layout_parameters ?? [];
+    $this->hit_review_policy = $hit_review_policy ?? null;
+    $this->keywords = $keywords ?? "";
+    $this->lifetime_in_seconds = $lifetime_in_seconds ?? 0;
+    $this->max_assignments = $max_assignments ?? 0;
+    $this->qualification_requirements = $qualification_requirements ?? [];
+    $this->question = $question ?? "";
+    $this->requester_annotation = $requester_annotation ?? "";
+    $this->reward = $reward ?? "";
+    $this->title = $title ?? "";
+    $this->unique_request_token = $unique_request_token ?? "";
   }
 }
 
@@ -297,13 +297,13 @@ class CreateHITTypeRequest {
   ?'reward' => CurrencyAmount,
   ?'title' => string,
   ) $s = shape()) {
-    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
-    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
-    $this->description = $description ?? ;
-    $this->keywords = $keywords ?? ;
-    $this->qualification_requirements = $qualification_requirements ?? ;
-    $this->reward = $reward ?? ;
-    $this->title = $title ?? ;
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? 0;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? 0;
+    $this->description = $description ?? "";
+    $this->keywords = $keywords ?? "";
+    $this->qualification_requirements = $qualification_requirements ?? [];
+    $this->reward = $reward ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -313,7 +313,7 @@ class CreateHITTypeResponse {
   public function __construct(shape(
   ?'hit_type_id' => EntityId,
   ) $s = shape()) {
-    $this->hit_type_id = $hit_type_id ?? ;
+    $this->hit_type_id = $hit_type_id ?? "";
   }
 }
 
@@ -341,16 +341,16 @@ class CreateHITWithHITTypeRequest {
   ?'requester_annotation' => string,
   ?'unique_request_token' => IdempotencyToken,
   ) $s = shape()) {
-    $this->assignment_review_policy = $assignment_review_policy ?? ;
-    $this->hit_layout_id = $hit_layout_id ?? ;
-    $this->hit_layout_parameters = $hit_layout_parameters ?? ;
-    $this->hit_review_policy = $hit_review_policy ?? ;
-    $this->hit_type_id = $hit_type_id ?? ;
-    $this->lifetime_in_seconds = $lifetime_in_seconds ?? ;
-    $this->max_assignments = $max_assignments ?? ;
-    $this->question = $question ?? ;
-    $this->requester_annotation = $requester_annotation ?? ;
-    $this->unique_request_token = $unique_request_token ?? ;
+    $this->assignment_review_policy = $assignment_review_policy ?? null;
+    $this->hit_layout_id = $hit_layout_id ?? "";
+    $this->hit_layout_parameters = $hit_layout_parameters ?? [];
+    $this->hit_review_policy = $hit_review_policy ?? null;
+    $this->hit_type_id = $hit_type_id ?? "";
+    $this->lifetime_in_seconds = $lifetime_in_seconds ?? 0;
+    $this->max_assignments = $max_assignments ?? 0;
+    $this->question = $question ?? "";
+    $this->requester_annotation = $requester_annotation ?? "";
+    $this->unique_request_token = $unique_request_token ?? "";
   }
 }
 
@@ -388,16 +388,16 @@ class CreateQualificationTypeRequest {
   ?'test' => string,
   ?'test_duration_in_seconds' => Long,
   ) $s = shape()) {
-    $this->answer_key = $answer_key ?? ;
-    $this->auto_granted = $auto_granted ?? ;
-    $this->auto_granted_value = $auto_granted_value ?? ;
-    $this->description = $description ?? ;
-    $this->keywords = $keywords ?? ;
-    $this->name = $name ?? ;
+    $this->answer_key = $answer_key ?? "";
+    $this->auto_granted = $auto_granted ?? false;
+    $this->auto_granted_value = $auto_granted_value ?? 0;
+    $this->description = $description ?? "";
+    $this->keywords = $keywords ?? "";
+    $this->name = $name ?? "";
     $this->qualification_type_status = $qualification_type_status ?? "";
-    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
-    $this->test = $test ?? ;
-    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? 0;
+    $this->test = $test ?? "";
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? 0;
   }
 }
 
@@ -419,8 +419,8 @@ class CreateWorkerBlockRequest {
   ?'reason' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->reason = $reason ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -443,7 +443,7 @@ class DeleteHITRequest {
   public function __construct(shape(
   ?'hit_id' => EntityId,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
+    $this->hit_id = $hit_id ?? "";
   }
 }
 
@@ -460,7 +460,7 @@ class DeleteQualificationTypeRequest {
   public function __construct(shape(
   ?'qualification_type_id' => EntityId,
   ) $s = shape()) {
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? "";
   }
 }
 
@@ -479,8 +479,8 @@ class DeleteWorkerBlockRequest {
   ?'reason' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->reason = $reason ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -501,9 +501,9 @@ class DisassociateQualificationFromWorkerRequest {
   ?'reason' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->reason = $reason ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->reason = $reason ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -537,8 +537,8 @@ class GetAccountBalanceResponse {
   ?'available_balance' => CurrencyAmount,
   ?'on_hold_balance' => CurrencyAmount,
   ) $s = shape()) {
-    $this->available_balance = $available_balance ?? ;
-    $this->on_hold_balance = $on_hold_balance ?? ;
+    $this->available_balance = $available_balance ?? "";
+    $this->on_hold_balance = $on_hold_balance ?? "";
   }
 }
 
@@ -548,7 +548,7 @@ class GetAssignmentRequest {
   public function __construct(shape(
   ?'assignment_id' => EntityId,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
+    $this->assignment_id = $assignment_id ?? "";
   }
 }
 
@@ -573,8 +573,8 @@ class GetFileUploadURLRequest {
   ?'assignment_id' => EntityId,
   ?'question_identifier' => string,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->question_identifier = $question_identifier ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->question_identifier = $question_identifier ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class GetFileUploadURLResponse {
   public function __construct(shape(
   ?'file_upload_url' => string,
   ) $s = shape()) {
-    $this->file_upload_url = $file_upload_url ?? ;
+    $this->file_upload_url = $file_upload_url ?? "";
   }
 }
 
@@ -594,7 +594,7 @@ class GetHITRequest {
   public function __construct(shape(
   ?'hit_id' => EntityId,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
+    $this->hit_id = $hit_id ?? "";
   }
 }
 
@@ -616,8 +616,8 @@ class GetQualificationScoreRequest {
   ?'qualification_type_id' => EntityId,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -637,7 +637,7 @@ class GetQualificationTypeRequest {
   public function __construct(shape(
   ?'qualification_type_id' => EntityId,
   ) $s = shape()) {
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? "";
   }
 }
 
@@ -697,27 +697,27 @@ class HIT {
   ?'reward' => CurrencyAmount,
   ?'title' => string,
   ) $s = shape()) {
-    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
-    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->expiration = $expiration ?? ;
-    $this->hit_group_id = $hit_group_id ?? ;
-    $this->hit_id = $hit_id ?? ;
-    $this->hit_layout_id = $hit_layout_id ?? ;
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? 0;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? 0;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->expiration = $expiration ?? 0;
+    $this->hit_group_id = $hit_group_id ?? "";
+    $this->hit_id = $hit_id ?? "";
+    $this->hit_layout_id = $hit_layout_id ?? "";
     $this->hit_review_status = $hit_review_status ?? "";
     $this->hit_status = $hit_status ?? "";
-    $this->hit_type_id = $hit_type_id ?? ;
-    $this->keywords = $keywords ?? ;
-    $this->max_assignments = $max_assignments ?? ;
-    $this->number_of_assignments_available = $number_of_assignments_available ?? ;
-    $this->number_of_assignments_completed = $number_of_assignments_completed ?? ;
-    $this->number_of_assignments_pending = $number_of_assignments_pending ?? ;
-    $this->qualification_requirements = $qualification_requirements ?? ;
-    $this->question = $question ?? ;
-    $this->requester_annotation = $requester_annotation ?? ;
-    $this->reward = $reward ?? ;
-    $this->title = $title ?? ;
+    $this->hit_type_id = $hit_type_id ?? "";
+    $this->keywords = $keywords ?? "";
+    $this->max_assignments = $max_assignments ?? 0;
+    $this->number_of_assignments_available = $number_of_assignments_available ?? 0;
+    $this->number_of_assignments_completed = $number_of_assignments_completed ?? 0;
+    $this->number_of_assignments_pending = $number_of_assignments_pending ?? 0;
+    $this->qualification_requirements = $qualification_requirements ?? [];
+    $this->question = $question ?? "";
+    $this->requester_annotation = $requester_annotation ?? "";
+    $this->reward = $reward ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -731,8 +731,8 @@ class HITLayoutParameter {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -762,10 +762,10 @@ class ListAssignmentsForHITRequest {
   ?'max_results' => ResultSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assignment_statuses = $assignment_statuses ?? ;
-    $this->hit_id = $hit_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assignment_statuses = $assignment_statuses ?? [];
+    $this->hit_id = $hit_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -779,9 +779,9 @@ class ListAssignmentsForHITResponse {
   ?'next_token' => PaginationToken,
   ?'num_results' => int,
   ) $s = shape()) {
-    $this->assignments = $assignments ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
+    $this->assignments = $assignments ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
   }
 }
 
@@ -797,10 +797,10 @@ class ListBonusPaymentsRequest {
   ?'max_results' => ResultSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->hit_id = $hit_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->hit_id = $hit_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -814,9 +814,9 @@ class ListBonusPaymentsResponse {
   ?'next_token' => PaginationToken,
   ?'num_results' => int,
   ) $s = shape()) {
-    $this->bonus_payments = $bonus_payments ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
+    $this->bonus_payments = $bonus_payments ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
   }
 }
 
@@ -830,9 +830,9 @@ class ListHITsForQualificationTypeRequest {
   ?'next_token' => PaginationToken,
   ?'qualification_type_id' => EntityId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
   }
 }
 
@@ -846,9 +846,9 @@ class ListHITsForQualificationTypeResponse {
   ?'next_token' => PaginationToken,
   ?'num_results' => int,
   ) $s = shape()) {
-    $this->hi_ts = $hi_ts ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
+    $this->hi_ts = $hi_ts ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
   }
 }
 
@@ -860,8 +860,8 @@ class ListHITsRequest {
   ?'max_results' => ResultSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -875,9 +875,9 @@ class ListHITsResponse {
   ?'next_token' => PaginationToken,
   ?'num_results' => int,
   ) $s = shape()) {
-    $this->hi_ts = $hi_ts ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
+    $this->hi_ts = $hi_ts ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
   }
 }
 
@@ -891,9 +891,9 @@ class ListQualificationRequestsRequest {
   ?'next_token' => PaginationToken,
   ?'qualification_type_id' => EntityId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
   }
 }
 
@@ -907,9 +907,9 @@ class ListQualificationRequestsResponse {
   ?'num_results' => int,
   ?'qualification_requests' => QualificationRequestList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->qualification_requests = $qualification_requests ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
+    $this->qualification_requests = $qualification_requests ?? [];
   }
 }
 
@@ -927,11 +927,11 @@ class ListQualificationTypesRequest {
   ?'next_token' => PaginationToken,
   ?'query' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->must_be_owned_by_caller = $must_be_owned_by_caller ?? ;
-    $this->must_be_requestable = $must_be_requestable ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->query = $query ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->must_be_owned_by_caller = $must_be_owned_by_caller ?? false;
+    $this->must_be_requestable = $must_be_requestable ?? false;
+    $this->next_token = $next_token ?? "";
+    $this->query = $query ?? "";
   }
 }
 
@@ -945,9 +945,9 @@ class ListQualificationTypesResponse {
   ?'num_results' => int,
   ?'qualification_types' => QualificationTypeList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->qualification_types = $qualification_types ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
+    $this->qualification_types = $qualification_types ?? [];
   }
 }
 
@@ -967,12 +967,12 @@ class ListReviewPolicyResultsForHITRequest {
   ?'retrieve_actions' => boolean,
   ?'retrieve_results' => boolean,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->policy_levels = $policy_levels ?? ;
-    $this->retrieve_actions = $retrieve_actions ?? ;
-    $this->retrieve_results = $retrieve_results ?? ;
+    $this->hit_id = $hit_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->policy_levels = $policy_levels ?? [];
+    $this->retrieve_actions = $retrieve_actions ?? false;
+    $this->retrieve_results = $retrieve_results ?? false;
   }
 }
 
@@ -992,12 +992,12 @@ class ListReviewPolicyResultsForHITResponse {
   ?'hit_review_report' => ReviewReport,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->assignment_review_policy = $assignment_review_policy ?? ;
-    $this->assignment_review_report = $assignment_review_report ?? ;
-    $this->hit_id = $hit_id ?? ;
-    $this->hit_review_policy = $hit_review_policy ?? ;
-    $this->hit_review_report = $hit_review_report ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->assignment_review_policy = $assignment_review_policy ?? null;
+    $this->assignment_review_report = $assignment_review_report ?? null;
+    $this->hit_id = $hit_id ?? "";
+    $this->hit_review_policy = $hit_review_policy ?? null;
+    $this->hit_review_report = $hit_review_report ?? null;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1013,10 +1013,10 @@ class ListReviewableHITsRequest {
   ?'next_token' => PaginationToken,
   ?'status' => ReviewableHITStatus,
   ) $s = shape()) {
-    $this->hit_type_id = $hit_type_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->hit_type_id = $hit_type_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1030,9 +1030,9 @@ class ListReviewableHITsResponse {
   ?'next_token' => PaginationToken,
   ?'num_results' => int,
   ) $s = shape()) {
-    $this->hi_ts = $hi_ts ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
+    $this->hi_ts = $hi_ts ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
   }
 }
 
@@ -1044,8 +1044,8 @@ class ListWorkerBlocksRequest {
   ?'max_results' => ResultSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1059,9 +1059,9 @@ class ListWorkerBlocksResponse {
   ?'num_results' => int,
   ?'worker_blocks' => WorkerBlockList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->worker_blocks = $worker_blocks ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
+    $this->worker_blocks = $worker_blocks ?? [];
   }
 }
 
@@ -1077,10 +1077,10 @@ class ListWorkersWithQualificationTypeRequest {
   ?'qualification_type_id' => EntityId,
   ?'status' => QualificationStatus,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->status = $status ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1094,9 +1094,9 @@ class ListWorkersWithQualificationTypeResponse {
   ?'num_results' => int,
   ?'qualifications' => QualificationList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->qualifications = $qualifications ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->num_results = $num_results ?? 0;
+    $this->qualifications = $qualifications ?? [];
   }
 }
 
@@ -1108,8 +1108,8 @@ class Locale {
   ?'country' => CountryParameters,
   ?'subdivision' => CountryParameters,
   ) $s = shape()) {
-    $this->country = $country ?? ;
-    $this->subdivision = $subdivision ?? ;
+    $this->country = $country ?? "";
+    $this->subdivision = $subdivision ?? "";
   }
 }
 
@@ -1129,10 +1129,10 @@ class NotificationSpecification {
   ?'transport' => NotificationTransport,
   ?'version' => string,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->event_types = $event_types ?? ;
-    $this->transport = $transport ?? ;
-    $this->version = $version ?? ;
+    $this->destination = $destination ?? "";
+    $this->event_types = $event_types ?? [];
+    $this->transport = $transport ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1151,8 +1151,8 @@ class NotifyWorkersFailureStatus {
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
     $this->notify_workers_failure_code = $notify_workers_failure_code ?? "";
-    $this->notify_workers_failure_message = $notify_workers_failure_message ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->notify_workers_failure_message = $notify_workers_failure_message ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -1168,9 +1168,9 @@ class NotifyWorkersRequest {
   ?'subject' => string,
   ?'worker_ids' => CustomerIdList,
   ) $s = shape()) {
-    $this->message_text = $message_text ?? ;
-    $this->subject = $subject ?? ;
-    $this->worker_ids = $worker_ids ?? ;
+    $this->message_text = $message_text ?? "";
+    $this->subject = $subject ?? "";
+    $this->worker_ids = $worker_ids ?? [];
   }
 }
 
@@ -1180,7 +1180,7 @@ class NotifyWorkersResponse {
   public function __construct(shape(
   ?'notify_workers_failure_statuses' => NotifyWorkersFailureStatusList,
   ) $s = shape()) {
-    $this->notify_workers_failure_statuses = $notify_workers_failure_statuses ?? ;
+    $this->notify_workers_failure_statuses = $notify_workers_failure_statuses ?? [];
   }
 }
 
@@ -1194,8 +1194,8 @@ class ParameterMapEntry {
   ?'key' => string,
   ?'values' => StringList,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1211,9 +1211,9 @@ class PolicyParameter {
   ?'map_entries' => ParameterMapEntryList,
   ?'values' => StringList,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->map_entries = $map_entries ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->map_entries = $map_entries ?? [];
+    $this->values = $values ?? [];
   }
 }
 
@@ -1235,12 +1235,12 @@ class Qualification {
   ?'status' => QualificationStatus,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->grant_time = $grant_time ?? ;
-    $this->integer_value = $integer_value ?? ;
-    $this->locale_value = $locale_value ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->status = $status ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->grant_time = $grant_time ?? 0;
+    $this->integer_value = $integer_value ?? 0;
+    $this->locale_value = $locale_value ?? null;
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->status = $status ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -1262,12 +1262,12 @@ class QualificationRequest {
   ?'test' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->answer = $answer ?? ;
-    $this->qualification_request_id = $qualification_request_id ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->submit_time = $submit_time ?? ;
-    $this->test = $test ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->answer = $answer ?? "";
+    $this->qualification_request_id = $qualification_request_id ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->submit_time = $submit_time ?? 0;
+    $this->test = $test ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -1289,12 +1289,12 @@ class QualificationRequirement {
   ?'qualification_type_id' => string,
   ?'required_to_preview' => boolean,
   ) $s = shape()) {
-    $this->actions_guarded = $actions_guarded ?? ;
+    $this->actions_guarded = $actions_guarded ?? "";
     $this->comparator = $comparator ?? "";
-    $this->integer_values = $integer_values ?? ;
-    $this->locale_values = $locale_values ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
-    $this->required_to_preview = $required_to_preview ?? ;
+    $this->integer_values = $integer_values ?? [];
+    $this->locale_values = $locale_values ?? [];
+    $this->qualification_type_id = $qualification_type_id ?? "";
+    $this->required_to_preview = $required_to_preview ?? false;
   }
 }
 
@@ -1332,19 +1332,19 @@ class QualificationType {
   ?'test' => string,
   ?'test_duration_in_seconds' => Long,
   ) $s = shape()) {
-    $this->answer_key = $answer_key ?? ;
-    $this->auto_granted = $auto_granted ?? ;
-    $this->auto_granted_value = $auto_granted_value ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->is_requestable = $is_requestable ?? ;
-    $this->keywords = $keywords ?? ;
-    $this->name = $name ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->answer_key = $answer_key ?? "";
+    $this->auto_granted = $auto_granted ?? false;
+    $this->auto_granted_value = $auto_granted_value ?? 0;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->is_requestable = $is_requestable ?? false;
+    $this->keywords = $keywords ?? "";
+    $this->name = $name ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
     $this->qualification_type_status = $qualification_type_status ?? "";
-    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
-    $this->test = $test ?? ;
-    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? 0;
+    $this->test = $test ?? "";
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? 0;
   }
 }
 
@@ -1360,8 +1360,8 @@ class RejectAssignmentRequest {
   ?'assignment_id' => EntityId,
   ?'requester_feedback' => string,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->requester_feedback = $requester_feedback ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->requester_feedback = $requester_feedback ?? "";
   }
 }
 
@@ -1380,8 +1380,8 @@ class RejectQualificationRequestRequest {
   ?'qualification_request_id' => string,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->qualification_request_id = $qualification_request_id ?? ;
-    $this->reason = $reason ?? ;
+    $this->qualification_request_id = $qualification_request_id ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1400,7 +1400,7 @@ class RequestError {
   ?'message' => ExceptionMessage,
   ?'turk_error_code' => TurkErrorCode,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->turk_error_code = $turk_error_code ?? "";
   }
 }
@@ -1427,14 +1427,14 @@ class ReviewActionDetail {
   ?'target_id' => EntityId,
   ?'target_type' => string,
   ) $s = shape()) {
-    $this->action_id = $action_id ?? ;
-    $this->action_name = $action_name ?? ;
-    $this->complete_time = $complete_time ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->result = $result ?? ;
-    $this->status = $status ?? ;
-    $this->target_id = $target_id ?? ;
-    $this->target_type = $target_type ?? ;
+    $this->action_id = $action_id ?? "";
+    $this->action_name = $action_name ?? "";
+    $this->complete_time = $complete_time ?? 0;
+    $this->error_code = $error_code ?? "";
+    $this->result = $result ?? "";
+    $this->status = $status ?? "";
+    $this->target_id = $target_id ?? "";
+    $this->target_type = $target_type ?? "";
   }
 }
 
@@ -1450,8 +1450,8 @@ class ReviewPolicy {
   ?'parameters' => PolicyParameterList,
   ?'policy_name' => string,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->parameters = $parameters ?? [];
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1467,8 +1467,8 @@ class ReviewReport {
   ?'review_actions' => ReviewActionDetailList,
   ?'review_results' => ReviewResultDetailList,
   ) $s = shape()) {
-    $this->review_actions = $review_actions ?? ;
-    $this->review_results = $review_results ?? ;
+    $this->review_actions = $review_actions ?? [];
+    $this->review_results = $review_results ?? [];
   }
 }
 
@@ -1488,12 +1488,12 @@ class ReviewResultDetail {
   ?'subject_type' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->action_id = $action_id ?? ;
-    $this->key = $key ?? ;
-    $this->question_id = $question_id ?? ;
-    $this->subject_id = $subject_id ?? ;
-    $this->subject_type = $subject_type ?? ;
-    $this->value = $value ?? ;
+    $this->action_id = $action_id ?? "";
+    $this->key = $key ?? "";
+    $this->question_id = $question_id ?? "";
+    $this->subject_id = $subject_id ?? "";
+    $this->subject_type = $subject_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1515,11 +1515,11 @@ class SendBonusRequest {
   ?'unique_request_token' => IdempotencyToken,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->assignment_id = $assignment_id ?? ;
-    $this->bonus_amount = $bonus_amount ?? ;
-    $this->reason = $reason ?? ;
-    $this->unique_request_token = $unique_request_token ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->assignment_id = $assignment_id ?? "";
+    $this->bonus_amount = $bonus_amount ?? "";
+    $this->reason = $reason ?? "";
+    $this->unique_request_token = $unique_request_token ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 
@@ -1538,8 +1538,8 @@ class SendTestEventNotificationRequest {
   ?'notification' => NotificationSpecification,
   ?'test_event_type' => EventType,
   ) $s = shape()) {
-    $this->notification = $notification ?? ;
-    $this->test_event_type = $test_event_type ?? ;
+    $this->notification = $notification ?? null;
+    $this->test_event_type = $test_event_type ?? "";
   }
 }
 
@@ -1558,7 +1558,7 @@ class ServiceFault {
   ?'message' => ExceptionMessage,
   ?'turk_error_code' => TurkErrorCode,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->turk_error_code = $turk_error_code ?? "";
   }
 }
@@ -1579,8 +1579,8 @@ class UpdateExpirationForHITRequest {
   ?'expire_at' => Timestamp,
   ?'hit_id' => EntityId,
   ) $s = shape()) {
-    $this->expire_at = $expire_at ?? ;
-    $this->hit_id = $hit_id ?? ;
+    $this->expire_at = $expire_at ?? 0;
+    $this->hit_id = $hit_id ?? "";
   }
 }
 
@@ -1599,8 +1599,8 @@ class UpdateHITReviewStatusRequest {
   ?'hit_id' => EntityId,
   ?'revert' => boolean,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
-    $this->revert = $revert ?? ;
+    $this->hit_id = $hit_id ?? "";
+    $this->revert = $revert ?? false;
   }
 }
 
@@ -1619,8 +1619,8 @@ class UpdateHITTypeOfHITRequest {
   ?'hit_id' => EntityId,
   ?'hit_type_id' => EntityId,
   ) $s = shape()) {
-    $this->hit_id = $hit_id ?? ;
-    $this->hit_type_id = $hit_type_id ?? ;
+    $this->hit_id = $hit_id ?? "";
+    $this->hit_type_id = $hit_type_id ?? "";
   }
 }
 
@@ -1641,9 +1641,9 @@ class UpdateNotificationSettingsRequest {
   ?'hit_type_id' => EntityId,
   ?'notification' => NotificationSpecification,
   ) $s = shape()) {
-    $this->active = $active ?? ;
-    $this->hit_type_id = $hit_type_id ?? ;
-    $this->notification = $notification ?? ;
+    $this->active = $active ?? false;
+    $this->hit_type_id = $hit_type_id ?? "";
+    $this->notification = $notification ?? null;
   }
 }
 
@@ -1676,15 +1676,15 @@ class UpdateQualificationTypeRequest {
   ?'test' => string,
   ?'test_duration_in_seconds' => Long,
   ) $s = shape()) {
-    $this->answer_key = $answer_key ?? ;
-    $this->auto_granted = $auto_granted ?? ;
-    $this->auto_granted_value = $auto_granted_value ?? ;
-    $this->description = $description ?? ;
-    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->answer_key = $answer_key ?? "";
+    $this->auto_granted = $auto_granted ?? false;
+    $this->auto_granted_value = $auto_granted_value ?? 0;
+    $this->description = $description ?? "";
+    $this->qualification_type_id = $qualification_type_id ?? "";
     $this->qualification_type_status = $qualification_type_status ?? "";
-    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
-    $this->test = $test ?? ;
-    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? 0;
+    $this->test = $test ?? "";
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? 0;
   }
 }
 
@@ -1706,8 +1706,8 @@ class WorkerBlock {
   ?'reason' => string,
   ?'worker_id' => CustomerId,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->worker_id = $worker_id ?? ;
+    $this->reason = $reason ?? "";
+    $this->worker_id = $worker_id ?? "";
   }
 }
 

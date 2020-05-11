@@ -23,7 +23,7 @@ class AlreadyExistsException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -35,8 +35,8 @@ class BatchGrantPermissionsRequest {
   ?'catalog_id' => CatalogIdString,
   ?'entries' => BatchPermissionsRequestEntryList,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->entries = $entries ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->entries = $entries ?? [];
   }
 }
 
@@ -46,7 +46,7 @@ class BatchGrantPermissionsResponse {
   public function __construct(shape(
   ?'failures' => BatchPermissionsFailureList,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -58,8 +58,8 @@ class BatchPermissionsFailureEntry {
   ?'error' => ErrorDetail,
   ?'request_entry' => BatchPermissionsRequestEntry,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->request_entry = $request_entry ?? ;
+    $this->error = $error ?? null;
+    $this->request_entry = $request_entry ?? null;
   }
 }
 
@@ -79,10 +79,10 @@ class BatchPermissionsRequestEntry {
   ?'principal' => DataLakePrincipal,
   ?'resource' => Resource,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->permissions_with_grant_option = $permissions_with_grant_option ?? ;
-    $this->principal = $principal ?? ;
+    $this->id = $id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->permissions_with_grant_option = $permissions_with_grant_option ?? [];
+    $this->principal = $principal ?? null;
     $this->resource = $resource ?? null;
   }
 }
@@ -97,8 +97,8 @@ class BatchRevokePermissionsRequest {
   ?'catalog_id' => CatalogIdString,
   ?'entries' => BatchPermissionsRequestEntryList,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->entries = $entries ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->entries = $entries ?? [];
   }
 }
 
@@ -108,7 +108,7 @@ class BatchRevokePermissionsResponse {
   public function __construct(shape(
   ?'failures' => BatchPermissionsFailureList,
   ) $s = shape()) {
-    $this->failures = $failures ?? ;
+    $this->failures = $failures ?? [];
   }
 }
 
@@ -129,7 +129,7 @@ class ColumnWildcard {
   public function __construct(shape(
   ?'excluded_column_names' => ColumnNames,
   ) $s = shape()) {
-    $this->excluded_column_names = $excluded_column_names ?? ;
+    $this->excluded_column_names = $excluded_column_names ?? [];
   }
 }
 
@@ -141,7 +141,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -151,7 +151,7 @@ class DataLakePrincipal {
   public function __construct(shape(
   ?'data_lake_principal_identifier' => DataLakePrincipalString,
   ) $s = shape()) {
-    $this->data_lake_principal_identifier = $data_lake_principal_identifier ?? ;
+    $this->data_lake_principal_identifier = $data_lake_principal_identifier ?? "";
   }
 }
 
@@ -171,9 +171,9 @@ class DataLakeSettings {
   ?'create_table_default_permissions' => PrincipalPermissionsList,
   ?'data_lake_admins' => DataLakePrincipalList,
   ) $s = shape()) {
-    $this->create_database_default_permissions = $create_database_default_permissions ?? ;
-    $this->create_table_default_permissions = $create_table_default_permissions ?? ;
-    $this->data_lake_admins = $data_lake_admins ?? ;
+    $this->create_database_default_permissions = $create_database_default_permissions ?? [];
+    $this->create_table_default_permissions = $create_table_default_permissions ?? [];
+    $this->data_lake_admins = $data_lake_admins ?? [];
   }
 }
 
@@ -183,7 +183,7 @@ class DataLocationResource {
   public function __construct(shape(
   ?'resource_arn' => ResourceArnString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -193,7 +193,7 @@ class DatabaseResource {
   public function __construct(shape(
   ?'name' => NameString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -203,7 +203,7 @@ class DeregisterResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceArnString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -220,7 +220,7 @@ class DescribeResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ResourceArnString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -242,7 +242,7 @@ class EntityNotFoundException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -254,8 +254,8 @@ class ErrorDetail {
   ?'error_code' => NameString,
   ?'error_message' => DescriptionString,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
   }
 }
 
@@ -272,7 +272,7 @@ class FilterCondition {
   ?'string_value_list' => StringValueList,
   ) $s = shape()) {
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->field = $field ?? ;
+    $this->field = $field ?? "";
     $this->string_value_list = $string_value_list ?? [];
   }
 }
@@ -285,7 +285,7 @@ class GetDataLakeSettingsRequest {
   public function __construct(shape(
   ?'catalog_id' => CatalogIdString,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
+    $this->catalog_id = $catalog_id ?? "";
   }
 }
 
@@ -311,10 +311,10 @@ class GetEffectivePermissionsForPathRequest {
   ?'next_token' => Token,
   ?'resource_arn' => ResourceArnString,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -326,8 +326,8 @@ class GetEffectivePermissionsForPathResponse {
   ?'next_token' => Token,
   ?'permissions' => PrincipalResourcePermissionsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -345,10 +345,10 @@ class GrantPermissionsRequest {
   ?'principal' => DataLakePrincipal,
   ?'resource' => Resource,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->permissions_with_grant_option = $permissions_with_grant_option ?? ;
-    $this->principal = $principal ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->permissions_with_grant_option = $permissions_with_grant_option ?? [];
+    $this->principal = $principal ?? null;
     $this->resource = $resource ?? null;
   }
 }
@@ -370,7 +370,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -380,7 +380,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -402,12 +402,12 @@ class ListPermissionsRequest {
   ?'resource' => Resource,
   ?'resource_type' => DataLakeResourceType,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->principal = $principal ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->principal = $principal ?? null;
     $this->resource = $resource ?? null;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -419,8 +419,8 @@ class ListPermissionsResponse {
   ?'next_token' => Token,
   ?'principal_resource_permissions' => PrincipalResourcePermissionsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->principal_resource_permissions = $principal_resource_permissions ?? null;
+    $this->next_token = $next_token ?? "";
+    $this->principal_resource_permissions = $principal_resource_permissions ?? [];
   }
 }
 
@@ -435,8 +435,8 @@ class ListResourcesRequest {
   ?'next_token' => Token,
   ) $s = shape()) {
     $this->filter_condition_list = $filter_condition_list ?? [];
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -448,7 +448,7 @@ class ListResourcesResponse {
   ?'next_token' => Token,
   ?'resource_info_list' => ResourceInfoList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->resource_info_list = $resource_info_list ?? [];
   }
 }
@@ -465,7 +465,7 @@ class OperationTimeoutException {
   public function __construct(shape(
   ?'message' => MessageString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -483,8 +483,8 @@ class PrincipalPermissions {
   ?'permissions' => PermissionList,
   ?'principal' => DataLakePrincipal,
   ) $s = shape()) {
-    $this->permissions = $permissions ?? ;
-    $this->principal = $principal ?? ;
+    $this->permissions = $permissions ?? [];
+    $this->principal = $principal ?? null;
   }
 }
 
@@ -502,9 +502,9 @@ class PrincipalResourcePermissions {
   ?'principal' => DataLakePrincipal,
   ?'resource' => Resource,
   ) $s = shape()) {
-    $this->permissions = $permissions ?? ;
-    $this->permissions_with_grant_option = $permissions_with_grant_option ?? ;
-    $this->principal = $principal ?? ;
+    $this->permissions = $permissions ?? [];
+    $this->permissions_with_grant_option = $permissions_with_grant_option ?? [];
+    $this->principal = $principal ?? null;
     $this->resource = $resource ?? null;
   }
 }
@@ -519,7 +519,7 @@ class PutDataLakeSettingsRequest {
   ?'catalog_id' => CatalogIdString,
   ?'data_lake_settings' => DataLakeSettings,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
+    $this->catalog_id = $catalog_id ?? "";
     $this->data_lake_settings = $data_lake_settings ?? null;
   }
 }
@@ -541,9 +541,9 @@ class RegisterResourceRequest {
   ?'role_arn' => IAMRoleArn,
   ?'use_service_linked_role' => NullableBoolean,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->use_service_linked_role = $use_service_linked_role ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->use_service_linked_role = $use_service_linked_role ?? false;
   }
 }
 
@@ -568,11 +568,11 @@ class Resource {
   ?'table' => TableResource,
   ?'table_with_columns' => TableWithColumnsResource,
   ) $s = shape()) {
-    $this->catalog = $catalog ?? ;
-    $this->data_location = $data_location ?? ;
-    $this->database = $database ?? ;
-    $this->table = $table ?? ;
-    $this->table_with_columns = $table_with_columns ?? ;
+    $this->catalog = $catalog ?? null;
+    $this->data_location = $data_location ?? null;
+    $this->database = $database ?? null;
+    $this->table = $table ?? null;
+    $this->table_with_columns = $table_with_columns ?? null;
   }
 }
 
@@ -588,9 +588,9 @@ class ResourceInfo {
   ?'resource_arn' => ResourceArnString,
   ?'role_arn' => IAMRoleArn,
   ) $s = shape()) {
-    $this->last_modified = $last_modified ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->last_modified = $last_modified ?? 0;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -610,10 +610,10 @@ class RevokePermissionsRequest {
   ?'principal' => DataLakePrincipal,
   ?'resource' => Resource,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->permissions = $permissions ?? ;
-    $this->permissions_with_grant_option = $permissions_with_grant_option ?? ;
-    $this->principal = $principal ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->permissions = $permissions ?? [];
+    $this->permissions_with_grant_option = $permissions_with_grant_option ?? [];
+    $this->principal = $principal ?? null;
     $this->resource = $resource ?? null;
   }
 }
@@ -637,8 +637,8 @@ class TableResource {
   ?'database_name' => NameString,
   ?'name' => NameString,
   ) $s = shape()) {
-    $this->database_name = $database_name ?? ;
-    $this->name = $name ?? ;
+    $this->database_name = $database_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -656,8 +656,8 @@ class TableWithColumnsResource {
   ) $s = shape()) {
     $this->column_names = $column_names ?? [];
     $this->column_wildcard = $column_wildcard ?? null;
-    $this->database_name = $database_name ?? ;
-    $this->name = $name ?? ;
+    $this->database_name = $database_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -671,8 +671,8 @@ class UpdateResourceRequest {
   ?'resource_arn' => ResourceArnString,
   ?'role_arn' => IAMRoleArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 

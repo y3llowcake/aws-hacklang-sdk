@@ -78,7 +78,7 @@ class CreateServerRequest {
     $this->host_key = $host_key ?? "";
     $this->identity_provider_details = $identity_provider_details ?? null;
     $this->identity_provider_type = $identity_provider_type ?? "";
-    $this->logging_role = $logging_role ?? ;
+    $this->logging_role = $logging_role ?? "";
     $this->protocols = $protocols ?? [];
     $this->tags = $tags ?? [];
   }
@@ -198,7 +198,7 @@ class DescribeServerResponse {
   public function __construct(shape(
   ?'server' => DescribedServer,
   ) $s = shape()) {
-    $this->server = $server ?? ;
+    $this->server = $server ?? null;
   }
 }
 
@@ -224,7 +224,7 @@ class DescribeUserResponse {
   ?'user' => DescribedUser,
   ) $s = shape()) {
     $this->server_id = $server_id ?? "";
-    $this->user = $user ?? ;
+    $this->user = $user ?? null;
   }
 }
 
@@ -265,7 +265,7 @@ class DescribedServer {
     $this->host_key_fingerprint = $host_key_fingerprint ?? "";
     $this->identity_provider_details = $identity_provider_details ?? null;
     $this->identity_provider_type = $identity_provider_type ?? "";
-    $this->logging_role = $logging_role ?? ;
+    $this->logging_role = $logging_role ?? "";
     $this->protocols = $protocols ?? [];
     $this->server_id = $server_id ?? "";
     $this->state = $state ?? "";
@@ -339,8 +339,8 @@ class HomeDirectoryMapEntry {
   ?'entry' => MapEntry,
   ?'target' => MapTarget,
   ) $s = shape()) {
-    $this->entry = $entry ?? ;
-    $this->target = $target ?? ;
+    $this->entry = $entry ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -360,7 +360,7 @@ class IdentityProviderDetails {
   ?'invocation_role' => Role,
   ?'url' => Url,
   ) $s = shape()) {
-    $this->invocation_role = $invocation_role ?? ;
+    $this->invocation_role = $invocation_role ?? "";
     $this->url = $url ?? "";
   }
 }
@@ -451,7 +451,7 @@ class ListServersResponse {
   ?'servers' => ListedServers,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->servers = $servers ?? ;
+    $this->servers = $servers ?? [];
   }
 }
 
@@ -515,7 +515,7 @@ class ListUsersResponse {
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
     $this->server_id = $server_id ?? "";
-    $this->users = $users ?? ;
+    $this->users = $users ?? [];
   }
 }
 
@@ -540,7 +540,7 @@ class ListedServer {
     $this->arn = $arn ?? "";
     $this->endpoint_type = $endpoint_type ?? "";
     $this->identity_provider_type = $identity_provider_type ?? "";
-    $this->logging_role = $logging_role ?? ;
+    $this->logging_role = $logging_role ?? "";
     $this->server_id = $server_id ?? "";
     $this->state = $state ?? "";
     $this->user_count = $user_count ?? 0;
@@ -710,8 +710,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -749,7 +749,7 @@ class TestIdentityProviderRequest {
   ?'user_password' => UserPassword,
   ) $s = shape()) {
     $this->server_id = $server_id ?? "";
-    $this->server_protocol = $server_protocol ?? ;
+    $this->server_protocol = $server_protocol ?? "";
     $this->user_name = $user_name ?? "";
     $this->user_password = $user_password ?? "";
   }
@@ -822,7 +822,7 @@ class UpdateServerRequest {
     $this->endpoint_type = $endpoint_type ?? "";
     $this->host_key = $host_key ?? "";
     $this->identity_provider_details = $identity_provider_details ?? null;
-    $this->logging_role = $logging_role ?? ;
+    $this->logging_role = $logging_role ?? "";
     $this->protocols = $protocols ?? [];
     $this->server_id = $server_id ?? "";
   }

@@ -36,7 +36,7 @@ class AddTagsToResourceRequest {
   ?'resource_arn' => string,
   ?'tag_list' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tag_list = $tag_list ?? [];
   }
 }
@@ -47,7 +47,7 @@ class AddTagsToResourceResponse {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -84,8 +84,8 @@ class CloudHsmServiceException {
   ?'message' => string,
   ?'retryable' => boolean,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retryable = $retryable ?? ;
+    $this->message = $message ?? "";
+    $this->retryable = $retryable ?? false;
   }
 }
 
@@ -130,13 +130,13 @@ class CreateHsmRequest {
   ?'syslog_ip' => IpAddress,
   ) $s = shape()) {
     $this->client_token = $client_token ?? "";
-    $this->eni_ip = $eni_ip ?? ;
+    $this->eni_ip = $eni_ip ?? "";
     $this->external_id = $external_id ?? "";
     $this->iam_role_arn = $iam_role_arn ?? "";
     $this->ssh_key = $ssh_key ?? "";
     $this->subnet_id = $subnet_id ?? "";
     $this->subscription_type = $subscription_type ?? "";
-    $this->syslog_ip = $syslog_ip ?? ;
+    $this->syslog_ip = $syslog_ip ?? "";
   }
 }
 
@@ -189,7 +189,7 @@ class DeleteHapgResponse {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -209,7 +209,7 @@ class DeleteHsmResponse {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -229,7 +229,7 @@ class DeleteLunaClientResponse {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -266,14 +266,14 @@ class DescribeHapgResponse {
   ?'state' => CloudHsmObjectState,
   ) $s = shape()) {
     $this->hapg_arn = $hapg_arn ?? "";
-    $this->hapg_serial = $hapg_serial ?? ;
-    $this->hsms_last_action_failed = $hsms_last_action_failed ?? ;
-    $this->hsms_pending_deletion = $hsms_pending_deletion ?? ;
-    $this->hsms_pending_registration = $hsms_pending_registration ?? ;
+    $this->hapg_serial = $hapg_serial ?? "";
+    $this->hsms_last_action_failed = $hsms_last_action_failed ?? [];
+    $this->hsms_pending_deletion = $hsms_pending_deletion ?? [];
+    $this->hsms_pending_registration = $hsms_pending_registration ?? [];
     $this->label = $label ?? "";
-    $this->last_modified_timestamp = $last_modified_timestamp ?? ;
+    $this->last_modified_timestamp = $last_modified_timestamp ?? "";
     $this->partition_serial_list = $partition_serial_list ?? [];
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -336,26 +336,26 @@ class DescribeHsmResponse {
   ?'vendor_name' => string,
   ?'vpc_id' => VpcId,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
+    $this->availability_zone = $availability_zone ?? "";
     $this->eni_id = $eni_id ?? "";
-    $this->eni_ip = $eni_ip ?? ;
+    $this->eni_ip = $eni_ip ?? "";
     $this->hsm_arn = $hsm_arn ?? "";
-    $this->hsm_type = $hsm_type ?? ;
+    $this->hsm_type = $hsm_type ?? "";
     $this->iam_role_arn = $iam_role_arn ?? "";
-    $this->partitions = $partitions ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->server_cert_last_updated = $server_cert_last_updated ?? ;
-    $this->server_cert_uri = $server_cert_uri ?? ;
-    $this->software_version = $software_version ?? ;
-    $this->ssh_key_last_updated = $ssh_key_last_updated ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->status = $status ?? ;
-    $this->status_details = $status_details ?? ;
+    $this->partitions = $partitions ?? [];
+    $this->serial_number = $serial_number ?? "";
+    $this->server_cert_last_updated = $server_cert_last_updated ?? "";
+    $this->server_cert_uri = $server_cert_uri ?? "";
+    $this->software_version = $software_version ?? "";
+    $this->ssh_key_last_updated = $ssh_key_last_updated ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->status = $status ?? "";
+    $this->status_details = $status_details ?? "";
     $this->subnet_id = $subnet_id ?? "";
-    $this->subscription_end_date = $subscription_end_date ?? ;
-    $this->subscription_start_date = $subscription_start_date ?? ;
+    $this->subscription_end_date = $subscription_end_date ?? "";
+    $this->subscription_start_date = $subscription_start_date ?? "";
     $this->subscription_type = $subscription_type ?? "";
-    $this->vendor_name = $vendor_name ?? ;
+    $this->vendor_name = $vendor_name ?? "";
     $this->vpc_id = $vpc_id ?? "";
   }
 }
@@ -391,7 +391,7 @@ class DescribeLunaClientResponse {
     $this->certificate_fingerprint = $certificate_fingerprint ?? "";
     $this->client_arn = $client_arn ?? "";
     $this->label = $label ?? "";
-    $this->last_modified_timestamp = $last_modified_timestamp ?? ;
+    $this->last_modified_timestamp = $last_modified_timestamp ?? "";
   }
 }
 
@@ -425,9 +425,9 @@ class GetConfigResponse {
   ?'config_file' => string,
   ?'config_type' => string,
   ) $s = shape()) {
-    $this->config_cred = $config_cred ?? ;
-    $this->config_file = $config_file ?? ;
-    $this->config_type = $config_type ?? ;
+    $this->config_cred = $config_cred ?? "";
+    $this->config_file = $config_file ?? "";
+    $this->config_type = $config_type ?? "";
   }
 }
 
@@ -479,7 +479,7 @@ class ListHapgsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -492,7 +492,7 @@ class ListHapgsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->hapg_list = $hapg_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class ListHsmsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -515,7 +515,7 @@ class ListHsmsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->hsm_list = $hsm_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -525,7 +525,7 @@ class ListLunaClientsRequest {
   public function __construct(shape(
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -538,7 +538,7 @@ class ListLunaClientsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->client_list = $client_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -548,7 +548,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -604,12 +604,12 @@ class ModifyHsmRequest {
   ?'subnet_id' => SubnetId,
   ?'syslog_ip' => IpAddress,
   ) $s = shape()) {
-    $this->eni_ip = $eni_ip ?? ;
+    $this->eni_ip = $eni_ip ?? "";
     $this->external_id = $external_id ?? "";
     $this->hsm_arn = $hsm_arn ?? "";
     $this->iam_role_arn = $iam_role_arn ?? "";
     $this->subnet_id = $subnet_id ?? "";
-    $this->syslog_ip = $syslog_ip ?? ;
+    $this->syslog_ip = $syslog_ip ?? "";
   }
 }
 
@@ -664,7 +664,7 @@ class RemoveTagsFromResourceRequest {
   ?'resource_arn' => string,
   ?'tag_key_list' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tag_key_list = $tag_key_list ?? [];
   }
 }
@@ -675,7 +675,7 @@ class RemoveTagsFromResourceResponse {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -695,8 +695,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 

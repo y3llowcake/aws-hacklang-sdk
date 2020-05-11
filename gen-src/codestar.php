@@ -36,11 +36,11 @@ class AssociateTeamMemberRequest {
   ?'remote_access_allowed' => RemoteAccessAllowed,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->project_id = $project_id ?? ;
-    $this->project_role = $project_role ?? ;
-    $this->remote_access_allowed = $remote_access_allowed ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->project_id = $project_id ?? "";
+    $this->project_role = $project_role ?? "";
+    $this->remote_access_allowed = $remote_access_allowed ?? false;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -50,7 +50,7 @@ class AssociateTeamMemberResult {
   public function __construct(shape(
   ?'client_request_token' => ClientRequestToken,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
+    $this->client_request_token = $client_request_token ?? "";
   }
 }
 
@@ -68,8 +68,8 @@ class Code {
   ?'destination' => CodeDestination,
   ?'source' => CodeSource,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->destination = $destination ?? null;
+    $this->source = $source ?? null;
   }
 }
 
@@ -79,7 +79,7 @@ class CodeCommitCodeDestination {
   public function __construct(shape(
   ?'name' => RepositoryName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -91,8 +91,8 @@ class CodeDestination {
   ?'code_commit' => CodeCommitCodeDestination,
   ?'git_hub' => GitHubCodeDestination,
   ) $s = shape()) {
-    $this->code_commit = $code_commit ?? ;
-    $this->git_hub = $git_hub ?? ;
+    $this->code_commit = $code_commit ?? null;
+    $this->git_hub = $git_hub ?? null;
   }
 }
 
@@ -102,7 +102,7 @@ class CodeSource {
   public function __construct(shape(
   ?'s_3' => S3Location,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -131,13 +131,13 @@ class CreateProjectRequest {
   ?'tags' => Tags,
   ?'toolchain' => Toolchain,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->source_code = $source_code ?? ;
-    $this->tags = $tags ?? ;
-    $this->toolchain = $toolchain ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->source_code = $source_code ?? [];
+    $this->tags = $tags ?? [];
+    $this->toolchain = $toolchain ?? null;
   }
 }
 
@@ -153,10 +153,10 @@ class CreateProjectResult {
   ?'id' => ProjectId,
   ?'project_template_id' => ProjectTemplateId,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->id = $id ?? ;
-    $this->project_template_id = $project_template_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->id = $id ?? "";
+    $this->project_template_id = $project_template_id ?? "";
   }
 }
 
@@ -172,10 +172,10 @@ class CreateUserProfileRequest {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -195,12 +195,12 @@ class CreateUserProfileResult {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->last_modified_timestamp = $last_modified_timestamp ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->last_modified_timestamp = $last_modified_timestamp ?? 0;
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -216,9 +216,9 @@ class DeleteProjectRequest {
   ?'delete_stack' => DeleteStack,
   ?'id' => ProjectId,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->delete_stack = $delete_stack ?? ;
-    $this->id = $id ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->delete_stack = $delete_stack ?? false;
+    $this->id = $id ?? "";
   }
 }
 
@@ -230,8 +230,8 @@ class DeleteProjectResult {
   ?'project_arn' => ProjectArn,
   ?'stack_id' => StackId,
   ) $s = shape()) {
-    $this->project_arn = $project_arn ?? ;
-    $this->stack_id = $stack_id ?? ;
+    $this->project_arn = $project_arn ?? "";
+    $this->stack_id = $stack_id ?? "";
   }
 }
 
@@ -243,7 +243,7 @@ class DeleteUserProfileRequest {
   public function __construct(shape(
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->user_arn = $user_arn ?? ;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -253,7 +253,7 @@ class DeleteUserProfileResult {
   public function __construct(shape(
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->user_arn = $user_arn ?? ;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -263,7 +263,7 @@ class DescribeProjectRequest {
   public function __construct(shape(
   ?'id' => ProjectId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -289,15 +289,15 @@ class DescribeProjectResult {
   ?'stack_id' => StackId,
   ?'status' => ProjectStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->created_time_stamp = $created_time_stamp ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->project_template_id = $project_template_id ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->created_time_stamp = $created_time_stamp ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->project_template_id = $project_template_id ?? "";
+    $this->stack_id = $stack_id ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -307,7 +307,7 @@ class DescribeUserProfileRequest {
   public function __construct(shape(
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->user_arn = $user_arn ?? ;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -327,12 +327,12 @@ class DescribeUserProfileResult {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->last_modified_timestamp = $last_modified_timestamp ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->last_modified_timestamp = $last_modified_timestamp ?? 0;
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -344,8 +344,8 @@ class DisassociateTeamMemberRequest {
   ?'project_id' => ProjectId,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->project_id = $project_id ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->project_id = $project_id ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -376,13 +376,13 @@ class GitHubCodeDestination {
   ?'token' => GitHubPersonalToken,
   ?'type' => RepositoryType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->issues_enabled = $issues_enabled ?? ;
-    $this->name = $name ?? ;
-    $this->owner = $owner ?? ;
-    $this->private_repository = $private_repository ?? ;
-    $this->token = $token ?? ;
-    $this->type = $type ?? ;
+    $this->description = $description ?? "";
+    $this->issues_enabled = $issues_enabled ?? false;
+    $this->name = $name ?? "";
+    $this->owner = $owner ?? "";
+    $this->private_repository = $private_repository ?? false;
+    $this->token = $token ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -419,8 +419,8 @@ class ListProjectsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -432,8 +432,8 @@ class ListProjectsResult {
   ?'next_token' => PaginationToken,
   ?'projects' => ProjectsList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -447,9 +447,9 @@ class ListResourcesRequest {
   ?'next_token' => PaginationToken,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -461,8 +461,8 @@ class ListResourcesResult {
   ?'next_token' => PaginationToken,
   ?'resources' => ResourcesResult,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resources = $resources ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -476,9 +476,9 @@ class ListTagsForProjectRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->id = $id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -490,8 +490,8 @@ class ListTagsForProjectResult {
   ?'next_token' => PaginationToken,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -505,9 +505,9 @@ class ListTeamMembersRequest {
   ?'next_token' => PaginationToken,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -519,8 +519,8 @@ class ListTeamMembersResult {
   ?'next_token' => PaginationToken,
   ?'team_members' => TeamMemberResult,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->team_members = $team_members ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->team_members = $team_members ?? [];
   }
 }
 
@@ -532,8 +532,8 @@ class ListUserProfilesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -545,8 +545,8 @@ class ListUserProfilesResult {
   ?'next_token' => PaginationToken,
   ?'user_profiles' => UserProfilesList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->user_profiles = $user_profiles ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->user_profiles = $user_profiles ?? [];
   }
 }
 
@@ -598,8 +598,8 @@ class ProjectStatus {
   ?'reason' => Reason,
   ?'state' => State,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->state = $state ?? ;
+    $this->reason = $reason ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -611,8 +611,8 @@ class ProjectSummary {
   ?'project_arn' => ProjectArn,
   ?'project_id' => ProjectId,
   ) $s = shape()) {
-    $this->project_arn = $project_arn ?? ;
-    $this->project_id = $project_id ?? ;
+    $this->project_arn = $project_arn ?? "";
+    $this->project_id = $project_id ?? "";
   }
 }
 
@@ -642,7 +642,7 @@ class Resource {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -662,8 +662,8 @@ class S3Location {
   ?'bucket_key' => BucketKey,
   ?'bucket_name' => BucketName,
   ) $s = shape()) {
-    $this->bucket_key = $bucket_key ?? ;
-    $this->bucket_name = $bucket_name ?? ;
+    $this->bucket_key = $bucket_key ?? "";
+    $this->bucket_name = $bucket_name ?? "";
   }
 }
 
@@ -687,8 +687,8 @@ class TagProjectRequest {
   ?'id' => ProjectId,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->tags = $tags ?? ;
+    $this->id = $id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -698,7 +698,7 @@ class TagProjectResult {
   public function __construct(shape(
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -716,9 +716,9 @@ class TeamMember {
   ?'remote_access_allowed' => RemoteAccessAllowed,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->project_role = $project_role ?? ;
-    $this->remote_access_allowed = $remote_access_allowed ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->project_role = $project_role ?? "";
+    $this->remote_access_allowed = $remote_access_allowed ?? false;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -754,9 +754,9 @@ class Toolchain {
   ?'source' => ToolchainSource,
   ?'stack_parameters' => TemplateParameterMap,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->source = $source ?? ;
-    $this->stack_parameters = $stack_parameters ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->source = $source ?? null;
+    $this->stack_parameters = $stack_parameters ?? [];
   }
 }
 
@@ -766,7 +766,7 @@ class ToolchainSource {
   public function __construct(shape(
   ?'s_3' => S3Location,
   ) $s = shape()) {
-    $this->s_3 = $s_3 ?? ;
+    $this->s_3 = $s_3 ?? null;
   }
 }
 
@@ -778,8 +778,8 @@ class UntagProjectRequest {
   ?'id' => ProjectId,
   ?'tags' => TagKeys,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->tags = $tags ?? ;
+    $this->id = $id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -800,9 +800,9 @@ class UpdateProjectRequest {
   ?'id' => ProjectId,
   ?'name' => ProjectName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -825,10 +825,10 @@ class UpdateTeamMemberRequest {
   ?'remote_access_allowed' => RemoteAccessAllowed,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->project_id = $project_id ?? ;
-    $this->project_role = $project_role ?? ;
-    $this->remote_access_allowed = $remote_access_allowed ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->project_id = $project_id ?? "";
+    $this->project_role = $project_role ?? "";
+    $this->remote_access_allowed = $remote_access_allowed ?? false;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -842,9 +842,9 @@ class UpdateTeamMemberResult {
   ?'remote_access_allowed' => RemoteAccessAllowed,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->project_role = $project_role ?? ;
-    $this->remote_access_allowed = $remote_access_allowed ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->project_role = $project_role ?? "";
+    $this->remote_access_allowed = $remote_access_allowed ?? false;
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -860,10 +860,10 @@ class UpdateUserProfileRequest {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -883,12 +883,12 @@ class UpdateUserProfileResult {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->last_modified_timestamp = $last_modified_timestamp ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->last_modified_timestamp = $last_modified_timestamp ?? 0;
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -922,10 +922,10 @@ class UserProfileSummary {
   ?'ssh_public_key' => SshPublicKey,
   ?'user_arn' => UserArn,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->ssh_public_key = $ssh_public_key ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->ssh_public_key = $ssh_public_key ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 

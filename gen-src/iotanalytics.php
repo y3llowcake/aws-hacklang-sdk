@@ -52,9 +52,9 @@ class AddAttributesActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -76,9 +76,9 @@ class BatchPutMessageErrorEntry {
   ?'error_message' => ErrorMessage,
   ?'message_id' => MessageId,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
+    $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -90,8 +90,8 @@ class BatchPutMessageRequest {
   ?'channel_name' => ChannelName,
   ?'messages' => Messages,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->messages = $messages ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->messages = $messages ?? [];
   }
 }
 
@@ -101,7 +101,7 @@ class BatchPutMessageResponse {
   public function __construct(shape(
   ?'batch_put_message_error_entries' => BatchPutMessageErrorEntries,
   ) $s = shape()) {
-    $this->batch_put_message_error_entries = $batch_put_message_error_entries ?? ;
+    $this->batch_put_message_error_entries = $batch_put_message_error_entries ?? [];
   }
 }
 
@@ -117,8 +117,8 @@ class CancelPipelineReprocessingRequest {
   ?'pipeline_name' => PipelineName,
   ?'reprocessing_id' => ReprocessingId,
   ) $s = shape()) {
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->reprocessing_id = $reprocessing_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->reprocessing_id = $reprocessing_id ?? "";
   }
 }
 
@@ -147,13 +147,13 @@ class Channel {
   ?'status' => ChannelStatus,
   ?'storage' => ChannelStorage,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->name = $name ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->status = $status ?? ;
-    $this->storage = $storage ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->name = $name ?? "";
+    $this->retention_period = $retention_period ?? null;
+    $this->status = $status ?? "";
+    $this->storage = $storage ?? null;
   }
 }
 
@@ -167,9 +167,9 @@ class ChannelActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -183,7 +183,7 @@ class ChannelStatistics {
   public function __construct(shape(
   ?'size' => EstimatedResourceSize,
   ) $s = shape()) {
-    $this->size = $size ?? ;
+    $this->size = $size ?? null;
   }
 }
 
@@ -197,8 +197,8 @@ class ChannelStorage {
   ?'customer_managed_s_3' => CustomerManagedChannelS3Storage,
   ?'service_managed_s_3' => ServiceManagedChannelS3Storage,
   ) $s = shape()) {
-    $this->customer_managed_s_3 = $customer_managed_s_3 ?? ;
-    $this->service_managed_s_3 = $service_managed_s_3 ?? ;
+    $this->customer_managed_s_3 = $customer_managed_s_3 ?? null;
+    $this->service_managed_s_3 = $service_managed_s_3 ?? null;
   }
 }
 
@@ -210,8 +210,8 @@ class ChannelStorageSummary {
   ?'customer_managed_s_3' => CustomerManagedChannelS3StorageSummary,
   ?'service_managed_s_3' => ServiceManagedChannelS3StorageSummary,
   ) $s = shape()) {
-    $this->customer_managed_s_3 = $customer_managed_s_3 ?? ;
-    $this->service_managed_s_3 = $service_managed_s_3 ?? ;
+    $this->customer_managed_s_3 = $customer_managed_s_3 ?? null;
+    $this->service_managed_s_3 = $service_managed_s_3 ?? null;
   }
 }
 
@@ -231,11 +231,11 @@ class ChannelSummary {
   ?'last_update_time' => Timestamp,
   ?'status' => ChannelStatus,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->channel_storage = $channel_storage ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->channel_storage = $channel_storage ?? null;
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -253,10 +253,10 @@ class ContainerDatasetAction {
   ?'resource_configuration' => ResourceConfiguration,
   ?'variables' => Variables,
   ) $s = shape()) {
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->image = $image ?? ;
-    $this->resource_configuration = $resource_configuration ?? ;
-    $this->variables = $variables ?? ;
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->image = $image ?? "";
+    $this->resource_configuration = $resource_configuration ?? null;
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -272,10 +272,10 @@ class CreateChannelRequest {
   ?'retention_period' => RetentionPeriod,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->channel_storage = $channel_storage ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->tags = $tags ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->channel_storage = $channel_storage ?? null;
+    $this->retention_period = $retention_period ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -289,9 +289,9 @@ class CreateChannelResponse {
   ?'channel_name' => ChannelName,
   ?'retention_period' => RetentionPeriod,
   ) $s = shape()) {
-    $this->channel_arn = $channel_arn ?? ;
-    $this->channel_name = $channel_name ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->channel_arn = $channel_arn ?? "";
+    $this->channel_name = $channel_name ?? "";
+    $this->retention_period = $retention_period ?? null;
   }
 }
 
@@ -301,7 +301,7 @@ class CreateDatasetContentRequest {
   public function __construct(shape(
   ?'dataset_name' => DatasetName,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
+    $this->dataset_name = $dataset_name ?? "";
   }
 }
 
@@ -311,7 +311,7 @@ class CreateDatasetContentResponse {
   public function __construct(shape(
   ?'version_id' => DatasetContentVersion,
   ) $s = shape()) {
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -333,13 +333,13 @@ class CreateDatasetRequest {
   ?'triggers' => DatasetTriggers,
   ?'versioning_configuration' => VersioningConfiguration,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->content_delivery_rules = $content_delivery_rules ?? ;
-    $this->dataset_name = $dataset_name ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->tags = $tags ?? ;
-    $this->triggers = $triggers ?? ;
-    $this->versioning_configuration = $versioning_configuration ?? ;
+    $this->actions = $actions ?? [];
+    $this->content_delivery_rules = $content_delivery_rules ?? [];
+    $this->dataset_name = $dataset_name ?? "";
+    $this->retention_period = $retention_period ?? null;
+    $this->tags = $tags ?? [];
+    $this->triggers = $triggers ?? [];
+    $this->versioning_configuration = $versioning_configuration ?? null;
   }
 }
 
@@ -353,9 +353,9 @@ class CreateDatasetResponse {
   ?'dataset_name' => DatasetName,
   ?'retention_period' => RetentionPeriod,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_name = $dataset_name ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_name = $dataset_name ?? "";
+    $this->retention_period = $retention_period ?? null;
   }
 }
 
@@ -371,10 +371,10 @@ class CreateDatastoreRequest {
   ?'retention_period' => RetentionPeriod,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->datastore_name = $datastore_name ?? ;
-    $this->datastore_storage = $datastore_storage ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->tags = $tags ?? ;
+    $this->datastore_name = $datastore_name ?? "";
+    $this->datastore_storage = $datastore_storage ?? null;
+    $this->retention_period = $retention_period ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -388,9 +388,9 @@ class CreateDatastoreResponse {
   ?'datastore_name' => DatastoreName,
   ?'retention_period' => RetentionPeriod,
   ) $s = shape()) {
-    $this->datastore_arn = $datastore_arn ?? ;
-    $this->datastore_name = $datastore_name ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->datastore_arn = $datastore_arn ?? "";
+    $this->datastore_name = $datastore_name ?? "";
+    $this->retention_period = $retention_period ?? null;
   }
 }
 
@@ -404,9 +404,9 @@ class CreatePipelineRequest {
   ?'pipeline_name' => PipelineName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->pipeline_activities = $pipeline_activities ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->pipeline_activities = $pipeline_activities ?? [];
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -418,8 +418,8 @@ class CreatePipelineResponse {
   ?'pipeline_arn' => PipelineArn,
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->pipeline_arn = $pipeline_arn ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_arn = $pipeline_arn ?? "";
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -433,9 +433,9 @@ class CustomerManagedChannelS3Storage {
   ?'key_prefix' => S3KeyPrefix,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key_prefix = $key_prefix ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key_prefix = $key_prefix ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -449,9 +449,9 @@ class CustomerManagedChannelS3StorageSummary {
   ?'key_prefix' => S3KeyPrefix,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key_prefix = $key_prefix ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key_prefix = $key_prefix ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -465,9 +465,9 @@ class CustomerManagedDatastoreS3Storage {
   ?'key_prefix' => S3KeyPrefix,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key_prefix = $key_prefix ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key_prefix = $key_prefix ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -481,9 +481,9 @@ class CustomerManagedDatastoreS3StorageSummary {
   ?'key_prefix' => S3KeyPrefix,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key_prefix = $key_prefix ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key_prefix = $key_prefix ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -511,16 +511,16 @@ class Dataset {
   ?'triggers' => DatasetTriggers,
   ?'versioning_configuration' => VersioningConfiguration,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->arn = $arn ?? ;
-    $this->content_delivery_rules = $content_delivery_rules ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->name = $name ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->status = $status ?? ;
-    $this->triggers = $triggers ?? ;
-    $this->versioning_configuration = $versioning_configuration ?? ;
+    $this->actions = $actions ?? [];
+    $this->arn = $arn ?? "";
+    $this->content_delivery_rules = $content_delivery_rules ?? [];
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->name = $name ?? "";
+    $this->retention_period = $retention_period ?? null;
+    $this->status = $status ?? "";
+    $this->triggers = $triggers ?? [];
+    $this->versioning_configuration = $versioning_configuration ?? null;
   }
 }
 
@@ -534,9 +534,9 @@ class DatasetAction {
   ?'container_action' => ContainerDatasetAction,
   ?'query_action' => SqlQueryDatasetAction,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->container_action = $container_action ?? ;
-    $this->query_action = $query_action ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->container_action = $container_action ?? null;
+    $this->query_action = $query_action ?? null;
   }
 }
 
@@ -552,8 +552,8 @@ class DatasetActionSummary {
   ?'action_name' => DatasetActionName,
   ?'action_type' => DatasetActionType,
   ) $s = shape()) {
-    $this->action_name = $action_name ?? ;
-    $this->action_type = $action_type ?? ;
+    $this->action_name = $action_name ?? "";
+    $this->action_type = $action_type ?? "";
   }
 }
 
@@ -571,8 +571,8 @@ class DatasetContentDeliveryDestination {
   ?'iot_events_destination_configuration' => IotEventsDestinationConfiguration,
   ?'s_3_destination_configuration' => S3DestinationConfiguration,
   ) $s = shape()) {
-    $this->iot_events_destination_configuration = $iot_events_destination_configuration ?? ;
-    $this->s_3_destination_configuration = $s_3_destination_configuration ?? ;
+    $this->iot_events_destination_configuration = $iot_events_destination_configuration ?? null;
+    $this->s_3_destination_configuration = $s_3_destination_configuration ?? null;
   }
 }
 
@@ -584,8 +584,8 @@ class DatasetContentDeliveryRule {
   ?'destination' => DatasetContentDeliveryDestination,
   ?'entry_name' => EntryName,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->entry_name = $entry_name ?? ;
+    $this->destination = $destination ?? null;
+    $this->entry_name = $entry_name ?? "";
   }
 }
 
@@ -601,8 +601,8 @@ class DatasetContentStatus {
   ?'reason' => Reason,
   ?'state' => DatasetContentState,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->state = $state ?? ;
+    $this->reason = $reason ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -622,11 +622,11 @@ class DatasetContentSummary {
   ?'status' => DatasetContentStatus,
   ?'version' => DatasetContentVersion,
   ) $s = shape()) {
-    $this->completion_time = $completion_time ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->schedule_time = $schedule_time ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
+    $this->completion_time = $completion_time ?? 0;
+    $this->creation_time = $creation_time ?? 0;
+    $this->schedule_time = $schedule_time ?? 0;
+    $this->status = $status ?? null;
+    $this->version = $version ?? "";
   }
 }
 
@@ -638,7 +638,7 @@ class DatasetContentVersionValue {
   public function __construct(shape(
   ?'dataset_name' => DatasetName,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
+    $this->dataset_name = $dataset_name ?? "";
   }
 }
 
@@ -652,8 +652,8 @@ class DatasetEntry {
   ?'data_uri' => PresignedURI,
   ?'entry_name' => EntryName,
   ) $s = shape()) {
-    $this->data_uri = $data_uri ?? ;
-    $this->entry_name = $entry_name ?? ;
+    $this->data_uri = $data_uri ?? "";
+    $this->entry_name = $entry_name ?? "";
   }
 }
 
@@ -679,12 +679,12 @@ class DatasetSummary {
   ?'status' => DatasetStatus,
   ?'triggers' => DatasetTriggers,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_name = $dataset_name ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
-    $this->triggers = $triggers ?? ;
+    $this->actions = $actions ?? [];
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_name = $dataset_name ?? "";
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
+    $this->triggers = $triggers ?? [];
   }
 }
 
@@ -696,8 +696,8 @@ class DatasetTrigger {
   ?'dataset' => TriggeringDataset,
   ?'schedule' => Schedule,
   ) $s = shape()) {
-    $this->dataset = $dataset ?? ;
-    $this->schedule = $schedule ?? ;
+    $this->dataset = $dataset ?? null;
+    $this->schedule = $schedule ?? null;
   }
 }
 
@@ -721,13 +721,13 @@ class Datastore {
   ?'status' => DatastoreStatus,
   ?'storage' => DatastoreStorage,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->name = $name ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->status = $status ?? ;
-    $this->storage = $storage ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->name = $name ?? "";
+    $this->retention_period = $retention_period ?? null;
+    $this->status = $status ?? "";
+    $this->storage = $storage ?? null;
   }
 }
 
@@ -739,8 +739,8 @@ class DatastoreActivity {
   ?'datastore_name' => DatastoreName,
   ?'name' => ActivityName,
   ) $s = shape()) {
-    $this->datastore_name = $datastore_name ?? ;
-    $this->name = $name ?? ;
+    $this->datastore_name = $datastore_name ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -754,7 +754,7 @@ class DatastoreStatistics {
   public function __construct(shape(
   ?'size' => EstimatedResourceSize,
   ) $s = shape()) {
-    $this->size = $size ?? ;
+    $this->size = $size ?? null;
   }
 }
 
@@ -768,8 +768,8 @@ class DatastoreStorage {
   ?'customer_managed_s_3' => CustomerManagedDatastoreS3Storage,
   ?'service_managed_s_3' => ServiceManagedDatastoreS3Storage,
   ) $s = shape()) {
-    $this->customer_managed_s_3 = $customer_managed_s_3 ?? ;
-    $this->service_managed_s_3 = $service_managed_s_3 ?? ;
+    $this->customer_managed_s_3 = $customer_managed_s_3 ?? null;
+    $this->service_managed_s_3 = $service_managed_s_3 ?? null;
   }
 }
 
@@ -781,8 +781,8 @@ class DatastoreStorageSummary {
   ?'customer_managed_s_3' => CustomerManagedDatastoreS3StorageSummary,
   ?'service_managed_s_3' => ServiceManagedDatastoreS3StorageSummary,
   ) $s = shape()) {
-    $this->customer_managed_s_3 = $customer_managed_s_3 ?? ;
-    $this->service_managed_s_3 = $service_managed_s_3 ?? ;
+    $this->customer_managed_s_3 = $customer_managed_s_3 ?? null;
+    $this->service_managed_s_3 = $service_managed_s_3 ?? null;
   }
 }
 
@@ -802,11 +802,11 @@ class DatastoreSummary {
   ?'last_update_time' => Timestamp,
   ?'status' => DatastoreStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->datastore_name = $datastore_name ?? ;
-    $this->datastore_storage = $datastore_storage ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->datastore_name = $datastore_name ?? "";
+    $this->datastore_storage = $datastore_storage ?? null;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -816,7 +816,7 @@ class DeleteChannelRequest {
   public function __construct(shape(
   ?'channel_name' => ChannelName,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
+    $this->channel_name = $channel_name ?? "";
   }
 }
 
@@ -828,8 +828,8 @@ class DeleteDatasetContentRequest {
   ?'dataset_name' => DatasetName,
   ?'version_id' => DatasetContentVersion,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->dataset_name = $dataset_name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -839,7 +839,7 @@ class DeleteDatasetRequest {
   public function __construct(shape(
   ?'dataset_name' => DatasetName,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
+    $this->dataset_name = $dataset_name ?? "";
   }
 }
 
@@ -849,7 +849,7 @@ class DeleteDatastoreRequest {
   public function __construct(shape(
   ?'datastore_name' => DatastoreName,
   ) $s = shape()) {
-    $this->datastore_name = $datastore_name ?? ;
+    $this->datastore_name = $datastore_name ?? "";
   }
 }
 
@@ -859,7 +859,7 @@ class DeletePipelineRequest {
   public function __construct(shape(
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -871,8 +871,8 @@ class DeltaTime {
   ?'offset_seconds' => OffsetSeconds,
   ?'time_expression' => TimeExpression,
   ) $s = shape()) {
-    $this->offset_seconds = $offset_seconds ?? ;
-    $this->time_expression = $time_expression ?? ;
+    $this->offset_seconds = $offset_seconds ?? 0;
+    $this->time_expression = $time_expression ?? "";
   }
 }
 
@@ -884,8 +884,8 @@ class DescribeChannelRequest {
   ?'channel_name' => ChannelName,
   ?'include_statistics' => IncludeStatisticsFlag,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->include_statistics = $include_statistics ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->include_statistics = $include_statistics ?? false;
   }
 }
 
@@ -897,8 +897,8 @@ class DescribeChannelResponse {
   ?'channel' => Channel,
   ?'statistics' => ChannelStatistics,
   ) $s = shape()) {
-    $this->channel = $channel ?? ;
-    $this->statistics = $statistics ?? ;
+    $this->channel = $channel ?? null;
+    $this->statistics = $statistics ?? null;
   }
 }
 
@@ -908,7 +908,7 @@ class DescribeDatasetRequest {
   public function __construct(shape(
   ?'dataset_name' => DatasetName,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
+    $this->dataset_name = $dataset_name ?? "";
   }
 }
 
@@ -918,7 +918,7 @@ class DescribeDatasetResponse {
   public function __construct(shape(
   ?'dataset' => Dataset,
   ) $s = shape()) {
-    $this->dataset = $dataset ?? ;
+    $this->dataset = $dataset ?? null;
   }
 }
 
@@ -930,8 +930,8 @@ class DescribeDatastoreRequest {
   ?'datastore_name' => DatastoreName,
   ?'include_statistics' => IncludeStatisticsFlag,
   ) $s = shape()) {
-    $this->datastore_name = $datastore_name ?? ;
-    $this->include_statistics = $include_statistics ?? ;
+    $this->datastore_name = $datastore_name ?? "";
+    $this->include_statistics = $include_statistics ?? false;
   }
 }
 
@@ -943,8 +943,8 @@ class DescribeDatastoreResponse {
   ?'datastore' => Datastore,
   ?'statistics' => DatastoreStatistics,
   ) $s = shape()) {
-    $this->datastore = $datastore ?? ;
-    $this->statistics = $statistics ?? ;
+    $this->datastore = $datastore ?? null;
+    $this->statistics = $statistics ?? null;
   }
 }
 
@@ -961,7 +961,7 @@ class DescribeLoggingOptionsResponse {
   public function __construct(shape(
   ?'logging_options' => LoggingOptions,
   ) $s = shape()) {
-    $this->logging_options = $logging_options ?? ;
+    $this->logging_options = $logging_options ?? null;
   }
 }
 
@@ -971,7 +971,7 @@ class DescribePipelineRequest {
   public function __construct(shape(
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -981,7 +981,7 @@ class DescribePipelineResponse {
   public function __construct(shape(
   ?'pipeline' => Pipeline,
   ) $s = shape()) {
-    $this->pipeline = $pipeline ?? ;
+    $this->pipeline = $pipeline ?? null;
   }
 }
 
@@ -999,11 +999,11 @@ class DeviceRegistryEnrichActivity {
   ?'role_arn' => RoleArn,
   ?'thing_name' => AttributeName,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -1021,11 +1021,11 @@ class DeviceShadowEnrichActivity {
   ?'role_arn' => RoleArn,
   ?'thing_name' => AttributeName,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -1047,8 +1047,8 @@ class EstimatedResourceSize {
   ?'estimated_on' => Timestamp,
   ?'estimated_size_in_bytes' => SizeInBytes,
   ) $s = shape()) {
-    $this->estimated_on = $estimated_on ?? ;
-    $this->estimated_size_in_bytes = $estimated_size_in_bytes ?? ;
+    $this->estimated_on = $estimated_on ?? 0;
+    $this->estimated_size_in_bytes = $estimated_size_in_bytes ?? 0.0;
   }
 }
 
@@ -1062,9 +1062,9 @@ class FilterActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->filter = $filter ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -1078,8 +1078,8 @@ class GetDatasetContentRequest {
   ?'dataset_name' => DatasetName,
   ?'version_id' => DatasetContentVersion,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->dataset_name = $dataset_name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1093,9 +1093,9 @@ class GetDatasetContentResponse {
   ?'status' => DatasetContentStatus,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->status = $status ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->entries = $entries ?? [];
+    $this->status = $status ?? null;
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -1107,8 +1107,8 @@ class GlueConfiguration {
   ?'database_name' => GlueDatabaseName,
   ?'table_name' => GlueTableName,
   ) $s = shape()) {
-    $this->database_name = $database_name ?? ;
-    $this->table_name = $table_name ?? ;
+    $this->database_name = $database_name ?? "";
+    $this->table_name = $table_name ?? "";
   }
 }
 
@@ -1126,7 +1126,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1136,7 +1136,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1148,8 +1148,8 @@ class IotEventsDestinationConfiguration {
   ?'input_name' => IotEventsInputName,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->input_name = $input_name ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->input_name = $input_name ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1167,10 +1167,10 @@ class LambdaActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->batch_size = $batch_size ?? ;
-    $this->lambda_name = $lambda_name ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->batch_size = $batch_size ?? 0;
+    $this->lambda_name = $lambda_name ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -1182,7 +1182,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1194,8 +1194,8 @@ class ListChannelsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1207,8 +1207,8 @@ class ListChannelsResponse {
   ?'channel_summaries' => ChannelSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->channel_summaries = $channel_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->channel_summaries = $channel_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1226,11 +1226,11 @@ class ListDatasetContentsRequest {
   ?'scheduled_before' => Timestamp,
   ?'scheduled_on_or_after' => Timestamp,
   ) $s = shape()) {
-    $this->dataset_name = $dataset_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->scheduled_before = $scheduled_before ?? ;
-    $this->scheduled_on_or_after = $scheduled_on_or_after ?? ;
+    $this->dataset_name = $dataset_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->scheduled_before = $scheduled_before ?? 0;
+    $this->scheduled_on_or_after = $scheduled_on_or_after ?? 0;
   }
 }
 
@@ -1242,8 +1242,8 @@ class ListDatasetContentsResponse {
   ?'dataset_content_summaries' => DatasetContentSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_content_summaries = $dataset_content_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_content_summaries = $dataset_content_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1255,8 +1255,8 @@ class ListDatasetsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1268,8 +1268,8 @@ class ListDatasetsResponse {
   ?'dataset_summaries' => DatasetSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dataset_summaries = $dataset_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataset_summaries = $dataset_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1281,8 +1281,8 @@ class ListDatastoresRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1294,8 +1294,8 @@ class ListDatastoresResponse {
   ?'datastore_summaries' => DatastoreSummaries,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->datastore_summaries = $datastore_summaries ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->datastore_summaries = $datastore_summaries ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1307,8 +1307,8 @@ class ListPipelinesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1320,8 +1320,8 @@ class ListPipelinesResponse {
   ?'next_token' => NextToken,
   ?'pipeline_summaries' => PipelineSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->pipeline_summaries = $pipeline_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->pipeline_summaries = $pipeline_summaries ?? [];
   }
 }
 
@@ -1341,7 +1341,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1361,9 +1361,9 @@ class LoggingOptions {
   ?'level' => LoggingLevel,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->level = $level ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->level = $level ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1379,10 +1379,10 @@ class MathActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->math = $math ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->math = $math ?? "";
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -1402,8 +1402,8 @@ class Message {
   ?'message_id' => MessageId,
   ?'payload' => MessagePayload,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? ;
-    $this->payload = $payload ?? ;
+    $this->message_id = $message_id ?? "";
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -1427,7 +1427,7 @@ class OutputFileUriValue {
   public function __construct(shape(
   ?'file_name' => OutputFileName,
   ) $s = shape()) {
-    $this->file_name = $file_name ?? ;
+    $this->file_name = $file_name ?? "";
   }
 }
 
@@ -1447,12 +1447,12 @@ class Pipeline {
   ?'name' => PipelineName,
   ?'reprocessing_summaries' => ReprocessingSummaries,
   ) $s = shape()) {
-    $this->activities = $activities ?? ;
-    $this->arn = $arn ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->name = $name ?? ;
-    $this->reprocessing_summaries = $reprocessing_summaries ?? ;
+    $this->activities = $activities ?? [];
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->name = $name ?? "";
+    $this->reprocessing_summaries = $reprocessing_summaries ?? [];
   }
 }
 
@@ -1482,16 +1482,16 @@ class PipelineActivity {
   ?'remove_attributes' => RemoveAttributesActivity,
   ?'select_attributes' => SelectAttributesActivity,
   ) $s = shape()) {
-    $this->add_attributes = $add_attributes ?? ;
-    $this->channel = $channel ?? ;
-    $this->datastore = $datastore ?? ;
-    $this->device_registry_enrich = $device_registry_enrich ?? ;
-    $this->device_shadow_enrich = $device_shadow_enrich ?? ;
-    $this->filter = $filter ?? ;
-    $this->lambda = $lambda ?? ;
-    $this->math = $math ?? ;
-    $this->remove_attributes = $remove_attributes ?? ;
-    $this->select_attributes = $select_attributes ?? ;
+    $this->add_attributes = $add_attributes ?? null;
+    $this->channel = $channel ?? null;
+    $this->datastore = $datastore ?? null;
+    $this->device_registry_enrich = $device_registry_enrich ?? null;
+    $this->device_shadow_enrich = $device_shadow_enrich ?? null;
+    $this->filter = $filter ?? null;
+    $this->lambda = $lambda ?? null;
+    $this->math = $math ?? null;
+    $this->remove_attributes = $remove_attributes ?? null;
+    $this->select_attributes = $select_attributes ?? null;
   }
 }
 
@@ -1513,10 +1513,10 @@ class PipelineSummary {
   ?'pipeline_name' => PipelineName,
   ?'reprocessing_summaries' => ReprocessingSummaries,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->reprocessing_summaries = $reprocessing_summaries ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->reprocessing_summaries = $reprocessing_summaries ?? [];
   }
 }
 
@@ -1528,7 +1528,7 @@ class PutLoggingOptionsRequest {
   public function __construct(shape(
   ?'logging_options' => LoggingOptions,
   ) $s = shape()) {
-    $this->logging_options = $logging_options ?? ;
+    $this->logging_options = $logging_options ?? null;
   }
 }
 
@@ -1538,7 +1538,7 @@ class QueryFilter {
   public function __construct(shape(
   ?'delta_time' => DeltaTime,
   ) $s = shape()) {
-    $this->delta_time = $delta_time ?? ;
+    $this->delta_time = $delta_time ?? null;
   }
 }
 
@@ -1556,9 +1556,9 @@ class RemoveAttributesActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -1578,9 +1578,9 @@ class ReprocessingSummary {
   ?'id' => ReprocessingId,
   ?'status' => ReprocessingStatus,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1594,7 +1594,7 @@ class ResourceAlreadyExistsException {
   ?'resource_arn' => resourceArn,
   ?'resource_id' => resourceId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->resource_arn = $resource_arn ?? "";
     $this->resource_id = $resource_id ?? "";
   }
@@ -1610,8 +1610,8 @@ class ResourceConfiguration {
   ?'compute_type' => ComputeType,
   ?'volume_size_in_gb' => VolumeSizeInGB,
   ) $s = shape()) {
-    $this->compute_type = $compute_type ?? ;
-    $this->volume_size_in_gb = $volume_size_in_gb ?? ;
+    $this->compute_type = $compute_type ?? "";
+    $this->volume_size_in_gb = $volume_size_in_gb ?? 0;
   }
 }
 
@@ -1621,7 +1621,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1633,8 +1633,8 @@ class RetentionPeriod {
   ?'number_of_days' => RetentionPeriodInDays,
   ?'unlimited' => UnlimitedRetentionPeriod,
   ) $s = shape()) {
-    $this->number_of_days = $number_of_days ?? ;
-    $this->unlimited = $unlimited ?? ;
+    $this->number_of_days = $number_of_days ?? 0;
+    $this->unlimited = $unlimited ?? false;
   }
 }
 
@@ -1650,8 +1650,8 @@ class RunPipelineActivityRequest {
   ?'payloads' => MessagePayloads,
   ?'pipeline_activity' => PipelineActivity,
   ) $s = shape()) {
-    $this->payloads = $payloads ?? ;
-    $this->pipeline_activity = $pipeline_activity ?? ;
+    $this->payloads = $payloads ?? [];
+    $this->pipeline_activity = $pipeline_activity ?? null;
   }
 }
 
@@ -1663,8 +1663,8 @@ class RunPipelineActivityResponse {
   ?'log_result' => LogResult,
   ?'payloads' => MessagePayloads,
   ) $s = shape()) {
-    $this->log_result = $log_result ?? ;
-    $this->payloads = $payloads ?? ;
+    $this->log_result = $log_result ?? "";
+    $this->payloads = $payloads ?? [];
   }
 }
 
@@ -1680,10 +1680,10 @@ class S3DestinationConfiguration {
   ?'key' => BucketKeyExpression,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->glue_configuration = $glue_configuration ?? ;
-    $this->key = $key ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->glue_configuration = $glue_configuration ?? null;
+    $this->key = $key ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1701,10 +1701,10 @@ class SampleChannelDataRequest {
   ?'max_messages' => MaxMessages,
   ?'start_time' => StartTime,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->max_messages = $max_messages ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->max_messages = $max_messages ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1714,7 +1714,7 @@ class SampleChannelDataResponse {
   public function __construct(shape(
   ?'payloads' => MessagePayloads,
   ) $s = shape()) {
-    $this->payloads = $payloads ?? ;
+    $this->payloads = $payloads ?? [];
   }
 }
 
@@ -1724,7 +1724,7 @@ class Schedule {
   public function __construct(shape(
   ?'expression' => ScheduleExpression,
   ) $s = shape()) {
-    $this->expression = $expression ?? ;
+    $this->expression = $expression ?? "";
   }
 }
 
@@ -1740,9 +1740,9 @@ class SelectAttributesActivity {
   ?'name' => ActivityName,
   ?'next' => ActivityName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
-    $this->next = $next ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
+    $this->next = $next ?? "";
   }
 }
 
@@ -1780,7 +1780,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1796,8 +1796,8 @@ class SqlQueryDatasetAction {
   ?'filters' => QueryFilters,
   ?'sql_query' => SqlQuery,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->sql_query = $sql_query ?? ;
+    $this->filters = $filters ?? [];
+    $this->sql_query = $sql_query ?? "";
   }
 }
 
@@ -1811,9 +1811,9 @@ class StartPipelineReprocessingRequest {
   ?'pipeline_name' => PipelineName,
   ?'start_time' => StartTime,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->pipeline_name = $pipeline_name ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1823,7 +1823,7 @@ class StartPipelineReprocessingResponse {
   public function __construct(shape(
   ?'reprocessing_id' => ReprocessingId,
   ) $s = shape()) {
-    $this->reprocessing_id = $reprocessing_id ?? ;
+    $this->reprocessing_id = $reprocessing_id ?? "";
   }
 }
 
@@ -1839,8 +1839,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1859,7 +1859,7 @@ class TagResourceRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1878,7 +1878,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1892,7 +1892,7 @@ class TriggeringDataset {
   public function __construct(shape(
   ?'name' => DatasetName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1909,7 +1909,7 @@ class UntagResourceRequest {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1930,9 +1930,9 @@ class UpdateChannelRequest {
   ?'channel_storage' => ChannelStorage,
   ?'retention_period' => RetentionPeriod,
   ) $s = shape()) {
-    $this->channel_name = $channel_name ?? ;
-    $this->channel_storage = $channel_storage ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->channel_name = $channel_name ?? "";
+    $this->channel_storage = $channel_storage ?? null;
+    $this->retention_period = $retention_period ?? null;
   }
 }
 
@@ -1952,12 +1952,12 @@ class UpdateDatasetRequest {
   ?'triggers' => DatasetTriggers,
   ?'versioning_configuration' => VersioningConfiguration,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->content_delivery_rules = $content_delivery_rules ?? ;
-    $this->dataset_name = $dataset_name ?? ;
-    $this->retention_period = $retention_period ?? ;
-    $this->triggers = $triggers ?? ;
-    $this->versioning_configuration = $versioning_configuration ?? ;
+    $this->actions = $actions ?? [];
+    $this->content_delivery_rules = $content_delivery_rules ?? [];
+    $this->dataset_name = $dataset_name ?? "";
+    $this->retention_period = $retention_period ?? null;
+    $this->triggers = $triggers ?? [];
+    $this->versioning_configuration = $versioning_configuration ?? null;
   }
 }
 
@@ -1971,9 +1971,9 @@ class UpdateDatastoreRequest {
   ?'datastore_storage' => DatastoreStorage,
   ?'retention_period' => RetentionPeriod,
   ) $s = shape()) {
-    $this->datastore_name = $datastore_name ?? ;
-    $this->datastore_storage = $datastore_storage ?? ;
-    $this->retention_period = $retention_period ?? ;
+    $this->datastore_name = $datastore_name ?? "";
+    $this->datastore_storage = $datastore_storage ?? null;
+    $this->retention_period = $retention_period ?? null;
   }
 }
 
@@ -1985,8 +1985,8 @@ class UpdatePipelineRequest {
   ?'pipeline_activities' => PipelineActivities,
   ?'pipeline_name' => PipelineName,
   ) $s = shape()) {
-    $this->pipeline_activities = $pipeline_activities ?? ;
-    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_activities = $pipeline_activities ?? [];
+    $this->pipeline_name = $pipeline_name ?? "";
   }
 }
 
@@ -2004,11 +2004,11 @@ class Variable {
   ?'output_file_uri_value' => OutputFileUriValue,
   ?'string_value' => StringValue,
   ) $s = shape()) {
-    $this->dataset_content_version_value = $dataset_content_version_value ?? ;
-    $this->double_value = $double_value ?? ;
-    $this->name = $name ?? ;
-    $this->output_file_uri_value = $output_file_uri_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->dataset_content_version_value = $dataset_content_version_value ?? null;
+    $this->double_value = $double_value ?? 0.0;
+    $this->name = $name ?? "";
+    $this->output_file_uri_value = $output_file_uri_value ?? null;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -2024,8 +2024,8 @@ class VersioningConfiguration {
   ?'max_versions' => MaxVersions,
   ?'unlimited' => UnlimitedVersioning,
   ) $s = shape()) {
-    $this->max_versions = $max_versions ?? ;
-    $this->unlimited = $unlimited ?? ;
+    $this->max_versions = $max_versions ?? 0;
+    $this->unlimited = $unlimited ?? false;
   }
 }
 

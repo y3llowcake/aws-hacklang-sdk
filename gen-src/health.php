@@ -37,14 +37,14 @@ class AffectedEntity {
   ?'status_code' => entityStatusCode,
   ?'tags' => tagSet,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
     $this->entity_arn = $entity_arn ?? "";
     $this->entity_url = $entity_url ?? "";
     $this->entity_value = $entity_value ?? "";
     $this->event_arn = $event_arn ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->status_code = $status_code ?? ;
-    $this->tags = $tags ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->status_code = $status_code ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -54,7 +54,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -66,8 +66,8 @@ class DateTimeRange {
   ?'from' => timestamp,
   ?'to' => timestamp,
   ) $s = shape()) {
-    $this->from = $from ?? ;
-    $this->to = $to ?? ;
+    $this->from = $from ?? 0;
+    $this->to = $to ?? 0;
   }
 }
 
@@ -95,7 +95,7 @@ class DescribeAffectedAccountsForOrganizationResponse {
   ?'affected_accounts' => affectedAccountsList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->affected_accounts = $affected_accounts ?? ;
+    $this->affected_accounts = $affected_accounts ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -117,7 +117,7 @@ class DescribeAffectedEntitiesForOrganizationRequest {
     $this->locale = $locale ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->organization_entity_filters = $organization_entity_filters ?? ;
+    $this->organization_entity_filters = $organization_entity_filters ?? [];
   }
 }
 
@@ -131,8 +131,8 @@ class DescribeAffectedEntitiesForOrganizationResponse {
   ?'failed_set' => DescribeAffectedEntitiesForOrganizationFailedSet,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
-    $this->failed_set = $failed_set ?? ;
+    $this->entities = $entities ?? [];
+    $this->failed_set = $failed_set ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -149,7 +149,7 @@ class DescribeAffectedEntitiesRequest {
   ?'max_results' => maxResults,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->locale = $locale ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -164,7 +164,7 @@ class DescribeAffectedEntitiesResponse {
   ?'entities' => EntityList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->entities = $entities ?? ;
+    $this->entities = $entities ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -175,7 +175,7 @@ class DescribeEntityAggregatesRequest {
   public function __construct(shape(
   ?'event_arns' => EventArnsList,
   ) $s = shape()) {
-    $this->event_arns = $event_arns ?? ;
+    $this->event_arns = $event_arns ?? [];
   }
 }
 
@@ -185,7 +185,7 @@ class DescribeEntityAggregatesResponse {
   public function __construct(shape(
   ?'entity_aggregates' => EntityAggregateList,
   ) $s = shape()) {
-    $this->entity_aggregates = $entity_aggregates ?? ;
+    $this->entity_aggregates = $entity_aggregates ?? [];
   }
 }
 
@@ -201,8 +201,8 @@ class DescribeEventAggregatesRequest {
   ?'max_results' => maxResults,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->aggregate_field = $aggregate_field ?? ;
-    $this->filter = $filter ?? ;
+    $this->aggregate_field = $aggregate_field ?? "";
+    $this->filter = $filter ?? null;
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -216,7 +216,7 @@ class DescribeEventAggregatesResponse {
   ?'event_aggregates' => EventAggregateList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->event_aggregates = $event_aggregates ?? ;
+    $this->event_aggregates = $event_aggregates ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -234,7 +234,7 @@ class DescribeEventDetailsForOrganizationRequest {
   ?'organization_event_detail_filters' => OrganizationEventDetailFiltersList,
   ) $s = shape()) {
     $this->locale = $locale ?? "";
-    $this->organization_event_detail_filters = $organization_event_detail_filters ?? ;
+    $this->organization_event_detail_filters = $organization_event_detail_filters ?? [];
   }
 }
 
@@ -246,8 +246,8 @@ class DescribeEventDetailsForOrganizationResponse {
   ?'failed_set' => DescribeEventDetailsForOrganizationFailedSet,
   ?'successful_set' => DescribeEventDetailsForOrganizationSuccessfulSet,
   ) $s = shape()) {
-    $this->failed_set = $failed_set ?? ;
-    $this->successful_set = $successful_set ?? ;
+    $this->failed_set = $failed_set ?? [];
+    $this->successful_set = $successful_set ?? [];
   }
 }
 
@@ -261,7 +261,7 @@ class DescribeEventDetailsRequest {
   ?'event_arns' => eventArnList,
   ?'locale' => locale,
   ) $s = shape()) {
-    $this->event_arns = $event_arns ?? ;
+    $this->event_arns = $event_arns ?? [];
     $this->locale = $locale ?? "";
   }
 }
@@ -274,8 +274,8 @@ class DescribeEventDetailsResponse {
   ?'failed_set' => DescribeEventDetailsFailedSet,
   ?'successful_set' => DescribeEventDetailsSuccessfulSet,
   ) $s = shape()) {
-    $this->failed_set = $failed_set ?? ;
-    $this->successful_set = $successful_set ?? ;
+    $this->failed_set = $failed_set ?? [];
+    $this->successful_set = $successful_set ?? [];
   }
 }
 
@@ -293,7 +293,7 @@ class DescribeEventTypesRequest {
   ?'max_results' => maxResults,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->locale = $locale ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -308,7 +308,7 @@ class DescribeEventTypesResponse {
   ?'event_types' => EventTypeList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->event_types = $event_types ?? ;
+    $this->event_types = $event_types ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -325,7 +325,7 @@ class DescribeEventsForOrganizationRequest {
   ?'max_results' => maxResults,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->locale = $locale ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -340,7 +340,7 @@ class DescribeEventsForOrganizationResponse {
   ?'events' => OrganizationEventList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -357,7 +357,7 @@ class DescribeEventsRequest {
   ?'max_results' => maxResults,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
+    $this->filter = $filter ?? null;
     $this->locale = $locale ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
@@ -372,7 +372,7 @@ class DescribeEventsResponse {
   ?'events' => EventList,
   ?'next_token' => nextToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -418,12 +418,12 @@ class EntityFilter {
   ?'status_codes' => entityStatusCodeList,
   ?'tags' => tagFilter,
   ) $s = shape()) {
-    $this->entity_arns = $entity_arns ?? ;
-    $this->entity_values = $entity_values ?? ;
-    $this->event_arns = $event_arns ?? ;
-    $this->last_updated_times = $last_updated_times ?? ;
-    $this->status_codes = $status_codes ?? ;
-    $this->tags = $tags ?? ;
+    $this->entity_arns = $entity_arns ?? [];
+    $this->entity_values = $entity_values ?? [];
+    $this->event_arns = $event_arns ?? [];
+    $this->last_updated_times = $last_updated_times ?? [];
+    $this->status_codes = $status_codes ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -453,16 +453,16 @@ class Event {
   ?'start_time' => timestamp,
   ?'status_code' => eventStatusCode,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->availability_zone = $availability_zone ?? "";
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->event_type_category = $event_type_category ?? "";
     $this->event_type_code = $event_type_code ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->region = $region ?? "";
     $this->service = $service ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -474,7 +474,7 @@ class EventAccountFilter {
   ?'aws_account_id' => accountId,
   ?'event_arn' => eventArn,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
     $this->event_arn = $event_arn ?? "";
   }
 }
@@ -502,7 +502,7 @@ class EventDescription {
   public function __construct(shape(
   ?'latest_description' => eventDescription,
   ) $s = shape()) {
-    $this->latest_description = $latest_description ?? ;
+    $this->latest_description = $latest_description ?? "";
   }
 }
 
@@ -516,8 +516,8 @@ class EventDetails {
   ?'event_description' => EventDescription,
   ?'event_metadata' => eventMetadata,
   ) $s = shape()) {
-    $this->event = $event ?? ;
-    $this->event_description = $event_description ?? "";
+    $this->event = $event ?? null;
+    $this->event_description = $event_description ?? null;
     $this->event_metadata = $event_metadata ?? [];
   }
 }
@@ -532,8 +532,8 @@ class EventDetailsErrorItem {
   ?'error_name' => string,
   ?'event_arn' => eventArn,
   ) $s = shape()) {
-    $this->error_message = $error_message ?? ;
-    $this->error_name = $error_name ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->error_name = $error_name ?? "";
     $this->event_arn = $event_arn ?? "";
   }
 }
@@ -569,18 +569,18 @@ class EventFilter {
   ?'tags' => tagFilter,
   ) $s = shape()) {
     $this->availability_zones = $availability_zones ?? [];
-    $this->end_times = $end_times ?? ;
-    $this->entity_arns = $entity_arns ?? ;
-    $this->entity_values = $entity_values ?? ;
-    $this->event_arns = $event_arns ?? ;
-    $this->event_status_codes = $event_status_codes ?? ;
-    $this->event_type_categories = $event_type_categories ?? ;
-    $this->event_type_codes = $event_type_codes ?? ;
-    $this->last_updated_times = $last_updated_times ?? ;
-    $this->regions = $regions ?? ;
-    $this->services = $services ?? ;
-    $this->start_times = $start_times ?? ;
-    $this->tags = $tags ?? ;
+    $this->end_times = $end_times ?? [];
+    $this->entity_arns = $entity_arns ?? [];
+    $this->entity_values = $entity_values ?? [];
+    $this->event_arns = $event_arns ?? [];
+    $this->event_status_codes = $event_status_codes ?? [];
+    $this->event_type_categories = $event_type_categories ?? [];
+    $this->event_type_codes = $event_type_codes ?? [];
+    $this->last_updated_times = $last_updated_times ?? [];
+    $this->regions = $regions ?? [];
+    $this->services = $services ?? [];
+    $this->start_times = $start_times ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -596,8 +596,8 @@ class EventType {
   ?'code' => eventTypeCode,
   ?'service' => service,
   ) $s = shape()) {
-    $this->category = $category ?? ;
-    $this->code = $code ?? ;
+    $this->category = $category ?? "";
+    $this->code = $code ?? "";
     $this->service = $service ?? "";
   }
 }
@@ -616,9 +616,9 @@ class EventTypeFilter {
   ?'event_type_codes' => EventTypeCodeList,
   ?'services' => serviceList,
   ) $s = shape()) {
-    $this->event_type_categories = $event_type_categories ?? ;
-    $this->event_type_codes = $event_type_codes ?? ;
-    $this->services = $services ?? ;
+    $this->event_type_categories = $event_type_categories ?? [];
+    $this->event_type_codes = $event_type_codes ?? [];
+    $this->services = $services ?? [];
   }
 }
 
@@ -630,7 +630,7 @@ class InvalidPaginationToken {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -646,9 +646,9 @@ class OrganizationAffectedEntitiesErrorItem {
   ?'error_name' => string,
   ?'event_arn' => eventArn,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->error_name = $error_name ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->error_name = $error_name ?? "";
     $this->event_arn = $event_arn ?? "";
   }
 }
@@ -677,15 +677,15 @@ class OrganizationEvent {
   ?'start_time' => timestamp,
   ?'status_code' => eventStatusCode,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->arn = $arn ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->event_type_category = $event_type_category ?? "";
     $this->event_type_code = $event_type_code ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
     $this->region = $region ?? "";
     $this->service = $service ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -703,9 +703,9 @@ class OrganizationEventDetails {
   ?'event_description' => EventDescription,
   ?'event_metadata' => eventMetadata,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->event = $event ?? ;
-    $this->event_description = $event_description ?? "";
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->event = $event ?? null;
+    $this->event_description = $event_description ?? null;
     $this->event_metadata = $event_metadata ?? [];
   }
 }
@@ -722,9 +722,9 @@ class OrganizationEventDetailsErrorItem {
   ?'error_name' => string,
   ?'event_arn' => eventArn,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->error_name = $error_name ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->error_name = $error_name ?? "";
     $this->event_arn = $event_arn ?? "";
   }
 }
@@ -755,17 +755,17 @@ class OrganizationEventFilter {
   ?'services' => serviceList,
   ?'start_time' => DateTimeRange,
   ) $s = shape()) {
-    $this->aws_account_ids = $aws_account_ids ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->entity_arns = $entity_arns ?? ;
-    $this->entity_values = $entity_values ?? ;
-    $this->event_status_codes = $event_status_codes ?? ;
-    $this->event_type_categories = $event_type_categories ?? ;
-    $this->event_type_codes = $event_type_codes ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->regions = $regions ?? ;
-    $this->services = $services ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->aws_account_ids = $aws_account_ids ?? [];
+    $this->end_time = $end_time ?? null;
+    $this->entity_arns = $entity_arns ?? [];
+    $this->entity_values = $entity_values ?? [];
+    $this->event_status_codes = $event_status_codes ?? [];
+    $this->event_type_categories = $event_type_categories ?? [];
+    $this->event_type_codes = $event_type_codes ?? [];
+    $this->last_updated_time = $last_updated_time ?? null;
+    $this->regions = $regions ?? [];
+    $this->services = $services ?? [];
+    $this->start_time = $start_time ?? null;
   }
 }
 
@@ -777,7 +777,7 @@ class UnsupportedLocale {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

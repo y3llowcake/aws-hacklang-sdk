@@ -19,7 +19,7 @@ class BadGatewayException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -29,7 +29,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -47,8 +47,8 @@ class Button {
   ?'text' => ButtonTextStringWithLength,
   ?'value' => ButtonValueStringWithLength,
   ) $s = shape()) {
-    $this->text = $text ?? ;
-    $this->value = $value ?? ;
+    $this->text = $text ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -64,7 +64,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -80,9 +80,9 @@ class DeleteSessionRequest {
   ?'bot_name' => BotName,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -98,10 +98,10 @@ class DeleteSessionResponse {
   ?'session_id' => string,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->session_id = $session_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->session_id = $session_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -111,7 +111,7 @@ class DependencyFailedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -133,13 +133,13 @@ class DialogAction {
   ?'slots' => StringMap,
   ?'type' => DialogActionType,
   ) $s = shape()) {
-    $this->fulfillment_state = $fulfillment_state ?? ;
-    $this->intent_name = $intent_name ?? ;
-    $this->message = $message ?? ;
-    $this->message_format = $message_format ?? ;
-    $this->slot_to_elicit = $slot_to_elicit ?? ;
-    $this->slots = $slots ?? ;
-    $this->type = $type ?? ;
+    $this->fulfillment_state = $fulfillment_state ?? "";
+    $this->intent_name = $intent_name ?? "";
+    $this->message = $message ?? "";
+    $this->message_format = $message_format ?? "";
+    $this->slot_to_elicit = $slot_to_elicit ?? "";
+    $this->slots = $slots ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -165,11 +165,11 @@ class GenericAttachment {
   ?'sub_title' => StringWithLength,
   ?'title' => StringWithLength,
   ) $s = shape()) {
-    $this->attachment_link_url = $attachment_link_url ?? ;
-    $this->buttons = $buttons ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->sub_title = $sub_title ?? ;
-    $this->title = $title ?? ;
+    $this->attachment_link_url = $attachment_link_url ?? "";
+    $this->buttons = $buttons ?? [];
+    $this->image_url = $image_url ?? "";
+    $this->sub_title = $sub_title ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -185,10 +185,10 @@ class GetSessionRequest {
   ?'checkpoint_label_filter' => IntentSummaryCheckpointLabel,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->checkpoint_label_filter = $checkpoint_label_filter ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->checkpoint_label_filter = $checkpoint_label_filter ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -204,10 +204,10 @@ class GetSessionResponse {
   ?'session_attributes' => StringMap,
   ?'session_id' => string,
   ) $s = shape()) {
-    $this->dialog_action = $dialog_action ?? ;
-    $this->recent_intent_summary_view = $recent_intent_summary_view ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->session_id = $session_id ?? ;
+    $this->dialog_action = $dialog_action ?? null;
+    $this->recent_intent_summary_view = $recent_intent_summary_view ?? [];
+    $this->session_attributes = $session_attributes ?? [];
+    $this->session_id = $session_id ?? "";
   }
 }
 
@@ -233,13 +233,13 @@ class IntentSummary {
   ?'slot_to_elicit' => string,
   ?'slots' => StringMap,
   ) $s = shape()) {
-    $this->checkpoint_label = $checkpoint_label ?? ;
-    $this->confirmation_status = $confirmation_status ?? ;
-    $this->dialog_action_type = $dialog_action_type ?? ;
-    $this->fulfillment_state = $fulfillment_state ?? ;
-    $this->intent_name = $intent_name ?? ;
-    $this->slot_to_elicit = $slot_to_elicit ?? ;
-    $this->slots = $slots ?? ;
+    $this->checkpoint_label = $checkpoint_label ?? "";
+    $this->confirmation_status = $confirmation_status ?? "";
+    $this->dialog_action_type = $dialog_action_type ?? "";
+    $this->fulfillment_state = $fulfillment_state ?? "";
+    $this->intent_name = $intent_name ?? "";
+    $this->slot_to_elicit = $slot_to_elicit ?? "";
+    $this->slots = $slots ?? [];
   }
 }
 
@@ -253,7 +253,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -265,8 +265,8 @@ class LimitExceededException {
   ?'message' => string,
   ?'retry_after_seconds' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->retry_after_seconds = $retry_after_seconds ?? ;
+    $this->message = $message ?? "";
+    $this->retry_after_seconds = $retry_after_seconds ?? "";
   }
 }
 
@@ -276,7 +276,7 @@ class LoopDetectedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -288,7 +288,7 @@ class NotAcceptableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -298,7 +298,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -322,14 +322,14 @@ class PostContentRequest {
   ?'session_attributes' => AttributesString,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->accept = $accept ?? ;
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->input_stream = $input_stream ?? ;
-    $this->request_attributes = $request_attributes ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->accept = $accept ?? "";
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->input_stream = $input_stream ?? "";
+    $this->request_attributes = $request_attributes ?? "";
+    $this->session_attributes = $session_attributes ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -361,18 +361,18 @@ class PostContentResponse {
   ?'slot_to_elicit' => string,
   ?'slots' => string,
   ) $s = shape()) {
-    $this->audio_stream = $audio_stream ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->dialog_state = $dialog_state ?? ;
-    $this->input_transcript = $input_transcript ?? ;
-    $this->intent_name = $intent_name ?? ;
-    $this->message = $message ?? ;
-    $this->message_format = $message_format ?? ;
-    $this->sentiment_response = $sentiment_response ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->session_id = $session_id ?? ;
-    $this->slot_to_elicit = $slot_to_elicit ?? ;
-    $this->slots = $slots ?? ;
+    $this->audio_stream = $audio_stream ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->dialog_state = $dialog_state ?? "";
+    $this->input_transcript = $input_transcript ?? "";
+    $this->intent_name = $intent_name ?? "";
+    $this->message = $message ?? "";
+    $this->message_format = $message_format ?? "";
+    $this->sentiment_response = $sentiment_response ?? "";
+    $this->session_attributes = $session_attributes ?? "";
+    $this->session_id = $session_id ?? "";
+    $this->slot_to_elicit = $slot_to_elicit ?? "";
+    $this->slots = $slots ?? "";
   }
 }
 
@@ -392,12 +392,12 @@ class PostTextRequest {
   ?'session_attributes' => StringMap,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->input_text = $input_text ?? ;
-    $this->request_attributes = $request_attributes ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->input_text = $input_text ?? "";
+    $this->request_attributes = $request_attributes ?? [];
+    $this->session_attributes = $session_attributes ?? [];
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -425,16 +425,16 @@ class PostTextResponse {
   ?'slot_to_elicit' => string,
   ?'slots' => StringMap,
   ) $s = shape()) {
-    $this->dialog_state = $dialog_state ?? ;
-    $this->intent_name = $intent_name ?? ;
-    $this->message = $message ?? ;
-    $this->message_format = $message_format ?? ;
-    $this->response_card = $response_card ?? ;
-    $this->sentiment_response = $sentiment_response ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->session_id = $session_id ?? ;
-    $this->slot_to_elicit = $slot_to_elicit ?? ;
-    $this->slots = $slots ?? ;
+    $this->dialog_state = $dialog_state ?? "";
+    $this->intent_name = $intent_name ?? "";
+    $this->message = $message ?? "";
+    $this->message_format = $message_format ?? "";
+    $this->response_card = $response_card ?? null;
+    $this->sentiment_response = $sentiment_response ?? null;
+    $this->session_attributes = $session_attributes ?? [];
+    $this->session_id = $session_id ?? "";
+    $this->slot_to_elicit = $slot_to_elicit ?? "";
+    $this->slots = $slots ?? [];
   }
 }
 
@@ -456,13 +456,13 @@ class PutSessionRequest {
   ?'session_attributes' => StringMap,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->accept = $accept ?? ;
-    $this->bot_alias = $bot_alias ?? ;
-    $this->bot_name = $bot_name ?? ;
-    $this->dialog_action = $dialog_action ?? ;
-    $this->recent_intent_summary_view = $recent_intent_summary_view ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->accept = $accept ?? "";
+    $this->bot_alias = $bot_alias ?? "";
+    $this->bot_name = $bot_name ?? "";
+    $this->dialog_action = $dialog_action ?? null;
+    $this->recent_intent_summary_view = $recent_intent_summary_view ?? [];
+    $this->session_attributes = $session_attributes ?? [];
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -490,16 +490,16 @@ class PutSessionResponse {
   ?'slot_to_elicit' => string,
   ?'slots' => string,
   ) $s = shape()) {
-    $this->audio_stream = $audio_stream ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->dialog_state = $dialog_state ?? ;
-    $this->intent_name = $intent_name ?? ;
-    $this->message = $message ?? ;
-    $this->message_format = $message_format ?? ;
-    $this->session_attributes = $session_attributes ?? ;
-    $this->session_id = $session_id ?? ;
-    $this->slot_to_elicit = $slot_to_elicit ?? ;
-    $this->slots = $slots ?? ;
+    $this->audio_stream = $audio_stream ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->dialog_state = $dialog_state ?? "";
+    $this->intent_name = $intent_name ?? "";
+    $this->message = $message ?? "";
+    $this->message_format = $message_format ?? "";
+    $this->session_attributes = $session_attributes ?? "";
+    $this->session_id = $session_id ?? "";
+    $this->slot_to_elicit = $slot_to_elicit ?? "";
+    $this->slots = $slots ?? "";
   }
 }
 
@@ -509,7 +509,7 @@ class RequestTimeoutException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -523,9 +523,9 @@ class ResponseCard {
   ?'generic_attachments' => genericAttachmentList,
   ?'version' => string,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->generic_attachments = $generic_attachments ?? ;
-    $this->version = $version ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->generic_attachments = $generic_attachments ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -539,8 +539,8 @@ class SentimentResponse {
   ?'sentiment_label' => SentimentLabel,
   ?'sentiment_score' => SentimentScore,
   ) $s = shape()) {
-    $this->sentiment_label = $sentiment_label ?? ;
-    $this->sentiment_score = $sentiment_score ?? ;
+    $this->sentiment_label = $sentiment_label ?? "";
+    $this->sentiment_score = $sentiment_score ?? "";
   }
 }
 
@@ -562,7 +562,7 @@ class UnsupportedMediaTypeException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

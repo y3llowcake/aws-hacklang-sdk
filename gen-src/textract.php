@@ -45,8 +45,8 @@ class AnalyzeDocumentResponse {
   ?'document_metadata' => DocumentMetadata,
   ?'human_loop_activation_output' => HumanLoopActivationOutput,
   ) $s = shape()) {
-    $this->analyze_document_model_version = $analyze_document_model_version ?? ;
-    $this->blocks = $blocks ?? ;
+    $this->analyze_document_model_version = $analyze_document_model_version ?? "";
+    $this->blocks = $blocks ?? [];
     $this->document_metadata = $document_metadata ?? null;
     $this->human_loop_activation_output = $human_loop_activation_output ?? null;
   }
@@ -90,18 +90,18 @@ class Block {
   ?'text' => string,
   ) $s = shape()) {
     $this->block_type = $block_type ?? "";
-    $this->column_index = $column_index ?? ;
-    $this->column_span = $column_span ?? ;
-    $this->confidence = $confidence ?? ;
+    $this->column_index = $column_index ?? 0;
+    $this->column_span = $column_span ?? 0;
+    $this->confidence = $confidence ?? 0.0;
     $this->entity_types = $entity_types ?? [];
     $this->geometry = $geometry ?? null;
-    $this->id = $id ?? ;
-    $this->page = $page ?? ;
-    $this->relationships = $relationships ?? ;
-    $this->row_index = $row_index ?? ;
-    $this->row_span = $row_span ?? ;
+    $this->id = $id ?? "";
+    $this->page = $page ?? 0;
+    $this->relationships = $relationships ?? [];
+    $this->row_index = $row_index ?? 0;
+    $this->row_span = $row_span ?? 0;
     $this->selection_status = $selection_status ?? "";
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -121,10 +121,10 @@ class BoundingBox {
   ?'top' => Float,
   ?'width' => Float,
   ) $s = shape()) {
-    $this->height = $height ?? ;
-    $this->left = $left ?? ;
-    $this->top = $top ?? ;
-    $this->width = $width ?? ;
+    $this->height = $height ?? 0.0;
+    $this->left = $left ?? 0.0;
+    $this->top = $top ?? 0.0;
+    $this->width = $width ?? 0.0;
   }
 }
 
@@ -154,8 +154,8 @@ class DetectDocumentTextResponse {
   ?'detect_document_text_model_version' => string,
   ?'document_metadata' => DocumentMetadata,
   ) $s = shape()) {
-    $this->blocks = $blocks ?? ;
-    $this->detect_document_text_model_version = $detect_document_text_model_version ?? ;
+    $this->blocks = $blocks ?? [];
+    $this->detect_document_text_model_version = $detect_document_text_model_version ?? "";
     $this->document_metadata = $document_metadata ?? null;
   }
 }
@@ -168,7 +168,7 @@ class Document {
   ?'bytes' => ImageBlob,
   ?'s_3_object' => S3Object,
   ) $s = shape()) {
-    $this->bytes = $bytes ?? ;
+    $this->bytes = $bytes ?? "";
     $this->s_3_object = $s_3_object ?? null;
   }
 }
@@ -189,7 +189,7 @@ class DocumentMetadata {
   public function __construct(shape(
   ?'pages' => UInteger,
   ) $s = shape()) {
-    $this->pages = $pages ?? [];
+    $this->pages = $pages ?? 0;
   }
 }
 
@@ -239,7 +239,7 @@ class GetDocumentAnalysisRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -261,11 +261,11 @@ class GetDocumentAnalysisResponse {
   ?'status_message' => StatusMessage,
   ?'warnings' => Warnings,
   ) $s = shape()) {
-    $this->analyze_document_model_version = $analyze_document_model_version ?? ;
-    $this->blocks = $blocks ?? ;
+    $this->analyze_document_model_version = $analyze_document_model_version ?? "";
+    $this->blocks = $blocks ?? [];
     $this->document_metadata = $document_metadata ?? null;
     $this->job_status = $job_status ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->warnings = $warnings ?? [];
   }
@@ -283,7 +283,7 @@ class GetDocumentTextDetectionRequest {
   ) $s = shape()) {
     $this->job_id = $job_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -305,11 +305,11 @@ class GetDocumentTextDetectionResponse {
   ?'status_message' => StatusMessage,
   ?'warnings' => Warnings,
   ) $s = shape()) {
-    $this->blocks = $blocks ?? ;
-    $this->detect_document_text_model_version = $detect_document_text_model_version ?? ;
+    $this->blocks = $blocks ?? [];
+    $this->detect_document_text_model_version = $detect_document_text_model_version ?? "";
     $this->document_metadata = $document_metadata ?? null;
     $this->job_status = $job_status ?? "";
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->status_message = $status_message ?? "";
     $this->warnings = $warnings ?? [];
   }
@@ -349,7 +349,7 @@ class HumanLoopConfig {
   ?'flow_definition_arn' => FlowDefinitionArn,
   ?'human_loop_name' => HumanLoopName,
   ) $s = shape()) {
-    $this->data_attributes = $data_attributes ?? ;
+    $this->data_attributes = $data_attributes ?? null;
     $this->flow_definition_arn = $flow_definition_arn ?? "";
     $this->human_loop_name = $human_loop_name ?? "";
   }
@@ -377,9 +377,9 @@ class HumanLoopQuotaExceededException {
   ?'resource_type' => string,
   ?'service_code' => string,
   ) $s = shape()) {
-    $this->quota_code = $quota_code ?? ;
-    $this->resource_type = $resource_type ?? ;
-    $this->service_code = $service_code ?? ;
+    $this->quota_code = $quota_code ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->service_code = $service_code ?? "";
   }
 }
 
@@ -466,8 +466,8 @@ class Point {
   ?'x' => Float,
   ?'y' => Float,
   ) $s = shape()) {
-    $this->x = $x ?? ;
-    $this->y = $y ?? ;
+    $this->x = $x ?? 0.0;
+    $this->y = $y ?? 0.0;
   }
 }
 
@@ -488,8 +488,8 @@ class Relationship {
   ?'ids' => IdList,
   ?'type' => RelationshipType,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
-    $this->type = $type ?? ;
+    $this->ids = $ids ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -511,9 +511,9 @@ class S3Object {
   ?'name' => S3ObjectName,
   ?'version' => S3ObjectVersion,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 

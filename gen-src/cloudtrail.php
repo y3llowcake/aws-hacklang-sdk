@@ -30,7 +30,7 @@ class AddTagsRequest {
   ?'resource_id' => string,
   ?'tags_list' => TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->tags_list = $tags_list ?? [];
   }
 }
@@ -95,17 +95,17 @@ class CreateTrailRequest {
   ?'sns_topic_name' => string,
   ?'tags_list' => TagsList,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? ;
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->enable_log_file_validation = $enable_log_file_validation ?? ;
-    $this->include_global_service_events = $include_global_service_events ?? ;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? ;
-    $this->is_organization_trail = $is_organization_trail ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_name = $sns_topic_name ?? ;
+    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->enable_log_file_validation = $enable_log_file_validation ?? false;
+    $this->include_global_service_events = $include_global_service_events ?? false;
+    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
+    $this->is_organization_trail = $is_organization_trail ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_name = $sns_topic_name ?? "";
     $this->tags_list = $tags_list ?? [];
   }
 }
@@ -140,19 +140,19 @@ class CreateTrailResponse {
   ?'sns_topic_name' => string,
   ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? ;
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->include_global_service_events = $include_global_service_events ?? ;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? ;
-    $this->is_organization_trail = $is_organization_trail ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->sns_topic_name = $sns_topic_name ?? ;
-    $this->trail_arn = $trail_arn ?? ;
+    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->include_global_service_events = $include_global_service_events ?? false;
+    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
+    $this->is_organization_trail = $is_organization_trail ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->sns_topic_name = $sns_topic_name ?? "";
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -164,8 +164,8 @@ class DataResource {
   ?'type' => string,
   ?'values' => DataResourceValues,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->values = $values ?? ;
+    $this->type = $type ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -181,7 +181,7 @@ class DeleteTrailRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -200,8 +200,8 @@ class DescribeTrailsRequest {
   ?'include_shadow_trails' => boolean,
   ?'trail_name_list' => TrailNameList,
   ) $s = shape()) {
-    $this->include_shadow_trails = $include_shadow_trails ?? ;
-    $this->trail_name_list = $trail_name_list ?? ;
+    $this->include_shadow_trails = $include_shadow_trails ?? false;
+    $this->trail_name_list = $trail_name_list ?? [];
   }
 }
 
@@ -211,7 +211,7 @@ class DescribeTrailsResponse {
   public function __construct(shape(
   ?'trail_list' => TrailList,
   ) $s = shape()) {
-    $this->trail_list = $trail_list ?? ;
+    $this->trail_list = $trail_list ?? [];
   }
 }
 
@@ -237,15 +237,15 @@ class Event {
   ?'resources' => ResourceList,
   ?'username' => string,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->cloud_trail_event = $cloud_trail_event ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->event_name = $event_name ?? ;
-    $this->event_source = $event_source ?? ;
-    $this->event_time = $event_time ?? ;
-    $this->read_only = $read_only ?? ;
-    $this->resources = $resources ?? ;
-    $this->username = $username ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->cloud_trail_event = $cloud_trail_event ?? "";
+    $this->event_id = $event_id ?? "";
+    $this->event_name = $event_name ?? "";
+    $this->event_source = $event_source ?? "";
+    $this->event_time = $event_time ?? 0;
+    $this->read_only = $read_only ?? "";
+    $this->resources = $resources ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -265,7 +265,7 @@ class EventSelector {
   ) $s = shape()) {
     $this->data_resources = $data_resources ?? [];
     $this->exclude_management_event_sources = $exclude_management_event_sources ?? [];
-    $this->include_management_events = $include_management_events ?? ;
+    $this->include_management_events = $include_management_events ?? false;
     $this->read_write_type = $read_write_type ?? "";
   }
 }
@@ -282,7 +282,7 @@ class GetEventSelectorsRequest {
   public function __construct(shape(
   ?'trail_name' => string,
   ) $s = shape()) {
-    $this->trail_name = $trail_name ?? ;
+    $this->trail_name = $trail_name ?? "";
   }
 }
 
@@ -295,7 +295,7 @@ class GetEventSelectorsResponse {
   ?'trail_arn' => string,
   ) $s = shape()) {
     $this->event_selectors = $event_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? ;
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -305,7 +305,7 @@ class GetInsightSelectorsRequest {
   public function __construct(shape(
   ?'trail_name' => string,
   ) $s = shape()) {
-    $this->trail_name = $trail_name ?? ;
+    $this->trail_name = $trail_name ?? "";
   }
 }
 
@@ -318,7 +318,7 @@ class GetInsightSelectorsResponse {
   ?'trail_arn' => string,
   ) $s = shape()) {
     $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? ;
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -328,7 +328,7 @@ class GetTrailRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -348,7 +348,7 @@ class GetTrailStatusRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -390,23 +390,23 @@ class GetTrailStatusResponse {
   ?'time_logging_started' => string,
   ?'time_logging_stopped' => string,
   ) $s = shape()) {
-    $this->is_logging = $is_logging ?? ;
-    $this->latest_cloud_watch_logs_delivery_error = $latest_cloud_watch_logs_delivery_error ?? ;
-    $this->latest_cloud_watch_logs_delivery_time = $latest_cloud_watch_logs_delivery_time ?? ;
-    $this->latest_delivery_attempt_succeeded = $latest_delivery_attempt_succeeded ?? ;
-    $this->latest_delivery_attempt_time = $latest_delivery_attempt_time ?? ;
-    $this->latest_delivery_error = $latest_delivery_error ?? ;
-    $this->latest_delivery_time = $latest_delivery_time ?? ;
-    $this->latest_digest_delivery_error = $latest_digest_delivery_error ?? ;
-    $this->latest_digest_delivery_time = $latest_digest_delivery_time ?? ;
-    $this->latest_notification_attempt_succeeded = $latest_notification_attempt_succeeded ?? ;
-    $this->latest_notification_attempt_time = $latest_notification_attempt_time ?? ;
-    $this->latest_notification_error = $latest_notification_error ?? ;
-    $this->latest_notification_time = $latest_notification_time ?? ;
-    $this->start_logging_time = $start_logging_time ?? ;
-    $this->stop_logging_time = $stop_logging_time ?? ;
-    $this->time_logging_started = $time_logging_started ?? ;
-    $this->time_logging_stopped = $time_logging_stopped ?? ;
+    $this->is_logging = $is_logging ?? false;
+    $this->latest_cloud_watch_logs_delivery_error = $latest_cloud_watch_logs_delivery_error ?? "";
+    $this->latest_cloud_watch_logs_delivery_time = $latest_cloud_watch_logs_delivery_time ?? 0;
+    $this->latest_delivery_attempt_succeeded = $latest_delivery_attempt_succeeded ?? "";
+    $this->latest_delivery_attempt_time = $latest_delivery_attempt_time ?? "";
+    $this->latest_delivery_error = $latest_delivery_error ?? "";
+    $this->latest_delivery_time = $latest_delivery_time ?? 0;
+    $this->latest_digest_delivery_error = $latest_digest_delivery_error ?? "";
+    $this->latest_digest_delivery_time = $latest_digest_delivery_time ?? 0;
+    $this->latest_notification_attempt_succeeded = $latest_notification_attempt_succeeded ?? "";
+    $this->latest_notification_attempt_time = $latest_notification_attempt_time ?? "";
+    $this->latest_notification_error = $latest_notification_error ?? "";
+    $this->latest_notification_time = $latest_notification_time ?? 0;
+    $this->start_logging_time = $start_logging_time ?? 0;
+    $this->stop_logging_time = $stop_logging_time ?? 0;
+    $this->time_logging_started = $time_logging_started ?? "";
+    $this->time_logging_stopped = $time_logging_stopped ?? "";
   }
 }
 
@@ -616,9 +616,9 @@ class ListPublicKeysRequest {
   ?'next_token' => string,
   ?'start_time' => Date,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -692,8 +692,8 @@ class LookupAttribute {
   ?'attribute_key' => LookupAttributeKey,
   ?'attribute_value' => string,
   ) $s = shape()) {
-    $this->attribute_key = $attribute_key ?? ;
-    $this->attribute_value = $attribute_value ?? ;
+    $this->attribute_key = $attribute_key ?? "";
+    $this->attribute_value = $attribute_value ?? "";
   }
 }
 
@@ -717,12 +717,12 @@ class LookupEventsRequest {
   ?'next_token' => NextToken,
   ?'start_time' => Date,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->event_category = $event_category ?? "";
-    $this->lookup_attributes = $lookup_attributes ?? ;
+    $this->lookup_attributes = $lookup_attributes ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -734,7 +734,7 @@ class LookupEventsResponse {
   ?'events' => EventsList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
+    $this->events = $events ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -790,10 +790,10 @@ class PublicKey {
   ?'validity_start_time' => Date,
   ?'value' => ByteBuffer,
   ) $s = shape()) {
-    $this->fingerprint = $fingerprint ?? ;
-    $this->validity_end_time = $validity_end_time ?? ;
-    $this->validity_start_time = $validity_start_time ?? ;
-    $this->value = $value ?? ;
+    $this->fingerprint = $fingerprint ?? "";
+    $this->validity_end_time = $validity_end_time ?? 0;
+    $this->validity_start_time = $validity_start_time ?? 0;
+    $this->value = $value ?? "";
   }
 }
 
@@ -808,7 +808,7 @@ class PutEventSelectorsRequest {
   ?'trail_name' => string,
   ) $s = shape()) {
     $this->event_selectors = $event_selectors ?? [];
-    $this->trail_name = $trail_name ?? ;
+    $this->trail_name = $trail_name ?? "";
   }
 }
 
@@ -821,7 +821,7 @@ class PutEventSelectorsResponse {
   ?'trail_arn' => string,
   ) $s = shape()) {
     $this->event_selectors = $event_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? ;
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -834,7 +834,7 @@ class PutInsightSelectorsRequest {
   ?'trail_name' => string,
   ) $s = shape()) {
     $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_name = $trail_name ?? ;
+    $this->trail_name = $trail_name ?? "";
   }
 }
 
@@ -847,7 +847,7 @@ class PutInsightSelectorsResponse {
   ?'trail_arn' => string,
   ) $s = shape()) {
     $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? ;
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -861,7 +861,7 @@ class RemoveTagsRequest {
   ?'resource_id' => string,
   ?'tags_list' => TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->tags_list = $tags_list ?? [];
   }
 }
@@ -881,8 +881,8 @@ class Resource {
   ?'resource_name' => string,
   ?'resource_type' => string,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->resource_type = $resource_type ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
   }
 }
 
@@ -905,7 +905,7 @@ class ResourceTag {
   ?'resource_id' => string,
   ?'tags_list' => TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
     $this->tags_list = $tags_list ?? [];
   }
 }
@@ -932,7 +932,7 @@ class StartLoggingRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -949,7 +949,7 @@ class StopLoggingRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -970,8 +970,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1020,22 +1020,22 @@ class Trail {
   ?'sns_topic_name' => string,
   ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? ;
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->has_custom_event_selectors = $has_custom_event_selectors ?? ;
-    $this->has_insight_selectors = $has_insight_selectors ?? ;
-    $this->home_region = $home_region ?? ;
-    $this->include_global_service_events = $include_global_service_events ?? ;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? ;
-    $this->is_organization_trail = $is_organization_trail ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->sns_topic_name = $sns_topic_name ?? ;
-    $this->trail_arn = $trail_arn ?? ;
+    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->has_custom_event_selectors = $has_custom_event_selectors ?? false;
+    $this->has_insight_selectors = $has_insight_selectors ?? false;
+    $this->home_region = $home_region ?? "";
+    $this->include_global_service_events = $include_global_service_events ?? false;
+    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
+    $this->is_organization_trail = $is_organization_trail ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->sns_topic_name = $sns_topic_name ?? "";
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -1056,9 +1056,9 @@ class TrailInfo {
   ?'name' => string,
   ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->home_region = $home_region ?? ;
-    $this->name = $name ?? ;
-    $this->trail_arn = $trail_arn ?? ;
+    $this->home_region = $home_region ?? "";
+    $this->name = $name ?? "";
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 
@@ -1115,17 +1115,17 @@ class UpdateTrailRequest {
   ?'s_3_key_prefix' => string,
   ?'sns_topic_name' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? ;
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->enable_log_file_validation = $enable_log_file_validation ?? ;
-    $this->include_global_service_events = $include_global_service_events ?? ;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? ;
-    $this->is_organization_trail = $is_organization_trail ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_name = $sns_topic_name ?? ;
+    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->enable_log_file_validation = $enable_log_file_validation ?? false;
+    $this->include_global_service_events = $include_global_service_events ?? false;
+    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
+    $this->is_organization_trail = $is_organization_trail ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_name = $sns_topic_name ?? "";
   }
 }
 
@@ -1159,19 +1159,19 @@ class UpdateTrailResponse {
   ?'sns_topic_name' => string,
   ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? ;
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->include_global_service_events = $include_global_service_events ?? ;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? ;
-    $this->is_organization_trail = $is_organization_trail ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? ;
-    $this->name = $name ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->s_3_key_prefix = $s_3_key_prefix ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->sns_topic_name = $sns_topic_name ?? ;
-    $this->trail_arn = $trail_arn ?? ;
+    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->include_global_service_events = $include_global_service_events ?? false;
+    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
+    $this->is_organization_trail = $is_organization_trail ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
+    $this->name = $name ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->sns_topic_name = $sns_topic_name ?? "";
+    $this->trail_arn = $trail_arn ?? "";
   }
 }
 

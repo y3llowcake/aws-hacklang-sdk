@@ -57,7 +57,7 @@ class AccessDeniedFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -71,9 +71,9 @@ class AccountQuota {
   ?'max' => Long,
   ?'used' => Long,
   ) $s = shape()) {
-    $this->account_quota_name = $account_quota_name ?? ;
-    $this->max = $max ?? ;
-    $this->used = $used ?? ;
+    $this->account_quota_name = $account_quota_name ?? "";
+    $this->max = $max ?? 0;
+    $this->used = $used ?? 0;
   }
 }
 
@@ -88,7 +88,7 @@ class AddTagsToResourceMessage {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -109,9 +109,9 @@ class ApplyPendingMaintenanceActionMessage {
   ?'opt_in_type' => string,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->apply_action = $apply_action ?? ;
-    $this->opt_in_type = $opt_in_type ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->apply_action = $apply_action ?? "";
+    $this->opt_in_type = $opt_in_type ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -135,7 +135,7 @@ class AvailabilityZone {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -169,16 +169,16 @@ class Certificate {
   ?'valid_from_date' => TStamp,
   ?'valid_to_date' => TStamp,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->certificate_creation_date = $certificate_creation_date ?? ;
-    $this->certificate_identifier = $certificate_identifier ?? ;
-    $this->certificate_owner = $certificate_owner ?? ;
-    $this->certificate_pem = $certificate_pem ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->certificate_creation_date = $certificate_creation_date ?? 0;
+    $this->certificate_identifier = $certificate_identifier ?? "";
+    $this->certificate_owner = $certificate_owner ?? "";
+    $this->certificate_pem = $certificate_pem ?? "";
     $this->certificate_wallet = $certificate_wallet ?? "";
-    $this->key_length = $key_length ?? ;
-    $this->signing_algorithm = $signing_algorithm ?? ;
-    $this->valid_from_date = $valid_from_date ?? ;
-    $this->valid_to_date = $valid_to_date ?? ;
+    $this->key_length = $key_length ?? 0;
+    $this->signing_algorithm = $signing_algorithm ?? "";
+    $this->valid_from_date = $valid_from_date ?? 0;
+    $this->valid_to_date = $valid_to_date ?? 0;
   }
 }
 
@@ -204,12 +204,12 @@ class Connection {
   ?'replication_instance_identifier' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->endpoint_identifier = $endpoint_identifier ?? ;
-    $this->last_failure_message = $last_failure_message ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_instance_identifier = $replication_instance_identifier ?? ;
-    $this->status = $status ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->endpoint_identifier = $endpoint_identifier ?? "";
+    $this->last_failure_message = $last_failure_message ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_instance_identifier = $replication_instance_identifier ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -267,30 +267,30 @@ class CreateEndpointMessage {
   ?'tags' => TagList,
   ?'username' => string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->database_name = $database_name ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->database_name = $database_name ?? "";
     $this->dms_transfer_settings = $dms_transfer_settings ?? null;
     $this->dynamo_db_settings = $dynamo_db_settings ?? null;
     $this->elasticsearch_settings = $elasticsearch_settings ?? null;
-    $this->endpoint_identifier = $endpoint_identifier ?? ;
-    $this->endpoint_type = $endpoint_type ?? ;
-    $this->engine_name = $engine_name ?? ;
-    $this->external_table_definition = $external_table_definition ?? ;
-    $this->extra_connection_attributes = $extra_connection_attributes ?? ;
+    $this->endpoint_identifier = $endpoint_identifier ?? "";
+    $this->endpoint_type = $endpoint_type ?? "";
+    $this->engine_name = $engine_name ?? "";
+    $this->external_table_definition = $external_table_definition ?? "";
+    $this->extra_connection_attributes = $extra_connection_attributes ?? "";
     $this->kafka_settings = $kafka_settings ?? null;
     $this->kinesis_settings = $kinesis_settings ?? null;
-    $this->kms_key_id = $kms_key_id ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
     $this->mongo_db_settings = $mongo_db_settings ?? null;
     $this->neptune_settings = $neptune_settings ?? null;
-    $this->password = $password ?? ;
-    $this->port = $port ?? ;
+    $this->password = $password ?? "";
+    $this->port = $port ?? 0;
     $this->redshift_settings = $redshift_settings ?? null;
     $this->s_3_settings = $s_3_settings ?? null;
-    $this->server_name = $server_name ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->ssl_mode = $ssl_mode ?? ;
-    $this->tags = $tags ?? ;
-    $this->username = $username ?? ;
+    $this->server_name = $server_name ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->ssl_mode = $ssl_mode ?? "";
+    $this->tags = $tags ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -322,13 +322,13 @@ class CreateEventSubscriptionMessage {
   ?'subscription_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->source_ids = $source_ids ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->event_categories = $event_categories ?? [];
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->source_ids = $source_ids ?? [];
     $this->source_type = $source_type ?? "";
-    $this->subscription_name = $subscription_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->subscription_name = $subscription_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -374,20 +374,20 @@ class CreateReplicationInstanceMessage {
   ?'tags' => TagList,
   ?'vpc_security_group_ids' => VpcSecurityGroupIdList,
   ) $s = shape()) {
-    $this->allocated_storage = $allocated_storage ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->dns_name_servers = $dns_name_servers ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->multi_az = $multi_az ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->replication_instance_class = $replication_instance_class ?? ;
-    $this->replication_instance_identifier = $replication_instance_identifier ?? ;
-    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? ;
-    $this->tags = $tags ?? ;
-    $this->vpc_security_group_ids = $vpc_security_group_ids ?? ;
+    $this->allocated_storage = $allocated_storage ?? 0;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->dns_name_servers = $dns_name_servers ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->multi_az = $multi_az ?? false;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->replication_instance_class = $replication_instance_class ?? "";
+    $this->replication_instance_identifier = $replication_instance_identifier ?? "";
+    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_security_group_ids = $vpc_security_group_ids ?? [];
   }
 }
 
@@ -413,10 +413,10 @@ class CreateReplicationSubnetGroupMessage {
   ?'subnet_ids' => SubnetIdentifierList,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->replication_subnet_group_description = $replication_subnet_group_description ?? ;
-    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? ;
+    $this->replication_subnet_group_description = $replication_subnet_group_description ?? "";
+    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -458,18 +458,18 @@ class CreateReplicationTaskMessage {
   ?'target_endpoint_arn' => string,
   ?'task_data' => string,
   ) $s = shape()) {
-    $this->cdc_start_position = $cdc_start_position ?? ;
-    $this->cdc_start_time = $cdc_start_time ?? ;
-    $this->cdc_stop_position = $cdc_stop_position ?? ;
-    $this->migration_type = $migration_type ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_task_identifier = $replication_task_identifier ?? ;
-    $this->replication_task_settings = $replication_task_settings ?? ;
-    $this->source_endpoint_arn = $source_endpoint_arn ?? ;
-    $this->table_mappings = $table_mappings ?? ;
-    $this->tags = $tags ?? ;
-    $this->target_endpoint_arn = $target_endpoint_arn ?? ;
-    $this->task_data = $task_data ?? ;
+    $this->cdc_start_position = $cdc_start_position ?? "";
+    $this->cdc_start_time = $cdc_start_time ?? 0;
+    $this->cdc_stop_position = $cdc_stop_position ?? "";
+    $this->migration_type = $migration_type ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_task_identifier = $replication_task_identifier ?? "";
+    $this->replication_task_settings = $replication_task_settings ?? "";
+    $this->source_endpoint_arn = $source_endpoint_arn ?? "";
+    $this->table_mappings = $table_mappings ?? "";
+    $this->tags = $tags ?? [];
+    $this->target_endpoint_arn = $target_endpoint_arn ?? "";
+    $this->task_data = $task_data ?? "";
   }
 }
 
@@ -491,7 +491,7 @@ class DeleteCertificateMessage {
   public function __construct(shape(
   ?'certificate_arn' => string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -513,8 +513,8 @@ class DeleteConnectionMessage {
   ?'endpoint_arn' => string,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -534,7 +534,7 @@ class DeleteEndpointMessage {
   public function __construct(shape(
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -554,7 +554,7 @@ class DeleteEventSubscriptionMessage {
   public function __construct(shape(
   ?'subscription_name' => string,
   ) $s = shape()) {
-    $this->subscription_name = $subscription_name ?? ;
+    $this->subscription_name = $subscription_name ?? "";
   }
 }
 
@@ -574,7 +574,7 @@ class DeleteReplicationInstanceMessage {
   public function __construct(shape(
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -594,7 +594,7 @@ class DeleteReplicationSubnetGroupMessage {
   public function __construct(shape(
   ?'replication_subnet_group_identifier' => string,
   ) $s = shape()) {
-    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? ;
+    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? "";
   }
 }
 
@@ -611,7 +611,7 @@ class DeleteReplicationTaskMessage {
   public function __construct(shape(
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -640,8 +640,8 @@ class DescribeAccountAttributesResponse {
   ?'account_quotas' => AccountQuotaList,
   ?'unique_account_identifier' => string,
   ) $s = shape()) {
-    $this->account_quotas = $account_quotas ?? ;
-    $this->unique_account_identifier = $unique_account_identifier ?? ;
+    $this->account_quotas = $account_quotas ?? [];
+    $this->unique_account_identifier = $unique_account_identifier ?? "";
   }
 }
 
@@ -655,9 +655,9 @@ class DescribeCertificatesMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -669,8 +669,8 @@ class DescribeCertificatesResponse {
   ?'certificates' => CertificateList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->marker = $marker ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -684,9 +684,9 @@ class DescribeConnectionsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -698,8 +698,8 @@ class DescribeConnectionsResponse {
   ?'connections' => ConnectionList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->connections = $connections ?? ;
-    $this->marker = $marker ?? ;
+    $this->connections = $connections ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -713,9 +713,9 @@ class DescribeEndpointTypesMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -727,8 +727,8 @@ class DescribeEndpointTypesResponse {
   ?'marker' => string,
   ?'supported_endpoint_types' => SupportedEndpointTypeList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->supported_endpoint_types = $supported_endpoint_types ?? ;
+    $this->marker = $marker ?? "";
+    $this->supported_endpoint_types = $supported_endpoint_types ?? [];
   }
 }
 
@@ -742,9 +742,9 @@ class DescribeEndpointsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -756,8 +756,8 @@ class DescribeEndpointsResponse {
   ?'endpoints' => EndpointList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->endpoints = $endpoints ?? ;
-    $this->marker = $marker ?? ;
+    $this->endpoints = $endpoints ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -769,7 +769,7 @@ class DescribeEventCategoriesMessage {
   ?'filters' => FilterList,
   ?'source_type' => string,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->source_type = $source_type ?? "";
   }
 }
@@ -796,10 +796,10 @@ class DescribeEventSubscriptionsMessage {
   ?'max_records' => IntegerOptional,
   ?'subscription_name' => string,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->subscription_name = $subscription_name ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->subscription_name = $subscription_name ?? "";
   }
 }
 
@@ -812,7 +812,7 @@ class DescribeEventSubscriptionsResponse {
   ?'marker' => string,
   ) $s = shape()) {
     $this->event_subscriptions_list = $event_subscriptions_list ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -838,15 +838,15 @@ class DescribeEventsMessage {
   ?'source_type' => SourceType,
   ?'start_time' => TStamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->duration = $duration ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->event_categories = $event_categories ?? [];
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -858,8 +858,8 @@ class DescribeEventsResponse {
   ?'events' => EventList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->marker = $marker ?? ;
+    $this->events = $events ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -871,8 +871,8 @@ class DescribeOrderableReplicationInstancesMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -884,8 +884,8 @@ class DescribeOrderableReplicationInstancesResponse {
   ?'marker' => string,
   ?'orderable_replication_instances' => OrderableReplicationInstanceList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->orderable_replication_instances = $orderable_replication_instances ?? ;
+    $this->marker = $marker ?? "";
+    $this->orderable_replication_instances = $orderable_replication_instances ?? [];
   }
 }
 
@@ -901,10 +901,10 @@ class DescribePendingMaintenanceActionsMessage {
   ?'max_records' => IntegerOptional,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -916,7 +916,7 @@ class DescribePendingMaintenanceActionsResponse {
   ?'marker' => string,
   ?'pending_maintenance_actions' => PendingMaintenanceActions,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->pending_maintenance_actions = $pending_maintenance_actions ?? [];
   }
 }
@@ -927,7 +927,7 @@ class DescribeRefreshSchemasStatusMessage {
   public function __construct(shape(
   ?'endpoint_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
   }
 }
 
@@ -951,9 +951,9 @@ class DescribeReplicationInstanceTaskLogsMessage {
   ?'max_records' => IntegerOptional,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -967,9 +967,9 @@ class DescribeReplicationInstanceTaskLogsResponse {
   ?'replication_instance_arn' => string,
   ?'replication_instance_task_logs' => ReplicationInstanceTaskLogsList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_instance_task_logs = $replication_instance_task_logs ?? ;
+    $this->marker = $marker ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_instance_task_logs = $replication_instance_task_logs ?? [];
   }
 }
 
@@ -983,9 +983,9 @@ class DescribeReplicationInstancesMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -997,8 +997,8 @@ class DescribeReplicationInstancesResponse {
   ?'marker' => string,
   ?'replication_instances' => ReplicationInstanceList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->replication_instances = $replication_instances ?? ;
+    $this->marker = $marker ?? "";
+    $this->replication_instances = $replication_instances ?? [];
   }
 }
 
@@ -1012,9 +1012,9 @@ class DescribeReplicationSubnetGroupsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1026,7 +1026,7 @@ class DescribeReplicationSubnetGroupsResponse {
   ?'marker' => string,
   ?'replication_subnet_groups' => ReplicationSubnetGroups,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->replication_subnet_groups = $replication_subnet_groups ?? [];
   }
 }
@@ -1041,9 +1041,9 @@ class DescribeReplicationTaskAssessmentResultsMessage {
   ?'max_records' => IntegerOptional,
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -1057,9 +1057,9 @@ class DescribeReplicationTaskAssessmentResultsResponse {
   ?'marker' => string,
   ?'replication_task_assessment_results' => ReplicationTaskAssessmentResultList,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->replication_task_assessment_results = $replication_task_assessment_results ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->replication_task_assessment_results = $replication_task_assessment_results ?? [];
   }
 }
 
@@ -1075,10 +1075,10 @@ class DescribeReplicationTasksMessage {
   ?'max_records' => IntegerOptional,
   ?'without_settings' => BooleanOptional,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->without_settings = $without_settings ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->without_settings = $without_settings ?? false;
   }
 }
 
@@ -1090,8 +1090,8 @@ class DescribeReplicationTasksResponse {
   ?'marker' => string,
   ?'replication_tasks' => ReplicationTaskList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->replication_tasks = $replication_tasks ?? ;
+    $this->marker = $marker ?? "";
+    $this->replication_tasks = $replication_tasks ?? [];
   }
 }
 
@@ -1105,9 +1105,9 @@ class DescribeSchemasMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1119,8 +1119,8 @@ class DescribeSchemasResponse {
   ?'marker' => string,
   ?'schemas' => SchemaList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->schemas = $schemas ?? ;
+    $this->marker = $marker ?? "";
+    $this->schemas = $schemas ?? [];
   }
 }
 
@@ -1136,10 +1136,10 @@ class DescribeTableStatisticsMessage {
   ?'max_records' => IntegerOptional,
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->filters = $filters ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -1153,9 +1153,9 @@ class DescribeTableStatisticsResponse {
   ?'replication_task_arn' => string,
   ?'table_statistics' => TableStatisticsList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->table_statistics = $table_statistics ?? null;
+    $this->marker = $marker ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->table_statistics = $table_statistics ?? [];
   }
 }
 
@@ -1169,8 +1169,8 @@ class DmsTransferSettings {
   ?'bucket_name' => string,
   ?'service_access_role_arn' => string,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
   }
 }
 
@@ -1180,7 +1180,7 @@ class DynamoDbSettings {
   public function __construct(shape(
   ?'service_access_role_arn' => string,
   ) $s = shape()) {
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
   }
 }
 
@@ -1196,10 +1196,10 @@ class ElasticsearchSettings {
   ?'full_load_error_percentage' => IntegerOptional,
   ?'service_access_role_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_uri = $endpoint_uri ?? ;
-    $this->error_retry_duration = $error_retry_duration ?? ;
-    $this->full_load_error_percentage = $full_load_error_percentage ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
+    $this->endpoint_uri = $endpoint_uri ?? "";
+    $this->error_retry_duration = $error_retry_duration ?? 0;
+    $this->full_load_error_percentage = $full_load_error_percentage ?? 0;
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
   }
 }
 
@@ -1263,32 +1263,32 @@ class Endpoint {
   ?'status' => string,
   ?'username' => string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->database_name = $database_name ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->database_name = $database_name ?? "";
     $this->dms_transfer_settings = $dms_transfer_settings ?? null;
     $this->dynamo_db_settings = $dynamo_db_settings ?? null;
     $this->elasticsearch_settings = $elasticsearch_settings ?? null;
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->endpoint_identifier = $endpoint_identifier ?? ;
-    $this->endpoint_type = $endpoint_type ?? ;
-    $this->engine_display_name = $engine_display_name ?? ;
-    $this->engine_name = $engine_name ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->external_table_definition = $external_table_definition ?? ;
-    $this->extra_connection_attributes = $extra_connection_attributes ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->endpoint_identifier = $endpoint_identifier ?? "";
+    $this->endpoint_type = $endpoint_type ?? "";
+    $this->engine_display_name = $engine_display_name ?? "";
+    $this->engine_name = $engine_name ?? "";
+    $this->external_id = $external_id ?? "";
+    $this->external_table_definition = $external_table_definition ?? "";
+    $this->extra_connection_attributes = $extra_connection_attributes ?? "";
     $this->kafka_settings = $kafka_settings ?? null;
     $this->kinesis_settings = $kinesis_settings ?? null;
-    $this->kms_key_id = $kms_key_id ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
     $this->mongo_db_settings = $mongo_db_settings ?? null;
     $this->neptune_settings = $neptune_settings ?? null;
-    $this->port = $port ?? ;
+    $this->port = $port ?? 0;
     $this->redshift_settings = $redshift_settings ?? null;
     $this->s_3_settings = $s_3_settings ?? null;
-    $this->server_name = $server_name ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->ssl_mode = $ssl_mode ?? ;
-    $this->status = $status ?? ;
-    $this->username = $username ?? ;
+    $this->server_name = $server_name ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->ssl_mode = $ssl_mode ?? "";
+    $this->status = $status ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1308,10 +1308,10 @@ class Event {
   ?'source_identifier' => string,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->message = $message ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->date = $date ?? 0;
+    $this->event_categories = $event_categories ?? [];
+    $this->message = $message ?? "";
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -1326,7 +1326,7 @@ class EventCategoryGroup {
   ?'event_categories' => EventCategoriesList,
   ?'source_type' => string,
   ) $s = shape()) {
-    $this->event_categories = $event_categories ?? ;
+    $this->event_categories = $event_categories ?? [];
     $this->source_type = $source_type ?? "";
   }
 }
@@ -1357,15 +1357,15 @@ class EventSubscription {
   ?'status' => string,
   ?'subscription_creation_time' => string,
   ) $s = shape()) {
-    $this->cust_subscription_id = $cust_subscription_id ?? ;
-    $this->customer_aws_id = $customer_aws_id ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->cust_subscription_id = $cust_subscription_id ?? "";
+    $this->customer_aws_id = $customer_aws_id ?? "";
+    $this->enabled = $enabled ?? false;
     $this->event_categories_list = $event_categories_list ?? [];
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
     $this->source_ids_list = $source_ids_list ?? [];
     $this->source_type = $source_type ?? "";
-    $this->status = $status ?? ;
-    $this->subscription_creation_time = $subscription_creation_time ?? ;
+    $this->status = $status ?? "";
+    $this->subscription_creation_time = $subscription_creation_time ?? "";
   }
 }
 
@@ -1381,8 +1381,8 @@ class Filter {
   ?'name' => string,
   ?'values' => FilterValueList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1402,10 +1402,10 @@ class ImportCertificateMessage {
   ?'certificate_wallet' => CertificateWallet,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->certificate_identifier = $certificate_identifier ?? ;
-    $this->certificate_pem = $certificate_pem ?? ;
+    $this->certificate_identifier = $certificate_identifier ?? "";
+    $this->certificate_pem = $certificate_pem ?? "";
     $this->certificate_wallet = $certificate_wallet ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1425,7 +1425,7 @@ class InsufficientResourceCapacityFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1439,7 +1439,7 @@ class InvalidCertificateFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1449,7 +1449,7 @@ class InvalidResourceStateFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1459,7 +1459,7 @@ class InvalidSubnet {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1469,7 +1469,7 @@ class KMSAccessDeniedFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1479,7 +1479,7 @@ class KMSDisabledFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1489,7 +1489,7 @@ class KMSInvalidStateFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1499,7 +1499,7 @@ class KMSKeyNotAccessibleFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1509,7 +1509,7 @@ class KMSNotFoundFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1519,7 +1519,7 @@ class KMSThrottlingFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1531,8 +1531,8 @@ class KafkaSettings {
   ?'broker' => string,
   ?'topic' => string,
   ) $s = shape()) {
-    $this->broker = $broker ?? ;
-    $this->topic = $topic ?? ;
+    $this->broker = $broker ?? "";
+    $this->topic = $topic ?? "";
   }
 }
 
@@ -1558,14 +1558,14 @@ class KinesisSettings {
   ?'service_access_role_arn' => string,
   ?'stream_arn' => string,
   ) $s = shape()) {
-    $this->include_control_details = $include_control_details ?? ;
-    $this->include_partition_value = $include_partition_value ?? ;
-    $this->include_table_alter_operations = $include_table_alter_operations ?? ;
-    $this->include_transaction_details = $include_transaction_details ?? ;
-    $this->message_format = $message_format ?? ;
-    $this->partition_include_schema_table = $partition_include_schema_table ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->stream_arn = $stream_arn ?? ;
+    $this->include_control_details = $include_control_details ?? false;
+    $this->include_partition_value = $include_partition_value ?? false;
+    $this->include_table_alter_operations = $include_table_alter_operations ?? false;
+    $this->include_transaction_details = $include_transaction_details ?? false;
+    $this->message_format = $message_format ?? "";
+    $this->partition_include_schema_table = $partition_include_schema_table ?? false;
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->stream_arn = $stream_arn ?? "";
   }
 }
 
@@ -1645,29 +1645,29 @@ class ModifyEndpointMessage {
   ?'ssl_mode' => DmsSslModeValue,
   ?'username' => string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->database_name = $database_name ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->database_name = $database_name ?? "";
     $this->dms_transfer_settings = $dms_transfer_settings ?? null;
     $this->dynamo_db_settings = $dynamo_db_settings ?? null;
     $this->elasticsearch_settings = $elasticsearch_settings ?? null;
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->endpoint_identifier = $endpoint_identifier ?? ;
-    $this->endpoint_type = $endpoint_type ?? ;
-    $this->engine_name = $engine_name ?? ;
-    $this->external_table_definition = $external_table_definition ?? ;
-    $this->extra_connection_attributes = $extra_connection_attributes ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->endpoint_identifier = $endpoint_identifier ?? "";
+    $this->endpoint_type = $endpoint_type ?? "";
+    $this->engine_name = $engine_name ?? "";
+    $this->external_table_definition = $external_table_definition ?? "";
+    $this->extra_connection_attributes = $extra_connection_attributes ?? "";
     $this->kafka_settings = $kafka_settings ?? null;
     $this->kinesis_settings = $kinesis_settings ?? null;
     $this->mongo_db_settings = $mongo_db_settings ?? null;
     $this->neptune_settings = $neptune_settings ?? null;
-    $this->password = $password ?? ;
-    $this->port = $port ?? ;
+    $this->password = $password ?? "";
+    $this->port = $port ?? 0;
     $this->redshift_settings = $redshift_settings ?? null;
     $this->s_3_settings = $s_3_settings ?? null;
-    $this->server_name = $server_name ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->ssl_mode = $ssl_mode ?? ;
-    $this->username = $username ?? ;
+    $this->server_name = $server_name ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->ssl_mode = $ssl_mode ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1695,11 +1695,11 @@ class ModifyEventSubscriptionMessage {
   ?'source_type' => string,
   ?'subscription_name' => string,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->event_categories = $event_categories ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->event_categories = $event_categories ?? [];
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
     $this->source_type = $source_type ?? "";
-    $this->subscription_name = $subscription_name ?? ;
+    $this->subscription_name = $subscription_name ?? "";
   }
 }
 
@@ -1739,17 +1739,17 @@ class ModifyReplicationInstanceMessage {
   ?'replication_instance_identifier' => string,
   ?'vpc_security_group_ids' => VpcSecurityGroupIdList,
   ) $s = shape()) {
-    $this->allocated_storage = $allocated_storage ?? ;
-    $this->allow_major_version_upgrade = $allow_major_version_upgrade ?? ;
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->multi_az = $multi_az ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_instance_class = $replication_instance_class ?? ;
-    $this->replication_instance_identifier = $replication_instance_identifier ?? ;
-    $this->vpc_security_group_ids = $vpc_security_group_ids ?? ;
+    $this->allocated_storage = $allocated_storage ?? 0;
+    $this->allow_major_version_upgrade = $allow_major_version_upgrade ?? false;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->engine_version = $engine_version ?? "";
+    $this->multi_az = $multi_az ?? false;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_instance_class = $replication_instance_class ?? "";
+    $this->replication_instance_identifier = $replication_instance_identifier ?? "";
+    $this->vpc_security_group_ids = $vpc_security_group_ids ?? [];
   }
 }
 
@@ -1773,9 +1773,9 @@ class ModifyReplicationSubnetGroupMessage {
   ?'replication_subnet_group_identifier' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->replication_subnet_group_description = $replication_subnet_group_description ?? ;
-    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->replication_subnet_group_description = $replication_subnet_group_description ?? "";
+    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -1811,15 +1811,15 @@ class ModifyReplicationTaskMessage {
   ?'table_mappings' => string,
   ?'task_data' => string,
   ) $s = shape()) {
-    $this->cdc_start_position = $cdc_start_position ?? ;
-    $this->cdc_start_time = $cdc_start_time ?? ;
-    $this->cdc_stop_position = $cdc_stop_position ?? ;
-    $this->migration_type = $migration_type ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->replication_task_identifier = $replication_task_identifier ?? ;
-    $this->replication_task_settings = $replication_task_settings ?? ;
-    $this->table_mappings = $table_mappings ?? ;
-    $this->task_data = $task_data ?? ;
+    $this->cdc_start_position = $cdc_start_position ?? "";
+    $this->cdc_start_time = $cdc_start_time ?? 0;
+    $this->cdc_stop_position = $cdc_stop_position ?? "";
+    $this->migration_type = $migration_type ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->replication_task_identifier = $replication_task_identifier ?? "";
+    $this->replication_task_settings = $replication_task_settings ?? "";
+    $this->table_mappings = $table_mappings ?? "";
+    $this->task_data = $task_data ?? "";
   }
 }
 
@@ -1861,18 +1861,18 @@ class MongoDbSettings {
   ?'server_name' => string,
   ?'username' => string,
   ) $s = shape()) {
-    $this->auth_mechanism = $auth_mechanism ?? ;
-    $this->auth_source = $auth_source ?? ;
-    $this->auth_type = $auth_type ?? ;
-    $this->database_name = $database_name ?? ;
-    $this->docs_to_investigate = $docs_to_investigate ?? ;
-    $this->extract_doc_id = $extract_doc_id ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->nesting_level = $nesting_level ?? ;
-    $this->password = $password ?? ;
-    $this->port = $port ?? ;
-    $this->server_name = $server_name ?? ;
-    $this->username = $username ?? ;
+    $this->auth_mechanism = $auth_mechanism ?? "";
+    $this->auth_source = $auth_source ?? "";
+    $this->auth_type = $auth_type ?? "";
+    $this->database_name = $database_name ?? "";
+    $this->docs_to_investigate = $docs_to_investigate ?? "";
+    $this->extract_doc_id = $extract_doc_id ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->nesting_level = $nesting_level ?? "";
+    $this->password = $password ?? "";
+    $this->port = $port ?? 0;
+    $this->server_name = $server_name ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -1894,13 +1894,13 @@ class NeptuneSettings {
   ?'s_3_bucket_name' => string,
   ?'service_access_role_arn' => string,
   ) $s = shape()) {
-    $this->error_retry_duration = $error_retry_duration ?? ;
-    $this->iam_auth_enabled = $iam_auth_enabled ?? ;
-    $this->max_file_size = $max_file_size ?? ;
-    $this->max_retry_count = $max_retry_count ?? ;
-    $this->s_3_bucket_folder = $s_3_bucket_folder ?? ;
-    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
+    $this->error_retry_duration = $error_retry_duration ?? 0;
+    $this->iam_auth_enabled = $iam_auth_enabled ?? false;
+    $this->max_file_size = $max_file_size ?? 0;
+    $this->max_retry_count = $max_retry_count ?? 0;
+    $this->s_3_bucket_folder = $s_3_bucket_folder ?? "";
+    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
   }
 }
 
@@ -1928,15 +1928,15 @@ class OrderableReplicationInstance {
   ?'replication_instance_class' => string,
   ?'storage_type' => string,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->default_allocated_storage = $default_allocated_storage ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->included_allocated_storage = $included_allocated_storage ?? ;
-    $this->max_allocated_storage = $max_allocated_storage ?? ;
-    $this->min_allocated_storage = $min_allocated_storage ?? ;
-    $this->release_status = $release_status ?? ;
-    $this->replication_instance_class = $replication_instance_class ?? ;
-    $this->storage_type = $storage_type ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->default_allocated_storage = $default_allocated_storage ?? 0;
+    $this->engine_version = $engine_version ?? "";
+    $this->included_allocated_storage = $included_allocated_storage ?? 0;
+    $this->max_allocated_storage = $max_allocated_storage ?? 0;
+    $this->min_allocated_storage = $min_allocated_storage ?? 0;
+    $this->release_status = $release_status ?? "";
+    $this->replication_instance_class = $replication_instance_class ?? "";
+    $this->storage_type = $storage_type ?? "";
   }
 }
 
@@ -1960,12 +1960,12 @@ class PendingMaintenanceAction {
   ?'forced_apply_date' => TStamp,
   ?'opt_in_status' => string,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->auto_applied_after_date = $auto_applied_after_date ?? ;
-    $this->current_apply_date = $current_apply_date ?? ;
-    $this->description = $description ?? ;
-    $this->forced_apply_date = $forced_apply_date ?? ;
-    $this->opt_in_status = $opt_in_status ?? ;
+    $this->action = $action ?? "";
+    $this->auto_applied_after_date = $auto_applied_after_date ?? 0;
+    $this->current_apply_date = $current_apply_date ?? 0;
+    $this->description = $description ?? "";
+    $this->forced_apply_date = $forced_apply_date ?? 0;
+    $this->opt_in_status = $opt_in_status ?? "";
   }
 }
 
@@ -1981,8 +1981,8 @@ class RebootReplicationInstanceMessage {
   ?'force_failover' => BooleanOptional,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->force_failover = $force_failover ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->force_failover = $force_failover ?? false;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -2050,31 +2050,31 @@ class RedshiftSettings {
   ?'username' => string,
   ?'write_buffer_size' => IntegerOptional,
   ) $s = shape()) {
-    $this->accept_any_date = $accept_any_date ?? ;
-    $this->after_connect_script = $after_connect_script ?? ;
-    $this->bucket_folder = $bucket_folder ?? ;
-    $this->bucket_name = $bucket_name ?? ;
-    $this->connection_timeout = $connection_timeout ?? ;
-    $this->database_name = $database_name ?? ;
-    $this->date_format = $date_format ?? ;
-    $this->empty_as_null = $empty_as_null ?? ;
-    $this->encryption_mode = $encryption_mode ?? ;
-    $this->file_transfer_upload_streams = $file_transfer_upload_streams ?? ;
-    $this->load_timeout = $load_timeout ?? ;
-    $this->max_file_size = $max_file_size ?? ;
-    $this->password = $password ?? ;
-    $this->port = $port ?? ;
-    $this->remove_quotes = $remove_quotes ?? ;
-    $this->replace_chars = $replace_chars ?? ;
-    $this->replace_invalid_chars = $replace_invalid_chars ?? ;
-    $this->server_name = $server_name ?? ;
-    $this->server_side_encryption_kms_key_id = $server_side_encryption_kms_key_id ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->time_format = $time_format ?? ;
-    $this->trim_blanks = $trim_blanks ?? ;
-    $this->truncate_columns = $truncate_columns ?? ;
-    $this->username = $username ?? ;
-    $this->write_buffer_size = $write_buffer_size ?? ;
+    $this->accept_any_date = $accept_any_date ?? false;
+    $this->after_connect_script = $after_connect_script ?? "";
+    $this->bucket_folder = $bucket_folder ?? "";
+    $this->bucket_name = $bucket_name ?? "";
+    $this->connection_timeout = $connection_timeout ?? 0;
+    $this->database_name = $database_name ?? "";
+    $this->date_format = $date_format ?? "";
+    $this->empty_as_null = $empty_as_null ?? false;
+    $this->encryption_mode = $encryption_mode ?? "";
+    $this->file_transfer_upload_streams = $file_transfer_upload_streams ?? 0;
+    $this->load_timeout = $load_timeout ?? 0;
+    $this->max_file_size = $max_file_size ?? 0;
+    $this->password = $password ?? "";
+    $this->port = $port ?? 0;
+    $this->remove_quotes = $remove_quotes ?? false;
+    $this->replace_chars = $replace_chars ?? "";
+    $this->replace_invalid_chars = $replace_invalid_chars ?? "";
+    $this->server_name = $server_name ?? "";
+    $this->server_side_encryption_kms_key_id = $server_side_encryption_kms_key_id ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->time_format = $time_format ?? "";
+    $this->trim_blanks = $trim_blanks ?? false;
+    $this->truncate_columns = $truncate_columns ?? false;
+    $this->username = $username ?? "";
+    $this->write_buffer_size = $write_buffer_size ?? 0;
   }
 }
 
@@ -2086,8 +2086,8 @@ class RefreshSchemasMessage {
   ?'endpoint_arn' => string,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -2115,11 +2115,11 @@ class RefreshSchemasStatus {
   ?'replication_instance_arn' => string,
   ?'status' => RefreshSchemasStatusTypeValue,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->last_failure_message = $last_failure_message ?? ;
-    $this->last_refresh_date = $last_refresh_date ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->status = $status ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->last_failure_message = $last_failure_message ?? "";
+    $this->last_refresh_date = $last_refresh_date ?? 0;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2139,9 +2139,9 @@ class ReloadTablesMessage {
   ?'replication_task_arn' => string,
   ?'tables_to_reload' => TableListToReload,
   ) $s = shape()) {
-    $this->reload_option = $reload_option ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->tables_to_reload = $tables_to_reload ?? ;
+    $this->reload_option = $reload_option ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->tables_to_reload = $tables_to_reload ?? [];
   }
 }
 
@@ -2151,7 +2151,7 @@ class ReloadTablesResponse {
   public function __construct(shape(
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -2164,7 +2164,7 @@ class RemoveTagsFromResourceMessage {
   ?'tag_keys' => KeyList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2227,29 +2227,29 @@ class ReplicationInstance {
   ?'secondary_availability_zone' => string,
   ?'vpc_security_groups' => VpcSecurityGroupMembershipList,
   ) $s = shape()) {
-    $this->allocated_storage = $allocated_storage ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->availability_zone = $availability_zone ?? null;
-    $this->dns_name_servers = $dns_name_servers ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->free_until = $free_until ?? ;
-    $this->instance_create_time = $instance_create_time ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->multi_az = $multi_az ?? ;
-    $this->pending_modified_values = $pending_modified_values ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->publicly_accessible = $publicly_accessible ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_instance_class = $replication_instance_class ?? ;
-    $this->replication_instance_identifier = $replication_instance_identifier ?? ;
-    $this->replication_instance_private_ip_address = $replication_instance_private_ip_address ?? ;
-    $this->replication_instance_private_ip_addresses = $replication_instance_private_ip_addresses ?? ;
-    $this->replication_instance_public_ip_address = $replication_instance_public_ip_address ?? ;
-    $this->replication_instance_public_ip_addresses = $replication_instance_public_ip_addresses ?? ;
-    $this->replication_instance_status = $replication_instance_status ?? ;
+    $this->allocated_storage = $allocated_storage ?? 0;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->dns_name_servers = $dns_name_servers ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->free_until = $free_until ?? 0;
+    $this->instance_create_time = $instance_create_time ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->multi_az = $multi_az ?? false;
+    $this->pending_modified_values = $pending_modified_values ?? null;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->publicly_accessible = $publicly_accessible ?? false;
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_instance_class = $replication_instance_class ?? "";
+    $this->replication_instance_identifier = $replication_instance_identifier ?? "";
+    $this->replication_instance_private_ip_address = $replication_instance_private_ip_address ?? "";
+    $this->replication_instance_private_ip_addresses = $replication_instance_private_ip_addresses ?? [];
+    $this->replication_instance_public_ip_address = $replication_instance_public_ip_address ?? "";
+    $this->replication_instance_public_ip_addresses = $replication_instance_public_ip_addresses ?? [];
+    $this->replication_instance_status = $replication_instance_status ?? "";
     $this->replication_subnet_group = $replication_subnet_group ?? null;
-    $this->secondary_availability_zone = $secondary_availability_zone ?? ;
-    $this->vpc_security_groups = $vpc_security_groups ?? ;
+    $this->secondary_availability_zone = $secondary_availability_zone ?? "";
+    $this->vpc_security_groups = $vpc_security_groups ?? [];
   }
 }
 
@@ -2269,9 +2269,9 @@ class ReplicationInstanceTaskLog {
   ?'replication_task_arn' => string,
   ?'replication_task_name' => string,
   ) $s = shape()) {
-    $this->replication_instance_task_log_size = $replication_instance_task_log_size ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->replication_task_name = $replication_task_name ?? ;
+    $this->replication_instance_task_log_size = $replication_instance_task_log_size ?? 0;
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->replication_task_name = $replication_task_name ?? "";
   }
 }
 
@@ -2289,10 +2289,10 @@ class ReplicationPendingModifiedValues {
   ?'multi_az' => BooleanOptional,
   ?'replication_instance_class' => string,
   ) $s = shape()) {
-    $this->allocated_storage = $allocated_storage ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->multi_az = $multi_az ?? ;
-    $this->replication_instance_class = $replication_instance_class ?? ;
+    $this->allocated_storage = $allocated_storage ?? 0;
+    $this->engine_version = $engine_version ?? "";
+    $this->multi_az = $multi_az ?? false;
+    $this->replication_instance_class = $replication_instance_class ?? "";
   }
 }
 
@@ -2310,11 +2310,11 @@ class ReplicationSubnetGroup {
   ?'subnets' => SubnetList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->replication_subnet_group_description = $replication_subnet_group_description ?? ;
-    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? ;
-    $this->subnet_group_status = $subnet_group_status ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->replication_subnet_group_description = $replication_subnet_group_description ?? "";
+    $this->replication_subnet_group_identifier = $replication_subnet_group_identifier ?? "";
+    $this->subnet_group_status = $subnet_group_status ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -2324,7 +2324,7 @@ class ReplicationSubnetGroupDoesNotCoverEnoughAZs {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2370,24 +2370,24 @@ class ReplicationTask {
   ?'target_endpoint_arn' => string,
   ?'task_data' => string,
   ) $s = shape()) {
-    $this->cdc_start_position = $cdc_start_position ?? ;
-    $this->cdc_stop_position = $cdc_stop_position ?? ;
-    $this->last_failure_message = $last_failure_message ?? ;
-    $this->migration_type = $migration_type ?? ;
-    $this->recovery_checkpoint = $recovery_checkpoint ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->replication_task_creation_date = $replication_task_creation_date ?? ;
-    $this->replication_task_identifier = $replication_task_identifier ?? ;
-    $this->replication_task_settings = $replication_task_settings ?? ;
-    $this->replication_task_start_date = $replication_task_start_date ?? ;
+    $this->cdc_start_position = $cdc_start_position ?? "";
+    $this->cdc_stop_position = $cdc_stop_position ?? "";
+    $this->last_failure_message = $last_failure_message ?? "";
+    $this->migration_type = $migration_type ?? "";
+    $this->recovery_checkpoint = $recovery_checkpoint ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->replication_task_creation_date = $replication_task_creation_date ?? 0;
+    $this->replication_task_identifier = $replication_task_identifier ?? "";
+    $this->replication_task_settings = $replication_task_settings ?? "";
+    $this->replication_task_start_date = $replication_task_start_date ?? 0;
     $this->replication_task_stats = $replication_task_stats ?? null;
-    $this->source_endpoint_arn = $source_endpoint_arn ?? ;
-    $this->status = $status ?? ;
-    $this->stop_reason = $stop_reason ?? ;
-    $this->table_mappings = $table_mappings ?? ;
-    $this->target_endpoint_arn = $target_endpoint_arn ?? ;
-    $this->task_data = $task_data ?? ;
+    $this->source_endpoint_arn = $source_endpoint_arn ?? "";
+    $this->status = $status ?? "";
+    $this->stop_reason = $stop_reason ?? "";
+    $this->table_mappings = $table_mappings ?? "";
+    $this->target_endpoint_arn = $target_endpoint_arn ?? "";
+    $this->task_data = $task_data ?? "";
   }
 }
 
@@ -2409,13 +2409,13 @@ class ReplicationTaskAssessmentResult {
   ?'replication_task_last_assessment_date' => TStamp,
   ?'s_3_object_url' => string,
   ) $s = shape()) {
-    $this->assessment_results = $assessment_results ?? ;
-    $this->assessment_results_file = $assessment_results_file ?? ;
-    $this->assessment_status = $assessment_status ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->replication_task_identifier = $replication_task_identifier ?? ;
-    $this->replication_task_last_assessment_date = $replication_task_last_assessment_date ?? ;
-    $this->s_3_object_url = $s_3_object_url ?? ;
+    $this->assessment_results = $assessment_results ?? "";
+    $this->assessment_results_file = $assessment_results_file ?? "";
+    $this->assessment_status = $assessment_status ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->replication_task_identifier = $replication_task_identifier ?? "";
+    $this->replication_task_last_assessment_date = $replication_task_last_assessment_date ?? 0;
+    $this->s_3_object_url = $s_3_object_url ?? "";
   }
 }
 
@@ -2449,17 +2449,17 @@ class ReplicationTaskStats {
   ?'tables_loading' => int,
   ?'tables_queued' => int,
   ) $s = shape()) {
-    $this->elapsed_time_millis = $elapsed_time_millis ?? ;
-    $this->fresh_start_date = $fresh_start_date ?? ;
-    $this->full_load_finish_date = $full_load_finish_date ?? ;
-    $this->full_load_progress_percent = $full_load_progress_percent ?? ;
-    $this->full_load_start_date = $full_load_start_date ?? ;
-    $this->start_date = $start_date ?? ;
-    $this->stop_date = $stop_date ?? ;
-    $this->tables_errored = $tables_errored ?? ;
-    $this->tables_loaded = $tables_loaded ?? ;
-    $this->tables_loading = $tables_loading ?? ;
-    $this->tables_queued = $tables_queued ?? ;
+    $this->elapsed_time_millis = $elapsed_time_millis ?? 0;
+    $this->fresh_start_date = $fresh_start_date ?? 0;
+    $this->full_load_finish_date = $full_load_finish_date ?? 0;
+    $this->full_load_progress_percent = $full_load_progress_percent ?? 0;
+    $this->full_load_start_date = $full_load_start_date ?? 0;
+    $this->start_date = $start_date ?? 0;
+    $this->stop_date = $stop_date ?? 0;
+    $this->tables_errored = $tables_errored ?? 0;
+    $this->tables_loaded = $tables_loaded ?? 0;
+    $this->tables_loading = $tables_loading ?? 0;
+    $this->tables_queued = $tables_queued ?? 0;
   }
 }
 
@@ -2471,8 +2471,8 @@ class ResourceAlreadyExistsFault {
   ?'message' => ExceptionMessage,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->message = $message ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2484,7 +2484,7 @@ class ResourceNotFoundFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2497,7 +2497,7 @@ class ResourcePendingMaintenanceActions {
   ?'resource_identifier' => string,
   ) $s = shape()) {
     $this->pending_maintenance_action_details = $pending_maintenance_action_details ?? [];
-    $this->resource_identifier = $resource_identifier ?? ;
+    $this->resource_identifier = $resource_identifier ?? "";
   }
 }
 
@@ -2507,7 +2507,7 @@ class ResourceQuotaExceededFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2557,27 +2557,27 @@ class S3Settings {
   ?'service_access_role_arn' => string,
   ?'timestamp_column_name' => string,
   ) $s = shape()) {
-    $this->bucket_folder = $bucket_folder ?? ;
-    $this->bucket_name = $bucket_name ?? ;
-    $this->cdc_inserts_and_updates = $cdc_inserts_and_updates ?? ;
-    $this->cdc_inserts_only = $cdc_inserts_only ?? ;
-    $this->compression_type = $compression_type ?? ;
-    $this->csv_delimiter = $csv_delimiter ?? ;
-    $this->csv_row_delimiter = $csv_row_delimiter ?? ;
-    $this->data_format = $data_format ?? ;
-    $this->data_page_size = $data_page_size ?? ;
-    $this->dict_page_size_limit = $dict_page_size_limit ?? ;
-    $this->enable_statistics = $enable_statistics ?? ;
-    $this->encoding_type = $encoding_type ?? ;
-    $this->encryption_mode = $encryption_mode ?? ;
-    $this->external_table_definition = $external_table_definition ?? ;
-    $this->include_op_for_full_load = $include_op_for_full_load ?? ;
-    $this->parquet_timestamp_in_millisecond = $parquet_timestamp_in_millisecond ?? ;
-    $this->parquet_version = $parquet_version ?? ;
-    $this->row_group_length = $row_group_length ?? ;
-    $this->server_side_encryption_kms_key_id = $server_side_encryption_kms_key_id ?? ;
-    $this->service_access_role_arn = $service_access_role_arn ?? ;
-    $this->timestamp_column_name = $timestamp_column_name ?? ;
+    $this->bucket_folder = $bucket_folder ?? "";
+    $this->bucket_name = $bucket_name ?? "";
+    $this->cdc_inserts_and_updates = $cdc_inserts_and_updates ?? false;
+    $this->cdc_inserts_only = $cdc_inserts_only ?? false;
+    $this->compression_type = $compression_type ?? "";
+    $this->csv_delimiter = $csv_delimiter ?? "";
+    $this->csv_row_delimiter = $csv_row_delimiter ?? "";
+    $this->data_format = $data_format ?? "";
+    $this->data_page_size = $data_page_size ?? 0;
+    $this->dict_page_size_limit = $dict_page_size_limit ?? 0;
+    $this->enable_statistics = $enable_statistics ?? false;
+    $this->encoding_type = $encoding_type ?? "";
+    $this->encryption_mode = $encryption_mode ?? "";
+    $this->external_table_definition = $external_table_definition ?? "";
+    $this->include_op_for_full_load = $include_op_for_full_load ?? false;
+    $this->parquet_timestamp_in_millisecond = $parquet_timestamp_in_millisecond ?? false;
+    $this->parquet_version = $parquet_version ?? "";
+    $this->row_group_length = $row_group_length ?? 0;
+    $this->server_side_encryption_kms_key_id = $server_side_encryption_kms_key_id ?? "";
+    $this->service_access_role_arn = $service_access_role_arn ?? "";
+    $this->timestamp_column_name = $timestamp_column_name ?? "";
   }
 }
 
@@ -2587,7 +2587,7 @@ class SNSInvalidTopicFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2597,7 +2597,7 @@ class SNSNoAuthorizationFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2615,7 +2615,7 @@ class StartReplicationTaskAssessmentMessage {
   public function __construct(shape(
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -2643,11 +2643,11 @@ class StartReplicationTaskMessage {
   ?'replication_task_arn' => string,
   ?'start_replication_task_type' => StartReplicationTaskTypeValue,
   ) $s = shape()) {
-    $this->cdc_start_position = $cdc_start_position ?? ;
-    $this->cdc_start_time = $cdc_start_time ?? ;
-    $this->cdc_stop_position = $cdc_stop_position ?? ;
-    $this->replication_task_arn = $replication_task_arn ?? ;
-    $this->start_replication_task_type = $start_replication_task_type ?? ;
+    $this->cdc_start_position = $cdc_start_position ?? "";
+    $this->cdc_start_time = $cdc_start_time ?? 0;
+    $this->cdc_stop_position = $cdc_stop_position ?? "";
+    $this->replication_task_arn = $replication_task_arn ?? "";
+    $this->start_replication_task_type = $start_replication_task_type ?? "";
   }
 }
 
@@ -2669,7 +2669,7 @@ class StopReplicationTaskMessage {
   public function __construct(shape(
   ?'replication_task_arn' => string,
   ) $s = shape()) {
-    $this->replication_task_arn = $replication_task_arn ?? ;
+    $this->replication_task_arn = $replication_task_arn ?? "";
   }
 }
 
@@ -2689,7 +2689,7 @@ class StorageQuotaExceededFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2705,9 +2705,9 @@ class Subnet {
   ?'subnet_identifier' => string,
   ?'subnet_status' => string,
   ) $s = shape()) {
-    $this->subnet_availability_zone = $subnet_availability_zone ?? ;
-    $this->subnet_identifier = $subnet_identifier ?? ;
-    $this->subnet_status = $subnet_status ?? ;
+    $this->subnet_availability_zone = $subnet_availability_zone ?? null;
+    $this->subnet_identifier = $subnet_identifier ?? "";
+    $this->subnet_status = $subnet_status ?? "";
   }
 }
 
@@ -2717,7 +2717,7 @@ class SubnetAlreadyInUse {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2739,11 +2739,11 @@ class SupportedEndpointType {
   ?'replication_instance_engine_minimum_version' => string,
   ?'supports_cdc' => boolean,
   ) $s = shape()) {
-    $this->endpoint_type = $endpoint_type ?? ;
-    $this->engine_display_name = $engine_display_name ?? ;
-    $this->engine_name = $engine_name ?? ;
-    $this->replication_instance_engine_minimum_version = $replication_instance_engine_minimum_version ?? ;
-    $this->supports_cdc = $supports_cdc ?? ;
+    $this->endpoint_type = $endpoint_type ?? "";
+    $this->engine_display_name = $engine_display_name ?? "";
+    $this->engine_name = $engine_name ?? "";
+    $this->replication_instance_engine_minimum_version = $replication_instance_engine_minimum_version ?? "";
+    $this->supports_cdc = $supports_cdc ?? false;
   }
 }
 
@@ -2795,25 +2795,25 @@ class TableStatistics {
   ?'validation_state_details' => string,
   ?'validation_suspended_records' => Long,
   ) $s = shape()) {
-    $this->ddls = $ddls ?? ;
-    $this->deletes = $deletes ?? ;
-    $this->full_load_condtnl_chk_failed_rows = $full_load_condtnl_chk_failed_rows ?? ;
-    $this->full_load_end_time = $full_load_end_time ?? ;
-    $this->full_load_error_rows = $full_load_error_rows ?? ;
-    $this->full_load_reloaded = $full_load_reloaded ?? ;
-    $this->full_load_rows = $full_load_rows ?? ;
-    $this->full_load_start_time = $full_load_start_time ?? ;
-    $this->inserts = $inserts ?? ;
-    $this->last_update_time = $last_update_time ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->table_name = $table_name ?? ;
-    $this->table_state = $table_state ?? ;
-    $this->updates = $updates ?? ;
-    $this->validation_failed_records = $validation_failed_records ?? ;
-    $this->validation_pending_records = $validation_pending_records ?? ;
-    $this->validation_state = $validation_state ?? ;
-    $this->validation_state_details = $validation_state_details ?? ;
-    $this->validation_suspended_records = $validation_suspended_records ?? ;
+    $this->ddls = $ddls ?? 0;
+    $this->deletes = $deletes ?? 0;
+    $this->full_load_condtnl_chk_failed_rows = $full_load_condtnl_chk_failed_rows ?? 0;
+    $this->full_load_end_time = $full_load_end_time ?? 0;
+    $this->full_load_error_rows = $full_load_error_rows ?? 0;
+    $this->full_load_reloaded = $full_load_reloaded ?? false;
+    $this->full_load_rows = $full_load_rows ?? 0;
+    $this->full_load_start_time = $full_load_start_time ?? 0;
+    $this->inserts = $inserts ?? 0;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->schema_name = $schema_name ?? "";
+    $this->table_name = $table_name ?? "";
+    $this->table_state = $table_state ?? "";
+    $this->updates = $updates ?? 0;
+    $this->validation_failed_records = $validation_failed_records ?? 0;
+    $this->validation_pending_records = $validation_pending_records ?? 0;
+    $this->validation_state = $validation_state ?? "";
+    $this->validation_state_details = $validation_state_details ?? "";
+    $this->validation_suspended_records = $validation_suspended_records ?? 0;
   }
 }
 
@@ -2827,8 +2827,8 @@ class TableToReload {
   ?'schema_name' => string,
   ?'table_name' => string,
   ) $s = shape()) {
-    $this->schema_name = $schema_name ?? ;
-    $this->table_name = $table_name ?? ;
+    $this->schema_name = $schema_name ?? "";
+    $this->table_name = $table_name ?? "";
   }
 }
 
@@ -2840,8 +2840,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2855,8 +2855,8 @@ class TestConnectionMessage {
   ?'endpoint_arn' => string,
   ?'replication_instance_arn' => string,
   ) $s = shape()) {
-    $this->endpoint_arn = $endpoint_arn ?? ;
-    $this->replication_instance_arn = $replication_instance_arn ?? ;
+    $this->endpoint_arn = $endpoint_arn ?? "";
+    $this->replication_instance_arn = $replication_instance_arn ?? "";
   }
 }
 
@@ -2876,7 +2876,7 @@ class UpgradeDependencyFailureFault {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2890,8 +2890,8 @@ class VpcSecurityGroupMembership {
   ?'status' => string,
   ?'vpc_security_group_id' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->vpc_security_group_id = $vpc_security_group_id ?? ;
+    $this->status = $status ?? "";
+    $this->vpc_security_group_id = $vpc_security_group_id ?? "";
   }
 }
 

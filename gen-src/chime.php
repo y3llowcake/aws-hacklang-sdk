@@ -123,8 +123,8 @@ class AccessDeniedException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -148,14 +148,14 @@ class Account {
   ?'signin_delegate_groups' => SigninDelegateGroupList,
   ?'supported_licenses' => LicenseList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->account_type = $account_type ?? "";
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->default_license = $default_license ?? ;
-    $this->name = $name ?? ;
-    $this->signin_delegate_groups = $signin_delegate_groups ?? ;
-    $this->supported_licenses = $supported_licenses ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->default_license = $default_license ?? "";
+    $this->name = $name ?? "";
+    $this->signin_delegate_groups = $signin_delegate_groups ?? [];
+    $this->supported_licenses = $supported_licenses ?? [];
   }
 }
 
@@ -171,8 +171,8 @@ class AccountSettings {
   ?'disable_remote_control' => boolean,
   ?'enable_dial_out' => boolean,
   ) $s = shape()) {
-    $this->disable_remote_control = $disable_remote_control ?? ;
-    $this->enable_dial_out = $enable_dial_out ?? ;
+    $this->disable_remote_control = $disable_remote_control ?? false;
+    $this->enable_dial_out = $enable_dial_out ?? false;
   }
 }
 
@@ -186,8 +186,8 @@ class AlexaForBusinessMetadata {
   ?'alexa_for_business_room_arn' => SensitiveString,
   ?'is_alexa_for_business_enabled' => boolean,
   ) $s = shape()) {
-    $this->alexa_for_business_room_arn = $alexa_for_business_room_arn ?? ;
-    $this->is_alexa_for_business_enabled = $is_alexa_for_business_enabled ?? ;
+    $this->alexa_for_business_room_arn = $alexa_for_business_room_arn ?? "";
+    $this->is_alexa_for_business_enabled = $is_alexa_for_business_enabled ?? false;
   }
 }
 
@@ -205,9 +205,9 @@ class AssociatePhoneNumberWithUserRequest {
   ?'e_164_phone_number' => E164PhoneNumber,
   ?'user_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->e_164_phone_number = $e_164_phone_number ?? "";
-    $this->user_id = $user_id ?? ;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -228,9 +228,9 @@ class AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
   ?'force_associate' => NullableBoolean,
   ?'voice_connector_group_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
-    $this->force_associate = $force_associate ?? ;
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
+    $this->force_associate = $force_associate ?? false;
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
   }
 }
 
@@ -240,7 +240,7 @@ class AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -254,9 +254,9 @@ class AssociatePhoneNumbersWithVoiceConnectorRequest {
   ?'force_associate' => NullableBoolean,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
-    $this->force_associate = $force_associate ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
+    $this->force_associate = $force_associate ?? false;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -266,7 +266,7 @@ class AssociatePhoneNumbersWithVoiceConnectorResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -278,8 +278,8 @@ class AssociateSigninDelegateGroupsWithAccountRequest {
   ?'account_id' => NonEmptyString,
   ?'signin_delegate_groups' => SigninDelegateGroupList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->signin_delegate_groups = $signin_delegate_groups ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->signin_delegate_groups = $signin_delegate_groups ?? [];
   }
 }
 
@@ -300,9 +300,9 @@ class Attendee {
   ?'external_user_id' => ExternalUserIdType,
   ?'join_token' => JoinTokenString,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->external_user_id = $external_user_id ?? ;
-    $this->join_token = $join_token ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->external_user_id = $external_user_id ?? "";
+    $this->join_token = $join_token ?? "";
   }
 }
 
@@ -320,8 +320,8 @@ class BadRequestException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -335,8 +335,8 @@ class BatchCreateAttendeeRequest {
   ?'attendees' => CreateAttendeeRequestItemList,
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->attendees = $attendees ?? ;
-    $this->meeting_id = $meeting_id ?? ;
+    $this->attendees = $attendees ?? [];
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -348,8 +348,8 @@ class BatchCreateAttendeeResponse {
   ?'attendees' => AttendeeList,
   ?'errors' => BatchCreateAttendeeErrorList,
   ) $s = shape()) {
-    $this->attendees = $attendees ?? ;
-    $this->errors = $errors ?? ;
+    $this->attendees = $attendees ?? [];
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -363,9 +363,9 @@ class BatchCreateRoomMembershipRequest {
   ?'membership_item_list' => MembershipItemList,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->membership_item_list = $membership_item_list ?? [];
-    $this->room_id = $room_id ?? ;
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -375,7 +375,7 @@ class BatchCreateRoomMembershipResponse {
   public function __construct(shape(
   ?'errors' => MemberErrorList,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -385,7 +385,7 @@ class BatchDeletePhoneNumberRequest {
   public function __construct(shape(
   ?'phone_number_ids' => NonEmptyStringList,
   ) $s = shape()) {
-    $this->phone_number_ids = $phone_number_ids ?? ;
+    $this->phone_number_ids = $phone_number_ids ?? [];
   }
 }
 
@@ -395,7 +395,7 @@ class BatchDeletePhoneNumberResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -407,7 +407,7 @@ class BatchSuspendUserRequest {
   ?'account_id' => NonEmptyString,
   ?'user_id_list' => UserIdList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->user_id_list = $user_id_list ?? [];
   }
 }
@@ -418,7 +418,7 @@ class BatchSuspendUserResponse {
   public function __construct(shape(
   ?'user_errors' => UserErrorList,
   ) $s = shape()) {
-    $this->user_errors = $user_errors ?? ;
+    $this->user_errors = $user_errors ?? [];
   }
 }
 
@@ -430,7 +430,7 @@ class BatchUnsuspendUserRequest {
   ?'account_id' => NonEmptyString,
   ?'user_id_list' => UserIdList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->user_id_list = $user_id_list ?? [];
   }
 }
@@ -441,7 +441,7 @@ class BatchUnsuspendUserResponse {
   public function __construct(shape(
   ?'user_errors' => UserErrorList,
   ) $s = shape()) {
-    $this->user_errors = $user_errors ?? ;
+    $this->user_errors = $user_errors ?? [];
   }
 }
 
@@ -451,7 +451,7 @@ class BatchUpdatePhoneNumberRequest {
   public function __construct(shape(
   ?'update_phone_number_request_items' => UpdatePhoneNumberRequestItemList,
   ) $s = shape()) {
-    $this->update_phone_number_request_items = $update_phone_number_request_items ?? ;
+    $this->update_phone_number_request_items = $update_phone_number_request_items ?? [];
   }
 }
 
@@ -461,7 +461,7 @@ class BatchUpdatePhoneNumberResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -473,8 +473,8 @@ class BatchUpdateUserRequest {
   ?'account_id' => NonEmptyString,
   ?'update_user_request_items' => UpdateUserRequestItemList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->update_user_request_items = $update_user_request_items ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->update_user_request_items = $update_user_request_items ?? [];
   }
 }
 
@@ -484,7 +484,7 @@ class BatchUpdateUserResponse {
   public function __construct(shape(
   ?'user_errors' => UserErrorList,
   ) $s = shape()) {
-    $this->user_errors = $user_errors ?? ;
+    $this->user_errors = $user_errors ?? [];
   }
 }
 
@@ -512,15 +512,15 @@ class Bot {
   ?'updated_timestamp' => Iso8601Timestamp,
   ?'user_id' => string,
   ) $s = shape()) {
-    $this->bot_email = $bot_email ?? ;
-    $this->bot_id = $bot_id ?? ;
+    $this->bot_email = $bot_email ?? "";
+    $this->bot_id = $bot_id ?? "";
     $this->bot_type = $bot_type ?? "";
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->disabled = $disabled ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->security_token = $security_token ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->disabled = $disabled ?? false;
+    $this->display_name = $display_name ?? "";
+    $this->security_token = $security_token ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -534,7 +534,7 @@ class BusinessCallingSettings {
   public function __construct(shape(
   ?'cdr_bucket' => string,
   ) $s = shape()) {
-    $this->cdr_bucket = $cdr_bucket ?? ;
+    $this->cdr_bucket = $cdr_bucket ?? "";
   }
 }
 
@@ -560,8 +560,8 @@ class ConflictException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -577,7 +577,7 @@ class CreateAccountRequest {
   public function __construct(shape(
   ?'name' => AccountName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -602,8 +602,8 @@ class CreateAttendeeError {
   ?'external_user_id' => ExternalUserIdType,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->error_message = $error_message ?? ;
-    $this->external_user_id = $external_user_id ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->external_user_id = $external_user_id ?? "";
   }
 }
 
@@ -617,9 +617,9 @@ class CreateAttendeeRequest {
   ?'meeting_id' => GuidString,
   ?'tags' => AttendeeTagList,
   ) $s = shape()) {
-    $this->external_user_id = $external_user_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->external_user_id = $external_user_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -631,8 +631,8 @@ class CreateAttendeeRequestItem {
   ?'external_user_id' => ExternalUserIdType,
   ?'tags' => AttendeeTagList,
   ) $s = shape()) {
-    $this->external_user_id = $external_user_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->external_user_id = $external_user_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -658,9 +658,9 @@ class CreateBotRequest {
   ?'display_name' => SensitiveString,
   ?'domain' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->display_name = $display_name ?? ;
-    $this->domain = $domain ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -691,11 +691,11 @@ class CreateMeetingRequest {
   ?'tags' => MeetingTagList,
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
-    $this->external_meeting_id = $external_meeting_id ?? ;
-    $this->media_region = $media_region ?? ;
-    $this->meeting_host_id = $meeting_host_id ?? ;
-    $this->notifications_configuration = $notifications_configuration ?? ;
-    $this->tags = $tags ?? ;
+    $this->external_meeting_id = $external_meeting_id ?? "";
+    $this->media_region = $media_region ?? "";
+    $this->meeting_host_id = $meeting_host_id ?? "";
+    $this->notifications_configuration = $notifications_configuration ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -717,8 +717,8 @@ class CreatePhoneNumberOrderRequest {
   ?'e_164_phone_numbers' => E164PhoneNumberList,
   ?'product_type' => PhoneNumberProductType,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
-    $this->product_type = $product_type ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
+    $this->product_type = $product_type ?? "";
   }
 }
 
@@ -752,14 +752,14 @@ class CreateProxySessionRequest {
   ?'participant_phone_numbers' => ParticipantPhoneNumberList,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->capabilities = $capabilities ?? ;
-    $this->expiry_minutes = $expiry_minutes ?? ;
+    $this->capabilities = $capabilities ?? [];
+    $this->expiry_minutes = $expiry_minutes ?? 0;
     $this->geo_match_level = $geo_match_level ?? "";
     $this->geo_match_params = $geo_match_params ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->number_selection_behavior = $number_selection_behavior ?? "";
-    $this->participant_phone_numbers = $participant_phone_numbers ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->participant_phone_numbers = $participant_phone_numbers ?? [];
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -785,10 +785,10 @@ class CreateRoomMembershipRequest {
   ?'role' => RoomMembershipRole,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->role = $role ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->member_id = $member_id ?? "";
+    $this->role = $role ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -812,9 +812,9 @@ class CreateRoomRequest {
   ?'client_request_token' => ClientRequestToken,
   ?'name' => SensitiveString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->client_request_token = $client_request_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -840,10 +840,10 @@ class CreateUserRequest {
   ?'user_type' => UserType,
   ?'username' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->email = $email ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->email = $email ?? "";
     $this->user_type = $user_type ?? "";
-    $this->username = $username ?? ;
+    $this->username = $username ?? "";
   }
 }
 
@@ -865,8 +865,8 @@ class CreateVoiceConnectorGroupRequest {
   ?'name' => VoiceConnectorGroupName,
   ?'voice_connector_items' => VoiceConnectorItemList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->voice_connector_items = $voice_connector_items ?? ;
+    $this->name = $name ?? "";
+    $this->voice_connector_items = $voice_connector_items ?? [];
   }
 }
 
@@ -890,9 +890,9 @@ class CreateVoiceConnectorRequest {
   ?'name' => VoiceConnectorName,
   ?'require_encryption' => boolean,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->name = $name ?? ;
-    $this->require_encryption = $require_encryption ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->name = $name ?? "";
+    $this->require_encryption = $require_encryption ?? false;
   }
 }
 
@@ -914,8 +914,8 @@ class Credential {
   ?'password' => SensitiveString,
   ?'username' => SensitiveString,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->username = $username ?? ;
+    $this->password = $password ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -929,7 +929,7 @@ class DeleteAccountRequest {
   public function __construct(shape(
   ?'account_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -948,8 +948,8 @@ class DeleteAttendeeRequest {
   ?'attendee_id' => GuidString,
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -961,8 +961,8 @@ class DeleteEventsConfigurationRequest {
   ?'account_id' => NonEmptyString,
   ?'bot_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
   }
 }
 
@@ -972,7 +972,7 @@ class DeleteMeetingRequest {
   public function __construct(shape(
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->meeting_id = $meeting_id ?? ;
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -982,7 +982,7 @@ class DeletePhoneNumberRequest {
   public function __construct(shape(
   ?'phone_number_id' => string,
   ) $s = shape()) {
-    $this->phone_number_id = $phone_number_id ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
   }
 }
 
@@ -994,8 +994,8 @@ class DeleteProxySessionRequest {
   ?'proxy_session_id' => NonEmptyString128,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->proxy_session_id = $proxy_session_id ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->proxy_session_id = $proxy_session_id ?? "";
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1009,9 +1009,9 @@ class DeleteRoomMembershipRequest {
   ?'member_id' => NonEmptyString,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->member_id = $member_id ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -1023,8 +1023,8 @@ class DeleteRoomRequest {
   ?'account_id' => NonEmptyString,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -1034,7 +1034,7 @@ class DeleteVoiceConnectorGroupRequest {
   public function __construct(shape(
   ?'voice_connector_group_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
   }
 }
 
@@ -1044,7 +1044,7 @@ class DeleteVoiceConnectorOriginationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1054,7 +1054,7 @@ class DeleteVoiceConnectorProxyRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1064,7 +1064,7 @@ class DeleteVoiceConnectorRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1074,7 +1074,7 @@ class DeleteVoiceConnectorStreamingConfigurationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1086,8 +1086,8 @@ class DeleteVoiceConnectorTerminationCredentialsRequest {
   ?'usernames' => SensitiveStringList,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->usernames = $usernames ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->usernames = $usernames ?? [];
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1097,7 +1097,7 @@ class DeleteVoiceConnectorTerminationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1109,8 +1109,8 @@ class DisassociatePhoneNumberFromUserRequest {
   ?'account_id' => string,
   ?'user_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1129,8 +1129,8 @@ class DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
   ?'e_164_phone_numbers' => E164PhoneNumberList,
   ?'voice_connector_group_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
   }
 }
 
@@ -1140,7 +1140,7 @@ class DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -1152,8 +1152,8 @@ class DisassociatePhoneNumbersFromVoiceConnectorRequest {
   ?'e_164_phone_numbers' => E164PhoneNumberList,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1163,7 +1163,7 @@ class DisassociatePhoneNumbersFromVoiceConnectorResponse {
   public function __construct(shape(
   ?'phone_number_errors' => PhoneNumberErrorList,
   ) $s = shape()) {
-    $this->phone_number_errors = $phone_number_errors ?? ;
+    $this->phone_number_errors = $phone_number_errors ?? [];
   }
 }
 
@@ -1175,8 +1175,8 @@ class DisassociateSigninDelegateGroupsFromAccountRequest {
   ?'account_id' => NonEmptyString,
   ?'group_names' => NonEmptyStringList,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->group_names = $group_names ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->group_names = $group_names ?? [];
   }
 }
 
@@ -1207,9 +1207,9 @@ class EventsConfiguration {
   ?'lambda_function_arn' => SensitiveString,
   ?'outbound_events_https_endpoint' => SensitiveString,
   ) $s = shape()) {
-    $this->bot_id = $bot_id ?? ;
-    $this->lambda_function_arn = $lambda_function_arn ?? ;
-    $this->outbound_events_https_endpoint = $outbound_events_https_endpoint ?? ;
+    $this->bot_id = $bot_id ?? "";
+    $this->lambda_function_arn = $lambda_function_arn ?? "";
+    $this->outbound_events_https_endpoint = $outbound_events_https_endpoint ?? "";
   }
 }
 
@@ -1225,8 +1225,8 @@ class ForbiddenException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1251,7 +1251,7 @@ class GetAccountRequest {
   public function __construct(shape(
   ?'account_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -1271,7 +1271,7 @@ class GetAccountSettingsRequest {
   public function __construct(shape(
   ?'account_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
   }
 }
 
@@ -1293,8 +1293,8 @@ class GetAttendeeRequest {
   ?'attendee_id' => GuidString,
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -1316,8 +1316,8 @@ class GetBotRequest {
   ?'account_id' => NonEmptyString,
   ?'bot_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
   }
 }
 
@@ -1339,8 +1339,8 @@ class GetEventsConfigurationRequest {
   ?'account_id' => NonEmptyString,
   ?'bot_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
   }
 }
 
@@ -1362,7 +1362,7 @@ class GetGlobalSettingsResponse {
   ?'business_calling' => BusinessCallingSettings,
   ?'voice_connector' => VoiceConnectorSettings,
   ) $s = shape()) {
-    $this->business_calling = $business_calling ?? ;
+    $this->business_calling = $business_calling ?? null;
     $this->voice_connector = $voice_connector ?? null;
   }
 }
@@ -1373,7 +1373,7 @@ class GetMeetingRequest {
   public function __construct(shape(
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->meeting_id = $meeting_id ?? ;
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -1393,7 +1393,7 @@ class GetPhoneNumberOrderRequest {
   public function __construct(shape(
   ?'phone_number_order_id' => GuidString,
   ) $s = shape()) {
-    $this->phone_number_order_id = $phone_number_order_id ?? ;
+    $this->phone_number_order_id = $phone_number_order_id ?? "";
   }
 }
 
@@ -1413,7 +1413,7 @@ class GetPhoneNumberRequest {
   public function __construct(shape(
   ?'phone_number_id' => string,
   ) $s = shape()) {
-    $this->phone_number_id = $phone_number_id ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
   }
 }
 
@@ -1436,7 +1436,7 @@ class GetPhoneNumberSettingsResponse {
   ?'calling_name_updated_timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
     $this->calling_name = $calling_name ?? "";
-    $this->calling_name_updated_timestamp = $calling_name_updated_timestamp ?? ;
+    $this->calling_name_updated_timestamp = $calling_name_updated_timestamp ?? 0;
   }
 }
 
@@ -1448,8 +1448,8 @@ class GetProxySessionRequest {
   ?'proxy_session_id' => NonEmptyString128,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->proxy_session_id = $proxy_session_id ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->proxy_session_id = $proxy_session_id ?? "";
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1471,8 +1471,8 @@ class GetRoomRequest {
   ?'account_id' => NonEmptyString,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -1494,8 +1494,8 @@ class GetUserRequest {
   ?'account_id' => NonEmptyString,
   ?'user_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1517,8 +1517,8 @@ class GetUserSettingsRequest {
   ?'account_id' => string,
   ?'user_id' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1538,7 +1538,7 @@ class GetVoiceConnectorGroupRequest {
   public function __construct(shape(
   ?'voice_connector_group_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
   }
 }
 
@@ -1558,7 +1558,7 @@ class GetVoiceConnectorLoggingConfigurationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1578,7 +1578,7 @@ class GetVoiceConnectorOriginationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1598,7 +1598,7 @@ class GetVoiceConnectorProxyRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1618,7 +1618,7 @@ class GetVoiceConnectorRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1638,7 +1638,7 @@ class GetVoiceConnectorStreamingConfigurationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1658,7 +1658,7 @@ class GetVoiceConnectorTerminationHealthRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1678,7 +1678,7 @@ class GetVoiceConnectorTerminationRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -1710,8 +1710,8 @@ class Invite {
   ) $s = shape()) {
     $this->email_address = $email_address ?? "";
     $this->email_status = $email_status ?? "";
-    $this->invite_id = $invite_id ?? ;
-    $this->status = $status ?? ;
+    $this->invite_id = $invite_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1729,7 +1729,7 @@ class InviteUsersRequest {
   ?'user_email_list' => UserEmailList,
   ?'user_type' => UserType,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->user_email_list = $user_email_list ?? [];
     $this->user_type = $user_type ?? "";
   }
@@ -1741,7 +1741,7 @@ class InviteUsersResponse {
   public function __construct(shape(
   ?'invites' => InviteList,
   ) $s = shape()) {
-    $this->invites = $invites ?? ;
+    $this->invites = $invites ?? [];
   }
 }
 
@@ -1765,10 +1765,10 @@ class ListAccountsRequest {
   ?'next_token' => string,
   ?'user_email' => EmailAddress,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_email = $user_email ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->user_email = $user_email ?? "";
   }
 }
 
@@ -1780,8 +1780,8 @@ class ListAccountsResponse {
   ?'accounts' => AccountList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->accounts = $accounts ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1793,8 +1793,8 @@ class ListAttendeeTagsRequest {
   ?'attendee_id' => GuidString,
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -1804,7 +1804,7 @@ class ListAttendeeTagsResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1818,9 +1818,9 @@ class ListAttendeesRequest {
   ?'meeting_id' => GuidString,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->meeting_id = $meeting_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->meeting_id = $meeting_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1832,8 +1832,8 @@ class ListAttendeesResponse {
   ?'attendees' => AttendeeList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->attendees = $attendees ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->attendees = $attendees ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1847,9 +1847,9 @@ class ListBotsRequest {
   ?'max_results' => ResultMax,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1861,8 +1861,8 @@ class ListBotsResponse {
   ?'bots' => BotList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->bots = $bots ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bots = $bots ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1872,7 +1872,7 @@ class ListMeetingTagsRequest {
   public function __construct(shape(
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->meeting_id = $meeting_id ?? ;
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -1882,7 +1882,7 @@ class ListMeetingTagsResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1894,8 +1894,8 @@ class ListMeetingsRequest {
   ?'max_results' => ResultMax,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1907,8 +1907,8 @@ class ListMeetingsResponse {
   ?'meetings' => MeetingList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->meetings = $meetings ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->meetings = $meetings ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1920,8 +1920,8 @@ class ListPhoneNumberOrdersRequest {
   ?'max_results' => ResultMax,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1933,8 +1933,8 @@ class ListPhoneNumberOrdersResponse {
   ?'next_token' => string,
   ?'phone_number_orders' => PhoneNumberOrderList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->phone_number_orders = $phone_number_orders ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->phone_number_orders = $phone_number_orders ?? [];
   }
 }
 
@@ -1954,12 +1954,12 @@ class ListPhoneNumbersRequest {
   ?'product_type' => PhoneNumberProductType,
   ?'status' => PhoneNumberStatus,
   ) $s = shape()) {
-    $this->filter_name = $filter_name ?? ;
-    $this->filter_value = $filter_value ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->status = $status ?? ;
+    $this->filter_name = $filter_name ?? "";
+    $this->filter_value = $filter_value ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->product_type = $product_type ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1971,8 +1971,8 @@ class ListPhoneNumbersResponse {
   ?'next_token' => string,
   ?'phone_numbers' => PhoneNumberList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->phone_numbers = $phone_numbers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->phone_numbers = $phone_numbers ?? [];
   }
 }
 
@@ -1988,10 +1988,10 @@ class ListProxySessionsRequest {
   ?'status' => ProxySessionStatus,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2003,7 +2003,7 @@ class ListProxySessionsResponse {
   ?'next_token' => NextTokenString,
   ?'proxy_sessions' => ProxySessions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->proxy_sessions = $proxy_sessions ?? [];
   }
 }
@@ -2020,10 +2020,10 @@ class ListRoomMembershipsRequest {
   ?'next_token' => string,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -2035,8 +2035,8 @@ class ListRoomMembershipsResponse {
   ?'next_token' => string,
   ?'room_memberships' => RoomMembershipList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->room_memberships = $room_memberships ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->room_memberships = $room_memberships ?? [];
   }
 }
 
@@ -2052,10 +2052,10 @@ class ListRoomsRequest {
   ?'member_id' => string,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->member_id = $member_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2067,8 +2067,8 @@ class ListRoomsResponse {
   ?'next_token' => string,
   ?'rooms' => RoomList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->rooms = $rooms ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->rooms = $rooms ?? [];
   }
 }
 
@@ -2078,7 +2078,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2088,7 +2088,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2106,10 +2106,10 @@ class ListUsersRequest {
   ?'user_email' => EmailAddress,
   ?'user_type' => UserType,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_email = $user_email ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_email = $user_email ?? "";
     $this->user_type = $user_type ?? "";
   }
 }
@@ -2122,8 +2122,8 @@ class ListUsersResponse {
   ?'next_token' => string,
   ?'users' => UserList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->users = $users ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -2135,8 +2135,8 @@ class ListVoiceConnectorGroupsRequest {
   ?'max_results' => ResultMax,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2148,8 +2148,8 @@ class ListVoiceConnectorGroupsResponse {
   ?'next_token' => string,
   ?'voice_connector_groups' => VoiceConnectorGroupList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->voice_connector_groups = $voice_connector_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->voice_connector_groups = $voice_connector_groups ?? [];
   }
 }
 
@@ -2159,7 +2159,7 @@ class ListVoiceConnectorTerminationCredentialsRequest {
   public function __construct(shape(
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2169,7 +2169,7 @@ class ListVoiceConnectorTerminationCredentialsResponse {
   public function __construct(shape(
   ?'usernames' => SensitiveStringList,
   ) $s = shape()) {
-    $this->usernames = $usernames ?? ;
+    $this->usernames = $usernames ?? [];
   }
 }
 
@@ -2181,8 +2181,8 @@ class ListVoiceConnectorsRequest {
   ?'max_results' => ResultMax,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2194,8 +2194,8 @@ class ListVoiceConnectorsResponse {
   ?'next_token' => string,
   ?'voice_connectors' => VoiceConnectorList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->voice_connectors = $voice_connectors ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->voice_connectors = $voice_connectors ?? [];
   }
 }
 
@@ -2205,7 +2205,7 @@ class LoggingConfiguration {
   public function __construct(shape(
   ?'enable_sip_logs' => boolean,
   ) $s = shape()) {
-    $this->enable_sip_logs = $enable_sip_logs ?? ;
+    $this->enable_sip_logs = $enable_sip_logs ?? false;
   }
 }
 
@@ -2217,8 +2217,8 @@ class LogoutUserRequest {
   ?'account_id' => NonEmptyString,
   ?'user_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -2247,13 +2247,13 @@ class MediaPlacement {
   ?'signaling_url' => UriType,
   ?'turn_control_url' => UriType,
   ) $s = shape()) {
-    $this->audio_fallback_url = $audio_fallback_url ?? ;
-    $this->audio_host_url = $audio_host_url ?? ;
-    $this->screen_data_url = $screen_data_url ?? ;
-    $this->screen_sharing_url = $screen_sharing_url ?? ;
-    $this->screen_viewing_url = $screen_viewing_url ?? ;
-    $this->signaling_url = $signaling_url ?? ;
-    $this->turn_control_url = $turn_control_url ?? ;
+    $this->audio_fallback_url = $audio_fallback_url ?? "";
+    $this->audio_host_url = $audio_host_url ?? "";
+    $this->screen_data_url = $screen_data_url ?? "";
+    $this->screen_sharing_url = $screen_sharing_url ?? "";
+    $this->screen_viewing_url = $screen_viewing_url ?? "";
+    $this->signaling_url = $signaling_url ?? "";
+    $this->turn_control_url = $turn_control_url ?? "";
   }
 }
 
@@ -2269,10 +2269,10 @@ class Meeting {
   ?'media_region' => string,
   ?'meeting_id' => GuidString,
   ) $s = shape()) {
-    $this->external_meeting_id = $external_meeting_id ?? ;
+    $this->external_meeting_id = $external_meeting_id ?? "";
     $this->media_placement = $media_placement ?? null;
-    $this->media_region = $media_region ?? ;
-    $this->meeting_id = $meeting_id ?? ;
+    $this->media_region = $media_region ?? "";
+    $this->meeting_id = $meeting_id ?? "";
   }
 }
 
@@ -2286,8 +2286,8 @@ class MeetingNotificationConfiguration {
   ?'sns_topic_arn' => Arn,
   ?'sqs_queue_arn' => Arn,
   ) $s = shape()) {
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
-    $this->sqs_queue_arn = $sqs_queue_arn ?? ;
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+    $this->sqs_queue_arn = $sqs_queue_arn ?? "";
   }
 }
 
@@ -2309,10 +2309,10 @@ class Member {
   ?'member_id' => NonEmptyString,
   ?'member_type' => MemberType,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->email = $email ?? ;
-    $this->full_name = $full_name ?? ;
-    $this->member_id = $member_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->email = $email ?? "";
+    $this->full_name = $full_name ?? "";
+    $this->member_id = $member_id ?? "";
     $this->member_type = $member_type ?? "";
   }
 }
@@ -2328,8 +2328,8 @@ class MemberError {
   ?'member_id' => NonEmptyString,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->error_message = $error_message ?? ;
-    $this->member_id = $member_id ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->member_id = $member_id ?? "";
   }
 }
 
@@ -2345,8 +2345,8 @@ class MembershipItem {
   ?'member_id' => NonEmptyString,
   ?'role' => RoomMembershipRole,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->role = $role ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->role = $role ?? "";
   }
 }
 
@@ -2368,8 +2368,8 @@ class NotFoundException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2386,7 +2386,7 @@ class OrderedPhoneNumber {
   ?'status' => OrderedPhoneNumberStatus,
   ) $s = shape()) {
     $this->e_164_phone_number = $e_164_phone_number ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2402,8 +2402,8 @@ class Origination {
   ?'disabled' => boolean,
   ?'routes' => OriginationRouteList,
   ) $s = shape()) {
-    $this->disabled = $disabled ?? ;
-    $this->routes = $routes ?? ;
+    $this->disabled = $disabled ?? false;
+    $this->routes = $routes ?? [];
   }
 }
 
@@ -2421,11 +2421,11 @@ class OriginationRoute {
   ?'protocol' => OriginationRouteProtocol,
   ?'weight' => OriginationRouteWeight,
   ) $s = shape()) {
-    $this->host = $host ?? ;
+    $this->host = $host ?? "";
     $this->port = $port ?? 0;
-    $this->priority = $priority ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->weight = $weight ?? ;
+    $this->priority = $priority ?? 0;
+    $this->protocol = $protocol ?? "";
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -2445,8 +2445,8 @@ class Participant {
   ?'phone_number' => E164PhoneNumber,
   ?'proxy_phone_number' => E164PhoneNumber,
   ) $s = shape()) {
-    $this->phone_number = $phone_number ?? null;
-    $this->proxy_phone_number = $proxy_phone_number ?? ;
+    $this->phone_number = $phone_number ?? "";
+    $this->proxy_phone_number = $proxy_phone_number ?? "";
   }
 }
 
@@ -2482,18 +2482,18 @@ class PhoneNumber {
   ?'type' => PhoneNumberType,
   ?'updated_timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
-    $this->associations = $associations ?? ;
+    $this->associations = $associations ?? [];
     $this->calling_name = $calling_name ?? "";
     $this->calling_name_status = $calling_name_status ?? "";
-    $this->capabilities = $capabilities ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->deletion_timestamp = $deletion_timestamp ?? ;
+    $this->capabilities = $capabilities ?? null;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->deletion_timestamp = $deletion_timestamp ?? 0;
     $this->e_164_phone_number = $e_164_phone_number ?? "";
-    $this->phone_number_id = $phone_number_id ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
+    $this->product_type = $product_type ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
   }
 }
 
@@ -2507,9 +2507,9 @@ class PhoneNumberAssociation {
   ?'name' => PhoneNumberAssociationName,
   ?'value' => string,
   ) $s = shape()) {
-    $this->associated_timestamp = $associated_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->associated_timestamp = $associated_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2533,12 +2533,12 @@ class PhoneNumberCapabilities {
   ?'outbound_mms' => NullableBoolean,
   ?'outbound_sms' => NullableBoolean,
   ) $s = shape()) {
-    $this->inbound_call = $inbound_call ?? ;
-    $this->inbound_mms = $inbound_mms ?? ;
-    $this->inbound_sms = $inbound_sms ?? ;
-    $this->outbound_call = $outbound_call ?? ;
-    $this->outbound_mms = $outbound_mms ?? ;
-    $this->outbound_sms = $outbound_sms ?? ;
+    $this->inbound_call = $inbound_call ?? false;
+    $this->inbound_mms = $inbound_mms ?? false;
+    $this->inbound_sms = $inbound_sms ?? false;
+    $this->outbound_call = $outbound_call ?? false;
+    $this->outbound_mms = $outbound_mms ?? false;
+    $this->outbound_sms = $outbound_sms ?? false;
   }
 }
 
@@ -2553,8 +2553,8 @@ class PhoneNumberError {
   ?'phone_number_id' => NonEmptyString,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->error_message = $error_message ?? ;
-    $this->phone_number_id = $phone_number_id ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->phone_number_id = $phone_number_id ?? "";
   }
 }
 
@@ -2580,12 +2580,12 @@ class PhoneNumberOrder {
   ?'status' => PhoneNumberOrderStatus,
   ?'updated_timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->ordered_phone_numbers = $ordered_phone_numbers ?? ;
-    $this->phone_number_order_id = $phone_number_order_id ?? ;
-    $this->product_type = $product_type ?? ;
-    $this->status = $status ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->ordered_phone_numbers = $ordered_phone_numbers ?? [];
+    $this->phone_number_order_id = $phone_number_order_id ?? "";
+    $this->product_type = $product_type ?? "";
+    $this->status = $status ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
   }
 }
 
@@ -2617,10 +2617,10 @@ class Proxy {
   ?'fall_back_phone_number' => E164PhoneNumber,
   ?'phone_number_countries' => StringList,
   ) $s = shape()) {
-    $this->default_session_expiry_minutes = $default_session_expiry_minutes ?? ;
-    $this->disabled = $disabled ?? ;
-    $this->fall_back_phone_number = $fall_back_phone_number ?? ;
-    $this->phone_number_countries = $phone_number_countries ?? ;
+    $this->default_session_expiry_minutes = $default_session_expiry_minutes ?? 0;
+    $this->disabled = $disabled ?? false;
+    $this->fall_back_phone_number = $fall_back_phone_number ?? "";
+    $this->phone_number_countries = $phone_number_countries ?? [];
   }
 }
 
@@ -2654,19 +2654,19 @@ class ProxySession {
   ?'updated_timestamp' => Iso8601Timestamp,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->capabilities = $capabilities ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->ended_timestamp = $ended_timestamp ?? ;
-    $this->expiry_minutes = $expiry_minutes ?? ;
+    $this->capabilities = $capabilities ?? [];
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->ended_timestamp = $ended_timestamp ?? 0;
+    $this->expiry_minutes = $expiry_minutes ?? 0;
     $this->geo_match_level = $geo_match_level ?? "";
     $this->geo_match_params = $geo_match_params ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->number_selection_behavior = $number_selection_behavior ?? "";
     $this->participants = $participants ?? [];
-    $this->proxy_session_id = $proxy_session_id ?? ;
-    $this->status = $status ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->proxy_session_id = $proxy_session_id ?? "";
+    $this->status = $status ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2688,10 +2688,10 @@ class PutEventsConfigurationRequest {
   ?'lambda_function_arn' => SensitiveString,
   ?'outbound_events_https_endpoint' => SensitiveString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
-    $this->lambda_function_arn = $lambda_function_arn ?? ;
-    $this->outbound_events_https_endpoint = $outbound_events_https_endpoint ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
+    $this->lambda_function_arn = $lambda_function_arn ?? "";
+    $this->outbound_events_https_endpoint = $outbound_events_https_endpoint ?? "";
   }
 }
 
@@ -2714,7 +2714,7 @@ class PutVoiceConnectorLoggingConfigurationRequest {
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
     $this->logging_configuration = $logging_configuration ?? null;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2737,7 +2737,7 @@ class PutVoiceConnectorOriginationRequest {
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
     $this->origination = $origination ?? null;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2765,11 +2765,11 @@ class PutVoiceConnectorProxyRequest {
   ?'phone_number_pool_countries' => CountryList,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->default_session_expiry_minutes = $default_session_expiry_minutes ?? ;
-    $this->disabled = $disabled ?? ;
-    $this->fall_back_phone_number = $fall_back_phone_number ?? ;
-    $this->phone_number_pool_countries = $phone_number_pool_countries ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->default_session_expiry_minutes = $default_session_expiry_minutes ?? 0;
+    $this->disabled = $disabled ?? false;
+    $this->fall_back_phone_number = $fall_back_phone_number ?? "";
+    $this->phone_number_pool_countries = $phone_number_pool_countries ?? [];
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2792,7 +2792,7 @@ class PutVoiceConnectorStreamingConfigurationRequest {
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
     $this->streaming_configuration = $streaming_configuration ?? null;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2814,8 +2814,8 @@ class PutVoiceConnectorTerminationCredentialsRequest {
   ?'credentials' => CredentialList,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->credentials = $credentials ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->credentials = $credentials ?? [];
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2828,7 +2828,7 @@ class PutVoiceConnectorTerminationRequest {
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
     $this->termination = $termination ?? null;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -2850,8 +2850,8 @@ class RegenerateSecurityTokenRequest {
   ?'account_id' => NonEmptyString,
   ?'bot_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
   }
 }
 
@@ -2875,8 +2875,8 @@ class ResetPersonalPINRequest {
   ?'account_id' => NonEmptyString,
   ?'user_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -2898,8 +2898,8 @@ class ResourceLimitExceededException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2909,7 +2909,7 @@ class RestorePhoneNumberRequest {
   public function __construct(shape(
   ?'phone_number_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->phone_number_id = $phone_number_id ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
   }
 }
 
@@ -2941,12 +2941,12 @@ class Room {
   ?'room_id' => NonEmptyString,
   ?'updated_timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->created_by = $created_by ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->room_id = $room_id ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->created_by = $created_by ?? "";
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->room_id = $room_id ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
   }
 }
 
@@ -2966,11 +2966,11 @@ class RoomMembership {
   ?'room_id' => NonEmptyString,
   ?'updated_timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
-    $this->invited_by = $invited_by ?? ;
+    $this->invited_by = $invited_by ?? "";
     $this->member = $member ?? null;
-    $this->role = $role ?? ;
-    $this->room_id = $room_id ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
+    $this->role = $role ?? "";
+    $this->room_id = $room_id ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
   }
 }
 
@@ -2997,11 +2997,11 @@ class SearchAvailablePhoneNumbersRequest {
   ?'toll_free_prefix' => TollFreePrefix,
   ) $s = shape()) {
     $this->area_code = $area_code ?? "";
-    $this->city = $city ?? ;
+    $this->city = $city ?? "";
     $this->country = $country ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->state = $state ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->state = $state ?? "";
     $this->toll_free_prefix = $toll_free_prefix ?? "";
   }
 }
@@ -3012,7 +3012,7 @@ class SearchAvailablePhoneNumbersResponse {
   public function __construct(shape(
   ?'e_164_phone_numbers' => E164PhoneNumberList,
   ) $s = shape()) {
-    $this->e_164_phone_numbers = $e_164_phone_numbers ?? ;
+    $this->e_164_phone_numbers = $e_164_phone_numbers ?? [];
   }
 }
 
@@ -3028,8 +3028,8 @@ class ServiceFailureException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3041,8 +3041,8 @@ class ServiceUnavailableException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3052,7 +3052,7 @@ class SigninDelegateGroup {
   public function __construct(shape(
   ?'group_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -3067,7 +3067,7 @@ class StreamingConfiguration {
   ?'disabled' => boolean,
   ) $s = shape()) {
     $this->data_retention_in_hours = $data_retention_in_hours ?? 0;
-    $this->disabled = $disabled ?? ;
+    $this->disabled = $disabled ?? false;
   }
 }
 
@@ -3085,8 +3085,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3100,9 +3100,9 @@ class TagAttendeeRequest {
   ?'meeting_id' => GuidString,
   ?'tags' => AttendeeTagList,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3120,8 +3120,8 @@ class TagMeetingRequest {
   ?'meeting_id' => GuidString,
   ?'tags' => MeetingTagList,
   ) $s = shape()) {
-    $this->meeting_id = $meeting_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->meeting_id = $meeting_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3133,8 +3133,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3150,9 +3150,9 @@ class TelephonySettings {
   ?'outbound_calling' => boolean,
   ?'sms' => boolean,
   ) $s = shape()) {
-    $this->inbound_calling = $inbound_calling ?? ;
-    $this->outbound_calling = $outbound_calling ?? ;
-    $this->sms = $sms ?? ;
+    $this->inbound_calling = $inbound_calling ?? false;
+    $this->outbound_calling = $outbound_calling ?? false;
+    $this->sms = $sms ?? false;
   }
 }
 
@@ -3170,11 +3170,11 @@ class Termination {
   ?'default_phone_number' => E164PhoneNumber,
   ?'disabled' => boolean,
   ) $s = shape()) {
-    $this->calling_regions = $calling_regions ?? ;
-    $this->cidr_allowed_list = $cidr_allowed_list ?? ;
+    $this->calling_regions = $calling_regions ?? [];
+    $this->cidr_allowed_list = $cidr_allowed_list ?? [];
     $this->cps_limit = $cps_limit ?? 0;
-    $this->default_phone_number = $default_phone_number ?? ;
-    $this->disabled = $disabled ?? ;
+    $this->default_phone_number = $default_phone_number ?? "";
+    $this->disabled = $disabled ?? false;
   }
 }
 
@@ -3186,8 +3186,8 @@ class TerminationHealth {
   ?'source' => string,
   ?'timestamp' => Iso8601Timestamp,
   ) $s = shape()) {
-    $this->source = $source ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->source = $source ?? "";
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -3199,8 +3199,8 @@ class ThrottledClientException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3214,8 +3214,8 @@ class UnauthorizedClientException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3227,8 +3227,8 @@ class UnprocessableEntityException {
   ?'code' => ErrorCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -3242,9 +3242,9 @@ class UntagAttendeeRequest {
   ?'meeting_id' => GuidString,
   ?'tag_keys' => AttendeeTagKeyList,
   ) $s = shape()) {
-    $this->attendee_id = $attendee_id ?? ;
-    $this->meeting_id = $meeting_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->attendee_id = $attendee_id ?? "";
+    $this->meeting_id = $meeting_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3256,8 +3256,8 @@ class UntagMeetingRequest {
   ?'meeting_id' => GuidString,
   ?'tag_keys' => MeetingTagKeyList,
   ) $s = shape()) {
-    $this->meeting_id = $meeting_id ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->meeting_id = $meeting_id ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3269,8 +3269,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3282,8 +3282,8 @@ class UpdateAccountRequest {
   ?'account_id' => NonEmptyString,
   ?'name' => AccountName,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->name = $name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3305,7 +3305,7 @@ class UpdateAccountSettingsRequest {
   ?'account_id' => NonEmptyString,
   ?'account_settings' => AccountSettings,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->account_settings = $account_settings ?? null;
   }
 }
@@ -3327,9 +3327,9 @@ class UpdateBotRequest {
   ?'bot_id' => NonEmptyString,
   ?'disabled' => NullableBoolean,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->bot_id = $bot_id ?? ;
-    $this->disabled = $disabled ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->bot_id = $bot_id ?? "";
+    $this->disabled = $disabled ?? false;
   }
 }
 
@@ -3351,7 +3351,7 @@ class UpdateGlobalSettingsRequest {
   ?'business_calling' => BusinessCallingSettings,
   ?'voice_connector' => VoiceConnectorSettings,
   ) $s = shape()) {
-    $this->business_calling = $business_calling ?? ;
+    $this->business_calling = $business_calling ?? null;
     $this->voice_connector = $voice_connector ?? null;
   }
 }
@@ -3367,8 +3367,8 @@ class UpdatePhoneNumberRequest {
   ?'product_type' => PhoneNumberProductType,
   ) $s = shape()) {
     $this->calling_name = $calling_name ?? "";
-    $this->phone_number_id = $phone_number_id ?? ;
-    $this->product_type = $product_type ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
+    $this->product_type = $product_type ?? "";
   }
 }
 
@@ -3383,8 +3383,8 @@ class UpdatePhoneNumberRequestItem {
   ?'product_type' => PhoneNumberProductType,
   ) $s = shape()) {
     $this->calling_name = $calling_name ?? "";
-    $this->phone_number_id = $phone_number_id ?? ;
-    $this->product_type = $product_type ?? ;
+    $this->phone_number_id = $phone_number_id ?? "";
+    $this->product_type = $product_type ?? "";
   }
 }
 
@@ -3422,10 +3422,10 @@ class UpdateProxySessionRequest {
   ?'proxy_session_id' => NonEmptyString128,
   ?'voice_connector_id' => NonEmptyString128,
   ) $s = shape()) {
-    $this->capabilities = $capabilities ?? ;
-    $this->expiry_minutes = $expiry_minutes ?? ;
-    $this->proxy_session_id = $proxy_session_id ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->capabilities = $capabilities ?? [];
+    $this->expiry_minutes = $expiry_minutes ?? 0;
+    $this->proxy_session_id = $proxy_session_id ?? "";
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -3451,10 +3451,10 @@ class UpdateRoomMembershipRequest {
   ?'role' => RoomMembershipRole,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->role = $role ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->member_id = $member_id ?? "";
+    $this->role = $role ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -3478,9 +3478,9 @@ class UpdateRoomRequest {
   ?'name' => SensitiveString,
   ?'room_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->name = $name ?? ;
-    $this->room_id = $room_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->name = $name ?? "";
+    $this->room_id = $room_id ?? "";
   }
 }
 
@@ -3508,10 +3508,10 @@ class UpdateUserRequest {
   ?'user_id' => NonEmptyString,
   ?'user_type' => UserType,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->alexa_for_business_metadata = $alexa_for_business_metadata ?? null;
-    $this->license_type = $license_type ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->license_type = $license_type ?? "";
+    $this->user_id = $user_id ?? "";
     $this->user_type = $user_type ?? "";
   }
 }
@@ -3529,8 +3529,8 @@ class UpdateUserRequestItem {
   ?'user_type' => UserType,
   ) $s = shape()) {
     $this->alexa_for_business_metadata = $alexa_for_business_metadata ?? null;
-    $this->license_type = $license_type ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->license_type = $license_type ?? "";
+    $this->user_id = $user_id ?? "";
     $this->user_type = $user_type ?? "";
   }
 }
@@ -3557,8 +3557,8 @@ class UpdateUserSettingsRequest {
   ?'user_id' => string,
   ?'user_settings' => UserSettings,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->user_id = $user_id ?? "";
     $this->user_settings = $user_settings ?? null;
   }
 }
@@ -3573,9 +3573,9 @@ class UpdateVoiceConnectorGroupRequest {
   ?'voice_connector_group_id' => NonEmptyString,
   ?'voice_connector_items' => VoiceConnectorItemList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
-    $this->voice_connector_items = $voice_connector_items ?? ;
+    $this->name = $name ?? "";
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
+    $this->voice_connector_items = $voice_connector_items ?? [];
   }
 }
 
@@ -3599,9 +3599,9 @@ class UpdateVoiceConnectorRequest {
   ?'require_encryption' => boolean,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->require_encryption = $require_encryption ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->name = $name ?? "";
+    $this->require_encryption = $require_encryption ?? false;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -3647,18 +3647,18 @@ class User {
   ?'user_registration_status' => RegistrationStatus,
   ?'user_type' => UserType,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->alexa_for_business_metadata = $alexa_for_business_metadata ?? null;
-    $this->display_name = $display_name ?? ;
-    $this->invited_on = $invited_on ?? ;
-    $this->license_type = $license_type ?? ;
-    $this->personal_pin = $personal_pin ?? ;
-    $this->primary_email = $primary_email ?? ;
-    $this->primary_provisioned_number = $primary_provisioned_number ?? ;
-    $this->registered_on = $registered_on ?? ;
-    $this->user_id = $user_id ?? ;
-    $this->user_invitation_status = $user_invitation_status ?? ;
-    $this->user_registration_status = $user_registration_status ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->invited_on = $invited_on ?? 0;
+    $this->license_type = $license_type ?? "";
+    $this->personal_pin = $personal_pin ?? "";
+    $this->primary_email = $primary_email ?? "";
+    $this->primary_provisioned_number = $primary_provisioned_number ?? "";
+    $this->registered_on = $registered_on ?? 0;
+    $this->user_id = $user_id ?? "";
+    $this->user_invitation_status = $user_invitation_status ?? "";
+    $this->user_registration_status = $user_registration_status ?? "";
     $this->user_type = $user_type ?? "";
   }
 }
@@ -3676,8 +3676,8 @@ class UserError {
   ?'user_id' => NonEmptyString,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->error_message = $error_message ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -3693,7 +3693,7 @@ class UserSettings {
   public function __construct(shape(
   ?'telephony' => TelephonySettings,
   ) $s = shape()) {
-    $this->telephony = $telephony ?? ;
+    $this->telephony = $telephony ?? null;
   }
 }
 
@@ -3717,13 +3717,13 @@ class VoiceConnector {
   ?'updated_timestamp' => Iso8601Timestamp,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->outbound_host_name = $outbound_host_name ?? ;
-    $this->require_encryption = $require_encryption ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->outbound_host_name = $outbound_host_name ?? "";
+    $this->require_encryption = $require_encryption ?? false;
+    $this->updated_timestamp = $updated_timestamp ?? 0;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -3743,11 +3743,11 @@ class VoiceConnectorGroup {
   ?'voice_connector_group_id' => NonEmptyString,
   ?'voice_connector_items' => VoiceConnectorItemList,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->updated_timestamp = $updated_timestamp ?? ;
-    $this->voice_connector_group_id = $voice_connector_group_id ?? ;
-    $this->voice_connector_items = $voice_connector_items ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->updated_timestamp = $updated_timestamp ?? 0;
+    $this->voice_connector_group_id = $voice_connector_group_id ?? "";
+    $this->voice_connector_items = $voice_connector_items ?? [];
   }
 }
 
@@ -3763,8 +3763,8 @@ class VoiceConnectorItem {
   ?'priority' => VoiceConnectorItemPriority,
   ?'voice_connector_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->priority = $priority ?? ;
-    $this->voice_connector_id = $voice_connector_id ?? ;
+    $this->priority = $priority ?? 0;
+    $this->voice_connector_id = $voice_connector_id ?? "";
   }
 }
 
@@ -3782,7 +3782,7 @@ class VoiceConnectorSettings {
   public function __construct(shape(
   ?'cdr_bucket' => string,
   ) $s = shape()) {
-    $this->cdr_bucket = $cdr_bucket ?? ;
+    $this->cdr_bucket = $cdr_bucket ?? "";
   }
 }
 

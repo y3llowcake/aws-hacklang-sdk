@@ -67,7 +67,7 @@ class AcceptSharedDirectoryRequest {
   public function __construct(shape(
   ?'shared_directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -89,7 +89,7 @@ class AccessDeniedException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -151,8 +151,8 @@ class Attribute {
   ?'name' => AttributeName,
   ?'value' => AttributeValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -170,7 +170,7 @@ class AuthenticationFailedException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -216,11 +216,11 @@ class Certificate {
   ?'state_reason' => CertificateStateReason,
   ) $s = shape()) {
     $this->certificate_id = $certificate_id ?? "";
-    $this->common_name = $common_name ?? ;
-    $this->expiry_date_time = $expiry_date_time ?? ;
-    $this->registered_date_time = $registered_date_time ?? ;
-    $this->state = $state ?? ;
-    $this->state_reason = $state_reason ?? ;
+    $this->common_name = $common_name ?? "";
+    $this->expiry_date_time = $expiry_date_time ?? 0;
+    $this->registered_date_time = $registered_date_time ?? 0;
+    $this->state = $state ?? "";
+    $this->state_reason = $state_reason ?? "";
   }
 }
 
@@ -232,7 +232,7 @@ class CertificateAlreadyExistsException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -249,7 +249,7 @@ class CertificateDoesNotExistException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -266,7 +266,7 @@ class CertificateInUseException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -284,9 +284,9 @@ class CertificateInfo {
   ?'state' => CertificateState,
   ) $s = shape()) {
     $this->certificate_id = $certificate_id ?? "";
-    $this->common_name = $common_name ?? ;
-    $this->expiry_date_time = $expiry_date_time ?? ;
-    $this->state = $state ?? ;
+    $this->common_name = $common_name ?? "";
+    $this->expiry_date_time = $expiry_date_time ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -298,7 +298,7 @@ class CertificateLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -323,7 +323,7 @@ class ClientException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -340,8 +340,8 @@ class Computer {
   ?'computer_id' => SID,
   ?'computer_name' => ComputerName,
   ) $s = shape()) {
-    $this->computer_attributes = $computer_attributes ?? ;
-    $this->computer_id = $computer_id ?? ;
+    $this->computer_attributes = $computer_attributes ?? [];
+    $this->computer_id = $computer_id ?? "";
     $this->computer_name = $computer_name ?? "";
   }
 }
@@ -386,12 +386,12 @@ class ConnectDirectoryRequest {
   ?'size' => DirectorySize,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->connect_settings = $connect_settings ?? ;
+    $this->connect_settings = $connect_settings ?? null;
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->password = $password ?? "";
-    $this->short_name = $short_name ?? ;
-    $this->size = $size ?? ;
+    $this->short_name = $short_name ?? "";
+    $this->size = $size ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -418,7 +418,7 @@ class CreateAliasRequest {
   ?'alias' => AliasName,
   ?'directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
+    $this->alias = $alias ?? "";
     $this->directory_id = $directory_id ?? "";
   }
 }
@@ -431,7 +431,7 @@ class CreateAliasResult {
   ?'alias' => AliasName,
   ?'directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->alias = $alias ?? ;
+    $this->alias = $alias ?? "";
     $this->directory_id = $directory_id ?? "";
   }
 }
@@ -450,10 +450,10 @@ class CreateComputerRequest {
   ?'organizational_unit_distinguished_name' => OrganizationalUnitDN,
   ?'password' => ComputerPassword,
   ) $s = shape()) {
-    $this->computer_attributes = $computer_attributes ?? ;
+    $this->computer_attributes = $computer_attributes ?? [];
     $this->computer_name = $computer_name ?? "";
     $this->directory_id = $directory_id ?? "";
-    $this->organizational_unit_distinguished_name = $organizational_unit_distinguished_name ?? ;
+    $this->organizational_unit_distinguished_name = $organizational_unit_distinguished_name ?? "";
     $this->password = $password ?? "";
   }
 }
@@ -510,12 +510,12 @@ class CreateDirectoryRequest {
   ?'vpc_settings' => DirectoryVpcSettings,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->password = $password ?? "";
-    $this->short_name = $short_name ?? ;
-    $this->size = $size ?? ;
+    $this->short_name = $short_name ?? "";
+    $this->size = $size ?? "";
     $this->tags = $tags ?? [];
-    $this->vpc_settings = $vpc_settings ?? ;
+    $this->vpc_settings = $vpc_settings ?? null;
   }
 }
 
@@ -568,12 +568,12 @@ class CreateMicrosoftADRequest {
   ?'vpc_settings' => DirectoryVpcSettings,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->edition = $edition ?? ;
-    $this->name = $name ?? ;
+    $this->edition = $edition ?? "";
+    $this->name = $name ?? "";
     $this->password = $password ?? "";
-    $this->short_name = $short_name ?? ;
+    $this->short_name = $short_name ?? "";
     $this->tags = $tags ?? [];
-    $this->vpc_settings = $vpc_settings ?? ;
+    $this->vpc_settings = $vpc_settings ?? null;
   }
 }
 
@@ -598,7 +598,7 @@ class CreateSnapshotRequest {
   ?'name' => SnapshotName,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -630,7 +630,7 @@ class CreateTrustRequest {
   ?'trust_password' => TrustPassword,
   ?'trust_type' => TrustType,
   ) $s = shape()) {
-    $this->conditional_forwarder_ip_addrs = $conditional_forwarder_ip_addrs ?? ;
+    $this->conditional_forwarder_ip_addrs = $conditional_forwarder_ip_addrs ?? [];
     $this->directory_id = $directory_id ?? "";
     $this->remote_domain_name = $remote_domain_name ?? "";
     $this->selective_auth = $selective_auth ?? "";
@@ -943,7 +943,7 @@ class DescribeLDAPSSettingsRequest {
     $this->directory_id = $directory_id ?? "";
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -974,8 +974,8 @@ class DescribeSharedDirectoriesRequest {
   ) $s = shape()) {
     $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->owner_directory_id = $owner_directory_id ?? ;
-    $this->shared_directory_ids = $shared_directory_ids ?? ;
+    $this->owner_directory_id = $owner_directory_id ?? "";
+    $this->shared_directory_ids = $shared_directory_ids ?? [];
   }
 }
 
@@ -1068,7 +1068,7 @@ class DirectoryAlreadySharedException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1085,7 +1085,7 @@ class DirectoryConnectSettings {
   ?'subnet_ids' => SubnetIds,
   ?'vpc_id' => VpcId,
   ) $s = shape()) {
-    $this->customer_dns_ips = $customer_dns_ips ?? ;
+    $this->customer_dns_ips = $customer_dns_ips ?? [];
     $this->customer_user_name = $customer_user_name ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
     $this->vpc_id = $vpc_id ?? "";
@@ -1109,7 +1109,7 @@ class DirectoryConnectSettingsDescription {
   ?'vpc_id' => VpcId,
   ) $s = shape()) {
     $this->availability_zones = $availability_zones ?? [];
-    $this->connect_ips = $connect_ips ?? ;
+    $this->connect_ips = $connect_ips ?? [];
     $this->customer_user_name = $customer_user_name ?? "";
     $this->security_group_id = $security_group_id ?? "";
     $this->subnet_ids = $subnet_ids ?? [];
@@ -1170,29 +1170,29 @@ class DirectoryDescription {
   ?'vpc_settings' => DirectoryVpcSettingsDescription,
   ) $s = shape()) {
     $this->access_url = $access_url ?? "";
-    $this->alias = $alias ?? ;
-    $this->connect_settings = $connect_settings ?? ;
+    $this->alias = $alias ?? "";
+    $this->connect_settings = $connect_settings ?? null;
     $this->description = $description ?? "";
     $this->desired_number_of_domain_controllers = $desired_number_of_domain_controllers ?? 0;
     $this->directory_id = $directory_id ?? "";
     $this->dns_ip_addrs = $dns_ip_addrs ?? [];
-    $this->edition = $edition ?? ;
+    $this->edition = $edition ?? "";
     $this->launch_time = $launch_time ?? 0;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->owner_directory_description = $owner_directory_description ?? null;
     $this->radius_settings = $radius_settings ?? null;
     $this->radius_status = $radius_status ?? "";
     $this->share_method = $share_method ?? "";
-    $this->share_notes = $share_notes ?? ;
+    $this->share_notes = $share_notes ?? "";
     $this->share_status = $share_status ?? "";
-    $this->short_name = $short_name ?? ;
-    $this->size = $size ?? ;
+    $this->short_name = $short_name ?? "";
+    $this->size = $size ?? "";
     $this->sso_enabled = $sso_enabled ?? false;
-    $this->stage = $stage ?? ;
-    $this->stage_last_updated_date_time = $stage_last_updated_date_time ?? ;
+    $this->stage = $stage ?? "";
+    $this->stage_last_updated_date_time = $stage_last_updated_date_time ?? 0;
     $this->stage_reason = $stage_reason ?? "";
-    $this->type = $type ?? ;
-    $this->vpc_settings = $vpc_settings ?? ;
+    $this->type = $type ?? "";
+    $this->vpc_settings = $vpc_settings ?? null;
   }
 }
 
@@ -1206,7 +1206,7 @@ class DirectoryDoesNotExistException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1225,7 +1225,7 @@ class DirectoryLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1252,14 +1252,14 @@ class DirectoryLimits {
   ?'connected_directories_limit' => Limit,
   ?'connected_directories_limit_reached' => ConnectedDirectoriesLimitReached,
   ) $s = shape()) {
-    $this->cloud_only_directories_current_count = $cloud_only_directories_current_count ?? ;
-    $this->cloud_only_directories_limit = $cloud_only_directories_limit ?? ;
+    $this->cloud_only_directories_current_count = $cloud_only_directories_current_count ?? 0;
+    $this->cloud_only_directories_limit = $cloud_only_directories_limit ?? 0;
     $this->cloud_only_directories_limit_reached = $cloud_only_directories_limit_reached ?? false;
-    $this->cloud_only_microsoft_ad_current_count = $cloud_only_microsoft_ad_current_count ?? ;
-    $this->cloud_only_microsoft_ad_limit = $cloud_only_microsoft_ad_limit ?? ;
-    $this->cloud_only_microsoft_ad_limit_reached = $cloud_only_microsoft_ad_limit_reached ?? ;
-    $this->connected_directories_current_count = $connected_directories_current_count ?? ;
-    $this->connected_directories_limit = $connected_directories_limit ?? ;
+    $this->cloud_only_microsoft_ad_current_count = $cloud_only_microsoft_ad_current_count ?? 0;
+    $this->cloud_only_microsoft_ad_limit = $cloud_only_microsoft_ad_limit ?? 0;
+    $this->cloud_only_microsoft_ad_limit_reached = $cloud_only_microsoft_ad_limit_reached ?? false;
+    $this->connected_directories_current_count = $connected_directories_current_count ?? 0;
+    $this->connected_directories_limit = $connected_directories_limit ?? 0;
     $this->connected_directories_limit_reached = $connected_directories_limit_reached ?? false;
   }
 }
@@ -1274,7 +1274,7 @@ class DirectoryNotSharedException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1295,7 +1295,7 @@ class DirectoryUnavailableException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1341,7 +1341,7 @@ class DisableLDAPSRequest {
   ?'type' => LDAPSType,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1420,12 +1420,12 @@ class DomainController {
   ) $s = shape()) {
     $this->availability_zone = $availability_zone ?? "";
     $this->directory_id = $directory_id ?? "";
-    $this->dns_ip_addr = $dns_ip_addr ?? ;
+    $this->dns_ip_addr = $dns_ip_addr ?? "";
     $this->domain_controller_id = $domain_controller_id ?? "";
     $this->launch_time = $launch_time ?? 0;
-    $this->status = $status ?? ;
-    $this->status_last_updated_date_time = $status_last_updated_date_time ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_last_updated_date_time = $status_last_updated_date_time ?? 0;
+    $this->status_reason = $status_reason ?? "";
     $this->subnet_id = $subnet_id ?? "";
     $this->vpc_id = $vpc_id ?? "";
   }
@@ -1443,7 +1443,7 @@ class DomainControllerLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1463,7 +1463,7 @@ class EnableLDAPSRequest {
   ?'type' => LDAPSType,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1527,7 +1527,7 @@ class EntityAlreadyExistsException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1540,7 +1540,7 @@ class EntityDoesNotExistException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1561,7 +1561,7 @@ class EventTopic {
   ) $s = shape()) {
     $this->created_date_time = $created_date_time ?? 0;
     $this->directory_id = $directory_id ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->topic_arn = $topic_arn ?? "";
     $this->topic_name = $topic_name ?? "";
   }
@@ -1616,7 +1616,7 @@ class InsufficientPermissionsException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1629,7 +1629,7 @@ class InvalidCertificateException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1642,7 +1642,7 @@ class InvalidLDAPSStatusException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1655,7 +1655,7 @@ class InvalidNextTokenException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1668,7 +1668,7 @@ class InvalidParameterException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1681,7 +1681,7 @@ class InvalidPasswordException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1694,7 +1694,7 @@ class InvalidTargetException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1749,7 +1749,7 @@ class IpRouteLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1971,7 +1971,7 @@ class NoAvailableCertificateException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -1988,7 +1988,7 @@ class OrganizationsException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2009,12 +2009,12 @@ class OwnerDirectoryDescription {
   ?'radius_status' => RadiusStatus,
   ?'vpc_settings' => DirectoryVpcSettingsDescription,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
+    $this->account_id = $account_id ?? "";
     $this->directory_id = $directory_id ?? "";
     $this->dns_ip_addrs = $dns_ip_addrs ?? [];
     $this->radius_settings = $radius_settings ?? null;
     $this->radius_status = $radius_status ?? "";
-    $this->vpc_settings = $vpc_settings ?? ;
+    $this->vpc_settings = $vpc_settings ?? null;
   }
 }
 
@@ -2050,13 +2050,13 @@ class RadiusSettings {
   ?'shared_secret' => RadiusSharedSecret,
   ?'use_same_username' => UseSameUsername,
   ) $s = shape()) {
-    $this->authentication_protocol = $authentication_protocol ?? ;
-    $this->display_label = $display_label ?? ;
-    $this->radius_port = $radius_port ?? ;
+    $this->authentication_protocol = $authentication_protocol ?? "";
+    $this->display_label = $display_label ?? "";
+    $this->radius_port = $radius_port ?? 0;
     $this->radius_retries = $radius_retries ?? 0;
-    $this->radius_servers = $radius_servers ?? ;
+    $this->radius_servers = $radius_servers ?? [];
     $this->radius_timeout = $radius_timeout ?? 0;
-    $this->shared_secret = $shared_secret ?? ;
+    $this->shared_secret = $shared_secret ?? "";
     $this->use_same_username = $use_same_username ?? false;
   }
 }
@@ -2116,7 +2116,7 @@ class RejectSharedDirectoryRequest {
   public function __construct(shape(
   ?'shared_directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -2126,7 +2126,7 @@ class RejectSharedDirectoryResult {
   public function __construct(shape(
   ?'shared_directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -2189,7 +2189,7 @@ class ResetUserPasswordRequest {
   ?'user_name' => CustomerUserName,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->new_password = $new_password ?? ;
+    $this->new_password = $new_password ?? "";
     $this->user_name = $user_name ?? "";
   }
 }
@@ -2274,7 +2274,7 @@ class ServiceException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2293,7 +2293,7 @@ class ShareDirectoryRequest {
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
     $this->share_method = $share_method ?? "";
-    $this->share_notes = $share_notes ?? ;
+    $this->share_notes = $share_notes ?? "";
     $this->share_target = $share_target ?? null;
   }
 }
@@ -2304,7 +2304,7 @@ class ShareDirectoryResult {
   public function __construct(shape(
   ?'shared_directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -2316,7 +2316,7 @@ class ShareLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2333,8 +2333,8 @@ class ShareTarget {
   ?'id' => TargetId,
   ?'type' => TargetType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2364,13 +2364,13 @@ class SharedDirectory {
   ) $s = shape()) {
     $this->created_date_time = $created_date_time ?? 0;
     $this->last_updated_date_time = $last_updated_date_time ?? 0;
-    $this->owner_account_id = $owner_account_id ?? ;
-    $this->owner_directory_id = $owner_directory_id ?? ;
+    $this->owner_account_id = $owner_account_id ?? "";
+    $this->owner_directory_id = $owner_directory_id ?? "";
     $this->share_method = $share_method ?? "";
-    $this->share_notes = $share_notes ?? ;
+    $this->share_notes = $share_notes ?? "";
     $this->share_status = $share_status ?? "";
-    $this->shared_account_id = $shared_account_id ?? ;
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_account_id = $shared_account_id ?? "";
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -2391,11 +2391,11 @@ class Snapshot {
   ?'type' => SnapshotType,
   ) $s = shape()) {
     $this->directory_id = $directory_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->snapshot_id = $snapshot_id ?? "";
     $this->start_time = $start_time ?? 0;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2411,7 +2411,7 @@ class SnapshotLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2426,8 +2426,8 @@ class SnapshotLimits {
   ?'manual_snapshots_limit' => Limit,
   ?'manual_snapshots_limit_reached' => ManualSnapshotsLimitReached,
   ) $s = shape()) {
-    $this->manual_snapshots_current_count = $manual_snapshots_current_count ?? ;
-    $this->manual_snapshots_limit = $manual_snapshots_limit ?? ;
+    $this->manual_snapshots_current_count = $manual_snapshots_current_count ?? 0;
+    $this->manual_snapshots_limit = $manual_snapshots_limit ?? 0;
     $this->manual_snapshots_limit_reached = $manual_snapshots_limit_reached ?? false;
   }
 }
@@ -2493,8 +2493,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2510,7 +2510,7 @@ class TagLimitExceededException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2606,7 +2606,7 @@ class UnshareDirectoryResult {
   public function __construct(shape(
   ?'shared_directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->shared_directory_id = $shared_directory_id ?? ;
+    $this->shared_directory_id = $shared_directory_id ?? "";
   }
 }
 
@@ -2618,8 +2618,8 @@ class UnshareTarget {
   ?'id' => TargetId,
   ?'type' => TargetType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2631,7 +2631,7 @@ class UnsupportedOperationException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }
@@ -2667,7 +2667,7 @@ class UpdateNumberOfDomainControllersRequest {
   ?'desired_number' => DesiredNumberOfDomainControllers,
   ?'directory_id' => DirectoryId,
   ) $s = shape()) {
-    $this->desired_number = $desired_number ?? ;
+    $this->desired_number = $desired_number ?? 0;
     $this->directory_id = $directory_id ?? "";
   }
 }
@@ -2737,7 +2737,7 @@ class UserDoesNotExistException {
   ?'message' => ExceptionMessage,
   ?'request_id' => RequestId,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
     $this->request_id = $request_id ?? "";
   }
 }

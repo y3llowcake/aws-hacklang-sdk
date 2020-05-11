@@ -23,11 +23,11 @@ class Entitlement {
   ?'product_code' => ProductCode,
   ?'value' => EntitlementValue,
   ) $s = shape()) {
-    $this->customer_identifier = $customer_identifier ?? ;
-    $this->dimension = $dimension ?? ;
-    $this->expiration_date = $expiration_date ?? ;
+    $this->customer_identifier = $customer_identifier ?? "";
+    $this->dimension = $dimension ?? "";
+    $this->expiration_date = $expiration_date ?? 0;
     $this->product_code = $product_code ?? "";
-    $this->value = $value ?? ;
+    $this->value = $value ?? null;
   }
 }
 
@@ -45,10 +45,10 @@ class EntitlementValue {
   ?'integer_value' => int,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->boolean_value = $boolean_value ?? ;
-    $this->double_value = $double_value ?? ;
-    $this->integer_value = $integer_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->boolean_value = $boolean_value ?? false;
+    $this->double_value = $double_value ?? 0.0;
+    $this->integer_value = $integer_value ?? 0;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -74,9 +74,9 @@ class GetEntitlementsRequest {
   ?'next_token' => NonEmptyString,
   ?'product_code' => ProductCode,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->filter = $filter ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->product_code = $product_code ?? "";
   }
 }
@@ -89,8 +89,8 @@ class GetEntitlementsResult {
   ?'entitlements' => EntitlementList,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->entitlements = $entitlements ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->entitlements = $entitlements ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -102,7 +102,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -112,7 +112,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -128,7 +128,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

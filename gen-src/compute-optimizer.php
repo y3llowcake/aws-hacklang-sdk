@@ -16,7 +16,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -40,10 +40,10 @@ class AutoScalingGroupConfiguration {
   ?'max_size' => MaxSize,
   ?'min_size' => MinSize,
   ) $s = shape()) {
-    $this->desired_capacity = $desired_capacity ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->desired_capacity = $desired_capacity ?? 0;
+    $this->instance_type = $instance_type ?? "";
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
   }
 }
 
@@ -71,15 +71,15 @@ class AutoScalingGroupRecommendation {
   ?'recommendation_options' => AutoScalingGroupRecommendationOptions,
   ?'utilization_metrics' => UtilizationMetrics,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? ;
-    $this->auto_scaling_group_name = $auto_scaling_group_name ?? ;
-    $this->current_configuration = $current_configuration ?? ;
-    $this->finding = $finding ?? ;
-    $this->last_refresh_timestamp = $last_refresh_timestamp ?? ;
-    $this->look_back_period_in_days = $look_back_period_in_days ?? ;
-    $this->recommendation_options = $recommendation_options ?? ;
-    $this->utilization_metrics = $utilization_metrics ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? "";
+    $this->auto_scaling_group_name = $auto_scaling_group_name ?? "";
+    $this->current_configuration = $current_configuration ?? null;
+    $this->finding = $finding ?? "";
+    $this->last_refresh_timestamp = $last_refresh_timestamp ?? 0;
+    $this->look_back_period_in_days = $look_back_period_in_days ?? 0.0;
+    $this->recommendation_options = $recommendation_options ?? [];
+    $this->utilization_metrics = $utilization_metrics ?? [];
   }
 }
 
@@ -95,10 +95,10 @@ class AutoScalingGroupRecommendationOption {
   ?'projected_utilization_metrics' => ProjectedUtilizationMetrics,
   ?'rank' => Rank,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->performance_risk = $performance_risk ?? ;
-    $this->projected_utilization_metrics = $projected_utilization_metrics ?? ;
-    $this->rank = $rank ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->performance_risk = $performance_risk ?? 0.0;
+    $this->projected_utilization_metrics = $projected_utilization_metrics ?? [];
+    $this->rank = $rank ?? 0;
   }
 }
 
@@ -122,8 +122,8 @@ class Filter {
   ?'name' => FilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -151,11 +151,11 @@ class GetAutoScalingGroupRecommendationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
-    $this->auto_scaling_group_arns = $auto_scaling_group_arns ?? ;
-    $this->filters = $filters ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_ids = $account_ids ?? [];
+    $this->auto_scaling_group_arns = $auto_scaling_group_arns ?? [];
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -169,9 +169,9 @@ class GetAutoScalingGroupRecommendationsResponse {
   ?'errors' => GetRecommendationErrors,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->auto_scaling_group_recommendations = $auto_scaling_group_recommendations ?? ;
-    $this->errors = $errors ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->auto_scaling_group_recommendations = $auto_scaling_group_recommendations ?? [];
+    $this->errors = $errors ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -189,11 +189,11 @@ class GetEC2InstanceRecommendationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
-    $this->filters = $filters ?? ;
-    $this->instance_arns = $instance_arns ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_ids = $account_ids ?? [];
+    $this->filters = $filters ?? [];
+    $this->instance_arns = $instance_arns ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -207,9 +207,9 @@ class GetEC2InstanceRecommendationsResponse {
   ?'instance_recommendations' => InstanceRecommendations,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->errors = $errors ?? ;
-    $this->instance_recommendations = $instance_recommendations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->errors = $errors ?? [];
+    $this->instance_recommendations = $instance_recommendations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -227,11 +227,11 @@ class GetEC2RecommendationProjectedMetricsRequest {
   ?'start_time' => Timestamp,
   ?'stat' => MetricStatistic,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->period = $period ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->stat = $stat ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->instance_arn = $instance_arn ?? "";
+    $this->period = $period ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->stat = $stat ?? "";
   }
 }
 
@@ -241,7 +241,7 @@ class GetEC2RecommendationProjectedMetricsResponse {
   public function __construct(shape(
   ?'recommended_option_projected_metrics' => RecommendedOptionProjectedMetrics,
   ) $s = shape()) {
-    $this->recommended_option_projected_metrics = $recommended_option_projected_metrics ?? ;
+    $this->recommended_option_projected_metrics = $recommended_option_projected_metrics ?? [];
   }
 }
 
@@ -262,9 +262,9 @@ class GetEnrollmentStatusResponse {
   ?'status' => Status,
   ?'status_reason' => StatusReason,
   ) $s = shape()) {
-    $this->member_accounts_enrolled = $member_accounts_enrolled ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->member_accounts_enrolled = $member_accounts_enrolled ?? false;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -278,9 +278,9 @@ class GetRecommendationError {
   ?'identifier' => Identifier,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->identifier = $identifier ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->identifier = $identifier ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -296,9 +296,9 @@ class GetRecommendationSummariesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->account_ids = $account_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->account_ids = $account_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -310,8 +310,8 @@ class GetRecommendationSummariesResponse {
   ?'next_token' => NextToken,
   ?'recommendation_summaries' => RecommendationSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->recommendation_summaries = $recommendation_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->recommendation_summaries = $recommendation_summaries ?? [];
   }
 }
 
@@ -349,16 +349,16 @@ class InstanceRecommendation {
   ?'recommendation_sources' => RecommendationSources,
   ?'utilization_metrics' => UtilizationMetrics,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->current_instance_type = $current_instance_type ?? ;
-    $this->finding = $finding ?? ;
-    $this->instance_arn = $instance_arn ?? ;
-    $this->instance_name = $instance_name ?? ;
-    $this->last_refresh_timestamp = $last_refresh_timestamp ?? ;
-    $this->look_back_period_in_days = $look_back_period_in_days ?? ;
-    $this->recommendation_options = $recommendation_options ?? ;
-    $this->recommendation_sources = $recommendation_sources ?? ;
-    $this->utilization_metrics = $utilization_metrics ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->current_instance_type = $current_instance_type ?? "";
+    $this->finding = $finding ?? "";
+    $this->instance_arn = $instance_arn ?? "";
+    $this->instance_name = $instance_name ?? "";
+    $this->last_refresh_timestamp = $last_refresh_timestamp ?? 0;
+    $this->look_back_period_in_days = $look_back_period_in_days ?? 0.0;
+    $this->recommendation_options = $recommendation_options ?? [];
+    $this->recommendation_sources = $recommendation_sources ?? [];
+    $this->utilization_metrics = $utilization_metrics ?? [];
   }
 }
 
@@ -374,10 +374,10 @@ class InstanceRecommendationOption {
   ?'projected_utilization_metrics' => ProjectedUtilizationMetrics,
   ?'rank' => Rank,
   ) $s = shape()) {
-    $this->instance_type = $instance_type ?? ;
-    $this->performance_risk = $performance_risk ?? ;
-    $this->projected_utilization_metrics = $projected_utilization_metrics ?? ;
-    $this->rank = $rank ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->performance_risk = $performance_risk ?? 0.0;
+    $this->projected_utilization_metrics = $projected_utilization_metrics ?? [];
+    $this->rank = $rank ?? 0;
   }
 }
 
@@ -391,7 +391,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -401,7 +401,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -433,7 +433,7 @@ class MissingAuthenticationToken {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -445,7 +445,7 @@ class OptInRequiredException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -463,9 +463,9 @@ class ProjectedMetric {
   ?'timestamps' => Timestamps,
   ?'values' => MetricValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->timestamps = $timestamps ?? ;
-    $this->values = $values ?? ;
+    $this->name = $name ?? "";
+    $this->timestamps = $timestamps ?? [];
+    $this->values = $values ?? [];
   }
 }
 
@@ -485,8 +485,8 @@ class RecommendationSource {
   ?'recommendation_source_arn' => RecommendationSourceArn,
   ?'recommendation_source_type' => RecommendationSourceType,
   ) $s = shape()) {
-    $this->recommendation_source_arn = $recommendation_source_arn ?? ;
-    $this->recommendation_source_type = $recommendation_source_type ?? ;
+    $this->recommendation_source_arn = $recommendation_source_arn ?? "";
+    $this->recommendation_source_type = $recommendation_source_type ?? "";
   }
 }
 
@@ -508,9 +508,9 @@ class RecommendationSummary {
   ?'recommendation_resource_type' => RecommendationSourceType,
   ?'summaries' => Summaries,
   ) $s = shape()) {
-    $this->account_id = $account_id ?? ;
-    $this->recommendation_resource_type = $recommendation_resource_type ?? ;
-    $this->summaries = $summaries ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->recommendation_resource_type = $recommendation_resource_type ?? "";
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -526,9 +526,9 @@ class RecommendedOptionProjectedMetric {
   ?'rank' => Rank,
   ?'recommended_instance_type' => RecommendedInstanceType,
   ) $s = shape()) {
-    $this->projected_metrics = $projected_metrics ?? ;
-    $this->rank = $rank ?? ;
-    $this->recommended_instance_type = $recommended_instance_type ?? ;
+    $this->projected_metrics = $projected_metrics ?? [];
+    $this->rank = $rank ?? 0;
+    $this->recommended_instance_type = $recommended_instance_type ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -550,7 +550,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -568,8 +568,8 @@ class Summary {
   ?'name' => Finding,
   ?'value' => SummaryValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -581,7 +581,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -597,8 +597,8 @@ class UpdateEnrollmentStatusRequest {
   ?'include_member_accounts' => IncludeMemberAccounts,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->include_member_accounts = $include_member_accounts ?? ;
-    $this->status = $status ?? ;
+    $this->include_member_accounts = $include_member_accounts ?? false;
+    $this->status = $status ?? "";
   }
 }
 
@@ -610,8 +610,8 @@ class UpdateEnrollmentStatusResponse {
   ?'status' => Status,
   ?'status_reason' => StatusReason,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -625,9 +625,9 @@ class UtilizationMetric {
   ?'statistic' => MetricStatistic,
   ?'value' => MetricValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->statistic = $statistic ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->statistic = $statistic ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 

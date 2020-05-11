@@ -33,7 +33,7 @@ class AutoScalingGroup {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -45,7 +45,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -63,7 +63,7 @@ class Certificate {
   public function __construct(shape(
   ?'data' => string,
   ) $s = shape()) {
-    $this->data = $data ?? ;
+    $this->data = $data ?? "";
   }
 }
 
@@ -77,9 +77,9 @@ class ClientException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -117,21 +117,21 @@ class Cluster {
   ?'tags' => TagMap,
   ?'version' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->certificate_authority = $certificate_authority ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->encryption_config = $encryption_config ?? ;
-    $this->endpoint = $endpoint ?? ;
-    $this->identity = $identity ?? ;
-    $this->logging = $logging ?? ;
-    $this->name = $name ?? ;
-    $this->platform_version = $platform_version ?? ;
-    $this->resources_vpc_config = $resources_vpc_config ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->certificate_authority = $certificate_authority ?? null;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->encryption_config = $encryption_config ?? [];
+    $this->endpoint = $endpoint ?? "";
+    $this->identity = $identity ?? null;
+    $this->logging = $logging ?? null;
+    $this->name = $name ?? "";
+    $this->platform_version = $platform_version ?? "";
+    $this->resources_vpc_config = $resources_vpc_config ?? null;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -159,14 +159,14 @@ class CreateClusterRequest {
   ?'tags' => TagMap,
   ?'version' => string,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->encryption_config = $encryption_config ?? ;
-    $this->logging = $logging ?? ;
-    $this->name = $name ?? ;
-    $this->resources_vpc_config = $resources_vpc_config ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->encryption_config = $encryption_config ?? [];
+    $this->logging = $logging ?? null;
+    $this->name = $name ?? "";
+    $this->resources_vpc_config = $resources_vpc_config ?? null;
+    $this->role_arn = $role_arn ?? "";
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -176,7 +176,7 @@ class CreateClusterResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -198,13 +198,13 @@ class CreateFargateProfileRequest {
   ?'subnets' => StringList,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
-    $this->pod_execution_role_arn = $pod_execution_role_arn ?? ;
-    $this->selectors = $selectors ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
+    $this->pod_execution_role_arn = $pod_execution_role_arn ?? "";
+    $this->selectors = $selectors ?? [];
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -214,7 +214,7 @@ class CreateFargateProfileResponse {
   public function __construct(shape(
   ?'fargate_profile' => FargateProfile,
   ) $s = shape()) {
-    $this->fargate_profile = $fargate_profile ?? ;
+    $this->fargate_profile = $fargate_profile ?? null;
   }
 }
 
@@ -250,20 +250,20 @@ class CreateNodegroupRequest {
   ?'tags' => TagMap,
   ?'version' => string,
   ) $s = shape()) {
-    $this->ami_type = $ami_type ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->disk_size = $disk_size ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->labels = $labels ?? ;
-    $this->node_role = $node_role ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->release_version = $release_version ?? ;
-    $this->remote_access = $remote_access ?? ;
-    $this->scaling_config = $scaling_config ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->ami_type = $ami_type ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->disk_size = $disk_size ?? 0;
+    $this->instance_types = $instance_types ?? [];
+    $this->labels = $labels ?? [];
+    $this->node_role = $node_role ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->release_version = $release_version ?? "";
+    $this->remote_access = $remote_access ?? null;
+    $this->scaling_config = $scaling_config ?? null;
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -273,7 +273,7 @@ class CreateNodegroupResponse {
   public function __construct(shape(
   ?'nodegroup' => Nodegroup,
   ) $s = shape()) {
-    $this->nodegroup = $nodegroup ?? ;
+    $this->nodegroup = $nodegroup ?? null;
   }
 }
 
@@ -283,7 +283,7 @@ class DeleteClusterRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -293,7 +293,7 @@ class DeleteClusterResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -305,8 +305,8 @@ class DeleteFargateProfileRequest {
   ?'cluster_name' => string,
   ?'fargate_profile_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
   }
 }
 
@@ -316,7 +316,7 @@ class DeleteFargateProfileResponse {
   public function __construct(shape(
   ?'fargate_profile' => FargateProfile,
   ) $s = shape()) {
-    $this->fargate_profile = $fargate_profile ?? ;
+    $this->fargate_profile = $fargate_profile ?? null;
   }
 }
 
@@ -328,8 +328,8 @@ class DeleteNodegroupRequest {
   ?'cluster_name' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -339,7 +339,7 @@ class DeleteNodegroupResponse {
   public function __construct(shape(
   ?'nodegroup' => Nodegroup,
   ) $s = shape()) {
-    $this->nodegroup = $nodegroup ?? ;
+    $this->nodegroup = $nodegroup ?? null;
   }
 }
 
@@ -349,7 +349,7 @@ class DescribeClusterRequest {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -359,7 +359,7 @@ class DescribeClusterResponse {
   public function __construct(shape(
   ?'cluster' => Cluster,
   ) $s = shape()) {
-    $this->cluster = $cluster ?? ;
+    $this->cluster = $cluster ?? null;
   }
 }
 
@@ -371,8 +371,8 @@ class DescribeFargateProfileRequest {
   ?'cluster_name' => string,
   ?'fargate_profile_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
   }
 }
 
@@ -382,7 +382,7 @@ class DescribeFargateProfileResponse {
   public function __construct(shape(
   ?'fargate_profile' => FargateProfile,
   ) $s = shape()) {
-    $this->fargate_profile = $fargate_profile ?? ;
+    $this->fargate_profile = $fargate_profile ?? null;
   }
 }
 
@@ -394,8 +394,8 @@ class DescribeNodegroupRequest {
   ?'cluster_name' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -405,7 +405,7 @@ class DescribeNodegroupResponse {
   public function __construct(shape(
   ?'nodegroup' => Nodegroup,
   ) $s = shape()) {
-    $this->nodegroup = $nodegroup ?? ;
+    $this->nodegroup = $nodegroup ?? null;
   }
 }
 
@@ -419,9 +419,9 @@ class DescribeUpdateRequest {
   ?'nodegroup_name' => string,
   ?'update_id' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->update_id = $update_id ?? ;
+    $this->name = $name ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->update_id = $update_id ?? "";
   }
 }
 
@@ -431,7 +431,7 @@ class DescribeUpdateResponse {
   public function __construct(shape(
   ?'update' => Update,
   ) $s = shape()) {
-    $this->update = $update ?? ;
+    $this->update = $update ?? null;
   }
 }
 
@@ -443,8 +443,8 @@ class EncryptionConfig {
   ?'provider' => Provider,
   ?'resources' => StringList,
   ) $s = shape()) {
-    $this->provider = $provider ?? ;
-    $this->resources = $resources ?? ;
+    $this->provider = $provider ?? null;
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -462,9 +462,9 @@ class ErrorDetail {
   ?'error_message' => string,
   ?'resource_ids' => StringList,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->resource_ids = $resource_ids ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->resource_ids = $resource_ids ?? [];
   }
 }
 
@@ -492,15 +492,15 @@ class FargateProfile {
   ?'subnets' => StringList,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->fargate_profile_arn = $fargate_profile_arn ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
-    $this->pod_execution_role_arn = $pod_execution_role_arn ?? ;
-    $this->selectors = $selectors ?? ;
-    $this->status = $status ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->fargate_profile_arn = $fargate_profile_arn ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
+    $this->pod_execution_role_arn = $pod_execution_role_arn ?? "";
+    $this->selectors = $selectors ?? [];
+    $this->status = $status ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -514,8 +514,8 @@ class FargateProfileSelector {
   ?'labels' => FargateProfileLabel,
   ?'namespace' => string,
   ) $s = shape()) {
-    $this->labels = $labels ?? ;
-    $this->namespace = $namespace ?? ;
+    $this->labels = $labels ?? [];
+    $this->namespace = $namespace ?? "";
   }
 }
 
@@ -531,7 +531,7 @@ class Identity {
   public function __construct(shape(
   ?'oidc' => OIDC,
   ) $s = shape()) {
-    $this->oidc = $oidc ?? ;
+    $this->oidc = $oidc ?? null;
   }
 }
 
@@ -547,10 +547,10 @@ class InvalidParameterException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -564,9 +564,9 @@ class InvalidRequestException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -580,9 +580,9 @@ class Issue {
   ?'message' => string,
   ?'resource_ids' => StringList,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
-    $this->resource_ids = $resource_ids ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
+    $this->resource_ids = $resource_ids ?? [];
   }
 }
 
@@ -596,8 +596,8 @@ class ListClustersRequest {
   ?'max_results' => ListClustersRequestMaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -611,8 +611,8 @@ class ListClustersResponse {
   ?'clusters' => StringList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->clusters = $clusters ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -626,9 +626,9 @@ class ListFargateProfilesRequest {
   ?'max_results' => FargateProfilesRequestMaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -640,8 +640,8 @@ class ListFargateProfilesResponse {
   ?'fargate_profile_names' => StringList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->fargate_profile_names = $fargate_profile_names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fargate_profile_names = $fargate_profile_names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -655,9 +655,9 @@ class ListNodegroupsRequest {
   ?'max_results' => ListNodegroupsRequestMaxResults,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -671,8 +671,8 @@ class ListNodegroupsResponse {
   ?'next_token' => string,
   ?'nodegroups' => StringList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->nodegroups = $nodegroups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->nodegroups = $nodegroups ?? [];
   }
 }
 
@@ -682,7 +682,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -692,7 +692,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -708,10 +708,10 @@ class ListUpdatesRequest {
   ?'next_token' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -725,8 +725,8 @@ class ListUpdatesResponse {
   ?'next_token' => string,
   ?'update_ids' => StringList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->update_ids = $update_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->update_ids = $update_ids ?? [];
   }
 }
 
@@ -738,8 +738,8 @@ class LogSetup {
   ?'enabled' => BoxedBoolean,
   ?'types' => LogTypes,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->types = $types ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->types = $types ?? [];
   }
 }
 
@@ -755,7 +755,7 @@ class Logging {
   public function __construct(shape(
   ?'cluster_logging' => LogSetups,
   ) $s = shape()) {
-    $this->cluster_logging = $cluster_logging ?? ;
+    $this->cluster_logging = $cluster_logging ?? [];
   }
 }
 
@@ -801,25 +801,25 @@ class Nodegroup {
   ?'tags' => TagMap,
   ?'version' => string,
   ) $s = shape()) {
-    $this->ami_type = $ami_type ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->disk_size = $disk_size ?? ;
-    $this->health = $health ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->labels = $labels ?? ;
-    $this->modified_at = $modified_at ?? ;
-    $this->node_role = $node_role ?? ;
-    $this->nodegroup_arn = $nodegroup_arn ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->release_version = $release_version ?? ;
-    $this->remote_access = $remote_access ?? ;
-    $this->resources = $resources ?? ;
-    $this->scaling_config = $scaling_config ?? ;
-    $this->status = $status ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->ami_type = $ami_type ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->created_at = $created_at ?? 0;
+    $this->disk_size = $disk_size ?? 0;
+    $this->health = $health ?? null;
+    $this->instance_types = $instance_types ?? [];
+    $this->labels = $labels ?? [];
+    $this->modified_at = $modified_at ?? 0;
+    $this->node_role = $node_role ?? "";
+    $this->nodegroup_arn = $nodegroup_arn ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->release_version = $release_version ?? "";
+    $this->remote_access = $remote_access ?? null;
+    $this->resources = $resources ?? null;
+    $this->scaling_config = $scaling_config ?? null;
+    $this->status = $status ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -829,7 +829,7 @@ class NodegroupHealth {
   public function __construct(shape(
   ?'issues' => IssueList,
   ) $s = shape()) {
-    $this->issues = $issues ?? ;
+    $this->issues = $issues ?? [];
   }
 }
 
@@ -843,8 +843,8 @@ class NodegroupResources {
   ?'auto_scaling_groups' => AutoScalingGroupList,
   ?'remote_access_security_group' => string,
   ) $s = shape()) {
-    $this->auto_scaling_groups = $auto_scaling_groups ?? ;
-    $this->remote_access_security_group = $remote_access_security_group ?? ;
+    $this->auto_scaling_groups = $auto_scaling_groups ?? [];
+    $this->remote_access_security_group = $remote_access_security_group ?? "";
   }
 }
 
@@ -858,9 +858,9 @@ class NodegroupScalingConfig {
   ?'max_size' => Capacity,
   ?'min_size' => Capacity,
   ) $s = shape()) {
-    $this->desired_size = $desired_size ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->desired_size = $desired_size ?? 0;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
   }
 }
 
@@ -872,7 +872,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -882,7 +882,7 @@ class OIDC {
   public function __construct(shape(
   ?'issuer' => string,
   ) $s = shape()) {
-    $this->issuer = $issuer ?? ;
+    $this->issuer = $issuer ?? "";
   }
 }
 
@@ -892,7 +892,7 @@ class Provider {
   public function __construct(shape(
   ?'key_arn' => string,
   ) $s = shape()) {
-    $this->key_arn = $key_arn ?? ;
+    $this->key_arn = $key_arn ?? "";
   }
 }
 
@@ -904,8 +904,8 @@ class RemoteAccessConfig {
   ?'ec_2_ssh_key' => string,
   ?'source_security_groups' => StringList,
   ) $s = shape()) {
-    $this->ec_2_ssh_key = $ec_2_ssh_key ?? ;
-    $this->source_security_groups = $source_security_groups ?? ;
+    $this->ec_2_ssh_key = $ec_2_ssh_key ?? "";
+    $this->source_security_groups = $source_security_groups ?? [];
   }
 }
 
@@ -919,9 +919,9 @@ class ResourceInUseException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -935,9 +935,9 @@ class ResourceLimitExceededException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -953,10 +953,10 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->fargate_profile_name = $fargate_profile_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->fargate_profile_name = $fargate_profile_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -970,9 +970,9 @@ class ServerException {
   ?'message' => string,
   ?'nodegroup_name' => string,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
   }
 }
 
@@ -982,7 +982,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1004,8 +1004,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1032,10 +1032,10 @@ class UnsupportedAvailabilityZoneException {
   ?'nodegroup_name' => string,
   ?'valid_zones' => StringList,
   ) $s = shape()) {
-    $this->cluster_name = $cluster_name ?? ;
-    $this->message = $message ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->valid_zones = $valid_zones ?? ;
+    $this->cluster_name = $cluster_name ?? "";
+    $this->message = $message ?? "";
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->valid_zones = $valid_zones ?? [];
   }
 }
 
@@ -1047,8 +1047,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1075,12 +1075,12 @@ class Update {
   ?'status' => UpdateStatus,
   ?'type' => UpdateType,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->errors = $errors ?? ;
-    $this->id = $id ?? ;
-    $this->params = $params ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->errors = $errors ?? [];
+    $this->id = $id ?? "";
+    $this->params = $params ?? [];
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1096,10 +1096,10 @@ class UpdateClusterConfigRequest {
   ?'name' => string,
   ?'resources_vpc_config' => VpcConfigRequest,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->logging = $logging ?? ;
-    $this->name = $name ?? ;
-    $this->resources_vpc_config = $resources_vpc_config ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->logging = $logging ?? null;
+    $this->name = $name ?? "";
+    $this->resources_vpc_config = $resources_vpc_config ?? null;
   }
 }
 
@@ -1109,7 +1109,7 @@ class UpdateClusterConfigResponse {
   public function __construct(shape(
   ?'update' => Update,
   ) $s = shape()) {
-    $this->update = $update ?? ;
+    $this->update = $update ?? null;
   }
 }
 
@@ -1123,9 +1123,9 @@ class UpdateClusterVersionRequest {
   ?'name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1135,7 +1135,7 @@ class UpdateClusterVersionResponse {
   public function __construct(shape(
   ?'update' => Update,
   ) $s = shape()) {
-    $this->update = $update ?? ;
+    $this->update = $update ?? null;
   }
 }
 
@@ -1147,8 +1147,8 @@ class UpdateLabelsPayload {
   ?'add_or_update_labels' => labelsMap,
   ?'remove_labels' => labelsKeyList,
   ) $s = shape()) {
-    $this->add_or_update_labels = $add_or_update_labels ?? ;
-    $this->remove_labels = $remove_labels ?? ;
+    $this->add_or_update_labels = $add_or_update_labels ?? [];
+    $this->remove_labels = $remove_labels ?? [];
   }
 }
 
@@ -1166,11 +1166,11 @@ class UpdateNodegroupConfigRequest {
   ?'nodegroup_name' => string,
   ?'scaling_config' => NodegroupScalingConfig,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->labels = $labels ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->scaling_config = $scaling_config ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->labels = $labels ?? null;
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->scaling_config = $scaling_config ?? null;
   }
 }
 
@@ -1180,7 +1180,7 @@ class UpdateNodegroupConfigResponse {
   public function __construct(shape(
   ?'update' => Update,
   ) $s = shape()) {
-    $this->update = $update ?? ;
+    $this->update = $update ?? null;
   }
 }
 
@@ -1200,12 +1200,12 @@ class UpdateNodegroupVersionRequest {
   ?'release_version' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->cluster_name = $cluster_name ?? ;
-    $this->force = $force ?? ;
-    $this->nodegroup_name = $nodegroup_name ?? ;
-    $this->release_version = $release_version ?? ;
-    $this->version = $version ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->cluster_name = $cluster_name ?? "";
+    $this->force = $force ?? false;
+    $this->nodegroup_name = $nodegroup_name ?? "";
+    $this->release_version = $release_version ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1215,7 +1215,7 @@ class UpdateNodegroupVersionResponse {
   public function __construct(shape(
   ?'update' => Update,
   ) $s = shape()) {
-    $this->update = $update ?? ;
+    $this->update = $update ?? null;
   }
 }
 
@@ -1227,8 +1227,8 @@ class UpdateParam {
   ?'type' => UpdateParamType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1254,11 +1254,11 @@ class VpcConfigRequest {
   ?'security_group_ids' => StringList,
   ?'subnet_ids' => StringList,
   ) $s = shape()) {
-    $this->endpoint_private_access = $endpoint_private_access ?? ;
-    $this->endpoint_public_access = $endpoint_public_access ?? ;
-    $this->public_access_cidrs = $public_access_cidrs ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->endpoint_private_access = $endpoint_private_access ?? false;
+    $this->endpoint_public_access = $endpoint_public_access ?? false;
+    $this->public_access_cidrs = $public_access_cidrs ?? [];
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -1280,13 +1280,13 @@ class VpcConfigResponse {
   ?'subnet_ids' => StringList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->cluster_security_group_id = $cluster_security_group_id ?? ;
-    $this->endpoint_private_access = $endpoint_private_access ?? ;
-    $this->endpoint_public_access = $endpoint_public_access ?? ;
-    $this->public_access_cidrs = $public_access_cidrs ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->cluster_security_group_id = $cluster_security_group_id ?? "";
+    $this->endpoint_private_access = $endpoint_private_access ?? false;
+    $this->endpoint_public_access = $endpoint_public_access ?? false;
+    $this->public_access_cidrs = $public_access_cidrs ?? [];
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 

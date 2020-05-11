@@ -90,22 +90,22 @@ class AppSummary {
   ?'total_server_groups' => TotalServerGroups,
   ?'total_servers' => TotalServers,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->latest_replication_time = $latest_replication_time ?? ;
-    $this->launch_details = $launch_details ?? ;
-    $this->launch_status = $launch_status ?? ;
-    $this->launch_status_message = $launch_status_message ?? ;
-    $this->name = $name ?? ;
-    $this->replication_status = $replication_status ?? ;
-    $this->replication_status_message = $replication_status_message ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->total_server_groups = $total_server_groups ?? ;
-    $this->total_servers = $total_servers ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->last_modified = $last_modified ?? 0;
+    $this->latest_replication_time = $latest_replication_time ?? 0;
+    $this->launch_details = $launch_details ?? null;
+    $this->launch_status = $launch_status ?? "";
+    $this->launch_status_message = $launch_status_message ?? "";
+    $this->name = $name ?? "";
+    $this->replication_status = $replication_status ?? "";
+    $this->replication_status_message = $replication_status_message ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->total_server_groups = $total_server_groups ?? 0;
+    $this->total_servers = $total_servers ?? 0;
   }
 }
 
@@ -141,16 +141,16 @@ class Connector {
   ?'vm_manager_name' => VmManagerName,
   ?'vm_manager_type' => VmManagerType,
   ) $s = shape()) {
-    $this->associated_on = $associated_on ?? ;
-    $this->capability_list = $capability_list ?? ;
-    $this->connector_id = $connector_id ?? ;
-    $this->ip_address = $ip_address ?? ;
-    $this->mac_address = $mac_address ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
-    $this->vm_manager_id = $vm_manager_id ?? ;
-    $this->vm_manager_name = $vm_manager_name ?? ;
-    $this->vm_manager_type = $vm_manager_type ?? ;
+    $this->associated_on = $associated_on ?? 0;
+    $this->capability_list = $capability_list ?? [];
+    $this->connector_id = $connector_id ?? "";
+    $this->ip_address = $ip_address ?? "";
+    $this->mac_address = $mac_address ?? "";
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
+    $this->vm_manager_id = $vm_manager_id ?? "";
+    $this->vm_manager_name = $vm_manager_name ?? "";
+    $this->vm_manager_type = $vm_manager_type ?? "";
   }
 }
 
@@ -182,12 +182,12 @@ class CreateAppRequest {
   ?'server_groups' => ServerGroups,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->server_groups = $server_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->server_groups = $server_groups ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -201,9 +201,9 @@ class CreateAppResponse {
   ?'server_groups' => ServerGroups,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->app_summary = $app_summary ?? ;
-    $this->server_groups = $server_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->app_summary = $app_summary ?? null;
+    $this->server_groups = $server_groups ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -231,16 +231,16 @@ class CreateReplicationJobRequest {
   ?'seed_replication_time' => Timestamp,
   ?'server_id' => ServerId,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->frequency = $frequency ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->license_type = $license_type ?? ;
-    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->run_once = $run_once ?? ;
-    $this->seed_replication_time = $seed_replication_time ?? ;
-    $this->server_id = $server_id ?? ;
+    $this->description = $description ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->frequency = $frequency ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->license_type = $license_type ?? "";
+    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? 0;
+    $this->role_name = $role_name ?? "";
+    $this->run_once = $run_once ?? false;
+    $this->seed_replication_time = $seed_replication_time ?? 0;
+    $this->server_id = $server_id ?? "";
   }
 }
 
@@ -250,7 +250,7 @@ class CreateReplicationJobResponse {
   public function __construct(shape(
   ?'replication_job_id' => ReplicationJobId,
   ) $s = shape()) {
-    $this->replication_job_id = $replication_job_id ?? ;
+    $this->replication_job_id = $replication_job_id ?? "";
   }
 }
 
@@ -260,7 +260,7 @@ class DeleteAppLaunchConfigurationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -277,7 +277,7 @@ class DeleteAppReplicationConfigurationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -298,9 +298,9 @@ class DeleteAppRequest {
   ?'force_stop_app_replication' => ForceStopAppReplication,
   ?'force_terminate_app' => ForceTerminateApp,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->force_stop_app_replication = $force_stop_app_replication ?? ;
-    $this->force_terminate_app = $force_terminate_app ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->force_stop_app_replication = $force_stop_app_replication ?? false;
+    $this->force_terminate_app = $force_terminate_app ?? false;
   }
 }
 
@@ -317,7 +317,7 @@ class DeleteReplicationJobRequest {
   public function __construct(shape(
   ?'replication_job_id' => ReplicationJobId,
   ) $s = shape()) {
-    $this->replication_job_id = $replication_job_id ?? ;
+    $this->replication_job_id = $replication_job_id ?? "";
   }
 }
 
@@ -350,7 +350,7 @@ class DisassociateConnectorRequest {
   public function __construct(shape(
   ?'connector_id' => ConnectorId,
   ) $s = shape()) {
-    $this->connector_id = $connector_id ?? ;
+    $this->connector_id = $connector_id ?? "";
   }
 }
 
@@ -381,8 +381,8 @@ class GenerateChangeSetRequest {
   ?'app_id' => AppId,
   ?'changeset_format' => OutputFormat,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->changeset_format = $changeset_format ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->changeset_format = $changeset_format ?? "";
   }
 }
 
@@ -392,7 +392,7 @@ class GenerateChangeSetResponse {
   public function __construct(shape(
   ?'s_3_location' => S3Location,
   ) $s = shape()) {
-    $this->s_3_location = $s_3_location ?? ;
+    $this->s_3_location = $s_3_location ?? null;
   }
 }
 
@@ -404,8 +404,8 @@ class GenerateTemplateRequest {
   ?'app_id' => AppId,
   ?'template_format' => OutputFormat,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->template_format = $template_format ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->template_format = $template_format ?? "";
   }
 }
 
@@ -415,7 +415,7 @@ class GenerateTemplateResponse {
   public function __construct(shape(
   ?'s_3_location' => S3Location,
   ) $s = shape()) {
-    $this->s_3_location = $s_3_location ?? ;
+    $this->s_3_location = $s_3_location ?? null;
   }
 }
 
@@ -425,7 +425,7 @@ class GetAppLaunchConfigurationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -439,9 +439,9 @@ class GetAppLaunchConfigurationResponse {
   ?'role_name' => RoleName,
   ?'server_group_launch_configurations' => ServerGroupLaunchConfigurations,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->server_group_launch_configurations = $server_group_launch_configurations ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->server_group_launch_configurations = $server_group_launch_configurations ?? [];
   }
 }
 
@@ -451,7 +451,7 @@ class GetAppReplicationConfigurationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -461,7 +461,7 @@ class GetAppReplicationConfigurationResponse {
   public function __construct(shape(
   ?'server_group_replication_configurations' => ServerGroupReplicationConfigurations,
   ) $s = shape()) {
-    $this->server_group_replication_configurations = $server_group_replication_configurations ?? ;
+    $this->server_group_replication_configurations = $server_group_replication_configurations ?? [];
   }
 }
 
@@ -471,7 +471,7 @@ class GetAppRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -485,9 +485,9 @@ class GetAppResponse {
   ?'server_groups' => ServerGroups,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->app_summary = $app_summary ?? ;
-    $this->server_groups = $server_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->app_summary = $app_summary ?? null;
+    $this->server_groups = $server_groups ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -499,8 +499,8 @@ class GetConnectorsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -512,8 +512,8 @@ class GetConnectorsResponse {
   ?'connector_list' => ConnectorList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->connector_list = $connector_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->connector_list = $connector_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -527,9 +527,9 @@ class GetReplicationJobsRequest {
   ?'next_token' => NextToken,
   ?'replication_job_id' => ReplicationJobId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->replication_job_id = $replication_job_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->replication_job_id = $replication_job_id ?? "";
   }
 }
 
@@ -541,8 +541,8 @@ class GetReplicationJobsResponse {
   ?'next_token' => NextToken,
   ?'replication_job_list' => ReplicationJobList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->replication_job_list = $replication_job_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->replication_job_list = $replication_job_list ?? [];
   }
 }
 
@@ -556,9 +556,9 @@ class GetReplicationRunsRequest {
   ?'next_token' => NextToken,
   ?'replication_job_id' => ReplicationJobId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->replication_job_id = $replication_job_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->replication_job_id = $replication_job_id ?? "";
   }
 }
 
@@ -572,9 +572,9 @@ class GetReplicationRunsResponse {
   ?'replication_job' => ReplicationJob,
   ?'replication_run_list' => ReplicationRunList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->replication_job = $replication_job ?? ;
-    $this->replication_run_list = $replication_run_list ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->replication_job = $replication_job ?? null;
+    $this->replication_run_list = $replication_run_list ?? [];
   }
 }
 
@@ -588,9 +588,9 @@ class GetServersRequest {
   ?'next_token' => NextToken,
   ?'vm_server_address_list' => VmServerAddressList,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->vm_server_address_list = $vm_server_address_list ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->vm_server_address_list = $vm_server_address_list ?? [];
   }
 }
 
@@ -606,10 +606,10 @@ class GetServersResponse {
   ?'server_catalog_status' => ServerCatalogStatus,
   ?'server_list' => ServerList,
   ) $s = shape()) {
-    $this->last_modified_on = $last_modified_on ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->server_catalog_status = $server_catalog_status ?? ;
-    $this->server_list = $server_list ?? ;
+    $this->last_modified_on = $last_modified_on ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->server_catalog_status = $server_catalog_status ?? "";
+    $this->server_list = $server_list ?? [];
   }
 }
 
@@ -635,7 +635,7 @@ class InternalError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -645,7 +645,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -661,7 +661,7 @@ class LaunchAppRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -682,9 +682,9 @@ class LaunchDetails {
   ?'stack_id' => StackId,
   ?'stack_name' => StackName,
   ) $s = shape()) {
-    $this->latest_launch_time = $latest_launch_time ?? ;
-    $this->stack_id = $stack_id ?? ;
-    $this->stack_name = $stack_name ?? ;
+    $this->latest_launch_time = $latest_launch_time ?? 0;
+    $this->stack_id = $stack_id ?? "";
+    $this->stack_name = $stack_name ?? "";
   }
 }
 
@@ -702,9 +702,9 @@ class ListAppsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->app_ids = $app_ids ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->app_ids = $app_ids ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -716,8 +716,8 @@ class ListAppsResponse {
   ?'apps' => Apps,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->apps = $apps ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->apps = $apps ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -733,7 +733,7 @@ class MissingRequiredParameterException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -745,7 +745,7 @@ class NoConnectorsAvailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -757,7 +757,7 @@ class OperationNotPermittedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -773,9 +773,9 @@ class PutAppLaunchConfigurationRequest {
   ?'role_name' => RoleName,
   ?'server_group_launch_configurations' => ServerGroupLaunchConfigurations,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->server_group_launch_configurations = $server_group_launch_configurations ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->server_group_launch_configurations = $server_group_launch_configurations ?? [];
   }
 }
 
@@ -794,8 +794,8 @@ class PutAppReplicationConfigurationRequest {
   ?'app_id' => AppId,
   ?'server_group_replication_configurations' => ServerGroupReplicationConfigurations,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->server_group_replication_configurations = $server_group_replication_configurations ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->server_group_replication_configurations = $server_group_replication_configurations ?? [];
   }
 }
 
@@ -846,24 +846,24 @@ class ReplicationJob {
   ?'status_message' => ReplicationJobStatusMessage,
   ?'vm_server' => VmServer,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->frequency = $frequency ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->latest_ami_id = $latest_ami_id ?? ;
-    $this->license_type = $license_type ?? ;
-    $this->next_replication_run_start_time = $next_replication_run_start_time ?? ;
-    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? ;
-    $this->replication_job_id = $replication_job_id ?? ;
-    $this->replication_run_list = $replication_run_list ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->run_once = $run_once ?? ;
-    $this->seed_replication_time = $seed_replication_time ?? ;
-    $this->server_id = $server_id ?? ;
-    $this->server_type = $server_type ?? ;
-    $this->state = $state ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->vm_server = $vm_server ?? ;
+    $this->description = $description ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->frequency = $frequency ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->latest_ami_id = $latest_ami_id ?? "";
+    $this->license_type = $license_type ?? "";
+    $this->next_replication_run_start_time = $next_replication_run_start_time ?? 0;
+    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? 0;
+    $this->replication_job_id = $replication_job_id ?? "";
+    $this->replication_run_list = $replication_run_list ?? [];
+    $this->role_name = $role_name ?? "";
+    $this->run_once = $run_once ?? false;
+    $this->seed_replication_time = $seed_replication_time ?? 0;
+    $this->server_id = $server_id ?? "";
+    $this->server_type = $server_type ?? "";
+    $this->state = $state ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->vm_server = $vm_server ?? null;
   }
 }
 
@@ -873,7 +873,7 @@ class ReplicationJobAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -887,7 +887,7 @@ class ReplicationJobNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -923,17 +923,17 @@ class ReplicationRun {
   ?'status_message' => ReplicationRunStatusMessage,
   ?'type' => ReplicationRunType,
   ) $s = shape()) {
-    $this->ami_id = $ami_id ?? ;
-    $this->completed_time = $completed_time ?? ;
-    $this->description = $description ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->replication_run_id = $replication_run_id ?? ;
-    $this->scheduled_start_time = $scheduled_start_time ?? ;
-    $this->stage_details = $stage_details ?? ;
-    $this->state = $state ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->type = $type ?? ;
+    $this->ami_id = $ami_id ?? "";
+    $this->completed_time = $completed_time ?? 0;
+    $this->description = $description ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->replication_run_id = $replication_run_id ?? "";
+    $this->scheduled_start_time = $scheduled_start_time ?? 0;
+    $this->stage_details = $stage_details ?? null;
+    $this->state = $state ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -945,7 +945,7 @@ class ReplicationRunLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -961,8 +961,8 @@ class ReplicationRunStageDetails {
   ?'stage' => ReplicationRunStage,
   ?'stage_progress' => ReplicationRunStageProgress,
   ) $s = shape()) {
-    $this->stage = $stage ?? ;
-    $this->stage_progress = $stage_progress ?? ;
+    $this->stage = $stage ?? "";
+    $this->stage_progress = $stage_progress ?? "";
   }
 }
 
@@ -986,8 +986,8 @@ class S3Location {
   ?'bucket' => BucketName,
   ?'key' => KeyName,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -1007,11 +1007,11 @@ class Server {
   ?'server_type' => ServerType,
   ?'vm_server' => VmServer,
   ) $s = shape()) {
-    $this->replication_job_id = $replication_job_id ?? ;
-    $this->replication_job_terminated = $replication_job_terminated ?? ;
-    $this->server_id = $server_id ?? ;
-    $this->server_type = $server_type ?? ;
-    $this->vm_server = $vm_server ?? ;
+    $this->replication_job_id = $replication_job_id ?? "";
+    $this->replication_job_terminated = $replication_job_terminated ?? false;
+    $this->server_id = $server_id ?? "";
+    $this->server_type = $server_type ?? "";
+    $this->vm_server = $vm_server ?? null;
   }
 }
 
@@ -1021,7 +1021,7 @@ class ServerCannotBeReplicatedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1037,9 +1037,9 @@ class ServerGroup {
   ?'server_group_id' => ServerGroupId,
   ?'server_list' => ServerList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->server_group_id = $server_group_id ?? ;
-    $this->server_list = $server_list ?? ;
+    $this->name = $name ?? "";
+    $this->server_group_id = $server_group_id ?? "";
+    $this->server_list = $server_list ?? [];
   }
 }
 
@@ -1055,9 +1055,9 @@ class ServerGroupLaunchConfiguration {
   ?'server_group_id' => ServerGroupId,
   ?'server_launch_configurations' => ServerLaunchConfigurations,
   ) $s = shape()) {
-    $this->launch_order = $launch_order ?? ;
-    $this->server_group_id = $server_group_id ?? ;
-    $this->server_launch_configurations = $server_launch_configurations ?? ;
+    $this->launch_order = $launch_order ?? 0;
+    $this->server_group_id = $server_group_id ?? "";
+    $this->server_launch_configurations = $server_launch_configurations ?? [];
   }
 }
 
@@ -1073,8 +1073,8 @@ class ServerGroupReplicationConfiguration {
   ?'server_group_id' => ServerGroupId,
   ?'server_replication_configurations' => ServerReplicationConfigurations,
   ) $s = shape()) {
-    $this->server_group_id = $server_group_id ?? ;
-    $this->server_replication_configurations = $server_replication_configurations ?? ;
+    $this->server_group_id = $server_group_id ?? "";
+    $this->server_replication_configurations = $server_replication_configurations ?? [];
   }
 }
 
@@ -1106,15 +1106,15 @@ class ServerLaunchConfiguration {
   ?'user_data' => UserData,
   ?'vpc' => VPC,
   ) $s = shape()) {
-    $this->associate_public_ip_address = $associate_public_ip_address ?? ;
-    $this->ec_2_key_name = $ec_2_key_name ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->logical_id = $logical_id ?? ;
-    $this->security_group = $security_group ?? ;
-    $this->server = $server ?? ;
-    $this->subnet = $subnet ?? ;
-    $this->user_data = $user_data ?? ;
-    $this->vpc = $vpc ?? ;
+    $this->associate_public_ip_address = $associate_public_ip_address ?? false;
+    $this->ec_2_key_name = $ec_2_key_name ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->logical_id = $logical_id ?? "";
+    $this->security_group = $security_group ?? "";
+    $this->server = $server ?? null;
+    $this->subnet = $subnet ?? "";
+    $this->user_data = $user_data ?? null;
+    $this->vpc = $vpc ?? "";
   }
 }
 
@@ -1130,8 +1130,8 @@ class ServerReplicationConfiguration {
   ?'server' => Server,
   ?'server_replication_parameters' => ServerReplicationParameters,
   ) $s = shape()) {
-    $this->server = $server ?? ;
-    $this->server_replication_parameters = $server_replication_parameters ?? ;
+    $this->server = $server ?? null;
+    $this->server_replication_parameters = $server_replication_parameters ?? null;
   }
 }
 
@@ -1155,13 +1155,13 @@ class ServerReplicationParameters {
   ?'run_once' => RunOnce,
   ?'seed_time' => Timestamp,
   ) $s = shape()) {
-    $this->encrypted = $encrypted ?? ;
-    $this->frequency = $frequency ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->license_type = $license_type ?? ;
-    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? ;
-    $this->run_once = $run_once ?? ;
-    $this->seed_time = $seed_time ?? ;
+    $this->encrypted = $encrypted ?? false;
+    $this->frequency = $frequency ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->license_type = $license_type ?? "";
+    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? 0;
+    $this->run_once = $run_once ?? false;
+    $this->seed_time = $seed_time ?? 0;
   }
 }
 
@@ -1177,7 +1177,7 @@ class StartAppReplicationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -1196,8 +1196,8 @@ class StartOnDemandReplicationRunRequest {
   ?'description' => Description,
   ?'replication_job_id' => ReplicationJobId,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->replication_job_id = $replication_job_id ?? ;
+    $this->description = $description ?? "";
+    $this->replication_job_id = $replication_job_id ?? "";
   }
 }
 
@@ -1207,7 +1207,7 @@ class StartOnDemandReplicationRunResponse {
   public function __construct(shape(
   ?'replication_run_id' => ReplicationRunId,
   ) $s = shape()) {
-    $this->replication_run_id = $replication_run_id ?? ;
+    $this->replication_run_id = $replication_run_id ?? "";
   }
 }
 
@@ -1217,7 +1217,7 @@ class StopAppReplicationRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -1238,8 +1238,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1262,7 +1262,7 @@ class TerminateAppRequest {
   public function __construct(shape(
   ?'app_id' => AppId,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
+    $this->app_id = $app_id ?? "";
   }
 }
 
@@ -1285,7 +1285,7 @@ class UnauthorizedOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1305,12 +1305,12 @@ class UpdateAppRequest {
   ?'server_groups' => ServerGroups,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->app_id = $app_id ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->server_groups = $server_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->app_id = $app_id ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->server_groups = $server_groups ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1324,9 +1324,9 @@ class UpdateAppResponse {
   ?'server_groups' => ServerGroups,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->app_summary = $app_summary ?? ;
-    $this->server_groups = $server_groups ?? ;
-    $this->tags = $tags ?? ;
+    $this->app_summary = $app_summary ?? null;
+    $this->server_groups = $server_groups ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1352,15 +1352,15 @@ class UpdateReplicationJobRequest {
   ?'replication_job_id' => ReplicationJobId,
   ?'role_name' => RoleName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->encrypted = $encrypted ?? ;
-    $this->frequency = $frequency ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->license_type = $license_type ?? ;
-    $this->next_replication_run_start_time = $next_replication_run_start_time ?? ;
-    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? ;
-    $this->replication_job_id = $replication_job_id ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->description = $description ?? "";
+    $this->encrypted = $encrypted ?? false;
+    $this->frequency = $frequency ?? 0;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->license_type = $license_type ?? "";
+    $this->next_replication_run_start_time = $next_replication_run_start_time ?? 0;
+    $this->number_of_recent_amis_to_keep = $number_of_recent_amis_to_keep ?? 0;
+    $this->replication_job_id = $replication_job_id ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -1377,7 +1377,7 @@ class UserData {
   public function __construct(shape(
   ?'s_3_location' => S3Location,
   ) $s = shape()) {
-    $this->s_3_location = $s_3_location ?? ;
+    $this->s_3_location = $s_3_location ?? null;
   }
 }
 
@@ -1409,11 +1409,11 @@ class VmServer {
   ?'vm_path' => VmPath,
   ?'vm_server_address' => VmServerAddress,
   ) $s = shape()) {
-    $this->vm_manager_name = $vm_manager_name ?? ;
-    $this->vm_manager_type = $vm_manager_type ?? ;
-    $this->vm_name = $vm_name ?? ;
-    $this->vm_path = $vm_path ?? ;
-    $this->vm_server_address = $vm_server_address ?? ;
+    $this->vm_manager_name = $vm_manager_name ?? "";
+    $this->vm_manager_type = $vm_manager_type ?? "";
+    $this->vm_name = $vm_name ?? "";
+    $this->vm_path = $vm_path ?? "";
+    $this->vm_server_address = $vm_server_address ?? null;
   }
 }
 
@@ -1425,8 +1425,8 @@ class VmServerAddress {
   ?'vm_id' => VmId,
   ?'vm_manager_id' => VmManagerId,
   ) $s = shape()) {
-    $this->vm_id = $vm_id ?? ;
-    $this->vm_manager_id = $vm_manager_id ?? ;
+    $this->vm_id = $vm_id ?? "";
+    $this->vm_manager_id = $vm_manager_id ?? "";
   }
 }
 

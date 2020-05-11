@@ -102,8 +102,8 @@ class AssociateRoleToGroupRequest {
   ?'group_id' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -113,7 +113,7 @@ class AssociateRoleToGroupResponse {
   public function __construct(shape(
   ?'associated_at' => __string,
   ) $s = shape()) {
-    $this->associated_at = $associated_at ?? ;
+    $this->associated_at = $associated_at ?? "";
   }
 }
 
@@ -123,7 +123,7 @@ class AssociateServiceRoleToAccountRequest {
   public function __construct(shape(
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -133,7 +133,7 @@ class AssociateServiceRoleToAccountResponse {
   public function __construct(shape(
   ?'associated_at' => __string,
   ) $s = shape()) {
-    $this->associated_at = $associated_at ?? ;
+    $this->associated_at = $associated_at ?? "";
   }
 }
 
@@ -146,7 +146,7 @@ class BadRequestException {
   ?'message' => __string,
   ) $s = shape()) {
     $this->error_details = $error_details ?? [];
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -160,9 +160,9 @@ class BulkDeployment {
   ?'bulk_deployment_id' => __string,
   ?'created_at' => __string,
   ) $s = shape()) {
-    $this->bulk_deployment_arn = $bulk_deployment_arn ?? ;
-    $this->bulk_deployment_id = $bulk_deployment_id ?? ;
-    $this->created_at = $created_at ?? ;
+    $this->bulk_deployment_arn = $bulk_deployment_arn ?? "";
+    $this->bulk_deployment_id = $bulk_deployment_id ?? "";
+    $this->created_at = $created_at ?? "";
   }
 }
 
@@ -176,9 +176,9 @@ class BulkDeploymentMetrics {
   ?'records_processed' => __integer,
   ?'retry_attempts' => __integer,
   ) $s = shape()) {
-    $this->invalid_input_records = $invalid_input_records ?? ;
-    $this->records_processed = $records_processed ?? ;
-    $this->retry_attempts = $retry_attempts ?? ;
+    $this->invalid_input_records = $invalid_input_records ?? 0;
+    $this->records_processed = $records_processed ?? 0;
+    $this->retry_attempts = $retry_attempts ?? 0;
   }
 }
 
@@ -202,14 +202,14 @@ class BulkDeploymentResult {
   ?'error_message' => __string,
   ?'group_arn' => __string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->deployment_arn = $deployment_arn ?? ;
-    $this->deployment_id = $deployment_id ?? ;
-    $this->deployment_status = $deployment_status ?? ;
+    $this->created_at = $created_at ?? "";
+    $this->deployment_arn = $deployment_arn ?? "";
+    $this->deployment_id = $deployment_id ?? "";
+    $this->deployment_status = $deployment_status ?? "";
     $this->deployment_type = $deployment_type ?? "";
     $this->error_details = $error_details ?? [];
-    $this->error_message = $error_message ?? ;
-    $this->group_arn = $group_arn ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->group_arn = $group_arn ?? "";
   }
 }
 
@@ -231,10 +231,10 @@ class ConnectivityInfo {
   ?'metadata' => __string,
   ?'port_number' => __integer,
   ) $s = shape()) {
-    $this->host_address = $host_address ?? ;
-    $this->id = $id ?? ;
-    $this->metadata = $metadata ?? ;
-    $this->port_number = $port_number ?? ;
+    $this->host_address = $host_address ?? "";
+    $this->id = $id ?? "";
+    $this->metadata = $metadata ?? "";
+    $this->port_number = $port_number ?? 0;
   }
 }
 
@@ -248,9 +248,9 @@ class Connector {
   ?'id' => __string,
   ?'parameters' => __mapOf__string,
   ) $s = shape()) {
-    $this->connector_arn = $connector_arn ?? ;
-    $this->id = $id ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->connector_arn = $connector_arn ?? "";
+    $this->id = $id ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -260,7 +260,7 @@ class ConnectorDefinitionVersion {
   public function __construct(shape(
   ?'connectors' => __listOfConnector,
   ) $s = shape()) {
-    $this->connectors = $connectors ?? ;
+    $this->connectors = $connectors ?? [];
   }
 }
 
@@ -276,10 +276,10 @@ class Core {
   ?'sync_shadow' => __boolean,
   ?'thing_arn' => __string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->id = $id ?? ;
-    $this->sync_shadow = $sync_shadow ?? ;
-    $this->thing_arn = $thing_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->id = $id ?? "";
+    $this->sync_shadow = $sync_shadow ?? false;
+    $this->thing_arn = $thing_arn ?? "";
   }
 }
 
@@ -289,7 +289,7 @@ class CoreDefinitionVersion {
   public function __construct(shape(
   ?'cores' => __listOfCore,
   ) $s = shape()) {
-    $this->cores = $cores ?? ;
+    $this->cores = $cores ?? [];
   }
 }
 
@@ -305,10 +305,10 @@ class CreateConnectorDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -330,13 +330,13 @@ class CreateConnectorDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -350,9 +350,9 @@ class CreateConnectorDefinitionVersionRequest {
   ?'connector_definition_id' => __string,
   ?'connectors' => __listOfConnector,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->connector_definition_id = $connector_definition_id ?? ;
-    $this->connectors = $connectors ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->connector_definition_id = $connector_definition_id ?? "";
+    $this->connectors = $connectors ?? [];
   }
 }
 
@@ -368,10 +368,10 @@ class CreateConnectorDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -387,10 +387,10 @@ class CreateCoreDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -412,13 +412,13 @@ class CreateCoreDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -432,9 +432,9 @@ class CreateCoreDefinitionVersionRequest {
   ?'core_definition_id' => __string,
   ?'cores' => __listOfCore,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->core_definition_id = $core_definition_id ?? ;
-    $this->cores = $cores ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->core_definition_id = $core_definition_id ?? "";
+    $this->cores = $cores ?? [];
   }
 }
 
@@ -450,10 +450,10 @@ class CreateCoreDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -471,11 +471,11 @@ class CreateDeploymentRequest {
   ?'group_id' => __string,
   ?'group_version_id' => __string,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_type = $deployment_type ?? "";
-    $this->group_id = $group_id ?? ;
-    $this->group_version_id = $group_version_id ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->group_version_id = $group_version_id ?? "";
   }
 }
 
@@ -487,8 +487,8 @@ class CreateDeploymentResponse {
   ?'deployment_arn' => __string,
   ?'deployment_id' => __string,
   ) $s = shape()) {
-    $this->deployment_arn = $deployment_arn ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_arn = $deployment_arn ?? "";
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -504,10 +504,10 @@ class CreateDeviceDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -529,13 +529,13 @@ class CreateDeviceDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -549,9 +549,9 @@ class CreateDeviceDefinitionVersionRequest {
   ?'device_definition_id' => __string,
   ?'devices' => __listOfDevice,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->device_definition_id = $device_definition_id ?? ;
-    $this->devices = $devices ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->device_definition_id = $device_definition_id ?? "";
+    $this->devices = $devices ?? [];
   }
 }
 
@@ -567,10 +567,10 @@ class CreateDeviceDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -586,10 +586,10 @@ class CreateFunctionDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -611,13 +611,13 @@ class CreateFunctionDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -633,10 +633,10 @@ class CreateFunctionDefinitionVersionRequest {
   ?'function_definition_id' => __string,
   ?'functions' => __listOfFunction,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->default_config = $default_config ?? ;
-    $this->function_definition_id = $function_definition_id ?? ;
-    $this->functions = $functions ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->default_config = $default_config ?? null;
+    $this->function_definition_id = $function_definition_id ?? "";
+    $this->functions = $functions ?? [];
   }
 }
 
@@ -652,10 +652,10 @@ class CreateFunctionDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -667,8 +667,8 @@ class CreateGroupCertificateAuthorityRequest {
   ?'amzn_client_token' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -678,7 +678,7 @@ class CreateGroupCertificateAuthorityResponse {
   public function __construct(shape(
   ?'group_certificate_authority_arn' => __string,
   ) $s = shape()) {
-    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? ;
+    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? "";
   }
 }
 
@@ -694,10 +694,10 @@ class CreateGroupRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -719,13 +719,13 @@ class CreateGroupResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -751,15 +751,15 @@ class CreateGroupVersionRequest {
   ?'resource_definition_version_arn' => __string,
   ?'subscription_definition_version_arn' => __string,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->connector_definition_version_arn = $connector_definition_version_arn ?? ;
-    $this->core_definition_version_arn = $core_definition_version_arn ?? ;
-    $this->device_definition_version_arn = $device_definition_version_arn ?? ;
-    $this->function_definition_version_arn = $function_definition_version_arn ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->logger_definition_version_arn = $logger_definition_version_arn ?? ;
-    $this->resource_definition_version_arn = $resource_definition_version_arn ?? ;
-    $this->subscription_definition_version_arn = $subscription_definition_version_arn ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->connector_definition_version_arn = $connector_definition_version_arn ?? "";
+    $this->core_definition_version_arn = $core_definition_version_arn ?? "";
+    $this->device_definition_version_arn = $device_definition_version_arn ?? "";
+    $this->function_definition_version_arn = $function_definition_version_arn ?? "";
+    $this->group_id = $group_id ?? "";
+    $this->logger_definition_version_arn = $logger_definition_version_arn ?? "";
+    $this->resource_definition_version_arn = $resource_definition_version_arn ?? "";
+    $this->subscription_definition_version_arn = $subscription_definition_version_arn ?? "";
   }
 }
 
@@ -775,10 +775,10 @@ class CreateGroupVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -794,10 +794,10 @@ class CreateLoggerDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -819,13 +819,13 @@ class CreateLoggerDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -839,9 +839,9 @@ class CreateLoggerDefinitionVersionRequest {
   ?'logger_definition_id' => __string,
   ?'loggers' => __listOfLogger,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->logger_definition_id = $logger_definition_id ?? ;
-    $this->loggers = $loggers ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->logger_definition_id = $logger_definition_id ?? "";
+    $this->loggers = $loggers ?? [];
   }
 }
 
@@ -857,10 +857,10 @@ class CreateLoggerDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -876,10 +876,10 @@ class CreateResourceDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -901,13 +901,13 @@ class CreateResourceDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -921,9 +921,9 @@ class CreateResourceDefinitionVersionRequest {
   ?'resource_definition_id' => __string,
   ?'resources' => __listOfResource,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->resource_definition_id = $resource_definition_id ?? ;
-    $this->resources = $resources ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->resource_definition_id = $resource_definition_id ?? "";
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -939,10 +939,10 @@ class CreateResourceDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -964,7 +964,7 @@ class CreateSoftwareUpdateJobRequest {
   ?'update_targets_architecture' => UpdateTargetsArchitecture,
   ?'update_targets_operating_system' => UpdateTargetsOperatingSystem,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
     $this->s_3_url_signer_role = $s_3_url_signer_role ?? "";
     $this->software_to_update = $software_to_update ?? "";
     $this->update_agent_log_level = $update_agent_log_level ?? "";
@@ -984,9 +984,9 @@ class CreateSoftwareUpdateJobResponse {
   ?'iot_job_id' => __string,
   ?'platform_software_version' => __string,
   ) $s = shape()) {
-    $this->iot_job_arn = $iot_job_arn ?? ;
-    $this->iot_job_id = $iot_job_id ?? ;
-    $this->platform_software_version = $platform_software_version ?? ;
+    $this->iot_job_arn = $iot_job_arn ?? "";
+    $this->iot_job_id = $iot_job_id ?? "";
+    $this->platform_software_version = $platform_software_version ?? "";
   }
 }
 
@@ -1002,10 +1002,10 @@ class CreateSubscriptionDefinitionRequest {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->initial_version = $initial_version ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->initial_version = $initial_version ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1027,13 +1027,13 @@ class CreateSubscriptionDefinitionResponse {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1047,9 +1047,9 @@ class CreateSubscriptionDefinitionVersionRequest {
   ?'subscription_definition_id' => __string,
   ?'subscriptions' => __listOfSubscription,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
-    $this->subscriptions = $subscriptions ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -1065,10 +1065,10 @@ class CreateSubscriptionDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1092,13 +1092,13 @@ class DefinitionInformation {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1109,7 +1109,7 @@ class DeleteConnectorDefinitionRequest {
   public function __construct(shape(
   ?'connector_definition_id' => __string,
   ) $s = shape()) {
-    $this->connector_definition_id = $connector_definition_id ?? ;
+    $this->connector_definition_id = $connector_definition_id ?? "";
   }
 }
 
@@ -1126,7 +1126,7 @@ class DeleteCoreDefinitionRequest {
   public function __construct(shape(
   ?'core_definition_id' => __string,
   ) $s = shape()) {
-    $this->core_definition_id = $core_definition_id ?? ;
+    $this->core_definition_id = $core_definition_id ?? "";
   }
 }
 
@@ -1143,7 +1143,7 @@ class DeleteDeviceDefinitionRequest {
   public function __construct(shape(
   ?'device_definition_id' => __string,
   ) $s = shape()) {
-    $this->device_definition_id = $device_definition_id ?? ;
+    $this->device_definition_id = $device_definition_id ?? "";
   }
 }
 
@@ -1160,7 +1160,7 @@ class DeleteFunctionDefinitionRequest {
   public function __construct(shape(
   ?'function_definition_id' => __string,
   ) $s = shape()) {
-    $this->function_definition_id = $function_definition_id ?? ;
+    $this->function_definition_id = $function_definition_id ?? "";
   }
 }
 
@@ -1177,7 +1177,7 @@ class DeleteGroupRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1194,7 +1194,7 @@ class DeleteLoggerDefinitionRequest {
   public function __construct(shape(
   ?'logger_definition_id' => __string,
   ) $s = shape()) {
-    $this->logger_definition_id = $logger_definition_id ?? ;
+    $this->logger_definition_id = $logger_definition_id ?? "";
   }
 }
 
@@ -1211,7 +1211,7 @@ class DeleteResourceDefinitionRequest {
   public function __construct(shape(
   ?'resource_definition_id' => __string,
   ) $s = shape()) {
-    $this->resource_definition_id = $resource_definition_id ?? ;
+    $this->resource_definition_id = $resource_definition_id ?? "";
   }
 }
 
@@ -1228,7 +1228,7 @@ class DeleteSubscriptionDefinitionRequest {
   public function __construct(shape(
   ?'subscription_definition_id' => __string,
   ) $s = shape()) {
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
   }
 }
 
@@ -1253,11 +1253,11 @@ class Deployment {
   ?'deployment_type' => DeploymentType,
   ?'group_arn' => __string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->deployment_arn = $deployment_arn ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->created_at = $created_at ?? "";
+    $this->deployment_arn = $deployment_arn ?? "";
+    $this->deployment_id = $deployment_id ?? "";
     $this->deployment_type = $deployment_type ?? "";
-    $this->group_arn = $group_arn ?? ;
+    $this->group_arn = $group_arn ?? "";
   }
 }
 
@@ -1277,10 +1277,10 @@ class Device {
   ?'sync_shadow' => __boolean,
   ?'thing_arn' => __string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->id = $id ?? ;
-    $this->sync_shadow = $sync_shadow ?? ;
-    $this->thing_arn = $thing_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->id = $id ?? "";
+    $this->sync_shadow = $sync_shadow ?? false;
+    $this->thing_arn = $thing_arn ?? "";
   }
 }
 
@@ -1290,7 +1290,7 @@ class DeviceDefinitionVersion {
   public function __construct(shape(
   ?'devices' => __listOfDevice,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
+    $this->devices = $devices ?? [];
   }
 }
 
@@ -1300,7 +1300,7 @@ class DisassociateRoleFromGroupRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1310,7 +1310,7 @@ class DisassociateRoleFromGroupResponse {
   public function __construct(shape(
   ?'disassociated_at' => __string,
   ) $s = shape()) {
-    $this->disassociated_at = $disassociated_at ?? ;
+    $this->disassociated_at = $disassociated_at ?? "";
   }
 }
 
@@ -1327,7 +1327,7 @@ class DisassociateServiceRoleFromAccountResponse {
   public function __construct(shape(
   ?'disassociated_at' => __string,
   ) $s = shape()) {
-    $this->disassociated_at = $disassociated_at ?? ;
+    $this->disassociated_at = $disassociated_at ?? "";
   }
 }
 
@@ -1348,8 +1348,8 @@ class ErrorDetail {
   ?'detailed_error_code' => __string,
   ?'detailed_error_message' => __string,
   ) $s = shape()) {
-    $this->detailed_error_code = $detailed_error_code ?? ;
-    $this->detailed_error_message = $detailed_error_message ?? ;
+    $this->detailed_error_code = $detailed_error_code ?? "";
+    $this->detailed_error_message = $detailed_error_message ?? "";
   }
 }
 
@@ -1365,9 +1365,9 @@ class Function {
   ?'function_configuration' => FunctionConfiguration,
   ?'id' => __string,
   ) $s = shape()) {
-    $this->function_arn = $function_arn ?? ;
+    $this->function_arn = $function_arn ?? "";
     $this->function_configuration = $function_configuration ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1390,12 +1390,12 @@ class FunctionConfiguration {
   ?'timeout' => __integer,
   ) $s = shape()) {
     $this->encoding_type = $encoding_type ?? "";
-    $this->environment = $environment ?? ;
-    $this->exec_args = $exec_args ?? ;
-    $this->executable = $executable ?? ;
-    $this->memory_size = $memory_size ?? ;
-    $this->pinned = $pinned ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->environment = $environment ?? null;
+    $this->exec_args = $exec_args ?? "";
+    $this->executable = $executable ?? "";
+    $this->memory_size = $memory_size ?? 0;
+    $this->pinned = $pinned ?? false;
+    $this->timeout = $timeout ?? 0;
   }
 }
 
@@ -1411,10 +1411,10 @@ class FunctionConfigurationEnvironment {
   ?'resource_access_policies' => __listOfResourceAccessPolicy,
   ?'variables' => __mapOf__string,
   ) $s = shape()) {
-    $this->access_sysfs = $access_sysfs ?? ;
-    $this->execution = $execution ?? ;
-    $this->resource_access_policies = $resource_access_policies ?? ;
-    $this->variables = $variables ?? ;
+    $this->access_sysfs = $access_sysfs ?? false;
+    $this->execution = $execution ?? null;
+    $this->resource_access_policies = $resource_access_policies ?? [];
+    $this->variables = $variables ?? [];
   }
 }
 
@@ -1424,7 +1424,7 @@ class FunctionDefaultConfig {
   public function __construct(shape(
   ?'execution' => FunctionDefaultExecutionConfig,
   ) $s = shape()) {
-    $this->execution = $execution ?? ;
+    $this->execution = $execution ?? null;
   }
 }
 
@@ -1436,8 +1436,8 @@ class FunctionDefaultExecutionConfig {
   ?'isolation_mode' => FunctionIsolationMode,
   ?'run_as' => FunctionRunAsConfig,
   ) $s = shape()) {
-    $this->isolation_mode = $isolation_mode ?? ;
-    $this->run_as = $run_as ?? ;
+    $this->isolation_mode = $isolation_mode ?? "";
+    $this->run_as = $run_as ?? null;
   }
 }
 
@@ -1449,8 +1449,8 @@ class FunctionDefinitionVersion {
   ?'default_config' => FunctionDefaultConfig,
   ?'functions' => __listOfFunction,
   ) $s = shape()) {
-    $this->default_config = $default_config ?? ;
-    $this->functions = $functions ?? ;
+    $this->default_config = $default_config ?? null;
+    $this->functions = $functions ?? [];
   }
 }
 
@@ -1462,8 +1462,8 @@ class FunctionExecutionConfig {
   ?'isolation_mode' => FunctionIsolationMode,
   ?'run_as' => FunctionRunAsConfig,
   ) $s = shape()) {
-    $this->isolation_mode = $isolation_mode ?? ;
-    $this->run_as = $run_as ?? ;
+    $this->isolation_mode = $isolation_mode ?? "";
+    $this->run_as = $run_as ?? null;
   }
 }
 
@@ -1477,8 +1477,8 @@ class FunctionRunAsConfig {
   ?'gid' => __integer,
   ?'uid' => __integer,
   ) $s = shape()) {
-    $this->gid = $gid ?? ;
-    $this->uid = $uid ?? ;
+    $this->gid = $gid ?? 0;
+    $this->uid = $uid ?? 0;
   }
 }
 
@@ -1491,7 +1491,7 @@ class GeneralError {
   ?'message' => __string,
   ) $s = shape()) {
     $this->error_details = $error_details ?? [];
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1501,7 +1501,7 @@ class GetAssociatedRoleRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1513,8 +1513,8 @@ class GetAssociatedRoleResponse {
   ?'associated_at' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->associated_at = $associated_at ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->associated_at = $associated_at ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1524,7 +1524,7 @@ class GetBulkDeploymentStatusRequest {
   public function __construct(shape(
   ?'bulk_deployment_id' => __string,
   ) $s = shape()) {
-    $this->bulk_deployment_id = $bulk_deployment_id ?? ;
+    $this->bulk_deployment_id = $bulk_deployment_id ?? "";
   }
 }
 
@@ -1546,10 +1546,10 @@ class GetBulkDeploymentStatusResponse {
   ) $s = shape()) {
     $this->bulk_deployment_metrics = $bulk_deployment_metrics ?? null;
     $this->bulk_deployment_status = $bulk_deployment_status ?? "";
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? "";
     $this->error_details = $error_details ?? [];
-    $this->error_message = $error_message ?? ;
-    $this->tags = $tags ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1559,7 +1559,7 @@ class GetConnectivityInfoRequest {
   public function __construct(shape(
   ?'thing_name' => __string,
   ) $s = shape()) {
-    $this->thing_name = $thing_name ?? ;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -1571,8 +1571,8 @@ class GetConnectivityInfoResponse {
   ?'connectivity_info' => __listOfConnectivityInfo,
   ?'message' => __string,
   ) $s = shape()) {
-    $this->connectivity_info = $connectivity_info ?? null;
-    $this->message = $message ?? ;
+    $this->connectivity_info = $connectivity_info ?? [];
+    $this->message = $message ?? "";
   }
 }
 
@@ -1582,7 +1582,7 @@ class GetConnectorDefinitionRequest {
   public function __construct(shape(
   ?'connector_definition_id' => __string,
   ) $s = shape()) {
-    $this->connector_definition_id = $connector_definition_id ?? ;
+    $this->connector_definition_id = $connector_definition_id ?? "";
   }
 }
 
@@ -1606,14 +1606,14 @@ class GetConnectorDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1627,9 +1627,9 @@ class GetConnectorDefinitionVersionRequest {
   ?'connector_definition_version_id' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->connector_definition_id = $connector_definition_id ?? ;
-    $this->connector_definition_version_id = $connector_definition_version_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->connector_definition_id = $connector_definition_id ?? "";
+    $this->connector_definition_version_id = $connector_definition_version_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1649,12 +1649,12 @@ class GetConnectorDefinitionVersionResponse {
   ?'next_token' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1664,7 +1664,7 @@ class GetCoreDefinitionRequest {
   public function __construct(shape(
   ?'core_definition_id' => __string,
   ) $s = shape()) {
-    $this->core_definition_id = $core_definition_id ?? ;
+    $this->core_definition_id = $core_definition_id ?? "";
   }
 }
 
@@ -1688,14 +1688,14 @@ class GetCoreDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1707,8 +1707,8 @@ class GetCoreDefinitionVersionRequest {
   ?'core_definition_id' => __string,
   ?'core_definition_version_id' => __string,
   ) $s = shape()) {
-    $this->core_definition_id = $core_definition_id ?? ;
-    $this->core_definition_version_id = $core_definition_version_id ?? ;
+    $this->core_definition_id = $core_definition_id ?? "";
+    $this->core_definition_version_id = $core_definition_version_id ?? "";
   }
 }
 
@@ -1728,12 +1728,12 @@ class GetCoreDefinitionVersionResponse {
   ?'next_token' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1745,8 +1745,8 @@ class GetDeploymentStatusRequest {
   ?'deployment_id' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->deployment_id = $deployment_id ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->deployment_id = $deployment_id ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1764,11 +1764,11 @@ class GetDeploymentStatusResponse {
   ?'error_message' => __string,
   ?'updated_at' => __string,
   ) $s = shape()) {
-    $this->deployment_status = $deployment_status ?? ;
+    $this->deployment_status = $deployment_status ?? "";
     $this->deployment_type = $deployment_type ?? "";
     $this->error_details = $error_details ?? [];
-    $this->error_message = $error_message ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->updated_at = $updated_at ?? "";
   }
 }
 
@@ -1778,7 +1778,7 @@ class GetDeviceDefinitionRequest {
   public function __construct(shape(
   ?'device_definition_id' => __string,
   ) $s = shape()) {
-    $this->device_definition_id = $device_definition_id ?? ;
+    $this->device_definition_id = $device_definition_id ?? "";
   }
 }
 
@@ -1802,14 +1802,14 @@ class GetDeviceDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1823,9 +1823,9 @@ class GetDeviceDefinitionVersionRequest {
   ?'device_definition_version_id' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->device_definition_id = $device_definition_id ?? ;
-    $this->device_definition_version_id = $device_definition_version_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->device_definition_id = $device_definition_id ?? "";
+    $this->device_definition_version_id = $device_definition_version_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1845,12 +1845,12 @@ class GetDeviceDefinitionVersionResponse {
   ?'next_token' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1860,7 +1860,7 @@ class GetFunctionDefinitionRequest {
   public function __construct(shape(
   ?'function_definition_id' => __string,
   ) $s = shape()) {
-    $this->function_definition_id = $function_definition_id ?? ;
+    $this->function_definition_id = $function_definition_id ?? "";
   }
 }
 
@@ -1884,14 +1884,14 @@ class GetFunctionDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1905,9 +1905,9 @@ class GetFunctionDefinitionVersionRequest {
   ?'function_definition_version_id' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->function_definition_id = $function_definition_id ?? ;
-    $this->function_definition_version_id = $function_definition_version_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->function_definition_id = $function_definition_id ?? "";
+    $this->function_definition_version_id = $function_definition_version_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1927,12 +1927,12 @@ class GetFunctionDefinitionVersionResponse {
   ?'next_token' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1944,8 +1944,8 @@ class GetGroupCertificateAuthorityRequest {
   ?'certificate_authority_id' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->certificate_authority_id = $certificate_authority_id ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->certificate_authority_id = $certificate_authority_id ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1959,9 +1959,9 @@ class GetGroupCertificateAuthorityResponse {
   ?'group_certificate_authority_id' => __string,
   ?'pem_encoded_certificate' => __string,
   ) $s = shape()) {
-    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? ;
-    $this->group_certificate_authority_id = $group_certificate_authority_id ?? ;
-    $this->pem_encoded_certificate = $pem_encoded_certificate ?? ;
+    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? "";
+    $this->group_certificate_authority_id = $group_certificate_authority_id ?? "";
+    $this->pem_encoded_certificate = $pem_encoded_certificate ?? "";
   }
 }
 
@@ -1971,7 +1971,7 @@ class GetGroupCertificateConfigurationRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1985,9 +1985,9 @@ class GetGroupCertificateConfigurationResponse {
   ?'certificate_expiry_in_milliseconds' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? ;
-    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? "";
+    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -1997,7 +1997,7 @@ class GetGroupRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -2021,14 +2021,14 @@ class GetGroupResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2040,8 +2040,8 @@ class GetGroupVersionRequest {
   ?'group_id' => __string,
   ?'group_version_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->group_version_id = $group_version_id ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->group_version_id = $group_version_id ?? "";
   }
 }
 
@@ -2059,11 +2059,11 @@ class GetGroupVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2073,7 +2073,7 @@ class GetLoggerDefinitionRequest {
   public function __construct(shape(
   ?'logger_definition_id' => __string,
   ) $s = shape()) {
-    $this->logger_definition_id = $logger_definition_id ?? ;
+    $this->logger_definition_id = $logger_definition_id ?? "";
   }
 }
 
@@ -2097,14 +2097,14 @@ class GetLoggerDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2118,9 +2118,9 @@ class GetLoggerDefinitionVersionRequest {
   ?'logger_definition_version_id' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->logger_definition_id = $logger_definition_id ?? ;
-    $this->logger_definition_version_id = $logger_definition_version_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->logger_definition_id = $logger_definition_id ?? "";
+    $this->logger_definition_version_id = $logger_definition_version_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2138,11 +2138,11 @@ class GetLoggerDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2152,7 +2152,7 @@ class GetResourceDefinitionRequest {
   public function __construct(shape(
   ?'resource_definition_id' => __string,
   ) $s = shape()) {
-    $this->resource_definition_id = $resource_definition_id ?? ;
+    $this->resource_definition_id = $resource_definition_id ?? "";
   }
 }
 
@@ -2176,14 +2176,14 @@ class GetResourceDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2195,8 +2195,8 @@ class GetResourceDefinitionVersionRequest {
   ?'resource_definition_id' => __string,
   ?'resource_definition_version_id' => __string,
   ) $s = shape()) {
-    $this->resource_definition_id = $resource_definition_id ?? ;
-    $this->resource_definition_version_id = $resource_definition_version_id ?? ;
+    $this->resource_definition_id = $resource_definition_id ?? "";
+    $this->resource_definition_version_id = $resource_definition_version_id ?? "";
   }
 }
 
@@ -2214,11 +2214,11 @@ class GetResourceDefinitionVersionResponse {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2237,8 +2237,8 @@ class GetServiceRoleForAccountResponse {
   ?'associated_at' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->associated_at = $associated_at ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->associated_at = $associated_at ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -2248,7 +2248,7 @@ class GetSubscriptionDefinitionRequest {
   public function __construct(shape(
   ?'subscription_definition_id' => __string,
   ) $s = shape()) {
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
   }
 }
 
@@ -2272,14 +2272,14 @@ class GetSubscriptionDefinitionResponse {
   ?'name' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2293,9 +2293,9 @@ class GetSubscriptionDefinitionVersionRequest {
   ?'subscription_definition_id' => __string,
   ?'subscription_definition_version_id' => __string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
-    $this->subscription_definition_version_id = $subscription_definition_version_id ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
+    $this->subscription_definition_version_id = $subscription_definition_version_id ?? "";
   }
 }
 
@@ -2315,12 +2315,12 @@ class GetSubscriptionDefinitionVersionResponse {
   ?'next_token' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->definition = $definition ?? ;
-    $this->id = $id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->definition = $definition ?? null;
+    $this->id = $id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2332,8 +2332,8 @@ class GroupCertificateAuthorityProperties {
   ?'group_certificate_authority_arn' => __string,
   ?'group_certificate_authority_id' => __string,
   ) $s = shape()) {
-    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? ;
-    $this->group_certificate_authority_id = $group_certificate_authority_id ?? ;
+    $this->group_certificate_authority_arn = $group_certificate_authority_arn ?? "";
+    $this->group_certificate_authority_id = $group_certificate_authority_id ?? "";
   }
 }
 
@@ -2347,9 +2347,9 @@ class GroupCertificateConfiguration {
   ?'certificate_expiry_in_milliseconds' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? ;
-    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? "";
+    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -2371,13 +2371,13 @@ class GroupInformation {
   ?'latest_version_arn' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
-    $this->latest_version = $latest_version ?? ;
-    $this->latest_version_arn = $latest_version_arn ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->last_updated_timestamp = $last_updated_timestamp ?? "";
+    $this->latest_version = $latest_version ?? "";
+    $this->latest_version_arn = $latest_version_arn ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2389,8 +2389,8 @@ class GroupOwnerSetting {
   ?'auto_add_group_owner' => __boolean,
   ?'group_owner' => __string,
   ) $s = shape()) {
-    $this->auto_add_group_owner = $auto_add_group_owner ?? ;
-    $this->group_owner = $group_owner ?? ;
+    $this->auto_add_group_owner = $auto_add_group_owner ?? false;
+    $this->group_owner = $group_owner ?? "";
   }
 }
 
@@ -2412,13 +2412,13 @@ class GroupVersion {
   ?'resource_definition_version_arn' => __string,
   ?'subscription_definition_version_arn' => __string,
   ) $s = shape()) {
-    $this->connector_definition_version_arn = $connector_definition_version_arn ?? ;
-    $this->core_definition_version_arn = $core_definition_version_arn ?? ;
-    $this->device_definition_version_arn = $device_definition_version_arn ?? ;
-    $this->function_definition_version_arn = $function_definition_version_arn ?? ;
-    $this->logger_definition_version_arn = $logger_definition_version_arn ?? ;
-    $this->resource_definition_version_arn = $resource_definition_version_arn ?? ;
-    $this->subscription_definition_version_arn = $subscription_definition_version_arn ?? ;
+    $this->connector_definition_version_arn = $connector_definition_version_arn ?? "";
+    $this->core_definition_version_arn = $core_definition_version_arn ?? "";
+    $this->device_definition_version_arn = $device_definition_version_arn ?? "";
+    $this->function_definition_version_arn = $function_definition_version_arn ?? "";
+    $this->logger_definition_version_arn = $logger_definition_version_arn ?? "";
+    $this->resource_definition_version_arn = $resource_definition_version_arn ?? "";
+    $this->subscription_definition_version_arn = $subscription_definition_version_arn ?? "";
   }
 }
 
@@ -2431,7 +2431,7 @@ class InternalServerErrorException {
   ?'message' => __string,
   ) $s = shape()) {
     $this->error_details = $error_details ?? [];
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2445,9 +2445,9 @@ class ListBulkDeploymentDetailedReportsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->bulk_deployment_id = $bulk_deployment_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->bulk_deployment_id = $bulk_deployment_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2460,7 +2460,7 @@ class ListBulkDeploymentDetailedReportsResponse {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->deployments = $deployments ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2472,8 +2472,8 @@ class ListBulkDeploymentsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2486,7 +2486,7 @@ class ListBulkDeploymentsResponse {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->bulk_deployments = $bulk_deployments ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2500,9 +2500,9 @@ class ListConnectorDefinitionVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->connector_definition_id = $connector_definition_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->connector_definition_id = $connector_definition_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2514,8 +2514,8 @@ class ListConnectorDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2527,8 +2527,8 @@ class ListConnectorDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2540,8 +2540,8 @@ class ListConnectorDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2555,9 +2555,9 @@ class ListCoreDefinitionVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->core_definition_id = $core_definition_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->core_definition_id = $core_definition_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2569,8 +2569,8 @@ class ListCoreDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2582,8 +2582,8 @@ class ListCoreDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2595,8 +2595,8 @@ class ListCoreDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2608,8 +2608,8 @@ class ListDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2623,9 +2623,9 @@ class ListDeploymentsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2638,7 +2638,7 @@ class ListDeploymentsResponse {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->deployments = $deployments ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2652,9 +2652,9 @@ class ListDeviceDefinitionVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->device_definition_id = $device_definition_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->device_definition_id = $device_definition_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2666,8 +2666,8 @@ class ListDeviceDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2679,8 +2679,8 @@ class ListDeviceDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2692,8 +2692,8 @@ class ListDeviceDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2707,9 +2707,9 @@ class ListFunctionDefinitionVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->function_definition_id = $function_definition_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->function_definition_id = $function_definition_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2721,8 +2721,8 @@ class ListFunctionDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2734,8 +2734,8 @@ class ListFunctionDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2747,8 +2747,8 @@ class ListFunctionDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2758,7 +2758,7 @@ class ListGroupCertificateAuthoritiesRequest {
   public function __construct(shape(
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -2768,7 +2768,7 @@ class ListGroupCertificateAuthoritiesResponse {
   public function __construct(shape(
   ?'group_certificate_authorities' => __listOfGroupCertificateAuthorityProperties,
   ) $s = shape()) {
-    $this->group_certificate_authorities = $group_certificate_authorities ?? ;
+    $this->group_certificate_authorities = $group_certificate_authorities ?? [];
   }
 }
 
@@ -2782,9 +2782,9 @@ class ListGroupVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2796,8 +2796,8 @@ class ListGroupVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2809,8 +2809,8 @@ class ListGroupsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2822,8 +2822,8 @@ class ListGroupsResponse {
   ?'groups' => __listOfGroupInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->groups = $groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2837,9 +2837,9 @@ class ListLoggerDefinitionVersionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->logger_definition_id = $logger_definition_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->logger_definition_id = $logger_definition_id ?? "";
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2851,8 +2851,8 @@ class ListLoggerDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2864,8 +2864,8 @@ class ListLoggerDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2877,8 +2877,8 @@ class ListLoggerDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2892,9 +2892,9 @@ class ListResourceDefinitionVersionsRequest {
   ?'next_token' => __string,
   ?'resource_definition_id' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->resource_definition_id = $resource_definition_id ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->resource_definition_id = $resource_definition_id ?? "";
   }
 }
 
@@ -2906,8 +2906,8 @@ class ListResourceDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2919,8 +2919,8 @@ class ListResourceDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2932,8 +2932,8 @@ class ListResourceDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2947,9 +2947,9 @@ class ListSubscriptionDefinitionVersionsRequest {
   ?'next_token' => __string,
   ?'subscription_definition_id' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
   }
 }
 
@@ -2961,8 +2961,8 @@ class ListSubscriptionDefinitionVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2974,8 +2974,8 @@ class ListSubscriptionDefinitionsRequest {
   ?'max_results' => __string,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2987,8 +2987,8 @@ class ListSubscriptionDefinitionsResponse {
   ?'definitions' => __listOfDefinitionInformation,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->definitions = $definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->definitions = $definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2998,7 +2998,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -3008,7 +3008,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3020,8 +3020,8 @@ class ListVersionsResponse {
   ?'next_token' => __string,
   ?'versions' => __listOfVersionInformation,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->versions = $versions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -3034,7 +3034,7 @@ class LocalDeviceResourceData {
   ?'source_path' => __string,
   ) $s = shape()) {
     $this->group_owner_setting = $group_owner_setting ?? null;
-    $this->source_path = $source_path ?? ;
+    $this->source_path = $source_path ?? "";
   }
 }
 
@@ -3048,9 +3048,9 @@ class LocalVolumeResourceData {
   ?'group_owner_setting' => GroupOwnerSetting,
   ?'source_path' => __string,
   ) $s = shape()) {
-    $this->destination_path = $destination_path ?? ;
+    $this->destination_path = $destination_path ?? "";
     $this->group_owner_setting = $group_owner_setting ?? null;
-    $this->source_path = $source_path ?? ;
+    $this->source_path = $source_path ?? "";
   }
 }
 
@@ -3068,11 +3068,11 @@ class Logger {
   ?'space' => __integer,
   ?'type' => LoggerType,
   ) $s = shape()) {
-    $this->component = $component ?? ;
-    $this->id = $id ?? ;
-    $this->level = $level ?? ;
-    $this->space = $space ?? ;
-    $this->type = $type ?? ;
+    $this->component = $component ?? "";
+    $this->id = $id ?? "";
+    $this->level = $level ?? "";
+    $this->space = $space ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -3084,7 +3084,7 @@ class LoggerDefinitionVersion {
   public function __construct(shape(
   ?'loggers' => __listOfLogger,
   ) $s = shape()) {
-    $this->loggers = $loggers ?? ;
+    $this->loggers = $loggers ?? [];
   }
 }
 
@@ -3104,9 +3104,9 @@ class ResetDeploymentsRequest {
   ?'force' => __boolean,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->force = $force ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->force = $force ?? false;
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -3118,8 +3118,8 @@ class ResetDeploymentsResponse {
   ?'deployment_arn' => __string,
   ?'deployment_id' => __string,
   ) $s = shape()) {
-    $this->deployment_arn = $deployment_arn ?? ;
-    $this->deployment_id = $deployment_id ?? ;
+    $this->deployment_arn = $deployment_arn ?? "";
+    $this->deployment_id = $deployment_id ?? "";
   }
 }
 
@@ -3133,8 +3133,8 @@ class Resource {
   ?'name' => __string,
   ?'resource_data_container' => ResourceDataContainer,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->resource_data_container = $resource_data_container ?? null;
   }
 }
@@ -3148,7 +3148,7 @@ class ResourceAccessPolicy {
   ?'resource_id' => __string,
   ) $s = shape()) {
     $this->permission = $permission ?? "";
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -3180,7 +3180,7 @@ class ResourceDefinitionVersion {
   public function __construct(shape(
   ?'resources' => __listOfResource,
   ) $s = shape()) {
-    $this->resources = $resources ?? ;
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -3192,8 +3192,8 @@ class ResourceDownloadOwnerSetting {
   ?'group_owner' => __string,
   ?'group_permission' => Permission,
   ) $s = shape()) {
-    $this->group_owner = $group_owner ?? ;
-    $this->group_permission = $group_permission ?? ;
+    $this->group_owner = $group_owner ?? "";
+    $this->group_permission = $group_permission ?? "";
   }
 }
 
@@ -3207,9 +3207,9 @@ class S3MachineLearningModelResourceData {
   ?'owner_setting' => ResourceDownloadOwnerSetting,
   ?'s_3_uri' => __string,
   ) $s = shape()) {
-    $this->destination_path = $destination_path ?? ;
-    $this->owner_setting = $owner_setting ?? ;
-    $this->s_3_uri = $s_3_uri ?? ;
+    $this->destination_path = $destination_path ?? "";
+    $this->owner_setting = $owner_setting ?? null;
+    $this->s_3_uri = $s_3_uri ?? "";
   }
 }
 
@@ -3225,9 +3225,9 @@ class SageMakerMachineLearningModelResourceData {
   ?'owner_setting' => ResourceDownloadOwnerSetting,
   ?'sage_maker_job_arn' => __string,
   ) $s = shape()) {
-    $this->destination_path = $destination_path ?? ;
-    $this->owner_setting = $owner_setting ?? ;
-    $this->sage_maker_job_arn = $sage_maker_job_arn ?? ;
+    $this->destination_path = $destination_path ?? "";
+    $this->owner_setting = $owner_setting ?? null;
+    $this->sage_maker_job_arn = $sage_maker_job_arn ?? "";
   }
 }
 
@@ -3239,8 +3239,8 @@ class SecretsManagerSecretResourceData {
   ?'arn' => __string,
   ?'additional_staging_labels_to_download' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->additional_staging_labels_to_download = $additional_staging_labels_to_download ?? ;
+    $this->arn = $arn ?? "";
+    $this->additional_staging_labels_to_download = $additional_staging_labels_to_download ?? [];
   }
 }
 
@@ -3258,10 +3258,10 @@ class StartBulkDeploymentRequest {
   ?'input_file_uri' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->amzn_client_token = $amzn_client_token ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->input_file_uri = $input_file_uri ?? ;
-    $this->tags = $tags ?? ;
+    $this->amzn_client_token = $amzn_client_token ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->input_file_uri = $input_file_uri ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3273,8 +3273,8 @@ class StartBulkDeploymentResponse {
   ?'bulk_deployment_arn' => __string,
   ?'bulk_deployment_id' => __string,
   ) $s = shape()) {
-    $this->bulk_deployment_arn = $bulk_deployment_arn ?? ;
-    $this->bulk_deployment_id = $bulk_deployment_id ?? ;
+    $this->bulk_deployment_arn = $bulk_deployment_arn ?? "";
+    $this->bulk_deployment_id = $bulk_deployment_id ?? "";
   }
 }
 
@@ -3284,7 +3284,7 @@ class StopBulkDeploymentRequest {
   public function __construct(shape(
   ?'bulk_deployment_id' => __string,
   ) $s = shape()) {
-    $this->bulk_deployment_id = $bulk_deployment_id ?? ;
+    $this->bulk_deployment_id = $bulk_deployment_id ?? "";
   }
 }
 
@@ -3307,10 +3307,10 @@ class Subscription {
   ?'subject' => __string,
   ?'target' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->source = $source ?? ;
-    $this->subject = $subject ?? ;
-    $this->target = $target ?? ;
+    $this->id = $id ?? "";
+    $this->source = $source ?? "";
+    $this->subject = $subject ?? "";
+    $this->target = $target ?? "";
   }
 }
 
@@ -3320,7 +3320,7 @@ class SubscriptionDefinitionVersion {
   public function __construct(shape(
   ?'subscriptions' => __listOfSubscription,
   ) $s = shape()) {
-    $this->subscriptions = $subscriptions ?? ;
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -3332,8 +3332,8 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3347,8 +3347,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3362,8 +3362,8 @@ class UpdateConnectivityInfoRequest {
   ?'connectivity_info' => __listOfConnectivityInfo,
   ?'thing_name' => __string,
   ) $s = shape()) {
-    $this->connectivity_info = $connectivity_info ?? null;
-    $this->thing_name = $thing_name ?? ;
+    $this->connectivity_info = $connectivity_info ?? [];
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -3375,8 +3375,8 @@ class UpdateConnectivityInfoResponse {
   ?'message' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->version = $version ?? ;
+    $this->message = $message ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3388,8 +3388,8 @@ class UpdateConnectorDefinitionRequest {
   ?'connector_definition_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->connector_definition_id = $connector_definition_id ?? ;
-    $this->name = $name ?? ;
+    $this->connector_definition_id = $connector_definition_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3408,8 +3408,8 @@ class UpdateCoreDefinitionRequest {
   ?'core_definition_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->core_definition_id = $core_definition_id ?? ;
-    $this->name = $name ?? ;
+    $this->core_definition_id = $core_definition_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3428,8 +3428,8 @@ class UpdateDeviceDefinitionRequest {
   ?'device_definition_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->device_definition_id = $device_definition_id ?? ;
-    $this->name = $name ?? ;
+    $this->device_definition_id = $device_definition_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3448,8 +3448,8 @@ class UpdateFunctionDefinitionRequest {
   ?'function_definition_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->function_definition_id = $function_definition_id ?? ;
-    $this->name = $name ?? ;
+    $this->function_definition_id = $function_definition_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3468,8 +3468,8 @@ class UpdateGroupCertificateConfigurationRequest {
   ?'certificate_expiry_in_milliseconds' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -3483,9 +3483,9 @@ class UpdateGroupCertificateConfigurationResponse {
   ?'certificate_expiry_in_milliseconds' => __string,
   ?'group_id' => __string,
   ) $s = shape()) {
-    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? ;
-    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? ;
-    $this->group_id = $group_id ?? ;
+    $this->certificate_authority_expiry_in_milliseconds = $certificate_authority_expiry_in_milliseconds ?? "";
+    $this->certificate_expiry_in_milliseconds = $certificate_expiry_in_milliseconds ?? "";
+    $this->group_id = $group_id ?? "";
   }
 }
 
@@ -3497,8 +3497,8 @@ class UpdateGroupRequest {
   ?'group_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->name = $name ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3517,8 +3517,8 @@ class UpdateLoggerDefinitionRequest {
   ?'logger_definition_id' => __string,
   ?'name' => __string,
   ) $s = shape()) {
-    $this->logger_definition_id = $logger_definition_id ?? ;
-    $this->name = $name ?? ;
+    $this->logger_definition_id = $logger_definition_id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -3537,8 +3537,8 @@ class UpdateResourceDefinitionRequest {
   ?'name' => __string,
   ?'resource_definition_id' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->resource_definition_id = $resource_definition_id ?? ;
+    $this->name = $name ?? "";
+    $this->resource_definition_id = $resource_definition_id ?? "";
   }
 }
 
@@ -3557,8 +3557,8 @@ class UpdateSubscriptionDefinitionRequest {
   ?'name' => __string,
   ?'subscription_definition_id' => __string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->subscription_definition_id = $subscription_definition_id ?? ;
+    $this->name = $name ?? "";
+    $this->subscription_definition_id = $subscription_definition_id ?? "";
   }
 }
 
@@ -3587,10 +3587,10 @@ class VersionInformation {
   ?'id' => __string,
   ?'version' => __string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->id = $id ?? ;
-    $this->version = $version ?? ;
+    $this->arn = $arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? "";
+    $this->id = $id ?? "";
+    $this->version = $version ?? "";
   }
 }
 

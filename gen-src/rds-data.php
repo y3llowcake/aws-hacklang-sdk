@@ -28,11 +28,11 @@ class ArrayValue {
   ?'long_values' => LongArray,
   ?'string_values' => StringArray,
   ) $s = shape()) {
-    $this->array_values = $array_values ?? ;
-    $this->boolean_values = $boolean_values ?? ;
-    $this->double_values = $double_values ?? ;
-    $this->long_values = $long_values ?? ;
-    $this->string_values = $string_values ?? ;
+    $this->array_values = $array_values ?? [];
+    $this->boolean_values = $boolean_values ?? [];
+    $this->double_values = $double_values ?? [];
+    $this->long_values = $long_values ?? [];
+    $this->string_values = $string_values ?? [];
   }
 }
 
@@ -44,7 +44,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -66,13 +66,13 @@ class BatchExecuteStatementRequest {
   ?'sql' => SqlStatement,
   ?'transaction_id' => Id,
   ) $s = shape()) {
-    $this->database = $database ?? ;
-    $this->parameter_sets = $parameter_sets ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->schema = $schema ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->sql = $sql ?? ;
-    $this->transaction_id = $transaction_id ?? ;
+    $this->database = $database ?? "";
+    $this->parameter_sets = $parameter_sets ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->schema = $schema ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->sql = $sql ?? "";
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -82,7 +82,7 @@ class BatchExecuteStatementResponse {
   public function __construct(shape(
   ?'update_results' => UpdateResults,
   ) $s = shape()) {
-    $this->update_results = $update_results ?? ;
+    $this->update_results = $update_results ?? [];
   }
 }
 
@@ -98,10 +98,10 @@ class BeginTransactionRequest {
   ?'schema' => DbName,
   ?'secret_arn' => Arn,
   ) $s = shape()) {
-    $this->database = $database ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->schema = $schema ?? ;
-    $this->secret_arn = $secret_arn ?? ;
+    $this->database = $database ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->schema = $schema ?? "";
+    $this->secret_arn = $secret_arn ?? "";
   }
 }
 
@@ -111,7 +111,7 @@ class BeginTransactionResponse {
   public function __construct(shape(
   ?'transaction_id' => Id,
   ) $s = shape()) {
-    $this->transaction_id = $transaction_id ?? ;
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -163,20 +163,20 @@ class ColumnMetadata {
   ?'type' => int,
   ?'type_name' => string,
   ) $s = shape()) {
-    $this->array_base_column_type = $array_base_column_type ?? ;
-    $this->is_auto_increment = $is_auto_increment ?? ;
-    $this->is_case_sensitive = $is_case_sensitive ?? ;
-    $this->is_currency = $is_currency ?? ;
-    $this->is_signed = $is_signed ?? ;
-    $this->label = $label ?? ;
-    $this->name = $name ?? ;
-    $this->nullable = $nullable ?? ;
-    $this->precision = $precision ?? ;
-    $this->scale = $scale ?? ;
-    $this->schema_name = $schema_name ?? ;
-    $this->table_name = $table_name ?? ;
-    $this->type = $type ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->array_base_column_type = $array_base_column_type ?? 0;
+    $this->is_auto_increment = $is_auto_increment ?? false;
+    $this->is_case_sensitive = $is_case_sensitive ?? false;
+    $this->is_currency = $is_currency ?? false;
+    $this->is_signed = $is_signed ?? false;
+    $this->label = $label ?? "";
+    $this->name = $name ?? "";
+    $this->nullable = $nullable ?? 0;
+    $this->precision = $precision ?? 0;
+    $this->scale = $scale ?? 0;
+    $this->schema_name = $schema_name ?? "";
+    $this->table_name = $table_name ?? "";
+    $this->type = $type ?? 0;
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -190,9 +190,9 @@ class CommitTransactionRequest {
   ?'secret_arn' => Arn,
   ?'transaction_id' => Id,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->transaction_id = $transaction_id ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -202,7 +202,7 @@ class CommitTransactionResponse {
   public function __construct(shape(
   ?'transaction_status' => TransactionStatus,
   ) $s = shape()) {
-    $this->transaction_status = $transaction_status ?? ;
+    $this->transaction_status = $transaction_status ?? "";
   }
 }
 
@@ -228,11 +228,11 @@ class ExecuteSqlRequest {
   ?'schema' => DbName,
   ?'sql_statements' => SqlStatement,
   ) $s = shape()) {
-    $this->aws_secret_store_arn = $aws_secret_store_arn ?? ;
-    $this->database = $database ?? ;
-    $this->db_cluster_or_instance_arn = $db_cluster_or_instance_arn ?? ;
-    $this->schema = $schema ?? ;
-    $this->sql_statements = $sql_statements ?? ;
+    $this->aws_secret_store_arn = $aws_secret_store_arn ?? "";
+    $this->database = $database ?? "";
+    $this->db_cluster_or_instance_arn = $db_cluster_or_instance_arn ?? "";
+    $this->schema = $schema ?? "";
+    $this->sql_statements = $sql_statements ?? "";
   }
 }
 
@@ -242,7 +242,7 @@ class ExecuteSqlResponse {
   public function __construct(shape(
   ?'sql_statement_results' => SqlStatementResults,
   ) $s = shape()) {
-    $this->sql_statement_results = $sql_statement_results ?? ;
+    $this->sql_statement_results = $sql_statement_results ?? [];
   }
 }
 
@@ -270,16 +270,16 @@ class ExecuteStatementRequest {
   ?'sql' => SqlStatement,
   ?'transaction_id' => Id,
   ) $s = shape()) {
-    $this->continue_after_timeout = $continue_after_timeout ?? ;
-    $this->database = $database ?? ;
-    $this->include_result_metadata = $include_result_metadata ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->resource_arn = $resource_arn ?? ;
-    $this->result_set_options = $result_set_options ?? ;
-    $this->schema = $schema ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->sql = $sql ?? ;
-    $this->transaction_id = $transaction_id ?? ;
+    $this->continue_after_timeout = $continue_after_timeout ?? false;
+    $this->database = $database ?? "";
+    $this->include_result_metadata = $include_result_metadata ?? false;
+    $this->parameters = $parameters ?? [];
+    $this->resource_arn = $resource_arn ?? "";
+    $this->result_set_options = $result_set_options ?? null;
+    $this->schema = $schema ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->sql = $sql ?? "";
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -295,10 +295,10 @@ class ExecuteStatementResponse {
   ?'number_of_records_updated' => RecordsUpdated,
   ?'records' => SqlRecords,
   ) $s = shape()) {
-    $this->column_metadata = $column_metadata ?? ;
-    $this->generated_fields = $generated_fields ?? ;
-    $this->number_of_records_updated = $number_of_records_updated ?? ;
-    $this->records = $records ?? ;
+    $this->column_metadata = $column_metadata ?? [];
+    $this->generated_fields = $generated_fields ?? [];
+    $this->number_of_records_updated = $number_of_records_updated ?? 0;
+    $this->records = $records ?? [];
   }
 }
 
@@ -320,13 +320,13 @@ class Field {
   ?'long_value' => BoxedLong,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->array_value = $array_value ?? ;
-    $this->blob_value = $blob_value ?? ;
-    $this->boolean_value = $boolean_value ?? ;
-    $this->double_value = $double_value ?? ;
-    $this->is_null = $is_null ?? ;
-    $this->long_value = $long_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->array_value = $array_value ?? null;
+    $this->blob_value = $blob_value ?? "";
+    $this->boolean_value = $boolean_value ?? false;
+    $this->double_value = $double_value ?? 0.0;
+    $this->is_null = $is_null ?? false;
+    $this->long_value = $long_value ?? 0;
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -338,7 +338,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -365,7 +365,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -377,7 +377,7 @@ class Record {
   public function __construct(shape(
   ?'values' => Row,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -393,8 +393,8 @@ class ResultFrame {
   ?'records' => Records,
   ?'result_set_metadata' => ResultSetMetadata,
   ) $s = shape()) {
-    $this->records = $records ?? ;
-    $this->result_set_metadata = $result_set_metadata ?? ;
+    $this->records = $records ?? [];
+    $this->result_set_metadata = $result_set_metadata ?? null;
   }
 }
 
@@ -406,8 +406,8 @@ class ResultSetMetadata {
   ?'column_count' => Long,
   ?'column_metadata' => Metadata,
   ) $s = shape()) {
-    $this->column_count = $column_count ?? ;
-    $this->column_metadata = $column_metadata ?? ;
+    $this->column_count = $column_count ?? 0;
+    $this->column_metadata = $column_metadata ?? [];
   }
 }
 
@@ -417,7 +417,7 @@ class ResultSetOptions {
   public function __construct(shape(
   ?'decimal_return_type' => DecimalReturnType,
   ) $s = shape()) {
-    $this->decimal_return_type = $decimal_return_type ?? ;
+    $this->decimal_return_type = $decimal_return_type ?? "";
   }
 }
 
@@ -431,9 +431,9 @@ class RollbackTransactionRequest {
   ?'secret_arn' => Arn,
   ?'transaction_id' => Id,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->secret_arn = $secret_arn ?? ;
-    $this->transaction_id = $transaction_id ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->secret_arn = $secret_arn ?? "";
+    $this->transaction_id = $transaction_id ?? "";
   }
 }
 
@@ -443,7 +443,7 @@ class RollbackTransactionResponse {
   public function __construct(shape(
   ?'transaction_status' => TransactionStatus,
   ) $s = shape()) {
-    $this->transaction_status = $transaction_status ?? ;
+    $this->transaction_status = $transaction_status ?? "";
   }
 }
 
@@ -466,9 +466,9 @@ class SqlParameter {
   ?'type_hint' => TypeHint,
   ?'value' => Field,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type_hint = $type_hint ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->type_hint = $type_hint ?? "";
+    $this->value = $value ?? null;
   }
 }
 
@@ -488,8 +488,8 @@ class SqlStatementResult {
   ?'number_of_records_updated' => RecordsUpdated,
   ?'result_frame' => ResultFrame,
   ) $s = shape()) {
-    $this->number_of_records_updated = $number_of_records_updated ?? ;
-    $this->result_frame = $result_frame ?? ;
+    $this->number_of_records_updated = $number_of_records_updated ?? 0;
+    $this->result_frame = $result_frame ?? null;
   }
 }
 
@@ -503,8 +503,8 @@ class StatementTimeoutException {
   ?'db_connection_id' => Long,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->db_connection_id = $db_connection_id ?? ;
-    $this->message = $message ?? ;
+    $this->db_connection_id = $db_connection_id ?? 0;
+    $this->message = $message ?? "";
   }
 }
 
@@ -518,7 +518,7 @@ class StructValue {
   public function __construct(shape(
   ?'attributes' => ArrayValueList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -532,7 +532,7 @@ class UpdateResult {
   public function __construct(shape(
   ?'generated_fields' => FieldList,
   ) $s = shape()) {
-    $this->generated_fields = $generated_fields ?? ;
+    $this->generated_fields = $generated_fields ?? [];
   }
 }
 
@@ -562,16 +562,16 @@ class Value {
   ?'string_value' => string,
   ?'struct_value' => StructValue,
   ) $s = shape()) {
-    $this->array_values = $array_values ?? ;
-    $this->big_int_value = $big_int_value ?? ;
-    $this->bit_value = $bit_value ?? ;
-    $this->blob_value = $blob_value ?? ;
-    $this->double_value = $double_value ?? ;
-    $this->int_value = $int_value ?? ;
-    $this->is_null = $is_null ?? ;
-    $this->real_value = $real_value ?? ;
-    $this->string_value = $string_value ?? ;
-    $this->struct_value = $struct_value ?? ;
+    $this->array_values = $array_values ?? [];
+    $this->big_int_value = $big_int_value ?? 0;
+    $this->bit_value = $bit_value ?? false;
+    $this->blob_value = $blob_value ?? "";
+    $this->double_value = $double_value ?? 0.0;
+    $this->int_value = $int_value ?? 0;
+    $this->is_null = $is_null ?? false;
+    $this->real_value = $real_value ?? 0.0;
+    $this->string_value = $string_value ?? "";
+    $this->struct_value = $struct_value ?? null;
   }
 }
 

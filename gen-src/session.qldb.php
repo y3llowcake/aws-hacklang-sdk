@@ -27,8 +27,8 @@ class BadRequestException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -88,7 +88,7 @@ class ExecuteStatementRequest {
   ?'statement' => Statement,
   ?'transaction_id' => TransactionId,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
+    $this->parameters = $parameters ?? [];
     $this->statement = $statement ?? "";
     $this->transaction_id = $transaction_id ?? "";
   }
@@ -100,7 +100,7 @@ class ExecuteStatementResult {
   public function __construct(shape(
   ?'first_page' => Page,
   ) $s = shape()) {
-    $this->first_page = $first_page ?? ;
+    $this->first_page = $first_page ?? null;
   }
 }
 
@@ -112,7 +112,7 @@ class FetchPageRequest {
   ?'next_page_token' => PageToken,
   ?'transaction_id' => TransactionId,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
+    $this->next_page_token = $next_page_token ?? "";
     $this->transaction_id = $transaction_id ?? "";
   }
 }
@@ -135,8 +135,8 @@ class InvalidSessionException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -152,7 +152,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -162,7 +162,7 @@ class OccConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -174,8 +174,8 @@ class Page {
   ?'next_page_token' => PageToken,
   ?'values' => ValueHolders,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->values = $values ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -187,7 +187,7 @@ class RateExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -211,14 +211,14 @@ class SendCommandRequest {
   ?'start_session' => StartSessionRequest,
   ?'start_transaction' => StartTransactionRequest,
   ) $s = shape()) {
-    $this->abort_transaction = $abort_transaction ?? ;
-    $this->commit_transaction = $commit_transaction ?? ;
-    $this->end_session = $end_session ?? ;
-    $this->execute_statement = $execute_statement ?? ;
-    $this->fetch_page = $fetch_page ?? ;
+    $this->abort_transaction = $abort_transaction ?? null;
+    $this->commit_transaction = $commit_transaction ?? null;
+    $this->end_session = $end_session ?? null;
+    $this->execute_statement = $execute_statement ?? null;
+    $this->fetch_page = $fetch_page ?? null;
     $this->session_token = $session_token ?? "";
-    $this->start_session = $start_session ?? ;
-    $this->start_transaction = $start_transaction ?? ;
+    $this->start_session = $start_session ?? null;
+    $this->start_transaction = $start_transaction ?? null;
   }
 }
 
@@ -240,13 +240,13 @@ class SendCommandResult {
   ?'start_session' => StartSessionResult,
   ?'start_transaction' => StartTransactionResult,
   ) $s = shape()) {
-    $this->abort_transaction = $abort_transaction ?? ;
-    $this->commit_transaction = $commit_transaction ?? ;
-    $this->end_session = $end_session ?? ;
-    $this->execute_statement = $execute_statement ?? ;
-    $this->fetch_page = $fetch_page ?? ;
-    $this->start_session = $start_session ?? ;
-    $this->start_transaction = $start_transaction ?? ;
+    $this->abort_transaction = $abort_transaction ?? null;
+    $this->commit_transaction = $commit_transaction ?? null;
+    $this->end_session = $end_session ?? null;
+    $this->execute_statement = $execute_statement ?? null;
+    $this->fetch_page = $fetch_page ?? null;
+    $this->start_session = $start_session ?? null;
+    $this->start_transaction = $start_transaction ?? null;
   }
 }
 

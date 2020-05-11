@@ -84,7 +84,7 @@ class AssociateWebsiteAuthorizationProviderResponse {
   public function __construct(shape(
   ?'authorization_provider_id' => Id,
   ) $s = shape()) {
-    $this->authorization_provider_id = $authorization_provider_id ?? ;
+    $this->authorization_provider_id = $authorization_provider_id ?? "";
   }
 }
 
@@ -110,7 +110,7 @@ class AssociateWebsiteCertificateAuthorityResponse {
   public function __construct(shape(
   ?'website_ca_id' => Id,
   ) $s = shape()) {
-    $this->website_ca_id = $website_ca_id ?? ;
+    $this->website_ca_id = $website_ca_id ?? "";
   }
 }
 
@@ -138,7 +138,7 @@ class CreateFleetRequest {
   ) $s = shape()) {
     $this->display_name = $display_name ?? "";
     $this->fleet_name = $fleet_name ?? "";
-    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? ;
+    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? false;
   }
 }
 
@@ -233,7 +233,7 @@ class DescribeDevicePolicyConfigurationResponse {
   public function __construct(shape(
   ?'device_ca_certificate' => Certificate,
   ) $s = shape()) {
-    $this->device_ca_certificate = $device_ca_certificate ?? ;
+    $this->device_ca_certificate = $device_ca_certificate ?? "";
   }
 }
 
@@ -245,7 +245,7 @@ class DescribeDeviceRequest {
   ?'device_id' => Id,
   ?'fleet_arn' => FleetArn,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
   }
 }
@@ -272,14 +272,14 @@ class DescribeDeviceResponse {
   ?'status' => DeviceStatus,
   ?'username' => Username,
   ) $s = shape()) {
-    $this->first_accessed_time = $first_accessed_time ?? ;
-    $this->last_accessed_time = $last_accessed_time ?? ;
-    $this->manufacturer = $manufacturer ?? ;
-    $this->model = $model ?? ;
-    $this->operating_system = $operating_system ?? ;
-    $this->operating_system_version = $operating_system_version ?? ;
-    $this->patch_level = $patch_level ?? ;
-    $this->status = $status ?? ;
+    $this->first_accessed_time = $first_accessed_time ?? 0;
+    $this->last_accessed_time = $last_accessed_time ?? 0;
+    $this->manufacturer = $manufacturer ?? "";
+    $this->model = $model ?? "";
+    $this->operating_system = $operating_system ?? "";
+    $this->operating_system_version = $operating_system_version ?? "";
+    $this->patch_level = $patch_level ?? "";
+    $this->status = $status ?? "";
     $this->username = $username ?? "";
   }
 }
@@ -312,7 +312,7 @@ class DescribeDomainResponse {
   ?'domain_status' => DomainStatus,
   ) $s = shape()) {
     $this->acm_certificate_arn = $acm_certificate_arn ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->domain_status = $domain_status ?? "";
@@ -348,12 +348,12 @@ class DescribeFleetMetadataResponse {
   ?'optimize_for_end_user_location' => boolean,
   ) $s = shape()) {
     $this->company_code = $company_code ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
     $this->fleet_name = $fleet_name ?? "";
     $this->fleet_status = $fleet_status ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? false;
   }
 }
 
@@ -377,9 +377,9 @@ class DescribeIdentityProviderConfigurationResponse {
   ?'identity_provider_type' => IdentityProviderType,
   ?'service_provider_saml_metadata' => SamlMetadata,
   ) $s = shape()) {
-    $this->identity_provider_saml_metadata = $identity_provider_saml_metadata ?? ;
+    $this->identity_provider_saml_metadata = $identity_provider_saml_metadata ?? "";
     $this->identity_provider_type = $identity_provider_type ?? "";
-    $this->service_provider_saml_metadata = $service_provider_saml_metadata ?? ;
+    $this->service_provider_saml_metadata = $service_provider_saml_metadata ?? "";
   }
 }
 
@@ -392,7 +392,7 @@ class DescribeWebsiteCertificateAuthorityRequest {
   ?'website_ca_id' => Id,
   ) $s = shape()) {
     $this->fleet_arn = $fleet_arn ?? "";
-    $this->website_ca_id = $website_ca_id ?? ;
+    $this->website_ca_id = $website_ca_id ?? "";
   }
 }
 
@@ -407,7 +407,7 @@ class DescribeWebsiteCertificateAuthorityResponse {
   ?'display_name' => DisplayName,
   ) $s = shape()) {
     $this->certificate = $certificate ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
   }
 }
@@ -432,7 +432,7 @@ class DeviceSummary {
   ?'device_id' => Id,
   ?'device_status' => DeviceStatus,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? ;
+    $this->device_id = $device_id ?? "";
     $this->device_status = $device_status ?? "";
   }
 }
@@ -467,7 +467,7 @@ class DisassociateWebsiteAuthorizationProviderRequest {
   ?'authorization_provider_id' => Id,
   ?'fleet_arn' => FleetArn,
   ) $s = shape()) {
-    $this->authorization_provider_id = $authorization_provider_id ?? ;
+    $this->authorization_provider_id = $authorization_provider_id ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
   }
 }
@@ -488,7 +488,7 @@ class DisassociateWebsiteCertificateAuthorityRequest {
   ?'website_ca_id' => Id,
   ) $s = shape()) {
     $this->fleet_arn = $fleet_arn ?? "";
-    $this->website_ca_id = $website_ca_id ?? ;
+    $this->website_ca_id = $website_ca_id ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class DomainSummary {
   ?'domain_name' => DomainName,
   ?'domain_status' => DomainStatus,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->domain_status = $domain_status ?? "";
@@ -553,12 +553,12 @@ class FleetSummary {
   ?'last_updated_time' => DateTime,
   ) $s = shape()) {
     $this->company_code = $company_code ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
     $this->fleet_name = $fleet_name ?? "";
     $this->fleet_status = $fleet_status ?? "";
-    $this->last_updated_time = $last_updated_time ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
   }
 }
 
@@ -574,7 +574,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -584,7 +584,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -612,7 +612,7 @@ class ListDevicesResponse {
   ?'devices' => DeviceSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
+    $this->devices = $devices ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -641,7 +641,7 @@ class ListDomainsResponse {
   ?'domains' => DomainSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->domains = $domains ?? ;
+    $this->domains = $domains ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -697,7 +697,7 @@ class ListWebsiteAuthorizationProvidersResponse {
   ?'website_authorization_providers' => WebsiteAuthorizationProvidersSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->website_authorization_providers = $website_authorization_providers ?? ;
+    $this->website_authorization_providers = $website_authorization_providers ?? [];
   }
 }
 
@@ -726,7 +726,7 @@ class ListWebsiteCertificateAuthoritiesResponse {
   ?'website_certificate_authorities' => WebsiteCaSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->website_certificate_authorities = $website_certificate_authorities ?? ;
+    $this->website_certificate_authorities = $website_certificate_authorities ?? [];
   }
 }
 
@@ -740,7 +740,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -750,7 +750,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -830,7 +830,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -840,7 +840,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -898,7 +898,7 @@ class UpdateDevicePolicyConfigurationRequest {
   ?'device_ca_certificate' => CertificateChain,
   ?'fleet_arn' => FleetArn,
   ) $s = shape()) {
-    $this->device_ca_certificate = $device_ca_certificate ?? ;
+    $this->device_ca_certificate = $device_ca_certificate ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
   }
 }
@@ -945,7 +945,7 @@ class UpdateFleetMetadataRequest {
   ) $s = shape()) {
     $this->display_name = $display_name ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
-    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? ;
+    $this->optimize_for_end_user_location = $optimize_for_end_user_location ?? false;
   }
 }
 
@@ -967,7 +967,7 @@ class UpdateIdentityProviderConfigurationRequest {
   ?'identity_provider_type' => IdentityProviderType,
   ) $s = shape()) {
     $this->fleet_arn = $fleet_arn ?? "";
-    $this->identity_provider_saml_metadata = $identity_provider_saml_metadata ?? ;
+    $this->identity_provider_saml_metadata = $identity_provider_saml_metadata ?? "";
     $this->identity_provider_type = $identity_provider_type ?? "";
   }
 }
@@ -995,9 +995,9 @@ class WebsiteAuthorizationProviderSummary {
   ?'created_time' => DateTime,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->authorization_provider_id = $authorization_provider_id ?? ;
+    $this->authorization_provider_id = $authorization_provider_id ?? "";
     $this->authorization_provider_type = $authorization_provider_type ?? "";
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -1014,9 +1014,9 @@ class WebsiteCaSummary {
   ?'display_name' => DisplayName,
   ?'website_ca_id' => Id,
   ) $s = shape()) {
-    $this->created_time = $created_time ?? ;
+    $this->created_time = $created_time ?? 0;
     $this->display_name = $display_name ?? "";
-    $this->website_ca_id = $website_ca_id ?? ;
+    $this->website_ca_id = $website_ca_id ?? "";
   }
 }
 

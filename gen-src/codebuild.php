@@ -59,7 +59,7 @@ class BatchDeleteBuildsInput {
   public function __construct(shape(
   ?'ids' => BuildIds,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
+    $this->ids = $ids ?? [];
   }
 }
 
@@ -71,8 +71,8 @@ class BatchDeleteBuildsOutput {
   ?'builds_deleted' => BuildIds,
   ?'builds_not_deleted' => BuildsNotDeleted,
   ) $s = shape()) {
-    $this->builds_deleted = $builds_deleted ?? ;
-    $this->builds_not_deleted = $builds_not_deleted ?? ;
+    $this->builds_deleted = $builds_deleted ?? [];
+    $this->builds_not_deleted = $builds_not_deleted ?? [];
   }
 }
 
@@ -82,7 +82,7 @@ class BatchGetBuildsInput {
   public function __construct(shape(
   ?'ids' => BuildIds,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
+    $this->ids = $ids ?? [];
   }
 }
 
@@ -94,8 +94,8 @@ class BatchGetBuildsOutput {
   ?'builds' => Builds,
   ?'builds_not_found' => BuildIds,
   ) $s = shape()) {
-    $this->builds = $builds ?? ;
-    $this->builds_not_found = $builds_not_found ?? ;
+    $this->builds = $builds ?? [];
+    $this->builds_not_found = $builds_not_found ?? [];
   }
 }
 
@@ -105,7 +105,7 @@ class BatchGetProjectsInput {
   public function __construct(shape(
   ?'names' => ProjectNames,
   ) $s = shape()) {
-    $this->names = $names ?? ;
+    $this->names = $names ?? [];
   }
 }
 
@@ -117,8 +117,8 @@ class BatchGetProjectsOutput {
   ?'projects' => Projects,
   ?'projects_not_found' => ProjectNames,
   ) $s = shape()) {
-    $this->projects = $projects ?? ;
-    $this->projects_not_found = $projects_not_found ?? ;
+    $this->projects = $projects ?? [];
+    $this->projects_not_found = $projects_not_found ?? [];
   }
 }
 
@@ -128,7 +128,7 @@ class BatchGetReportGroupsInput {
   public function __construct(shape(
   ?'report_group_arns' => ReportGroupArns,
   ) $s = shape()) {
-    $this->report_group_arns = $report_group_arns ?? ;
+    $this->report_group_arns = $report_group_arns ?? [];
   }
 }
 
@@ -140,8 +140,8 @@ class BatchGetReportGroupsOutput {
   ?'report_groups' => ReportGroups,
   ?'report_groups_not_found' => ReportGroupArns,
   ) $s = shape()) {
-    $this->report_groups = $report_groups ?? ;
-    $this->report_groups_not_found = $report_groups_not_found ?? ;
+    $this->report_groups = $report_groups ?? [];
+    $this->report_groups_not_found = $report_groups_not_found ?? [];
   }
 }
 
@@ -151,7 +151,7 @@ class BatchGetReportsInput {
   public function __construct(shape(
   ?'report_arns' => ReportArns,
   ) $s = shape()) {
-    $this->report_arns = $report_arns ?? ;
+    $this->report_arns = $report_arns ?? [];
   }
 }
 
@@ -163,8 +163,8 @@ class BatchGetReportsOutput {
   ?'reports' => Reports,
   ?'reports_not_found' => ReportArns,
   ) $s = shape()) {
-    $this->reports = $reports ?? ;
-    $this->reports_not_found = $reports_not_found ?? ;
+    $this->reports = $reports ?? [];
+    $this->reports_not_found = $reports_not_found ?? [];
   }
 }
 
@@ -234,36 +234,36 @@ class Build {
   ?'timeout_in_minutes' => WrapperInt,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->artifacts = $artifacts ?? ;
-    $this->build_complete = $build_complete ?? ;
-    $this->build_number = $build_number ?? ;
-    $this->build_status = $build_status ?? ;
-    $this->cache = $cache ?? ;
-    $this->current_phase = $current_phase ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->environment = $environment ?? ;
-    $this->exported_environment_variables = $exported_environment_variables ?? ;
-    $this->file_system_locations = $file_system_locations ?? ;
-    $this->id = $id ?? ;
-    $this->initiator = $initiator ?? ;
-    $this->logs = $logs ?? ;
-    $this->network_interface = $network_interface ?? ;
-    $this->phases = $phases ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
-    $this->report_arns = $report_arns ?? ;
-    $this->resolved_source_version = $resolved_source_version ?? ;
-    $this->secondary_artifacts = $secondary_artifacts ?? ;
-    $this->secondary_source_versions = $secondary_source_versions ?? ;
-    $this->secondary_sources = $secondary_sources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->source = $source ?? ;
-    $this->source_version = $source_version ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->arn = $arn ?? "";
+    $this->artifacts = $artifacts ?? null;
+    $this->build_complete = $build_complete ?? false;
+    $this->build_number = $build_number ?? 0;
+    $this->build_status = $build_status ?? "";
+    $this->cache = $cache ?? null;
+    $this->current_phase = $current_phase ?? "";
+    $this->encryption_key = $encryption_key ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->environment = $environment ?? null;
+    $this->exported_environment_variables = $exported_environment_variables ?? [];
+    $this->file_system_locations = $file_system_locations ?? [];
+    $this->id = $id ?? "";
+    $this->initiator = $initiator ?? "";
+    $this->logs = $logs ?? null;
+    $this->network_interface = $network_interface ?? null;
+    $this->phases = $phases ?? [];
+    $this->project_name = $project_name ?? "";
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? 0;
+    $this->report_arns = $report_arns ?? [];
+    $this->resolved_source_version = $resolved_source_version ?? "";
+    $this->secondary_artifacts = $secondary_artifacts ?? [];
+    $this->secondary_source_versions = $secondary_source_versions ?? [];
+    $this->secondary_sources = $secondary_sources ?? [];
+    $this->service_role = $service_role ?? "";
+    $this->source = $source ?? null;
+    $this->source_version = $source_version ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -283,12 +283,12 @@ class BuildArtifacts {
   ?'override_artifact_name' => WrapperBoolean,
   ?'sha_256_sum' => string,
   ) $s = shape()) {
-    $this->artifact_identifier = $artifact_identifier ?? ;
-    $this->encryption_disabled = $encryption_disabled ?? ;
-    $this->location = $location ?? ;
-    $this->md_5_sum = $md_5_sum ?? ;
-    $this->override_artifact_name = $override_artifact_name ?? ;
-    $this->sha_256_sum = $sha_256_sum ?? ;
+    $this->artifact_identifier = $artifact_identifier ?? "";
+    $this->encryption_disabled = $encryption_disabled ?? false;
+    $this->location = $location ?? "";
+    $this->md_5_sum = $md_5_sum ?? "";
+    $this->override_artifact_name = $override_artifact_name ?? false;
+    $this->sha_256_sum = $sha_256_sum ?? "";
   }
 }
 
@@ -304,8 +304,8 @@ class BuildNotDeleted {
   ?'id' => NonEmptyString,
   ?'status_code' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->id = $id ?? "";
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -325,12 +325,12 @@ class BuildPhase {
   ?'phase_type' => BuildPhaseType,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->contexts = $contexts ?? ;
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->phase_status = $phase_status ?? ;
-    $this->phase_type = $phase_type ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->contexts = $contexts ?? [];
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->phase_status = $phase_status ?? "";
+    $this->phase_type = $phase_type ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -358,9 +358,9 @@ class CloudWatchLogsConfig {
   ?'status' => LogsConfigStatusType,
   ?'stream_name' => string,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->status = $status ?? ;
-    $this->stream_name = $stream_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->status = $status ?? "";
+    $this->stream_name = $stream_name ?? "";
   }
 }
 
@@ -408,25 +408,25 @@ class CreateProjectInput {
   ?'timeout_in_minutes' => TimeOut,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->artifacts = $artifacts ?? ;
-    $this->badge_enabled = $badge_enabled ?? ;
-    $this->cache = $cache ?? ;
-    $this->description = $description ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->environment = $environment ?? ;
-    $this->file_system_locations = $file_system_locations ?? ;
-    $this->logs_config = $logs_config ?? ;
-    $this->name = $name ?? ;
-    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
-    $this->secondary_artifacts = $secondary_artifacts ?? ;
-    $this->secondary_source_versions = $secondary_source_versions ?? ;
-    $this->secondary_sources = $secondary_sources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->source = $source ?? ;
-    $this->source_version = $source_version ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->artifacts = $artifacts ?? null;
+    $this->badge_enabled = $badge_enabled ?? false;
+    $this->cache = $cache ?? null;
+    $this->description = $description ?? "";
+    $this->encryption_key = $encryption_key ?? "";
+    $this->environment = $environment ?? null;
+    $this->file_system_locations = $file_system_locations ?? [];
+    $this->logs_config = $logs_config ?? null;
+    $this->name = $name ?? "";
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? 0;
+    $this->secondary_artifacts = $secondary_artifacts ?? [];
+    $this->secondary_source_versions = $secondary_source_versions ?? [];
+    $this->secondary_sources = $secondary_sources ?? [];
+    $this->service_role = $service_role ?? "";
+    $this->source = $source ?? null;
+    $this->source_version = $source_version ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -436,7 +436,7 @@ class CreateProjectOutput {
   public function __construct(shape(
   ?'project' => Project,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -450,9 +450,9 @@ class CreateReportGroupInput {
   ?'name' => ReportGroupName,
   ?'type' => ReportType,
   ) $s = shape()) {
-    $this->export_config = $export_config ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->export_config = $export_config ?? null;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -462,7 +462,7 @@ class CreateReportGroupOutput {
   public function __construct(shape(
   ?'report_group' => ReportGroup,
   ) $s = shape()) {
-    $this->report_group = $report_group ?? ;
+    $this->report_group = $report_group ?? null;
   }
 }
 
@@ -476,9 +476,9 @@ class CreateWebhookInput {
   ?'filter_groups' => FilterGroups,
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->branch_filter = $branch_filter ?? ;
-    $this->filter_groups = $filter_groups ?? ;
-    $this->project_name = $project_name ?? ;
+    $this->branch_filter = $branch_filter ?? "";
+    $this->filter_groups = $filter_groups ?? [];
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -488,7 +488,7 @@ class CreateWebhookOutput {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -500,7 +500,7 @@ class DeleteProjectInput {
   public function __construct(shape(
   ?'name' => NonEmptyString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -517,7 +517,7 @@ class DeleteReportGroupInput {
   public function __construct(shape(
   ?'arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -534,7 +534,7 @@ class DeleteReportInput {
   public function __construct(shape(
   ?'arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -551,7 +551,7 @@ class DeleteResourcePolicyInput {
   public function __construct(shape(
   ?'resource_arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -568,7 +568,7 @@ class DeleteSourceCredentialsInput {
   public function __construct(shape(
   ?'arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -578,7 +578,7 @@ class DeleteSourceCredentialsOutput {
   public function __construct(shape(
   ?'arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -588,7 +588,7 @@ class DeleteWebhookInput {
   public function __construct(shape(
   ?'project_name' => ProjectName,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? ;
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -611,10 +611,10 @@ class DescribeTestCasesInput {
   ?'next_token' => string,
   ?'report_arn' => string,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->report_arn = $report_arn ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->report_arn = $report_arn ?? "";
   }
 }
 
@@ -626,8 +626,8 @@ class DescribeTestCasesOutput {
   ?'next_token' => string,
   ?'test_cases' => TestCases,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->test_cases = $test_cases ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->test_cases = $test_cases ?? [];
   }
 }
 
@@ -641,9 +641,9 @@ class EnvironmentImage {
   ?'name' => string,
   ?'versions' => ImageVersions,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->versions = $versions ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -657,8 +657,8 @@ class EnvironmentLanguage {
   ?'images' => EnvironmentImages,
   ?'language' => LanguageType,
   ) $s = shape()) {
-    $this->images = $images ?? ;
-    $this->language = $language ?? ;
+    $this->images = $images ?? [];
+    $this->language = $language ?? "";
   }
 }
 
@@ -672,8 +672,8 @@ class EnvironmentPlatform {
   ?'languages' => EnvironmentLanguages,
   ?'platform' => PlatformType,
   ) $s = shape()) {
-    $this->languages = $languages ?? ;
-    $this->platform = $platform ?? ;
+    $this->languages = $languages ?? [];
+    $this->platform = $platform ?? "";
   }
 }
 
@@ -691,9 +691,9 @@ class EnvironmentVariable {
   ?'type' => EnvironmentVariableType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -709,8 +709,8 @@ class ExportedEnvironmentVariable {
   ?'name' => NonEmptyString,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -728,7 +728,7 @@ class GetResourcePolicyInput {
   public function __construct(shape(
   ?'resource_arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -738,7 +738,7 @@ class GetResourcePolicyOutput {
   public function __construct(shape(
   ?'policy' => NonEmptyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -750,7 +750,7 @@ class GitSubmodulesConfig {
   public function __construct(shape(
   ?'fetch_submodules' => WrapperBoolean,
   ) $s = shape()) {
-    $this->fetch_submodules = $fetch_submodules ?? ;
+    $this->fetch_submodules = $fetch_submodules ?? false;
   }
 }
 
@@ -772,11 +772,11 @@ class ImportSourceCredentialsInput {
   ?'token' => SensitiveNonEmptyString,
   ?'username' => NonEmptyString,
   ) $s = shape()) {
-    $this->auth_type = $auth_type ?? ;
-    $this->server_type = $server_type ?? ;
-    $this->should_overwrite = $should_overwrite ?? ;
-    $this->token = $token ?? ;
-    $this->username = $username ?? ;
+    $this->auth_type = $auth_type ?? "";
+    $this->server_type = $server_type ?? "";
+    $this->should_overwrite = $should_overwrite ?? false;
+    $this->token = $token ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -786,7 +786,7 @@ class ImportSourceCredentialsOutput {
   public function __construct(shape(
   ?'arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -803,7 +803,7 @@ class InvalidateProjectCacheInput {
   public function __construct(shape(
   ?'project_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? ;
+    $this->project_name = $project_name ?? "";
   }
 }
 
@@ -828,9 +828,9 @@ class ListBuildsForProjectInput {
   ?'project_name' => NonEmptyString,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->project_name = $project_name ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -842,8 +842,8 @@ class ListBuildsForProjectOutput {
   ?'ids' => BuildIds,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->ids = $ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -855,8 +855,8 @@ class ListBuildsInput {
   ?'next_token' => string,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -868,8 +868,8 @@ class ListBuildsOutput {
   ?'ids' => BuildIds,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->ids = $ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->ids = $ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -886,7 +886,7 @@ class ListCuratedEnvironmentImagesOutput {
   public function __construct(shape(
   ?'platforms' => EnvironmentPlatforms,
   ) $s = shape()) {
-    $this->platforms = $platforms ?? ;
+    $this->platforms = $platforms ?? [];
   }
 }
 
@@ -900,9 +900,9 @@ class ListProjectsInput {
   ?'sort_by' => ProjectSortByType,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -914,8 +914,8 @@ class ListProjectsOutput {
   ?'next_token' => string,
   ?'projects' => ProjectNames,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -931,10 +931,10 @@ class ListReportGroupsInput {
   ?'sort_by' => ReportGroupSortByType,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -946,8 +946,8 @@ class ListReportGroupsOutput {
   ?'next_token' => string,
   ?'report_groups' => ReportGroupArns,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->report_groups = $report_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->report_groups = $report_groups ?? [];
   }
 }
 
@@ -965,11 +965,11 @@ class ListReportsForReportGroupInput {
   ?'report_group_arn' => string,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->report_group_arn = $report_group_arn ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->report_group_arn = $report_group_arn ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -981,8 +981,8 @@ class ListReportsForReportGroupOutput {
   ?'next_token' => string,
   ?'reports' => ReportArns,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->reports = $reports ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->reports = $reports ?? [];
   }
 }
 
@@ -998,10 +998,10 @@ class ListReportsInput {
   ?'next_token' => string,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->filter = $filter ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -1013,8 +1013,8 @@ class ListReportsOutput {
   ?'next_token' => string,
   ?'reports' => ReportArns,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->reports = $reports ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->reports = $reports ?? [];
   }
 }
 
@@ -1030,10 +1030,10 @@ class ListSharedProjectsInput {
   ?'sort_by' => SharedResourceSortByType,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -1045,8 +1045,8 @@ class ListSharedProjectsOutput {
   ?'next_token' => string,
   ?'projects' => ProjectArns,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->projects = $projects ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->projects = $projects ?? [];
   }
 }
 
@@ -1062,10 +1062,10 @@ class ListSharedReportGroupsInput {
   ?'sort_by' => SharedResourceSortByType,
   ?'sort_order' => SortOrderType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort_by = $sort_by ?? ;
-    $this->sort_order = $sort_order ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort_by = $sort_by ?? "";
+    $this->sort_order = $sort_order ?? "";
   }
 }
 
@@ -1077,8 +1077,8 @@ class ListSharedReportGroupsOutput {
   ?'next_token' => string,
   ?'report_groups' => ReportGroupArns,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->report_groups = $report_groups ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->report_groups = $report_groups ?? [];
   }
 }
 
@@ -1095,7 +1095,7 @@ class ListSourceCredentialsOutput {
   public function __construct(shape(
   ?'source_credentials_infos' => SourceCredentialsInfos,
   ) $s = shape()) {
-    $this->source_credentials_infos = $source_credentials_infos ?? ;
+    $this->source_credentials_infos = $source_credentials_infos ?? [];
   }
 }
 
@@ -1107,8 +1107,8 @@ class LogsConfig {
   ?'cloud_watch_logs' => CloudWatchLogsConfig,
   ?'s_3_logs' => S3LogsConfig,
   ) $s = shape()) {
-    $this->cloud_watch_logs = $cloud_watch_logs ?? ;
-    $this->s_3_logs = $s_3_logs ?? ;
+    $this->cloud_watch_logs = $cloud_watch_logs ?? null;
+    $this->s_3_logs = $s_3_logs ?? null;
   }
 }
 
@@ -1134,14 +1134,14 @@ class LogsLocation {
   ?'s_3_logs_arn' => string,
   ?'stream_name' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs = $cloud_watch_logs ?? ;
-    $this->cloud_watch_logs_arn = $cloud_watch_logs_arn ?? ;
-    $this->deep_link = $deep_link ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->s_3_deep_link = $s_3_deep_link ?? ;
-    $this->s_3_logs = $s_3_logs ?? ;
-    $this->s_3_logs_arn = $s_3_logs_arn ?? ;
-    $this->stream_name = $stream_name ?? ;
+    $this->cloud_watch_logs = $cloud_watch_logs ?? null;
+    $this->cloud_watch_logs_arn = $cloud_watch_logs_arn ?? "";
+    $this->deep_link = $deep_link ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->s_3_deep_link = $s_3_deep_link ?? "";
+    $this->s_3_logs = $s_3_logs ?? null;
+    $this->s_3_logs_arn = $s_3_logs_arn ?? "";
+    $this->stream_name = $stream_name ?? "";
   }
 }
 
@@ -1153,8 +1153,8 @@ class NetworkInterface {
   ?'network_interface_id' => NonEmptyString,
   ?'subnet_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->network_interface_id = $network_interface_id ?? ;
-    $this->subnet_id = $subnet_id ?? ;
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->subnet_id = $subnet_id ?? "";
   }
 }
 
@@ -1177,8 +1177,8 @@ class PhaseContext {
   ?'message' => string,
   ?'status_code' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->message = $message ?? "";
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -1236,29 +1236,29 @@ class Project {
   ?'vpc_config' => VpcConfig,
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->artifacts = $artifacts ?? ;
-    $this->badge = $badge ?? ;
-    $this->cache = $cache ?? ;
-    $this->created = $created ?? ;
-    $this->description = $description ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->environment = $environment ?? ;
-    $this->file_system_locations = $file_system_locations ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->logs_config = $logs_config ?? ;
-    $this->name = $name ?? ;
-    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
-    $this->secondary_artifacts = $secondary_artifacts ?? ;
-    $this->secondary_source_versions = $secondary_source_versions ?? ;
-    $this->secondary_sources = $secondary_sources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->source = $source ?? ;
-    $this->source_version = $source_version ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
-    $this->vpc_config = $vpc_config ?? ;
-    $this->webhook = $webhook ?? ;
+    $this->arn = $arn ?? "";
+    $this->artifacts = $artifacts ?? null;
+    $this->badge = $badge ?? null;
+    $this->cache = $cache ?? null;
+    $this->created = $created ?? 0;
+    $this->description = $description ?? "";
+    $this->encryption_key = $encryption_key ?? "";
+    $this->environment = $environment ?? null;
+    $this->file_system_locations = $file_system_locations ?? [];
+    $this->last_modified = $last_modified ?? 0;
+    $this->logs_config = $logs_config ?? null;
+    $this->name = $name ?? "";
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? 0;
+    $this->secondary_artifacts = $secondary_artifacts ?? [];
+    $this->secondary_source_versions = $secondary_source_versions ?? [];
+    $this->secondary_sources = $secondary_sources ?? [];
+    $this->service_role = $service_role ?? "";
+    $this->source = $source ?? null;
+    $this->source_version = $source_version ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
+    $this->vpc_config = $vpc_config ?? null;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -1286,15 +1286,15 @@ class ProjectArtifacts {
   ?'path' => string,
   ?'type' => ArtifactsType,
   ) $s = shape()) {
-    $this->artifact_identifier = $artifact_identifier ?? ;
-    $this->encryption_disabled = $encryption_disabled ?? ;
-    $this->location = $location ?? ;
-    $this->name = $name ?? ;
-    $this->namespace_type = $namespace_type ?? ;
-    $this->override_artifact_name = $override_artifact_name ?? ;
-    $this->packaging = $packaging ?? ;
-    $this->path = $path ?? ;
-    $this->type = $type ?? ;
+    $this->artifact_identifier = $artifact_identifier ?? "";
+    $this->encryption_disabled = $encryption_disabled ?? false;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->namespace_type = $namespace_type ?? "";
+    $this->override_artifact_name = $override_artifact_name ?? false;
+    $this->packaging = $packaging ?? "";
+    $this->path = $path ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1308,8 +1308,8 @@ class ProjectBadge {
   ?'badge_enabled' => boolean,
   ?'badge_request_url' => string,
   ) $s = shape()) {
-    $this->badge_enabled = $badge_enabled ?? ;
-    $this->badge_request_url = $badge_request_url ?? ;
+    $this->badge_enabled = $badge_enabled ?? false;
+    $this->badge_request_url = $badge_request_url ?? "";
   }
 }
 
@@ -1323,9 +1323,9 @@ class ProjectCache {
   ?'modes' => ProjectCacheModes,
   ?'type' => CacheType,
   ) $s = shape()) {
-    $this->location = $location ?? ;
-    $this->modes = $modes ?? ;
-    $this->type = $type ?? ;
+    $this->location = $location ?? "";
+    $this->modes = $modes ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1353,14 +1353,14 @@ class ProjectEnvironment {
   ?'registry_credential' => RegistryCredential,
   ?'type' => EnvironmentType,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
-    $this->compute_type = $compute_type ?? ;
-    $this->environment_variables = $environment_variables ?? ;
-    $this->image = $image ?? ;
-    $this->image_pull_credentials_type = $image_pull_credentials_type ?? ;
-    $this->privileged_mode = $privileged_mode ?? ;
-    $this->registry_credential = $registry_credential ?? ;
-    $this->type = $type ?? ;
+    $this->certificate = $certificate ?? "";
+    $this->compute_type = $compute_type ?? "";
+    $this->environment_variables = $environment_variables ?? [];
+    $this->image = $image ?? "";
+    $this->image_pull_credentials_type = $image_pull_credentials_type ?? "";
+    $this->privileged_mode = $privileged_mode ?? false;
+    $this->registry_credential = $registry_credential ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1378,11 +1378,11 @@ class ProjectFileSystemLocation {
   ?'mount_point' => string,
   ?'type' => FileSystemType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->location = $location ?? ;
-    $this->mount_options = $mount_options ?? ;
-    $this->mount_point = $mount_point ?? ;
-    $this->type = $type ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->location = $location ?? "";
+    $this->mount_options = $mount_options ?? "";
+    $this->mount_point = $mount_point ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1418,15 +1418,15 @@ class ProjectSource {
   ?'source_identifier' => string,
   ?'type' => SourceType,
   ) $s = shape()) {
-    $this->auth = $auth ?? ;
-    $this->buildspec = $buildspec ?? ;
-    $this->git_clone_depth = $git_clone_depth ?? ;
-    $this->git_submodules_config = $git_submodules_config ?? ;
-    $this->insecure_ssl = $insecure_ssl ?? ;
-    $this->location = $location ?? ;
-    $this->report_build_status = $report_build_status ?? ;
-    $this->source_identifier = $source_identifier ?? ;
-    $this->type = $type ?? ;
+    $this->auth = $auth ?? null;
+    $this->buildspec = $buildspec ?? "";
+    $this->git_clone_depth = $git_clone_depth ?? 0;
+    $this->git_submodules_config = $git_submodules_config ?? null;
+    $this->insecure_ssl = $insecure_ssl ?? false;
+    $this->location = $location ?? "";
+    $this->report_build_status = $report_build_status ?? false;
+    $this->source_identifier = $source_identifier ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1438,8 +1438,8 @@ class ProjectSourceVersion {
   ?'source_identifier' => string,
   ?'source_version' => string,
   ) $s = shape()) {
-    $this->source_identifier = $source_identifier ?? ;
-    $this->source_version = $source_version ?? ;
+    $this->source_identifier = $source_identifier ?? "";
+    $this->source_version = $source_version ?? "";
   }
 }
 
@@ -1455,8 +1455,8 @@ class PutResourcePolicyInput {
   ?'policy' => NonEmptyString,
   ?'resource_arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->policy = $policy ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1466,7 +1466,7 @@ class PutResourcePolicyOutput {
   public function __construct(shape(
   ?'resource_arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1478,8 +1478,8 @@ class RegistryCredential {
   ?'credential' => NonEmptyString,
   ?'credential_provider' => CredentialProviderType,
   ) $s = shape()) {
-    $this->credential = $credential ?? ;
-    $this->credential_provider = $credential_provider ?? ;
+    $this->credential = $credential ?? "";
+    $this->credential_provider = $credential_provider ?? "";
   }
 }
 
@@ -1509,17 +1509,17 @@ class Report {
   ?'truncated' => WrapperBoolean,
   ?'type' => ReportType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->execution_id = $execution_id ?? ;
-    $this->expired = $expired ?? ;
-    $this->export_config = $export_config ?? ;
-    $this->name = $name ?? ;
-    $this->report_group_arn = $report_group_arn ?? ;
-    $this->status = $status ?? ;
-    $this->test_summary = $test_summary ?? ;
-    $this->truncated = $truncated ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->execution_id = $execution_id ?? "";
+    $this->expired = $expired ?? 0;
+    $this->export_config = $export_config ?? null;
+    $this->name = $name ?? "";
+    $this->report_group_arn = $report_group_arn ?? "";
+    $this->status = $status ?? "";
+    $this->test_summary = $test_summary ?? null;
+    $this->truncated = $truncated ?? false;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1533,8 +1533,8 @@ class ReportExportConfig {
   ?'export_config_type' => ReportExportConfigType,
   ?'s_3_destination' => S3ReportExportConfig,
   ) $s = shape()) {
-    $this->export_config_type = $export_config_type ?? ;
-    $this->s_3_destination = $s_3_destination ?? ;
+    $this->export_config_type = $export_config_type ?? "";
+    $this->s_3_destination = $s_3_destination ?? null;
   }
 }
 
@@ -1546,7 +1546,7 @@ class ReportFilter {
   public function __construct(shape(
   ?'status' => ReportStatusType,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1566,12 +1566,12 @@ class ReportGroup {
   ?'name' => ReportGroupName,
   ?'type' => ReportType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->created = $created ?? ;
-    $this->export_config = $export_config ?? ;
-    $this->last_modified = $last_modified ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->created = $created ?? 0;
+    $this->export_config = $export_config ?? null;
+    $this->last_modified = $last_modified ?? 0;
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1617,9 +1617,9 @@ class S3LogsConfig {
   ?'location' => string,
   ?'status' => LogsConfigStatusType,
   ) $s = shape()) {
-    $this->encryption_disabled = $encryption_disabled ?? ;
-    $this->location = $location ?? ;
-    $this->status = $status ?? ;
+    $this->encryption_disabled = $encryption_disabled ?? false;
+    $this->location = $location ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1637,11 +1637,11 @@ class S3ReportExportConfig {
   ?'packaging' => ReportPackagingType,
   ?'path' => string,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->encryption_disabled = $encryption_disabled ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->packaging = $packaging ?? ;
-    $this->path = $path ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->encryption_disabled = $encryption_disabled ?? false;
+    $this->encryption_key = $encryption_key ?? "";
+    $this->packaging = $packaging ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -1663,8 +1663,8 @@ class SourceAuth {
   ?'resource' => string,
   ?'type' => SourceAuthType,
   ) $s = shape()) {
-    $this->resource = $resource ?? ;
-    $this->type = $type ?? ;
+    $this->resource = $resource ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1680,9 +1680,9 @@ class SourceCredentialsInfo {
   ?'auth_type' => AuthType,
   ?'server_type' => ServerType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->auth_type = $auth_type ?? ;
-    $this->server_type = $server_type ?? ;
+    $this->arn = $arn ?? "";
+    $this->auth_type = $auth_type ?? "";
+    $this->server_type = $server_type ?? "";
   }
 }
 
@@ -1752,35 +1752,35 @@ class StartBuildInput {
   ?'source_version' => string,
   ?'timeout_in_minutes_override' => TimeOut,
   ) $s = shape()) {
-    $this->artifacts_override = $artifacts_override ?? ;
-    $this->buildspec_override = $buildspec_override ?? ;
-    $this->cache_override = $cache_override ?? ;
-    $this->certificate_override = $certificate_override ?? ;
-    $this->compute_type_override = $compute_type_override ?? ;
-    $this->encryption_key_override = $encryption_key_override ?? ;
-    $this->environment_type_override = $environment_type_override ?? ;
-    $this->environment_variables_override = $environment_variables_override ?? ;
-    $this->git_clone_depth_override = $git_clone_depth_override ?? ;
-    $this->git_submodules_config_override = $git_submodules_config_override ?? ;
-    $this->idempotency_token = $idempotency_token ?? ;
-    $this->image_override = $image_override ?? ;
-    $this->image_pull_credentials_type_override = $image_pull_credentials_type_override ?? ;
-    $this->insecure_ssl_override = $insecure_ssl_override ?? ;
-    $this->logs_config_override = $logs_config_override ?? ;
-    $this->privileged_mode_override = $privileged_mode_override ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->queued_timeout_in_minutes_override = $queued_timeout_in_minutes_override ?? ;
-    $this->registry_credential_override = $registry_credential_override ?? ;
-    $this->report_build_status_override = $report_build_status_override ?? ;
-    $this->secondary_artifacts_override = $secondary_artifacts_override ?? ;
-    $this->secondary_sources_override = $secondary_sources_override ?? ;
-    $this->secondary_sources_version_override = $secondary_sources_version_override ?? ;
-    $this->service_role_override = $service_role_override ?? ;
-    $this->source_auth_override = $source_auth_override ?? ;
-    $this->source_location_override = $source_location_override ?? ;
-    $this->source_type_override = $source_type_override ?? ;
-    $this->source_version = $source_version ?? ;
-    $this->timeout_in_minutes_override = $timeout_in_minutes_override ?? ;
+    $this->artifacts_override = $artifacts_override ?? null;
+    $this->buildspec_override = $buildspec_override ?? "";
+    $this->cache_override = $cache_override ?? null;
+    $this->certificate_override = $certificate_override ?? "";
+    $this->compute_type_override = $compute_type_override ?? "";
+    $this->encryption_key_override = $encryption_key_override ?? "";
+    $this->environment_type_override = $environment_type_override ?? "";
+    $this->environment_variables_override = $environment_variables_override ?? [];
+    $this->git_clone_depth_override = $git_clone_depth_override ?? 0;
+    $this->git_submodules_config_override = $git_submodules_config_override ?? null;
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->image_override = $image_override ?? "";
+    $this->image_pull_credentials_type_override = $image_pull_credentials_type_override ?? "";
+    $this->insecure_ssl_override = $insecure_ssl_override ?? false;
+    $this->logs_config_override = $logs_config_override ?? null;
+    $this->privileged_mode_override = $privileged_mode_override ?? false;
+    $this->project_name = $project_name ?? "";
+    $this->queued_timeout_in_minutes_override = $queued_timeout_in_minutes_override ?? 0;
+    $this->registry_credential_override = $registry_credential_override ?? null;
+    $this->report_build_status_override = $report_build_status_override ?? false;
+    $this->secondary_artifacts_override = $secondary_artifacts_override ?? [];
+    $this->secondary_sources_override = $secondary_sources_override ?? [];
+    $this->secondary_sources_version_override = $secondary_sources_version_override ?? [];
+    $this->service_role_override = $service_role_override ?? "";
+    $this->source_auth_override = $source_auth_override ?? null;
+    $this->source_location_override = $source_location_override ?? "";
+    $this->source_type_override = $source_type_override ?? "";
+    $this->source_version = $source_version ?? "";
+    $this->timeout_in_minutes_override = $timeout_in_minutes_override ?? 0;
   }
 }
 
@@ -1790,7 +1790,7 @@ class StartBuildOutput {
   public function __construct(shape(
   ?'build' => Build,
   ) $s = shape()) {
-    $this->build = $build ?? ;
+    $this->build = $build ?? null;
   }
 }
 
@@ -1802,7 +1802,7 @@ class StopBuildInput {
   public function __construct(shape(
   ?'id' => NonEmptyString,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1812,7 +1812,7 @@ class StopBuildOutput {
   public function __construct(shape(
   ?'build' => Build,
   ) $s = shape()) {
-    $this->build = $build ?? ;
+    $this->build = $build ?? null;
   }
 }
 
@@ -1828,8 +1828,8 @@ class Tag {
   ?'key' => KeyInput,
   ?'value' => ValueInput,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1855,14 +1855,14 @@ class TestCase {
   ?'status' => string,
   ?'test_raw_data_path' => string,
   ) $s = shape()) {
-    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? ;
-    $this->expired = $expired ?? ;
-    $this->message = $message ?? ;
-    $this->name = $name ?? ;
-    $this->prefix = $prefix ?? ;
-    $this->report_arn = $report_arn ?? ;
-    $this->status = $status ?? ;
-    $this->test_raw_data_path = $test_raw_data_path ?? ;
+    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? 0;
+    $this->expired = $expired ?? 0;
+    $this->message = $message ?? "";
+    $this->name = $name ?? "";
+    $this->prefix = $prefix ?? "";
+    $this->report_arn = $report_arn ?? "";
+    $this->status = $status ?? "";
+    $this->test_raw_data_path = $test_raw_data_path ?? "";
   }
 }
 
@@ -1872,7 +1872,7 @@ class TestCaseFilter {
   public function __construct(shape(
   ?'status' => string,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1888,9 +1888,9 @@ class TestReportSummary {
   ?'status_counts' => ReportStatusCounts,
   ?'total' => WrapperInt,
   ) $s = shape()) {
-    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? ;
-    $this->status_counts = $status_counts ?? ;
-    $this->total = $total ?? ;
+    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? 0;
+    $this->status_counts = $status_counts ?? [];
+    $this->total = $total ?? 0;
   }
 }
 
@@ -1940,25 +1940,25 @@ class UpdateProjectInput {
   ?'timeout_in_minutes' => TimeOut,
   ?'vpc_config' => VpcConfig,
   ) $s = shape()) {
-    $this->artifacts = $artifacts ?? ;
-    $this->badge_enabled = $badge_enabled ?? ;
-    $this->cache = $cache ?? ;
-    $this->description = $description ?? ;
-    $this->encryption_key = $encryption_key ?? ;
-    $this->environment = $environment ?? ;
-    $this->file_system_locations = $file_system_locations ?? ;
-    $this->logs_config = $logs_config ?? ;
-    $this->name = $name ?? ;
-    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
-    $this->secondary_artifacts = $secondary_artifacts ?? ;
-    $this->secondary_source_versions = $secondary_source_versions ?? ;
-    $this->secondary_sources = $secondary_sources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->source = $source ?? ;
-    $this->source_version = $source_version ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
-    $this->vpc_config = $vpc_config ?? ;
+    $this->artifacts = $artifacts ?? null;
+    $this->badge_enabled = $badge_enabled ?? false;
+    $this->cache = $cache ?? null;
+    $this->description = $description ?? "";
+    $this->encryption_key = $encryption_key ?? "";
+    $this->environment = $environment ?? null;
+    $this->file_system_locations = $file_system_locations ?? [];
+    $this->logs_config = $logs_config ?? null;
+    $this->name = $name ?? "";
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? 0;
+    $this->secondary_artifacts = $secondary_artifacts ?? [];
+    $this->secondary_source_versions = $secondary_source_versions ?? [];
+    $this->secondary_sources = $secondary_sources ?? [];
+    $this->service_role = $service_role ?? "";
+    $this->source = $source ?? null;
+    $this->source_version = $source_version ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
+    $this->vpc_config = $vpc_config ?? null;
   }
 }
 
@@ -1968,7 +1968,7 @@ class UpdateProjectOutput {
   public function __construct(shape(
   ?'project' => Project,
   ) $s = shape()) {
-    $this->project = $project ?? ;
+    $this->project = $project ?? null;
   }
 }
 
@@ -1980,8 +1980,8 @@ class UpdateReportGroupInput {
   ?'arn' => NonEmptyString,
   ?'export_config' => ReportExportConfig,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->export_config = $export_config ?? ;
+    $this->arn = $arn ?? "";
+    $this->export_config = $export_config ?? null;
   }
 }
 
@@ -1991,7 +1991,7 @@ class UpdateReportGroupOutput {
   public function __construct(shape(
   ?'report_group' => ReportGroup,
   ) $s = shape()) {
-    $this->report_group = $report_group ?? ;
+    $this->report_group = $report_group ?? null;
   }
 }
 
@@ -2007,10 +2007,10 @@ class UpdateWebhookInput {
   ?'project_name' => ProjectName,
   ?'rotate_secret' => boolean,
   ) $s = shape()) {
-    $this->branch_filter = $branch_filter ?? ;
-    $this->filter_groups = $filter_groups ?? ;
-    $this->project_name = $project_name ?? ;
-    $this->rotate_secret = $rotate_secret ?? ;
+    $this->branch_filter = $branch_filter ?? "";
+    $this->filter_groups = $filter_groups ?? [];
+    $this->project_name = $project_name ?? "";
+    $this->rotate_secret = $rotate_secret ?? false;
   }
 }
 
@@ -2020,7 +2020,7 @@ class UpdateWebhookOutput {
   public function __construct(shape(
   ?'webhook' => Webhook,
   ) $s = shape()) {
-    $this->webhook = $webhook ?? ;
+    $this->webhook = $webhook ?? null;
   }
 }
 
@@ -2036,9 +2036,9 @@ class VpcConfig {
   ?'subnets' => Subnets,
   ?'vpc_id' => NonEmptyString,
   ) $s = shape()) {
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnets = $subnets ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -2058,12 +2058,12 @@ class Webhook {
   ?'secret' => NonEmptyString,
   ?'url' => NonEmptyString,
   ) $s = shape()) {
-    $this->branch_filter = $branch_filter ?? ;
-    $this->filter_groups = $filter_groups ?? ;
-    $this->last_modified_secret = $last_modified_secret ?? ;
-    $this->payload_url = $payload_url ?? ;
-    $this->secret = $secret ?? ;
-    $this->url = $url ?? ;
+    $this->branch_filter = $branch_filter ?? "";
+    $this->filter_groups = $filter_groups ?? [];
+    $this->last_modified_secret = $last_modified_secret ?? 0;
+    $this->payload_url = $payload_url ?? "";
+    $this->secret = $secret ?? "";
+    $this->url = $url ?? "";
   }
 }
 
@@ -2077,9 +2077,9 @@ class WebhookFilter {
   ?'pattern' => string,
   ?'type' => WebhookFilterType,
   ) $s = shape()) {
-    $this->exclude_matched_pattern = $exclude_matched_pattern ?? ;
-    $this->pattern = $pattern ?? ;
-    $this->type = $type ?? ;
+    $this->exclude_matched_pattern = $exclude_matched_pattern ?? false;
+    $this->pattern = $pattern ?? "";
+    $this->type = $type ?? "";
   }
 }
 

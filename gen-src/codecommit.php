@@ -98,8 +98,8 @@ class Approval {
   ?'approval_state' => ApprovalState,
   ?'user_arn' => Arn,
   ) $s = shape()) {
-    $this->approval_state = $approval_state ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->approval_state = $approval_state ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -125,14 +125,14 @@ class ApprovalRule {
   ?'origin_approval_rule_template' => OriginApprovalRuleTemplate,
   ?'rule_content_sha_256' => RuleContentSha256,
   ) $s = shape()) {
-    $this->approval_rule_content = $approval_rule_content ?? ;
-    $this->approval_rule_id = $approval_rule_id ?? ;
-    $this->approval_rule_name = $approval_rule_name ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->last_modified_user = $last_modified_user ?? ;
-    $this->origin_approval_rule_template = $origin_approval_rule_template ?? ;
-    $this->rule_content_sha_256 = $rule_content_sha_256 ?? ;
+    $this->approval_rule_content = $approval_rule_content ?? "";
+    $this->approval_rule_id = $approval_rule_id ?? "";
+    $this->approval_rule_name = $approval_rule_name ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->last_modified_user = $last_modified_user ?? "";
+    $this->origin_approval_rule_template = $origin_approval_rule_template ?? null;
+    $this->rule_content_sha_256 = $rule_content_sha_256 ?? "";
   }
 }
 
@@ -162,9 +162,9 @@ class ApprovalRuleEventMetadata {
   ?'approval_rule_id' => ApprovalRuleId,
   ?'approval_rule_name' => ApprovalRuleName,
   ) $s = shape()) {
-    $this->approval_rule_content = $approval_rule_content ?? ;
-    $this->approval_rule_id = $approval_rule_id ?? ;
-    $this->approval_rule_name = $approval_rule_name ?? ;
+    $this->approval_rule_content = $approval_rule_content ?? "";
+    $this->approval_rule_id = $approval_rule_id ?? "";
+    $this->approval_rule_name = $approval_rule_name ?? "";
   }
 }
 
@@ -194,8 +194,8 @@ class ApprovalRuleOverriddenEventMetadata {
   ?'override_status' => OverrideStatus,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->override_status = $override_status ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->override_status = $override_status ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -219,14 +219,14 @@ class ApprovalRuleTemplate {
   ?'last_modified_user' => Arn,
   ?'rule_content_sha_256' => RuleContentSha256,
   ) $s = shape()) {
-    $this->approval_rule_template_content = $approval_rule_template_content ?? ;
-    $this->approval_rule_template_description = $approval_rule_template_description ?? ;
-    $this->approval_rule_template_id = $approval_rule_template_id ?? ;
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->last_modified_user = $last_modified_user ?? ;
-    $this->rule_content_sha_256 = $rule_content_sha_256 ?? ;
+    $this->approval_rule_template_content = $approval_rule_template_content ?? "";
+    $this->approval_rule_template_description = $approval_rule_template_description ?? "";
+    $this->approval_rule_template_id = $approval_rule_template_id ?? "";
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->last_modified_user = $last_modified_user ?? "";
+    $this->rule_content_sha_256 = $rule_content_sha_256 ?? "";
   }
 }
 
@@ -291,8 +291,8 @@ class ApprovalStateChangedEventMetadata {
   ?'approval_status' => ApprovalState,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->approval_status = $approval_status ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->approval_status = $approval_status ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -315,8 +315,8 @@ class AssociateApprovalRuleTemplateWithRepositoryInput {
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -337,9 +337,9 @@ class BatchAssociateApprovalRuleTemplateWithRepositoriesError {
   ?'error_message' => ErrorMessage,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -353,8 +353,8 @@ class BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ?'repository_names' => RepositoryNameList,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->repository_names = $repository_names ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->repository_names = $repository_names ?? [];
   }
 }
 
@@ -366,8 +366,8 @@ class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
   ?'associated_repository_names' => RepositoryNameList,
   ?'errors' => BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList,
   ) $s = shape()) {
-    $this->associated_repository_names = $associated_repository_names ?? ;
-    $this->errors = $errors ?? ;
+    $this->associated_repository_names = $associated_repository_names ?? [];
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -381,9 +381,9 @@ class BatchDescribeMergeConflictsError {
   ?'file_path' => Path,
   ?'message' => Message,
   ) $s = shape()) {
-    $this->exception_name = $exception_name ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->message = $message ?? ;
+    $this->exception_name = $exception_name ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -413,16 +413,16 @@ class BatchDescribeMergeConflictsInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->file_paths = $file_paths ?? ;
-    $this->max_conflict_files = $max_conflict_files ?? ;
-    $this->max_merge_hunks = $max_merge_hunks ?? ;
-    $this->merge_option = $merge_option ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->file_paths = $file_paths ?? [];
+    $this->max_conflict_files = $max_conflict_files ?? 0;
+    $this->max_merge_hunks = $max_merge_hunks ?? 0;
+    $this->merge_option = $merge_option ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -442,12 +442,12 @@ class BatchDescribeMergeConflictsOutput {
   ?'next_token' => NextToken,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->base_commit_id = $base_commit_id ?? ;
-    $this->conflicts = $conflicts ?? ;
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->errors = $errors ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->base_commit_id = $base_commit_id ?? "";
+    $this->conflicts = $conflicts ?? [];
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->errors = $errors ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -461,9 +461,9 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
   ?'error_message' => ErrorMessage,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -477,8 +477,8 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ?'repository_names' => RepositoryNameList,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->repository_names = $repository_names ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->repository_names = $repository_names ?? [];
   }
 }
 
@@ -490,8 +490,8 @@ class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
   ?'disassociated_repository_names' => RepositoryNameList,
   ?'errors' => BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList,
   ) $s = shape()) {
-    $this->disassociated_repository_names = $disassociated_repository_names ?? ;
-    $this->errors = $errors ?? ;
+    $this->disassociated_repository_names = $disassociated_repository_names ?? [];
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -505,9 +505,9 @@ class BatchGetCommitsError {
   ?'error_code' => ErrorCode,
   ?'error_message' => ErrorMessage,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->error_code = $error_code ?? ;
-    $this->error_message = $error_message ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
   }
 }
 
@@ -521,8 +521,8 @@ class BatchGetCommitsInput {
   ?'commit_ids' => CommitIdsInputList,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->commit_ids = $commit_ids ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->commit_ids = $commit_ids ?? [];
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -534,8 +534,8 @@ class BatchGetCommitsOutput {
   ?'commits' => CommitObjectsList,
   ?'errors' => BatchGetCommitsErrorsList,
   ) $s = shape()) {
-    $this->commits = $commits ?? ;
-    $this->errors = $errors ?? ;
+    $this->commits = $commits ?? [];
+    $this->errors = $errors ?? [];
   }
 }
 
@@ -545,7 +545,7 @@ class BatchGetRepositoriesInput {
   public function __construct(shape(
   ?'repository_names' => RepositoryNameList,
   ) $s = shape()) {
-    $this->repository_names = $repository_names ?? ;
+    $this->repository_names = $repository_names ?? [];
   }
 }
 
@@ -557,8 +557,8 @@ class BatchGetRepositoriesOutput {
   ?'repositories' => RepositoryMetadataList,
   ?'repositories_not_found' => RepositoryNotFoundList,
   ) $s = shape()) {
-    $this->repositories = $repositories ?? ;
-    $this->repositories_not_found = $repositories_not_found ?? ;
+    $this->repositories = $repositories ?? [];
+    $this->repositories_not_found = $repositories_not_found ?? [];
   }
 }
 
@@ -593,9 +593,9 @@ class BlobMetadata {
   ?'mode' => Mode,
   ?'path' => Path,
   ) $s = shape()) {
-    $this->blob_id = $blob_id ?? ;
-    $this->mode = $mode ?? ;
-    $this->path = $path ?? ;
+    $this->blob_id = $blob_id ?? "";
+    $this->mode = $mode ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -614,8 +614,8 @@ class BranchInfo {
   ?'branch_name' => BranchName,
   ?'commit_id' => CommitId,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_id = $commit_id ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_id = $commit_id ?? "";
   }
 }
 
@@ -695,14 +695,14 @@ class Comment {
   ?'in_reply_to' => CommentId,
   ?'last_modified_date' => LastModifiedDate,
   ) $s = shape()) {
-    $this->author_arn = $author_arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->comment_id = $comment_id ?? ;
-    $this->content = $content ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->deleted = $deleted ?? ;
-    $this->in_reply_to = $in_reply_to ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
+    $this->author_arn = $author_arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->comment_id = $comment_id ?? "";
+    $this->content = $content ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->deleted = $deleted ?? false;
+    $this->in_reply_to = $in_reply_to ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
   }
 }
 
@@ -770,13 +770,13 @@ class CommentsForComparedCommit {
   ?'location' => Location,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_blob_id = $after_blob_id ?? ;
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_blob_id = $before_blob_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->comments = $comments ?? ;
-    $this->location = $location ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_blob_id = $after_blob_id ?? "";
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_blob_id = $before_blob_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->comments = $comments ?? [];
+    $this->location = $location ?? null;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -802,14 +802,14 @@ class CommentsForPullRequest {
   ?'pull_request_id' => PullRequestId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_blob_id = $after_blob_id ?? ;
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_blob_id = $before_blob_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->comments = $comments ?? ;
-    $this->location = $location ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_blob_id = $after_blob_id ?? "";
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_blob_id = $before_blob_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->comments = $comments ?? [];
+    $this->location = $location ?? null;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -833,13 +833,13 @@ class Commit {
   ?'parents' => ParentList,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->additional_data = $additional_data ?? ;
-    $this->author = $author ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->committer = $committer ?? ;
-    $this->message = $message ?? ;
-    $this->parents = $parents ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->additional_data = $additional_data ?? "";
+    $this->author = $author ?? null;
+    $this->commit_id = $commit_id ?? "";
+    $this->committer = $committer ?? null;
+    $this->message = $message ?? "";
+    $this->parents = $parents ?? [];
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -915,8 +915,8 @@ class Conflict {
   ?'conflict_metadata' => ConflictMetadata,
   ?'merge_hunks' => MergeHunks,
   ) $s = shape()) {
-    $this->conflict_metadata = $conflict_metadata ?? ;
-    $this->merge_hunks = $merge_hunks ?? ;
+    $this->conflict_metadata = $conflict_metadata ?? null;
+    $this->merge_hunks = $merge_hunks ?? [];
   }
 }
 
@@ -946,16 +946,16 @@ class ConflictMetadata {
   ?'object_type_conflict' => IsObjectTypeConflict,
   ?'object_types' => ObjectTypes,
   ) $s = shape()) {
-    $this->content_conflict = $content_conflict ?? ;
-    $this->file_mode_conflict = $file_mode_conflict ?? ;
-    $this->file_modes = $file_modes ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->file_sizes = $file_sizes ?? ;
-    $this->is_binary_file = $is_binary_file ?? ;
-    $this->merge_operations = $merge_operations ?? ;
-    $this->number_of_conflicts = $number_of_conflicts ?? ;
-    $this->object_type_conflict = $object_type_conflict ?? ;
-    $this->object_types = $object_types ?? ;
+    $this->content_conflict = $content_conflict ?? false;
+    $this->file_mode_conflict = $file_mode_conflict ?? false;
+    $this->file_modes = $file_modes ?? null;
+    $this->file_path = $file_path ?? "";
+    $this->file_sizes = $file_sizes ?? null;
+    $this->is_binary_file = $is_binary_file ?? null;
+    $this->merge_operations = $merge_operations ?? null;
+    $this->number_of_conflicts = $number_of_conflicts ?? 0;
+    $this->object_type_conflict = $object_type_conflict ?? false;
+    $this->object_types = $object_types ?? null;
   }
 }
 
@@ -971,9 +971,9 @@ class ConflictResolution {
   ?'replace_contents' => ReplaceContentEntries,
   ?'set_file_modes' => SetFileModeEntries,
   ) $s = shape()) {
-    $this->delete_files = $delete_files ?? ;
-    $this->replace_contents = $replace_contents ?? ;
-    $this->set_file_modes = $set_file_modes ?? ;
+    $this->delete_files = $delete_files ?? [];
+    $this->replace_contents = $replace_contents ?? [];
+    $this->set_file_modes = $set_file_modes ?? [];
   }
 }
 
@@ -993,9 +993,9 @@ class CreateApprovalRuleTemplateInput {
   ?'approval_rule_template_description' => ApprovalRuleTemplateDescription,
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->approval_rule_template_content = $approval_rule_template_content ?? ;
-    $this->approval_rule_template_description = $approval_rule_template_description ?? ;
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
+    $this->approval_rule_template_content = $approval_rule_template_content ?? "";
+    $this->approval_rule_template_description = $approval_rule_template_description ?? "";
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
   }
 }
 
@@ -1005,7 +1005,7 @@ class CreateApprovalRuleTemplateOutput {
   public function __construct(shape(
   ?'approval_rule_template' => ApprovalRuleTemplate,
   ) $s = shape()) {
-    $this->approval_rule_template = $approval_rule_template ?? ;
+    $this->approval_rule_template = $approval_rule_template ?? null;
   }
 }
 
@@ -1019,9 +1019,9 @@ class CreateBranchInput {
   ?'commit_id' => CommitId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1049,16 +1049,16 @@ class CreateCommitInput {
   ?'repository_name' => RepositoryName,
   ?'set_file_modes' => SetFileModeEntries,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->delete_files = $delete_files ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->parent_commit_id = $parent_commit_id ?? ;
-    $this->put_files = $put_files ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->set_file_modes = $set_file_modes ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->delete_files = $delete_files ?? [];
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->parent_commit_id = $parent_commit_id ?? "";
+    $this->put_files = $put_files ?? [];
+    $this->repository_name = $repository_name ?? "";
+    $this->set_file_modes = $set_file_modes ?? [];
   }
 }
 
@@ -1076,11 +1076,11 @@ class CreateCommitOutput {
   ?'files_updated' => FilesMetadata,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->files_added = $files_added ?? ;
-    $this->files_deleted = $files_deleted ?? ;
-    $this->files_updated = $files_updated ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->files_added = $files_added ?? [];
+    $this->files_deleted = $files_deleted ?? [];
+    $this->files_updated = $files_updated ?? [];
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -1094,9 +1094,9 @@ class CreatePullRequestApprovalRuleInput {
   ?'approval_rule_name' => ApprovalRuleName,
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->approval_rule_content = $approval_rule_content ?? ;
-    $this->approval_rule_name = $approval_rule_name ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->approval_rule_content = $approval_rule_content ?? "";
+    $this->approval_rule_name = $approval_rule_name ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -1106,7 +1106,7 @@ class CreatePullRequestApprovalRuleOutput {
   public function __construct(shape(
   ?'approval_rule' => ApprovalRule,
   ) $s = shape()) {
-    $this->approval_rule = $approval_rule ?? ;
+    $this->approval_rule = $approval_rule ?? null;
   }
 }
 
@@ -1122,10 +1122,10 @@ class CreatePullRequestInput {
   ?'targets' => TargetList,
   ?'title' => Title,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->targets = $targets ?? ;
-    $this->title = $title ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->targets = $targets ?? [];
+    $this->title = $title ?? "";
   }
 }
 
@@ -1135,7 +1135,7 @@ class CreatePullRequestOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -1149,9 +1149,9 @@ class CreateRepositoryInput {
   ?'repository_name' => RepositoryName,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->repository_description = $repository_description ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->repository_description = $repository_description ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1161,7 +1161,7 @@ class CreateRepositoryOutput {
   public function __construct(shape(
   ?'repository_metadata' => RepositoryMetadata,
   ) $s = shape()) {
-    $this->repository_metadata = $repository_metadata ?? ;
+    $this->repository_metadata = $repository_metadata ?? null;
   }
 }
 
@@ -1191,17 +1191,17 @@ class CreateUnreferencedMergeCommitInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution = $conflict_resolution ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->merge_option = $merge_option ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution = $conflict_resolution ?? null;
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->merge_option = $merge_option ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -1213,8 +1213,8 @@ class CreateUnreferencedMergeCommitOutput {
   ?'commit_id' => ObjectId,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -1235,7 +1235,7 @@ class DeleteApprovalRuleTemplateInput {
   public function __construct(shape(
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
   }
 }
 
@@ -1245,7 +1245,7 @@ class DeleteApprovalRuleTemplateOutput {
   public function __construct(shape(
   ?'approval_rule_template_id' => ApprovalRuleTemplateId,
   ) $s = shape()) {
-    $this->approval_rule_template_id = $approval_rule_template_id ?? ;
+    $this->approval_rule_template_id = $approval_rule_template_id ?? "";
   }
 }
 
@@ -1257,8 +1257,8 @@ class DeleteBranchInput {
   ?'branch_name' => BranchName,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1268,7 +1268,7 @@ class DeleteBranchOutput {
   public function __construct(shape(
   ?'deleted_branch' => BranchInfo,
   ) $s = shape()) {
-    $this->deleted_branch = $deleted_branch ?? ;
+    $this->deleted_branch = $deleted_branch ?? null;
   }
 }
 
@@ -1278,7 +1278,7 @@ class DeleteCommentContentInput {
   public function __construct(shape(
   ?'comment_id' => CommentId,
   ) $s = shape()) {
-    $this->comment_id = $comment_id ?? ;
+    $this->comment_id = $comment_id ?? "";
   }
 }
 
@@ -1288,7 +1288,7 @@ class DeleteCommentContentOutput {
   public function __construct(shape(
   ?'comment' => Comment,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? null;
   }
 }
 
@@ -1300,7 +1300,7 @@ class DeleteFileEntry {
   public function __construct(shape(
   ?'file_path' => Path,
   ) $s = shape()) {
-    $this->file_path = $file_path ?? ;
+    $this->file_path = $file_path ?? "";
   }
 }
 
@@ -1324,14 +1324,14 @@ class DeleteFileInput {
   ?'parent_commit_id' => CommitId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->email = $email ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->name = $name ?? ;
-    $this->parent_commit_id = $parent_commit_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->email = $email ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->name = $name ?? "";
+    $this->parent_commit_id = $parent_commit_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1347,10 +1347,10 @@ class DeleteFileOutput {
   ?'file_path' => Path,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->blob_id = $blob_id ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->blob_id = $blob_id ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -1362,8 +1362,8 @@ class DeletePullRequestApprovalRuleInput {
   ?'approval_rule_name' => ApprovalRuleName,
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->approval_rule_name = $approval_rule_name ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->approval_rule_name = $approval_rule_name ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -1373,7 +1373,7 @@ class DeletePullRequestApprovalRuleOutput {
   public function __construct(shape(
   ?'approval_rule_id' => ApprovalRuleId,
   ) $s = shape()) {
-    $this->approval_rule_id = $approval_rule_id ?? ;
+    $this->approval_rule_id = $approval_rule_id ?? "";
   }
 }
 
@@ -1383,7 +1383,7 @@ class DeleteRepositoryInput {
   public function __construct(shape(
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1393,7 +1393,7 @@ class DeleteRepositoryOutput {
   public function __construct(shape(
   ?'repository_id' => RepositoryId,
   ) $s = shape()) {
-    $this->repository_id = $repository_id ?? ;
+    $this->repository_id = $repository_id ?? "";
   }
 }
 
@@ -1419,15 +1419,15 @@ class DescribeMergeConflictsInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->max_merge_hunks = $max_merge_hunks ?? ;
-    $this->merge_option = $merge_option ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->max_merge_hunks = $max_merge_hunks ?? 0;
+    $this->merge_option = $merge_option ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -1447,12 +1447,12 @@ class DescribeMergeConflictsOutput {
   ?'next_token' => NextToken,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->base_commit_id = $base_commit_id ?? ;
-    $this->conflict_metadata = $conflict_metadata ?? ;
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->merge_hunks = $merge_hunks ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->base_commit_id = $base_commit_id ?? "";
+    $this->conflict_metadata = $conflict_metadata ?? null;
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->merge_hunks = $merge_hunks ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -1470,11 +1470,11 @@ class DescribePullRequestEventsInput {
   ?'pull_request_event_type' => PullRequestEventType,
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->actor_arn = $actor_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pull_request_event_type = $pull_request_event_type ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->actor_arn = $actor_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pull_request_event_type = $pull_request_event_type ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -1486,8 +1486,8 @@ class DescribePullRequestEventsOutput {
   ?'next_token' => NextToken,
   ?'pull_request_events' => PullRequestEventList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->pull_request_events = $pull_request_events ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->pull_request_events = $pull_request_events ?? [];
   }
 }
 
@@ -1503,9 +1503,9 @@ class Difference {
   ?'before_blob' => BlobMetadata,
   ?'change_type' => ChangeTypeEnum,
   ) $s = shape()) {
-    $this->after_blob = $after_blob ?? ;
-    $this->before_blob = $before_blob ?? ;
-    $this->change_type = $change_type ?? ;
+    $this->after_blob = $after_blob ?? null;
+    $this->before_blob = $before_blob ?? null;
+    $this->change_type = $change_type ?? "";
   }
 }
 
@@ -1526,8 +1526,8 @@ class DisassociateApprovalRuleTemplateFromRepositoryInput {
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1580,8 +1580,8 @@ class EvaluatePullRequestApprovalRulesInput {
   ?'pull_request_id' => PullRequestId,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -1591,7 +1591,7 @@ class EvaluatePullRequestApprovalRulesOutput {
   public function __construct(shape(
   ?'evaluation' => Evaluation,
   ) $s = shape()) {
-    $this->evaluation = $evaluation ?? ;
+    $this->evaluation = $evaluation ?? null;
   }
 }
 
@@ -1607,10 +1607,10 @@ class Evaluation {
   ?'approved' => Approved,
   ?'overridden' => Overridden,
   ) $s = shape()) {
-    $this->approval_rules_not_satisfied = $approval_rules_not_satisfied ?? ;
-    $this->approval_rules_satisfied = $approval_rules_satisfied ?? ;
-    $this->approved = $approved ?? ;
-    $this->overridden = $overridden ?? ;
+    $this->approval_rules_not_satisfied = $approval_rules_not_satisfied ?? [];
+    $this->approval_rules_satisfied = $approval_rules_satisfied ?? [];
+    $this->approved = $approved ?? false;
+    $this->overridden = $overridden ?? false;
   }
 }
 
@@ -1630,10 +1630,10 @@ class File {
   ?'file_mode' => FileModeTypeEnum,
   ?'relative_path' => Path,
   ) $s = shape()) {
-    $this->absolute_path = $absolute_path ?? ;
-    $this->blob_id = $blob_id ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->relative_path = $relative_path ?? ;
+    $this->absolute_path = $absolute_path ?? "";
+    $this->blob_id = $blob_id ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->relative_path = $relative_path ?? "";
   }
 }
 
@@ -1686,9 +1686,9 @@ class FileMetadata {
   ?'blob_id' => ObjectId,
   ?'file_mode' => FileModeTypeEnum,
   ) $s = shape()) {
-    $this->absolute_path = $absolute_path ?? ;
-    $this->blob_id = $blob_id ?? ;
-    $this->file_mode = $file_mode ?? ;
+    $this->absolute_path = $absolute_path ?? "";
+    $this->blob_id = $blob_id ?? "";
+    $this->file_mode = $file_mode ?? "";
   }
 }
 
@@ -1711,9 +1711,9 @@ class FileModes {
   ?'destination' => FileModeTypeEnum,
   ?'source' => FileModeTypeEnum,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->base = $base ?? "";
+    $this->destination = $destination ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -1745,9 +1745,9 @@ class FileSizes {
   ?'destination' => FileSize,
   ?'source' => FileSize,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->base = $base ?? 0;
+    $this->destination = $destination ?? 0;
+    $this->source = $source ?? 0;
   }
 }
 
@@ -1770,9 +1770,9 @@ class Folder {
   ?'relative_path' => Path,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->absolute_path = $absolute_path ?? ;
-    $this->relative_path = $relative_path ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->absolute_path = $absolute_path ?? "";
+    $this->relative_path = $relative_path ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -1798,7 +1798,7 @@ class GetApprovalRuleTemplateInput {
   public function __construct(shape(
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
   }
 }
 
@@ -1808,7 +1808,7 @@ class GetApprovalRuleTemplateOutput {
   public function __construct(shape(
   ?'approval_rule_template' => ApprovalRuleTemplate,
   ) $s = shape()) {
-    $this->approval_rule_template = $approval_rule_template ?? ;
+    $this->approval_rule_template = $approval_rule_template ?? null;
   }
 }
 
@@ -1820,8 +1820,8 @@ class GetBlobInput {
   ?'blob_id' => ObjectId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->blob_id = $blob_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->blob_id = $blob_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1831,7 +1831,7 @@ class GetBlobOutput {
   public function __construct(shape(
   ?'content' => blob,
   ) $s = shape()) {
-    $this->content = $content ?? ;
+    $this->content = $content ?? "";
   }
 }
 
@@ -1843,8 +1843,8 @@ class GetBranchInput {
   ?'branch_name' => BranchName,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1854,7 +1854,7 @@ class GetBranchOutput {
   public function __construct(shape(
   ?'branch' => BranchInfo,
   ) $s = shape()) {
-    $this->branch = $branch ?? ;
+    $this->branch = $branch ?? null;
   }
 }
 
@@ -1864,7 +1864,7 @@ class GetCommentInput {
   public function __construct(shape(
   ?'comment_id' => CommentId,
   ) $s = shape()) {
-    $this->comment_id = $comment_id ?? ;
+    $this->comment_id = $comment_id ?? "";
   }
 }
 
@@ -1874,7 +1874,7 @@ class GetCommentOutput {
   public function __construct(shape(
   ?'comment' => Comment,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? null;
   }
 }
 
@@ -1892,11 +1892,11 @@ class GetCommentsForComparedCommitInput {
   ?'next_token' => NextToken,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1908,8 +1908,8 @@ class GetCommentsForComparedCommitOutput {
   ?'comments_for_compared_commit_data' => CommentsForComparedCommitData,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->comments_for_compared_commit_data = $comments_for_compared_commit_data ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->comments_for_compared_commit_data = $comments_for_compared_commit_data ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1929,12 +1929,12 @@ class GetCommentsForPullRequestInput {
   ?'pull_request_id' => PullRequestId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1946,8 +1946,8 @@ class GetCommentsForPullRequestOutput {
   ?'comments_for_pull_request_data' => CommentsForPullRequestData,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->comments_for_pull_request_data = $comments_for_pull_request_data ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->comments_for_pull_request_data = $comments_for_pull_request_data ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1959,8 +1959,8 @@ class GetCommitInput {
   ?'commit_id' => ObjectId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -1970,7 +1970,7 @@ class GetCommitOutput {
   public function __construct(shape(
   ?'commit' => Commit,
   ) $s = shape()) {
-    $this->commit = $commit ?? ;
+    $this->commit = $commit ?? null;
   }
 }
 
@@ -1994,11 +1994,11 @@ class GetDifferencesInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->after_commit_specifier = $after_commit_specifier ?? ;
-    $this->after_path = $after_path ?? ;
-    $this->before_commit_specifier = $before_commit_specifier ?? ;
-    $this->before_path = $before_path ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_specifier = $after_commit_specifier ?? "";
+    $this->after_path = $after_path ?? "";
+    $this->before_commit_specifier = $before_commit_specifier ?? "";
+    $this->before_path = $before_path ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2011,7 +2011,7 @@ class GetDifferencesOutput {
   ?'differences' => DifferenceList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->differences = $differences ?? ;
+    $this->differences = $differences ?? [];
   }
 }
 
@@ -2025,9 +2025,9 @@ class GetFileInput {
   ?'file_path' => Path,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->commit_specifier = $commit_specifier ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->commit_specifier = $commit_specifier ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2047,12 +2047,12 @@ class GetFileOutput {
   ?'file_path' => Path,
   ?'file_size' => ObjectSize,
   ) $s = shape()) {
-    $this->blob_id = $blob_id ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->file_content = $file_content ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->file_size = $file_size ?? ;
+    $this->blob_id = $blob_id ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->file_content = $file_content ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->file_size = $file_size ?? 0;
   }
 }
 
@@ -2066,9 +2066,9 @@ class GetFolderInput {
   ?'folder_path' => Path,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->commit_specifier = $commit_specifier ?? ;
-    $this->folder_path = $folder_path ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->commit_specifier = $commit_specifier ?? "";
+    $this->folder_path = $folder_path ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2090,13 +2090,13 @@ class GetFolderOutput {
   ?'symbolic_links' => SymbolicLinkList,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->files = $files ?? ;
-    $this->folder_path = $folder_path ?? ;
-    $this->sub_folders = $sub_folders ?? ;
-    $this->sub_modules = $sub_modules ?? ;
-    $this->symbolic_links = $symbolic_links ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->files = $files ?? [];
+    $this->folder_path = $folder_path ?? "";
+    $this->sub_folders = $sub_folders ?? [];
+    $this->sub_modules = $sub_modules ?? [];
+    $this->symbolic_links = $symbolic_links ?? [];
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -2114,11 +2114,11 @@ class GetMergeCommitInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -2134,10 +2134,10 @@ class GetMergeCommitOutput {
   ?'merged_commit_id' => ObjectId,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->base_commit_id = $base_commit_id ?? ;
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->merged_commit_id = $merged_commit_id ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->base_commit_id = $base_commit_id ?? "";
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->merged_commit_id = $merged_commit_id ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -2161,14 +2161,14 @@ class GetMergeConflictsInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->max_conflict_files = $max_conflict_files ?? ;
-    $this->merge_option = $merge_option ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->max_conflict_files = $max_conflict_files ?? 0;
+    $this->merge_option = $merge_option ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -2188,12 +2188,12 @@ class GetMergeConflictsOutput {
   ?'next_token' => NextToken,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->base_commit_id = $base_commit_id ?? ;
-    $this->conflict_metadata_list = $conflict_metadata_list ?? ;
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->mergeable = $mergeable ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->base_commit_id = $base_commit_id ?? "";
+    $this->conflict_metadata_list = $conflict_metadata_list ?? [];
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->mergeable = $mergeable ?? false;
+    $this->next_token = $next_token ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -2211,11 +2211,11 @@ class GetMergeOptionsInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_specifier' => CommitName,
   ) $s = shape()) {
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
   }
 }
 
@@ -2231,10 +2231,10 @@ class GetMergeOptionsOutput {
   ?'merge_options' => MergeOptions,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->base_commit_id = $base_commit_id ?? ;
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->merge_options = $merge_options ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->base_commit_id = $base_commit_id ?? "";
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->merge_options = $merge_options ?? [];
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -2246,8 +2246,8 @@ class GetPullRequestApprovalStatesInput {
   ?'pull_request_id' => PullRequestId,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -2257,7 +2257,7 @@ class GetPullRequestApprovalStatesOutput {
   public function __construct(shape(
   ?'approvals' => ApprovalList,
   ) $s = shape()) {
-    $this->approvals = $approvals ?? ;
+    $this->approvals = $approvals ?? [];
   }
 }
 
@@ -2267,7 +2267,7 @@ class GetPullRequestInput {
   public function __construct(shape(
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -2277,7 +2277,7 @@ class GetPullRequestOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -2289,8 +2289,8 @@ class GetPullRequestOverrideStateInput {
   ?'pull_request_id' => PullRequestId,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -2302,8 +2302,8 @@ class GetPullRequestOverrideStateOutput {
   ?'overridden' => Overridden,
   ?'overrider' => Arn,
   ) $s = shape()) {
-    $this->overridden = $overridden ?? ;
-    $this->overrider = $overrider ?? ;
+    $this->overridden = $overridden ?? false;
+    $this->overrider = $overrider ?? "";
   }
 }
 
@@ -2313,7 +2313,7 @@ class GetRepositoryInput {
   public function __construct(shape(
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2323,7 +2323,7 @@ class GetRepositoryOutput {
   public function __construct(shape(
   ?'repository_metadata' => RepositoryMetadata,
   ) $s = shape()) {
-    $this->repository_metadata = $repository_metadata ?? ;
+    $this->repository_metadata = $repository_metadata ?? null;
   }
 }
 
@@ -2333,7 +2333,7 @@ class GetRepositoryTriggersInput {
   public function __construct(shape(
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2345,8 +2345,8 @@ class GetRepositoryTriggersOutput {
   ?'configuration_id' => RepositoryTriggersConfigurationId,
   ?'triggers' => RepositoryTriggersList,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? ;
-    $this->triggers = $triggers ?? ;
+    $this->configuration_id = $configuration_id ?? "";
+    $this->triggers = $triggers ?? [];
   }
 }
 
@@ -2796,9 +2796,9 @@ class IsBinaryFile {
   ?'destination' => CapitalBoolean,
   ?'source' => CapitalBoolean,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->base = $base ?? false;
+    $this->destination = $destination ?? false;
+    $this->source = $source ?? false;
   }
 }
 
@@ -2834,8 +2834,8 @@ class ListApprovalRuleTemplatesInput {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2847,8 +2847,8 @@ class ListApprovalRuleTemplatesOutput {
   ?'approval_rule_template_names' => ApprovalRuleTemplateNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->approval_rule_template_names = $approval_rule_template_names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->approval_rule_template_names = $approval_rule_template_names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2862,9 +2862,9 @@ class ListAssociatedApprovalRuleTemplatesForRepositoryInput {
   ?'next_token' => NextToken,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2876,8 +2876,8 @@ class ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
   ?'approval_rule_template_names' => ApprovalRuleTemplateNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->approval_rule_template_names = $approval_rule_template_names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->approval_rule_template_names = $approval_rule_template_names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2889,8 +2889,8 @@ class ListBranchesInput {
   ?'next_token' => NextToken,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2902,8 +2902,8 @@ class ListBranchesOutput {
   ?'branches' => BranchNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->branches = $branches ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->branches = $branches ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2921,11 +2921,11 @@ class ListPullRequestsInput {
   ?'pull_request_status' => PullRequestStatusEnum,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->author_arn = $author_arn ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pull_request_status = $pull_request_status ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->author_arn = $author_arn ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pull_request_status = $pull_request_status ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -2937,8 +2937,8 @@ class ListPullRequestsOutput {
   ?'next_token' => NextToken,
   ?'pull_request_ids' => PullRequestIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->pull_request_ids = $pull_request_ids ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->pull_request_ids = $pull_request_ids ?? [];
   }
 }
 
@@ -2952,9 +2952,9 @@ class ListRepositoriesForApprovalRuleTemplateInput {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2966,8 +2966,8 @@ class ListRepositoriesForApprovalRuleTemplateOutput {
   ?'next_token' => NextToken,
   ?'repository_names' => RepositoryNameList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->repository_names = $repository_names ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->repository_names = $repository_names ?? [];
   }
 }
 
@@ -2981,9 +2981,9 @@ class ListRepositoriesInput {
   ?'order' => OrderEnum,
   ?'sort_by' => SortByEnum,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->order = $order ?? ;
-    $this->sort_by = $sort_by ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->order = $order ?? "";
+    $this->sort_by = $sort_by ?? "";
   }
 }
 
@@ -2995,8 +2995,8 @@ class ListRepositoriesOutput {
   ?'next_token' => NextToken,
   ?'repositories' => RepositoryNameIdPairList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->repositories = $repositories ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->repositories = $repositories ?? [];
   }
 }
 
@@ -3008,8 +3008,8 @@ class ListTagsForResourceInput {
   ?'next_token' => NextToken,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_arn = $resource_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -3021,8 +3021,8 @@ class ListTagsForResourceOutput {
   ?'next_token' => NextToken,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tags = $tags ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3036,9 +3036,9 @@ class Location {
   ?'file_position' => Position,
   ?'relative_file_version' => RelativeFileVersionEnum,
   ) $s = shape()) {
-    $this->file_path = $file_path ?? ;
-    $this->file_position = $file_position ?? ;
-    $this->relative_file_version = $relative_file_version ?? ;
+    $this->file_path = $file_path ?? "";
+    $this->file_position = $file_position ?? 0;
+    $this->relative_file_version = $relative_file_version ?? "";
   }
 }
 
@@ -3133,10 +3133,10 @@ class MergeBranchesByFastForwardInput {
   ?'source_commit_specifier' => CommitName,
   ?'target_branch' => BranchName,
   ) $s = shape()) {
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
-    $this->target_branch = $target_branch ?? ;
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
+    $this->target_branch = $target_branch ?? "";
   }
 }
 
@@ -3148,8 +3148,8 @@ class MergeBranchesByFastForwardOutput {
   ?'commit_id' => ObjectId,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -3179,17 +3179,17 @@ class MergeBranchesBySquashInput {
   ?'source_commit_specifier' => CommitName,
   ?'target_branch' => BranchName,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution = $conflict_resolution ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
-    $this->target_branch = $target_branch ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution = $conflict_resolution ?? null;
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
+    $this->target_branch = $target_branch ?? "";
   }
 }
 
@@ -3201,8 +3201,8 @@ class MergeBranchesBySquashOutput {
   ?'commit_id' => ObjectId,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -3232,17 +3232,17 @@ class MergeBranchesByThreeWayInput {
   ?'source_commit_specifier' => CommitName,
   ?'target_branch' => BranchName,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution = $conflict_resolution ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->destination_commit_specifier = $destination_commit_specifier ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_specifier = $source_commit_specifier ?? ;
-    $this->target_branch = $target_branch ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution = $conflict_resolution ?? null;
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->destination_commit_specifier = $destination_commit_specifier ?? "";
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_specifier = $source_commit_specifier ?? "";
+    $this->target_branch = $target_branch ?? "";
   }
 }
 
@@ -3254,8 +3254,8 @@ class MergeBranchesByThreeWayOutput {
   ?'commit_id' => ObjectId,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->commit_id = $commit_id ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->commit_id = $commit_id ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -3271,10 +3271,10 @@ class MergeHunk {
   ?'is_conflict' => IsHunkConflict,
   ?'source' => MergeHunkDetail,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->destination = $destination ?? ;
-    $this->is_conflict = $is_conflict ?? ;
-    $this->source = $source ?? ;
+    $this->base = $base ?? null;
+    $this->destination = $destination ?? null;
+    $this->is_conflict = $is_conflict ?? false;
+    $this->source = $source ?? null;
   }
 }
 
@@ -3288,9 +3288,9 @@ class MergeHunkDetail {
   ?'hunk_content' => HunkContent,
   ?'start_line' => LineNumber,
   ) $s = shape()) {
-    $this->end_line = $end_line ?? ;
-    $this->hunk_content = $hunk_content ?? ;
-    $this->start_line = $start_line ?? ;
+    $this->end_line = $end_line ?? 0;
+    $this->hunk_content = $hunk_content ?? "";
+    $this->start_line = $start_line ?? 0;
   }
 }
 
@@ -3308,10 +3308,10 @@ class MergeMetadata {
   ?'merge_option' => MergeOptionTypeEnum,
   ?'merged_by' => Arn,
   ) $s = shape()) {
-    $this->is_merged = $is_merged ?? ;
-    $this->merge_commit_id = $merge_commit_id ?? ;
-    $this->merge_option = $merge_option ?? ;
-    $this->merged_by = $merged_by ?? ;
+    $this->is_merged = $is_merged ?? false;
+    $this->merge_commit_id = $merge_commit_id ?? "";
+    $this->merge_option = $merge_option ?? "";
+    $this->merged_by = $merged_by ?? "";
   }
 }
 
@@ -3323,8 +3323,8 @@ class MergeOperations {
   ?'destination' => ChangeTypeEnum,
   ?'source' => ChangeTypeEnum,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->destination = $destination ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -3349,9 +3349,9 @@ class MergePullRequestByFastForwardInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -3361,7 +3361,7 @@ class MergePullRequestByFastForwardOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -3389,16 +3389,16 @@ class MergePullRequestBySquashInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution = $conflict_resolution ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution = $conflict_resolution ?? null;
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -3408,7 +3408,7 @@ class MergePullRequestBySquashOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -3436,16 +3436,16 @@ class MergePullRequestByThreeWayInput {
   ?'repository_name' => RepositoryName,
   ?'source_commit_id' => ObjectId,
   ) $s = shape()) {
-    $this->author_name = $author_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->conflict_detail_level = $conflict_detail_level ?? ;
-    $this->conflict_resolution = $conflict_resolution ?? ;
-    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? ;
-    $this->email = $email ?? ;
-    $this->keep_empty_folders = $keep_empty_folders ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->author_name = $author_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->conflict_detail_level = $conflict_detail_level ?? "";
+    $this->conflict_resolution = $conflict_resolution ?? null;
+    $this->conflict_resolution_strategy = $conflict_resolution_strategy ?? "";
+    $this->email = $email ?? "";
+    $this->keep_empty_folders = $keep_empty_folders ?? false;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -3455,7 +3455,7 @@ class MergePullRequestByThreeWayOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -3527,9 +3527,9 @@ class ObjectTypes {
   ?'destination' => ObjectTypeEnum,
   ?'source' => ObjectTypeEnum,
   ) $s = shape()) {
-    $this->base = $base ?? ;
-    $this->destination = $destination ?? ;
-    $this->source = $source ?? ;
+    $this->base = $base ?? "";
+    $this->destination = $destination ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -3543,8 +3543,8 @@ class OriginApprovalRuleTemplate {
   ?'approval_rule_template_id' => ApprovalRuleTemplateId,
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->approval_rule_template_id = $approval_rule_template_id ?? ;
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
+    $this->approval_rule_template_id = $approval_rule_template_id ?? "";
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
   }
 }
 
@@ -3567,9 +3567,9 @@ class OverridePullRequestApprovalRulesInput {
   ?'pull_request_id' => PullRequestId,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->override_status = $override_status ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->override_status = $override_status ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -3639,12 +3639,12 @@ class PostCommentForComparedCommitInput {
   ?'location' => Location,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->content = $content ?? ;
-    $this->location = $location ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->content = $content ?? "";
+    $this->location = $location ?? null;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3666,13 +3666,13 @@ class PostCommentForComparedCommitOutput {
   ?'location' => Location,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_blob_id = $after_blob_id ?? ;
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_blob_id = $before_blob_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->comment = $comment ?? ;
-    $this->location = $location ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_blob_id = $after_blob_id ?? "";
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_blob_id = $before_blob_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->comment = $comment ?? null;
+    $this->location = $location ?? null;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3694,13 +3694,13 @@ class PostCommentForPullRequestInput {
   ?'pull_request_id' => PullRequestId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->content = $content ?? ;
-    $this->location = $location ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->content = $content ?? "";
+    $this->location = $location ?? null;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3724,14 +3724,14 @@ class PostCommentForPullRequestOutput {
   ?'pull_request_id' => PullRequestId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_blob_id = $after_blob_id ?? ;
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_blob_id = $before_blob_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->comment = $comment ?? ;
-    $this->location = $location ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_blob_id = $after_blob_id ?? "";
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_blob_id = $before_blob_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->comment = $comment ?? null;
+    $this->location = $location ?? null;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3745,9 +3745,9 @@ class PostCommentReplyInput {
   ?'content' => Content,
   ?'in_reply_to' => CommentId,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->content = $content ?? ;
-    $this->in_reply_to = $in_reply_to ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->content = $content ?? "";
+    $this->in_reply_to = $in_reply_to ?? "";
   }
 }
 
@@ -3757,7 +3757,7 @@ class PostCommentReplyOutput {
   public function __construct(shape(
   ?'comment' => Comment,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? null;
   }
 }
 
@@ -3787,17 +3787,17 @@ class PullRequest {
   ?'revision_id' => RevisionId,
   ?'title' => Title,
   ) $s = shape()) {
-    $this->approval_rules = $approval_rules ?? ;
-    $this->author_arn = $author_arn ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->last_activity_date = $last_activity_date ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->pull_request_status = $pull_request_status ?? ;
-    $this->pull_request_targets = $pull_request_targets ?? ;
-    $this->revision_id = $revision_id ?? ;
-    $this->title = $title ?? ;
+    $this->approval_rules = $approval_rules ?? [];
+    $this->author_arn = $author_arn ?? "";
+    $this->client_request_token = $client_request_token ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->last_activity_date = $last_activity_date ?? 0;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->pull_request_status = $pull_request_status ?? "";
+    $this->pull_request_targets = $pull_request_targets ?? [];
+    $this->revision_id = $revision_id ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -3834,10 +3834,10 @@ class PullRequestCreatedEventMetadata {
   ?'repository_name' => RepositoryName,
   ?'source_commit_id' => CommitId,
   ) $s = shape()) {
-    $this->destination_commit_id = $destination_commit_id ?? ;
-    $this->merge_base = $merge_base ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit_id = $source_commit_id ?? ;
+    $this->destination_commit_id = $destination_commit_id ?? "";
+    $this->merge_base = $merge_base ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit_id = $source_commit_id ?? "";
   }
 }
 
@@ -3874,17 +3874,17 @@ class PullRequestEvent {
   ?'pull_request_source_reference_updated_event_metadata' => PullRequestSourceReferenceUpdatedEventMetadata,
   ?'pull_request_status_changed_event_metadata' => PullRequestStatusChangedEventMetadata,
   ) $s = shape()) {
-    $this->actor_arn = $actor_arn ?? ;
-    $this->approval_rule_event_metadata = $approval_rule_event_metadata ?? ;
-    $this->approval_rule_overridden_event_metadata = $approval_rule_overridden_event_metadata ?? ;
-    $this->approval_state_changed_event_metadata = $approval_state_changed_event_metadata ?? ;
-    $this->event_date = $event_date ?? ;
-    $this->pull_request_created_event_metadata = $pull_request_created_event_metadata ?? ;
-    $this->pull_request_event_type = $pull_request_event_type ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->pull_request_merged_state_changed_event_metadata = $pull_request_merged_state_changed_event_metadata ?? ;
-    $this->pull_request_source_reference_updated_event_metadata = $pull_request_source_reference_updated_event_metadata ?? ;
-    $this->pull_request_status_changed_event_metadata = $pull_request_status_changed_event_metadata ?? ;
+    $this->actor_arn = $actor_arn ?? "";
+    $this->approval_rule_event_metadata = $approval_rule_event_metadata ?? null;
+    $this->approval_rule_overridden_event_metadata = $approval_rule_overridden_event_metadata ?? null;
+    $this->approval_state_changed_event_metadata = $approval_state_changed_event_metadata ?? null;
+    $this->event_date = $event_date ?? 0;
+    $this->pull_request_created_event_metadata = $pull_request_created_event_metadata ?? null;
+    $this->pull_request_event_type = $pull_request_event_type ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->pull_request_merged_state_changed_event_metadata = $pull_request_merged_state_changed_event_metadata ?? null;
+    $this->pull_request_source_reference_updated_event_metadata = $pull_request_source_reference_updated_event_metadata ?? null;
+    $this->pull_request_status_changed_event_metadata = $pull_request_status_changed_event_metadata ?? null;
   }
 }
 
@@ -3913,9 +3913,9 @@ class PullRequestMergedStateChangedEventMetadata {
   ?'merge_metadata' => MergeMetadata,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->destination_reference = $destination_reference ?? ;
-    $this->merge_metadata = $merge_metadata ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->destination_reference = $destination_reference ?? "";
+    $this->merge_metadata = $merge_metadata ?? null;
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3931,10 +3931,10 @@ class PullRequestSourceReferenceUpdatedEventMetadata {
   ?'merge_base' => CommitId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->after_commit_id = $after_commit_id ?? ;
-    $this->before_commit_id = $before_commit_id ?? ;
-    $this->merge_base = $merge_base ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->after_commit_id = $after_commit_id ?? "";
+    $this->before_commit_id = $before_commit_id ?? "";
+    $this->merge_base = $merge_base ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -3944,7 +3944,7 @@ class PullRequestStatusChangedEventMetadata {
   public function __construct(shape(
   ?'pull_request_status' => PullRequestStatusEnum,
   ) $s = shape()) {
-    $this->pull_request_status = $pull_request_status ?? ;
+    $this->pull_request_status = $pull_request_status ?? "";
   }
 }
 
@@ -3975,13 +3975,13 @@ class PullRequestTarget {
   ?'source_commit' => CommitId,
   ?'source_reference' => ReferenceName,
   ) $s = shape()) {
-    $this->destination_commit = $destination_commit ?? ;
-    $this->destination_reference = $destination_reference ?? ;
-    $this->merge_base = $merge_base ?? ;
-    $this->merge_metadata = $merge_metadata ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_commit = $source_commit ?? ;
-    $this->source_reference = $source_reference ?? ;
+    $this->destination_commit = $destination_commit ?? "";
+    $this->destination_reference = $destination_reference ?? "";
+    $this->merge_base = $merge_base ?? "";
+    $this->merge_metadata = $merge_metadata ?? null;
+    $this->repository_name = $repository_name ?? "";
+    $this->source_commit = $source_commit ?? "";
+    $this->source_reference = $source_reference ?? "";
   }
 }
 
@@ -4001,10 +4001,10 @@ class PutFileEntry {
   ?'file_path' => Path,
   ?'source_file' => SourceFileSpecifier,
   ) $s = shape()) {
-    $this->file_content = $file_content ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->source_file = $source_file ?? ;
+    $this->file_content = $file_content ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->source_file = $source_file ?? null;
   }
 }
 
@@ -4037,15 +4037,15 @@ class PutFileInput {
   ?'parent_commit_id' => CommitId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->branch_name = $branch_name ?? ;
-    $this->commit_message = $commit_message ?? ;
-    $this->email = $email ?? ;
-    $this->file_content = $file_content ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->name = $name ?? ;
-    $this->parent_commit_id = $parent_commit_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->branch_name = $branch_name ?? "";
+    $this->commit_message = $commit_message ?? "";
+    $this->email = $email ?? "";
+    $this->file_content = $file_content ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->name = $name ?? "";
+    $this->parent_commit_id = $parent_commit_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -4059,9 +4059,9 @@ class PutFileOutput {
   ?'commit_id' => ObjectId,
   ?'tree_id' => ObjectId,
   ) $s = shape()) {
-    $this->blob_id = $blob_id ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->tree_id = $tree_id ?? ;
+    $this->blob_id = $blob_id ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->tree_id = $tree_id ?? "";
   }
 }
 
@@ -4073,8 +4073,8 @@ class PutRepositoryTriggersInput {
   ?'repository_name' => RepositoryName,
   ?'triggers' => RepositoryTriggersList,
   ) $s = shape()) {
-    $this->repository_name = $repository_name ?? ;
-    $this->triggers = $triggers ?? ;
+    $this->repository_name = $repository_name ?? "";
+    $this->triggers = $triggers ?? [];
   }
 }
 
@@ -4084,7 +4084,7 @@ class PutRepositoryTriggersOutput {
   public function __construct(shape(
   ?'configuration_id' => RepositoryTriggersConfigurationId,
   ) $s = shape()) {
-    $this->configuration_id = $configuration_id ?? ;
+    $this->configuration_id = $configuration_id ?? "";
   }
 }
 
@@ -4127,10 +4127,10 @@ class ReplaceContentEntry {
   ?'file_path' => Path,
   ?'replacement_type' => ReplacementTypeEnum,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->file_path = $file_path ?? ;
-    $this->replacement_type = $replacement_type ?? ;
+    $this->content = $content ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->file_path = $file_path ?? "";
+    $this->replacement_type = $replacement_type ?? "";
   }
 }
 
@@ -4193,15 +4193,15 @@ class RepositoryMetadata {
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->account_id = $account_id ?? ;
-    $this->clone_url_http = $clone_url_http ?? ;
-    $this->clone_url_ssh = $clone_url_ssh ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_branch = $default_branch ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->repository_description = $repository_description ?? ;
-    $this->repository_id = $repository_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->account_id = $account_id ?? "";
+    $this->clone_url_http = $clone_url_http ?? "";
+    $this->clone_url_ssh = $clone_url_ssh ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->default_branch = $default_branch ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->repository_description = $repository_description ?? "";
+    $this->repository_id = $repository_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -4224,8 +4224,8 @@ class RepositoryNameIdPair {
   ?'repository_id' => RepositoryId,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->repository_id = $repository_id ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_id = $repository_id ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -4270,11 +4270,11 @@ class RepositoryTrigger {
   ?'events' => RepositoryTriggerEventList,
   ?'name' => RepositoryTriggerName,
   ) $s = shape()) {
-    $this->branches = $branches ?? ;
-    $this->custom_data = $custom_data ?? ;
-    $this->destination_arn = $destination_arn ?? ;
-    $this->events = $events ?? ;
-    $this->name = $name ?? ;
+    $this->branches = $branches ?? [];
+    $this->custom_data = $custom_data ?? "";
+    $this->destination_arn = $destination_arn ?? "";
+    $this->events = $events ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -4313,8 +4313,8 @@ class RepositoryTriggerExecutionFailure {
   ?'failure_message' => RepositoryTriggerExecutionFailureMessage,
   ?'trigger' => RepositoryTriggerName,
   ) $s = shape()) {
-    $this->failure_message = $failure_message ?? ;
-    $this->trigger = $trigger ?? ;
+    $this->failure_message = $failure_message ?? "";
+    $this->trigger = $trigger ?? "";
   }
 }
 
@@ -4402,8 +4402,8 @@ class SetFileModeEntry {
   ?'file_mode' => FileModeTypeEnum,
   ?'file_path' => Path,
   ) $s = shape()) {
-    $this->file_mode = $file_mode ?? ;
-    $this->file_path = $file_path ?? ;
+    $this->file_mode = $file_mode ?? "";
+    $this->file_path = $file_path ?? "";
   }
 }
 
@@ -4431,8 +4431,8 @@ class SourceFileSpecifier {
   ?'file_path' => Path,
   ?'is_move' => IsMove,
   ) $s = shape()) {
-    $this->file_path = $file_path ?? ;
-    $this->is_move = $is_move ?? ;
+    $this->file_path = $file_path ?? "";
+    $this->is_move = $is_move ?? false;
   }
 }
 
@@ -4446,9 +4446,9 @@ class SubModule {
   ?'commit_id' => ObjectId,
   ?'relative_path' => Path,
   ) $s = shape()) {
-    $this->absolute_path = $absolute_path ?? ;
-    $this->commit_id = $commit_id ?? ;
-    $this->relative_path = $relative_path ?? ;
+    $this->absolute_path = $absolute_path ?? "";
+    $this->commit_id = $commit_id ?? "";
+    $this->relative_path = $relative_path ?? "";
   }
 }
 
@@ -4466,10 +4466,10 @@ class SymbolicLink {
   ?'file_mode' => FileModeTypeEnum,
   ?'relative_path' => Path,
   ) $s = shape()) {
-    $this->absolute_path = $absolute_path ?? ;
-    $this->blob_id = $blob_id ?? ;
-    $this->file_mode = $file_mode ?? ;
-    $this->relative_path = $relative_path ?? ;
+    $this->absolute_path = $absolute_path ?? "";
+    $this->blob_id = $blob_id ?? "";
+    $this->file_mode = $file_mode ?? "";
+    $this->relative_path = $relative_path ?? "";
   }
 }
 
@@ -4501,8 +4501,8 @@ class TagResourceInput {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4527,9 +4527,9 @@ class Target {
   ?'repository_name' => RepositoryName,
   ?'source_reference' => ReferenceName,
   ) $s = shape()) {
-    $this->destination_reference = $destination_reference ?? ;
-    $this->repository_name = $repository_name ?? ;
-    $this->source_reference = $source_reference ?? ;
+    $this->destination_reference = $destination_reference ?? "";
+    $this->repository_name = $repository_name ?? "";
+    $this->source_reference = $source_reference ?? "";
   }
 }
 
@@ -4557,8 +4557,8 @@ class TestRepositoryTriggersInput {
   ?'repository_name' => RepositoryName,
   ?'triggers' => RepositoryTriggersList,
   ) $s = shape()) {
-    $this->repository_name = $repository_name ?? ;
-    $this->triggers = $triggers ?? ;
+    $this->repository_name = $repository_name ?? "";
+    $this->triggers = $triggers ?? [];
   }
 }
 
@@ -4570,8 +4570,8 @@ class TestRepositoryTriggersOutput {
   ?'failed_executions' => RepositoryTriggerExecutionFailureList,
   ?'successful_executions' => RepositoryTriggerNameList,
   ) $s = shape()) {
-    $this->failed_executions = $failed_executions ?? ;
-    $this->successful_executions = $successful_executions ?? ;
+    $this->failed_executions = $failed_executions ?? [];
+    $this->successful_executions = $successful_executions ?? [];
   }
 }
 
@@ -4613,8 +4613,8 @@ class UntagResourceInput {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeysList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -4628,9 +4628,9 @@ class UpdateApprovalRuleTemplateContentInput {
   ?'existing_rule_content_sha_256' => RuleContentSha256,
   ?'new_rule_content' => ApprovalRuleTemplateContent,
   ) $s = shape()) {
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
-    $this->existing_rule_content_sha_256 = $existing_rule_content_sha_256 ?? ;
-    $this->new_rule_content = $new_rule_content ?? ;
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
+    $this->existing_rule_content_sha_256 = $existing_rule_content_sha_256 ?? "";
+    $this->new_rule_content = $new_rule_content ?? "";
   }
 }
 
@@ -4640,7 +4640,7 @@ class UpdateApprovalRuleTemplateContentOutput {
   public function __construct(shape(
   ?'approval_rule_template' => ApprovalRuleTemplate,
   ) $s = shape()) {
-    $this->approval_rule_template = $approval_rule_template ?? ;
+    $this->approval_rule_template = $approval_rule_template ?? null;
   }
 }
 
@@ -4652,8 +4652,8 @@ class UpdateApprovalRuleTemplateDescriptionInput {
   ?'approval_rule_template_description' => ApprovalRuleTemplateDescription,
   ?'approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->approval_rule_template_description = $approval_rule_template_description ?? ;
-    $this->approval_rule_template_name = $approval_rule_template_name ?? ;
+    $this->approval_rule_template_description = $approval_rule_template_description ?? "";
+    $this->approval_rule_template_name = $approval_rule_template_name ?? "";
   }
 }
 
@@ -4663,7 +4663,7 @@ class UpdateApprovalRuleTemplateDescriptionOutput {
   public function __construct(shape(
   ?'approval_rule_template' => ApprovalRuleTemplate,
   ) $s = shape()) {
-    $this->approval_rule_template = $approval_rule_template ?? ;
+    $this->approval_rule_template = $approval_rule_template ?? null;
   }
 }
 
@@ -4675,8 +4675,8 @@ class UpdateApprovalRuleTemplateNameInput {
   ?'new_approval_rule_template_name' => ApprovalRuleTemplateName,
   ?'old_approval_rule_template_name' => ApprovalRuleTemplateName,
   ) $s = shape()) {
-    $this->new_approval_rule_template_name = $new_approval_rule_template_name ?? ;
-    $this->old_approval_rule_template_name = $old_approval_rule_template_name ?? ;
+    $this->new_approval_rule_template_name = $new_approval_rule_template_name ?? "";
+    $this->old_approval_rule_template_name = $old_approval_rule_template_name ?? "";
   }
 }
 
@@ -4686,7 +4686,7 @@ class UpdateApprovalRuleTemplateNameOutput {
   public function __construct(shape(
   ?'approval_rule_template' => ApprovalRuleTemplate,
   ) $s = shape()) {
-    $this->approval_rule_template = $approval_rule_template ?? ;
+    $this->approval_rule_template = $approval_rule_template ?? null;
   }
 }
 
@@ -4698,8 +4698,8 @@ class UpdateCommentInput {
   ?'comment_id' => CommentId,
   ?'content' => Content,
   ) $s = shape()) {
-    $this->comment_id = $comment_id ?? ;
-    $this->content = $content ?? ;
+    $this->comment_id = $comment_id ?? "";
+    $this->content = $content ?? "";
   }
 }
 
@@ -4709,7 +4709,7 @@ class UpdateCommentOutput {
   public function __construct(shape(
   ?'comment' => Comment,
   ) $s = shape()) {
-    $this->comment = $comment ?? ;
+    $this->comment = $comment ?? null;
   }
 }
 
@@ -4721,8 +4721,8 @@ class UpdateDefaultBranchInput {
   ?'default_branch_name' => BranchName,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->default_branch_name = $default_branch_name ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->default_branch_name = $default_branch_name ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -4738,10 +4738,10 @@ class UpdatePullRequestApprovalRuleContentInput {
   ?'new_rule_content' => ApprovalRuleContent,
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->approval_rule_name = $approval_rule_name ?? ;
-    $this->existing_rule_content_sha_256 = $existing_rule_content_sha_256 ?? ;
-    $this->new_rule_content = $new_rule_content ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->approval_rule_name = $approval_rule_name ?? "";
+    $this->existing_rule_content_sha_256 = $existing_rule_content_sha_256 ?? "";
+    $this->new_rule_content = $new_rule_content ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -4751,7 +4751,7 @@ class UpdatePullRequestApprovalRuleContentOutput {
   public function __construct(shape(
   ?'approval_rule' => ApprovalRule,
   ) $s = shape()) {
-    $this->approval_rule = $approval_rule ?? ;
+    $this->approval_rule = $approval_rule ?? null;
   }
 }
 
@@ -4765,9 +4765,9 @@ class UpdatePullRequestApprovalStateInput {
   ?'pull_request_id' => PullRequestId,
   ?'revision_id' => RevisionId,
   ) $s = shape()) {
-    $this->approval_state = $approval_state ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->revision_id = $revision_id ?? ;
+    $this->approval_state = $approval_state ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->revision_id = $revision_id ?? "";
   }
 }
 
@@ -4779,8 +4779,8 @@ class UpdatePullRequestDescriptionInput {
   ?'description' => Description,
   ?'pull_request_id' => PullRequestId,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->pull_request_id = $pull_request_id ?? ;
+    $this->description = $description ?? "";
+    $this->pull_request_id = $pull_request_id ?? "";
   }
 }
 
@@ -4790,7 +4790,7 @@ class UpdatePullRequestDescriptionOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -4802,8 +4802,8 @@ class UpdatePullRequestStatusInput {
   ?'pull_request_id' => PullRequestId,
   ?'pull_request_status' => PullRequestStatusEnum,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->pull_request_status = $pull_request_status ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->pull_request_status = $pull_request_status ?? "";
   }
 }
 
@@ -4813,7 +4813,7 @@ class UpdatePullRequestStatusOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -4825,8 +4825,8 @@ class UpdatePullRequestTitleInput {
   ?'pull_request_id' => PullRequestId,
   ?'title' => Title,
   ) $s = shape()) {
-    $this->pull_request_id = $pull_request_id ?? ;
-    $this->title = $title ?? ;
+    $this->pull_request_id = $pull_request_id ?? "";
+    $this->title = $title ?? "";
   }
 }
 
@@ -4836,7 +4836,7 @@ class UpdatePullRequestTitleOutput {
   public function __construct(shape(
   ?'pull_request' => PullRequest,
   ) $s = shape()) {
-    $this->pull_request = $pull_request ?? ;
+    $this->pull_request = $pull_request ?? null;
   }
 }
 
@@ -4848,8 +4848,8 @@ class UpdateRepositoryDescriptionInput {
   ?'repository_description' => RepositoryDescription,
   ?'repository_name' => RepositoryName,
   ) $s = shape()) {
-    $this->repository_description = $repository_description ?? ;
-    $this->repository_name = $repository_name ?? ;
+    $this->repository_description = $repository_description ?? "";
+    $this->repository_name = $repository_name ?? "";
   }
 }
 
@@ -4861,8 +4861,8 @@ class UpdateRepositoryNameInput {
   ?'new_name' => RepositoryName,
   ?'old_name' => RepositoryName,
   ) $s = shape()) {
-    $this->new_name = $new_name ?? ;
-    $this->old_name = $old_name ?? ;
+    $this->new_name = $new_name ?? "";
+    $this->old_name = $old_name ?? "";
   }
 }
 
@@ -4876,9 +4876,9 @@ class UserInfo {
   ?'email' => Email,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->email = $email ?? ;
-    $this->name = $name ?? ;
+    $this->date = $date ?? "";
+    $this->email = $email ?? "";
+    $this->name = $name ?? "";
   }
 }
 

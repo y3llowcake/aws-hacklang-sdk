@@ -42,8 +42,8 @@ class AccessPoliciesStatus {
   ?'options' => PolicyDocument,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -64,10 +64,10 @@ class AnalysisOptions {
   ?'synonyms' => string,
   ) $s = shape()) {
     $this->algorithmic_stemming = $algorithmic_stemming ?? "";
-    $this->japanese_tokenization_dictionary = $japanese_tokenization_dictionary ?? ;
-    $this->stemming_dictionary = $stemming_dictionary ?? ;
-    $this->stopwords = $stopwords ?? ;
-    $this->synonyms = $synonyms ?? ;
+    $this->japanese_tokenization_dictionary = $japanese_tokenization_dictionary ?? "";
+    $this->stemming_dictionary = $stemming_dictionary ?? "";
+    $this->stopwords = $stopwords ?? "";
+    $this->synonyms = $synonyms ?? "";
   }
 }
 
@@ -83,7 +83,7 @@ class AnalysisScheme {
   ) $s = shape()) {
     $this->analysis_options = $analysis_options ?? null;
     $this->analysis_scheme_language = $analysis_scheme_language ?? "";
-    $this->analysis_scheme_name = $analysis_scheme_name ?? ;
+    $this->analysis_scheme_name = $analysis_scheme_name ?? "";
   }
 }
 
@@ -97,8 +97,8 @@ class AnalysisSchemeStatus {
   ?'options' => AnalysisScheme,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -112,8 +112,8 @@ class AvailabilityOptionsStatus {
   ?'options' => MultiAZ,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? false;
+    $this->status = $status ?? null;
   }
 }
 
@@ -125,8 +125,8 @@ class BaseException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -148,7 +148,7 @@ class BuildSuggestersResponse {
   public function __construct(shape(
   ?'field_names' => FieldNameList,
   ) $s = shape()) {
-    $this->field_names = $field_names ?? ;
+    $this->field_names = $field_names ?? [];
   }
 }
 
@@ -186,11 +186,11 @@ class DateArrayOptions {
   ?'search_enabled' => boolean,
   ?'source_fields' => FieldNameCommaList,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->source_fields = $source_fields ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->source_fields = $source_fields ?? "";
   }
 }
 
@@ -210,12 +210,12 @@ class DateOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -319,7 +319,7 @@ class DeleteAnalysisSchemeRequest {
   ?'analysis_scheme_name' => StandardName,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->analysis_scheme_name = $analysis_scheme_name ?? ;
+    $this->analysis_scheme_name = $analysis_scheme_name ?? "";
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -363,7 +363,7 @@ class DeleteExpressionRequest {
   ?'expression_name' => StandardName,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->expression_name = $expression_name ?? ;
+    $this->expression_name = $expression_name ?? "";
   }
 }
 
@@ -386,7 +386,7 @@ class DeleteIndexFieldRequest {
   ?'index_field_name' => DynamicFieldName,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->index_field_name = $index_field_name ?? ;
+    $this->index_field_name = $index_field_name ?? "";
   }
 }
 
@@ -409,7 +409,7 @@ class DeleteSuggesterRequest {
   ?'suggester_name' => StandardName,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->suggester_name = $suggester_name ?? ;
+    $this->suggester_name = $suggester_name ?? "";
   }
 }
 
@@ -433,8 +433,8 @@ class DescribeAnalysisSchemesRequest {
   ?'deployed' => boolean,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->analysis_scheme_names = $analysis_scheme_names ?? ;
-    $this->deployed = $deployed ?? ;
+    $this->analysis_scheme_names = $analysis_scheme_names ?? [];
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -445,7 +445,7 @@ class DescribeAnalysisSchemesResponse {
   public function __construct(shape(
   ?'analysis_schemes' => AnalysisSchemeStatusList,
   ) $s = shape()) {
-    $this->analysis_schemes = $analysis_schemes ?? ;
+    $this->analysis_schemes = $analysis_schemes ?? [];
   }
 }
 
@@ -457,7 +457,7 @@ class DescribeAvailabilityOptionsRequest {
   ?'deployed' => boolean,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -468,7 +468,7 @@ class DescribeAvailabilityOptionsResponse {
   public function __construct(shape(
   ?'availability_options' => AvailabilityOptionsStatus,
   ) $s = shape()) {
-    $this->availability_options = $availability_options ?? ;
+    $this->availability_options = $availability_options ?? null;
   }
 }
 
@@ -480,7 +480,7 @@ class DescribeDomainEndpointOptionsRequest {
   ?'deployed' => boolean,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -501,7 +501,7 @@ class DescribeDomainsRequest {
   public function __construct(shape(
   ?'domain_names' => DomainNameList,
   ) $s = shape()) {
-    $this->domain_names = $domain_names ?? ;
+    $this->domain_names = $domain_names ?? [];
   }
 }
 
@@ -525,9 +525,9 @@ class DescribeExpressionsRequest {
   ?'domain_name' => DomainName,
   ?'expression_names' => StandardNameList,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
-    $this->expression_names = $expression_names ?? ;
+    $this->expression_names = $expression_names ?? [];
   }
 }
 
@@ -537,7 +537,7 @@ class DescribeExpressionsResponse {
   public function __construct(shape(
   ?'expressions' => ExpressionStatusList,
   ) $s = shape()) {
-    $this->expressions = $expressions ?? ;
+    $this->expressions = $expressions ?? [];
   }
 }
 
@@ -551,9 +551,9 @@ class DescribeIndexFieldsRequest {
   ?'domain_name' => DomainName,
   ?'field_names' => DynamicFieldNameList,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
-    $this->field_names = $field_names ?? ;
+    $this->field_names = $field_names ?? [];
   }
 }
 
@@ -563,7 +563,7 @@ class DescribeIndexFieldsResponse {
   public function __construct(shape(
   ?'index_fields' => IndexFieldStatusList,
   ) $s = shape()) {
-    $this->index_fields = $index_fields ?? ;
+    $this->index_fields = $index_fields ?? [];
   }
 }
 
@@ -595,7 +595,7 @@ class DescribeServiceAccessPoliciesRequest {
   ?'deployed' => boolean,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -606,7 +606,7 @@ class DescribeServiceAccessPoliciesResponse {
   public function __construct(shape(
   ?'access_policies' => AccessPoliciesStatus,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? null;
   }
 }
 
@@ -620,9 +620,9 @@ class DescribeSuggestersRequest {
   ?'domain_name' => DomainName,
   ?'suggester_names' => StandardNameList,
   ) $s = shape()) {
-    $this->deployed = $deployed ?? ;
+    $this->deployed = $deployed ?? false;
     $this->domain_name = $domain_name ?? "";
-    $this->suggester_names = $suggester_names ?? ;
+    $this->suggester_names = $suggester_names ?? [];
   }
 }
 
@@ -632,7 +632,7 @@ class DescribeSuggestersResponse {
   public function __construct(shape(
   ?'suggesters' => SuggesterStatusList,
   ) $s = shape()) {
-    $this->suggesters = $suggesters ?? ;
+    $this->suggesters = $suggesters ?? [];
   }
 }
 
@@ -653,9 +653,9 @@ class DocumentSuggesterOptions {
   ?'sort_expression' => string,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->fuzzy_matching = $fuzzy_matching ?? ;
-    $this->sort_expression = $sort_expression ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->fuzzy_matching = $fuzzy_matching ?? "";
+    $this->sort_expression = $sort_expression ?? "";
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -667,7 +667,7 @@ class DomainEndpointOptions {
   ?'enforce_https' => boolean,
   ?'tls_security_policy' => TLSSecurityPolicy,
   ) $s = shape()) {
-    $this->enforce_https = $enforce_https ?? ;
+    $this->enforce_https = $enforce_https ?? false;
     $this->tls_security_policy = $tls_security_policy ?? "";
   }
 }
@@ -680,8 +680,8 @@ class DomainEndpointOptionsStatus {
   ?'options' => DomainEndpointOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -724,18 +724,18 @@ class DomainStatus {
   ?'search_service' => ServiceEndpoint,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created = $created ?? ;
-    $this->deleted = $deleted ?? ;
-    $this->doc_service = $doc_service ?? ;
+    $this->created = $created ?? false;
+    $this->deleted = $deleted ?? false;
+    $this->doc_service = $doc_service ?? null;
     $this->domain_id = $domain_id ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->limits = $limits ?? null;
-    $this->processing = $processing ?? ;
-    $this->requires_index_documents = $requires_index_documents ?? ;
-    $this->search_instance_count = $search_instance_count ?? ;
+    $this->processing = $processing ?? false;
+    $this->requires_index_documents = $requires_index_documents ?? false;
+    $this->search_instance_count = $search_instance_count ?? 0;
     $this->search_instance_type = $search_instance_type ?? "";
-    $this->search_partition_count = $search_partition_count ?? ;
-    $this->search_service = $search_service ?? ;
+    $this->search_partition_count = $search_partition_count ?? 0;
+    $this->search_service = $search_service ?? null;
   }
 }
 
@@ -757,11 +757,11 @@ class DoubleArrayOptions {
   ?'search_enabled' => boolean,
   ?'source_fields' => FieldNameCommaList,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->source_fields = $source_fields ?? ;
+    $this->default_value = $default_value ?? 0.0;
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->source_fields = $source_fields ?? "";
   }
 }
 
@@ -781,12 +781,12 @@ class DoubleOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->default_value = $default_value ?? 0.0;
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -806,7 +806,7 @@ class Expression {
   ?'expression_name' => StandardName,
   ?'expression_value' => ExpressionValue,
   ) $s = shape()) {
-    $this->expression_name = $expression_name ?? ;
+    $this->expression_name = $expression_name ?? "";
     $this->expression_value = $expression_value ?? "";
   }
 }
@@ -819,8 +819,8 @@ class ExpressionStatus {
   ?'options' => Expression,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -852,7 +852,7 @@ class IndexDocumentsResponse {
   public function __construct(shape(
   ?'field_names' => FieldNameList,
   ) $s = shape()) {
-    $this->field_names = $field_names ?? ;
+    $this->field_names = $field_names ?? [];
   }
 }
 
@@ -890,7 +890,7 @@ class IndexField {
     $this->date_options = $date_options ?? null;
     $this->double_array_options = $double_array_options ?? null;
     $this->double_options = $double_options ?? null;
-    $this->index_field_name = $index_field_name ?? ;
+    $this->index_field_name = $index_field_name ?? "";
     $this->index_field_type = $index_field_type ?? "";
     $this->int_array_options = $int_array_options ?? null;
     $this->int_options = $int_options ?? null;
@@ -910,8 +910,8 @@ class IndexFieldStatus {
   ?'options' => IndexField,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -935,11 +935,11 @@ class IntArrayOptions {
   ?'search_enabled' => boolean,
   ?'source_fields' => FieldNameCommaList,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->source_fields = $source_fields ?? ;
+    $this->default_value = $default_value ?? 0;
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->source_fields = $source_fields ?? "";
   }
 }
 
@@ -959,12 +959,12 @@ class IntOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->default_value = $default_value ?? 0;
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -998,12 +998,12 @@ class LatLonOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -1033,7 +1033,7 @@ class ListDomainNamesResponse {
   public function __construct(shape(
   ?'domain_names' => DomainNameMap,
   ) $s = shape()) {
-    $this->domain_names = $domain_names ?? ;
+    $this->domain_names = $domain_names ?? [];
   }
 }
 
@@ -1051,11 +1051,11 @@ class LiteralArrayOptions {
   ?'search_enabled' => boolean,
   ?'source_fields' => FieldNameCommaList,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->source_fields = $source_fields ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->source_fields = $source_fields ?? "";
   }
 }
 
@@ -1075,12 +1075,12 @@ class LiteralOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
-    $this->facet_enabled = $facet_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->search_enabled = $search_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->default_value = $default_value ?? "";
+    $this->facet_enabled = $facet_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->search_enabled = $search_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -1108,11 +1108,11 @@ class OptionStatus {
   ?'update_date' => UpdateTimestamp,
   ?'update_version' => UIntValue,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->pending_deletion = $pending_deletion ?? ;
-    $this->state = $state ?? ;
-    $this->update_date = $update_date ?? ;
-    $this->update_version = $update_version ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->pending_deletion = $pending_deletion ?? false;
+    $this->state = $state ?? "";
+    $this->update_date = $update_date ?? 0;
+    $this->update_version = $update_version ?? 0;
   }
 }
 
@@ -1139,9 +1139,9 @@ class ScalingParameters {
   ?'desired_partition_count' => UIntValue,
   ?'desired_replication_count' => UIntValue,
   ) $s = shape()) {
-    $this->desired_instance_type = $desired_instance_type ?? ;
-    $this->desired_partition_count = $desired_partition_count ?? ;
-    $this->desired_replication_count = $desired_replication_count ?? ;
+    $this->desired_instance_type = $desired_instance_type ?? "";
+    $this->desired_partition_count = $desired_partition_count ?? 0;
+    $this->desired_replication_count = $desired_replication_count ?? 0;
   }
 }
 
@@ -1153,8 +1153,8 @@ class ScalingParametersStatus {
   ?'options' => ScalingParameters,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1166,7 +1166,7 @@ class ServiceEndpoint {
   public function __construct(shape(
   ?'endpoint' => ServiceUrl,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? ;
+    $this->endpoint = $endpoint ?? "";
   }
 }
 
@@ -1187,7 +1187,7 @@ class Suggester {
   ?'suggester_name' => StandardName,
   ) $s = shape()) {
     $this->document_suggester_options = $document_suggester_options ?? null;
-    $this->suggester_name = $suggester_name ?? ;
+    $this->suggester_name = $suggester_name ?? "";
   }
 }
 
@@ -1201,8 +1201,8 @@ class SuggesterStatus {
   ?'options' => Suggester,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1224,11 +1224,11 @@ class TextArrayOptions {
   ?'return_enabled' => boolean,
   ?'source_fields' => FieldNameCommaList,
   ) $s = shape()) {
-    $this->analysis_scheme = $analysis_scheme ?? null;
-    $this->default_value = $default_value ?? ;
-    $this->highlight_enabled = $highlight_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->source_fields = $source_fields ?? ;
+    $this->analysis_scheme = $analysis_scheme ?? "";
+    $this->default_value = $default_value ?? "";
+    $this->highlight_enabled = $highlight_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->source_fields = $source_fields ?? "";
   }
 }
 
@@ -1248,12 +1248,12 @@ class TextOptions {
   ?'sort_enabled' => boolean,
   ?'source_field' => FieldName,
   ) $s = shape()) {
-    $this->analysis_scheme = $analysis_scheme ?? null;
-    $this->default_value = $default_value ?? ;
-    $this->highlight_enabled = $highlight_enabled ?? ;
-    $this->return_enabled = $return_enabled ?? ;
-    $this->sort_enabled = $sort_enabled ?? ;
-    $this->source_field = $source_field ?? ;
+    $this->analysis_scheme = $analysis_scheme ?? "";
+    $this->default_value = $default_value ?? "";
+    $this->highlight_enabled = $highlight_enabled ?? false;
+    $this->return_enabled = $return_enabled ?? false;
+    $this->sort_enabled = $sort_enabled ?? false;
+    $this->source_field = $source_field ?? "";
   }
 }
 
@@ -1278,7 +1278,7 @@ class UpdateAvailabilityOptionsResponse {
   public function __construct(shape(
   ?'availability_options' => AvailabilityOptionsStatus,
   ) $s = shape()) {
-    $this->availability_options = $availability_options ?? ;
+    $this->availability_options = $availability_options ?? null;
   }
 }
 
@@ -1336,7 +1336,7 @@ class UpdateServiceAccessPoliciesRequest {
   ?'access_policies' => PolicyDocument,
   ?'domain_name' => DomainName,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? "";
     $this->domain_name = $domain_name ?? "";
   }
 }
@@ -1347,7 +1347,7 @@ class UpdateServiceAccessPoliciesResponse {
   public function __construct(shape(
   ?'access_policies' => AccessPoliciesStatus,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? null;
   }
 }
 

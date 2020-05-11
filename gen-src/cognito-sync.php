@@ -27,7 +27,7 @@ class AlreadyStreamedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -75,7 +75,7 @@ class CognitoStreams {
   ?'stream_name' => StreamName,
   ?'streaming_status' => StreamingStatus,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
     $this->stream_name = $stream_name ?? "";
     $this->streaming_status = $streaming_status ?? "";
   }
@@ -87,7 +87,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -109,13 +109,13 @@ class Dataset {
   ?'last_modified_date' => Date,
   ?'num_records' => Long,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->data_storage = $data_storage ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->data_storage = $data_storage ?? 0;
     $this->dataset_name = $dataset_name ?? "";
     $this->identity_id = $identity_id ?? "";
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->num_records = $num_records ?? ;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->num_records = $num_records ?? 0;
   }
 }
 
@@ -228,7 +228,7 @@ class DuplicateRequestException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -260,10 +260,10 @@ class GetBulkPublishDetailsResponse {
   ?'failure_message' => string,
   ?'identity_pool_id' => IdentityPoolId,
   ) $s = shape()) {
-    $this->bulk_publish_complete_time = $bulk_publish_complete_time ?? ;
-    $this->bulk_publish_start_time = $bulk_publish_start_time ?? ;
+    $this->bulk_publish_complete_time = $bulk_publish_complete_time ?? 0;
+    $this->bulk_publish_start_time = $bulk_publish_start_time ?? 0;
     $this->bulk_publish_status = $bulk_publish_status ?? "";
-    $this->failure_message = $failure_message ?? ;
+    $this->failure_message = $failure_message ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
   }
 }
@@ -330,10 +330,10 @@ class IdentityPoolUsage {
   ?'last_modified_date' => Date,
   ?'sync_sessions_count' => Long,
   ) $s = shape()) {
-    $this->data_storage = $data_storage ?? ;
+    $this->data_storage = $data_storage ?? 0;
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->sync_sessions_count = $sync_sessions_count ?? ;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->sync_sessions_count = $sync_sessions_count ?? 0;
   }
 }
 
@@ -353,11 +353,11 @@ class IdentityUsage {
   ?'identity_pool_id' => IdentityPoolId,
   ?'last_modified_date' => Date,
   ) $s = shape()) {
-    $this->data_storage = $data_storage ?? ;
-    $this->dataset_count = $dataset_count ?? ;
+    $this->data_storage = $data_storage ?? 0;
+    $this->dataset_count = $dataset_count ?? 0;
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->last_modified_date = $last_modified_date ?? ;
+    $this->last_modified_date = $last_modified_date ?? 0;
   }
 }
 
@@ -371,7 +371,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -381,7 +381,7 @@ class InvalidConfigurationException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -391,7 +391,7 @@ class InvalidLambdaFunctionOutputException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -401,7 +401,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -413,7 +413,7 @@ class LambdaThrottledException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -423,7 +423,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -441,8 +441,8 @@ class ListDatasetsRequest {
   ) $s = shape()) {
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -456,9 +456,9 @@ class ListDatasetsResponse {
   ?'datasets' => DatasetList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->datasets = $datasets ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->count = $count ?? 0;
+    $this->datasets = $datasets ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -470,8 +470,8 @@ class ListIdentityPoolUsageRequest {
   ?'max_results' => IntegerString,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -487,10 +487,10 @@ class ListIdentityPoolUsageResponse {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->identity_pool_usages = $identity_pool_usages ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->count = $count ?? 0;
+    $this->identity_pool_usages = $identity_pool_usages ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -515,9 +515,9 @@ class ListRecordsRequest {
     $this->dataset_name = $dataset_name ?? "";
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->last_sync_count = $last_sync_count ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->last_sync_count = $last_sync_count ?? 0;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->sync_session_token = $sync_session_token ?? "";
   }
 }
@@ -544,14 +544,14 @@ class ListRecordsResponse {
   ?'records' => RecordList,
   ?'sync_session_token' => string,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->dataset_deleted_after_requested_sync_count = $dataset_deleted_after_requested_sync_count ?? ;
-    $this->dataset_exists = $dataset_exists ?? ;
-    $this->dataset_sync_count = $dataset_sync_count ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->merged_dataset_names = $merged_dataset_names ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->records = $records ?? ;
+    $this->count = $count ?? 0;
+    $this->dataset_deleted_after_requested_sync_count = $dataset_deleted_after_requested_sync_count ?? false;
+    $this->dataset_exists = $dataset_exists ?? false;
+    $this->dataset_sync_count = $dataset_sync_count ?? 0;
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->merged_dataset_names = $merged_dataset_names ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->records = $records ?? [];
     $this->sync_session_token = $sync_session_token ?? "";
   }
 }
@@ -566,7 +566,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -582,8 +582,8 @@ class PushSync {
   ?'application_arns' => ApplicationArnList,
   ?'role_arn' => AssumeRoleArn,
   ) $s = shape()) {
-    $this->application_arns = $application_arns ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->application_arns = $application_arns ?? [];
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -605,12 +605,12 @@ class Record {
   ?'sync_count' => Long,
   ?'value' => RecordValue,
   ) $s = shape()) {
-    $this->device_last_modified_date = $device_last_modified_date ?? ;
-    $this->key = $key ?? ;
-    $this->last_modified_by = $last_modified_by ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->sync_count = $sync_count ?? ;
-    $this->value = $value ?? ;
+    $this->device_last_modified_date = $device_last_modified_date ?? 0;
+    $this->key = $key ?? "";
+    $this->last_modified_by = $last_modified_by ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->sync_count = $sync_count ?? 0;
+    $this->value = $value ?? "";
   }
 }
 
@@ -632,11 +632,11 @@ class RecordPatch {
   ?'sync_count' => Long,
   ?'value' => RecordValue,
   ) $s = shape()) {
-    $this->device_last_modified_date = $device_last_modified_date ?? ;
-    $this->key = $key ?? ;
-    $this->op = $op ?? ;
-    $this->sync_count = $sync_count ?? ;
-    $this->value = $value ?? ;
+    $this->device_last_modified_date = $device_last_modified_date ?? 0;
+    $this->key = $key ?? "";
+    $this->op = $op ?? "";
+    $this->sync_count = $sync_count ?? 0;
+    $this->value = $value ?? "";
   }
 }
 
@@ -659,7 +659,7 @@ class RegisterDeviceRequest {
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
     $this->platform = $platform ?? "";
-    $this->token = $token ?? ;
+    $this->token = $token ?? "";
   }
 }
 
@@ -679,7 +679,7 @@ class ResourceConflictException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -689,7 +689,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -778,7 +778,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -831,7 +831,7 @@ class UpdateRecordsRequest {
     $this->device_id = $device_id ?? "";
     $this->identity_id = $identity_id ?? "";
     $this->identity_pool_id = $identity_pool_id ?? "";
-    $this->record_patches = $record_patches ?? ;
+    $this->record_patches = $record_patches ?? [];
     $this->sync_session_token = $sync_session_token ?? "";
   }
 }
@@ -842,7 +842,7 @@ class UpdateRecordsResponse {
   public function __construct(shape(
   ?'records' => RecordList,
   ) $s = shape()) {
-    $this->records = $records ?? ;
+    $this->records = $records ?? [];
   }
 }
 

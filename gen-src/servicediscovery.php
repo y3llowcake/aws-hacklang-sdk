@@ -44,9 +44,9 @@ class CreateHttpNamespaceRequest {
   ?'description' => ResourceDescription,
   ?'name' => NamespaceName,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -72,10 +72,10 @@ class CreatePrivateDnsNamespaceRequest {
   ?'name' => NamespaceName,
   ?'vpc' => ResourceId,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->vpc = $vpc ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->vpc = $vpc ?? "";
   }
 }
 
@@ -99,9 +99,9 @@ class CreatePublicDnsNamespaceRequest {
   ?'description' => ResourceDescription,
   ?'name' => NamespaceName,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -133,13 +133,13 @@ class CreateServiceRequest {
   ?'name' => ServiceName,
   ?'namespace_id' => ResourceId,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
     $this->dns_config = $dns_config ?? null;
     $this->health_check_config = $health_check_config ?? null;
     $this->health_check_custom_config = $health_check_custom_config ?? null;
-    $this->name = $name ?? ;
-    $this->namespace_id = $namespace_id ?? ;
+    $this->name = $name ?? "";
+    $this->namespace_id = $namespace_id ?? "";
   }
 }
 
@@ -171,7 +171,7 @@ class DeleteNamespaceRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -191,7 +191,7 @@ class DeleteServiceRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -210,8 +210,8 @@ class DeregisterInstanceRequest {
   ?'instance_id' => ResourceId,
   ?'service_id' => ResourceId,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->service_id = $service_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -242,7 +242,7 @@ class DiscoverInstancesRequest {
     $this->health_status = $health_status ?? "";
     $this->max_results = $max_results ?? 0;
     $this->namespace_name = $namespace_name ?? "";
-    $this->query_parameters = $query_parameters ?? ;
+    $this->query_parameters = $query_parameters ?? [];
     $this->service_name = $service_name ?? "";
   }
 }
@@ -253,7 +253,7 @@ class DiscoverInstancesResponse {
   public function __construct(shape(
   ?'instances' => HttpInstanceSummaryList,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
+    $this->instances = $instances ?? [];
   }
 }
 
@@ -267,8 +267,8 @@ class DnsConfig {
   ?'namespace_id' => ResourceId,
   ?'routing_policy' => RoutingPolicy,
   ) $s = shape()) {
-    $this->dns_records = $dns_records ?? ;
-    $this->namespace_id = $namespace_id ?? ;
+    $this->dns_records = $dns_records ?? [];
+    $this->namespace_id = $namespace_id ?? "";
     $this->routing_policy = $routing_policy ?? "";
   }
 }
@@ -279,7 +279,7 @@ class DnsConfigChange {
   public function __construct(shape(
   ?'dns_records' => DnsRecordList,
   ) $s = shape()) {
-    $this->dns_records = $dns_records ?? ;
+    $this->dns_records = $dns_records ?? [];
   }
 }
 
@@ -289,7 +289,7 @@ class DnsProperties {
   public function __construct(shape(
   ?'hosted_zone_id' => ResourceId,
   ) $s = shape()) {
-    $this->hosted_zone_id = $hosted_zone_id ?? ;
+    $this->hosted_zone_id = $hosted_zone_id ?? "";
   }
 }
 
@@ -301,8 +301,8 @@ class DnsRecord {
   ?'ttl' => RecordTTL,
   ?'type' => RecordType,
   ) $s = shape()) {
-    $this->ttl = $ttl ?? ;
-    $this->type = $type ?? ;
+    $this->ttl = $ttl ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -316,7 +316,7 @@ class DuplicateRequest {
   ?'duplicate_operation_id' => ResourceId,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->duplicate_operation_id = $duplicate_operation_id ?? ;
+    $this->duplicate_operation_id = $duplicate_operation_id ?? "";
     $this->message = $message ?? "";
   }
 }
@@ -339,8 +339,8 @@ class GetInstanceRequest {
   ?'instance_id' => ResourceId,
   ?'service_id' => ResourceId,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->service_id = $service_id ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -366,10 +366,10 @@ class GetInstancesHealthStatusRequest {
   ?'next_token' => NextToken,
   ?'service_id' => ResourceId,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
+    $this->instances = $instances ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->service_id = $service_id ?? ;
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -382,7 +382,7 @@ class GetInstancesHealthStatusResponse {
   ?'status' => InstanceHealthStatusMap,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? [];
   }
 }
 
@@ -392,7 +392,7 @@ class GetNamespaceRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -432,7 +432,7 @@ class GetServiceRequest {
   public function __construct(shape(
   ?'id' => ResourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -458,7 +458,7 @@ class HealthCheckConfig {
   ) $s = shape()) {
     $this->failure_threshold = $failure_threshold ?? 0;
     $this->resource_path = $resource_path ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -494,7 +494,7 @@ class HttpInstanceSummary {
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
     $this->health_status = $health_status ?? "";
-    $this->instance_id = $instance_id ?? ;
+    $this->instance_id = $instance_id ?? "";
     $this->namespace_name = $namespace_name ?? "";
     $this->service_name = $service_name ?? "";
   }
@@ -508,7 +508,7 @@ class HttpProperties {
   public function __construct(shape(
   ?'http_name' => NamespaceName,
   ) $s = shape()) {
-    $this->http_name = $http_name ?? ;
+    $this->http_name = $http_name ?? "";
   }
 }
 
@@ -523,8 +523,8 @@ class Instance {
   ?'id' => ResourceId,
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->id = $id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -551,7 +551,7 @@ class InstanceSummary {
   ?'id' => ResourceId,
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -579,7 +579,7 @@ class ListInstancesRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->service_id = $service_id ?? ;
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -591,7 +591,7 @@ class ListInstancesResponse {
   ?'instances' => InstanceSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
+    $this->instances = $instances ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -606,7 +606,7 @@ class ListNamespacesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -620,7 +620,7 @@ class ListNamespacesResponse {
   ?'namespaces' => NamespaceSummariesList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->namespaces = $namespaces ?? ;
+    $this->namespaces = $namespaces ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -635,7 +635,7 @@ class ListOperationsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -650,7 +650,7 @@ class ListOperationsResponse {
   ?'operations' => OperationSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->operations = $operations ?? ;
+    $this->operations = $operations ?? [];
   }
 }
 
@@ -664,7 +664,7 @@ class ListServicesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -679,7 +679,7 @@ class ListServicesResponse {
   ?'services' => ServiceSummariesList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->services = $services ?? ;
+    $this->services = $services ?? [];
   }
 }
 
@@ -710,14 +710,14 @@ class Namespace {
   ?'type' => NamespaceType,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->create_date = $create_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->properties = $properties ?? ;
-    $this->service_count = $service_count ?? ;
-    $this->type = $type ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->properties = $properties ?? null;
+    $this->service_count = $service_count ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -731,9 +731,9 @@ class NamespaceAlreadyExists {
   ?'message' => ErrorMessage,
   ?'namespace_id' => ResourceId,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
     $this->message = $message ?? "";
-    $this->namespace_id = $namespace_id ?? ;
+    $this->namespace_id = $namespace_id ?? "";
   }
 }
 
@@ -747,9 +747,9 @@ class NamespaceFilter {
   ?'name' => NamespaceFilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->condition = $condition ?? "";
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -805,13 +805,13 @@ class NamespaceSummary {
   ?'type' => NamespaceType,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->create_date = $create_date ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->properties = $properties ?? ;
-    $this->service_count = $service_count ?? ;
-    $this->type = $type ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->properties = $properties ?? null;
+    $this->service_count = $service_count ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -839,14 +839,14 @@ class Operation {
   ?'type' => OperationType,
   ?'update_date' => Timestamp,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->error_code = $error_code ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
-    $this->targets = $targets ?? ;
-    $this->type = $type ?? ;
-    $this->update_date = $update_date ?? ;
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
+    $this->targets = $targets ?? [];
+    $this->type = $type ?? "";
+    $this->update_date = $update_date ?? 0;
   }
 }
 
@@ -860,9 +860,9 @@ class OperationFilter {
   ?'name' => OperationFilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->condition = $condition ?? "";
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -892,8 +892,8 @@ class OperationSummary {
   ?'id' => OperationId,
   ?'status' => OperationStatus,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->status = $status ?? ;
+    $this->id = $id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -922,9 +922,9 @@ class RegisterInstanceRequest {
   ?'service_id' => ResourceId,
   ) $s = shape()) {
     $this->attributes = $attributes ?? [];
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->instance_id = $instance_id ?? ;
-    $this->service_id = $service_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->instance_id = $instance_id ?? "";
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -995,16 +995,16 @@ class Service {
   ?'namespace_id' => ResourceId,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->create_date = $create_date ?? ;
-    $this->creator_request_id = $creator_request_id ?? ;
-    $this->description = $description ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->description = $description ?? "";
     $this->dns_config = $dns_config ?? null;
     $this->health_check_config = $health_check_config ?? null;
     $this->health_check_custom_config = $health_check_custom_config ?? null;
-    $this->id = $id ?? ;
-    $this->instance_count = $instance_count ?? ;
-    $this->name = $name ?? ;
-    $this->namespace_id = $namespace_id ?? ;
+    $this->id = $id ?? "";
+    $this->instance_count = $instance_count ?? 0;
+    $this->name = $name ?? "";
+    $this->namespace_id = $namespace_id ?? "";
   }
 }
 
@@ -1018,9 +1018,9 @@ class ServiceAlreadyExists {
   ?'message' => ErrorMessage,
   ?'service_id' => ResourceId,
   ) $s = shape()) {
-    $this->creator_request_id = $creator_request_id ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
     $this->message = $message ?? "";
-    $this->service_id = $service_id ?? ;
+    $this->service_id = $service_id ?? "";
   }
 }
 
@@ -1034,7 +1034,7 @@ class ServiceChange {
   ?'dns_config' => DnsConfigChange,
   ?'health_check_config' => HealthCheckConfig,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->dns_config = $dns_config ?? null;
     $this->health_check_config = $health_check_config ?? null;
   }
@@ -1050,9 +1050,9 @@ class ServiceFilter {
   ?'name' => ServiceFilterName,
   ?'values' => FilterValues,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->name = $name ?? ;
-    $this->values = $values ?? ;
+    $this->condition = $condition ?? "";
+    $this->name = $name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1097,14 +1097,14 @@ class ServiceSummary {
   ?'name' => ServiceName,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->create_date = $create_date ?? ;
-    $this->description = $description ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->description = $description ?? "";
     $this->dns_config = $dns_config ?? null;
     $this->health_check_config = $health_check_config ?? null;
     $this->health_check_custom_config = $health_check_custom_config ?? null;
-    $this->id = $id ?? ;
-    $this->instance_count = $instance_count ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->instance_count = $instance_count ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1120,9 +1120,9 @@ class UpdateInstanceCustomHealthStatusRequest {
   ?'service_id' => ResourceId,
   ?'status' => CustomHealthStatus,
   ) $s = shape()) {
-    $this->instance_id = $instance_id ?? ;
-    $this->service_id = $service_id ?? ;
-    $this->status = $status ?? ;
+    $this->instance_id = $instance_id ?? "";
+    $this->service_id = $service_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1134,7 +1134,7 @@ class UpdateServiceRequest {
   ?'id' => ResourceId,
   ?'service' => ServiceChange,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->service = $service ?? null;
   }
 }

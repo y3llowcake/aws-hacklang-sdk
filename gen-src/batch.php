@@ -30,7 +30,7 @@ class ArrayProperties {
   public function __construct(shape(
   ?'size' => int,
   ) $s = shape()) {
-    $this->size = $size ?? ;
+    $this->size = $size ?? 0;
   }
 }
 
@@ -44,9 +44,9 @@ class ArrayPropertiesDetail {
   ?'size' => int,
   ?'status_summary' => ArrayJobStatusSummary,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->size = $size ?? ;
-    $this->status_summary = $status_summary ?? ;
+    $this->index = $index ?? 0;
+    $this->size = $size ?? 0;
+    $this->status_summary = $status_summary ?? [];
   }
 }
 
@@ -58,8 +58,8 @@ class ArrayPropertiesSummary {
   ?'index' => int,
   ?'size' => int,
   ) $s = shape()) {
-    $this->index = $index ?? ;
-    $this->size = $size ?? ;
+    $this->index = $index ?? 0;
+    $this->size = $size ?? 0;
   }
 }
 
@@ -79,12 +79,12 @@ class AttemptContainerDetail {
   ?'reason' => string,
   ?'task_arn' => string,
   ) $s = shape()) {
-    $this->container_instance_arn = $container_instance_arn ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->network_interfaces = $network_interfaces ?? ;
-    $this->reason = $reason ?? ;
-    $this->task_arn = $task_arn ?? ;
+    $this->container_instance_arn = $container_instance_arn ?? "";
+    $this->exit_code = $exit_code ?? 0;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->network_interfaces = $network_interfaces ?? [];
+    $this->reason = $reason ?? "";
+    $this->task_arn = $task_arn ?? "";
   }
 }
 
@@ -100,10 +100,10 @@ class AttemptDetail {
   ?'status_reason' => string,
   ?'stopped_at' => Long,
   ) $s = shape()) {
-    $this->container = $container ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->stopped_at = $stopped_at ?? ;
+    $this->container = $container ?? null;
+    $this->started_at = $started_at ?? 0;
+    $this->status_reason = $status_reason ?? "";
+    $this->stopped_at = $stopped_at ?? 0;
   }
 }
 
@@ -129,8 +129,8 @@ class CancelJobRequest {
   ?'job_id' => string,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->reason = $reason ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -147,7 +147,7 @@ class ClientException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -173,15 +173,15 @@ class ComputeEnvironmentDetail {
   ?'status_reason' => string,
   ?'type' => CEType,
   ) $s = shape()) {
-    $this->compute_environment_arn = $compute_environment_arn ?? ;
-    $this->compute_environment_name = $compute_environment_name ?? ;
-    $this->compute_resources = $compute_resources ?? ;
-    $this->ecs_cluster_arn = $ecs_cluster_arn ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->state = $state ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->type = $type ?? ;
+    $this->compute_environment_arn = $compute_environment_arn ?? "";
+    $this->compute_environment_name = $compute_environment_name ?? "";
+    $this->compute_resources = $compute_resources ?? null;
+    $this->ecs_cluster_arn = $ecs_cluster_arn ?? "";
+    $this->service_role = $service_role ?? "";
+    $this->state = $state ?? "";
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -195,8 +195,8 @@ class ComputeEnvironmentOrder {
   ?'compute_environment' => string,
   ?'order' => int,
   ) $s = shape()) {
-    $this->compute_environment = $compute_environment ?? ;
-    $this->order = $order ?? ;
+    $this->compute_environment = $compute_environment ?? "";
+    $this->order = $order ?? 0;
   }
 }
 
@@ -238,22 +238,22 @@ class ComputeResource {
   ?'tags' => TagsMap,
   ?'type' => CRType,
   ) $s = shape()) {
-    $this->allocation_strategy = $allocation_strategy ?? ;
-    $this->bid_percentage = $bid_percentage ?? ;
-    $this->desiredv_cpus = $desiredv_cpus ?? ;
-    $this->ec_2_key_pair = $ec_2_key_pair ?? ;
-    $this->image_id = $image_id ?? ;
-    $this->instance_role = $instance_role ?? ;
-    $this->instance_types = $instance_types ?? ;
-    $this->launch_template = $launch_template ?? ;
-    $this->maxv_cpus = $maxv_cpus ?? ;
-    $this->minv_cpus = $minv_cpus ?? ;
-    $this->placement_group = $placement_group ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->spot_iam_fleet_role = $spot_iam_fleet_role ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->allocation_strategy = $allocation_strategy ?? "";
+    $this->bid_percentage = $bid_percentage ?? 0;
+    $this->desiredv_cpus = $desiredv_cpus ?? 0;
+    $this->ec_2_key_pair = $ec_2_key_pair ?? "";
+    $this->image_id = $image_id ?? "";
+    $this->instance_role = $instance_role ?? "";
+    $this->instance_types = $instance_types ?? [];
+    $this->launch_template = $launch_template ?? null;
+    $this->maxv_cpus = $maxv_cpus ?? 0;
+    $this->minv_cpus = $minv_cpus ?? 0;
+    $this->placement_group = $placement_group ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->spot_iam_fleet_role = $spot_iam_fleet_role ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -267,9 +267,9 @@ class ComputeResourceUpdate {
   ?'maxv_cpus' => int,
   ?'minv_cpus' => int,
   ) $s = shape()) {
-    $this->desiredv_cpus = $desiredv_cpus ?? ;
-    $this->maxv_cpus = $maxv_cpus ?? ;
-    $this->minv_cpus = $minv_cpus ?? ;
+    $this->desiredv_cpus = $desiredv_cpus ?? 0;
+    $this->maxv_cpus = $maxv_cpus ?? 0;
+    $this->minv_cpus = $minv_cpus ?? 0;
   }
 }
 
@@ -319,27 +319,27 @@ class ContainerDetail {
   ?'vcpus' => int,
   ?'volumes' => Volumes,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->container_instance_arn = $container_instance_arn ?? ;
-    $this->environment = $environment ?? ;
-    $this->exit_code = $exit_code ?? ;
-    $this->image = $image ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->job_role_arn = $job_role_arn ?? ;
-    $this->linux_parameters = $linux_parameters ?? ;
-    $this->log_stream_name = $log_stream_name ?? ;
-    $this->memory = $memory ?? ;
-    $this->mount_points = $mount_points ?? ;
-    $this->network_interfaces = $network_interfaces ?? ;
-    $this->privileged = $privileged ?? ;
-    $this->readonly_root_filesystem = $readonly_root_filesystem ?? ;
-    $this->reason = $reason ?? ;
-    $this->resource_requirements = $resource_requirements ?? ;
-    $this->task_arn = $task_arn ?? ;
-    $this->ulimits = $ulimits ?? ;
-    $this->user = $user ?? ;
-    $this->vcpus = $vcpus ?? ;
-    $this->volumes = $volumes ?? ;
+    $this->command = $command ?? [];
+    $this->container_instance_arn = $container_instance_arn ?? "";
+    $this->environment = $environment ?? [];
+    $this->exit_code = $exit_code ?? 0;
+    $this->image = $image ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->job_role_arn = $job_role_arn ?? "";
+    $this->linux_parameters = $linux_parameters ?? null;
+    $this->log_stream_name = $log_stream_name ?? "";
+    $this->memory = $memory ?? 0;
+    $this->mount_points = $mount_points ?? [];
+    $this->network_interfaces = $network_interfaces ?? [];
+    $this->privileged = $privileged ?? false;
+    $this->readonly_root_filesystem = $readonly_root_filesystem ?? false;
+    $this->reason = $reason ?? "";
+    $this->resource_requirements = $resource_requirements ?? [];
+    $this->task_arn = $task_arn ?? "";
+    $this->ulimits = $ulimits ?? [];
+    $this->user = $user ?? "";
+    $this->vcpus = $vcpus ?? 0;
+    $this->volumes = $volumes ?? [];
   }
 }
 
@@ -359,12 +359,12 @@ class ContainerOverrides {
   ?'resource_requirements' => ResourceRequirements,
   ?'vcpus' => int,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->environment = $environment ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->memory = $memory ?? ;
-    $this->resource_requirements = $resource_requirements ?? ;
-    $this->vcpus = $vcpus ?? ;
+    $this->command = $command ?? [];
+    $this->environment = $environment ?? [];
+    $this->instance_type = $instance_type ?? "";
+    $this->memory = $memory ?? 0;
+    $this->resource_requirements = $resource_requirements ?? [];
+    $this->vcpus = $vcpus ?? 0;
   }
 }
 
@@ -402,21 +402,21 @@ class ContainerProperties {
   ?'vcpus' => int,
   ?'volumes' => Volumes,
   ) $s = shape()) {
-    $this->command = $command ?? ;
-    $this->environment = $environment ?? ;
-    $this->image = $image ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->job_role_arn = $job_role_arn ?? ;
-    $this->linux_parameters = $linux_parameters ?? ;
-    $this->memory = $memory ?? ;
-    $this->mount_points = $mount_points ?? ;
-    $this->privileged = $privileged ?? ;
-    $this->readonly_root_filesystem = $readonly_root_filesystem ?? ;
-    $this->resource_requirements = $resource_requirements ?? ;
-    $this->ulimits = $ulimits ?? ;
-    $this->user = $user ?? ;
-    $this->vcpus = $vcpus ?? ;
-    $this->volumes = $volumes ?? ;
+    $this->command = $command ?? [];
+    $this->environment = $environment ?? [];
+    $this->image = $image ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->job_role_arn = $job_role_arn ?? "";
+    $this->linux_parameters = $linux_parameters ?? null;
+    $this->memory = $memory ?? 0;
+    $this->mount_points = $mount_points ?? [];
+    $this->privileged = $privileged ?? false;
+    $this->readonly_root_filesystem = $readonly_root_filesystem ?? false;
+    $this->resource_requirements = $resource_requirements ?? [];
+    $this->ulimits = $ulimits ?? [];
+    $this->user = $user ?? "";
+    $this->vcpus = $vcpus ?? 0;
+    $this->volumes = $volumes ?? [];
   }
 }
 
@@ -428,8 +428,8 @@ class ContainerSummary {
   ?'exit_code' => int,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->exit_code = $exit_code ?? ;
-    $this->reason = $reason ?? ;
+    $this->exit_code = $exit_code ?? 0;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -447,11 +447,11 @@ class CreateComputeEnvironmentRequest {
   ?'state' => CEState,
   ?'type' => CEType,
   ) $s = shape()) {
-    $this->compute_environment_name = $compute_environment_name ?? ;
-    $this->compute_resources = $compute_resources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->state = $state ?? ;
-    $this->type = $type ?? ;
+    $this->compute_environment_name = $compute_environment_name ?? "";
+    $this->compute_resources = $compute_resources ?? null;
+    $this->service_role = $service_role ?? "";
+    $this->state = $state ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -463,8 +463,8 @@ class CreateComputeEnvironmentResponse {
   ?'compute_environment_arn' => string,
   ?'compute_environment_name' => string,
   ) $s = shape()) {
-    $this->compute_environment_arn = $compute_environment_arn ?? ;
-    $this->compute_environment_name = $compute_environment_name ?? ;
+    $this->compute_environment_arn = $compute_environment_arn ?? "";
+    $this->compute_environment_name = $compute_environment_name ?? "";
   }
 }
 
@@ -480,10 +480,10 @@ class CreateJobQueueRequest {
   ?'priority' => int,
   ?'state' => JQState,
   ) $s = shape()) {
-    $this->compute_environment_order = $compute_environment_order ?? ;
-    $this->job_queue_name = $job_queue_name ?? ;
-    $this->priority = $priority ?? ;
-    $this->state = $state ?? ;
+    $this->compute_environment_order = $compute_environment_order ?? [];
+    $this->job_queue_name = $job_queue_name ?? "";
+    $this->priority = $priority ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -495,8 +495,8 @@ class CreateJobQueueResponse {
   ?'job_queue_arn' => string,
   ?'job_queue_name' => string,
   ) $s = shape()) {
-    $this->job_queue_arn = $job_queue_arn ?? ;
-    $this->job_queue_name = $job_queue_name ?? ;
+    $this->job_queue_arn = $job_queue_arn ?? "";
+    $this->job_queue_name = $job_queue_name ?? "";
   }
 }
 
@@ -506,7 +506,7 @@ class DeleteComputeEnvironmentRequest {
   public function __construct(shape(
   ?'compute_environment' => string,
   ) $s = shape()) {
-    $this->compute_environment = $compute_environment ?? ;
+    $this->compute_environment = $compute_environment ?? "";
   }
 }
 
@@ -523,7 +523,7 @@ class DeleteJobQueueRequest {
   public function __construct(shape(
   ?'job_queue' => string,
   ) $s = shape()) {
-    $this->job_queue = $job_queue ?? ;
+    $this->job_queue = $job_queue ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class DeregisterJobDefinitionRequest {
   public function __construct(shape(
   ?'job_definition' => string,
   ) $s = shape()) {
-    $this->job_definition = $job_definition ?? ;
+    $this->job_definition = $job_definition ?? "";
   }
 }
 
@@ -561,9 +561,9 @@ class DescribeComputeEnvironmentsRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->compute_environments = $compute_environments ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->compute_environments = $compute_environments ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -575,8 +575,8 @@ class DescribeComputeEnvironmentsResponse {
   ?'compute_environments' => ComputeEnvironmentDetailList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->compute_environments = $compute_environments ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->compute_environments = $compute_environments ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -594,11 +594,11 @@ class DescribeJobDefinitionsRequest {
   ?'next_token' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->job_definition_name = $job_definition_name ?? ;
-    $this->job_definitions = $job_definitions ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->job_definition_name = $job_definition_name ?? "";
+    $this->job_definitions = $job_definitions ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -610,8 +610,8 @@ class DescribeJobDefinitionsResponse {
   ?'job_definitions' => JobDefinitionList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_definitions = $job_definitions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_definitions = $job_definitions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -625,9 +625,9 @@ class DescribeJobQueuesRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_queues = $job_queues ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_queues = $job_queues ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -639,8 +639,8 @@ class DescribeJobQueuesResponse {
   ?'job_queues' => JobQueueDetailList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_queues = $job_queues ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_queues = $job_queues ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -650,7 +650,7 @@ class DescribeJobsRequest {
   public function __construct(shape(
   ?'jobs' => StringList,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -660,7 +660,7 @@ class DescribeJobsResponse {
   public function __construct(shape(
   ?'jobs' => JobDetailList,
   ) $s = shape()) {
-    $this->jobs = $jobs ?? ;
+    $this->jobs = $jobs ?? [];
   }
 }
 
@@ -674,9 +674,9 @@ class Device {
   ?'host_path' => string,
   ?'permissions' => DeviceCgroupPermissions,
   ) $s = shape()) {
-    $this->container_path = $container_path ?? ;
-    $this->host_path = $host_path ?? ;
-    $this->permissions = $permissions ?? ;
+    $this->container_path = $container_path ?? "";
+    $this->host_path = $host_path ?? "";
+    $this->permissions = $permissions ?? [];
   }
 }
 
@@ -694,7 +694,7 @@ class Host {
   public function __construct(shape(
   ?'source_path' => string,
   ) $s = shape()) {
-    $this->source_path = $source_path ?? ;
+    $this->source_path = $source_path ?? "";
   }
 }
 
@@ -728,16 +728,16 @@ class JobDefinition {
   ?'timeout' => JobTimeout,
   ?'type' => string,
   ) $s = shape()) {
-    $this->container_properties = $container_properties ?? ;
-    $this->job_definition_arn = $job_definition_arn ?? ;
-    $this->job_definition_name = $job_definition_name ?? ;
-    $this->node_properties = $node_properties ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->retry_strategy = $retry_strategy ?? ;
-    $this->revision = $revision ?? ;
-    $this->status = $status ?? ;
-    $this->timeout = $timeout ?? ;
-    $this->type = $type ?? ;
+    $this->container_properties = $container_properties ?? null;
+    $this->job_definition_arn = $job_definition_arn ?? "";
+    $this->job_definition_name = $job_definition_name ?? "";
+    $this->node_properties = $node_properties ?? null;
+    $this->parameters = $parameters ?? [];
+    $this->retry_strategy = $retry_strategy ?? null;
+    $this->revision = $revision ?? 0;
+    $this->status = $status ?? "";
+    $this->timeout = $timeout ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -753,8 +753,8 @@ class JobDependency {
   ?'job_id' => string,
   ?'type' => ArrayJobDependency,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->type = $type ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -800,24 +800,24 @@ class JobDetail {
   ?'stopped_at' => Long,
   ?'timeout' => JobTimeout,
   ) $s = shape()) {
-    $this->array_properties = $array_properties ?? ;
-    $this->attempts = $attempts ?? ;
-    $this->container = $container ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->depends_on = $depends_on ?? ;
-    $this->job_definition = $job_definition ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->job_queue = $job_queue ?? ;
-    $this->node_details = $node_details ?? ;
-    $this->node_properties = $node_properties ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->retry_strategy = $retry_strategy ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->stopped_at = $stopped_at ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->array_properties = $array_properties ?? null;
+    $this->attempts = $attempts ?? [];
+    $this->container = $container ?? null;
+    $this->created_at = $created_at ?? 0;
+    $this->depends_on = $depends_on ?? [];
+    $this->job_definition = $job_definition ?? "";
+    $this->job_id = $job_id ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->job_queue = $job_queue ?? "";
+    $this->node_details = $node_details ?? null;
+    $this->node_properties = $node_properties ?? null;
+    $this->parameters = $parameters ?? [];
+    $this->retry_strategy = $retry_strategy ?? null;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->stopped_at = $stopped_at ?? 0;
+    $this->timeout = $timeout ?? null;
   }
 }
 
@@ -841,13 +841,13 @@ class JobQueueDetail {
   ?'status' => JQStatus,
   ?'status_reason' => string,
   ) $s = shape()) {
-    $this->compute_environment_order = $compute_environment_order ?? ;
-    $this->job_queue_arn = $job_queue_arn ?? ;
-    $this->job_queue_name = $job_queue_name ?? ;
-    $this->priority = $priority ?? ;
-    $this->state = $state ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->compute_environment_order = $compute_environment_order ?? [];
+    $this->job_queue_arn = $job_queue_arn ?? "";
+    $this->job_queue_name = $job_queue_name ?? "";
+    $this->priority = $priority ?? 0;
+    $this->state = $state ?? "";
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -879,16 +879,16 @@ class JobSummary {
   ?'status_reason' => string,
   ?'stopped_at' => Long,
   ) $s = shape()) {
-    $this->array_properties = $array_properties ?? ;
-    $this->container = $container ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->node_properties = $node_properties ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->stopped_at = $stopped_at ?? ;
+    $this->array_properties = $array_properties ?? null;
+    $this->container = $container ?? null;
+    $this->created_at = $created_at ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->node_properties = $node_properties ?? null;
+    $this->started_at = $started_at ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->stopped_at = $stopped_at ?? 0;
   }
 }
 
@@ -900,7 +900,7 @@ class JobTimeout {
   public function __construct(shape(
   ?'attempt_duration_seconds' => int,
   ) $s = shape()) {
-    $this->attempt_duration_seconds = $attempt_duration_seconds ?? ;
+    $this->attempt_duration_seconds = $attempt_duration_seconds ?? 0;
   }
 }
 
@@ -912,8 +912,8 @@ class KeyValuePair {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -927,9 +927,9 @@ class LaunchTemplateSpecification {
   ?'launch_template_name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->launch_template_id = $launch_template_id ?? ;
-    $this->launch_template_name = $launch_template_name ?? ;
-    $this->version = $version ?? ;
+    $this->launch_template_id = $launch_template_id ?? "";
+    $this->launch_template_name = $launch_template_name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -939,7 +939,7 @@ class LinuxParameters {
   public function __construct(shape(
   ?'devices' => DevicesList,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
+    $this->devices = $devices ?? [];
   }
 }
 
@@ -959,12 +959,12 @@ class ListJobsRequest {
   ?'multi_node_job_id' => string,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->array_job_id = $array_job_id ?? ;
-    $this->job_queue = $job_queue ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->multi_node_job_id = $multi_node_job_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->array_job_id = $array_job_id ?? "";
+    $this->job_queue = $job_queue ?? "";
+    $this->job_status = $job_status ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->multi_node_job_id = $multi_node_job_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -976,8 +976,8 @@ class ListJobsResponse {
   ?'job_summary_list' => JobSummaryList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->job_summary_list = $job_summary_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->job_summary_list = $job_summary_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -993,9 +993,9 @@ class MountPoint {
   ?'read_only' => boolean,
   ?'source_volume' => string,
   ) $s = shape()) {
-    $this->container_path = $container_path ?? ;
-    $this->read_only = $read_only ?? ;
-    $this->source_volume = $source_volume ?? ;
+    $this->container_path = $container_path ?? "";
+    $this->read_only = $read_only ?? false;
+    $this->source_volume = $source_volume ?? "";
   }
 }
 
@@ -1011,9 +1011,9 @@ class NetworkInterface {
   ?'ipv_6_address' => string,
   ?'private_ipv_4_address' => string,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? ;
-    $this->ipv_6_address = $ipv_6_address ?? ;
-    $this->private_ipv_4_address = $private_ipv_4_address ?? ;
+    $this->attachment_id = $attachment_id ?? "";
+    $this->ipv_6_address = $ipv_6_address ?? "";
+    $this->private_ipv_4_address = $private_ipv_4_address ?? "";
   }
 }
 
@@ -1027,8 +1027,8 @@ class NodeDetails {
   ?'is_main_node' => boolean,
   ?'node_index' => int,
   ) $s = shape()) {
-    $this->is_main_node = $is_main_node ?? ;
-    $this->node_index = $node_index ?? ;
+    $this->is_main_node = $is_main_node ?? false;
+    $this->node_index = $node_index ?? 0;
   }
 }
 
@@ -1040,8 +1040,8 @@ class NodeOverrides {
   ?'node_property_overrides' => NodePropertyOverrides,
   ?'num_nodes' => int,
   ) $s = shape()) {
-    $this->node_property_overrides = $node_property_overrides ?? ;
-    $this->num_nodes = $num_nodes ?? ;
+    $this->node_property_overrides = $node_property_overrides ?? [];
+    $this->num_nodes = $num_nodes ?? 0;
   }
 }
 
@@ -1055,9 +1055,9 @@ class NodeProperties {
   ?'node_range_properties' => NodeRangeProperties,
   ?'num_nodes' => int,
   ) $s = shape()) {
-    $this->main_node = $main_node ?? ;
-    $this->node_range_properties = $node_range_properties ?? ;
-    $this->num_nodes = $num_nodes ?? ;
+    $this->main_node = $main_node ?? 0;
+    $this->node_range_properties = $node_range_properties ?? [];
+    $this->num_nodes = $num_nodes ?? 0;
   }
 }
 
@@ -1071,9 +1071,9 @@ class NodePropertiesSummary {
   ?'node_index' => int,
   ?'num_nodes' => int,
   ) $s = shape()) {
-    $this->is_main_node = $is_main_node ?? ;
-    $this->node_index = $node_index ?? ;
-    $this->num_nodes = $num_nodes ?? ;
+    $this->is_main_node = $is_main_node ?? false;
+    $this->node_index = $node_index ?? 0;
+    $this->num_nodes = $num_nodes ?? 0;
   }
 }
 
@@ -1085,8 +1085,8 @@ class NodePropertyOverride {
   ?'container_overrides' => ContainerOverrides,
   ?'target_nodes' => string,
   ) $s = shape()) {
-    $this->container_overrides = $container_overrides ?? ;
-    $this->target_nodes = $target_nodes ?? ;
+    $this->container_overrides = $container_overrides ?? null;
+    $this->target_nodes = $target_nodes ?? "";
   }
 }
 
@@ -1102,8 +1102,8 @@ class NodeRangeProperty {
   ?'container' => ContainerProperties,
   ?'target_nodes' => string,
   ) $s = shape()) {
-    $this->container = $container ?? ;
-    $this->target_nodes = $target_nodes ?? ;
+    $this->container = $container ?? null;
+    $this->target_nodes = $target_nodes ?? "";
   }
 }
 
@@ -1127,13 +1127,13 @@ class RegisterJobDefinitionRequest {
   ?'timeout' => JobTimeout,
   ?'type' => JobDefinitionType,
   ) $s = shape()) {
-    $this->container_properties = $container_properties ?? ;
-    $this->job_definition_name = $job_definition_name ?? ;
-    $this->node_properties = $node_properties ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->retry_strategy = $retry_strategy ?? ;
-    $this->timeout = $timeout ?? ;
-    $this->type = $type ?? ;
+    $this->container_properties = $container_properties ?? null;
+    $this->job_definition_name = $job_definition_name ?? "";
+    $this->node_properties = $node_properties ?? null;
+    $this->parameters = $parameters ?? [];
+    $this->retry_strategy = $retry_strategy ?? null;
+    $this->timeout = $timeout ?? null;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1147,9 +1147,9 @@ class RegisterJobDefinitionResponse {
   ?'job_definition_name' => string,
   ?'revision' => int,
   ) $s = shape()) {
-    $this->job_definition_arn = $job_definition_arn ?? ;
-    $this->job_definition_name = $job_definition_name ?? ;
-    $this->revision = $revision ?? ;
+    $this->job_definition_arn = $job_definition_arn ?? "";
+    $this->job_definition_name = $job_definition_name ?? "";
+    $this->revision = $revision ?? 0;
   }
 }
 
@@ -1161,8 +1161,8 @@ class ResourceRequirement {
   ?'type' => ResourceType,
   ?'value' => string,
   ) $s = shape()) {
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1176,7 +1176,7 @@ class RetryStrategy {
   public function __construct(shape(
   ?'attempts' => int,
   ) $s = shape()) {
-    $this->attempts = $attempts ?? ;
+    $this->attempts = $attempts ?? 0;
   }
 }
 
@@ -1186,7 +1186,7 @@ class ServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1218,16 +1218,16 @@ class SubmitJobRequest {
   ?'retry_strategy' => RetryStrategy,
   ?'timeout' => JobTimeout,
   ) $s = shape()) {
-    $this->array_properties = $array_properties ?? ;
-    $this->container_overrides = $container_overrides ?? ;
-    $this->depends_on = $depends_on ?? ;
-    $this->job_definition = $job_definition ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->job_queue = $job_queue ?? ;
-    $this->node_overrides = $node_overrides ?? ;
-    $this->parameters = $parameters ?? ;
-    $this->retry_strategy = $retry_strategy ?? ;
-    $this->timeout = $timeout ?? ;
+    $this->array_properties = $array_properties ?? null;
+    $this->container_overrides = $container_overrides ?? null;
+    $this->depends_on = $depends_on ?? [];
+    $this->job_definition = $job_definition ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->job_queue = $job_queue ?? "";
+    $this->node_overrides = $node_overrides ?? null;
+    $this->parameters = $parameters ?? [];
+    $this->retry_strategy = $retry_strategy ?? null;
+    $this->timeout = $timeout ?? null;
   }
 }
 
@@ -1239,8 +1239,8 @@ class SubmitJobResponse {
   ?'job_id' => string,
   ?'job_name' => string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->job_name = $job_name ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->job_name = $job_name ?? "";
   }
 }
 
@@ -1254,8 +1254,8 @@ class TerminateJobRequest {
   ?'job_id' => string,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->reason = $reason ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1276,9 +1276,9 @@ class Ulimit {
   ?'name' => string,
   ?'soft_limit' => int,
   ) $s = shape()) {
-    $this->hard_limit = $hard_limit ?? ;
-    $this->name = $name ?? ;
-    $this->soft_limit = $soft_limit ?? ;
+    $this->hard_limit = $hard_limit ?? 0;
+    $this->name = $name ?? "";
+    $this->soft_limit = $soft_limit ?? 0;
   }
 }
 
@@ -1296,10 +1296,10 @@ class UpdateComputeEnvironmentRequest {
   ?'service_role' => string,
   ?'state' => CEState,
   ) $s = shape()) {
-    $this->compute_environment = $compute_environment ?? ;
-    $this->compute_resources = $compute_resources ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->state = $state ?? ;
+    $this->compute_environment = $compute_environment ?? "";
+    $this->compute_resources = $compute_resources ?? null;
+    $this->service_role = $service_role ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1311,8 +1311,8 @@ class UpdateComputeEnvironmentResponse {
   ?'compute_environment_arn' => string,
   ?'compute_environment_name' => string,
   ) $s = shape()) {
-    $this->compute_environment_arn = $compute_environment_arn ?? ;
-    $this->compute_environment_name = $compute_environment_name ?? ;
+    $this->compute_environment_arn = $compute_environment_arn ?? "";
+    $this->compute_environment_name = $compute_environment_name ?? "";
   }
 }
 
@@ -1328,10 +1328,10 @@ class UpdateJobQueueRequest {
   ?'priority' => int,
   ?'state' => JQState,
   ) $s = shape()) {
-    $this->compute_environment_order = $compute_environment_order ?? ;
-    $this->job_queue = $job_queue ?? ;
-    $this->priority = $priority ?? ;
-    $this->state = $state ?? ;
+    $this->compute_environment_order = $compute_environment_order ?? [];
+    $this->job_queue = $job_queue ?? "";
+    $this->priority = $priority ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1343,8 +1343,8 @@ class UpdateJobQueueResponse {
   ?'job_queue_arn' => string,
   ?'job_queue_name' => string,
   ) $s = shape()) {
-    $this->job_queue_arn = $job_queue_arn ?? ;
-    $this->job_queue_name = $job_queue_name ?? ;
+    $this->job_queue_arn = $job_queue_arn ?? "";
+    $this->job_queue_name = $job_queue_name ?? "";
   }
 }
 
@@ -1356,8 +1356,8 @@ class Volume {
   ?'host' => Host,
   ?'name' => string,
   ) $s = shape()) {
-    $this->host = $host ?? ;
-    $this->name = $name ?? ;
+    $this->host = $host ?? null;
+    $this->name = $name ?? "";
   }
 }
 

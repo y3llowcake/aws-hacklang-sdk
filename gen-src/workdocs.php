@@ -55,9 +55,9 @@ class AbortDocumentVersionUploadRequest {
   ?'document_id' => ResourceIdType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -69,8 +69,8 @@ class ActivateUserRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -107,14 +107,14 @@ class Activity {
   ?'type' => ActivityType,
   ) $s = shape()) {
     $this->comment_metadata = $comment_metadata ?? null;
-    $this->initiator = $initiator ?? ;
-    $this->is_indirect_activity = $is_indirect_activity ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->original_parent = $original_parent ?? ;
+    $this->initiator = $initiator ?? null;
+    $this->is_indirect_activity = $is_indirect_activity ?? false;
+    $this->organization_id = $organization_id ?? "";
+    $this->original_parent = $original_parent ?? null;
     $this->participants = $participants ?? null;
     $this->resource_metadata = $resource_metadata ?? null;
-    $this->time_stamp = $time_stamp ?? ;
-    $this->type = $type ?? ;
+    $this->time_stamp = $time_stamp ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -134,10 +134,10 @@ class AddResourcePermissionsRequest {
   ?'principals' => SharePrincipalList,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
+    $this->authentication_token = $authentication_token ?? "";
     $this->notification_options = $notification_options ?? null;
-    $this->principals = $principals ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->principals = $principals ?? [];
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -147,7 +147,7 @@ class AddResourcePermissionsResponse {
   public function __construct(shape(
   ?'share_results' => ShareResultsList,
   ) $s = shape()) {
-    $this->share_results = $share_results ?? ;
+    $this->share_results = $share_results ?? [];
   }
 }
 
@@ -179,15 +179,15 @@ class Comment {
   ?'thread_id' => CommentIdType,
   ?'visibility' => CommentVisibilityType,
   ) $s = shape()) {
-    $this->comment_id = $comment_id ?? ;
-    $this->contributor = $contributor ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->parent_id = $parent_id ?? ;
-    $this->recipient_id = $recipient_id ?? ;
-    $this->status = $status ?? ;
-    $this->text = $text ?? ;
-    $this->thread_id = $thread_id ?? ;
-    $this->visibility = $visibility ?? ;
+    $this->comment_id = $comment_id ?? "";
+    $this->contributor = $contributor ?? null;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->parent_id = $parent_id ?? "";
+    $this->recipient_id = $recipient_id ?? "";
+    $this->status = $status ?? "";
+    $this->text = $text ?? "";
+    $this->thread_id = $thread_id ?? "";
+    $this->visibility = $visibility ?? "";
   }
 }
 
@@ -209,11 +209,11 @@ class CommentMetadata {
   ?'created_timestamp' => TimestampType,
   ?'recipient_id' => IdType,
   ) $s = shape()) {
-    $this->comment_id = $comment_id ?? ;
-    $this->comment_status = $comment_status ?? ;
-    $this->contributor = $contributor ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->recipient_id = $recipient_id ?? ;
+    $this->comment_id = $comment_id ?? "";
+    $this->comment_status = $comment_status ?? "";
+    $this->contributor = $contributor ?? null;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->recipient_id = $recipient_id ?? "";
   }
 }
 
@@ -229,7 +229,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -239,7 +239,7 @@ class ConflictingOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -263,14 +263,14 @@ class CreateCommentRequest {
   ?'version_id' => DocumentVersionIdType,
   ?'visibility' => CommentVisibilityType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->notify_collaborators = $notify_collaborators ?? ;
-    $this->parent_id = $parent_id ?? ;
-    $this->text = $text ?? ;
-    $this->thread_id = $thread_id ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->visibility = $visibility ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->notify_collaborators = $notify_collaborators ?? false;
+    $this->parent_id = $parent_id ?? "";
+    $this->text = $text ?? "";
+    $this->thread_id = $thread_id ?? "";
+    $this->version_id = $version_id ?? "";
+    $this->visibility = $visibility ?? "";
   }
 }
 
@@ -296,10 +296,10 @@ class CreateCustomMetadataRequest {
   ?'resource_id' => ResourceIdType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->custom_metadata = $custom_metadata ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->custom_metadata = $custom_metadata ?? [];
+    $this->resource_id = $resource_id ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -320,9 +320,9 @@ class CreateFolderRequest {
   ?'name' => ResourceNameType,
   ?'parent_folder_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->name = $name ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->name = $name ?? "";
+    $this->parent_folder_id = $parent_folder_id ?? "";
   }
 }
 
@@ -332,7 +332,7 @@ class CreateFolderResponse {
   public function __construct(shape(
   ?'metadata' => FolderMetadata,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
+    $this->metadata = $metadata ?? null;
   }
 }
 
@@ -346,9 +346,9 @@ class CreateLabelsRequest {
   ?'labels' => SharedLabels,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->labels = $labels ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->labels = $labels ?? [];
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -371,9 +371,9 @@ class CreateNotificationSubscriptionRequest {
   ?'protocol' => SubscriptionProtocolType,
   ?'subscription_type' => SubscriptionType,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->protocol = $protocol ?? ;
+    $this->endpoint = $endpoint ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->protocol = $protocol ?? "";
     $this->subscription_type = $subscription_type ?? "";
   }
 }
@@ -410,15 +410,15 @@ class CreateUserRequest {
   ?'time_zone_id' => TimeZoneIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->given_name = $given_name ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->password = $password ?? ;
-    $this->storage_rule = $storage_rule ?? ;
-    $this->surname = $surname ?? ;
-    $this->time_zone_id = $time_zone_id ?? ;
-    $this->username = $username ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->email_address = $email_address ?? "";
+    $this->given_name = $given_name ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->password = $password ?? "";
+    $this->storage_rule = $storage_rule ?? null;
+    $this->surname = $surname ?? "";
+    $this->time_zone_id = $time_zone_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -442,7 +442,7 @@ class CustomMetadataLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -458,8 +458,8 @@ class DeactivateUserRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -482,10 +482,10 @@ class DeleteCommentRequest {
   ?'document_id' => ResourceIdType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->comment_id = $comment_id ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->comment_id = $comment_id ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -503,11 +503,11 @@ class DeleteCustomMetadataRequest {
   ?'resource_id' => ResourceIdType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->delete_all = $delete_all ?? ;
-    $this->keys = $keys ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->delete_all = $delete_all ?? false;
+    $this->keys = $keys ?? [];
+    $this->resource_id = $resource_id ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -526,8 +526,8 @@ class DeleteDocumentRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'document_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
   }
 }
 
@@ -539,8 +539,8 @@ class DeleteFolderContentsRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'folder_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->folder_id = $folder_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->folder_id = $folder_id ?? "";
   }
 }
 
@@ -552,8 +552,8 @@ class DeleteFolderRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'folder_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->folder_id = $folder_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->folder_id = $folder_id ?? "";
   }
 }
 
@@ -569,10 +569,10 @@ class DeleteLabelsRequest {
   ?'labels' => SharedLabels,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->delete_all = $delete_all ?? ;
-    $this->labels = $labels ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->delete_all = $delete_all ?? false;
+    $this->labels = $labels ?? [];
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -591,8 +591,8 @@ class DeleteNotificationSubscriptionRequest {
   ?'organization_id' => IdType,
   ?'subscription_id' => IdType,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? ;
-    $this->subscription_id = $subscription_id ?? ;
+    $this->organization_id = $organization_id ?? "";
+    $this->subscription_id = $subscription_id ?? "";
   }
 }
 
@@ -604,8 +604,8 @@ class DeleteUserRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -633,16 +633,16 @@ class DescribeActivitiesRequest {
   ?'start_time' => TimestampType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->activity_types = $activity_types ?? ;
-    $this->authentication_token = $authentication_token ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->include_indirect_activities = $include_indirect_activities ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->activity_types = $activity_types ?? "";
+    $this->authentication_token = $authentication_token ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->include_indirect_activities = $include_indirect_activities ?? false;
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -654,7 +654,7 @@ class DescribeActivitiesResponse {
   ?'marker' => MarkerType,
   ?'user_activities' => UserActivities,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
     $this->user_activities = $user_activities ?? [];
   }
 }
@@ -673,11 +673,11 @@ class DescribeCommentsRequest {
   ?'marker' => MarkerType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -689,8 +689,8 @@ class DescribeCommentsResponse {
   ?'comments' => CommentList,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->comments = $comments ?? ;
-    $this->marker = $marker ?? ;
+    $this->comments = $comments ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -710,12 +710,12 @@ class DescribeDocumentVersionsRequest {
   ?'limit' => LimitType,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->fields = $fields ?? ;
-    $this->include = $include ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->fields = $fields ?? "";
+    $this->include = $include ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -727,8 +727,8 @@ class DescribeDocumentVersionsResponse {
   ?'document_versions' => DocumentVersionMetadataList,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->document_versions = $document_versions ?? ;
-    $this->marker = $marker ?? ;
+    $this->document_versions = $document_versions ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -752,14 +752,14 @@ class DescribeFolderContentsRequest {
   ?'sort' => ResourceSortType,
   ?'type' => FolderContentType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->folder_id = $folder_id ?? ;
-    $this->include = $include ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->order = $order ?? ;
-    $this->sort = $sort ?? ;
-    $this->type = $type ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->folder_id = $folder_id ?? "";
+    $this->include = $include ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->order = $order ?? "";
+    $this->sort = $sort ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -773,9 +773,9 @@ class DescribeFolderContentsResponse {
   ?'folders' => FolderMetadataList,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->documents = $documents ?? ;
-    $this->folders = $folders ?? ;
-    $this->marker = $marker ?? ;
+    $this->documents = $documents ?? [];
+    $this->folders = $folders ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -793,11 +793,11 @@ class DescribeGroupsRequest {
   ?'organization_id' => IdType,
   ?'search_query' => SearchQueryType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->search_query = $search_query ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->search_query = $search_query ?? "";
   }
 }
 
@@ -809,8 +809,8 @@ class DescribeGroupsResponse {
   ?'groups' => GroupMetadataList,
   ?'marker' => MarkerType,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->marker = $marker ?? ;
+    $this->groups = $groups ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -824,9 +824,9 @@ class DescribeNotificationSubscriptionsRequest {
   ?'marker' => PageMarkerType,
   ?'organization_id' => IdType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->organization_id = $organization_id ?? ;
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->organization_id = $organization_id ?? "";
   }
 }
 
@@ -838,8 +838,8 @@ class DescribeNotificationSubscriptionsResponse {
   ?'marker' => PageMarkerType,
   ?'subscriptions' => SubscriptionList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->subscriptions = $subscriptions ?? ;
+    $this->marker = $marker ?? "";
+    $this->subscriptions = $subscriptions ?? [];
   }
 }
 
@@ -857,11 +857,11 @@ class DescribeResourcePermissionsRequest {
   ?'principal_id' => IdType,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->principal_id = $principal_id ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->principal_id = $principal_id ?? "";
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -873,8 +873,8 @@ class DescribeResourcePermissionsResponse {
   ?'marker' => PageMarkerType,
   ?'principals' => PrincipalList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->principals = $principals ?? ;
+    $this->marker = $marker ?? "";
+    $this->principals = $principals ?? [];
   }
 }
 
@@ -888,9 +888,9 @@ class DescribeRootFoldersRequest {
   ?'limit' => LimitType,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -902,8 +902,8 @@ class DescribeRootFoldersResponse {
   ?'folders' => FolderMetadataList,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->folders = $folders ?? ;
-    $this->marker = $marker ?? ;
+    $this->folders = $folders ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -931,16 +931,16 @@ class DescribeUsersRequest {
   ?'sort' => UserSortType,
   ?'user_ids' => UserIdsType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->fields = $fields ?? ;
-    $this->include = $include ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->order = $order ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->query = $query ?? ;
-    $this->sort = $sort ?? ;
-    $this->user_ids = $user_ids ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->fields = $fields ?? "";
+    $this->include = $include ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->order = $order ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->query = $query ?? "";
+    $this->sort = $sort ?? "";
+    $this->user_ids = $user_ids ?? "";
   }
 }
 
@@ -954,9 +954,9 @@ class DescribeUsersResponse {
   ?'total_number_of_users' => SizeType,
   ?'users' => OrganizationUserList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->total_number_of_users = $total_number_of_users ?? ;
-    $this->users = $users ?? ;
+    $this->marker = $marker ?? "";
+    $this->total_number_of_users = $total_number_of_users ?? 0;
+    $this->users = $users ?? [];
   }
 }
 
@@ -968,7 +968,7 @@ class DocumentLockedForCommentsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -992,14 +992,14 @@ class DocumentMetadata {
   ?'parent_folder_id' => ResourceIdType,
   ?'resource_state' => ResourceStateType,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->creator_id = $creator_id ?? ;
-    $this->id = $id ?? ;
-    $this->labels = $labels ?? ;
-    $this->latest_version_metadata = $latest_version_metadata ?? ;
-    $this->modified_timestamp = $modified_timestamp ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
-    $this->resource_state = $resource_state ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->creator_id = $creator_id ?? "";
+    $this->id = $id ?? "";
+    $this->labels = $labels ?? [];
+    $this->latest_version_metadata = $latest_version_metadata ?? null;
+    $this->modified_timestamp = $modified_timestamp ?? 0;
+    $this->parent_folder_id = $parent_folder_id ?? "";
+    $this->resource_state = $resource_state ?? "";
   }
 }
 
@@ -1047,19 +1047,19 @@ class DocumentVersionMetadata {
   ?'status' => DocumentStatusType,
   ?'thumbnail' => DocumentThumbnailUrlMap,
   ) $s = shape()) {
-    $this->content_created_timestamp = $content_created_timestamp ?? ;
-    $this->content_modified_timestamp = $content_modified_timestamp ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->creator_id = $creator_id ?? ;
-    $this->id = $id ?? ;
-    $this->modified_timestamp = $modified_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->signature = $signature ?? ;
-    $this->size = $size ?? ;
-    $this->source = $source ?? ;
-    $this->status = $status ?? ;
-    $this->thumbnail = $thumbnail ?? ;
+    $this->content_created_timestamp = $content_created_timestamp ?? 0;
+    $this->content_modified_timestamp = $content_modified_timestamp ?? 0;
+    $this->content_type = $content_type ?? "";
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->creator_id = $creator_id ?? "";
+    $this->id = $id ?? "";
+    $this->modified_timestamp = $modified_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->signature = $signature ?? "";
+    $this->size = $size ?? 0;
+    $this->source = $source ?? [];
+    $this->status = $status ?? "";
+    $this->thumbnail = $thumbnail ?? [];
   }
 }
 
@@ -1073,7 +1073,7 @@ class DraftUploadOutOfSyncException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1085,7 +1085,7 @@ class EntityAlreadyExistsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1099,8 +1099,8 @@ class EntityNotExistsException {
   ?'entity_ids' => EntityIdList,
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->entity_ids = $entity_ids ?? ;
-    $this->message = $message ?? ;
+    $this->entity_ids = $entity_ids ?? [];
+    $this->message = $message ?? "";
   }
 }
 
@@ -1112,7 +1112,7 @@ class FailedDependencyException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1146,17 +1146,17 @@ class FolderMetadata {
   ?'signature' => HashType,
   ?'size' => SizeType,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->creator_id = $creator_id ?? ;
-    $this->id = $id ?? ;
-    $this->labels = $labels ?? ;
-    $this->latest_version_size = $latest_version_size ?? ;
-    $this->modified_timestamp = $modified_timestamp ?? ;
-    $this->name = $name ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
-    $this->resource_state = $resource_state ?? ;
-    $this->signature = $signature ?? ;
-    $this->size = $size ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->creator_id = $creator_id ?? "";
+    $this->id = $id ?? "";
+    $this->labels = $labels ?? [];
+    $this->latest_version_size = $latest_version_size ?? 0;
+    $this->modified_timestamp = $modified_timestamp ?? 0;
+    $this->name = $name ?? "";
+    $this->parent_folder_id = $parent_folder_id ?? "";
+    $this->resource_state = $resource_state ?? "";
+    $this->signature = $signature ?? "";
+    $this->size = $size ?? 0;
   }
 }
 
@@ -1168,7 +1168,7 @@ class GetCurrentUserRequest {
   public function __construct(shape(
   ?'authentication_token' => AuthenticationHeaderType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
+    $this->authentication_token = $authentication_token ?? "";
   }
 }
 
@@ -1196,11 +1196,11 @@ class GetDocumentPathRequest {
   ?'limit' => LimitType,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->fields = $fields ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->fields = $fields ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1210,7 +1210,7 @@ class GetDocumentPathResponse {
   public function __construct(shape(
   ?'path' => ResourcePath,
   ) $s = shape()) {
-    $this->path = $path ?? ;
+    $this->path = $path ?? null;
   }
 }
 
@@ -1224,9 +1224,9 @@ class GetDocumentRequest {
   ?'document_id' => ResourceIdType,
   ?'include_custom_metadata' => BooleanType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->include_custom_metadata = $include_custom_metadata ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->include_custom_metadata = $include_custom_metadata ?? false;
   }
 }
 
@@ -1238,8 +1238,8 @@ class GetDocumentResponse {
   ?'custom_metadata' => CustomMetadataMap,
   ?'metadata' => DocumentMetadata,
   ) $s = shape()) {
-    $this->custom_metadata = $custom_metadata ?? ;
-    $this->metadata = $metadata ?? ;
+    $this->custom_metadata = $custom_metadata ?? [];
+    $this->metadata = $metadata ?? null;
   }
 }
 
@@ -1257,11 +1257,11 @@ class GetDocumentVersionRequest {
   ?'include_custom_metadata' => BooleanType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->fields = $fields ?? ;
-    $this->include_custom_metadata = $include_custom_metadata ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->fields = $fields ?? "";
+    $this->include_custom_metadata = $include_custom_metadata ?? false;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1273,8 +1273,8 @@ class GetDocumentVersionResponse {
   ?'custom_metadata' => CustomMetadataMap,
   ?'metadata' => DocumentVersionMetadata,
   ) $s = shape()) {
-    $this->custom_metadata = $custom_metadata ?? ;
-    $this->metadata = $metadata ?? ;
+    $this->custom_metadata = $custom_metadata ?? [];
+    $this->metadata = $metadata ?? null;
   }
 }
 
@@ -1292,11 +1292,11 @@ class GetFolderPathRequest {
   ?'limit' => LimitType,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->fields = $fields ?? ;
-    $this->folder_id = $folder_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->fields = $fields ?? "";
+    $this->folder_id = $folder_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1306,7 +1306,7 @@ class GetFolderPathResponse {
   public function __construct(shape(
   ?'path' => ResourcePath,
   ) $s = shape()) {
-    $this->path = $path ?? ;
+    $this->path = $path ?? null;
   }
 }
 
@@ -1320,9 +1320,9 @@ class GetFolderRequest {
   ?'folder_id' => ResourceIdType,
   ?'include_custom_metadata' => BooleanType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->folder_id = $folder_id ?? ;
-    $this->include_custom_metadata = $include_custom_metadata ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->folder_id = $folder_id ?? "";
+    $this->include_custom_metadata = $include_custom_metadata ?? false;
   }
 }
 
@@ -1334,8 +1334,8 @@ class GetFolderResponse {
   ?'custom_metadata' => CustomMetadataMap,
   ?'metadata' => FolderMetadata,
   ) $s = shape()) {
-    $this->custom_metadata = $custom_metadata ?? ;
-    $this->metadata = $metadata ?? ;
+    $this->custom_metadata = $custom_metadata ?? [];
+    $this->metadata = $metadata ?? null;
   }
 }
 
@@ -1353,11 +1353,11 @@ class GetResourcesRequest {
   ?'marker' => PageMarkerType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->collection_type = $collection_type ?? ;
-    $this->limit = $limit ?? ;
-    $this->marker = $marker ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->collection_type = $collection_type ?? "";
+    $this->limit = $limit ?? 0;
+    $this->marker = $marker ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -1371,9 +1371,9 @@ class GetResourcesResponse {
   ?'folders' => FolderMetadataList,
   ?'marker' => PageMarkerType,
   ) $s = shape()) {
-    $this->documents = $documents ?? ;
-    $this->folders = $folders ?? ;
-    $this->marker = $marker ?? ;
+    $this->documents = $documents ?? [];
+    $this->folders = $folders ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1385,8 +1385,8 @@ class GroupMetadata {
   ?'id' => IdType,
   ?'name' => GroupNameType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1408,7 +1408,7 @@ class IllegalUserStateException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1432,14 +1432,14 @@ class InitiateDocumentVersionUploadRequest {
   ?'name' => ResourceNameType,
   ?'parent_folder_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->content_created_timestamp = $content_created_timestamp ?? ;
-    $this->content_modified_timestamp = $content_modified_timestamp ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->document_size_in_bytes = $document_size_in_bytes ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->content_created_timestamp = $content_created_timestamp ?? 0;
+    $this->content_modified_timestamp = $content_modified_timestamp ?? 0;
+    $this->content_type = $content_type ?? "";
+    $this->document_size_in_bytes = $document_size_in_bytes ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->parent_folder_id = $parent_folder_id ?? "";
   }
 }
 
@@ -1451,7 +1451,7 @@ class InitiateDocumentVersionUploadResponse {
   ?'metadata' => DocumentMetadata,
   ?'upload_metadata' => UploadMetadata,
   ) $s = shape()) {
-    $this->metadata = $metadata ?? ;
+    $this->metadata = $metadata ?? null;
     $this->upload_metadata = $upload_metadata ?? null;
   }
 }
@@ -1462,7 +1462,7 @@ class InvalidArgumentException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1472,7 +1472,7 @@ class InvalidCommentOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1482,7 +1482,7 @@ class InvalidOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1492,7 +1492,7 @@ class InvalidPasswordException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1502,7 +1502,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1522,8 +1522,8 @@ class NotificationOptions {
   ?'email_message' => MessageType,
   ?'send_email' => BooleanType,
   ) $s = shape()) {
-    $this->email_message = $email_message ?? ;
-    $this->send_email = $send_email ?? ;
+    $this->email_message = $email_message ?? "";
+    $this->send_email = $send_email ?? false;
   }
 }
 
@@ -1541,8 +1541,8 @@ class Participants {
   ?'groups' => GroupMetadataList,
   ?'users' => UserMetadataList,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->users = $users ?? ;
+    $this->groups = $groups ?? [];
+    $this->users = $users ?? [];
   }
 }
 
@@ -1556,8 +1556,8 @@ class PermissionInfo {
   ?'role' => RoleType,
   ?'type' => RolePermissionType,
   ) $s = shape()) {
-    $this->role = $role ?? ;
-    $this->type = $type ?? ;
+    $this->role = $role ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1577,9 +1577,9 @@ class Principal {
   ?'roles' => PermissionInfoList,
   ?'type' => PrincipalType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->roles = $roles ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->roles = $roles ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1593,7 +1593,7 @@ class ProhibitedStateException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1605,8 +1605,8 @@ class RemoveAllResourcePermissionsRequest {
   ?'authentication_token' => AuthenticationHeaderType,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -1622,10 +1622,10 @@ class RemoveResourcePermissionRequest {
   ?'principal_type' => PrincipalType,
   ?'resource_id' => ResourceIdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->principal_id = $principal_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->principal_id = $principal_id ?? "";
     $this->principal_type = $principal_type ?? "";
-    $this->resource_id = $resource_id ?? ;
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -1635,7 +1635,7 @@ class RequestedEntityTooLargeException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1645,7 +1645,7 @@ class ResourceAlreadyCheckedOutException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1671,13 +1671,13 @@ class ResourceMetadata {
   ?'type' => ResourceType,
   ?'version_id' => DocumentVersionIdType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->original_name = $original_name ?? ;
-    $this->owner = $owner ?? ;
-    $this->parent_id = $parent_id ?? ;
-    $this->type = $type ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->original_name = $original_name ?? "";
+    $this->owner = $owner ?? null;
+    $this->parent_id = $parent_id ?? "";
+    $this->type = $type ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1689,7 +1689,7 @@ class ResourcePath {
   public function __construct(shape(
   ?'components' => ResourcePathComponentList,
   ) $s = shape()) {
-    $this->components = $components ?? ;
+    $this->components = $components ?? [];
   }
 }
 
@@ -1701,8 +1701,8 @@ class ResourcePathComponent {
   ?'id' => IdType,
   ?'name' => ResourceNameType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1726,7 +1726,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1740,9 +1740,9 @@ class SharePrincipal {
   ?'role' => RoleType,
   ?'type' => PrincipalType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->role = $role ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->role = $role ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1764,12 +1764,12 @@ class ShareResult {
   ?'status' => ShareStatusType,
   ?'status_message' => MessageType,
   ) $s = shape()) {
-    $this->invitee_principal_id = $invitee_principal_id ?? ;
-    $this->principal_id = $principal_id ?? ;
-    $this->role = $role ?? ;
-    $this->share_id = $share_id ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
+    $this->invitee_principal_id = $invitee_principal_id ?? "";
+    $this->principal_id = $principal_id ?? "";
+    $this->role = $role ?? "";
+    $this->share_id = $share_id ?? "";
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
   }
 }
 
@@ -1791,7 +1791,7 @@ class StorageLimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1801,7 +1801,7 @@ class StorageLimitWillExceedException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1813,7 +1813,7 @@ class StorageRuleType {
   ?'storage_allocated_in_bytes' => PositiveSizeType,
   ?'storage_type' => StorageType,
   ) $s = shape()) {
-    $this->storage_allocated_in_bytes = $storage_allocated_in_bytes ?? ;
+    $this->storage_allocated_in_bytes = $storage_allocated_in_bytes ?? 0;
     $this->storage_type = $storage_type ?? "";
   }
 }
@@ -1830,9 +1830,9 @@ class Subscription {
   ?'protocol' => SubscriptionProtocolType,
   ?'subscription_id' => IdType,
   ) $s = shape()) {
-    $this->end_point = $end_point ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->subscription_id = $subscription_id ?? ;
+    $this->end_point = $end_point ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->subscription_id = $subscription_id ?? "";
   }
 }
 
@@ -1854,7 +1854,7 @@ class TooManyLabelsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1864,7 +1864,7 @@ class TooManySubscriptionsException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1881,7 +1881,7 @@ class UnauthorizedResourceAccessException {
   public function __construct(shape(
   ?'message' => ErrorMessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1899,11 +1899,11 @@ class UpdateDocumentRequest {
   ?'parent_folder_id' => ResourceIdType,
   ?'resource_state' => ResourceStateType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->name = $name ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
-    $this->resource_state = $resource_state ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->name = $name ?? "";
+    $this->parent_folder_id = $parent_folder_id ?? "";
+    $this->resource_state = $resource_state ?? "";
   }
 }
 
@@ -1919,10 +1919,10 @@ class UpdateDocumentVersionRequest {
   ?'version_id' => DocumentVersionIdType,
   ?'version_status' => DocumentVersionStatus,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->document_id = $document_id ?? ;
-    $this->version_id = $version_id ?? ;
-    $this->version_status = $version_status ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->document_id = $document_id ?? "";
+    $this->version_id = $version_id ?? "";
+    $this->version_status = $version_status ?? "";
   }
 }
 
@@ -1940,11 +1940,11 @@ class UpdateFolderRequest {
   ?'parent_folder_id' => ResourceIdType,
   ?'resource_state' => ResourceStateType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->folder_id = $folder_id ?? ;
-    $this->name = $name ?? ;
-    $this->parent_folder_id = $parent_folder_id ?? ;
-    $this->resource_state = $resource_state ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->folder_id = $folder_id ?? "";
+    $this->name = $name ?? "";
+    $this->parent_folder_id = $parent_folder_id ?? "";
+    $this->resource_state = $resource_state ?? "";
   }
 }
 
@@ -1970,15 +1970,15 @@ class UpdateUserRequest {
   ?'type' => UserType,
   ?'user_id' => IdType,
   ) $s = shape()) {
-    $this->authentication_token = $authentication_token ?? ;
-    $this->given_name = $given_name ?? ;
-    $this->grant_poweruser_privileges = $grant_poweruser_privileges ?? ;
-    $this->locale = $locale ?? ;
-    $this->storage_rule = $storage_rule ?? ;
-    $this->surname = $surname ?? ;
-    $this->time_zone_id = $time_zone_id ?? ;
-    $this->type = $type ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->authentication_token = $authentication_token ?? "";
+    $this->given_name = $given_name ?? "";
+    $this->grant_poweruser_privileges = $grant_poweruser_privileges ?? "";
+    $this->locale = $locale ?? "";
+    $this->storage_rule = $storage_rule ?? null;
+    $this->surname = $surname ?? "";
+    $this->time_zone_id = $time_zone_id ?? "";
+    $this->type = $type ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -2000,8 +2000,8 @@ class UploadMetadata {
   ?'signed_headers' => SignedHeaderMap,
   ?'upload_url' => UrlType,
   ) $s = shape()) {
-    $this->signed_headers = $signed_headers ?? ;
-    $this->upload_url = $upload_url ?? ;
+    $this->signed_headers = $signed_headers ?? [];
+    $this->upload_url = $upload_url ?? "";
   }
 }
 
@@ -2041,21 +2041,21 @@ class User {
   ?'type' => UserType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->created_timestamp = $created_timestamp ?? ;
-    $this->email_address = $email_address ?? ;
-    $this->given_name = $given_name ?? ;
-    $this->id = $id ?? ;
-    $this->locale = $locale ?? ;
-    $this->modified_timestamp = $modified_timestamp ?? ;
-    $this->organization_id = $organization_id ?? ;
-    $this->recycle_bin_folder_id = $recycle_bin_folder_id ?? ;
-    $this->root_folder_id = $root_folder_id ?? ;
-    $this->status = $status ?? ;
-    $this->storage = $storage ?? ;
-    $this->surname = $surname ?? ;
-    $this->time_zone_id = $time_zone_id ?? ;
-    $this->type = $type ?? ;
-    $this->username = $username ?? ;
+    $this->created_timestamp = $created_timestamp ?? 0;
+    $this->email_address = $email_address ?? "";
+    $this->given_name = $given_name ?? "";
+    $this->id = $id ?? "";
+    $this->locale = $locale ?? "";
+    $this->modified_timestamp = $modified_timestamp ?? 0;
+    $this->organization_id = $organization_id ?? "";
+    $this->recycle_bin_folder_id = $recycle_bin_folder_id ?? "";
+    $this->root_folder_id = $root_folder_id ?? "";
+    $this->status = $status ?? "";
+    $this->storage = $storage ?? null;
+    $this->surname = $surname ?? "";
+    $this->time_zone_id = $time_zone_id ?? "";
+    $this->type = $type ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -2081,11 +2081,11 @@ class UserMetadata {
   ?'surname' => UserAttributeValueType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->email_address = $email_address ?? ;
-    $this->given_name = $given_name ?? ;
-    $this->id = $id ?? ;
-    $this->surname = $surname ?? ;
-    $this->username = $username ?? ;
+    $this->email_address = $email_address ?? "";
+    $this->given_name = $given_name ?? "";
+    $this->id = $id ?? "";
+    $this->surname = $surname ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -2103,8 +2103,8 @@ class UserStorageMetadata {
   ?'storage_rule' => StorageRuleType,
   ?'storage_utilized_in_bytes' => SizeType,
   ) $s = shape()) {
-    $this->storage_rule = $storage_rule ?? ;
-    $this->storage_utilized_in_bytes = $storage_utilized_in_bytes ?? ;
+    $this->storage_rule = $storage_rule ?? null;
+    $this->storage_utilized_in_bytes = $storage_utilized_in_bytes ?? 0;
   }
 }
 

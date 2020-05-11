@@ -112,7 +112,7 @@ class AccountRecoverySettingType {
   public function __construct(shape(
   ?'recovery_mechanisms' => RecoveryMechanismsType,
   ) $s = shape()) {
-    $this->recovery_mechanisms = $recovery_mechanisms ?? ;
+    $this->recovery_mechanisms = $recovery_mechanisms ?? [];
   }
 }
 
@@ -126,8 +126,8 @@ class AccountTakeoverActionType {
   ?'event_action' => AccountTakeoverEventActionType,
   ?'notify' => AccountTakeoverActionNotifyType,
   ) $s = shape()) {
-    $this->event_action = $event_action ?? ;
-    $this->notify = $notify ?? ;
+    $this->event_action = $event_action ?? "";
+    $this->notify = $notify ?? false;
   }
 }
 
@@ -141,9 +141,9 @@ class AccountTakeoverActionsType {
   ?'low_action' => AccountTakeoverActionType,
   ?'medium_action' => AccountTakeoverActionType,
   ) $s = shape()) {
-    $this->high_action = $high_action ?? ;
-    $this->low_action = $low_action ?? ;
-    $this->medium_action = $medium_action ?? ;
+    $this->high_action = $high_action ?? null;
+    $this->low_action = $low_action ?? null;
+    $this->medium_action = $medium_action ?? null;
   }
 }
 
@@ -157,8 +157,8 @@ class AccountTakeoverRiskConfigurationType {
   ?'actions' => AccountTakeoverActionsType,
   ?'notify_configuration' => NotifyConfigurationType,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->notify_configuration = $notify_configuration ?? ;
+    $this->actions = $actions ?? null;
+    $this->notify_configuration = $notify_configuration ?? null;
   }
 }
 
@@ -170,8 +170,8 @@ class AddCustomAttributesRequest {
   ?'custom_attributes' => CustomAttributesListType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->custom_attributes = $custom_attributes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->custom_attributes = $custom_attributes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -192,9 +192,9 @@ class AdminAddUserToGroupRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -208,9 +208,9 @@ class AdminConfirmSignUpRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->client_metadata = $client_metadata ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->client_metadata = $client_metadata ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -231,9 +231,9 @@ class AdminCreateUserConfigType {
   ?'invite_message_template' => MessageTemplateType,
   ?'unused_account_validity_days' => AdminCreateUserUnusedAccountValidityDaysType,
   ) $s = shape()) {
-    $this->allow_admin_create_user_only = $allow_admin_create_user_only ?? ;
-    $this->invite_message_template = $invite_message_template ?? ;
-    $this->unused_account_validity_days = $unused_account_validity_days ?? ;
+    $this->allow_admin_create_user_only = $allow_admin_create_user_only ?? false;
+    $this->invite_message_template = $invite_message_template ?? null;
+    $this->unused_account_validity_days = $unused_account_validity_days ?? 0;
   }
 }
 
@@ -259,15 +259,15 @@ class AdminCreateUserRequest {
   ?'username' => UsernameType,
   ?'validation_data' => AttributeListType,
   ) $s = shape()) {
-    $this->client_metadata = $client_metadata ?? ;
-    $this->desired_delivery_mediums = $desired_delivery_mediums ?? ;
+    $this->client_metadata = $client_metadata ?? [];
+    $this->desired_delivery_mediums = $desired_delivery_mediums ?? [];
     $this->force_alias_creation = $force_alias_creation ?? false;
-    $this->message_action = $message_action ?? ;
-    $this->temporary_password = $temporary_password ?? ;
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
-    $this->validation_data = $validation_data ?? ;
+    $this->message_action = $message_action ?? "";
+    $this->temporary_password = $temporary_password ?? "";
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
+    $this->validation_data = $validation_data ?? [];
   }
 }
 
@@ -277,7 +277,7 @@ class AdminCreateUserResponse {
   public function __construct(shape(
   ?'user' => UserType,
   ) $s = shape()) {
-    $this->user = $user ?? ;
+    $this->user = $user ?? null;
   }
 }
 
@@ -293,9 +293,9 @@ class AdminDeleteUserAttributesRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_attribute_names = $user_attribute_names ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_attribute_names = $user_attribute_names ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -314,8 +314,8 @@ class AdminDeleteUserRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -327,8 +327,8 @@ class AdminDisableProviderForUserRequest {
   ?'user' => ProviderUserIdentifierType,
   ?'user_pool_id' => StringType,
   ) $s = shape()) {
-    $this->user = $user ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user = $user ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -347,8 +347,8 @@ class AdminDisableUserRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -367,8 +367,8 @@ class AdminEnableUserRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -389,9 +389,9 @@ class AdminForgetDeviceRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->device_key = $device_key ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->device_key = $device_key ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -405,9 +405,9 @@ class AdminGetDeviceRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->device_key = $device_key ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->device_key = $device_key ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -417,7 +417,7 @@ class AdminGetDeviceResponse {
   public function __construct(shape(
   ?'device' => DeviceType,
   ) $s = shape()) {
-    $this->device = $device ?? ;
+    $this->device = $device ?? null;
   }
 }
 
@@ -429,8 +429,8 @@ class AdminGetUserRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -456,15 +456,15 @@ class AdminGetUserResponse {
   ?'user_status' => UserStatusType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->mfa_options = $mfa_options ?? ;
-    $this->preferred_mfa_setting = $preferred_mfa_setting ?? ;
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_create_date = $user_create_date ?? ;
-    $this->user_last_modified_date = $user_last_modified_date ?? ;
-    $this->user_mfa_setting_list = $user_mfa_setting_list ?? ;
-    $this->user_status = $user_status ?? ;
-    $this->username = $username ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->mfa_options = $mfa_options ?? [];
+    $this->preferred_mfa_setting = $preferred_mfa_setting ?? "";
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_create_date = $user_create_date ?? 0;
+    $this->user_last_modified_date = $user_last_modified_date ?? 0;
+    $this->user_mfa_setting_list = $user_mfa_setting_list ?? [];
+    $this->user_status = $user_status ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -486,13 +486,13 @@ class AdminInitiateAuthRequest {
   ?'context_data' => ContextDataType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->auth_flow = $auth_flow ?? ;
-    $this->auth_parameters = $auth_parameters ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->context_data = $context_data ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->auth_flow = $auth_flow ?? "";
+    $this->auth_parameters = $auth_parameters ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->context_data = $context_data ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -508,10 +508,10 @@ class AdminInitiateAuthResponse {
   ?'challenge_parameters' => ChallengeParametersType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->authentication_result = $authentication_result ?? ;
+    $this->authentication_result = $authentication_result ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_parameters = $challenge_parameters ?? ;
-    $this->session = $session ?? ;
+    $this->challenge_parameters = $challenge_parameters ?? [];
+    $this->session = $session ?? "";
   }
 }
 
@@ -525,9 +525,9 @@ class AdminLinkProviderForUserRequest {
   ?'source_user' => ProviderUserIdentifierType,
   ?'user_pool_id' => StringType,
   ) $s = shape()) {
-    $this->destination_user = $destination_user ?? ;
-    $this->source_user = $source_user ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->destination_user = $destination_user ?? null;
+    $this->source_user = $source_user ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -550,10 +550,10 @@ class AdminListDevicesRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->pagination_token = $pagination_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->limit = $limit ?? 0;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -565,8 +565,8 @@ class AdminListDevicesResponse {
   ?'devices' => DeviceListType,
   ?'pagination_token' => SearchPaginationTokenType,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
-    $this->pagination_token = $pagination_token ?? ;
+    $this->devices = $devices ?? [];
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -582,10 +582,10 @@ class AdminListGroupsForUserRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -597,8 +597,8 @@ class AdminListGroupsForUserResponse {
   ?'groups' => GroupListType,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->groups = $groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -614,10 +614,10 @@ class AdminListUserAuthEventsRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -629,8 +629,8 @@ class AdminListUserAuthEventsResponse {
   ?'auth_events' => AuthEventsType,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->auth_events = $auth_events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->auth_events = $auth_events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -644,9 +644,9 @@ class AdminRemoveUserFromGroupRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -660,9 +660,9 @@ class AdminResetUserPasswordRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->client_metadata = $client_metadata ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->client_metadata = $client_metadata ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -693,14 +693,14 @@ class AdminRespondToAuthChallengeRequest {
   ?'session' => SessionType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_responses = $challenge_responses ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->context_data = $context_data ?? ;
-    $this->session = $session ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->challenge_responses = $challenge_responses ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->context_data = $context_data ?? null;
+    $this->session = $session ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -716,10 +716,10 @@ class AdminRespondToAuthChallengeResponse {
   ?'challenge_parameters' => ChallengeParametersType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->authentication_result = $authentication_result ?? ;
+    $this->authentication_result = $authentication_result ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_parameters = $challenge_parameters ?? ;
-    $this->session = $session ?? ;
+    $this->challenge_parameters = $challenge_parameters ?? [];
+    $this->session = $session ?? "";
   }
 }
 
@@ -735,10 +735,10 @@ class AdminSetUserMFAPreferenceRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->sms_mfa_settings = $sms_mfa_settings ?? ;
-    $this->software_token_mfa_settings = $software_token_mfa_settings ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->sms_mfa_settings = $sms_mfa_settings ?? null;
+    $this->software_token_mfa_settings = $software_token_mfa_settings ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -761,10 +761,10 @@ class AdminSetUserPasswordRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->permanent = $permanent ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->password = $password ?? "";
+    $this->permanent = $permanent ?? false;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -785,9 +785,9 @@ class AdminSetUserSettingsRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->mfa_options = $mfa_options ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->mfa_options = $mfa_options ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -810,10 +810,10 @@ class AdminUpdateAuthEventFeedbackRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? ;
-    $this->feedback_value = $feedback_value ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->event_id = $event_id ?? "";
+    $this->feedback_value = $feedback_value ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -836,10 +836,10 @@ class AdminUpdateDeviceStatusRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->device_key = $device_key ?? ;
-    $this->device_remembered_status = $device_remembered_status ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->device_key = $device_key ?? "";
+    $this->device_remembered_status = $device_remembered_status ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -862,10 +862,10 @@ class AdminUpdateUserAttributesRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->client_metadata = $client_metadata ?? ;
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->client_metadata = $client_metadata ?? [];
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -884,8 +884,8 @@ class AdminUserGlobalSignOutRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -908,7 +908,7 @@ class AliasExistsException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -924,10 +924,10 @@ class AnalyticsConfigurationType {
   ?'role_arn' => ArnType,
   ?'user_data_shared' => BooleanType,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->user_data_shared = $user_data_shared ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->external_id = $external_id ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->user_data_shared = $user_data_shared ?? false;
   }
 }
 
@@ -937,7 +937,7 @@ class AnalyticsMetadataType {
   public function __construct(shape(
   ?'analytics_endpoint_id' => StringType,
   ) $s = shape()) {
-    $this->analytics_endpoint_id = $analytics_endpoint_id ?? ;
+    $this->analytics_endpoint_id = $analytics_endpoint_id ?? "";
   }
 }
 
@@ -951,8 +951,8 @@ class AssociateSoftwareTokenRequest {
   ?'access_token' => TokenModelType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->session = $session ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->session = $session ?? "";
   }
 }
 
@@ -964,8 +964,8 @@ class AssociateSoftwareTokenResponse {
   ?'secret_code' => SecretCodeType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->secret_code = $secret_code ?? ;
-    $this->session = $session ?? ;
+    $this->secret_code = $secret_code ?? "";
+    $this->session = $session ?? "";
   }
 }
 
@@ -989,8 +989,8 @@ class AttributeType {
   ?'name' => AttributeNameType,
   ?'value' => AttributeValueType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1016,13 +1016,13 @@ class AuthEventType {
   ?'event_risk' => EventRiskType,
   ?'event_type' => EventType,
   ) $s = shape()) {
-    $this->challenge_responses = $challenge_responses ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->event_context_data = $event_context_data ?? ;
-    $this->event_feedback = $event_feedback ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->event_response = $event_response ?? ;
-    $this->event_risk = $event_risk ?? ;
+    $this->challenge_responses = $challenge_responses ?? [];
+    $this->creation_date = $creation_date ?? 0;
+    $this->event_context_data = $event_context_data ?? null;
+    $this->event_feedback = $event_feedback ?? null;
+    $this->event_id = $event_id ?? "";
+    $this->event_response = $event_response ?? "";
+    $this->event_risk = $event_risk ?? null;
     $this->event_type = $event_type ?? "";
   }
 }
@@ -1051,12 +1051,12 @@ class AuthenticationResultType {
   ?'refresh_token' => TokenModelType,
   ?'token_type' => StringType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->expires_in = $expires_in ?? ;
-    $this->id_token = $id_token ?? ;
-    $this->new_device_metadata = $new_device_metadata ?? ;
-    $this->refresh_token = $refresh_token ?? ;
-    $this->token_type = $token_type ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->expires_in = $expires_in ?? 0;
+    $this->id_token = $id_token ?? "";
+    $this->new_device_metadata = $new_device_metadata ?? null;
+    $this->refresh_token = $refresh_token ?? "";
+    $this->token_type = $token_type ?? "";
   }
 }
 
@@ -1105,9 +1105,9 @@ class ChangePasswordRequest {
   ?'previous_password' => PasswordType,
   ?'proposed_password' => PasswordType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->previous_password = $previous_password ?? ;
-    $this->proposed_password = $proposed_password ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->previous_password = $previous_password ?? "";
+    $this->proposed_password = $proposed_password ?? "";
   }
 }
 
@@ -1142,9 +1142,9 @@ class CodeDeliveryDetailsType {
   ?'delivery_medium' => DeliveryMediumType,
   ?'destination' => StringType,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->delivery_medium = $delivery_medium ?? ;
-    $this->destination = $destination ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->delivery_medium = $delivery_medium ?? "";
+    $this->destination = $destination ?? "";
   }
 }
 
@@ -1154,7 +1154,7 @@ class CodeDeliveryFailureException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1164,7 +1164,7 @@ class CodeMismatchException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1176,7 +1176,7 @@ class CompromisedCredentialsActionsType {
   public function __construct(shape(
   ?'event_action' => CompromisedCredentialsEventActionType,
   ) $s = shape()) {
-    $this->event_action = $event_action ?? ;
+    $this->event_action = $event_action ?? "";
   }
 }
 
@@ -1190,8 +1190,8 @@ class CompromisedCredentialsRiskConfigurationType {
   ?'actions' => CompromisedCredentialsActionsType,
   ?'event_filter' => EventFiltersType,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->event_filter = $event_filter ?? ;
+    $this->actions = $actions ?? null;
+    $this->event_filter = $event_filter ?? [];
   }
 }
 
@@ -1201,7 +1201,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1217,10 +1217,10 @@ class ConfirmDeviceRequest {
   ?'device_name' => DeviceNameType,
   ?'device_secret_verifier_config' => DeviceSecretVerifierConfigType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->device_key = $device_key ?? ;
-    $this->device_name = $device_name ?? ;
-    $this->device_secret_verifier_config = $device_secret_verifier_config ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->device_key = $device_key ?? "";
+    $this->device_name = $device_name ?? "";
+    $this->device_secret_verifier_config = $device_secret_verifier_config ?? null;
   }
 }
 
@@ -1230,7 +1230,7 @@ class ConfirmDeviceResponse {
   public function __construct(shape(
   ?'user_confirmation_necessary' => BooleanType,
   ) $s = shape()) {
-    $this->user_confirmation_necessary = $user_confirmation_necessary ?? ;
+    $this->user_confirmation_necessary = $user_confirmation_necessary ?? false;
   }
 }
 
@@ -1254,14 +1254,14 @@ class ConfirmForgotPasswordRequest {
   ?'user_context_data' => UserContextDataType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->confirmation_code = $confirmation_code ?? ;
-    $this->password = $password ?? ;
-    $this->secret_hash = $secret_hash ?? ;
-    $this->user_context_data = $user_context_data ?? ;
-    $this->username = $username ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->confirmation_code = $confirmation_code ?? "";
+    $this->password = $password ?? "";
+    $this->secret_hash = $secret_hash ?? "";
+    $this->user_context_data = $user_context_data ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -1292,14 +1292,14 @@ class ConfirmSignUpRequest {
   ?'user_context_data' => UserContextDataType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->confirmation_code = $confirmation_code ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->confirmation_code = $confirmation_code ?? "";
     $this->force_alias_creation = $force_alias_creation ?? false;
-    $this->secret_hash = $secret_hash ?? ;
-    $this->user_context_data = $user_context_data ?? ;
-    $this->username = $username ?? ;
+    $this->secret_hash = $secret_hash ?? "";
+    $this->user_context_data = $user_context_data ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -1326,11 +1326,11 @@ class ContextDataType {
   ?'server_name' => StringType,
   ?'server_path' => StringType,
   ) $s = shape()) {
-    $this->encoded_data = $encoded_data ?? ;
-    $this->http_headers = $http_headers ?? ;
-    $this->ip_address = $ip_address ?? ;
-    $this->server_name = $server_name ?? ;
-    $this->server_path = $server_path ?? ;
+    $this->encoded_data = $encoded_data ?? "";
+    $this->http_headers = $http_headers ?? [];
+    $this->ip_address = $ip_address ?? "";
+    $this->server_name = $server_name ?? "";
+    $this->server_path = $server_path ?? "";
   }
 }
 
@@ -1348,11 +1348,11 @@ class CreateGroupRequest {
   ?'role_arn' => ArnType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->precedence = $precedence ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->description = $description ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->precedence = $precedence ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1362,7 +1362,7 @@ class CreateGroupResponse {
   public function __construct(shape(
   ?'group' => GroupType,
   ) $s = shape()) {
-    $this->group = $group ?? ;
+    $this->group = $group ?? null;
   }
 }
 
@@ -1382,12 +1382,12 @@ class CreateIdentityProviderRequest {
   ?'provider_type' => IdentityProviderTypeType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->attribute_mapping = $attribute_mapping ?? ;
-    $this->idp_identifiers = $idp_identifiers ?? ;
-    $this->provider_details = $provider_details ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->provider_type = $provider_type ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->attribute_mapping = $attribute_mapping ?? [];
+    $this->idp_identifiers = $idp_identifiers ?? [];
+    $this->provider_details = $provider_details ?? [];
+    $this->provider_name = $provider_name ?? "";
+    $this->provider_type = $provider_type ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1397,7 +1397,7 @@ class CreateIdentityProviderResponse {
   public function __construct(shape(
   ?'identity_provider' => IdentityProviderType,
   ) $s = shape()) {
-    $this->identity_provider = $identity_provider ?? ;
+    $this->identity_provider = $identity_provider ?? null;
   }
 }
 
@@ -1413,10 +1413,10 @@ class CreateResourceServerRequest {
   ?'scopes' => ResourceServerScopeListType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->name = $name ?? ;
-    $this->scopes = $scopes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->name = $name ?? "";
+    $this->scopes = $scopes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1426,7 +1426,7 @@ class CreateResourceServerResponse {
   public function __construct(shape(
   ?'resource_server' => ResourceServerType,
   ) $s = shape()) {
-    $this->resource_server = $resource_server ?? ;
+    $this->resource_server = $resource_server ?? null;
   }
 }
 
@@ -1440,9 +1440,9 @@ class CreateUserImportJobRequest {
   ?'job_name' => UserImportJobNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1452,7 +1452,7 @@ class CreateUserImportJobResponse {
   public function __construct(shape(
   ?'user_import_job' => UserImportJobType,
   ) $s = shape()) {
-    $this->user_import_job = $user_import_job ?? ;
+    $this->user_import_job = $user_import_job ?? null;
   }
 }
 
@@ -1492,22 +1492,22 @@ class CreateUserPoolClientRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'write_attributes' => ClientPermissionListType,
   ) $s = shape()) {
-    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? ;
-    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? ;
-    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? ;
-    $this->analytics_configuration = $analytics_configuration ?? ;
-    $this->callback_ur_ls = $callback_ur_ls ?? ;
-    $this->client_name = $client_name ?? ;
-    $this->default_redirect_uri = $default_redirect_uri ?? ;
-    $this->explicit_auth_flows = $explicit_auth_flows ?? ;
+    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? [];
+    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? false;
+    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? [];
+    $this->analytics_configuration = $analytics_configuration ?? null;
+    $this->callback_ur_ls = $callback_ur_ls ?? [];
+    $this->client_name = $client_name ?? "";
+    $this->default_redirect_uri = $default_redirect_uri ?? "";
+    $this->explicit_auth_flows = $explicit_auth_flows ?? [];
     $this->generate_secret = $generate_secret ?? false;
-    $this->logout_ur_ls = $logout_ur_ls ?? ;
-    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? ;
-    $this->read_attributes = $read_attributes ?? ;
-    $this->refresh_token_validity = $refresh_token_validity ?? ;
-    $this->supported_identity_providers = $supported_identity_providers ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->write_attributes = $write_attributes ?? ;
+    $this->logout_ur_ls = $logout_ur_ls ?? [];
+    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? "";
+    $this->read_attributes = $read_attributes ?? [];
+    $this->refresh_token_validity = $refresh_token_validity ?? 0;
+    $this->supported_identity_providers = $supported_identity_providers ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->write_attributes = $write_attributes ?? [];
   }
 }
 
@@ -1517,7 +1517,7 @@ class CreateUserPoolClientResponse {
   public function __construct(shape(
   ?'user_pool_client' => UserPoolClientType,
   ) $s = shape()) {
-    $this->user_pool_client = $user_pool_client ?? ;
+    $this->user_pool_client = $user_pool_client ?? null;
   }
 }
 
@@ -1531,9 +1531,9 @@ class CreateUserPoolDomainRequest {
   ?'domain' => DomainType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->custom_domain_config = $custom_domain_config ?? ;
-    $this->domain = $domain ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->custom_domain_config = $custom_domain_config ?? null;
+    $this->domain = $domain ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1543,7 +1543,7 @@ class CreateUserPoolDomainResponse {
   public function __construct(shape(
   ?'cloud_front_domain' => DomainType,
   ) $s = shape()) {
-    $this->cloud_front_domain = $cloud_front_domain ?? ;
+    $this->cloud_front_domain = $cloud_front_domain ?? "";
   }
 }
 
@@ -1593,27 +1593,27 @@ class CreateUserPoolRequest {
   ?'username_configuration' => UsernameConfigurationType,
   ?'verification_message_template' => VerificationMessageTemplateType,
   ) $s = shape()) {
-    $this->account_recovery_setting = $account_recovery_setting ?? ;
-    $this->admin_create_user_config = $admin_create_user_config ?? ;
-    $this->alias_attributes = $alias_attributes ?? ;
-    $this->auto_verified_attributes = $auto_verified_attributes ?? ;
-    $this->device_configuration = $device_configuration ?? ;
-    $this->email_configuration = $email_configuration ?? ;
-    $this->email_verification_message = $email_verification_message ?? ;
-    $this->email_verification_subject = $email_verification_subject ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->policies = $policies ?? ;
-    $this->pool_name = $pool_name ?? ;
-    $this->schema = $schema ?? ;
-    $this->sms_authentication_message = $sms_authentication_message ?? ;
-    $this->sms_configuration = $sms_configuration ?? ;
-    $this->sms_verification_message = $sms_verification_message ?? ;
-    $this->user_pool_add_ons = $user_pool_add_ons ?? ;
-    $this->user_pool_tags = $user_pool_tags ?? ;
-    $this->username_attributes = $username_attributes ?? ;
-    $this->username_configuration = $username_configuration ?? ;
-    $this->verification_message_template = $verification_message_template ?? ;
+    $this->account_recovery_setting = $account_recovery_setting ?? null;
+    $this->admin_create_user_config = $admin_create_user_config ?? null;
+    $this->alias_attributes = $alias_attributes ?? [];
+    $this->auto_verified_attributes = $auto_verified_attributes ?? [];
+    $this->device_configuration = $device_configuration ?? null;
+    $this->email_configuration = $email_configuration ?? null;
+    $this->email_verification_message = $email_verification_message ?? "";
+    $this->email_verification_subject = $email_verification_subject ?? "";
+    $this->lambda_config = $lambda_config ?? null;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->policies = $policies ?? null;
+    $this->pool_name = $pool_name ?? "";
+    $this->schema = $schema ?? [];
+    $this->sms_authentication_message = $sms_authentication_message ?? "";
+    $this->sms_configuration = $sms_configuration ?? null;
+    $this->sms_verification_message = $sms_verification_message ?? "";
+    $this->user_pool_add_ons = $user_pool_add_ons ?? null;
+    $this->user_pool_tags = $user_pool_tags ?? [];
+    $this->username_attributes = $username_attributes ?? [];
+    $this->username_configuration = $username_configuration ?? null;
+    $this->verification_message_template = $verification_message_template ?? null;
   }
 }
 
@@ -1623,7 +1623,7 @@ class CreateUserPoolResponse {
   public function __construct(shape(
   ?'user_pool' => UserPoolType,
   ) $s = shape()) {
-    $this->user_pool = $user_pool ?? ;
+    $this->user_pool = $user_pool ?? null;
   }
 }
 
@@ -1637,7 +1637,7 @@ class CustomDomainConfigType {
   public function __construct(shape(
   ?'certificate_arn' => ArnType,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
   }
 }
 
@@ -1653,8 +1653,8 @@ class DeleteGroupRequest {
   ?'group_name' => GroupNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1666,8 +1666,8 @@ class DeleteIdentityProviderRequest {
   ?'provider_name' => ProviderNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->provider_name = $provider_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->provider_name = $provider_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1679,8 +1679,8 @@ class DeleteResourceServerRequest {
   ?'identifier' => ResourceServerIdentifierType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1692,8 +1692,8 @@ class DeleteUserAttributesRequest {
   ?'access_token' => TokenModelType,
   ?'user_attribute_names' => AttributeNameListType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->user_attribute_names = $user_attribute_names ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->user_attribute_names = $user_attribute_names ?? [];
   }
 }
 
@@ -1712,8 +1712,8 @@ class DeleteUserPoolClientRequest {
   ?'client_id' => ClientIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1725,8 +1725,8 @@ class DeleteUserPoolDomainRequest {
   ?'domain' => DomainType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->domain = $domain ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1743,7 +1743,7 @@ class DeleteUserPoolRequest {
   public function __construct(shape(
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1753,7 +1753,7 @@ class DeleteUserRequest {
   public function __construct(shape(
   ?'access_token' => TokenModelType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
+    $this->access_token = $access_token ?? "";
   }
 }
 
@@ -1769,8 +1769,8 @@ class DescribeIdentityProviderRequest {
   ?'provider_name' => ProviderNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->provider_name = $provider_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->provider_name = $provider_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1780,7 +1780,7 @@ class DescribeIdentityProviderResponse {
   public function __construct(shape(
   ?'identity_provider' => IdentityProviderType,
   ) $s = shape()) {
-    $this->identity_provider = $identity_provider ?? ;
+    $this->identity_provider = $identity_provider ?? null;
   }
 }
 
@@ -1792,8 +1792,8 @@ class DescribeResourceServerRequest {
   ?'identifier' => ResourceServerIdentifierType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1803,7 +1803,7 @@ class DescribeResourceServerResponse {
   public function __construct(shape(
   ?'resource_server' => ResourceServerType,
   ) $s = shape()) {
-    $this->resource_server = $resource_server ?? ;
+    $this->resource_server = $resource_server ?? null;
   }
 }
 
@@ -1815,8 +1815,8 @@ class DescribeRiskConfigurationRequest {
   ?'client_id' => ClientIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1826,7 +1826,7 @@ class DescribeRiskConfigurationResponse {
   public function __construct(shape(
   ?'risk_configuration' => RiskConfigurationType,
   ) $s = shape()) {
-    $this->risk_configuration = $risk_configuration ?? ;
+    $this->risk_configuration = $risk_configuration ?? null;
   }
 }
 
@@ -1838,8 +1838,8 @@ class DescribeUserImportJobRequest {
   ?'job_id' => UserImportJobIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1849,7 +1849,7 @@ class DescribeUserImportJobResponse {
   public function __construct(shape(
   ?'user_import_job' => UserImportJobType,
   ) $s = shape()) {
-    $this->user_import_job = $user_import_job ?? ;
+    $this->user_import_job = $user_import_job ?? null;
   }
 }
 
@@ -1861,8 +1861,8 @@ class DescribeUserPoolClientRequest {
   ?'client_id' => ClientIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1872,7 +1872,7 @@ class DescribeUserPoolClientResponse {
   public function __construct(shape(
   ?'user_pool_client' => UserPoolClientType,
   ) $s = shape()) {
-    $this->user_pool_client = $user_pool_client ?? ;
+    $this->user_pool_client = $user_pool_client ?? null;
   }
 }
 
@@ -1882,7 +1882,7 @@ class DescribeUserPoolDomainRequest {
   public function __construct(shape(
   ?'domain' => DomainType,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -1892,7 +1892,7 @@ class DescribeUserPoolDomainResponse {
   public function __construct(shape(
   ?'domain_description' => DomainDescriptionType,
   ) $s = shape()) {
-    $this->domain_description = $domain_description ?? ;
+    $this->domain_description = $domain_description ?? null;
   }
 }
 
@@ -1902,7 +1902,7 @@ class DescribeUserPoolRequest {
   public function __construct(shape(
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -1912,7 +1912,7 @@ class DescribeUserPoolResponse {
   public function __construct(shape(
   ?'user_pool' => UserPoolType,
   ) $s = shape()) {
-    $this->user_pool = $user_pool ?? ;
+    $this->user_pool = $user_pool ?? null;
   }
 }
 
@@ -1926,8 +1926,8 @@ class DeviceConfigurationType {
   ?'challenge_required_on_new_device' => BooleanType,
   ?'device_only_remembered_on_user_prompt' => BooleanType,
   ) $s = shape()) {
-    $this->challenge_required_on_new_device = $challenge_required_on_new_device ?? ;
-    $this->device_only_remembered_on_user_prompt = $device_only_remembered_on_user_prompt ?? ;
+    $this->challenge_required_on_new_device = $challenge_required_on_new_device ?? false;
+    $this->device_only_remembered_on_user_prompt = $device_only_remembered_on_user_prompt ?? false;
   }
 }
 
@@ -1947,8 +1947,8 @@ class DeviceSecretVerifierConfigType {
   ?'password_verifier' => StringType,
   ?'salt' => StringType,
   ) $s = shape()) {
-    $this->password_verifier = $password_verifier ?? ;
-    $this->salt = $salt ?? ;
+    $this->password_verifier = $password_verifier ?? "";
+    $this->salt = $salt ?? "";
   }
 }
 
@@ -1966,11 +1966,11 @@ class DeviceType {
   ?'device_last_authenticated_date' => DateType,
   ?'device_last_modified_date' => DateType,
   ) $s = shape()) {
-    $this->device_attributes = $device_attributes ?? ;
-    $this->device_create_date = $device_create_date ?? ;
-    $this->device_key = $device_key ?? ;
-    $this->device_last_authenticated_date = $device_last_authenticated_date ?? ;
-    $this->device_last_modified_date = $device_last_modified_date ?? ;
+    $this->device_attributes = $device_attributes ?? [];
+    $this->device_create_date = $device_create_date ?? 0;
+    $this->device_key = $device_key ?? "";
+    $this->device_last_authenticated_date = $device_last_authenticated_date ?? 0;
+    $this->device_last_modified_date = $device_last_modified_date ?? 0;
   }
 }
 
@@ -1994,14 +1994,14 @@ class DomainDescriptionType {
   ?'user_pool_id' => UserPoolIdType,
   ?'version' => DomainVersionType,
   ) $s = shape()) {
-    $this->aws_account_id = $aws_account_id ?? ;
-    $this->cloud_front_distribution = $cloud_front_distribution ?? ;
-    $this->custom_domain_config = $custom_domain_config ?? ;
-    $this->domain = $domain ?? ;
-    $this->s_3_bucket = $s_3_bucket ?? ;
-    $this->status = $status ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->version = $version ?? ;
+    $this->aws_account_id = $aws_account_id ?? "";
+    $this->cloud_front_distribution = $cloud_front_distribution ?? "";
+    $this->custom_domain_config = $custom_domain_config ?? null;
+    $this->domain = $domain ?? "";
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->status = $status ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2017,7 +2017,7 @@ class DuplicateProviderException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2037,11 +2037,11 @@ class EmailConfigurationType {
   ?'reply_to_email_address' => EmailAddressType,
   ?'source_arn' => ArnType,
   ) $s = shape()) {
-    $this->configuration_set = $configuration_set ?? ;
-    $this->email_sending_account = $email_sending_account ?? ;
-    $this->from = $from ?? ;
-    $this->reply_to_email_address = $reply_to_email_address ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->configuration_set = $configuration_set ?? "";
+    $this->email_sending_account = $email_sending_account ?? "";
+    $this->from = $from ?? "";
+    $this->reply_to_email_address = $reply_to_email_address ?? "";
+    $this->source_arn = $source_arn ?? "";
   }
 }
 
@@ -2065,7 +2065,7 @@ class EnableSoftwareTokenMFAException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2083,11 +2083,11 @@ class EventContextDataType {
   ?'ip_address' => StringType,
   ?'timezone' => StringType,
   ) $s = shape()) {
-    $this->city = $city ?? ;
-    $this->country = $country ?? ;
-    $this->device_name = $device_name ?? ;
-    $this->ip_address = $ip_address ?? ;
-    $this->timezone = $timezone ?? ;
+    $this->city = $city ?? "";
+    $this->country = $country ?? "";
+    $this->device_name = $device_name ?? "";
+    $this->ip_address = $ip_address ?? "";
+    $this->timezone = $timezone ?? "";
   }
 }
 
@@ -2101,9 +2101,9 @@ class EventFeedbackType {
   ?'feedback_value' => FeedbackValueType,
   ?'provider' => StringType,
   ) $s = shape()) {
-    $this->feedback_date = $feedback_date ?? ;
-    $this->feedback_value = $feedback_value ?? ;
-    $this->provider = $provider ?? ;
+    $this->feedback_date = $feedback_date ?? 0;
+    $this->feedback_value = $feedback_value ?? "";
+    $this->provider = $provider ?? "";
   }
 }
 
@@ -2125,9 +2125,9 @@ class EventRiskType {
   ?'risk_decision' => RiskDecisionType,
   ?'risk_level' => RiskLevelType,
   ) $s = shape()) {
-    $this->compromised_credentials_detected = $compromised_credentials_detected ?? ;
-    $this->risk_decision = $risk_decision ?? ;
-    $this->risk_level = $risk_level ?? ;
+    $this->compromised_credentials_detected = $compromised_credentials_detected ?? false;
+    $this->risk_decision = $risk_decision ?? "";
+    $this->risk_level = $risk_level ?? "";
   }
 }
 
@@ -2139,7 +2139,7 @@ class ExpiredCodeException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2159,8 +2159,8 @@ class ForgetDeviceRequest {
   ?'access_token' => TokenModelType,
   ?'device_key' => DeviceKeyType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->device_key = $device_key ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->device_key = $device_key ?? "";
   }
 }
 
@@ -2180,12 +2180,12 @@ class ForgotPasswordRequest {
   ?'user_context_data' => UserContextDataType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->secret_hash = $secret_hash ?? ;
-    $this->user_context_data = $user_context_data ?? ;
-    $this->username = $username ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->secret_hash = $secret_hash ?? "";
+    $this->user_context_data = $user_context_data ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -2195,7 +2195,7 @@ class ForgotPasswordResponse {
   public function __construct(shape(
   ?'code_delivery_details' => CodeDeliveryDetailsType,
   ) $s = shape()) {
-    $this->code_delivery_details = $code_delivery_details ?? ;
+    $this->code_delivery_details = $code_delivery_details ?? null;
   }
 }
 
@@ -2207,7 +2207,7 @@ class GetCSVHeaderRequest {
   public function __construct(shape(
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2219,8 +2219,8 @@ class GetCSVHeaderResponse {
   ?'csv_header' => ListOfStringTypes,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->csv_header = $csv_header ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->csv_header = $csv_header ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2232,8 +2232,8 @@ class GetDeviceRequest {
   ?'access_token' => TokenModelType,
   ?'device_key' => DeviceKeyType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->device_key = $device_key ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->device_key = $device_key ?? "";
   }
 }
 
@@ -2243,7 +2243,7 @@ class GetDeviceResponse {
   public function __construct(shape(
   ?'device' => DeviceType,
   ) $s = shape()) {
-    $this->device = $device ?? ;
+    $this->device = $device ?? null;
   }
 }
 
@@ -2255,8 +2255,8 @@ class GetGroupRequest {
   ?'group_name' => GroupNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2266,7 +2266,7 @@ class GetGroupResponse {
   public function __construct(shape(
   ?'group' => GroupType,
   ) $s = shape()) {
-    $this->group = $group ?? ;
+    $this->group = $group ?? null;
   }
 }
 
@@ -2278,8 +2278,8 @@ class GetIdentityProviderByIdentifierRequest {
   ?'idp_identifier' => IdpIdentifierType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->idp_identifier = $idp_identifier ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->idp_identifier = $idp_identifier ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2289,7 +2289,7 @@ class GetIdentityProviderByIdentifierResponse {
   public function __construct(shape(
   ?'identity_provider' => IdentityProviderType,
   ) $s = shape()) {
-    $this->identity_provider = $identity_provider ?? ;
+    $this->identity_provider = $identity_provider ?? null;
   }
 }
 
@@ -2299,7 +2299,7 @@ class GetSigningCertificateRequest {
   public function __construct(shape(
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2309,7 +2309,7 @@ class GetSigningCertificateResponse {
   public function __construct(shape(
   ?'certificate' => StringType,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? "";
   }
 }
 
@@ -2321,8 +2321,8 @@ class GetUICustomizationRequest {
   ?'client_id' => ClientIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2332,7 +2332,7 @@ class GetUICustomizationResponse {
   public function __construct(shape(
   ?'ui_customization' => UICustomizationType,
   ) $s = shape()) {
-    $this->ui_customization = $ui_customization ?? ;
+    $this->ui_customization = $ui_customization ?? null;
   }
 }
 
@@ -2346,9 +2346,9 @@ class GetUserAttributeVerificationCodeRequest {
   ?'attribute_name' => AttributeNameType,
   ?'client_metadata' => ClientMetadataType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->attribute_name = $attribute_name ?? ;
-    $this->client_metadata = $client_metadata ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->attribute_name = $attribute_name ?? "";
+    $this->client_metadata = $client_metadata ?? [];
   }
 }
 
@@ -2358,7 +2358,7 @@ class GetUserAttributeVerificationCodeResponse {
   public function __construct(shape(
   ?'code_delivery_details' => CodeDeliveryDetailsType,
   ) $s = shape()) {
-    $this->code_delivery_details = $code_delivery_details ?? ;
+    $this->code_delivery_details = $code_delivery_details ?? null;
   }
 }
 
@@ -2368,7 +2368,7 @@ class GetUserPoolMfaConfigRequest {
   public function __construct(shape(
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2382,9 +2382,9 @@ class GetUserPoolMfaConfigResponse {
   ?'sms_mfa_configuration' => SmsMfaConfigType,
   ?'software_token_mfa_configuration' => SoftwareTokenMfaConfigType,
   ) $s = shape()) {
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->sms_mfa_configuration = $sms_mfa_configuration ?? ;
-    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? ;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->sms_mfa_configuration = $sms_mfa_configuration ?? null;
+    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? null;
   }
 }
 
@@ -2394,7 +2394,7 @@ class GetUserRequest {
   public function __construct(shape(
   ?'access_token' => TokenModelType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
+    $this->access_token = $access_token ?? "";
   }
 }
 
@@ -2412,11 +2412,11 @@ class GetUserResponse {
   ?'user_mfa_setting_list' => UserMFASettingListType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->mfa_options = $mfa_options ?? ;
-    $this->preferred_mfa_setting = $preferred_mfa_setting ?? ;
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_mfa_setting_list = $user_mfa_setting_list ?? ;
-    $this->username = $username ?? ;
+    $this->mfa_options = $mfa_options ?? [];
+    $this->preferred_mfa_setting = $preferred_mfa_setting ?? "";
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_mfa_setting_list = $user_mfa_setting_list ?? [];
+    $this->username = $username ?? "";
   }
 }
 
@@ -2426,7 +2426,7 @@ class GlobalSignOutRequest {
   public function __construct(shape(
   ?'access_token' => TokenModelType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
+    $this->access_token = $access_token ?? "";
   }
 }
 
@@ -2443,7 +2443,7 @@ class GroupExistsException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2469,13 +2469,13 @@ class GroupType {
   ?'role_arn' => ArnType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->precedence = $precedence ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->precedence = $precedence ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2489,8 +2489,8 @@ class HttpHeader {
   ?'header_name' => StringType,
   ?'header_value' => StringType,
   ) $s = shape()) {
-    $this->header_name = $header_name ?? ;
-    $this->header_value = $header_value ?? ;
+    $this->header_name = $header_name ?? "";
+    $this->header_value = $header_value ?? "";
   }
 }
 
@@ -2516,14 +2516,14 @@ class IdentityProviderType {
   ?'provider_type' => IdentityProviderTypeType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->attribute_mapping = $attribute_mapping ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->idp_identifiers = $idp_identifiers ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->provider_details = $provider_details ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->provider_type = $provider_type ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->attribute_mapping = $attribute_mapping ?? [];
+    $this->creation_date = $creation_date ?? 0;
+    $this->idp_identifiers = $idp_identifiers ?? [];
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->provider_details = $provider_details ?? [];
+    $this->provider_name = $provider_name ?? "";
+    $this->provider_type = $provider_type ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2553,12 +2553,12 @@ class InitiateAuthRequest {
   ?'client_metadata' => ClientMetadataType,
   ?'user_context_data' => UserContextDataType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->auth_flow = $auth_flow ?? ;
-    $this->auth_parameters = $auth_parameters ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->user_context_data = $user_context_data ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->auth_flow = $auth_flow ?? "";
+    $this->auth_parameters = $auth_parameters ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->user_context_data = $user_context_data ?? null;
   }
 }
 
@@ -2574,10 +2574,10 @@ class InitiateAuthResponse {
   ?'challenge_parameters' => ChallengeParametersType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->authentication_result = $authentication_result ?? ;
+    $this->authentication_result = $authentication_result ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_parameters = $challenge_parameters ?? ;
-    $this->session = $session ?? ;
+    $this->challenge_parameters = $challenge_parameters ?? [];
+    $this->session = $session ?? "";
   }
 }
 
@@ -2589,7 +2589,7 @@ class InternalErrorException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2599,7 +2599,7 @@ class InvalidEmailRoleAccessPolicyException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2609,7 +2609,7 @@ class InvalidLambdaResponseException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2619,7 +2619,7 @@ class InvalidOAuthFlowException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2629,7 +2629,7 @@ class InvalidParameterException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2639,7 +2639,7 @@ class InvalidPasswordException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2649,7 +2649,7 @@ class InvalidSmsRoleAccessPolicyException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2659,7 +2659,7 @@ class InvalidSmsRoleTrustRelationshipException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2669,7 +2669,7 @@ class InvalidUserPoolConfigurationException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2697,16 +2697,16 @@ class LambdaConfigType {
   ?'user_migration' => ArnType,
   ?'verify_auth_challenge_response' => ArnType,
   ) $s = shape()) {
-    $this->create_auth_challenge = $create_auth_challenge ?? ;
-    $this->custom_message = $custom_message ?? ;
-    $this->define_auth_challenge = $define_auth_challenge ?? ;
-    $this->post_authentication = $post_authentication ?? ;
-    $this->post_confirmation = $post_confirmation ?? ;
-    $this->pre_authentication = $pre_authentication ?? ;
-    $this->pre_sign_up = $pre_sign_up ?? ;
-    $this->pre_token_generation = $pre_token_generation ?? ;
-    $this->user_migration = $user_migration ?? ;
-    $this->verify_auth_challenge_response = $verify_auth_challenge_response ?? ;
+    $this->create_auth_challenge = $create_auth_challenge ?? "";
+    $this->custom_message = $custom_message ?? "";
+    $this->define_auth_challenge = $define_auth_challenge ?? "";
+    $this->post_authentication = $post_authentication ?? "";
+    $this->post_confirmation = $post_confirmation ?? "";
+    $this->pre_authentication = $pre_authentication ?? "";
+    $this->pre_sign_up = $pre_sign_up ?? "";
+    $this->pre_token_generation = $pre_token_generation ?? "";
+    $this->user_migration = $user_migration ?? "";
+    $this->verify_auth_challenge_response = $verify_auth_challenge_response ?? "";
   }
 }
 
@@ -2716,7 +2716,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2730,9 +2730,9 @@ class ListDevicesRequest {
   ?'limit' => QueryLimitType,
   ?'pagination_token' => SearchPaginationTokenType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->limit = $limit ?? ;
-    $this->pagination_token = $pagination_token ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->limit = $limit ?? 0;
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -2744,8 +2744,8 @@ class ListDevicesResponse {
   ?'devices' => DeviceListType,
   ?'pagination_token' => SearchPaginationTokenType,
   ) $s = shape()) {
-    $this->devices = $devices ?? ;
-    $this->pagination_token = $pagination_token ?? ;
+    $this->devices = $devices ?? [];
+    $this->pagination_token = $pagination_token ?? "";
   }
 }
 
@@ -2759,9 +2759,9 @@ class ListGroupsRequest {
   ?'next_token' => PaginationKey,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2773,8 +2773,8 @@ class ListGroupsResponse {
   ?'groups' => GroupListType,
   ?'next_token' => PaginationKey,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->groups = $groups ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2788,9 +2788,9 @@ class ListIdentityProvidersRequest {
   ?'next_token' => PaginationKeyType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2802,8 +2802,8 @@ class ListIdentityProvidersResponse {
   ?'next_token' => PaginationKeyType,
   ?'providers' => ProvidersListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->providers = $providers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->providers = $providers ?? [];
   }
 }
 
@@ -2823,9 +2823,9 @@ class ListResourceServersRequest {
   ?'next_token' => PaginationKeyType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2837,8 +2837,8 @@ class ListResourceServersResponse {
   ?'next_token' => PaginationKeyType,
   ?'resource_servers' => ResourceServersListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->resource_servers = $resource_servers ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->resource_servers = $resource_servers ?? [];
   }
 }
 
@@ -2848,7 +2848,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => ArnType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2858,7 +2858,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => UserPoolTagsType,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2872,9 +2872,9 @@ class ListUserImportJobsRequest {
   ?'pagination_token' => PaginationKeyType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->pagination_token = $pagination_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2886,8 +2886,8 @@ class ListUserImportJobsResponse {
   ?'pagination_token' => PaginationKeyType,
   ?'user_import_jobs' => UserImportJobsListType,
   ) $s = shape()) {
-    $this->pagination_token = $pagination_token ?? ;
-    $this->user_import_jobs = $user_import_jobs ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->user_import_jobs = $user_import_jobs ?? [];
   }
 }
 
@@ -2901,9 +2901,9 @@ class ListUserPoolClientsRequest {
   ?'next_token' => PaginationKey,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2915,8 +2915,8 @@ class ListUserPoolClientsResponse {
   ?'next_token' => PaginationKey,
   ?'user_pool_clients' => UserPoolClientListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_clients = $user_pool_clients ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_clients = $user_pool_clients ?? [];
   }
 }
 
@@ -2928,8 +2928,8 @@ class ListUserPoolsRequest {
   ?'max_results' => PoolQueryLimitType,
   ?'next_token' => PaginationKeyType,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2941,8 +2941,8 @@ class ListUserPoolsResponse {
   ?'next_token' => PaginationKeyType,
   ?'user_pools' => UserPoolListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->user_pools = $user_pools ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->user_pools = $user_pools ?? [];
   }
 }
 
@@ -2958,10 +2958,10 @@ class ListUsersInGroupRequest {
   ?'next_token' => PaginationKey,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -2973,8 +2973,8 @@ class ListUsersInGroupResponse {
   ?'next_token' => PaginationKey,
   ?'users' => UsersListType,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->users = $users ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -2992,11 +2992,11 @@ class ListUsersRequest {
   ?'pagination_token' => SearchPaginationTokenType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->attributes_to_get = $attributes_to_get ?? ;
-    $this->filter = $filter ?? ;
-    $this->limit = $limit ?? ;
-    $this->pagination_token = $pagination_token ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->attributes_to_get = $attributes_to_get ?? [];
+    $this->filter = $filter ?? "";
+    $this->limit = $limit ?? 0;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3008,8 +3008,8 @@ class ListUsersResponse {
   ?'pagination_token' => SearchPaginationTokenType,
   ?'users' => UsersListType,
   ) $s = shape()) {
-    $this->pagination_token = $pagination_token ?? ;
-    $this->users = $users ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -3023,7 +3023,7 @@ class MFAMethodNotFoundException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3037,8 +3037,8 @@ class MFAOptionType {
   ?'attribute_name' => AttributeNameType,
   ?'delivery_medium' => DeliveryMediumType,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
-    $this->delivery_medium = $delivery_medium ?? ;
+    $this->attribute_name = $attribute_name ?? "";
+    $this->delivery_medium = $delivery_medium ?? "";
   }
 }
 
@@ -3054,9 +3054,9 @@ class MessageTemplateType {
   ?'email_subject' => EmailVerificationSubjectType,
   ?'sms_message' => SmsVerificationMessageType,
   ) $s = shape()) {
-    $this->email_message = $email_message ?? ;
-    $this->email_subject = $email_subject ?? ;
-    $this->sms_message = $sms_message ?? ;
+    $this->email_message = $email_message ?? "";
+    $this->email_subject = $email_subject ?? "";
+    $this->sms_message = $sms_message ?? "";
   }
 }
 
@@ -3070,8 +3070,8 @@ class NewDeviceMetadataType {
   ?'device_group_key' => StringType,
   ?'device_key' => DeviceKeyType,
   ) $s = shape()) {
-    $this->device_group_key = $device_group_key ?? ;
-    $this->device_key = $device_key ?? ;
+    $this->device_group_key = $device_group_key ?? "";
+    $this->device_key = $device_key ?? "";
   }
 }
 
@@ -3081,7 +3081,7 @@ class NotAuthorizedException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3101,12 +3101,12 @@ class NotifyConfigurationType {
   ?'reply_to' => StringType,
   ?'source_arn' => ArnType,
   ) $s = shape()) {
-    $this->block_email = $block_email ?? ;
-    $this->from = $from ?? ;
-    $this->mfa_email = $mfa_email ?? ;
-    $this->no_action_email = $no_action_email ?? ;
-    $this->reply_to = $reply_to ?? ;
-    $this->source_arn = $source_arn ?? ;
+    $this->block_email = $block_email ?? null;
+    $this->from = $from ?? "";
+    $this->mfa_email = $mfa_email ?? null;
+    $this->no_action_email = $no_action_email ?? null;
+    $this->reply_to = $reply_to ?? "";
+    $this->source_arn = $source_arn ?? "";
   }
 }
 
@@ -3120,9 +3120,9 @@ class NotifyEmailType {
   ?'subject' => EmailNotificationSubjectType,
   ?'text_body' => EmailNotificationBodyType,
   ) $s = shape()) {
-    $this->html_body = $html_body ?? ;
-    $this->subject = $subject ?? ;
-    $this->text_body = $text_body ?? ;
+    $this->html_body = $html_body ?? "";
+    $this->subject = $subject ?? "";
+    $this->text_body = $text_body ?? "";
   }
 }
 
@@ -3134,8 +3134,8 @@ class NumberAttributeConstraintsType {
   ?'max_value' => StringType,
   ?'min_value' => StringType,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
+    $this->max_value = $max_value ?? "";
+    $this->min_value = $min_value ?? "";
   }
 }
 
@@ -3165,12 +3165,12 @@ class PasswordPolicyType {
   ?'require_uppercase' => BooleanType,
   ?'temporary_password_validity_days' => TemporaryPasswordValidityDaysType,
   ) $s = shape()) {
-    $this->minimum_length = $minimum_length ?? ;
-    $this->require_lowercase = $require_lowercase ?? ;
-    $this->require_numbers = $require_numbers ?? ;
-    $this->require_symbols = $require_symbols ?? ;
-    $this->require_uppercase = $require_uppercase ?? ;
-    $this->temporary_password_validity_days = $temporary_password_validity_days ?? ;
+    $this->minimum_length = $minimum_length ?? 0;
+    $this->require_lowercase = $require_lowercase ?? false;
+    $this->require_numbers = $require_numbers ?? false;
+    $this->require_symbols = $require_symbols ?? false;
+    $this->require_uppercase = $require_uppercase ?? false;
+    $this->temporary_password_validity_days = $temporary_password_validity_days ?? 0;
   }
 }
 
@@ -3180,7 +3180,7 @@ class PasswordResetRequiredException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3198,7 +3198,7 @@ class PreconditionNotMetException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3218,10 +3218,10 @@ class ProviderDescription {
   ?'provider_name' => ProviderNameType,
   ?'provider_type' => IdentityProviderTypeType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->provider_type = $provider_type ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->provider_name = $provider_name ?? "";
+    $this->provider_type = $provider_type ?? "";
   }
 }
 
@@ -3241,9 +3241,9 @@ class ProviderUserIdentifierType {
   ?'provider_attribute_value' => StringType,
   ?'provider_name' => ProviderNameType,
   ) $s = shape()) {
-    $this->provider_attribute_name = $provider_attribute_name ?? ;
-    $this->provider_attribute_value = $provider_attribute_value ?? ;
-    $this->provider_name = $provider_name ?? ;
+    $this->provider_attribute_name = $provider_attribute_name ?? "";
+    $this->provider_attribute_value = $provider_attribute_value ?? "";
+    $this->provider_name = $provider_name ?? "";
   }
 }
 
@@ -3265,8 +3265,8 @@ class RecoveryOptionType {
   ?'name' => RecoveryOptionNameType,
   ?'priority' => PriorityType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->priority = $priority ?? ;
+    $this->name = $name ?? "";
+    $this->priority = $priority ?? 0;
   }
 }
 
@@ -3290,12 +3290,12 @@ class ResendConfirmationCodeRequest {
   ?'user_context_data' => UserContextDataType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->secret_hash = $secret_hash ?? ;
-    $this->user_context_data = $user_context_data ?? ;
-    $this->username = $username ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->secret_hash = $secret_hash ?? "";
+    $this->user_context_data = $user_context_data ?? null;
+    $this->username = $username ?? "";
   }
 }
 
@@ -3305,7 +3305,7 @@ class ResendConfirmationCodeResponse {
   public function __construct(shape(
   ?'code_delivery_details' => CodeDeliveryDetailsType,
   ) $s = shape()) {
-    $this->code_delivery_details = $code_delivery_details ?? ;
+    $this->code_delivery_details = $code_delivery_details ?? null;
   }
 }
 
@@ -3315,7 +3315,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3337,8 +3337,8 @@ class ResourceServerScopeType {
   ?'scope_description' => ResourceServerScopeDescriptionType,
   ?'scope_name' => ResourceServerScopeNameType,
   ) $s = shape()) {
-    $this->scope_description = $scope_description ?? ;
-    $this->scope_name = $scope_name ?? ;
+    $this->scope_description = $scope_description ?? "";
+    $this->scope_name = $scope_name ?? "";
   }
 }
 
@@ -3354,10 +3354,10 @@ class ResourceServerType {
   ?'scopes' => ResourceServerScopeListType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->name = $name ?? ;
-    $this->scopes = $scopes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->name = $name ?? "";
+    $this->scopes = $scopes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3381,13 +3381,13 @@ class RespondToAuthChallengeRequest {
   ?'session' => SessionType,
   ?'user_context_data' => UserContextDataType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_responses = $challenge_responses ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->session = $session ?? ;
-    $this->user_context_data = $user_context_data ?? ;
+    $this->challenge_responses = $challenge_responses ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->session = $session ?? "";
+    $this->user_context_data = $user_context_data ?? null;
   }
 }
 
@@ -3403,10 +3403,10 @@ class RespondToAuthChallengeResponse {
   ?'challenge_parameters' => ChallengeParametersType,
   ?'session' => SessionType,
   ) $s = shape()) {
-    $this->authentication_result = $authentication_result ?? ;
+    $this->authentication_result = $authentication_result ?? null;
     $this->challenge_name = $challenge_name ?? "";
-    $this->challenge_parameters = $challenge_parameters ?? ;
-    $this->session = $session ?? ;
+    $this->challenge_parameters = $challenge_parameters ?? [];
+    $this->session = $session ?? "";
   }
 }
 
@@ -3426,12 +3426,12 @@ class RiskConfigurationType {
   ?'risk_exception_configuration' => RiskExceptionConfigurationType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->account_takeover_risk_configuration = $account_takeover_risk_configuration ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->compromised_credentials_risk_configuration = $compromised_credentials_risk_configuration ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->risk_exception_configuration = $risk_exception_configuration ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->account_takeover_risk_configuration = $account_takeover_risk_configuration ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->compromised_credentials_risk_configuration = $compromised_credentials_risk_configuration ?? null;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->risk_exception_configuration = $risk_exception_configuration ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3445,8 +3445,8 @@ class RiskExceptionConfigurationType {
   ?'blocked_ip_range_list' => BlockedIPRangeListType,
   ?'skipped_ip_range_list' => SkippedIPRangeListType,
   ) $s = shape()) {
-    $this->blocked_ip_range_list = $blocked_ip_range_list ?? ;
-    $this->skipped_ip_range_list = $skipped_ip_range_list ?? ;
+    $this->blocked_ip_range_list = $blocked_ip_range_list ?? [];
+    $this->skipped_ip_range_list = $skipped_ip_range_list ?? [];
   }
 }
 
@@ -3464,8 +3464,8 @@ class SMSMfaSettingsType {
   ?'enabled' => BooleanType,
   ?'preferred_mfa' => BooleanType,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->preferred_mfa = $preferred_mfa ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->preferred_mfa = $preferred_mfa ?? false;
   }
 }
 
@@ -3488,12 +3488,12 @@ class SchemaAttributeType {
   ?'string_attribute_constraints' => StringAttributeConstraintsType,
   ) $s = shape()) {
     $this->attribute_data_type = $attribute_data_type ?? "";
-    $this->developer_only_attribute = $developer_only_attribute ?? ;
-    $this->mutable = $mutable ?? ;
-    $this->name = $name ?? ;
-    $this->number_attribute_constraints = $number_attribute_constraints ?? ;
-    $this->required = $required ?? ;
-    $this->string_attribute_constraints = $string_attribute_constraints ?? ;
+    $this->developer_only_attribute = $developer_only_attribute ?? false;
+    $this->mutable = $mutable ?? false;
+    $this->name = $name ?? "";
+    $this->number_attribute_constraints = $number_attribute_constraints ?? null;
+    $this->required = $required ?? false;
+    $this->string_attribute_constraints = $string_attribute_constraints ?? null;
   }
 }
 
@@ -3505,7 +3505,7 @@ class ScopeDoesNotExistException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3537,11 +3537,11 @@ class SetRiskConfigurationRequest {
   ?'risk_exception_configuration' => RiskExceptionConfigurationType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->account_takeover_risk_configuration = $account_takeover_risk_configuration ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->compromised_credentials_risk_configuration = $compromised_credentials_risk_configuration ?? ;
-    $this->risk_exception_configuration = $risk_exception_configuration ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->account_takeover_risk_configuration = $account_takeover_risk_configuration ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->compromised_credentials_risk_configuration = $compromised_credentials_risk_configuration ?? null;
+    $this->risk_exception_configuration = $risk_exception_configuration ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3551,7 +3551,7 @@ class SetRiskConfigurationResponse {
   public function __construct(shape(
   ?'risk_configuration' => RiskConfigurationType,
   ) $s = shape()) {
-    $this->risk_configuration = $risk_configuration ?? ;
+    $this->risk_configuration = $risk_configuration ?? null;
   }
 }
 
@@ -3567,10 +3567,10 @@ class SetUICustomizationRequest {
   ?'image_file' => ImageFileType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->css = $css ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->image_file = $image_file ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->css = $css ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->image_file = $image_file ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3580,7 +3580,7 @@ class SetUICustomizationResponse {
   public function __construct(shape(
   ?'ui_customization' => UICustomizationType,
   ) $s = shape()) {
-    $this->ui_customization = $ui_customization ?? ;
+    $this->ui_customization = $ui_customization ?? null;
   }
 }
 
@@ -3594,9 +3594,9 @@ class SetUserMFAPreferenceRequest {
   ?'sms_mfa_settings' => SMSMfaSettingsType,
   ?'software_token_mfa_settings' => SoftwareTokenMfaSettingsType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->sms_mfa_settings = $sms_mfa_settings ?? ;
-    $this->software_token_mfa_settings = $software_token_mfa_settings ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->sms_mfa_settings = $sms_mfa_settings ?? null;
+    $this->software_token_mfa_settings = $software_token_mfa_settings ?? null;
   }
 }
 
@@ -3619,10 +3619,10 @@ class SetUserPoolMfaConfigRequest {
   ?'software_token_mfa_configuration' => SoftwareTokenMfaConfigType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->sms_mfa_configuration = $sms_mfa_configuration ?? ;
-    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->sms_mfa_configuration = $sms_mfa_configuration ?? null;
+    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3636,9 +3636,9 @@ class SetUserPoolMfaConfigResponse {
   ?'sms_mfa_configuration' => SmsMfaConfigType,
   ?'software_token_mfa_configuration' => SoftwareTokenMfaConfigType,
   ) $s = shape()) {
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->sms_mfa_configuration = $sms_mfa_configuration ?? ;
-    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? ;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->sms_mfa_configuration = $sms_mfa_configuration ?? null;
+    $this->software_token_mfa_configuration = $software_token_mfa_configuration ?? null;
   }
 }
 
@@ -3650,8 +3650,8 @@ class SetUserSettingsRequest {
   ?'access_token' => TokenModelType,
   ?'mfa_options' => MFAOptionListType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->mfa_options = $mfa_options ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->mfa_options = $mfa_options ?? [];
   }
 }
 
@@ -3684,15 +3684,15 @@ class SignUpRequest {
   ?'username' => UsernameType,
   ?'validation_data' => AttributeListType,
   ) $s = shape()) {
-    $this->analytics_metadata = $analytics_metadata ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->password = $password ?? ;
-    $this->secret_hash = $secret_hash ?? ;
-    $this->user_attributes = $user_attributes ?? ;
-    $this->user_context_data = $user_context_data ?? ;
-    $this->username = $username ?? ;
-    $this->validation_data = $validation_data ?? ;
+    $this->analytics_metadata = $analytics_metadata ?? null;
+    $this->client_id = $client_id ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->password = $password ?? "";
+    $this->secret_hash = $secret_hash ?? "";
+    $this->user_attributes = $user_attributes ?? [];
+    $this->user_context_data = $user_context_data ?? null;
+    $this->username = $username ?? "";
+    $this->validation_data = $validation_data ?? [];
   }
 }
 
@@ -3706,9 +3706,9 @@ class SignUpResponse {
   ?'user_confirmed' => BooleanType,
   ?'user_sub' => StringType,
   ) $s = shape()) {
-    $this->code_delivery_details = $code_delivery_details ?? ;
-    $this->user_confirmed = $user_confirmed ?? ;
-    $this->user_sub = $user_sub ?? ;
+    $this->code_delivery_details = $code_delivery_details ?? null;
+    $this->user_confirmed = $user_confirmed ?? false;
+    $this->user_sub = $user_sub ?? "";
   }
 }
 
@@ -3722,8 +3722,8 @@ class SmsConfigurationType {
   ?'external_id' => StringType,
   ?'sns_caller_arn' => ArnType,
   ) $s = shape()) {
-    $this->external_id = $external_id ?? ;
-    $this->sns_caller_arn = $sns_caller_arn ?? ;
+    $this->external_id = $external_id ?? "";
+    $this->sns_caller_arn = $sns_caller_arn ?? "";
   }
 }
 
@@ -3735,8 +3735,8 @@ class SmsMfaConfigType {
   ?'sms_authentication_message' => SmsVerificationMessageType,
   ?'sms_configuration' => SmsConfigurationType,
   ) $s = shape()) {
-    $this->sms_authentication_message = $sms_authentication_message ?? ;
-    $this->sms_configuration = $sms_configuration ?? ;
+    $this->sms_authentication_message = $sms_authentication_message ?? "";
+    $this->sms_configuration = $sms_configuration ?? null;
   }
 }
 
@@ -3748,7 +3748,7 @@ class SoftwareTokenMFANotFoundException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3760,7 +3760,7 @@ class SoftwareTokenMfaConfigType {
   public function __construct(shape(
   ?'enabled' => BooleanType,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -3772,8 +3772,8 @@ class SoftwareTokenMfaSettingsType {
   ?'enabled' => BooleanType,
   ?'preferred_mfa' => BooleanType,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->preferred_mfa = $preferred_mfa ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->preferred_mfa = $preferred_mfa ?? false;
   }
 }
 
@@ -3785,8 +3785,8 @@ class StartUserImportJobRequest {
   ?'job_id' => UserImportJobIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3796,7 +3796,7 @@ class StartUserImportJobResponse {
   public function __construct(shape(
   ?'user_import_job' => UserImportJobType,
   ) $s = shape()) {
-    $this->user_import_job = $user_import_job ?? ;
+    $this->user_import_job = $user_import_job ?? null;
   }
 }
 
@@ -3810,8 +3810,8 @@ class StopUserImportJobRequest {
   ?'job_id' => UserImportJobIdType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3821,7 +3821,7 @@ class StopUserImportJobResponse {
   public function __construct(shape(
   ?'user_import_job' => UserImportJobType,
   ) $s = shape()) {
-    $this->user_import_job = $user_import_job ?? ;
+    $this->user_import_job = $user_import_job ?? null;
   }
 }
 
@@ -3833,8 +3833,8 @@ class StringAttributeConstraintsType {
   ?'max_length' => StringType,
   ?'min_length' => StringType,
   ) $s = shape()) {
-    $this->max_length = $max_length ?? ;
-    $this->min_length = $min_length ?? ;
+    $this->max_length = $max_length ?? "";
+    $this->min_length = $min_length ?? "";
   }
 }
 
@@ -3852,8 +3852,8 @@ class TagResourceRequest {
   ?'resource_arn' => ArnType,
   ?'tags' => UserPoolTagsType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3876,7 +3876,7 @@ class TooManyFailedAttemptsException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3886,7 +3886,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3908,13 +3908,13 @@ class UICustomizationType {
   ?'last_modified_date' => DateType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->css = $css ?? ;
-    $this->css_version = $css_version ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->image_url = $image_url ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->css = $css ?? "";
+    $this->css_version = $css_version ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->image_url = $image_url ?? "";
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -3924,7 +3924,7 @@ class UnexpectedLambdaException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3934,7 +3934,7 @@ class UnsupportedIdentityProviderException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3944,7 +3944,7 @@ class UnsupportedUserStateException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3956,8 +3956,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ArnType,
   ?'tag_keys' => UserPoolTagsListType,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3982,11 +3982,11 @@ class UpdateAuthEventFeedbackRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? ;
-    $this->feedback_token = $feedback_token ?? ;
-    $this->feedback_value = $feedback_value ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->username = $username ?? ;
+    $this->event_id = $event_id ?? "";
+    $this->feedback_token = $feedback_token ?? "";
+    $this->feedback_value = $feedback_value ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -4007,9 +4007,9 @@ class UpdateDeviceStatusRequest {
   ?'device_key' => DeviceKeyType,
   ?'device_remembered_status' => DeviceRememberedStatusType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->device_key = $device_key ?? ;
-    $this->device_remembered_status = $device_remembered_status ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->device_key = $device_key ?? "";
+    $this->device_remembered_status = $device_remembered_status ?? "";
   }
 }
 
@@ -4034,11 +4034,11 @@ class UpdateGroupRequest {
   ?'role_arn' => ArnType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->precedence = $precedence ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->description = $description ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->precedence = $precedence ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4048,7 +4048,7 @@ class UpdateGroupResponse {
   public function __construct(shape(
   ?'group' => GroupType,
   ) $s = shape()) {
-    $this->group = $group ?? ;
+    $this->group = $group ?? null;
   }
 }
 
@@ -4066,11 +4066,11 @@ class UpdateIdentityProviderRequest {
   ?'provider_name' => ProviderNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->attribute_mapping = $attribute_mapping ?? ;
-    $this->idp_identifiers = $idp_identifiers ?? ;
-    $this->provider_details = $provider_details ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->attribute_mapping = $attribute_mapping ?? [];
+    $this->idp_identifiers = $idp_identifiers ?? [];
+    $this->provider_details = $provider_details ?? [];
+    $this->provider_name = $provider_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4080,7 +4080,7 @@ class UpdateIdentityProviderResponse {
   public function __construct(shape(
   ?'identity_provider' => IdentityProviderType,
   ) $s = shape()) {
-    $this->identity_provider = $identity_provider ?? ;
+    $this->identity_provider = $identity_provider ?? null;
   }
 }
 
@@ -4096,10 +4096,10 @@ class UpdateResourceServerRequest {
   ?'scopes' => ResourceServerScopeListType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->identifier = $identifier ?? ;
-    $this->name = $name ?? ;
-    $this->scopes = $scopes ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->identifier = $identifier ?? "";
+    $this->name = $name ?? "";
+    $this->scopes = $scopes ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4109,7 +4109,7 @@ class UpdateResourceServerResponse {
   public function __construct(shape(
   ?'resource_server' => ResourceServerType,
   ) $s = shape()) {
-    $this->resource_server = $resource_server ?? ;
+    $this->resource_server = $resource_server ?? null;
   }
 }
 
@@ -4123,9 +4123,9 @@ class UpdateUserAttributesRequest {
   ?'client_metadata' => ClientMetadataType,
   ?'user_attributes' => AttributeListType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->client_metadata = $client_metadata ?? ;
-    $this->user_attributes = $user_attributes ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->client_metadata = $client_metadata ?? [];
+    $this->user_attributes = $user_attributes ?? [];
   }
 }
 
@@ -4135,7 +4135,7 @@ class UpdateUserAttributesResponse {
   public function __construct(shape(
   ?'code_delivery_details_list' => CodeDeliveryDetailsListType,
   ) $s = shape()) {
-    $this->code_delivery_details_list = $code_delivery_details_list ?? ;
+    $this->code_delivery_details_list = $code_delivery_details_list ?? [];
   }
 }
 
@@ -4175,22 +4175,22 @@ class UpdateUserPoolClientRequest {
   ?'user_pool_id' => UserPoolIdType,
   ?'write_attributes' => ClientPermissionListType,
   ) $s = shape()) {
-    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? ;
-    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? ;
-    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? ;
-    $this->analytics_configuration = $analytics_configuration ?? ;
-    $this->callback_ur_ls = $callback_ur_ls ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_name = $client_name ?? ;
-    $this->default_redirect_uri = $default_redirect_uri ?? ;
-    $this->explicit_auth_flows = $explicit_auth_flows ?? ;
-    $this->logout_ur_ls = $logout_ur_ls ?? ;
-    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? ;
-    $this->read_attributes = $read_attributes ?? ;
-    $this->refresh_token_validity = $refresh_token_validity ?? ;
-    $this->supported_identity_providers = $supported_identity_providers ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->write_attributes = $write_attributes ?? ;
+    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? [];
+    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? false;
+    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? [];
+    $this->analytics_configuration = $analytics_configuration ?? null;
+    $this->callback_ur_ls = $callback_ur_ls ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_name = $client_name ?? "";
+    $this->default_redirect_uri = $default_redirect_uri ?? "";
+    $this->explicit_auth_flows = $explicit_auth_flows ?? [];
+    $this->logout_ur_ls = $logout_ur_ls ?? [];
+    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? "";
+    $this->read_attributes = $read_attributes ?? [];
+    $this->refresh_token_validity = $refresh_token_validity ?? 0;
+    $this->supported_identity_providers = $supported_identity_providers ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->write_attributes = $write_attributes ?? [];
   }
 }
 
@@ -4200,7 +4200,7 @@ class UpdateUserPoolClientResponse {
   public function __construct(shape(
   ?'user_pool_client' => UserPoolClientType,
   ) $s = shape()) {
-    $this->user_pool_client = $user_pool_client ?? ;
+    $this->user_pool_client = $user_pool_client ?? null;
   }
 }
 
@@ -4214,9 +4214,9 @@ class UpdateUserPoolDomainRequest {
   ?'domain' => DomainType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->custom_domain_config = $custom_domain_config ?? ;
-    $this->domain = $domain ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->custom_domain_config = $custom_domain_config ?? null;
+    $this->domain = $domain ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4226,7 +4226,7 @@ class UpdateUserPoolDomainResponse {
   public function __construct(shape(
   ?'cloud_front_domain' => DomainType,
   ) $s = shape()) {
-    $this->cloud_front_domain = $cloud_front_domain ?? ;
+    $this->cloud_front_domain = $cloud_front_domain ?? "";
   }
 }
 
@@ -4268,23 +4268,23 @@ class UpdateUserPoolRequest {
   ?'user_pool_tags' => UserPoolTagsType,
   ?'verification_message_template' => VerificationMessageTemplateType,
   ) $s = shape()) {
-    $this->account_recovery_setting = $account_recovery_setting ?? ;
-    $this->admin_create_user_config = $admin_create_user_config ?? ;
-    $this->auto_verified_attributes = $auto_verified_attributes ?? ;
-    $this->device_configuration = $device_configuration ?? ;
-    $this->email_configuration = $email_configuration ?? ;
-    $this->email_verification_message = $email_verification_message ?? ;
-    $this->email_verification_subject = $email_verification_subject ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->policies = $policies ?? ;
-    $this->sms_authentication_message = $sms_authentication_message ?? ;
-    $this->sms_configuration = $sms_configuration ?? ;
-    $this->sms_verification_message = $sms_verification_message ?? ;
-    $this->user_pool_add_ons = $user_pool_add_ons ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->user_pool_tags = $user_pool_tags ?? ;
-    $this->verification_message_template = $verification_message_template ?? ;
+    $this->account_recovery_setting = $account_recovery_setting ?? null;
+    $this->admin_create_user_config = $admin_create_user_config ?? null;
+    $this->auto_verified_attributes = $auto_verified_attributes ?? [];
+    $this->device_configuration = $device_configuration ?? null;
+    $this->email_configuration = $email_configuration ?? null;
+    $this->email_verification_message = $email_verification_message ?? "";
+    $this->email_verification_subject = $email_verification_subject ?? "";
+    $this->lambda_config = $lambda_config ?? null;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->policies = $policies ?? null;
+    $this->sms_authentication_message = $sms_authentication_message ?? "";
+    $this->sms_configuration = $sms_configuration ?? null;
+    $this->sms_verification_message = $sms_verification_message ?? "";
+    $this->user_pool_add_ons = $user_pool_add_ons ?? null;
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->user_pool_tags = $user_pool_tags ?? [];
+    $this->verification_message_template = $verification_message_template ?? null;
   }
 }
 
@@ -4301,7 +4301,7 @@ class UserContextDataType {
   public function __construct(shape(
   ?'encoded_data' => StringType,
   ) $s = shape()) {
-    $this->encoded_data = $encoded_data ?? ;
+    $this->encoded_data = $encoded_data ?? "";
   }
 }
 
@@ -4313,7 +4313,7 @@ class UserImportInProgressException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4353,19 +4353,19 @@ class UserImportJobType {
   ?'status' => UserImportJobStatusType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? ;
-    $this->completion_date = $completion_date ?? ;
-    $this->completion_message = $completion_message ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->failed_users = $failed_users ?? ;
-    $this->imported_users = $imported_users ?? ;
-    $this->job_id = $job_id ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->pre_signed_url = $pre_signed_url ?? ;
-    $this->skipped_users = $skipped_users ?? ;
-    $this->start_date = $start_date ?? ;
-    $this->status = $status ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
+    $this->completion_date = $completion_date ?? 0;
+    $this->completion_message = $completion_message ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->failed_users = $failed_users ?? 0;
+    $this->imported_users = $imported_users ?? 0;
+    $this->job_id = $job_id ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->pre_signed_url = $pre_signed_url ?? "";
+    $this->skipped_users = $skipped_users ?? 0;
+    $this->start_date = $start_date ?? 0;
+    $this->status = $status ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4377,7 +4377,7 @@ class UserLambdaValidationException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4389,7 +4389,7 @@ class UserNotConfirmedException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4399,7 +4399,7 @@ class UserNotFoundException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4409,7 +4409,7 @@ class UserPoolAddOnNotEnabledException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4419,7 +4419,7 @@ class UserPoolAddOnsType {
   public function __construct(shape(
   ?'advanced_security_mode' => AdvancedSecurityModeType,
   ) $s = shape()) {
-    $this->advanced_security_mode = $advanced_security_mode ?? ;
+    $this->advanced_security_mode = $advanced_security_mode ?? "";
   }
 }
 
@@ -4433,9 +4433,9 @@ class UserPoolClientDescription {
   ?'client_name' => ClientNameType,
   ?'user_pool_id' => UserPoolIdType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->client_name = $client_name ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->client_name = $client_name ?? "";
+    $this->user_pool_id = $user_pool_id ?? "";
   }
 }
 
@@ -4483,25 +4483,25 @@ class UserPoolClientType {
   ?'user_pool_id' => UserPoolIdType,
   ?'write_attributes' => ClientPermissionListType,
   ) $s = shape()) {
-    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? ;
-    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? ;
-    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? ;
-    $this->analytics_configuration = $analytics_configuration ?? ;
-    $this->callback_ur_ls = $callback_ur_ls ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_name = $client_name ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->default_redirect_uri = $default_redirect_uri ?? ;
-    $this->explicit_auth_flows = $explicit_auth_flows ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->logout_ur_ls = $logout_ur_ls ?? ;
-    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? ;
-    $this->read_attributes = $read_attributes ?? ;
-    $this->refresh_token_validity = $refresh_token_validity ?? ;
-    $this->supported_identity_providers = $supported_identity_providers ?? ;
-    $this->user_pool_id = $user_pool_id ?? ;
-    $this->write_attributes = $write_attributes ?? ;
+    $this->allowed_o_auth_flows = $allowed_o_auth_flows ?? [];
+    $this->allowed_o_auth_flows_user_pool_client = $allowed_o_auth_flows_user_pool_client ?? false;
+    $this->allowed_o_auth_scopes = $allowed_o_auth_scopes ?? [];
+    $this->analytics_configuration = $analytics_configuration ?? null;
+    $this->callback_ur_ls = $callback_ur_ls ?? [];
+    $this->client_id = $client_id ?? "";
+    $this->client_name = $client_name ?? "";
+    $this->client_secret = $client_secret ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->default_redirect_uri = $default_redirect_uri ?? "";
+    $this->explicit_auth_flows = $explicit_auth_flows ?? [];
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->logout_ur_ls = $logout_ur_ls ?? [];
+    $this->prevent_user_existence_errors = $prevent_user_existence_errors ?? "";
+    $this->read_attributes = $read_attributes ?? [];
+    $this->refresh_token_validity = $refresh_token_validity ?? 0;
+    $this->supported_identity_providers = $supported_identity_providers ?? [];
+    $this->user_pool_id = $user_pool_id ?? "";
+    $this->write_attributes = $write_attributes ?? [];
   }
 }
 
@@ -4521,12 +4521,12 @@ class UserPoolDescriptionType {
   ?'name' => UserPoolNameType,
   ?'status' => StatusType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->id = $id ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->id = $id ?? "";
+    $this->lambda_config = $lambda_config ?? null;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -4544,7 +4544,7 @@ class UserPoolPolicyType {
   public function __construct(shape(
   ?'password_policy' => PasswordPolicyType,
   ) $s = shape()) {
-    $this->password_policy = $password_policy ?? ;
+    $this->password_policy = $password_policy ?? null;
   }
 }
 
@@ -4554,7 +4554,7 @@ class UserPoolTaggingException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4628,37 +4628,37 @@ class UserPoolType {
   ?'username_configuration' => UsernameConfigurationType,
   ?'verification_message_template' => VerificationMessageTemplateType,
   ) $s = shape()) {
-    $this->account_recovery_setting = $account_recovery_setting ?? ;
-    $this->admin_create_user_config = $admin_create_user_config ?? ;
-    $this->alias_attributes = $alias_attributes ?? ;
-    $this->arn = $arn ?? ;
-    $this->auto_verified_attributes = $auto_verified_attributes ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->custom_domain = $custom_domain ?? ;
-    $this->device_configuration = $device_configuration ?? ;
-    $this->domain = $domain ?? ;
-    $this->email_configuration = $email_configuration ?? ;
-    $this->email_configuration_failure = $email_configuration_failure ?? ;
-    $this->email_verification_message = $email_verification_message ?? ;
-    $this->email_verification_subject = $email_verification_subject ?? ;
-    $this->estimated_number_of_users = $estimated_number_of_users ?? ;
-    $this->id = $id ?? ;
-    $this->lambda_config = $lambda_config ?? ;
-    $this->last_modified_date = $last_modified_date ?? ;
-    $this->mfa_configuration = $mfa_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->policies = $policies ?? ;
-    $this->schema_attributes = $schema_attributes ?? ;
-    $this->sms_authentication_message = $sms_authentication_message ?? ;
-    $this->sms_configuration = $sms_configuration ?? ;
-    $this->sms_configuration_failure = $sms_configuration_failure ?? ;
-    $this->sms_verification_message = $sms_verification_message ?? ;
-    $this->status = $status ?? ;
-    $this->user_pool_add_ons = $user_pool_add_ons ?? ;
-    $this->user_pool_tags = $user_pool_tags ?? ;
-    $this->username_attributes = $username_attributes ?? ;
-    $this->username_configuration = $username_configuration ?? ;
-    $this->verification_message_template = $verification_message_template ?? ;
+    $this->account_recovery_setting = $account_recovery_setting ?? null;
+    $this->admin_create_user_config = $admin_create_user_config ?? null;
+    $this->alias_attributes = $alias_attributes ?? [];
+    $this->arn = $arn ?? "";
+    $this->auto_verified_attributes = $auto_verified_attributes ?? [];
+    $this->creation_date = $creation_date ?? 0;
+    $this->custom_domain = $custom_domain ?? "";
+    $this->device_configuration = $device_configuration ?? null;
+    $this->domain = $domain ?? "";
+    $this->email_configuration = $email_configuration ?? null;
+    $this->email_configuration_failure = $email_configuration_failure ?? "";
+    $this->email_verification_message = $email_verification_message ?? "";
+    $this->email_verification_subject = $email_verification_subject ?? "";
+    $this->estimated_number_of_users = $estimated_number_of_users ?? 0;
+    $this->id = $id ?? "";
+    $this->lambda_config = $lambda_config ?? null;
+    $this->last_modified_date = $last_modified_date ?? 0;
+    $this->mfa_configuration = $mfa_configuration ?? "";
+    $this->name = $name ?? "";
+    $this->policies = $policies ?? null;
+    $this->schema_attributes = $schema_attributes ?? [];
+    $this->sms_authentication_message = $sms_authentication_message ?? "";
+    $this->sms_configuration = $sms_configuration ?? null;
+    $this->sms_configuration_failure = $sms_configuration_failure ?? "";
+    $this->sms_verification_message = $sms_verification_message ?? "";
+    $this->status = $status ?? "";
+    $this->user_pool_add_ons = $user_pool_add_ons ?? null;
+    $this->user_pool_tags = $user_pool_tags ?? [];
+    $this->username_attributes = $username_attributes ?? [];
+    $this->username_configuration = $username_configuration ?? null;
+    $this->verification_message_template = $verification_message_template ?? null;
   }
 }
 
@@ -4682,13 +4682,13 @@ class UserType {
   ?'user_status' => UserStatusType,
   ?'username' => UsernameType,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->enabled = $enabled ?? ;
-    $this->mfa_options = $mfa_options ?? ;
-    $this->user_create_date = $user_create_date ?? ;
-    $this->user_last_modified_date = $user_last_modified_date ?? ;
-    $this->user_status = $user_status ?? ;
-    $this->username = $username ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->enabled = $enabled ?? false;
+    $this->mfa_options = $mfa_options ?? [];
+    $this->user_create_date = $user_create_date ?? 0;
+    $this->user_last_modified_date = $user_last_modified_date ?? 0;
+    $this->user_status = $user_status ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -4702,7 +4702,7 @@ class UsernameConfigurationType {
   public function __construct(shape(
   ?'case_sensitive' => WrappedBooleanType,
   ) $s = shape()) {
-    $this->case_sensitive = $case_sensitive ?? ;
+    $this->case_sensitive = $case_sensitive ?? false;
   }
 }
 
@@ -4712,7 +4712,7 @@ class UsernameExistsException {
   public function __construct(shape(
   ?'message' => MessageType,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4736,12 +4736,12 @@ class VerificationMessageTemplateType {
   ?'email_subject_by_link' => EmailVerificationSubjectByLinkType,
   ?'sms_message' => SmsVerificationMessageType,
   ) $s = shape()) {
-    $this->default_email_option = $default_email_option ?? ;
-    $this->email_message = $email_message ?? ;
-    $this->email_message_by_link = $email_message_by_link ?? ;
-    $this->email_subject = $email_subject ?? ;
-    $this->email_subject_by_link = $email_subject_by_link ?? ;
-    $this->sms_message = $sms_message ?? ;
+    $this->default_email_option = $default_email_option ?? "";
+    $this->email_message = $email_message ?? "";
+    $this->email_message_by_link = $email_message_by_link ?? "";
+    $this->email_subject = $email_subject ?? "";
+    $this->email_subject_by_link = $email_subject_by_link ?? "";
+    $this->sms_message = $sms_message ?? "";
   }
 }
 
@@ -4761,10 +4761,10 @@ class VerifySoftwareTokenRequest {
   ?'session' => SessionType,
   ?'user_code' => SoftwareTokenMFAUserCodeType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->friendly_device_name = $friendly_device_name ?? ;
-    $this->session = $session ?? ;
-    $this->user_code = $user_code ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->friendly_device_name = $friendly_device_name ?? "";
+    $this->session = $session ?? "";
+    $this->user_code = $user_code ?? "";
   }
 }
 
@@ -4776,8 +4776,8 @@ class VerifySoftwareTokenResponse {
   ?'session' => SessionType,
   ?'status' => VerifySoftwareTokenResponseType,
   ) $s = shape()) {
-    $this->session = $session ?? ;
-    $this->status = $status ?? ;
+    $this->session = $session ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -4793,9 +4793,9 @@ class VerifyUserAttributeRequest {
   ?'attribute_name' => AttributeNameType,
   ?'code' => ConfirmationCodeType,
   ) $s = shape()) {
-    $this->access_token = $access_token ?? ;
-    $this->attribute_name = $attribute_name ?? ;
-    $this->code = $code ?? ;
+    $this->access_token = $access_token ?? "";
+    $this->attribute_name = $attribute_name ?? "";
+    $this->code = $code ?? "";
   }
 }
 

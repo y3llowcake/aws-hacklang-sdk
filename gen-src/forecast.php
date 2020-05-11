@@ -65,8 +65,8 @@ class ContinuousParameterRange {
   ?'name' => Name,
   ?'scaling_type' => ScalingType,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
+    $this->max_value = $max_value ?? 0.0;
+    $this->min_value = $min_value ?? 0.0;
     $this->name = $name ?? "";
     $this->scaling_type = $scaling_type ?? "";
   }
@@ -84,8 +84,8 @@ class CreateDatasetGroupRequest {
   ?'dataset_group_name' => Name,
   ?'domain' => Domain,
   ) $s = shape()) {
-    $this->dataset_arns = $dataset_arns ?? ;
-    $this->dataset_group_name = $dataset_group_name ?? ;
+    $this->dataset_arns = $dataset_arns ?? [];
+    $this->dataset_group_name = $dataset_group_name ?? "";
     $this->domain = $domain ?? "";
   }
 }
@@ -96,7 +96,7 @@ class CreateDatasetGroupResponse {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -113,8 +113,8 @@ class CreateDatasetImportJobRequest {
   ?'timestamp_format' => TimestampFormat,
   ) $s = shape()) {
     $this->data_source = $data_source ?? null;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_import_job_name = $dataset_import_job_name ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_import_job_name = $dataset_import_job_name ?? "";
     $this->timestamp_format = $timestamp_format ?? "";
   }
 }
@@ -125,7 +125,7 @@ class CreateDatasetImportJobResponse {
   public function __construct(shape(
   ?'dataset_import_job_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
   }
 }
 
@@ -145,8 +145,8 @@ class CreateDatasetRequest {
   ?'encryption_config' => EncryptionConfig,
   ?'schema' => Schema,
   ) $s = shape()) {
-    $this->data_frequency = $data_frequency ?? ;
-    $this->dataset_name = $dataset_name ?? ;
+    $this->data_frequency = $data_frequency ?? "";
+    $this->dataset_name = $dataset_name ?? "";
     $this->dataset_type = $dataset_type ?? "";
     $this->domain = $domain ?? "";
     $this->encryption_config = $encryption_config ?? null;
@@ -160,7 +160,7 @@ class CreateDatasetResponse {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -174,9 +174,9 @@ class CreateForecastExportJobRequest {
   ?'forecast_arn' => Arn,
   ?'forecast_export_job_name' => Name,
   ) $s = shape()) {
-    $this->destination = $destination ?? ;
-    $this->forecast_arn = $forecast_arn ?? ;
-    $this->forecast_export_job_name = $forecast_export_job_name ?? ;
+    $this->destination = $destination ?? null;
+    $this->forecast_arn = $forecast_arn ?? "";
+    $this->forecast_export_job_name = $forecast_export_job_name ?? "";
   }
 }
 
@@ -186,7 +186,7 @@ class CreateForecastExportJobResponse {
   public function __construct(shape(
   ?'forecast_export_job_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_export_job_arn = $forecast_export_job_arn ?? ;
+    $this->forecast_export_job_arn = $forecast_export_job_arn ?? "";
   }
 }
 
@@ -200,9 +200,9 @@ class CreateForecastRequest {
   ?'forecast_types' => ForecastTypes,
   ?'predictor_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_name = $forecast_name ?? ;
+    $this->forecast_name = $forecast_name ?? "";
     $this->forecast_types = $forecast_types ?? [];
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
   }
 }
 
@@ -212,7 +212,7 @@ class CreateForecastResponse {
   public function __construct(shape(
   ?'forecast_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_arn = $forecast_arn ?? ;
+    $this->forecast_arn = $forecast_arn ?? "";
   }
 }
 
@@ -242,16 +242,16 @@ class CreatePredictorRequest {
   ?'predictor_name' => Name,
   ?'training_parameters' => TrainingParameters,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
     $this->encryption_config = $encryption_config ?? null;
     $this->evaluation_parameters = $evaluation_parameters ?? null;
     $this->featurization_config = $featurization_config ?? null;
-    $this->forecast_horizon = $forecast_horizon ?? ;
-    $this->hpo_config = $hpo_config ?? ;
+    $this->forecast_horizon = $forecast_horizon ?? 0;
+    $this->hpo_config = $hpo_config ?? null;
     $this->input_data_config = $input_data_config ?? null;
-    $this->perform_auto_ml = $perform_auto_ml ?? ;
-    $this->perform_hpo = $perform_hpo ?? ;
-    $this->predictor_name = $predictor_name ?? ;
+    $this->perform_auto_ml = $perform_auto_ml ?? false;
+    $this->perform_hpo = $perform_hpo ?? false;
+    $this->predictor_name = $predictor_name ?? "";
     $this->training_parameters = $training_parameters ?? [];
   }
 }
@@ -262,7 +262,7 @@ class CreatePredictorResponse {
   public function __construct(shape(
   ?'predictor_arn' => Arn,
   ) $s = shape()) {
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
   }
 }
 
@@ -298,10 +298,10 @@ class DatasetGroupSummary {
   ?'dataset_group_name' => Name,
   ?'last_modification_time' => Timestamp,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->dataset_group_name = $dataset_group_name ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->dataset_group_name = $dataset_group_name ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
   }
 }
 
@@ -325,11 +325,11 @@ class DatasetImportJobSummary {
   ?'message' => ErrorMessage,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->data_source = $data_source ?? null;
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
-    $this->dataset_import_job_name = $dataset_import_job_name ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
+    $this->dataset_import_job_name = $dataset_import_job_name ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
     $this->status = $status ?? "";
   }
@@ -353,12 +353,12 @@ class DatasetSummary {
   ?'domain' => Domain,
   ?'last_modification_time' => Timestamp,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_name = $dataset_name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_name = $dataset_name ?? "";
     $this->dataset_type = $dataset_type ?? "";
     $this->domain = $domain ?? "";
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
   }
 }
 
@@ -372,7 +372,7 @@ class DeleteDatasetGroupRequest {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -382,7 +382,7 @@ class DeleteDatasetImportJobRequest {
   public function __construct(shape(
   ?'dataset_import_job_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
   }
 }
 
@@ -392,7 +392,7 @@ class DeleteDatasetRequest {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -402,7 +402,7 @@ class DeleteForecastExportJobRequest {
   public function __construct(shape(
   ?'forecast_export_job_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_export_job_arn = $forecast_export_job_arn ?? ;
+    $this->forecast_export_job_arn = $forecast_export_job_arn ?? "";
   }
 }
 
@@ -412,7 +412,7 @@ class DeleteForecastRequest {
   public function __construct(shape(
   ?'forecast_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_arn = $forecast_arn ?? ;
+    $this->forecast_arn = $forecast_arn ?? "";
   }
 }
 
@@ -422,7 +422,7 @@ class DeletePredictorRequest {
   public function __construct(shape(
   ?'predictor_arn' => Arn,
   ) $s = shape()) {
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
   }
 }
 
@@ -432,7 +432,7 @@ class DescribeDatasetGroupRequest {
   public function __construct(shape(
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -454,12 +454,12 @@ class DescribeDatasetGroupResponse {
   ?'last_modification_time' => Timestamp,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_arns = $dataset_arns ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->dataset_group_name = $dataset_group_name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_arns = $dataset_arns ?? [];
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->dataset_group_name = $dataset_group_name ?? "";
     $this->domain = $domain ?? "";
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->status = $status ?? "";
   }
 }
@@ -470,7 +470,7 @@ class DescribeDatasetImportJobRequest {
   public function __construct(shape(
   ?'dataset_import_job_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
   }
 }
 
@@ -500,14 +500,14 @@ class DescribeDatasetImportJobResponse {
   ?'status' => Status,
   ?'timestamp_format' => TimestampFormat,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->data_size = $data_size ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->data_size = $data_size ?? 0.0;
     $this->data_source = $data_source ?? null;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_import_job_arn = $dataset_import_job_arn ?? ;
-    $this->dataset_import_job_name = $dataset_import_job_name ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_import_job_arn = $dataset_import_job_arn ?? "";
+    $this->dataset_import_job_name = $dataset_import_job_name ?? "";
     $this->field_statistics = $field_statistics ?? [];
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
     $this->status = $status ?? "";
     $this->timestamp_format = $timestamp_format ?? "";
@@ -520,7 +520,7 @@ class DescribeDatasetRequest {
   public function __construct(shape(
   ?'dataset_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arn = $dataset_arn ?? ;
+    $this->dataset_arn = $dataset_arn ?? "";
   }
 }
 
@@ -548,14 +548,14 @@ class DescribeDatasetResponse {
   ?'schema' => Schema,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->data_frequency = $data_frequency ?? ;
-    $this->dataset_arn = $dataset_arn ?? ;
-    $this->dataset_name = $dataset_name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->data_frequency = $data_frequency ?? "";
+    $this->dataset_arn = $dataset_arn ?? "";
+    $this->dataset_name = $dataset_name ?? "";
     $this->dataset_type = $dataset_type ?? "";
     $this->domain = $domain ?? "";
     $this->encryption_config = $encryption_config ?? null;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->schema = $schema ?? null;
     $this->status = $status ?? "";
   }
@@ -567,7 +567,7 @@ class DescribeForecastExportJobRequest {
   public function __construct(shape(
   ?'forecast_export_job_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_export_job_arn = $forecast_export_job_arn ?? ;
+    $this->forecast_export_job_arn = $forecast_export_job_arn ?? "";
   }
 }
 
@@ -591,12 +591,12 @@ class DescribeForecastExportJobResponse {
   ?'message' => Message,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->destination = $destination ?? ;
-    $this->forecast_arn = $forecast_arn ?? ;
-    $this->forecast_export_job_arn = $forecast_export_job_arn ?? ;
-    $this->forecast_export_job_name = $forecast_export_job_name ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->destination = $destination ?? null;
+    $this->forecast_arn = $forecast_arn ?? "";
+    $this->forecast_export_job_arn = $forecast_export_job_arn ?? "";
+    $this->forecast_export_job_name = $forecast_export_job_name ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
     $this->status = $status ?? "";
   }
@@ -608,7 +608,7 @@ class DescribeForecastRequest {
   public function __construct(shape(
   ?'forecast_arn' => Arn,
   ) $s = shape()) {
-    $this->forecast_arn = $forecast_arn ?? ;
+    $this->forecast_arn = $forecast_arn ?? "";
   }
 }
 
@@ -634,14 +634,14 @@ class DescribeForecastResponse {
   ?'predictor_arn' => Arn,
   ?'status' => string,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->forecast_arn = $forecast_arn ?? ;
-    $this->forecast_name = $forecast_name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->forecast_arn = $forecast_arn ?? "";
+    $this->forecast_name = $forecast_name ?? "";
     $this->forecast_types = $forecast_types ?? [];
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -652,7 +652,7 @@ class DescribePredictorRequest {
   public function __construct(shape(
   ?'predictor_arn' => Arn,
   ) $s = shape()) {
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
   }
 }
 
@@ -698,23 +698,23 @@ class DescribePredictorResponse {
   ?'status' => Status,
   ?'training_parameters' => TrainingParameters,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
-    $this->auto_ml_algorithm_arns = $auto_ml_algorithm_arns ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_import_job_arns = $dataset_import_job_arns ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
+    $this->auto_ml_algorithm_arns = $auto_ml_algorithm_arns ?? [];
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_import_job_arns = $dataset_import_job_arns ?? [];
     $this->encryption_config = $encryption_config ?? null;
     $this->evaluation_parameters = $evaluation_parameters ?? null;
     $this->featurization_config = $featurization_config ?? null;
-    $this->forecast_horizon = $forecast_horizon ?? ;
-    $this->hpo_config = $hpo_config ?? ;
+    $this->forecast_horizon = $forecast_horizon ?? 0;
+    $this->hpo_config = $hpo_config ?? null;
     $this->input_data_config = $input_data_config ?? null;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
-    $this->perform_auto_ml = $perform_auto_ml ?? ;
-    $this->perform_hpo = $perform_hpo ?? ;
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->perform_auto_ml = $perform_auto_ml ?? false;
+    $this->perform_hpo = $perform_hpo ?? false;
+    $this->predictor_arn = $predictor_arn ?? "";
     $this->predictor_execution_details = $predictor_execution_details ?? null;
-    $this->predictor_name = $predictor_name ?? ;
+    $this->predictor_name = $predictor_name ?? "";
     $this->status = $status ?? "";
     $this->training_parameters = $training_parameters ?? [];
   }
@@ -733,7 +733,7 @@ class EncryptionConfig {
   ?'role_arn' => Arn,
   ) $s = shape()) {
     $this->kms_key_arn = $kms_key_arn ?? "";
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -747,8 +747,8 @@ class EvaluationParameters {
   ?'back_test_window_offset' => int,
   ?'number_of_backtest_windows' => int,
   ) $s = shape()) {
-    $this->back_test_window_offset = $back_test_window_offset ?? ;
-    $this->number_of_backtest_windows = $number_of_backtest_windows ?? ;
+    $this->back_test_window_offset = $back_test_window_offset ?? 0;
+    $this->number_of_backtest_windows = $number_of_backtest_windows ?? 0;
   }
 }
 
@@ -760,7 +760,7 @@ class EvaluationResult {
   ?'algorithm_arn' => Arn,
   ?'test_windows' => TestWindows,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
     $this->test_windows = $test_windows ?? [];
   }
 }
@@ -775,7 +775,7 @@ class Featurization {
   ?'attribute_name' => Name,
   ?'featurization_pipeline' => FeaturizationPipeline,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
+    $this->attribute_name = $attribute_name ?? "";
     $this->featurization_pipeline = $featurization_pipeline ?? [];
   }
 }
@@ -792,7 +792,7 @@ class FeaturizationConfig {
   ) $s = shape()) {
     $this->featurizations = $featurizations ?? [];
     $this->forecast_dimensions = $forecast_dimensions ?? [];
-    $this->forecast_frequency = $forecast_frequency ?? ;
+    $this->forecast_frequency = $forecast_frequency ?? "";
   }
 }
 
@@ -829,8 +829,8 @@ class Filter {
   ?'key' => string,
   ?'value' => Arn,
   ) $s = shape()) {
-    $this->condition = $condition ?? ;
-    $this->key = $key ?? ;
+    $this->condition = $condition ?? "";
+    $this->key = $key ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -859,11 +859,11 @@ class ForecastExportJobSummary {
   ?'message' => ErrorMessage,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->destination = $destination ?? ;
-    $this->forecast_export_job_arn = $forecast_export_job_arn ?? ;
-    $this->forecast_export_job_name = $forecast_export_job_name ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->destination = $destination ?? null;
+    $this->forecast_export_job_arn = $forecast_export_job_arn ?? "";
+    $this->forecast_export_job_name = $forecast_export_job_name ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
     $this->status = $status ?? "";
   }
@@ -891,13 +891,13 @@ class ForecastSummary {
   ?'predictor_arn' => string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->forecast_arn = $forecast_arn ?? ;
-    $this->forecast_name = $forecast_name ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->forecast_arn = $forecast_arn ?? "";
+    $this->forecast_name = $forecast_name ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -916,7 +916,7 @@ class GetAccuracyMetricsRequest {
   public function __construct(shape(
   ?'predictor_arn' => Arn,
   ) $s = shape()) {
-    $this->predictor_arn = $predictor_arn ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
   }
 }
 
@@ -948,7 +948,7 @@ class InputDataConfig {
   ?'dataset_group_arn' => Arn,
   ?'supplementary_features' => SupplementaryFeatures,
   ) $s = shape()) {
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
     $this->supplementary_features = $supplementary_features ?? [];
   }
 }
@@ -967,8 +967,8 @@ class IntegerParameterRange {
   ?'name' => Name,
   ?'scaling_type' => ScalingType,
   ) $s = shape()) {
-    $this->max_value = $max_value ?? ;
-    $this->min_value = $min_value ?? ;
+    $this->max_value = $max_value ?? 0;
+    $this->min_value = $min_value ?? 0;
     $this->name = $name ?? "";
     $this->scaling_type = $scaling_type ?? "";
   }
@@ -1188,7 +1188,7 @@ class Metrics {
   ?'rmse' => Double,
   ?'weighted_quantile_losses' => WeightedQuantileLosses,
   ) $s = shape()) {
-    $this->rmse = $rmse ?? ;
+    $this->rmse = $rmse ?? 0.0;
     $this->weighted_quantile_losses = $weighted_quantile_losses ?? [];
   }
 }
@@ -1227,7 +1227,7 @@ class PredictorExecution {
   ?'algorithm_arn' => Arn,
   ?'test_windows' => TestWindowDetails,
   ) $s = shape()) {
-    $this->algorithm_arn = $algorithm_arn ?? ;
+    $this->algorithm_arn = $algorithm_arn ?? "";
     $this->test_windows = $test_windows ?? [];
   }
 }
@@ -1262,12 +1262,12 @@ class PredictorSummary {
   ?'predictor_name' => Name,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
-    $this->last_modification_time = $last_modification_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
+    $this->last_modification_time = $last_modification_time ?? 0;
     $this->message = $message ?? "";
-    $this->predictor_arn = $predictor_arn ?? ;
-    $this->predictor_name = $predictor_name ?? ;
+    $this->predictor_arn = $predictor_arn ?? "";
+    $this->predictor_name = $predictor_name ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -1315,8 +1315,8 @@ class S3Config {
   ?'role_arn' => Arn,
   ) $s = shape()) {
     $this->kms_key_arn = $kms_key_arn ?? "";
-    $this->path = $path ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->path = $path ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1330,7 +1330,7 @@ class Schema {
   public function __construct(shape(
   ?'attributes' => SchemaAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -1342,7 +1342,7 @@ class SchemaAttribute {
   ?'attribute_name' => Name,
   ?'attribute_type' => AttributeType,
   ) $s = shape()) {
-    $this->attribute_name = $attribute_name ?? ;
+    $this->attribute_name = $attribute_name ?? "";
     $this->attribute_type = $attribute_type ?? "";
   }
 }
@@ -1369,14 +1369,14 @@ class Statistics {
   ?'min' => string,
   ?'stddev' => Double,
   ) $s = shape()) {
-    $this->avg = $avg ?? ;
-    $this->count = $count ?? ;
-    $this->count_distinct = $count_distinct ?? ;
-    $this->count_nan = $count_nan ?? ;
-    $this->count_null = $count_null ?? ;
-    $this->max = $max ?? ;
-    $this->min = $min ?? ;
-    $this->stddev = $stddev ?? ;
+    $this->avg = $avg ?? 0.0;
+    $this->count = $count ?? 0;
+    $this->count_distinct = $count_distinct ?? 0;
+    $this->count_nan = $count_nan ?? 0;
+    $this->count_null = $count_null ?? 0;
+    $this->max = $max ?? "";
+    $this->min = $min ?? "";
+    $this->stddev = $stddev ?? 0.0;
   }
 }
 
@@ -1415,8 +1415,8 @@ class TestWindowSummary {
   ) $s = shape()) {
     $this->message = $message ?? "";
     $this->status = $status ?? "";
-    $this->test_window_end = $test_window_end ?? ;
-    $this->test_window_start = $test_window_start ?? ;
+    $this->test_window_end = $test_window_end ?? 0;
+    $this->test_window_start = $test_window_start ?? 0;
   }
 }
 
@@ -1436,8 +1436,8 @@ class UpdateDatasetGroupRequest {
   ?'dataset_arns' => ArnList,
   ?'dataset_group_arn' => Arn,
   ) $s = shape()) {
-    $this->dataset_arns = $dataset_arns ?? ;
-    $this->dataset_group_arn = $dataset_group_arn ?? ;
+    $this->dataset_arns = $dataset_arns ?? [];
+    $this->dataset_group_arn = $dataset_group_arn ?? "";
   }
 }
 
@@ -1460,8 +1460,8 @@ class WeightedQuantileLoss {
   ?'loss_value' => Double,
   ?'quantile' => Double,
   ) $s = shape()) {
-    $this->loss_value = $loss_value ?? ;
-    $this->quantile = $quantile ?? ;
+    $this->loss_value = $loss_value ?? 0.0;
+    $this->quantile = $quantile ?? 0.0;
   }
 }
 
@@ -1482,10 +1482,10 @@ class WindowSummary {
   ?'test_window_start' => Timestamp,
   ) $s = shape()) {
     $this->evaluation_type = $evaluation_type ?? "";
-    $this->item_count = $item_count ?? ;
+    $this->item_count = $item_count ?? 0;
     $this->metrics = $metrics ?? null;
-    $this->test_window_end = $test_window_end ?? ;
-    $this->test_window_start = $test_window_start ?? ;
+    $this->test_window_end = $test_window_end ?? 0;
+    $this->test_window_start = $test_window_start ?? 0;
   }
 }
 

@@ -40,13 +40,13 @@ class GenerateDataSetRequest {
   ?'role_name_arn' => RoleNameArn,
   ?'sns_topic_arn' => SnsTopicArn,
   ) $s = shape()) {
-    $this->customer_defined_values = $customer_defined_values ?? ;
-    $this->data_set_publication_date = $data_set_publication_date ?? ;
-    $this->data_set_type = $data_set_type ?? ;
-    $this->destination_s_3_bucket_name = $destination_s_3_bucket_name ?? ;
-    $this->destination_s_3_prefix = $destination_s_3_prefix ?? ;
-    $this->role_name_arn = $role_name_arn ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->customer_defined_values = $customer_defined_values ?? [];
+    $this->data_set_publication_date = $data_set_publication_date ?? 0;
+    $this->data_set_type = $data_set_type ?? "";
+    $this->destination_s_3_bucket_name = $destination_s_3_bucket_name ?? "";
+    $this->destination_s_3_prefix = $destination_s_3_prefix ?? "";
+    $this->role_name_arn = $role_name_arn ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -56,7 +56,7 @@ class GenerateDataSetResult {
   public function __construct(shape(
   ?'data_set_request_id' => DataSetRequestId,
   ) $s = shape()) {
-    $this->data_set_request_id = $data_set_request_id ?? ;
+    $this->data_set_request_id = $data_set_request_id ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class MarketplaceCommerceAnalyticsException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -96,13 +96,13 @@ class StartSupportDataExportRequest {
   ?'role_name_arn' => RoleNameArn,
   ?'sns_topic_arn' => SnsTopicArn,
   ) $s = shape()) {
-    $this->customer_defined_values = $customer_defined_values ?? ;
-    $this->data_set_type = $data_set_type ?? ;
-    $this->destination_s_3_bucket_name = $destination_s_3_bucket_name ?? ;
-    $this->destination_s_3_prefix = $destination_s_3_prefix ?? ;
-    $this->from_date = $from_date ?? ;
-    $this->role_name_arn = $role_name_arn ?? ;
-    $this->sns_topic_arn = $sns_topic_arn ?? ;
+    $this->customer_defined_values = $customer_defined_values ?? [];
+    $this->data_set_type = $data_set_type ?? "";
+    $this->destination_s_3_bucket_name = $destination_s_3_bucket_name ?? "";
+    $this->destination_s_3_prefix = $destination_s_3_prefix ?? "";
+    $this->from_date = $from_date ?? 0;
+    $this->role_name_arn = $role_name_arn ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
   }
 }
 
@@ -112,7 +112,7 @@ class StartSupportDataExportResult {
   public function __construct(shape(
   ?'data_set_request_id' => DataSetRequestId,
   ) $s = shape()) {
-    $this->data_set_request_id = $data_set_request_id ?? ;
+    $this->data_set_request_id = $data_set_request_id ?? "";
   }
 }
 

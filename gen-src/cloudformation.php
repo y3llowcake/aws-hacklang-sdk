@@ -69,8 +69,8 @@ class AccountGateResult {
   ?'status' => AccountGateStatus,
   ?'status_reason' => AccountGateStatusReason,
   ) $s = shape()) {
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -86,8 +86,8 @@ class AccountLimit {
   ?'name' => LimitName,
   ?'value' => LimitValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? "";
+    $this->name = $name ?? "";
+    $this->value = $value ?? 0;
   }
 }
 
@@ -116,8 +116,8 @@ class AutoDeployment {
   ?'enabled' => AutoDeploymentNullable,
   ?'retain_stacks_on_account_removal' => RetainStacksOnAccountRemovalNullable,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->retain_stacks_on_account_removal = $retain_stacks_on_account_removal ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->retain_stacks_on_account_removal = $retain_stacks_on_account_removal ?? false;
   }
 }
 
@@ -133,7 +133,7 @@ class CFNRegistryException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -221,8 +221,8 @@ class ChangeSetSummary {
     $this->execution_status = $execution_status ?? "";
     $this->stack_id = $stack_id ?? "";
     $this->stack_name = $stack_name ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -327,7 +327,7 @@ class CreateChangeSetOutput {
   ?'id' => ChangeSetId,
   ?'stack_id' => StackId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->stack_id = $stack_id ?? "";
   }
 }
@@ -386,7 +386,7 @@ class CreateStackInput {
     $this->tags = $tags ?? [];
     $this->template_body = $template_body ?? "";
     $this->template_url = $template_url ?? "";
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
   }
 }
 
@@ -408,12 +408,12 @@ class CreateStackInstancesInput {
   ?'regions' => RegionList,
   ?'stack_set_name' => StackSetName,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
+    $this->accounts = $accounts ?? [];
     $this->deployment_targets = $deployment_targets ?? null;
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
-    $this->parameter_overrides = $parameter_overrides ?? ;
-    $this->regions = $regions ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
+    $this->parameter_overrides = $parameter_overrides ?? [];
+    $this->regions = $regions ?? [];
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -424,7 +424,7 @@ class CreateStackInstancesOutput {
   public function __construct(shape(
   ?'operation_id' => ClientRequestToken,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -466,14 +466,14 @@ class CreateStackSetInput {
   ?'template_body' => TemplateBody,
   ?'template_url' => TemplateURL,
   ) $s = shape()) {
-    $this->administration_role_arn = $administration_role_arn ?? ;
+    $this->administration_role_arn = $administration_role_arn ?? "";
     $this->auto_deployment = $auto_deployment ?? null;
     $this->capabilities = $capabilities ?? [];
     $this->client_request_token = $client_request_token ?? "";
     $this->description = $description ?? "";
     $this->execution_role_name = $execution_role_name ?? "";
     $this->parameters = $parameters ?? [];
-    $this->permission_model = $permission_model ?? ;
+    $this->permission_model = $permission_model ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
     $this->tags = $tags ?? [];
     $this->template_body = $template_body ?? "";
@@ -557,11 +557,11 @@ class DeleteStackInstancesInput {
   ?'retain_stacks' => RetainStacks,
   ?'stack_set_name' => StackSetName,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
+    $this->accounts = $accounts ?? [];
     $this->deployment_targets = $deployment_targets ?? null;
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
-    $this->regions = $regions ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
+    $this->regions = $regions ?? [];
     $this->retain_stacks = $retain_stacks ?? false;
     $this->stack_set_name = $stack_set_name ?? "";
   }
@@ -573,7 +573,7 @@ class DeleteStackInstancesOutput {
   public function __construct(shape(
   ?'operation_id' => ClientRequestToken,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -604,8 +604,8 @@ class DeploymentTargets {
   ?'accounts' => AccountList,
   ?'organizational_unit_ids' => OrganizationalUnitIdList,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
-    $this->organizational_unit_ids = $organizational_unit_ids ?? ;
+    $this->accounts = $accounts ?? [];
+    $this->organizational_unit_ids = $organizational_unit_ids ?? [];
   }
 }
 
@@ -626,7 +626,7 @@ class DeregisterTypeInput {
     $this->arn = $arn ?? "";
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -655,7 +655,7 @@ class DescribeAccountLimitsOutput {
   ?'account_limits' => AccountLimitList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->account_limits = $account_limits ?? ;
+    $this->account_limits = $account_limits ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -725,8 +725,8 @@ class DescribeChangeSetOutput {
     $this->rollback_configuration = $rollback_configuration ?? null;
     $this->stack_id = $stack_id ?? "";
     $this->stack_name = $stack_name ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -759,9 +759,9 @@ class DescribeStackDriftDetectionStatusOutput {
   ?'stack_id' => StackId,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->detection_status = $detection_status ?? ;
-    $this->detection_status_reason = $detection_status_reason ?? ;
-    $this->drifted_stack_resource_count = $drifted_stack_resource_count ?? ;
+    $this->detection_status = $detection_status ?? "";
+    $this->detection_status_reason = $detection_status_reason ?? "";
+    $this->drifted_stack_resource_count = $drifted_stack_resource_count ?? 0;
     $this->stack_drift_detection_id = $stack_drift_detection_id ?? "";
     $this->stack_drift_status = $stack_drift_status ?? "";
     $this->stack_id = $stack_id ?? "";
@@ -805,8 +805,8 @@ class DescribeStackInstanceInput {
   ?'stack_instance_region' => Region,
   ?'stack_set_name' => StackSetName,
   ) $s = shape()) {
-    $this->stack_instance_account = $stack_instance_account ?? ;
-    $this->stack_instance_region = $stack_instance_region ?? ;
+    $this->stack_instance_account = $stack_instance_account ?? "";
+    $this->stack_instance_region = $stack_instance_region ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -920,7 +920,7 @@ class DescribeStackSetOperationInput {
   ?'operation_id' => ClientRequestToken,
   ?'stack_set_name' => StackSetName,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -986,7 +986,7 @@ class DescribeTypeInput {
     $this->arn = $arn ?? "";
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1025,17 +1025,17 @@ class DescribeTypeOutput {
   ?'visibility' => Visibility,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->default_version_id = $default_version_id ?? ;
+    $this->default_version_id = $default_version_id ?? "";
     $this->deprecated_status = $deprecated_status ?? "";
     $this->description = $description ?? "";
-    $this->documentation_url = $documentation_url ?? ;
-    $this->execution_role_arn = $execution_role_arn ?? ;
-    $this->last_updated = $last_updated ?? ;
+    $this->documentation_url = $documentation_url ?? "";
+    $this->execution_role_arn = $execution_role_arn ?? "";
+    $this->last_updated = $last_updated ?? 0;
     $this->logging_config = $logging_config ?? null;
     $this->provisioning_type = $provisioning_type ?? "";
-    $this->schema = $schema ?? ;
-    $this->source_url = $source_url ?? ;
-    $this->time_created = $time_created ?? ;
+    $this->schema = $schema ?? "";
+    $this->source_url = $source_url ?? "";
+    $this->time_created = $time_created ?? 0;
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
     $this->visibility = $visibility ?? "";
@@ -1065,9 +1065,9 @@ class DescribeTypeRegistrationOutput {
   ?'type_version_arn' => TypeArn,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->progress_status = $progress_status ?? ;
+    $this->progress_status = $progress_status ?? "";
     $this->type_arn = $type_arn ?? "";
-    $this->type_version_arn = $type_version_arn ?? ;
+    $this->type_version_arn = $type_version_arn ?? "";
   }
 }
 
@@ -1129,8 +1129,8 @@ class DetectStackSetDriftInput {
   ?'operation_preferences' => StackSetOperationPreferences,
   ?'stack_set_name' => StackSetNameOrId,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -1141,7 +1141,7 @@ class DetectStackSetDriftOutput {
   public function __construct(shape(
   ?'operation_id' => ClientRequestToken,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -1222,8 +1222,8 @@ class Export {
   ?'name' => ExportName,
   ?'value' => ExportValue,
   ) $s = shape()) {
-    $this->exporting_stack_id = $exporting_stack_id ?? ;
-    $this->name = $name ?? ;
+    $this->exporting_stack_id = $exporting_stack_id ?? "";
+    $this->name = $name ?? "";
     $this->value = $value ?? "";
   }
 }
@@ -1284,7 +1284,7 @@ class GetTemplateOutput {
   ?'stages_available' => StageList,
   ?'template_body' => TemplateBody,
   ) $s = shape()) {
-    $this->stages_available = $stages_available ?? ;
+    $this->stages_available = $stages_available ?? [];
     $this->template_body = $template_body ?? "";
   }
 }
@@ -1332,7 +1332,7 @@ class GetTemplateSummaryOutput {
   ) $s = shape()) {
     $this->capabilities = $capabilities ?? [];
     $this->capabilities_reason = $capabilities_reason ?? "";
-    $this->declared_transforms = $declared_transforms ?? ;
+    $this->declared_transforms = $declared_transforms ?? [];
     $this->description = $description ?? "";
     $this->metadata = $metadata ?? "";
     $this->parameters = $parameters ?? [];
@@ -1415,7 +1415,7 @@ class ListChangeSetsOutput {
   ?'summaries' => ChangeSetSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1484,8 +1484,8 @@ class ListStackInstancesInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->stack_instance_account = $stack_instance_account ?? ;
-    $this->stack_instance_region = $stack_instance_region ?? ;
+    $this->stack_instance_account = $stack_instance_account ?? "";
+    $this->stack_instance_region = $stack_instance_region ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -1499,7 +1499,7 @@ class ListStackInstancesOutput {
   ?'summaries' => StackInstanceSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1543,7 +1543,7 @@ class ListStackSetOperationResultsInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -1557,7 +1557,7 @@ class ListStackSetOperationResultsOutput {
   ?'summaries' => StackSetOperationResultSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1586,7 +1586,7 @@ class ListStackSetOperationsOutput {
   ?'summaries' => StackSetOperationSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1602,7 +1602,7 @@ class ListStackSetsInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1615,7 +1615,7 @@ class ListStackSetsOutput {
   ?'summaries' => StackSetSummaries,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summaries = $summaries ?? ;
+    $this->summaries = $summaries ?? [];
   }
 }
 
@@ -1663,7 +1663,7 @@ class ListTypeRegistrationsInput {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->registration_status_filter = $registration_status_filter ?? ;
+    $this->registration_status_filter = $registration_status_filter ?? "";
     $this->type = $type ?? "";
     $this->type_arn = $type_arn ?? "";
     $this->type_name = $type_name ?? "";
@@ -1767,7 +1767,7 @@ class LoggingConfig {
   ?'log_role_arn' => RoleArn,
   ) $s = shape()) {
     $this->log_group_name = $log_group_name ?? "";
-    $this->log_role_arn = $log_role_arn ?? ;
+    $this->log_role_arn = $log_role_arn ?? "";
   }
 }
 
@@ -1877,7 +1877,7 @@ class Parameter {
   ) $s = shape()) {
     $this->parameter_key = $parameter_key ?? "";
     $this->parameter_value = $parameter_value ?? "";
-    $this->resolved_value = $resolved_value ?? ;
+    $this->resolved_value = $resolved_value ?? "";
     $this->use_previous_value = $use_previous_value ?? false;
   }
 }
@@ -1908,7 +1908,7 @@ class ParameterDeclaration {
   ?'parameter_key' => ParameterKey,
   ?'parameter_type' => ParameterType,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
     $this->no_echo = $no_echo ?? false;
     $this->parameter_constraints = $parameter_constraints ?? null;
@@ -1962,9 +1962,9 @@ class PropertyDifference {
   ?'expected_value' => PropertyValue,
   ?'property_path' => PropertyPath,
   ) $s = shape()) {
-    $this->actual_value = $actual_value ?? ;
+    $this->actual_value = $actual_value ?? "";
     $this->difference_type = $difference_type ?? "";
-    $this->expected_value = $expected_value ?? ;
+    $this->expected_value = $expected_value ?? "";
     $this->property_path = $property_path ?? "";
   }
 }
@@ -1999,10 +1999,10 @@ class RecordHandlerProgressInput {
   ?'resource_model' => ResourceModel,
   ?'status_message' => StatusMessage,
   ) $s = shape()) {
-    $this->bearer_token = $bearer_token ?? ;
+    $this->bearer_token = $bearer_token ?? "";
     $this->client_request_token = $client_request_token ?? "";
-    $this->current_operation_status = $current_operation_status ?? ;
-    $this->error_code = $error_code ?? ;
+    $this->current_operation_status = $current_operation_status ?? "";
+    $this->error_code = $error_code ?? "";
     $this->operation_status = $operation_status ?? "";
     $this->resource_model = $resource_model ?? "";
     $this->status_message = $status_message ?? "";
@@ -2037,9 +2037,9 @@ class RegisterTypeInput {
   ?'type_name' => TypeName,
   ) $s = shape()) {
     $this->client_request_token = $client_request_token ?? "";
-    $this->execution_role_arn = $execution_role_arn ?? ;
+    $this->execution_role_arn = $execution_role_arn ?? "";
     $this->logging_config = $logging_config ?? null;
-    $this->schema_handler_package = $schema_handler_package ?? ;
+    $this->schema_handler_package = $schema_handler_package ?? "";
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
   }
@@ -2089,8 +2089,8 @@ class ResourceChange {
   ?'resource_type' => ResourceType,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->details = $details ?? ;
+    $this->action = $action ?? "";
+    $this->details = $details ?? [];
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
     $this->replacement = $replacement ?? "";
@@ -2113,8 +2113,8 @@ class ResourceChangeDetail {
   ) $s = shape()) {
     $this->causing_entity = $causing_entity ?? "";
     $this->change_source = $change_source ?? "";
-    $this->evaluation = $evaluation ?? ;
-    $this->target = $target ?? ;
+    $this->evaluation = $evaluation ?? "";
+    $this->target = $target ?? null;
   }
 }
 
@@ -2168,8 +2168,8 @@ class ResourceTargetDefinition {
   ?'name' => PropertyName,
   ?'requires_recreation' => RequiresRecreation,
   ) $s = shape()) {
-    $this->attribute = $attribute ?? ;
-    $this->name = $name ?? ;
+    $this->attribute = $attribute ?? "";
+    $this->name = $name ?? "";
     $this->requires_recreation = $requires_recreation ?? "";
   }
 }
@@ -2185,7 +2185,7 @@ class ResourceToImport {
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
     $this->logical_resource_id = $logical_resource_id ?? "";
-    $this->resource_identifier = $resource_identifier ?? ;
+    $this->resource_identifier = $resource_identifier ?? [];
     $this->resource_type = $resource_type ?? "";
   }
 }
@@ -2275,7 +2275,7 @@ class SetTypeDefaultVersionInput {
     $this->arn = $arn ?? "";
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -2300,8 +2300,8 @@ class SignalResourceInput {
   ) $s = shape()) {
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->stack_name = $stack_name ?? "";
-    $this->status = $status ?? ;
-    $this->unique_id = $unique_id ?? ;
+    $this->status = $status ?? "";
+    $this->unique_id = $unique_id ?? "";
   }
 }
 
@@ -2359,22 +2359,22 @@ class Stack {
     $this->deletion_time = $deletion_time ?? 0;
     $this->description = $description ?? "";
     $this->disable_rollback = $disable_rollback ?? false;
-    $this->drift_information = $drift_information ?? ;
+    $this->drift_information = $drift_information ?? null;
     $this->enable_termination_protection = $enable_termination_protection ?? false;
     $this->last_updated_time = $last_updated_time ?? 0;
     $this->notification_ar_ns = $notification_ar_ns ?? [];
     $this->outputs = $outputs ?? [];
     $this->parameters = $parameters ?? [];
-    $this->parent_id = $parent_id ?? ;
+    $this->parent_id = $parent_id ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->rollback_configuration = $rollback_configuration ?? null;
-    $this->root_id = $root_id ?? ;
+    $this->root_id = $root_id ?? "";
     $this->stack_id = $stack_id ?? "";
     $this->stack_name = $stack_name ?? "";
     $this->stack_status = $stack_status ?? "";
     $this->stack_status_reason = $stack_status_reason ?? "";
     $this->tags = $tags ?? [];
-    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? 0;
   }
 }
 
@@ -2392,7 +2392,7 @@ class StackDriftInformation {
   ?'last_check_timestamp' => Timestamp,
   ?'stack_drift_status' => StackDriftStatus,
   ) $s = shape()) {
-    $this->last_check_timestamp = $last_check_timestamp ?? ;
+    $this->last_check_timestamp = $last_check_timestamp ?? 0;
     $this->stack_drift_status = $stack_drift_status ?? "";
   }
 }
@@ -2405,7 +2405,7 @@ class StackDriftInformationSummary {
   ?'last_check_timestamp' => Timestamp,
   ?'stack_drift_status' => StackDriftStatus,
   ) $s = shape()) {
-    $this->last_check_timestamp = $last_check_timestamp ?? ;
+    $this->last_check_timestamp = $last_check_timestamp ?? 0;
     $this->stack_drift_status = $stack_drift_status ?? "";
   }
 }
@@ -2481,15 +2481,15 @@ class StackInstance {
   ?'status_reason' => Reason,
   ) $s = shape()) {
     $this->account = $account ?? "";
-    $this->drift_status = $drift_status ?? ;
-    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? ;
+    $this->drift_status = $drift_status ?? "";
+    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? 0;
     $this->organizational_unit_id = $organizational_unit_id ?? "";
-    $this->parameter_overrides = $parameter_overrides ?? ;
+    $this->parameter_overrides = $parameter_overrides ?? [];
     $this->region = $region ?? "";
     $this->stack_id = $stack_id ?? "";
     $this->stack_set_id = $stack_set_id ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -2527,14 +2527,14 @@ class StackInstanceSummary {
   ?'status_reason' => Reason,
   ) $s = shape()) {
     $this->account = $account ?? "";
-    $this->drift_status = $drift_status ?? ;
-    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? ;
+    $this->drift_status = $drift_status ?? "";
+    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? 0;
     $this->organizational_unit_id = $organizational_unit_id ?? "";
     $this->region = $region ?? "";
     $this->stack_id = $stack_id ?? "";
     $this->stack_set_id = $stack_set_id ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -2575,7 +2575,7 @@ class StackResource {
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->drift_information = $drift_information ?? ;
+    $this->drift_information = $drift_information ?? null;
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
     $this->resource_status = $resource_status ?? "";
@@ -2614,8 +2614,8 @@ class StackResourceDetail {
   ?'stack_name' => StackName,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->drift_information = $drift_information ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
+    $this->drift_information = $drift_information ?? null;
+    $this->last_updated_timestamp = $last_updated_timestamp ?? 0;
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->metadata = $metadata ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
@@ -2651,8 +2651,8 @@ class StackResourceDrift {
   ?'stack_resource_drift_status' => StackResourceDriftStatus,
   ?'timestamp' => Timestamp,
   ) $s = shape()) {
-    $this->actual_properties = $actual_properties ?? ;
-    $this->expected_properties = $expected_properties ?? ;
+    $this->actual_properties = $actual_properties ?? "";
+    $this->expected_properties = $expected_properties ?? "";
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
     $this->physical_resource_id_context = $physical_resource_id_context ?? [];
@@ -2672,7 +2672,7 @@ class StackResourceDriftInformation {
   ?'last_check_timestamp' => Timestamp,
   ?'stack_resource_drift_status' => StackResourceDriftStatus,
   ) $s = shape()) {
-    $this->last_check_timestamp = $last_check_timestamp ?? ;
+    $this->last_check_timestamp = $last_check_timestamp ?? 0;
     $this->stack_resource_drift_status = $stack_resource_drift_status ?? "";
   }
 }
@@ -2685,7 +2685,7 @@ class StackResourceDriftInformationSummary {
   ?'last_check_timestamp' => Timestamp,
   ?'stack_resource_drift_status' => StackResourceDriftStatus,
   ) $s = shape()) {
-    $this->last_check_timestamp = $last_check_timestamp ?? ;
+    $this->last_check_timestamp = $last_check_timestamp ?? 0;
     $this->stack_resource_drift_status = $stack_resource_drift_status ?? "";
   }
 }
@@ -2716,8 +2716,8 @@ class StackResourceSummary {
   ?'resource_status_reason' => ResourceStatusReason,
   ?'resource_type' => ResourceType,
   ) $s = shape()) {
-    $this->drift_information = $drift_information ?? ;
-    $this->last_updated_timestamp = $last_updated_timestamp ?? ;
+    $this->drift_information = $drift_information ?? null;
+    $this->last_updated_timestamp = $last_updated_timestamp ?? 0;
     $this->logical_resource_id = $logical_resource_id ?? "";
     $this->physical_resource_id = $physical_resource_id ?? "";
     $this->resource_status = $resource_status ?? "";
@@ -2762,19 +2762,19 @@ class StackSet {
   ?'tags' => Tags,
   ?'template_body' => TemplateBody,
   ) $s = shape()) {
-    $this->administration_role_arn = $administration_role_arn ?? ;
+    $this->administration_role_arn = $administration_role_arn ?? "";
     $this->auto_deployment = $auto_deployment ?? null;
     $this->capabilities = $capabilities ?? [];
     $this->description = $description ?? "";
     $this->execution_role_name = $execution_role_name ?? "";
-    $this->organizational_unit_ids = $organizational_unit_ids ?? ;
+    $this->organizational_unit_ids = $organizational_unit_ids ?? [];
     $this->parameters = $parameters ?? [];
-    $this->permission_model = $permission_model ?? ;
+    $this->permission_model = $permission_model ?? "";
     $this->stack_set_arn = $stack_set_arn ?? "";
     $this->stack_set_drift_detection_details = $stack_set_drift_detection_details ?? null;
     $this->stack_set_id = $stack_set_id ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->tags = $tags ?? [];
     $this->template_body = $template_body ?? "";
   }
@@ -2802,13 +2802,13 @@ class StackSetDriftDetectionDetails {
   ?'last_drift_check_timestamp' => Timestamp,
   ?'total_stack_instances_count' => TotalStackInstancesCount,
   ) $s = shape()) {
-    $this->drift_detection_status = $drift_detection_status ?? ;
-    $this->drift_status = $drift_status ?? ;
+    $this->drift_detection_status = $drift_detection_status ?? "";
+    $this->drift_status = $drift_status ?? "";
     $this->drifted_stack_instances_count = $drifted_stack_instances_count ?? 0;
     $this->failed_stack_instances_count = $failed_stack_instances_count ?? 0;
     $this->in_progress_stack_instances_count = $in_progress_stack_instances_count ?? 0;
     $this->in_sync_stack_instances_count = $in_sync_stack_instances_count ?? 0;
-    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? ;
+    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? 0;
     $this->total_stack_instances_count = $total_stack_instances_count ?? 0;
   }
 }
@@ -2865,18 +2865,18 @@ class StackSetOperation {
   ?'stack_set_id' => StackSetId,
   ?'status' => StackSetOperationStatus,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->administration_role_arn = $administration_role_arn ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->action = $action ?? "";
+    $this->administration_role_arn = $administration_role_arn ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? 0;
     $this->deployment_targets = $deployment_targets ?? null;
-    $this->end_timestamp = $end_timestamp ?? ;
+    $this->end_timestamp = $end_timestamp ?? 0;
     $this->execution_role_name = $execution_role_name ?? "";
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
     $this->retain_stacks = $retain_stacks ?? false;
     $this->stack_set_drift_detection_details = $stack_set_drift_detection_details ?? null;
     $this->stack_set_id = $stack_set_id ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2900,7 +2900,7 @@ class StackSetOperationPreferences {
     $this->failure_tolerance_percentage = $failure_tolerance_percentage ?? 0;
     $this->max_concurrent_count = $max_concurrent_count ?? 0;
     $this->max_concurrent_percentage = $max_concurrent_percentage ?? 0;
-    $this->region_order = $region_order ?? ;
+    $this->region_order = $region_order ?? [];
   }
 }
 
@@ -2928,8 +2928,8 @@ class StackSetOperationResultSummary {
     $this->account_gate_result = $account_gate_result ?? null;
     $this->organizational_unit_id = $organizational_unit_id ?? "";
     $this->region = $region ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
   }
 }
 
@@ -2951,11 +2951,11 @@ class StackSetOperationSummary {
   ?'operation_id' => ClientRequestToken,
   ?'status' => StackSetOperationStatus,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->creation_timestamp = $creation_timestamp ?? ;
-    $this->end_timestamp = $end_timestamp ?? ;
-    $this->operation_id = $operation_id ?? ;
-    $this->status = $status ?? ;
+    $this->action = $action ?? "";
+    $this->creation_timestamp = $creation_timestamp ?? 0;
+    $this->end_timestamp = $end_timestamp ?? 0;
+    $this->operation_id = $operation_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2985,12 +2985,12 @@ class StackSetSummary {
   ) $s = shape()) {
     $this->auto_deployment = $auto_deployment ?? null;
     $this->description = $description ?? "";
-    $this->drift_status = $drift_status ?? ;
-    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? ;
-    $this->permission_model = $permission_model ?? ;
+    $this->drift_status = $drift_status ?? "";
+    $this->last_drift_check_timestamp = $last_drift_check_timestamp ?? 0;
+    $this->permission_model = $permission_model ?? "";
     $this->stack_set_id = $stack_set_id ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -3030,10 +3030,10 @@ class StackSummary {
   ) $s = shape()) {
     $this->creation_time = $creation_time ?? 0;
     $this->deletion_time = $deletion_time ?? 0;
-    $this->drift_information = $drift_information ?? ;
+    $this->drift_information = $drift_information ?? null;
     $this->last_updated_time = $last_updated_time ?? 0;
-    $this->parent_id = $parent_id ?? ;
-    $this->root_id = $root_id ?? ;
+    $this->parent_id = $parent_id ?? "";
+    $this->root_id = $root_id ?? "";
     $this->stack_id = $stack_id ?? "";
     $this->stack_name = $stack_name ?? "";
     $this->stack_status = $stack_status ?? "";
@@ -3063,7 +3063,7 @@ class StopStackSetOperationInput {
   ?'operation_id' => ClientRequestToken,
   ?'stack_set_name' => StackSetName,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -3110,7 +3110,7 @@ class TemplateParameter {
   ?'no_echo' => NoEcho,
   ?'parameter_key' => ParameterKey,
   ) $s = shape()) {
-    $this->default_value = $default_value ?? ;
+    $this->default_value = $default_value ?? "";
     $this->description = $description ?? "";
     $this->no_echo = $no_echo ?? false;
     $this->parameter_key = $parameter_key ?? "";
@@ -3173,9 +3173,9 @@ class TypeSummary {
   ?'type_arn' => TypeArn,
   ?'type_name' => TypeName,
   ) $s = shape()) {
-    $this->default_version_id = $default_version_id ?? ;
+    $this->default_version_id = $default_version_id ?? "";
     $this->description = $description ?? "";
-    $this->last_updated = $last_updated ?? ;
+    $this->last_updated = $last_updated ?? 0;
     $this->type = $type ?? "";
     $this->type_arn = $type_arn ?? "";
     $this->type_name = $type_name ?? "";
@@ -3204,10 +3204,10 @@ class TypeVersionSummary {
   ) $s = shape()) {
     $this->arn = $arn ?? "";
     $this->description = $description ?? "";
-    $this->time_created = $time_created ?? ;
+    $this->time_created = $time_created ?? 0;
     $this->type = $type ?? "";
     $this->type_name = $type_name ?? "";
-    $this->version_id = $version_id ?? ;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -3284,12 +3284,12 @@ class UpdateStackInstancesInput {
   ?'regions' => RegionList,
   ?'stack_set_name' => StackSetNameOrId,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
+    $this->accounts = $accounts ?? [];
     $this->deployment_targets = $deployment_targets ?? null;
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
-    $this->parameter_overrides = $parameter_overrides ?? ;
-    $this->regions = $regions ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
+    $this->parameter_overrides = $parameter_overrides ?? [];
+    $this->regions = $regions ?? [];
     $this->stack_set_name = $stack_set_name ?? "";
   }
 }
@@ -3300,7 +3300,7 @@ class UpdateStackInstancesOutput {
   public function __construct(shape(
   ?'operation_id' => ClientRequestToken,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -3352,18 +3352,18 @@ class UpdateStackSetInput {
   ?'template_url' => TemplateURL,
   ?'use_previous_template' => UsePreviousTemplate,
   ) $s = shape()) {
-    $this->accounts = $accounts ?? ;
-    $this->administration_role_arn = $administration_role_arn ?? ;
+    $this->accounts = $accounts ?? [];
+    $this->administration_role_arn = $administration_role_arn ?? "";
     $this->auto_deployment = $auto_deployment ?? null;
     $this->capabilities = $capabilities ?? [];
     $this->deployment_targets = $deployment_targets ?? null;
     $this->description = $description ?? "";
     $this->execution_role_name = $execution_role_name ?? "";
-    $this->operation_id = $operation_id ?? ;
-    $this->operation_preferences = $operation_preferences ?? ;
+    $this->operation_id = $operation_id ?? "";
+    $this->operation_preferences = $operation_preferences ?? null;
     $this->parameters = $parameters ?? [];
-    $this->permission_model = $permission_model ?? ;
-    $this->regions = $regions ?? ;
+    $this->permission_model = $permission_model ?? "";
+    $this->regions = $regions ?? [];
     $this->stack_set_name = $stack_set_name ?? "";
     $this->tags = $tags ?? [];
     $this->template_body = $template_body ?? "";
@@ -3378,7 +3378,7 @@ class UpdateStackSetOutput {
   public function __construct(shape(
   ?'operation_id' => ClientRequestToken,
   ) $s = shape()) {
-    $this->operation_id = $operation_id ?? ;
+    $this->operation_id = $operation_id ?? "";
   }
 }
 
@@ -3440,7 +3440,7 @@ class ValidateTemplateOutput {
   ) $s = shape()) {
     $this->capabilities = $capabilities ?? [];
     $this->capabilities_reason = $capabilities_reason ?? "";
-    $this->declared_transforms = $declared_transforms ?? ;
+    $this->declared_transforms = $declared_transforms ?? [];
     $this->description = $description ?? "";
     $this->parameters = $parameters ?? [];
   }

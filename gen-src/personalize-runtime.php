@@ -28,10 +28,10 @@ class GetPersonalizedRankingRequest {
   ?'input_list' => InputList,
   ?'user_id' => UserID,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
-    $this->context = $context ?? ;
-    $this->input_list = $input_list ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
+    $this->context = $context ?? [];
+    $this->input_list = $input_list ?? [];
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -41,7 +41,7 @@ class GetPersonalizedRankingResponse {
   public function __construct(shape(
   ?'personalized_ranking' => ItemList,
   ) $s = shape()) {
-    $this->personalized_ranking = $personalized_ranking ?? ;
+    $this->personalized_ranking = $personalized_ranking ?? [];
   }
 }
 
@@ -59,11 +59,11 @@ class GetRecommendationsRequest {
   ?'num_results' => NumResults,
   ?'user_id' => UserID,
   ) $s = shape()) {
-    $this->campaign_arn = $campaign_arn ?? ;
-    $this->context = $context ?? ;
-    $this->item_id = $item_id ?? ;
-    $this->num_results = $num_results ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->campaign_arn = $campaign_arn ?? "";
+    $this->context = $context ?? [];
+    $this->item_id = $item_id ?? "";
+    $this->num_results = $num_results ?? 0;
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -73,7 +73,7 @@ class GetRecommendationsResponse {
   public function __construct(shape(
   ?'item_list' => ItemList,
   ) $s = shape()) {
-    $this->item_list = $item_list ?? ;
+    $this->item_list = $item_list ?? [];
   }
 }
 
@@ -85,7 +85,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -103,8 +103,8 @@ class PredictedItem {
   ?'item_id' => ItemID,
   ?'score' => Score,
   ) $s = shape()) {
-    $this->item_id = $item_id ?? ;
-    $this->score = $score ?? ;
+    $this->item_id = $item_id ?? "";
+    $this->score = $score ?? 0.0;
   }
 }
 
@@ -114,7 +114,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

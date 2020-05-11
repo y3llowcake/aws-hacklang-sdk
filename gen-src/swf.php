@@ -59,12 +59,12 @@ class ActivityTask {
   ?'task_token' => TaskToken,
   ?'workflow_execution' => WorkflowExecution,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->activity_type = $activity_type ?? ;
-    $this->input = $input ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->task_token = $task_token ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->activity_type = $activity_type ?? null;
+    $this->input = $input ?? "";
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->task_token = $task_token ?? "";
+    $this->workflow_execution = $workflow_execution ?? null;
   }
 }
 
@@ -76,8 +76,8 @@ class ActivityTaskCancelRequestedEventAttributes {
   ?'activity_id' => ActivityId,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -93,10 +93,10 @@ class ActivityTaskCanceledEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->latest_cancel_requested_event_id = $latest_cancel_requested_event_id ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->details = $details ?? "";
+    $this->latest_cancel_requested_event_id = $latest_cancel_requested_event_id ?? 0;
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -110,9 +110,9 @@ class ActivityTaskCompletedEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->result = $result ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->result = $result ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -128,10 +128,10 @@ class ActivityTaskFailedEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -161,17 +161,17 @@ class ActivityTaskScheduledEventAttributes {
   ?'task_list' => TaskList,
   ?'task_priority' => TaskPriority,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->activity_type = $activity_type ?? ;
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->heartbeat_timeout = $heartbeat_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->schedule_to_close_timeout = $schedule_to_close_timeout ?? ;
-    $this->schedule_to_start_timeout = $schedule_to_start_timeout ?? ;
-    $this->start_to_close_timeout = $start_to_close_timeout ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->activity_type = $activity_type ?? null;
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->heartbeat_timeout = $heartbeat_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->schedule_to_close_timeout = $schedule_to_close_timeout ?? "";
+    $this->schedule_to_start_timeout = $schedule_to_start_timeout ?? "";
+    $this->start_to_close_timeout = $start_to_close_timeout ?? "";
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
   }
 }
 
@@ -183,8 +183,8 @@ class ActivityTaskStartedEventAttributes {
   ?'identity' => Identity,
   ?'scheduled_event_id' => EventId,
   ) $s = shape()) {
-    $this->identity = $identity ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
+    $this->identity = $identity ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
   }
 }
 
@@ -194,7 +194,7 @@ class ActivityTaskStatus {
   public function __construct(shape(
   ?'cancel_requested' => Canceled,
   ) $s = shape()) {
-    $this->cancel_requested = $cancel_requested ?? ;
+    $this->cancel_requested = $cancel_requested ?? false;
   }
 }
 
@@ -210,10 +210,10 @@ class ActivityTaskTimedOutEventAttributes {
   ?'started_event_id' => EventId,
   ?'timeout_type' => ActivityTaskTimeoutType,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timeout_type = $timeout_type ?? ;
+    $this->details = $details ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timeout_type = $timeout_type ?? "";
   }
 }
 
@@ -227,8 +227,8 @@ class ActivityType {
   ?'name' => Name,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -248,12 +248,12 @@ class ActivityTypeConfiguration {
   ?'default_task_schedule_to_start_timeout' => DurationInSecondsOptional,
   ?'default_task_start_to_close_timeout' => DurationInSecondsOptional,
   ) $s = shape()) {
-    $this->default_task_heartbeat_timeout = $default_task_heartbeat_timeout ?? ;
-    $this->default_task_list = $default_task_list ?? ;
-    $this->default_task_priority = $default_task_priority ?? ;
-    $this->default_task_schedule_to_close_timeout = $default_task_schedule_to_close_timeout ?? ;
-    $this->default_task_schedule_to_start_timeout = $default_task_schedule_to_start_timeout ?? ;
-    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? ;
+    $this->default_task_heartbeat_timeout = $default_task_heartbeat_timeout ?? "";
+    $this->default_task_list = $default_task_list ?? null;
+    $this->default_task_priority = $default_task_priority ?? "";
+    $this->default_task_schedule_to_close_timeout = $default_task_schedule_to_close_timeout ?? "";
+    $this->default_task_schedule_to_start_timeout = $default_task_schedule_to_start_timeout ?? "";
+    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? "";
   }
 }
 
@@ -265,8 +265,8 @@ class ActivityTypeDetail {
   ?'configuration' => ActivityTypeConfiguration,
   ?'type_info' => ActivityTypeInfo,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->type_info = $type_info ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->type_info = $type_info ?? null;
   }
 }
 
@@ -284,11 +284,11 @@ class ActivityTypeInfo {
   ?'description' => Description,
   ?'status' => RegistrationStatus,
   ) $s = shape()) {
-    $this->activity_type = $activity_type ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->deprecation_date = $deprecation_date ?? ;
-    $this->description = $description ?? ;
-    $this->status = $status ?? ;
+    $this->activity_type = $activity_type ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->deprecation_date = $deprecation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -302,8 +302,8 @@ class ActivityTypeInfos {
   ?'next_page_token' => PageToken,
   ?'type_infos' => ActivityTypeInfoList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->type_infos = $type_infos ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->type_infos = $type_infos ?? [];
   }
 }
 
@@ -315,7 +315,7 @@ class CancelTimerDecisionAttributes {
   public function __construct(shape(
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->timer_id = $timer_id ?? ;
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -331,9 +331,9 @@ class CancelTimerFailedEventAttributes {
   ?'decision_task_completed_event_id' => EventId,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -343,7 +343,7 @@ class CancelWorkflowExecutionDecisionAttributes {
   public function __construct(shape(
   ?'details' => Data,
   ) $s = shape()) {
-    $this->details = $details ?? ;
+    $this->details = $details ?? "";
   }
 }
 
@@ -357,8 +357,8 @@ class CancelWorkflowExecutionFailedEventAttributes {
   ?'cause' => CancelWorkflowExecutionFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -382,11 +382,11 @@ class ChildWorkflowExecutionCanceledEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->details = $details ?? "";
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -404,11 +404,11 @@ class ChildWorkflowExecutionCompletedEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->result = $result ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->result = $result ?? "";
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -428,12 +428,12 @@ class ChildWorkflowExecutionFailedEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->reason = $reason ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->details = $details ?? "";
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->reason = $reason ?? "";
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -447,9 +447,9 @@ class ChildWorkflowExecutionStartedEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -465,10 +465,10 @@ class ChildWorkflowExecutionTerminatedEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -486,11 +486,11 @@ class ChildWorkflowExecutionTimedOutEventAttributes {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timeout_type = $timeout_type ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timeout_type = $timeout_type ?? "";
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -502,7 +502,7 @@ class CloseStatusFilter {
   public function __construct(shape(
   ?'status' => CloseStatus,
   ) $s = shape()) {
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -512,7 +512,7 @@ class CompleteWorkflowExecutionDecisionAttributes {
   public function __construct(shape(
   ?'result' => Data,
   ) $s = shape()) {
-    $this->result = $result ?? ;
+    $this->result = $result ?? "";
   }
 }
 
@@ -526,8 +526,8 @@ class CompleteWorkflowExecutionFailedEventAttributes {
   ?'cause' => CompleteWorkflowExecutionFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -553,15 +553,15 @@ class ContinueAsNewWorkflowExecutionDecisionAttributes {
   ?'task_start_to_close_timeout' => DurationInSecondsOptional,
   ?'workflow_type_version' => Version,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_type_version = $workflow_type_version ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_type_version = $workflow_type_version ?? "";
   }
 }
 
@@ -575,8 +575,8 @@ class ContinueAsNewWorkflowExecutionFailedEventAttributes {
   ?'cause' => ContinueAsNewWorkflowExecutionFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -600,13 +600,13 @@ class CountClosedWorkflowExecutionsInput {
   ?'tag_filter' => TagFilter,
   ?'type_filter' => WorkflowTypeFilter,
   ) $s = shape()) {
-    $this->close_status_filter = $close_status_filter ?? ;
-    $this->close_time_filter = $close_time_filter ?? ;
-    $this->domain = $domain ?? ;
-    $this->execution_filter = $execution_filter ?? ;
-    $this->start_time_filter = $start_time_filter ?? ;
-    $this->tag_filter = $tag_filter ?? ;
-    $this->type_filter = $type_filter ?? ;
+    $this->close_status_filter = $close_status_filter ?? null;
+    $this->close_time_filter = $close_time_filter ?? null;
+    $this->domain = $domain ?? "";
+    $this->execution_filter = $execution_filter ?? null;
+    $this->start_time_filter = $start_time_filter ?? null;
+    $this->tag_filter = $tag_filter ?? null;
+    $this->type_filter = $type_filter ?? null;
   }
 }
 
@@ -624,11 +624,11 @@ class CountOpenWorkflowExecutionsInput {
   ?'tag_filter' => TagFilter,
   ?'type_filter' => WorkflowTypeFilter,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->execution_filter = $execution_filter ?? ;
-    $this->start_time_filter = $start_time_filter ?? ;
-    $this->tag_filter = $tag_filter ?? ;
-    $this->type_filter = $type_filter ?? ;
+    $this->domain = $domain ?? "";
+    $this->execution_filter = $execution_filter ?? null;
+    $this->start_time_filter = $start_time_filter ?? null;
+    $this->tag_filter = $tag_filter ?? null;
+    $this->type_filter = $type_filter ?? null;
   }
 }
 
@@ -640,8 +640,8 @@ class CountPendingActivityTasksInput {
   ?'domain' => DomainName,
   ?'task_list' => TaskList,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->task_list = $task_list ?? ;
+    $this->domain = $domain ?? "";
+    $this->task_list = $task_list ?? null;
   }
 }
 
@@ -653,8 +653,8 @@ class CountPendingDecisionTasksInput {
   ?'domain' => DomainName,
   ?'task_list' => TaskList,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->task_list = $task_list ?? ;
+    $this->domain = $domain ?? "";
+    $this->task_list = $task_list ?? null;
   }
 }
 
@@ -692,20 +692,20 @@ class Decision {
   ?'start_child_workflow_execution_decision_attributes' => StartChildWorkflowExecutionDecisionAttributes,
   ?'start_timer_decision_attributes' => StartTimerDecisionAttributes,
   ) $s = shape()) {
-    $this->cancel_timer_decision_attributes = $cancel_timer_decision_attributes ?? ;
-    $this->cancel_workflow_execution_decision_attributes = $cancel_workflow_execution_decision_attributes ?? ;
-    $this->complete_workflow_execution_decision_attributes = $complete_workflow_execution_decision_attributes ?? ;
-    $this->continue_as_new_workflow_execution_decision_attributes = $continue_as_new_workflow_execution_decision_attributes ?? ;
-    $this->decision_type = $decision_type ?? ;
-    $this->fail_workflow_execution_decision_attributes = $fail_workflow_execution_decision_attributes ?? ;
-    $this->record_marker_decision_attributes = $record_marker_decision_attributes ?? ;
-    $this->request_cancel_activity_task_decision_attributes = $request_cancel_activity_task_decision_attributes ?? ;
-    $this->request_cancel_external_workflow_execution_decision_attributes = $request_cancel_external_workflow_execution_decision_attributes ?? ;
-    $this->schedule_activity_task_decision_attributes = $schedule_activity_task_decision_attributes ?? ;
-    $this->schedule_lambda_function_decision_attributes = $schedule_lambda_function_decision_attributes ?? ;
-    $this->signal_external_workflow_execution_decision_attributes = $signal_external_workflow_execution_decision_attributes ?? ;
-    $this->start_child_workflow_execution_decision_attributes = $start_child_workflow_execution_decision_attributes ?? ;
-    $this->start_timer_decision_attributes = $start_timer_decision_attributes ?? ;
+    $this->cancel_timer_decision_attributes = $cancel_timer_decision_attributes ?? null;
+    $this->cancel_workflow_execution_decision_attributes = $cancel_workflow_execution_decision_attributes ?? null;
+    $this->complete_workflow_execution_decision_attributes = $complete_workflow_execution_decision_attributes ?? null;
+    $this->continue_as_new_workflow_execution_decision_attributes = $continue_as_new_workflow_execution_decision_attributes ?? null;
+    $this->decision_type = $decision_type ?? "";
+    $this->fail_workflow_execution_decision_attributes = $fail_workflow_execution_decision_attributes ?? null;
+    $this->record_marker_decision_attributes = $record_marker_decision_attributes ?? null;
+    $this->request_cancel_activity_task_decision_attributes = $request_cancel_activity_task_decision_attributes ?? null;
+    $this->request_cancel_external_workflow_execution_decision_attributes = $request_cancel_external_workflow_execution_decision_attributes ?? null;
+    $this->schedule_activity_task_decision_attributes = $schedule_activity_task_decision_attributes ?? null;
+    $this->schedule_lambda_function_decision_attributes = $schedule_lambda_function_decision_attributes ?? null;
+    $this->signal_external_workflow_execution_decision_attributes = $signal_external_workflow_execution_decision_attributes ?? null;
+    $this->start_child_workflow_execution_decision_attributes = $start_child_workflow_execution_decision_attributes ?? null;
+    $this->start_timer_decision_attributes = $start_timer_decision_attributes ?? null;
   }
 }
 
@@ -729,13 +729,13 @@ class DecisionTask {
   ?'workflow_execution' => WorkflowExecution,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->previous_started_event_id = $previous_started_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->task_token = $task_token ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->events = $events ?? [];
+    $this->next_page_token = $next_page_token ?? "";
+    $this->previous_started_event_id = $previous_started_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->task_token = $task_token ?? "";
+    $this->workflow_execution = $workflow_execution ?? null;
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -749,9 +749,9 @@ class DecisionTaskCompletedEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->execution_context = $execution_context ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->execution_context = $execution_context ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -765,9 +765,9 @@ class DecisionTaskScheduledEventAttributes {
   ?'task_list' => TaskList,
   ?'task_priority' => TaskPriority,
   ) $s = shape()) {
-    $this->start_to_close_timeout = $start_to_close_timeout ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
+    $this->start_to_close_timeout = $start_to_close_timeout ?? "";
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
   }
 }
 
@@ -779,8 +779,8 @@ class DecisionTaskStartedEventAttributes {
   ?'identity' => Identity,
   ?'scheduled_event_id' => EventId,
   ) $s = shape()) {
-    $this->identity = $identity ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
+    $this->identity = $identity ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
   }
 }
 
@@ -794,9 +794,9 @@ class DecisionTaskTimedOutEventAttributes {
   ?'started_event_id' => EventId,
   ?'timeout_type' => DecisionTaskTimeoutType,
   ) $s = shape()) {
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timeout_type = $timeout_type ?? ;
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timeout_type = $timeout_type ?? "";
   }
 }
 
@@ -810,7 +810,7 @@ class DefaultUndefinedFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -822,8 +822,8 @@ class DeprecateActivityTypeInput {
   ?'activity_type' => ActivityType,
   ?'domain' => DomainName,
   ) $s = shape()) {
-    $this->activity_type = $activity_type ?? ;
-    $this->domain = $domain ?? ;
+    $this->activity_type = $activity_type ?? null;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -833,7 +833,7 @@ class DeprecateDomainInput {
   public function __construct(shape(
   ?'name' => DomainName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -845,8 +845,8 @@ class DeprecateWorkflowTypeInput {
   ?'domain' => DomainName,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->domain = $domain ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -858,8 +858,8 @@ class DescribeActivityTypeInput {
   ?'activity_type' => ActivityType,
   ?'domain' => DomainName,
   ) $s = shape()) {
-    $this->activity_type = $activity_type ?? ;
-    $this->domain = $domain ?? ;
+    $this->activity_type = $activity_type ?? null;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -869,7 +869,7 @@ class DescribeDomainInput {
   public function __construct(shape(
   ?'name' => DomainName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -881,8 +881,8 @@ class DescribeWorkflowExecutionInput {
   ?'domain' => DomainName,
   ?'execution' => WorkflowExecution,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->execution = $execution ?? ;
+    $this->domain = $domain ?? "";
+    $this->execution = $execution ?? null;
   }
 }
 
@@ -894,8 +894,8 @@ class DescribeWorkflowTypeInput {
   ?'domain' => DomainName,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->domain = $domain ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -907,7 +907,7 @@ class DomainAlreadyExistsFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -917,7 +917,7 @@ class DomainConfiguration {
   public function __construct(shape(
   ?'workflow_execution_retention_period_in_days' => DurationInDays,
   ) $s = shape()) {
-    $this->workflow_execution_retention_period_in_days = $workflow_execution_retention_period_in_days ?? ;
+    $this->workflow_execution_retention_period_in_days = $workflow_execution_retention_period_in_days ?? "";
   }
 }
 
@@ -927,7 +927,7 @@ class DomainDeprecatedFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -939,8 +939,8 @@ class DomainDetail {
   ?'configuration' => DomainConfiguration,
   ?'domain_info' => DomainInfo,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->domain_info = $domain_info ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->domain_info = $domain_info ?? null;
   }
 }
 
@@ -956,10 +956,10 @@ class DomainInfo {
   ?'name' => DomainName,
   ?'status' => RegistrationStatus,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -973,8 +973,8 @@ class DomainInfos {
   ?'domain_infos' => DomainInfoList,
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
-    $this->domain_infos = $domain_infos ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->domain_infos = $domain_infos ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1002,8 +1002,8 @@ class ExecutionTimeFilter {
   ?'latest_date' => Timestamp,
   ?'oldest_date' => Timestamp,
   ) $s = shape()) {
-    $this->latest_date = $latest_date ?? ;
-    $this->oldest_date = $oldest_date ?? ;
+    $this->latest_date = $latest_date ?? 0;
+    $this->oldest_date = $oldest_date ?? 0;
   }
 }
 
@@ -1015,8 +1015,8 @@ class ExternalWorkflowExecutionCancelRequestedEventAttributes {
   ?'initiated_event_id' => EventId,
   ?'workflow_execution' => WorkflowExecution,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
   }
 }
 
@@ -1028,8 +1028,8 @@ class ExternalWorkflowExecutionSignaledEventAttributes {
   ?'initiated_event_id' => EventId,
   ?'workflow_execution' => WorkflowExecution,
   ) $s = shape()) {
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->workflow_execution = $workflow_execution ?? ;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->workflow_execution = $workflow_execution ?? null;
   }
 }
 
@@ -1041,8 +1041,8 @@ class FailWorkflowExecutionDecisionAttributes {
   ?'details' => Data,
   ?'reason' => FailureReason,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1056,8 +1056,8 @@ class FailWorkflowExecutionFailedEventAttributes {
   ?'cause' => FailWorkflowExecutionFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -1083,11 +1083,11 @@ class GetWorkflowExecutionHistoryInput {
   ?'next_page_token' => PageToken,
   ?'reverse_order' => ReverseOrder,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->execution = $execution ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->reverse_order = $reverse_order ?? ;
+    $this->domain = $domain ?? "";
+    $this->execution = $execution ?? null;
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->reverse_order = $reverse_order ?? false;
   }
 }
 
@@ -1099,8 +1099,8 @@ class History {
   ?'events' => HistoryEventList,
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -1222,63 +1222,63 @@ class HistoryEvent {
   ?'workflow_execution_terminated_event_attributes' => WorkflowExecutionTerminatedEventAttributes,
   ?'workflow_execution_timed_out_event_attributes' => WorkflowExecutionTimedOutEventAttributes,
   ) $s = shape()) {
-    $this->activity_task_cancel_requested_event_attributes = $activity_task_cancel_requested_event_attributes ?? ;
-    $this->activity_task_canceled_event_attributes = $activity_task_canceled_event_attributes ?? ;
-    $this->activity_task_completed_event_attributes = $activity_task_completed_event_attributes ?? ;
-    $this->activity_task_failed_event_attributes = $activity_task_failed_event_attributes ?? ;
-    $this->activity_task_scheduled_event_attributes = $activity_task_scheduled_event_attributes ?? ;
-    $this->activity_task_started_event_attributes = $activity_task_started_event_attributes ?? ;
-    $this->activity_task_timed_out_event_attributes = $activity_task_timed_out_event_attributes ?? ;
-    $this->cancel_timer_failed_event_attributes = $cancel_timer_failed_event_attributes ?? ;
-    $this->cancel_workflow_execution_failed_event_attributes = $cancel_workflow_execution_failed_event_attributes ?? ;
-    $this->child_workflow_execution_canceled_event_attributes = $child_workflow_execution_canceled_event_attributes ?? ;
-    $this->child_workflow_execution_completed_event_attributes = $child_workflow_execution_completed_event_attributes ?? ;
-    $this->child_workflow_execution_failed_event_attributes = $child_workflow_execution_failed_event_attributes ?? ;
-    $this->child_workflow_execution_started_event_attributes = $child_workflow_execution_started_event_attributes ?? ;
-    $this->child_workflow_execution_terminated_event_attributes = $child_workflow_execution_terminated_event_attributes ?? ;
-    $this->child_workflow_execution_timed_out_event_attributes = $child_workflow_execution_timed_out_event_attributes ?? ;
-    $this->complete_workflow_execution_failed_event_attributes = $complete_workflow_execution_failed_event_attributes ?? ;
-    $this->continue_as_new_workflow_execution_failed_event_attributes = $continue_as_new_workflow_execution_failed_event_attributes ?? ;
-    $this->decision_task_completed_event_attributes = $decision_task_completed_event_attributes ?? ;
-    $this->decision_task_scheduled_event_attributes = $decision_task_scheduled_event_attributes ?? ;
-    $this->decision_task_started_event_attributes = $decision_task_started_event_attributes ?? ;
-    $this->decision_task_timed_out_event_attributes = $decision_task_timed_out_event_attributes ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->event_timestamp = $event_timestamp ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->external_workflow_execution_cancel_requested_event_attributes = $external_workflow_execution_cancel_requested_event_attributes ?? ;
-    $this->external_workflow_execution_signaled_event_attributes = $external_workflow_execution_signaled_event_attributes ?? ;
-    $this->fail_workflow_execution_failed_event_attributes = $fail_workflow_execution_failed_event_attributes ?? ;
-    $this->lambda_function_completed_event_attributes = $lambda_function_completed_event_attributes ?? ;
-    $this->lambda_function_failed_event_attributes = $lambda_function_failed_event_attributes ?? ;
-    $this->lambda_function_scheduled_event_attributes = $lambda_function_scheduled_event_attributes ?? ;
-    $this->lambda_function_started_event_attributes = $lambda_function_started_event_attributes ?? ;
-    $this->lambda_function_timed_out_event_attributes = $lambda_function_timed_out_event_attributes ?? ;
-    $this->marker_recorded_event_attributes = $marker_recorded_event_attributes ?? ;
-    $this->record_marker_failed_event_attributes = $record_marker_failed_event_attributes ?? ;
-    $this->request_cancel_activity_task_failed_event_attributes = $request_cancel_activity_task_failed_event_attributes ?? ;
-    $this->request_cancel_external_workflow_execution_failed_event_attributes = $request_cancel_external_workflow_execution_failed_event_attributes ?? ;
-    $this->request_cancel_external_workflow_execution_initiated_event_attributes = $request_cancel_external_workflow_execution_initiated_event_attributes ?? ;
-    $this->schedule_activity_task_failed_event_attributes = $schedule_activity_task_failed_event_attributes ?? ;
-    $this->schedule_lambda_function_failed_event_attributes = $schedule_lambda_function_failed_event_attributes ?? ;
-    $this->signal_external_workflow_execution_failed_event_attributes = $signal_external_workflow_execution_failed_event_attributes ?? ;
-    $this->signal_external_workflow_execution_initiated_event_attributes = $signal_external_workflow_execution_initiated_event_attributes ?? ;
-    $this->start_child_workflow_execution_failed_event_attributes = $start_child_workflow_execution_failed_event_attributes ?? ;
-    $this->start_child_workflow_execution_initiated_event_attributes = $start_child_workflow_execution_initiated_event_attributes ?? ;
-    $this->start_lambda_function_failed_event_attributes = $start_lambda_function_failed_event_attributes ?? ;
-    $this->start_timer_failed_event_attributes = $start_timer_failed_event_attributes ?? ;
-    $this->timer_canceled_event_attributes = $timer_canceled_event_attributes ?? ;
-    $this->timer_fired_event_attributes = $timer_fired_event_attributes ?? ;
-    $this->timer_started_event_attributes = $timer_started_event_attributes ?? ;
-    $this->workflow_execution_cancel_requested_event_attributes = $workflow_execution_cancel_requested_event_attributes ?? ;
-    $this->workflow_execution_canceled_event_attributes = $workflow_execution_canceled_event_attributes ?? ;
-    $this->workflow_execution_completed_event_attributes = $workflow_execution_completed_event_attributes ?? ;
-    $this->workflow_execution_continued_as_new_event_attributes = $workflow_execution_continued_as_new_event_attributes ?? ;
-    $this->workflow_execution_failed_event_attributes = $workflow_execution_failed_event_attributes ?? ;
-    $this->workflow_execution_signaled_event_attributes = $workflow_execution_signaled_event_attributes ?? ;
-    $this->workflow_execution_started_event_attributes = $workflow_execution_started_event_attributes ?? ;
-    $this->workflow_execution_terminated_event_attributes = $workflow_execution_terminated_event_attributes ?? ;
-    $this->workflow_execution_timed_out_event_attributes = $workflow_execution_timed_out_event_attributes ?? ;
+    $this->activity_task_cancel_requested_event_attributes = $activity_task_cancel_requested_event_attributes ?? null;
+    $this->activity_task_canceled_event_attributes = $activity_task_canceled_event_attributes ?? null;
+    $this->activity_task_completed_event_attributes = $activity_task_completed_event_attributes ?? null;
+    $this->activity_task_failed_event_attributes = $activity_task_failed_event_attributes ?? null;
+    $this->activity_task_scheduled_event_attributes = $activity_task_scheduled_event_attributes ?? null;
+    $this->activity_task_started_event_attributes = $activity_task_started_event_attributes ?? null;
+    $this->activity_task_timed_out_event_attributes = $activity_task_timed_out_event_attributes ?? null;
+    $this->cancel_timer_failed_event_attributes = $cancel_timer_failed_event_attributes ?? null;
+    $this->cancel_workflow_execution_failed_event_attributes = $cancel_workflow_execution_failed_event_attributes ?? null;
+    $this->child_workflow_execution_canceled_event_attributes = $child_workflow_execution_canceled_event_attributes ?? null;
+    $this->child_workflow_execution_completed_event_attributes = $child_workflow_execution_completed_event_attributes ?? null;
+    $this->child_workflow_execution_failed_event_attributes = $child_workflow_execution_failed_event_attributes ?? null;
+    $this->child_workflow_execution_started_event_attributes = $child_workflow_execution_started_event_attributes ?? null;
+    $this->child_workflow_execution_terminated_event_attributes = $child_workflow_execution_terminated_event_attributes ?? null;
+    $this->child_workflow_execution_timed_out_event_attributes = $child_workflow_execution_timed_out_event_attributes ?? null;
+    $this->complete_workflow_execution_failed_event_attributes = $complete_workflow_execution_failed_event_attributes ?? null;
+    $this->continue_as_new_workflow_execution_failed_event_attributes = $continue_as_new_workflow_execution_failed_event_attributes ?? null;
+    $this->decision_task_completed_event_attributes = $decision_task_completed_event_attributes ?? null;
+    $this->decision_task_scheduled_event_attributes = $decision_task_scheduled_event_attributes ?? null;
+    $this->decision_task_started_event_attributes = $decision_task_started_event_attributes ?? null;
+    $this->decision_task_timed_out_event_attributes = $decision_task_timed_out_event_attributes ?? null;
+    $this->event_id = $event_id ?? 0;
+    $this->event_timestamp = $event_timestamp ?? 0;
+    $this->event_type = $event_type ?? "";
+    $this->external_workflow_execution_cancel_requested_event_attributes = $external_workflow_execution_cancel_requested_event_attributes ?? null;
+    $this->external_workflow_execution_signaled_event_attributes = $external_workflow_execution_signaled_event_attributes ?? null;
+    $this->fail_workflow_execution_failed_event_attributes = $fail_workflow_execution_failed_event_attributes ?? null;
+    $this->lambda_function_completed_event_attributes = $lambda_function_completed_event_attributes ?? null;
+    $this->lambda_function_failed_event_attributes = $lambda_function_failed_event_attributes ?? null;
+    $this->lambda_function_scheduled_event_attributes = $lambda_function_scheduled_event_attributes ?? null;
+    $this->lambda_function_started_event_attributes = $lambda_function_started_event_attributes ?? null;
+    $this->lambda_function_timed_out_event_attributes = $lambda_function_timed_out_event_attributes ?? null;
+    $this->marker_recorded_event_attributes = $marker_recorded_event_attributes ?? null;
+    $this->record_marker_failed_event_attributes = $record_marker_failed_event_attributes ?? null;
+    $this->request_cancel_activity_task_failed_event_attributes = $request_cancel_activity_task_failed_event_attributes ?? null;
+    $this->request_cancel_external_workflow_execution_failed_event_attributes = $request_cancel_external_workflow_execution_failed_event_attributes ?? null;
+    $this->request_cancel_external_workflow_execution_initiated_event_attributes = $request_cancel_external_workflow_execution_initiated_event_attributes ?? null;
+    $this->schedule_activity_task_failed_event_attributes = $schedule_activity_task_failed_event_attributes ?? null;
+    $this->schedule_lambda_function_failed_event_attributes = $schedule_lambda_function_failed_event_attributes ?? null;
+    $this->signal_external_workflow_execution_failed_event_attributes = $signal_external_workflow_execution_failed_event_attributes ?? null;
+    $this->signal_external_workflow_execution_initiated_event_attributes = $signal_external_workflow_execution_initiated_event_attributes ?? null;
+    $this->start_child_workflow_execution_failed_event_attributes = $start_child_workflow_execution_failed_event_attributes ?? null;
+    $this->start_child_workflow_execution_initiated_event_attributes = $start_child_workflow_execution_initiated_event_attributes ?? null;
+    $this->start_lambda_function_failed_event_attributes = $start_lambda_function_failed_event_attributes ?? null;
+    $this->start_timer_failed_event_attributes = $start_timer_failed_event_attributes ?? null;
+    $this->timer_canceled_event_attributes = $timer_canceled_event_attributes ?? null;
+    $this->timer_fired_event_attributes = $timer_fired_event_attributes ?? null;
+    $this->timer_started_event_attributes = $timer_started_event_attributes ?? null;
+    $this->workflow_execution_cancel_requested_event_attributes = $workflow_execution_cancel_requested_event_attributes ?? null;
+    $this->workflow_execution_canceled_event_attributes = $workflow_execution_canceled_event_attributes ?? null;
+    $this->workflow_execution_completed_event_attributes = $workflow_execution_completed_event_attributes ?? null;
+    $this->workflow_execution_continued_as_new_event_attributes = $workflow_execution_continued_as_new_event_attributes ?? null;
+    $this->workflow_execution_failed_event_attributes = $workflow_execution_failed_event_attributes ?? null;
+    $this->workflow_execution_signaled_event_attributes = $workflow_execution_signaled_event_attributes ?? null;
+    $this->workflow_execution_started_event_attributes = $workflow_execution_started_event_attributes ?? null;
+    $this->workflow_execution_terminated_event_attributes = $workflow_execution_terminated_event_attributes ?? null;
+    $this->workflow_execution_timed_out_event_attributes = $workflow_execution_timed_out_event_attributes ?? null;
   }
 }
 
@@ -1296,9 +1296,9 @@ class LambdaFunctionCompletedEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->result = $result ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->result = $result ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -1314,10 +1314,10 @@ class LambdaFunctionFailedEventAttributes {
   ?'scheduled_event_id' => EventId,
   ?'started_event_id' => EventId,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
   }
 }
 
@@ -1337,12 +1337,12 @@ class LambdaFunctionScheduledEventAttributes {
   ?'name' => FunctionName,
   ?'start_to_close_timeout' => DurationInSecondsOptional,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->id = $id ?? ;
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
-    $this->start_to_close_timeout = $start_to_close_timeout ?? ;
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->id = $id ?? "";
+    $this->input = $input ?? "";
+    $this->name = $name ?? "";
+    $this->start_to_close_timeout = $start_to_close_timeout ?? "";
   }
 }
 
@@ -1352,7 +1352,7 @@ class LambdaFunctionStartedEventAttributes {
   public function __construct(shape(
   ?'scheduled_event_id' => EventId,
   ) $s = shape()) {
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
   }
 }
 
@@ -1366,9 +1366,9 @@ class LambdaFunctionTimedOutEventAttributes {
   ?'started_event_id' => EventId,
   ?'timeout_type' => LambdaFunctionTimeoutType,
   ) $s = shape()) {
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timeout_type = $timeout_type ?? ;
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timeout_type = $timeout_type ?? "";
   }
 }
 
@@ -1380,7 +1380,7 @@ class LimitExceededFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1402,12 +1402,12 @@ class ListActivityTypesInput {
   ?'registration_status' => RegistrationStatus,
   ?'reverse_order' => ReverseOrder,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->name = $name ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->registration_status = $registration_status ?? ;
-    $this->reverse_order = $reverse_order ?? ;
+    $this->domain = $domain ?? "";
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->name = $name ?? "";
+    $this->next_page_token = $next_page_token ?? "";
+    $this->registration_status = $registration_status ?? "";
+    $this->reverse_order = $reverse_order ?? false;
   }
 }
 
@@ -1435,16 +1435,16 @@ class ListClosedWorkflowExecutionsInput {
   ?'tag_filter' => TagFilter,
   ?'type_filter' => WorkflowTypeFilter,
   ) $s = shape()) {
-    $this->close_status_filter = $close_status_filter ?? ;
-    $this->close_time_filter = $close_time_filter ?? ;
-    $this->domain = $domain ?? ;
-    $this->execution_filter = $execution_filter ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->reverse_order = $reverse_order ?? ;
-    $this->start_time_filter = $start_time_filter ?? ;
-    $this->tag_filter = $tag_filter ?? ;
-    $this->type_filter = $type_filter ?? ;
+    $this->close_status_filter = $close_status_filter ?? null;
+    $this->close_time_filter = $close_time_filter ?? null;
+    $this->domain = $domain ?? "";
+    $this->execution_filter = $execution_filter ?? null;
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->reverse_order = $reverse_order ?? false;
+    $this->start_time_filter = $start_time_filter ?? null;
+    $this->tag_filter = $tag_filter ?? null;
+    $this->type_filter = $type_filter ?? null;
   }
 }
 
@@ -1460,10 +1460,10 @@ class ListDomainsInput {
   ?'registration_status' => RegistrationStatus,
   ?'reverse_order' => ReverseOrder,
   ) $s = shape()) {
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->registration_status = $registration_status ?? ;
-    $this->reverse_order = $reverse_order ?? ;
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->registration_status = $registration_status ?? "";
+    $this->reverse_order = $reverse_order ?? false;
   }
 }
 
@@ -1487,14 +1487,14 @@ class ListOpenWorkflowExecutionsInput {
   ?'tag_filter' => TagFilter,
   ?'type_filter' => WorkflowTypeFilter,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->execution_filter = $execution_filter ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->reverse_order = $reverse_order ?? ;
-    $this->start_time_filter = $start_time_filter ?? ;
-    $this->tag_filter = $tag_filter ?? ;
-    $this->type_filter = $type_filter ?? ;
+    $this->domain = $domain ?? "";
+    $this->execution_filter = $execution_filter ?? null;
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->reverse_order = $reverse_order ?? false;
+    $this->start_time_filter = $start_time_filter ?? null;
+    $this->tag_filter = $tag_filter ?? null;
+    $this->type_filter = $type_filter ?? null;
   }
 }
 
@@ -1504,7 +1504,7 @@ class ListTagsForResourceInput {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1514,7 +1514,7 @@ class ListTagsForResourceOutput {
   public function __construct(shape(
   ?'tags' => ResourceTagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1534,12 +1534,12 @@ class ListWorkflowTypesInput {
   ?'registration_status' => RegistrationStatus,
   ?'reverse_order' => ReverseOrder,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->name = $name ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->registration_status = $registration_status ?? ;
-    $this->reverse_order = $reverse_order ?? ;
+    $this->domain = $domain ?? "";
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->name = $name ?? "";
+    $this->next_page_token = $next_page_token ?? "";
+    $this->registration_status = $registration_status ?? "";
+    $this->reverse_order = $reverse_order ?? false;
   }
 }
 
@@ -1555,9 +1555,9 @@ class MarkerRecordedEventAttributes {
   ?'details' => Data,
   ?'marker_name' => MarkerName,
   ) $s = shape()) {
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->details = $details ?? ;
-    $this->marker_name = $marker_name ?? ;
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->details = $details ?? "";
+    $this->marker_name = $marker_name ?? "";
   }
 }
 
@@ -1571,7 +1571,7 @@ class OperationNotPermittedFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1587,8 +1587,8 @@ class PendingTaskCount {
   ?'count' => Count,
   ?'truncated' => Truncated,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->count = $count ?? 0;
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -1602,9 +1602,9 @@ class PollForActivityTaskInput {
   ?'identity' => Identity,
   ?'task_list' => TaskList,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->identity = $identity ?? ;
-    $this->task_list = $task_list ?? ;
+    $this->domain = $domain ?? "";
+    $this->identity = $identity ?? "";
+    $this->task_list = $task_list ?? null;
   }
 }
 
@@ -1624,12 +1624,12 @@ class PollForDecisionTaskInput {
   ?'reverse_order' => ReverseOrder,
   ?'task_list' => TaskList,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->identity = $identity ?? ;
-    $this->maximum_page_size = $maximum_page_size ?? ;
-    $this->next_page_token = $next_page_token ?? ;
-    $this->reverse_order = $reverse_order ?? ;
-    $this->task_list = $task_list ?? ;
+    $this->domain = $domain ?? "";
+    $this->identity = $identity ?? "";
+    $this->maximum_page_size = $maximum_page_size ?? 0;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->reverse_order = $reverse_order ?? false;
+    $this->task_list = $task_list ?? null;
   }
 }
 
@@ -1641,8 +1641,8 @@ class RecordActivityTaskHeartbeatInput {
   ?'details' => LimitedData,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->details = $details ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1654,8 +1654,8 @@ class RecordMarkerDecisionAttributes {
   ?'details' => Data,
   ?'marker_name' => MarkerName,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->marker_name = $marker_name ?? ;
+    $this->details = $details ?? "";
+    $this->marker_name = $marker_name ?? "";
   }
 }
 
@@ -1671,9 +1671,9 @@ class RecordMarkerFailedEventAttributes {
   ?'decision_task_completed_event_id' => EventId,
   ?'marker_name' => MarkerName,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->marker_name = $marker_name ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->marker_name = $marker_name ?? "";
   }
 }
 
@@ -1701,16 +1701,16 @@ class RegisterActivityTypeInput {
   ?'name' => Name,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->default_task_heartbeat_timeout = $default_task_heartbeat_timeout ?? ;
-    $this->default_task_list = $default_task_list ?? ;
-    $this->default_task_priority = $default_task_priority ?? ;
-    $this->default_task_schedule_to_close_timeout = $default_task_schedule_to_close_timeout ?? ;
-    $this->default_task_schedule_to_start_timeout = $default_task_schedule_to_start_timeout ?? ;
-    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? ;
-    $this->description = $description ?? ;
-    $this->domain = $domain ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->default_task_heartbeat_timeout = $default_task_heartbeat_timeout ?? "";
+    $this->default_task_list = $default_task_list ?? null;
+    $this->default_task_priority = $default_task_priority ?? "";
+    $this->default_task_schedule_to_close_timeout = $default_task_schedule_to_close_timeout ?? "";
+    $this->default_task_schedule_to_start_timeout = $default_task_schedule_to_start_timeout ?? "";
+    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? "";
+    $this->description = $description ?? "";
+    $this->domain = $domain ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1726,10 +1726,10 @@ class RegisterDomainInput {
   ?'tags' => ResourceTagList,
   ?'workflow_execution_retention_period_in_days' => DurationInDays,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
-    $this->workflow_execution_retention_period_in_days = $workflow_execution_retention_period_in_days ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->workflow_execution_retention_period_in_days = $workflow_execution_retention_period_in_days ?? "";
   }
 }
 
@@ -1757,16 +1757,16 @@ class RegisterWorkflowTypeInput {
   ?'name' => Name,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->default_child_policy = $default_child_policy ?? ;
-    $this->default_execution_start_to_close_timeout = $default_execution_start_to_close_timeout ?? ;
-    $this->default_lambda_role = $default_lambda_role ?? ;
-    $this->default_task_list = $default_task_list ?? ;
-    $this->default_task_priority = $default_task_priority ?? ;
-    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? ;
-    $this->description = $description ?? ;
-    $this->domain = $domain ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->default_child_policy = $default_child_policy ?? "";
+    $this->default_execution_start_to_close_timeout = $default_execution_start_to_close_timeout ?? "";
+    $this->default_lambda_role = $default_lambda_role ?? "";
+    $this->default_task_list = $default_task_list ?? null;
+    $this->default_task_priority = $default_task_priority ?? "";
+    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? "";
+    $this->description = $description ?? "";
+    $this->domain = $domain ?? "";
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -1778,7 +1778,7 @@ class RequestCancelActivityTaskDecisionAttributes {
   public function __construct(shape(
   ?'activity_id' => ActivityId,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
+    $this->activity_id = $activity_id ?? "";
   }
 }
 
@@ -1794,9 +1794,9 @@ class RequestCancelActivityTaskFailedEventAttributes {
   ?'cause' => RequestCancelActivityTaskFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -1810,9 +1810,9 @@ class RequestCancelExternalWorkflowExecutionDecisionAttributes {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->control = $control ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -1834,12 +1834,12 @@ class RequestCancelExternalWorkflowExecutionFailedEventAttributes {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -1855,10 +1855,10 @@ class RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -1872,9 +1872,9 @@ class RequestCancelWorkflowExecutionInput {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->domain = $domain ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -1886,8 +1886,8 @@ class ResourceTag {
   ?'key' => ResourceTagKey,
   ?'value' => ResourceTagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1907,8 +1907,8 @@ class RespondActivityTaskCanceledInput {
   ?'details' => Data,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->details = $details ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1920,8 +1920,8 @@ class RespondActivityTaskCompletedInput {
   ?'result' => Data,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->result = $result ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->result = $result ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1935,9 +1935,9 @@ class RespondActivityTaskFailedInput {
   ?'reason' => FailureReason,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1951,9 +1951,9 @@ class RespondDecisionTaskCompletedInput {
   ?'execution_context' => Data,
   ?'task_token' => TaskToken,
   ) $s = shape()) {
-    $this->decisions = $decisions ?? ;
-    $this->execution_context = $execution_context ?? ;
-    $this->task_token = $task_token ?? ;
+    $this->decisions = $decisions ?? [];
+    $this->execution_context = $execution_context ?? "";
+    $this->task_token = $task_token ?? "";
   }
 }
 
@@ -1965,7 +1965,7 @@ class Run {
   public function __construct(shape(
   ?'run_id' => WorkflowRunId,
   ) $s = shape()) {
-    $this->run_id = $run_id ?? ;
+    $this->run_id = $run_id ?? "";
   }
 }
 
@@ -1993,16 +1993,16 @@ class ScheduleActivityTaskDecisionAttributes {
   ?'task_list' => TaskList,
   ?'task_priority' => TaskPriority,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->activity_type = $activity_type ?? ;
-    $this->control = $control ?? ;
-    $this->heartbeat_timeout = $heartbeat_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->schedule_to_close_timeout = $schedule_to_close_timeout ?? ;
-    $this->schedule_to_start_timeout = $schedule_to_start_timeout ?? ;
-    $this->start_to_close_timeout = $start_to_close_timeout ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->activity_type = $activity_type ?? null;
+    $this->control = $control ?? "";
+    $this->heartbeat_timeout = $heartbeat_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->schedule_to_close_timeout = $schedule_to_close_timeout ?? "";
+    $this->schedule_to_start_timeout = $schedule_to_start_timeout ?? "";
+    $this->start_to_close_timeout = $start_to_close_timeout ?? "";
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
   }
 }
 
@@ -2020,10 +2020,10 @@ class ScheduleActivityTaskFailedEventAttributes {
   ?'cause' => ScheduleActivityTaskFailedCause,
   ?'decision_task_completed_event_id' => EventId,
   ) $s = shape()) {
-    $this->activity_id = $activity_id ?? ;
-    $this->activity_type = $activity_type ?? ;
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
+    $this->activity_id = $activity_id ?? "";
+    $this->activity_type = $activity_type ?? null;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
   }
 }
 
@@ -2041,11 +2041,11 @@ class ScheduleLambdaFunctionDecisionAttributes {
   ?'name' => FunctionName,
   ?'start_to_close_timeout' => DurationInSecondsOptional,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->id = $id ?? ;
-    $this->input = $input ?? ;
-    $this->name = $name ?? ;
-    $this->start_to_close_timeout = $start_to_close_timeout ?? ;
+    $this->control = $control ?? "";
+    $this->id = $id ?? "";
+    $this->input = $input ?? "";
+    $this->name = $name ?? "";
+    $this->start_to_close_timeout = $start_to_close_timeout ?? "";
   }
 }
 
@@ -2063,10 +2063,10 @@ class ScheduleLambdaFunctionFailedEventAttributes {
   ?'id' => FunctionId,
   ?'name' => FunctionName,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -2084,11 +2084,11 @@ class SignalExternalWorkflowExecutionDecisionAttributes {
   ?'signal_name' => SignalName,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->input = $input ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->signal_name = $signal_name ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->control = $control ?? "";
+    $this->input = $input ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->signal_name = $signal_name ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2110,12 +2110,12 @@ class SignalExternalWorkflowExecutionFailedEventAttributes {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2135,12 +2135,12 @@ class SignalExternalWorkflowExecutionInitiatedEventAttributes {
   ?'signal_name' => SignalName,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->input = $input ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->signal_name = $signal_name ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->input = $input ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->signal_name = $signal_name ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2160,11 +2160,11 @@ class SignalWorkflowExecutionInput {
   ?'signal_name' => SignalName,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->input = $input ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->signal_name = $signal_name ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->domain = $domain ?? "";
+    $this->input = $input ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->signal_name = $signal_name ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2194,17 +2194,17 @@ class StartChildWorkflowExecutionDecisionAttributes {
   ?'workflow_id' => WorkflowId,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->control = $control ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_id = $workflow_id ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->control = $control ?? "";
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_id = $workflow_id ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2226,12 +2226,12 @@ class StartChildWorkflowExecutionFailedEventAttributes {
   ?'workflow_id' => WorkflowId,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->initiated_event_id = $initiated_event_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->cause = $cause ?? "";
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->initiated_event_id = $initiated_event_id ?? 0;
+    $this->workflow_id = $workflow_id ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2263,18 +2263,18 @@ class StartChildWorkflowExecutionInitiatedEventAttributes {
   ?'workflow_id' => WorkflowId,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_id = $workflow_id ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_id = $workflow_id ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2290,9 +2290,9 @@ class StartLambdaFunctionFailedEventAttributes {
   ?'message' => CauseMessage,
   ?'scheduled_event_id' => EventId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->message = $message ?? ;
-    $this->scheduled_event_id = $scheduled_event_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->message = $message ?? "";
+    $this->scheduled_event_id = $scheduled_event_id ?? 0;
   }
 }
 
@@ -2306,9 +2306,9 @@ class StartTimerDecisionAttributes {
   ?'start_to_fire_timeout' => DurationInSeconds,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->start_to_fire_timeout = $start_to_fire_timeout ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->control = $control ?? "";
+    $this->start_to_fire_timeout = $start_to_fire_timeout ?? "";
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -2324,9 +2324,9 @@ class StartTimerFailedEventAttributes {
   ?'decision_task_completed_event_id' => EventId,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->cause = $cause ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -2356,17 +2356,17 @@ class StartWorkflowExecutionInput {
   ?'workflow_id' => WorkflowId,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->domain = $domain ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_id = $workflow_id ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->domain = $domain ?? "";
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_id = $workflow_id ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2378,7 +2378,7 @@ class TagFilter {
   public function __construct(shape(
   ?'tag' => Tag,
   ) $s = shape()) {
-    $this->tag = $tag ?? ;
+    $this->tag = $tag ?? "";
   }
 }
 
@@ -2392,8 +2392,8 @@ class TagResourceInput {
   ?'resource_arn' => Arn,
   ?'tags' => ResourceTagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2403,7 +2403,7 @@ class TaskList {
   public function __construct(shape(
   ?'name' => Name,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2429,12 +2429,12 @@ class TerminateWorkflowExecutionInput {
   ?'run_id' => WorkflowRunIdOptional,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->details = $details ?? ;
-    $this->domain = $domain ?? ;
-    $this->reason = $reason ?? ;
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->details = $details ?? "";
+    $this->domain = $domain ?? "";
+    $this->reason = $reason ?? "";
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2448,9 +2448,9 @@ class TimerCanceledEventAttributes {
   ?'started_event_id' => EventId,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -2462,8 +2462,8 @@ class TimerFiredEventAttributes {
   ?'started_event_id' => EventId,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->started_event_id = $started_event_id ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->started_event_id = $started_event_id ?? 0;
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -2481,10 +2481,10 @@ class TimerStartedEventAttributes {
   ?'start_to_fire_timeout' => DurationInSeconds,
   ?'timer_id' => TimerId,
   ) $s = shape()) {
-    $this->control = $control ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->start_to_fire_timeout = $start_to_fire_timeout ?? ;
-    $this->timer_id = $timer_id ?? ;
+    $this->control = $control ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->start_to_fire_timeout = $start_to_fire_timeout ?? "";
+    $this->timer_id = $timer_id ?? "";
   }
 }
 
@@ -2496,7 +2496,7 @@ class TooManyTagsFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2508,7 +2508,7 @@ class TypeAlreadyExistsFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2518,7 +2518,7 @@ class TypeDeprecatedFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2530,8 +2530,8 @@ class UndeprecateActivityTypeInput {
   ?'activity_type' => ActivityType,
   ?'domain' => DomainName,
   ) $s = shape()) {
-    $this->activity_type = $activity_type ?? ;
-    $this->domain = $domain ?? ;
+    $this->activity_type = $activity_type ?? null;
+    $this->domain = $domain ?? "";
   }
 }
 
@@ -2541,7 +2541,7 @@ class UndeprecateDomainInput {
   public function __construct(shape(
   ?'name' => DomainName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2553,8 +2553,8 @@ class UndeprecateWorkflowTypeInput {
   ?'domain' => DomainName,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->domain = $domain ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->domain = $domain ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2564,7 +2564,7 @@ class UnknownResourceFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2576,8 +2576,8 @@ class UntagResourceInput {
   ?'resource_arn' => Arn,
   ?'tag_keys' => ResourceTagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2593,8 +2593,8 @@ class WorkflowExecution {
   ?'run_id' => WorkflowRunId,
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->run_id = $run_id ?? ;
-    $this->workflow_id = $workflow_id ?? ;
+    $this->run_id = $run_id ?? "";
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2604,7 +2604,7 @@ class WorkflowExecutionAlreadyStartedFault {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2620,9 +2620,9 @@ class WorkflowExecutionCancelRequestedEventAttributes {
   ?'external_initiated_event_id' => EventId,
   ?'external_workflow_execution' => WorkflowExecution,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->external_initiated_event_id = $external_initiated_event_id ?? ;
-    $this->external_workflow_execution = $external_workflow_execution ?? ;
+    $this->cause = $cause ?? "";
+    $this->external_initiated_event_id = $external_initiated_event_id ?? 0;
+    $this->external_workflow_execution = $external_workflow_execution ?? null;
   }
 }
 
@@ -2634,8 +2634,8 @@ class WorkflowExecutionCanceledEventAttributes {
   ?'decision_task_completed_event_id' => EventId,
   ?'details' => Data,
   ) $s = shape()) {
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->details = $details ?? ;
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->details = $details ?? "";
   }
 }
 
@@ -2647,8 +2647,8 @@ class WorkflowExecutionCompletedEventAttributes {
   ?'decision_task_completed_event_id' => EventId,
   ?'result' => Data,
   ) $s = shape()) {
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->result = $result ?? ;
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->result = $result ?? "";
   }
 }
 
@@ -2668,12 +2668,12 @@ class WorkflowExecutionConfiguration {
   ?'task_priority' => TaskPriority,
   ?'task_start_to_close_timeout' => DurationInSeconds,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
   }
 }
 
@@ -2703,17 +2703,17 @@ class WorkflowExecutionContinuedAsNewEventAttributes {
   ?'task_start_to_close_timeout' => DurationInSecondsOptional,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->new_execution_run_id = $new_execution_run_id ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->new_execution_run_id = $new_execution_run_id ?? "";
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2725,8 +2725,8 @@ class WorkflowExecutionCount {
   ?'count' => Count,
   ?'truncated' => Truncated,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->truncated = $truncated ?? ;
+    $this->count = $count ?? 0;
+    $this->truncated = $truncated ?? false;
   }
 }
 
@@ -2744,11 +2744,11 @@ class WorkflowExecutionDetail {
   ?'latest_execution_context' => Data,
   ?'open_counts' => WorkflowExecutionOpenCounts,
   ) $s = shape()) {
-    $this->execution_configuration = $execution_configuration ?? ;
-    $this->execution_info = $execution_info ?? ;
-    $this->latest_activity_task_timestamp = $latest_activity_task_timestamp ?? ;
-    $this->latest_execution_context = $latest_execution_context ?? ;
-    $this->open_counts = $open_counts ?? ;
+    $this->execution_configuration = $execution_configuration ?? null;
+    $this->execution_info = $execution_info ?? null;
+    $this->latest_activity_task_timestamp = $latest_activity_task_timestamp ?? 0;
+    $this->latest_execution_context = $latest_execution_context ?? "";
+    $this->open_counts = $open_counts ?? null;
   }
 }
 
@@ -2762,9 +2762,9 @@ class WorkflowExecutionFailedEventAttributes {
   ?'details' => Data,
   ?'reason' => FailureReason,
   ) $s = shape()) {
-    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? ;
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
+    $this->decision_task_completed_event_id = $decision_task_completed_event_id ?? 0;
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -2774,7 +2774,7 @@ class WorkflowExecutionFilter {
   public function __construct(shape(
   ?'workflow_id' => WorkflowId,
   ) $s = shape()) {
-    $this->workflow_id = $workflow_id ?? ;
+    $this->workflow_id = $workflow_id ?? "";
   }
 }
 
@@ -2800,15 +2800,15 @@ class WorkflowExecutionInfo {
   ?'tag_list' => TagList,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->cancel_requested = $cancel_requested ?? ;
-    $this->close_status = $close_status ?? ;
-    $this->close_timestamp = $close_timestamp ?? ;
-    $this->execution = $execution ?? ;
-    $this->execution_status = $execution_status ?? ;
-    $this->parent = $parent ?? ;
-    $this->start_timestamp = $start_timestamp ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->cancel_requested = $cancel_requested ?? false;
+    $this->close_status = $close_status ?? "";
+    $this->close_timestamp = $close_timestamp ?? 0;
+    $this->execution = $execution ?? null;
+    $this->execution_status = $execution_status ?? "";
+    $this->parent = $parent ?? null;
+    $this->start_timestamp = $start_timestamp ?? 0;
+    $this->tag_list = $tag_list ?? [];
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2822,8 +2822,8 @@ class WorkflowExecutionInfos {
   ?'execution_infos' => WorkflowExecutionInfoList,
   ?'next_page_token' => PageToken,
   ) $s = shape()) {
-    $this->execution_infos = $execution_infos ?? ;
-    $this->next_page_token = $next_page_token ?? ;
+    $this->execution_infos = $execution_infos ?? [];
+    $this->next_page_token = $next_page_token ?? "";
   }
 }
 
@@ -2841,11 +2841,11 @@ class WorkflowExecutionOpenCounts {
   ?'open_lambda_functions' => Count,
   ?'open_timers' => Count,
   ) $s = shape()) {
-    $this->open_activity_tasks = $open_activity_tasks ?? ;
-    $this->open_child_workflow_executions = $open_child_workflow_executions ?? ;
-    $this->open_decision_tasks = $open_decision_tasks ?? ;
-    $this->open_lambda_functions = $open_lambda_functions ?? ;
-    $this->open_timers = $open_timers ?? ;
+    $this->open_activity_tasks = $open_activity_tasks ?? 0;
+    $this->open_child_workflow_executions = $open_child_workflow_executions ?? 0;
+    $this->open_decision_tasks = $open_decision_tasks ?? 0;
+    $this->open_lambda_functions = $open_lambda_functions ?? 0;
+    $this->open_timers = $open_timers ?? 0;
   }
 }
 
@@ -2861,10 +2861,10 @@ class WorkflowExecutionSignaledEventAttributes {
   ?'input' => Data,
   ?'signal_name' => SignalName,
   ) $s = shape()) {
-    $this->external_initiated_event_id = $external_initiated_event_id ?? ;
-    $this->external_workflow_execution = $external_workflow_execution ?? ;
-    $this->input = $input ?? ;
-    $this->signal_name = $signal_name ?? ;
+    $this->external_initiated_event_id = $external_initiated_event_id ?? 0;
+    $this->external_workflow_execution = $external_workflow_execution ?? null;
+    $this->input = $input ?? "";
+    $this->signal_name = $signal_name ?? "";
   }
 }
 
@@ -2896,18 +2896,18 @@ class WorkflowExecutionStartedEventAttributes {
   ?'task_start_to_close_timeout' => DurationInSecondsOptional,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->continued_execution_run_id = $continued_execution_run_id ?? ;
-    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? ;
-    $this->input = $input ?? ;
-    $this->lambda_role = $lambda_role ?? ;
-    $this->parent_initiated_event_id = $parent_initiated_event_id ?? ;
-    $this->parent_workflow_execution = $parent_workflow_execution ?? ;
-    $this->tag_list = $tag_list ?? ;
-    $this->task_list = $task_list ?? ;
-    $this->task_priority = $task_priority ?? ;
-    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->continued_execution_run_id = $continued_execution_run_id ?? "";
+    $this->execution_start_to_close_timeout = $execution_start_to_close_timeout ?? "";
+    $this->input = $input ?? "";
+    $this->lambda_role = $lambda_role ?? "";
+    $this->parent_initiated_event_id = $parent_initiated_event_id ?? 0;
+    $this->parent_workflow_execution = $parent_workflow_execution ?? null;
+    $this->tag_list = $tag_list ?? [];
+    $this->task_list = $task_list ?? null;
+    $this->task_priority = $task_priority ?? "";
+    $this->task_start_to_close_timeout = $task_start_to_close_timeout ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -2925,10 +2925,10 @@ class WorkflowExecutionTerminatedEventAttributes {
   ?'details' => Data,
   ?'reason' => TerminateReason,
   ) $s = shape()) {
-    $this->cause = $cause ?? ;
-    $this->child_policy = $child_policy ?? ;
-    $this->details = $details ?? ;
-    $this->reason = $reason ?? ;
+    $this->cause = $cause ?? "";
+    $this->child_policy = $child_policy ?? "";
+    $this->details = $details ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -2940,8 +2940,8 @@ class WorkflowExecutionTimedOutEventAttributes {
   ?'child_policy' => ChildPolicy,
   ?'timeout_type' => WorkflowExecutionTimeoutType,
   ) $s = shape()) {
-    $this->child_policy = $child_policy ?? ;
-    $this->timeout_type = $timeout_type ?? ;
+    $this->child_policy = $child_policy ?? "";
+    $this->timeout_type = $timeout_type ?? "";
   }
 }
 
@@ -2961,8 +2961,8 @@ class WorkflowType {
   ?'name' => Name,
   ?'version' => Version,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -2982,12 +2982,12 @@ class WorkflowTypeConfiguration {
   ?'default_task_priority' => TaskPriority,
   ?'default_task_start_to_close_timeout' => DurationInSecondsOptional,
   ) $s = shape()) {
-    $this->default_child_policy = $default_child_policy ?? ;
-    $this->default_execution_start_to_close_timeout = $default_execution_start_to_close_timeout ?? ;
-    $this->default_lambda_role = $default_lambda_role ?? ;
-    $this->default_task_list = $default_task_list ?? ;
-    $this->default_task_priority = $default_task_priority ?? ;
-    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? ;
+    $this->default_child_policy = $default_child_policy ?? "";
+    $this->default_execution_start_to_close_timeout = $default_execution_start_to_close_timeout ?? "";
+    $this->default_lambda_role = $default_lambda_role ?? "";
+    $this->default_task_list = $default_task_list ?? null;
+    $this->default_task_priority = $default_task_priority ?? "";
+    $this->default_task_start_to_close_timeout = $default_task_start_to_close_timeout ?? "";
   }
 }
 
@@ -2999,8 +2999,8 @@ class WorkflowTypeDetail {
   ?'configuration' => WorkflowTypeConfiguration,
   ?'type_info' => WorkflowTypeInfo,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->type_info = $type_info ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->type_info = $type_info ?? null;
   }
 }
 
@@ -3012,8 +3012,8 @@ class WorkflowTypeFilter {
   ?'name' => Name,
   ?'version' => VersionOptional,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3031,11 +3031,11 @@ class WorkflowTypeInfo {
   ?'status' => RegistrationStatus,
   ?'workflow_type' => WorkflowType,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->deprecation_date = $deprecation_date ?? ;
-    $this->description = $description ?? ;
-    $this->status = $status ?? ;
-    $this->workflow_type = $workflow_type ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->deprecation_date = $deprecation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->status = $status ?? "";
+    $this->workflow_type = $workflow_type ?? null;
   }
 }
 
@@ -3049,8 +3049,8 @@ class WorkflowTypeInfos {
   ?'next_page_token' => PageToken,
   ?'type_infos' => WorkflowTypeInfoList,
   ) $s = shape()) {
-    $this->next_page_token = $next_page_token ?? ;
-    $this->type_infos = $type_infos ?? ;
+    $this->next_page_token = $next_page_token ?? "";
+    $this->type_infos = $type_infos ?? [];
   }
 }
 

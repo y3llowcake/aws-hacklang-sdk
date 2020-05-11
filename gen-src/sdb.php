@@ -26,10 +26,10 @@ class Attribute {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->alternate_name_encoding = $alternate_name_encoding ?? ;
-    $this->alternate_value_encoding = $alternate_value_encoding ?? ;
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->alternate_name_encoding = $alternate_name_encoding ?? "";
+    $this->alternate_value_encoding = $alternate_value_encoding ?? "";
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -39,7 +39,7 @@ class AttributeDoesNotExist {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -55,8 +55,8 @@ class BatchDeleteAttributesRequest {
   ?'domain_name' => string,
   ?'items' => DeletableItemList,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->items = $items ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->items = $items ?? [];
   }
 }
 
@@ -68,8 +68,8 @@ class BatchPutAttributesRequest {
   ?'domain_name' => string,
   ?'items' => ReplaceableItemList,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
-    $this->items = $items ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->items = $items ?? [];
   }
 }
 
@@ -81,7 +81,7 @@ class CreateDomainRequest {
   public function __construct(shape(
   ?'domain_name' => string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -93,8 +93,8 @@ class DeletableAttribute {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -108,8 +108,8 @@ class DeletableItem {
   ?'attributes' => DeletableAttributeList,
   ?'name' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -127,10 +127,10 @@ class DeleteAttributesRequest {
   ?'expected' => UpdateCondition,
   ?'item_name' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->expected = $expected ?? ;
-    $this->item_name = $item_name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->domain_name = $domain_name ?? "";
+    $this->expected = $expected ?? null;
+    $this->item_name = $item_name ?? "";
   }
 }
 
@@ -140,7 +140,7 @@ class DeleteDomainRequest {
   public function __construct(shape(
   ?'domain_name' => string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -150,7 +150,7 @@ class DomainMetadataRequest {
   public function __construct(shape(
   ?'domain_name' => string,
   ) $s = shape()) {
-    $this->domain_name = $domain_name ?? ;
+    $this->domain_name = $domain_name ?? "";
   }
 }
 
@@ -172,13 +172,13 @@ class DomainMetadataResult {
   ?'item_names_size_bytes' => Long,
   ?'timestamp' => int,
   ) $s = shape()) {
-    $this->attribute_name_count = $attribute_name_count ?? ;
-    $this->attribute_names_size_bytes = $attribute_names_size_bytes ?? ;
-    $this->attribute_value_count = $attribute_value_count ?? ;
-    $this->attribute_values_size_bytes = $attribute_values_size_bytes ?? ;
-    $this->item_count = $item_count ?? ;
-    $this->item_names_size_bytes = $item_names_size_bytes ?? ;
-    $this->timestamp = $timestamp ?? ;
+    $this->attribute_name_count = $attribute_name_count ?? 0;
+    $this->attribute_names_size_bytes = $attribute_names_size_bytes ?? 0;
+    $this->attribute_value_count = $attribute_value_count ?? 0;
+    $this->attribute_values_size_bytes = $attribute_values_size_bytes ?? 0;
+    $this->item_count = $item_count ?? 0;
+    $this->item_names_size_bytes = $item_names_size_bytes ?? 0;
+    $this->timestamp = $timestamp ?? 0;
   }
 }
 
@@ -190,7 +190,7 @@ class DuplicateItemName {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -208,10 +208,10 @@ class GetAttributesRequest {
   ?'domain_name' => string,
   ?'item_name' => string,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
-    $this->consistent_read = $consistent_read ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->item_name = $item_name ?? ;
+    $this->attribute_names = $attribute_names ?? [];
+    $this->consistent_read = $consistent_read ?? false;
+    $this->domain_name = $domain_name ?? "";
+    $this->item_name = $item_name ?? "";
   }
 }
 
@@ -221,7 +221,7 @@ class GetAttributesResult {
   public function __construct(shape(
   ?'attributes' => AttributeList,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -233,7 +233,7 @@ class InvalidNextToken {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -243,7 +243,7 @@ class InvalidNumberPredicates {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -253,7 +253,7 @@ class InvalidNumberValueTests {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -263,7 +263,7 @@ class InvalidParameterValue {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -273,7 +273,7 @@ class InvalidQueryExpression {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -287,9 +287,9 @@ class Item {
   ?'attributes' => AttributeList,
   ?'name' => string,
   ) $s = shape()) {
-    $this->alternate_name_encoding = $alternate_name_encoding ?? ;
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
+    $this->alternate_name_encoding = $alternate_name_encoding ?? "";
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -303,8 +303,8 @@ class ListDomainsRequest {
   ?'max_number_of_domains' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_number_of_domains = $max_number_of_domains ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_number_of_domains = $max_number_of_domains ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -316,8 +316,8 @@ class ListDomainsResult {
   ?'domain_names' => DomainNameList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->domain_names = $domain_names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->domain_names = $domain_names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -329,7 +329,7 @@ class MissingParameter {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -339,7 +339,7 @@ class NoSuchDomain {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -349,7 +349,7 @@ class NumberDomainAttributesExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -359,7 +359,7 @@ class NumberDomainBytesExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -369,7 +369,7 @@ class NumberDomainsExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -379,7 +379,7 @@ class NumberItemAttributesExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -389,7 +389,7 @@ class NumberSubmittedAttributesExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -399,7 +399,7 @@ class NumberSubmittedItemsExceeded {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -415,10 +415,10 @@ class PutAttributesRequest {
   ?'expected' => UpdateCondition,
   ?'item_name' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->domain_name = $domain_name ?? ;
-    $this->expected = $expected ?? ;
-    $this->item_name = $item_name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->domain_name = $domain_name ?? "";
+    $this->expected = $expected ?? null;
+    $this->item_name = $item_name ?? "";
   }
 }
 
@@ -432,9 +432,9 @@ class ReplaceableAttribute {
   ?'replace' => boolean,
   ?'value' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->replace = $replace ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->replace = $replace ?? false;
+    $this->value = $value ?? "";
   }
 }
 
@@ -448,8 +448,8 @@ class ReplaceableItem {
   ?'attributes' => ReplaceableAttributeList,
   ?'name' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->name = $name ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -461,7 +461,7 @@ class RequestTimeout {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -475,9 +475,9 @@ class SelectRequest {
   ?'next_token' => string,
   ?'select_expression' => string,
   ) $s = shape()) {
-    $this->consistent_read = $consistent_read ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->select_expression = $select_expression ?? ;
+    $this->consistent_read = $consistent_read ?? false;
+    $this->next_token = $next_token ?? "";
+    $this->select_expression = $select_expression ?? "";
   }
 }
 
@@ -489,8 +489,8 @@ class SelectResult {
   ?'items' => ItemList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->items = $items ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->items = $items ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -502,7 +502,7 @@ class TooManyRequestedAttributes {
   public function __construct(shape(
   ?'box_usage' => Float,
   ) $s = shape()) {
-    $this->box_usage = $box_usage ?? ;
+    $this->box_usage = $box_usage ?? 0.0;
   }
 }
 
@@ -516,9 +516,9 @@ class UpdateCondition {
   ?'name' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->exists = $exists ?? ;
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->exists = $exists ?? false;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 

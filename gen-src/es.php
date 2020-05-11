@@ -51,8 +51,8 @@ class AccessPoliciesStatus {
   ?'options' => PolicyDocument,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -78,7 +78,7 @@ class AdditionalLimit {
   ?'limit_values' => LimitValueList,
   ) $s = shape()) {
     $this->limit_name = $limit_name ?? "";
-    $this->limit_values = $limit_values ?? ;
+    $this->limit_values = $limit_values ?? [];
   }
 }
 
@@ -94,8 +94,8 @@ class AdvancedOptionsStatus {
   ?'options' => AdvancedOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? [];
+    $this->status = $status ?? null;
   }
 }
 
@@ -107,8 +107,8 @@ class AdvancedSecurityOptions {
   ?'enabled' => boolean,
   ?'internal_user_database_enabled' => boolean,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->internal_user_database_enabled = $internal_user_database_enabled ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->internal_user_database_enabled = $internal_user_database_enabled ?? false;
   }
 }
 
@@ -122,8 +122,8 @@ class AdvancedSecurityOptionsInput {
   ?'internal_user_database_enabled' => boolean,
   ?'master_user_options' => MasterUserOptions,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->internal_user_database_enabled = $internal_user_database_enabled ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->internal_user_database_enabled = $internal_user_database_enabled ?? false;
     $this->master_user_options = $master_user_options ?? null;
   }
 }
@@ -136,8 +136,8 @@ class AdvancedSecurityOptionsStatus {
   ?'options' => AdvancedSecurityOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -170,7 +170,7 @@ class BaseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -210,7 +210,7 @@ class CognitoOptions {
   ?'role_arn' => RoleArn,
   ?'user_pool_id' => UserPoolId,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->identity_pool_id = $identity_pool_id ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->user_pool_id = $user_pool_id ?? "";
@@ -225,8 +225,8 @@ class CognitoOptionsStatus {
   ?'options' => CognitoOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -240,8 +240,8 @@ class CompatibleVersionsMap {
   ?'source_version' => ElasticsearchVersionString,
   ?'target_versions' => ElasticsearchVersionList,
   ) $s = shape()) {
-    $this->source_version = $source_version ?? ;
-    $this->target_versions = $target_versions ?? ;
+    $this->source_version = $source_version ?? "";
+    $this->target_versions = $target_versions ?? [];
   }
 }
 
@@ -284,7 +284,7 @@ class CreateElasticsearchDomainRequest {
   ?'snapshot_options' => SnapshotOptions,
   ?'vpc_options' => VPCOptions,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? "";
     $this->advanced_options = $advanced_options ?? [];
     $this->advanced_security_options = $advanced_security_options ?? null;
     $this->cognito_options = $cognito_options ?? null;
@@ -292,7 +292,7 @@ class CreateElasticsearchDomainRequest {
     $this->domain_name = $domain_name ?? "";
     $this->ebs_options = $ebs_options ?? null;
     $this->elasticsearch_cluster_config = $elasticsearch_cluster_config ?? null;
-    $this->elasticsearch_version = $elasticsearch_version ?? ;
+    $this->elasticsearch_version = $elasticsearch_version ?? "";
     $this->encryption_at_rest_options = $encryption_at_rest_options ?? null;
     $this->log_publishing_options = $log_publishing_options ?? [];
     $this->node_to_node_encryption_options = $node_to_node_encryption_options ?? null;
@@ -307,7 +307,7 @@ class CreateElasticsearchDomainResponse {
   public function __construct(shape(
   ?'domain_status' => ElasticsearchDomainStatus,
   ) $s = shape()) {
-    $this->domain_status = $domain_status ?? ;
+    $this->domain_status = $domain_status ?? null;
   }
 }
 
@@ -358,7 +358,7 @@ class DeleteElasticsearchDomainResponse {
   public function __construct(shape(
   ?'domain_status' => ElasticsearchDomainStatus,
   ) $s = shape()) {
-    $this->domain_status = $domain_status ?? ;
+    $this->domain_status = $domain_status ?? null;
   }
 }
 
@@ -402,7 +402,7 @@ class DescribeElasticsearchDomainConfigResponse {
   public function __construct(shape(
   ?'domain_config' => ElasticsearchDomainConfig,
   ) $s = shape()) {
-    $this->domain_config = $domain_config ?? ;
+    $this->domain_config = $domain_config ?? null;
   }
 }
 
@@ -422,7 +422,7 @@ class DescribeElasticsearchDomainResponse {
   public function __construct(shape(
   ?'domain_status' => ElasticsearchDomainStatus,
   ) $s = shape()) {
-    $this->domain_status = $domain_status ?? ;
+    $this->domain_status = $domain_status ?? null;
   }
 }
 
@@ -432,7 +432,7 @@ class DescribeElasticsearchDomainsRequest {
   public function __construct(shape(
   ?'domain_names' => DomainNameList,
   ) $s = shape()) {
-    $this->domain_names = $domain_names ?? ;
+    $this->domain_names = $domain_names ?? [];
   }
 }
 
@@ -442,7 +442,7 @@ class DescribeElasticsearchDomainsResponse {
   public function __construct(shape(
   ?'domain_status_list' => ElasticsearchDomainStatusList,
   ) $s = shape()) {
-    $this->domain_status_list = $domain_status_list ?? ;
+    $this->domain_status_list = $domain_status_list ?? [];
   }
 }
 
@@ -457,8 +457,8 @@ class DescribeElasticsearchInstanceTypeLimitsRequest {
   ?'instance_type' => ESPartitionInstanceType,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->elasticsearch_version = $elasticsearch_version ?? ;
-    $this->instance_type = $instance_type ?? ;
+    $this->elasticsearch_version = $elasticsearch_version ?? "";
+    $this->instance_type = $instance_type ?? "";
   }
 }
 
@@ -480,8 +480,8 @@ class DescribePackagesFilter {
   ?'name' => DescribePackagesFilterName,
   ?'value' => DescribePackagesFilterValues,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? [];
   }
 }
 
@@ -503,7 +503,7 @@ class DescribePackagesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->filters = $filters ?? ;
+    $this->filters = $filters ?? [];
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -534,7 +534,7 @@ class DescribeReservedElasticsearchInstanceOfferingsRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? ;
+    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? "";
   }
 }
 
@@ -547,7 +547,7 @@ class DescribeReservedElasticsearchInstanceOfferingsResponse {
   ?'reserved_elasticsearch_instance_offerings' => ReservedElasticsearchInstanceOfferingList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->reserved_elasticsearch_instance_offerings = $reserved_elasticsearch_instance_offerings ?? ;
+    $this->reserved_elasticsearch_instance_offerings = $reserved_elasticsearch_instance_offerings ?? [];
   }
 }
 
@@ -563,7 +563,7 @@ class DescribeReservedElasticsearchInstancesRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? ;
+    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? "";
   }
 }
 
@@ -576,7 +576,7 @@ class DescribeReservedElasticsearchInstancesResponse {
   ?'reserved_elasticsearch_instances' => ReservedElasticsearchInstanceList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->reserved_elasticsearch_instances = $reserved_elasticsearch_instances ?? ;
+    $this->reserved_elasticsearch_instances = $reserved_elasticsearch_instances ?? [];
   }
 }
 
@@ -618,7 +618,7 @@ class DomainEndpointOptions {
   ?'enforce_https' => boolean,
   ?'tls_security_policy' => TLSSecurityPolicy,
   ) $s = shape()) {
-    $this->enforce_https = $enforce_https ?? ;
+    $this->enforce_https = $enforce_https ?? false;
     $this->tls_security_policy = $tls_security_policy ?? "";
   }
 }
@@ -631,8 +631,8 @@ class DomainEndpointOptionsStatus {
   ?'options' => DomainEndpointOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -703,9 +703,9 @@ class EBSOptions {
   ?'volume_size' => IntegerClass,
   ?'volume_type' => VolumeType,
   ) $s = shape()) {
-    $this->ebs_enabled = $ebs_enabled ?? ;
-    $this->iops = $iops ?? ;
-    $this->volume_size = $volume_size ?? ;
+    $this->ebs_enabled = $ebs_enabled ?? false;
+    $this->iops = $iops ?? 0;
+    $this->volume_size = $volume_size ?? 0;
     $this->volume_type = $volume_type ?? "";
   }
 }
@@ -718,8 +718,8 @@ class EBSOptionsStatus {
   ?'options' => EBSOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -751,16 +751,16 @@ class ElasticsearchClusterConfig {
   ?'zone_awareness_config' => ZoneAwarenessConfig,
   ?'zone_awareness_enabled' => boolean,
   ) $s = shape()) {
-    $this->dedicated_master_count = $dedicated_master_count ?? ;
-    $this->dedicated_master_enabled = $dedicated_master_enabled ?? ;
-    $this->dedicated_master_type = $dedicated_master_type ?? ;
+    $this->dedicated_master_count = $dedicated_master_count ?? 0;
+    $this->dedicated_master_enabled = $dedicated_master_enabled ?? false;
+    $this->dedicated_master_type = $dedicated_master_type ?? "";
     $this->instance_count = $instance_count ?? 0;
-    $this->instance_type = $instance_type ?? ;
-    $this->warm_count = $warm_count ?? ;
-    $this->warm_enabled = $warm_enabled ?? ;
-    $this->warm_type = $warm_type ?? ;
+    $this->instance_type = $instance_type ?? "";
+    $this->warm_count = $warm_count ?? 0;
+    $this->warm_enabled = $warm_enabled ?? false;
+    $this->warm_type = $warm_type ?? "";
     $this->zone_awareness_config = $zone_awareness_config ?? null;
-    $this->zone_awareness_enabled = $zone_awareness_enabled ?? ;
+    $this->zone_awareness_enabled = $zone_awareness_enabled ?? false;
   }
 }
 
@@ -772,8 +772,8 @@ class ElasticsearchClusterConfigStatus {
   ?'options' => ElasticsearchClusterConfig,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -807,16 +807,16 @@ class ElasticsearchDomainConfig {
   ?'snapshot_options' => SnapshotOptionsStatus,
   ?'vpc_options' => VPCDerivedInfoStatus,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
-    $this->advanced_options = $advanced_options ?? [];
+    $this->access_policies = $access_policies ?? null;
+    $this->advanced_options = $advanced_options ?? null;
     $this->advanced_security_options = $advanced_security_options ?? null;
     $this->cognito_options = $cognito_options ?? null;
     $this->domain_endpoint_options = $domain_endpoint_options ?? null;
     $this->ebs_options = $ebs_options ?? null;
     $this->elasticsearch_cluster_config = $elasticsearch_cluster_config ?? null;
-    $this->elasticsearch_version = $elasticsearch_version ?? ;
+    $this->elasticsearch_version = $elasticsearch_version ?? null;
     $this->encryption_at_rest_options = $encryption_at_rest_options ?? null;
-    $this->log_publishing_options = $log_publishing_options ?? [];
+    $this->log_publishing_options = $log_publishing_options ?? null;
     $this->node_to_node_encryption_options = $node_to_node_encryption_options ?? null;
     $this->snapshot_options = $snapshot_options ?? null;
     $this->vpc_options = $vpc_options ?? null;
@@ -874,27 +874,27 @@ class ElasticsearchDomainStatus {
   ?'vpc_options' => VPCDerivedInfo,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? "";
     $this->advanced_options = $advanced_options ?? [];
     $this->advanced_security_options = $advanced_security_options ?? null;
     $this->cognito_options = $cognito_options ?? null;
-    $this->created = $created ?? ;
-    $this->deleted = $deleted ?? ;
+    $this->created = $created ?? false;
+    $this->deleted = $deleted ?? false;
     $this->domain_endpoint_options = $domain_endpoint_options ?? null;
     $this->domain_id = $domain_id ?? "";
     $this->domain_name = $domain_name ?? "";
     $this->ebs_options = $ebs_options ?? null;
     $this->elasticsearch_cluster_config = $elasticsearch_cluster_config ?? null;
-    $this->elasticsearch_version = $elasticsearch_version ?? ;
+    $this->elasticsearch_version = $elasticsearch_version ?? "";
     $this->encryption_at_rest_options = $encryption_at_rest_options ?? null;
-    $this->endpoint = $endpoint ?? ;
-    $this->endpoints = $endpoints ?? ;
+    $this->endpoint = $endpoint ?? "";
+    $this->endpoints = $endpoints ?? [];
     $this->log_publishing_options = $log_publishing_options ?? [];
     $this->node_to_node_encryption_options = $node_to_node_encryption_options ?? null;
-    $this->processing = $processing ?? ;
+    $this->processing = $processing ?? false;
     $this->service_software_options = $service_software_options ?? null;
     $this->snapshot_options = $snapshot_options ?? null;
-    $this->upgrade_processing = $upgrade_processing ?? ;
+    $this->upgrade_processing = $upgrade_processing ?? false;
     $this->vpc_options = $vpc_options ?? null;
   }
 }
@@ -913,8 +913,8 @@ class ElasticsearchVersionStatus {
   ?'options' => ElasticsearchVersionString,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -928,7 +928,7 @@ class EncryptionAtRestOptions {
   ?'enabled' => boolean,
   ?'kms_key_id' => KmsKeyId,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->kms_key_id = $kms_key_id ?? "";
   }
 }
@@ -941,8 +941,8 @@ class EncryptionAtRestOptionsStatus {
   ?'options' => EncryptionAtRestOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -983,7 +983,7 @@ class GetCompatibleElasticsearchVersionsResponse {
   public function __construct(shape(
   ?'compatible_elasticsearch_versions' => CompatibleElasticsearchVersionsList,
   ) $s = shape()) {
-    $this->compatible_elasticsearch_versions = $compatible_elasticsearch_versions ?? ;
+    $this->compatible_elasticsearch_versions = $compatible_elasticsearch_versions ?? [];
   }
 }
 
@@ -1012,7 +1012,7 @@ class GetUpgradeHistoryResponse {
   ?'upgrade_histories' => UpgradeHistoryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->upgrade_histories = $upgrade_histories ?? ;
+    $this->upgrade_histories = $upgrade_histories ?? [];
   }
 }
 
@@ -1036,7 +1036,7 @@ class GetUpgradeStatusResponse {
   ?'upgrade_name' => UpgradeName,
   ?'upgrade_step' => UpgradeStep,
   ) $s = shape()) {
-    $this->step_status = $step_status ?? ;
+    $this->step_status = $step_status ?? "";
     $this->upgrade_name = $upgrade_name ?? "";
     $this->upgrade_step = $upgrade_step ?? "";
   }
@@ -1120,9 +1120,9 @@ class Limits {
   ?'instance_limits' => InstanceLimits,
   ?'storage_types' => StorageTypeList,
   ) $s = shape()) {
-    $this->additional_limits = $additional_limits ?? ;
+    $this->additional_limits = $additional_limits ?? [];
     $this->instance_limits = $instance_limits ?? null;
-    $this->storage_types = $storage_types ?? ;
+    $this->storage_types = $storage_types ?? [];
   }
 }
 
@@ -1134,7 +1134,7 @@ class ListDomainNamesResponse {
   public function __construct(shape(
   ?'domain_names' => DomainInfoList,
   ) $s = shape()) {
-    $this->domain_names = $domain_names ?? ;
+    $this->domain_names = $domain_names ?? [];
   }
 }
 
@@ -1180,7 +1180,7 @@ class ListElasticsearchInstanceTypesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->elasticsearch_version = $elasticsearch_version ?? ;
+    $this->elasticsearch_version = $elasticsearch_version ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -1194,7 +1194,7 @@ class ListElasticsearchInstanceTypesResponse {
   ?'elasticsearch_instance_types' => ElasticsearchInstanceTypeList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->elasticsearch_instance_types = $elasticsearch_instance_types ?? ;
+    $this->elasticsearch_instance_types = $elasticsearch_instance_types ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1220,7 +1220,7 @@ class ListElasticsearchVersionsResponse {
   ?'elasticsearch_versions' => ElasticsearchVersionList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->elasticsearch_versions = $elasticsearch_versions ?? ;
+    $this->elasticsearch_versions = $elasticsearch_versions ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1283,7 +1283,7 @@ class LogPublishingOption {
   ?'enabled' => boolean,
   ) $s = shape()) {
     $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -1297,8 +1297,8 @@ class LogPublishingOptionsStatus {
   ?'options' => LogPublishingOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? [];
+    $this->status = $status ?? null;
   }
 }
 
@@ -1314,9 +1314,9 @@ class MasterUserOptions {
   ?'master_user_name' => Username,
   ?'master_user_password' => Password,
   ) $s = shape()) {
-    $this->master_user_arn = $master_user_arn ?? ;
-    $this->master_user_name = $master_user_name ?? ;
-    $this->master_user_password = $master_user_password ?? ;
+    $this->master_user_arn = $master_user_arn ?? "";
+    $this->master_user_name = $master_user_name ?? "";
+    $this->master_user_password = $master_user_password ?? "";
   }
 }
 
@@ -1334,7 +1334,7 @@ class NodeToNodeEncryptionOptions {
   public function __construct(shape(
   ?'enabled' => boolean,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -1346,8 +1346,8 @@ class NodeToNodeEncryptionOptionsStatus {
   ?'options' => NodeToNodeEncryptionOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1367,11 +1367,11 @@ class OptionStatus {
   ?'update_date' => UpdateTimestamp,
   ?'update_version' => UIntValue,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->pending_deletion = $pending_deletion ?? ;
-    $this->state = $state ?? ;
-    $this->update_date = $update_date ?? ;
-    $this->update_version = $update_version ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->pending_deletion = $pending_deletion ?? false;
+    $this->state = $state ?? "";
+    $this->update_date = $update_date ?? 0;
+    $this->update_version = $update_version ?? 0;
   }
 }
 
@@ -1443,8 +1443,8 @@ class PurchaseReservedElasticsearchInstanceOfferingRequest {
   ?'reserved_elasticsearch_instance_offering_id' => GUID,
   ) $s = shape()) {
     $this->instance_count = $instance_count ?? 0;
-    $this->reservation_name = $reservation_name ?? ;
-    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? ;
+    $this->reservation_name = $reservation_name ?? "";
+    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? "";
   }
 }
 
@@ -1456,8 +1456,8 @@ class PurchaseReservedElasticsearchInstanceOfferingResponse {
   ?'reservation_name' => ReservationToken,
   ?'reserved_elasticsearch_instance_id' => GUID,
   ) $s = shape()) {
-    $this->reservation_name = $reservation_name ?? ;
-    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? ;
+    $this->reservation_name = $reservation_name ?? "";
+    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? "";
   }
 }
 
@@ -1469,8 +1469,8 @@ class RecurringCharge {
   ?'recurring_charge_amount' => Double,
   ?'recurring_charge_frequency' => string,
   ) $s = shape()) {
-    $this->recurring_charge_amount = $recurring_charge_amount ?? ;
-    $this->recurring_charge_frequency = $recurring_charge_frequency ?? ;
+    $this->recurring_charge_amount = $recurring_charge_amount ?? 0.0;
+    $this->recurring_charge_frequency = $recurring_charge_frequency ?? "";
   }
 }
 
@@ -1487,7 +1487,7 @@ class RemoveTagsRequest {
   ?'tag_keys' => StringList,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1523,19 +1523,19 @@ class ReservedElasticsearchInstance {
   ?'state' => string,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->duration = $duration ?? ;
-    $this->elasticsearch_instance_count = $elasticsearch_instance_count ?? ;
-    $this->elasticsearch_instance_type = $elasticsearch_instance_type ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->payment_option = $payment_option ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reservation_name = $reservation_name ?? ;
-    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? ;
-    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->usage_price = $usage_price ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->duration = $duration ?? 0;
+    $this->elasticsearch_instance_count = $elasticsearch_instance_count ?? 0;
+    $this->elasticsearch_instance_type = $elasticsearch_instance_type ?? "";
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->payment_option = $payment_option ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reservation_name = $reservation_name ?? "";
+    $this->reserved_elasticsearch_instance_id = $reserved_elasticsearch_instance_id ?? "";
+    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -1561,14 +1561,14 @@ class ReservedElasticsearchInstanceOffering {
   ?'reserved_elasticsearch_instance_offering_id' => GUID,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->currency_code = $currency_code ?? ;
-    $this->duration = $duration ?? ;
-    $this->elasticsearch_instance_type = $elasticsearch_instance_type ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->payment_option = $payment_option ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? ;
-    $this->usage_price = $usage_price ?? ;
+    $this->currency_code = $currency_code ?? "";
+    $this->duration = $duration ?? 0;
+    $this->elasticsearch_instance_type = $elasticsearch_instance_type ?? "";
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->payment_option = $payment_option ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reserved_elasticsearch_instance_offering_id = $reserved_elasticsearch_instance_offering_id ?? "";
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -1616,14 +1616,14 @@ class ServiceSoftwareOptions {
   ?'update_available' => boolean,
   ?'update_status' => DeploymentStatus,
   ) $s = shape()) {
-    $this->automated_update_date = $automated_update_date ?? ;
-    $this->cancellable = $cancellable ?? ;
-    $this->current_version = $current_version ?? ;
-    $this->description = $description ?? ;
-    $this->new_version = $new_version ?? ;
-    $this->optional_deployment = $optional_deployment ?? ;
-    $this->update_available = $update_available ?? ;
-    $this->update_status = $update_status ?? ;
+    $this->automated_update_date = $automated_update_date ?? 0;
+    $this->cancellable = $cancellable ?? false;
+    $this->current_version = $current_version ?? "";
+    $this->description = $description ?? "";
+    $this->new_version = $new_version ?? "";
+    $this->optional_deployment = $optional_deployment ?? false;
+    $this->update_available = $update_available ?? false;
+    $this->update_status = $update_status ?? "";
   }
 }
 
@@ -1635,7 +1635,7 @@ class SnapshotOptions {
   public function __construct(shape(
   ?'automated_snapshot_start_hour' => IntegerClass,
   ) $s = shape()) {
-    $this->automated_snapshot_start_hour = $automated_snapshot_start_hour ?? ;
+    $this->automated_snapshot_start_hour = $automated_snapshot_start_hour ?? 0;
   }
 }
 
@@ -1647,8 +1647,8 @@ class SnapshotOptionsStatus {
   ?'options' => SnapshotOptions,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1687,7 +1687,7 @@ class StorageType {
   ?'storage_type_name' => StorageTypeName,
   ) $s = shape()) {
     $this->storage_sub_type_name = $storage_sub_type_name ?? "";
-    $this->storage_type_limits = $storage_type_limits ?? ;
+    $this->storage_type_limits = $storage_type_limits ?? [];
     $this->storage_type_name = $storage_type_name ?? "";
   }
 }
@@ -1701,7 +1701,7 @@ class StorageTypeLimit {
   ?'limit_values' => LimitValueList,
   ) $s = shape()) {
     $this->limit_name = $limit_name ?? "";
-    $this->limit_values = $limit_values ?? ;
+    $this->limit_values = $limit_values ?? [];
   }
 }
 
@@ -1725,8 +1725,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1764,7 +1764,7 @@ class UpdateElasticsearchDomainConfigRequest {
   ?'snapshot_options' => SnapshotOptions,
   ?'vpc_options' => VPCOptions,
   ) $s = shape()) {
-    $this->access_policies = $access_policies ?? ;
+    $this->access_policies = $access_policies ?? "";
     $this->advanced_options = $advanced_options ?? [];
     $this->advanced_security_options = $advanced_security_options ?? null;
     $this->cognito_options = $cognito_options ?? null;
@@ -1784,7 +1784,7 @@ class UpdateElasticsearchDomainConfigResponse {
   public function __construct(shape(
   ?'domain_config' => ElasticsearchDomainConfig,
   ) $s = shape()) {
-    $this->domain_config = $domain_config ?? ;
+    $this->domain_config = $domain_config ?? null;
   }
 }
 
@@ -1801,8 +1801,8 @@ class UpgradeElasticsearchDomainRequest {
   ?'target_version' => ElasticsearchVersionString,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->perform_check_only = $perform_check_only ?? ;
-    $this->target_version = $target_version ?? ;
+    $this->perform_check_only = $perform_check_only ?? false;
+    $this->target_version = $target_version ?? "";
   }
 }
 
@@ -1817,8 +1817,8 @@ class UpgradeElasticsearchDomainResponse {
   ?'target_version' => ElasticsearchVersionString,
   ) $s = shape()) {
     $this->domain_name = $domain_name ?? "";
-    $this->perform_check_only = $perform_check_only ?? ;
-    $this->target_version = $target_version ?? ;
+    $this->perform_check_only = $perform_check_only ?? false;
+    $this->target_version = $target_version ?? "";
   }
 }
 
@@ -1835,7 +1835,7 @@ class UpgradeHistory {
   ?'upgrade_status' => UpgradeStatus,
   ) $s = shape()) {
     $this->start_timestamp = $start_timestamp ?? 0;
-    $this->steps_list = $steps_list ?? ;
+    $this->steps_list = $steps_list ?? [];
     $this->upgrade_name = $upgrade_name ?? "";
     $this->upgrade_status = $upgrade_status ?? "";
   }
@@ -1862,9 +1862,9 @@ class UpgradeStepItem {
   ?'upgrade_step_status' => UpgradeStatus,
   ) $s = shape()) {
     $this->issues = $issues ?? [];
-    $this->progress_percent = $progress_percent ?? ;
+    $this->progress_percent = $progress_percent ?? 0.0;
     $this->upgrade_step = $upgrade_step ?? "";
-    $this->upgrade_step_status = $upgrade_step_status ?? ;
+    $this->upgrade_step_status = $upgrade_step_status ?? "";
   }
 }
 
@@ -1886,10 +1886,10 @@ class VPCDerivedInfo {
   ?'subnet_ids' => StringList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->availability_zones = $availability_zones ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->availability_zones = $availability_zones ?? [];
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -1901,8 +1901,8 @@ class VPCDerivedInfoStatus {
   ?'options' => VPCDerivedInfo,
   ?'status' => OptionStatus,
   ) $s = shape()) {
-    $this->options = $options ?? ;
-    $this->status = $status ?? ;
+    $this->options = $options ?? null;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1914,8 +1914,8 @@ class VPCOptions {
   ?'security_group_ids' => StringList,
   ?'subnet_ids' => StringList,
   ) $s = shape()) {
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -1934,7 +1934,7 @@ class ZoneAwarenessConfig {
   public function __construct(shape(
   ?'availability_zone_count' => IntegerClass,
   ) $s = shape()) {
-    $this->availability_zone_count = $availability_zone_count ?? ;
+    $this->availability_zone_count = $availability_zone_count ?? 0;
   }
 }
 

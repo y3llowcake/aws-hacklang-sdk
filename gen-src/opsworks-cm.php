@@ -35,9 +35,9 @@ class AccountAttribute {
   ?'name' => string,
   ?'used' => int,
   ) $s = shape()) {
-    $this->maximum = $maximum ?? ;
-    $this->name = $name ?? ;
-    $this->used = $used ?? ;
+    $this->maximum = $maximum ?? 0;
+    $this->name = $name ?? "";
+    $this->used = $used ?? 0;
   }
 }
 
@@ -125,30 +125,30 @@ class Backup {
   ?'tools_version' => string,
   ?'user_arn' => string,
   ) $s = shape()) {
-    $this->backup_arn = $backup_arn ?? ;
+    $this->backup_arn = $backup_arn ?? "";
     $this->backup_id = $backup_id ?? "";
     $this->backup_type = $backup_type ?? "";
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_model = $engine_model ?? ;
-    $this->engine_version = $engine_version ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_model = $engine_model ?? "";
+    $this->engine_version = $engine_version ?? "";
     $this->instance_profile_arn = $instance_profile_arn ?? "";
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_type = $instance_type ?? "";
     $this->key_pair = $key_pair ?? "";
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->s_3_data_size = $s_3_data_size ?? ;
-    $this->s_3_data_url = $s_3_data_url ?? ;
-    $this->s_3_log_url = $s_3_log_url ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->s_3_data_size = $s_3_data_size ?? 0;
+    $this->s_3_data_url = $s_3_data_url ?? "";
+    $this->s_3_log_url = $s_3_log_url ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
     $this->server_name = $server_name ?? "";
     $this->service_role_arn = $service_role_arn ?? "";
-    $this->status = $status ?? ;
-    $this->status_description = $status_description ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tools_version = $tools_version ?? ;
-    $this->user_arn = $user_arn ?? ;
+    $this->status = $status ?? "";
+    $this->status_description = $status_description ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tools_version = $tools_version ?? "";
+    $this->user_arn = $user_arn ?? "";
   }
 }
 
@@ -174,9 +174,9 @@ class CreateBackupRequest {
   ?'server_name' => ServerName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->server_name = $server_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -236,27 +236,27 @@ class CreateServerRequest {
   ?'subnet_ids' => Strings,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->associate_public_ip_address = $associate_public_ip_address ?? ;
+    $this->associate_public_ip_address = $associate_public_ip_address ?? false;
     $this->backup_id = $backup_id ?? "";
-    $this->backup_retention_count = $backup_retention_count ?? ;
+    $this->backup_retention_count = $backup_retention_count ?? 0;
     $this->custom_certificate = $custom_certificate ?? "";
     $this->custom_domain = $custom_domain ?? "";
     $this->custom_private_key = $custom_private_key ?? "";
-    $this->disable_automated_backup = $disable_automated_backup ?? ;
-    $this->engine = $engine ?? ;
+    $this->disable_automated_backup = $disable_automated_backup ?? false;
+    $this->engine = $engine ?? "";
     $this->engine_attributes = $engine_attributes ?? [];
-    $this->engine_model = $engine_model ?? ;
-    $this->engine_version = $engine_version ?? ;
+    $this->engine_model = $engine_model ?? "";
+    $this->engine_version = $engine_version ?? "";
     $this->instance_profile_arn = $instance_profile_arn ?? "";
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_type = $instance_type ?? "";
     $this->key_pair = $key_pair ?? "";
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
     $this->server_name = $server_name ?? "";
     $this->service_role_arn = $service_role_arn ?? "";
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->tags = $tags ?? ;
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -323,7 +323,7 @@ class DescribeAccountAttributesResponse {
   public function __construct(shape(
   ?'attributes' => AccountAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -477,8 +477,8 @@ class EngineAttribute {
   ?'name' => EngineAttributeName,
   ?'value' => EngineAttributeValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -498,8 +498,8 @@ class ExportServerEngineAttributeRequest {
   ?'input_attributes' => EngineAttributes,
   ?'server_name' => ServerName,
   ) $s = shape()) {
-    $this->export_attribute_name = $export_attribute_name ?? ;
-    $this->input_attributes = $input_attributes ?? ;
+    $this->export_attribute_name = $export_attribute_name ?? "";
+    $this->input_attributes = $input_attributes ?? [];
     $this->server_name = $server_name ?? "";
   }
 }
@@ -527,7 +527,7 @@ class InvalidNextTokenException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -537,7 +537,7 @@ class InvalidStateException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -549,7 +549,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -565,7 +565,7 @@ class ListTagsForResourceRequest {
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -578,7 +578,7 @@ class ListTagsForResourceResponse {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -600,7 +600,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -610,7 +610,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -627,7 +627,7 @@ class RestoreServerRequest {
   ?'server_name' => ServerName,
   ) $s = shape()) {
     $this->backup_id = $backup_id ?? "";
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_type = $instance_type ?? "";
     $this->key_pair = $key_pair ?? "";
     $this->server_name = $server_name ?? "";
   }
@@ -692,30 +692,30 @@ class Server {
   ?'status_reason' => string,
   ?'subnet_ids' => Strings,
   ) $s = shape()) {
-    $this->associate_public_ip_address = $associate_public_ip_address ?? ;
-    $this->backup_retention_count = $backup_retention_count ?? ;
-    $this->cloud_formation_stack_arn = $cloud_formation_stack_arn ?? ;
-    $this->created_at = $created_at ?? ;
+    $this->associate_public_ip_address = $associate_public_ip_address ?? false;
+    $this->backup_retention_count = $backup_retention_count ?? 0;
+    $this->cloud_formation_stack_arn = $cloud_formation_stack_arn ?? "";
+    $this->created_at = $created_at ?? 0;
     $this->custom_domain = $custom_domain ?? "";
-    $this->disable_automated_backup = $disable_automated_backup ?? ;
-    $this->endpoint = $endpoint ?? ;
-    $this->engine = $engine ?? ;
+    $this->disable_automated_backup = $disable_automated_backup ?? false;
+    $this->endpoint = $endpoint ?? "";
+    $this->engine = $engine ?? "";
     $this->engine_attributes = $engine_attributes ?? [];
-    $this->engine_model = $engine_model ?? ;
-    $this->engine_version = $engine_version ?? ;
+    $this->engine_model = $engine_model ?? "";
+    $this->engine_version = $engine_version ?? "";
     $this->instance_profile_arn = $instance_profile_arn ?? "";
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_type = $instance_type ?? "";
     $this->key_pair = $key_pair ?? "";
     $this->maintenance_status = $maintenance_status ?? "";
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->server_arn = $server_arn ?? ;
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->server_arn = $server_arn ?? "";
     $this->server_name = $server_name ?? "";
     $this->service_role_arn = $service_role_arn ?? "";
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -731,9 +731,9 @@ class ServerEvent {
   ?'message' => string,
   ?'server_name' => string,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->log_url = $log_url ?? ;
-    $this->message = $message ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->log_url = $log_url ?? "";
+    $this->message = $message ?? "";
     $this->server_name = $server_name ?? "";
   }
 }
@@ -783,8 +783,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -802,8 +802,8 @@ class TagResourceRequest {
   ?'resource_arn' => AWSOpsWorksCMResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -828,8 +828,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AWSOpsWorksCMResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -880,10 +880,10 @@ class UpdateServerRequest {
   ?'preferred_maintenance_window' => TimeWindowDefinition,
   ?'server_name' => ServerName,
   ) $s = shape()) {
-    $this->backup_retention_count = $backup_retention_count ?? ;
-    $this->disable_automated_backup = $disable_automated_backup ?? ;
-    $this->preferred_backup_window = $preferred_backup_window ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
+    $this->backup_retention_count = $backup_retention_count ?? 0;
+    $this->disable_automated_backup = $disable_automated_backup ?? false;
+    $this->preferred_backup_window = $preferred_backup_window ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
     $this->server_name = $server_name ?? "";
   }
 }
@@ -904,7 +904,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

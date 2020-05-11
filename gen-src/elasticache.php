@@ -78,8 +78,8 @@ class AddTagsToResourceMessage {
   ?'resource_name' => string,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -93,8 +93,8 @@ class AllowedNodeTypeModificationsMessage {
   ?'scale_down_modifications' => NodeTypeList,
   ?'scale_up_modifications' => NodeTypeList,
   ) $s = shape()) {
-    $this->scale_down_modifications = $scale_down_modifications ?? ;
-    $this->scale_up_modifications = $scale_up_modifications ?? ;
+    $this->scale_down_modifications = $scale_down_modifications ?? [];
+    $this->scale_up_modifications = $scale_up_modifications ?? [];
   }
 }
 
@@ -126,9 +126,9 @@ class AuthorizeCacheSecurityGroupIngressMessage {
   ?'ec_2_security_group_name' => string,
   ?'ec_2_security_group_owner_id' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
   }
 }
 
@@ -150,7 +150,7 @@ class AvailabilityZone {
   public function __construct(shape(
   ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -168,9 +168,9 @@ class BatchApplyUpdateActionMessage {
   ?'replication_group_ids' => ReplicationGroupIdList,
   ?'service_update_name' => string,
   ) $s = shape()) {
-    $this->cache_cluster_ids = $cache_cluster_ids ?? ;
-    $this->replication_group_ids = $replication_group_ids ?? ;
-    $this->service_update_name = $service_update_name ?? ;
+    $this->cache_cluster_ids = $cache_cluster_ids ?? [];
+    $this->replication_group_ids = $replication_group_ids ?? [];
+    $this->service_update_name = $service_update_name ?? "";
   }
 }
 
@@ -184,9 +184,9 @@ class BatchStopUpdateActionMessage {
   ?'replication_group_ids' => ReplicationGroupIdList,
   ?'service_update_name' => string,
   ) $s = shape()) {
-    $this->cache_cluster_ids = $cache_cluster_ids ?? ;
-    $this->replication_group_ids = $replication_group_ids ?? ;
-    $this->service_update_name = $service_update_name ?? ;
+    $this->cache_cluster_ids = $cache_cluster_ids ?? [];
+    $this->replication_group_ids = $replication_group_ids ?? [];
+    $this->service_update_name = $service_update_name ?? "";
   }
 }
 
@@ -250,32 +250,32 @@ class CacheCluster {
   ?'snapshot_window' => string,
   ?'transit_encryption_enabled' => BooleanOptional,
   ) $s = shape()) {
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->auth_token_enabled = $auth_token_enabled ?? ;
-    $this->auth_token_last_modified_date = $auth_token_last_modified_date ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->cache_cluster_create_time = $cache_cluster_create_time ?? ;
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_cluster_status = $cache_cluster_status ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_nodes = $cache_nodes ?? ;
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->auth_token_enabled = $auth_token_enabled ?? false;
+    $this->auth_token_last_modified_date = $auth_token_last_modified_date ?? 0;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->cache_cluster_create_time = $cache_cluster_create_time ?? 0;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_cluster_status = $cache_cluster_status ?? "";
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_nodes = $cache_nodes ?? [];
     $this->cache_parameter_group = $cache_parameter_group ?? null;
     $this->cache_security_groups = $cache_security_groups ?? [];
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->client_download_landing_page = $client_download_landing_page ?? ;
-    $this->configuration_endpoint = $configuration_endpoint ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->client_download_landing_page = $client_download_landing_page ?? "";
+    $this->configuration_endpoint = $configuration_endpoint ?? null;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
     $this->notification_configuration = $notification_configuration ?? null;
-    $this->num_cache_nodes = $num_cache_nodes ?? ;
+    $this->num_cache_nodes = $num_cache_nodes ?? 0;
     $this->pending_modified_values = $pending_modified_values ?? null;
-    $this->preferred_availability_zone = $preferred_availability_zone ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->security_groups = $security_groups ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
+    $this->preferred_availability_zone = $preferred_availability_zone ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->security_groups = $security_groups ?? [];
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
   }
 }
 
@@ -298,8 +298,8 @@ class CacheClusterMessage {
   ?'cache_clusters' => CacheClusterList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->cache_clusters = $cache_clusters ?? ;
-    $this->marker = $marker ?? ;
+    $this->cache_clusters = $cache_clusters ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -324,11 +324,11 @@ class CacheEngineVersion {
   ?'engine' => string,
   ?'engine_version' => string,
   ) $s = shape()) {
-    $this->cache_engine_description = $cache_engine_description ?? ;
-    $this->cache_engine_version_description = $cache_engine_version_description ?? ;
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
+    $this->cache_engine_description = $cache_engine_description ?? "";
+    $this->cache_engine_version_description = $cache_engine_version_description ?? "";
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
   }
 }
 
@@ -342,8 +342,8 @@ class CacheEngineVersionMessage {
   ?'cache_engine_versions' => CacheEngineVersionList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->cache_engine_versions = $cache_engine_versions ?? ;
-    $this->marker = $marker ?? ;
+    $this->cache_engine_versions = $cache_engine_versions ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -365,13 +365,13 @@ class CacheNode {
   ?'parameter_group_status' => string,
   ?'source_cache_node_id' => string,
   ) $s = shape()) {
-    $this->cache_node_create_time = $cache_node_create_time ?? ;
-    $this->cache_node_id = $cache_node_id ?? ;
-    $this->cache_node_status = $cache_node_status ?? ;
-    $this->customer_availability_zone = $customer_availability_zone ?? ;
+    $this->cache_node_create_time = $cache_node_create_time ?? 0;
+    $this->cache_node_id = $cache_node_id ?? "";
+    $this->cache_node_status = $cache_node_status ?? "";
+    $this->customer_availability_zone = $customer_availability_zone ?? "";
     $this->endpoint = $endpoint ?? null;
-    $this->parameter_group_status = $parameter_group_status ?? ;
-    $this->source_cache_node_id = $source_cache_node_id ?? ;
+    $this->parameter_group_status = $parameter_group_status ?? "";
+    $this->source_cache_node_id = $source_cache_node_id ?? "";
   }
 }
 
@@ -401,15 +401,15 @@ class CacheNodeTypeSpecificParameter {
   ?'parameter_name' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
-    $this->cache_node_type_specific_values = $cache_node_type_specific_values ?? ;
+    $this->allowed_values = $allowed_values ?? "";
+    $this->cache_node_type_specific_values = $cache_node_type_specific_values ?? [];
     $this->change_type = $change_type ?? "";
-    $this->data_type = $data_type ?? ;
-    $this->description = $description ?? ;
-    $this->is_modifiable = $is_modifiable ?? ;
-    $this->minimum_engine_version = $minimum_engine_version ?? ;
-    $this->parameter_name = $parameter_name ?? ;
-    $this->source = $source ?? ;
+    $this->data_type = $data_type ?? "";
+    $this->description = $description ?? "";
+    $this->is_modifiable = $is_modifiable ?? false;
+    $this->minimum_engine_version = $minimum_engine_version ?? "";
+    $this->parameter_name = $parameter_name ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -423,8 +423,8 @@ class CacheNodeTypeSpecificValue {
   ?'cache_node_type' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->value = $value ?? ;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -450,14 +450,14 @@ class CacheNodeUpdateStatus {
   ?'node_update_status' => NodeUpdateStatus,
   ?'node_update_status_modified_date' => TStamp,
   ) $s = shape()) {
-    $this->cache_node_id = $cache_node_id ?? ;
-    $this->node_deletion_date = $node_deletion_date ?? ;
-    $this->node_update_end_date = $node_update_end_date ?? ;
+    $this->cache_node_id = $cache_node_id ?? "";
+    $this->node_deletion_date = $node_deletion_date ?? 0;
+    $this->node_update_end_date = $node_update_end_date ?? 0;
     $this->node_update_initiated_by = $node_update_initiated_by ?? "";
-    $this->node_update_initiated_date = $node_update_initiated_date ?? ;
-    $this->node_update_start_date = $node_update_start_date ?? ;
+    $this->node_update_initiated_date = $node_update_initiated_date ?? 0;
+    $this->node_update_start_date = $node_update_start_date ?? 0;
     $this->node_update_status = $node_update_status ?? "";
-    $this->node_update_status_modified_date = $node_update_status_modified_date ?? ;
+    $this->node_update_status_modified_date = $node_update_status_modified_date ?? 0;
   }
 }
 
@@ -475,10 +475,10 @@ class CacheParameterGroup {
   ?'description' => string,
   ?'is_global' => boolean,
   ) $s = shape()) {
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->is_global = $is_global ?? ;
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->is_global = $is_global ?? false;
   }
 }
 
@@ -499,9 +499,9 @@ class CacheParameterGroupDetails {
   ?'marker' => string,
   ?'parameters' => ParametersList,
   ) $s = shape()) {
-    $this->cache_node_type_specific_parameters = $cache_node_type_specific_parameters ?? ;
-    $this->marker = $marker ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->cache_node_type_specific_parameters = $cache_node_type_specific_parameters ?? [];
+    $this->marker = $marker ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -513,7 +513,7 @@ class CacheParameterGroupNameMessage {
   public function __construct(shape(
   ?'cache_parameter_group_name' => string,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
   }
 }
 
@@ -541,9 +541,9 @@ class CacheParameterGroupStatus {
   ?'cache_parameter_group_name' => string,
   ?'parameter_apply_status' => string,
   ) $s = shape()) {
-    $this->cache_node_ids_to_reboot = $cache_node_ids_to_reboot ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->parameter_apply_status = $parameter_apply_status ?? ;
+    $this->cache_node_ids_to_reboot = $cache_node_ids_to_reboot ?? [];
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->parameter_apply_status = $parameter_apply_status ?? "";
   }
 }
 
@@ -555,8 +555,8 @@ class CacheParameterGroupsMessage {
   ?'cache_parameter_groups' => CacheParameterGroupList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->cache_parameter_groups = $cache_parameter_groups ?? ;
-    $this->marker = $marker ?? ;
+    $this->cache_parameter_groups = $cache_parameter_groups ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -572,10 +572,10 @@ class CacheSecurityGroup {
   ?'ec_2_security_groups' => EC2SecurityGroupList,
   ?'owner_id' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->description = $description ?? ;
-    $this->ec_2_security_groups = $ec_2_security_groups ?? ;
-    $this->owner_id = $owner_id ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->description = $description ?? "";
+    $this->ec_2_security_groups = $ec_2_security_groups ?? [];
+    $this->owner_id = $owner_id ?? "";
   }
 }
 
@@ -594,8 +594,8 @@ class CacheSecurityGroupMembership {
   ?'cache_security_group_name' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->status = $status ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -610,7 +610,7 @@ class CacheSecurityGroupMessage {
   ?'marker' => string,
   ) $s = shape()) {
     $this->cache_security_groups = $cache_security_groups ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -644,10 +644,10 @@ class CacheSubnetGroup {
   ?'subnets' => SubnetList,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->cache_subnet_group_description = $cache_subnet_group_description ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->subnets = $subnets ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->cache_subnet_group_description = $cache_subnet_group_description ?? "";
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->subnets = $subnets ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -674,7 +674,7 @@ class CacheSubnetGroupMessage {
   ?'marker' => string,
   ) $s = shape()) {
     $this->cache_subnet_groups = $cache_subnet_groups ?? [];
-    $this->marker = $marker ?? ;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -720,8 +720,8 @@ class CompleteMigrationMessage {
   ?'force' => boolean,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->force = $force ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->force = $force ?? false;
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -745,9 +745,9 @@ class ConfigureShard {
   ?'node_group_id' => AllowedNodeGroupId,
   ?'preferred_availability_zones' => PreferredAvailabilityZoneList,
   ) $s = shape()) {
-    $this->new_replica_count = $new_replica_count ?? ;
-    $this->node_group_id = $node_group_id ?? ;
-    $this->preferred_availability_zones = $preferred_availability_zones ?? ;
+    $this->new_replica_count = $new_replica_count ?? 0;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->preferred_availability_zones = $preferred_availability_zones ?? [];
   }
 }
 
@@ -763,10 +763,10 @@ class CopySnapshotMessage {
   ?'target_bucket' => string,
   ?'target_snapshot_name' => string,
   ) $s = shape()) {
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->source_snapshot_name = $source_snapshot_name ?? ;
-    $this->target_bucket = $target_bucket ?? ;
-    $this->target_snapshot_name = $target_snapshot_name ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->source_snapshot_name = $source_snapshot_name ?? "";
+    $this->target_bucket = $target_bucket ?? "";
+    $this->target_snapshot_name = $target_snapshot_name ?? "";
   }
 }
 
@@ -831,28 +831,28 @@ class CreateCacheClusterMessage {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->az_mode = $az_mode ?? "";
-    $this->auth_token = $auth_token ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->cache_security_group_names = $cache_security_group_names ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->num_cache_nodes = $num_cache_nodes ?? ;
-    $this->port = $port ?? ;
-    $this->preferred_availability_zone = $preferred_availability_zone ?? ;
-    $this->preferred_availability_zones = $preferred_availability_zones ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->snapshot_arns = $snapshot_arns ?? ;
-    $this->snapshot_name = $snapshot_name ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->tags = $tags ?? ;
+    $this->auth_token = $auth_token ?? "";
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->cache_security_group_names = $cache_security_group_names ?? [];
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->num_cache_nodes = $num_cache_nodes ?? 0;
+    $this->port = $port ?? 0;
+    $this->preferred_availability_zone = $preferred_availability_zone ?? "";
+    $this->preferred_availability_zones = $preferred_availability_zones ?? [];
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->snapshot_arns = $snapshot_arns ?? [];
+    $this->snapshot_name = $snapshot_name ?? "";
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -876,9 +876,9 @@ class CreateCacheParameterGroupMessage {
   ?'cache_parameter_group_name' => string,
   ?'description' => string,
   ) $s = shape()) {
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->description = $description ?? ;
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -900,8 +900,8 @@ class CreateCacheSecurityGroupMessage {
   ?'cache_security_group_name' => string,
   ?'description' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->description = $description ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -925,9 +925,9 @@ class CreateCacheSubnetGroupMessage {
   ?'cache_subnet_group_name' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->cache_subnet_group_description = $cache_subnet_group_description ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->cache_subnet_group_description = $cache_subnet_group_description ?? "";
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -951,9 +951,9 @@ class CreateGlobalReplicationGroupMessage {
   ?'global_replication_group_id_suffix' => string,
   ?'primary_replication_group_id' => string,
   ) $s = shape()) {
-    $this->global_replication_group_description = $global_replication_group_description ?? ;
-    $this->global_replication_group_id_suffix = $global_replication_group_id_suffix ?? ;
-    $this->primary_replication_group_id = $primary_replication_group_id ?? ;
+    $this->global_replication_group_description = $global_replication_group_description ?? "";
+    $this->global_replication_group_id_suffix = $global_replication_group_id_suffix ?? "";
+    $this->primary_replication_group_id = $primary_replication_group_id ?? "";
   }
 }
 
@@ -1031,36 +1031,36 @@ class CreateReplicationGroupMessage {
   ?'tags' => TagList,
   ?'transit_encryption_enabled' => BooleanOptional,
   ) $s = shape()) {
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->auth_token = $auth_token ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->automatic_failover_enabled = $automatic_failover_enabled ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->cache_security_group_names = $cache_security_group_names ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->node_group_configuration = $node_group_configuration ?? null;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->num_cache_clusters = $num_cache_clusters ?? ;
-    $this->num_node_groups = $num_node_groups ?? ;
-    $this->port = $port ?? ;
-    $this->preferred_cache_cluster_a_zs = $preferred_cache_cluster_a_zs ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->primary_cluster_id = $primary_cluster_id ?? ;
-    $this->replicas_per_node_group = $replicas_per_node_group ?? ;
-    $this->replication_group_description = $replication_group_description ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->snapshot_arns = $snapshot_arns ?? ;
-    $this->snapshot_name = $snapshot_name ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->tags = $tags ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->auth_token = $auth_token ?? "";
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->automatic_failover_enabled = $automatic_failover_enabled ?? false;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->cache_security_group_names = $cache_security_group_names ?? [];
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->node_group_configuration = $node_group_configuration ?? [];
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->num_cache_clusters = $num_cache_clusters ?? 0;
+    $this->num_node_groups = $num_node_groups ?? 0;
+    $this->port = $port ?? 0;
+    $this->preferred_cache_cluster_a_zs = $preferred_cache_cluster_a_zs ?? [];
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->primary_cluster_id = $primary_cluster_id ?? "";
+    $this->replicas_per_node_group = $replicas_per_node_group ?? 0;
+    $this->replication_group_description = $replication_group_description ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->snapshot_arns = $snapshot_arns ?? [];
+    $this->snapshot_name = $snapshot_name ?? "";
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->tags = $tags ?? [];
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
   }
 }
 
@@ -1086,10 +1086,10 @@ class CreateSnapshotMessage {
   ?'replication_group_id' => string,
   ?'snapshot_name' => string,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->snapshot_name = $snapshot_name ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->snapshot_name = $snapshot_name ?? "";
   }
 }
 
@@ -1111,8 +1111,8 @@ class CustomerNodeEndpoint {
   ?'address' => string,
   ?'port' => IntegerOptional,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->port = $port ?? ;
+    $this->address = $address ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -1132,11 +1132,11 @@ class DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   ?'global_replication_group_id' => string,
   ?'node_group_count' => int,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->global_node_groups_to_remove = $global_node_groups_to_remove ?? ;
-    $this->global_node_groups_to_retain = $global_node_groups_to_retain ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->node_group_count = $node_group_count ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->global_node_groups_to_remove = $global_node_groups_to_remove ?? [];
+    $this->global_node_groups_to_retain = $global_node_groups_to_retain ?? [];
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->node_group_count = $node_group_count ?? 0;
   }
 }
 
@@ -1164,11 +1164,11 @@ class DecreaseReplicaCountMessage {
   ?'replicas_to_remove' => RemoveReplicasList,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->new_replica_count = $new_replica_count ?? ;
-    $this->replica_configuration = $replica_configuration ?? ;
-    $this->replicas_to_remove = $replicas_to_remove ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->new_replica_count = $new_replica_count ?? 0;
+    $this->replica_configuration = $replica_configuration ?? [];
+    $this->replicas_to_remove = $replicas_to_remove ?? [];
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -1190,8 +1190,8 @@ class DeleteCacheClusterMessage {
   ?'cache_cluster_id' => string,
   ?'final_snapshot_identifier' => string,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->final_snapshot_identifier = $final_snapshot_identifier ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->final_snapshot_identifier = $final_snapshot_identifier ?? "";
   }
 }
 
@@ -1211,7 +1211,7 @@ class DeleteCacheParameterGroupMessage {
   public function __construct(shape(
   ?'cache_parameter_group_name' => string,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
   }
 }
 
@@ -1221,7 +1221,7 @@ class DeleteCacheSecurityGroupMessage {
   public function __construct(shape(
   ?'cache_security_group_name' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
   }
 }
 
@@ -1231,7 +1231,7 @@ class DeleteCacheSubnetGroupMessage {
   public function __construct(shape(
   ?'cache_subnet_group_name' => string,
   ) $s = shape()) {
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
   }
 }
 
@@ -1243,8 +1243,8 @@ class DeleteGlobalReplicationGroupMessage {
   ?'global_replication_group_id' => string,
   ?'retain_primary_replication_group' => boolean,
   ) $s = shape()) {
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->retain_primary_replication_group = $retain_primary_replication_group ?? ;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->retain_primary_replication_group = $retain_primary_replication_group ?? false;
   }
 }
 
@@ -1268,9 +1268,9 @@ class DeleteReplicationGroupMessage {
   ?'replication_group_id' => string,
   ?'retain_primary_cluster' => BooleanOptional,
   ) $s = shape()) {
-    $this->final_snapshot_identifier = $final_snapshot_identifier ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->retain_primary_cluster = $retain_primary_cluster ?? ;
+    $this->final_snapshot_identifier = $final_snapshot_identifier ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->retain_primary_cluster = $retain_primary_cluster ?? false;
   }
 }
 
@@ -1290,7 +1290,7 @@ class DeleteSnapshotMessage {
   public function __construct(shape(
   ?'snapshot_name' => string,
   ) $s = shape()) {
-    $this->snapshot_name = $snapshot_name ?? ;
+    $this->snapshot_name = $snapshot_name ?? "";
   }
 }
 
@@ -1318,11 +1318,11 @@ class DescribeCacheClustersMessage {
   ?'show_cache_clusters_not_in_replication_groups' => BooleanOptional,
   ?'show_cache_node_info' => BooleanOptional,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->show_cache_clusters_not_in_replication_groups = $show_cache_clusters_not_in_replication_groups ?? ;
-    $this->show_cache_node_info = $show_cache_node_info ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->show_cache_clusters_not_in_replication_groups = $show_cache_clusters_not_in_replication_groups ?? false;
+    $this->show_cache_node_info = $show_cache_node_info ?? false;
   }
 }
 
@@ -1342,12 +1342,12 @@ class DescribeCacheEngineVersionsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->default_only = $default_only ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->default_only = $default_only ?? false;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1361,9 +1361,9 @@ class DescribeCacheParameterGroupsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1379,10 +1379,10 @@ class DescribeCacheParametersMessage {
   ?'max_records' => IntegerOptional,
   ?'source' => string,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->source = $source ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->source = $source ?? "";
   }
 }
 
@@ -1396,9 +1396,9 @@ class DescribeCacheSecurityGroupsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1412,9 +1412,9 @@ class DescribeCacheSubnetGroupsMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1428,9 +1428,9 @@ class DescribeEngineDefaultParametersMessage {
   ?'marker' => string,
   ?'max_records' => IntegerOptional,
   ) $s = shape()) {
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
   }
 }
 
@@ -1462,13 +1462,13 @@ class DescribeEventsMessage {
   ?'source_type' => SourceType,
   ?'start_time' => TStamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->duration = $duration ?? 0;
+    $this->end_time = $end_time ?? 0;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1484,10 +1484,10 @@ class DescribeGlobalReplicationGroupsMessage {
   ?'max_records' => IntegerOptional,
   ?'show_member_info' => BooleanOptional,
   ) $s = shape()) {
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->show_member_info = $show_member_info ?? ;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->show_member_info = $show_member_info ?? false;
   }
 }
 
@@ -1499,8 +1499,8 @@ class DescribeGlobalReplicationGroupsResult {
   ?'global_replication_groups' => GlobalReplicationGroupList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->global_replication_groups = $global_replication_groups ?? ;
-    $this->marker = $marker ?? ;
+    $this->global_replication_groups = $global_replication_groups ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1514,9 +1514,9 @@ class DescribeReplicationGroupsMessage {
   ?'max_records' => IntegerOptional,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -1540,14 +1540,14 @@ class DescribeReservedCacheNodesMessage {
   ?'reserved_cache_node_id' => string,
   ?'reserved_cache_nodes_offering_id' => string,
   ) $s = shape()) {
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->duration = $duration ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->product_description = $product_description ?? ;
-    $this->reserved_cache_node_id = $reserved_cache_node_id ?? ;
-    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? ;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->duration = $duration ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->offering_type = $offering_type ?? "";
+    $this->product_description = $product_description ?? "";
+    $this->reserved_cache_node_id = $reserved_cache_node_id ?? "";
+    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? "";
   }
 }
 
@@ -1569,13 +1569,13 @@ class DescribeReservedCacheNodesOfferingsMessage {
   ?'product_description' => string,
   ?'reserved_cache_nodes_offering_id' => string,
   ) $s = shape()) {
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->duration = $duration ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->product_description = $product_description ?? ;
-    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? ;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->duration = $duration ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->offering_type = $offering_type ?? "";
+    $this->product_description = $product_description ?? "";
+    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? "";
   }
 }
 
@@ -1591,10 +1591,10 @@ class DescribeServiceUpdatesMessage {
   ?'service_update_name' => string,
   ?'service_update_status' => ServiceUpdateStatusList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->service_update_name = $service_update_name ?? ;
-    $this->service_update_status = $service_update_status ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->service_update_name = $service_update_name ?? "";
+    $this->service_update_status = $service_update_status ?? [];
   }
 }
 
@@ -1606,8 +1606,8 @@ class DescribeSnapshotsListMessage {
   ?'marker' => string,
   ?'snapshots' => SnapshotList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->snapshots = $snapshots ?? ;
+    $this->marker = $marker ?? "";
+    $this->snapshots = $snapshots ?? [];
   }
 }
 
@@ -1629,13 +1629,13 @@ class DescribeSnapshotsMessage {
   ?'snapshot_name' => string,
   ?'snapshot_source' => string,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->show_node_group_config = $show_node_group_config ?? ;
-    $this->snapshot_name = $snapshot_name ?? ;
-    $this->snapshot_source = $snapshot_source ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->show_node_group_config = $show_node_group_config ?? false;
+    $this->snapshot_name = $snapshot_name ?? "";
+    $this->snapshot_source = $snapshot_source ?? "";
   }
 }
 
@@ -1663,16 +1663,16 @@ class DescribeUpdateActionsMessage {
   ?'show_node_level_update_status' => BooleanOptional,
   ?'update_action_status' => UpdateActionStatusList,
   ) $s = shape()) {
-    $this->cache_cluster_ids = $cache_cluster_ids ?? ;
-    $this->engine = $engine ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_records = $max_records ?? ;
-    $this->replication_group_ids = $replication_group_ids ?? ;
-    $this->service_update_name = $service_update_name ?? ;
-    $this->service_update_status = $service_update_status ?? "";
-    $this->service_update_time_range = $service_update_time_range ?? ;
-    $this->show_node_level_update_status = $show_node_level_update_status ?? ;
-    $this->update_action_status = $update_action_status ?? "";
+    $this->cache_cluster_ids = $cache_cluster_ids ?? [];
+    $this->engine = $engine ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_records = $max_records ?? 0;
+    $this->replication_group_ids = $replication_group_ids ?? [];
+    $this->service_update_name = $service_update_name ?? "";
+    $this->service_update_status = $service_update_status ?? [];
+    $this->service_update_time_range = $service_update_time_range ?? null;
+    $this->show_node_level_update_status = $show_node_level_update_status ?? false;
+    $this->update_action_status = $update_action_status ?? [];
   }
 }
 
@@ -1686,9 +1686,9 @@ class DisassociateGlobalReplicationGroupMessage {
   ?'replication_group_id' => string,
   ?'replication_group_region' => string,
   ) $s = shape()) {
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->replication_group_region = $replication_group_region ?? ;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->replication_group_region = $replication_group_region ?? "";
   }
 }
 
@@ -1714,9 +1714,9 @@ class EC2SecurityGroup {
   ?'ec_2_security_group_owner_id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
-    $this->status = $status ?? ;
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1730,8 +1730,8 @@ class Endpoint {
   ?'address' => string,
   ?'port' => int,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->port = $port ?? ;
+    $this->address = $address ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -1747,10 +1747,10 @@ class EngineDefaults {
   ?'marker' => string,
   ?'parameters' => ParametersList,
   ) $s = shape()) {
-    $this->cache_node_type_specific_parameters = $cache_node_type_specific_parameters ?? ;
-    $this->cache_parameter_group_family = $cache_parameter_group_family ?? ;
-    $this->marker = $marker ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->cache_node_type_specific_parameters = $cache_node_type_specific_parameters ?? [];
+    $this->cache_parameter_group_family = $cache_parameter_group_family ?? "";
+    $this->marker = $marker ?? "";
+    $this->parameters = $parameters ?? [];
   }
 }
 
@@ -1766,9 +1766,9 @@ class Event {
   ?'source_identifier' => string,
   ?'source_type' => SourceType,
   ) $s = shape()) {
-    $this->date = $date ?? ;
-    $this->message = $message ?? ;
-    $this->source_identifier = $source_identifier ?? ;
+    $this->date = $date ?? 0;
+    $this->message = $message ?? "";
+    $this->source_identifier = $source_identifier ?? "";
     $this->source_type = $source_type ?? "";
   }
 }
@@ -1783,8 +1783,8 @@ class EventsMessage {
   ?'events' => EventList,
   ?'marker' => string,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->marker = $marker ?? ;
+    $this->events = $events ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1798,9 +1798,9 @@ class FailoverGlobalReplicationGroupMessage {
   ?'primary_region' => string,
   ?'primary_replication_group_id' => string,
   ) $s = shape()) {
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->primary_region = $primary_region ?? ;
-    $this->primary_replication_group_id = $primary_replication_group_id ?? ;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->primary_region = $primary_region ?? "";
+    $this->primary_replication_group_id = $primary_replication_group_id ?? "";
   }
 }
 
@@ -1822,8 +1822,8 @@ class GlobalNodeGroup {
   ?'global_node_group_id' => string,
   ?'slots' => string,
   ) $s = shape()) {
-    $this->global_node_group_id = $global_node_group_id ?? ;
-    $this->slots = $slots ?? ;
+    $this->global_node_group_id = $global_node_group_id ?? "";
+    $this->slots = $slots ?? "";
   }
 }
 
@@ -1859,18 +1859,18 @@ class GlobalReplicationGroup {
   ?'status' => string,
   ?'transit_encryption_enabled' => BooleanOptional,
   ) $s = shape()) {
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->auth_token_enabled = $auth_token_enabled ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cluster_enabled = $cluster_enabled ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->global_node_groups = $global_node_groups ?? ;
-    $this->global_replication_group_description = $global_replication_group_description ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->members = $members ?? ;
-    $this->status = $status ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->auth_token_enabled = $auth_token_enabled ?? false;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cluster_enabled = $cluster_enabled ?? false;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->global_node_groups = $global_node_groups ?? [];
+    $this->global_replication_group_description = $global_replication_group_description ?? "";
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->members = $members ?? [];
+    $this->status = $status ?? "";
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
   }
 }
 
@@ -1889,8 +1889,8 @@ class GlobalReplicationGroupInfo {
   ?'global_replication_group_id' => string,
   ?'global_replication_group_member_role' => string,
   ) $s = shape()) {
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->global_replication_group_member_role = $global_replication_group_member_role ?? ;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->global_replication_group_member_role = $global_replication_group_member_role ?? "";
   }
 }
 
@@ -1910,11 +1910,11 @@ class GlobalReplicationGroupMember {
   ?'role' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->automatic_failover = $automatic_failover ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->replication_group_region = $replication_group_region ?? ;
-    $this->role = $role ?? ;
-    $this->status = $status ?? ;
+    $this->automatic_failover = $automatic_failover ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->replication_group_region = $replication_group_region ?? "";
+    $this->role = $role ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1939,10 +1939,10 @@ class IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   ?'node_group_count' => int,
   ?'regional_configurations' => RegionalConfigurationList,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
-    $this->node_group_count = $node_group_count ?? ;
-    $this->regional_configurations = $regional_configurations ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
+    $this->node_group_count = $node_group_count ?? 0;
+    $this->regional_configurations = $regional_configurations ?? [];
   }
 }
 
@@ -1968,10 +1968,10 @@ class IncreaseReplicaCountMessage {
   ?'replica_configuration' => ReplicaConfigurationList,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->new_replica_count = $new_replica_count ?? ;
-    $this->replica_configuration = $replica_configuration ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->new_replica_count = $new_replica_count ?? 0;
+    $this->replica_configuration = $replica_configuration ?? [];
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -2044,7 +2044,7 @@ class InvalidParameterCombinationException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2054,7 +2054,7 @@ class InvalidParameterValueException {
   public function __construct(shape(
   ?'message' => AwsQueryErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2096,8 +2096,8 @@ class ListAllowedNodeTypeModificationsMessage {
   ?'cache_cluster_id' => string,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -2107,7 +2107,7 @@ class ListTagsForResourceMessage {
   public function __construct(shape(
   ?'resource_name' => string,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -2154,24 +2154,24 @@ class ModifyCacheClusterMessage {
   ?'snapshot_window' => string,
   ) $s = shape()) {
     $this->az_mode = $az_mode ?? "";
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->auth_token = $auth_token ?? ;
-    $this->auth_token_update_strategy = $auth_token_update_strategy ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_ids_to_remove = $cache_node_ids_to_remove ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->cache_security_group_names = $cache_security_group_names ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->new_availability_zones = $new_availability_zones ?? ;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->notification_topic_status = $notification_topic_status ?? ;
-    $this->num_cache_nodes = $num_cache_nodes ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->auth_token = $auth_token ?? "";
+    $this->auth_token_update_strategy = $auth_token_update_strategy ?? "";
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_ids_to_remove = $cache_node_ids_to_remove ?? [];
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->cache_security_group_names = $cache_security_group_names ?? [];
+    $this->engine_version = $engine_version ?? "";
+    $this->new_availability_zones = $new_availability_zones ?? [];
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->notification_topic_status = $notification_topic_status ?? "";
+    $this->num_cache_nodes = $num_cache_nodes ?? 0;
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
   }
 }
 
@@ -2193,8 +2193,8 @@ class ModifyCacheParameterGroupMessage {
   ?'cache_parameter_group_name' => string,
   ?'parameter_name_values' => ParameterNameValueList,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->parameter_name_values = $parameter_name_values ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->parameter_name_values = $parameter_name_values ?? [];
   }
 }
 
@@ -2208,9 +2208,9 @@ class ModifyCacheSubnetGroupMessage {
   ?'cache_subnet_group_name' => string,
   ?'subnet_ids' => SubnetIdentifierList,
   ) $s = shape()) {
-    $this->cache_subnet_group_description = $cache_subnet_group_description ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->cache_subnet_group_description = $cache_subnet_group_description ?? "";
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -2240,12 +2240,12 @@ class ModifyGlobalReplicationGroupMessage {
   ?'global_replication_group_description' => string,
   ?'global_replication_group_id' => string,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->automatic_failover_enabled = $automatic_failover_enabled ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->global_replication_group_description = $global_replication_group_description ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->automatic_failover_enabled = $automatic_failover_enabled ?? false;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->global_replication_group_description = $global_replication_group_description ?? "";
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
   }
 }
 
@@ -2303,26 +2303,26 @@ class ModifyReplicationGroupMessage {
   ?'snapshot_window' => string,
   ?'snapshotting_cluster_id' => string,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->auth_token = $auth_token ?? ;
-    $this->auth_token_update_strategy = $auth_token_update_strategy ?? ;
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->automatic_failover_enabled = $automatic_failover_enabled ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->cache_security_group_names = $cache_security_group_names ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->node_group_id = $node_group_id ?? ;
-    $this->notification_topic_arn = $notification_topic_arn ?? ;
-    $this->notification_topic_status = $notification_topic_status ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->primary_cluster_id = $primary_cluster_id ?? ;
-    $this->replication_group_description = $replication_group_description ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->snapshotting_cluster_id = $snapshotting_cluster_id ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->auth_token = $auth_token ?? "";
+    $this->auth_token_update_strategy = $auth_token_update_strategy ?? "";
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->automatic_failover_enabled = $automatic_failover_enabled ?? false;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->cache_security_group_names = $cache_security_group_names ?? [];
+    $this->engine_version = $engine_version ?? "";
+    $this->node_group_id = $node_group_id ?? "";
+    $this->notification_topic_arn = $notification_topic_arn ?? "";
+    $this->notification_topic_status = $notification_topic_status ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->primary_cluster_id = $primary_cluster_id ?? "";
+    $this->replication_group_description = $replication_group_description ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->snapshotting_cluster_id = $snapshotting_cluster_id ?? "";
   }
 }
 
@@ -2352,12 +2352,12 @@ class ModifyReplicationGroupShardConfigurationMessage {
   ?'replication_group_id' => string,
   ?'resharding_configuration' => ReshardingConfigurationList,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->node_group_count = $node_group_count ?? ;
-    $this->node_groups_to_remove = $node_groups_to_remove ?? ;
-    $this->node_groups_to_retain = $node_groups_to_retain ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->resharding_configuration = $resharding_configuration ?? null;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->node_group_count = $node_group_count ?? 0;
+    $this->node_groups_to_remove = $node_groups_to_remove ?? [];
+    $this->node_groups_to_retain = $node_groups_to_retain ?? [];
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->resharding_configuration = $resharding_configuration ?? [];
   }
 }
 
@@ -2394,12 +2394,12 @@ class NodeGroup {
   ?'slots' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->node_group_id = $node_group_id ?? ;
-    $this->node_group_members = $node_group_members ?? ;
-    $this->primary_endpoint = $primary_endpoint ?? ;
-    $this->reader_endpoint = $reader_endpoint ?? ;
-    $this->slots = $slots ?? ;
-    $this->status = $status ?? ;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->node_group_members = $node_group_members ?? [];
+    $this->primary_endpoint = $primary_endpoint ?? null;
+    $this->reader_endpoint = $reader_endpoint ?? null;
+    $this->slots = $slots ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2417,11 +2417,11 @@ class NodeGroupConfiguration {
   ?'replica_count' => IntegerOptional,
   ?'slots' => string,
   ) $s = shape()) {
-    $this->node_group_id = $node_group_id ?? ;
-    $this->primary_availability_zone = $primary_availability_zone ?? ;
-    $this->replica_availability_zones = $replica_availability_zones ?? ;
-    $this->replica_count = $replica_count ?? ;
-    $this->slots = $slots ?? ;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->primary_availability_zone = $primary_availability_zone ?? "";
+    $this->replica_availability_zones = $replica_availability_zones ?? [];
+    $this->replica_count = $replica_count ?? 0;
+    $this->slots = $slots ?? "";
   }
 }
 
@@ -2443,11 +2443,11 @@ class NodeGroupMember {
   ?'preferred_availability_zone' => string,
   ?'read_endpoint' => Endpoint,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_id = $cache_node_id ?? ;
-    $this->current_role = $current_role ?? ;
-    $this->preferred_availability_zone = $preferred_availability_zone ?? ;
-    $this->read_endpoint = $read_endpoint ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_id = $cache_node_id ?? "";
+    $this->current_role = $current_role ?? "";
+    $this->preferred_availability_zone = $preferred_availability_zone ?? "";
+    $this->read_endpoint = $read_endpoint ?? null;
   }
 }
 
@@ -2475,15 +2475,15 @@ class NodeGroupMemberUpdateStatus {
   ?'node_update_status' => NodeUpdateStatus,
   ?'node_update_status_modified_date' => TStamp,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_id = $cache_node_id ?? ;
-    $this->node_deletion_date = $node_deletion_date ?? ;
-    $this->node_update_end_date = $node_update_end_date ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_id = $cache_node_id ?? "";
+    $this->node_deletion_date = $node_deletion_date ?? 0;
+    $this->node_update_end_date = $node_update_end_date ?? 0;
     $this->node_update_initiated_by = $node_update_initiated_by ?? "";
-    $this->node_update_initiated_date = $node_update_initiated_date ?? ;
-    $this->node_update_start_date = $node_update_start_date ?? ;
+    $this->node_update_initiated_date = $node_update_initiated_date ?? 0;
+    $this->node_update_start_date = $node_update_start_date ?? 0;
     $this->node_update_status = $node_update_status ?? "";
-    $this->node_update_status_modified_date = $node_update_status_modified_date ?? ;
+    $this->node_update_status_modified_date = $node_update_status_modified_date ?? 0;
   }
 }
 
@@ -2504,8 +2504,8 @@ class NodeGroupUpdateStatus {
   ?'node_group_id' => string,
   ?'node_group_member_update_status' => NodeGroupMemberUpdateStatusList,
   ) $s = shape()) {
-    $this->node_group_id = $node_group_id ?? ;
-    $this->node_group_member_update_status = $node_group_member_update_status ?? null;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->node_group_member_update_status = $node_group_member_update_status ?? [];
   }
 }
 
@@ -2554,13 +2554,13 @@ class NodeSnapshot {
   ?'node_group_id' => string,
   ?'snapshot_create_time' => TStamp,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_create_time = $cache_node_create_time ?? ;
-    $this->cache_node_id = $cache_node_id ?? ;
-    $this->cache_size = $cache_size ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_create_time = $cache_node_create_time ?? 0;
+    $this->cache_node_id = $cache_node_id ?? "";
+    $this->cache_size = $cache_size ?? "";
     $this->node_group_configuration = $node_group_configuration ?? null;
-    $this->node_group_id = $node_group_id ?? ;
-    $this->snapshot_create_time = $snapshot_create_time ?? ;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->snapshot_create_time = $snapshot_create_time ?? 0;
   }
 }
 
@@ -2580,8 +2580,8 @@ class NotificationConfiguration {
   ?'topic_arn' => string,
   ?'topic_status' => string,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
-    $this->topic_status = $topic_status ?? ;
+    $this->topic_arn = $topic_arn ?? "";
+    $this->topic_status = $topic_status ?? "";
   }
 }
 
@@ -2607,15 +2607,15 @@ class Parameter {
   ?'parameter_value' => string,
   ?'source' => string,
   ) $s = shape()) {
-    $this->allowed_values = $allowed_values ?? ;
+    $this->allowed_values = $allowed_values ?? "";
     $this->change_type = $change_type ?? "";
-    $this->data_type = $data_type ?? ;
-    $this->description = $description ?? ;
-    $this->is_modifiable = $is_modifiable ?? ;
-    $this->minimum_engine_version = $minimum_engine_version ?? ;
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
-    $this->source = $source ?? ;
+    $this->data_type = $data_type ?? "";
+    $this->description = $description ?? "";
+    $this->is_modifiable = $is_modifiable ?? false;
+    $this->minimum_engine_version = $minimum_engine_version ?? "";
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
+    $this->source = $source ?? "";
   }
 }
 
@@ -2627,8 +2627,8 @@ class ParameterNameValue {
   ?'parameter_name' => string,
   ?'parameter_value' => string,
   ) $s = shape()) {
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
   }
 }
 
@@ -2652,11 +2652,11 @@ class PendingModifiedValues {
   ?'engine_version' => string,
   ?'num_cache_nodes' => IntegerOptional,
   ) $s = shape()) {
-    $this->auth_token_status = $auth_token_status ?? ;
-    $this->cache_node_ids_to_remove = $cache_node_ids_to_remove ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->num_cache_nodes = $num_cache_nodes ?? ;
+    $this->auth_token_status = $auth_token_status ?? "";
+    $this->cache_node_ids_to_remove = $cache_node_ids_to_remove ?? [];
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->num_cache_nodes = $num_cache_nodes ?? 0;
   }
 }
 
@@ -2674,9 +2674,9 @@ class ProcessedUpdateAction {
   ?'service_update_name' => string,
   ?'update_action_status' => UpdateActionStatus,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->service_update_name = $service_update_name ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->service_update_name = $service_update_name ?? "";
     $this->update_action_status = $update_action_status ?? "";
   }
 }
@@ -2693,9 +2693,9 @@ class PurchaseReservedCacheNodesOfferingMessage {
   ?'reserved_cache_node_id' => string,
   ?'reserved_cache_nodes_offering_id' => string,
   ) $s = shape()) {
-    $this->cache_node_count = $cache_node_count ?? ;
-    $this->reserved_cache_node_id = $reserved_cache_node_id ?? ;
-    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? ;
+    $this->cache_node_count = $cache_node_count ?? 0;
+    $this->reserved_cache_node_id = $reserved_cache_node_id ?? "";
+    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? "";
   }
 }
 
@@ -2717,8 +2717,8 @@ class RebalanceSlotsInGlobalReplicationGroupMessage {
   ?'apply_immediately' => boolean,
   ?'global_replication_group_id' => string,
   ) $s = shape()) {
-    $this->apply_immediately = $apply_immediately ?? ;
-    $this->global_replication_group_id = $global_replication_group_id ?? ;
+    $this->apply_immediately = $apply_immediately ?? false;
+    $this->global_replication_group_id = $global_replication_group_id ?? "";
   }
 }
 
@@ -2740,8 +2740,8 @@ class RebootCacheClusterMessage {
   ?'cache_cluster_id' => string,
   ?'cache_node_ids_to_reboot' => CacheNodeIdsList,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_ids_to_reboot = $cache_node_ids_to_reboot ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_ids_to_reboot = $cache_node_ids_to_reboot ?? [];
   }
 }
 
@@ -2763,8 +2763,8 @@ class RecurringCharge {
   ?'recurring_charge_amount' => Double,
   ?'recurring_charge_frequency' => string,
   ) $s = shape()) {
-    $this->recurring_charge_amount = $recurring_charge_amount ?? ;
-    $this->recurring_charge_frequency = $recurring_charge_frequency ?? ;
+    $this->recurring_charge_amount = $recurring_charge_amount ?? 0.0;
+    $this->recurring_charge_frequency = $recurring_charge_frequency ?? "";
   }
 }
 
@@ -2780,9 +2780,9 @@ class RegionalConfiguration {
   ?'replication_group_region' => string,
   ?'resharding_configuration' => ReshardingConfigurationList,
   ) $s = shape()) {
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->replication_group_region = $replication_group_region ?? ;
-    $this->resharding_configuration = $resharding_configuration ?? null;
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->replication_group_region = $replication_group_region ?? "";
+    $this->resharding_configuration = $resharding_configuration ?? [];
   }
 }
 
@@ -2798,8 +2798,8 @@ class RemoveTagsFromResourceMessage {
   ?'resource_name' => string,
   ?'tag_keys' => KeyList,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2847,25 +2847,25 @@ class ReplicationGroup {
   ?'status' => string,
   ?'transit_encryption_enabled' => BooleanOptional,
   ) $s = shape()) {
-    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? ;
-    $this->auth_token_enabled = $auth_token_enabled ?? ;
-    $this->auth_token_last_modified_date = $auth_token_last_modified_date ?? ;
-    $this->automatic_failover = $automatic_failover ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cluster_enabled = $cluster_enabled ?? ;
-    $this->configuration_endpoint = $configuration_endpoint ?? ;
-    $this->description = $description ?? ;
+    $this->at_rest_encryption_enabled = $at_rest_encryption_enabled ?? false;
+    $this->auth_token_enabled = $auth_token_enabled ?? false;
+    $this->auth_token_last_modified_date = $auth_token_last_modified_date ?? 0;
+    $this->automatic_failover = $automatic_failover ?? "";
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cluster_enabled = $cluster_enabled ?? false;
+    $this->configuration_endpoint = $configuration_endpoint ?? null;
+    $this->description = $description ?? "";
     $this->global_replication_group_info = $global_replication_group_info ?? null;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->member_clusters = $member_clusters ?? ;
-    $this->node_groups = $node_groups ?? ;
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->member_clusters = $member_clusters ?? [];
+    $this->node_groups = $node_groups ?? [];
     $this->pending_modified_values = $pending_modified_values ?? null;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->snapshotting_cluster_id = $snapshotting_cluster_id ?? ;
-    $this->status = $status ?? ;
-    $this->transit_encryption_enabled = $transit_encryption_enabled ?? ;
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->snapshotting_cluster_id = $snapshotting_cluster_id ?? "";
+    $this->status = $status ?? "";
+    $this->transit_encryption_enabled = $transit_encryption_enabled ?? false;
   }
 }
 
@@ -2895,8 +2895,8 @@ class ReplicationGroupMessage {
   ?'marker' => string,
   ?'replication_groups' => ReplicationGroupList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->replication_groups = $replication_groups ?? ;
+    $this->marker = $marker ?? "";
+    $this->replication_groups = $replication_groups ?? [];
   }
 }
 
@@ -2926,10 +2926,10 @@ class ReplicationGroupPendingModifiedValues {
   ?'primary_cluster_id' => string,
   ?'resharding' => ReshardingStatus,
   ) $s = shape()) {
-    $this->auth_token_status = $auth_token_status ?? ;
+    $this->auth_token_status = $auth_token_status ?? "";
     $this->automatic_failover_status = $automatic_failover_status ?? "";
-    $this->primary_cluster_id = $primary_cluster_id ?? ;
-    $this->resharding = $resharding ?? ;
+    $this->primary_cluster_id = $primary_cluster_id ?? "";
+    $this->resharding = $resharding ?? null;
   }
 }
 
@@ -2963,19 +2963,19 @@ class ReservedCacheNode {
   ?'state' => string,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->cache_node_count = $cache_node_count ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->duration = $duration ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->product_description = $product_description ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reservation_arn = $reservation_arn ?? ;
-    $this->reserved_cache_node_id = $reserved_cache_node_id ?? ;
-    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->state = $state ?? ;
-    $this->usage_price = $usage_price ?? ;
+    $this->cache_node_count = $cache_node_count ?? 0;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->duration = $duration ?? 0;
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->offering_type = $offering_type ?? "";
+    $this->product_description = $product_description ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reservation_arn = $reservation_arn ?? "";
+    $this->reserved_cache_node_id = $reserved_cache_node_id ?? "";
+    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->state = $state ?? "";
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -2996,8 +2996,8 @@ class ReservedCacheNodeMessage {
   ?'marker' => string,
   ?'reserved_cache_nodes' => ReservedCacheNodeList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->reserved_cache_nodes = $reserved_cache_nodes ?? ;
+    $this->marker = $marker ?? "";
+    $this->reserved_cache_nodes = $reserved_cache_nodes ?? [];
   }
 }
 
@@ -3035,14 +3035,14 @@ class ReservedCacheNodesOffering {
   ?'reserved_cache_nodes_offering_id' => string,
   ?'usage_price' => Double,
   ) $s = shape()) {
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->duration = $duration ?? ;
-    $this->fixed_price = $fixed_price ?? ;
-    $this->offering_type = $offering_type ?? ;
-    $this->product_description = $product_description ?? ;
-    $this->recurring_charges = $recurring_charges ?? ;
-    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? ;
-    $this->usage_price = $usage_price ?? ;
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->duration = $duration ?? 0;
+    $this->fixed_price = $fixed_price ?? 0.0;
+    $this->offering_type = $offering_type ?? "";
+    $this->product_description = $product_description ?? "";
+    $this->recurring_charges = $recurring_charges ?? [];
+    $this->reserved_cache_nodes_offering_id = $reserved_cache_nodes_offering_id ?? "";
+    $this->usage_price = $usage_price ?? 0.0;
   }
 }
 
@@ -3056,8 +3056,8 @@ class ReservedCacheNodesOfferingMessage {
   ?'marker' => string,
   ?'reserved_cache_nodes_offerings' => ReservedCacheNodesOfferingList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->reserved_cache_nodes_offerings = $reserved_cache_nodes_offerings ?? ;
+    $this->marker = $marker ?? "";
+    $this->reserved_cache_nodes_offerings = $reserved_cache_nodes_offerings ?? [];
   }
 }
 
@@ -3078,9 +3078,9 @@ class ResetCacheParameterGroupMessage {
   ?'parameter_name_values' => ParameterNameValueList,
   ?'reset_all_parameters' => boolean,
   ) $s = shape()) {
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->parameter_name_values = $parameter_name_values ?? ;
-    $this->reset_all_parameters = $reset_all_parameters ?? ;
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->parameter_name_values = $parameter_name_values ?? [];
+    $this->reset_all_parameters = $reset_all_parameters ?? false;
   }
 }
 
@@ -3092,8 +3092,8 @@ class ReshardingConfiguration {
   ?'node_group_id' => AllowedNodeGroupId,
   ?'preferred_availability_zones' => AvailabilityZonesList,
   ) $s = shape()) {
-    $this->node_group_id = $node_group_id ?? ;
-    $this->preferred_availability_zones = $preferred_availability_zones ?? ;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->preferred_availability_zones = $preferred_availability_zones ?? [];
   }
 }
 
@@ -3119,9 +3119,9 @@ class RevokeCacheSecurityGroupIngressMessage {
   ?'ec_2_security_group_name' => string,
   ?'ec_2_security_group_owner_id' => string,
   ) $s = shape()) {
-    $this->cache_security_group_name = $cache_security_group_name ?? ;
-    $this->ec_2_security_group_name = $ec_2_security_group_name ?? ;
-    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? ;
+    $this->cache_security_group_name = $cache_security_group_name ?? "";
+    $this->ec_2_security_group_name = $ec_2_security_group_name ?? "";
+    $this->ec_2_security_group_owner_id = $ec_2_security_group_owner_id ?? "";
   }
 }
 
@@ -3145,8 +3145,8 @@ class SecurityGroupMembership {
   ?'security_group_id' => string,
   ?'status' => string,
   ) $s = shape()) {
-    $this->security_group_id = $security_group_id ?? ;
-    $this->status = $status ?? ;
+    $this->security_group_id = $security_group_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -3187,15 +3187,15 @@ class ServiceUpdate {
   ?'service_update_status' => ServiceUpdateStatus,
   ?'service_update_type' => ServiceUpdateType,
   ) $s = shape()) {
-    $this->auto_update_after_recommended_apply_by_date = $auto_update_after_recommended_apply_by_date ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->estimated_update_time = $estimated_update_time ?? ;
-    $this->service_update_description = $service_update_description ?? ;
-    $this->service_update_end_date = $service_update_end_date ?? ;
-    $this->service_update_name = $service_update_name ?? ;
-    $this->service_update_recommended_apply_by_date = $service_update_recommended_apply_by_date ?? ;
-    $this->service_update_release_date = $service_update_release_date ?? ;
+    $this->auto_update_after_recommended_apply_by_date = $auto_update_after_recommended_apply_by_date ?? false;
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->estimated_update_time = $estimated_update_time ?? "";
+    $this->service_update_description = $service_update_description ?? "";
+    $this->service_update_end_date = $service_update_end_date ?? 0;
+    $this->service_update_name = $service_update_name ?? "";
+    $this->service_update_recommended_apply_by_date = $service_update_recommended_apply_by_date ?? 0;
+    $this->service_update_release_date = $service_update_release_date ?? 0;
     $this->service_update_severity = $service_update_severity ?? "";
     $this->service_update_status = $service_update_status ?? "";
     $this->service_update_type = $service_update_type ?? "";
@@ -3227,8 +3227,8 @@ class ServiceUpdatesMessage {
   ?'marker' => string,
   ?'service_updates' => ServiceUpdateList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->service_updates = $service_updates ?? ;
+    $this->marker = $marker ?? "";
+    $this->service_updates = $service_updates ?? [];
   }
 }
 
@@ -3240,7 +3240,7 @@ class SlotMigration {
   public function __construct(shape(
   ?'progress_percentage' => Double,
   ) $s = shape()) {
-    $this->progress_percentage = $progress_percentage ?? ;
+    $this->progress_percentage = $progress_percentage ?? 0.0;
   }
 }
 
@@ -3298,31 +3298,31 @@ class Snapshot {
   ?'topic_arn' => string,
   ?'vpc_id' => string,
   ) $s = shape()) {
-    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? ;
-    $this->automatic_failover = $automatic_failover ?? ;
-    $this->cache_cluster_create_time = $cache_cluster_create_time ?? ;
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_type = $cache_node_type ?? ;
-    $this->cache_parameter_group_name = $cache_parameter_group_name ?? ;
-    $this->cache_subnet_group_name = $cache_subnet_group_name ?? ;
-    $this->engine = $engine ?? ;
-    $this->engine_version = $engine_version ?? ;
-    $this->kms_key_id = $kms_key_id ?? ;
-    $this->node_snapshots = $node_snapshots ?? ;
-    $this->num_cache_nodes = $num_cache_nodes ?? ;
-    $this->num_node_groups = $num_node_groups ?? ;
-    $this->port = $port ?? ;
-    $this->preferred_availability_zone = $preferred_availability_zone ?? ;
-    $this->preferred_maintenance_window = $preferred_maintenance_window ?? ;
-    $this->replication_group_description = $replication_group_description ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->snapshot_name = $snapshot_name ?? ;
-    $this->snapshot_retention_limit = $snapshot_retention_limit ?? ;
-    $this->snapshot_source = $snapshot_source ?? ;
-    $this->snapshot_status = $snapshot_status ?? ;
-    $this->snapshot_window = $snapshot_window ?? ;
-    $this->topic_arn = $topic_arn ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->auto_minor_version_upgrade = $auto_minor_version_upgrade ?? false;
+    $this->automatic_failover = $automatic_failover ?? "";
+    $this->cache_cluster_create_time = $cache_cluster_create_time ?? 0;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_type = $cache_node_type ?? "";
+    $this->cache_parameter_group_name = $cache_parameter_group_name ?? "";
+    $this->cache_subnet_group_name = $cache_subnet_group_name ?? "";
+    $this->engine = $engine ?? "";
+    $this->engine_version = $engine_version ?? "";
+    $this->kms_key_id = $kms_key_id ?? "";
+    $this->node_snapshots = $node_snapshots ?? [];
+    $this->num_cache_nodes = $num_cache_nodes ?? 0;
+    $this->num_node_groups = $num_node_groups ?? 0;
+    $this->port = $port ?? 0;
+    $this->preferred_availability_zone = $preferred_availability_zone ?? "";
+    $this->preferred_maintenance_window = $preferred_maintenance_window ?? "";
+    $this->replication_group_description = $replication_group_description ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->snapshot_name = $snapshot_name ?? "";
+    $this->snapshot_retention_limit = $snapshot_retention_limit ?? 0;
+    $this->snapshot_source = $snapshot_source ?? "";
+    $this->snapshot_status = $snapshot_status ?? "";
+    $this->snapshot_window = $snapshot_window ?? "";
+    $this->topic_arn = $topic_arn ?? "";
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 
@@ -3369,7 +3369,7 @@ class StartMigrationMessage {
   ?'replication_group_id' => string,
   ) $s = shape()) {
     $this->customer_node_endpoint_list = $customer_node_endpoint_list ?? [];
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -3393,8 +3393,8 @@ class Subnet {
   ?'subnet_availability_zone' => AvailabilityZone,
   ?'subnet_identifier' => string,
   ) $s = shape()) {
-    $this->subnet_availability_zone = $subnet_availability_zone ?? ;
-    $this->subnet_identifier = $subnet_identifier ?? ;
+    $this->subnet_availability_zone = $subnet_availability_zone ?? null;
+    $this->subnet_identifier = $subnet_identifier ?? "";
   }
 }
 
@@ -3419,8 +3419,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3458,8 +3458,8 @@ class TestFailoverMessage {
   ?'node_group_id' => AllowedNodeGroupId,
   ?'replication_group_id' => string,
   ) $s = shape()) {
-    $this->node_group_id = $node_group_id ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
+    $this->node_group_id = $node_group_id ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
   }
 }
 
@@ -3488,8 +3488,8 @@ class TimeRangeFilter {
   ?'end_time' => TStamp,
   ?'start_time' => TStamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -3507,11 +3507,11 @@ class UnprocessedUpdateAction {
   ?'replication_group_id' => string,
   ?'service_update_name' => string,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->error_type = $error_type ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->service_update_name = $service_update_name ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->error_type = $error_type ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->service_update_name = $service_update_name ?? "";
   }
 }
 
@@ -3555,23 +3555,23 @@ class UpdateAction {
   ?'update_action_status' => UpdateActionStatus,
   ?'update_action_status_modified_date' => TStamp,
   ) $s = shape()) {
-    $this->cache_cluster_id = $cache_cluster_id ?? ;
-    $this->cache_node_update_status = $cache_node_update_status ?? null;
-    $this->engine = $engine ?? ;
-    $this->estimated_update_time = $estimated_update_time ?? ;
-    $this->node_group_update_status = $node_group_update_status ?? null;
-    $this->nodes_updated = $nodes_updated ?? ;
-    $this->replication_group_id = $replication_group_id ?? ;
-    $this->service_update_name = $service_update_name ?? ;
-    $this->service_update_recommended_apply_by_date = $service_update_recommended_apply_by_date ?? ;
-    $this->service_update_release_date = $service_update_release_date ?? ;
+    $this->cache_cluster_id = $cache_cluster_id ?? "";
+    $this->cache_node_update_status = $cache_node_update_status ?? [];
+    $this->engine = $engine ?? "";
+    $this->estimated_update_time = $estimated_update_time ?? "";
+    $this->node_group_update_status = $node_group_update_status ?? [];
+    $this->nodes_updated = $nodes_updated ?? "";
+    $this->replication_group_id = $replication_group_id ?? "";
+    $this->service_update_name = $service_update_name ?? "";
+    $this->service_update_recommended_apply_by_date = $service_update_recommended_apply_by_date ?? 0;
+    $this->service_update_release_date = $service_update_release_date ?? 0;
     $this->service_update_severity = $service_update_severity ?? "";
     $this->service_update_status = $service_update_status ?? "";
     $this->service_update_type = $service_update_type ?? "";
     $this->sla_met = $sla_met ?? "";
-    $this->update_action_available_date = $update_action_available_date ?? ;
+    $this->update_action_available_date = $update_action_available_date ?? 0;
     $this->update_action_status = $update_action_status ?? "";
-    $this->update_action_status_modified_date = $update_action_status_modified_date ?? ;
+    $this->update_action_status_modified_date = $update_action_status_modified_date ?? 0;
   }
 }
 
@@ -3585,8 +3585,8 @@ class UpdateActionResultsMessage {
   ?'processed_update_actions' => ProcessedUpdateActionList,
   ?'unprocessed_update_actions' => UnprocessedUpdateActionList,
   ) $s = shape()) {
-    $this->processed_update_actions = $processed_update_actions ?? ;
-    $this->unprocessed_update_actions = $unprocessed_update_actions ?? ;
+    $this->processed_update_actions = $processed_update_actions ?? [];
+    $this->unprocessed_update_actions = $unprocessed_update_actions ?? [];
   }
 }
 
@@ -3602,8 +3602,8 @@ class UpdateActionsMessage {
   ?'marker' => string,
   ?'update_actions' => UpdateActionList,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->update_actions = $update_actions ?? ;
+    $this->marker = $marker ?? "";
+    $this->update_actions = $update_actions ?? [];
   }
 }
 

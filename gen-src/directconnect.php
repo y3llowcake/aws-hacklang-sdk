@@ -71,10 +71,10 @@ class AcceptDirectConnectGatewayAssociationProposalRequest {
   ?'override_allowed_prefixes_to_direct_connect_gateway' => RouteFilterPrefixList,
   ?'proposal_id' => DirectConnectGatewayAssociationProposalId,
   ) $s = shape()) {
-    $this->associated_gateway_owner_account = $associated_gateway_owner_account ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->override_allowed_prefixes_to_direct_connect_gateway = $override_allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->proposal_id = $proposal_id ?? ;
+    $this->associated_gateway_owner_account = $associated_gateway_owner_account ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->override_allowed_prefixes_to_direct_connect_gateway = $override_allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -84,7 +84,7 @@ class AcceptDirectConnectGatewayAssociationProposalResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association' => DirectConnectGatewayAssociation,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? ;
+    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? null;
   }
 }
 
@@ -104,11 +104,11 @@ class AllocateConnectionOnInterconnectRequest {
   ?'owner_account' => OwnerAccount,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->bandwidth = $bandwidth ?? ;
-    $this->connection_name = $connection_name ?? ;
-    $this->interconnect_id = $interconnect_id ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->bandwidth = $bandwidth ?? "";
+    $this->connection_name = $connection_name ?? "";
+    $this->interconnect_id = $interconnect_id ?? "";
+    $this->owner_account = $owner_account ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -128,12 +128,12 @@ class AllocateHostedConnectionRequest {
   ?'tags' => TagList,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->bandwidth = $bandwidth ?? ;
-    $this->connection_id = $connection_id ?? ;
-    $this->connection_name = $connection_name ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->tags = $tags ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->bandwidth = $bandwidth ?? "";
+    $this->connection_id = $connection_id ?? "";
+    $this->connection_name = $connection_name ?? "";
+    $this->owner_account = $owner_account ?? "";
+    $this->tags = $tags ?? [];
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -147,9 +147,9 @@ class AllocatePrivateVirtualInterfaceRequest {
   ?'new_private_virtual_interface_allocation' => NewPrivateVirtualInterfaceAllocation,
   ?'owner_account' => OwnerAccount,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_private_virtual_interface_allocation = $new_private_virtual_interface_allocation ?? ;
-    $this->owner_account = $owner_account ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_private_virtual_interface_allocation = $new_private_virtual_interface_allocation ?? null;
+    $this->owner_account = $owner_account ?? "";
   }
 }
 
@@ -163,9 +163,9 @@ class AllocatePublicVirtualInterfaceRequest {
   ?'new_public_virtual_interface_allocation' => NewPublicVirtualInterfaceAllocation,
   ?'owner_account' => OwnerAccount,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_public_virtual_interface_allocation = $new_public_virtual_interface_allocation ?? ;
-    $this->owner_account = $owner_account ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_public_virtual_interface_allocation = $new_public_virtual_interface_allocation ?? null;
+    $this->owner_account = $owner_account ?? "";
   }
 }
 
@@ -179,9 +179,9 @@ class AllocateTransitVirtualInterfaceRequest {
   ?'new_transit_virtual_interface_allocation' => NewTransitVirtualInterfaceAllocation,
   ?'owner_account' => OwnerAccount,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_transit_virtual_interface_allocation = $new_transit_virtual_interface_allocation ?? ;
-    $this->owner_account = $owner_account ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_transit_virtual_interface_allocation = $new_transit_virtual_interface_allocation ?? null;
+    $this->owner_account = $owner_account ?? "";
   }
 }
 
@@ -191,7 +191,7 @@ class AllocateTransitVirtualInterfaceResult {
   public function __construct(shape(
   ?'virtual_interface' => VirtualInterface,
   ) $s = shape()) {
-    $this->virtual_interface = $virtual_interface ?? ;
+    $this->virtual_interface = $virtual_interface ?? null;
   }
 }
 
@@ -205,8 +205,8 @@ class AssociateConnectionWithLagRequest {
   ?'connection_id' => ConnectionId,
   ?'lag_id' => LagId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->lag_id = $lag_id ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->lag_id = $lag_id ?? "";
   }
 }
 
@@ -218,8 +218,8 @@ class AssociateHostedConnectionRequest {
   ?'connection_id' => ConnectionId,
   ?'parent_connection_id' => ConnectionId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->parent_connection_id = $parent_connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->parent_connection_id = $parent_connection_id ?? "";
   }
 }
 
@@ -231,8 +231,8 @@ class AssociateVirtualInterfaceRequest {
   ?'connection_id' => ConnectionId,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -248,10 +248,10 @@ class AssociatedGateway {
   ?'region' => Region,
   ?'type' => GatewayType,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->region = $region ?? ;
-    $this->type = $type ?? ;
+    $this->id = $id ?? "";
+    $this->owner_account = $owner_account ?? "";
+    $this->region = $region ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -287,15 +287,15 @@ class BGPPeer {
   ?'bgp_status' => BGPStatus,
   ?'customer_address' => CustomerAddress,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->aws_device_v_2 = $aws_device_v_2 ?? ;
-    $this->bgp_peer_id = $bgp_peer_id ?? ;
-    $this->bgp_peer_state = $bgp_peer_state ?? ;
-    $this->bgp_status = $bgp_status ?? ;
-    $this->customer_address = $customer_address ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->aws_device_v_2 = $aws_device_v_2 ?? "";
+    $this->bgp_peer_id = $bgp_peer_id ?? "";
+    $this->bgp_peer_state = $bgp_peer_state ?? "";
+    $this->bgp_status = $bgp_status ?? "";
+    $this->customer_address = $customer_address ?? "";
   }
 }
 
@@ -319,7 +319,7 @@ class ConfirmConnectionRequest {
   public function __construct(shape(
   ?'connection_id' => ConnectionId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -329,7 +329,7 @@ class ConfirmConnectionResponse {
   public function __construct(shape(
   ?'connection_state' => ConnectionState,
   ) $s = shape()) {
-    $this->connection_state = $connection_state ?? ;
+    $this->connection_state = $connection_state ?? "";
   }
 }
 
@@ -343,9 +343,9 @@ class ConfirmPrivateVirtualInterfaceRequest {
   ?'virtual_gateway_id' => VirtualGatewayId,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -355,7 +355,7 @@ class ConfirmPrivateVirtualInterfaceResponse {
   public function __construct(shape(
   ?'virtual_interface_state' => VirtualInterfaceState,
   ) $s = shape()) {
-    $this->virtual_interface_state = $virtual_interface_state ?? ;
+    $this->virtual_interface_state = $virtual_interface_state ?? "";
   }
 }
 
@@ -365,7 +365,7 @@ class ConfirmPublicVirtualInterfaceRequest {
   public function __construct(shape(
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -375,7 +375,7 @@ class ConfirmPublicVirtualInterfaceResponse {
   public function __construct(shape(
   ?'virtual_interface_state' => VirtualInterfaceState,
   ) $s = shape()) {
-    $this->virtual_interface_state = $virtual_interface_state ?? ;
+    $this->virtual_interface_state = $virtual_interface_state ?? "";
   }
 }
 
@@ -387,8 +387,8 @@ class ConfirmTransitVirtualInterfaceRequest {
   ?'direct_connect_gateway_id' => DirectConnectGatewayId,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -398,7 +398,7 @@ class ConfirmTransitVirtualInterfaceResponse {
   public function __construct(shape(
   ?'virtual_interface_state' => VirtualInterfaceState,
   ) $s = shape()) {
-    $this->virtual_interface_state = $virtual_interface_state ?? ;
+    $this->virtual_interface_state = $virtual_interface_state ?? "";
   }
 }
 
@@ -440,23 +440,23 @@ class Connection {
   ?'tags' => TagList,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->aws_device = $aws_device ?? ;
-    $this->aws_device_v_2 = $aws_device_v_2 ?? ;
-    $this->bandwidth = $bandwidth ?? ;
-    $this->connection_id = $connection_id ?? ;
-    $this->connection_name = $connection_name ?? ;
-    $this->connection_state = $connection_state ?? ;
-    $this->has_logical_redundancy = $has_logical_redundancy ?? ;
-    $this->jumbo_frame_capable = $jumbo_frame_capable ?? ;
-    $this->lag_id = $lag_id ?? ;
-    $this->loa_issue_time = $loa_issue_time ?? ;
-    $this->location = $location ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->partner_name = $partner_name ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->region = $region ?? ;
-    $this->tags = $tags ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->aws_device = $aws_device ?? "";
+    $this->aws_device_v_2 = $aws_device_v_2 ?? "";
+    $this->bandwidth = $bandwidth ?? "";
+    $this->connection_id = $connection_id ?? "";
+    $this->connection_name = $connection_name ?? "";
+    $this->connection_state = $connection_state ?? "";
+    $this->has_logical_redundancy = $has_logical_redundancy ?? "";
+    $this->jumbo_frame_capable = $jumbo_frame_capable ?? false;
+    $this->lag_id = $lag_id ?? "";
+    $this->loa_issue_time = $loa_issue_time ?? 0;
+    $this->location = $location ?? "";
+    $this->owner_account = $owner_account ?? "";
+    $this->partner_name = $partner_name ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->region = $region ?? "";
+    $this->tags = $tags ?? [];
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -474,7 +474,7 @@ class Connections {
   public function __construct(shape(
   ?'connections' => ConnectionList,
   ) $s = shape()) {
-    $this->connections = $connections ?? ;
+    $this->connections = $connections ?? [];
   }
 }
 
@@ -488,8 +488,8 @@ class CreateBGPPeerRequest {
   ?'new_bgp_peer' => NewBGPPeer,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->new_bgp_peer = $new_bgp_peer ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->new_bgp_peer = $new_bgp_peer ?? null;
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -499,7 +499,7 @@ class CreateBGPPeerResponse {
   public function __construct(shape(
   ?'virtual_interface' => VirtualInterface,
   ) $s = shape()) {
-    $this->virtual_interface = $virtual_interface ?? ;
+    $this->virtual_interface = $virtual_interface ?? null;
   }
 }
 
@@ -519,12 +519,12 @@ class CreateConnectionRequest {
   ?'provider_name' => ProviderName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->bandwidth = $bandwidth ?? ;
-    $this->connection_name = $connection_name ?? ;
-    $this->lag_id = $lag_id ?? ;
-    $this->location = $location ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->bandwidth = $bandwidth ?? "";
+    $this->connection_name = $connection_name ?? "";
+    $this->lag_id = $lag_id ?? "";
+    $this->location = $location ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -542,11 +542,11 @@ class CreateDirectConnectGatewayAssociationProposalRequest {
   ?'gateway_id' => GatewayIdToAssociate,
   ?'remove_allowed_prefixes_to_direct_connect_gateway' => RouteFilterPrefixList,
   ) $s = shape()) {
-    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? ;
-    $this->gateway_id = $gateway_id ?? ;
-    $this->remove_allowed_prefixes_to_direct_connect_gateway = $remove_allowed_prefixes_to_direct_connect_gateway ?? ;
+    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? "";
+    $this->gateway_id = $gateway_id ?? "";
+    $this->remove_allowed_prefixes_to_direct_connect_gateway = $remove_allowed_prefixes_to_direct_connect_gateway ?? [];
   }
 }
 
@@ -556,7 +556,7 @@ class CreateDirectConnectGatewayAssociationProposalResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association_proposal' => DirectConnectGatewayAssociationProposal,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association_proposal = $direct_connect_gateway_association_proposal ?? ;
+    $this->direct_connect_gateway_association_proposal = $direct_connect_gateway_association_proposal ?? null;
   }
 }
 
@@ -572,10 +572,10 @@ class CreateDirectConnectGatewayAssociationRequest {
   ?'gateway_id' => GatewayIdToAssociate,
   ?'virtual_gateway_id' => VirtualGatewayId,
   ) $s = shape()) {
-    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->gateway_id = $gateway_id ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
+    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->gateway_id = $gateway_id ?? "";
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
   }
 }
 
@@ -585,7 +585,7 @@ class CreateDirectConnectGatewayAssociationResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association' => DirectConnectGatewayAssociation,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? ;
+    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? null;
   }
 }
 
@@ -597,8 +597,8 @@ class CreateDirectConnectGatewayRequest {
   ?'amazon_side_asn' => LongAsn,
   ?'direct_connect_gateway_name' => DirectConnectGatewayName,
   ) $s = shape()) {
-    $this->amazon_side_asn = $amazon_side_asn ?? ;
-    $this->direct_connect_gateway_name = $direct_connect_gateway_name ?? ;
+    $this->amazon_side_asn = $amazon_side_asn ?? 0;
+    $this->direct_connect_gateway_name = $direct_connect_gateway_name ?? "";
   }
 }
 
@@ -608,7 +608,7 @@ class CreateDirectConnectGatewayResult {
   public function __construct(shape(
   ?'direct_connect_gateway' => DirectConnectGateway,
   ) $s = shape()) {
-    $this->direct_connect_gateway = $direct_connect_gateway ?? ;
+    $this->direct_connect_gateway = $direct_connect_gateway ?? null;
   }
 }
 
@@ -628,12 +628,12 @@ class CreateInterconnectRequest {
   ?'provider_name' => ProviderName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->bandwidth = $bandwidth ?? ;
-    $this->interconnect_name = $interconnect_name ?? ;
-    $this->lag_id = $lag_id ?? ;
-    $this->location = $location ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->bandwidth = $bandwidth ?? "";
+    $this->interconnect_name = $interconnect_name ?? "";
+    $this->lag_id = $lag_id ?? "";
+    $this->location = $location ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -657,14 +657,14 @@ class CreateLagRequest {
   ?'provider_name' => ProviderName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->child_connection_tags = $child_connection_tags ?? ;
-    $this->connection_id = $connection_id ?? ;
-    $this->connections_bandwidth = $connections_bandwidth ?? ;
-    $this->lag_name = $lag_name ?? ;
-    $this->location = $location ?? ;
-    $this->number_of_connections = $number_of_connections ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->child_connection_tags = $child_connection_tags ?? [];
+    $this->connection_id = $connection_id ?? "";
+    $this->connections_bandwidth = $connections_bandwidth ?? "";
+    $this->lag_name = $lag_name ?? "";
+    $this->location = $location ?? "";
+    $this->number_of_connections = $number_of_connections ?? 0;
+    $this->provider_name = $provider_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -676,8 +676,8 @@ class CreatePrivateVirtualInterfaceRequest {
   ?'connection_id' => ConnectionId,
   ?'new_private_virtual_interface' => NewPrivateVirtualInterface,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_private_virtual_interface = $new_private_virtual_interface ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_private_virtual_interface = $new_private_virtual_interface ?? null;
   }
 }
 
@@ -689,8 +689,8 @@ class CreatePublicVirtualInterfaceRequest {
   ?'connection_id' => ConnectionId,
   ?'new_public_virtual_interface' => NewPublicVirtualInterface,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_public_virtual_interface = $new_public_virtual_interface ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_public_virtual_interface = $new_public_virtual_interface ?? null;
   }
 }
 
@@ -702,8 +702,8 @@ class CreateTransitVirtualInterfaceRequest {
   ?'connection_id' => ConnectionId,
   ?'new_transit_virtual_interface' => NewTransitVirtualInterface,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->new_transit_virtual_interface = $new_transit_virtual_interface ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->new_transit_virtual_interface = $new_transit_virtual_interface ?? null;
   }
 }
 
@@ -713,7 +713,7 @@ class CreateTransitVirtualInterfaceResult {
   public function __construct(shape(
   ?'virtual_interface' => VirtualInterface,
   ) $s = shape()) {
-    $this->virtual_interface = $virtual_interface ?? ;
+    $this->virtual_interface = $virtual_interface ?? null;
   }
 }
 
@@ -731,10 +731,10 @@ class DeleteBGPPeerRequest {
   ?'customer_address' => CustomerAddress,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->asn = $asn ?? ;
-    $this->bgp_peer_id = $bgp_peer_id ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->asn = $asn ?? 0;
+    $this->bgp_peer_id = $bgp_peer_id ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -744,7 +744,7 @@ class DeleteBGPPeerResponse {
   public function __construct(shape(
   ?'virtual_interface' => VirtualInterface,
   ) $s = shape()) {
-    $this->virtual_interface = $virtual_interface ?? ;
+    $this->virtual_interface = $virtual_interface ?? null;
   }
 }
 
@@ -754,7 +754,7 @@ class DeleteConnectionRequest {
   public function __construct(shape(
   ?'connection_id' => ConnectionId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -764,7 +764,7 @@ class DeleteDirectConnectGatewayAssociationProposalRequest {
   public function __construct(shape(
   ?'proposal_id' => DirectConnectGatewayAssociationProposalId,
   ) $s = shape()) {
-    $this->proposal_id = $proposal_id ?? ;
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -774,7 +774,7 @@ class DeleteDirectConnectGatewayAssociationProposalResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association_proposal' => DirectConnectGatewayAssociationProposal,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association_proposal = $direct_connect_gateway_association_proposal ?? ;
+    $this->direct_connect_gateway_association_proposal = $direct_connect_gateway_association_proposal ?? null;
   }
 }
 
@@ -788,9 +788,9 @@ class DeleteDirectConnectGatewayAssociationRequest {
   ?'direct_connect_gateway_id' => DirectConnectGatewayId,
   ?'virtual_gateway_id' => VirtualGatewayId,
   ) $s = shape()) {
-    $this->association_id = $association_id ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
+    $this->association_id = $association_id ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
   }
 }
 
@@ -800,7 +800,7 @@ class DeleteDirectConnectGatewayAssociationResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association' => DirectConnectGatewayAssociation,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? ;
+    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? null;
   }
 }
 
@@ -810,7 +810,7 @@ class DeleteDirectConnectGatewayRequest {
   public function __construct(shape(
   ?'direct_connect_gateway_id' => DirectConnectGatewayId,
   ) $s = shape()) {
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
   }
 }
 
@@ -820,7 +820,7 @@ class DeleteDirectConnectGatewayResult {
   public function __construct(shape(
   ?'direct_connect_gateway' => DirectConnectGateway,
   ) $s = shape()) {
-    $this->direct_connect_gateway = $direct_connect_gateway ?? ;
+    $this->direct_connect_gateway = $direct_connect_gateway ?? null;
   }
 }
 
@@ -830,7 +830,7 @@ class DeleteInterconnectRequest {
   public function __construct(shape(
   ?'interconnect_id' => InterconnectId,
   ) $s = shape()) {
-    $this->interconnect_id = $interconnect_id ?? ;
+    $this->interconnect_id = $interconnect_id ?? "";
   }
 }
 
@@ -840,7 +840,7 @@ class DeleteInterconnectResponse {
   public function __construct(shape(
   ?'interconnect_state' => InterconnectState,
   ) $s = shape()) {
-    $this->interconnect_state = $interconnect_state ?? ;
+    $this->interconnect_state = $interconnect_state ?? "";
   }
 }
 
@@ -850,7 +850,7 @@ class DeleteLagRequest {
   public function __construct(shape(
   ?'lag_id' => LagId,
   ) $s = shape()) {
-    $this->lag_id = $lag_id ?? ;
+    $this->lag_id = $lag_id ?? "";
   }
 }
 
@@ -860,7 +860,7 @@ class DeleteVirtualInterfaceRequest {
   public function __construct(shape(
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -870,7 +870,7 @@ class DeleteVirtualInterfaceResponse {
   public function __construct(shape(
   ?'virtual_interface_state' => VirtualInterfaceState,
   ) $s = shape()) {
-    $this->virtual_interface_state = $virtual_interface_state ?? ;
+    $this->virtual_interface_state = $virtual_interface_state ?? "";
   }
 }
 
@@ -884,9 +884,9 @@ class DescribeConnectionLoaRequest {
   ?'loa_content_type' => LoaContentType,
   ?'provider_name' => ProviderName,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->loa_content_type = $loa_content_type ?? ;
-    $this->provider_name = $provider_name ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->loa_content_type = $loa_content_type ?? "";
+    $this->provider_name = $provider_name ?? "";
   }
 }
 
@@ -896,7 +896,7 @@ class DescribeConnectionLoaResponse {
   public function __construct(shape(
   ?'loa' => Loa,
   ) $s = shape()) {
-    $this->loa = $loa ?? ;
+    $this->loa = $loa ?? null;
   }
 }
 
@@ -906,7 +906,7 @@ class DescribeConnectionsOnInterconnectRequest {
   public function __construct(shape(
   ?'interconnect_id' => InterconnectId,
   ) $s = shape()) {
-    $this->interconnect_id = $interconnect_id ?? ;
+    $this->interconnect_id = $interconnect_id ?? "";
   }
 }
 
@@ -916,7 +916,7 @@ class DescribeConnectionsRequest {
   public function __construct(shape(
   ?'connection_id' => ConnectionId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -934,11 +934,11 @@ class DescribeDirectConnectGatewayAssociationProposalsRequest {
   ?'next_token' => PaginationToken,
   ?'proposal_id' => DirectConnectGatewayAssociationProposalId,
   ) $s = shape()) {
-    $this->associated_gateway_id = $associated_gateway_id ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->proposal_id = $proposal_id ?? ;
+    $this->associated_gateway_id = $associated_gateway_id ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -950,8 +950,8 @@ class DescribeDirectConnectGatewayAssociationProposalsResult {
   ?'direct_connect_gateway_association_proposals' => DirectConnectGatewayAssociationProposalList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association_proposals = $direct_connect_gateway_association_proposals ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->direct_connect_gateway_association_proposals = $direct_connect_gateway_association_proposals ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -971,12 +971,12 @@ class DescribeDirectConnectGatewayAssociationsRequest {
   ?'next_token' => PaginationToken,
   ?'virtual_gateway_id' => VirtualGatewayId,
   ) $s = shape()) {
-    $this->associated_gateway_id = $associated_gateway_id ?? ;
-    $this->association_id = $association_id ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
+    $this->associated_gateway_id = $associated_gateway_id ?? "";
+    $this->association_id = $association_id ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
   }
 }
 
@@ -988,8 +988,8 @@ class DescribeDirectConnectGatewayAssociationsResult {
   ?'direct_connect_gateway_associations' => DirectConnectGatewayAssociationList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->direct_connect_gateway_associations = $direct_connect_gateway_associations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->direct_connect_gateway_associations = $direct_connect_gateway_associations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1005,10 +1005,10 @@ class DescribeDirectConnectGatewayAttachmentsRequest {
   ?'next_token' => PaginationToken,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -1020,8 +1020,8 @@ class DescribeDirectConnectGatewayAttachmentsResult {
   ?'direct_connect_gateway_attachments' => DirectConnectGatewayAttachmentList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->direct_connect_gateway_attachments = $direct_connect_gateway_attachments ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->direct_connect_gateway_attachments = $direct_connect_gateway_attachments ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1035,9 +1035,9 @@ class DescribeDirectConnectGatewaysRequest {
   ?'max_results' => MaxResultSetSize,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1049,8 +1049,8 @@ class DescribeDirectConnectGatewaysResult {
   ?'direct_connect_gateways' => DirectConnectGatewayList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->direct_connect_gateways = $direct_connect_gateways ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->direct_connect_gateways = $direct_connect_gateways ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1060,7 +1060,7 @@ class DescribeHostedConnectionsRequest {
   public function __construct(shape(
   ?'connection_id' => ConnectionId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
+    $this->connection_id = $connection_id ?? "";
   }
 }
 
@@ -1074,9 +1074,9 @@ class DescribeInterconnectLoaRequest {
   ?'loa_content_type' => LoaContentType,
   ?'provider_name' => ProviderName,
   ) $s = shape()) {
-    $this->interconnect_id = $interconnect_id ?? ;
-    $this->loa_content_type = $loa_content_type ?? ;
-    $this->provider_name = $provider_name ?? ;
+    $this->interconnect_id = $interconnect_id ?? "";
+    $this->loa_content_type = $loa_content_type ?? "";
+    $this->provider_name = $provider_name ?? "";
   }
 }
 
@@ -1086,7 +1086,7 @@ class DescribeInterconnectLoaResponse {
   public function __construct(shape(
   ?'loa' => Loa,
   ) $s = shape()) {
-    $this->loa = $loa ?? ;
+    $this->loa = $loa ?? null;
   }
 }
 
@@ -1096,7 +1096,7 @@ class DescribeInterconnectsRequest {
   public function __construct(shape(
   ?'interconnect_id' => InterconnectId,
   ) $s = shape()) {
-    $this->interconnect_id = $interconnect_id ?? ;
+    $this->interconnect_id = $interconnect_id ?? "";
   }
 }
 
@@ -1106,7 +1106,7 @@ class DescribeLagsRequest {
   public function __construct(shape(
   ?'lag_id' => LagId,
   ) $s = shape()) {
-    $this->lag_id = $lag_id ?? ;
+    $this->lag_id = $lag_id ?? "";
   }
 }
 
@@ -1120,9 +1120,9 @@ class DescribeLoaRequest {
   ?'loa_content_type' => LoaContentType,
   ?'provider_name' => ProviderName,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->loa_content_type = $loa_content_type ?? ;
-    $this->provider_name = $provider_name ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->loa_content_type = $loa_content_type ?? "";
+    $this->provider_name = $provider_name ?? "";
   }
 }
 
@@ -1132,7 +1132,7 @@ class DescribeTagsRequest {
   public function __construct(shape(
   ?'resource_arns' => ResourceArnList,
   ) $s = shape()) {
-    $this->resource_arns = $resource_arns ?? ;
+    $this->resource_arns = $resource_arns ?? [];
   }
 }
 
@@ -1142,7 +1142,7 @@ class DescribeTagsResponse {
   public function __construct(shape(
   ?'resource_tags' => ResourceTagList,
   ) $s = shape()) {
-    $this->resource_tags = $resource_tags ?? ;
+    $this->resource_tags = $resource_tags ?? [];
   }
 }
 
@@ -1154,8 +1154,8 @@ class DescribeVirtualInterfacesRequest {
   ?'connection_id' => ConnectionId,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -1165,7 +1165,7 @@ class DirectConnectClientException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1185,12 +1185,12 @@ class DirectConnectGateway {
   ?'owner_account' => OwnerAccount,
   ?'state_change_error' => StateChangeError,
   ) $s = shape()) {
-    $this->amazon_side_asn = $amazon_side_asn ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->direct_connect_gateway_name = $direct_connect_gateway_name ?? ;
-    $this->direct_connect_gateway_state = $direct_connect_gateway_state ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->state_change_error = $state_change_error ?? ;
+    $this->amazon_side_asn = $amazon_side_asn ?? 0;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->direct_connect_gateway_name = $direct_connect_gateway_name ?? "";
+    $this->direct_connect_gateway_state = $direct_connect_gateway_state ?? "";
+    $this->owner_account = $owner_account ?? "";
+    $this->state_change_error = $state_change_error ?? "";
   }
 }
 
@@ -1218,16 +1218,16 @@ class DirectConnectGatewayAssociation {
   ?'virtual_gateway_owner_account' => OwnerAccount,
   ?'virtual_gateway_region' => VirtualGatewayRegion,
   ) $s = shape()) {
-    $this->allowed_prefixes_to_direct_connect_gateway = $allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->associated_gateway = $associated_gateway ?? ;
-    $this->association_id = $association_id ?? ;
-    $this->association_state = $association_state ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? ;
-    $this->state_change_error = $state_change_error ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
-    $this->virtual_gateway_owner_account = $virtual_gateway_owner_account ?? ;
-    $this->virtual_gateway_region = $virtual_gateway_region ?? ;
+    $this->allowed_prefixes_to_direct_connect_gateway = $allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->associated_gateway = $associated_gateway ?? null;
+    $this->association_id = $association_id ?? "";
+    $this->association_state = $association_state ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? "";
+    $this->state_change_error = $state_change_error ?? "";
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
+    $this->virtual_gateway_owner_account = $virtual_gateway_owner_account ?? "";
+    $this->virtual_gateway_region = $virtual_gateway_region ?? "";
   }
 }
 
@@ -1253,13 +1253,13 @@ class DirectConnectGatewayAssociationProposal {
   ?'proposal_state' => DirectConnectGatewayAssociationProposalState,
   ?'requested_allowed_prefixes_to_direct_connect_gateway' => RouteFilterPrefixList,
   ) $s = shape()) {
-    $this->associated_gateway = $associated_gateway ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? ;
-    $this->existing_allowed_prefixes_to_direct_connect_gateway = $existing_allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->proposal_id = $proposal_id ?? ;
-    $this->proposal_state = $proposal_state ?? ;
-    $this->requested_allowed_prefixes_to_direct_connect_gateway = $requested_allowed_prefixes_to_direct_connect_gateway ?? ;
+    $this->associated_gateway = $associated_gateway ?? null;
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->direct_connect_gateway_owner_account = $direct_connect_gateway_owner_account ?? "";
+    $this->existing_allowed_prefixes_to_direct_connect_gateway = $existing_allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->proposal_id = $proposal_id ?? "";
+    $this->proposal_state = $proposal_state ?? "";
+    $this->requested_allowed_prefixes_to_direct_connect_gateway = $requested_allowed_prefixes_to_direct_connect_gateway ?? [];
   }
 }
 
@@ -1289,13 +1289,13 @@ class DirectConnectGatewayAttachment {
   ?'virtual_interface_owner_account' => OwnerAccount,
   ?'virtual_interface_region' => VirtualInterfaceRegion,
   ) $s = shape()) {
-    $this->attachment_state = $attachment_state ?? ;
-    $this->attachment_type = $attachment_type ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->state_change_error = $state_change_error ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
-    $this->virtual_interface_owner_account = $virtual_interface_owner_account ?? ;
-    $this->virtual_interface_region = $virtual_interface_region ?? ;
+    $this->attachment_state = $attachment_state ?? "";
+    $this->attachment_type = $attachment_type ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->state_change_error = $state_change_error ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
+    $this->virtual_interface_owner_account = $virtual_interface_owner_account ?? "";
+    $this->virtual_interface_region = $virtual_interface_region ?? "";
   }
 }
 
@@ -1319,7 +1319,7 @@ class DirectConnectServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1331,8 +1331,8 @@ class DisassociateConnectionFromLagRequest {
   ?'connection_id' => ConnectionId,
   ?'lag_id' => LagId,
   ) $s = shape()) {
-    $this->connection_id = $connection_id ?? ;
-    $this->lag_id = $lag_id ?? ;
+    $this->connection_id = $connection_id ?? "";
+    $this->lag_id = $lag_id ?? "";
   }
 }
 
@@ -1385,20 +1385,20 @@ class Interconnect {
   ?'region' => Region,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->aws_device = $aws_device ?? ;
-    $this->aws_device_v_2 = $aws_device_v_2 ?? ;
-    $this->bandwidth = $bandwidth ?? ;
-    $this->has_logical_redundancy = $has_logical_redundancy ?? ;
-    $this->interconnect_id = $interconnect_id ?? ;
-    $this->interconnect_name = $interconnect_name ?? ;
-    $this->interconnect_state = $interconnect_state ?? ;
-    $this->jumbo_frame_capable = $jumbo_frame_capable ?? ;
-    $this->lag_id = $lag_id ?? ;
-    $this->loa_issue_time = $loa_issue_time ?? ;
-    $this->location = $location ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->region = $region ?? ;
-    $this->tags = $tags ?? ;
+    $this->aws_device = $aws_device ?? "";
+    $this->aws_device_v_2 = $aws_device_v_2 ?? "";
+    $this->bandwidth = $bandwidth ?? "";
+    $this->has_logical_redundancy = $has_logical_redundancy ?? "";
+    $this->interconnect_id = $interconnect_id ?? "";
+    $this->interconnect_name = $interconnect_name ?? "";
+    $this->interconnect_state = $interconnect_state ?? "";
+    $this->jumbo_frame_capable = $jumbo_frame_capable ?? false;
+    $this->lag_id = $lag_id ?? "";
+    $this->loa_issue_time = $loa_issue_time ?? 0;
+    $this->location = $location ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->region = $region ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1416,7 +1416,7 @@ class Interconnects {
   public function __construct(shape(
   ?'interconnects' => InterconnectList,
   ) $s = shape()) {
-    $this->interconnects = $interconnects ?? ;
+    $this->interconnects = $interconnects ?? [];
   }
 }
 
@@ -1460,23 +1460,23 @@ class Lag {
   ?'region' => Region,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->allows_hosted_connections = $allows_hosted_connections ?? ;
-    $this->aws_device = $aws_device ?? ;
-    $this->aws_device_v_2 = $aws_device_v_2 ?? ;
-    $this->connections = $connections ?? ;
-    $this->connections_bandwidth = $connections_bandwidth ?? ;
-    $this->has_logical_redundancy = $has_logical_redundancy ?? ;
-    $this->jumbo_frame_capable = $jumbo_frame_capable ?? ;
-    $this->lag_id = $lag_id ?? ;
-    $this->lag_name = $lag_name ?? ;
-    $this->lag_state = $lag_state ?? ;
-    $this->location = $location ?? ;
-    $this->minimum_links = $minimum_links ?? ;
-    $this->number_of_connections = $number_of_connections ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->provider_name = $provider_name ?? ;
-    $this->region = $region ?? ;
-    $this->tags = $tags ?? ;
+    $this->allows_hosted_connections = $allows_hosted_connections ?? false;
+    $this->aws_device = $aws_device ?? "";
+    $this->aws_device_v_2 = $aws_device_v_2 ?? "";
+    $this->connections = $connections ?? [];
+    $this->connections_bandwidth = $connections_bandwidth ?? "";
+    $this->has_logical_redundancy = $has_logical_redundancy ?? "";
+    $this->jumbo_frame_capable = $jumbo_frame_capable ?? false;
+    $this->lag_id = $lag_id ?? "";
+    $this->lag_name = $lag_name ?? "";
+    $this->lag_state = $lag_state ?? "";
+    $this->location = $location ?? "";
+    $this->minimum_links = $minimum_links ?? 0;
+    $this->number_of_connections = $number_of_connections ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->region = $region ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1494,7 +1494,7 @@ class Lags {
   public function __construct(shape(
   ?'lags' => LagList,
   ) $s = shape()) {
-    $this->lags = $lags ?? ;
+    $this->lags = $lags ?? [];
   }
 }
 
@@ -1506,8 +1506,8 @@ class Loa {
   ?'loa_content' => LoaContent,
   ?'loa_content_type' => LoaContentType,
   ) $s = shape()) {
-    $this->loa_content = $loa_content ?? ;
-    $this->loa_content_type = $loa_content_type ?? ;
+    $this->loa_content = $loa_content ?? "";
+    $this->loa_content_type = $loa_content_type ?? "";
   }
 }
 
@@ -1531,11 +1531,11 @@ class Location {
   ?'location_name' => LocationName,
   ?'region' => Region,
   ) $s = shape()) {
-    $this->available_port_speeds = $available_port_speeds ?? ;
-    $this->available_providers = $available_providers ?? ;
-    $this->location_code = $location_code ?? ;
-    $this->location_name = $location_name ?? ;
-    $this->region = $region ?? ;
+    $this->available_port_speeds = $available_port_speeds ?? [];
+    $this->available_providers = $available_providers ?? [];
+    $this->location_code = $location_code ?? "";
+    $this->location_name = $location_name ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -1551,7 +1551,7 @@ class Locations {
   public function __construct(shape(
   ?'locations' => LocationList,
   ) $s = shape()) {
-    $this->locations = $locations ?? ;
+    $this->locations = $locations ?? [];
   }
 }
 
@@ -1575,11 +1575,11 @@ class NewBGPPeer {
   ?'auth_key' => BGPAuthKey,
   ?'customer_address' => CustomerAddress,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
   }
 }
 
@@ -1609,17 +1609,17 @@ class NewPrivateVirtualInterface {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->mtu = $mtu ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->mtu = $mtu ?? 0;
+    $this->tags = $tags ?? [];
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1645,15 +1645,15 @@ class NewPrivateVirtualInterfaceAllocation {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->mtu = $mtu ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->mtu = $mtu ?? 0;
+    $this->tags = $tags ?? [];
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1679,15 +1679,15 @@ class NewPublicVirtualInterface {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->route_filter_prefixes = $route_filter_prefixes ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->route_filter_prefixes = $route_filter_prefixes ?? [];
+    $this->tags = $tags ?? [];
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1713,15 +1713,15 @@ class NewPublicVirtualInterfaceAllocation {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->route_filter_prefixes = $route_filter_prefixes ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->route_filter_prefixes = $route_filter_prefixes ?? [];
+    $this->tags = $tags ?? [];
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1749,16 +1749,16 @@ class NewTransitVirtualInterface {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->mtu = $mtu ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->mtu = $mtu ?? 0;
+    $this->tags = $tags ?? [];
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1784,15 +1784,15 @@ class NewTransitVirtualInterfaceAllocation {
   ?'virtual_interface_name' => VirtualInterfaceName,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->mtu = $mtu ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->mtu = $mtu ?? 0;
+    $this->tags = $tags ?? [];
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -1822,8 +1822,8 @@ class ResourceTag {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1835,7 +1835,7 @@ class RouteFilterPrefix {
   public function __construct(shape(
   ?'cidr' => CIDR,
   ) $s = shape()) {
-    $this->cidr = $cidr ?? ;
+    $this->cidr = $cidr ?? "";
   }
 }
 
@@ -1853,8 +1853,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1872,8 +1872,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1901,8 +1901,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1923,9 +1923,9 @@ class UpdateDirectConnectGatewayAssociationRequest {
   ?'association_id' => DirectConnectGatewayAssociationId,
   ?'remove_allowed_prefixes_to_direct_connect_gateway' => RouteFilterPrefixList,
   ) $s = shape()) {
-    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? ;
-    $this->association_id = $association_id ?? ;
-    $this->remove_allowed_prefixes_to_direct_connect_gateway = $remove_allowed_prefixes_to_direct_connect_gateway ?? ;
+    $this->add_allowed_prefixes_to_direct_connect_gateway = $add_allowed_prefixes_to_direct_connect_gateway ?? [];
+    $this->association_id = $association_id ?? "";
+    $this->remove_allowed_prefixes_to_direct_connect_gateway = $remove_allowed_prefixes_to_direct_connect_gateway ?? [];
   }
 }
 
@@ -1935,7 +1935,7 @@ class UpdateDirectConnectGatewayAssociationResult {
   public function __construct(shape(
   ?'direct_connect_gateway_association' => DirectConnectGatewayAssociation,
   ) $s = shape()) {
-    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? ;
+    $this->direct_connect_gateway_association = $direct_connect_gateway_association ?? null;
   }
 }
 
@@ -1949,9 +1949,9 @@ class UpdateLagRequest {
   ?'lag_name' => LagName,
   ?'minimum_links' => Count,
   ) $s = shape()) {
-    $this->lag_id = $lag_id ?? ;
-    $this->lag_name = $lag_name ?? ;
-    $this->minimum_links = $minimum_links ?? ;
+    $this->lag_id = $lag_id ?? "";
+    $this->lag_name = $lag_name ?? "";
+    $this->minimum_links = $minimum_links ?? 0;
   }
 }
 
@@ -1963,8 +1963,8 @@ class UpdateVirtualInterfaceAttributesRequest {
   ?'mtu' => MTU,
   ?'virtual_interface_id' => VirtualInterfaceId,
   ) $s = shape()) {
-    $this->mtu = $mtu ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
+    $this->mtu = $mtu ?? 0;
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
   }
 }
 
@@ -1978,8 +1978,8 @@ class VirtualGateway {
   ?'virtual_gateway_id' => VirtualGatewayId,
   ?'virtual_gateway_state' => VirtualGatewayState,
   ) $s = shape()) {
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
-    $this->virtual_gateway_state = $virtual_gateway_state ?? ;
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
+    $this->virtual_gateway_state = $virtual_gateway_state ?? "";
   }
 }
 
@@ -1997,7 +1997,7 @@ class VirtualGateways {
   public function __construct(shape(
   ?'virtual_gateways' => VirtualGatewayList,
   ) $s = shape()) {
-    $this->virtual_gateways = $virtual_gateways ?? ;
+    $this->virtual_gateways = $virtual_gateways ?? [];
   }
 }
 
@@ -2053,30 +2053,30 @@ class VirtualInterface {
   ?'virtual_interface_type' => VirtualInterfaceType,
   ?'vlan' => VLAN,
   ) $s = shape()) {
-    $this->address_family = $address_family ?? ;
-    $this->amazon_address = $amazon_address ?? ;
-    $this->amazon_side_asn = $amazon_side_asn ?? ;
-    $this->asn = $asn ?? ;
-    $this->auth_key = $auth_key ?? ;
-    $this->aws_device_v_2 = $aws_device_v_2 ?? ;
-    $this->bgp_peers = $bgp_peers ?? ;
-    $this->connection_id = $connection_id ?? ;
-    $this->customer_address = $customer_address ?? ;
-    $this->customer_router_config = $customer_router_config ?? ;
-    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? ;
-    $this->jumbo_frame_capable = $jumbo_frame_capable ?? ;
-    $this->location = $location ?? ;
-    $this->mtu = $mtu ?? ;
-    $this->owner_account = $owner_account ?? ;
-    $this->region = $region ?? ;
-    $this->route_filter_prefixes = $route_filter_prefixes ?? ;
-    $this->tags = $tags ?? ;
-    $this->virtual_gateway_id = $virtual_gateway_id ?? ;
-    $this->virtual_interface_id = $virtual_interface_id ?? ;
-    $this->virtual_interface_name = $virtual_interface_name ?? ;
-    $this->virtual_interface_state = $virtual_interface_state ?? ;
-    $this->virtual_interface_type = $virtual_interface_type ?? ;
-    $this->vlan = $vlan ?? ;
+    $this->address_family = $address_family ?? "";
+    $this->amazon_address = $amazon_address ?? "";
+    $this->amazon_side_asn = $amazon_side_asn ?? 0;
+    $this->asn = $asn ?? 0;
+    $this->auth_key = $auth_key ?? "";
+    $this->aws_device_v_2 = $aws_device_v_2 ?? "";
+    $this->bgp_peers = $bgp_peers ?? [];
+    $this->connection_id = $connection_id ?? "";
+    $this->customer_address = $customer_address ?? "";
+    $this->customer_router_config = $customer_router_config ?? "";
+    $this->direct_connect_gateway_id = $direct_connect_gateway_id ?? "";
+    $this->jumbo_frame_capable = $jumbo_frame_capable ?? false;
+    $this->location = $location ?? "";
+    $this->mtu = $mtu ?? 0;
+    $this->owner_account = $owner_account ?? "";
+    $this->region = $region ?? "";
+    $this->route_filter_prefixes = $route_filter_prefixes ?? [];
+    $this->tags = $tags ?? [];
+    $this->virtual_gateway_id = $virtual_gateway_id ?? "";
+    $this->virtual_interface_id = $virtual_interface_id ?? "";
+    $this->virtual_interface_name = $virtual_interface_name ?? "";
+    $this->virtual_interface_state = $virtual_interface_state ?? "";
+    $this->virtual_interface_type = $virtual_interface_type ?? "";
+    $this->vlan = $vlan ?? 0;
   }
 }
 
@@ -2098,7 +2098,7 @@ class VirtualInterfaces {
   public function __construct(shape(
   ?'virtual_interfaces' => VirtualInterfaceList,
   ) $s = shape()) {
-    $this->virtual_interfaces = $virtual_interfaces ?? ;
+    $this->virtual_interfaces = $virtual_interfaces ?? [];
   }
 }
 

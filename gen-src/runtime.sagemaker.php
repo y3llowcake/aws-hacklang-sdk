@@ -39,12 +39,12 @@ class InvokeEndpointInput {
   ?'endpoint_name' => EndpointName,
   ?'target_model' => TargetModelHeader,
   ) $s = shape()) {
-    $this->accept = $accept ?? ;
-    $this->body = $body ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->custom_attributes = $custom_attributes ?? ;
+    $this->accept = $accept ?? "";
+    $this->body = $body ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->custom_attributes = $custom_attributes ?? "";
     $this->endpoint_name = $endpoint_name ?? "";
-    $this->target_model = $target_model ?? ;
+    $this->target_model = $target_model ?? "";
   }
 }
 
@@ -60,10 +60,10 @@ class InvokeEndpointOutput {
   ?'custom_attributes' => CustomAttributesHeader,
   ?'invoked_production_variant' => Header,
   ) $s = shape()) {
-    $this->body = $body ?? ;
-    $this->content_type = $content_type ?? ;
-    $this->custom_attributes = $custom_attributes ?? ;
-    $this->invoked_production_variant = $invoked_production_variant ?? ;
+    $this->body = $body ?? "";
+    $this->content_type = $content_type ?? "";
+    $this->custom_attributes = $custom_attributes ?? "";
+    $this->invoked_production_variant = $invoked_production_variant ?? "";
   }
 }
 
@@ -85,8 +85,8 @@ class ModelError {
   ) $s = shape()) {
     $this->log_stream_arn = $log_stream_arn ?? "";
     $this->message = $message ?? "";
-    $this->original_message = $original_message ?? ;
-    $this->original_status_code = $original_status_code ?? ;
+    $this->original_message = $original_message ?? "";
+    $this->original_status_code = $original_status_code ?? 0;
   }
 }
 

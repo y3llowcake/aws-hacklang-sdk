@@ -89,7 +89,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => ErrorMsg,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -131,12 +131,12 @@ class ConfigurationEvent {
   ?'event_time' => ConfigurationEventTime,
   ?'monitored_resource_arn' => ConfigurationEventMonitoredResourceARN,
   ) $s = shape()) {
-    $this->event_detail = $event_detail ?? ;
-    $this->event_resource_name = $event_resource_name ?? ;
-    $this->event_resource_type = $event_resource_type ?? ;
-    $this->event_status = $event_status ?? ;
-    $this->event_time = $event_time ?? ;
-    $this->monitored_resource_arn = $monitored_resource_arn ?? ;
+    $this->event_detail = $event_detail ?? "";
+    $this->event_resource_name = $event_resource_name ?? "";
+    $this->event_resource_type = $event_resource_type ?? "";
+    $this->event_status = $event_status ?? "";
+    $this->event_time = $event_time ?? 0;
+    $this->monitored_resource_arn = $monitored_resource_arn ?? "";
   }
 }
 
@@ -172,7 +172,7 @@ class CreateApplicationRequest {
     $this->ops_center_enabled = $ops_center_enabled ?? false;
     $this->ops_item_sns_topic_arn = $ops_item_sns_topic_arn ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -223,10 +223,10 @@ class CreateLogPatternRequest {
   ?'rank' => LogPatternRank,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->pattern = $pattern ?? ;
-    $this->pattern_name = $pattern_name ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
-    $this->rank = $rank ?? ;
+    $this->pattern = $pattern ?? "";
+    $this->pattern_name = $pattern_name ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
+    $this->rank = $rank ?? 0;
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -291,8 +291,8 @@ class DeleteLogPatternRequest {
   ?'pattern_set_name' => LogPatternSetName,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->pattern_name = $pattern_name ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
+    $this->pattern_name = $pattern_name ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -415,8 +415,8 @@ class DescribeLogPatternRequest {
   ?'pattern_set_name' => LogPatternSetName,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->pattern_name = $pattern_name ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
+    $this->pattern_name = $pattern_name ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -526,7 +526,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMsg,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -542,8 +542,8 @@ class ListApplicationsRequest {
   ?'max_results' => MaxEntities,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -556,7 +556,7 @@ class ListApplicationsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->application_info_list = $application_info_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -570,8 +570,8 @@ class ListComponentsRequest {
   ?'next_token' => PaginationToken,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -585,7 +585,7 @@ class ListComponentsResponse {
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
     $this->application_component_list = $application_component_list ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -606,9 +606,9 @@ class ListConfigurationHistoryRequest {
   ?'start_time' => StartTime,
   ) $s = shape()) {
     $this->end_time = $end_time ?? 0;
-    $this->event_status = $event_status ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->event_status = $event_status ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
     $this->start_time = $start_time ?? 0;
   }
@@ -622,8 +622,8 @@ class ListConfigurationHistoryResponse {
   ?'event_list' => ConfigurationEventList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->event_list = $event_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->event_list = $event_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -637,8 +637,8 @@ class ListLogPatternSetsRequest {
   ?'next_token' => PaginationToken,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -653,8 +653,8 @@ class ListLogPatternSetsResponse {
   ?'next_token' => PaginationToken,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->log_pattern_sets = $log_pattern_sets ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->log_pattern_sets = $log_pattern_sets ?? [];
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -671,9 +671,9 @@ class ListLogPatternsRequest {
   ?'pattern_set_name' => LogPatternSetName,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -688,8 +688,8 @@ class ListLogPatternsResponse {
   ?'next_token' => PaginationToken,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->log_patterns = $log_patterns ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->log_patterns = $log_patterns ?? [];
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -709,8 +709,8 @@ class ListProblemsRequest {
   ?'start_time' => StartTime,
   ) $s = shape()) {
     $this->end_time = $end_time ?? 0;
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
     $this->start_time = $start_time ?? 0;
   }
@@ -724,7 +724,7 @@ class ListProblemsResponse {
   ?'next_token' => PaginationToken,
   ?'problem_list' => ProblemList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
     $this->problem_list = $problem_list ?? [];
   }
 }
@@ -745,7 +745,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -765,10 +765,10 @@ class LogPattern {
   ?'pattern_set_name' => LogPatternSetName,
   ?'rank' => LogPatternRank,
   ) $s = shape()) {
-    $this->pattern = $pattern ?? ;
-    $this->pattern_name = $pattern_name ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
-    $this->rank = $rank ?? ;
+    $this->pattern = $pattern ?? "";
+    $this->pattern_name = $pattern_name ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
+    $this->rank = $rank ?? 0;
   }
 }
 
@@ -883,7 +883,7 @@ class Observation {
     $this->health_event_type_category = $health_event_type_category ?? "";
     $this->health_event_type_code = $health_event_type_code ?? "";
     $this->health_service = $health_service ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->line_time = $line_time ?? 0;
     $this->log_filter = $log_filter ?? "";
     $this->log_group = $log_group ?? "";
@@ -942,7 +942,7 @@ class Problem {
     $this->affected_resource = $affected_resource ?? "";
     $this->end_time = $end_time ?? 0;
     $this->feedback = $feedback ?? [];
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->insights = $insights ?? "";
     $this->resource_group_name = $resource_group_name ?? "";
     $this->severity_level = $severity_level ?? "";
@@ -980,7 +980,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMsg,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -992,7 +992,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMsg,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1016,8 +1016,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? 0.0;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1036,7 +1036,7 @@ class TagResourceRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1055,7 +1055,7 @@ class TagsAlreadyExistException {
   public function __construct(shape(
   ?'message' => ExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1071,8 +1071,8 @@ class TooManyTagsException {
   ?'message' => ExceptionMessage,
   ?'resource_name' => AmazonResourceName,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -1087,7 +1087,7 @@ class UntagResourceRequest {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1199,10 +1199,10 @@ class UpdateLogPatternRequest {
   ?'rank' => LogPatternRank,
   ?'resource_group_name' => ResourceGroupName,
   ) $s = shape()) {
-    $this->pattern = $pattern ?? ;
-    $this->pattern_name = $pattern_name ?? ;
-    $this->pattern_set_name = $pattern_set_name ?? ;
-    $this->rank = $rank ?? ;
+    $this->pattern = $pattern ?? "";
+    $this->pattern_name = $pattern_name ?? "";
+    $this->pattern_set_name = $pattern_set_name ?? "";
+    $this->rank = $rank ?? 0;
     $this->resource_group_name = $resource_group_name ?? "";
   }
 }
@@ -1226,7 +1226,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMsg,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

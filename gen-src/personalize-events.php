@@ -21,10 +21,10 @@ class Event {
   ?'properties' => EventPropertiesJSON,
   ?'sent_at' => Date,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? ;
-    $this->event_type = $event_type ?? ;
-    $this->properties = $properties ?? ;
-    $this->sent_at = $sent_at ?? ;
+    $this->event_id = $event_id ?? "";
+    $this->event_type = $event_type ?? "";
+    $this->properties = $properties ?? "";
+    $this->sent_at = $sent_at ?? 0;
   }
 }
 
@@ -38,7 +38,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -54,10 +54,10 @@ class PutEventsRequest {
   ?'tracking_id' => StringType,
   ?'user_id' => UserId,
   ) $s = shape()) {
-    $this->event_list = $event_list ?? ;
-    $this->session_id = $session_id ?? ;
-    $this->tracking_id = $tracking_id ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->event_list = $event_list ?? [];
+    $this->session_id = $session_id ?? "";
+    $this->tracking_id = $tracking_id ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 

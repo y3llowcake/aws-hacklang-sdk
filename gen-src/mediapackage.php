@@ -36,8 +36,8 @@ class Authorization {
   ?'cdn_identifier_secret' => __string,
   ?'secrets_role_arn' => __string,
   ) $s = shape()) {
-    $this->cdn_identifier_secret = $cdn_identifier_secret ?? ;
-    $this->secrets_role_arn = $secrets_role_arn ?? ;
+    $this->cdn_identifier_secret = $cdn_identifier_secret ?? "";
+    $this->secrets_role_arn = $secrets_role_arn ?? "";
   }
 }
 
@@ -55,10 +55,10 @@ class Channel {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -73,8 +73,8 @@ class ChannelCreateParameters {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -87,8 +87,8 @@ class ChannelList {
   ?'channels' => __listOfChannel,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->channels = $channels ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->channels = $channels ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -98,7 +98,7 @@ class ChannelUpdateParameters {
   public function __construct(shape(
   ?'description' => __string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
   }
 }
 
@@ -110,7 +110,7 @@ class CmafEncryption {
   ?'key_rotation_interval_seconds' => __integer,
   ?'speke_key_provider' => SpekeKeyProvider,
   ) $s = shape()) {
-    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? ;
+    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? 0;
     $this->speke_key_provider = $speke_key_provider ?? null;
   }
 }
@@ -129,10 +129,10 @@ class CmafPackage {
   ?'segment_prefix' => __string,
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->hls_manifests = $hls_manifests ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
-    $this->segment_prefix = $segment_prefix ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->hls_manifests = $hls_manifests ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
+    $this->segment_prefix = $segment_prefix ?? "";
     $this->stream_selection = $stream_selection ?? null;
   }
 }
@@ -151,10 +151,10 @@ class CmafPackageCreateOrUpdateParameters {
   ?'segment_prefix' => __string,
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->hls_manifests = $hls_manifests ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
-    $this->segment_prefix = $segment_prefix ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->hls_manifests = $hls_manifests ?? [];
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
+    $this->segment_prefix = $segment_prefix ?? "";
     $this->stream_selection = $stream_selection ?? null;
   }
 }
@@ -169,8 +169,8 @@ class CreateChannelRequest {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -189,10 +189,10 @@ class CreateChannelResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -211,11 +211,11 @@ class CreateHarvestJobRequest {
   ?'s_3_destination' => S3Destination,
   ?'start_time' => __string,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->id = $id ?? ;
-    $this->origin_endpoint_id = $origin_endpoint_id ?? ;
+    $this->end_time = $end_time ?? "";
+    $this->id = $id ?? "";
+    $this->origin_endpoint_id = $origin_endpoint_id ?? "";
     $this->s_3_destination = $s_3_destination ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? "";
   }
 }
 
@@ -241,14 +241,14 @@ class CreateHarvestJobResponse {
   ?'start_time' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->channel_id = $channel_id ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->id = $id ?? ;
-    $this->origin_endpoint_id = $origin_endpoint_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->channel_id = $channel_id ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->end_time = $end_time ?? "";
+    $this->id = $id ?? "";
+    $this->origin_endpoint_id = $origin_endpoint_id ?? "";
     $this->s_3_destination = $s_3_destination ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -286,19 +286,19 @@ class CreateOriginEndpointRequest {
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -338,22 +338,22 @@ class CreateOriginEndpointResponse {
   ?'url' => __string,
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->url = $url ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->url = $url ?? "";
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -365,7 +365,7 @@ class DashEncryption {
   ?'key_rotation_interval_seconds' => __integer,
   ?'speke_key_provider' => SpekeKeyProvider,
   ) $s = shape()) {
-    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? ;
+    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? 0;
     $this->speke_key_provider = $speke_key_provider ?? null;
   }
 }
@@ -402,17 +402,17 @@ class DashPackage {
   ) $s = shape()) {
     $this->ad_triggers = $ad_triggers ?? [];
     $this->ads_on_delivery_restrictions = $ads_on_delivery_restrictions ?? "";
-    $this->encryption = $encryption ?? ;
+    $this->encryption = $encryption ?? null;
     $this->manifest_layout = $manifest_layout ?? "";
-    $this->manifest_window_seconds = $manifest_window_seconds ?? ;
-    $this->min_buffer_time_seconds = $min_buffer_time_seconds ?? ;
-    $this->min_update_period_seconds = $min_update_period_seconds ?? ;
-    $this->period_triggers = $period_triggers ?? ;
+    $this->manifest_window_seconds = $manifest_window_seconds ?? 0;
+    $this->min_buffer_time_seconds = $min_buffer_time_seconds ?? 0;
+    $this->min_update_period_seconds = $min_update_period_seconds ?? 0;
+    $this->period_triggers = $period_triggers ?? [];
     $this->profile = $profile ?? "";
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
     $this->segment_template_format = $segment_template_format ?? "";
     $this->stream_selection = $stream_selection ?? null;
-    $this->suggested_presentation_delay_seconds = $suggested_presentation_delay_seconds ?? ;
+    $this->suggested_presentation_delay_seconds = $suggested_presentation_delay_seconds ?? 0;
   }
 }
 
@@ -422,7 +422,7 @@ class DeleteChannelRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -439,7 +439,7 @@ class DeleteOriginEndpointRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -456,7 +456,7 @@ class DescribeChannelRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -474,10 +474,10 @@ class DescribeChannelResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -488,7 +488,7 @@ class DescribeHarvestJobRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -514,14 +514,14 @@ class DescribeHarvestJobResponse {
   ?'start_time' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->channel_id = $channel_id ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->id = $id ?? ;
-    $this->origin_endpoint_id = $origin_endpoint_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->channel_id = $channel_id ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->end_time = $end_time ?? "";
+    $this->id = $id ?? "";
+    $this->origin_endpoint_id = $origin_endpoint_id ?? "";
     $this->s_3_destination = $s_3_destination ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -532,7 +532,7 @@ class DescribeOriginEndpointRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -572,22 +572,22 @@ class DescribeOriginEndpointResponse {
   ?'url' => __string,
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->url = $url ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->url = $url ?? "";
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -599,7 +599,7 @@ class ForbiddenException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -625,14 +625,14 @@ class HarvestJob {
   ?'start_time' => __string,
   ?'status' => Status,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->channel_id = $channel_id ?? ;
-    $this->created_at = $created_at ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->id = $id ?? ;
-    $this->origin_endpoint_id = $origin_endpoint_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->channel_id = $channel_id ?? "";
+    $this->created_at = $created_at ?? "";
+    $this->end_time = $end_time ?? "";
+    $this->id = $id ?? "";
+    $this->origin_endpoint_id = $origin_endpoint_id ?? "";
     $this->s_3_destination = $s_3_destination ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? "";
     $this->status = $status ?? "";
   }
 }
@@ -651,11 +651,11 @@ class HarvestJobCreateParameters {
   ?'s_3_destination' => S3Destination,
   ?'start_time' => __string,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->id = $id ?? ;
-    $this->origin_endpoint_id = $origin_endpoint_id ?? ;
+    $this->end_time = $end_time ?? "";
+    $this->id = $id ?? "";
+    $this->origin_endpoint_id = $origin_endpoint_id ?? "";
     $this->s_3_destination = $s_3_destination ?? null;
-    $this->start_time = $start_time ?? ;
+    $this->start_time = $start_time ?? "";
   }
 }
 
@@ -667,8 +667,8 @@ class HarvestJobList {
   ?'harvest_jobs' => __listOfHarvestJob,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->harvest_jobs = $harvest_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->harvest_jobs = $harvest_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -686,10 +686,10 @@ class HlsEncryption {
   ?'repeat_ext_x_key' => __boolean,
   ?'speke_key_provider' => SpekeKeyProvider,
   ) $s = shape()) {
-    $this->constant_initialization_vector = $constant_initialization_vector ?? ;
+    $this->constant_initialization_vector = $constant_initialization_vector ?? "";
     $this->encryption_method = $encryption_method ?? "";
-    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? ;
-    $this->repeat_ext_x_key = $repeat_ext_x_key ?? ;
+    $this->key_rotation_interval_seconds = $key_rotation_interval_seconds ?? 0;
+    $this->repeat_ext_x_key = $repeat_ext_x_key ?? false;
     $this->speke_key_provider = $speke_key_provider ?? null;
   }
 }
@@ -700,7 +700,7 @@ class HlsIngest {
   public function __construct(shape(
   ?'ingest_endpoints' => __listOfIngestEndpoint,
   ) $s = shape()) {
-    $this->ingest_endpoints = $ingest_endpoints ?? ;
+    $this->ingest_endpoints = $ingest_endpoints ?? [];
   }
 }
 
@@ -725,13 +725,13 @@ class HlsManifest {
   ?'url' => __string,
   ) $s = shape()) {
     $this->ad_markers = $ad_markers ?? "";
-    $this->id = $id ?? ;
-    $this->include_iframe_only_stream = $include_iframe_only_stream ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->include_iframe_only_stream = $include_iframe_only_stream ?? false;
+    $this->manifest_name = $manifest_name ?? "";
     $this->playlist_type = $playlist_type ?? "";
-    $this->playlist_window_seconds = $playlist_window_seconds ?? ;
-    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? ;
-    $this->url = $url ?? ;
+    $this->playlist_window_seconds = $playlist_window_seconds ?? 0;
+    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? 0;
+    $this->url = $url ?? "";
   }
 }
 
@@ -760,12 +760,12 @@ class HlsManifestCreateOrUpdateParameters {
     $this->ad_markers = $ad_markers ?? "";
     $this->ad_triggers = $ad_triggers ?? [];
     $this->ads_on_delivery_restrictions = $ads_on_delivery_restrictions ?? "";
-    $this->id = $id ?? ;
-    $this->include_iframe_only_stream = $include_iframe_only_stream ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->include_iframe_only_stream = $include_iframe_only_stream ?? false;
+    $this->manifest_name = $manifest_name ?? "";
     $this->playlist_type = $playlist_type ?? "";
-    $this->playlist_window_seconds = $playlist_window_seconds ?? ;
-    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? ;
+    $this->playlist_window_seconds = $playlist_window_seconds ?? 0;
+    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? 0;
   }
 }
 
@@ -798,14 +798,14 @@ class HlsPackage {
     $this->ad_markers = $ad_markers ?? "";
     $this->ad_triggers = $ad_triggers ?? [];
     $this->ads_on_delivery_restrictions = $ads_on_delivery_restrictions ?? "";
-    $this->encryption = $encryption ?? ;
-    $this->include_iframe_only_stream = $include_iframe_only_stream ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->include_iframe_only_stream = $include_iframe_only_stream ?? false;
     $this->playlist_type = $playlist_type ?? "";
-    $this->playlist_window_seconds = $playlist_window_seconds ?? ;
-    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->playlist_window_seconds = $playlist_window_seconds ?? 0;
+    $this->program_date_time_interval_seconds = $program_date_time_interval_seconds ?? 0;
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
     $this->stream_selection = $stream_selection ?? null;
-    $this->use_audio_rendition_group = $use_audio_rendition_group ?? ;
+    $this->use_audio_rendition_group = $use_audio_rendition_group ?? false;
   }
 }
 
@@ -821,10 +821,10 @@ class IngestEndpoint {
   ?'url' => __string,
   ?'username' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->password = $password ?? ;
-    $this->url = $url ?? ;
-    $this->username = $username ?? ;
+    $this->id = $id ?? "";
+    $this->password = $password ?? "";
+    $this->url = $url ?? "";
+    $this->username = $username ?? "";
   }
 }
 
@@ -834,7 +834,7 @@ class InternalServerErrorException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -847,7 +847,7 @@ class ListChannelsRequest {
   ?'next_token' => __string,
   ) $s = shape()) {
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -859,8 +859,8 @@ class ListChannelsResponse {
   ?'channels' => __listOfChannel,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->channels = $channels ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->channels = $channels ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -876,10 +876,10 @@ class ListHarvestJobsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->include_channel_id = $include_channel_id ?? ;
-    $this->include_status = $include_status ?? ;
+    $this->include_channel_id = $include_channel_id ?? "";
+    $this->include_status = $include_status ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -891,8 +891,8 @@ class ListHarvestJobsResponse {
   ?'harvest_jobs' => __listOfHarvestJob,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->harvest_jobs = $harvest_jobs ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->harvest_jobs = $harvest_jobs ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -906,9 +906,9 @@ class ListOriginEndpointsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => __string,
   ) $s = shape()) {
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -920,8 +920,8 @@ class ListOriginEndpointsResponse {
   ?'next_token' => __string,
   ?'origin_endpoints' => __listOfOriginEndpoint,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->origin_endpoints = $origin_endpoints ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->origin_endpoints = $origin_endpoints ?? [];
   }
 }
 
@@ -931,7 +931,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => __string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -971,9 +971,9 @@ class MssPackage {
   ?'segment_duration_seconds' => __integer,
   ?'stream_selection' => StreamSelection,
   ) $s = shape()) {
-    $this->encryption = $encryption ?? ;
-    $this->manifest_window_seconds = $manifest_window_seconds ?? ;
-    $this->segment_duration_seconds = $segment_duration_seconds ?? ;
+    $this->encryption = $encryption ?? null;
+    $this->manifest_window_seconds = $manifest_window_seconds ?? 0;
+    $this->segment_duration_seconds = $segment_duration_seconds ?? 0;
     $this->stream_selection = $stream_selection ?? null;
   }
 }
@@ -984,7 +984,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1024,22 +1024,22 @@ class OriginEndpoint {
   ?'url' => __string,
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->url = $url ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->url = $url ?? "";
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -1076,19 +1076,19 @@ class OriginEndpointCreateParameters {
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -1100,8 +1100,8 @@ class OriginEndpointList {
   ?'next_token' => __string,
   ?'origin_endpoints' => __listOfOriginEndpoint,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->origin_endpoints = $origin_endpoints ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->origin_endpoints = $origin_endpoints ?? [];
   }
 }
 
@@ -1134,14 +1134,14 @@ class OriginEndpointUpdateParameters {
     $this->authorization = $authorization ?? null;
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -1157,7 +1157,7 @@ class RotateChannelCredentialsRequest {
   public function __construct(shape(
   ?'id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -1175,10 +1175,10 @@ class RotateChannelCredentialsResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1191,8 +1191,8 @@ class RotateIngestEndpointCredentialsRequest {
   ?'id' => __string,
   ?'ingest_endpoint_id' => __string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->ingest_endpoint_id = $ingest_endpoint_id ?? ;
+    $this->id = $id ?? "";
+    $this->ingest_endpoint_id = $ingest_endpoint_id ?? "";
   }
 }
 
@@ -1210,10 +1210,10 @@ class RotateIngestEndpointCredentialsResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1228,9 +1228,9 @@ class S3Destination {
   ?'manifest_key' => __string,
   ?'role_arn' => __string,
   ) $s = shape()) {
-    $this->bucket_name = $bucket_name ?? ;
-    $this->manifest_key = $manifest_key ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket_name = $bucket_name ?? "";
+    $this->manifest_key = $manifest_key ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -1242,7 +1242,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1260,11 +1260,11 @@ class SpekeKeyProvider {
   ?'system_ids' => __listOf__string,
   ?'url' => __string,
   ) $s = shape()) {
-    $this->certificate_arn = $certificate_arn ?? ;
-    $this->resource_id = $resource_id ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->system_ids = $system_ids ?? ;
-    $this->url = $url ?? ;
+    $this->certificate_arn = $certificate_arn ?? "";
+    $this->resource_id = $resource_id ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->system_ids = $system_ids ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -1282,8 +1282,8 @@ class StreamSelection {
   ?'min_video_bits_per_second' => __integer,
   ?'stream_order' => StreamOrder,
   ) $s = shape()) {
-    $this->max_video_bits_per_second = $max_video_bits_per_second ?? ;
-    $this->min_video_bits_per_second = $min_video_bits_per_second ?? ;
+    $this->max_video_bits_per_second = $max_video_bits_per_second ?? 0;
+    $this->min_video_bits_per_second = $min_video_bits_per_second ?? 0;
     $this->stream_order = $stream_order ?? "";
   }
 }
@@ -1296,7 +1296,7 @@ class TagResourceRequest {
   ?'resource_arn' => __string,
   ?'tags' => __mapOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1319,7 +1319,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1329,7 +1329,7 @@ class UnprocessableEntityException {
   public function __construct(shape(
   ?'message' => __string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1341,8 +1341,8 @@ class UntagResourceRequest {
   ?'resource_arn' => __string,
   ?'tag_keys' => __listOf__string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1354,8 +1354,8 @@ class UpdateChannelRequest {
   ?'description' => __string,
   ?'id' => __string,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
   }
 }
 
@@ -1373,10 +1373,10 @@ class UpdateChannelResponse {
   ?'id' => __string,
   ?'tags' => Tags,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
     $this->hls_ingest = $hls_ingest ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->tags = $tags ?? [];
   }
 }
@@ -1412,15 +1412,15 @@ class UpdateOriginEndpointRequest {
     $this->authorization = $authorization ?? null;
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->whitelist = $whitelist ?? [];
   }
 }
 
@@ -1460,22 +1460,22 @@ class UpdateOriginEndpointResponse {
   ?'url' => __string,
   ?'whitelist' => __listOf__string,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->authorization = $authorization ?? null;
-    $this->channel_id = $channel_id ?? ;
+    $this->channel_id = $channel_id ?? "";
     $this->cmaf_package = $cmaf_package ?? null;
     $this->dash_package = $dash_package ?? null;
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->hls_package = $hls_package ?? null;
-    $this->id = $id ?? ;
-    $this->manifest_name = $manifest_name ?? ;
+    $this->id = $id ?? "";
+    $this->manifest_name = $manifest_name ?? "";
     $this->mss_package = $mss_package ?? null;
     $this->origination = $origination ?? "";
-    $this->startover_window_seconds = $startover_window_seconds ?? ;
+    $this->startover_window_seconds = $startover_window_seconds ?? 0;
     $this->tags = $tags ?? [];
-    $this->time_delay_seconds = $time_delay_seconds ?? ;
-    $this->url = $url ?? ;
-    $this->whitelist = $whitelist ?? ;
+    $this->time_delay_seconds = $time_delay_seconds ?? 0;
+    $this->url = $url ?? "";
+    $this->whitelist = $whitelist ?? [];
   }
 }
 

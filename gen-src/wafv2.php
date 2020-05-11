@@ -79,7 +79,7 @@ class AssociateWebACLRequest {
   ?'web_acl_arn' => ResourceArn,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->web_acl_arn = $web_acl_arn ?? ;
+    $this->web_acl_arn = $web_acl_arn ?? "";
   }
 }
 
@@ -146,7 +146,7 @@ class CheckCapacityResponse {
   public function __construct(shape(
   ?'capacity' => ConsumedCapacity,
   ) $s = shape()) {
-    $this->capacity = $capacity ?? ;
+    $this->capacity = $capacity ?? 0;
   }
 }
 
@@ -183,12 +183,12 @@ class CreateIPSetRequest {
   ?'scope' => Scope,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->addresses = $addresses ?? ;
-    $this->description = $description ?? ;
+    $this->addresses = $addresses ?? [];
+    $this->description = $description ?? "";
     $this->ip_address_version = $ip_address_version ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -198,7 +198,7 @@ class CreateIPSetResponse {
   public function __construct(shape(
   ?'summary' => IPSetSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -216,11 +216,11 @@ class CreateRegexPatternSetRequest {
   ?'scope' => Scope,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->regular_expression_list = $regular_expression_list ?? [];
     $this->scope = $scope ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -230,7 +230,7 @@ class CreateRegexPatternSetResponse {
   public function __construct(shape(
   ?'summary' => RegexPatternSetSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -252,12 +252,12 @@ class CreateRuleGroupRequest {
   ?'tags' => TagList,
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
-    $this->capacity = $capacity ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->capacity = $capacity ?? 0;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->rules = $rules ?? [];
     $this->scope = $scope ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->visibility_config = $visibility_config ?? null;
   }
 }
@@ -268,7 +268,7 @@ class CreateRuleGroupResponse {
   public function __construct(shape(
   ?'summary' => RuleGroupSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -291,11 +291,11 @@ class CreateWebACLRequest {
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
     $this->default_action = $default_action ?? null;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->rules = $rules ?? [];
     $this->scope = $scope ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->visibility_config = $visibility_config ?? null;
   }
 }
@@ -306,7 +306,7 @@ class CreateWebACLResponse {
   public function __construct(shape(
   ?'summary' => WebACLSummary,
   ) $s = shape()) {
-    $this->summary = $summary ?? ;
+    $this->summary = $summary ?? null;
   }
 }
 
@@ -318,8 +318,8 @@ class DefaultAction {
   ?'allow' => AllowAction,
   ?'block' => BlockAction,
   ) $s = shape()) {
-    $this->allow = $allow ?? ;
-    $this->block = $block ?? ;
+    $this->allow = $allow ?? null;
+    $this->block = $block ?? null;
   }
 }
 
@@ -331,8 +331,8 @@ class DeleteFirewallManagerRuleGroupsRequest {
   ?'web_acl_arn' => ResourceArn,
   ?'web_acl_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->web_acl_arn = $web_acl_arn ?? ;
-    $this->web_acl_lock_token = $web_acl_lock_token ?? ;
+    $this->web_acl_arn = $web_acl_arn ?? "";
+    $this->web_acl_lock_token = $web_acl_lock_token ?? "";
   }
 }
 
@@ -342,7 +342,7 @@ class DeleteFirewallManagerRuleGroupsResponse {
   public function __construct(shape(
   ?'next_web_acl_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->next_web_acl_lock_token = $next_web_acl_lock_token ?? ;
+    $this->next_web_acl_lock_token = $next_web_acl_lock_token ?? "";
   }
 }
 
@@ -358,9 +358,9 @@ class DeleteIPSetRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -418,9 +418,9 @@ class DeleteRegexPatternSetRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -444,9 +444,9 @@ class DeleteRuleGroupRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -470,9 +470,9 @@ class DeleteWebACLRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -494,7 +494,7 @@ class DescribeManagedRuleGroupRequest {
   ?'scope' => Scope,
   ?'vendor_name' => VendorName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
     $this->vendor_name = $vendor_name ?? "";
   }
@@ -508,7 +508,7 @@ class DescribeManagedRuleGroupResponse {
   ?'capacity' => CapacityUnit,
   ?'rules' => RuleSummaries,
   ) $s = shape()) {
-    $this->capacity = $capacity ?? ;
+    $this->capacity = $capacity ?? 0;
     $this->rules = $rules ?? [];
   }
 }
@@ -546,7 +546,7 @@ class ExcludedRule {
   public function __construct(shape(
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -597,9 +597,9 @@ class FirewallManagerRuleGroup {
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
     $this->firewall_manager_statement = $firewall_manager_statement ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->override_action = $override_action ?? null;
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
     $this->visibility_config = $visibility_config ?? null;
   }
 }
@@ -639,8 +639,8 @@ class GetIPSetRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -694,7 +694,7 @@ class GetPermissionPolicyResponse {
   public function __construct(shape(
   ?'policy' => PolicyString,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -710,10 +710,10 @@ class GetRateBasedStatementManagedKeysRequest {
   ?'web_acl_id' => EntityId,
   ?'web_acl_name' => EntityName,
   ) $s = shape()) {
-    $this->rule_name = $rule_name ?? ;
+    $this->rule_name = $rule_name ?? "";
     $this->scope = $scope ?? "";
-    $this->web_acl_id = $web_acl_id ?? ;
-    $this->web_acl_name = $web_acl_name ?? ;
+    $this->web_acl_id = $web_acl_id ?? "";
+    $this->web_acl_name = $web_acl_name ?? "";
   }
 }
 
@@ -725,8 +725,8 @@ class GetRateBasedStatementManagedKeysResponse {
   ?'managed_keys_ipv_4' => RateBasedStatementManagedKeysIPSet,
   ?'managed_keys_ipv_6' => RateBasedStatementManagedKeysIPSet,
   ) $s = shape()) {
-    $this->managed_keys_ipv_4 = $managed_keys_ipv_4 ?? ;
-    $this->managed_keys_ipv_6 = $managed_keys_ipv_6 ?? ;
+    $this->managed_keys_ipv_4 = $managed_keys_ipv_4 ?? null;
+    $this->managed_keys_ipv_6 = $managed_keys_ipv_6 ?? null;
   }
 }
 
@@ -740,8 +740,8 @@ class GetRegexPatternSetRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -769,8 +769,8 @@ class GetRuleGroupRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -802,11 +802,11 @@ class GetSampledRequestsRequest {
   ?'time_window' => TimeWindow,
   ?'web_acl_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->max_items = $max_items ?? ;
-    $this->rule_metric_name = $rule_metric_name ?? ;
+    $this->max_items = $max_items ?? 0;
+    $this->rule_metric_name = $rule_metric_name ?? "";
     $this->scope = $scope ?? "";
     $this->time_window = $time_window ?? null;
-    $this->web_acl_arn = $web_acl_arn ?? ;
+    $this->web_acl_arn = $web_acl_arn ?? "";
   }
 }
 
@@ -821,7 +821,7 @@ class GetSampledRequestsResponse {
   ?'time_window' => TimeWindow,
   ) $s = shape()) {
     $this->population_size = $population_size ?? 0;
-    $this->sampled_requests = $sampled_requests ?? ;
+    $this->sampled_requests = $sampled_requests ?? [];
     $this->time_window = $time_window ?? null;
   }
 }
@@ -856,8 +856,8 @@ class GetWebACLRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -883,8 +883,8 @@ class HTTPHeader {
   ?'name' => HeaderName,
   ?'value' => HeaderValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -908,12 +908,12 @@ class HTTPRequest {
   ?'method' => HTTPMethod,
   ?'uri' => URIString,
   ) $s = shape()) {
-    $this->client_ip = $client_ip ?? ;
+    $this->client_ip = $client_ip ?? "";
     $this->country = $country ?? "";
     $this->http_version = $http_version ?? "";
-    $this->headers = $headers ?? ;
-    $this->method = $method ?? null;
-    $this->uri = $uri ?? ;
+    $this->headers = $headers ?? [];
+    $this->method = $method ?? "";
+    $this->uri = $uri ?? "";
   }
 }
 
@@ -945,12 +945,12 @@ class IPSet {
   ?'id' => EntityId,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->addresses = $addresses ?? ;
-    $this->description = $description ?? ;
+    $this->arn = $arn ?? "";
+    $this->addresses = $addresses ?? [];
+    $this->description = $description ?? "";
     $this->ip_address_version = $ip_address_version ?? "";
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -960,7 +960,7 @@ class IPSetReferenceStatement {
   public function __construct(shape(
   ?'arn' => ResourceArn,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -980,11 +980,11 @@ class IPSetSummary {
   ?'lock_token' => LockToken,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1000,7 +1000,7 @@ class ListAvailableManagedRuleGroupsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1014,7 +1014,7 @@ class ListAvailableManagedRuleGroupsResponse {
   ?'managed_rule_groups' => ManagedRuleGroupSummaries,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->managed_rule_groups = $managed_rule_groups ?? ;
+    $this->managed_rule_groups = $managed_rule_groups ?? [];
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1029,7 +1029,7 @@ class ListIPSetsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1043,7 +1043,7 @@ class ListIPSetsResponse {
   ?'ip_sets' => IPSetSummaries,
   ?'next_marker' => NextMarker,
   ) $s = shape()) {
-    $this->ip_sets = $ip_sets ?? ;
+    $this->ip_sets = $ip_sets ?? [];
     $this->next_marker = $next_marker ?? "";
   }
 }
@@ -1058,7 +1058,7 @@ class ListLoggingConfigurationsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1089,7 +1089,7 @@ class ListRegexPatternSetsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1104,7 +1104,7 @@ class ListRegexPatternSetsResponse {
   ?'regex_pattern_sets' => RegexPatternSetSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->regex_pattern_sets = $regex_pattern_sets ?? ;
+    $this->regex_pattern_sets = $regex_pattern_sets ?? [];
   }
 }
 
@@ -1117,7 +1117,7 @@ class ListResourcesForWebACLRequest {
   ?'web_acl_arn' => ResourceArn,
   ) $s = shape()) {
     $this->resource_type = $resource_type ?? "";
-    $this->web_acl_arn = $web_acl_arn ?? ;
+    $this->web_acl_arn = $web_acl_arn ?? "";
   }
 }
 
@@ -1141,7 +1141,7 @@ class ListRuleGroupsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1156,7 +1156,7 @@ class ListRuleGroupsResponse {
   ?'rule_groups' => RuleGroupSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->rule_groups = $rule_groups ?? ;
+    $this->rule_groups = $rule_groups ?? [];
   }
 }
 
@@ -1170,9 +1170,9 @@ class ListTagsForResourceRequest {
   ?'next_marker' => NextMarker,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1199,7 +1199,7 @@ class ListWebACLsRequest {
   ?'next_marker' => NextMarker,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_marker = $next_marker ?? "";
     $this->scope = $scope ?? "";
   }
@@ -1214,7 +1214,7 @@ class ListWebACLsResponse {
   ?'web_ac_ls' => WebACLSummaries,
   ) $s = shape()) {
     $this->next_marker = $next_marker ?? "";
-    $this->web_ac_ls = $web_ac_ls ?? ;
+    $this->web_ac_ls = $web_ac_ls ?? [];
   }
 }
 
@@ -1251,7 +1251,7 @@ class ManagedRuleGroupStatement {
   ?'vendor_name' => VendorName,
   ) $s = shape()) {
     $this->excluded_rules = $excluded_rules ?? [];
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->vendor_name = $vendor_name ?? "";
   }
 }
@@ -1268,8 +1268,8 @@ class ManagedRuleGroupSummary {
   ?'name' => EntityName,
   ?'vendor_name' => VendorName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->vendor_name = $vendor_name ?? "";
   }
 }
@@ -1320,8 +1320,8 @@ class OverrideAction {
   ?'count' => CountAction,
   ?'none' => NoneAction,
   ) $s = shape()) {
-    $this->count = $count ?? ;
-    $this->none = $none ?? ;
+    $this->count = $count ?? null;
+    $this->none = $none ?? null;
   }
 }
 
@@ -1365,7 +1365,7 @@ class PutPermissionPolicyRequest {
   ?'policy' => PolicyString,
   ?'resource_arn' => ResourceArn,
   ) $s = shape()) {
-    $this->policy = $policy ?? ;
+    $this->policy = $policy ?? "";
     $this->resource_arn = $resource_arn ?? "";
   }
 }
@@ -1394,9 +1394,9 @@ class RateBasedStatement {
   ?'limit' => RateLimit,
   ?'scope_down_statement' => Statement,
   ) $s = shape()) {
-    $this->aggregate_key_type = $aggregate_key_type ?? ;
-    $this->limit = $limit ?? ;
-    $this->scope_down_statement = $scope_down_statement ?? ;
+    $this->aggregate_key_type = $aggregate_key_type ?? "";
+    $this->limit = $limit ?? 0;
+    $this->scope_down_statement = $scope_down_statement ?? null;
   }
 }
 
@@ -1410,7 +1410,7 @@ class RateBasedStatementManagedKeysIPSet {
   ?'addresses' => IPAddresses,
   ?'ip_address_version' => IPAddressVersion,
   ) $s = shape()) {
-    $this->addresses = $addresses ?? ;
+    $this->addresses = $addresses ?? [];
     $this->ip_address_version = $ip_address_version ?? "";
   }
 }
@@ -1425,7 +1425,7 @@ class Regex {
   public function __construct(shape(
   ?'regex_string' => RegexPatternString,
   ) $s = shape()) {
-    $this->regex_string = $regex_string ?? ;
+    $this->regex_string = $regex_string ?? "";
   }
 }
 
@@ -1443,10 +1443,10 @@ class RegexPatternSet {
   ?'name' => EntityName,
   ?'regular_expression_list' => RegularExpressionList,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->regular_expression_list = $regular_expression_list ?? [];
   }
 }
@@ -1461,7 +1461,7 @@ class RegexPatternSetReferenceStatement {
   ?'field_to_match' => FieldToMatch,
   ?'text_transformations' => TextTransformations,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->field_to_match = $field_to_match ?? null;
     $this->text_transformations = $text_transformations ?? [];
   }
@@ -1483,11 +1483,11 @@ class RegexPatternSetSummary {
   ?'lock_token' => LockToken,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1517,10 +1517,10 @@ class Rule {
   ?'statement' => Statement,
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
-    $this->action = $action ?? "";
-    $this->name = $name ?? ;
+    $this->action = $action ?? null;
+    $this->name = $name ?? "";
     $this->override_action = $override_action ?? null;
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
     $this->statement = $statement ?? null;
     $this->visibility_config = $visibility_config ?? null;
   }
@@ -1536,9 +1536,9 @@ class RuleAction {
   ?'block' => BlockAction,
   ?'count' => CountAction,
   ) $s = shape()) {
-    $this->allow = $allow ?? ;
-    $this->block = $block ?? ;
-    $this->count = $count ?? ;
+    $this->allow = $allow ?? null;
+    $this->block = $block ?? null;
+    $this->count = $count ?? null;
   }
 }
 
@@ -1560,11 +1560,11 @@ class RuleGroup {
   ?'rules' => Rules,
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->capacity = $capacity ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->arn = $arn ?? "";
+    $this->capacity = $capacity ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->rules = $rules ?? [];
     $this->visibility_config = $visibility_config ?? null;
   }
@@ -1578,7 +1578,7 @@ class RuleGroupReferenceStatement {
   ?'arn' => ResourceArn,
   ?'excluded_rules' => ExcludedRules,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
     $this->excluded_rules = $excluded_rules ?? [];
   }
 }
@@ -1599,11 +1599,11 @@ class RuleGroupSummary {
   ?'lock_token' => LockToken,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1619,8 +1619,8 @@ class RuleSummary {
   ?'action' => RuleAction,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->action = $action ?? "";
-    $this->name = $name ?? ;
+    $this->action = $action ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1643,10 +1643,10 @@ class SampledHTTPRequest {
   ?'weight' => SampleWeight,
   ) $s = shape()) {
     $this->action = $action ?? "";
-    $this->request = $request ?? ;
-    $this->rule_name_within_rule_group = $rule_name_within_rule_group ?? ;
+    $this->request = $request ?? null;
+    $this->rule_name_within_rule_group = $rule_name_within_rule_group ?? "";
     $this->timestamp = $timestamp ?? 0;
-    $this->weight = $weight ?? ;
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -1662,7 +1662,7 @@ class SingleHeader {
   public function __construct(shape(
   ?'name' => FieldToMatchData,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1672,7 +1672,7 @@ class SingleQueryArgument {
   public function __construct(shape(
   ?'name' => FieldToMatchData,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -1766,8 +1766,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1779,7 +1779,7 @@ class TagInfoForResource {
   ?'resource_arn' => ResourceArn,
   ?'tag_list' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
     $this->tag_list = $tag_list ?? [];
   }
 }
@@ -1798,8 +1798,8 @@ class TagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1820,8 +1820,8 @@ class TextTransformation {
   ?'priority' => TextTransformationPriority,
   ?'type' => TextTransformationType,
   ) $s = shape()) {
-    $this->priority = $priority ?? ;
-    $this->type = $type ?? ;
+    $this->priority = $priority ?? 0;
+    $this->type = $type ?? "";
   }
 }
 
@@ -1839,8 +1839,8 @@ class TimeWindow {
   ?'end_time' => Timestamp,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1856,8 +1856,8 @@ class UntagResourceRequest {
   ?'resource_arn' => ResourceArn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1884,11 +1884,11 @@ class UpdateIPSetRequest {
   ?'name' => EntityName,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->addresses = $addresses ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->addresses = $addresses ?? [];
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->scope = $scope ?? "";
   }
 }
@@ -1899,7 +1899,7 @@ class UpdateIPSetResponse {
   public function __construct(shape(
   ?'next_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->next_lock_token = $next_lock_token ?? ;
+    $this->next_lock_token = $next_lock_token ?? "";
   }
 }
 
@@ -1919,10 +1919,10 @@ class UpdateRegexPatternSetRequest {
   ?'regular_expression_list' => RegularExpressionList,
   ?'scope' => Scope,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->regular_expression_list = $regular_expression_list ?? [];
     $this->scope = $scope ?? "";
   }
@@ -1934,7 +1934,7 @@ class UpdateRegexPatternSetResponse {
   public function __construct(shape(
   ?'next_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->next_lock_token = $next_lock_token ?? ;
+    $this->next_lock_token = $next_lock_token ?? "";
   }
 }
 
@@ -1956,10 +1956,10 @@ class UpdateRuleGroupRequest {
   ?'scope' => Scope,
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->rules = $rules ?? [];
     $this->scope = $scope ?? "";
     $this->visibility_config = $visibility_config ?? null;
@@ -1972,7 +1972,7 @@ class UpdateRuleGroupResponse {
   public function __construct(shape(
   ?'next_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->next_lock_token = $next_lock_token ?? ;
+    $this->next_lock_token = $next_lock_token ?? "";
   }
 }
 
@@ -1997,10 +1997,10 @@ class UpdateWebACLRequest {
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
     $this->default_action = $default_action ?? null;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->rules = $rules ?? [];
     $this->scope = $scope ?? "";
     $this->visibility_config = $visibility_config ?? null;
@@ -2013,7 +2013,7 @@ class UpdateWebACLResponse {
   public function __construct(shape(
   ?'next_lock_token' => LockToken,
   ) $s = shape()) {
-    $this->next_lock_token = $next_lock_token ?? ;
+    $this->next_lock_token = $next_lock_token ?? "";
   }
 }
 
@@ -2036,9 +2036,9 @@ class VisibilityConfig {
   ?'metric_name' => MetricName,
   ?'sampled_requests_enabled' => boolean,
   ) $s = shape()) {
-    $this->cloud_watch_metrics_enabled = $cloud_watch_metrics_enabled ?? ;
+    $this->cloud_watch_metrics_enabled = $cloud_watch_metrics_enabled ?? false;
     $this->metric_name = $metric_name ?? "";
-    $this->sampled_requests_enabled = $sampled_requests_enabled ?? ;
+    $this->sampled_requests_enabled = $sampled_requests_enabled ?? false;
   }
 }
 
@@ -2048,7 +2048,7 @@ class WAFAssociatedItemException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2058,7 +2058,7 @@ class WAFDuplicateItemException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2068,7 +2068,7 @@ class WAFInternalErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2078,7 +2078,7 @@ class WAFInvalidOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2094,10 +2094,10 @@ class WAFInvalidParameterException {
   ?'reason' => ErrorReason,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->field = $field ?? ;
-    $this->parameter = $parameter ?? ;
-    $this->reason = $reason ?? ;
-    $this->message = $message ?? ;
+    $this->field = $field ?? "";
+    $this->parameter = $parameter ?? "";
+    $this->reason = $reason ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2107,7 +2107,7 @@ class WAFInvalidPermissionPolicyException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2117,7 +2117,7 @@ class WAFInvalidResourceException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2127,7 +2127,7 @@ class WAFLimitsExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2137,7 +2137,7 @@ class WAFNonexistentItemException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2147,7 +2147,7 @@ class WAFOptimisticLockException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2157,7 +2157,7 @@ class WAFServiceLinkedRoleErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2167,7 +2167,7 @@ class WAFSubscriptionNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2177,7 +2177,7 @@ class WAFTagOperationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2187,7 +2187,7 @@ class WAFTagOperationInternalErrorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2197,7 +2197,7 @@ class WAFUnavailableEntityException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2227,15 +2227,15 @@ class WebACL {
   ?'rules' => Rules,
   ?'visibility_config' => VisibilityConfig,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->capacity = $capacity ?? ;
+    $this->arn = $arn ?? "";
+    $this->capacity = $capacity ?? 0;
     $this->default_action = $default_action ?? null;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
-    $this->managed_by_firewall_manager = $managed_by_firewall_manager ?? ;
-    $this->name = $name ?? ;
-    $this->post_process_firewall_manager_rule_groups = $post_process_firewall_manager_rule_groups ?? ;
-    $this->pre_process_firewall_manager_rule_groups = $pre_process_firewall_manager_rule_groups ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->managed_by_firewall_manager = $managed_by_firewall_manager ?? false;
+    $this->name = $name ?? "";
+    $this->post_process_firewall_manager_rule_groups = $post_process_firewall_manager_rule_groups ?? [];
+    $this->pre_process_firewall_manager_rule_groups = $pre_process_firewall_manager_rule_groups ?? [];
     $this->rules = $rules ?? [];
     $this->visibility_config = $visibility_config ?? null;
   }
@@ -2257,11 +2257,11 @@ class WebACLSummary {
   ?'lock_token' => LockToken,
   ?'name' => EntityName,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->arn = $arn ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->lock_token = $lock_token ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 

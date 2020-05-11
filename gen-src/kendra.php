@@ -30,7 +30,7 @@ class AccessControlListConfiguration {
   public function __construct(shape(
   ?'key_path' => S3ObjectKey,
   ) $s = shape()) {
-    $this->key_path = $key_path ?? ;
+    $this->key_path = $key_path ?? "";
   }
 }
 
@@ -40,7 +40,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -50,7 +50,7 @@ class AclConfiguration {
   public function __construct(shape(
   ?'allowed_groups_column_name' => ColumnName,
   ) $s = shape()) {
-    $this->allowed_groups_column_name = $allowed_groups_column_name ?? ;
+    $this->allowed_groups_column_name = $allowed_groups_column_name ?? "";
   }
 }
 
@@ -64,9 +64,9 @@ class AdditionalResultAttribute {
   ?'value' => AdditionalResultAttributeValue,
   ?'value_type' => AdditionalResultAttributeValueType,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
-    $this->value_type = $value_type ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? null;
+    $this->value_type = $value_type ?? "";
   }
 }
 
@@ -78,7 +78,7 @@ class AdditionalResultAttributeValue {
   public function __construct(shape(
   ?'text_with_highlights_value' => TextWithHighlights,
   ) $s = shape()) {
-    $this->text_with_highlights_value = $text_with_highlights_value ?? ;
+    $this->text_with_highlights_value = $text_with_highlights_value ?? null;
   }
 }
 
@@ -108,16 +108,16 @@ class AttributeFilter {
   ?'not_filter' => AttributeFilter,
   ?'or_all_filters' => AttributeFilterList,
   ) $s = shape()) {
-    $this->and_all_filters = $and_all_filters ?? ;
-    $this->contains_all = $contains_all ?? ;
-    $this->contains_any = $contains_any ?? ;
-    $this->equals_to = $equals_to ?? ;
-    $this->greater_than = $greater_than ?? ;
-    $this->greater_than_or_equals = $greater_than_or_equals ?? ;
-    $this->less_than = $less_than ?? ;
-    $this->less_than_or_equals = $less_than_or_equals ?? ;
-    $this->not_filter = $not_filter ?? ;
-    $this->or_all_filters = $or_all_filters ?? ;
+    $this->and_all_filters = $and_all_filters ?? [];
+    $this->contains_all = $contains_all ?? null;
+    $this->contains_any = $contains_any ?? null;
+    $this->equals_to = $equals_to ?? null;
+    $this->greater_than = $greater_than ?? null;
+    $this->greater_than_or_equals = $greater_than_or_equals ?? null;
+    $this->less_than = $less_than ?? null;
+    $this->less_than_or_equals = $less_than_or_equals ?? null;
+    $this->not_filter = $not_filter ?? null;
+    $this->or_all_filters = $or_all_filters ?? [];
   }
 }
 
@@ -142,7 +142,7 @@ class BatchDeleteDocumentResponse {
   public function __construct(shape(
   ?'failed_documents' => BatchDeleteDocumentResponseFailedDocuments,
   ) $s = shape()) {
-    $this->failed_documents = $failed_documents ?? ;
+    $this->failed_documents = $failed_documents ?? [];
   }
 }
 
@@ -158,7 +158,7 @@ class BatchDeleteDocumentResponseFailedDocument {
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -174,7 +174,7 @@ class BatchPutDocumentRequest {
   ?'index_id' => IndexId,
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
-    $this->documents = $documents ?? ;
+    $this->documents = $documents ?? [];
     $this->index_id = $index_id ?? "";
     $this->role_arn = $role_arn ?? "";
   }
@@ -186,7 +186,7 @@ class BatchPutDocumentResponse {
   public function __construct(shape(
   ?'failed_documents' => BatchPutDocumentResponseFailedDocuments,
   ) $s = shape()) {
-    $this->failed_documents = $failed_documents ?? ;
+    $this->failed_documents = $failed_documents ?? [];
   }
 }
 
@@ -202,7 +202,7 @@ class BatchPutDocumentResponseFailedDocument {
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -222,7 +222,7 @@ class ClickFeedback {
   ?'click_time' => Timestamp,
   ?'result_id' => ResultId,
   ) $s = shape()) {
-    $this->click_time = $click_time ?? ;
+    $this->click_time = $click_time ?? 0;
     $this->result_id = $result_id ?? "";
   }
 }
@@ -246,10 +246,10 @@ class ColumnConfiguration {
   ?'field_mappings' => DataSourceToIndexFieldMappingList,
   ) $s = shape()) {
     $this->change_detecting_columns = $change_detecting_columns ?? [];
-    $this->document_data_column_name = $document_data_column_name ?? ;
-    $this->document_id_column_name = $document_id_column_name ?? ;
-    $this->document_title_column_name = $document_title_column_name ?? ;
-    $this->field_mappings = $field_mappings ?? ;
+    $this->document_data_column_name = $document_data_column_name ?? "";
+    $this->document_id_column_name = $document_id_column_name ?? "";
+    $this->document_title_column_name = $document_title_column_name ?? "";
+    $this->field_mappings = $field_mappings ?? [];
   }
 }
 
@@ -261,7 +261,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -307,13 +307,13 @@ class CreateDataSourceRequest {
   ?'schedule' => ScanSchedule,
   ?'type' => DataSourceType,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
     $this->description = $description ?? "";
     $this->index_id = $index_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
-    $this->schedule = $schedule ?? ;
-    $this->type = $type ?? ;
+    $this->schedule = $schedule ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -323,7 +323,7 @@ class CreateDataSourceResponse {
   public function __construct(shape(
   ?'id' => DataSourceId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -343,7 +343,7 @@ class CreateFaqRequest {
   ) $s = shape()) {
     $this->description = $description ?? "";
     $this->index_id = $index_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->s_3_path = $s_3_path ?? null;
   }
@@ -355,7 +355,7 @@ class CreateFaqResponse {
   public function __construct(shape(
   ?'id' => FaqId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -373,9 +373,9 @@ class CreateIndexRequest {
   ?'role_arn' => RoleArn,
   ?'server_side_encryption_configuration' => ServerSideEncryptionConfiguration,
   ) $s = shape()) {
-    $this->client_token = $client_token ?? ;
+    $this->client_token = $client_token ?? "";
     $this->description = $description ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->server_side_encryption_configuration = $server_side_encryption_configuration ?? null;
   }
@@ -387,7 +387,7 @@ class CreateIndexResponse {
   public function __construct(shape(
   ?'id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -402,7 +402,7 @@ class DataSourceConfiguration {
   ?'share_point_configuration' => SharePointConfiguration,
   ) $s = shape()) {
     $this->database_configuration = $database_configuration ?? null;
-    $this->s_3_configuration = $s_3_configuration ?? ;
+    $this->s_3_configuration = $s_3_configuration ?? null;
     $this->share_point_configuration = $share_point_configuration ?? null;
   }
 }
@@ -437,12 +437,12 @@ class DataSourceSummary {
   ?'type' => DataSourceType,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -466,13 +466,13 @@ class DataSourceSyncJob {
   ?'start_time' => Timestamp,
   ?'status' => DataSourceSyncJobStatus,
   ) $s = shape()) {
-    $this->data_source_error_code = $data_source_error_code ?? ;
-    $this->end_time = $end_time ?? ;
+    $this->data_source_error_code = $data_source_error_code ?? "";
+    $this->end_time = $end_time ?? 0;
     $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->execution_id = $execution_id ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->execution_id = $execution_id ?? "";
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -491,7 +491,7 @@ class DataSourceToIndexFieldMapping {
   ?'index_field_name' => IndexFieldName,
   ) $s = shape()) {
     $this->data_source_field_name = $data_source_field_name ?? "";
-    $this->date_field_format = $date_field_format ?? ;
+    $this->date_field_format = $date_field_format ?? "";
     $this->index_field_name = $index_field_name ?? "";
   }
 }
@@ -508,8 +508,8 @@ class DataSourceVpcConfiguration {
   ?'security_group_ids' => SecurityGroupIdList,
   ?'subnet_ids' => SubnetIdList,
   ) $s = shape()) {
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -531,7 +531,7 @@ class DatabaseConfiguration {
     $this->column_configuration = $column_configuration ?? null;
     $this->connection_configuration = $connection_configuration ?? null;
     $this->database_engine_type = $database_engine_type ?? "";
-    $this->vpc_configuration = $vpc_configuration ?? ;
+    $this->vpc_configuration = $vpc_configuration ?? null;
   }
 }
 
@@ -551,7 +551,7 @@ class DeleteFaqRequest {
   ?'id' => FaqId,
   ?'index_id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
   }
 }
@@ -562,7 +562,7 @@ class DeleteIndexRequest {
   public function __construct(shape(
   ?'id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -574,7 +574,7 @@ class DescribeDataSourceRequest {
   ?'id' => DataSourceId,
   ?'index_id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
   }
 }
@@ -607,18 +607,18 @@ class DescribeDataSourceResponse {
   ?'type' => DataSourceType,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
-    $this->created_at = $created_at ?? ;
+    $this->configuration = $configuration ?? null;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
-    $this->schedule = $schedule ?? ;
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->schedule = $schedule ?? "";
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -630,7 +630,7 @@ class DescribeFaqRequest {
   ?'id' => FaqId,
   ?'index_id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
   }
 }
@@ -659,16 +659,16 @@ class DescribeFaqResponse {
   ?'status' => FaqStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->s_3_path = $s_3_path ?? null;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -678,7 +678,7 @@ class DescribeIndexRequest {
   public function __construct(shape(
   ?'id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -708,17 +708,17 @@ class DescribeIndexResponse {
   ?'status' => IndexStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
+    $this->created_at = $created_at ?? 0;
     $this->description = $description ?? "";
-    $this->document_metadata_configurations = $document_metadata_configurations ?? ;
+    $this->document_metadata_configurations = $document_metadata_configurations ?? [];
     $this->error_message = $error_message ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_statistics = $index_statistics ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->server_side_encryption_configuration = $server_side_encryption_configuration ?? null;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -742,11 +742,11 @@ class Document {
   ?'s_3_path' => S3Path,
   ?'title' => Title,
   ) $s = shape()) {
-    $this->access_control_list = $access_control_list ?? ;
-    $this->attributes = $attributes ?? ;
+    $this->access_control_list = $access_control_list ?? [];
+    $this->attributes = $attributes ?? [];
     $this->blob = $blob ?? "";
     $this->content_type = $content_type ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->s_3_path = $s_3_path ?? null;
     $this->title = $title ?? "";
   }
@@ -760,8 +760,8 @@ class DocumentAttribute {
   ?'key' => DocumentAttributeKey,
   ?'value' => DocumentAttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? null;
   }
 }
 
@@ -787,10 +787,10 @@ class DocumentAttributeValue {
   ?'string_list_value' => DocumentAttributeStringListValue,
   ?'string_value' => DocumentAttributeStringValue,
   ) $s = shape()) {
-    $this->date_value = $date_value ?? ;
-    $this->long_value = $long_value ?? ;
-    $this->string_list_value = $string_list_value ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->date_value = $date_value ?? 0;
+    $this->long_value = $long_value ?? 0;
+    $this->string_list_value = $string_list_value ?? [];
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -802,7 +802,7 @@ class DocumentAttributeValueCountPair {
   ?'count' => int,
   ?'document_attribute_value' => DocumentAttributeValue,
   ) $s = shape()) {
-    $this->count = $count ?? ;
+    $this->count = $count ?? 0;
     $this->document_attribute_value = $document_attribute_value ?? null;
   }
 }
@@ -831,10 +831,10 @@ class DocumentMetadataConfiguration {
   ?'search' => Search,
   ?'type' => DocumentAttributeValueType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->relevance = $relevance ?? null;
     $this->search = $search ?? null;
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -848,7 +848,7 @@ class DocumentsMetadataConfiguration {
   public function __construct(shape(
   ?'s_3_prefix' => S3ObjectKey,
   ) $s = shape()) {
-    $this->s_3_prefix = $s_3_prefix ?? ;
+    $this->s_3_prefix = $s_3_prefix ?? "";
   }
 }
 
@@ -879,7 +879,7 @@ class FacetResult {
   ?'document_attribute_value_count_pairs' => DocumentAttributeValueCountPairList,
   ) $s = shape()) {
     $this->document_attribute_key = $document_attribute_key ?? "";
-    $this->document_attribute_value_count_pairs = $document_attribute_value_count_pairs ?? ;
+    $this->document_attribute_value_count_pairs = $document_attribute_value_count_pairs ?? [];
   }
 }
 
@@ -915,11 +915,11 @@ class FaqSummary {
   ?'status' => FaqStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -935,9 +935,9 @@ class Highlight {
   ?'end_offset' => int,
   ?'top_answer' => boolean,
   ) $s = shape()) {
-    $this->begin_offset = $begin_offset ?? ;
-    $this->end_offset = $end_offset ?? ;
-    $this->top_answer = $top_answer ?? ;
+    $this->begin_offset = $begin_offset ?? 0;
+    $this->end_offset = $end_offset ?? 0;
+    $this->top_answer = $top_answer ?? false;
   }
 }
 
@@ -959,11 +959,11 @@ class IndexConfigurationSummary {
   ?'status' => IndexStatus,
   ?'updated_at' => Timestamp,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
-    $this->updated_at = $updated_at ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
+    $this->updated_at = $updated_at ?? 0;
   }
 }
 
@@ -1002,7 +1002,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1024,12 +1024,12 @@ class ListDataSourceSyncJobsRequest {
   ?'start_time_filter' => TimeRange,
   ?'status_filter' => DataSourceSyncJobStatus,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->start_time_filter = $start_time_filter ?? ;
-    $this->status_filter = $status_filter ?? ;
+    $this->start_time_filter = $start_time_filter ?? null;
+    $this->status_filter = $status_filter ?? "";
   }
 }
 
@@ -1041,7 +1041,7 @@ class ListDataSourceSyncJobsResponse {
   ?'history' => DataSourceSyncJobHistoryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->history = $history ?? ;
+    $this->history = $history ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1057,7 +1057,7 @@ class ListDataSourcesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->index_id = $index_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1071,7 +1071,7 @@ class ListDataSourcesResponse {
   ?'summary_items' => DataSourceSummaryList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->summary_items = $summary_items ?? ;
+    $this->summary_items = $summary_items ?? [];
   }
 }
 
@@ -1086,7 +1086,7 @@ class ListFaqsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->index_id = $index_id ?? "";
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1112,7 +1112,7 @@ class ListIndicesRequest {
   ?'max_results' => MaxResultsIntegerForListIndicesRequest,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
+    $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1125,7 +1125,7 @@ class ListIndicesResponse {
   ?'index_configuration_summary_items' => IndexConfigurationSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->index_configuration_summary_items = $index_configuration_summary_items ?? ;
+    $this->index_configuration_summary_items = $index_configuration_summary_items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1154,9 +1154,9 @@ class Principal {
   ?'name' => PrincipalName,
   ?'type' => PrincipalType,
   ) $s = shape()) {
-    $this->access = $access ?? ;
-    $this->name = $name ?? ;
-    $this->type = $type ?? ;
+    $this->access = $access ?? "";
+    $this->name = $name ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1189,13 +1189,13 @@ class QueryRequest {
   ?'requested_document_attributes' => DocumentAttributeKeyList,
   ) $s = shape()) {
     $this->attribute_filter = $attribute_filter ?? null;
-    $this->facets = $facets ?? ;
+    $this->facets = $facets ?? [];
     $this->index_id = $index_id ?? "";
-    $this->page_number = $page_number ?? ;
-    $this->page_size = $page_size ?? ;
-    $this->query_result_type_filter = $query_result_type_filter ?? ;
+    $this->page_number = $page_number ?? 0;
+    $this->page_size = $page_size ?? 0;
+    $this->query_result_type_filter = $query_result_type_filter ?? "";
     $this->query_text = $query_text ?? "";
-    $this->requested_document_attributes = $requested_document_attributes ?? ;
+    $this->requested_document_attributes = $requested_document_attributes ?? [];
   }
 }
 
@@ -1211,10 +1211,10 @@ class QueryResult {
   ?'result_items' => QueryResultItemList,
   ?'total_number_of_results' => int,
   ) $s = shape()) {
-    $this->facet_results = $facet_results ?? ;
+    $this->facet_results = $facet_results ?? [];
     $this->query_id = $query_id ?? "";
-    $this->result_items = $result_items ?? ;
-    $this->total_number_of_results = $total_number_of_results ?? ;
+    $this->result_items = $result_items ?? [];
+    $this->total_number_of_results = $total_number_of_results ?? 0;
   }
 }
 
@@ -1238,14 +1238,14 @@ class QueryResultItem {
   ?'id' => ResultId,
   ?'type' => QueryResultType,
   ) $s = shape()) {
-    $this->additional_attributes = $additional_attributes ?? ;
-    $this->document_attributes = $document_attributes ?? ;
-    $this->document_excerpt = $document_excerpt ?? ;
+    $this->additional_attributes = $additional_attributes ?? [];
+    $this->document_attributes = $document_attributes ?? [];
+    $this->document_excerpt = $document_excerpt ?? null;
     $this->document_id = $document_id ?? "";
-    $this->document_title = $document_title ?? ;
-    $this->document_uri = $document_uri ?? ;
-    $this->id = $id ?? ;
-    $this->type = $type ?? ;
+    $this->document_title = $document_title ?? null;
+    $this->document_uri = $document_uri ?? "";
+    $this->id = $id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1272,9 +1272,9 @@ class Relevance {
   ?'value_importance_map' => ValueImportanceMap,
   ) $s = shape()) {
     $this->duration = $duration ?? "";
-    $this->freshness = $freshness ?? ;
+    $this->freshness = $freshness ?? false;
     $this->importance = $importance ?? 0;
-    $this->rank_order = $rank_order ?? ;
+    $this->rank_order = $rank_order ?? "";
     $this->value_importance_map = $value_importance_map ?? [];
   }
 }
@@ -1287,7 +1287,7 @@ class RelevanceFeedback {
   ?'relevance_value' => RelevanceType,
   ?'result_id' => ResultId,
   ) $s = shape()) {
-    $this->relevance_value = $relevance_value ?? ;
+    $this->relevance_value = $relevance_value ?? "";
     $this->result_id = $result_id ?? "";
   }
 }
@@ -1302,7 +1302,7 @@ class ResourceAlreadyExistException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1312,7 +1312,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1322,7 +1322,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1332,7 +1332,7 @@ class ResourceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1357,10 +1357,10 @@ class S3DataSourceConfiguration {
   ?'inclusion_prefixes' => DataSourceInclusionsExclusionsStrings,
   ) $s = shape()) {
     $this->access_control_list_configuration = $access_control_list_configuration ?? null;
-    $this->bucket_name = $bucket_name ?? ;
+    $this->bucket_name = $bucket_name ?? "";
     $this->documents_metadata_configuration = $documents_metadata_configuration ?? null;
-    $this->exclusion_patterns = $exclusion_patterns ?? ;
-    $this->inclusion_prefixes = $inclusion_prefixes ?? ;
+    $this->exclusion_patterns = $exclusion_patterns ?? [];
+    $this->inclusion_prefixes = $inclusion_prefixes ?? [];
   }
 }
 
@@ -1374,8 +1374,8 @@ class S3Path {
   ?'bucket' => S3BucketName,
   ?'key' => S3ObjectKey,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
   }
 }
 
@@ -1391,9 +1391,9 @@ class Search {
   ?'facetable' => boolean,
   ?'searchable' => boolean,
   ) $s = shape()) {
-    $this->displayable = $displayable ?? ;
-    $this->facetable = $facetable ?? ;
-    $this->searchable = $searchable ?? ;
+    $this->displayable = $displayable ?? false;
+    $this->facetable = $facetable ?? false;
+    $this->searchable = $searchable ?? false;
   }
 }
 
@@ -1417,7 +1417,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1445,16 +1445,16 @@ class SharePointConfiguration {
   ?'use_change_log' => boolean,
   ?'vpc_configuration' => DataSourceVpcConfiguration,
   ) $s = shape()) {
-    $this->crawl_attachments = $crawl_attachments ?? ;
-    $this->document_title_field_name = $document_title_field_name ?? ;
-    $this->exclusion_patterns = $exclusion_patterns ?? ;
-    $this->field_mappings = $field_mappings ?? ;
-    $this->inclusion_patterns = $inclusion_patterns ?? ;
+    $this->crawl_attachments = $crawl_attachments ?? false;
+    $this->document_title_field_name = $document_title_field_name ?? "";
+    $this->exclusion_patterns = $exclusion_patterns ?? [];
+    $this->field_mappings = $field_mappings ?? [];
+    $this->inclusion_patterns = $inclusion_patterns ?? [];
     $this->secret_arn = $secret_arn ?? "";
     $this->share_point_version = $share_point_version ?? "";
-    $this->urls = $urls ?? ;
-    $this->use_change_log = $use_change_log ?? ;
-    $this->vpc_configuration = $vpc_configuration ?? ;
+    $this->urls = $urls ?? [];
+    $this->use_change_log = $use_change_log ?? false;
+    $this->vpc_configuration = $vpc_configuration ?? null;
   }
 }
 
@@ -1470,7 +1470,7 @@ class StartDataSourceSyncJobRequest {
   ?'id' => DataSourceId,
   ?'index_id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
   }
 }
@@ -1481,7 +1481,7 @@ class StartDataSourceSyncJobResponse {
   public function __construct(shape(
   ?'execution_id' => string,
   ) $s = shape()) {
-    $this->execution_id = $execution_id ?? ;
+    $this->execution_id = $execution_id ?? "";
   }
 }
 
@@ -1493,7 +1493,7 @@ class StopDataSourceSyncJobRequest {
   ?'id' => DataSourceId,
   ?'index_id' => IndexId,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
   }
 }
@@ -1512,10 +1512,10 @@ class SubmitFeedbackRequest {
   ?'query_id' => QueryId,
   ?'relevance_feedback_items' => RelevanceFeedbackList,
   ) $s = shape()) {
-    $this->click_feedback_items = $click_feedback_items ?? ;
+    $this->click_feedback_items = $click_feedback_items ?? [];
     $this->index_id = $index_id ?? "";
     $this->query_id = $query_id ?? "";
-    $this->relevance_feedback_items = $relevance_feedback_items ?? ;
+    $this->relevance_feedback_items = $relevance_feedback_items ?? [];
   }
 }
 
@@ -1543,8 +1543,8 @@ class TextWithHighlights {
   ?'highlights' => HighlightList,
   ?'text' => string,
   ) $s = shape()) {
-    $this->highlights = $highlights ?? ;
-    $this->text = $text ?? ;
+    $this->highlights = $highlights ?? [];
+    $this->text = $text ?? "";
   }
 }
 
@@ -1554,7 +1554,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1566,8 +1566,8 @@ class TimeRange {
   ?'end_time' => Timestamp,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1593,13 +1593,13 @@ class UpdateDataSourceRequest {
   ?'role_arn' => RoleArn,
   ?'schedule' => ScanSchedule,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
     $this->description = $description ?? "";
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->index_id = $index_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
-    $this->schedule = $schedule ?? ;
+    $this->schedule = $schedule ?? "";
   }
 }
 
@@ -1618,9 +1618,9 @@ class UpdateIndexRequest {
   ?'role_arn' => RoleArn,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->document_metadata_configuration_updates = $document_metadata_configuration_updates ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
+    $this->document_metadata_configuration_updates = $document_metadata_configuration_updates ?? [];
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
   }
 }
@@ -1633,7 +1633,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

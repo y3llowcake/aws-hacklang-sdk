@@ -40,10 +40,10 @@ class AddPermissionRequest {
   ?'label' => string,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->aws_account_ids = $aws_account_ids ?? ;
-    $this->actions = $actions ?? ;
-    $this->label = $label ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->aws_account_ids = $aws_account_ids ?? [];
+    $this->actions = $actions ?? [];
+    $this->label = $label ?? "";
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -75,10 +75,10 @@ class BatchResultErrorEntry {
   ?'message' => string,
   ?'sender_fault' => boolean,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->id = $id ?? ;
-    $this->message = $message ?? null;
-    $this->sender_fault = $sender_fault ?? ;
+    $this->code = $code ?? "";
+    $this->id = $id ?? "";
+    $this->message = $message ?? "";
+    $this->sender_fault = $sender_fault ?? false;
   }
 }
 
@@ -98,8 +98,8 @@ class ChangeMessageVisibilityBatchRequest {
   ?'entries' => ChangeMessageVisibilityBatchRequestEntryList,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->entries = $entries ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -113,9 +113,9 @@ class ChangeMessageVisibilityBatchRequestEntry {
   ?'receipt_handle' => string,
   ?'visibility_timeout' => int,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->receipt_handle = $receipt_handle ?? ;
-    $this->visibility_timeout = $visibility_timeout ?? ;
+    $this->id = $id ?? "";
+    $this->receipt_handle = $receipt_handle ?? "";
+    $this->visibility_timeout = $visibility_timeout ?? 0;
   }
 }
 
@@ -129,8 +129,8 @@ class ChangeMessageVisibilityBatchResult {
   ?'failed' => BatchResultErrorEntryList,
   ?'successful' => ChangeMessageVisibilityBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? ;
-    $this->successful = $successful ?? ;
+    $this->failed = $failed ?? [];
+    $this->successful = $successful ?? [];
   }
 }
 
@@ -140,7 +140,7 @@ class ChangeMessageVisibilityBatchResultEntry {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -156,9 +156,9 @@ class ChangeMessageVisibilityRequest {
   ?'receipt_handle' => string,
   ?'visibility_timeout' => int,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
-    $this->receipt_handle = $receipt_handle ?? ;
-    $this->visibility_timeout = $visibility_timeout ?? ;
+    $this->queue_url = $queue_url ?? "";
+    $this->receipt_handle = $receipt_handle ?? "";
+    $this->visibility_timeout = $visibility_timeout ?? 0;
   }
 }
 
@@ -172,9 +172,9 @@ class CreateQueueRequest {
   ?'queue_name' => string,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->queue_name = $queue_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->queue_name = $queue_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -184,7 +184,7 @@ class CreateQueueResult {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -196,8 +196,8 @@ class DeleteMessageBatchRequest {
   ?'entries' => DeleteMessageBatchRequestEntryList,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->entries = $entries ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -209,8 +209,8 @@ class DeleteMessageBatchRequestEntry {
   ?'id' => string,
   ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->receipt_handle = $receipt_handle ?? ;
+    $this->id = $id ?? "";
+    $this->receipt_handle = $receipt_handle ?? "";
   }
 }
 
@@ -224,8 +224,8 @@ class DeleteMessageBatchResult {
   ?'failed' => BatchResultErrorEntryList,
   ?'successful' => DeleteMessageBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? ;
-    $this->successful = $successful ?? ;
+    $this->failed = $failed ?? [];
+    $this->successful = $successful ?? [];
   }
 }
 
@@ -235,7 +235,7 @@ class DeleteMessageBatchResultEntry {
   public function __construct(shape(
   ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
   }
 }
 
@@ -249,8 +249,8 @@ class DeleteMessageRequest {
   ?'queue_url' => string,
   ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
-    $this->receipt_handle = $receipt_handle ?? ;
+    $this->queue_url = $queue_url ?? "";
+    $this->receipt_handle = $receipt_handle ?? "";
   }
 }
 
@@ -260,7 +260,7 @@ class DeleteQueueRequest {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -279,8 +279,8 @@ class GetQueueAttributesRequest {
   ?'attribute_names' => AttributeNameList,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->attribute_names = $attribute_names ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -290,7 +290,7 @@ class GetQueueAttributesResult {
   public function __construct(shape(
   ?'attributes' => QueueAttributeMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -302,8 +302,8 @@ class GetQueueUrlRequest {
   ?'queue_name' => string,
   ?'queue_owner_aws_account_id' => string,
   ) $s = shape()) {
-    $this->queue_name = $queue_name ?? ;
-    $this->queue_owner_aws_account_id = $queue_owner_aws_account_id ?? ;
+    $this->queue_name = $queue_name ?? "";
+    $this->queue_owner_aws_account_id = $queue_owner_aws_account_id ?? "";
   }
 }
 
@@ -313,7 +313,7 @@ class GetQueueUrlResult {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -353,7 +353,7 @@ class ListDeadLetterSourceQueuesRequest {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -363,7 +363,7 @@ class ListDeadLetterSourceQueuesResult {
   public function __construct(shape(
   ?'queue_urls' => QueueUrlList,
   ) $s = shape()) {
-    $this->queue_urls = $queue_urls ?? ;
+    $this->queue_urls = $queue_urls ?? [];
   }
 }
 
@@ -373,7 +373,7 @@ class ListQueueTagsRequest {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -383,7 +383,7 @@ class ListQueueTagsResult {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -393,7 +393,7 @@ class ListQueuesRequest {
   public function __construct(shape(
   ?'queue_name_prefix' => string,
   ) $s = shape()) {
-    $this->queue_name_prefix = $queue_name_prefix ?? ;
+    $this->queue_name_prefix = $queue_name_prefix ?? "";
   }
 }
 
@@ -403,7 +403,7 @@ class ListQueuesResult {
   public function __construct(shape(
   ?'queue_urls' => QueueUrlList,
   ) $s = shape()) {
-    $this->queue_urls = $queue_urls ?? ;
+    $this->queue_urls = $queue_urls ?? [];
   }
 }
 
@@ -425,13 +425,13 @@ class Message {
   ?'message_id' => string,
   ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->body = $body ?? ;
-    $this->md_5_of_body = $md_5_of_body ?? ;
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? ;
-    $this->message_attributes = $message_attributes ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->receipt_handle = $receipt_handle ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->body = $body ?? "";
+    $this->md_5_of_body = $md_5_of_body ?? "";
+    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
+    $this->message_attributes = $message_attributes ?? [];
+    $this->message_id = $message_id ?? "";
+    $this->receipt_handle = $receipt_handle ?? "";
   }
 }
 
@@ -453,11 +453,11 @@ class MessageAttributeValue {
   ?'string_list_values' => StringList,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->binary_list_values = $binary_list_values ?? ;
-    $this->binary_value = $binary_value ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->string_list_values = $string_list_values ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->binary_list_values = $binary_list_values ?? [];
+    $this->binary_value = $binary_value ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->string_list_values = $string_list_values ?? [];
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -494,11 +494,11 @@ class MessageSystemAttributeValue {
   ?'string_list_values' => StringList,
   ?'string_value' => string,
   ) $s = shape()) {
-    $this->binary_list_values = $binary_list_values ?? ;
-    $this->binary_value = $binary_value ?? ;
-    $this->data_type = $data_type ?? ;
-    $this->string_list_values = $string_list_values ?? ;
-    $this->string_value = $string_value ?? ;
+    $this->binary_list_values = $binary_list_values ?? [];
+    $this->binary_value = $binary_value ?? "";
+    $this->data_type = $data_type ?? "";
+    $this->string_list_values = $string_list_values ?? [];
+    $this->string_value = $string_value ?? "";
   }
 }
 
@@ -522,7 +522,7 @@ class PurgeQueueRequest {
   public function __construct(shape(
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -578,13 +578,13 @@ class ReceiveMessageRequest {
   ?'visibility_timeout' => int,
   ?'wait_time_seconds' => int,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? ;
-    $this->max_number_of_messages = $max_number_of_messages ?? ;
-    $this->message_attribute_names = $message_attribute_names ?? ;
-    $this->queue_url = $queue_url ?? ;
-    $this->receive_request_attempt_id = $receive_request_attempt_id ?? ;
-    $this->visibility_timeout = $visibility_timeout ?? ;
-    $this->wait_time_seconds = $wait_time_seconds ?? ;
+    $this->attribute_names = $attribute_names ?? [];
+    $this->max_number_of_messages = $max_number_of_messages ?? 0;
+    $this->message_attribute_names = $message_attribute_names ?? [];
+    $this->queue_url = $queue_url ?? "";
+    $this->receive_request_attempt_id = $receive_request_attempt_id ?? "";
+    $this->visibility_timeout = $visibility_timeout ?? 0;
+    $this->wait_time_seconds = $wait_time_seconds ?? 0;
   }
 }
 
@@ -594,7 +594,7 @@ class ReceiveMessageResult {
   public function __construct(shape(
   ?'messages' => MessageList,
   ) $s = shape()) {
-    $this->messages = $messages ?? ;
+    $this->messages = $messages ?? [];
   }
 }
 
@@ -606,8 +606,8 @@ class RemovePermissionRequest {
   ?'label' => string,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->label = $label ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->label = $label ?? "";
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -619,8 +619,8 @@ class SendMessageBatchRequest {
   ?'entries' => SendMessageBatchRequestEntryList,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->entries = $entries ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -642,13 +642,13 @@ class SendMessageBatchRequestEntry {
   ?'message_group_id' => string,
   ?'message_system_attributes' => MessageBodySystemAttributeMap,
   ) $s = shape()) {
-    $this->delay_seconds = $delay_seconds ?? ;
-    $this->id = $id ?? ;
-    $this->message_attributes = $message_attributes ?? ;
-    $this->message_body = $message_body ?? ;
-    $this->message_deduplication_id = $message_deduplication_id ?? ;
-    $this->message_group_id = $message_group_id ?? ;
-    $this->message_system_attributes = $message_system_attributes ?? ;
+    $this->delay_seconds = $delay_seconds ?? 0;
+    $this->id = $id ?? "";
+    $this->message_attributes = $message_attributes ?? [];
+    $this->message_body = $message_body ?? "";
+    $this->message_deduplication_id = $message_deduplication_id ?? "";
+    $this->message_group_id = $message_group_id ?? "";
+    $this->message_system_attributes = $message_system_attributes ?? [];
   }
 }
 
@@ -662,8 +662,8 @@ class SendMessageBatchResult {
   ?'failed' => BatchResultErrorEntryList,
   ?'successful' => SendMessageBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? ;
-    $this->successful = $successful ?? ;
+    $this->failed = $failed ?? [];
+    $this->successful = $successful ?? [];
   }
 }
 
@@ -683,12 +683,12 @@ class SendMessageBatchResultEntry {
   ?'message_id' => string,
   ?'sequence_number' => string,
   ) $s = shape()) {
-    $this->id = $id ?? ;
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? ;
-    $this->md_5_of_message_body = $md_5_of_message_body ?? ;
-    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->sequence_number = $sequence_number ?? ;
+    $this->id = $id ?? "";
+    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
+    $this->md_5_of_message_body = $md_5_of_message_body ?? "";
+    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? "";
+    $this->message_id = $message_id ?? "";
+    $this->sequence_number = $sequence_number ?? "";
   }
 }
 
@@ -712,13 +712,13 @@ class SendMessageRequest {
   ?'message_system_attributes' => MessageBodySystemAttributeMap,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->delay_seconds = $delay_seconds ?? ;
-    $this->message_attributes = $message_attributes ?? ;
-    $this->message_body = $message_body ?? ;
-    $this->message_deduplication_id = $message_deduplication_id ?? ;
-    $this->message_group_id = $message_group_id ?? ;
-    $this->message_system_attributes = $message_system_attributes ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->delay_seconds = $delay_seconds ?? 0;
+    $this->message_attributes = $message_attributes ?? [];
+    $this->message_body = $message_body ?? "";
+    $this->message_deduplication_id = $message_deduplication_id ?? "";
+    $this->message_group_id = $message_group_id ?? "";
+    $this->message_system_attributes = $message_system_attributes ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -736,11 +736,11 @@ class SendMessageResult {
   ?'message_id' => string,
   ?'sequence_number' => string,
   ) $s = shape()) {
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? ;
-    $this->md_5_of_message_body = $md_5_of_message_body ?? ;
-    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? ;
-    $this->message_id = $message_id ?? ;
-    $this->sequence_number = $sequence_number ?? ;
+    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
+    $this->md_5_of_message_body = $md_5_of_message_body ?? "";
+    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? "";
+    $this->message_id = $message_id ?? "";
+    $this->sequence_number = $sequence_number ?? "";
   }
 }
 
@@ -752,8 +752,8 @@ class SetQueueAttributesRequest {
   ?'attributes' => QueueAttributeMap,
   ?'queue_url' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
-    $this->queue_url = $queue_url ?? ;
+    $this->attributes = $attributes ?? [];
+    $this->queue_url = $queue_url ?? "";
   }
 }
 
@@ -775,8 +775,8 @@ class TagQueueRequest {
   ?'queue_url' => string,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
-    $this->tags = $tags ?? ;
+    $this->queue_url = $queue_url ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -804,8 +804,8 @@ class UntagQueueRequest {
   ?'queue_url' => string,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->queue_url = $queue_url ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

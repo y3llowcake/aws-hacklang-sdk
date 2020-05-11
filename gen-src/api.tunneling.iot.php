@@ -23,8 +23,8 @@ class CloseTunnelRequest {
   ?'delete' => DeleteFlag,
   ?'tunnel_id' => TunnelId,
   ) $s = shape()) {
-    $this->delete = $delete ?? ;
-    $this->tunnel_id = $tunnel_id ?? ;
+    $this->delete = $delete ?? false;
+    $this->tunnel_id = $tunnel_id ?? "";
   }
 }
 
@@ -43,8 +43,8 @@ class ConnectionState {
   ?'last_updated_at' => DateType,
   ?'status' => ConnectionStatus,
   ) $s = shape()) {
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->status = $status ?? ;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -60,7 +60,7 @@ class DescribeTunnelRequest {
   public function __construct(shape(
   ?'tunnel_id' => TunnelId,
   ) $s = shape()) {
-    $this->tunnel_id = $tunnel_id ?? ;
+    $this->tunnel_id = $tunnel_id ?? "";
   }
 }
 
@@ -70,7 +70,7 @@ class DescribeTunnelResponse {
   public function __construct(shape(
   ?'tunnel' => Tunnel,
   ) $s = shape()) {
-    $this->tunnel = $tunnel ?? ;
+    $this->tunnel = $tunnel ?? null;
   }
 }
 
@@ -84,8 +84,8 @@ class DestinationConfig {
   ?'services' => ServiceList,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->services = $services ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->services = $services ?? [];
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -97,7 +97,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -107,7 +107,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -117,7 +117,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -131,9 +131,9 @@ class ListTunnelsRequest {
   ?'next_token' => NextToken,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -145,8 +145,8 @@ class ListTunnelsResponse {
   ?'next_token' => NextToken,
   ?'tunnel_summaries' => TunnelSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->tunnel_summaries = $tunnel_summaries ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->tunnel_summaries = $tunnel_summaries ?? [];
   }
 }
 
@@ -166,10 +166,10 @@ class OpenTunnelRequest {
   ?'tags' => TagList,
   ?'timeout_config' => TimeoutConfig,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->destination_config = $destination_config ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_config = $timeout_config ?? ;
+    $this->description = $description ?? "";
+    $this->destination_config = $destination_config ?? null;
+    $this->tags = $tags ?? [];
+    $this->timeout_config = $timeout_config ?? null;
   }
 }
 
@@ -185,10 +185,10 @@ class OpenTunnelResponse {
   ?'tunnel_arn' => TunnelArn,
   ?'tunnel_id' => TunnelId,
   ) $s = shape()) {
-    $this->destination_access_token = $destination_access_token ?? ;
-    $this->source_access_token = $source_access_token ?? ;
-    $this->tunnel_arn = $tunnel_arn ?? ;
-    $this->tunnel_id = $tunnel_id ?? ;
+    $this->destination_access_token = $destination_access_token ?? "";
+    $this->source_access_token = $source_access_token ?? "";
+    $this->tunnel_arn = $tunnel_arn ?? "";
+    $this->tunnel_id = $tunnel_id ?? "";
   }
 }
 
@@ -198,7 +198,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -214,8 +214,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -233,8 +233,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -255,7 +255,7 @@ class TimeoutConfig {
   public function __construct(shape(
   ?'max_lifetime_timeout_minutes' => TimeoutInMin,
   ) $s = shape()) {
-    $this->max_lifetime_timeout_minutes = $max_lifetime_timeout_minutes ?? ;
+    $this->max_lifetime_timeout_minutes = $max_lifetime_timeout_minutes ?? 0;
   }
 }
 
@@ -287,17 +287,17 @@ class Tunnel {
   ?'tunnel_arn' => TunnelArn,
   ?'tunnel_id' => TunnelId,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->destination_config = $destination_config ?? ;
-    $this->destination_connection_state = $destination_connection_state ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->source_connection_state = $source_connection_state ?? ;
-    $this->status = $status ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_config = $timeout_config ?? ;
-    $this->tunnel_arn = $tunnel_arn ?? ;
-    $this->tunnel_id = $tunnel_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->destination_config = $destination_config ?? null;
+    $this->destination_connection_state = $destination_connection_state ?? null;
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->source_connection_state = $source_connection_state ?? null;
+    $this->status = $status ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout_config = $timeout_config ?? null;
+    $this->tunnel_arn = $tunnel_arn ?? "";
+    $this->tunnel_id = $tunnel_id ?? "";
   }
 }
 
@@ -323,12 +323,12 @@ class TunnelSummary {
   ?'tunnel_arn' => TunnelArn,
   ?'tunnel_id' => TunnelId,
   ) $s = shape()) {
-    $this->created_at = $created_at ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_at = $last_updated_at ?? ;
-    $this->status = $status ?? ;
-    $this->tunnel_arn = $tunnel_arn ?? ;
-    $this->tunnel_id = $tunnel_id ?? ;
+    $this->created_at = $created_at ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_at = $last_updated_at ?? 0;
+    $this->status = $status ?? "";
+    $this->tunnel_arn = $tunnel_arn ?? "";
+    $this->tunnel_id = $tunnel_id ?? "";
   }
 }
 
@@ -342,8 +342,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

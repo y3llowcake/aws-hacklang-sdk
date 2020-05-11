@@ -18,7 +18,7 @@ class AlreadyExistsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -28,7 +28,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -40,7 +40,7 @@ class CallInstructionsMessageType {
   public function __construct(shape(
   ?'text' => NonEmptyString,
   ) $s = shape()) {
-    $this->text = $text ?? ;
+    $this->text = $text ?? "";
   }
 }
 
@@ -52,8 +52,8 @@ class CloudWatchLogsDestination {
   ?'iam_role_arn' => string,
   ?'log_group_arn' => string,
   ) $s = shape()) {
-    $this->iam_role_arn = $iam_role_arn ?? ;
-    $this->log_group_arn = $log_group_arn ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? "";
+    $this->log_group_arn = $log_group_arn ?? "";
   }
 }
 
@@ -69,9 +69,9 @@ class CreateConfigurationSetEventDestinationRequest {
   ?'event_destination' => EventDestinationDefinition,
   ?'event_destination_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
     $this->event_destination = $event_destination ?? null;
-    $this->event_destination_name = $event_destination_name ?? ;
+    $this->event_destination_name = $event_destination_name ?? "";
   }
 }
 
@@ -88,7 +88,7 @@ class CreateConfigurationSetRequest {
   public function __construct(shape(
   ?'configuration_set_name' => WordCharactersWithDelimiters,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
   }
 }
 
@@ -107,8 +107,8 @@ class DeleteConfigurationSetEventDestinationRequest {
   ?'configuration_set_name' => __string,
   ?'event_destination_name' => __string,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
-    $this->event_destination_name = $event_destination_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
+    $this->event_destination_name = $event_destination_name ?? "";
   }
 }
 
@@ -125,7 +125,7 @@ class DeleteConfigurationSetRequest {
   public function __construct(shape(
   ?'configuration_set_name' => __string,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
   }
 }
 
@@ -153,10 +153,10 @@ class EventDestination {
   ?'sns_destination' => SnsDestination,
   ) $s = shape()) {
     $this->cloud_watch_logs_destination = $cloud_watch_logs_destination ?? null;
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->kinesis_firehose_destination = $kinesis_firehose_destination ?? null;
-    $this->matching_event_types = $matching_event_types ?? ;
-    $this->name = $name ?? ;
+    $this->matching_event_types = $matching_event_types ?? [];
+    $this->name = $name ?? "";
     $this->sns_destination = $sns_destination ?? null;
   }
 }
@@ -176,9 +176,9 @@ class EventDestinationDefinition {
   ?'sns_destination' => SnsDestination,
   ) $s = shape()) {
     $this->cloud_watch_logs_destination = $cloud_watch_logs_destination ?? null;
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->kinesis_firehose_destination = $kinesis_firehose_destination ?? null;
-    $this->matching_event_types = $matching_event_types ?? ;
+    $this->matching_event_types = $matching_event_types ?? [];
     $this->sns_destination = $sns_destination ?? null;
   }
 }
@@ -195,7 +195,7 @@ class GetConfigurationSetEventDestinationsRequest {
   public function __construct(shape(
   ?'configuration_set_name' => __string,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
   }
 }
 
@@ -215,7 +215,7 @@ class InternalServiceErrorException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -227,8 +227,8 @@ class KinesisFirehoseDestination {
   ?'delivery_stream_arn' => string,
   ?'iam_role_arn' => string,
   ) $s = shape()) {
-    $this->delivery_stream_arn = $delivery_stream_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->delivery_stream_arn = $delivery_stream_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
   }
 }
 
@@ -238,7 +238,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -250,8 +250,8 @@ class ListConfigurationSetsRequest {
   ?'next_token' => __string,
   ?'page_size' => __string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->page_size = $page_size ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->page_size = $page_size ?? "";
   }
 }
 
@@ -264,7 +264,7 @@ class ListConfigurationSetsResponse {
   ?'next_token' => NextTokenString,
   ) $s = shape()) {
     $this->configuration_sets = $configuration_sets ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -278,7 +278,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -292,9 +292,9 @@ class PlainTextMessageType {
   ?'text' => NonEmptyString,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->language_code = $language_code ?? ;
-    $this->text = $text ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->language_code = $language_code ?? "";
+    $this->text = $text ?? "";
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -308,9 +308,9 @@ class SSMLMessageType {
   ?'text' => NonEmptyString,
   ?'voice_id' => string,
   ) $s = shape()) {
-    $this->language_code = $language_code ?? ;
-    $this->text = $text ?? ;
-    $this->voice_id = $voice_id ?? ;
+    $this->language_code = $language_code ?? "";
+    $this->text = $text ?? "";
+    $this->voice_id = $voice_id ?? "";
   }
 }
 
@@ -328,11 +328,11 @@ class SendVoiceMessageRequest {
   ?'destination_phone_number' => NonEmptyString,
   ?'origination_phone_number' => NonEmptyString,
   ) $s = shape()) {
-    $this->caller_id = $caller_id ?? ;
-    $this->configuration_set_name = $configuration_set_name ?? ;
-    $this->content = $content ?? ;
-    $this->destination_phone_number = $destination_phone_number ?? ;
-    $this->origination_phone_number = $origination_phone_number ?? ;
+    $this->caller_id = $caller_id ?? "";
+    $this->configuration_set_name = $configuration_set_name ?? "";
+    $this->content = $content ?? null;
+    $this->destination_phone_number = $destination_phone_number ?? "";
+    $this->origination_phone_number = $origination_phone_number ?? "";
   }
 }
 
@@ -342,7 +342,7 @@ class SendVoiceMessageResponse {
   public function __construct(shape(
   ?'message_id' => string,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -352,7 +352,7 @@ class SnsDestination {
   public function __construct(shape(
   ?'topic_arn' => string,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -364,7 +364,7 @@ class TooManyRequestsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -378,9 +378,9 @@ class UpdateConfigurationSetEventDestinationRequest {
   ?'event_destination' => EventDestinationDefinition,
   ?'event_destination_name' => __string,
   ) $s = shape()) {
-    $this->configuration_set_name = $configuration_set_name ?? ;
+    $this->configuration_set_name = $configuration_set_name ?? "";
     $this->event_destination = $event_destination ?? null;
-    $this->event_destination_name = $event_destination_name ?? ;
+    $this->event_destination_name = $event_destination_name ?? "";
   }
 }
 
@@ -401,9 +401,9 @@ class VoiceMessageContent {
   ?'plain_text_message' => PlainTextMessageType,
   ?'ssml_message' => SSMLMessageType,
   ) $s = shape()) {
-    $this->call_instructions_message = $call_instructions_message ?? ;
-    $this->plain_text_message = $plain_text_message ?? ;
-    $this->ssml_message = $ssml_message ?? ;
+    $this->call_instructions_message = $call_instructions_message ?? null;
+    $this->plain_text_message = $plain_text_message ?? null;
+    $this->ssml_message = $ssml_message ?? null;
   }
 }
 

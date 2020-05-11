@@ -47,7 +47,7 @@ class CloudWatchLoggingOptions {
   ?'log_group_name' => LogGroupName,
   ?'log_stream_name' => LogStreamName,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->log_group_name = $log_group_name ?? "";
     $this->log_stream_name = $log_stream_name ?? "";
   }
@@ -65,7 +65,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -120,7 +120,7 @@ class CreateDeliveryStreamInput {
     $this->redshift_destination_configuration = $redshift_destination_configuration ?? null;
     $this->s_3_destination_configuration = $s_3_destination_configuration ?? null;
     $this->splunk_destination_configuration = $splunk_destination_configuration ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -148,7 +148,7 @@ class DataFormatConversionConfiguration {
   ?'output_format_configuration' => OutputFormatConfiguration,
   ?'schema_configuration' => SchemaConfiguration,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
+    $this->enabled = $enabled ?? false;
     $this->input_format_configuration = $input_format_configuration ?? null;
     $this->output_format_configuration = $output_format_configuration ?? null;
     $this->schema_configuration = $schema_configuration ?? null;
@@ -167,7 +167,7 @@ class DeleteDeliveryStreamInput {
   ?'allow_force_delete' => BooleanObject,
   ?'delivery_stream_name' => DeliveryStreamName,
   ) $s = shape()) {
-    $this->allow_force_delete = $allow_force_delete ?? ;
+    $this->allow_force_delete = $allow_force_delete ?? false;
     $this->delivery_stream_name = $delivery_stream_name ?? "";
   }
 }
@@ -211,18 +211,18 @@ class DeliveryStreamDescription {
   ?'source' => SourceDescription,
   ?'version_id' => DeliveryStreamVersionId,
   ) $s = shape()) {
-    $this->create_timestamp = $create_timestamp ?? ;
+    $this->create_timestamp = $create_timestamp ?? 0;
     $this->delivery_stream_arn = $delivery_stream_arn ?? "";
     $this->delivery_stream_encryption_configuration = $delivery_stream_encryption_configuration ?? null;
     $this->delivery_stream_name = $delivery_stream_name ?? "";
     $this->delivery_stream_status = $delivery_stream_status ?? "";
     $this->delivery_stream_type = $delivery_stream_type ?? "";
-    $this->destinations = $destinations ?? ;
+    $this->destinations = $destinations ?? [];
     $this->failure_description = $failure_description ?? null;
-    $this->has_more_destinations = $has_more_destinations ?? ;
-    $this->last_update_timestamp = $last_update_timestamp ?? ;
-    $this->source = $source ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->has_more_destinations = $has_more_destinations ?? false;
+    $this->last_update_timestamp = $last_update_timestamp ?? 0;
+    $this->source = $source ?? null;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -239,9 +239,9 @@ class DeliveryStreamEncryptionConfiguration {
   ?'status' => DeliveryStreamEncryptionStatus,
   ) $s = shape()) {
     $this->failure_description = $failure_description ?? null;
-    $this->key_arn = $key_arn ?? ;
+    $this->key_arn = $key_arn ?? "";
     $this->key_type = $key_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -253,7 +253,7 @@ class DeliveryStreamEncryptionConfigurationInput {
   ?'key_arn' => AWSKMSKeyARN,
   ?'key_type' => KeyType,
   ) $s = shape()) {
-    $this->key_arn = $key_arn ?? ;
+    $this->key_arn = $key_arn ?? "";
     $this->key_type = $key_type ?? "";
   }
 }
@@ -283,8 +283,8 @@ class DescribeDeliveryStreamInput {
   ?'limit' => DescribeDeliveryStreamInputLimit,
   ) $s = shape()) {
     $this->delivery_stream_name = $delivery_stream_name ?? "";
-    $this->exclusive_start_destination_id = $exclusive_start_destination_id ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_destination_id = $exclusive_start_destination_id ?? "";
+    $this->limit = $limit ?? 0;
   }
 }
 
@@ -393,16 +393,16 @@ class ElasticsearchDestinationConfiguration {
   ) $s = shape()) {
     $this->buffering_hints = $buffering_hints ?? null;
     $this->cloud_watch_logging_options = $cloud_watch_logging_options ?? null;
-    $this->cluster_endpoint = $cluster_endpoint ?? ;
-    $this->domain_arn = $domain_arn ?? ;
-    $this->index_name = $index_name ?? ;
-    $this->index_rotation_period = $index_rotation_period ?? ;
+    $this->cluster_endpoint = $cluster_endpoint ?? "";
+    $this->domain_arn = $domain_arn ?? "";
+    $this->index_name = $index_name ?? "";
+    $this->index_rotation_period = $index_rotation_period ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_configuration = $s_3_configuration ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->s_3_configuration = $s_3_configuration ?? null;
+    $this->type_name = $type_name ?? "";
     $this->vpc_configuration = $vpc_configuration ?? null;
   }
 }
@@ -439,16 +439,16 @@ class ElasticsearchDestinationDescription {
   ) $s = shape()) {
     $this->buffering_hints = $buffering_hints ?? null;
     $this->cloud_watch_logging_options = $cloud_watch_logging_options ?? null;
-    $this->cluster_endpoint = $cluster_endpoint ?? ;
-    $this->domain_arn = $domain_arn ?? ;
-    $this->index_name = $index_name ?? ;
-    $this->index_rotation_period = $index_rotation_period ?? ;
+    $this->cluster_endpoint = $cluster_endpoint ?? "";
+    $this->domain_arn = $domain_arn ?? "";
+    $this->index_name = $index_name ?? "";
+    $this->index_rotation_period = $index_rotation_period ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
     $this->s_3_destination_description = $s_3_destination_description ?? null;
-    $this->type_name = $type_name ?? ;
+    $this->type_name = $type_name ?? "";
     $this->vpc_configuration_description = $vpc_configuration_description ?? null;
   }
 }
@@ -481,15 +481,15 @@ class ElasticsearchDestinationUpdate {
   ) $s = shape()) {
     $this->buffering_hints = $buffering_hints ?? null;
     $this->cloud_watch_logging_options = $cloud_watch_logging_options ?? null;
-    $this->cluster_endpoint = $cluster_endpoint ?? ;
-    $this->domain_arn = $domain_arn ?? ;
-    $this->index_name = $index_name ?? ;
-    $this->index_rotation_period = $index_rotation_period ?? ;
+    $this->cluster_endpoint = $cluster_endpoint ?? "";
+    $this->domain_arn = $domain_arn ?? "";
+    $this->index_name = $index_name ?? "";
+    $this->index_rotation_period = $index_rotation_period ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->s_3_update = $s_3_update ?? ;
-    $this->type_name = $type_name ?? ;
+    $this->s_3_update = $s_3_update ?? null;
+    $this->type_name = $type_name ?? "";
   }
 }
 
@@ -507,7 +507,7 @@ class ElasticsearchRetryOptions {
   public function __construct(shape(
   ?'duration_in_seconds' => ElasticsearchRetryDurationInSeconds,
   ) $s = shape()) {
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
   }
 }
 
@@ -572,7 +572,7 @@ class ExtendedS3DestinationConfiguration {
     $this->prefix = $prefix ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->s_3_backup_configuration = $s_3_backup_configuration ?? ;
+    $this->s_3_backup_configuration = $s_3_backup_configuration ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
   }
 }
@@ -615,7 +615,7 @@ class ExtendedS3DestinationDescription {
     $this->prefix = $prefix ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->s_3_backup_description = $s_3_backup_description ?? ;
+    $this->s_3_backup_description = $s_3_backup_description ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
   }
 }
@@ -659,7 +659,7 @@ class ExtendedS3DestinationUpdate {
     $this->processing_configuration = $processing_configuration ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_backup_update = $s_3_backup_update ?? ;
+    $this->s_3_backup_update = $s_3_backup_update ?? null;
   }
 }
 
@@ -671,8 +671,8 @@ class FailureDescription {
   ?'details' => NonEmptyString,
   ?'type' => DeliveryStreamFailureType,
   ) $s = shape()) {
-    $this->details = $details ?? ;
-    $this->type = $type ?? ;
+    $this->details = $details ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -690,7 +690,7 @@ class HiveJsonSerDe {
   public function __construct(shape(
   ?'timestamp_formats' => ListOfNonEmptyStrings,
   ) $s = shape()) {
-    $this->timestamp_formats = $timestamp_formats ?? ;
+    $this->timestamp_formats = $timestamp_formats ?? [];
   }
 }
 
@@ -712,7 +712,7 @@ class InvalidArgumentException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -724,8 +724,8 @@ class InvalidKMSResourceException {
   ?'code' => ErrorCode,
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -778,7 +778,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -793,8 +793,8 @@ class ListDeliveryStreamsInput {
   ?'limit' => ListDeliveryStreamsInputLimit,
   ) $s = shape()) {
     $this->delivery_stream_type = $delivery_stream_type ?? "";
-    $this->exclusive_start_delivery_stream_name = $exclusive_start_delivery_stream_name ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_delivery_stream_name = $exclusive_start_delivery_stream_name ?? "";
+    $this->limit = $limit ?? 0;
   }
 }
 
@@ -808,8 +808,8 @@ class ListDeliveryStreamsOutput {
   ?'delivery_stream_names' => DeliveryStreamNameList,
   ?'has_more_delivery_streams' => BooleanObject,
   ) $s = shape()) {
-    $this->delivery_stream_names = $delivery_stream_names ?? ;
-    $this->has_more_delivery_streams = $has_more_delivery_streams ?? ;
+    $this->delivery_stream_names = $delivery_stream_names ?? [];
+    $this->has_more_delivery_streams = $has_more_delivery_streams ?? false;
   }
 }
 
@@ -828,8 +828,8 @@ class ListTagsForDeliveryStreamInput {
   ?'limit' => ListTagsForDeliveryStreamInputLimit,
   ) $s = shape()) {
     $this->delivery_stream_name = $delivery_stream_name ?? "";
-    $this->exclusive_start_tag_key = $exclusive_start_tag_key ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_tag_key = $exclusive_start_tag_key ?? "";
+    $this->limit = $limit ?? 0;
   }
 }
 
@@ -843,8 +843,8 @@ class ListTagsForDeliveryStreamOutput {
   ?'has_more_tags' => BooleanObject,
   ?'tags' => ListTagsForDeliveryStreamOutputTagList,
   ) $s = shape()) {
-    $this->has_more_tags = $has_more_tags ?? ;
-    $this->tags = $tags ?? ;
+    $this->has_more_tags = $has_more_tags ?? false;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -872,9 +872,9 @@ class OpenXJsonSerDe {
   ?'column_to_json_key_mappings' => ColumnToJsonKeyMappings,
   ?'convert_dots_in_json_keys_to_underscores' => BooleanObject,
   ) $s = shape()) {
-    $this->case_insensitive = $case_insensitive ?? ;
+    $this->case_insensitive = $case_insensitive ?? false;
     $this->column_to_json_key_mappings = $column_to_json_key_mappings ?? [];
-    $this->convert_dots_in_json_keys_to_underscores = $convert_dots_in_json_keys_to_underscores ?? ;
+    $this->convert_dots_in_json_keys_to_underscores = $convert_dots_in_json_keys_to_underscores ?? false;
   }
 }
 
@@ -909,15 +909,15 @@ class OrcSerDe {
   ?'stripe_size_bytes' => OrcStripeSizeBytes,
   ) $s = shape()) {
     $this->block_size_bytes = $block_size_bytes ?? 0;
-    $this->bloom_filter_columns = $bloom_filter_columns ?? ;
-    $this->bloom_filter_false_positive_probability = $bloom_filter_false_positive_probability ?? ;
-    $this->compression = $compression ?? ;
-    $this->dictionary_key_threshold = $dictionary_key_threshold ?? ;
-    $this->enable_padding = $enable_padding ?? ;
-    $this->format_version = $format_version ?? ;
-    $this->padding_tolerance = $padding_tolerance ?? ;
-    $this->row_index_stride = $row_index_stride ?? ;
-    $this->stripe_size_bytes = $stripe_size_bytes ?? ;
+    $this->bloom_filter_columns = $bloom_filter_columns ?? [];
+    $this->bloom_filter_false_positive_probability = $bloom_filter_false_positive_probability ?? 0.0;
+    $this->compression = $compression ?? "";
+    $this->dictionary_key_threshold = $dictionary_key_threshold ?? 0.0;
+    $this->enable_padding = $enable_padding ?? false;
+    $this->format_version = $format_version ?? "";
+    $this->padding_tolerance = $padding_tolerance ?? 0.0;
+    $this->row_index_stride = $row_index_stride ?? 0;
+    $this->stripe_size_bytes = $stripe_size_bytes ?? 0;
   }
 }
 
@@ -954,11 +954,11 @@ class ParquetSerDe {
   ?'writer_version' => ParquetWriterVersion,
   ) $s = shape()) {
     $this->block_size_bytes = $block_size_bytes ?? 0;
-    $this->compression = $compression ?? ;
-    $this->enable_dictionary_compression = $enable_dictionary_compression ?? ;
-    $this->max_padding_bytes = $max_padding_bytes ?? ;
-    $this->page_size_bytes = $page_size_bytes ?? ;
-    $this->writer_version = $writer_version ?? ;
+    $this->compression = $compression ?? "";
+    $this->enable_dictionary_compression = $enable_dictionary_compression ?? false;
+    $this->max_padding_bytes = $max_padding_bytes ?? 0;
+    $this->page_size_bytes = $page_size_bytes ?? 0;
+    $this->writer_version = $writer_version ?? "";
   }
 }
 
@@ -976,8 +976,8 @@ class ProcessingConfiguration {
   ?'enabled' => BooleanObject,
   ?'processors' => ProcessorList,
   ) $s = shape()) {
-    $this->enabled = $enabled ?? ;
-    $this->processors = $processors ?? ;
+    $this->enabled = $enabled ?? false;
+    $this->processors = $processors ?? [];
   }
 }
 
@@ -989,8 +989,8 @@ class Processor {
   ?'parameters' => ProcessorParameterList,
   ?'type' => ProcessorType,
   ) $s = shape()) {
-    $this->parameters = $parameters ?? ;
-    $this->type = $type ?? ;
+    $this->parameters = $parameters ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -1004,8 +1004,8 @@ class ProcessorParameter {
   ?'parameter_name' => ProcessorParameterName,
   ?'parameter_value' => ProcessorParameterValue,
   ) $s = shape()) {
-    $this->parameter_name = $parameter_name ?? ;
-    $this->parameter_value = $parameter_value ?? ;
+    $this->parameter_name = $parameter_name ?? "";
+    $this->parameter_value = $parameter_value ?? "";
   }
 }
 
@@ -1028,7 +1028,7 @@ class PutRecordBatchInput {
   ?'records' => PutRecordBatchRequestEntryList,
   ) $s = shape()) {
     $this->delivery_stream_name = $delivery_stream_name ?? "";
-    $this->records = $records ?? ;
+    $this->records = $records ?? [];
   }
 }
 
@@ -1042,9 +1042,9 @@ class PutRecordBatchOutput {
   ?'failed_put_count' => NonNegativeIntegerObject,
   ?'request_responses' => PutRecordBatchResponseEntryList,
   ) $s = shape()) {
-    $this->encrypted = $encrypted ?? ;
-    $this->failed_put_count = $failed_put_count ?? ;
-    $this->request_responses = $request_responses ?? ;
+    $this->encrypted = $encrypted ?? false;
+    $this->failed_put_count = $failed_put_count ?? 0;
+    $this->request_responses = $request_responses ?? [];
   }
 }
 
@@ -1062,7 +1062,7 @@ class PutRecordBatchResponseEntry {
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
     $this->error_message = $error_message ?? "";
-    $this->record_id = $record_id ?? ;
+    $this->record_id = $record_id ?? "";
   }
 }
 
@@ -1089,8 +1089,8 @@ class PutRecordOutput {
   ?'encrypted' => BooleanObject,
   ?'record_id' => PutResponseRecordId,
   ) $s = shape()) {
-    $this->encrypted = $encrypted ?? ;
-    $this->record_id = $record_id ?? ;
+    $this->encrypted = $encrypted ?? false;
+    $this->record_id = $record_id ?? "";
   }
 }
 
@@ -1137,11 +1137,11 @@ class RedshiftDestinationConfiguration {
     $this->copy_command = $copy_command ?? null;
     $this->password = $password ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->s_3_backup_configuration = $s_3_backup_configuration ?? ;
+    $this->s_3_backup_configuration = $s_3_backup_configuration ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_configuration = $s_3_configuration ?? ;
+    $this->s_3_configuration = $s_3_configuration ?? null;
     $this->username = $username ?? "";
   }
 }
@@ -1174,9 +1174,9 @@ class RedshiftDestinationDescription {
     $this->cluster_jdbcurl = $cluster_jdbcurl ?? "";
     $this->copy_command = $copy_command ?? null;
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
-    $this->s_3_backup_description = $s_3_backup_description ?? ;
+    $this->s_3_backup_description = $s_3_backup_description ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
     $this->s_3_destination_description = $s_3_destination_description ?? null;
     $this->username = $username ?? "";
@@ -1214,11 +1214,11 @@ class RedshiftDestinationUpdate {
     $this->copy_command = $copy_command ?? null;
     $this->password = $password ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->role_arn = $role_arn ?? "";
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_backup_update = $s_3_backup_update ?? ;
-    $this->s_3_update = $s_3_update ?? ;
+    $this->s_3_backup_update = $s_3_backup_update ?? null;
+    $this->s_3_update = $s_3_update ?? null;
     $this->username = $username ?? "";
   }
 }
@@ -1231,7 +1231,7 @@ class RedshiftRetryOptions {
   public function __construct(shape(
   ?'duration_in_seconds' => RedshiftRetryDurationInSeconds,
   ) $s = shape()) {
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
   }
 }
 
@@ -1243,7 +1243,7 @@ class ResourceInUseException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1253,7 +1253,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1370,12 +1370,12 @@ class SchemaConfiguration {
   ?'table_name' => NonEmptyStringWithoutWhitespace,
   ?'version_id' => NonEmptyStringWithoutWhitespace,
   ) $s = shape()) {
-    $this->catalog_id = $catalog_id ?? ;
-    $this->database_name = $database_name ?? ;
-    $this->region = $region ?? ;
+    $this->catalog_id = $catalog_id ?? "";
+    $this->database_name = $database_name ?? "";
+    $this->region = $region ?? "";
     $this->role_arn = $role_arn ?? "";
-    $this->table_name = $table_name ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->table_name = $table_name ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1400,7 +1400,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1444,9 +1444,9 @@ class SplunkDestinationConfiguration {
     $this->hec_endpoint_type = $hec_endpoint_type ?? "";
     $this->hec_token = $hec_token ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_configuration = $s_3_configuration ?? ;
+    $this->s_3_configuration = $s_3_configuration ?? null;
   }
 }
 
@@ -1478,7 +1478,7 @@ class SplunkDestinationDescription {
     $this->hec_endpoint_type = $hec_endpoint_type ?? "";
     $this->hec_token = $hec_token ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
     $this->s_3_destination_description = $s_3_destination_description ?? null;
   }
@@ -1512,9 +1512,9 @@ class SplunkDestinationUpdate {
     $this->hec_endpoint_type = $hec_endpoint_type ?? "";
     $this->hec_token = $hec_token ?? "";
     $this->processing_configuration = $processing_configuration ?? null;
-    $this->retry_options = $retry_options ?? ;
+    $this->retry_options = $retry_options ?? null;
     $this->s_3_backup_mode = $s_3_backup_mode ?? "";
-    $this->s_3_update = $s_3_update ?? ;
+    $this->s_3_update = $s_3_update ?? null;
   }
 }
 
@@ -1526,7 +1526,7 @@ class SplunkRetryOptions {
   public function __construct(shape(
   ?'duration_in_seconds' => SplunkRetryDurationInSeconds,
   ) $s = shape()) {
-    $this->duration_in_seconds = $duration_in_seconds ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? 0;
   }
 }
 
@@ -1579,8 +1579,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1593,7 +1593,7 @@ class TagDeliveryStreamInput {
   ?'tags' => TagDeliveryStreamInputTagList,
   ) $s = shape()) {
     $this->delivery_stream_name = $delivery_stream_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1623,7 +1623,7 @@ class UntagDeliveryStreamInput {
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
     $this->delivery_stream_name = $delivery_stream_name ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1654,7 +1654,7 @@ class UpdateDestinationInput {
   ?'s_3_destination_update' => S3DestinationUpdate,
   ?'splunk_destination_update' => SplunkDestinationUpdate,
   ) $s = shape()) {
-    $this->current_delivery_stream_version_id = $current_delivery_stream_version_id ?? ;
+    $this->current_delivery_stream_version_id = $current_delivery_stream_version_id ?? "";
     $this->delivery_stream_name = $delivery_stream_name ?? "";
     $this->destination_id = $destination_id ?? "";
     $this->elasticsearch_destination_update = $elasticsearch_destination_update ?? null;
@@ -1685,8 +1685,8 @@ class VpcConfiguration {
   ?'subnet_ids' => SubnetIdList,
   ) $s = shape()) {
     $this->role_arn = $role_arn ?? "";
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -1703,9 +1703,9 @@ class VpcConfigurationDescription {
   ?'vpc_id' => NonEmptyStringWithoutWhitespace,
   ) $s = shape()) {
     $this->role_arn = $role_arn ?? "";
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
-    $this->vpc_id = $vpc_id ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->vpc_id = $vpc_id ?? "";
   }
 }
 

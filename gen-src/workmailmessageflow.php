@@ -11,7 +11,7 @@ class GetRawMessageContentRequest {
   public function __construct(shape(
   ?'message_id' => messageIdType,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -21,7 +21,7 @@ class GetRawMessageContentResponse {
   public function __construct(shape(
   ?'message_content' => messageContentBlob,
   ) $s = shape()) {
-    $this->message_content = $message_content ?? ;
+    $this->message_content = $message_content ?? "";
   }
 }
 
@@ -31,7 +31,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

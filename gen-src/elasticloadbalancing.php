@@ -58,14 +58,14 @@ class Action {
   ?'target_group_arn' => TargetGroupArn,
   ?'type' => ActionTypeEnum,
   ) $s = shape()) {
-    $this->authenticate_cognito_config = $authenticate_cognito_config ?? ;
-    $this->authenticate_oidc_config = $authenticate_oidc_config ?? ;
-    $this->fixed_response_config = $fixed_response_config ?? ;
-    $this->forward_config = $forward_config ?? ;
-    $this->order = $order ?? ;
-    $this->redirect_config = $redirect_config ?? ;
+    $this->authenticate_cognito_config = $authenticate_cognito_config ?? null;
+    $this->authenticate_oidc_config = $authenticate_oidc_config ?? null;
+    $this->fixed_response_config = $fixed_response_config ?? null;
+    $this->forward_config = $forward_config ?? null;
+    $this->order = $order ?? 0;
+    $this->redirect_config = $redirect_config ?? null;
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->type = $type ?? ;
+    $this->type = $type ?? "";
   }
 }
 
@@ -83,7 +83,7 @@ class AddListenerCertificatesInput {
   ?'certificates' => CertificateList,
   ?'listener_arn' => ListenerArn,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
+    $this->certificates = $certificates ?? [];
     $this->listener_arn = $listener_arn ?? "";
   }
 }
@@ -94,7 +94,7 @@ class AddListenerCertificatesOutput {
   public function __construct(shape(
   ?'certificates' => CertificateList,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
+    $this->certificates = $certificates ?? [];
   }
 }
 
@@ -107,7 +107,7 @@ class AddTagsInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arns = $resource_arns ?? [];
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -155,14 +155,14 @@ class AuthenticateCognitoActionConfig {
   ?'user_pool_client_id' => AuthenticateCognitoActionUserPoolClientId,
   ?'user_pool_domain' => AuthenticateCognitoActionUserPoolDomain,
   ) $s = shape()) {
-    $this->authentication_request_extra_params = $authentication_request_extra_params ?? ;
-    $this->on_unauthenticated_request = $on_unauthenticated_request ?? ;
-    $this->scope = $scope ?? ;
-    $this->session_cookie_name = $session_cookie_name ?? ;
-    $this->session_timeout = $session_timeout ?? ;
-    $this->user_pool_arn = $user_pool_arn ?? ;
-    $this->user_pool_client_id = $user_pool_client_id ?? ;
-    $this->user_pool_domain = $user_pool_domain ?? ;
+    $this->authentication_request_extra_params = $authentication_request_extra_params ?? [];
+    $this->on_unauthenticated_request = $on_unauthenticated_request ?? "";
+    $this->scope = $scope ?? "";
+    $this->session_cookie_name = $session_cookie_name ?? "";
+    $this->session_timeout = $session_timeout ?? 0;
+    $this->user_pool_arn = $user_pool_arn ?? "";
+    $this->user_pool_client_id = $user_pool_client_id ?? "";
+    $this->user_pool_domain = $user_pool_domain ?? "";
   }
 }
 
@@ -220,18 +220,18 @@ class AuthenticateOidcActionConfig {
   ?'use_existing_client_secret' => AuthenticateOidcActionUseExistingClientSecret,
   ?'user_info_endpoint' => AuthenticateOidcActionUserInfoEndpoint,
   ) $s = shape()) {
-    $this->authentication_request_extra_params = $authentication_request_extra_params ?? ;
-    $this->authorization_endpoint = $authorization_endpoint ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->client_secret = $client_secret ?? ;
-    $this->issuer = $issuer ?? ;
-    $this->on_unauthenticated_request = $on_unauthenticated_request ?? ;
-    $this->scope = $scope ?? ;
-    $this->session_cookie_name = $session_cookie_name ?? ;
-    $this->session_timeout = $session_timeout ?? ;
-    $this->token_endpoint = $token_endpoint ?? ;
-    $this->use_existing_client_secret = $use_existing_client_secret ?? ;
-    $this->user_info_endpoint = $user_info_endpoint ?? ;
+    $this->authentication_request_extra_params = $authentication_request_extra_params ?? [];
+    $this->authorization_endpoint = $authorization_endpoint ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->client_secret = $client_secret ?? "";
+    $this->issuer = $issuer ?? "";
+    $this->on_unauthenticated_request = $on_unauthenticated_request ?? "";
+    $this->scope = $scope ?? "";
+    $this->session_cookie_name = $session_cookie_name ?? "";
+    $this->session_timeout = $session_timeout ?? 0;
+    $this->token_endpoint = $token_endpoint ?? "";
+    $this->use_existing_client_secret = $use_existing_client_secret ?? false;
+    $this->user_info_endpoint = $user_info_endpoint ?? "";
   }
 }
 
@@ -309,7 +309,7 @@ class Cipher {
   ?'priority' => CipherPriority,
   ) $s = shape()) {
     $this->name = $name ?? "";
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
   }
 }
 
@@ -337,12 +337,12 @@ class CreateListenerInput {
   ?'protocol' => ProtocolEnum,
   ?'ssl_policy' => SslPolicyName,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->default_actions = $default_actions ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->default_actions = $default_actions ?? [];
     $this->load_balancer_arn = $load_balancer_arn ?? "";
     $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
-    $this->ssl_policy = $ssl_policy ?? null;
+    $this->protocol = $protocol ?? "";
+    $this->ssl_policy = $ssl_policy ?? "";
   }
 }
 
@@ -378,12 +378,12 @@ class CreateLoadBalancerInput {
   ) $s = shape()) {
     $this->ip_address_type = $ip_address_type ?? "";
     $this->name = $name ?? "";
-    $this->scheme = $scheme ?? ;
+    $this->scheme = $scheme ?? "";
     $this->security_groups = $security_groups ?? [];
     $this->subnet_mappings = $subnet_mappings ?? [];
     $this->subnets = $subnets ?? [];
-    $this->tags = $tags ?? ;
-    $this->type = $type ?? ;
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? "";
   }
 }
 
@@ -410,9 +410,9 @@ class CreateRuleInput {
   ?'priority' => RulePriority,
   ) $s = shape()) {
     $this->actions = $actions ?? [];
-    $this->conditions = $conditions ?? ;
+    $this->conditions = $conditions ?? [];
     $this->listener_arn = $listener_arn ?? "";
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
   }
 }
 
@@ -460,17 +460,17 @@ class CreateTargetGroupInput {
   ) $s = shape()) {
     $this->health_check_enabled = $health_check_enabled ?? false;
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? "";
-    $this->health_check_protocol = $health_check_protocol ?? ;
+    $this->health_check_protocol = $health_check_protocol ?? "";
     $this->health_check_timeout_seconds = $health_check_timeout_seconds ?? 0;
-    $this->healthy_threshold_count = $healthy_threshold_count ?? ;
+    $this->healthy_threshold_count = $healthy_threshold_count ?? 0;
     $this->matcher = $matcher ?? null;
     $this->name = $name ?? "";
     $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
-    $this->target_type = $target_type ?? ;
-    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? ;
+    $this->protocol = $protocol ?? "";
+    $this->target_type = $target_type ?? "";
+    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? 0;
     $this->vpc_id = $vpc_id ?? "";
   }
 }
@@ -568,7 +568,7 @@ class DeregisterTargetsInput {
   ?'targets' => TargetDescriptions,
   ) $s = shape()) {
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->targets = $targets ?? ;
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -601,7 +601,7 @@ class DescribeAccountLimitsOutput {
   ?'next_marker' => Marker,
   ) $s = shape()) {
     $this->limits = $limits ?? [];
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -629,8 +629,8 @@ class DescribeListenerCertificatesOutput {
   ?'certificates' => CertificateList,
   ?'next_marker' => Marker,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->next_marker = $next_marker ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -662,7 +662,7 @@ class DescribeListenersOutput {
   ?'next_marker' => Marker,
   ) $s = shape()) {
     $this->listeners = $listeners ?? [];
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -682,7 +682,7 @@ class DescribeLoadBalancerAttributesOutput {
   public function __construct(shape(
   ?'attributes' => LoadBalancerAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -700,7 +700,7 @@ class DescribeLoadBalancersInput {
   ) $s = shape()) {
     $this->load_balancer_arns = $load_balancer_arns ?? [];
     $this->marker = $marker ?? "";
-    $this->names = $names ?? ;
+    $this->names = $names ?? [];
     $this->page_size = $page_size ?? 0;
   }
 }
@@ -714,7 +714,7 @@ class DescribeLoadBalancersOutput {
   ?'next_marker' => Marker,
   ) $s = shape()) {
     $this->load_balancers = $load_balancers ?? [];
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
   }
 }
 
@@ -745,7 +745,7 @@ class DescribeRulesOutput {
   ?'next_marker' => Marker,
   ?'rules' => Rules,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
     $this->rules = $rules ?? [];
   }
 }
@@ -761,7 +761,7 @@ class DescribeSSLPoliciesInput {
   ?'page_size' => PageSize,
   ) $s = shape()) {
     $this->marker = $marker ?? "";
-    $this->names = $names ?? ;
+    $this->names = $names ?? [];
     $this->page_size = $page_size ?? 0;
   }
 }
@@ -774,7 +774,7 @@ class DescribeSSLPoliciesOutput {
   ?'next_marker' => Marker,
   ?'ssl_policies' => SslPolicies,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
     $this->ssl_policies = $ssl_policies ?? [];
   }
 }
@@ -815,7 +815,7 @@ class DescribeTargetGroupAttributesOutput {
   public function __construct(shape(
   ?'attributes' => TargetGroupAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -835,7 +835,7 @@ class DescribeTargetGroupsInput {
   ) $s = shape()) {
     $this->load_balancer_arn = $load_balancer_arn ?? "";
     $this->marker = $marker ?? "";
-    $this->names = $names ?? ;
+    $this->names = $names ?? [];
     $this->page_size = $page_size ?? 0;
     $this->target_group_arns = $target_group_arns ?? [];
   }
@@ -849,7 +849,7 @@ class DescribeTargetGroupsOutput {
   ?'next_marker' => Marker,
   ?'target_groups' => TargetGroups,
   ) $s = shape()) {
-    $this->next_marker = $next_marker ?? ;
+    $this->next_marker = $next_marker ?? "";
     $this->target_groups = $target_groups ?? [];
   }
 }
@@ -863,7 +863,7 @@ class DescribeTargetHealthInput {
   ?'targets' => TargetDescriptions,
   ) $s = shape()) {
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->targets = $targets ?? ;
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -917,9 +917,9 @@ class FixedResponseActionConfig {
   ?'message_body' => FixedResponseActionMessage,
   ?'status_code' => FixedResponseActionStatusCode,
   ) $s = shape()) {
-    $this->content_type = $content_type ?? ;
-    $this->message_body = $message_body ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->content_type = $content_type ?? "";
+    $this->message_body = $message_body ?? "";
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -965,7 +965,7 @@ class HostHeaderConditionConfig {
   public function __construct(shape(
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -979,8 +979,8 @@ class HttpHeaderConditionConfig {
   ?'http_header_name' => HttpHeaderConditionName,
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->http_header_name = $http_header_name ?? ;
-    $this->values = $values ?? ;
+    $this->http_header_name = $http_header_name ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -992,7 +992,7 @@ class HttpRequestMethodConditionConfig {
   public function __construct(shape(
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -1086,13 +1086,13 @@ class Listener {
   ?'protocol' => ProtocolEnum,
   ?'ssl_policy' => SslPolicyName,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->default_actions = $default_actions ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->default_actions = $default_actions ?? [];
     $this->listener_arn = $listener_arn ?? "";
     $this->load_balancer_arn = $load_balancer_arn ?? "";
     $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
-    $this->ssl_policy = $ssl_policy ?? null;
+    $this->protocol = $protocol ?? "";
+    $this->ssl_policy = $ssl_policy ?? "";
   }
 }
 
@@ -1144,10 +1144,10 @@ class LoadBalancer {
     $this->ip_address_type = $ip_address_type ?? "";
     $this->load_balancer_arn = $load_balancer_arn ?? "";
     $this->load_balancer_name = $load_balancer_name ?? "";
-    $this->scheme = $scheme ?? ;
+    $this->scheme = $scheme ?? "";
     $this->security_groups = $security_groups ?? [];
-    $this->state = $state ?? ;
-    $this->type = $type ?? ;
+    $this->state = $state ?? null;
+    $this->type = $type ?? "";
     $this->vpc_id = $vpc_id ?? "";
   }
 }
@@ -1182,8 +1182,8 @@ class LoadBalancerAttribute {
   ?'key' => LoadBalancerAttributeKey,
   ?'value' => LoadBalancerAttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1214,8 +1214,8 @@ class LoadBalancerState {
   ?'code' => LoadBalancerStateEnum,
   ?'reason' => StateReason,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->reason = $reason ?? ;
+    $this->code = $code ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1255,12 +1255,12 @@ class ModifyListenerInput {
   ?'protocol' => ProtocolEnum,
   ?'ssl_policy' => SslPolicyName,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->default_actions = $default_actions ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->default_actions = $default_actions ?? [];
     $this->listener_arn = $listener_arn ?? "";
     $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
-    $this->ssl_policy = $ssl_policy ?? null;
+    $this->protocol = $protocol ?? "";
+    $this->ssl_policy = $ssl_policy ?? "";
   }
 }
 
@@ -1282,7 +1282,7 @@ class ModifyLoadBalancerAttributesInput {
   ?'attributes' => LoadBalancerAttributes,
   ?'load_balancer_arn' => LoadBalancerArn,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->load_balancer_arn = $load_balancer_arn ?? "";
   }
 }
@@ -1293,7 +1293,7 @@ class ModifyLoadBalancerAttributesOutput {
   public function __construct(shape(
   ?'attributes' => LoadBalancerAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -1308,7 +1308,7 @@ class ModifyRuleInput {
   ?'rule_arn' => RuleArn,
   ) $s = shape()) {
     $this->actions = $actions ?? [];
-    $this->conditions = $conditions ?? ;
+    $this->conditions = $conditions ?? [];
     $this->rule_arn = $rule_arn ?? "";
   }
 }
@@ -1331,7 +1331,7 @@ class ModifyTargetGroupAttributesInput {
   ?'attributes' => TargetGroupAttributes,
   ?'target_group_arn' => TargetGroupArn,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
     $this->target_group_arn = $target_group_arn ?? "";
   }
 }
@@ -1342,7 +1342,7 @@ class ModifyTargetGroupAttributesOutput {
   public function __construct(shape(
   ?'attributes' => TargetGroupAttributes,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? [];
   }
 }
 
@@ -1372,14 +1372,14 @@ class ModifyTargetGroupInput {
   ) $s = shape()) {
     $this->health_check_enabled = $health_check_enabled ?? false;
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? "";
-    $this->health_check_protocol = $health_check_protocol ?? ;
+    $this->health_check_protocol = $health_check_protocol ?? "";
     $this->health_check_timeout_seconds = $health_check_timeout_seconds ?? 0;
-    $this->healthy_threshold_count = $healthy_threshold_count ?? ;
+    $this->healthy_threshold_count = $healthy_threshold_count ?? 0;
     $this->matcher = $matcher ?? null;
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? ;
+    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? 0;
   }
 }
 
@@ -1412,7 +1412,7 @@ class PathPatternConditionConfig {
   public function __construct(shape(
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -1435,7 +1435,7 @@ class QueryStringConditionConfig {
   public function __construct(shape(
   ?'values' => QueryStringKeyValuePairList,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -1447,8 +1447,8 @@ class QueryStringKeyValuePair {
   ?'key' => StringValue,
   ?'value' => StringValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1470,12 +1470,12 @@ class RedirectActionConfig {
   ?'query' => RedirectActionQuery,
   ?'status_code' => RedirectActionStatusCodeEnum,
   ) $s = shape()) {
-    $this->host = $host ?? ;
+    $this->host = $host ?? "";
     $this->path = $path ?? "";
-    $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
-    $this->query = $query ?? ;
-    $this->status_code = $status_code ?? ;
+    $this->port = $port ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->query = $query ?? "";
+    $this->status_code = $status_code ?? "";
   }
 }
 
@@ -1500,7 +1500,7 @@ class RegisterTargetsInput {
   ?'targets' => TargetDescriptions,
   ) $s = shape()) {
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->targets = $targets ?? ;
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -1519,7 +1519,7 @@ class RemoveListenerCertificatesInput {
   ?'certificates' => CertificateList,
   ?'listener_arn' => ListenerArn,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
+    $this->certificates = $certificates ?? [];
     $this->listener_arn = $listener_arn ?? "";
   }
 }
@@ -1577,9 +1577,9 @@ class Rule {
   ?'rule_arn' => RuleArn,
   ) $s = shape()) {
     $this->actions = $actions ?? [];
-    $this->conditions = $conditions ?? ;
+    $this->conditions = $conditions ?? [];
     $this->is_default = $is_default ?? false;
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? "";
     $this->rule_arn = $rule_arn ?? "";
   }
 }
@@ -1608,14 +1608,14 @@ class RuleCondition {
   ?'source_ip_config' => SourceIpConditionConfig,
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->field = $field ?? ;
-    $this->host_header_config = $host_header_config ?? ;
-    $this->http_header_config = $http_header_config ?? ;
-    $this->http_request_method_config = $http_request_method_config ?? ;
-    $this->path_pattern_config = $path_pattern_config ?? ;
-    $this->query_string_config = $query_string_config ?? ;
-    $this->source_ip_config = $source_ip_config ?? ;
-    $this->values = $values ?? ;
+    $this->field = $field ?? "";
+    $this->host_header_config = $host_header_config ?? null;
+    $this->http_header_config = $http_header_config ?? null;
+    $this->http_request_method_config = $http_request_method_config ?? null;
+    $this->path_pattern_config = $path_pattern_config ?? null;
+    $this->query_string_config = $query_string_config ?? null;
+    $this->source_ip_config = $source_ip_config ?? null;
+    $this->values = $values ?? [];
   }
 }
 
@@ -1640,7 +1640,7 @@ class RulePriorityPair {
   ?'priority' => RulePriority,
   ?'rule_arn' => RuleArn,
   ) $s = shape()) {
-    $this->priority = $priority ?? ;
+    $this->priority = $priority ?? 0;
     $this->rule_arn = $rule_arn ?? "";
   }
 }
@@ -1687,7 +1687,7 @@ class SetRulePrioritiesInput {
   public function __construct(shape(
   ?'rule_priorities' => RulePriorityList,
   ) $s = shape()) {
-    $this->rule_priorities = $rule_priorities ?? ;
+    $this->rule_priorities = $rule_priorities ?? [];
   }
 }
 
@@ -1720,7 +1720,7 @@ class SetSecurityGroupsOutput {
   public function __construct(shape(
   ?'security_group_ids' => SecurityGroups,
   ) $s = shape()) {
-    $this->security_group_ids = $security_group_ids ?? ;
+    $this->security_group_ids = $security_group_ids ?? [];
   }
 }
 
@@ -1756,7 +1756,7 @@ class SourceIpConditionConfig {
   public function __construct(shape(
   ?'values' => ListOfString,
   ) $s = shape()) {
-    $this->values = $values ?? ;
+    $this->values = $values ?? [];
   }
 }
 
@@ -1829,8 +1829,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1843,7 +1843,7 @@ class TagDescription {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1867,8 +1867,8 @@ class TargetDescription {
   ?'id' => TargetId,
   ?'port' => Port,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? null;
-    $this->id = $id ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->id = $id ?? "";
     $this->port = $port ?? 0;
   }
 }
@@ -1913,19 +1913,19 @@ class TargetGroup {
   ) $s = shape()) {
     $this->health_check_enabled = $health_check_enabled ?? false;
     $this->health_check_interval_seconds = $health_check_interval_seconds ?? 0;
-    $this->health_check_path = $health_check_path ?? ;
+    $this->health_check_path = $health_check_path ?? "";
     $this->health_check_port = $health_check_port ?? "";
-    $this->health_check_protocol = $health_check_protocol ?? ;
+    $this->health_check_protocol = $health_check_protocol ?? "";
     $this->health_check_timeout_seconds = $health_check_timeout_seconds ?? 0;
-    $this->healthy_threshold_count = $healthy_threshold_count ?? ;
+    $this->healthy_threshold_count = $healthy_threshold_count ?? 0;
     $this->load_balancer_arns = $load_balancer_arns ?? [];
     $this->matcher = $matcher ?? null;
     $this->port = $port ?? 0;
-    $this->protocol = $protocol ?? ;
+    $this->protocol = $protocol ?? "";
     $this->target_group_arn = $target_group_arn ?? "";
     $this->target_group_name = $target_group_name ?? "";
-    $this->target_type = $target_type ?? ;
-    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? ;
+    $this->target_type = $target_type ?? "";
+    $this->unhealthy_threshold_count = $unhealthy_threshold_count ?? 0;
     $this->vpc_id = $vpc_id ?? "";
   }
 }
@@ -1949,8 +1949,8 @@ class TargetGroupAttribute {
   ?'key' => TargetGroupAttributeKey,
   ?'value' => TargetGroupAttributeValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1981,8 +1981,8 @@ class TargetGroupStickinessConfig {
   ?'duration_seconds' => TargetGroupStickinessDurationSeconds,
   ?'enabled' => TargetGroupStickinessEnabled,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -1999,7 +1999,7 @@ class TargetGroupTuple {
   ?'weight' => TargetGroupWeight,
   ) $s = shape()) {
     $this->target_group_arn = $target_group_arn ?? "";
-    $this->weight = $weight ?? ;
+    $this->weight = $weight ?? 0;
   }
 }
 
@@ -2018,8 +2018,8 @@ class TargetHealth {
   ?'state' => TargetHealthStateEnum,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->reason = $reason ?? ;
-    $this->state = $state ?? ;
+    $this->reason = $reason ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -2034,7 +2034,7 @@ class TargetHealthDescription {
   ?'target_health' => TargetHealth,
   ) $s = shape()) {
     $this->health_check_port = $health_check_port ?? "";
-    $this->target = $target ?? ;
+    $this->target = $target ?? null;
     $this->target_health = $target_health ?? null;
   }
 }

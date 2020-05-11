@@ -62,7 +62,7 @@ class AddInstanceFleetOutput {
   ?'cluster_id' => XmlStringMaxLen256,
   ?'instance_fleet_id' => InstanceFleetId,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
     $this->cluster_id = $cluster_id ?? "";
     $this->instance_fleet_id = $instance_fleet_id ?? "";
   }
@@ -76,8 +76,8 @@ class AddInstanceGroupsInput {
   ?'instance_groups' => InstanceGroupConfigList,
   ?'job_flow_id' => XmlStringMaxLen256,
   ) $s = shape()) {
-    $this->instance_groups = $instance_groups ?? ;
-    $this->job_flow_id = $job_flow_id ?? ;
+    $this->instance_groups = $instance_groups ?? [];
+    $this->job_flow_id = $job_flow_id ?? "";
   }
 }
 
@@ -91,9 +91,9 @@ class AddInstanceGroupsOutput {
   ?'instance_group_ids' => InstanceGroupIdsList,
   ?'job_flow_id' => XmlStringMaxLen256,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->instance_group_ids = $instance_group_ids ?? ;
-    $this->job_flow_id = $job_flow_id ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->instance_group_ids = $instance_group_ids ?? [];
+    $this->job_flow_id = $job_flow_id ?? "";
   }
 }
 
@@ -105,8 +105,8 @@ class AddJobFlowStepsInput {
   ?'job_flow_id' => XmlStringMaxLen256,
   ?'steps' => StepConfigList,
   ) $s = shape()) {
-    $this->job_flow_id = $job_flow_id ?? ;
-    $this->steps = $steps ?? ;
+    $this->job_flow_id = $job_flow_id ?? "";
+    $this->steps = $steps ?? [];
   }
 }
 
@@ -116,7 +116,7 @@ class AddJobFlowStepsOutput {
   public function __construct(shape(
   ?'step_ids' => StepIdsList,
   ) $s = shape()) {
-    $this->step_ids = $step_ids ?? ;
+    $this->step_ids = $step_ids ?? [];
   }
 }
 
@@ -129,7 +129,7 @@ class AddTagsInput {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->resource_id = $resource_id ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -154,10 +154,10 @@ class Application {
   ?'name' => string,
   ?'version' => string,
   ) $s = shape()) {
-    $this->additional_info = $additional_info ?? ;
-    $this->args = $args ?? ;
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->additional_info = $additional_info ?? [];
+    $this->args = $args ?? [];
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -173,8 +173,8 @@ class AutoScalingPolicy {
   ?'constraints' => ScalingConstraints,
   ?'rules' => ScalingRuleList,
   ) $s = shape()) {
-    $this->constraints = $constraints ?? ;
-    $this->rules = $rules ?? ;
+    $this->constraints = $constraints ?? null;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -188,9 +188,9 @@ class AutoScalingPolicyDescription {
   ?'rules' => ScalingRuleList,
   ?'status' => AutoScalingPolicyStatus,
   ) $s = shape()) {
-    $this->constraints = $constraints ?? ;
-    $this->rules = $rules ?? ;
-    $this->status = $status ?? ;
+    $this->constraints = $constraints ?? null;
+    $this->rules = $rules ?? [];
+    $this->status = $status ?? null;
   }
 }
 
@@ -204,8 +204,8 @@ class AutoScalingPolicyStateChangeReason {
   ?'code' => AutoScalingPolicyStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -219,8 +219,8 @@ class AutoScalingPolicyStatus {
   ?'state' => AutoScalingPolicyState,
   ?'state_change_reason' => AutoScalingPolicyStateChangeReason,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
   }
 }
 
@@ -232,8 +232,8 @@ class BlockPublicAccessConfiguration {
   ?'block_public_security_group_rules' => boolean,
   ?'permitted_public_security_group_rule_ranges' => PortRanges,
   ) $s = shape()) {
-    $this->block_public_security_group_rules = $block_public_security_group_rules ?? ;
-    $this->permitted_public_security_group_rule_ranges = $permitted_public_security_group_rule_ranges ?? ;
+    $this->block_public_security_group_rules = $block_public_security_group_rules ?? false;
+    $this->permitted_public_security_group_rule_ranges = $permitted_public_security_group_rule_ranges ?? [];
   }
 }
 
@@ -245,8 +245,8 @@ class BlockPublicAccessConfigurationMetadata {
   ?'created_by_arn' => ArnType,
   ?'creation_date_time' => Date,
   ) $s = shape()) {
-    $this->created_by_arn = $created_by_arn ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
+    $this->created_by_arn = $created_by_arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
   }
 }
 
@@ -262,8 +262,8 @@ class BootstrapActionConfig {
   ?'name' => XmlStringMaxLen256,
   ?'script_bootstrap_action' => ScriptBootstrapActionConfig,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->script_bootstrap_action = $script_bootstrap_action ?? ;
+    $this->name = $name ?? "";
+    $this->script_bootstrap_action = $script_bootstrap_action ?? null;
   }
 }
 
@@ -291,8 +291,8 @@ class CancelStepsInfo {
   ?'status' => CancelStepsRequestStatus,
   ?'step_id' => StepId,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->status = $status ?? ;
+    $this->reason = $reason ?? "";
+    $this->status = $status ?? "";
     $this->step_id = $step_id ?? "";
   }
 }
@@ -311,7 +311,7 @@ class CancelStepsInput {
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
     $this->step_cancellation_option = $step_cancellation_option ?? "";
-    $this->step_ids = $step_ids ?? ;
+    $this->step_ids = $step_ids ?? [];
   }
 }
 
@@ -350,13 +350,13 @@ class CloudWatchAlarmDefinition {
   ?'unit' => Unit,
   ) $s = shape()) {
     $this->comparison_operator = $comparison_operator ?? "";
-    $this->dimensions = $dimensions ?? ;
-    $this->evaluation_periods = $evaluation_periods ?? ;
-    $this->metric_name = $metric_name ?? ;
-    $this->namespace = $namespace ?? ;
-    $this->period = $period ?? ;
+    $this->dimensions = $dimensions ?? [];
+    $this->evaluation_periods = $evaluation_periods ?? 0;
+    $this->metric_name = $metric_name ?? "";
+    $this->namespace = $namespace ?? "";
+    $this->period = $period ?? 0;
     $this->statistic = $statistic ?? "";
-    $this->threshold = $threshold ?? ;
+    $this->threshold = $threshold ?? 0.0;
     $this->unit = $unit ?? "";
   }
 }
@@ -421,34 +421,34 @@ class Cluster {
   ?'termination_protected' => boolean,
   ?'visible_to_all_users' => boolean,
   ) $s = shape()) {
-    $this->applications = $applications ?? ;
-    $this->auto_scaling_role = $auto_scaling_role ?? ;
-    $this->auto_terminate = $auto_terminate ?? ;
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->configurations = $configurations ?? ;
-    $this->custom_ami_id = $custom_ami_id ?? ;
-    $this->ebs_root_volume_size = $ebs_root_volume_size ?? ;
+    $this->applications = $applications ?? [];
+    $this->auto_scaling_role = $auto_scaling_role ?? "";
+    $this->auto_terminate = $auto_terminate ?? false;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->configurations = $configurations ?? [];
+    $this->custom_ami_id = $custom_ami_id ?? "";
+    $this->ebs_root_volume_size = $ebs_root_volume_size ?? 0;
     $this->ec_2_instance_attributes = $ec_2_instance_attributes ?? null;
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->instance_collection_type = $instance_collection_type ?? "";
     $this->kerberos_attributes = $kerberos_attributes ?? null;
-    $this->log_uri = $log_uri ?? ;
-    $this->master_public_dns_name = $master_public_dns_name ?? ;
-    $this->name = $name ?? ;
-    $this->normalized_instance_hours = $normalized_instance_hours ?? ;
-    $this->outpost_arn = $outpost_arn ?? ;
-    $this->release_label = $release_label ?? ;
+    $this->log_uri = $log_uri ?? "";
+    $this->master_public_dns_name = $master_public_dns_name ?? "";
+    $this->name = $name ?? "";
+    $this->normalized_instance_hours = $normalized_instance_hours ?? 0;
+    $this->outpost_arn = $outpost_arn ?? "";
+    $this->release_label = $release_label ?? "";
     $this->repo_upgrade_on_boot = $repo_upgrade_on_boot ?? "";
-    $this->requested_ami_version = $requested_ami_version ?? ;
-    $this->running_ami_version = $running_ami_version ?? ;
+    $this->requested_ami_version = $requested_ami_version ?? "";
+    $this->running_ami_version = $running_ami_version ?? "";
     $this->scale_down_behavior = $scale_down_behavior ?? "";
-    $this->security_configuration = $security_configuration ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->status = $status ?? ;
-    $this->step_concurrency_level = $step_concurrency_level ?? ;
-    $this->tags = $tags ?? ;
-    $this->termination_protected = $termination_protected ?? ;
-    $this->visible_to_all_users = $visible_to_all_users ?? ;
+    $this->security_configuration = $security_configuration ?? "";
+    $this->service_role = $service_role ?? "";
+    $this->status = $status ?? null;
+    $this->step_concurrency_level = $step_concurrency_level ?? 0;
+    $this->tags = $tags ?? [];
+    $this->termination_protected = $termination_protected ?? false;
+    $this->visible_to_all_users = $visible_to_all_users ?? false;
   }
 }
 
@@ -464,8 +464,8 @@ class ClusterStateChangeReason {
   ?'code' => ClusterStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -483,9 +483,9 @@ class ClusterStatus {
   ?'state_change_reason' => ClusterStateChangeReason,
   ?'timeline' => ClusterTimeline,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -505,12 +505,12 @@ class ClusterSummary {
   ?'outpost_arn' => OptionalArnType,
   ?'status' => ClusterStatus,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->normalized_instance_hours = $normalized_instance_hours ?? ;
-    $this->outpost_arn = $outpost_arn ?? ;
-    $this->status = $status ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->normalized_instance_hours = $normalized_instance_hours ?? 0;
+    $this->outpost_arn = $outpost_arn ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -526,9 +526,9 @@ class ClusterTimeline {
   ?'end_date_time' => Date,
   ?'ready_date_time' => Date,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->ready_date_time = $ready_date_time ?? 0;
   }
 }
 
@@ -542,9 +542,9 @@ class Command {
   ?'name' => string,
   ?'script_path' => string,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->name = $name ?? ;
-    $this->script_path = $script_path ?? ;
+    $this->args = $args ?? [];
+    $this->name = $name ?? "";
+    $this->script_path = $script_path ?? "";
   }
 }
 
@@ -564,10 +564,10 @@ class ComputeLimits {
   ?'minimum_capacity_units' => int,
   ?'unit_type' => ComputeLimitsUnitType,
   ) $s = shape()) {
-    $this->maximum_capacity_units = $maximum_capacity_units ?? ;
-    $this->maximum_on_demand_capacity_units = $maximum_on_demand_capacity_units ?? ;
-    $this->minimum_capacity_units = $minimum_capacity_units ?? ;
-    $this->unit_type = $unit_type ?? ;
+    $this->maximum_capacity_units = $maximum_capacity_units ?? 0;
+    $this->maximum_on_demand_capacity_units = $maximum_on_demand_capacity_units ?? 0;
+    $this->minimum_capacity_units = $minimum_capacity_units ?? 0;
+    $this->unit_type = $unit_type ?? "";
   }
 }
 
@@ -583,9 +583,9 @@ class Configuration {
   ?'configurations' => ConfigurationList,
   ?'properties' => StringMap,
   ) $s = shape()) {
-    $this->classification = $classification ?? ;
-    $this->configurations = $configurations ?? ;
-    $this->properties = $properties ?? ;
+    $this->classification = $classification ?? "";
+    $this->configurations = $configurations ?? [];
+    $this->properties = $properties ?? [];
   }
 }
 
@@ -599,8 +599,8 @@ class CreateSecurityConfigurationInput {
   ?'name' => XmlString,
   ?'security_configuration' => string,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->security_configuration = $security_configuration ?? ;
+    $this->name = $name ?? "";
+    $this->security_configuration = $security_configuration ?? "";
   }
 }
 
@@ -612,8 +612,8 @@ class CreateSecurityConfigurationOutput {
   ?'creation_date_time' => Date,
   ?'name' => XmlString,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->name = $name ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -625,7 +625,7 @@ class DeleteSecurityConfigurationInput {
   public function __construct(shape(
   ?'name' => XmlString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -668,10 +668,10 @@ class DescribeJobFlowsInput {
   ?'job_flow_ids' => XmlStringList,
   ?'job_flow_states' => JobFlowExecutionStateList,
   ) $s = shape()) {
-    $this->created_after = $created_after ?? ;
-    $this->created_before = $created_before ?? ;
-    $this->job_flow_ids = $job_flow_ids ?? ;
-    $this->job_flow_states = $job_flow_states ?? ;
+    $this->created_after = $created_after ?? 0;
+    $this->created_before = $created_before ?? 0;
+    $this->job_flow_ids = $job_flow_ids ?? [];
+    $this->job_flow_states = $job_flow_states ?? [];
   }
 }
 
@@ -681,7 +681,7 @@ class DescribeJobFlowsOutput {
   public function __construct(shape(
   ?'job_flows' => JobFlowDetailList,
   ) $s = shape()) {
-    $this->job_flows = $job_flows ?? ;
+    $this->job_flows = $job_flows ?? [];
   }
 }
 
@@ -691,7 +691,7 @@ class DescribeSecurityConfigurationInput {
   public function __construct(shape(
   ?'name' => XmlString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -705,9 +705,9 @@ class DescribeSecurityConfigurationOutput {
   ?'name' => XmlString,
   ?'security_configuration' => string,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->name = $name ?? ;
-    $this->security_configuration = $security_configuration ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->name = $name ?? "";
+    $this->security_configuration = $security_configuration ?? "";
   }
 }
 
@@ -746,7 +746,7 @@ class EbsBlockDevice {
   ?'device' => string,
   ?'volume_specification' => VolumeSpecification,
   ) $s = shape()) {
-    $this->device = $device ?? ;
+    $this->device = $device ?? "";
     $this->volume_specification = $volume_specification ?? null;
   }
 }
@@ -760,7 +760,7 @@ class EbsBlockDeviceConfig {
   ?'volumes_per_instance' => int,
   ) $s = shape()) {
     $this->volume_specification = $volume_specification ?? null;
-    $this->volumes_per_instance = $volumes_per_instance ?? ;
+    $this->volumes_per_instance = $volumes_per_instance ?? 0;
   }
 }
 
@@ -776,8 +776,8 @@ class EbsConfiguration {
   ?'ebs_block_device_configs' => EbsBlockDeviceConfigList,
   ?'ebs_optimized' => BooleanObject,
   ) $s = shape()) {
-    $this->ebs_block_device_configs = $ebs_block_device_configs ?? ;
-    $this->ebs_optimized = $ebs_optimized ?? ;
+    $this->ebs_block_device_configs = $ebs_block_device_configs ?? [];
+    $this->ebs_optimized = $ebs_optimized ?? false;
   }
 }
 
@@ -789,8 +789,8 @@ class EbsVolume {
   ?'device' => string,
   ?'volume_id' => string,
   ) $s = shape()) {
-    $this->device = $device ?? ;
-    $this->volume_id = $volume_id ?? ;
+    $this->device = $device ?? "";
+    $this->volume_id = $volume_id ?? "";
   }
 }
 
@@ -822,17 +822,17 @@ class Ec2InstanceAttributes {
   ?'requested_ec_2_subnet_ids' => XmlStringMaxLen256List,
   ?'service_access_security_group' => string,
   ) $s = shape()) {
-    $this->additional_master_security_groups = $additional_master_security_groups ?? ;
-    $this->additional_slave_security_groups = $additional_slave_security_groups ?? ;
-    $this->ec_2_availability_zone = $ec_2_availability_zone ?? ;
-    $this->ec_2_key_name = $ec_2_key_name ?? ;
-    $this->ec_2_subnet_id = $ec_2_subnet_id ?? ;
-    $this->emr_managed_master_security_group = $emr_managed_master_security_group ?? ;
-    $this->emr_managed_slave_security_group = $emr_managed_slave_security_group ?? ;
-    $this->iam_instance_profile = $iam_instance_profile ?? ;
-    $this->requested_ec_2_availability_zones = $requested_ec_2_availability_zones ?? ;
-    $this->requested_ec_2_subnet_ids = $requested_ec_2_subnet_ids ?? ;
-    $this->service_access_security_group = $service_access_security_group ?? ;
+    $this->additional_master_security_groups = $additional_master_security_groups ?? [];
+    $this->additional_slave_security_groups = $additional_slave_security_groups ?? [];
+    $this->ec_2_availability_zone = $ec_2_availability_zone ?? "";
+    $this->ec_2_key_name = $ec_2_key_name ?? "";
+    $this->ec_2_subnet_id = $ec_2_subnet_id ?? "";
+    $this->emr_managed_master_security_group = $emr_managed_master_security_group ?? "";
+    $this->emr_managed_slave_security_group = $emr_managed_slave_security_group ?? "";
+    $this->iam_instance_profile = $iam_instance_profile ?? "";
+    $this->requested_ec_2_availability_zones = $requested_ec_2_availability_zones ?? [];
+    $this->requested_ec_2_subnet_ids = $requested_ec_2_subnet_ids ?? [];
+    $this->service_access_security_group = $service_access_security_group ?? "";
   }
 }
 
@@ -850,9 +850,9 @@ class FailureDetails {
   ?'message' => string,
   ?'reason' => string,
   ) $s = shape()) {
-    $this->log_file = $log_file ?? ;
-    $this->message = $message ?? ;
-    $this->reason = $reason ?? ;
+    $this->log_file = $log_file ?? "";
+    $this->message = $message ?? "";
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -908,10 +908,10 @@ class HadoopJarStepConfig {
   ?'main_class' => XmlString,
   ?'properties' => KeyValueList,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->jar = $jar ?? ;
-    $this->main_class = $main_class ?? ;
-    $this->properties = $properties ?? ;
+    $this->args = $args ?? [];
+    $this->jar = $jar ?? "";
+    $this->main_class = $main_class ?? "";
+    $this->properties = $properties ?? [];
   }
 }
 
@@ -927,10 +927,10 @@ class HadoopStepConfig {
   ?'main_class' => string,
   ?'properties' => StringMap,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->jar = $jar ?? ;
-    $this->main_class = $main_class ?? ;
-    $this->properties = $properties ?? ;
+    $this->args = $args ?? [];
+    $this->jar = $jar ?? "";
+    $this->main_class = $main_class ?? "";
+    $this->properties = $properties ?? [];
   }
 }
 
@@ -962,18 +962,18 @@ class Instance {
   ?'public_ip_address' => string,
   ?'status' => InstanceStatus,
   ) $s = shape()) {
-    $this->ebs_volumes = $ebs_volumes ?? ;
-    $this->ec_2_instance_id = $ec_2_instance_id ?? ;
-    $this->id = $id ?? ;
+    $this->ebs_volumes = $ebs_volumes ?? [];
+    $this->ec_2_instance_id = $ec_2_instance_id ?? "";
+    $this->id = $id ?? "";
     $this->instance_fleet_id = $instance_fleet_id ?? "";
     $this->instance_group_id = $instance_group_id ?? "";
     $this->instance_type = $instance_type ?? "";
-    $this->market = $market ?? ;
-    $this->private_dns_name = $private_dns_name ?? ;
-    $this->private_ip_address = $private_ip_address ?? ;
-    $this->public_dns_name = $public_dns_name ?? ;
-    $this->public_ip_address = $public_ip_address ?? ;
-    $this->status = $status ?? ;
+    $this->market = $market ?? "";
+    $this->private_dns_name = $private_dns_name ?? "";
+    $this->private_ip_address = $private_ip_address ?? "";
+    $this->public_dns_name = $public_dns_name ?? "";
+    $this->public_ip_address = $public_ip_address ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -1003,16 +1003,16 @@ class InstanceFleet {
   ?'target_on_demand_capacity' => WholeNumber,
   ?'target_spot_capacity' => WholeNumber,
   ) $s = shape()) {
-    $this->id = $id ?? ;
+    $this->id = $id ?? "";
     $this->instance_fleet_type = $instance_fleet_type ?? "";
-    $this->instance_type_specifications = $instance_type_specifications ?? ;
-    $this->launch_specifications = $launch_specifications ?? ;
-    $this->name = $name ?? ;
-    $this->provisioned_on_demand_capacity = $provisioned_on_demand_capacity ?? ;
-    $this->provisioned_spot_capacity = $provisioned_spot_capacity ?? ;
-    $this->status = $status ?? ;
-    $this->target_on_demand_capacity = $target_on_demand_capacity ?? ;
-    $this->target_spot_capacity = $target_spot_capacity ?? ;
+    $this->instance_type_specifications = $instance_type_specifications ?? [];
+    $this->launch_specifications = $launch_specifications ?? null;
+    $this->name = $name ?? "";
+    $this->provisioned_on_demand_capacity = $provisioned_on_demand_capacity ?? 0;
+    $this->provisioned_spot_capacity = $provisioned_spot_capacity ?? 0;
+    $this->status = $status ?? null;
+    $this->target_on_demand_capacity = $target_on_demand_capacity ?? 0;
+    $this->target_spot_capacity = $target_spot_capacity ?? 0;
   }
 }
 
@@ -1033,11 +1033,11 @@ class InstanceFleetConfig {
   ?'target_spot_capacity' => WholeNumber,
   ) $s = shape()) {
     $this->instance_fleet_type = $instance_fleet_type ?? "";
-    $this->instance_type_configs = $instance_type_configs ?? ;
-    $this->launch_specifications = $launch_specifications ?? ;
-    $this->name = $name ?? ;
-    $this->target_on_demand_capacity = $target_on_demand_capacity ?? ;
-    $this->target_spot_capacity = $target_spot_capacity ?? ;
+    $this->instance_type_configs = $instance_type_configs ?? [];
+    $this->launch_specifications = $launch_specifications ?? null;
+    $this->name = $name ?? "";
+    $this->target_on_demand_capacity = $target_on_demand_capacity ?? 0;
+    $this->target_spot_capacity = $target_spot_capacity ?? 0;
   }
 }
 
@@ -1058,8 +1058,8 @@ class InstanceFleetModifyConfig {
   ?'target_spot_capacity' => WholeNumber,
   ) $s = shape()) {
     $this->instance_fleet_id = $instance_fleet_id ?? "";
-    $this->target_on_demand_capacity = $target_on_demand_capacity ?? ;
-    $this->target_spot_capacity = $target_spot_capacity ?? ;
+    $this->target_on_demand_capacity = $target_on_demand_capacity ?? 0;
+    $this->target_spot_capacity = $target_spot_capacity ?? 0;
   }
 }
 
@@ -1069,7 +1069,7 @@ class InstanceFleetProvisioningSpecifications {
   public function __construct(shape(
   ?'spot_specification' => SpotProvisioningSpecification,
   ) $s = shape()) {
-    $this->spot_specification = $spot_specification ?? ;
+    $this->spot_specification = $spot_specification ?? null;
   }
 }
 
@@ -1083,8 +1083,8 @@ class InstanceFleetStateChangeReason {
   ?'code' => InstanceFleetStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1100,9 +1100,9 @@ class InstanceFleetStatus {
   ?'state_change_reason' => InstanceFleetStateChangeReason,
   ?'timeline' => InstanceFleetTimeline,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -1116,9 +1116,9 @@ class InstanceFleetTimeline {
   ?'end_date_time' => Date,
   ?'ready_date_time' => Date,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->ready_date_time = $ready_date_time ?? 0;
   }
 }
 
@@ -1163,22 +1163,22 @@ class InstanceGroup {
   ?'status' => InstanceGroupStatus,
   ) $s = shape()) {
     $this->auto_scaling_policy = $auto_scaling_policy ?? null;
-    $this->bid_price = $bid_price ?? ;
-    $this->configurations = $configurations ?? ;
-    $this->configurations_version = $configurations_version ?? ;
-    $this->ebs_block_devices = $ebs_block_devices ?? ;
-    $this->ebs_optimized = $ebs_optimized ?? ;
-    $this->id = $id ?? ;
+    $this->bid_price = $bid_price ?? "";
+    $this->configurations = $configurations ?? [];
+    $this->configurations_version = $configurations_version ?? 0;
+    $this->ebs_block_devices = $ebs_block_devices ?? [];
+    $this->ebs_optimized = $ebs_optimized ?? false;
+    $this->id = $id ?? "";
     $this->instance_group_type = $instance_group_type ?? "";
     $this->instance_type = $instance_type ?? "";
-    $this->last_successfully_applied_configurations = $last_successfully_applied_configurations ?? ;
-    $this->last_successfully_applied_configurations_version = $last_successfully_applied_configurations_version ?? ;
-    $this->market = $market ?? ;
-    $this->name = $name ?? ;
-    $this->requested_instance_count = $requested_instance_count ?? ;
-    $this->running_instance_count = $running_instance_count ?? ;
+    $this->last_successfully_applied_configurations = $last_successfully_applied_configurations ?? [];
+    $this->last_successfully_applied_configurations_version = $last_successfully_applied_configurations_version ?? 0;
+    $this->market = $market ?? "";
+    $this->name = $name ?? "";
+    $this->requested_instance_count = $requested_instance_count ?? 0;
+    $this->running_instance_count = $running_instance_count ?? 0;
     $this->shrink_policy = $shrink_policy ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? null;
   }
 }
 
@@ -1205,14 +1205,14 @@ class InstanceGroupConfig {
   ?'name' => XmlStringMaxLen256,
   ) $s = shape()) {
     $this->auto_scaling_policy = $auto_scaling_policy ?? null;
-    $this->bid_price = $bid_price ?? ;
-    $this->configurations = $configurations ?? ;
+    $this->bid_price = $bid_price ?? "";
+    $this->configurations = $configurations ?? [];
     $this->ebs_configuration = $ebs_configuration ?? null;
-    $this->instance_count = $instance_count ?? ;
-    $this->instance_role = $instance_role ?? ;
+    $this->instance_count = $instance_count ?? 0;
+    $this->instance_role = $instance_role ?? "";
     $this->instance_type = $instance_type ?? "";
-    $this->market = $market ?? ;
-    $this->name = $name ?? ;
+    $this->market = $market ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1250,20 +1250,20 @@ class InstanceGroupDetail {
   ?'start_date_time' => Date,
   ?'state' => InstanceGroupState,
   ) $s = shape()) {
-    $this->bid_price = $bid_price ?? ;
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
+    $this->bid_price = $bid_price ?? "";
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
     $this->instance_group_id = $instance_group_id ?? "";
-    $this->instance_request_count = $instance_request_count ?? ;
-    $this->instance_role = $instance_role ?? ;
-    $this->instance_running_count = $instance_running_count ?? ;
+    $this->instance_request_count = $instance_request_count ?? 0;
+    $this->instance_role = $instance_role ?? "";
+    $this->instance_running_count = $instance_running_count ?? 0;
     $this->instance_type = $instance_type ?? "";
-    $this->last_state_change_reason = $last_state_change_reason ?? ;
-    $this->market = $market ?? ;
-    $this->name = $name ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
-    $this->start_date_time = $start_date_time ?? ;
-    $this->state = $state ?? ;
+    $this->last_state_change_reason = $last_state_change_reason ?? "";
+    $this->market = $market ?? "";
+    $this->name = $name ?? "";
+    $this->ready_date_time = $ready_date_time ?? 0;
+    $this->start_date_time = $start_date_time ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1289,9 +1289,9 @@ class InstanceGroupModifyConfig {
   ?'instance_group_id' => XmlStringMaxLen256,
   ?'shrink_policy' => ShrinkPolicy,
   ) $s = shape()) {
-    $this->configurations = $configurations ?? ;
-    $this->ec_2_instance_ids_to_terminate = $ec_2_instance_ids_to_terminate ?? ;
-    $this->instance_count = $instance_count ?? ;
+    $this->configurations = $configurations ?? [];
+    $this->ec_2_instance_ids_to_terminate = $ec_2_instance_ids_to_terminate ?? [];
+    $this->instance_count = $instance_count ?? 0;
     $this->instance_group_id = $instance_group_id ?? "";
     $this->shrink_policy = $shrink_policy ?? null;
   }
@@ -1309,8 +1309,8 @@ class InstanceGroupStateChangeReason {
   ?'code' => InstanceGroupStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1326,9 +1326,9 @@ class InstanceGroupStatus {
   ?'state_change_reason' => InstanceGroupStateChangeReason,
   ?'timeline' => InstanceGroupTimeline,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -1342,9 +1342,9 @@ class InstanceGroupTimeline {
   ?'end_date_time' => Date,
   ?'ready_date_time' => Date,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->ready_date_time = $ready_date_time ?? 0;
   }
 }
 
@@ -1366,9 +1366,9 @@ class InstanceResizePolicy {
   ?'instances_to_protect' => EC2InstanceIdsList,
   ?'instances_to_terminate' => EC2InstanceIdsList,
   ) $s = shape()) {
-    $this->instance_termination_timeout = $instance_termination_timeout ?? ;
-    $this->instances_to_protect = $instances_to_protect ?? ;
-    $this->instances_to_terminate = $instances_to_terminate ?? ;
+    $this->instance_termination_timeout = $instance_termination_timeout ?? 0;
+    $this->instances_to_protect = $instances_to_protect ?? [];
+    $this->instances_to_terminate = $instances_to_terminate ?? [];
   }
 }
 
@@ -1384,8 +1384,8 @@ class InstanceStateChangeReason {
   ?'code' => InstanceStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1403,9 +1403,9 @@ class InstanceStatus {
   ?'state_change_reason' => InstanceStateChangeReason,
   ?'timeline' => InstanceTimeline,
   ) $s = shape()) {
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -1419,9 +1419,9 @@ class InstanceTimeline {
   ?'end_date_time' => Date,
   ?'ready_date_time' => Date,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->ready_date_time = $ready_date_time ?? 0;
   }
 }
 
@@ -1443,12 +1443,12 @@ class InstanceTypeConfig {
   ?'instance_type' => InstanceType,
   ?'weighted_capacity' => WholeNumber,
   ) $s = shape()) {
-    $this->bid_price = $bid_price ?? ;
-    $this->bid_price_as_percentage_of_on_demand_price = $bid_price_as_percentage_of_on_demand_price ?? ;
-    $this->configurations = $configurations ?? ;
+    $this->bid_price = $bid_price ?? "";
+    $this->bid_price_as_percentage_of_on_demand_price = $bid_price_as_percentage_of_on_demand_price ?? 0.0;
+    $this->configurations = $configurations ?? [];
     $this->ebs_configuration = $ebs_configuration ?? null;
     $this->instance_type = $instance_type ?? "";
-    $this->weighted_capacity = $weighted_capacity ?? ;
+    $this->weighted_capacity = $weighted_capacity ?? 0;
   }
 }
 
@@ -1472,13 +1472,13 @@ class InstanceTypeSpecification {
   ?'instance_type' => InstanceType,
   ?'weighted_capacity' => WholeNumber,
   ) $s = shape()) {
-    $this->bid_price = $bid_price ?? ;
-    $this->bid_price_as_percentage_of_on_demand_price = $bid_price_as_percentage_of_on_demand_price ?? ;
-    $this->configurations = $configurations ?? ;
-    $this->ebs_block_devices = $ebs_block_devices ?? ;
-    $this->ebs_optimized = $ebs_optimized ?? ;
+    $this->bid_price = $bid_price ?? "";
+    $this->bid_price_as_percentage_of_on_demand_price = $bid_price_as_percentage_of_on_demand_price ?? 0.0;
+    $this->configurations = $configurations ?? [];
+    $this->ebs_block_devices = $ebs_block_devices ?? [];
+    $this->ebs_optimized = $ebs_optimized ?? false;
     $this->instance_type = $instance_type ?? "";
-    $this->weighted_capacity = $weighted_capacity ?? ;
+    $this->weighted_capacity = $weighted_capacity ?? 0;
   }
 }
 
@@ -1499,7 +1499,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1512,7 +1512,7 @@ class InvalidRequestException {
   ?'message' => ErrorMessage,
   ) $s = shape()) {
     $this->error_code = $error_code ?? "";
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1548,20 +1548,20 @@ class JobFlowDetail {
   ?'supported_products' => SupportedProductsList,
   ?'visible_to_all_users' => boolean,
   ) $s = shape()) {
-    $this->ami_version = $ami_version ?? ;
-    $this->auto_scaling_role = $auto_scaling_role ?? ;
-    $this->bootstrap_actions = $bootstrap_actions ?? ;
-    $this->execution_status_detail = $execution_status_detail ?? ;
-    $this->instances = $instances ?? ;
-    $this->job_flow_id = $job_flow_id ?? ;
-    $this->job_flow_role = $job_flow_role ?? ;
-    $this->log_uri = $log_uri ?? ;
-    $this->name = $name ?? ;
+    $this->ami_version = $ami_version ?? "";
+    $this->auto_scaling_role = $auto_scaling_role ?? "";
+    $this->bootstrap_actions = $bootstrap_actions ?? [];
+    $this->execution_status_detail = $execution_status_detail ?? null;
+    $this->instances = $instances ?? null;
+    $this->job_flow_id = $job_flow_id ?? "";
+    $this->job_flow_role = $job_flow_role ?? "";
+    $this->log_uri = $log_uri ?? "";
+    $this->name = $name ?? "";
     $this->scale_down_behavior = $scale_down_behavior ?? "";
-    $this->service_role = $service_role ?? ;
-    $this->steps = $steps ?? ;
-    $this->supported_products = $supported_products ?? ;
-    $this->visible_to_all_users = $visible_to_all_users ?? ;
+    $this->service_role = $service_role ?? "";
+    $this->steps = $steps ?? [];
+    $this->supported_products = $supported_products ?? [];
+    $this->visible_to_all_users = $visible_to_all_users ?? false;
   }
 }
 
@@ -1587,12 +1587,12 @@ class JobFlowExecutionStatusDetail {
   ?'start_date_time' => Date,
   ?'state' => JobFlowExecutionState,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->last_state_change_reason = $last_state_change_reason ?? ;
-    $this->ready_date_time = $ready_date_time ?? ;
-    $this->start_date_time = $start_date_time ?? ;
-    $this->state = $state ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->last_state_change_reason = $last_state_change_reason ?? "";
+    $this->ready_date_time = $ready_date_time ?? 0;
+    $this->start_date_time = $start_date_time ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1634,23 +1634,23 @@ class JobFlowInstancesConfig {
   ?'slave_instance_type' => InstanceType,
   ?'termination_protected' => boolean,
   ) $s = shape()) {
-    $this->additional_master_security_groups = $additional_master_security_groups ?? ;
-    $this->additional_slave_security_groups = $additional_slave_security_groups ?? ;
-    $this->ec_2_key_name = $ec_2_key_name ?? ;
-    $this->ec_2_subnet_id = $ec_2_subnet_id ?? ;
-    $this->ec_2_subnet_ids = $ec_2_subnet_ids ?? ;
-    $this->emr_managed_master_security_group = $emr_managed_master_security_group ?? ;
-    $this->emr_managed_slave_security_group = $emr_managed_slave_security_group ?? ;
-    $this->hadoop_version = $hadoop_version ?? ;
-    $this->instance_count = $instance_count ?? ;
-    $this->instance_fleets = $instance_fleets ?? ;
-    $this->instance_groups = $instance_groups ?? ;
-    $this->keep_job_flow_alive_when_no_steps = $keep_job_flow_alive_when_no_steps ?? ;
-    $this->master_instance_type = $master_instance_type ?? ;
-    $this->placement = $placement ?? ;
-    $this->service_access_security_group = $service_access_security_group ?? ;
-    $this->slave_instance_type = $slave_instance_type ?? ;
-    $this->termination_protected = $termination_protected ?? ;
+    $this->additional_master_security_groups = $additional_master_security_groups ?? [];
+    $this->additional_slave_security_groups = $additional_slave_security_groups ?? [];
+    $this->ec_2_key_name = $ec_2_key_name ?? "";
+    $this->ec_2_subnet_id = $ec_2_subnet_id ?? "";
+    $this->ec_2_subnet_ids = $ec_2_subnet_ids ?? [];
+    $this->emr_managed_master_security_group = $emr_managed_master_security_group ?? "";
+    $this->emr_managed_slave_security_group = $emr_managed_slave_security_group ?? "";
+    $this->hadoop_version = $hadoop_version ?? "";
+    $this->instance_count = $instance_count ?? 0;
+    $this->instance_fleets = $instance_fleets ?? [];
+    $this->instance_groups = $instance_groups ?? [];
+    $this->keep_job_flow_alive_when_no_steps = $keep_job_flow_alive_when_no_steps ?? false;
+    $this->master_instance_type = $master_instance_type ?? "";
+    $this->placement = $placement ?? null;
+    $this->service_access_security_group = $service_access_security_group ?? "";
+    $this->slave_instance_type = $slave_instance_type ?? "";
+    $this->termination_protected = $termination_protected ?? false;
   }
 }
 
@@ -1684,19 +1684,19 @@ class JobFlowInstancesDetail {
   ?'slave_instance_type' => InstanceType,
   ?'termination_protected' => boolean,
   ) $s = shape()) {
-    $this->ec_2_key_name = $ec_2_key_name ?? ;
-    $this->ec_2_subnet_id = $ec_2_subnet_id ?? ;
-    $this->hadoop_version = $hadoop_version ?? ;
-    $this->instance_count = $instance_count ?? ;
-    $this->instance_groups = $instance_groups ?? ;
-    $this->keep_job_flow_alive_when_no_steps = $keep_job_flow_alive_when_no_steps ?? ;
-    $this->master_instance_id = $master_instance_id ?? ;
-    $this->master_instance_type = $master_instance_type ?? ;
-    $this->master_public_dns_name = $master_public_dns_name ?? ;
-    $this->normalized_instance_hours = $normalized_instance_hours ?? ;
-    $this->placement = $placement ?? ;
-    $this->slave_instance_type = $slave_instance_type ?? ;
-    $this->termination_protected = $termination_protected ?? ;
+    $this->ec_2_key_name = $ec_2_key_name ?? "";
+    $this->ec_2_subnet_id = $ec_2_subnet_id ?? "";
+    $this->hadoop_version = $hadoop_version ?? "";
+    $this->instance_count = $instance_count ?? 0;
+    $this->instance_groups = $instance_groups ?? [];
+    $this->keep_job_flow_alive_when_no_steps = $keep_job_flow_alive_when_no_steps ?? false;
+    $this->master_instance_id = $master_instance_id ?? "";
+    $this->master_instance_type = $master_instance_type ?? "";
+    $this->master_public_dns_name = $master_public_dns_name ?? "";
+    $this->normalized_instance_hours = $normalized_instance_hours ?? 0;
+    $this->placement = $placement ?? null;
+    $this->slave_instance_type = $slave_instance_type ?? "";
+    $this->termination_protected = $termination_protected ?? false;
   }
 }
 
@@ -1714,11 +1714,11 @@ class KerberosAttributes {
   ?'kdc_admin_password' => XmlStringMaxLen256,
   ?'realm' => XmlStringMaxLen256,
   ) $s = shape()) {
-    $this->ad_domain_join_password = $ad_domain_join_password ?? ;
-    $this->ad_domain_join_user = $ad_domain_join_user ?? ;
-    $this->cross_realm_trust_principal_password = $cross_realm_trust_principal_password ?? ;
-    $this->kdc_admin_password = $kdc_admin_password ?? ;
-    $this->realm = $realm ?? ;
+    $this->ad_domain_join_password = $ad_domain_join_password ?? "";
+    $this->ad_domain_join_user = $ad_domain_join_user ?? "";
+    $this->cross_realm_trust_principal_password = $cross_realm_trust_principal_password ?? "";
+    $this->kdc_admin_password = $kdc_admin_password ?? "";
+    $this->realm = $realm ?? "";
   }
 }
 
@@ -1730,8 +1730,8 @@ class KeyValue {
   ?'key' => XmlString,
   ?'value' => XmlString,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1758,7 +1758,7 @@ class ListBootstrapActionsOutput {
   ?'bootstrap_actions' => CommandList,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->bootstrap_actions = $bootstrap_actions ?? ;
+    $this->bootstrap_actions = $bootstrap_actions ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1775,9 +1775,9 @@ class ListClustersInput {
   ?'created_before' => Date,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->cluster_states = $cluster_states ?? ;
-    $this->created_after = $created_after ?? ;
-    $this->created_before = $created_before ?? ;
+    $this->cluster_states = $cluster_states ?? [];
+    $this->created_after = $created_after ?? 0;
+    $this->created_before = $created_before ?? 0;
     $this->marker = $marker ?? "";
   }
 }
@@ -1790,7 +1790,7 @@ class ListClustersOutput {
   ?'clusters' => ClusterSummaryList,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->clusters = $clusters ?? ;
+    $this->clusters = $clusters ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1816,7 +1816,7 @@ class ListInstanceFleetsOutput {
   ?'instance_fleets' => InstanceFleetList,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->instance_fleets = $instance_fleets ?? ;
+    $this->instance_fleets = $instance_fleets ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1842,7 +1842,7 @@ class ListInstanceGroupsOutput {
   ?'instance_groups' => InstanceGroupList,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->instance_groups = $instance_groups ?? ;
+    $this->instance_groups = $instance_groups ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1869,8 +1869,8 @@ class ListInstancesInput {
     $this->instance_fleet_id = $instance_fleet_id ?? "";
     $this->instance_fleet_type = $instance_fleet_type ?? "";
     $this->instance_group_id = $instance_group_id ?? "";
-    $this->instance_group_types = $instance_group_types ?? ;
-    $this->instance_states = $instance_states ?? ;
+    $this->instance_group_types = $instance_group_types ?? [];
+    $this->instance_states = $instance_states ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1883,7 +1883,7 @@ class ListInstancesOutput {
   ?'instances' => InstanceList,
   ?'marker' => Marker,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
+    $this->instances = $instances ?? [];
     $this->marker = $marker ?? "";
   }
 }
@@ -1907,7 +1907,7 @@ class ListSecurityConfigurationsOutput {
   ?'security_configurations' => SecurityConfigurationList,
   ) $s = shape()) {
     $this->marker = $marker ?? "";
-    $this->security_configurations = $security_configurations ?? ;
+    $this->security_configurations = $security_configurations ?? [];
   }
 }
 
@@ -1925,8 +1925,8 @@ class ListStepsInput {
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
     $this->marker = $marker ?? "";
-    $this->step_ids = $step_ids ?? ;
-    $this->step_states = $step_states ?? ;
+    $this->step_ids = $step_ids ?? [];
+    $this->step_states = $step_states ?? [];
   }
 }
 
@@ -1939,7 +1939,7 @@ class ListStepsOutput {
   ?'steps' => StepSummaryList,
   ) $s = shape()) {
     $this->marker = $marker ?? "";
-    $this->steps = $steps ?? ;
+    $this->steps = $steps ?? [];
   }
 }
 
@@ -1967,8 +1967,8 @@ class MetricDimension {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1983,7 +1983,7 @@ class ModifyClusterInput {
   ?'step_concurrency_level' => int,
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
-    $this->step_concurrency_level = $step_concurrency_level ?? ;
+    $this->step_concurrency_level = $step_concurrency_level ?? 0;
   }
 }
 
@@ -1993,7 +1993,7 @@ class ModifyClusterOutput {
   public function __construct(shape(
   ?'step_concurrency_level' => int,
   ) $s = shape()) {
-    $this->step_concurrency_level = $step_concurrency_level ?? ;
+    $this->step_concurrency_level = $step_concurrency_level ?? 0;
   }
 }
 
@@ -2019,7 +2019,7 @@ class ModifyInstanceGroupsInput {
   ?'instance_groups' => InstanceGroupModifyConfigList,
   ) $s = shape()) {
     $this->cluster_id = $cluster_id ?? "";
-    $this->instance_groups = $instance_groups ?? ;
+    $this->instance_groups = $instance_groups ?? [];
   }
 }
 
@@ -2037,8 +2037,8 @@ class PlacementType {
   ?'availability_zone' => XmlString,
   ?'availability_zones' => XmlStringMaxLen256List,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->availability_zones = $availability_zones ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->availability_zones = $availability_zones ?? [];
   }
 }
 
@@ -2052,8 +2052,8 @@ class PortRange {
   ?'max_range' => Port,
   ?'min_range' => Port,
   ) $s = shape()) {
-    $this->max_range = $max_range ?? ;
-    $this->min_range = $min_range ?? ;
+    $this->max_range = $max_range ?? 0;
+    $this->min_range = $min_range ?? 0;
   }
 }
 
@@ -2088,7 +2088,7 @@ class PutAutoScalingPolicyOutput {
   ?'instance_group_id' => InstanceGroupId,
   ) $s = shape()) {
     $this->auto_scaling_policy = $auto_scaling_policy ?? null;
-    $this->cluster_arn = $cluster_arn ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
     $this->cluster_id = $cluster_id ?? "";
     $this->instance_group_id = $instance_group_id ?? "";
   }
@@ -2177,7 +2177,7 @@ class RemoveTagsInput {
   ?'tag_keys' => StringList,
   ) $s = shape()) {
     $this->resource_id = $resource_id ?? "";
-    $this->tag_keys = $tag_keys ?? ;
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2246,31 +2246,31 @@ class RunJobFlowInput {
   ?'tags' => TagList,
   ?'visible_to_all_users' => boolean,
   ) $s = shape()) {
-    $this->additional_info = $additional_info ?? ;
-    $this->ami_version = $ami_version ?? ;
-    $this->applications = $applications ?? ;
-    $this->auto_scaling_role = $auto_scaling_role ?? ;
-    $this->bootstrap_actions = $bootstrap_actions ?? ;
-    $this->configurations = $configurations ?? ;
-    $this->custom_ami_id = $custom_ami_id ?? ;
-    $this->ebs_root_volume_size = $ebs_root_volume_size ?? ;
-    $this->instances = $instances ?? ;
-    $this->job_flow_role = $job_flow_role ?? ;
+    $this->additional_info = $additional_info ?? "";
+    $this->ami_version = $ami_version ?? "";
+    $this->applications = $applications ?? [];
+    $this->auto_scaling_role = $auto_scaling_role ?? "";
+    $this->bootstrap_actions = $bootstrap_actions ?? [];
+    $this->configurations = $configurations ?? [];
+    $this->custom_ami_id = $custom_ami_id ?? "";
+    $this->ebs_root_volume_size = $ebs_root_volume_size ?? 0;
+    $this->instances = $instances ?? null;
+    $this->job_flow_role = $job_flow_role ?? "";
     $this->kerberos_attributes = $kerberos_attributes ?? null;
-    $this->log_uri = $log_uri ?? ;
+    $this->log_uri = $log_uri ?? "";
     $this->managed_scaling_policy = $managed_scaling_policy ?? null;
-    $this->name = $name ?? ;
-    $this->new_supported_products = $new_supported_products ?? ;
-    $this->release_label = $release_label ?? ;
+    $this->name = $name ?? "";
+    $this->new_supported_products = $new_supported_products ?? [];
+    $this->release_label = $release_label ?? "";
     $this->repo_upgrade_on_boot = $repo_upgrade_on_boot ?? "";
     $this->scale_down_behavior = $scale_down_behavior ?? "";
-    $this->security_configuration = $security_configuration ?? ;
-    $this->service_role = $service_role ?? ;
-    $this->step_concurrency_level = $step_concurrency_level ?? ;
-    $this->steps = $steps ?? ;
-    $this->supported_products = $supported_products ?? ;
-    $this->tags = $tags ?? ;
-    $this->visible_to_all_users = $visible_to_all_users ?? ;
+    $this->security_configuration = $security_configuration ?? "";
+    $this->service_role = $service_role ?? "";
+    $this->step_concurrency_level = $step_concurrency_level ?? 0;
+    $this->steps = $steps ?? [];
+    $this->supported_products = $supported_products ?? [];
+    $this->tags = $tags ?? [];
+    $this->visible_to_all_users = $visible_to_all_users ?? false;
   }
 }
 
@@ -2282,8 +2282,8 @@ class RunJobFlowOutput {
   ?'cluster_arn' => ArnType,
   ?'job_flow_id' => XmlStringMaxLen256,
   ) $s = shape()) {
-    $this->cluster_arn = $cluster_arn ?? ;
-    $this->job_flow_id = $job_flow_id ?? ;
+    $this->cluster_arn = $cluster_arn ?? "";
+    $this->job_flow_id = $job_flow_id ?? "";
   }
 }
 
@@ -2297,7 +2297,7 @@ class ScalingAction {
   ?'market' => MarketType,
   ?'simple_scaling_policy_configuration' => SimpleScalingPolicyConfiguration,
   ) $s = shape()) {
-    $this->market = $market ?? ;
+    $this->market = $market ?? "";
     $this->simple_scaling_policy_configuration = $simple_scaling_policy_configuration ?? null;
   }
 }
@@ -2310,8 +2310,8 @@ class ScalingConstraints {
   ?'max_capacity' => int,
   ?'min_capacity' => int,
   ) $s = shape()) {
-    $this->max_capacity = $max_capacity ?? ;
-    $this->min_capacity = $min_capacity ?? ;
+    $this->max_capacity = $max_capacity ?? 0;
+    $this->min_capacity = $min_capacity ?? 0;
   }
 }
 
@@ -2327,10 +2327,10 @@ class ScalingRule {
   ?'name' => string,
   ?'trigger' => ScalingTrigger,
   ) $s = shape()) {
-    $this->action = $action ?? ;
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
-    $this->trigger = $trigger ?? ;
+    $this->action = $action ?? null;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
+    $this->trigger = $trigger ?? null;
   }
 }
 
@@ -2354,8 +2354,8 @@ class ScriptBootstrapActionConfig {
   ?'args' => XmlStringList,
   ?'path' => XmlString,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->path = $path ?? ;
+    $this->args = $args ?? [];
+    $this->path = $path ?? "";
   }
 }
 
@@ -2369,8 +2369,8 @@ class SecurityConfigurationSummary {
   ?'creation_date_time' => Date,
   ?'name' => XmlString,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->name = $name ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2384,8 +2384,8 @@ class SetTerminationProtectionInput {
   ?'job_flow_ids' => XmlStringList,
   ?'termination_protected' => boolean,
   ) $s = shape()) {
-    $this->job_flow_ids = $job_flow_ids ?? ;
-    $this->termination_protected = $termination_protected ?? ;
+    $this->job_flow_ids = $job_flow_ids ?? [];
+    $this->termination_protected = $termination_protected ?? false;
   }
 }
 
@@ -2397,8 +2397,8 @@ class SetVisibleToAllUsersInput {
   ?'job_flow_ids' => XmlStringList,
   ?'visible_to_all_users' => boolean,
   ) $s = shape()) {
-    $this->job_flow_ids = $job_flow_ids ?? ;
-    $this->visible_to_all_users = $visible_to_all_users ?? ;
+    $this->job_flow_ids = $job_flow_ids ?? [];
+    $this->visible_to_all_users = $visible_to_all_users ?? false;
   }
 }
 
@@ -2410,7 +2410,7 @@ class ShrinkPolicy {
   ?'decommission_timeout' => int,
   ?'instance_resize_policy' => InstanceResizePolicy,
   ) $s = shape()) {
-    $this->decommission_timeout = $decommission_timeout ?? ;
+    $this->decommission_timeout = $decommission_timeout ?? 0;
     $this->instance_resize_policy = $instance_resize_policy ?? null;
   }
 }
@@ -2426,8 +2426,8 @@ class SimpleScalingPolicyConfiguration {
   ?'scaling_adjustment' => int,
   ) $s = shape()) {
     $this->adjustment_type = $adjustment_type ?? "";
-    $this->cool_down = $cool_down ?? ;
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->cool_down = $cool_down ?? 0;
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
   }
 }
 
@@ -2441,9 +2441,9 @@ class SpotProvisioningSpecification {
   ?'timeout_action' => SpotProvisioningTimeoutAction,
   ?'timeout_duration_minutes' => WholeNumber,
   ) $s = shape()) {
-    $this->block_duration_minutes = $block_duration_minutes ?? ;
-    $this->timeout_action = $timeout_action ?? ;
-    $this->timeout_duration_minutes = $timeout_duration_minutes ?? ;
+    $this->block_duration_minutes = $block_duration_minutes ?? 0;
+    $this->timeout_action = $timeout_action ?? "";
+    $this->timeout_duration_minutes = $timeout_duration_minutes ?? 0;
   }
 }
 
@@ -2466,10 +2466,10 @@ class Step {
   ?'status' => StepStatus,
   ) $s = shape()) {
     $this->action_on_failure = $action_on_failure ?? "";
-    $this->config = $config ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->config = $config ?? null;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -2486,8 +2486,8 @@ class StepConfig {
   ?'name' => XmlStringMaxLen256,
   ) $s = shape()) {
     $this->action_on_failure = $action_on_failure ?? "";
-    $this->hadoop_jar_step = $hadoop_jar_step ?? ;
-    $this->name = $name ?? ;
+    $this->hadoop_jar_step = $hadoop_jar_step ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -2501,7 +2501,7 @@ class StepDetail {
   ?'execution_status_detail' => StepExecutionStatusDetail,
   ?'step_config' => StepConfig,
   ) $s = shape()) {
-    $this->execution_status_detail = $execution_status_detail ?? ;
+    $this->execution_status_detail = $execution_status_detail ?? null;
     $this->step_config = $step_config ?? null;
   }
 }
@@ -2524,11 +2524,11 @@ class StepExecutionStatusDetail {
   ?'start_date_time' => Date,
   ?'state' => StepExecutionState,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->last_state_change_reason = $last_state_change_reason ?? ;
-    $this->start_date_time = $start_date_time ?? ;
-    $this->state = $state ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->last_state_change_reason = $last_state_change_reason ?? "";
+    $this->start_date_time = $start_date_time ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -2546,8 +2546,8 @@ class StepStateChangeReason {
   ?'code' => StepStateChangeReasonCode,
   ?'message' => string,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -2568,9 +2568,9 @@ class StepStatus {
   ?'timeline' => StepTimeline,
   ) $s = shape()) {
     $this->failure_details = $failure_details ?? null;
-    $this->state = $state ?? ;
-    $this->state_change_reason = $state_change_reason ?? ;
-    $this->timeline = $timeline ?? ;
+    $this->state = $state ?? "";
+    $this->state_change_reason = $state_change_reason ?? null;
+    $this->timeline = $timeline ?? null;
   }
 }
 
@@ -2589,10 +2589,10 @@ class StepSummary {
   ?'status' => StepStatus,
   ) $s = shape()) {
     $this->action_on_failure = $action_on_failure ?? "";
-    $this->config = $config ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->config = $config ?? null;
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? null;
   }
 }
 
@@ -2608,9 +2608,9 @@ class StepTimeline {
   ?'end_date_time' => Date,
   ?'start_date_time' => Date,
   ) $s = shape()) {
-    $this->creation_date_time = $creation_date_time ?? ;
-    $this->end_date_time = $end_date_time ?? ;
-    $this->start_date_time = $start_date_time ?? ;
+    $this->creation_date_time = $creation_date_time ?? 0;
+    $this->end_date_time = $end_date_time ?? 0;
+    $this->start_date_time = $start_date_time ?? 0;
   }
 }
 
@@ -2628,8 +2628,8 @@ class SupportedProductConfig {
   ?'args' => XmlStringList,
   ?'name' => XmlStringMaxLen256,
   ) $s = shape()) {
-    $this->args = $args ?? ;
-    $this->name = $name ?? ;
+    $this->args = $args ?? [];
+    $this->name = $name ?? "";
   }
 }
 
@@ -2643,8 +2643,8 @@ class Tag {
   ?'key' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2656,7 +2656,7 @@ class TerminateJobFlowsInput {
   public function __construct(shape(
   ?'job_flow_ids' => XmlStringList,
   ) $s = shape()) {
-    $this->job_flow_ids = $job_flow_ids ?? ;
+    $this->job_flow_ids = $job_flow_ids ?? [];
   }
 }
 
@@ -2672,9 +2672,9 @@ class VolumeSpecification {
   ?'size_in_gb' => int,
   ?'volume_type' => string,
   ) $s = shape()) {
-    $this->iops = $iops ?? ;
-    $this->size_in_gb = $size_in_gb ?? ;
-    $this->volume_type = $volume_type ?? ;
+    $this->iops = $iops ?? 0;
+    $this->size_in_gb = $size_in_gb ?? 0;
+    $this->volume_type = $volume_type ?? "";
   }
 }
 

@@ -41,9 +41,9 @@ class ApprovalThresholdPolicy {
   ?'threshold_comparator' => ThresholdComparator,
   ?'threshold_percentage' => ThresholdPercentageInt,
   ) $s = shape()) {
-    $this->proposal_duration_in_hours = $proposal_duration_in_hours ?? ;
+    $this->proposal_duration_in_hours = $proposal_duration_in_hours ?? 0;
     $this->threshold_comparator = $threshold_comparator ?? "";
-    $this->threshold_percentage = $threshold_percentage ?? ;
+    $this->threshold_percentage = $threshold_percentage ?? 0;
   }
 }
 
@@ -63,10 +63,10 @@ class CreateMemberInput {
   ?'member_configuration' => MemberConfiguration,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->invitation_id = $invitation_id ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->invitation_id = $invitation_id ?? "";
     $this->member_configuration = $member_configuration ?? null;
-    $this->network_id = $network_id ?? ;
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -76,7 +76,7 @@ class CreateMemberOutput {
   public function __construct(shape(
   ?'member_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
+    $this->member_id = $member_id ?? "";
   }
 }
 
@@ -100,13 +100,13 @@ class CreateNetworkInput {
   ?'name' => NameString,
   ?'voting_policy' => VotingPolicy,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
     $this->framework = $framework ?? "";
-    $this->framework_configuration = $framework_configuration ?? ;
-    $this->framework_version = $framework_version ?? ;
+    $this->framework_configuration = $framework_configuration ?? null;
+    $this->framework_version = $framework_version ?? "";
     $this->member_configuration = $member_configuration ?? null;
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->voting_policy = $voting_policy ?? null;
   }
 }
@@ -119,8 +119,8 @@ class CreateNetworkOutput {
   ?'member_id' => ResourceIdString,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -136,9 +136,9 @@ class CreateNodeInput {
   ?'network_id' => ResourceIdString,
   ?'node_configuration' => NodeConfiguration,
   ) $s = shape()) {
-    $this->client_request_token = $client_request_token ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
     $this->node_configuration = $node_configuration ?? null;
   }
 }
@@ -149,7 +149,7 @@ class CreateNodeOutput {
   public function __construct(shape(
   ?'node_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->node_id = $node_id ?? ;
+    $this->node_id = $node_id ?? "";
   }
 }
 
@@ -167,11 +167,11 @@ class CreateProposalInput {
   ?'member_id' => ResourceIdString,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->client_request_token = $client_request_token ?? ;
-    $this->description = $description ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->actions = $actions ?? null;
+    $this->client_request_token = $client_request_token ?? "";
+    $this->description = $description ?? "";
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -181,7 +181,7 @@ class CreateProposalOutput {
   public function __construct(shape(
   ?'proposal_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->proposal_id = $proposal_id ?? ;
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -193,8 +193,8 @@ class DeleteMemberInput {
   ?'member_id' => ResourceIdString,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -215,9 +215,9 @@ class DeleteNodeInput {
   ?'network_id' => ResourceIdString,
   ?'node_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->node_id = $node_id ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->node_id = $node_id ?? "";
   }
 }
 
@@ -246,8 +246,8 @@ class GetMemberInput {
   ?'member_id' => ResourceIdString,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -267,7 +267,7 @@ class GetNetworkInput {
   public function __construct(shape(
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->network_id = $network_id ?? ;
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -291,9 +291,9 @@ class GetNodeInput {
   ?'network_id' => ResourceIdString,
   ?'node_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->node_id = $node_id ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->node_id = $node_id ?? "";
   }
 }
 
@@ -315,8 +315,8 @@ class GetProposalInput {
   ?'network_id' => ResourceIdString,
   ?'proposal_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->network_id = $network_id ?? ;
-    $this->proposal_id = $proposal_id ?? ;
+    $this->network_id = $network_id ?? "";
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -336,7 +336,7 @@ class IllegalActionException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -355,7 +355,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -373,11 +373,11 @@ class Invitation {
   ?'network_summary' => NetworkSummary,
   ?'status' => InvitationStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->expiration_date = $expiration_date ?? ;
-    $this->invitation_id = $invitation_id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->expiration_date = $expiration_date ?? 0;
+    $this->invitation_id = $invitation_id ?? "";
     $this->network_summary = $network_summary ?? null;
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
   }
 }
 
@@ -391,7 +391,7 @@ class InviteAction {
   public function __construct(shape(
   ?'principal' => PrincipalString,
   ) $s = shape()) {
-    $this->principal = $principal ?? ;
+    $this->principal = $principal ?? "";
   }
 }
 
@@ -407,8 +407,8 @@ class ListInvitationsInput {
   ?'max_results' => ProposalListMaxResults,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -420,8 +420,8 @@ class ListInvitationsOutput {
   ?'invitations' => InvitationList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->invitations = $invitations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->invitations = $invitations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -442,11 +442,11 @@ class ListMembersInput {
   ?'status' => MemberStatus,
   ) $s = shape()) {
     $this->is_owned = $is_owned ?? false;
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -458,8 +458,8 @@ class ListMembersOutput {
   ?'members' => MemberSummaryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->members = $members ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->members = $members ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -478,10 +478,10 @@ class ListNetworksInput {
   ?'status' => NetworkStatus,
   ) $s = shape()) {
     $this->framework = $framework ?? "";
-    $this->max_results = $max_results ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -493,8 +493,8 @@ class ListNetworksOutput {
   ?'networks' => NetworkSummaryList,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->networks = $networks ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->networks = $networks ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -512,11 +512,11 @@ class ListNodesInput {
   ?'next_token' => PaginationToken,
   ?'status' => NodeStatus,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -528,8 +528,8 @@ class ListNodesOutput {
   ?'next_token' => PaginationToken,
   ?'nodes' => NodeSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->nodes = $nodes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->nodes = $nodes ?? [];
   }
 }
 
@@ -545,10 +545,10 @@ class ListProposalVotesInput {
   ?'next_token' => PaginationToken,
   ?'proposal_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->proposal_id = $proposal_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->network_id = $network_id ?? "";
+    $this->next_token = $next_token ?? "";
+    $this->proposal_id = $proposal_id ?? "";
   }
 }
 
@@ -560,8 +560,8 @@ class ListProposalVotesOutput {
   ?'next_token' => PaginationToken,
   ?'proposal_votes' => ProposalVoteList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->proposal_votes = $proposal_votes ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->proposal_votes = $proposal_votes ?? [];
   }
 }
 
@@ -575,9 +575,9 @@ class ListProposalsInput {
   ?'network_id' => ResourceIdString,
   ?'next_token' => PaginationToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->network_id = $network_id ?? "";
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -589,8 +589,8 @@ class ListProposalsOutput {
   ?'next_token' => PaginationToken,
   ?'proposals' => ProposalSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->proposals = $proposals ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->proposals = $proposals ?? [];
   }
 }
 
@@ -610,7 +610,7 @@ class LogConfigurations {
   public function __construct(shape(
   ?'cloudwatch' => LogConfiguration,
   ) $s = shape()) {
-    $this->cloudwatch = $cloudwatch ?? ;
+    $this->cloudwatch = $cloudwatch ?? null;
   }
 }
 
@@ -634,14 +634,14 @@ class Member {
   ?'network_id' => ResourceIdString,
   ?'status' => MemberStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->framework_attributes = $framework_attributes ?? ;
-    $this->id = $id ?? ;
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
-    $this->name = $name ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->framework_attributes = $framework_attributes ?? null;
+    $this->id = $id ?? "";
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
+    $this->name = $name ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -657,10 +657,10 @@ class MemberConfiguration {
   ?'log_publishing_configuration' => MemberLogPublishingConfiguration,
   ?'name' => NetworkMemberNameString,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->framework_configuration = $framework_configuration ?? ;
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->framework_configuration = $framework_configuration ?? null;
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
+    $this->name = $name ?? "";
   }
 }
 
@@ -672,8 +672,8 @@ class MemberFabricAttributes {
   ?'admin_username' => UsernameString,
   ?'ca_endpoint' => string,
   ) $s = shape()) {
-    $this->admin_username = $admin_username ?? ;
-    $this->ca_endpoint = $ca_endpoint ?? ;
+    $this->admin_username = $admin_username ?? "";
+    $this->ca_endpoint = $ca_endpoint ?? "";
   }
 }
 
@@ -685,8 +685,8 @@ class MemberFabricConfiguration {
   ?'admin_password' => PasswordString,
   ?'admin_username' => UsernameString,
   ) $s = shape()) {
-    $this->admin_password = $admin_password ?? ;
-    $this->admin_username = $admin_username ?? ;
+    $this->admin_password = $admin_password ?? "";
+    $this->admin_username = $admin_username ?? "";
   }
 }
 
@@ -696,7 +696,7 @@ class MemberFabricLogPublishingConfiguration {
   public function __construct(shape(
   ?'ca_logs' => LogConfigurations,
   ) $s = shape()) {
-    $this->ca_logs = $ca_logs ?? ;
+    $this->ca_logs = $ca_logs ?? null;
   }
 }
 
@@ -706,7 +706,7 @@ class MemberFrameworkAttributes {
   public function __construct(shape(
   ?'fabric' => MemberFabricAttributes,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -716,7 +716,7 @@ class MemberFrameworkConfiguration {
   public function __construct(shape(
   ?'fabric' => MemberFabricConfiguration,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -728,7 +728,7 @@ class MemberLogPublishingConfiguration {
   public function __construct(shape(
   ?'fabric' => MemberFabricLogPublishingConfiguration,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -750,12 +750,12 @@ class MemberSummary {
   ?'name' => NetworkMemberNameString,
   ?'status' => MemberStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->id = $id ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
     $this->is_owned = $is_owned ?? false;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -787,16 +787,16 @@ class Network {
   ?'voting_policy' => VotingPolicy,
   ?'vpc_endpoint_service_name' => string,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
     $this->framework = $framework ?? "";
-    $this->framework_attributes = $framework_attributes ?? ;
-    $this->framework_version = $framework_version ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->framework_attributes = $framework_attributes ?? null;
+    $this->framework_version = $framework_version ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
     $this->voting_policy = $voting_policy ?? null;
-    $this->vpc_endpoint_service_name = $vpc_endpoint_service_name ?? ;
+    $this->vpc_endpoint_service_name = $vpc_endpoint_service_name ?? "";
   }
 }
 
@@ -809,7 +809,7 @@ class NetworkFabricAttributes {
   ?'ordering_service_endpoint' => string,
   ) $s = shape()) {
     $this->edition = $edition ?? "";
-    $this->ordering_service_endpoint = $ordering_service_endpoint ?? ;
+    $this->ordering_service_endpoint = $ordering_service_endpoint ?? "";
   }
 }
 
@@ -829,7 +829,7 @@ class NetworkFrameworkAttributes {
   public function __construct(shape(
   ?'fabric' => NetworkFabricAttributes,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -839,7 +839,7 @@ class NetworkFrameworkConfiguration {
   public function __construct(shape(
   ?'fabric' => NetworkFabricConfiguration,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -867,13 +867,13 @@ class NetworkSummary {
   ?'name' => NameString,
   ?'status' => NetworkStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
     $this->framework = $framework ?? "";
-    $this->framework_version = $framework_version ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->framework_version = $framework_version ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -901,15 +901,15 @@ class Node {
   ?'network_id' => ResourceIdString,
   ?'status' => NodeStatus,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->framework_attributes = $framework_attributes ?? ;
-    $this->id = $id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->status = $status ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->framework_attributes = $framework_attributes ?? null;
+    $this->id = $id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -923,9 +923,9 @@ class NodeConfiguration {
   ?'instance_type' => InstanceTypeString,
   ?'log_publishing_configuration' => NodeLogPublishingConfiguration,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
   }
 }
 
@@ -937,8 +937,8 @@ class NodeFabricAttributes {
   ?'peer_endpoint' => string,
   ?'peer_event_endpoint' => string,
   ) $s = shape()) {
-    $this->peer_endpoint = $peer_endpoint ?? ;
-    $this->peer_event_endpoint = $peer_event_endpoint ?? ;
+    $this->peer_endpoint = $peer_endpoint ?? "";
+    $this->peer_event_endpoint = $peer_event_endpoint ?? "";
   }
 }
 
@@ -950,8 +950,8 @@ class NodeFabricLogPublishingConfiguration {
   ?'chaincode_logs' => LogConfigurations,
   ?'peer_logs' => LogConfigurations,
   ) $s = shape()) {
-    $this->chaincode_logs = $chaincode_logs ?? ;
-    $this->peer_logs = $peer_logs ?? ;
+    $this->chaincode_logs = $chaincode_logs ?? null;
+    $this->peer_logs = $peer_logs ?? null;
   }
 }
 
@@ -961,7 +961,7 @@ class NodeFrameworkAttributes {
   public function __construct(shape(
   ?'fabric' => NodeFabricAttributes,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -973,7 +973,7 @@ class NodeLogPublishingConfiguration {
   public function __construct(shape(
   ?'fabric' => NodeFabricLogPublishingConfiguration,
   ) $s = shape()) {
-    $this->fabric = $fabric ?? ;
+    $this->fabric = $fabric ?? null;
   }
 }
 
@@ -993,11 +993,11 @@ class NodeSummary {
   ?'instance_type' => InstanceTypeString,
   ?'status' => NodeStatus,
   ) $s = shape()) {
-    $this->availability_zone = $availability_zone ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->id = $id ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->status = $status ?? ;
+    $this->availability_zone = $availability_zone ?? "";
+    $this->creation_date = $creation_date ?? 0;
+    $this->id = $id ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1037,18 +1037,18 @@ class Proposal {
   ?'status' => ProposalStatus,
   ?'yes_vote_count' => VoteCount,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->expiration_date = $expiration_date ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->no_vote_count = $no_vote_count ?? ;
-    $this->outstanding_vote_count = $outstanding_vote_count ?? ;
-    $this->proposal_id = $proposal_id ?? ;
-    $this->proposed_by_member_id = $proposed_by_member_id ?? ;
-    $this->proposed_by_member_name = $proposed_by_member_name ?? ;
-    $this->status = $status ?? ;
-    $this->yes_vote_count = $yes_vote_count ?? ;
+    $this->actions = $actions ?? null;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->expiration_date = $expiration_date ?? 0;
+    $this->network_id = $network_id ?? "";
+    $this->no_vote_count = $no_vote_count ?? 0;
+    $this->outstanding_vote_count = $outstanding_vote_count ?? 0;
+    $this->proposal_id = $proposal_id ?? "";
+    $this->proposed_by_member_id = $proposed_by_member_id ?? "";
+    $this->proposed_by_member_name = $proposed_by_member_name ?? "";
+    $this->status = $status ?? "";
+    $this->yes_vote_count = $yes_vote_count ?? 0;
   }
 }
 
@@ -1060,8 +1060,8 @@ class ProposalActions {
   ?'invitations' => InviteActionList,
   ?'removals' => RemoveActionList,
   ) $s = shape()) {
-    $this->invitations = $invitations ?? ;
-    $this->removals = $removals ?? ;
+    $this->invitations = $invitations ?? [];
+    $this->removals = $removals ?? [];
   }
 }
 
@@ -1089,13 +1089,13 @@ class ProposalSummary {
   ?'proposed_by_member_name' => NetworkMemberNameString,
   ?'status' => ProposalStatus,
   ) $s = shape()) {
-    $this->creation_date = $creation_date ?? ;
-    $this->description = $description ?? ;
-    $this->expiration_date = $expiration_date ?? ;
-    $this->proposal_id = $proposal_id ?? ;
-    $this->proposed_by_member_id = $proposed_by_member_id ?? ;
-    $this->proposed_by_member_name = $proposed_by_member_name ?? ;
-    $this->status = $status ?? ;
+    $this->creation_date = $creation_date ?? 0;
+    $this->description = $description ?? "";
+    $this->expiration_date = $expiration_date ?? 0;
+    $this->proposal_id = $proposal_id ?? "";
+    $this->proposed_by_member_id = $proposed_by_member_id ?? "";
+    $this->proposed_by_member_name = $proposed_by_member_name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -1109,7 +1109,7 @@ class RejectInvitationInput {
   public function __construct(shape(
   ?'invitation_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->invitation_id = $invitation_id ?? ;
+    $this->invitation_id = $invitation_id ?? "";
   }
 }
 
@@ -1126,7 +1126,7 @@ class RemoveAction {
   public function __construct(shape(
   ?'member_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
+    $this->member_id = $member_id ?? "";
   }
 }
 
@@ -1138,7 +1138,7 @@ class ResourceAlreadyExistsException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1150,7 +1150,7 @@ class ResourceLimitExceededException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1160,7 +1160,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1170,7 +1170,7 @@ class ResourceNotReadyException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1199,9 +1199,9 @@ class UpdateMemberInput {
   ?'member_id' => ResourceIdString,
   ?'network_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
   }
 }
 
@@ -1224,10 +1224,10 @@ class UpdateNodeInput {
   ?'network_id' => ResourceIdString,
   ?'node_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->log_publishing_configuration = $log_publishing_configuration ?? ;
-    $this->member_id = $member_id ?? ;
-    $this->network_id = $network_id ?? ;
-    $this->node_id = $node_id ?? ;
+    $this->log_publishing_configuration = $log_publishing_configuration ?? null;
+    $this->member_id = $member_id ?? "";
+    $this->network_id = $network_id ?? "";
+    $this->node_id = $node_id ?? "";
   }
 }
 
@@ -1254,10 +1254,10 @@ class VoteOnProposalInput {
   ?'vote' => VoteValue,
   ?'voter_member_id' => ResourceIdString,
   ) $s = shape()) {
-    $this->network_id = $network_id ?? ;
-    $this->proposal_id = $proposal_id ?? ;
-    $this->vote = $vote ?? ;
-    $this->voter_member_id = $voter_member_id ?? ;
+    $this->network_id = $network_id ?? "";
+    $this->proposal_id = $proposal_id ?? "";
+    $this->vote = $vote ?? "";
+    $this->voter_member_id = $voter_member_id ?? "";
   }
 }
 
@@ -1278,9 +1278,9 @@ class VoteSummary {
   ?'member_name' => NetworkMemberNameString,
   ?'vote' => VoteValue,
   ) $s = shape()) {
-    $this->member_id = $member_id ?? ;
-    $this->member_name = $member_name ?? ;
-    $this->vote = $vote ?? ;
+    $this->member_id = $member_id ?? "";
+    $this->member_name = $member_name ?? "";
+    $this->vote = $vote ?? "";
   }
 }
 

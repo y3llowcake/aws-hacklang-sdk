@@ -45,7 +45,7 @@ class ActivateEventSourceRequest {
   public function __construct(shape(
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -64,8 +64,8 @@ class AwsVpcConfiguration {
   ?'subnets' => StringList,
   ) $s = shape()) {
     $this->assign_public_ip = $assign_public_ip ?? "";
-    $this->security_groups = $security_groups ?? ;
-    $this->subnets = $subnets ?? ;
+    $this->security_groups = $security_groups ?? [];
+    $this->subnets = $subnets ?? [];
   }
 }
 
@@ -75,7 +75,7 @@ class BatchArrayProperties {
   public function __construct(shape(
   ?'size' => int,
   ) $s = shape()) {
-    $this->size = $size ?? ;
+    $this->size = $size ?? 0;
   }
 }
 
@@ -91,10 +91,10 @@ class BatchParameters {
   ?'job_name' => string,
   ?'retry_strategy' => BatchRetryStrategy,
   ) $s = shape()) {
-    $this->array_properties = $array_properties ?? ;
-    $this->job_definition = $job_definition ?? ;
-    $this->job_name = $job_name ?? ;
-    $this->retry_strategy = $retry_strategy ?? ;
+    $this->array_properties = $array_properties ?? null;
+    $this->job_definition = $job_definition ?? "";
+    $this->job_name = $job_name ?? "";
+    $this->retry_strategy = $retry_strategy ?? null;
   }
 }
 
@@ -104,7 +104,7 @@ class BatchRetryStrategy {
   public function __construct(shape(
   ?'attempts' => int,
   ) $s = shape()) {
-    $this->attempts = $attempts ?? ;
+    $this->attempts = $attempts ?? 0;
   }
 }
 
@@ -127,9 +127,9 @@ class Condition {
   ?'type' => string,
   ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->type = $type ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->type = $type ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -144,8 +144,8 @@ class CreateEventBusRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->event_source_name = $event_source_name ?? "";
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -155,7 +155,7 @@ class CreateEventBusResponse {
   public function __construct(shape(
   ?'event_bus_arn' => string,
   ) $s = shape()) {
-    $this->event_bus_arn = $event_bus_arn ?? ;
+    $this->event_bus_arn = $event_bus_arn ?? "";
   }
 }
 
@@ -167,8 +167,8 @@ class CreatePartnerEventSourceRequest {
   ?'account' => AccountId,
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->account = $account ?? ;
-    $this->name = $name ?? ;
+    $this->account = $account ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -178,7 +178,7 @@ class CreatePartnerEventSourceResponse {
   public function __construct(shape(
   ?'event_source_arn' => string,
   ) $s = shape()) {
-    $this->event_source_arn = $event_source_arn ?? ;
+    $this->event_source_arn = $event_source_arn ?? "";
   }
 }
 
@@ -188,7 +188,7 @@ class DeactivateEventSourceRequest {
   public function __construct(shape(
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -198,7 +198,7 @@ class DeleteEventBusRequest {
   public function __construct(shape(
   ?'name' => EventBusName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -210,8 +210,8 @@ class DeletePartnerEventSourceRequest {
   ?'account' => AccountId,
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->account = $account ?? ;
-    $this->name = $name ?? ;
+    $this->account = $account ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -226,8 +226,8 @@ class DeleteRuleRequest {
   ?'name' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->force = $force ?? ;
-    $this->name = $name ?? ;
+    $this->force = $force ?? false;
+    $this->name = $name ?? "";
   }
 }
 
@@ -237,7 +237,7 @@ class DescribeEventBusRequest {
   public function __construct(shape(
   ?'name' => EventBusName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -252,8 +252,8 @@ class DescribeEventBusResponse {
   ?'policy' => string,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->name = $name ?? ;
-    $this->policy = $policy ?? ;
+    $this->name = $name ?? "";
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -263,7 +263,7 @@ class DescribeEventSourceRequest {
   public function __construct(shape(
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -284,11 +284,11 @@ class DescribeEventSourceResponse {
   ?'state' => EventSourceState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_by = $created_by ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->created_by = $created_by ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -298,7 +298,7 @@ class DescribePartnerEventSourceRequest {
   public function __construct(shape(
   ?'name' => EventSourceName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -311,7 +311,7 @@ class DescribePartnerEventSourceResponse {
   ?'name' => string,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -324,7 +324,7 @@ class DescribeRuleRequest {
   ?'name' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -351,14 +351,14 @@ class DescribeRuleResponse {
   ?'state' => RuleState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->event_bus_name = $event_bus_name ?? "";
     $this->event_pattern = $event_pattern ?? "";
     $this->managed_by = $managed_by ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->schedule_expression = $schedule_expression ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -371,7 +371,7 @@ class DisableRuleRequest {
   ?'name' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -391,12 +391,12 @@ class EcsParameters {
   ?'task_count' => LimitMin1,
   ?'task_definition_arn' => Arn,
   ) $s = shape()) {
-    $this->group = $group ?? ;
+    $this->group = $group ?? "";
     $this->launch_type = $launch_type ?? "";
     $this->network_configuration = $network_configuration ?? null;
-    $this->platform_version = $platform_version ?? ;
-    $this->task_count = $task_count ?? ;
-    $this->task_definition_arn = $task_definition_arn ?? ;
+    $this->platform_version = $platform_version ?? "";
+    $this->task_count = $task_count ?? 0;
+    $this->task_definition_arn = $task_definition_arn ?? "";
   }
 }
 
@@ -409,7 +409,7 @@ class EnableRuleRequest {
   ?'name' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -428,8 +428,8 @@ class EventBus {
   ?'policy' => string,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->name = $name ?? ;
-    $this->policy = $policy ?? ;
+    $this->name = $name ?? "";
+    $this->policy = $policy ?? "";
   }
 }
 
@@ -462,11 +462,11 @@ class EventSource {
   ?'state' => EventSourceState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->created_by = $created_by ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->name = $name ?? ;
-    $this->state = $state ?? ;
+    $this->created_by = $created_by ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->name = $name ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -488,8 +488,8 @@ class InputTransformer {
   ?'input_paths_map' => TransformerPaths,
   ?'input_template' => TransformerInput,
   ) $s = shape()) {
-    $this->input_paths_map = $input_paths_map ?? ;
-    $this->input_template = $input_template ?? ;
+    $this->input_paths_map = $input_paths_map ?? [];
+    $this->input_template = $input_template ?? "";
   }
 }
 
@@ -524,7 +524,7 @@ class KinesisParameters {
   public function __construct(shape(
   ?'partition_key_path' => TargetPartitionKeyPath,
   ) $s = shape()) {
-    $this->partition_key_path = $partition_key_path ?? ;
+    $this->partition_key_path = $partition_key_path ?? "";
   }
 }
 
@@ -551,8 +551,8 @@ class ListEventBusesRequest {
   ?'name_prefix' => EventBusName,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->name_prefix = $name_prefix ?? ;
+    $this->limit = $limit ?? 0;
+    $this->name_prefix = $name_prefix ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -565,7 +565,7 @@ class ListEventBusesResponse {
   ?'event_buses' => EventBusList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->event_buses = $event_buses ?? ;
+    $this->event_buses = $event_buses ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -580,8 +580,8 @@ class ListEventSourcesRequest {
   ?'name_prefix' => EventSourceNamePrefix,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->name_prefix = $name_prefix ?? ;
+    $this->limit = $limit ?? 0;
+    $this->name_prefix = $name_prefix ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -594,7 +594,7 @@ class ListEventSourcesResponse {
   ?'event_sources' => EventSourceList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->event_sources = $event_sources ?? ;
+    $this->event_sources = $event_sources ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -610,7 +610,7 @@ class ListPartnerEventSourceAccountsRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->event_source_name = $event_source_name ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
   }
 }
@@ -624,7 +624,7 @@ class ListPartnerEventSourceAccountsResponse {
   ?'partner_event_source_accounts' => PartnerEventSourceAccountList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->partner_event_source_accounts = $partner_event_source_accounts ?? ;
+    $this->partner_event_source_accounts = $partner_event_source_accounts ?? [];
   }
 }
 
@@ -638,8 +638,8 @@ class ListPartnerEventSourcesRequest {
   ?'name_prefix' => PartnerEventSourceNamePrefix,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->name_prefix = $name_prefix ?? ;
+    $this->limit = $limit ?? 0;
+    $this->name_prefix = $name_prefix ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -653,7 +653,7 @@ class ListPartnerEventSourcesResponse {
   ?'partner_event_sources' => PartnerEventSourceList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->partner_event_sources = $partner_event_sources ?? ;
+    $this->partner_event_sources = $partner_event_sources ?? [];
   }
 }
 
@@ -670,7 +670,7 @@ class ListRuleNamesByTargetRequest {
   ?'target_arn' => TargetArn,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
     $this->target_arn = $target_arn ?? "";
   }
@@ -685,7 +685,7 @@ class ListRuleNamesByTargetResponse {
   ?'rule_names' => RuleNameList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->rule_names = $rule_names ?? ;
+    $this->rule_names = $rule_names ?? [];
   }
 }
 
@@ -702,8 +702,8 @@ class ListRulesRequest {
   ?'next_token' => NextToken,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->limit = $limit ?? ;
-    $this->name_prefix = $name_prefix ?? ;
+    $this->limit = $limit ?? 0;
+    $this->name_prefix = $name_prefix ?? "";
     $this->next_token = $next_token ?? "";
   }
 }
@@ -717,7 +717,7 @@ class ListRulesResponse {
   ?'rules' => RuleResponseList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->rules = $rules ?? ;
+    $this->rules = $rules ?? [];
   }
 }
 
@@ -727,7 +727,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -737,7 +737,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -754,9 +754,9 @@ class ListTargetsByRuleRequest {
   ?'rule' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->rule = $rule ?? null;
+    $this->rule = $rule ?? "";
   }
 }
 
@@ -769,7 +769,7 @@ class ListTargetsByRuleResponse {
   ?'targets' => TargetList,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->targets = $targets ?? ;
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -790,7 +790,7 @@ class NetworkConfiguration {
   public function __construct(shape(
   ?'awsvpc_configuration' => AwsVpcConfiguration,
   ) $s = shape()) {
-    $this->awsvpc_configuration = $awsvpc_configuration ?? ;
+    $this->awsvpc_configuration = $awsvpc_configuration ?? null;
   }
 }
 
@@ -807,7 +807,7 @@ class PartnerEventSource {
   ?'name' => string,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -823,10 +823,10 @@ class PartnerEventSourceAccount {
   ?'expiration_time' => Timestamp,
   ?'state' => EventSourceState,
   ) $s = shape()) {
-    $this->account = $account ?? ;
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->state = $state ?? ;
+    $this->account = $account ?? "";
+    $this->creation_time = $creation_time ?? 0;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -851,7 +851,7 @@ class PutEventsRequest {
   public function __construct(shape(
   ?'entries' => PutEventsRequestEntryList,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
+    $this->entries = $entries ?? [];
   }
 }
 
@@ -871,12 +871,12 @@ class PutEventsRequestEntry {
   ?'source' => string,
   ?'time' => EventTime,
   ) $s = shape()) {
-    $this->detail = $detail ?? ;
-    $this->detail_type = $detail_type ?? ;
+    $this->detail = $detail ?? "";
+    $this->detail_type = $detail_type ?? "";
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->resources = $resources ?? ;
-    $this->source = $source ?? ;
-    $this->time = $time ?? ;
+    $this->resources = $resources ?? [];
+    $this->source = $source ?? "";
+    $this->time = $time ?? 0;
   }
 }
 
@@ -890,8 +890,8 @@ class PutEventsResponse {
   ?'entries' => PutEventsResultEntryList,
   ?'failed_entry_count' => int,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->failed_entry_count = $failed_entry_count ?? ;
+    $this->entries = $entries ?? [];
+    $this->failed_entry_count = $failed_entry_count ?? 0;
   }
 }
 
@@ -919,7 +919,7 @@ class PutPartnerEventsRequest {
   public function __construct(shape(
   ?'entries' => PutPartnerEventsRequestEntryList,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
+    $this->entries = $entries ?? [];
   }
 }
 
@@ -937,11 +937,11 @@ class PutPartnerEventsRequestEntry {
   ?'source' => EventSourceName,
   ?'time' => EventTime,
   ) $s = shape()) {
-    $this->detail = $detail ?? ;
-    $this->detail_type = $detail_type ?? ;
-    $this->resources = $resources ?? ;
-    $this->source = $source ?? ;
-    $this->time = $time ?? ;
+    $this->detail = $detail ?? "";
+    $this->detail_type = $detail_type ?? "";
+    $this->resources = $resources ?? [];
+    $this->source = $source ?? "";
+    $this->time = $time ?? 0;
   }
 }
 
@@ -955,8 +955,8 @@ class PutPartnerEventsResponse {
   ?'entries' => PutPartnerEventsResultEntryList,
   ?'failed_entry_count' => int,
   ) $s = shape()) {
-    $this->entries = $entries ?? ;
-    $this->failed_entry_count = $failed_entry_count ?? ;
+    $this->entries = $entries ?? [];
+    $this->failed_entry_count = $failed_entry_count ?? 0;
   }
 }
 
@@ -1020,14 +1020,14 @@ class PutRuleRequest {
   ?'state' => RuleState,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->event_bus_name = $event_bus_name ?? "";
     $this->event_pattern = $event_pattern ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->schedule_expression = $schedule_expression ?? "";
-    $this->state = $state ?? ;
-    $this->tags = $tags ?? ;
+    $this->state = $state ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1052,8 +1052,8 @@ class PutTargetsRequest {
   ?'targets' => TargetList,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->rule = $rule ?? null;
-    $this->targets = $targets ?? ;
+    $this->rule = $rule ?? "";
+    $this->targets = $targets ?? [];
   }
 }
 
@@ -1065,8 +1065,8 @@ class PutTargetsResponse {
   ?'failed_entries' => PutTargetsResultEntryList,
   ?'failed_entry_count' => int,
   ) $s = shape()) {
-    $this->failed_entries = $failed_entries ?? ;
-    $this->failed_entry_count = $failed_entry_count ?? ;
+    $this->failed_entries = $failed_entries ?? [];
+    $this->failed_entry_count = $failed_entry_count ?? 0;
   }
 }
 
@@ -1114,9 +1114,9 @@ class RemoveTargetsRequest {
   ?'rule' => RuleName,
   ) $s = shape()) {
     $this->event_bus_name = $event_bus_name ?? "";
-    $this->force = $force ?? ;
-    $this->ids = $ids ?? ;
-    $this->rule = $rule ?? null;
+    $this->force = $force ?? false;
+    $this->ids = $ids ?? [];
+    $this->rule = $rule ?? "";
   }
 }
 
@@ -1128,8 +1128,8 @@ class RemoveTargetsResponse {
   ?'failed_entries' => RemoveTargetsResultEntryList,
   ?'failed_entry_count' => int,
   ) $s = shape()) {
-    $this->failed_entries = $failed_entries ?? ;
-    $this->failed_entry_count = $failed_entry_count ?? ;
+    $this->failed_entries = $failed_entries ?? [];
+    $this->failed_entry_count = $failed_entry_count ?? 0;
   }
 }
 
@@ -1190,14 +1190,14 @@ class Rule {
   ?'state' => RuleState,
   ) $s = shape()) {
     $this->arn = $arn ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->event_bus_name = $event_bus_name ?? "";
     $this->event_pattern = $event_pattern ?? "";
     $this->managed_by = $managed_by ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->role_arn = $role_arn ?? "";
     $this->schedule_expression = $schedule_expression ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -1231,8 +1231,8 @@ class RunCommandTarget {
   ?'key' => RunCommandTargetKey,
   ?'values' => RunCommandTargetValues,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->values = $values ?? ;
+    $this->key = $key ?? "";
+    $this->values = $values ?? [];
   }
 }
 
@@ -1270,8 +1270,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1289,8 +1289,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1332,9 +1332,9 @@ class Target {
     $this->arn = $arn ?? "";
     $this->batch_parameters = $batch_parameters ?? null;
     $this->ecs_parameters = $ecs_parameters ?? null;
-    $this->id = $id ?? ;
-    $this->input = $input ?? ;
-    $this->input_path = $input_path ?? ;
+    $this->id = $id ?? "";
+    $this->input = $input ?? "";
+    $this->input_path = $input_path ?? "";
     $this->input_transformer = $input_transformer ?? null;
     $this->kinesis_parameters = $kinesis_parameters ?? null;
     $this->role_arn = $role_arn ?? "";
@@ -1365,7 +1365,7 @@ class TestEventPatternRequest {
   ?'event' => string,
   ?'event_pattern' => EventPattern,
   ) $s = shape()) {
-    $this->event = $event ?? ;
+    $this->event = $event ?? "";
     $this->event_pattern = $event_pattern ?? "";
   }
 }
@@ -1376,7 +1376,7 @@ class TestEventPatternResponse {
   public function __construct(shape(
   ?'result' => boolean,
   ) $s = shape()) {
-    $this->result = $result ?? ;
+    $this->result = $result ?? false;
   }
 }
 
@@ -1394,8 +1394,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 

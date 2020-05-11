@@ -59,7 +59,7 @@ class Applications {
   ?'items' => ApplicationList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -72,7 +72,7 @@ class BadRequestException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -88,9 +88,9 @@ class Configuration {
   ?'content' => Blob,
   ?'content_type' => string,
   ) $s = shape()) {
-    $this->configuration_version = $configuration_version ?? ;
-    $this->content = $content ?? ;
-    $this->content_type = $content_type ?? ;
+    $this->configuration_version = $configuration_version ?? "";
+    $this->content = $content ?? "";
+    $this->content_type = $content_type ?? "";
   }
 }
 
@@ -112,13 +112,13 @@ class ConfigurationProfile {
   ?'retrieval_role_arn' => Arn,
   ?'validators' => ValidatorList,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->location_uri = $location_uri ?? ;
+    $this->location_uri = $location_uri ?? "";
     $this->name = $name ?? "";
-    $this->retrieval_role_arn = $retrieval_role_arn ?? ;
-    $this->validators = $validators ?? ;
+    $this->retrieval_role_arn = $retrieval_role_arn ?? "";
+    $this->validators = $validators ?? [];
   }
 }
 
@@ -136,11 +136,11 @@ class ConfigurationProfileSummary {
   ?'name' => Name,
   ?'validator_types' => ValidatorTypeList,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->id = $id ?? "";
-    $this->location_uri = $location_uri ?? ;
+    $this->location_uri = $location_uri ?? "";
     $this->name = $name ?? "";
-    $this->validator_types = $validator_types ?? ;
+    $this->validator_types = $validator_types ?? [];
   }
 }
 
@@ -154,7 +154,7 @@ class ConfigurationProfiles {
   ?'items' => ConfigurationProfileSummaryList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -165,7 +165,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -181,7 +181,7 @@ class CreateApplicationRequest {
   ) $s = shape()) {
     $this->description = $description ?? "";
     $this->name = $name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -203,13 +203,13 @@ class CreateConfigurationProfileRequest {
   ?'tags' => TagMap,
   ?'validators' => ValidatorList,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
-    $this->location_uri = $location_uri ?? ;
+    $this->location_uri = $location_uri ?? "";
     $this->name = $name ?? "";
-    $this->retrieval_role_arn = $retrieval_role_arn ?? ;
-    $this->tags = $tags ?? ;
-    $this->validators = $validators ?? ;
+    $this->retrieval_role_arn = $retrieval_role_arn ?? "";
+    $this->tags = $tags ?? [];
+    $this->validators = $validators ?? [];
   }
 }
 
@@ -233,14 +233,14 @@ class CreateDeploymentStrategyRequest {
   ?'replicate_to' => ReplicateTo,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? ;
+    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? 0;
     $this->description = $description ?? "";
-    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? ;
+    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? 0;
     $this->growth_factor = $growth_factor ?? 0.0;
     $this->growth_type = $growth_type ?? "";
     $this->name = $name ?? "";
     $this->replicate_to = $replicate_to ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -258,11 +258,11 @@ class CreateEnvironmentRequest {
   ?'name' => Name,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
-    $this->monitors = $monitors ?? ;
+    $this->monitors = $monitors ?? [];
     $this->name = $name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -272,7 +272,7 @@ class DeleteApplicationRequest {
   public function __construct(shape(
   ?'application_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -284,8 +284,8 @@ class DeleteConfigurationProfileRequest {
   ?'application_id' => Id,
   ?'configuration_profile_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
   }
 }
 
@@ -307,8 +307,8 @@ class DeleteEnvironmentRequest {
   ?'application_id' => Id,
   ?'environment_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->environment_id = $environment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -352,24 +352,24 @@ class Deployment {
   ?'started_at' => Iso8601DateTime,
   ?'state' => DeploymentState,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->completed_at = $completed_at ?? ;
-    $this->configuration_location_uri = $configuration_location_uri ?? ;
-    $this->configuration_name = $configuration_name ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
-    $this->configuration_version = $configuration_version ?? ;
-    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? ;
-    $this->deployment_number = $deployment_number ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->completed_at = $completed_at ?? 0;
+    $this->configuration_location_uri = $configuration_location_uri ?? "";
+    $this->configuration_name = $configuration_name ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
+    $this->configuration_version = $configuration_version ?? "";
+    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? 0;
+    $this->deployment_number = $deployment_number ?? 0;
     $this->deployment_strategy_id = $deployment_strategy_id ?? "";
     $this->description = $description ?? "";
-    $this->environment_id = $environment_id ?? ;
-    $this->event_log = $event_log ?? ;
-    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->event_log = $event_log ?? [];
+    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? 0;
     $this->growth_factor = $growth_factor ?? 0.0;
     $this->growth_type = $growth_type ?? "";
-    $this->percentage_complete = $percentage_complete ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->state = $state ?? ;
+    $this->percentage_complete = $percentage_complete ?? 0.0;
+    $this->started_at = $started_at ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -386,8 +386,8 @@ class DeploymentEvent {
   ?'triggered_by' => TriggeredBy,
   ) $s = shape()) {
     $this->description = $description ?? "";
-    $this->event_type = $event_type ?? ;
-    $this->occurred_at = $occurred_at ?? ;
+    $this->event_type = $event_type ?? "";
+    $this->occurred_at = $occurred_at ?? 0;
     $this->triggered_by = $triggered_by ?? "";
   }
 }
@@ -408,7 +408,7 @@ class DeploymentStrategies {
   ?'items' => DeploymentStrategyList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -433,9 +433,9 @@ class DeploymentStrategy {
   ?'name' => Name,
   ?'replicate_to' => ReplicateTo,
   ) $s = shape()) {
-    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? ;
+    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? 0;
     $this->description = $description ?? "";
-    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? ;
+    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? 0;
     $this->growth_factor = $growth_factor ?? 0.0;
     $this->growth_type = $growth_type ?? "";
     $this->id = $id ?? "";
@@ -474,17 +474,17 @@ class DeploymentSummary {
   ?'started_at' => Iso8601DateTime,
   ?'state' => DeploymentState,
   ) $s = shape()) {
-    $this->completed_at = $completed_at ?? ;
-    $this->configuration_name = $configuration_name ?? ;
-    $this->configuration_version = $configuration_version ?? ;
-    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? ;
-    $this->deployment_number = $deployment_number ?? ;
-    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? ;
+    $this->completed_at = $completed_at ?? 0;
+    $this->configuration_name = $configuration_name ?? "";
+    $this->configuration_version = $configuration_version ?? "";
+    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? 0;
+    $this->deployment_number = $deployment_number ?? 0;
+    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? 0;
     $this->growth_factor = $growth_factor ?? 0.0;
     $this->growth_type = $growth_type ?? "";
-    $this->percentage_complete = $percentage_complete ?? ;
-    $this->started_at = $started_at ?? ;
-    $this->state = $state ?? ;
+    $this->percentage_complete = $percentage_complete ?? 0.0;
+    $this->started_at = $started_at ?? 0;
+    $this->state = $state ?? "";
   }
 }
 
@@ -496,7 +496,7 @@ class Deployments {
   ?'items' => DeploymentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -519,12 +519,12 @@ class Environment {
   ?'name' => Name,
   ?'state' => EnvironmentState,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
     $this->id = $id ?? "";
-    $this->monitors = $monitors ?? ;
+    $this->monitors = $monitors ?? [];
     $this->name = $name ?? "";
-    $this->state = $state ?? ;
+    $this->state = $state ?? "";
   }
 }
 
@@ -540,7 +540,7 @@ class Environments {
   ?'items' => EnvironmentList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->items = $items ?? ;
+    $this->items = $items ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -551,7 +551,7 @@ class GetApplicationRequest {
   public function __construct(shape(
   ?'application_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
   }
 }
 
@@ -563,8 +563,8 @@ class GetConfigurationProfileRequest {
   ?'application_id' => Id,
   ?'configuration_profile_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
   }
 }
 
@@ -582,11 +582,11 @@ class GetConfigurationRequest {
   ?'configuration' => StringWithLengthBetween1And64,
   ?'environment' => StringWithLengthBetween1And64,
   ) $s = shape()) {
-    $this->application = $application ?? null;
-    $this->client_configuration_version = $client_configuration_version ?? ;
-    $this->client_id = $client_id ?? ;
-    $this->configuration = $configuration ?? null;
-    $this->environment = $environment ?? null;
+    $this->application = $application ?? "";
+    $this->client_configuration_version = $client_configuration_version ?? "";
+    $this->client_id = $client_id ?? "";
+    $this->configuration = $configuration ?? "";
+    $this->environment = $environment ?? "";
   }
 }
 
@@ -600,9 +600,9 @@ class GetDeploymentRequest {
   ?'deployment_number' => int,
   ?'environment_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->deployment_number = $deployment_number ?? ;
-    $this->environment_id = $environment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->deployment_number = $deployment_number ?? 0;
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -624,8 +624,8 @@ class GetEnvironmentRequest {
   ?'application_id' => Id,
   ?'environment_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->environment_id = $environment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -643,7 +643,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -672,7 +672,7 @@ class ListConfigurationProfilesRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -703,8 +703,8 @@ class ListDeploymentsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->environment_id = $environment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->environment_id = $environment_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -720,7 +720,7 @@ class ListEnvironmentsRequest {
   ?'max_results' => MaxResults,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->max_results = $max_results ?? 0;
     $this->next_token = $next_token ?? "";
   }
@@ -732,7 +732,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => Arn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -748,8 +748,8 @@ class Monitor {
   ?'alarm_arn' => Arn,
   ?'alarm_role_arn' => Arn,
   ) $s = shape()) {
-    $this->alarm_arn = $alarm_arn ?? ;
-    $this->alarm_role_arn = $alarm_role_arn ?? ;
+    $this->alarm_arn = $alarm_arn ?? "";
+    $this->alarm_role_arn = $alarm_role_arn ?? "";
   }
 }
 
@@ -771,8 +771,8 @@ class ResourceNotFoundException {
   ?'message' => string,
   ?'resource_name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->resource_name = $resource_name ?? ;
+    $this->message = $message ?? "";
+    $this->resource_name = $resource_name ?? "";
   }
 }
 
@@ -782,7 +782,7 @@ class ResourceTags {
   public function __construct(shape(
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -804,13 +804,13 @@ class StartDeploymentRequest {
   ?'environment_id' => Id,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
-    $this->configuration_version = $configuration_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
+    $this->configuration_version = $configuration_version ?? "";
     $this->deployment_strategy_id = $deployment_strategy_id ?? "";
     $this->description = $description ?? "";
-    $this->environment_id = $environment_id ?? ;
-    $this->tags = $tags ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -824,9 +824,9 @@ class StopDeploymentRequest {
   ?'deployment_number' => int,
   ?'environment_id' => Id,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->deployment_number = $deployment_number ?? ;
-    $this->environment_id = $environment_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->deployment_number = $deployment_number ?? 0;
+    $this->environment_id = $environment_id ?? "";
   }
 }
 
@@ -850,8 +850,8 @@ class TagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tags' => TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -867,8 +867,8 @@ class UntagResourceRequest {
   ?'resource_arn' => Arn,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -882,7 +882,7 @@ class UpdateApplicationRequest {
   ?'description' => Description,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
     $this->name = $name ?? "";
   }
@@ -904,12 +904,12 @@ class UpdateConfigurationProfileRequest {
   ?'retrieval_role_arn' => Arn,
   ?'validators' => ValidatorList,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
     $this->description = $description ?? "";
     $this->name = $name ?? "";
-    $this->retrieval_role_arn = $retrieval_role_arn ?? ;
-    $this->validators = $validators ?? ;
+    $this->retrieval_role_arn = $retrieval_role_arn ?? "";
+    $this->validators = $validators ?? [];
   }
 }
 
@@ -929,10 +929,10 @@ class UpdateDeploymentStrategyRequest {
   ?'growth_factor' => GrowthFactor,
   ?'growth_type' => GrowthType,
   ) $s = shape()) {
-    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? ;
+    $this->deployment_duration_in_minutes = $deployment_duration_in_minutes ?? 0;
     $this->deployment_strategy_id = $deployment_strategy_id ?? "";
     $this->description = $description ?? "";
-    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? ;
+    $this->final_bake_time_in_minutes = $final_bake_time_in_minutes ?? 0;
     $this->growth_factor = $growth_factor ?? 0.0;
     $this->growth_type = $growth_type ?? "";
   }
@@ -952,10 +952,10 @@ class UpdateEnvironmentRequest {
   ?'monitors' => MonitorList,
   ?'name' => Name,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
+    $this->application_id = $application_id ?? "";
     $this->description = $description ?? "";
-    $this->environment_id = $environment_id ?? ;
-    $this->monitors = $monitors ?? ;
+    $this->environment_id = $environment_id ?? "";
+    $this->monitors = $monitors ?? [];
     $this->name = $name ?? "";
   }
 }
@@ -972,9 +972,9 @@ class ValidateConfigurationRequest {
   ?'configuration_profile_id' => Id,
   ?'configuration_version' => Version,
   ) $s = shape()) {
-    $this->application_id = $application_id ?? ;
-    $this->configuration_profile_id = $configuration_profile_id ?? ;
-    $this->configuration_version = $configuration_version ?? ;
+    $this->application_id = $application_id ?? "";
+    $this->configuration_profile_id = $configuration_profile_id ?? "";
+    $this->configuration_version = $configuration_version ?? "";
   }
 }
 
@@ -986,8 +986,8 @@ class Validator {
   ?'content' => StringWithLengthBetween0And32768,
   ?'type' => ValidatorType,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->type = $type ?? ;
+    $this->content = $content ?? "";
+    $this->type = $type ?? "";
   }
 }
 

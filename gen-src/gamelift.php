@@ -104,8 +104,8 @@ class AcceptMatchInput {
   ?'ticket_id' => MatchmakingIdStringModel,
   ) $s = shape()) {
     $this->acceptance_type = $acceptance_type ?? "";
-    $this->player_ids = $player_ids ?? ;
-    $this->ticket_id = $ticket_id ?? ;
+    $this->player_ids = $player_ids ?? [];
+    $this->ticket_id = $ticket_id ?? "";
   }
 }
 
@@ -138,10 +138,10 @@ class Alias {
   ) $s = shape()) {
     $this->alias_arn = $alias_arn ?? "";
     $this->alias_id = $alias_id ?? "";
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->name = $name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->name = $name ?? "";
     $this->routing_strategy = $routing_strategy ?? null;
   }
 }
@@ -170,10 +170,10 @@ class AttributeValue {
   ?'sdm' => StringDoubleMap,
   ?'sl' => StringList,
   ) $s = shape()) {
-    $this->n = $n ?? ;
-    $this->s = $s ?? ;
-    $this->sdm = $sdm ?? ;
-    $this->sl = $sl ?? ;
+    $this->n = $n ?? 0.0;
+    $this->s = $s ?? "";
+    $this->sdm = $sdm ?? [];
+    $this->sl = $sl ?? [];
   }
 }
 
@@ -189,9 +189,9 @@ class AwsCredentials {
   ?'secret_access_key' => NonEmptyString,
   ?'session_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->secret_access_key = $secret_access_key ?? ;
-    $this->session_token = $session_token ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->secret_access_key = $secret_access_key ?? "";
+    $this->session_token = $session_token ?? "";
   }
 }
 
@@ -223,12 +223,12 @@ class Build {
   ) $s = shape()) {
     $this->build_arn = $build_arn ?? "";
     $this->build_id = $build_id ?? "";
-    $this->creation_time = $creation_time ?? ;
-    $this->name = $name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->name = $name ?? "";
     $this->operating_system = $operating_system ?? "";
-    $this->size_on_disk = $size_on_disk ?? ;
-    $this->status = $status ?? ;
-    $this->version = $version ?? ;
+    $this->size_on_disk = $size_on_disk ?? 0;
+    $this->status = $status ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -288,7 +288,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -304,10 +304,10 @@ class CreateAliasInput {
   ?'routing_strategy' => RoutingStrategy,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->routing_strategy = $routing_strategy ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -335,11 +335,11 @@ class CreateBuildInput {
   ?'tags' => TagList,
   ?'version' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->operating_system = $operating_system ?? "";
-    $this->storage_location = $storage_location ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
+    $this->storage_location = $storage_location ?? null;
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
   }
 }
 
@@ -354,8 +354,8 @@ class CreateBuildOutput {
   ?'upload_credentials' => AwsCredentials,
   ) $s = shape()) {
     $this->build = $build ?? null;
-    $this->storage_location = $storage_location ?? ;
-    $this->upload_credentials = $upload_credentials ?? ;
+    $this->storage_location = $storage_location ?? null;
+    $this->upload_credentials = $upload_credentials ?? null;
   }
 }
 
@@ -403,23 +403,23 @@ class CreateFleetInput {
   ) $s = shape()) {
     $this->build_id = $build_id ?? "";
     $this->certificate_configuration = $certificate_configuration ?? null;
-    $this->description = $description ?? ;
-    $this->ec_2_inbound_permissions = $ec_2_inbound_permissions ?? ;
+    $this->description = $description ?? "";
+    $this->ec_2_inbound_permissions = $ec_2_inbound_permissions ?? [];
     $this->ec_2_instance_type = $ec_2_instance_type ?? "";
     $this->fleet_type = $fleet_type ?? "";
-    $this->instance_role_arn = $instance_role_arn ?? ;
-    $this->log_paths = $log_paths ?? ;
-    $this->metric_groups = $metric_groups ?? ;
-    $this->name = $name ?? ;
-    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? ;
-    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
+    $this->instance_role_arn = $instance_role_arn ?? "";
+    $this->log_paths = $log_paths ?? [];
+    $this->metric_groups = $metric_groups ?? [];
+    $this->name = $name ?? "";
+    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? "";
+    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
     $this->resource_creation_limit_policy = $resource_creation_limit_policy ?? null;
     $this->runtime_configuration = $runtime_configuration ?? null;
     $this->script_id = $script_id ?? "";
-    $this->server_launch_parameters = $server_launch_parameters ?? ;
-    $this->server_launch_path = $server_launch_path ?? ;
-    $this->tags = $tags ?? ;
+    $this->server_launch_parameters = $server_launch_parameters ?? "";
+    $this->server_launch_path = $server_launch_path ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -459,16 +459,16 @@ class CreateGameServerGroupInput {
   ?'tags' => TagList,
   ?'vpc_subnets' => VpcSubnets,
   ) $s = shape()) {
-    $this->auto_scaling_policy = $auto_scaling_policy ?? ;
+    $this->auto_scaling_policy = $auto_scaling_policy ?? null;
     $this->balancing_strategy = $balancing_strategy ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_protection_policy = $game_server_protection_policy ?? "";
     $this->instance_definitions = $instance_definitions ?? [];
-    $this->launch_template = $launch_template ?? ;
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->launch_template = $launch_template ?? null;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->tags = $tags ?? [];
     $this->vpc_subnets = $vpc_subnets ?? [];
   }
 }
@@ -506,14 +506,14 @@ class CreateGameSessionInput {
   ?'name' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->alias_id = $alias_id ?? "";
-    $this->creator_id = $creator_id ?? ;
+    $this->creator_id = $creator_id ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_properties = $game_properties ?? ;
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_id = $game_session_id ?? ;
-    $this->idempotency_token = $idempotency_token ?? ;
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
-    $this->name = $name ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
+    $this->name = $name ?? "";
   }
 }
 
@@ -541,11 +541,11 @@ class CreateGameSessionQueueInput {
   ?'tags' => TagList,
   ?'timeout_in_seconds' => WholeNumber,
   ) $s = shape()) {
-    $this->destinations = $destinations ?? ;
-    $this->name = $name ?? ;
-    $this->player_latency_policies = $player_latency_policies ?? ;
-    $this->tags = $tags ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->destinations = $destinations ?? [];
+    $this->name = $name ?? "";
+    $this->player_latency_policies = $player_latency_policies ?? [];
+    $this->tags = $tags ?? [];
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -591,20 +591,20 @@ class CreateMatchmakingConfigurationInput {
   ?'rule_set_name' => MatchmakingRuleSetName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->acceptance_required = $acceptance_required ?? ;
-    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? ;
-    $this->additional_player_count = $additional_player_count ?? ;
+    $this->acceptance_required = $acceptance_required ?? false;
+    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? 0;
+    $this->additional_player_count = $additional_player_count ?? 0;
     $this->backfill_mode = $backfill_mode ?? "";
     $this->custom_event_data = $custom_event_data ?? "";
-    $this->description = $description ?? ;
-    $this->game_properties = $game_properties ?? ;
+    $this->description = $description ?? "";
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_queue_arns = $game_session_queue_arns ?? ;
-    $this->name = $name ?? ;
-    $this->notification_target = $notification_target ?? ;
-    $this->request_timeout_seconds = $request_timeout_seconds ?? ;
-    $this->rule_set_name = $rule_set_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->game_session_queue_arns = $game_session_queue_arns ?? [];
+    $this->name = $name ?? "";
+    $this->notification_target = $notification_target ?? "";
+    $this->request_timeout_seconds = $request_timeout_seconds ?? 0;
+    $this->rule_set_name = $rule_set_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -614,7 +614,7 @@ class CreateMatchmakingConfigurationOutput {
   public function __construct(shape(
   ?'configuration' => MatchmakingConfiguration,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
   }
 }
 
@@ -628,9 +628,9 @@ class CreateMatchmakingRuleSetInput {
   ?'rule_set_body' => RuleSetBody,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->rule_set_body = $rule_set_body ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -640,7 +640,7 @@ class CreateMatchmakingRuleSetOutput {
   public function __construct(shape(
   ?'rule_set' => MatchmakingRuleSet,
   ) $s = shape()) {
-    $this->rule_set = $rule_set ?? ;
+    $this->rule_set = $rule_set ?? null;
   }
 }
 
@@ -654,9 +654,9 @@ class CreatePlayerSessionInput {
   ?'player_data' => PlayerData,
   ?'player_id' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_session_id = $game_session_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
     $this->player_data = $player_data ?? "";
-    $this->player_id = $player_id ?? ;
+    $this->player_id = $player_id ?? "";
   }
 }
 
@@ -680,9 +680,9 @@ class CreatePlayerSessionsInput {
   ?'player_data_map' => PlayerDataMap,
   ?'player_ids' => PlayerIdList,
   ) $s = shape()) {
-    $this->game_session_id = $game_session_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
     $this->player_data_map = $player_data_map ?? [];
-    $this->player_ids = $player_ids ?? ;
+    $this->player_ids = $player_ids ?? [];
   }
 }
 
@@ -692,7 +692,7 @@ class CreatePlayerSessionsOutput {
   public function __construct(shape(
   ?'player_sessions' => PlayerSessionList,
   ) $s = shape()) {
-    $this->player_sessions = $player_sessions ?? ;
+    $this->player_sessions = $player_sessions ?? [];
   }
 }
 
@@ -710,11 +710,11 @@ class CreateScriptInput {
   ?'version' => NonZeroAndMaxString,
   ?'zip_file' => ZipBlob,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->storage_location = $storage_location ?? ;
-    $this->tags = $tags ?? ;
-    $this->version = $version ?? ;
-    $this->zip_file = $zip_file ?? ;
+    $this->name = $name ?? "";
+    $this->storage_location = $storage_location ?? null;
+    $this->tags = $tags ?? [];
+    $this->version = $version ?? "";
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -736,8 +736,8 @@ class CreateVpcPeeringAuthorizationInput {
   ?'game_lift_aws_account_id' => NonZeroAndMaxString,
   ?'peer_vpc_id' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
+    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
   }
 }
 
@@ -762,8 +762,8 @@ class CreateVpcPeeringConnectionInput {
   ?'peer_vpc_id' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
+    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
   }
 }
 
@@ -814,7 +814,7 @@ class DeleteGameServerGroupInput {
   ?'delete_option' => GameServerGroupDeleteOption,
   ?'game_server_group_name' => GameServerGroupNameOrArn,
   ) $s = shape()) {
-    $this->delete_option = $delete_option ?? ;
+    $this->delete_option = $delete_option ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
   }
 }
@@ -835,7 +835,7 @@ class DeleteGameSessionQueueInput {
   public function __construct(shape(
   ?'name' => GameSessionQueueNameOrArn,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -852,7 +852,7 @@ class DeleteMatchmakingConfigurationInput {
   public function __construct(shape(
   ?'name' => MatchmakingConfigurationName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -869,7 +869,7 @@ class DeleteMatchmakingRuleSetInput {
   public function __construct(shape(
   ?'name' => MatchmakingRuleSetName,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -889,7 +889,7 @@ class DeleteScalingPolicyInput {
   ?'name' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -911,8 +911,8 @@ class DeleteVpcPeeringAuthorizationInput {
   ?'game_lift_aws_account_id' => NonZeroAndMaxString,
   ?'peer_vpc_id' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
+    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
   }
 }
 
@@ -932,7 +932,7 @@ class DeleteVpcPeeringConnectionInput {
   ?'vpc_peering_connection_id' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->vpc_peering_connection_id = $vpc_peering_connection_id ?? ;
+    $this->vpc_peering_connection_id = $vpc_peering_connection_id ?? "";
   }
 }
 
@@ -1012,7 +1012,7 @@ class DescribeEC2InstanceLimitsOutput {
   public function __construct(shape(
   ?'ec_2_instance_limits' => EC2InstanceLimitList,
   ) $s = shape()) {
-    $this->ec_2_instance_limits = $ec_2_instance_limits ?? ;
+    $this->ec_2_instance_limits = $ec_2_instance_limits ?? [];
   }
 }
 
@@ -1026,9 +1026,9 @@ class DescribeFleetAttributesInput {
   ?'limit' => PositiveInteger,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_ids = $fleet_ids ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_ids = $fleet_ids ?? [];
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1040,8 +1040,8 @@ class DescribeFleetAttributesOutput {
   ?'fleet_attributes' => FleetAttributesList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_attributes = $fleet_attributes ?? null;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_attributes = $fleet_attributes ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1055,9 +1055,9 @@ class DescribeFleetCapacityInput {
   ?'limit' => PositiveInteger,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_ids = $fleet_ids ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_ids = $fleet_ids ?? [];
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1069,8 +1069,8 @@ class DescribeFleetCapacityOutput {
   ?'fleet_capacity' => FleetCapacityList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_capacity = $fleet_capacity ?? null;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_capacity = $fleet_capacity ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1088,11 +1088,11 @@ class DescribeFleetEventsInput {
   ?'next_token' => NonZeroAndMaxString,
   ?'start_time' => Timestamp,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
+    $this->end_time = $end_time ?? 0;
     $this->fleet_id = $fleet_id ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->start_time = $start_time ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->start_time = $start_time ?? 0;
   }
 }
 
@@ -1104,8 +1104,8 @@ class DescribeFleetEventsOutput {
   ?'events' => EventList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->events = $events ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->events = $events ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1125,7 +1125,7 @@ class DescribeFleetPortSettingsOutput {
   public function __construct(shape(
   ?'inbound_permissions' => IpPermissionsList,
   ) $s = shape()) {
-    $this->inbound_permissions = $inbound_permissions ?? ;
+    $this->inbound_permissions = $inbound_permissions ?? [];
   }
 }
 
@@ -1139,9 +1139,9 @@ class DescribeFleetUtilizationInput {
   ?'limit' => PositiveInteger,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_ids = $fleet_ids ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_ids = $fleet_ids ?? [];
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1153,8 +1153,8 @@ class DescribeFleetUtilizationOutput {
   ?'fleet_utilization' => FleetUtilizationList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_utilization = $fleet_utilization ?? null;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_utilization = $fleet_utilization ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1219,10 +1219,10 @@ class DescribeGameSessionDetailsInput {
   ) $s = shape()) {
     $this->alias_id = $alias_id ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_session_id = $game_session_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status_filter = $status_filter ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status_filter = $status_filter ?? "";
   }
 }
 
@@ -1234,8 +1234,8 @@ class DescribeGameSessionDetailsOutput {
   ?'game_session_details' => GameSessionDetailList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_session_details = $game_session_details ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->game_session_details = $game_session_details ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1245,7 +1245,7 @@ class DescribeGameSessionPlacementInput {
   public function __construct(shape(
   ?'placement_id' => IdStringModel,
   ) $s = shape()) {
-    $this->placement_id = $placement_id ?? ;
+    $this->placement_id = $placement_id ?? "";
   }
 }
 
@@ -1269,9 +1269,9 @@ class DescribeGameSessionQueuesInput {
   ?'names' => GameSessionQueueNameOrArnList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->names = $names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->names = $names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1283,8 +1283,8 @@ class DescribeGameSessionQueuesOutput {
   ?'game_session_queues' => GameSessionQueueList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_session_queues = $game_session_queues ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->game_session_queues = $game_session_queues ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1306,10 +1306,10 @@ class DescribeGameSessionsInput {
   ) $s = shape()) {
     $this->alias_id = $alias_id ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_session_id = $game_session_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status_filter = $status_filter ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status_filter = $status_filter ?? "";
   }
 }
 
@@ -1321,8 +1321,8 @@ class DescribeGameSessionsOutput {
   ?'game_sessions' => GameSessionList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_sessions = $game_sessions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->game_sessions = $game_sessions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1340,8 +1340,8 @@ class DescribeInstancesInput {
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
     $this->instance_id = $instance_id ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1353,8 +1353,8 @@ class DescribeInstancesOutput {
   ?'instances' => InstanceList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->instances = $instances ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->instances = $instances ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1370,10 +1370,10 @@ class DescribeMatchmakingConfigurationsInput {
   ?'next_token' => NonZeroAndMaxString,
   ?'rule_set_name' => MatchmakingRuleSetName,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->names = $names ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->rule_set_name = $rule_set_name ?? ;
+    $this->limit = $limit ?? 0;
+    $this->names = $names ?? [];
+    $this->next_token = $next_token ?? "";
+    $this->rule_set_name = $rule_set_name ?? "";
   }
 }
 
@@ -1385,8 +1385,8 @@ class DescribeMatchmakingConfigurationsOutput {
   ?'configurations' => MatchmakingConfigurationList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->configurations = $configurations ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->configurations = $configurations ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1396,7 +1396,7 @@ class DescribeMatchmakingInput {
   public function __construct(shape(
   ?'ticket_ids' => MatchmakingIdList,
   ) $s = shape()) {
-    $this->ticket_ids = $ticket_ids ?? ;
+    $this->ticket_ids = $ticket_ids ?? [];
   }
 }
 
@@ -1406,7 +1406,7 @@ class DescribeMatchmakingOutput {
   public function __construct(shape(
   ?'ticket_list' => MatchmakingTicketList,
   ) $s = shape()) {
-    $this->ticket_list = $ticket_list ?? ;
+    $this->ticket_list = $ticket_list ?? [];
   }
 }
 
@@ -1420,9 +1420,9 @@ class DescribeMatchmakingRuleSetsInput {
   ?'names' => MatchmakingRuleSetNameList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->names = $names ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->names = $names ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -1434,8 +1434,8 @@ class DescribeMatchmakingRuleSetsOutput {
   ?'next_token' => NonZeroAndMaxString,
   ?'rule_sets' => MatchmakingRuleSetList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->rule_sets = $rule_sets ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->rule_sets = $rule_sets ?? [];
   }
 }
 
@@ -1455,12 +1455,12 @@ class DescribePlayerSessionsInput {
   ?'player_session_id' => PlayerSessionId,
   ?'player_session_status_filter' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_session_id = $game_session_id ?? ;
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->player_id = $player_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->player_id = $player_id ?? "";
     $this->player_session_id = $player_session_id ?? "";
-    $this->player_session_status_filter = $player_session_status_filter ?? ;
+    $this->player_session_status_filter = $player_session_status_filter ?? "";
   }
 }
 
@@ -1472,8 +1472,8 @@ class DescribePlayerSessionsOutput {
   ?'next_token' => NonZeroAndMaxString,
   ?'player_sessions' => PlayerSessionList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->player_sessions = $player_sessions ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->player_sessions = $player_sessions ?? [];
   }
 }
 
@@ -1510,9 +1510,9 @@ class DescribeScalingPoliciesInput {
   ?'status_filter' => ScalingStatusType,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status_filter = $status_filter ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status_filter = $status_filter ?? "";
   }
 }
 
@@ -1524,8 +1524,8 @@ class DescribeScalingPoliciesOutput {
   ?'next_token' => NonZeroAndMaxString,
   ?'scaling_policies' => ScalingPolicyList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->scaling_policies = $scaling_policies ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->scaling_policies = $scaling_policies ?? [];
   }
 }
 
@@ -1562,7 +1562,7 @@ class DescribeVpcPeeringAuthorizationsOutput {
   public function __construct(shape(
   ?'vpc_peering_authorizations' => VpcPeeringAuthorizationList,
   ) $s = shape()) {
-    $this->vpc_peering_authorizations = $vpc_peering_authorizations ?? ;
+    $this->vpc_peering_authorizations = $vpc_peering_authorizations ?? [];
   }
 }
 
@@ -1582,7 +1582,7 @@ class DescribeVpcPeeringConnectionsOutput {
   public function __construct(shape(
   ?'vpc_peering_connections' => VpcPeeringConnectionList,
   ) $s = shape()) {
-    $this->vpc_peering_connections = $vpc_peering_connections ?? ;
+    $this->vpc_peering_connections = $vpc_peering_connections ?? [];
   }
 }
 
@@ -1595,7 +1595,7 @@ class DesiredPlayerSession {
   ?'player_id' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->player_data = $player_data ?? "";
-    $this->player_id = $player_id ?? ;
+    $this->player_id = $player_id ?? "";
   }
 }
 
@@ -1625,13 +1625,13 @@ class EC2InstanceCounts {
   ?'pending' => WholeNumber,
   ?'terminating' => WholeNumber,
   ) $s = shape()) {
-    $this->active = $active ?? ;
-    $this->desired = $desired ?? ;
-    $this->idle = $idle ?? ;
-    $this->maximum = $maximum ?? ;
-    $this->minimum = $minimum ?? ;
-    $this->pending = $pending ?? ;
-    $this->terminating = $terminating ?? ;
+    $this->active = $active ?? 0;
+    $this->desired = $desired ?? 0;
+    $this->idle = $idle ?? 0;
+    $this->maximum = $maximum ?? 0;
+    $this->minimum = $minimum ?? 0;
+    $this->pending = $pending ?? 0;
+    $this->terminating = $terminating ?? 0;
   }
 }
 
@@ -1645,9 +1645,9 @@ class EC2InstanceLimit {
   ?'ec_2_instance_type' => EC2InstanceType,
   ?'instance_limit' => WholeNumber,
   ) $s = shape()) {
-    $this->current_instances = $current_instances ?? ;
+    $this->current_instances = $current_instances ?? 0;
     $this->ec_2_instance_type = $ec_2_instance_type ?? "";
-    $this->instance_limit = $instance_limit ?? ;
+    $this->instance_limit = $instance_limit ?? 0;
   }
 }
 
@@ -1672,11 +1672,11 @@ class Event {
   ?'resource_id' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->event_code = $event_code ?? "";
-    $this->event_id = $event_id ?? ;
-    $this->event_time = $event_time ?? ;
-    $this->message = $message ?? ;
-    $this->pre_signed_log_url = $pre_signed_log_url ?? ;
-    $this->resource_id = $resource_id ?? ;
+    $this->event_id = $event_id ?? "";
+    $this->event_time = $event_time ?? 0;
+    $this->message = $message ?? "";
+    $this->pre_signed_log_url = $pre_signed_log_url ?? "";
+    $this->resource_id = $resource_id ?? "";
   }
 }
 
@@ -1743,26 +1743,26 @@ class FleetAttributes {
     $this->build_arn = $build_arn ?? "";
     $this->build_id = $build_id ?? "";
     $this->certificate_configuration = $certificate_configuration ?? null;
-    $this->creation_time = $creation_time ?? ;
-    $this->description = $description ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->description = $description ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
     $this->fleet_id = $fleet_id ?? "";
     $this->fleet_type = $fleet_type ?? "";
-    $this->instance_role_arn = $instance_role_arn ?? ;
-    $this->instance_type = $instance_type ?? ;
-    $this->log_paths = $log_paths ?? ;
-    $this->metric_groups = $metric_groups ?? ;
-    $this->name = $name ?? ;
-    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? ;
+    $this->instance_role_arn = $instance_role_arn ?? "";
+    $this->instance_type = $instance_type ?? "";
+    $this->log_paths = $log_paths ?? [];
+    $this->metric_groups = $metric_groups ?? [];
+    $this->name = $name ?? "";
+    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? "";
     $this->operating_system = $operating_system ?? "";
     $this->resource_creation_limit_policy = $resource_creation_limit_policy ?? null;
     $this->script_arn = $script_arn ?? "";
     $this->script_id = $script_id ?? "";
-    $this->server_launch_parameters = $server_launch_parameters ?? ;
-    $this->server_launch_path = $server_launch_path ?? ;
-    $this->status = $status ?? ;
-    $this->stopped_actions = $stopped_actions ?? ;
-    $this->termination_time = $termination_time ?? ;
+    $this->server_launch_parameters = $server_launch_parameters ?? "";
+    $this->server_launch_path = $server_launch_path ?? "";
+    $this->status = $status ?? "";
+    $this->stopped_actions = $stopped_actions ?? [];
+    $this->termination_time = $termination_time ?? 0;
   }
 }
 
@@ -1779,8 +1779,8 @@ class FleetCapacity {
   ?'instance_type' => EC2InstanceType,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->instance_counts = $instance_counts ?? ;
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_counts = $instance_counts ?? null;
+    $this->instance_type = $instance_type ?? "";
   }
 }
 
@@ -1790,7 +1790,7 @@ class FleetCapacityExceededException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1822,11 +1822,11 @@ class FleetUtilization {
   ?'fleet_id' => FleetId,
   ?'maximum_player_session_count' => WholeNumber,
   ) $s = shape()) {
-    $this->active_game_session_count = $active_game_session_count ?? ;
-    $this->active_server_process_count = $active_server_process_count ?? ;
-    $this->current_player_session_count = $current_player_session_count ?? ;
+    $this->active_game_session_count = $active_game_session_count ?? 0;
+    $this->active_server_process_count = $active_server_process_count ?? 0;
+    $this->current_player_session_count = $current_player_session_count ?? 0;
     $this->fleet_id = $fleet_id ?? "";
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
   }
 }
 
@@ -1844,8 +1844,8 @@ class GameProperty {
   ?'key' => GamePropertyKey,
   ?'value' => GamePropertyValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1883,18 +1883,18 @@ class GameServer {
   ?'registration_time' => Timestamp,
   ?'utilization_status' => GameServerUtilizationStatus,
   ) $s = shape()) {
-    $this->claim_status = $claim_status ?? ;
-    $this->connection_info = $connection_info ?? ;
-    $this->custom_sort_key = $custom_sort_key ?? ;
+    $this->claim_status = $claim_status ?? "";
+    $this->connection_info = $connection_info ?? "";
+    $this->custom_sort_key = $custom_sort_key ?? "";
     $this->game_server_data = $game_server_data ?? "";
     $this->game_server_group_arn = $game_server_group_arn ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_id = $game_server_id ?? "";
     $this->instance_id = $instance_id ?? "";
-    $this->last_claim_time = $last_claim_time ?? ;
-    $this->last_health_check_time = $last_health_check_time ?? ;
-    $this->registration_time = $registration_time ?? ;
-    $this->utilization_status = $utilization_status ?? ;
+    $this->last_claim_time = $last_claim_time ?? 0;
+    $this->last_health_check_time = $last_health_check_time ?? 0;
+    $this->registration_time = $registration_time ?? 0;
+    $this->utilization_status = $utilization_status ?? "";
   }
 }
 
@@ -1934,16 +1934,16 @@ class GameServerGroup {
   ) $s = shape()) {
     $this->auto_scaling_group_arn = $auto_scaling_group_arn ?? "";
     $this->balancing_strategy = $balancing_strategy ?? "";
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->game_server_group_arn = $game_server_group_arn ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_protection_policy = $game_server_protection_policy ?? "";
     $this->instance_definitions = $instance_definitions ?? [];
-    $this->last_updated_time = $last_updated_time ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->suspended_actions = $suspended_actions ?? ;
+    $this->last_updated_time = $last_updated_time ?? 0;
+    $this->role_arn = $role_arn ?? "";
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->suspended_actions = $suspended_actions ?? [];
   }
 }
 
@@ -1961,7 +1961,7 @@ class GameServerGroupAutoScalingPolicy {
   ?'estimated_instance_warmup' => PositiveInteger,
   ?'target_tracking_configuration' => TargetTrackingConfiguration,
   ) $s = shape()) {
-    $this->estimated_instance_warmup = $estimated_instance_warmup ?? ;
+    $this->estimated_instance_warmup = $estimated_instance_warmup ?? 0;
     $this->target_tracking_configuration = $target_tracking_configuration ?? null;
   }
 }
@@ -2032,24 +2032,24 @@ class GameSession {
   ?'status_reason' => GameSessionStatusReason,
   ?'termination_time' => Timestamp,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->creator_id = $creator_id ?? ;
-    $this->current_player_session_count = $current_player_session_count ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->creator_id = $creator_id ?? "";
+    $this->current_player_session_count = $current_player_session_count ?? 0;
     $this->dns_name = $dns_name ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_properties = $game_properties ?? ;
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_id = $game_session_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
     $this->ip_address = $ip_address ?? "";
     $this->matchmaker_data = $matchmaker_data ?? "";
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
-    $this->name = $name ?? ;
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
+    $this->name = $name ?? "";
     $this->player_session_creation_policy = $player_session_creation_policy ?? "";
-    $this->port = $port ?? ;
-    $this->status = $status ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->termination_time = $termination_time ?? ;
+    $this->port = $port ?? 0;
+    $this->status = $status ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->termination_time = $termination_time ?? 0;
   }
 }
 
@@ -2070,10 +2070,10 @@ class GameSessionConnectionInfo {
   ?'port' => PositiveInteger,
   ) $s = shape()) {
     $this->dns_name = $dns_name ?? "";
-    $this->game_session_arn = $game_session_arn ?? ;
+    $this->game_session_arn = $game_session_arn ?? "";
     $this->ip_address = $ip_address ?? "";
-    $this->matched_player_sessions = $matched_player_sessions ?? ;
-    $this->port = $port ?? ;
+    $this->matched_player_sessions = $matched_player_sessions ?? [];
+    $this->port = $port ?? 0;
   }
 }
 
@@ -2100,7 +2100,7 @@ class GameSessionFullException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2147,23 +2147,23 @@ class GameSessionPlacement {
   ?'status' => GameSessionPlacementState,
   ) $s = shape()) {
     $this->dns_name = $dns_name ?? "";
-    $this->end_time = $end_time ?? ;
-    $this->game_properties = $game_properties ?? ;
-    $this->game_session_arn = $game_session_arn ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->game_properties = $game_properties ?? [];
+    $this->game_session_arn = $game_session_arn ?? "";
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_id = $game_session_id ?? ;
-    $this->game_session_name = $game_session_name ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->game_session_name = $game_session_name ?? "";
     $this->game_session_queue_name = $game_session_queue_name ?? "";
-    $this->game_session_region = $game_session_region ?? ;
+    $this->game_session_region = $game_session_region ?? "";
     $this->ip_address = $ip_address ?? "";
     $this->matchmaker_data = $matchmaker_data ?? "";
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
-    $this->placed_player_sessions = $placed_player_sessions ?? ;
-    $this->placement_id = $placement_id ?? ;
-    $this->player_latencies = $player_latencies ?? ;
-    $this->port = $port ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
+    $this->placed_player_sessions = $placed_player_sessions ?? [];
+    $this->placement_id = $placement_id ?? "";
+    $this->player_latencies = $player_latencies ?? [];
+    $this->port = $port ?? 0;
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
   }
 }
 
@@ -2183,11 +2183,11 @@ class GameSessionQueue {
   ?'player_latency_policies' => PlayerLatencyPolicyList,
   ?'timeout_in_seconds' => WholeNumber,
   ) $s = shape()) {
-    $this->destinations = $destinations ?? ;
+    $this->destinations = $destinations ?? [];
     $this->game_session_queue_arn = $game_session_queue_arn ?? "";
-    $this->name = $name ?? ;
-    $this->player_latency_policies = $player_latency_policies ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->name = $name ?? "";
+    $this->player_latency_policies = $player_latency_policies ?? [];
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -2199,7 +2199,7 @@ class GameSessionQueueDestination {
   public function __construct(shape(
   ?'destination_arn' => ArnStringModel,
   ) $s = shape()) {
-    $this->destination_arn = $destination_arn ?? ;
+    $this->destination_arn = $destination_arn ?? "";
   }
 }
 
@@ -2223,7 +2223,7 @@ class GetGameSessionLogUrlInput {
   public function __construct(shape(
   ?'game_session_id' => ArnStringModel,
   ) $s = shape()) {
-    $this->game_session_id = $game_session_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
   }
 }
 
@@ -2233,7 +2233,7 @@ class GetGameSessionLogUrlOutput {
   public function __construct(shape(
   ?'pre_signed_url' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->pre_signed_url = $pre_signed_url ?? ;
+    $this->pre_signed_url = $pre_signed_url ?? "";
   }
 }
 
@@ -2270,7 +2270,7 @@ class IdempotentParameterMismatchException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2294,14 +2294,14 @@ class Instance {
   ?'status' => InstanceStatus,
   ?'type' => EC2InstanceType,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->dns_name = $dns_name ?? "";
     $this->fleet_id = $fleet_id ?? "";
     $this->instance_id = $instance_id ?? "";
     $this->ip_address = $ip_address ?? "";
     $this->operating_system = $operating_system ?? "";
-    $this->status = $status ?? ;
-    $this->type = $type ?? ;
+    $this->status = $status ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -2319,7 +2319,7 @@ class InstanceAccess {
   ?'ip_address' => IpAddress,
   ?'operating_system' => OperatingSystem,
   ) $s = shape()) {
-    $this->credentials = $credentials ?? ;
+    $this->credentials = $credentials ?? null;
     $this->fleet_id = $fleet_id ?? "";
     $this->instance_id = $instance_id ?? "";
     $this->ip_address = $ip_address ?? "";
@@ -2335,8 +2335,8 @@ class InstanceCredentials {
   ?'secret' => NonEmptyString,
   ?'user_name' => NonEmptyString,
   ) $s = shape()) {
-    $this->secret = $secret ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->secret = $secret ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2348,7 +2348,7 @@ class InstanceDefinition {
   ?'instance_type' => GameServerGroupInstanceType,
   ?'weighted_capacity' => WeightedCapacity,
   ) $s = shape()) {
-    $this->instance_type = $instance_type ?? ;
+    $this->instance_type = $instance_type ?? "";
     $this->weighted_capacity = $weighted_capacity ?? "";
   }
 }
@@ -2369,7 +2369,7 @@ class InternalServiceException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2379,7 +2379,7 @@ class InvalidFleetStatusException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2389,7 +2389,7 @@ class InvalidGameSessionStatusException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2399,7 +2399,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2417,10 +2417,10 @@ class IpPermission {
   ?'protocol' => IpProtocol,
   ?'to_port' => PortNumber,
   ) $s = shape()) {
-    $this->from_port = $from_port ?? ;
-    $this->ip_range = $ip_range ?? ;
-    $this->protocol = $protocol ?? ;
-    $this->to_port = $to_port ?? ;
+    $this->from_port = $from_port ?? 0;
+    $this->ip_range = $ip_range ?? "";
+    $this->protocol = $protocol ?? "";
+    $this->to_port = $to_port ?? 0;
   }
 }
 
@@ -2446,7 +2446,7 @@ class LaunchTemplateSpecification {
   ) $s = shape()) {
     $this->launch_template_id = $launch_template_id ?? "";
     $this->launch_template_name = $launch_template_name ?? "";
-    $this->version = $version ?? ;
+    $this->version = $version ?? "";
   }
 }
 
@@ -2458,7 +2458,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2474,9 +2474,9 @@ class ListAliasesInput {
   ?'next_token' => NonEmptyString,
   ?'routing_strategy_type' => RoutingStrategyType,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->name = $name ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? "";
     $this->routing_strategy_type = $routing_strategy_type ?? "";
   }
 }
@@ -2489,8 +2489,8 @@ class ListAliasesOutput {
   ?'aliases' => AliasList,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->aliases = $aliases ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->aliases = $aliases ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2504,9 +2504,9 @@ class ListBuildsInput {
   ?'next_token' => NonEmptyString,
   ?'status' => BuildStatus,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->status = $status ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -2518,8 +2518,8 @@ class ListBuildsOutput {
   ?'builds' => BuildList,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->builds = $builds ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->builds = $builds ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2536,8 +2536,8 @@ class ListFleetsInput {
   ?'script_id' => ScriptIdOrArn,
   ) $s = shape()) {
     $this->build_id = $build_id ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->script_id = $script_id ?? "";
   }
 }
@@ -2550,8 +2550,8 @@ class ListFleetsOutput {
   ?'fleet_ids' => FleetIdList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->fleet_ids = $fleet_ids ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->fleet_ids = $fleet_ids ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2563,8 +2563,8 @@ class ListGameServerGroupsInput {
   ?'limit' => PositiveInteger,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2577,7 +2577,7 @@ class ListGameServerGroupsOutput {
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->game_server_groups = $game_server_groups ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2594,8 +2594,8 @@ class ListGameServersInput {
   ?'sort_order' => SortOrder,
   ) $s = shape()) {
     $this->game_server_group_name = $game_server_group_name ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->sort_order = $sort_order ?? "";
   }
 }
@@ -2609,7 +2609,7 @@ class ListGameServersOutput {
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->game_servers = $game_servers ?? [];
-    $this->next_token = $next_token ?? ;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2621,8 +2621,8 @@ class ListScriptsInput {
   ?'limit' => PositiveInteger,
   ?'next_token' => NonEmptyString,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -2634,8 +2634,8 @@ class ListScriptsOutput {
   ?'next_token' => NonEmptyString,
   ?'scripts' => ScriptList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->scripts = $scripts ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->scripts = $scripts ?? [];
   }
 }
 
@@ -2645,7 +2645,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -2655,7 +2655,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2667,7 +2667,7 @@ class MatchedPlayerSession {
   ?'player_id' => NonZeroAndMaxString,
   ?'player_session_id' => PlayerSessionId,
   ) $s = shape()) {
-    $this->player_id = $player_id ?? ;
+    $this->player_id = $player_id ?? "";
     $this->player_session_id = $player_session_id ?? "";
   }
 }
@@ -2714,22 +2714,22 @@ class MatchmakingConfiguration {
   ?'rule_set_arn' => MatchmakingRuleSetArn,
   ?'rule_set_name' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->acceptance_required = $acceptance_required ?? ;
-    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? ;
-    $this->additional_player_count = $additional_player_count ?? ;
+    $this->acceptance_required = $acceptance_required ?? false;
+    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? 0;
+    $this->additional_player_count = $additional_player_count ?? 0;
     $this->backfill_mode = $backfill_mode ?? "";
-    $this->configuration_arn = $configuration_arn ?? ;
-    $this->creation_time = $creation_time ?? ;
+    $this->configuration_arn = $configuration_arn ?? "";
+    $this->creation_time = $creation_time ?? 0;
     $this->custom_event_data = $custom_event_data ?? "";
-    $this->description = $description ?? ;
-    $this->game_properties = $game_properties ?? ;
+    $this->description = $description ?? "";
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_queue_arns = $game_session_queue_arns ?? ;
-    $this->name = $name ?? ;
-    $this->notification_target = $notification_target ?? ;
-    $this->request_timeout_seconds = $request_timeout_seconds ?? ;
-    $this->rule_set_arn = $rule_set_arn ?? ;
-    $this->rule_set_name = $rule_set_name ?? ;
+    $this->game_session_queue_arns = $game_session_queue_arns ?? [];
+    $this->name = $name ?? "";
+    $this->notification_target = $notification_target ?? "";
+    $this->request_timeout_seconds = $request_timeout_seconds ?? 0;
+    $this->rule_set_arn = $rule_set_arn ?? "";
+    $this->rule_set_name = $rule_set_name ?? "";
   }
 }
 
@@ -2761,10 +2761,10 @@ class MatchmakingRuleSet {
   ?'rule_set_body' => RuleSetBody,
   ?'rule_set_name' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->rule_set_arn = $rule_set_arn ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->rule_set_arn = $rule_set_arn ?? "";
     $this->rule_set_body = $rule_set_body ?? "";
-    $this->rule_set_name = $rule_set_name ?? ;
+    $this->rule_set_name = $rule_set_name ?? "";
   }
 }
 
@@ -2802,17 +2802,17 @@ class MatchmakingTicket {
   ?'status_reason' => StringModel,
   ?'ticket_id' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->configuration_arn = $configuration_arn ?? ;
-    $this->configuration_name = $configuration_name ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->estimated_wait_time = $estimated_wait_time ?? ;
+    $this->configuration_arn = $configuration_arn ?? "";
+    $this->configuration_name = $configuration_name ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->estimated_wait_time = $estimated_wait_time ?? 0;
     $this->game_session_connection_info = $game_session_connection_info ?? null;
-    $this->players = $players ?? ;
-    $this->start_time = $start_time ?? ;
-    $this->status = $status ?? ;
-    $this->status_message = $status_message ?? ;
-    $this->status_reason = $status_reason ?? ;
-    $this->ticket_id = $ticket_id ?? ;
+    $this->players = $players ?? [];
+    $this->start_time = $start_time ?? 0;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->status_reason = $status_reason ?? "";
+    $this->ticket_id = $ticket_id ?? "";
   }
 }
 
@@ -2842,7 +2842,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2854,7 +2854,7 @@ class OutOfCapacityException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2866,7 +2866,7 @@ class PlacedPlayerSession {
   ?'player_id' => NonZeroAndMaxString,
   ?'player_session_id' => PlayerSessionId,
   ) $s = shape()) {
-    $this->player_id = $player_id ?? ;
+    $this->player_id = $player_id ?? "";
     $this->player_session_id = $player_session_id ?? "";
   }
 }
@@ -2885,10 +2885,10 @@ class Player {
   ?'player_id' => NonZeroAndMaxString,
   ?'team' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->latency_in_ms = $latency_in_ms ?? ;
-    $this->player_attributes = $player_attributes ?? ;
-    $this->player_id = $player_id ?? ;
-    $this->team = $team ?? ;
+    $this->latency_in_ms = $latency_in_ms ?? [];
+    $this->player_attributes = $player_attributes ?? [];
+    $this->player_id = $player_id ?? "";
+    $this->team = $team ?? "";
   }
 }
 
@@ -2910,9 +2910,9 @@ class PlayerLatency {
   ?'player_id' => NonZeroAndMaxString,
   ?'region_identifier' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->latency_in_milliseconds = $latency_in_milliseconds ?? ;
-    $this->player_id = $player_id ?? ;
-    $this->region_identifier = $region_identifier ?? ;
+    $this->latency_in_milliseconds = $latency_in_milliseconds ?? 0.0;
+    $this->player_id = $player_id ?? "";
+    $this->region_identifier = $region_identifier ?? "";
   }
 }
 
@@ -2926,8 +2926,8 @@ class PlayerLatencyPolicy {
   ?'maximum_individual_player_latency_milliseconds' => WholeNumber,
   ?'policy_duration_seconds' => WholeNumber,
   ) $s = shape()) {
-    $this->maximum_individual_player_latency_milliseconds = $maximum_individual_player_latency_milliseconds ?? ;
-    $this->policy_duration_seconds = $policy_duration_seconds ?? ;
+    $this->maximum_individual_player_latency_milliseconds = $maximum_individual_player_latency_milliseconds ?? 0;
+    $this->policy_duration_seconds = $policy_duration_seconds ?? 0;
   }
 }
 
@@ -2963,18 +2963,18 @@ class PlayerSession {
   ?'status' => PlayerSessionStatus,
   ?'termination_time' => Timestamp,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
+    $this->creation_time = $creation_time ?? 0;
     $this->dns_name = $dns_name ?? "";
     $this->fleet_arn = $fleet_arn ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_session_id = $game_session_id ?? ;
+    $this->game_session_id = $game_session_id ?? "";
     $this->ip_address = $ip_address ?? "";
     $this->player_data = $player_data ?? "";
-    $this->player_id = $player_id ?? ;
+    $this->player_id = $player_id ?? "";
     $this->player_session_id = $player_session_id ?? "";
-    $this->port = $port ?? ;
-    $this->status = $status ?? ;
-    $this->termination_time = $termination_time ?? ;
+    $this->port = $port ?? 0;
+    $this->status = $status ?? "";
+    $this->termination_time = $termination_time ?? 0;
   }
 }
 
@@ -3020,16 +3020,16 @@ class PutScalingPolicyInput {
   ?'target_configuration' => TargetConfiguration,
   ?'threshold' => Double,
   ) $s = shape()) {
-    $this->comparison_operator = $comparison_operator ?? ;
-    $this->evaluation_periods = $evaluation_periods ?? ;
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->evaluation_periods = $evaluation_periods ?? 0;
     $this->fleet_id = $fleet_id ?? "";
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->policy_type = $policy_type ?? "";
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
     $this->scaling_adjustment_type = $scaling_adjustment_type ?? "";
     $this->target_configuration = $target_configuration ?? null;
-    $this->threshold = $threshold ?? ;
+    $this->threshold = $threshold ?? 0.0;
   }
 }
 
@@ -3039,7 +3039,7 @@ class PutScalingPolicyOutput {
   public function __construct(shape(
   ?'name' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
   }
 }
 
@@ -3063,13 +3063,13 @@ class RegisterGameServerInput {
   ?'instance_id' => GameServerInstanceId,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->connection_info = $connection_info ?? ;
-    $this->custom_sort_key = $custom_sort_key ?? ;
+    $this->connection_info = $connection_info ?? "";
+    $this->custom_sort_key = $custom_sort_key ?? "";
     $this->game_server_data = $game_server_data ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_id = $game_server_id ?? "";
     $this->instance_id = $instance_id ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3101,8 +3101,8 @@ class RequestUploadCredentialsOutput {
   ?'storage_location' => S3Location,
   ?'upload_credentials' => AwsCredentials,
   ) $s = shape()) {
-    $this->storage_location = $storage_location ?? ;
-    $this->upload_credentials = $upload_credentials ?? ;
+    $this->storage_location = $storage_location ?? null;
+    $this->upload_credentials = $upload_credentials ?? null;
   }
 }
 
@@ -3137,8 +3137,8 @@ class ResourceCreationLimitPolicy {
   ?'new_game_sessions_per_creator' => WholeNumber,
   ?'policy_period_in_minutes' => WholeNumber,
   ) $s = shape()) {
-    $this->new_game_sessions_per_creator = $new_game_sessions_per_creator ?? ;
-    $this->policy_period_in_minutes = $policy_period_in_minutes ?? ;
+    $this->new_game_sessions_per_creator = $new_game_sessions_per_creator ?? 0;
+    $this->policy_period_in_minutes = $policy_period_in_minutes ?? 0;
   }
 }
 
@@ -3151,7 +3151,7 @@ class ResumeGameServerGroupInput {
   ?'resume_actions' => GameServerGroupActions,
   ) $s = shape()) {
     $this->game_server_group_name = $game_server_group_name ?? "";
-    $this->resume_actions = $resume_actions ?? ;
+    $this->resume_actions = $resume_actions ?? [];
   }
 }
 
@@ -3176,8 +3176,8 @@ class RoutingStrategy {
   ?'type' => RoutingStrategyType,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->message = $message ?? ;
-    $this->type = $type ?? ;
+    $this->message = $message ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -3199,7 +3199,7 @@ class RuntimeConfiguration {
   ) $s = shape()) {
     $this->game_session_activation_timeout_seconds = $game_session_activation_timeout_seconds ?? 0;
     $this->max_concurrent_game_session_activations = $max_concurrent_game_session_activations ?? 0;
-    $this->server_processes = $server_processes ?? ;
+    $this->server_processes = $server_processes ?? [];
   }
 }
 
@@ -3215,10 +3215,10 @@ class S3Location {
   ?'object_version' => NonEmptyString,
   ?'role_arn' => NonEmptyString,
   ) $s = shape()) {
-    $this->bucket = $bucket ?? ;
-    $this->key = $key ?? ;
-    $this->object_version = $object_version ?? ;
-    $this->role_arn = $role_arn ?? ;
+    $this->bucket = $bucket ?? "";
+    $this->key = $key ?? "";
+    $this->object_version = $object_version ?? "";
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -3250,17 +3250,17 @@ class ScalingPolicy {
   ?'target_configuration' => TargetConfiguration,
   ?'threshold' => Double,
   ) $s = shape()) {
-    $this->comparison_operator = $comparison_operator ?? ;
-    $this->evaluation_periods = $evaluation_periods ?? ;
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->evaluation_periods = $evaluation_periods ?? 0;
     $this->fleet_id = $fleet_id ?? "";
     $this->metric_name = $metric_name ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->policy_type = $policy_type ?? "";
-    $this->scaling_adjustment = $scaling_adjustment ?? ;
+    $this->scaling_adjustment = $scaling_adjustment ?? 0;
     $this->scaling_adjustment_type = $scaling_adjustment_type ?? "";
-    $this->status = $status ?? ;
+    $this->status = $status ?? "";
     $this->target_configuration = $target_configuration ?? null;
-    $this->threshold = $threshold ?? ;
+    $this->threshold = $threshold ?? 0.0;
   }
 }
 
@@ -3286,13 +3286,13 @@ class Script {
   ?'storage_location' => S3Location,
   ?'version' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->name = $name ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->name = $name ?? "";
     $this->script_arn = $script_arn ?? "";
     $this->script_id = $script_id ?? "";
-    $this->size_on_disk = $size_on_disk ?? ;
-    $this->storage_location = $storage_location ?? ;
-    $this->version = $version ?? ;
+    $this->size_on_disk = $size_on_disk ?? 0;
+    $this->storage_location = $storage_location ?? null;
+    $this->version = $version ?? "";
   }
 }
 
@@ -3321,11 +3321,11 @@ class SearchGameSessionsInput {
   ?'sort_expression' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->alias_id = $alias_id ?? "";
-    $this->filter_expression = $filter_expression ?? ;
+    $this->filter_expression = $filter_expression ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->limit = $limit ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->sort_expression = $sort_expression ?? ;
+    $this->limit = $limit ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->sort_expression = $sort_expression ?? "";
   }
 }
 
@@ -3337,8 +3337,8 @@ class SearchGameSessionsOutput {
   ?'game_sessions' => GameSessionList,
   ?'next_token' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->game_sessions = $game_sessions ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->game_sessions = $game_sessions ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -3352,9 +3352,9 @@ class ServerProcess {
   ?'launch_path' => NonZeroAndMaxString,
   ?'parameters' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->concurrent_executions = $concurrent_executions ?? ;
-    $this->launch_path = $launch_path ?? ;
-    $this->parameters = $parameters ?? ;
+    $this->concurrent_executions = $concurrent_executions ?? 0;
+    $this->launch_path = $launch_path ?? "";
+    $this->parameters = $parameters ?? "";
   }
 }
 
@@ -3372,7 +3372,7 @@ class StartFleetActionsInput {
   ?'actions' => FleetActionList,
   ?'fleet_id' => FleetIdOrArn,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
+    $this->actions = $actions ?? [];
     $this->fleet_id = $fleet_id ?? "";
   }
 }
@@ -3404,14 +3404,14 @@ class StartGameSessionPlacementInput {
   ?'placement_id' => IdStringModel,
   ?'player_latencies' => PlayerLatencyList,
   ) $s = shape()) {
-    $this->desired_player_sessions = $desired_player_sessions ?? ;
-    $this->game_properties = $game_properties ?? ;
+    $this->desired_player_sessions = $desired_player_sessions ?? [];
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_name = $game_session_name ?? ;
+    $this->game_session_name = $game_session_name ?? "";
     $this->game_session_queue_name = $game_session_queue_name ?? "";
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
-    $this->placement_id = $placement_id ?? ;
-    $this->player_latencies = $player_latencies ?? ;
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
+    $this->placement_id = $placement_id ?? "";
+    $this->player_latencies = $player_latencies ?? [];
   }
 }
 
@@ -3437,10 +3437,10 @@ class StartMatchBackfillInput {
   ?'players' => PlayerList,
   ?'ticket_id' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->configuration_name = $configuration_name ?? ;
-    $this->game_session_arn = $game_session_arn ?? ;
-    $this->players = $players ?? ;
-    $this->ticket_id = $ticket_id ?? ;
+    $this->configuration_name = $configuration_name ?? "";
+    $this->game_session_arn = $game_session_arn ?? "";
+    $this->players = $players ?? [];
+    $this->ticket_id = $ticket_id ?? "";
   }
 }
 
@@ -3464,9 +3464,9 @@ class StartMatchmakingInput {
   ?'players' => PlayerList,
   ?'ticket_id' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->configuration_name = $configuration_name ?? ;
-    $this->players = $players ?? ;
-    $this->ticket_id = $ticket_id ?? ;
+    $this->configuration_name = $configuration_name ?? "";
+    $this->players = $players ?? [];
+    $this->ticket_id = $ticket_id ?? "";
   }
 }
 
@@ -3488,7 +3488,7 @@ class StopFleetActionsInput {
   ?'actions' => FleetActionList,
   ?'fleet_id' => FleetIdOrArn,
   ) $s = shape()) {
-    $this->actions = $actions ?? ;
+    $this->actions = $actions ?? [];
     $this->fleet_id = $fleet_id ?? "";
   }
 }
@@ -3506,7 +3506,7 @@ class StopGameSessionPlacementInput {
   public function __construct(shape(
   ?'placement_id' => IdStringModel,
   ) $s = shape()) {
-    $this->placement_id = $placement_id ?? ;
+    $this->placement_id = $placement_id ?? "";
   }
 }
 
@@ -3526,7 +3526,7 @@ class StopMatchmakingInput {
   public function __construct(shape(
   ?'ticket_id' => MatchmakingIdStringModel,
   ) $s = shape()) {
-    $this->ticket_id = $ticket_id ?? ;
+    $this->ticket_id = $ticket_id ?? "";
   }
 }
 
@@ -3552,7 +3552,7 @@ class SuspendGameServerGroupInput {
   ?'suspend_actions' => GameServerGroupActions,
   ) $s = shape()) {
     $this->game_server_group_name = $game_server_group_name ?? "";
-    $this->suspend_actions = $suspend_actions ?? ;
+    $this->suspend_actions = $suspend_actions ?? [];
   }
 }
 
@@ -3574,8 +3574,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -3593,8 +3593,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3613,7 +3613,7 @@ class TaggingFailedException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3623,7 +3623,7 @@ class TargetConfiguration {
   public function __construct(shape(
   ?'target_value' => Double,
   ) $s = shape()) {
-    $this->target_value = $target_value ?? ;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -3633,7 +3633,7 @@ class TargetTrackingConfiguration {
   public function __construct(shape(
   ?'target_value' => NonNegativeDouble,
   ) $s = shape()) {
-    $this->target_value = $target_value ?? ;
+    $this->target_value = $target_value ?? 0.0;
   }
 }
 
@@ -3643,7 +3643,7 @@ class TerminalRoutingStrategyException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3655,7 +3655,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3665,7 +3665,7 @@ class UnsupportedRegionException {
   public function __construct(shape(
   ?'message' => NonEmptyString,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3677,8 +3677,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -3702,8 +3702,8 @@ class UpdateAliasInput {
   ?'routing_strategy' => RoutingStrategy,
   ) $s = shape()) {
     $this->alias_id = $alias_id ?? "";
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->routing_strategy = $routing_strategy ?? null;
   }
 }
@@ -3729,8 +3729,8 @@ class UpdateBuildInput {
   ?'version' => NonZeroAndMaxString,
   ) $s = shape()) {
     $this->build_id = $build_id ?? "";
-    $this->name = $name ?? ;
-    $this->version = $version ?? ;
+    $this->name = $name ?? "";
+    $this->version = $version ?? "";
   }
 }
 
@@ -3760,11 +3760,11 @@ class UpdateFleetAttributesInput {
   ?'new_game_session_protection_policy' => ProtectionPolicy,
   ?'resource_creation_limit_policy' => ResourceCreationLimitPolicy,
   ) $s = shape()) {
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->metric_groups = $metric_groups ?? ;
-    $this->name = $name ?? ;
-    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? ;
+    $this->metric_groups = $metric_groups ?? [];
+    $this->name = $name ?? "";
+    $this->new_game_session_protection_policy = $new_game_session_protection_policy ?? "";
     $this->resource_creation_limit_policy = $resource_creation_limit_policy ?? null;
   }
 }
@@ -3791,10 +3791,10 @@ class UpdateFleetCapacityInput {
   ?'max_size' => WholeNumber,
   ?'min_size' => WholeNumber,
   ) $s = shape()) {
-    $this->desired_instances = $desired_instances ?? ;
+    $this->desired_instances = $desired_instances ?? 0;
     $this->fleet_id = $fleet_id ?? "";
-    $this->max_size = $max_size ?? ;
-    $this->min_size = $min_size ?? ;
+    $this->max_size = $max_size ?? 0;
+    $this->min_size = $min_size ?? 0;
   }
 }
 
@@ -3819,8 +3819,8 @@ class UpdateFleetPortSettingsInput {
   ?'inbound_permission_revocations' => IpPermissionsList,
   ) $s = shape()) {
     $this->fleet_id = $fleet_id ?? "";
-    $this->inbound_permission_authorizations = $inbound_permission_authorizations ?? ;
-    $this->inbound_permission_revocations = $inbound_permission_revocations ?? ;
+    $this->inbound_permission_authorizations = $inbound_permission_authorizations ?? [];
+    $this->inbound_permission_revocations = $inbound_permission_revocations ?? [];
   }
 }
 
@@ -3852,7 +3852,7 @@ class UpdateGameServerGroupInput {
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_protection_policy = $game_server_protection_policy ?? "";
     $this->instance_definitions = $instance_definitions ?? [];
-    $this->role_arn = $role_arn ?? ;
+    $this->role_arn = $role_arn ?? "";
   }
 }
 
@@ -3882,12 +3882,12 @@ class UpdateGameServerInput {
   ?'health_check' => GameServerHealthCheck,
   ?'utilization_status' => GameServerUtilizationStatus,
   ) $s = shape()) {
-    $this->custom_sort_key = $custom_sort_key ?? ;
+    $this->custom_sort_key = $custom_sort_key ?? "";
     $this->game_server_data = $game_server_data ?? "";
     $this->game_server_group_name = $game_server_group_name ?? "";
     $this->game_server_id = $game_server_id ?? "";
-    $this->health_check = $health_check ?? ;
-    $this->utilization_status = $utilization_status ?? ;
+    $this->health_check = $health_check ?? "";
+    $this->utilization_status = $utilization_status ?? "";
   }
 }
 
@@ -3915,9 +3915,9 @@ class UpdateGameSessionInput {
   ?'player_session_creation_policy' => PlayerSessionCreationPolicy,
   ?'protection_policy' => ProtectionPolicy,
   ) $s = shape()) {
-    $this->game_session_id = $game_session_id ?? ;
-    $this->maximum_player_session_count = $maximum_player_session_count ?? ;
-    $this->name = $name ?? ;
+    $this->game_session_id = $game_session_id ?? "";
+    $this->maximum_player_session_count = $maximum_player_session_count ?? 0;
+    $this->name = $name ?? "";
     $this->player_session_creation_policy = $player_session_creation_policy ?? "";
     $this->protection_policy = $protection_policy ?? "";
   }
@@ -3945,10 +3945,10 @@ class UpdateGameSessionQueueInput {
   ?'player_latency_policies' => PlayerLatencyPolicyList,
   ?'timeout_in_seconds' => WholeNumber,
   ) $s = shape()) {
-    $this->destinations = $destinations ?? ;
-    $this->name = $name ?? ;
-    $this->player_latency_policies = $player_latency_policies ?? ;
-    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+    $this->destinations = $destinations ?? [];
+    $this->name = $name ?? "";
+    $this->player_latency_policies = $player_latency_policies ?? [];
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
   }
 }
 
@@ -3992,19 +3992,19 @@ class UpdateMatchmakingConfigurationInput {
   ?'request_timeout_seconds' => MatchmakingRequestTimeoutInteger,
   ?'rule_set_name' => MatchmakingRuleSetName,
   ) $s = shape()) {
-    $this->acceptance_required = $acceptance_required ?? ;
-    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? ;
-    $this->additional_player_count = $additional_player_count ?? ;
+    $this->acceptance_required = $acceptance_required ?? false;
+    $this->acceptance_timeout_seconds = $acceptance_timeout_seconds ?? 0;
+    $this->additional_player_count = $additional_player_count ?? 0;
     $this->backfill_mode = $backfill_mode ?? "";
     $this->custom_event_data = $custom_event_data ?? "";
-    $this->description = $description ?? ;
-    $this->game_properties = $game_properties ?? ;
+    $this->description = $description ?? "";
+    $this->game_properties = $game_properties ?? [];
     $this->game_session_data = $game_session_data ?? "";
-    $this->game_session_queue_arns = $game_session_queue_arns ?? ;
-    $this->name = $name ?? ;
-    $this->notification_target = $notification_target ?? ;
-    $this->request_timeout_seconds = $request_timeout_seconds ?? ;
-    $this->rule_set_name = $rule_set_name ?? ;
+    $this->game_session_queue_arns = $game_session_queue_arns ?? [];
+    $this->name = $name ?? "";
+    $this->notification_target = $notification_target ?? "";
+    $this->request_timeout_seconds = $request_timeout_seconds ?? 0;
+    $this->rule_set_name = $rule_set_name ?? "";
   }
 }
 
@@ -4014,7 +4014,7 @@ class UpdateMatchmakingConfigurationOutput {
   public function __construct(shape(
   ?'configuration' => MatchmakingConfiguration,
   ) $s = shape()) {
-    $this->configuration = $configuration ?? ;
+    $this->configuration = $configuration ?? null;
   }
 }
 
@@ -4055,11 +4055,11 @@ class UpdateScriptInput {
   ?'version' => NonZeroAndMaxString,
   ?'zip_file' => ZipBlob,
   ) $s = shape()) {
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->script_id = $script_id ?? "";
-    $this->storage_location = $storage_location ?? ;
-    $this->version = $version ?? ;
-    $this->zip_file = $zip_file ?? ;
+    $this->storage_location = $storage_location ?? null;
+    $this->version = $version ?? "";
+    $this->zip_file = $zip_file ?? "";
   }
 }
 
@@ -4089,7 +4089,7 @@ class ValidateMatchmakingRuleSetOutput {
   public function __construct(shape(
   ?'valid' => BooleanModel,
   ) $s = shape()) {
-    $this->valid = $valid ?? ;
+    $this->valid = $valid ?? false;
   }
 }
 
@@ -4107,11 +4107,11 @@ class VpcPeeringAuthorization {
   ?'peer_vpc_aws_account_id' => NonZeroAndMaxString,
   ?'peer_vpc_id' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->creation_time = $creation_time ?? ;
-    $this->expiration_time = $expiration_time ?? ;
-    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? ;
-    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
+    $this->creation_time = $creation_time ?? 0;
+    $this->expiration_time = $expiration_time ?? 0;
+    $this->game_lift_aws_account_id = $game_lift_aws_account_id ?? "";
+    $this->peer_vpc_aws_account_id = $peer_vpc_aws_account_id ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
   }
 }
 
@@ -4137,11 +4137,11 @@ class VpcPeeringConnection {
   ) $s = shape()) {
     $this->fleet_arn = $fleet_arn ?? "";
     $this->fleet_id = $fleet_id ?? "";
-    $this->game_lift_vpc_id = $game_lift_vpc_id ?? ;
-    $this->ip_v_4_cidr_block = $ip_v_4_cidr_block ?? ;
-    $this->peer_vpc_id = $peer_vpc_id ?? ;
-    $this->status = $status ?? ;
-    $this->vpc_peering_connection_id = $vpc_peering_connection_id ?? ;
+    $this->game_lift_vpc_id = $game_lift_vpc_id ?? "";
+    $this->ip_v_4_cidr_block = $ip_v_4_cidr_block ?? "";
+    $this->peer_vpc_id = $peer_vpc_id ?? "";
+    $this->status = $status ?? null;
+    $this->vpc_peering_connection_id = $vpc_peering_connection_id ?? "";
   }
 }
 
@@ -4155,8 +4155,8 @@ class VpcPeeringConnectionStatus {
   ?'code' => NonZeroAndMaxString,
   ?'message' => NonZeroAndMaxString,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 

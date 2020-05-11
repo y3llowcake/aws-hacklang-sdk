@@ -37,7 +37,7 @@ class AntennaDownlinkConfig {
   public function __construct(shape(
   ?'spectrum_config' => SpectrumConfig,
   ) $s = shape()) {
-    $this->spectrum_config = $spectrum_config ?? ;
+    $this->spectrum_config = $spectrum_config ?? null;
   }
 }
 
@@ -51,9 +51,9 @@ class AntennaDownlinkDemodDecodeConfig {
   ?'demodulation_config' => DemodulationConfig,
   ?'spectrum_config' => SpectrumConfig,
   ) $s = shape()) {
-    $this->decode_config = $decode_config ?? ;
-    $this->demodulation_config = $demodulation_config ?? ;
-    $this->spectrum_config = $spectrum_config ?? ;
+    $this->decode_config = $decode_config ?? null;
+    $this->demodulation_config = $demodulation_config ?? null;
+    $this->spectrum_config = $spectrum_config ?? null;
   }
 }
 
@@ -65,8 +65,8 @@ class AntennaUplinkConfig {
   ?'spectrum_config' => UplinkSpectrumConfig,
   ?'target_eirp' => Eirp,
   ) $s = shape()) {
-    $this->spectrum_config = $spectrum_config ?? ;
-    $this->target_eirp = $target_eirp ?? ;
+    $this->spectrum_config = $spectrum_config ?? null;
+    $this->target_eirp = $target_eirp ?? null;
   }
 }
 
@@ -80,7 +80,7 @@ class CancelContactRequest {
   public function __construct(shape(
   ?'contact_id' => string,
   ) $s = shape()) {
-    $this->contact_id = $contact_id ?? ;
+    $this->contact_id = $contact_id ?? "";
   }
 }
 
@@ -98,9 +98,9 @@ class ConfigIdResponse {
   ?'config_id' => string,
   ?'config_type' => ConfigCapabilityType,
   ) $s = shape()) {
-    $this->config_arn = $config_arn ?? ;
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
+    $this->config_arn = $config_arn ?? "";
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
   }
 }
 
@@ -118,10 +118,10 @@ class ConfigListItem {
   ?'config_type' => ConfigCapabilityType,
   ?'name' => string,
   ) $s = shape()) {
-    $this->config_arn = $config_arn ?? ;
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
-    $this->name = $name ?? ;
+    $this->config_arn = $config_arn ?? "";
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -141,12 +141,12 @@ class ConfigTypeData {
   ?'tracking_config' => TrackingConfig,
   ?'uplink_echo_config' => UplinkEchoConfig,
   ) $s = shape()) {
-    $this->antenna_downlink_config = $antenna_downlink_config ?? ;
-    $this->antenna_downlink_demod_decode_config = $antenna_downlink_demod_decode_config ?? ;
-    $this->antenna_uplink_config = $antenna_uplink_config ?? ;
-    $this->dataflow_endpoint_config = $dataflow_endpoint_config ?? ;
-    $this->tracking_config = $tracking_config ?? ;
-    $this->uplink_echo_config = $uplink_echo_config ?? ;
+    $this->antenna_downlink_config = $antenna_downlink_config ?? null;
+    $this->antenna_downlink_demod_decode_config = $antenna_downlink_demod_decode_config ?? null;
+    $this->antenna_uplink_config = $antenna_uplink_config ?? null;
+    $this->dataflow_endpoint_config = $dataflow_endpoint_config ?? null;
+    $this->tracking_config = $tracking_config ?? null;
+    $this->uplink_echo_config = $uplink_echo_config ?? null;
   }
 }
 
@@ -180,19 +180,19 @@ class ContactData {
   ?'start_time' => Timestamp,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->contact_id = $contact_id ?? ;
-    $this->contact_status = $contact_status ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->ground_station = $ground_station ?? ;
-    $this->maximum_elevation = $maximum_elevation ?? ;
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
-    $this->post_pass_end_time = $post_pass_end_time ?? ;
-    $this->pre_pass_start_time = $pre_pass_start_time ?? ;
-    $this->region = $region ?? ;
+    $this->contact_id = $contact_id ?? "";
+    $this->contact_status = $contact_status ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->error_message = $error_message ?? "";
+    $this->ground_station = $ground_station ?? "";
+    $this->maximum_elevation = $maximum_elevation ?? null;
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
+    $this->post_pass_end_time = $post_pass_end_time ?? 0;
+    $this->pre_pass_start_time = $pre_pass_start_time ?? 0;
+    $this->region = $region ?? "";
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->tags = $tags ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -202,7 +202,7 @@ class ContactIdResponse {
   public function __construct(shape(
   ?'contact_id' => string,
   ) $s = shape()) {
-    $this->contact_id = $contact_id ?? ;
+    $this->contact_id = $contact_id ?? "";
   }
 }
 
@@ -220,9 +220,9 @@ class CreateConfigRequest {
   ?'name' => SafeName,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->config_data = $config_data ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->config_data = $config_data ?? null;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -234,8 +234,8 @@ class CreateDataflowEndpointGroupRequest {
   ?'endpoint_details' => EndpointDetailsList,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->endpoint_details = $endpoint_details ?? ;
-    $this->tags = $tags ?? ;
+    $this->endpoint_details = $endpoint_details ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -257,13 +257,13 @@ class CreateMissionProfileRequest {
   ?'tags' => TagsMap,
   ?'tracking_config_arn' => ConfigArn,
   ) $s = shape()) {
-    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? ;
-    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? ;
-    $this->dataflow_edges = $dataflow_edges ?? ;
-    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
-    $this->tracking_config_arn = $tracking_config_arn ?? ;
+    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? 0;
+    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? 0;
+    $this->dataflow_edges = $dataflow_edges ?? [];
+    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? 0;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->tracking_config_arn = $tracking_config_arn ?? "";
   }
 }
 
@@ -283,9 +283,9 @@ class DataflowEndpoint {
   ?'name' => SafeName,
   ?'status' => EndpointStatus,
   ) $s = shape()) {
-    $this->address = $address ?? ;
-    $this->name = $name ?? ;
-    $this->status = $status ?? ;
+    $this->address = $address ?? null;
+    $this->name = $name ?? "";
+    $this->status = $status ?? "";
   }
 }
 
@@ -297,8 +297,8 @@ class DataflowEndpointConfig {
   ?'dataflow_endpoint_name' => string,
   ?'dataflow_endpoint_region' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_name = $dataflow_endpoint_name ?? ;
-    $this->dataflow_endpoint_region = $dataflow_endpoint_region ?? ;
+    $this->dataflow_endpoint_name = $dataflow_endpoint_name ?? "";
+    $this->dataflow_endpoint_region = $dataflow_endpoint_region ?? "";
   }
 }
 
@@ -310,7 +310,7 @@ class DataflowEndpointGroupIdResponse {
   public function __construct(shape(
   ?'dataflow_endpoint_group_id' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? ;
+    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? "";
   }
 }
 
@@ -324,8 +324,8 @@ class DataflowEndpointListItem {
   ?'dataflow_endpoint_group_arn' => DataflowEndpointGroupArn,
   ?'dataflow_endpoint_group_id' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_arn = $dataflow_endpoint_group_arn ?? ;
-    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? ;
+    $this->dataflow_endpoint_group_arn = $dataflow_endpoint_group_arn ?? "";
+    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? "";
   }
 }
 
@@ -335,7 +335,7 @@ class DecodeConfig {
   public function __construct(shape(
   ?'unvalidated_json' => JsonString,
   ) $s = shape()) {
-    $this->unvalidated_json = $unvalidated_json ?? ;
+    $this->unvalidated_json = $unvalidated_json ?? "";
   }
 }
 
@@ -347,8 +347,8 @@ class DeleteConfigRequest {
   ?'config_id' => string,
   ?'config_type' => ConfigCapabilityType,
   ) $s = shape()) {
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
   }
 }
 
@@ -358,7 +358,7 @@ class DeleteDataflowEndpointGroupRequest {
   public function __construct(shape(
   ?'dataflow_endpoint_group_id' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? ;
+    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? "";
   }
 }
 
@@ -368,7 +368,7 @@ class DeleteMissionProfileRequest {
   public function __construct(shape(
   ?'mission_profile_id' => string,
   ) $s = shape()) {
-    $this->mission_profile_id = $mission_profile_id ?? ;
+    $this->mission_profile_id = $mission_profile_id ?? "";
   }
 }
 
@@ -378,7 +378,7 @@ class DemodulationConfig {
   public function __construct(shape(
   ?'unvalidated_json' => JsonString,
   ) $s = shape()) {
-    $this->unvalidated_json = $unvalidated_json ?? ;
+    $this->unvalidated_json = $unvalidated_json ?? "";
   }
 }
 
@@ -390,8 +390,8 @@ class DependencyException {
   ?'message' => string,
   ?'parameter_name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->parameter_name = $parameter_name ?? ;
+    $this->message = $message ?? "";
+    $this->parameter_name = $parameter_name ?? "";
   }
 }
 
@@ -401,7 +401,7 @@ class DescribeContactRequest {
   public function __construct(shape(
   ?'contact_id' => string,
   ) $s = shape()) {
-    $this->contact_id = $contact_id ?? ;
+    $this->contact_id = $contact_id ?? "";
   }
 }
 
@@ -435,19 +435,19 @@ class DescribeContactResponse {
   ?'start_time' => Timestamp,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->contact_id = $contact_id ?? ;
-    $this->contact_status = $contact_status ?? ;
-    $this->end_time = $end_time ?? ;
-    $this->error_message = $error_message ?? ;
-    $this->ground_station = $ground_station ?? ;
-    $this->maximum_elevation = $maximum_elevation ?? ;
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
-    $this->post_pass_end_time = $post_pass_end_time ?? ;
-    $this->pre_pass_start_time = $pre_pass_start_time ?? ;
-    $this->region = $region ?? ;
+    $this->contact_id = $contact_id ?? "";
+    $this->contact_status = $contact_status ?? "";
+    $this->end_time = $end_time ?? 0;
+    $this->error_message = $error_message ?? "";
+    $this->ground_station = $ground_station ?? "";
+    $this->maximum_elevation = $maximum_elevation ?? null;
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
+    $this->post_pass_end_time = $post_pass_end_time ?? 0;
+    $this->pre_pass_start_time = $pre_pass_start_time ?? 0;
+    $this->region = $region ?? "";
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->tags = $tags ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -463,8 +463,8 @@ class Eirp {
   ?'units' => EirpUnits,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->units = $units ?? ;
-    $this->value = $value ?? ;
+    $this->units = $units ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -478,8 +478,8 @@ class Elevation {
   ?'unit' => AngleUnits,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->unit = $unit ?? ;
-    $this->value = $value ?? ;
+    $this->unit = $unit ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -491,8 +491,8 @@ class EndpointDetails {
   ?'endpoint' => DataflowEndpoint,
   ?'security_details' => SecurityDetails,
   ) $s = shape()) {
-    $this->endpoint = $endpoint ?? ;
-    $this->security_details = $security_details ?? ;
+    $this->endpoint = $endpoint ?? null;
+    $this->security_details = $security_details ?? null;
   }
 }
 
@@ -508,8 +508,8 @@ class Frequency {
   ?'units' => FrequencyUnits,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->units = $units ?? ;
-    $this->value = $value ?? ;
+    $this->units = $units ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -521,8 +521,8 @@ class FrequencyBandwidth {
   ?'units' => BandwidthUnits,
   ?'value' => Double,
   ) $s = shape()) {
-    $this->units = $units ?? ;
-    $this->value = $value ?? ;
+    $this->units = $units ?? "";
+    $this->value = $value ?? 0.0;
   }
 }
 
@@ -536,8 +536,8 @@ class GetConfigRequest {
   ?'config_id' => string,
   ?'config_type' => ConfigCapabilityType,
   ) $s = shape()) {
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
   }
 }
 
@@ -557,12 +557,12 @@ class GetConfigResponse {
   ?'name' => string,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->config_arn = $config_arn ?? ;
-    $this->config_data = $config_data ?? ;
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
-    $this->name = $name ?? ;
-    $this->tags = $tags ?? ;
+    $this->config_arn = $config_arn ?? "";
+    $this->config_data = $config_data ?? null;
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -572,7 +572,7 @@ class GetDataflowEndpointGroupRequest {
   public function __construct(shape(
   ?'dataflow_endpoint_group_id' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? ;
+    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? "";
   }
 }
 
@@ -588,10 +588,10 @@ class GetDataflowEndpointGroupResponse {
   ?'endpoints_details' => EndpointDetailsList,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_arn = $dataflow_endpoint_group_arn ?? ;
-    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? ;
-    $this->endpoints_details = $endpoints_details ?? ;
-    $this->tags = $tags ?? ;
+    $this->dataflow_endpoint_group_arn = $dataflow_endpoint_group_arn ?? "";
+    $this->dataflow_endpoint_group_id = $dataflow_endpoint_group_id ?? "";
+    $this->endpoints_details = $endpoints_details ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -603,8 +603,8 @@ class GetMinuteUsageRequest {
   ?'month' => int,
   ?'year' => int,
   ) $s = shape()) {
-    $this->month = $month ?? ;
-    $this->year = $year ?? ;
+    $this->month = $month ?? 0;
+    $this->year = $year ?? 0;
   }
 }
 
@@ -622,11 +622,11 @@ class GetMinuteUsageResponse {
   ?'total_scheduled_minutes' => int,
   ?'upcoming_minutes_scheduled' => int,
   ) $s = shape()) {
-    $this->estimated_minutes_remaining = $estimated_minutes_remaining ?? ;
-    $this->is_reserved_minutes_customer = $is_reserved_minutes_customer ?? ;
-    $this->total_reserved_minute_allocation = $total_reserved_minute_allocation ?? ;
-    $this->total_scheduled_minutes = $total_scheduled_minutes ?? ;
-    $this->upcoming_minutes_scheduled = $upcoming_minutes_scheduled ?? ;
+    $this->estimated_minutes_remaining = $estimated_minutes_remaining ?? 0;
+    $this->is_reserved_minutes_customer = $is_reserved_minutes_customer ?? false;
+    $this->total_reserved_minute_allocation = $total_reserved_minute_allocation ?? 0;
+    $this->total_scheduled_minutes = $total_scheduled_minutes ?? 0;
+    $this->upcoming_minutes_scheduled = $upcoming_minutes_scheduled ?? 0;
   }
 }
 
@@ -636,7 +636,7 @@ class GetMissionProfileRequest {
   public function __construct(shape(
   ?'mission_profile_id' => string,
   ) $s = shape()) {
-    $this->mission_profile_id = $mission_profile_id ?? ;
+    $this->mission_profile_id = $mission_profile_id ?? "";
   }
 }
 
@@ -664,16 +664,16 @@ class GetMissionProfileResponse {
   ?'tags' => TagsMap,
   ?'tracking_config_arn' => ConfigArn,
   ) $s = shape()) {
-    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? ;
-    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? ;
-    $this->dataflow_edges = $dataflow_edges ?? ;
-    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? ;
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
-    $this->mission_profile_id = $mission_profile_id ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
-    $this->tags = $tags ?? ;
-    $this->tracking_config_arn = $tracking_config_arn ?? ;
+    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? 0;
+    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? 0;
+    $this->dataflow_edges = $dataflow_edges ?? [];
+    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? 0;
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
+    $this->mission_profile_id = $mission_profile_id ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
+    $this->tags = $tags ?? [];
+    $this->tracking_config_arn = $tracking_config_arn ?? "";
   }
 }
 
@@ -683,7 +683,7 @@ class GetSatelliteRequest {
   public function __construct(shape(
   ?'satellite_id' => string,
   ) $s = shape()) {
-    $this->satellite_id = $satellite_id ?? ;
+    $this->satellite_id = $satellite_id ?? "";
   }
 }
 
@@ -699,10 +699,10 @@ class GetSatelliteResponse {
   ?'satellite_arn' => satelliteArn,
   ?'satellite_id' => Uuid,
   ) $s = shape()) {
-    $this->ground_stations = $ground_stations ?? ;
+    $this->ground_stations = $ground_stations ?? [];
     $this->norad_satellite_id = $norad_satellite_id ?? 0;
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->satellite_id = $satellite_id ?? ;
+    $this->satellite_id = $satellite_id ?? "";
   }
 }
 
@@ -716,9 +716,9 @@ class GroundStationData {
   ?'ground_station_name' => string,
   ?'region' => string,
   ) $s = shape()) {
-    $this->ground_station_id = $ground_station_id ?? ;
-    $this->ground_station_name = $ground_station_name ?? ;
-    $this->region = $region ?? ;
+    $this->ground_station_id = $ground_station_id ?? "";
+    $this->ground_station_name = $ground_station_name ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -736,8 +736,8 @@ class InvalidParameterException {
   ?'message' => string,
   ?'parameter_name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->parameter_name = $parameter_name ?? ;
+    $this->message = $message ?? "";
+    $this->parameter_name = $parameter_name ?? "";
   }
 }
 
@@ -751,8 +751,8 @@ class ListConfigsRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -764,8 +764,8 @@ class ListConfigsResponse {
   ?'config_list' => ConfigList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->config_list = $config_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->config_list = $config_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -789,14 +789,14 @@ class ListContactsRequest {
   ?'start_time' => Timestamp,
   ?'status_list' => StatusList,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->ground_station = $ground_station ?? ;
-    $this->max_results = $max_results ?? ;
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->ground_station = $ground_station ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
+    $this->next_token = $next_token ?? "";
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->status_list = $status_list ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->status_list = $status_list ?? [];
   }
 }
 
@@ -808,8 +808,8 @@ class ListContactsResponse {
   ?'contact_list' => ContactList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->contact_list = $contact_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->contact_list = $contact_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -821,8 +821,8 @@ class ListDataflowEndpointGroupsRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -834,8 +834,8 @@ class ListDataflowEndpointGroupsResponse {
   ?'dataflow_endpoint_group_list' => DataflowEndpointGroupList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->dataflow_endpoint_group_list = $dataflow_endpoint_group_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->dataflow_endpoint_group_list = $dataflow_endpoint_group_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -849,9 +849,9 @@ class ListGroundStationsRequest {
   ?'next_token' => string,
   ?'satellite_id' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
-    $this->satellite_id = $satellite_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->satellite_id = $satellite_id ?? "";
   }
 }
 
@@ -863,8 +863,8 @@ class ListGroundStationsResponse {
   ?'ground_station_list' => GroundStationList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->ground_station_list = $ground_station_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->ground_station_list = $ground_station_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -876,8 +876,8 @@ class ListMissionProfilesRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -889,8 +889,8 @@ class ListMissionProfilesResponse {
   ?'mission_profile_list' => MissionProfileList,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->mission_profile_list = $mission_profile_list ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->mission_profile_list = $mission_profile_list ?? [];
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -902,8 +902,8 @@ class ListSatellitesRequest {
   ?'max_results' => int,
   ?'next_token' => string,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -915,8 +915,8 @@ class ListSatellitesResponse {
   ?'next_token' => string,
   ?'satellites' => SatelliteList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->satellites = $satellites ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->satellites = $satellites ?? [];
   }
 }
 
@@ -926,7 +926,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => string,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -936,7 +936,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -948,7 +948,7 @@ class MissionProfileIdResponse {
   public function __construct(shape(
   ?'mission_profile_id' => string,
   ) $s = shape()) {
-    $this->mission_profile_id = $mission_profile_id ?? ;
+    $this->mission_profile_id = $mission_profile_id ?? "";
   }
 }
 
@@ -966,10 +966,10 @@ class MissionProfileListItem {
   ?'name' => string,
   ?'region' => string,
   ) $s = shape()) {
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
-    $this->mission_profile_id = $mission_profile_id ?? ;
-    $this->name = $name ?? ;
-    $this->region = $region ?? ;
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
+    $this->mission_profile_id = $mission_profile_id ?? "";
+    $this->name = $name ?? "";
+    $this->region = $region ?? "";
   }
 }
 
@@ -991,12 +991,12 @@ class ReserveContactRequest {
   ?'start_time' => Timestamp,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? ;
-    $this->ground_station = $ground_station ?? ;
-    $this->mission_profile_arn = $mission_profile_arn ?? ;
+    $this->end_time = $end_time ?? 0;
+    $this->ground_station = $ground_station ?? "";
+    $this->mission_profile_arn = $mission_profile_arn ?? "";
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->start_time = $start_time ?? ;
-    $this->tags = $tags ?? ;
+    $this->start_time = $start_time ?? 0;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1008,8 +1008,8 @@ class ResourceLimitExceededException {
   ?'message' => string,
   ?'parameter_name' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
-    $this->parameter_name = $parameter_name ?? ;
+    $this->message = $message ?? "";
+    $this->parameter_name = $parameter_name ?? "";
   }
 }
 
@@ -1019,7 +1019,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1041,10 +1041,10 @@ class SatelliteListItem {
   ?'satellite_arn' => satelliteArn,
   ?'satellite_id' => Uuid,
   ) $s = shape()) {
-    $this->ground_stations = $ground_stations ?? ;
+    $this->ground_stations = $ground_stations ?? [];
     $this->norad_satellite_id = $norad_satellite_id ?? 0;
     $this->satellite_arn = $satellite_arn ?? "";
-    $this->satellite_id = $satellite_id ?? ;
+    $this->satellite_id = $satellite_id ?? "";
   }
 }
 
@@ -1058,9 +1058,9 @@ class SecurityDetails {
   ?'security_group_ids' => SecurityGroupIdList,
   ?'subnet_ids' => SubnetList,
   ) $s = shape()) {
-    $this->role_arn = $role_arn ?? ;
-    $this->security_group_ids = $security_group_ids ?? ;
-    $this->subnet_ids = $subnet_ids ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
   }
 }
 
@@ -1074,8 +1074,8 @@ class SocketAddress {
   ?'name' => string,
   ?'port' => int,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->port = $port ?? ;
+    $this->name = $name ?? "";
+    $this->port = $port ?? 0;
   }
 }
 
@@ -1089,9 +1089,9 @@ class SpectrumConfig {
   ?'center_frequency' => Frequency,
   ?'polarization' => Polarization,
   ) $s = shape()) {
-    $this->bandwidth = $bandwidth ?? ;
-    $this->center_frequency = $center_frequency ?? ;
-    $this->polarization = $polarization ?? ;
+    $this->bandwidth = $bandwidth ?? null;
+    $this->center_frequency = $center_frequency ?? null;
+    $this->polarization = $polarization ?? "";
   }
 }
 
@@ -1111,8 +1111,8 @@ class TagResourceRequest {
   ?'resource_arn' => string,
   ?'tags' => TagsMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1133,7 +1133,7 @@ class TrackingConfig {
   public function __construct(shape(
   ?'autotrack' => Criticality,
   ) $s = shape()) {
-    $this->autotrack = $autotrack ?? ;
+    $this->autotrack = $autotrack ?? "";
   }
 }
 
@@ -1145,8 +1145,8 @@ class UntagResourceRequest {
   ?'resource_arn' => string,
   ?'tag_keys' => TagKeys,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -1169,10 +1169,10 @@ class UpdateConfigRequest {
   ?'config_type' => ConfigCapabilityType,
   ?'name' => SafeName,
   ) $s = shape()) {
-    $this->config_data = $config_data ?? ;
-    $this->config_id = $config_id ?? ;
-    $this->config_type = $config_type ?? ;
-    $this->name = $name ?? ;
+    $this->config_data = $config_data ?? null;
+    $this->config_id = $config_id ?? "";
+    $this->config_type = $config_type ?? "";
+    $this->name = $name ?? "";
   }
 }
 
@@ -1194,13 +1194,13 @@ class UpdateMissionProfileRequest {
   ?'name' => SafeName,
   ?'tracking_config_arn' => ConfigArn,
   ) $s = shape()) {
-    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? ;
-    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? ;
-    $this->dataflow_edges = $dataflow_edges ?? ;
-    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? ;
-    $this->mission_profile_id = $mission_profile_id ?? ;
-    $this->name = $name ?? ;
-    $this->tracking_config_arn = $tracking_config_arn ?? ;
+    $this->contact_post_pass_duration_seconds = $contact_post_pass_duration_seconds ?? 0;
+    $this->contact_pre_pass_duration_seconds = $contact_pre_pass_duration_seconds ?? 0;
+    $this->dataflow_edges = $dataflow_edges ?? [];
+    $this->minimum_viable_contact_duration_seconds = $minimum_viable_contact_duration_seconds ?? 0;
+    $this->mission_profile_id = $mission_profile_id ?? "";
+    $this->name = $name ?? "";
+    $this->tracking_config_arn = $tracking_config_arn ?? "";
   }
 }
 
@@ -1212,8 +1212,8 @@ class UplinkEchoConfig {
   ?'antenna_uplink_config_arn' => ConfigArn,
   ?'enabled' => boolean,
   ) $s = shape()) {
-    $this->antenna_uplink_config_arn = $antenna_uplink_config_arn ?? ;
-    $this->enabled = $enabled ?? ;
+    $this->antenna_uplink_config_arn = $antenna_uplink_config_arn ?? "";
+    $this->enabled = $enabled ?? false;
   }
 }
 
@@ -1225,8 +1225,8 @@ class UplinkSpectrumConfig {
   ?'center_frequency' => Frequency,
   ?'polarization' => Polarization,
   ) $s = shape()) {
-    $this->center_frequency = $center_frequency ?? ;
-    $this->polarization = $polarization ?? ;
+    $this->center_frequency = $center_frequency ?? null;
+    $this->polarization = $polarization ?? "";
   }
 }
 

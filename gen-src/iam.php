@@ -160,12 +160,12 @@ class AccessDetail {
   ?'service_namespace' => serviceNamespaceType,
   ?'total_authenticated_entities' => integerType,
   ) $s = shape()) {
-    $this->entity_path = $entity_path ?? ;
-    $this->last_authenticated_time = $last_authenticated_time ?? ;
-    $this->region = $region ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_namespace = $service_namespace ?? ;
-    $this->total_authenticated_entities = $total_authenticated_entities ?? ;
+    $this->entity_path = $entity_path ?? "";
+    $this->last_authenticated_time = $last_authenticated_time ?? 0;
+    $this->region = $region ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->service_namespace = $service_namespace ?? "";
+    $this->total_authenticated_entities = $total_authenticated_entities ?? 0;
   }
 }
 
@@ -185,11 +185,11 @@ class AccessKey {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->secret_access_key = $secret_access_key ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->secret_access_key = $secret_access_key ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -203,9 +203,9 @@ class AccessKeyLastUsed {
   ?'region' => stringType,
   ?'service_name' => stringType,
   ) $s = shape()) {
-    $this->last_used_date = $last_used_date ?? ;
-    $this->region = $region ?? ;
-    $this->service_name = $service_name ?? ;
+    $this->last_used_date = $last_used_date ?? 0;
+    $this->region = $region ?? "";
+    $this->service_name = $service_name ?? "";
   }
 }
 
@@ -221,10 +221,10 @@ class AccessKeyMetadata {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -240,8 +240,8 @@ class AddClientIDToOpenIDConnectProviderRequest {
   ?'client_id' => clientIDType,
   ?'open_id_connect_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
   }
 }
 
@@ -253,8 +253,8 @@ class AddRoleToInstanceProfileRequest {
   ?'instance_profile_name' => instanceProfileNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -266,8 +266,8 @@ class AddUserToGroupRequest {
   ?'group_name' => groupNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -281,8 +281,8 @@ class AttachGroupPolicyRequest {
   ?'group_name' => groupNameType,
   ?'policy_arn' => arnType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -294,8 +294,8 @@ class AttachRolePolicyRequest {
   ?'policy_arn' => arnType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -307,8 +307,8 @@ class AttachUserPolicyRequest {
   ?'policy_arn' => arnType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -320,8 +320,8 @@ class AttachedPermissionsBoundary {
   ?'permissions_boundary_arn' => arnType,
   ?'permissions_boundary_type' => PermissionsBoundaryAttachmentType,
   ) $s = shape()) {
-    $this->permissions_boundary_arn = $permissions_boundary_arn ?? ;
-    $this->permissions_boundary_type = $permissions_boundary_type ?? ;
+    $this->permissions_boundary_arn = $permissions_boundary_arn ?? "";
+    $this->permissions_boundary_type = $permissions_boundary_type ?? "";
   }
 }
 
@@ -333,8 +333,8 @@ class AttachedPolicy {
   ?'policy_arn' => arnType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -348,8 +348,8 @@ class ChangePasswordRequest {
   ?'new_password' => passwordType,
   ?'old_password' => passwordType,
   ) $s = shape()) {
-    $this->new_password = $new_password ?? ;
-    $this->old_password = $old_password ?? ;
+    $this->new_password = $new_password ?? "";
+    $this->old_password = $old_password ?? "";
   }
 }
 
@@ -361,7 +361,7 @@ class ConcurrentModificationException {
   public function __construct(shape(
   ?'message' => ConcurrentModificationMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -377,9 +377,9 @@ class ContextEntry {
   ?'context_key_type' => ContextKeyTypeEnum,
   ?'context_key_values' => ContextKeyValueListType,
   ) $s = shape()) {
-    $this->context_key_name = $context_key_name ?? ;
-    $this->context_key_type = $context_key_type ?? ;
-    $this->context_key_values = $context_key_values ?? ;
+    $this->context_key_name = $context_key_name ?? "";
+    $this->context_key_type = $context_key_type ?? "";
+    $this->context_key_values = $context_key_values ?? [];
   }
 }
 
@@ -401,7 +401,7 @@ class CreateAccessKeyRequest {
   public function __construct(shape(
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -421,7 +421,7 @@ class CreateAccountAliasRequest {
   public function __construct(shape(
   ?'account_alias' => accountAliasType,
   ) $s = shape()) {
-    $this->account_alias = $account_alias ?? ;
+    $this->account_alias = $account_alias ?? "";
   }
 }
 
@@ -433,8 +433,8 @@ class CreateGroupRequest {
   ?'group_name' => groupNameType,
   ?'path' => pathType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->path = $path ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -456,8 +456,8 @@ class CreateInstanceProfileRequest {
   ?'instance_profile_name' => instanceProfileNameType,
   ?'path' => pathType,
   ) $s = shape()) {
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->path = $path ?? ;
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -481,9 +481,9 @@ class CreateLoginProfileRequest {
   ?'password_reset_required' => booleanType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->password_reset_required = $password_reset_required ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->password = $password ?? "";
+    $this->password_reset_required = $password_reset_required ?? false;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -507,9 +507,9 @@ class CreateOpenIDConnectProviderRequest {
   ?'thumbprint_list' => thumbprintListType,
   ?'url' => OpenIDConnectProviderUrlType,
   ) $s = shape()) {
-    $this->client_id_list = $client_id_list ?? ;
-    $this->thumbprint_list = $thumbprint_list ?? ;
-    $this->url = $url ?? ;
+    $this->client_id_list = $client_id_list ?? [];
+    $this->thumbprint_list = $thumbprint_list ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -519,7 +519,7 @@ class CreateOpenIDConnectProviderResponse {
   public function __construct(shape(
   ?'open_id_connect_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
   }
 }
 
@@ -535,10 +535,10 @@ class CreatePolicyRequest {
   ?'policy_document' => policyDocumentType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->path = $path ?? ;
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->description = $description ?? "";
+    $this->path = $path ?? "";
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -562,9 +562,9 @@ class CreatePolicyVersionRequest {
   ?'policy_document' => policyDocumentType,
   ?'set_as_default' => booleanType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->policy_document = $policy_document ?? ;
-    $this->set_as_default = $set_as_default ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->policy_document = $policy_document ?? "";
+    $this->set_as_default = $set_as_default ?? false;
   }
 }
 
@@ -596,13 +596,13 @@ class CreateRoleRequest {
   ?'role_name' => roleNameType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->assume_role_policy_document = $assume_role_policy_document ?? ;
-    $this->description = $description ?? ;
-    $this->max_session_duration = $max_session_duration ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->role_name = $role_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->assume_role_policy_document = $assume_role_policy_document ?? "";
+    $this->description = $description ?? "";
+    $this->max_session_duration = $max_session_duration ?? 0;
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? "";
+    $this->role_name = $role_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -624,8 +624,8 @@ class CreateSAMLProviderRequest {
   ?'name' => SAMLProviderNameType,
   ?'saml_metadata_document' => SAMLMetadataDocumentType,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->saml_metadata_document = $saml_metadata_document ?? ;
+    $this->name = $name ?? "";
+    $this->saml_metadata_document = $saml_metadata_document ?? "";
   }
 }
 
@@ -635,7 +635,7 @@ class CreateSAMLProviderResponse {
   public function __construct(shape(
   ?'saml_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->saml_provider_arn = $saml_provider_arn ?? ;
+    $this->saml_provider_arn = $saml_provider_arn ?? "";
   }
 }
 
@@ -649,9 +649,9 @@ class CreateServiceLinkedRoleRequest {
   ?'custom_suffix' => customSuffixType,
   ?'description' => roleDescriptionType,
   ) $s = shape()) {
-    $this->aws_service_name = $aws_service_name ?? ;
-    $this->custom_suffix = $custom_suffix ?? ;
-    $this->description = $description ?? ;
+    $this->aws_service_name = $aws_service_name ?? "";
+    $this->custom_suffix = $custom_suffix ?? "";
+    $this->description = $description ?? "";
   }
 }
 
@@ -673,8 +673,8 @@ class CreateServiceSpecificCredentialRequest {
   ?'service_name' => serviceName,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->service_name = $service_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->service_name = $service_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -700,10 +700,10 @@ class CreateUserRequest {
   ?'tags' => tagListType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? "";
+    $this->tags = $tags ?? [];
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -725,8 +725,8 @@ class CreateVirtualMFADeviceRequest {
   ?'path' => pathType,
   ?'virtual_mfa_device_name' => virtualMFADeviceName,
   ) $s = shape()) {
-    $this->path = $path ?? ;
-    $this->virtual_mfa_device_name = $virtual_mfa_device_name ?? ;
+    $this->path = $path ?? "";
+    $this->virtual_mfa_device_name = $virtual_mfa_device_name ?? "";
   }
 }
 
@@ -746,7 +746,7 @@ class CredentialReportExpiredException {
   public function __construct(shape(
   ?'message' => credentialReportExpiredExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -756,7 +756,7 @@ class CredentialReportNotPresentException {
   public function __construct(shape(
   ?'message' => credentialReportNotPresentExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -766,7 +766,7 @@ class CredentialReportNotReadyException {
   public function __construct(shape(
   ?'message' => credentialReportNotReadyExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -778,8 +778,8 @@ class DeactivateMFADeviceRequest {
   ?'serial_number' => serialNumberType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->serial_number = $serial_number ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->serial_number = $serial_number ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -791,8 +791,8 @@ class DeleteAccessKeyRequest {
   ?'access_key_id' => accessKeyIdType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -802,7 +802,7 @@ class DeleteAccountAliasRequest {
   public function __construct(shape(
   ?'account_alias' => accountAliasType,
   ) $s = shape()) {
-    $this->account_alias = $account_alias ?? ;
+    $this->account_alias = $account_alias ?? "";
   }
 }
 
@@ -812,7 +812,7 @@ class DeleteConflictException {
   public function __construct(shape(
   ?'message' => deleteConflictMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -824,8 +824,8 @@ class DeleteGroupPolicyRequest {
   ?'group_name' => groupNameType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -835,7 +835,7 @@ class DeleteGroupRequest {
   public function __construct(shape(
   ?'group_name' => groupNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -845,7 +845,7 @@ class DeleteInstanceProfileRequest {
   public function __construct(shape(
   ?'instance_profile_name' => instanceProfileNameType,
   ) $s = shape()) {
-    $this->instance_profile_name = $instance_profile_name ?? ;
+    $this->instance_profile_name = $instance_profile_name ?? "";
   }
 }
 
@@ -855,7 +855,7 @@ class DeleteLoginProfileRequest {
   public function __construct(shape(
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -865,7 +865,7 @@ class DeleteOpenIDConnectProviderRequest {
   public function __construct(shape(
   ?'open_id_connect_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
   }
 }
 
@@ -875,7 +875,7 @@ class DeletePolicyRequest {
   public function __construct(shape(
   ?'policy_arn' => arnType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -887,8 +887,8 @@ class DeletePolicyVersionRequest {
   ?'policy_arn' => arnType,
   ?'version_id' => policyVersionIdType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -898,7 +898,7 @@ class DeleteRolePermissionsBoundaryRequest {
   public function __construct(shape(
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -910,8 +910,8 @@ class DeleteRolePolicyRequest {
   ?'policy_name' => policyNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -921,7 +921,7 @@ class DeleteRoleRequest {
   public function __construct(shape(
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -931,7 +931,7 @@ class DeleteSAMLProviderRequest {
   public function __construct(shape(
   ?'saml_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->saml_provider_arn = $saml_provider_arn ?? ;
+    $this->saml_provider_arn = $saml_provider_arn ?? "";
   }
 }
 
@@ -943,8 +943,8 @@ class DeleteSSHPublicKeyRequest {
   ?'ssh_public_key_id' => publicKeyIdType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->ssh_public_key_id = $ssh_public_key_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->ssh_public_key_id = $ssh_public_key_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -954,7 +954,7 @@ class DeleteServerCertificateRequest {
   public function __construct(shape(
   ?'server_certificate_name' => serverCertificateNameType,
   ) $s = shape()) {
-    $this->server_certificate_name = $server_certificate_name ?? ;
+    $this->server_certificate_name = $server_certificate_name ?? "";
   }
 }
 
@@ -964,7 +964,7 @@ class DeleteServiceLinkedRoleRequest {
   public function __construct(shape(
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -974,7 +974,7 @@ class DeleteServiceLinkedRoleResponse {
   public function __construct(shape(
   ?'deletion_task_id' => DeletionTaskIdType,
   ) $s = shape()) {
-    $this->deletion_task_id = $deletion_task_id ?? ;
+    $this->deletion_task_id = $deletion_task_id ?? "";
   }
 }
 
@@ -986,8 +986,8 @@ class DeleteServiceSpecificCredentialRequest {
   ?'service_specific_credential_id' => serviceSpecificCredentialId,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->service_specific_credential_id = $service_specific_credential_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->service_specific_credential_id = $service_specific_credential_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -999,8 +999,8 @@ class DeleteSigningCertificateRequest {
   ?'certificate_id' => certificateIdType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->certificate_id = $certificate_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->certificate_id = $certificate_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1010,7 +1010,7 @@ class DeleteUserPermissionsBoundaryRequest {
   public function __construct(shape(
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1022,8 +1022,8 @@ class DeleteUserPolicyRequest {
   ?'policy_name' => policyNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1033,7 +1033,7 @@ class DeleteUserRequest {
   public function __construct(shape(
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1043,7 +1043,7 @@ class DeleteVirtualMFADeviceRequest {
   public function __construct(shape(
   ?'serial_number' => serialNumberType,
   ) $s = shape()) {
-    $this->serial_number = $serial_number ?? ;
+    $this->serial_number = $serial_number ?? "";
   }
 }
 
@@ -1055,8 +1055,8 @@ class DeletionTaskFailureReasonType {
   ?'reason' => ReasonType,
   ?'role_usage_list' => RoleUsageListType,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->role_usage_list = $role_usage_list ?? ;
+    $this->reason = $reason ?? "";
+    $this->role_usage_list = $role_usage_list ?? [];
   }
 }
 
@@ -1072,8 +1072,8 @@ class DetachGroupPolicyRequest {
   ?'group_name' => groupNameType,
   ?'policy_arn' => arnType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -1085,8 +1085,8 @@ class DetachRolePolicyRequest {
   ?'policy_arn' => arnType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -1098,8 +1098,8 @@ class DetachUserPolicyRequest {
   ?'policy_arn' => arnType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1109,7 +1109,7 @@ class DuplicateCertificateException {
   public function __construct(shape(
   ?'message' => duplicateCertificateMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1119,7 +1119,7 @@ class DuplicateSSHPublicKeyException {
   public function __construct(shape(
   ?'message' => duplicateSSHPublicKeyMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1135,10 +1135,10 @@ class EnableMFADeviceRequest {
   ?'serial_number' => serialNumberType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->authentication_code_1 = $authentication_code_1 ?? ;
-    $this->authentication_code_2 = $authentication_code_2 ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->authentication_code_1 = $authentication_code_1 ?? "";
+    $this->authentication_code_2 = $authentication_code_2 ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1148,7 +1148,7 @@ class EntityAlreadyExistsException {
   public function __construct(shape(
   ?'message' => entityAlreadyExistsMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1161,7 +1161,7 @@ class EntityDetails {
   ?'last_authenticated' => dateType,
   ) $s = shape()) {
     $this->entity_info = $entity_info ?? null;
-    $this->last_authenticated = $last_authenticated ?? ;
+    $this->last_authenticated = $last_authenticated ?? 0;
   }
 }
 
@@ -1179,11 +1179,11 @@ class EntityInfo {
   ?'path' => pathType,
   ?'type' => policyOwnerEntityType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->id = $id ?? ;
-    $this->name = $name ?? ;
-    $this->path = $path ?? ;
-    $this->type = $type ?? ;
+    $this->arn = $arn ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? "";
+    $this->path = $path ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -1193,7 +1193,7 @@ class EntityTemporarilyUnmodifiableException {
   public function __construct(shape(
   ?'message' => entityTemporarilyUnmodifiableMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -1207,8 +1207,8 @@ class ErrorDetails {
   ?'code' => stringType,
   ?'message' => stringType,
   ) $s = shape()) {
-    $this->code = $code ?? ;
-    $this->message = $message ?? ;
+    $this->code = $code ?? "";
+    $this->message = $message ?? "";
   }
 }
 
@@ -1238,15 +1238,15 @@ class EvaluationResult {
   ?'permissions_boundary_decision_detail' => PermissionsBoundaryDecisionDetail,
   ?'resource_specific_results' => ResourceSpecificResultListType,
   ) $s = shape()) {
-    $this->eval_action_name = $eval_action_name ?? ;
-    $this->eval_decision = $eval_decision ?? ;
-    $this->eval_decision_details = $eval_decision_details ?? ;
-    $this->eval_resource_name = $eval_resource_name ?? ;
-    $this->matched_statements = $matched_statements ?? ;
-    $this->missing_context_values = $missing_context_values ?? ;
+    $this->eval_action_name = $eval_action_name ?? "";
+    $this->eval_decision = $eval_decision ?? "";
+    $this->eval_decision_details = $eval_decision_details ?? [];
+    $this->eval_resource_name = $eval_resource_name ?? "";
+    $this->matched_statements = $matched_statements ?? [];
+    $this->missing_context_values = $missing_context_values ?? [];
     $this->organizations_decision_detail = $organizations_decision_detail ?? null;
     $this->permissions_boundary_decision_detail = $permissions_boundary_decision_detail ?? null;
-    $this->resource_specific_results = $resource_specific_results ?? ;
+    $this->resource_specific_results = $resource_specific_results ?? [];
   }
 }
 
@@ -1260,8 +1260,8 @@ class GenerateCredentialReportResponse {
   ?'description' => ReportStateDescriptionType,
   ?'state' => ReportStateType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->state = $state ?? ;
+    $this->description = $description ?? "";
+    $this->state = $state ?? "";
   }
 }
 
@@ -1273,8 +1273,8 @@ class GenerateOrganizationsAccessReportRequest {
   ?'entity_path' => organizationsEntityPathType,
   ?'organizations_policy_id' => organizationsPolicyIdType,
   ) $s = shape()) {
-    $this->entity_path = $entity_path ?? ;
-    $this->organizations_policy_id = $organizations_policy_id ?? ;
+    $this->entity_path = $entity_path ?? "";
+    $this->organizations_policy_id = $organizations_policy_id ?? "";
   }
 }
 
@@ -1284,7 +1284,7 @@ class GenerateOrganizationsAccessReportResponse {
   public function __construct(shape(
   ?'job_id' => jobIDType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1294,7 +1294,7 @@ class GenerateServiceLastAccessedDetailsRequest {
   public function __construct(shape(
   ?'arn' => arnType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -1304,7 +1304,7 @@ class GenerateServiceLastAccessedDetailsResponse {
   public function __construct(shape(
   ?'job_id' => jobIDType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
+    $this->job_id = $job_id ?? "";
   }
 }
 
@@ -1314,7 +1314,7 @@ class GetAccessKeyLastUsedRequest {
   public function __construct(shape(
   ?'access_key_id' => accessKeyIdType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
+    $this->access_key_id = $access_key_id ?? "";
   }
 }
 
@@ -1327,7 +1327,7 @@ class GetAccessKeyLastUsedResponse {
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
     $this->access_key_last_used = $access_key_last_used ?? null;
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1341,9 +1341,9 @@ class GetAccountAuthorizationDetailsRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->filter = $filter ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->filter = $filter ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1363,12 +1363,12 @@ class GetAccountAuthorizationDetailsResponse {
   ?'role_detail_list' => roleDetailListType,
   ?'user_detail_list' => userDetailListType,
   ) $s = shape()) {
-    $this->group_detail_list = $group_detail_list ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policies = $policies ?? ;
-    $this->role_detail_list = $role_detail_list ?? ;
-    $this->user_detail_list = $user_detail_list ?? ;
+    $this->group_detail_list = $group_detail_list ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policies = $policies ?? [];
+    $this->role_detail_list = $role_detail_list ?? [];
+    $this->user_detail_list = $user_detail_list ?? [];
   }
 }
 
@@ -1388,7 +1388,7 @@ class GetAccountSummaryResponse {
   public function __construct(shape(
   ?'summary_map' => summaryMapType,
   ) $s = shape()) {
-    $this->summary_map = $summary_map ?? ;
+    $this->summary_map = $summary_map ?? [];
   }
 }
 
@@ -1398,7 +1398,7 @@ class GetContextKeysForCustomPolicyRequest {
   public function __construct(shape(
   ?'policy_input_list' => SimulationPolicyListType,
   ) $s = shape()) {
-    $this->policy_input_list = $policy_input_list ?? ;
+    $this->policy_input_list = $policy_input_list ?? [];
   }
 }
 
@@ -1408,7 +1408,7 @@ class GetContextKeysForPolicyResponse {
   public function __construct(shape(
   ?'context_key_names' => ContextKeyNamesResultListType,
   ) $s = shape()) {
-    $this->context_key_names = $context_key_names ?? ;
+    $this->context_key_names = $context_key_names ?? [];
   }
 }
 
@@ -1420,8 +1420,8 @@ class GetContextKeysForPrincipalPolicyRequest {
   ?'policy_input_list' => SimulationPolicyListType,
   ?'policy_source_arn' => arnType,
   ) $s = shape()) {
-    $this->policy_input_list = $policy_input_list ?? ;
-    $this->policy_source_arn = $policy_source_arn ?? ;
+    $this->policy_input_list = $policy_input_list ?? [];
+    $this->policy_source_arn = $policy_source_arn ?? "";
   }
 }
 
@@ -1435,9 +1435,9 @@ class GetCredentialReportResponse {
   ?'generated_time' => dateType,
   ?'report_format' => ReportFormatType,
   ) $s = shape()) {
-    $this->content = $content ?? ;
-    $this->generated_time = $generated_time ?? ;
-    $this->report_format = $report_format ?? ;
+    $this->content = $content ?? "";
+    $this->generated_time = $generated_time ?? 0;
+    $this->report_format = $report_format ?? "";
   }
 }
 
@@ -1449,8 +1449,8 @@ class GetGroupPolicyRequest {
   ?'group_name' => groupNameType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1464,9 +1464,9 @@ class GetGroupPolicyResponse {
   ?'policy_document' => policyDocumentType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -1480,9 +1480,9 @@ class GetGroupRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1499,9 +1499,9 @@ class GetGroupResponse {
   ?'users' => userListType,
   ) $s = shape()) {
     $this->group = $group ?? null;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->users = $users ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -1511,7 +1511,7 @@ class GetInstanceProfileRequest {
   public function __construct(shape(
   ?'instance_profile_name' => instanceProfileNameType,
   ) $s = shape()) {
-    $this->instance_profile_name = $instance_profile_name ?? ;
+    $this->instance_profile_name = $instance_profile_name ?? "";
   }
 }
 
@@ -1531,7 +1531,7 @@ class GetLoginProfileRequest {
   public function __construct(shape(
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1551,7 +1551,7 @@ class GetOpenIDConnectProviderRequest {
   public function __construct(shape(
   ?'open_id_connect_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
   }
 }
 
@@ -1567,10 +1567,10 @@ class GetOpenIDConnectProviderResponse {
   ?'thumbprint_list' => thumbprintListType,
   ?'url' => OpenIDConnectProviderUrlType,
   ) $s = shape()) {
-    $this->client_id_list = $client_id_list ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->thumbprint_list = $thumbprint_list ?? ;
-    $this->url = $url ?? ;
+    $this->client_id_list = $client_id_list ?? [];
+    $this->create_date = $create_date ?? 0;
+    $this->thumbprint_list = $thumbprint_list ?? [];
+    $this->url = $url ?? "";
   }
 }
 
@@ -1586,10 +1586,10 @@ class GetOrganizationsAccessReportRequest {
   ?'max_items' => maxItemsType,
   ?'sort_key' => sortKeyType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->sort_key = $sort_key ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->sort_key = $sort_key ?? "";
   }
 }
 
@@ -1617,13 +1617,13 @@ class GetOrganizationsAccessReportResponse {
   ) $s = shape()) {
     $this->access_details = $access_details ?? [];
     $this->error_details = $error_details ?? null;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->job_completion_date = $job_completion_date ?? ;
-    $this->job_creation_date = $job_creation_date ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->marker = $marker ?? ;
-    $this->number_of_services_accessible = $number_of_services_accessible ?? ;
-    $this->number_of_services_not_accessed = $number_of_services_not_accessed ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->job_completion_date = $job_completion_date ?? 0;
+    $this->job_creation_date = $job_creation_date ?? 0;
+    $this->job_status = $job_status ?? "";
+    $this->marker = $marker ?? "";
+    $this->number_of_services_accessible = $number_of_services_accessible ?? 0;
+    $this->number_of_services_not_accessed = $number_of_services_not_accessed ?? 0;
   }
 }
 
@@ -1633,7 +1633,7 @@ class GetPolicyRequest {
   public function __construct(shape(
   ?'policy_arn' => arnType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -1655,8 +1655,8 @@ class GetPolicyVersionRequest {
   ?'policy_arn' => arnType,
   ?'version_id' => policyVersionIdType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -1678,8 +1678,8 @@ class GetRolePolicyRequest {
   ?'policy_name' => policyNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -1693,9 +1693,9 @@ class GetRolePolicyResponse {
   ?'policy_name' => policyNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -1705,7 +1705,7 @@ class GetRoleRequest {
   public function __construct(shape(
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -1725,7 +1725,7 @@ class GetSAMLProviderRequest {
   public function __construct(shape(
   ?'saml_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->saml_provider_arn = $saml_provider_arn ?? ;
+    $this->saml_provider_arn = $saml_provider_arn ?? "";
   }
 }
 
@@ -1739,9 +1739,9 @@ class GetSAMLProviderResponse {
   ?'saml_metadata_document' => SAMLMetadataDocumentType,
   ?'valid_until' => dateType,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->saml_metadata_document = $saml_metadata_document ?? ;
-    $this->valid_until = $valid_until ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->saml_metadata_document = $saml_metadata_document ?? "";
+    $this->valid_until = $valid_until ?? 0;
   }
 }
 
@@ -1755,9 +1755,9 @@ class GetSSHPublicKeyRequest {
   ?'ssh_public_key_id' => publicKeyIdType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->encoding = $encoding ?? ;
-    $this->ssh_public_key_id = $ssh_public_key_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->encoding = $encoding ?? "";
+    $this->ssh_public_key_id = $ssh_public_key_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1777,7 +1777,7 @@ class GetServerCertificateRequest {
   public function __construct(shape(
   ?'server_certificate_name' => serverCertificateNameType,
   ) $s = shape()) {
-    $this->server_certificate_name = $server_certificate_name ?? ;
+    $this->server_certificate_name = $server_certificate_name ?? "";
   }
 }
 
@@ -1801,9 +1801,9 @@ class GetServiceLastAccessedDetailsRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -1825,12 +1825,12 @@ class GetServiceLastAccessedDetailsResponse {
   ?'marker' => responseMarkerType,
   ?'services_last_accessed' => ServicesLastAccessed,
   ) $s = shape()) {
-    $this->error = $error ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->job_completion_date = $job_completion_date ?? ;
-    $this->job_creation_date = $job_creation_date ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->marker = $marker ?? ;
+    $this->error = $error ?? null;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->job_completion_date = $job_completion_date ?? 0;
+    $this->job_creation_date = $job_creation_date ?? 0;
+    $this->job_status = $job_status ?? "";
+    $this->marker = $marker ?? "";
     $this->services_last_accessed = $services_last_accessed ?? [];
   }
 }
@@ -1847,10 +1847,10 @@ class GetServiceLastAccessedDetailsWithEntitiesRequest {
   ?'max_items' => maxItemsType,
   ?'service_namespace' => serviceNamespaceType,
   ) $s = shape()) {
-    $this->job_id = $job_id ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->service_namespace = $service_namespace ?? ;
+    $this->job_id = $job_id ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->service_namespace = $service_namespace ?? "";
   }
 }
 
@@ -1872,13 +1872,13 @@ class GetServiceLastAccessedDetailsWithEntitiesResponse {
   ?'job_status' => jobStatusType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->entity_details_list = $entity_details_list ?? ;
-    $this->error = $error ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->job_completion_date = $job_completion_date ?? ;
-    $this->job_creation_date = $job_creation_date ?? ;
-    $this->job_status = $job_status ?? ;
-    $this->marker = $marker ?? ;
+    $this->entity_details_list = $entity_details_list ?? [];
+    $this->error = $error ?? null;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->job_completion_date = $job_completion_date ?? 0;
+    $this->job_creation_date = $job_creation_date ?? 0;
+    $this->job_status = $job_status ?? "";
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -1888,7 +1888,7 @@ class GetServiceLinkedRoleDeletionStatusRequest {
   public function __construct(shape(
   ?'deletion_task_id' => DeletionTaskIdType,
   ) $s = shape()) {
-    $this->deletion_task_id = $deletion_task_id ?? ;
+    $this->deletion_task_id = $deletion_task_id ?? "";
   }
 }
 
@@ -1900,8 +1900,8 @@ class GetServiceLinkedRoleDeletionStatusResponse {
   ?'reason' => DeletionTaskFailureReasonType,
   ?'status' => DeletionTaskStatusType,
   ) $s = shape()) {
-    $this->reason = $reason ?? ;
-    $this->status = $status ?? ;
+    $this->reason = $reason ?? null;
+    $this->status = $status ?? "";
   }
 }
 
@@ -1913,8 +1913,8 @@ class GetUserPolicyRequest {
   ?'policy_name' => policyNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->policy_name = $policy_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_name = $policy_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1928,9 +1928,9 @@ class GetUserPolicyResponse {
   ?'policy_name' => policyNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1940,7 +1940,7 @@ class GetUserRequest {
   public function __construct(shape(
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->user_name = $user_name ?? ;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -1968,11 +1968,11 @@ class Group {
   ?'group_name' => groupNameType,
   ?'path' => pathType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->path = $path ?? ;
+    $this->arn = $arn ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->path = $path ?? "";
   }
 }
 
@@ -1994,13 +1994,13 @@ class GroupDetail {
   ?'group_policy_list' => policyDetailListType,
   ?'path' => pathType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attached_managed_policies = $attached_managed_policies ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
-    $this->group_policy_list = $group_policy_list ?? ;
-    $this->path = $path ?? ;
+    $this->arn = $arn ?? "";
+    $this->attached_managed_policies = $attached_managed_policies ?? [];
+    $this->create_date = $create_date ?? 0;
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
+    $this->group_policy_list = $group_policy_list ?? [];
+    $this->path = $path ?? "";
   }
 }
 
@@ -2020,12 +2020,12 @@ class InstanceProfile {
   ?'path' => pathType,
   ?'roles' => roleListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->instance_profile_id = $instance_profile_id ?? ;
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->path = $path ?? ;
-    $this->roles = $roles ?? ;
+    $this->arn = $arn ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->instance_profile_id = $instance_profile_id ?? "";
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->path = $path ?? "";
+    $this->roles = $roles ?? [];
   }
 }
 
@@ -2035,7 +2035,7 @@ class InvalidAuthenticationCodeException {
   public function __construct(shape(
   ?'message' => invalidAuthenticationCodeMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2045,7 +2045,7 @@ class InvalidCertificateException {
   public function __construct(shape(
   ?'message' => invalidCertificateMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2055,7 +2055,7 @@ class InvalidInputException {
   public function __construct(shape(
   ?'message' => invalidInputMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2065,7 +2065,7 @@ class InvalidPublicKeyException {
   public function __construct(shape(
   ?'message' => invalidPublicKeyMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2075,7 +2075,7 @@ class InvalidUserTypeException {
   public function __construct(shape(
   ?'message' => invalidUserTypeMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2085,7 +2085,7 @@ class KeyPairMismatchException {
   public function __construct(shape(
   ?'message' => keyPairMismatchMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2095,7 +2095,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => limitExceededMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -2111,9 +2111,9 @@ class ListAccessKeysRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2127,9 +2127,9 @@ class ListAccessKeysResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->access_key_metadata = $access_key_metadata ?? null;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->access_key_metadata = $access_key_metadata ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2141,8 +2141,8 @@ class ListAccountAliasesRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -2156,9 +2156,9 @@ class ListAccountAliasesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->account_aliases = $account_aliases ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->account_aliases = $account_aliases ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2174,10 +2174,10 @@ class ListAttachedGroupPoliciesRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => policyPathType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2191,9 +2191,9 @@ class ListAttachedGroupPoliciesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->attached_policies = $attached_policies ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->attached_policies = $attached_policies ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2209,10 +2209,10 @@ class ListAttachedRolePoliciesRequest {
   ?'path_prefix' => policyPathType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -2226,9 +2226,9 @@ class ListAttachedRolePoliciesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->attached_policies = $attached_policies ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->attached_policies = $attached_policies ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2244,10 +2244,10 @@ class ListAttachedUserPoliciesRequest {
   ?'path_prefix' => policyPathType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2261,9 +2261,9 @@ class ListAttachedUserPoliciesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->attached_policies = $attached_policies ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->attached_policies = $attached_policies ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2283,12 +2283,12 @@ class ListEntitiesForPolicyRequest {
   ?'policy_arn' => arnType,
   ?'policy_usage_filter' => PolicyUsageType,
   ) $s = shape()) {
-    $this->entity_filter = $entity_filter ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
-    $this->policy_arn = $policy_arn ?? ;
-    $this->policy_usage_filter = $policy_usage_filter ?? ;
+    $this->entity_filter = $entity_filter ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
+    $this->policy_arn = $policy_arn ?? "";
+    $this->policy_usage_filter = $policy_usage_filter ?? "";
   }
 }
 
@@ -2306,11 +2306,11 @@ class ListEntitiesForPolicyResponse {
   ?'policy_roles' => PolicyRoleListType,
   ?'policy_users' => PolicyUserListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policy_groups = $policy_groups ?? ;
-    $this->policy_roles = $policy_roles ?? ;
-    $this->policy_users = $policy_users ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policy_groups = $policy_groups ?? [];
+    $this->policy_roles = $policy_roles ?? [];
+    $this->policy_users = $policy_users ?? [];
   }
 }
 
@@ -2324,9 +2324,9 @@ class ListGroupPoliciesRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -2340,9 +2340,9 @@ class ListGroupPoliciesResponse {
   ?'marker' => responseMarkerType,
   ?'policy_names' => policyNameListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policy_names = $policy_names ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policy_names = $policy_names ?? [];
   }
 }
 
@@ -2356,9 +2356,9 @@ class ListGroupsForUserRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2372,9 +2372,9 @@ class ListGroupsForUserResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->groups = $groups ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2388,9 +2388,9 @@ class ListGroupsRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => pathPrefixType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2404,9 +2404,9 @@ class ListGroupsResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->groups = $groups ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->groups = $groups ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2420,9 +2420,9 @@ class ListInstanceProfilesForRoleRequest {
   ?'max_items' => maxItemsType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -2436,9 +2436,9 @@ class ListInstanceProfilesForRoleResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->instance_profiles = $instance_profiles ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->instance_profiles = $instance_profiles ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2452,9 +2452,9 @@ class ListInstanceProfilesRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => pathPrefixType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2468,9 +2468,9 @@ class ListInstanceProfilesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->instance_profiles = $instance_profiles ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->instance_profiles = $instance_profiles ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2484,9 +2484,9 @@ class ListMFADevicesRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2500,9 +2500,9 @@ class ListMFADevicesResponse {
   ?'mfa_devices' => mfaDeviceListType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->mfa_devices = $mfa_devices ?? ;
-    $this->marker = $marker ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->mfa_devices = $mfa_devices ?? [];
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2519,7 +2519,7 @@ class ListOpenIDConnectProvidersResponse {
   public function __construct(shape(
   ?'open_id_connect_provider_list' => OpenIDConnectProviderListType,
   ) $s = shape()) {
-    $this->open_id_connect_provider_list = $open_id_connect_provider_list ?? ;
+    $this->open_id_connect_provider_list = $open_id_connect_provider_list ?? [];
   }
 }
 
@@ -2531,8 +2531,8 @@ class ListPoliciesGrantingServiceAccessEntry {
   ?'policies' => policyGrantingServiceAccessListType,
   ?'service_namespace' => serviceNamespaceType,
   ) $s = shape()) {
-    $this->policies = $policies ?? ;
-    $this->service_namespace = $service_namespace ?? ;
+    $this->policies = $policies ?? [];
+    $this->service_namespace = $service_namespace ?? "";
   }
 }
 
@@ -2546,9 +2546,9 @@ class ListPoliciesGrantingServiceAccessRequest {
   ?'marker' => markerType,
   ?'service_namespaces' => serviceNamespaceListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->marker = $marker ?? ;
-    $this->service_namespaces = $service_namespaces ?? ;
+    $this->arn = $arn ?? "";
+    $this->marker = $marker ?? "";
+    $this->service_namespaces = $service_namespaces ?? [];
   }
 }
 
@@ -2562,9 +2562,9 @@ class ListPoliciesGrantingServiceAccessResponse {
   ?'marker' => responseMarkerType,
   ?'policies_granting_service_access' => listPolicyGrantingServiceAccessResponseListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policies_granting_service_access = $policies_granting_service_access ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policies_granting_service_access = $policies_granting_service_access ?? [];
   }
 }
 
@@ -2584,12 +2584,12 @@ class ListPoliciesRequest {
   ?'policy_usage_filter' => PolicyUsageType,
   ?'scope' => policyScopeType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->only_attached = $only_attached ?? ;
-    $this->path_prefix = $path_prefix ?? ;
-    $this->policy_usage_filter = $policy_usage_filter ?? ;
-    $this->scope = $scope ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->only_attached = $only_attached ?? false;
+    $this->path_prefix = $path_prefix ?? "";
+    $this->policy_usage_filter = $policy_usage_filter ?? "";
+    $this->scope = $scope ?? "";
   }
 }
 
@@ -2603,9 +2603,9 @@ class ListPoliciesResponse {
   ?'marker' => responseMarkerType,
   ?'policies' => policyListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policies = $policies ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policies = $policies ?? [];
   }
 }
 
@@ -2619,9 +2619,9 @@ class ListPolicyVersionsRequest {
   ?'max_items' => maxItemsType,
   ?'policy_arn' => arnType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->policy_arn = $policy_arn ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->policy_arn = $policy_arn ?? "";
   }
 }
 
@@ -2635,9 +2635,9 @@ class ListPolicyVersionsResponse {
   ?'marker' => responseMarkerType,
   ?'versions' => policyDocumentVersionListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->versions = $versions ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->versions = $versions ?? [];
   }
 }
 
@@ -2651,9 +2651,9 @@ class ListRolePoliciesRequest {
   ?'max_items' => maxItemsType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -2667,9 +2667,9 @@ class ListRolePoliciesResponse {
   ?'marker' => responseMarkerType,
   ?'policy_names' => policyNameListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policy_names = $policy_names ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policy_names = $policy_names ?? [];
   }
 }
 
@@ -2683,9 +2683,9 @@ class ListRoleTagsRequest {
   ?'max_items' => maxItemsType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -2699,9 +2699,9 @@ class ListRoleTagsResponse {
   ?'marker' => responseMarkerType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->tags = $tags ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2715,9 +2715,9 @@ class ListRolesRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => pathPrefixType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2731,9 +2731,9 @@ class ListRolesResponse {
   ?'marker' => responseMarkerType,
   ?'roles' => roleListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->roles = $roles ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->roles = $roles ?? [];
   }
 }
 
@@ -2750,7 +2750,7 @@ class ListSAMLProvidersResponse {
   public function __construct(shape(
   ?'saml_provider_list' => SAMLProviderListType,
   ) $s = shape()) {
-    $this->saml_provider_list = $saml_provider_list ?? ;
+    $this->saml_provider_list = $saml_provider_list ?? [];
   }
 }
 
@@ -2764,9 +2764,9 @@ class ListSSHPublicKeysRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2780,9 +2780,9 @@ class ListSSHPublicKeysResponse {
   ?'marker' => responseMarkerType,
   ?'ssh_public_keys' => SSHPublicKeyListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->ssh_public_keys = $ssh_public_keys ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->ssh_public_keys = $ssh_public_keys ?? [];
   }
 }
 
@@ -2796,9 +2796,9 @@ class ListServerCertificatesRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => pathPrefixType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2812,9 +2812,9 @@ class ListServerCertificatesResponse {
   ?'marker' => responseMarkerType,
   ?'server_certificate_metadata_list' => serverCertificateMetadataListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->server_certificate_metadata_list = $server_certificate_metadata_list ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->server_certificate_metadata_list = $server_certificate_metadata_list ?? [];
   }
 }
 
@@ -2826,8 +2826,8 @@ class ListServiceSpecificCredentialsRequest {
   ?'service_name' => serviceName,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->service_name = $service_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->service_name = $service_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2837,7 +2837,7 @@ class ListServiceSpecificCredentialsResponse {
   public function __construct(shape(
   ?'service_specific_credentials' => ServiceSpecificCredentialsListType,
   ) $s = shape()) {
-    $this->service_specific_credentials = $service_specific_credentials ?? ;
+    $this->service_specific_credentials = $service_specific_credentials ?? [];
   }
 }
 
@@ -2851,9 +2851,9 @@ class ListSigningCertificatesRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2867,9 +2867,9 @@ class ListSigningCertificatesResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->certificates = $certificates ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->certificates = $certificates ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -2883,9 +2883,9 @@ class ListUserPoliciesRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2899,9 +2899,9 @@ class ListUserPoliciesResponse {
   ?'marker' => responseMarkerType,
   ?'policy_names' => policyNameListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->policy_names = $policy_names ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->policy_names = $policy_names ?? [];
   }
 }
 
@@ -2915,9 +2915,9 @@ class ListUserTagsRequest {
   ?'max_items' => maxItemsType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -2931,9 +2931,9 @@ class ListUserTagsResponse {
   ?'marker' => responseMarkerType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->tags = $tags ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2947,9 +2947,9 @@ class ListUsersRequest {
   ?'max_items' => maxItemsType,
   ?'path_prefix' => pathPrefixType,
   ) $s = shape()) {
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->path_prefix = $path_prefix ?? ;
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->path_prefix = $path_prefix ?? "";
   }
 }
 
@@ -2963,9 +2963,9 @@ class ListUsersResponse {
   ?'marker' => responseMarkerType,
   ?'users' => userListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->users = $users ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->users = $users ?? [];
   }
 }
 
@@ -2979,9 +2979,9 @@ class ListVirtualMFADevicesRequest {
   ?'marker' => markerType,
   ?'max_items' => maxItemsType,
   ) $s = shape()) {
-    $this->assignment_status = $assignment_status ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
+    $this->assignment_status = $assignment_status ?? "";
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
   }
 }
 
@@ -2995,9 +2995,9 @@ class ListVirtualMFADevicesResponse {
   ?'marker' => responseMarkerType,
   ?'virtual_mfa_devices' => virtualMFADeviceListType,
   ) $s = shape()) {
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
-    $this->virtual_mfa_devices = $virtual_mfa_devices ?? ;
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
+    $this->virtual_mfa_devices = $virtual_mfa_devices ?? [];
   }
 }
 
@@ -3011,9 +3011,9 @@ class LoginProfile {
   ?'password_reset_required' => booleanType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->password_reset_required = $password_reset_required ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->password_reset_required = $password_reset_required ?? false;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3027,9 +3027,9 @@ class MFADevice {
   ?'serial_number' => serialNumberType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->enable_date = $enable_date ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->enable_date = $enable_date ?? 0;
+    $this->serial_number = $serial_number ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3039,7 +3039,7 @@ class MalformedCertificateException {
   public function __construct(shape(
   ?'message' => malformedCertificateMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3049,7 +3049,7 @@ class MalformedPolicyDocumentException {
   public function __construct(shape(
   ?'message' => malformedPolicyDocumentMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3081,18 +3081,18 @@ class ManagedPolicyDetail {
   ?'policy_version_list' => policyDocumentVersionListType,
   ?'update_date' => dateType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attachment_count = $attachment_count ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->default_version_id = $default_version_id ?? ;
-    $this->description = $description ?? ;
-    $this->is_attachable = $is_attachable ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary_usage_count = $permissions_boundary_usage_count ?? ;
-    $this->policy_id = $policy_id ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->policy_version_list = $policy_version_list ?? ;
-    $this->update_date = $update_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->attachment_count = $attachment_count ?? 0;
+    $this->create_date = $create_date ?? 0;
+    $this->default_version_id = $default_version_id ?? "";
+    $this->description = $description ?? "";
+    $this->is_attachable = $is_attachable ?? false;
+    $this->path = $path ?? "";
+    $this->permissions_boundary_usage_count = $permissions_boundary_usage_count ?? 0;
+    $this->policy_id = $policy_id ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->policy_version_list = $policy_version_list ?? [];
+    $this->update_date = $update_date ?? 0;
   }
 }
 
@@ -3104,7 +3104,7 @@ class NoSuchEntityException {
   public function __construct(shape(
   ?'message' => noSuchEntityMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3114,7 +3114,7 @@ class OpenIDConnectProviderListEntry {
   public function __construct(shape(
   ?'arn' => arnType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -3128,7 +3128,7 @@ class OrganizationsDecisionDetail {
   public function __construct(shape(
   ?'allowed_by_organizations' => booleanType,
   ) $s = shape()) {
-    $this->allowed_by_organizations = $allowed_by_organizations ?? ;
+    $this->allowed_by_organizations = $allowed_by_organizations ?? false;
   }
 }
 
@@ -3156,16 +3156,16 @@ class PasswordPolicy {
   ?'require_symbols' => booleanType,
   ?'require_uppercase_characters' => booleanType,
   ) $s = shape()) {
-    $this->allow_users_to_change_password = $allow_users_to_change_password ?? ;
-    $this->expire_passwords = $expire_passwords ?? ;
-    $this->hard_expiry = $hard_expiry ?? ;
-    $this->max_password_age = $max_password_age ?? ;
-    $this->minimum_password_length = $minimum_password_length ?? ;
-    $this->password_reuse_prevention = $password_reuse_prevention ?? ;
-    $this->require_lowercase_characters = $require_lowercase_characters ?? ;
-    $this->require_numbers = $require_numbers ?? ;
-    $this->require_symbols = $require_symbols ?? ;
-    $this->require_uppercase_characters = $require_uppercase_characters ?? ;
+    $this->allow_users_to_change_password = $allow_users_to_change_password ?? false;
+    $this->expire_passwords = $expire_passwords ?? false;
+    $this->hard_expiry = $hard_expiry ?? false;
+    $this->max_password_age = $max_password_age ?? 0;
+    $this->minimum_password_length = $minimum_password_length ?? 0;
+    $this->password_reuse_prevention = $password_reuse_prevention ?? 0;
+    $this->require_lowercase_characters = $require_lowercase_characters ?? false;
+    $this->require_numbers = $require_numbers ?? false;
+    $this->require_symbols = $require_symbols ?? false;
+    $this->require_uppercase_characters = $require_uppercase_characters ?? false;
   }
 }
 
@@ -3175,7 +3175,7 @@ class PasswordPolicyViolationException {
   public function __construct(shape(
   ?'message' => passwordPolicyViolationMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3187,7 +3187,7 @@ class PermissionsBoundaryDecisionDetail {
   public function __construct(shape(
   ?'allowed_by_permissions_boundary' => booleanType,
   ) $s = shape()) {
-    $this->allowed_by_permissions_boundary = $allowed_by_permissions_boundary ?? ;
+    $this->allowed_by_permissions_boundary = $allowed_by_permissions_boundary ?? false;
   }
 }
 
@@ -3217,17 +3217,17 @@ class Policy {
   ?'policy_name' => policyNameType,
   ?'update_date' => dateType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attachment_count = $attachment_count ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->default_version_id = $default_version_id ?? ;
-    $this->description = $description ?? ;
-    $this->is_attachable = $is_attachable ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary_usage_count = $permissions_boundary_usage_count ?? ;
-    $this->policy_id = $policy_id ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->update_date = $update_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->attachment_count = $attachment_count ?? 0;
+    $this->create_date = $create_date ?? 0;
+    $this->default_version_id = $default_version_id ?? "";
+    $this->description = $description ?? "";
+    $this->is_attachable = $is_attachable ?? false;
+    $this->path = $path ?? "";
+    $this->permissions_boundary_usage_count = $permissions_boundary_usage_count ?? 0;
+    $this->policy_id = $policy_id ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->update_date = $update_date ?? 0;
   }
 }
 
@@ -3239,8 +3239,8 @@ class PolicyDetail {
   ?'policy_document' => policyDocumentType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -3252,7 +3252,7 @@ class PolicyEvaluationException {
   public function __construct(shape(
   ?'message' => policyEvaluationErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3270,11 +3270,11 @@ class PolicyGrantingServiceAccess {
   ?'policy_name' => policyNameType,
   ?'policy_type' => policyType,
   ) $s = shape()) {
-    $this->entity_name = $entity_name ?? ;
+    $this->entity_name = $entity_name ?? "";
     $this->entity_type = $entity_type ?? "";
-    $this->policy_arn = $policy_arn ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->policy_type = $policy_type ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->policy_type = $policy_type ?? "";
   }
 }
 
@@ -3286,8 +3286,8 @@ class PolicyGroup {
   ?'group_id' => idType,
   ?'group_name' => groupNameType,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? ;
-    $this->group_name = $group_name ?? ;
+    $this->group_id = $group_id ?? "";
+    $this->group_name = $group_name ?? "";
   }
 }
 
@@ -3301,7 +3301,7 @@ class PolicyNotAttachableException {
   public function __construct(shape(
   ?'message' => policyNotAttachableMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3313,8 +3313,8 @@ class PolicyRole {
   ?'role_id' => idType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->role_id = $role_id ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->role_id = $role_id ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -3332,8 +3332,8 @@ class PolicyUser {
   ?'user_id' => idType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->user_id = $user_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->user_id = $user_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3351,10 +3351,10 @@ class PolicyVersion {
   ?'is_default_version' => booleanType,
   ?'version_id' => policyVersionIdType,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->document = $document ?? ;
-    $this->is_default_version = $is_default_version ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->document = $document ?? "";
+    $this->is_default_version = $is_default_version ?? false;
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -3366,8 +3366,8 @@ class Position {
   ?'column' => ColumnNumber,
   ?'line' => LineNumber,
   ) $s = shape()) {
-    $this->column = $column ?? ;
-    $this->line = $line ?? ;
+    $this->column = $column ?? 0;
+    $this->line = $line ?? 0;
   }
 }
 
@@ -3381,9 +3381,9 @@ class PutGroupPolicyRequest {
   ?'policy_document' => policyDocumentType,
   ?'policy_name' => policyNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
   }
 }
 
@@ -3395,8 +3395,8 @@ class PutRolePermissionsBoundaryRequest {
   ?'permissions_boundary' => arnType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->permissions_boundary = $permissions_boundary ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -3410,9 +3410,9 @@ class PutRolePolicyRequest {
   ?'policy_name' => policyNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -3424,8 +3424,8 @@ class PutUserPermissionsBoundaryRequest {
   ?'permissions_boundary' => arnType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->permissions_boundary = $permissions_boundary ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3439,9 +3439,9 @@ class PutUserPolicyRequest {
   ?'policy_name' => policyNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->policy_name = $policy_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->policy_name = $policy_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3457,8 +3457,8 @@ class RemoveClientIDFromOpenIDConnectProviderRequest {
   ?'client_id' => clientIDType,
   ?'open_id_connect_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->client_id = $client_id ?? ;
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
+    $this->client_id = $client_id ?? "";
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
   }
 }
 
@@ -3470,8 +3470,8 @@ class RemoveRoleFromInstanceProfileRequest {
   ?'instance_profile_name' => instanceProfileNameType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->instance_profile_name = $instance_profile_name ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->instance_profile_name = $instance_profile_name ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -3483,8 +3483,8 @@ class RemoveUserFromGroupRequest {
   ?'group_name' => groupNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3498,7 +3498,7 @@ class ReportGenerationLimitExceededException {
   public function __construct(shape(
   ?'message' => reportGenerationLimitExceededMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3514,8 +3514,8 @@ class ResetServiceSpecificCredentialRequest {
   ?'service_specific_credential_id' => serviceSpecificCredentialId,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->service_specific_credential_id = $service_specific_credential_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->service_specific_credential_id = $service_specific_credential_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3551,11 +3551,11 @@ class ResourceSpecificResult {
   ?'missing_context_values' => ContextKeyNamesResultListType,
   ?'permissions_boundary_decision_detail' => PermissionsBoundaryDecisionDetail,
   ) $s = shape()) {
-    $this->eval_decision_details = $eval_decision_details ?? ;
-    $this->eval_resource_decision = $eval_resource_decision ?? ;
-    $this->eval_resource_name = $eval_resource_name ?? ;
-    $this->matched_statements = $matched_statements ?? ;
-    $this->missing_context_values = $missing_context_values ?? ;
+    $this->eval_decision_details = $eval_decision_details ?? [];
+    $this->eval_resource_decision = $eval_resource_decision ?? "";
+    $this->eval_resource_name = $eval_resource_name ?? "";
+    $this->matched_statements = $matched_statements ?? [];
+    $this->missing_context_values = $missing_context_values ?? [];
     $this->permissions_boundary_decision_detail = $permissions_boundary_decision_detail ?? null;
   }
 }
@@ -3574,10 +3574,10 @@ class ResyncMFADeviceRequest {
   ?'serial_number' => serialNumberType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->authentication_code_1 = $authentication_code_1 ?? ;
-    $this->authentication_code_2 = $authentication_code_2 ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->authentication_code_1 = $authentication_code_1 ?? "";
+    $this->authentication_code_2 = $authentication_code_2 ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3607,17 +3607,17 @@ class Role {
   ?'role_name' => roleNameType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->assume_role_policy_document = $assume_role_policy_document ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->description = $description ?? ;
-    $this->max_session_duration = $max_session_duration ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->role_id = $role_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->assume_role_policy_document = $assume_role_policy_document ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->description = $description ?? "";
+    $this->max_session_duration = $max_session_duration ?? 0;
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? null;
+    $this->role_id = $role_id ?? "";
     $this->role_last_used = $role_last_used ?? null;
-    $this->role_name = $role_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->role_name = $role_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3649,18 +3649,18 @@ class RoleDetail {
   ?'role_policy_list' => policyDetailListType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->assume_role_policy_document = $assume_role_policy_document ?? ;
-    $this->attached_managed_policies = $attached_managed_policies ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->instance_profile_list = $instance_profile_list ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->role_id = $role_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->assume_role_policy_document = $assume_role_policy_document ?? "";
+    $this->attached_managed_policies = $attached_managed_policies ?? [];
+    $this->create_date = $create_date ?? 0;
+    $this->instance_profile_list = $instance_profile_list ?? [];
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? null;
+    $this->role_id = $role_id ?? "";
     $this->role_last_used = $role_last_used ?? null;
-    $this->role_name = $role_name ?? ;
-    $this->role_policy_list = $role_policy_list ?? ;
-    $this->tags = $tags ?? ;
+    $this->role_name = $role_name ?? "";
+    $this->role_policy_list = $role_policy_list ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -3672,8 +3672,8 @@ class RoleLastUsed {
   ?'last_used_date' => dateType,
   ?'region' => stringType,
   ) $s = shape()) {
-    $this->last_used_date = $last_used_date ?? ;
-    $this->region = $region ?? ;
+    $this->last_used_date = $last_used_date ?? 0;
+    $this->region = $region ?? "";
   }
 }
 
@@ -3687,8 +3687,8 @@ class RoleUsageType {
   ?'region' => RegionNameType,
   ?'resources' => ArnListType,
   ) $s = shape()) {
-    $this->region = $region ?? ;
-    $this->resources = $resources ?? ;
+    $this->region = $region ?? "";
+    $this->resources = $resources ?? [];
   }
 }
 
@@ -3704,9 +3704,9 @@ class SAMLProviderListEntry {
   ?'create_date' => dateType,
   ?'valid_until' => dateType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->valid_until = $valid_until ?? ;
+    $this->arn = $arn ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->valid_until = $valid_until ?? 0;
   }
 }
 
@@ -3730,12 +3730,12 @@ class SSHPublicKey {
   ?'upload_date' => dateType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->fingerprint = $fingerprint ?? ;
-    $this->ssh_public_key_body = $ssh_public_key_body ?? ;
-    $this->ssh_public_key_id = $ssh_public_key_id ?? ;
-    $this->status = $status ?? ;
-    $this->upload_date = $upload_date ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->fingerprint = $fingerprint ?? "";
+    $this->ssh_public_key_body = $ssh_public_key_body ?? "";
+    $this->ssh_public_key_id = $ssh_public_key_id ?? "";
+    $this->status = $status ?? "";
+    $this->upload_date = $upload_date ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3753,10 +3753,10 @@ class SSHPublicKeyMetadata {
   ?'upload_date' => dateType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->ssh_public_key_id = $ssh_public_key_id ?? ;
-    $this->status = $status ?? ;
-    $this->upload_date = $upload_date ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->ssh_public_key_id = $ssh_public_key_id ?? "";
+    $this->status = $status ?? "";
+    $this->upload_date = $upload_date ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3770,8 +3770,8 @@ class ServerCertificate {
   ?'certificate_chain' => certificateChainType,
   ?'server_certificate_metadata' => ServerCertificateMetadata,
   ) $s = shape()) {
-    $this->certificate_body = $certificate_body ?? ;
-    $this->certificate_chain = $certificate_chain ?? ;
+    $this->certificate_body = $certificate_body ?? "";
+    $this->certificate_chain = $certificate_chain ?? "";
     $this->server_certificate_metadata = $server_certificate_metadata ?? null;
   }
 }
@@ -3792,12 +3792,12 @@ class ServerCertificateMetadata {
   ?'server_certificate_name' => serverCertificateNameType,
   ?'upload_date' => dateType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->expiration = $expiration ?? ;
-    $this->path = $path ?? ;
-    $this->server_certificate_id = $server_certificate_id ?? ;
-    $this->server_certificate_name = $server_certificate_name ?? ;
-    $this->upload_date = $upload_date ?? ;
+    $this->arn = $arn ?? "";
+    $this->expiration = $expiration ?? 0;
+    $this->path = $path ?? "";
+    $this->server_certificate_id = $server_certificate_id ?? "";
+    $this->server_certificate_name = $server_certificate_name ?? "";
+    $this->upload_date = $upload_date ?? 0;
   }
 }
 
@@ -3807,7 +3807,7 @@ class ServiceFailureException {
   public function __construct(shape(
   ?'message' => serviceFailureExceptionMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3825,11 +3825,11 @@ class ServiceLastAccessed {
   ?'service_namespace' => serviceNamespaceType,
   ?'total_authenticated_entities' => integerType,
   ) $s = shape()) {
-    $this->last_authenticated = $last_authenticated ?? ;
-    $this->last_authenticated_entity = $last_authenticated_entity ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_namespace = $service_namespace ?? ;
-    $this->total_authenticated_entities = $total_authenticated_entities ?? ;
+    $this->last_authenticated = $last_authenticated ?? 0;
+    $this->last_authenticated_entity = $last_authenticated_entity ?? "";
+    $this->service_name = $service_name ?? "";
+    $this->service_namespace = $service_namespace ?? "";
+    $this->total_authenticated_entities = $total_authenticated_entities ?? 0;
   }
 }
 
@@ -3839,7 +3839,7 @@ class ServiceNotSupportedException {
   public function __construct(shape(
   ?'message' => serviceNotSupportedMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -3861,13 +3861,13 @@ class ServiceSpecificCredential {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_password = $service_password ?? ;
-    $this->service_specific_credential_id = $service_specific_credential_id ?? ;
-    $this->service_user_name = $service_user_name ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->service_name = $service_name ?? "";
+    $this->service_password = $service_password ?? "";
+    $this->service_specific_credential_id = $service_specific_credential_id ?? "";
+    $this->service_user_name = $service_user_name ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3887,12 +3887,12 @@ class ServiceSpecificCredentialMetadata {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
-    $this->service_name = $service_name ?? ;
-    $this->service_specific_credential_id = $service_specific_credential_id ?? ;
-    $this->service_user_name = $service_user_name ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->create_date = $create_date ?? 0;
+    $this->service_name = $service_name ?? "";
+    $this->service_specific_credential_id = $service_specific_credential_id ?? "";
+    $this->service_user_name = $service_user_name ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3908,8 +3908,8 @@ class SetDefaultPolicyVersionRequest {
   ?'policy_arn' => arnType,
   ?'version_id' => policyVersionIdType,
   ) $s = shape()) {
-    $this->policy_arn = $policy_arn ?? ;
-    $this->version_id = $version_id ?? ;
+    $this->policy_arn = $policy_arn ?? "";
+    $this->version_id = $version_id ?? "";
   }
 }
 
@@ -3919,7 +3919,7 @@ class SetSecurityTokenServicePreferencesRequest {
   public function __construct(shape(
   ?'global_endpoint_token_version' => globalEndpointTokenVersion,
   ) $s = shape()) {
-    $this->global_endpoint_token_version = $global_endpoint_token_version ?? ;
+    $this->global_endpoint_token_version = $global_endpoint_token_version ?? "";
   }
 }
 
@@ -3937,11 +3937,11 @@ class SigningCertificate {
   ?'upload_date' => dateType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->certificate_body = $certificate_body ?? ;
-    $this->certificate_id = $certificate_id ?? ;
-    $this->status = $status ?? ;
-    $this->upload_date = $upload_date ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->certificate_body = $certificate_body ?? "";
+    $this->certificate_id = $certificate_id ?? "";
+    $this->status = $status ?? "";
+    $this->upload_date = $upload_date ?? 0;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -3971,17 +3971,17 @@ class SimulateCustomPolicyRequest {
   ?'resource_owner' => ResourceNameType,
   ?'resource_policy' => policyDocumentType,
   ) $s = shape()) {
-    $this->action_names = $action_names ?? ;
-    $this->caller_arn = $caller_arn ?? ;
-    $this->context_entries = $context_entries ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->permissions_boundary_policy_input_list = $permissions_boundary_policy_input_list ?? ;
-    $this->policy_input_list = $policy_input_list ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->resource_handling_option = $resource_handling_option ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->resource_policy = $resource_policy ?? ;
+    $this->action_names = $action_names ?? [];
+    $this->caller_arn = $caller_arn ?? "";
+    $this->context_entries = $context_entries ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->permissions_boundary_policy_input_list = $permissions_boundary_policy_input_list ?? [];
+    $this->policy_input_list = $policy_input_list ?? [];
+    $this->resource_arns = $resource_arns ?? [];
+    $this->resource_handling_option = $resource_handling_option ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->resource_policy = $resource_policy ?? "";
   }
 }
 
@@ -3995,9 +3995,9 @@ class SimulatePolicyResponse {
   ?'is_truncated' => booleanType,
   ?'marker' => responseMarkerType,
   ) $s = shape()) {
-    $this->evaluation_results = $evaluation_results ?? ;
-    $this->is_truncated = $is_truncated ?? ;
-    $this->marker = $marker ?? ;
+    $this->evaluation_results = $evaluation_results ?? [];
+    $this->is_truncated = $is_truncated ?? false;
+    $this->marker = $marker ?? "";
   }
 }
 
@@ -4029,18 +4029,18 @@ class SimulatePrincipalPolicyRequest {
   ?'resource_owner' => ResourceNameType,
   ?'resource_policy' => policyDocumentType,
   ) $s = shape()) {
-    $this->action_names = $action_names ?? ;
-    $this->caller_arn = $caller_arn ?? ;
-    $this->context_entries = $context_entries ?? ;
-    $this->marker = $marker ?? ;
-    $this->max_items = $max_items ?? ;
-    $this->permissions_boundary_policy_input_list = $permissions_boundary_policy_input_list ?? ;
-    $this->policy_input_list = $policy_input_list ?? ;
-    $this->policy_source_arn = $policy_source_arn ?? ;
-    $this->resource_arns = $resource_arns ?? ;
-    $this->resource_handling_option = $resource_handling_option ?? ;
-    $this->resource_owner = $resource_owner ?? ;
-    $this->resource_policy = $resource_policy ?? ;
+    $this->action_names = $action_names ?? [];
+    $this->caller_arn = $caller_arn ?? "";
+    $this->context_entries = $context_entries ?? [];
+    $this->marker = $marker ?? "";
+    $this->max_items = $max_items ?? 0;
+    $this->permissions_boundary_policy_input_list = $permissions_boundary_policy_input_list ?? [];
+    $this->policy_input_list = $policy_input_list ?? [];
+    $this->policy_source_arn = $policy_source_arn ?? "";
+    $this->resource_arns = $resource_arns ?? [];
+    $this->resource_handling_option = $resource_handling_option ?? "";
+    $this->resource_owner = $resource_owner ?? "";
+    $this->resource_policy = $resource_policy ?? "";
   }
 }
 
@@ -4058,10 +4058,10 @@ class Statement {
   ?'source_policy_type' => PolicySourceType,
   ?'start_position' => Position,
   ) $s = shape()) {
-    $this->end_position = $end_position ?? ;
-    $this->source_policy_id = $source_policy_id ?? ;
-    $this->source_policy_type = $source_policy_type ?? ;
-    $this->start_position = $start_position ?? ;
+    $this->end_position = $end_position ?? null;
+    $this->source_policy_id = $source_policy_id ?? "";
+    $this->source_policy_type = $source_policy_type ?? "";
+    $this->start_position = $start_position ?? null;
   }
 }
 
@@ -4075,8 +4075,8 @@ class Tag {
   ?'key' => tagKeyType,
   ?'value' => tagValueType,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -4088,8 +4088,8 @@ class TagRoleRequest {
   ?'role_name' => roleNameType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
-    $this->tags = $tags ?? ;
+    $this->role_name = $role_name ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -4101,8 +4101,8 @@ class TagUserRequest {
   ?'tags' => tagListType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->tags = $tags ?? [];
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4112,7 +4112,7 @@ class UnmodifiableEntityException {
   public function __construct(shape(
   ?'message' => unmodifiableEntityMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4122,7 +4122,7 @@ class UnrecognizedPublicKeyEncodingException {
   public function __construct(shape(
   ?'message' => unrecognizedPublicKeyEncodingMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -4134,8 +4134,8 @@ class UntagRoleRequest {
   ?'role_name' => roleNameType,
   ?'tag_keys' => tagKeyListType,
   ) $s = shape()) {
-    $this->role_name = $role_name ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->role_name = $role_name ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -4147,8 +4147,8 @@ class UntagUserRequest {
   ?'tag_keys' => tagKeyListType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->tag_keys = $tag_keys ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->tag_keys = $tag_keys ?? [];
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4162,9 +4162,9 @@ class UpdateAccessKeyRequest {
   ?'status' => statusType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4190,15 +4190,15 @@ class UpdateAccountPasswordPolicyRequest {
   ?'require_symbols' => booleanType,
   ?'require_uppercase_characters' => booleanType,
   ) $s = shape()) {
-    $this->allow_users_to_change_password = $allow_users_to_change_password ?? ;
-    $this->hard_expiry = $hard_expiry ?? ;
-    $this->max_password_age = $max_password_age ?? ;
-    $this->minimum_password_length = $minimum_password_length ?? ;
-    $this->password_reuse_prevention = $password_reuse_prevention ?? ;
-    $this->require_lowercase_characters = $require_lowercase_characters ?? ;
-    $this->require_numbers = $require_numbers ?? ;
-    $this->require_symbols = $require_symbols ?? ;
-    $this->require_uppercase_characters = $require_uppercase_characters ?? ;
+    $this->allow_users_to_change_password = $allow_users_to_change_password ?? false;
+    $this->hard_expiry = $hard_expiry ?? false;
+    $this->max_password_age = $max_password_age ?? 0;
+    $this->minimum_password_length = $minimum_password_length ?? 0;
+    $this->password_reuse_prevention = $password_reuse_prevention ?? 0;
+    $this->require_lowercase_characters = $require_lowercase_characters ?? false;
+    $this->require_numbers = $require_numbers ?? false;
+    $this->require_symbols = $require_symbols ?? false;
+    $this->require_uppercase_characters = $require_uppercase_characters ?? false;
   }
 }
 
@@ -4210,8 +4210,8 @@ class UpdateAssumeRolePolicyRequest {
   ?'policy_document' => policyDocumentType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->policy_document = $policy_document ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->policy_document = $policy_document ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -4225,9 +4225,9 @@ class UpdateGroupRequest {
   ?'new_group_name' => groupNameType,
   ?'new_path' => pathType,
   ) $s = shape()) {
-    $this->group_name = $group_name ?? ;
-    $this->new_group_name = $new_group_name ?? ;
-    $this->new_path = $new_path ?? ;
+    $this->group_name = $group_name ?? "";
+    $this->new_group_name = $new_group_name ?? "";
+    $this->new_path = $new_path ?? "";
   }
 }
 
@@ -4241,9 +4241,9 @@ class UpdateLoginProfileRequest {
   ?'password_reset_required' => booleanObjectType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->password = $password ?? ;
-    $this->password_reset_required = $password_reset_required ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->password = $password ?? "";
+    $this->password_reset_required = $password_reset_required ?? false;
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4255,8 +4255,8 @@ class UpdateOpenIDConnectProviderThumbprintRequest {
   ?'open_id_connect_provider_arn' => arnType,
   ?'thumbprint_list' => thumbprintListType,
   ) $s = shape()) {
-    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? ;
-    $this->thumbprint_list = $thumbprint_list ?? ;
+    $this->open_id_connect_provider_arn = $open_id_connect_provider_arn ?? "";
+    $this->thumbprint_list = $thumbprint_list ?? [];
   }
 }
 
@@ -4268,8 +4268,8 @@ class UpdateRoleDescriptionRequest {
   ?'description' => roleDescriptionType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->description = $description ?? "";
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -4293,9 +4293,9 @@ class UpdateRoleRequest {
   ?'max_session_duration' => roleMaxSessionDurationType,
   ?'role_name' => roleNameType,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->max_session_duration = $max_session_duration ?? ;
-    $this->role_name = $role_name ?? ;
+    $this->description = $description ?? "";
+    $this->max_session_duration = $max_session_duration ?? 0;
+    $this->role_name = $role_name ?? "";
   }
 }
 
@@ -4314,8 +4314,8 @@ class UpdateSAMLProviderRequest {
   ?'saml_metadata_document' => SAMLMetadataDocumentType,
   ?'saml_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->saml_metadata_document = $saml_metadata_document ?? ;
-    $this->saml_provider_arn = $saml_provider_arn ?? ;
+    $this->saml_metadata_document = $saml_metadata_document ?? "";
+    $this->saml_provider_arn = $saml_provider_arn ?? "";
   }
 }
 
@@ -4325,7 +4325,7 @@ class UpdateSAMLProviderResponse {
   public function __construct(shape(
   ?'saml_provider_arn' => arnType,
   ) $s = shape()) {
-    $this->saml_provider_arn = $saml_provider_arn ?? ;
+    $this->saml_provider_arn = $saml_provider_arn ?? "";
   }
 }
 
@@ -4339,9 +4339,9 @@ class UpdateSSHPublicKeyRequest {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->ssh_public_key_id = $ssh_public_key_id ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->ssh_public_key_id = $ssh_public_key_id ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4355,9 +4355,9 @@ class UpdateServerCertificateRequest {
   ?'new_server_certificate_name' => serverCertificateNameType,
   ?'server_certificate_name' => serverCertificateNameType,
   ) $s = shape()) {
-    $this->new_path = $new_path ?? ;
-    $this->new_server_certificate_name = $new_server_certificate_name ?? ;
-    $this->server_certificate_name = $server_certificate_name ?? ;
+    $this->new_path = $new_path ?? "";
+    $this->new_server_certificate_name = $new_server_certificate_name ?? "";
+    $this->server_certificate_name = $server_certificate_name ?? "";
   }
 }
 
@@ -4371,9 +4371,9 @@ class UpdateServiceSpecificCredentialRequest {
   ?'status' => statusType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->service_specific_credential_id = $service_specific_credential_id ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->service_specific_credential_id = $service_specific_credential_id ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4387,9 +4387,9 @@ class UpdateSigningCertificateRequest {
   ?'status' => statusType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->certificate_id = $certificate_id ?? ;
-    $this->status = $status ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->certificate_id = $certificate_id ?? "";
+    $this->status = $status ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4403,9 +4403,9 @@ class UpdateUserRequest {
   ?'new_user_name' => userNameType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->new_path = $new_path ?? ;
-    $this->new_user_name = $new_user_name ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->new_path = $new_path ?? "";
+    $this->new_user_name = $new_user_name ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4417,8 +4417,8 @@ class UploadSSHPublicKeyRequest {
   ?'ssh_public_key_body' => publicKeyMaterialType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->ssh_public_key_body = $ssh_public_key_body ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->ssh_public_key_body = $ssh_public_key_body ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4446,11 +4446,11 @@ class UploadServerCertificateRequest {
   ?'private_key' => privateKeyType,
   ?'server_certificate_name' => serverCertificateNameType,
   ) $s = shape()) {
-    $this->certificate_body = $certificate_body ?? ;
-    $this->certificate_chain = $certificate_chain ?? ;
-    $this->path = $path ?? ;
-    $this->private_key = $private_key ?? ;
-    $this->server_certificate_name = $server_certificate_name ?? ;
+    $this->certificate_body = $certificate_body ?? "";
+    $this->certificate_chain = $certificate_chain ?? "";
+    $this->path = $path ?? "";
+    $this->private_key = $private_key ?? "";
+    $this->server_certificate_name = $server_certificate_name ?? "";
   }
 }
 
@@ -4472,8 +4472,8 @@ class UploadSigningCertificateRequest {
   ?'certificate_body' => certificateBodyType,
   ?'user_name' => existingUserNameType,
   ) $s = shape()) {
-    $this->certificate_body = $certificate_body ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->certificate_body = $certificate_body ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4483,7 +4483,7 @@ class UploadSigningCertificateResponse {
   public function __construct(shape(
   ?'certificate' => SigningCertificate,
   ) $s = shape()) {
-    $this->certificate = $certificate ?? ;
+    $this->certificate = $certificate ?? null;
   }
 }
 
@@ -4507,14 +4507,14 @@ class User {
   ?'user_id' => idType,
   ?'user_name' => userNameType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->password_last_used = $password_last_used ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_id = $user_id ?? ;
-    $this->user_name = $user_name ?? ;
+    $this->arn = $arn ?? "";
+    $this->create_date = $create_date ?? 0;
+    $this->password_last_used = $password_last_used ?? 0;
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? null;
+    $this->tags = $tags ?? [];
+    $this->user_id = $user_id ?? "";
+    $this->user_name = $user_name ?? "";
   }
 }
 
@@ -4542,16 +4542,16 @@ class UserDetail {
   ?'user_name' => userNameType,
   ?'user_policy_list' => policyDetailListType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->attached_managed_policies = $attached_managed_policies ?? ;
-    $this->create_date = $create_date ?? ;
-    $this->group_list = $group_list ?? ;
-    $this->path = $path ?? ;
-    $this->permissions_boundary = $permissions_boundary ?? ;
-    $this->tags = $tags ?? ;
-    $this->user_id = $user_id ?? ;
-    $this->user_name = $user_name ?? ;
-    $this->user_policy_list = $user_policy_list ?? ;
+    $this->arn = $arn ?? "";
+    $this->attached_managed_policies = $attached_managed_policies ?? [];
+    $this->create_date = $create_date ?? 0;
+    $this->group_list = $group_list ?? [];
+    $this->path = $path ?? "";
+    $this->permissions_boundary = $permissions_boundary ?? null;
+    $this->tags = $tags ?? [];
+    $this->user_id = $user_id ?? "";
+    $this->user_name = $user_name ?? "";
+    $this->user_policy_list = $user_policy_list ?? [];
   }
 }
 
@@ -4569,10 +4569,10 @@ class VirtualMFADevice {
   ?'serial_number' => serialNumberType,
   ?'user' => User,
   ) $s = shape()) {
-    $this->base_32_string_seed = $base_32_string_seed ?? ;
-    $this->enable_date = $enable_date ?? ;
-    $this->qr_code_png = $qr_code_png ?? ;
-    $this->serial_number = $serial_number ?? ;
+    $this->base_32_string_seed = $base_32_string_seed ?? "";
+    $this->enable_date = $enable_date ?? 0;
+    $this->qr_code_png = $qr_code_png ?? "";
+    $this->serial_number = $serial_number ?? "";
     $this->user = $user ?? null;
   }
 }

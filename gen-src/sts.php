@@ -36,16 +36,16 @@ class AssumeRoleRequest {
   ?'token_code' => tokenCodeType,
   ?'transitive_tag_keys' => tagKeyListType,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->external_id = $external_id ?? ;
-    $this->policy = $policy ?? ;
-    $this->policy_arns = $policy_arns ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->role_session_name = $role_session_name ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->tags = $tags ?? ;
-    $this->token_code = $token_code ?? ;
-    $this->transitive_tag_keys = $transitive_tag_keys ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->external_id = $external_id ?? "";
+    $this->policy = $policy ?? "";
+    $this->policy_arns = $policy_arns ?? [];
+    $this->role_arn = $role_arn ?? "";
+    $this->role_session_name = $role_session_name ?? "";
+    $this->serial_number = $serial_number ?? "";
+    $this->tags = $tags ?? [];
+    $this->token_code = $token_code ?? "";
+    $this->transitive_tag_keys = $transitive_tag_keys ?? [];
   }
 }
 
@@ -61,7 +61,7 @@ class AssumeRoleResponse {
   ) $s = shape()) {
     $this->assumed_role_user = $assumed_role_user ?? null;
     $this->credentials = $credentials ?? null;
-    $this->packed_policy_size = $packed_policy_size ?? ;
+    $this->packed_policy_size = $packed_policy_size ?? 0;
   }
 }
 
@@ -81,12 +81,12 @@ class AssumeRoleWithSAMLRequest {
   ?'role_arn' => arnType,
   ?'saml_assertion' => SAMLAssertionType,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->policy = $policy ?? ;
-    $this->policy_arns = $policy_arns ?? ;
-    $this->principal_arn = $principal_arn ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->saml_assertion = $saml_assertion ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->policy = $policy ?? "";
+    $this->policy_arns = $policy_arns ?? [];
+    $this->principal_arn = $principal_arn ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->saml_assertion = $saml_assertion ?? "";
   }
 }
 
@@ -115,7 +115,7 @@ class AssumeRoleWithSAMLResponse {
     $this->credentials = $credentials ?? null;
     $this->issuer = $issuer ?? "";
     $this->name_qualifier = $name_qualifier ?? "";
-    $this->packed_policy_size = $packed_policy_size ?? ;
+    $this->packed_policy_size = $packed_policy_size ?? 0;
     $this->subject = $subject ?? "";
     $this->subject_type = $subject_type ?? "";
   }
@@ -139,13 +139,13 @@ class AssumeRoleWithWebIdentityRequest {
   ?'role_session_name' => roleSessionNameType,
   ?'web_identity_token' => clientTokenType,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->policy = $policy ?? ;
-    $this->policy_arns = $policy_arns ?? ;
-    $this->provider_id = $provider_id ?? ;
-    $this->role_arn = $role_arn ?? ;
-    $this->role_session_name = $role_session_name ?? ;
-    $this->web_identity_token = $web_identity_token ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->policy = $policy ?? "";
+    $this->policy_arns = $policy_arns ?? [];
+    $this->provider_id = $provider_id ?? "";
+    $this->role_arn = $role_arn ?? "";
+    $this->role_session_name = $role_session_name ?? "";
+    $this->web_identity_token = $web_identity_token ?? "";
   }
 }
 
@@ -168,9 +168,9 @@ class AssumeRoleWithWebIdentityResponse {
     $this->assumed_role_user = $assumed_role_user ?? null;
     $this->audience = $audience ?? "";
     $this->credentials = $credentials ?? null;
-    $this->packed_policy_size = $packed_policy_size ?? ;
-    $this->provider = $provider ?? ;
-    $this->subject_from_web_identity_token = $subject_from_web_identity_token ?? ;
+    $this->packed_policy_size = $packed_policy_size ?? 0;
+    $this->provider = $provider ?? "";
+    $this->subject_from_web_identity_token = $subject_from_web_identity_token ?? "";
   }
 }
 
@@ -182,8 +182,8 @@ class AssumedRoleUser {
   ?'arn' => arnType,
   ?'assumed_role_id' => assumedRoleIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->assumed_role_id = $assumed_role_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->assumed_role_id = $assumed_role_id ?? "";
   }
 }
 
@@ -201,10 +201,10 @@ class Credentials {
   ?'secret_access_key' => accessKeySecretType,
   ?'session_token' => tokenType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
-    $this->expiration = $expiration ?? ;
-    $this->secret_access_key = $secret_access_key ?? ;
-    $this->session_token = $session_token ?? ;
+    $this->access_key_id = $access_key_id ?? "";
+    $this->expiration = $expiration ?? 0;
+    $this->secret_access_key = $secret_access_key ?? "";
+    $this->session_token = $session_token ?? "";
   }
 }
 
@@ -214,7 +214,7 @@ class DecodeAuthorizationMessageRequest {
   public function __construct(shape(
   ?'encoded_message' => encodedMessageType,
   ) $s = shape()) {
-    $this->encoded_message = $encoded_message ?? ;
+    $this->encoded_message = $encoded_message ?? "";
   }
 }
 
@@ -224,7 +224,7 @@ class DecodeAuthorizationMessageResponse {
   public function __construct(shape(
   ?'decoded_message' => decodedMessageType,
   ) $s = shape()) {
-    $this->decoded_message = $decoded_message ?? ;
+    $this->decoded_message = $decoded_message ?? "";
   }
 }
 
@@ -234,7 +234,7 @@ class ExpiredTokenException {
   public function __construct(shape(
   ?'message' => expiredIdentityTokenMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -246,8 +246,8 @@ class FederatedUser {
   ?'arn' => arnType,
   ?'federated_user_id' => federatedIdType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
-    $this->federated_user_id = $federated_user_id ?? ;
+    $this->arn = $arn ?? "";
+    $this->federated_user_id = $federated_user_id ?? "";
   }
 }
 
@@ -257,7 +257,7 @@ class GetAccessKeyInfoRequest {
   public function __construct(shape(
   ?'access_key_id' => accessKeyIdType,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? ;
+    $this->access_key_id = $access_key_id ?? "";
   }
 }
 
@@ -267,7 +267,7 @@ class GetAccessKeyInfoResponse {
   public function __construct(shape(
   ?'account' => accountType,
   ) $s = shape()) {
-    $this->account = $account ?? ;
+    $this->account = $account ?? "";
   }
 }
 
@@ -288,9 +288,9 @@ class GetCallerIdentityResponse {
   ?'arn' => arnType,
   ?'user_id' => userIdType,
   ) $s = shape()) {
-    $this->account = $account ?? ;
-    $this->arn = $arn ?? ;
-    $this->user_id = $user_id ?? ;
+    $this->account = $account ?? "";
+    $this->arn = $arn ?? "";
+    $this->user_id = $user_id ?? "";
   }
 }
 
@@ -308,11 +308,11 @@ class GetFederationTokenRequest {
   ?'policy_arns' => policyDescriptorListType,
   ?'tags' => tagListType,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->name = $name ?? ;
-    $this->policy = $policy ?? ;
-    $this->policy_arns = $policy_arns ?? ;
-    $this->tags = $tags ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->name = $name ?? "";
+    $this->policy = $policy ?? "";
+    $this->policy_arns = $policy_arns ?? [];
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -328,7 +328,7 @@ class GetFederationTokenResponse {
   ) $s = shape()) {
     $this->credentials = $credentials ?? null;
     $this->federated_user = $federated_user ?? null;
-    $this->packed_policy_size = $packed_policy_size ?? ;
+    $this->packed_policy_size = $packed_policy_size ?? 0;
   }
 }
 
@@ -342,9 +342,9 @@ class GetSessionTokenRequest {
   ?'serial_number' => serialNumberType,
   ?'token_code' => tokenCodeType,
   ) $s = shape()) {
-    $this->duration_seconds = $duration_seconds ?? ;
-    $this->serial_number = $serial_number ?? ;
-    $this->token_code = $token_code ?? ;
+    $this->duration_seconds = $duration_seconds ?? 0;
+    $this->serial_number = $serial_number ?? "";
+    $this->token_code = $token_code ?? "";
   }
 }
 
@@ -364,7 +364,7 @@ class IDPCommunicationErrorException {
   public function __construct(shape(
   ?'message' => idpCommunicationErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -374,7 +374,7 @@ class IDPRejectedClaimException {
   public function __construct(shape(
   ?'message' => idpRejectedClaimMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -384,7 +384,7 @@ class InvalidAuthorizationMessageException {
   public function __construct(shape(
   ?'message' => invalidAuthorizationMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -394,7 +394,7 @@ class InvalidIdentityTokenException {
   public function __construct(shape(
   ?'message' => invalidIdentityTokenMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -406,7 +406,7 @@ class MalformedPolicyDocumentException {
   public function __construct(shape(
   ?'message' => malformedPolicyDocumentMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -418,7 +418,7 @@ class PackedPolicyTooLargeException {
   public function __construct(shape(
   ?'message' => packedPolicyTooLargeMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -428,7 +428,7 @@ class PolicyDescriptorType {
   public function __construct(shape(
   ?'arn' => arnType,
   ) $s = shape()) {
-    $this->arn = $arn ?? ;
+    $this->arn = $arn ?? "";
   }
 }
 
@@ -438,7 +438,7 @@ class RegionDisabledException {
   public function __construct(shape(
   ?'message' => regionDisabledMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -456,8 +456,8 @@ class Tag {
   ?'key' => tagKeyType,
   ?'value' => tagValueType,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 

@@ -17,7 +17,7 @@ class AccessDeniedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -43,8 +43,8 @@ class CreateOutpostInput {
   ) $s = shape()) {
     $this->availability_zone = $availability_zone ?? "";
     $this->availability_zone_id = $availability_zone_id ?? "";
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->site_id = $site_id ?? "";
   }
 }
@@ -115,8 +115,8 @@ class GetOutpostInstanceTypesInput {
   ?'next_token' => Token,
   ?'outpost_id' => OutpostId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
     $this->outpost_id = $outpost_id ?? "";
   }
 }
@@ -133,8 +133,8 @@ class GetOutpostInstanceTypesOutput {
   ?'outpost_arn' => OutpostArn,
   ?'outpost_id' => OutpostId,
   ) $s = shape()) {
-    $this->instance_types = $instance_types ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->instance_types = $instance_types ?? [];
+    $this->next_token = $next_token ?? "";
     $this->outpost_arn = $outpost_arn ?? "";
     $this->outpost_id = $outpost_id ?? "";
   }
@@ -170,7 +170,7 @@ class InternalServerException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -184,8 +184,8 @@ class ListOutpostsInput {
   ?'max_results' => MaxResults1000,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -197,8 +197,8 @@ class ListOutpostsOutput {
   ?'next_token' => Token,
   ?'outposts' => outpostListDefinition,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->outposts = $outposts ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->outposts = $outposts ?? [];
   }
 }
 
@@ -210,8 +210,8 @@ class ListSitesInput {
   ?'max_results' => MaxResults1000,
   ?'next_token' => Token,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? ;
-    $this->next_token = $next_token ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
   }
 }
 
@@ -223,8 +223,8 @@ class ListSitesOutput {
   ?'next_token' => Token,
   ?'sites' => siteListDefinition,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? ;
-    $this->sites = $sites ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->sites = $sites ?? [];
   }
 }
 
@@ -236,7 +236,7 @@ class NotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -264,9 +264,9 @@ class Outpost {
   ) $s = shape()) {
     $this->availability_zone = $availability_zone ?? "";
     $this->availability_zone_id = $availability_zone_id ?? "";
-    $this->description = $description ?? ;
+    $this->description = $description ?? "";
     $this->life_cycle_status = $life_cycle_status ?? "";
-    $this->name = $name ?? ;
+    $this->name = $name ?? "";
     $this->outpost_arn = $outpost_arn ?? "";
     $this->outpost_id = $outpost_id ?? "";
     $this->owner_id = $owner_id ?? "";
@@ -290,7 +290,7 @@ class ServiceQuotaExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -307,8 +307,8 @@ class Site {
   ?'site_id' => SiteId,
   ) $s = shape()) {
     $this->account_id = $account_id ?? "";
-    $this->description = $description ?? ;
-    $this->name = $name ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? "";
     $this->site_id = $site_id ?? "";
   }
 }
@@ -327,7 +327,7 @@ class ValidationException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

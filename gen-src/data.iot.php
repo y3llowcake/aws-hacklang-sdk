@@ -14,7 +14,7 @@ class ConflictException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -24,7 +24,7 @@ class DeleteThingShadowRequest {
   public function __construct(shape(
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->thing_name = $thing_name ?? ;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -34,7 +34,7 @@ class DeleteThingShadowResponse {
   public function __construct(shape(
   ?'payload' => JsonDocument,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -46,7 +46,7 @@ class GetThingShadowRequest {
   public function __construct(shape(
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->thing_name = $thing_name ?? ;
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -56,7 +56,7 @@ class GetThingShadowResponse {
   public function __construct(shape(
   ?'payload' => JsonDocument,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? "";
   }
 }
 
@@ -66,7 +66,7 @@ class InternalFailureException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -76,7 +76,7 @@ class InvalidRequestException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -88,7 +88,7 @@ class MethodNotAllowedException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -104,9 +104,9 @@ class PublishRequest {
   ?'qos' => Qos,
   ?'topic' => Topic,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
-    $this->qos = $qos ?? ;
-    $this->topic = $topic ?? ;
+    $this->payload = $payload ?? "";
+    $this->qos = $qos ?? 0;
+    $this->topic = $topic ?? "";
   }
 }
 
@@ -118,7 +118,7 @@ class RequestEntityTooLargeException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -128,7 +128,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -138,7 +138,7 @@ class ServiceUnavailableException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -150,7 +150,7 @@ class ThrottlingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -162,7 +162,7 @@ class UnauthorizedException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -172,7 +172,7 @@ class UnsupportedDocumentEncodingException {
   public function __construct(shape(
   ?'message' => errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -184,8 +184,8 @@ class UpdateThingShadowRequest {
   ?'payload' => JsonDocument,
   ?'thing_name' => ThingName,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
-    $this->thing_name = $thing_name ?? ;
+    $this->payload = $payload ?? "";
+    $this->thing_name = $thing_name ?? "";
   }
 }
 
@@ -195,7 +195,7 @@ class UpdateThingShadowResponse {
   public function __construct(shape(
   ?'payload' => JsonDocument,
   ) $s = shape()) {
-    $this->payload = $payload ?? ;
+    $this->payload = $payload ?? "";
   }
 }
 

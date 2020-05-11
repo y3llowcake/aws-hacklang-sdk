@@ -36,16 +36,16 @@ class AttributeValue {
   ?'s' => StringAttributeValue,
   ?'ss' => StringSetAttributeValue,
   ) $s = shape()) {
-    $this->b = $b ?? ;
-    $this->bool = $bool ?? ;
-    $this->bs = $bs ?? ;
-    $this->l = $l ?? ;
-    $this->m = $m ?? ;
-    $this->n = $n ?? ;
-    $this->ns = $ns ?? ;
-    $this->null = $null ?? ;
-    $this->s = $s ?? ;
-    $this->ss = $ss ?? ;
+    $this->b = $b ?? "";
+    $this->bool = $bool ?? false;
+    $this->bs = $bs ?? [];
+    $this->l = $l ?? [];
+    $this->m = $m ?? [];
+    $this->n = $n ?? "";
+    $this->ns = $ns ?? [];
+    $this->null = $null ?? false;
+    $this->s = $s ?? "";
+    $this->ss = $ss ?? [];
   }
 }
 
@@ -67,8 +67,8 @@ class DescribeStreamInput {
   ?'limit' => PositiveIntegerObject,
   ?'stream_arn' => StreamArn,
   ) $s = shape()) {
-    $this->exclusive_start_shard_id = $exclusive_start_shard_id ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_shard_id = $exclusive_start_shard_id ?? "";
+    $this->limit = $limit ?? 0;
     $this->stream_arn = $stream_arn ?? "";
   }
 }
@@ -91,7 +91,7 @@ class ExpiredIteratorException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -103,7 +103,7 @@ class GetRecordsInput {
   ?'limit' => PositiveIntegerObject,
   ?'shard_iterator' => ShardIterator,
   ) $s = shape()) {
-    $this->limit = $limit ?? ;
+    $this->limit = $limit ?? 0;
     $this->shard_iterator = $shard_iterator ?? "";
   }
 }
@@ -116,8 +116,8 @@ class GetRecordsOutput {
   ?'next_shard_iterator' => ShardIterator,
   ?'records' => RecordList,
   ) $s = shape()) {
-    $this->next_shard_iterator = $next_shard_iterator ?? ;
-    $this->records = $records ?? ;
+    $this->next_shard_iterator = $next_shard_iterator ?? "";
+    $this->records = $records ?? [];
   }
 }
 
@@ -158,8 +158,8 @@ class Identity {
   ?'principal_id' => string,
   ?'type' => string,
   ) $s = shape()) {
-    $this->principal_id = $principal_id ?? ;
-    $this->type = $type ?? ;
+    $this->principal_id = $principal_id ?? "";
+    $this->type = $type ?? "";
   }
 }
 
@@ -169,7 +169,7 @@ class InternalServerError {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -198,7 +198,7 @@ class LimitExceededException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -214,8 +214,8 @@ class ListStreamsInput {
   ?'limit' => PositiveIntegerObject,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->exclusive_start_stream_arn = $exclusive_start_stream_arn ?? ;
-    $this->limit = $limit ?? ;
+    $this->exclusive_start_stream_arn = $exclusive_start_stream_arn ?? "";
+    $this->limit = $limit ?? 0;
     $this->table_name = $table_name ?? "";
   }
 }
@@ -228,8 +228,8 @@ class ListStreamsOutput {
   ?'last_evaluated_stream_arn' => StreamArn,
   ?'streams' => StreamList,
   ) $s = shape()) {
-    $this->last_evaluated_stream_arn = $last_evaluated_stream_arn ?? ;
-    $this->streams = $streams ?? ;
+    $this->last_evaluated_stream_arn = $last_evaluated_stream_arn ?? "";
+    $this->streams = $streams ?? [];
   }
 }
 
@@ -265,13 +265,13 @@ class Record {
   ?'event_version' => string,
   ?'user_identity' => Identity,
   ) $s = shape()) {
-    $this->aws_region = $aws_region ?? ;
-    $this->dynamodb = $dynamodb ?? ;
-    $this->event_id = $event_id ?? ;
-    $this->event_name = $event_name ?? ;
-    $this->event_source = $event_source ?? ;
-    $this->event_version = $event_version ?? ;
-    $this->user_identity = $user_identity ?? ;
+    $this->aws_region = $aws_region ?? "";
+    $this->dynamodb = $dynamodb ?? null;
+    $this->event_id = $event_id ?? "";
+    $this->event_name = $event_name ?? "";
+    $this->event_source = $event_source ?? "";
+    $this->event_version = $event_version ?? "";
+    $this->user_identity = $user_identity ?? null;
   }
 }
 
@@ -283,7 +283,7 @@ class ResourceNotFoundException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 
@@ -297,8 +297,8 @@ class SequenceNumberRange {
   ?'ending_sequence_number' => SequenceNumber,
   ?'starting_sequence_number' => SequenceNumber,
   ) $s = shape()) {
-    $this->ending_sequence_number = $ending_sequence_number ?? ;
-    $this->starting_sequence_number = $starting_sequence_number ?? ;
+    $this->ending_sequence_number = $ending_sequence_number ?? "";
+    $this->starting_sequence_number = $starting_sequence_number ?? "";
   }
 }
 
@@ -312,7 +312,7 @@ class Shard {
   ?'sequence_number_range' => SequenceNumberRange,
   ?'shard_id' => ShardId,
   ) $s = shape()) {
-    $this->parent_shard_id = $parent_shard_id ?? ;
+    $this->parent_shard_id = $parent_shard_id ?? "";
     $this->sequence_number_range = $sequence_number_range ?? null;
     $this->shard_id = $shard_id ?? "";
   }
@@ -337,7 +337,7 @@ class Stream {
   ?'table_name' => TableName,
   ) $s = shape()) {
     $this->stream_arn = $stream_arn ?? "";
-    $this->stream_label = $stream_label ?? ;
+    $this->stream_label = $stream_label ?? "";
     $this->table_name = $table_name ?? "";
   }
 }
@@ -366,12 +366,12 @@ class StreamDescription {
   ?'stream_view_type' => StreamViewType,
   ?'table_name' => TableName,
   ) $s = shape()) {
-    $this->creation_request_date_time = $creation_request_date_time ?? ;
+    $this->creation_request_date_time = $creation_request_date_time ?? 0;
     $this->key_schema = $key_schema ?? [];
-    $this->last_evaluated_shard_id = $last_evaluated_shard_id ?? ;
-    $this->shards = $shards ?? ;
+    $this->last_evaluated_shard_id = $last_evaluated_shard_id ?? "";
+    $this->shards = $shards ?? [];
     $this->stream_arn = $stream_arn ?? "";
-    $this->stream_label = $stream_label ?? ;
+    $this->stream_label = $stream_label ?? "";
     $this->stream_status = $stream_status ?? "";
     $this->stream_view_type = $stream_view_type ?? "";
     $this->table_name = $table_name ?? "";
@@ -398,12 +398,12 @@ class StreamRecord {
   ?'size_bytes' => PositiveLongObject,
   ?'stream_view_type' => StreamViewType,
   ) $s = shape()) {
-    $this->approximate_creation_date_time = $approximate_creation_date_time ?? ;
-    $this->keys = $keys ?? ;
-    $this->new_image = $new_image ?? ;
-    $this->old_image = $old_image ?? ;
+    $this->approximate_creation_date_time = $approximate_creation_date_time ?? 0;
+    $this->keys = $keys ?? [];
+    $this->new_image = $new_image ?? [];
+    $this->old_image = $old_image ?? [];
     $this->sequence_number = $sequence_number ?? "";
-    $this->size_bytes = $size_bytes ?? ;
+    $this->size_bytes = $size_bytes ?? 0;
     $this->stream_view_type = $stream_view_type ?? "";
   }
 }
@@ -426,7 +426,7 @@ class TrimmedDataAccessException {
   public function __construct(shape(
   ?'message' => ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? ;
+    $this->message = $message ?? "";
   }
 }
 

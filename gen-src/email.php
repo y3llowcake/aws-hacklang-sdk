@@ -90,8 +90,8 @@ class BlacklistEntry {
   ?'listing_time' => Timestamp,
   ?'rbl_name' => RblName,
   ) $s = shape()) {
-    $this->description = $description ?? ;
-    $this->listing_time = $listing_time ?? ;
+    $this->description = $description ?? "";
+    $this->listing_time = $listing_time ?? 0;
     $this->rbl_name = $rbl_name ?? "";
   }
 }
@@ -112,8 +112,8 @@ class Body {
   ?'html' => Content,
   ?'text' => Content,
   ) $s = shape()) {
-    $this->html = $html ?? ;
-    $this->text = $text ?? ;
+    $this->html = $html ?? null;
+    $this->text = $text ?? null;
   }
 }
 
@@ -127,7 +127,7 @@ class CloudWatchDestination {
   public function __construct(shape(
   ?'dimension_configurations' => CloudWatchDimensionConfigurations,
   ) $s = shape()) {
-    $this->dimension_configurations = $dimension_configurations ?? ;
+    $this->dimension_configurations = $dimension_configurations ?? [];
   }
 }
 
@@ -169,7 +169,7 @@ class Content {
   ?'data' => MessageData,
   ) $s = shape()) {
     $this->charset = $charset ?? "";
-    $this->data = $data ?? ;
+    $this->data = $data ?? "";
   }
 }
 
@@ -219,7 +219,7 @@ class CreateConfigurationSetRequest {
     $this->reputation_options = $reputation_options ?? null;
     $this->sending_options = $sending_options ?? null;
     $this->suppression_options = $suppression_options ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->tracking_options = $tracking_options ?? null;
   }
 }
@@ -240,7 +240,7 @@ class CreateDedicatedIpPoolRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->pool_name = $pool_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -264,9 +264,9 @@ class CreateDeliverabilityTestReportRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->content = $content ?? null;
-    $this->from_email_address = $from_email_address ?? ;
+    $this->from_email_address = $from_email_address ?? "";
     $this->report_name = $report_name ?? "";
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -294,8 +294,8 @@ class CreateEmailIdentityRequest {
   ?'tags' => TagList,
   ) $s = shape()) {
     $this->dkim_signing_attributes = $dkim_signing_attributes ?? null;
-    $this->email_identity = $email_identity ?? ;
-    $this->tags = $tags ?? ;
+    $this->email_identity = $email_identity ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -311,7 +311,7 @@ class CreateEmailIdentityResponse {
   ) $s = shape()) {
     $this->dkim_attributes = $dkim_attributes ?? null;
     $this->identity_type = $identity_type ?? "";
-    $this->verified_for_sending_status = $verified_for_sending_status ?? ;
+    $this->verified_for_sending_status = $verified_for_sending_status ?? false;
   }
 }
 
@@ -328,7 +328,7 @@ class DailyVolume {
   ?'volume_statistics' => VolumeStatistics,
   ) $s = shape()) {
     $this->domain_isp_placements = $domain_isp_placements ?? [];
-    $this->start_date = $start_date ?? ;
+    $this->start_date = $start_date ?? 0;
     $this->volume_statistics = $volume_statistics ?? null;
   }
 }
@@ -349,7 +349,7 @@ class DedicatedIp {
   ) $s = shape()) {
     $this->ip = $ip ?? "";
     $this->pool_name = $pool_name ?? "";
-    $this->warmup_percentage = $warmup_percentage ?? ;
+    $this->warmup_percentage = $warmup_percentage ?? 0;
     $this->warmup_status = $warmup_status ?? "";
   }
 }
@@ -418,7 +418,7 @@ class DeleteEmailIdentityRequest {
   public function __construct(shape(
   ?'email_identity' => Identity,
   ) $s = shape()) {
-    $this->email_identity = $email_identity ?? ;
+    $this->email_identity = $email_identity ?? "";
   }
 }
 
@@ -464,9 +464,9 @@ class DeliverabilityTestReport {
   ?'report_name' => ReportName,
   ?'subject' => DeliverabilityTestSubject,
   ) $s = shape()) {
-    $this->create_date = $create_date ?? ;
+    $this->create_date = $create_date ?? 0;
     $this->deliverability_test_status = $deliverability_test_status ?? "";
-    $this->from_email_address = $from_email_address ?? ;
+    $this->from_email_address = $from_email_address ?? "";
     $this->report_id = $report_id ?? "";
     $this->report_name = $report_name ?? "";
     $this->subject = $subject ?? "";
@@ -502,9 +502,9 @@ class Destination {
   ?'cc_addresses' => EmailAddressList,
   ?'to_addresses' => EmailAddressList,
   ) $s = shape()) {
-    $this->bcc_addresses = $bcc_addresses ?? ;
-    $this->cc_addresses = $cc_addresses ?? ;
-    $this->to_addresses = $to_addresses ?? ;
+    $this->bcc_addresses = $bcc_addresses ?? [];
+    $this->cc_addresses = $cc_addresses ?? [];
+    $this->to_addresses = $to_addresses ?? [];
   }
 }
 
@@ -524,10 +524,10 @@ class DkimAttributes {
   ?'status' => DkimStatus,
   ?'tokens' => DnsTokenList,
   ) $s = shape()) {
-    $this->signing_attributes_origin = $signing_attributes_origin ?? ;
-    $this->signing_enabled = $signing_enabled ?? ;
-    $this->status = $status ?? ;
-    $this->tokens = $tokens ?? ;
+    $this->signing_attributes_origin = $signing_attributes_origin ?? "";
+    $this->signing_enabled = $signing_enabled ?? false;
+    $this->status = $status ?? "";
+    $this->tokens = $tokens ?? [];
   }
 }
 
@@ -539,8 +539,8 @@ class DkimSigningAttributes {
   ?'domain_signing_private_key' => PrivateKey,
   ?'domain_signing_selector' => Selector,
   ) $s = shape()) {
-    $this->domain_signing_private_key = $domain_signing_private_key ?? ;
-    $this->domain_signing_selector = $domain_signing_selector ?? ;
+    $this->domain_signing_private_key = $domain_signing_private_key ?? "";
+    $this->domain_signing_selector = $domain_signing_selector ?? "";
   }
 }
 
@@ -587,18 +587,18 @@ class DomainDeliverabilityCampaign {
   ?'subject' => Subject,
   ) $s = shape()) {
     $this->campaign_id = $campaign_id ?? "";
-    $this->delete_rate = $delete_rate ?? ;
+    $this->delete_rate = $delete_rate ?? 0.0;
     $this->esps = $esps ?? [];
-    $this->first_seen_date_time = $first_seen_date_time ?? ;
-    $this->from_address = $from_address ?? ;
+    $this->first_seen_date_time = $first_seen_date_time ?? 0;
+    $this->from_address = $from_address ?? "";
     $this->image_url = $image_url ?? "";
-    $this->inbox_count = $inbox_count ?? ;
-    $this->last_seen_date_time = $last_seen_date_time ?? ;
-    $this->projected_volume = $projected_volume ?? ;
-    $this->read_delete_rate = $read_delete_rate ?? ;
-    $this->read_rate = $read_rate ?? ;
-    $this->sending_ips = $sending_ips ?? ;
-    $this->spam_count = $spam_count ?? ;
+    $this->inbox_count = $inbox_count ?? 0;
+    $this->last_seen_date_time = $last_seen_date_time ?? 0;
+    $this->projected_volume = $projected_volume ?? 0;
+    $this->read_delete_rate = $read_delete_rate ?? 0.0;
+    $this->read_rate = $read_rate ?? 0.0;
+    $this->sending_ips = $sending_ips ?? [];
+    $this->spam_count = $spam_count ?? 0;
     $this->subject = $subject ?? "";
   }
 }
@@ -617,7 +617,7 @@ class DomainDeliverabilityTrackingOption {
   ) $s = shape()) {
     $this->domain = $domain ?? "";
     $this->inbox_placement_tracking_option = $inbox_placement_tracking_option ?? null;
-    $this->subscription_start_date = $subscription_start_date ?? ;
+    $this->subscription_start_date = $subscription_start_date ?? 0;
   }
 }
 
@@ -637,11 +637,11 @@ class DomainIspPlacement {
   ?'spam_percentage' => Percentage,
   ?'spam_raw_count' => Volume,
   ) $s = shape()) {
-    $this->inbox_percentage = $inbox_percentage ?? ;
-    $this->inbox_raw_count = $inbox_raw_count ?? ;
+    $this->inbox_percentage = $inbox_percentage ?? 0.0;
+    $this->inbox_raw_count = $inbox_raw_count ?? 0;
     $this->isp_name = $isp_name ?? "";
-    $this->spam_percentage = $spam_percentage ?? ;
-    $this->spam_raw_count = $spam_raw_count ?? ;
+    $this->spam_percentage = $spam_percentage ?? 0.0;
+    $this->spam_raw_count = $spam_raw_count ?? 0;
   }
 }
 
@@ -661,8 +661,8 @@ class EmailContent {
   ?'simple' => Message,
   ?'template' => Template,
   ) $s = shape()) {
-    $this->raw = $raw ?? ;
-    $this->simple = $simple ?? ;
+    $this->raw = $raw ?? null;
+    $this->simple = $simple ?? null;
     $this->template = $template ?? null;
   }
 }
@@ -694,8 +694,8 @@ class EventDestination {
     $this->cloud_watch_destination = $cloud_watch_destination ?? null;
     $this->enabled = $enabled ?? false;
     $this->kinesis_firehose_destination = $kinesis_firehose_destination ?? null;
-    $this->matching_event_types = $matching_event_types ?? ;
-    $this->name = $name ?? ;
+    $this->matching_event_types = $matching_event_types ?? [];
+    $this->name = $name ?? "";
     $this->pinpoint_destination = $pinpoint_destination ?? null;
     $this->sns_destination = $sns_destination ?? null;
   }
@@ -720,7 +720,7 @@ class EventDestinationDefinition {
     $this->cloud_watch_destination = $cloud_watch_destination ?? null;
     $this->enabled = $enabled ?? false;
     $this->kinesis_firehose_destination = $kinesis_firehose_destination ?? null;
-    $this->matching_event_types = $matching_event_types ?? ;
+    $this->matching_event_types = $matching_event_types ?? [];
     $this->pinpoint_destination = $pinpoint_destination ?? null;
     $this->sns_destination = $sns_destination ?? null;
   }
@@ -761,11 +761,11 @@ class GetAccountResponse {
   ?'sending_enabled' => Enabled,
   ?'suppression_attributes' => SuppressionAttributes,
   ) $s = shape()) {
-    $this->dedicated_ip_auto_warmup_enabled = $dedicated_ip_auto_warmup_enabled ?? ;
-    $this->enforcement_status = $enforcement_status ?? ;
-    $this->production_access_enabled = $production_access_enabled ?? ;
+    $this->dedicated_ip_auto_warmup_enabled = $dedicated_ip_auto_warmup_enabled ?? false;
+    $this->enforcement_status = $enforcement_status ?? "";
+    $this->production_access_enabled = $production_access_enabled ?? false;
     $this->send_quota = $send_quota ?? null;
-    $this->sending_enabled = $sending_enabled ?? ;
+    $this->sending_enabled = $sending_enabled ?? false;
     $this->suppression_attributes = $suppression_attributes ?? null;
   }
 }
@@ -843,7 +843,7 @@ class GetConfigurationSetResponse {
     $this->reputation_options = $reputation_options ?? null;
     $this->sending_options = $sending_options ?? null;
     $this->suppression_options = $suppression_options ?? null;
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
     $this->tracking_options = $tracking_options ?? null;
   }
 }
@@ -879,7 +879,7 @@ class GetDedicatedIpsRequest {
   ?'pool_name' => PoolName,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
+    $this->page_size = $page_size ?? 0;
     $this->pool_name = $pool_name ?? "";
   }
 }
@@ -892,7 +892,7 @@ class GetDedicatedIpsResponse {
   ?'dedicated_ips' => DedicatedIpList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dedicated_ips = $dedicated_ips ?? ;
+    $this->dedicated_ips = $dedicated_ips ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -918,11 +918,11 @@ class GetDeliverabilityDashboardOptionsResponse {
   ?'pending_expiration_subscribed_domains' => DomainDeliverabilityTrackingOptions,
   ?'subscription_expiry_date' => Timestamp,
   ) $s = shape()) {
-    $this->account_status = $account_status ?? ;
-    $this->active_subscribed_domains = $active_subscribed_domains ?? ;
-    $this->dashboard_enabled = $dashboard_enabled ?? ;
-    $this->pending_expiration_subscribed_domains = $pending_expiration_subscribed_domains ?? ;
-    $this->subscription_expiry_date = $subscription_expiry_date ?? ;
+    $this->account_status = $account_status ?? "";
+    $this->active_subscribed_domains = $active_subscribed_domains ?? [];
+    $this->dashboard_enabled = $dashboard_enabled ?? false;
+    $this->pending_expiration_subscribed_domains = $pending_expiration_subscribed_domains ?? [];
+    $this->subscription_expiry_date = $subscription_expiry_date ?? 0;
   }
 }
 
@@ -952,9 +952,9 @@ class GetDeliverabilityTestReportResponse {
   ) $s = shape()) {
     $this->deliverability_test_report = $deliverability_test_report ?? null;
     $this->isp_placements = $isp_placements ?? [];
-    $this->message = $message ?? null;
-    $this->overall_placement = $overall_placement ?? ;
-    $this->tags = $tags ?? ;
+    $this->message = $message ?? "";
+    $this->overall_placement = $overall_placement ?? null;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -989,8 +989,8 @@ class GetDomainStatisticsReportRequest {
   ?'start_date' => Timestamp,
   ) $s = shape()) {
     $this->domain = $domain ?? "";
-    $this->end_date = $end_date ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->end_date = $end_date ?? 0;
+    $this->start_date = $start_date ?? 0;
   }
 }
 
@@ -1013,7 +1013,7 @@ class GetEmailIdentityRequest {
   public function __construct(shape(
   ?'email_identity' => Identity,
   ) $s = shape()) {
-    $this->email_identity = $email_identity ?? ;
+    $this->email_identity = $email_identity ?? "";
   }
 }
 
@@ -1034,11 +1034,11 @@ class GetEmailIdentityResponse {
   ?'verified_for_sending_status' => Enabled,
   ) $s = shape()) {
     $this->dkim_attributes = $dkim_attributes ?? null;
-    $this->feedback_forwarding_status = $feedback_forwarding_status ?? ;
+    $this->feedback_forwarding_status = $feedback_forwarding_status ?? false;
     $this->identity_type = $identity_type ?? "";
     $this->mail_from_attributes = $mail_from_attributes ?? null;
-    $this->tags = $tags ?? ;
-    $this->verified_for_sending_status = $verified_for_sending_status ?? ;
+    $this->tags = $tags ?? [];
+    $this->verified_for_sending_status = $verified_for_sending_status ?? false;
   }
 }
 
@@ -1074,9 +1074,9 @@ class IdentityInfo {
   ?'identity_type' => IdentityType,
   ?'sending_enabled' => Enabled,
   ) $s = shape()) {
-    $this->identity_name = $identity_name ?? ;
+    $this->identity_name = $identity_name ?? "";
     $this->identity_type = $identity_type ?? "";
-    $this->sending_enabled = $sending_enabled ?? ;
+    $this->sending_enabled = $sending_enabled ?? false;
   }
 }
 
@@ -1094,8 +1094,8 @@ class InboxPlacementTrackingOption {
   ?'global' => Enabled,
   ?'tracked_isps' => IspNameList,
   ) $s = shape()) {
-    $this->global = $global ?? ;
-    $this->tracked_isps = $tracked_isps ?? ;
+    $this->global = $global ?? false;
+    $this->tracked_isps = $tracked_isps ?? [];
   }
 }
 
@@ -1137,8 +1137,8 @@ class KinesisFirehoseDestination {
   ?'delivery_stream_arn' => AmazonResourceName,
   ?'iam_role_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->delivery_stream_arn = $delivery_stream_arn ?? ;
-    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->delivery_stream_arn = $delivery_stream_arn ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? "";
   }
 }
 
@@ -1160,7 +1160,7 @@ class ListConfigurationSetsRequest {
   ?'page_size' => MaxItems,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
+    $this->page_size = $page_size ?? 0;
   }
 }
 
@@ -1172,7 +1172,7 @@ class ListConfigurationSetsResponse {
   ?'configuration_sets' => ConfigurationSetNameList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->configuration_sets = $configuration_sets ?? ;
+    $this->configuration_sets = $configuration_sets ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1186,7 +1186,7 @@ class ListDedicatedIpPoolsRequest {
   ?'page_size' => MaxItems,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
+    $this->page_size = $page_size ?? 0;
   }
 }
 
@@ -1198,7 +1198,7 @@ class ListDedicatedIpPoolsResponse {
   ?'dedicated_ip_pools' => ListOfDedicatedIpPools,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->dedicated_ip_pools = $dedicated_ip_pools ?? ;
+    $this->dedicated_ip_pools = $dedicated_ip_pools ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1212,7 +1212,7 @@ class ListDeliverabilityTestReportsRequest {
   ?'page_size' => MaxItems,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
+    $this->page_size = $page_size ?? 0;
   }
 }
 
@@ -1243,11 +1243,11 @@ class ListDomainDeliverabilityCampaignsRequest {
   ?'start_date' => Timestamp,
   ?'subscribed_domain' => Domain,
   ) $s = shape()) {
-    $this->end_date = $end_date ?? ;
+    $this->end_date = $end_date ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
-    $this->start_date = $start_date ?? ;
-    $this->subscribed_domain = $subscribed_domain ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->start_date = $start_date ?? 0;
+    $this->subscribed_domain = $subscribed_domain ?? "";
   }
 }
 
@@ -1259,7 +1259,7 @@ class ListDomainDeliverabilityCampaignsResponse {
   ?'domain_deliverability_campaigns' => DomainDeliverabilityCampaignList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->domain_deliverability_campaigns = $domain_deliverability_campaigns ?? ;
+    $this->domain_deliverability_campaigns = $domain_deliverability_campaigns ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1273,7 +1273,7 @@ class ListEmailIdentitiesRequest {
   ?'page_size' => MaxItems,
   ) $s = shape()) {
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
+    $this->page_size = $page_size ?? 0;
   }
 }
 
@@ -1285,7 +1285,7 @@ class ListEmailIdentitiesResponse {
   ?'email_identities' => IdentityInfoList,
   ?'next_token' => NextToken,
   ) $s = shape()) {
-    $this->email_identities = $email_identities ?? ;
+    $this->email_identities = $email_identities ?? [];
     $this->next_token = $next_token ?? "";
   }
 }
@@ -1306,11 +1306,11 @@ class ListSuppressedDestinationsRequest {
   ?'reasons' => SuppressionListReasons,
   ?'start_date' => Timestamp,
   ) $s = shape()) {
-    $this->end_date = $end_date ?? ;
+    $this->end_date = $end_date ?? 0;
     $this->next_token = $next_token ?? "";
-    $this->page_size = $page_size ?? ;
-    $this->reasons = $reasons ?? ;
-    $this->start_date = $start_date ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->reasons = $reasons ?? [];
+    $this->start_date = $start_date ?? 0;
   }
 }
 
@@ -1333,7 +1333,7 @@ class ListTagsForResourceRequest {
   public function __construct(shape(
   ?'resource_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
+    $this->resource_arn = $resource_arn ?? "";
   }
 }
 
@@ -1343,7 +1343,7 @@ class ListTagsForResourceResponse {
   public function __construct(shape(
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? ;
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -1358,7 +1358,7 @@ class MailFromAttributes {
   ?'mail_from_domain_status' => MailFromDomainStatus,
   ) $s = shape()) {
     $this->behavior_on_mx_failure = $behavior_on_mx_failure ?? "";
-    $this->mail_from_domain = $mail_from_domain ?? ;
+    $this->mail_from_domain = $mail_from_domain ?? "";
     $this->mail_from_domain_status = $mail_from_domain_status ?? "";
   }
 }
@@ -1389,7 +1389,7 @@ class Message {
   ?'subject' => Content,
   ) $s = shape()) {
     $this->body = $body ?? null;
-    $this->subject = $subject ?? "";
+    $this->subject = $subject ?? null;
   }
 }
 
@@ -1412,8 +1412,8 @@ class MessageTag {
   ?'name' => MessageTagName,
   ?'value' => MessageTagValue,
   ) $s = shape()) {
-    $this->name = $name ?? ;
-    $this->value = $value ?? ;
+    $this->name = $name ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -1445,7 +1445,7 @@ class OverallVolume {
   ?'volume_statistics' => VolumeStatistics,
   ) $s = shape()) {
     $this->domain_isp_placements = $domain_isp_placements ?? [];
-    $this->read_rate_percent = $read_rate_percent ?? ;
+    $this->read_rate_percent = $read_rate_percent ?? 0.0;
     $this->volume_statistics = $volume_statistics ?? null;
   }
 }
@@ -1460,7 +1460,7 @@ class PinpointDestination {
   public function __construct(shape(
   ?'application_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->application_arn = $application_arn ?? ;
+    $this->application_arn = $application_arn ?? "";
   }
 }
 
@@ -1478,11 +1478,11 @@ class PlacementStatistics {
   ?'spam_percentage' => Percentage,
   ?'spf_percentage' => Percentage,
   ) $s = shape()) {
-    $this->dkim_percentage = $dkim_percentage ?? ;
-    $this->inbox_percentage = $inbox_percentage ?? ;
-    $this->missing_percentage = $missing_percentage ?? ;
-    $this->spam_percentage = $spam_percentage ?? ;
-    $this->spf_percentage = $spf_percentage ?? ;
+    $this->dkim_percentage = $dkim_percentage ?? 0.0;
+    $this->inbox_percentage = $inbox_percentage ?? 0.0;
+    $this->missing_percentage = $missing_percentage ?? 0.0;
+    $this->spam_percentage = $spam_percentage ?? 0.0;
+    $this->spf_percentage = $spf_percentage ?? 0.0;
   }
 }
 
@@ -1496,7 +1496,7 @@ class PutAccountDedicatedIpWarmupAttributesRequest {
   public function __construct(shape(
   ?'auto_warmup_enabled' => Enabled,
   ) $s = shape()) {
-    $this->auto_warmup_enabled = $auto_warmup_enabled ?? ;
+    $this->auto_warmup_enabled = $auto_warmup_enabled ?? false;
   }
 }
 
@@ -1513,7 +1513,7 @@ class PutAccountSendingAttributesRequest {
   public function __construct(shape(
   ?'sending_enabled' => Enabled,
   ) $s = shape()) {
-    $this->sending_enabled = $sending_enabled ?? ;
+    $this->sending_enabled = $sending_enabled ?? false;
   }
 }
 
@@ -1530,7 +1530,7 @@ class PutAccountSuppressionAttributesRequest {
   public function __construct(shape(
   ?'suppressed_reasons' => SuppressionListReasons,
   ) $s = shape()) {
-    $this->suppressed_reasons = $suppressed_reasons ?? ;
+    $this->suppressed_reasons = $suppressed_reasons ?? [];
   }
 }
 
@@ -1573,7 +1573,7 @@ class PutConfigurationSetReputationOptionsRequest {
   ?'reputation_metrics_enabled' => Enabled,
   ) $s = shape()) {
     $this->configuration_set_name = $configuration_set_name ?? "";
-    $this->reputation_metrics_enabled = $reputation_metrics_enabled ?? ;
+    $this->reputation_metrics_enabled = $reputation_metrics_enabled ?? false;
   }
 }
 
@@ -1593,7 +1593,7 @@ class PutConfigurationSetSendingOptionsRequest {
   ?'sending_enabled' => Enabled,
   ) $s = shape()) {
     $this->configuration_set_name = $configuration_set_name ?? "";
-    $this->sending_enabled = $sending_enabled ?? ;
+    $this->sending_enabled = $sending_enabled ?? false;
   }
 }
 
@@ -1613,7 +1613,7 @@ class PutConfigurationSetSuppressionOptionsRequest {
   ?'suppressed_reasons' => SuppressionListReasons,
   ) $s = shape()) {
     $this->configuration_set_name = $configuration_set_name ?? "";
-    $this->suppressed_reasons = $suppressed_reasons ?? ;
+    $this->suppressed_reasons = $suppressed_reasons ?? [];
   }
 }
 
@@ -1652,7 +1652,7 @@ class PutDedicatedIpInPoolRequest {
   ?'destination_pool_name' => PoolName,
   ?'ip' => Ip,
   ) $s = shape()) {
-    $this->destination_pool_name = $destination_pool_name ?? ;
+    $this->destination_pool_name = $destination_pool_name ?? "";
     $this->ip = $ip ?? "";
   }
 }
@@ -1673,7 +1673,7 @@ class PutDedicatedIpWarmupAttributesRequest {
   ?'warmup_percentage' => Percentage100Wrapper,
   ) $s = shape()) {
     $this->ip = $ip ?? "";
-    $this->warmup_percentage = $warmup_percentage ?? ;
+    $this->warmup_percentage = $warmup_percentage ?? 0;
   }
 }
 
@@ -1692,8 +1692,8 @@ class PutDeliverabilityDashboardOptionRequest {
   ?'dashboard_enabled' => Enabled,
   ?'subscribed_domains' => DomainDeliverabilityTrackingOptions,
   ) $s = shape()) {
-    $this->dashboard_enabled = $dashboard_enabled ?? ;
-    $this->subscribed_domains = $subscribed_domains ?? ;
+    $this->dashboard_enabled = $dashboard_enabled ?? false;
+    $this->subscribed_domains = $subscribed_domains ?? [];
   }
 }
 
@@ -1712,8 +1712,8 @@ class PutEmailIdentityDkimAttributesRequest {
   ?'email_identity' => Identity,
   ?'signing_enabled' => Enabled,
   ) $s = shape()) {
-    $this->email_identity = $email_identity ?? ;
-    $this->signing_enabled = $signing_enabled ?? ;
+    $this->email_identity = $email_identity ?? "";
+    $this->signing_enabled = $signing_enabled ?? false;
   }
 }
 
@@ -1734,9 +1734,9 @@ class PutEmailIdentityDkimSigningAttributesRequest {
   ?'signing_attributes' => DkimSigningAttributes,
   ?'signing_attributes_origin' => DkimSigningAttributesOrigin,
   ) $s = shape()) {
-    $this->email_identity = $email_identity ?? ;
-    $this->signing_attributes = $signing_attributes ?? ;
-    $this->signing_attributes_origin = $signing_attributes_origin ?? ;
+    $this->email_identity = $email_identity ?? "";
+    $this->signing_attributes = $signing_attributes ?? null;
+    $this->signing_attributes_origin = $signing_attributes_origin ?? "";
   }
 }
 
@@ -1749,7 +1749,7 @@ class PutEmailIdentityDkimSigningAttributesResponse {
   ?'dkim_tokens' => DnsTokenList,
   ) $s = shape()) {
     $this->dkim_status = $dkim_status ?? "";
-    $this->dkim_tokens = $dkim_tokens ?? ;
+    $this->dkim_tokens = $dkim_tokens ?? [];
   }
 }
 
@@ -1761,8 +1761,8 @@ class PutEmailIdentityFeedbackAttributesRequest {
   ?'email_forwarding_enabled' => Enabled,
   ?'email_identity' => Identity,
   ) $s = shape()) {
-    $this->email_forwarding_enabled = $email_forwarding_enabled ?? ;
-    $this->email_identity = $email_identity ?? ;
+    $this->email_forwarding_enabled = $email_forwarding_enabled ?? false;
+    $this->email_identity = $email_identity ?? "";
   }
 }
 
@@ -1784,8 +1784,8 @@ class PutEmailIdentityMailFromAttributesRequest {
   ?'mail_from_domain' => MailFromDomainName,
   ) $s = shape()) {
     $this->behavior_on_mx_failure = $behavior_on_mx_failure ?? "";
-    $this->email_identity = $email_identity ?? ;
-    $this->mail_from_domain = $mail_from_domain ?? ;
+    $this->email_identity = $email_identity ?? "";
+    $this->mail_from_domain = $mail_from_domain ?? "";
   }
 }
 
@@ -1805,7 +1805,7 @@ class PutSuppressedDestinationRequest {
   ?'reason' => SuppressionListReason,
   ) $s = shape()) {
     $this->email_address = $email_address ?? "";
-    $this->reason = $reason ?? ;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1822,7 +1822,7 @@ class RawMessage {
   public function __construct(shape(
   ?'data' => RawMessageData,
   ) $s = shape()) {
-    $this->data = $data ?? ;
+    $this->data = $data ?? "";
   }
 }
 
@@ -1843,7 +1843,7 @@ class ReputationOptions {
   ?'reputation_metrics_enabled' => Enabled,
   ) $s = shape()) {
     $this->last_fresh_start = $last_fresh_start ?? 0;
-    $this->reputation_metrics_enabled = $reputation_metrics_enabled ?? ;
+    $this->reputation_metrics_enabled = $reputation_metrics_enabled ?? false;
   }
 }
 
@@ -1870,10 +1870,10 @@ class SendEmailRequest {
     $this->configuration_set_name = $configuration_set_name ?? "";
     $this->content = $content ?? null;
     $this->destination = $destination ?? null;
-    $this->email_tags = $email_tags ?? ;
-    $this->feedback_forwarding_email_address = $feedback_forwarding_email_address ?? ;
-    $this->from_email_address = $from_email_address ?? ;
-    $this->reply_to_addresses = $reply_to_addresses ?? ;
+    $this->email_tags = $email_tags ?? [];
+    $this->feedback_forwarding_email_address = $feedback_forwarding_email_address ?? "";
+    $this->from_email_address = $from_email_address ?? "";
+    $this->reply_to_addresses = $reply_to_addresses ?? [];
   }
 }
 
@@ -1883,7 +1883,7 @@ class SendEmailResponse {
   public function __construct(shape(
   ?'message_id' => OutboundMessageId,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -1909,7 +1909,7 @@ class SendingOptions {
   public function __construct(shape(
   ?'sending_enabled' => Enabled,
   ) $s = shape()) {
-    $this->sending_enabled = $sending_enabled ?? ;
+    $this->sending_enabled = $sending_enabled ?? false;
   }
 }
 
@@ -1930,7 +1930,7 @@ class SnsDestination {
   public function __construct(shape(
   ?'topic_arn' => AmazonResourceName,
   ) $s = shape()) {
-    $this->topic_arn = $topic_arn ?? ;
+    $this->topic_arn = $topic_arn ?? "";
   }
 }
 
@@ -1948,10 +1948,10 @@ class SuppressedDestination {
   ?'last_update_time' => Timestamp,
   ?'reason' => SuppressionListReason,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? ;
+    $this->attributes = $attributes ?? null;
     $this->email_address = $email_address ?? "";
-    $this->last_update_time = $last_update_time ?? ;
-    $this->reason = $reason ?? ;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1964,7 +1964,7 @@ class SuppressedDestinationAttributes {
   ?'message_id' => OutboundMessageId,
   ) $s = shape()) {
     $this->feedback_id = $feedback_id ?? "";
-    $this->message_id = $message_id ?? ;
+    $this->message_id = $message_id ?? "";
   }
 }
 
@@ -1981,8 +1981,8 @@ class SuppressedDestinationSummary {
   ?'reason' => SuppressionListReason,
   ) $s = shape()) {
     $this->email_address = $email_address ?? "";
-    $this->last_update_time = $last_update_time ?? ;
-    $this->reason = $reason ?? ;
+    $this->last_update_time = $last_update_time ?? 0;
+    $this->reason = $reason ?? "";
   }
 }
 
@@ -1992,7 +1992,7 @@ class SuppressionAttributes {
   public function __construct(shape(
   ?'suppressed_reasons' => SuppressionListReasons,
   ) $s = shape()) {
-    $this->suppressed_reasons = $suppressed_reasons ?? ;
+    $this->suppressed_reasons = $suppressed_reasons ?? [];
   }
 }
 
@@ -2006,7 +2006,7 @@ class SuppressionOptions {
   public function __construct(shape(
   ?'suppressed_reasons' => SuppressionListReasons,
   ) $s = shape()) {
-    $this->suppressed_reasons = $suppressed_reasons ?? ;
+    $this->suppressed_reasons = $suppressed_reasons ?? [];
   }
 }
 
@@ -2018,8 +2018,8 @@ class Tag {
   ?'key' => TagKey,
   ?'value' => TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? ;
-    $this->value = $value ?? ;
+    $this->key = $key ?? "";
+    $this->value = $value ?? "";
   }
 }
 
@@ -2037,8 +2037,8 @@ class TagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tags' => TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tags = $tags ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
   }
 }
 
@@ -2097,8 +2097,8 @@ class UntagResourceRequest {
   ?'resource_arn' => AmazonResourceName,
   ?'tag_keys' => TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? ;
-    $this->tag_keys = $tag_keys ?? ;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
   }
 }
 
@@ -2146,10 +2146,10 @@ class VolumeStatistics {
   ?'projected_spam' => Volume,
   ?'spam_raw_count' => Volume,
   ) $s = shape()) {
-    $this->inbox_raw_count = $inbox_raw_count ?? ;
-    $this->projected_inbox = $projected_inbox ?? ;
-    $this->projected_spam = $projected_spam ?? ;
-    $this->spam_raw_count = $spam_raw_count ?? ;
+    $this->inbox_raw_count = $inbox_raw_count ?? 0;
+    $this->projected_inbox = $projected_inbox ?? 0;
+    $this->projected_spam = $projected_spam ?? 0;
+    $this->spam_raw_count = $spam_raw_count ?? 0;
   }
 }
 
