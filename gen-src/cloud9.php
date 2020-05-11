@@ -17,19 +17,24 @@ interface Cloud9 {
   public function UpdateEnvironmentMembership(UpdateEnvironmentMembershipRequest): Awaitable<Errors\Result<UpdateEnvironmentMembershipResult>>;
 }
 
-class AutomaticStopTimeMinutes {
-}
+type AutomaticStopTimeMinutes = int;
 
 class BadRequestException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class BoundedEnvironmentIdList {
-}
+type BoundedEnvironmentIdList = vec<EnvironmentId>;
 
-class ClientRequestToken {
-}
+type ClientRequestToken = string;
 
 class ConflictException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateEnvironmentEC2Request {
@@ -41,35 +46,99 @@ class CreateEnvironmentEC2Request {
   public UserArn $owner_arn;
   public SubnetId $subnet_id;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'automatic_stop_time_minutes' => AutomaticStopTimeMinutes,
+  ?'client_request_token' => ClientRequestToken,
+  ?'description' => EnvironmentDescription,
+  ?'instance_type' => InstanceType,
+  ?'name' => EnvironmentName,
+  ?'owner_arn' => UserArn,
+  ?'subnet_id' => SubnetId,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->automatic_stop_time_minutes = $automatic_stop_time_minutes ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->description = $description ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->name = $name ?? ;
+    $this->owner_arn = $owner_arn ?? ;
+    $this->subnet_id = $subnet_id ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateEnvironmentEC2Result {
   public EnvironmentId $environment_id;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+  }
 }
 
 class CreateEnvironmentMembershipRequest {
   public EnvironmentId $environment_id;
   public MemberPermissions $permissions;
   public UserArn $user_arn;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ?'permissions' => MemberPermissions,
+  ?'user_arn' => UserArn,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+    $this->permissions = $permissions ?? ;
+    $this->user_arn = $user_arn ?? ;
+  }
 }
 
 class CreateEnvironmentMembershipResult {
   public EnvironmentMember $membership;
+
+  public function __construct(shape(
+  ?'membership' => EnvironmentMember,
+  ) $s = shape()) {
+    $this->membership = $membership ?? ;
+  }
 }
 
 class DeleteEnvironmentMembershipRequest {
   public EnvironmentId $environment_id;
   public UserArn $user_arn;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ?'user_arn' => UserArn,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+    $this->user_arn = $user_arn ?? ;
+  }
 }
 
 class DeleteEnvironmentMembershipResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteEnvironmentRequest {
   public EnvironmentId $environment_id;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+  }
 }
 
 class DeleteEnvironmentResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeEnvironmentMembershipsRequest {
@@ -78,28 +147,76 @@ class DescribeEnvironmentMembershipsRequest {
   public string $next_token;
   public PermissionsList $permissions;
   public UserArn $user_arn;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ?'permissions' => PermissionsList,
+  ?'user_arn' => UserArn,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->permissions = $permissions ?? ;
+    $this->user_arn = $user_arn ?? ;
+  }
 }
 
 class DescribeEnvironmentMembershipsResult {
   public EnvironmentMembersList $memberships;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'memberships' => EnvironmentMembersList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->memberships = $memberships ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeEnvironmentStatusRequest {
   public EnvironmentId $environment_id;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+  }
 }
 
 class DescribeEnvironmentStatusResult {
   public string $message;
   public EnvironmentStatus $status;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'status' => EnvironmentStatus,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class DescribeEnvironmentsRequest {
   public BoundedEnvironmentIdList $environment_ids;
+
+  public function __construct(shape(
+  ?'environment_ids' => BoundedEnvironmentIdList,
+  ) $s = shape()) {
+    $this->environment_ids = $environment_ids ?? ;
+  }
 }
 
 class DescribeEnvironmentsResult {
   public EnvironmentList $environments;
+
+  public function __construct(shape(
+  ?'environments' => EnvironmentList,
+  ) $s = shape()) {
+    $this->environments = $environments ?? ;
+  }
 }
 
 class Environment {
@@ -110,31 +227,53 @@ class Environment {
   public EnvironmentName $name;
   public string $owner_arn;
   public EnvironmentType $type;
+
+  public function __construct(shape(
+  ?'arn' => string,
+  ?'description' => EnvironmentDescription,
+  ?'id' => EnvironmentId,
+  ?'lifecycle' => EnvironmentLifecycle,
+  ?'name' => EnvironmentName,
+  ?'owner_arn' => string,
+  ?'type' => EnvironmentType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->id = $id ?? ;
+    $this->lifecycle = $lifecycle ?? ;
+    $this->name = $name ?? ;
+    $this->owner_arn = $owner_arn ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class EnvironmentArn {
-}
+type EnvironmentArn = string;
 
-class EnvironmentDescription {
-}
+type EnvironmentDescription = string;
 
-class EnvironmentId {
-}
+type EnvironmentId = string;
 
-class EnvironmentIdList {
-}
+type EnvironmentIdList = vec<EnvironmentId>;
 
 class EnvironmentLifecycle {
   public string $failure_resource;
   public string $reason;
   public EnvironmentLifecycleStatus $status;
+
+  public function __construct(shape(
+  ?'failure_resource' => string,
+  ?'reason' => string,
+  ?'status' => EnvironmentLifecycleStatus,
+  ) $s = shape()) {
+    $this->failure_resource = $failure_resource ?? ;
+    $this->reason = $reason ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class EnvironmentLifecycleStatus {
-}
+type EnvironmentLifecycleStatus = string;
 
-class EnvironmentList {
-}
+type EnvironmentList = vec<Environment>;
 
 class EnvironmentMember {
   public EnvironmentId $environment_id;
@@ -142,129 +281,236 @@ class EnvironmentMember {
   public Permissions $permissions;
   public UserArn $user_arn;
   public string $user_id;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ?'last_access' => Timestamp,
+  ?'permissions' => Permissions,
+  ?'user_arn' => UserArn,
+  ?'user_id' => string,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+    $this->last_access = $last_access ?? ;
+    $this->permissions = $permissions ?? ;
+    $this->user_arn = $user_arn ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
-class EnvironmentMembersList {
-}
+type EnvironmentMembersList = vec<EnvironmentMember>;
 
-class EnvironmentName {
-}
+type EnvironmentName = string;
 
-class EnvironmentStatus {
-}
+type EnvironmentStatus = string;
 
-class EnvironmentType {
-}
+type EnvironmentType = string;
 
 class ForbiddenException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class InstanceType {
-}
+type InstanceType = string;
 
 class InternalServerErrorException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class LimitExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListEnvironmentsRequest {
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListEnvironmentsResult {
   public EnvironmentIdList $environment_ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'environment_ids' => EnvironmentIdList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->environment_ids = $environment_ids ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public EnvironmentArn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => EnvironmentArn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class MemberPermissions {
-}
+type MemberPermissions = string;
 
 class NotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Permissions {
-}
+type Permissions = string;
 
-class PermissionsList {
-}
+type PermissionsList = vec<Permissions>;
 
-class String {
-}
+type String = string;
 
-class SubnetId {
-}
+type SubnetId = string;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TagResourceRequest {
   public EnvironmentArn $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => EnvironmentArn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class Timestamp {
-}
+type Timestamp = int;
 
 class TooManyRequestsException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UntagResourceRequest {
   public EnvironmentArn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => EnvironmentArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateEnvironmentMembershipRequest {
   public EnvironmentId $environment_id;
   public MemberPermissions $permissions;
   public UserArn $user_arn;
+
+  public function __construct(shape(
+  ?'environment_id' => EnvironmentId,
+  ?'permissions' => MemberPermissions,
+  ?'user_arn' => UserArn,
+  ) $s = shape()) {
+    $this->environment_id = $environment_id ?? ;
+    $this->permissions = $permissions ?? ;
+    $this->user_arn = $user_arn ?? ;
+  }
 }
 
 class UpdateEnvironmentMembershipResult {
   public EnvironmentMember $membership;
+
+  public function __construct(shape(
+  ?'membership' => EnvironmentMember,
+  ) $s = shape()) {
+    $this->membership = $membership ?? ;
+  }
 }
 
 class UpdateEnvironmentRequest {
   public EnvironmentDescription $description;
   public EnvironmentId $environment_id;
   public EnvironmentName $name;
+
+  public function __construct(shape(
+  ?'description' => EnvironmentDescription,
+  ?'environment_id' => EnvironmentId,
+  ?'name' => EnvironmentName,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->environment_id = $environment_id ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateEnvironmentResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class UserArn {
-}
+type UserArn = string;
 

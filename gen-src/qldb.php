@@ -19,14 +19,25 @@ interface QLDB {
   public function UpdateLedger(UpdateLedgerRequest): Awaitable<Errors\Result<UpdateLedgerResponse>>;
 }
 
-class Arn {
-}
+type Arn = string;
 
 class CreateLedgerRequest {
   public DeletionProtection $deletion_protection;
   public LedgerName $name;
   public PermissionsMode $permissions_mode;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'deletion_protection' => DeletionProtection,
+  ?'name' => LedgerName,
+  ?'permissions_mode' => PermissionsMode,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->deletion_protection = $deletion_protection ?? false;
+    $this->name = $name ?? ;
+    $this->permissions_mode = $permissions_mode ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateLedgerResponse {
@@ -35,26 +46,65 @@ class CreateLedgerResponse {
   public DeletionProtection $deletion_protection;
   public LedgerName $name;
   public LedgerState $state;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'creation_date_time' => Timestamp,
+  ?'deletion_protection' => DeletionProtection,
+  ?'name' => LedgerName,
+  ?'state' => LedgerState,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? ;
+    $this->deletion_protection = $deletion_protection ?? false;
+    $this->name = $name ?? ;
+    $this->state = $state ?? ;
+  }
 }
 
 class DeleteLedgerRequest {
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
-class DeletionProtection {
-}
+type DeletionProtection = bool;
 
 class DescribeJournalS3ExportRequest {
   public UniqueId $export_id;
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'export_id' => UniqueId,
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->export_id = $export_id ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class DescribeJournalS3ExportResponse {
   public JournalS3ExportDescription $export_description;
+
+  public function __construct(shape(
+  ?'export_description' => JournalS3ExportDescription,
+  ) $s = shape()) {
+    $this->export_description = $export_description ?? ;
+  }
 }
 
 class DescribeLedgerRequest {
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DescribeLedgerResponse {
@@ -63,13 +113,25 @@ class DescribeLedgerResponse {
   public DeletionProtection $deletion_protection;
   public LedgerName $name;
   public LedgerState $state;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'creation_date_time' => Timestamp,
+  ?'deletion_protection' => DeletionProtection,
+  ?'name' => LedgerName,
+  ?'state' => LedgerState,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? ;
+    $this->deletion_protection = $deletion_protection ?? false;
+    $this->name = $name ?? ;
+    $this->state = $state ?? ;
+  }
 }
 
-class Digest {
-}
+type Digest = string;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class ExportJournalToS3Request {
   public Timestamp $exclusive_end_time;
@@ -77,33 +139,84 @@ class ExportJournalToS3Request {
   public LedgerName $name;
   public Arn $role_arn;
   public S3ExportConfiguration $s_3_export_configuration;
+
+  public function __construct(shape(
+  ?'exclusive_end_time' => Timestamp,
+  ?'inclusive_start_time' => Timestamp,
+  ?'name' => LedgerName,
+  ?'role_arn' => Arn,
+  ?'s_3_export_configuration' => S3ExportConfiguration,
+  ) $s = shape()) {
+    $this->exclusive_end_time = $exclusive_end_time ?? ;
+    $this->inclusive_start_time = $inclusive_start_time ?? ;
+    $this->name = $name ?? ;
+    $this->role_arn = $role_arn ?? ;
+    $this->s_3_export_configuration = $s_3_export_configuration ?? null;
+  }
 }
 
 class ExportJournalToS3Response {
   public UniqueId $export_id;
+
+  public function __construct(shape(
+  ?'export_id' => UniqueId,
+  ) $s = shape()) {
+    $this->export_id = $export_id ?? ;
+  }
 }
 
-class ExportStatus {
-}
+type ExportStatus = string;
 
 class GetBlockRequest {
   public ValueHolder $block_address;
   public ValueHolder $digest_tip_address;
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'block_address' => ValueHolder,
+  ?'digest_tip_address' => ValueHolder,
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->block_address = $block_address ?? ;
+    $this->digest_tip_address = $digest_tip_address ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class GetBlockResponse {
   public ValueHolder $block;
   public ValueHolder $proof;
+
+  public function __construct(shape(
+  ?'block' => ValueHolder,
+  ?'proof' => ValueHolder,
+  ) $s = shape()) {
+    $this->block = $block ?? ;
+    $this->proof = $proof ?? ;
+  }
 }
 
 class GetDigestRequest {
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class GetDigestResponse {
   public Digest $digest;
   public ValueHolder $digest_tip_address;
+
+  public function __construct(shape(
+  ?'digest' => Digest,
+  ?'digest_tip_address' => ValueHolder,
+  ) $s = shape()) {
+    $this->digest = $digest ?? "";
+    $this->digest_tip_address = $digest_tip_address ?? ;
+  }
 }
 
 class GetRevisionRequest {
@@ -111,20 +224,47 @@ class GetRevisionRequest {
   public ValueHolder $digest_tip_address;
   public UniqueId $document_id;
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'block_address' => ValueHolder,
+  ?'digest_tip_address' => ValueHolder,
+  ?'document_id' => UniqueId,
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->block_address = $block_address ?? ;
+    $this->digest_tip_address = $digest_tip_address ?? ;
+    $this->document_id = $document_id ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class GetRevisionResponse {
   public ValueHolder $proof;
   public ValueHolder $revision;
+
+  public function __construct(shape(
+  ?'proof' => ValueHolder,
+  ?'revision' => ValueHolder,
+  ) $s = shape()) {
+    $this->proof = $proof ?? ;
+    $this->revision = $revision ?? ;
+  }
 }
 
 class InvalidParameterException {
   public ErrorMessage $message;
   public ParameterName $parameter_name;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'parameter_name' => ParameterName,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->parameter_name = $parameter_name ?? "";
+  }
 }
 
-class IonText {
-}
+type IonText = string;
 
 class JournalS3ExportDescription {
   public Timestamp $exclusive_end_time;
@@ -135,169 +275,340 @@ class JournalS3ExportDescription {
   public Arn $role_arn;
   public S3ExportConfiguration $s_3_export_configuration;
   public ExportStatus $status;
+
+  public function __construct(shape(
+  ?'exclusive_end_time' => Timestamp,
+  ?'export_creation_time' => Timestamp,
+  ?'export_id' => UniqueId,
+  ?'inclusive_start_time' => Timestamp,
+  ?'ledger_name' => LedgerName,
+  ?'role_arn' => Arn,
+  ?'s_3_export_configuration' => S3ExportConfiguration,
+  ?'status' => ExportStatus,
+  ) $s = shape()) {
+    $this->exclusive_end_time = $exclusive_end_time ?? ;
+    $this->export_creation_time = $export_creation_time ?? ;
+    $this->export_id = $export_id ?? ;
+    $this->inclusive_start_time = $inclusive_start_time ?? ;
+    $this->ledger_name = $ledger_name ?? "";
+    $this->role_arn = $role_arn ?? ;
+    $this->s_3_export_configuration = $s_3_export_configuration ?? null;
+    $this->status = $status ?? ;
+  }
 }
 
-class JournalS3ExportList {
-}
+type JournalS3ExportList = vec<JournalS3ExportDescription>;
 
-class LedgerList {
-}
+type LedgerList = vec<LedgerSummary>;
 
-class LedgerName {
-}
+type LedgerName = string;
 
-class LedgerState {
-}
+type LedgerState = string;
 
 class LedgerSummary {
   public Timestamp $creation_date_time;
   public LedgerName $name;
   public LedgerState $state;
+
+  public function __construct(shape(
+  ?'creation_date_time' => Timestamp,
+  ?'name' => LedgerName,
+  ?'state' => LedgerState,
+  ) $s = shape()) {
+    $this->creation_date_time = $creation_date_time ?? ;
+    $this->name = $name ?? ;
+    $this->state = $state ?? ;
+  }
 }
 
 class LimitExceededException {
   public ErrorMessage $message;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? "";
+  }
 }
 
 class ListJournalS3ExportsForLedgerRequest {
   public MaxResults $max_results;
   public LedgerName $name;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'name' => LedgerName,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? ;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListJournalS3ExportsForLedgerResponse {
   public JournalS3ExportList $journal_s_3_exports;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'journal_s_3_exports' => JournalS3ExportList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->journal_s_3_exports = $journal_s_3_exports ?? ;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListJournalS3ExportsRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListJournalS3ExportsResponse {
   public JournalS3ExportList $journal_s_3_exports;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'journal_s_3_exports' => JournalS3ExportList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->journal_s_3_exports = $journal_s_3_exports ?? ;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListLedgersRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListLedgersResponse {
   public LedgerList $ledgers;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'ledgers' => LedgerList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->ledgers = $ledgers ?? ;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListTagsForResourceRequest {
   public Arn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->tags = $tags ?? [];
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class NextToken {
-}
+type NextToken = string;
 
-class ParameterName {
-}
+type ParameterName = string;
 
-class PermissionsMode {
-}
+type PermissionsMode = string;
 
 class ResourceAlreadyExistsException {
   public ErrorMessage $message;
   public ResourceName $resource_name;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'resource_name' => ResourceName,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+  }
 }
 
 class ResourceInUseException {
   public ErrorMessage $message;
   public ResourceName $resource_name;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'resource_name' => ResourceName,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+  }
 }
 
-class ResourceName {
-}
+type ResourceName = string;
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
   public ResourceName $resource_name;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'resource_name' => ResourceName,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+  }
 }
 
 class ResourcePreconditionNotMetException {
   public ErrorMessage $message;
   public ResourceName $resource_name;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'resource_name' => ResourceName,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? "";
+    $this->resource_type = $resource_type ?? "";
+  }
 }
 
-class ResourceType {
-}
+type ResourceType = string;
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
 class S3EncryptionConfiguration {
   public Arn $kms_key_arn;
   public S3ObjectEncryptionType $object_encryption_type;
+
+  public function __construct(shape(
+  ?'kms_key_arn' => Arn,
+  ?'object_encryption_type' => S3ObjectEncryptionType,
+  ) $s = shape()) {
+    $this->kms_key_arn = $kms_key_arn ?? ;
+    $this->object_encryption_type = $object_encryption_type ?? ;
+  }
 }
 
 class S3ExportConfiguration {
   public S3Bucket $bucket;
   public S3EncryptionConfiguration $encryption_configuration;
   public S3Prefix $prefix;
+
+  public function __construct(shape(
+  ?'bucket' => S3Bucket,
+  ?'encryption_configuration' => S3EncryptionConfiguration,
+  ?'prefix' => S3Prefix,
+  ) $s = shape()) {
+    $this->bucket = $bucket ?? ;
+    $this->encryption_configuration = $encryption_configuration ?? ;
+    $this->prefix = $prefix ?? ;
+  }
 }
 
-class S3ObjectEncryptionType {
-}
+type S3ObjectEncryptionType = string;
 
-class S3Prefix {
-}
+type S3Prefix = string;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
 class TagResourceRequest {
   public Arn $resource_arn;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = dict<TagKey, TagValue>;
 
-class Timestamp {
-}
+type Timestamp = int;
 
-class UniqueId {
-}
+type UniqueId = string;
 
 class UntagResourceRequest {
   public Arn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateLedgerRequest {
   public DeletionProtection $deletion_protection;
   public LedgerName $name;
+
+  public function __construct(shape(
+  ?'deletion_protection' => DeletionProtection,
+  ?'name' => LedgerName,
+  ) $s = shape()) {
+    $this->deletion_protection = $deletion_protection ?? false;
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateLedgerResponse {
@@ -306,9 +617,29 @@ class UpdateLedgerResponse {
   public DeletionProtection $deletion_protection;
   public LedgerName $name;
   public LedgerState $state;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'creation_date_time' => Timestamp,
+  ?'deletion_protection' => DeletionProtection,
+  ?'name' => LedgerName,
+  ?'state' => LedgerState,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->creation_date_time = $creation_date_time ?? ;
+    $this->deletion_protection = $deletion_protection ?? false;
+    $this->name = $name ?? ;
+    $this->state = $state ?? ;
+  }
 }
 
 class ValueHolder {
   public IonText $ion_text;
+
+  public function __construct(shape(
+  ?'ion_text' => IonText,
+  ) $s = shape()) {
+    $this->ion_text = $ion_text ?? "";
+  }
 }
 

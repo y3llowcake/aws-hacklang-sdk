@@ -50,46 +50,78 @@ interface Rekognition {
 }
 
 class AccessDeniedException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AgeRange {
   public UInteger $high;
   public UInteger $low;
+
+  public function __construct(shape(
+  ?'high' => UInteger,
+  ?'low' => UInteger,
+  ) $s = shape()) {
+    $this->high = $high ?? ;
+    $this->low = $low ?? ;
+  }
 }
 
 class Asset {
   public GroundTruthManifest $ground_truth_manifest;
+
+  public function __construct(shape(
+  ?'ground_truth_manifest' => GroundTruthManifest,
+  ) $s = shape()) {
+    $this->ground_truth_manifest = $ground_truth_manifest ?? null;
+  }
 }
 
-class Assets {
-}
+type Assets = vec<Asset>;
 
-class Attribute {
-}
+type Attribute = string;
 
-class Attributes {
-}
+type Attributes = vec<Attribute>;
 
 class Beard {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
 class BoundingBox {
   public Float $height;
   public Float $left;
   public Float $top;
   public Float $width;
+
+  public function __construct(shape(
+  ?'height' => Float,
+  ?'left' => Float,
+  ?'top' => Float,
+  ?'width' => Float,
+  ) $s = shape()) {
+    $this->height = $height ?? ;
+    $this->left = $left ?? ;
+    $this->top = $top ?? ;
+    $this->width = $width ?? ;
+  }
 }
 
-class BoundingBoxHeight {
-}
+type BoundingBoxHeight = float;
 
-class BoundingBoxWidth {
-}
+type BoundingBoxWidth = float;
 
 class Celebrity {
   public ComparedFace $face;
@@ -97,6 +129,20 @@ class Celebrity {
   public Percent $match_confidence;
   public string $name;
   public Urls $urls;
+
+  public function __construct(shape(
+  ?'face' => ComparedFace,
+  ?'id' => RekognitionUniqueId,
+  ?'match_confidence' => Percent,
+  ?'name' => string,
+  ?'urls' => Urls,
+  ) $s = shape()) {
+    $this->face = $face ?? null;
+    $this->id = $id ?? ;
+    $this->match_confidence = $match_confidence ?? ;
+    $this->name = $name ?? ;
+    $this->urls = $urls ?? [];
+  }
 }
 
 class CelebrityDetail {
@@ -106,44 +152,81 @@ class CelebrityDetail {
   public RekognitionUniqueId $id;
   public string $name;
   public Urls $urls;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ?'face' => FaceDetail,
+  ?'id' => RekognitionUniqueId,
+  ?'name' => string,
+  ?'urls' => Urls,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+    $this->face = $face ?? null;
+    $this->id = $id ?? ;
+    $this->name = $name ?? ;
+    $this->urls = $urls ?? [];
+  }
 }
 
-class CelebrityList {
-}
+type CelebrityList = vec<Celebrity>;
 
 class CelebrityRecognition {
   public CelebrityDetail $celebrity;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'celebrity' => CelebrityDetail,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->celebrity = $celebrity ?? null;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class CelebrityRecognitionSortBy {
-}
+type CelebrityRecognitionSortBy = string;
 
-class CelebrityRecognitions {
-}
+type CelebrityRecognitions = vec<CelebrityRecognition>;
 
-class ClientRequestToken {
-}
+type ClientRequestToken = string;
 
-class CollectionId {
-}
+type CollectionId = string;
 
-class CollectionIdList {
-}
+type CollectionIdList = vec<CollectionId>;
 
 class CompareFacesMatch {
   public ComparedFace $face;
   public Percent $similarity;
+
+  public function __construct(shape(
+  ?'face' => ComparedFace,
+  ?'similarity' => Percent,
+  ) $s = shape()) {
+    $this->face = $face ?? null;
+    $this->similarity = $similarity ?? ;
+  }
 }
 
-class CompareFacesMatchList {
-}
+type CompareFacesMatchList = vec<CompareFacesMatch>;
 
 class CompareFacesRequest {
   public QualityFilter $quality_filter;
   public Percent $similarity_threshold;
   public Image $source_image;
   public Image $target_image;
+
+  public function __construct(shape(
+  ?'quality_filter' => QualityFilter,
+  ?'similarity_threshold' => Percent,
+  ?'source_image' => Image,
+  ?'target_image' => Image,
+  ) $s = shape()) {
+    $this->quality_filter = $quality_filter ?? "";
+    $this->similarity_threshold = $similarity_threshold ?? ;
+    $this->source_image = $source_image ?? ;
+    $this->target_image = $target_image ?? ;
+  }
 }
 
 class CompareFacesResponse {
@@ -152,10 +235,23 @@ class CompareFacesResponse {
   public OrientationCorrection $source_image_orientation_correction;
   public OrientationCorrection $target_image_orientation_correction;
   public CompareFacesUnmatchList $unmatched_faces;
+
+  public function __construct(shape(
+  ?'face_matches' => CompareFacesMatchList,
+  ?'source_image_face' => ComparedSourceImageFace,
+  ?'source_image_orientation_correction' => OrientationCorrection,
+  ?'target_image_orientation_correction' => OrientationCorrection,
+  ?'unmatched_faces' => CompareFacesUnmatchList,
+  ) $s = shape()) {
+    $this->face_matches = $face_matches ?? ;
+    $this->source_image_face = $source_image_face ?? ;
+    $this->source_image_orientation_correction = $source_image_orientation_correction ?? ;
+    $this->target_image_orientation_correction = $target_image_orientation_correction ?? ;
+    $this->unmatched_faces = $unmatched_faces ?? ;
+  }
 }
 
-class CompareFacesUnmatchList {
-}
+type CompareFacesUnmatchList = vec<ComparedFace>;
 
 class ComparedFace {
   public BoundingBox $bounding_box;
@@ -163,49 +259,102 @@ class ComparedFace {
   public Landmarks $landmarks;
   public Pose $pose;
   public ImageQuality $quality;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ?'landmarks' => Landmarks,
+  ?'pose' => Pose,
+  ?'quality' => ImageQuality,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+    $this->landmarks = $landmarks ?? [];
+    $this->pose = $pose ?? null;
+    $this->quality = $quality ?? ;
+  }
 }
 
-class ComparedFaceList {
-}
+type ComparedFaceList = vec<ComparedFace>;
 
 class ComparedSourceImageFace {
   public BoundingBox $bounding_box;
   public Percent $confidence;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+  }
 }
 
-class ContentClassifier {
-}
+type ContentClassifier = string;
 
-class ContentClassifiers {
-}
+type ContentClassifiers = vec<ContentClassifier>;
 
 class ContentModerationDetection {
   public ModerationLabel $moderation_label;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'moderation_label' => ModerationLabel,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->moderation_label = $moderation_label ?? null;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class ContentModerationDetections {
-}
+type ContentModerationDetections = vec<ContentModerationDetection>;
 
-class ContentModerationSortBy {
-}
+type ContentModerationSortBy = string;
 
 class CreateCollectionRequest {
   public CollectionId $collection_id;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+  }
 }
 
 class CreateCollectionResponse {
   public string $collection_arn;
   public string $face_model_version;
   public UInteger $status_code;
+
+  public function __construct(shape(
+  ?'collection_arn' => string,
+  ?'face_model_version' => string,
+  ?'status_code' => UInteger,
+  ) $s = shape()) {
+    $this->collection_arn = $collection_arn ?? ;
+    $this->face_model_version = $face_model_version ?? ;
+    $this->status_code = $status_code ?? ;
+  }
 }
 
 class CreateProjectRequest {
   public ProjectName $project_name;
+
+  public function __construct(shape(
+  ?'project_name' => ProjectName,
+  ) $s = shape()) {
+    $this->project_name = $project_name ?? "";
+  }
 }
 
 class CreateProjectResponse {
   public ProjectArn $project_arn;
+
+  public function __construct(shape(
+  ?'project_arn' => ProjectArn,
+  ) $s = shape()) {
+    $this->project_arn = $project_arn ?? "";
+  }
 }
 
 class CreateProjectVersionRequest {
@@ -214,10 +363,30 @@ class CreateProjectVersionRequest {
   public TestingData $testing_data;
   public TrainingData $training_data;
   public VersionName $version_name;
+
+  public function __construct(shape(
+  ?'output_config' => OutputConfig,
+  ?'project_arn' => ProjectArn,
+  ?'testing_data' => TestingData,
+  ?'training_data' => TrainingData,
+  ?'version_name' => VersionName,
+  ) $s = shape()) {
+    $this->output_config = $output_config ?? null;
+    $this->project_arn = $project_arn ?? "";
+    $this->testing_data = $testing_data ?? null;
+    $this->training_data = $training_data ?? null;
+    $this->version_name = $version_name ?? "";
+  }
 }
 
 class CreateProjectVersionResponse {
   public ProjectVersionArn $project_version_arn;
+
+  public function __construct(shape(
+  ?'project_version_arn' => ProjectVersionArn,
+  ) $s = shape()) {
+    $this->project_version_arn = $project_version_arn ?? "";
+  }
 }
 
 class CreateStreamProcessorRequest {
@@ -226,69 +395,162 @@ class CreateStreamProcessorRequest {
   public StreamProcessorOutput $output;
   public RoleArn $role_arn;
   public StreamProcessorSettings $settings;
+
+  public function __construct(shape(
+  ?'input' => StreamProcessorInput,
+  ?'name' => StreamProcessorName,
+  ?'output' => StreamProcessorOutput,
+  ?'role_arn' => RoleArn,
+  ?'settings' => StreamProcessorSettings,
+  ) $s = shape()) {
+    $this->input = $input ?? ;
+    $this->name = $name ?? ;
+    $this->output = $output ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->settings = $settings ?? ;
+  }
 }
 
 class CreateStreamProcessorResponse {
   public StreamProcessorArn $stream_processor_arn;
+
+  public function __construct(shape(
+  ?'stream_processor_arn' => StreamProcessorArn,
+  ) $s = shape()) {
+    $this->stream_processor_arn = $stream_processor_arn ?? "";
+  }
 }
 
 class CustomLabel {
   public Percent $confidence;
   public Geometry $geometry;
   public string $name;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'geometry' => Geometry,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->geometry = $geometry ?? null;
+    $this->name = $name ?? ;
+  }
 }
 
-class CustomLabels {
-}
+type CustomLabels = vec<CustomLabel>;
 
-class DateTime {
-}
+type DateTime = int;
 
-class Degree {
-}
+type Degree = float;
 
 class DeleteCollectionRequest {
   public CollectionId $collection_id;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+  }
 }
 
 class DeleteCollectionResponse {
   public UInteger $status_code;
+
+  public function __construct(shape(
+  ?'status_code' => UInteger,
+  ) $s = shape()) {
+    $this->status_code = $status_code ?? ;
+  }
 }
 
 class DeleteFacesRequest {
   public CollectionId $collection_id;
   public FaceIdList $face_ids;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'face_ids' => FaceIdList,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->face_ids = $face_ids ?? ;
+  }
 }
 
 class DeleteFacesResponse {
   public FaceIdList $deleted_faces;
+
+  public function __construct(shape(
+  ?'deleted_faces' => FaceIdList,
+  ) $s = shape()) {
+    $this->deleted_faces = $deleted_faces ?? ;
+  }
 }
 
 class DeleteProjectRequest {
   public ProjectArn $project_arn;
+
+  public function __construct(shape(
+  ?'project_arn' => ProjectArn,
+  ) $s = shape()) {
+    $this->project_arn = $project_arn ?? "";
+  }
 }
 
 class DeleteProjectResponse {
   public ProjectStatus $status;
+
+  public function __construct(shape(
+  ?'status' => ProjectStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class DeleteProjectVersionRequest {
   public ProjectVersionArn $project_version_arn;
+
+  public function __construct(shape(
+  ?'project_version_arn' => ProjectVersionArn,
+  ) $s = shape()) {
+    $this->project_version_arn = $project_version_arn ?? "";
+  }
 }
 
 class DeleteProjectVersionResponse {
   public ProjectVersionStatus $status;
+
+  public function __construct(shape(
+  ?'status' => ProjectVersionStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class DeleteStreamProcessorRequest {
   public StreamProcessorName $name;
+
+  public function __construct(shape(
+  ?'name' => StreamProcessorName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DeleteStreamProcessorResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeCollectionRequest {
   public CollectionId $collection_id;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+  }
 }
 
 class DescribeCollectionResponse {
@@ -296,6 +558,18 @@ class DescribeCollectionResponse {
   public DateTime $creation_timestamp;
   public ULong $face_count;
   public string $face_model_version;
+
+  public function __construct(shape(
+  ?'collection_arn' => string,
+  ?'creation_timestamp' => DateTime,
+  ?'face_count' => ULong,
+  ?'face_model_version' => string,
+  ) $s = shape()) {
+    $this->collection_arn = $collection_arn ?? ;
+    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->face_count = $face_count ?? ;
+    $this->face_model_version = $face_model_version ?? ;
+  }
 }
 
 class DescribeProjectVersionsRequest {
@@ -303,25 +577,67 @@ class DescribeProjectVersionsRequest {
   public ExtendedPaginationToken $next_token;
   public ProjectArn $project_arn;
   public VersionNames $version_names;
+
+  public function __construct(shape(
+  ?'max_results' => ProjectVersionsPageSize,
+  ?'next_token' => ExtendedPaginationToken,
+  ?'project_arn' => ProjectArn,
+  ?'version_names' => VersionNames,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->project_arn = $project_arn ?? "";
+    $this->version_names = $version_names ?? [];
+  }
 }
 
 class DescribeProjectVersionsResponse {
   public ExtendedPaginationToken $next_token;
   public ProjectVersionDescriptions $project_version_descriptions;
+
+  public function __construct(shape(
+  ?'next_token' => ExtendedPaginationToken,
+  ?'project_version_descriptions' => ProjectVersionDescriptions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->project_version_descriptions = $project_version_descriptions ?? [];
+  }
 }
 
 class DescribeProjectsRequest {
   public ProjectsPageSize $max_results;
   public ExtendedPaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => ProjectsPageSize,
+  ?'next_token' => ExtendedPaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeProjectsResponse {
   public ExtendedPaginationToken $next_token;
   public ProjectDescriptions $project_descriptions;
+
+  public function __construct(shape(
+  ?'next_token' => ExtendedPaginationToken,
+  ?'project_descriptions' => ProjectDescriptions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->project_descriptions = $project_descriptions ?? [];
+  }
 }
 
 class DescribeStreamProcessorRequest {
   public StreamProcessorName $name;
+
+  public function __construct(shape(
+  ?'name' => StreamProcessorName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DescribeStreamProcessorResponse {
@@ -335,6 +651,30 @@ class DescribeStreamProcessorResponse {
   public StreamProcessorStatus $status;
   public string $status_message;
   public StreamProcessorArn $stream_processor_arn;
+
+  public function __construct(shape(
+  ?'creation_timestamp' => DateTime,
+  ?'input' => StreamProcessorInput,
+  ?'last_update_timestamp' => DateTime,
+  ?'name' => StreamProcessorName,
+  ?'output' => StreamProcessorOutput,
+  ?'role_arn' => RoleArn,
+  ?'settings' => StreamProcessorSettings,
+  ?'status' => StreamProcessorStatus,
+  ?'status_message' => string,
+  ?'stream_processor_arn' => StreamProcessorArn,
+  ) $s = shape()) {
+    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->input = $input ?? ;
+    $this->last_update_timestamp = $last_update_timestamp ?? ;
+    $this->name = $name ?? ;
+    $this->output = $output ?? ;
+    $this->role_arn = $role_arn ?? "";
+    $this->settings = $settings ?? ;
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->stream_processor_arn = $stream_processor_arn ?? "";
+  }
 }
 
 class DetectCustomLabelsRequest {
@@ -342,97 +682,233 @@ class DetectCustomLabelsRequest {
   public UInteger $max_results;
   public Percent $min_confidence;
   public ProjectVersionArn $project_version_arn;
+
+  public function __construct(shape(
+  ?'image' => Image,
+  ?'max_results' => UInteger,
+  ?'min_confidence' => Percent,
+  ?'project_version_arn' => ProjectVersionArn,
+  ) $s = shape()) {
+    $this->image = $image ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->min_confidence = $min_confidence ?? ;
+    $this->project_version_arn = $project_version_arn ?? "";
+  }
 }
 
 class DetectCustomLabelsResponse {
   public CustomLabels $custom_labels;
+
+  public function __construct(shape(
+  ?'custom_labels' => CustomLabels,
+  ) $s = shape()) {
+    $this->custom_labels = $custom_labels ?? [];
+  }
 }
 
 class DetectFacesRequest {
   public Attributes $attributes;
   public Image $image;
+
+  public function __construct(shape(
+  ?'attributes' => Attributes,
+  ?'image' => Image,
+  ) $s = shape()) {
+    $this->attributes = $attributes ?? [];
+    $this->image = $image ?? null;
+  }
 }
 
 class DetectFacesResponse {
   public FaceDetailList $face_details;
   public OrientationCorrection $orientation_correction;
+
+  public function __construct(shape(
+  ?'face_details' => FaceDetailList,
+  ?'orientation_correction' => OrientationCorrection,
+  ) $s = shape()) {
+    $this->face_details = $face_details ?? ;
+    $this->orientation_correction = $orientation_correction ?? "";
+  }
 }
 
 class DetectLabelsRequest {
   public Image $image;
   public UInteger $max_labels;
   public Percent $min_confidence;
+
+  public function __construct(shape(
+  ?'image' => Image,
+  ?'max_labels' => UInteger,
+  ?'min_confidence' => Percent,
+  ) $s = shape()) {
+    $this->image = $image ?? null;
+    $this->max_labels = $max_labels ?? ;
+    $this->min_confidence = $min_confidence ?? ;
+  }
 }
 
 class DetectLabelsResponse {
   public string $label_model_version;
   public Labels $labels;
   public OrientationCorrection $orientation_correction;
+
+  public function __construct(shape(
+  ?'label_model_version' => string,
+  ?'labels' => Labels,
+  ?'orientation_correction' => OrientationCorrection,
+  ) $s = shape()) {
+    $this->label_model_version = $label_model_version ?? ;
+    $this->labels = $labels ?? [];
+    $this->orientation_correction = $orientation_correction ?? "";
+  }
 }
 
 class DetectModerationLabelsRequest {
   public HumanLoopConfig $human_loop_config;
   public Image $image;
   public Percent $min_confidence;
+
+  public function __construct(shape(
+  ?'human_loop_config' => HumanLoopConfig,
+  ?'image' => Image,
+  ?'min_confidence' => Percent,
+  ) $s = shape()) {
+    $this->human_loop_config = $human_loop_config ?? null;
+    $this->image = $image ?? null;
+    $this->min_confidence = $min_confidence ?? ;
+  }
 }
 
 class DetectModerationLabelsResponse {
   public HumanLoopActivationOutput $human_loop_activation_output;
   public ModerationLabels $moderation_labels;
   public string $moderation_model_version;
+
+  public function __construct(shape(
+  ?'human_loop_activation_output' => HumanLoopActivationOutput,
+  ?'moderation_labels' => ModerationLabels,
+  ?'moderation_model_version' => string,
+  ) $s = shape()) {
+    $this->human_loop_activation_output = $human_loop_activation_output ?? null;
+    $this->moderation_labels = $moderation_labels ?? [];
+    $this->moderation_model_version = $moderation_model_version ?? ;
+  }
 }
 
 class DetectTextFilters {
   public RegionsOfInterest $regions_of_interest;
   public DetectionFilter $word_filter;
+
+  public function __construct(shape(
+  ?'regions_of_interest' => RegionsOfInterest,
+  ?'word_filter' => DetectionFilter,
+  ) $s = shape()) {
+    $this->regions_of_interest = $regions_of_interest ?? [];
+    $this->word_filter = $word_filter ?? ;
+  }
 }
 
 class DetectTextRequest {
   public DetectTextFilters $filters;
   public Image $image;
+
+  public function __construct(shape(
+  ?'filters' => DetectTextFilters,
+  ?'image' => Image,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->image = $image ?? null;
+  }
 }
 
 class DetectTextResponse {
   public TextDetectionList $text_detections;
   public string $text_model_version;
+
+  public function __construct(shape(
+  ?'text_detections' => TextDetectionList,
+  ?'text_model_version' => string,
+  ) $s = shape()) {
+    $this->text_detections = $text_detections ?? ;
+    $this->text_model_version = $text_model_version ?? ;
+  }
 }
 
 class DetectionFilter {
   public BoundingBoxHeight $min_bounding_box_height;
   public BoundingBoxWidth $min_bounding_box_width;
   public Percent $min_confidence;
+
+  public function __construct(shape(
+  ?'min_bounding_box_height' => BoundingBoxHeight,
+  ?'min_bounding_box_width' => BoundingBoxWidth,
+  ?'min_confidence' => Percent,
+  ) $s = shape()) {
+    $this->min_bounding_box_height = $min_bounding_box_height ?? ;
+    $this->min_bounding_box_width = $min_bounding_box_width ?? ;
+    $this->min_confidence = $min_confidence ?? ;
+  }
 }
 
 class Emotion {
   public Percent $confidence;
   public EmotionName $type;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'type' => EmotionName,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class EmotionName {
-}
+type EmotionName = string;
 
-class Emotions {
-}
+type Emotions = vec<Emotion>;
 
 class EvaluationResult {
   public Float $f_1_score;
   public Summary $summary;
+
+  public function __construct(shape(
+  ?'f_1_score' => Float,
+  ?'summary' => Summary,
+  ) $s = shape()) {
+    $this->f_1_score = $f_1_score ?? ;
+    $this->summary = $summary ?? null;
+  }
 }
 
-class ExtendedPaginationToken {
-}
+type ExtendedPaginationToken = string;
 
-class ExternalImageId {
-}
+type ExternalImageId = string;
 
 class EyeOpen {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class Eyeglasses {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class Face {
@@ -441,10 +917,23 @@ class Face {
   public ExternalImageId $external_image_id;
   public FaceId $face_id;
   public ImageId $image_id;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ?'external_image_id' => ExternalImageId,
+  ?'face_id' => FaceId,
+  ?'image_id' => ImageId,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+    $this->external_image_id = $external_image_id ?? "";
+    $this->face_id = $face_id ?? "";
+    $this->image_id = $image_id ?? "";
+  }
 }
 
-class FaceAttributes {
-}
+type FaceAttributes = string;
 
 class FaceDetail {
   public AgeRange $age_range;
@@ -462,81 +951,165 @@ class FaceDetail {
   public ImageQuality $quality;
   public Smile $smile;
   public Sunglasses $sunglasses;
+
+  public function __construct(shape(
+  ?'age_range' => AgeRange,
+  ?'beard' => Beard,
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ?'emotions' => Emotions,
+  ?'eyeglasses' => Eyeglasses,
+  ?'eyes_open' => EyeOpen,
+  ?'gender' => Gender,
+  ?'landmarks' => Landmarks,
+  ?'mouth_open' => MouthOpen,
+  ?'mustache' => Mustache,
+  ?'pose' => Pose,
+  ?'quality' => ImageQuality,
+  ?'smile' => Smile,
+  ?'sunglasses' => Sunglasses,
+  ) $s = shape()) {
+    $this->age_range = $age_range ?? null;
+    $this->beard = $beard ?? null;
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+    $this->emotions = $emotions ?? [];
+    $this->eyeglasses = $eyeglasses ?? null;
+    $this->eyes_open = $eyes_open ?? ;
+    $this->gender = $gender ?? null;
+    $this->landmarks = $landmarks ?? [];
+    $this->mouth_open = $mouth_open ?? null;
+    $this->mustache = $mustache ?? null;
+    $this->pose = $pose ?? null;
+    $this->quality = $quality ?? ;
+    $this->smile = $smile ?? null;
+    $this->sunglasses = $sunglasses ?? null;
+  }
 }
 
-class FaceDetailList {
-}
+type FaceDetailList = vec<FaceDetail>;
 
 class FaceDetection {
   public FaceDetail $face;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'face' => FaceDetail,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->face = $face ?? null;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class FaceDetections {
-}
+type FaceDetections = vec<FaceDetection>;
 
-class FaceId {
-}
+type FaceId = string;
 
-class FaceIdList {
-}
+type FaceIdList = vec<FaceId>;
 
-class FaceList {
-}
+type FaceList = vec<Face>;
 
 class FaceMatch {
   public Face $face;
   public Percent $similarity;
+
+  public function __construct(shape(
+  ?'face' => Face,
+  ?'similarity' => Percent,
+  ) $s = shape()) {
+    $this->face = $face ?? null;
+    $this->similarity = $similarity ?? ;
+  }
 }
 
-class FaceMatchList {
-}
+type FaceMatchList = vec<FaceMatch>;
 
-class FaceModelVersionList {
-}
+type FaceModelVersionList = vec<String>;
 
 class FaceRecord {
   public Face $face;
   public FaceDetail $face_detail;
+
+  public function __construct(shape(
+  ?'face' => Face,
+  ?'face_detail' => FaceDetail,
+  ) $s = shape()) {
+    $this->face = $face ?? null;
+    $this->face_detail = $face_detail ?? null;
+  }
 }
 
-class FaceRecordList {
-}
+type FaceRecordList = vec<FaceRecord>;
 
 class FaceSearchSettings {
   public CollectionId $collection_id;
   public Percent $face_match_threshold;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'face_match_threshold' => Percent,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->face_match_threshold = $face_match_threshold ?? ;
+  }
 }
 
-class FaceSearchSortBy {
-}
+type FaceSearchSortBy = string;
 
-class Float {
-}
+type Float = float;
 
-class FlowDefinitionArn {
-}
+type FlowDefinitionArn = string;
 
 class Gender {
   public Percent $confidence;
   public GenderType $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => GenderType,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class GenderType {
-}
+type GenderType = string;
 
 class Geometry {
   public BoundingBox $bounding_box;
   public Polygon $polygon;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'polygon' => Polygon,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->polygon = $polygon ?? [];
+  }
 }
 
 class GetCelebrityInfoRequest {
   public RekognitionUniqueId $id;
+
+  public function __construct(shape(
+  ?'id' => RekognitionUniqueId,
+  ) $s = shape()) {
+    $this->id = $id ?? ;
+  }
 }
 
 class GetCelebrityInfoResponse {
   public string $name;
   public Urls $urls;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ?'urls' => Urls,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->urls = $urls ?? [];
+  }
 }
 
 class GetCelebrityRecognitionRequest {
@@ -544,6 +1117,18 @@ class GetCelebrityRecognitionRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public CelebrityRecognitionSortBy $sort_by;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'sort_by' => CelebrityRecognitionSortBy,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+  }
 }
 
 class GetCelebrityRecognitionResponse {
@@ -552,6 +1137,20 @@ class GetCelebrityRecognitionResponse {
   public PaginationToken $next_token;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'celebrities' => CelebrityRecognitions,
+  ?'job_status' => VideoJobStatus,
+  ?'next_token' => PaginationToken,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->celebrities = $celebrities ?? ;
+    $this->job_status = $job_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetContentModerationRequest {
@@ -559,6 +1158,18 @@ class GetContentModerationRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public ContentModerationSortBy $sort_by;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'sort_by' => ContentModerationSortBy,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+  }
 }
 
 class GetContentModerationResponse {
@@ -568,12 +1179,38 @@ class GetContentModerationResponse {
   public PaginationToken $next_token;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'job_status' => VideoJobStatus,
+  ?'moderation_labels' => ContentModerationDetections,
+  ?'moderation_model_version' => string,
+  ?'next_token' => PaginationToken,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->job_status = $job_status ?? ;
+    $this->moderation_labels = $moderation_labels ?? [];
+    $this->moderation_model_version = $moderation_model_version ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetFaceDetectionRequest {
   public JobId $job_id;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetFaceDetectionResponse {
@@ -582,6 +1219,20 @@ class GetFaceDetectionResponse {
   public PaginationToken $next_token;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'faces' => FaceDetections,
+  ?'job_status' => VideoJobStatus,
+  ?'next_token' => PaginationToken,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->faces = $faces ?? ;
+    $this->job_status = $job_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetFaceSearchRequest {
@@ -589,6 +1240,18 @@ class GetFaceSearchRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public FaceSearchSortBy $sort_by;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'sort_by' => FaceSearchSortBy,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+  }
 }
 
 class GetFaceSearchResponse {
@@ -597,6 +1260,20 @@ class GetFaceSearchResponse {
   public PersonMatches $persons;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'job_status' => VideoJobStatus,
+  ?'next_token' => PaginationToken,
+  ?'persons' => PersonMatches,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->job_status = $job_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->persons = $persons ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetLabelDetectionRequest {
@@ -604,6 +1281,18 @@ class GetLabelDetectionRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public LabelDetectionSortBy $sort_by;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'sort_by' => LabelDetectionSortBy,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+  }
 }
 
 class GetLabelDetectionResponse {
@@ -613,6 +1302,22 @@ class GetLabelDetectionResponse {
   public PaginationToken $next_token;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'job_status' => VideoJobStatus,
+  ?'label_model_version' => string,
+  ?'labels' => LabelDetections,
+  ?'next_token' => PaginationToken,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->job_status = $job_status ?? ;
+    $this->label_model_version = $label_model_version ?? ;
+    $this->labels = $labels ?? [];
+    $this->next_token = $next_token ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetPersonTrackingRequest {
@@ -620,6 +1325,18 @@ class GetPersonTrackingRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public PersonTrackingSortBy $sort_by;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'sort_by' => PersonTrackingSortBy,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+  }
 }
 
 class GetPersonTrackingResponse {
@@ -628,12 +1345,36 @@ class GetPersonTrackingResponse {
   public PersonDetections $persons;
   public StatusMessage $status_message;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'job_status' => VideoJobStatus,
+  ?'next_token' => PaginationToken,
+  ?'persons' => PersonDetections,
+  ?'status_message' => StatusMessage,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->job_status = $job_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->persons = $persons ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GetTextDetectionRequest {
   public JobId $job_id;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetTextDetectionResponse {
@@ -643,69 +1384,144 @@ class GetTextDetectionResponse {
   public TextDetectionResults $text_detections;
   public string $text_model_version;
   public VideoMetadata $video_metadata;
+
+  public function __construct(shape(
+  ?'job_status' => VideoJobStatus,
+  ?'next_token' => PaginationToken,
+  ?'status_message' => StatusMessage,
+  ?'text_detections' => TextDetectionResults,
+  ?'text_model_version' => string,
+  ?'video_metadata' => VideoMetadata,
+  ) $s = shape()) {
+    $this->job_status = $job_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->text_detections = $text_detections ?? ;
+    $this->text_model_version = $text_model_version ?? ;
+    $this->video_metadata = $video_metadata ?? null;
+  }
 }
 
 class GroundTruthManifest {
   public S3Object $s_3_object;
+
+  public function __construct(shape(
+  ?'s_3_object' => S3Object,
+  ) $s = shape()) {
+    $this->s_3_object = $s_3_object ?? null;
+  }
 }
 
-class HumanLoopActivationConditionsEvaluationResults {
-}
+type HumanLoopActivationConditionsEvaluationResults = string;
 
 class HumanLoopActivationOutput {
   public HumanLoopActivationConditionsEvaluationResults $human_loop_activation_conditions_evaluation_results;
   public HumanLoopActivationReasons $human_loop_activation_reasons;
   public HumanLoopArn $human_loop_arn;
+
+  public function __construct(shape(
+  ?'human_loop_activation_conditions_evaluation_results' => HumanLoopActivationConditionsEvaluationResults,
+  ?'human_loop_activation_reasons' => HumanLoopActivationReasons,
+  ?'human_loop_arn' => HumanLoopArn,
+  ) $s = shape()) {
+    $this->human_loop_activation_conditions_evaluation_results = $human_loop_activation_conditions_evaluation_results ?? "";
+    $this->human_loop_activation_reasons = $human_loop_activation_reasons ?? [];
+    $this->human_loop_arn = $human_loop_arn ?? "";
+  }
 }
 
-class HumanLoopActivationReason {
-}
+type HumanLoopActivationReason = string;
 
-class HumanLoopActivationReasons {
-}
+type HumanLoopActivationReasons = vec<HumanLoopActivationReason>;
 
-class HumanLoopArn {
-}
+type HumanLoopArn = string;
 
 class HumanLoopConfig {
   public HumanLoopDataAttributes $data_attributes;
   public FlowDefinitionArn $flow_definition_arn;
   public HumanLoopName $human_loop_name;
+
+  public function __construct(shape(
+  ?'data_attributes' => HumanLoopDataAttributes,
+  ?'flow_definition_arn' => FlowDefinitionArn,
+  ?'human_loop_name' => HumanLoopName,
+  ) $s = shape()) {
+    $this->data_attributes = $data_attributes ?? ;
+    $this->flow_definition_arn = $flow_definition_arn ?? "";
+    $this->human_loop_name = $human_loop_name ?? "";
+  }
 }
 
 class HumanLoopDataAttributes {
   public ContentClassifiers $content_classifiers;
+
+  public function __construct(shape(
+  ?'content_classifiers' => ContentClassifiers,
+  ) $s = shape()) {
+    $this->content_classifiers = $content_classifiers ?? [];
+  }
 }
 
-class HumanLoopName {
-}
+type HumanLoopName = string;
 
 class HumanLoopQuotaExceededException {
   public string $quota_code;
   public string $resource_type;
   public string $service_code;
+
+  public function __construct(shape(
+  ?'quota_code' => string,
+  ?'resource_type' => string,
+  ?'service_code' => string,
+  ) $s = shape()) {
+    $this->quota_code = $quota_code ?? ;
+    $this->resource_type = $resource_type ?? ;
+    $this->service_code = $service_code ?? ;
+  }
 }
 
 class IdempotentParameterMismatchException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class Image {
   public ImageBlob $bytes;
   public S3Object $s_3_object;
+
+  public function __construct(shape(
+  ?'bytes' => ImageBlob,
+  ?'s_3_object' => S3Object,
+  ) $s = shape()) {
+    $this->bytes = $bytes ?? ;
+    $this->s_3_object = $s_3_object ?? null;
+  }
 }
 
-class ImageBlob {
-}
+type ImageBlob = string;
 
-class ImageId {
-}
+type ImageId = string;
 
 class ImageQuality {
   public Float $brightness;
   public Float $sharpness;
+
+  public function __construct(shape(
+  ?'brightness' => Float,
+  ?'sharpness' => Float,
+  ) $s = shape()) {
+    $this->brightness = $brightness ?? ;
+    $this->sharpness = $sharpness ?? ;
+  }
 }
 
 class ImageTooLargeException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class IndexFacesRequest {
@@ -715,6 +1531,22 @@ class IndexFacesRequest {
   public Image $image;
   public MaxFacesToIndex $max_faces;
   public QualityFilter $quality_filter;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'detection_attributes' => Attributes,
+  ?'external_image_id' => ExternalImageId,
+  ?'image' => Image,
+  ?'max_faces' => MaxFacesToIndex,
+  ?'quality_filter' => QualityFilter,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->detection_attributes = $detection_attributes ?? ;
+    $this->external_image_id = $external_image_id ?? "";
+    $this->image = $image ?? null;
+    $this->max_faces = $max_faces ?? 0;
+    $this->quality_filter = $quality_filter ?? "";
+  }
 }
 
 class IndexFacesResponse {
@@ -722,52 +1554,98 @@ class IndexFacesResponse {
   public FaceRecordList $face_records;
   public OrientationCorrection $orientation_correction;
   public UnindexedFaces $unindexed_faces;
+
+  public function __construct(shape(
+  ?'face_model_version' => string,
+  ?'face_records' => FaceRecordList,
+  ?'orientation_correction' => OrientationCorrection,
+  ?'unindexed_faces' => UnindexedFaces,
+  ) $s = shape()) {
+    $this->face_model_version = $face_model_version ?? ;
+    $this->face_records = $face_records ?? ;
+    $this->orientation_correction = $orientation_correction ?? "";
+    $this->unindexed_faces = $unindexed_faces ?? [];
+  }
 }
 
-class InferenceUnits {
-}
+type InferenceUnits = int;
 
 class Instance {
   public BoundingBox $bounding_box;
   public Percent $confidence;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'confidence' => Percent,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->confidence = $confidence ?? ;
+  }
 }
 
-class Instances {
-}
+type Instances = vec<Instance>;
 
 class InternalServerError {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidImageFormatException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidPaginationTokenException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidParameterException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidS3ObjectException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class JobId {
-}
+type JobId = string;
 
-class JobTag {
-}
+type JobTag = string;
 
-class KinesisDataArn {
-}
+type KinesisDataArn = string;
 
 class KinesisDataStream {
   public KinesisDataArn $arn;
+
+  public function __construct(shape(
+  ?'arn' => KinesisDataArn,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
-class KinesisVideoArn {
-}
+type KinesisVideoArn = string;
 
 class KinesisVideoStream {
   public KinesisVideoArn $arn;
+
+  public function __construct(shape(
+  ?'arn' => KinesisVideoArn,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class Label {
@@ -775,190 +1653,358 @@ class Label {
   public Instances $instances;
   public string $name;
   public Parents $parents;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'instances' => Instances,
+  ?'name' => string,
+  ?'parents' => Parents,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->instances = $instances ?? [];
+    $this->name = $name ?? ;
+    $this->parents = $parents ?? [];
+  }
 }
 
 class LabelDetection {
   public Label $label;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'label' => Label,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->label = $label ?? null;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class LabelDetectionSortBy {
-}
+type LabelDetectionSortBy = string;
 
-class LabelDetections {
-}
+type LabelDetections = vec<LabelDetection>;
 
-class Labels {
-}
+type Labels = vec<Label>;
 
 class Landmark {
   public LandmarkType $type;
   public Float $x;
   public Float $y;
+
+  public function __construct(shape(
+  ?'type' => LandmarkType,
+  ?'x' => Float,
+  ?'y' => Float,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->x = $x ?? ;
+    $this->y = $y ?? ;
+  }
 }
 
-class LandmarkType {
-}
+type LandmarkType = string;
 
-class Landmarks {
-}
+type Landmarks = vec<Landmark>;
 
 class LimitExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListCollectionsRequest {
   public PageSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => PageSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListCollectionsResponse {
   public CollectionIdList $collection_ids;
   public FaceModelVersionList $face_model_versions;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'collection_ids' => CollectionIdList,
+  ?'face_model_versions' => FaceModelVersionList,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->collection_ids = $collection_ids ?? ;
+    $this->face_model_versions = $face_model_versions ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFacesRequest {
   public CollectionId $collection_id;
   public PageSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'max_results' => PageSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFacesResponse {
   public string $face_model_version;
   public FaceList $faces;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'face_model_version' => string,
+  ?'faces' => FaceList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->face_model_version = $face_model_version ?? ;
+    $this->faces = $faces ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListStreamProcessorsRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListStreamProcessorsResponse {
   public PaginationToken $next_token;
   public StreamProcessorList $stream_processors;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'stream_processors' => StreamProcessorList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->stream_processors = $stream_processors ?? ;
+  }
 }
 
-class MaxFaces {
-}
+type MaxFaces = int;
 
-class MaxFacesToIndex {
-}
+type MaxFacesToIndex = int;
 
-class MaxResults {
-}
+type MaxResults = int;
 
 class ModerationLabel {
   public Percent $confidence;
   public string $name;
   public string $parent_name;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'name' => string,
+  ?'parent_name' => string,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->name = $name ?? ;
+    $this->parent_name = $parent_name ?? ;
+  }
 }
 
-class ModerationLabels {
-}
+type ModerationLabels = vec<ModerationLabel>;
 
 class MouthOpen {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class Mustache {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class NotificationChannel {
   public RoleArn $role_arn;
   public SNSTopicArn $sns_topic_arn;
+
+  public function __construct(shape(
+  ?'role_arn' => RoleArn,
+  ?'sns_topic_arn' => SNSTopicArn,
+  ) $s = shape()) {
+    $this->role_arn = $role_arn ?? "";
+    $this->sns_topic_arn = $sns_topic_arn ?? "";
+  }
 }
 
-class OrientationCorrection {
-}
+type OrientationCorrection = string;
 
 class OutputConfig {
   public S3Bucket $s_3_bucket;
   public S3KeyPrefix $s_3_key_prefix;
+
+  public function __construct(shape(
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key_prefix' => S3KeyPrefix,
+  ) $s = shape()) {
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
+  }
 }
 
-class PageSize {
-}
+type PageSize = int;
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
 class Parent {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
-class Parents {
-}
+type Parents = vec<Parent>;
 
-class Percent {
-}
+type Percent = float;
 
 class PersonDetail {
   public BoundingBox $bounding_box;
   public FaceDetail $face;
   public PersonIndex $index;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ?'face' => FaceDetail,
+  ?'index' => PersonIndex,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+    $this->face = $face ?? null;
+    $this->index = $index ?? ;
+  }
 }
 
 class PersonDetection {
   public PersonDetail $person;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'person' => PersonDetail,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->person = $person ?? ;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class PersonDetections {
-}
+type PersonDetections = vec<PersonDetection>;
 
-class PersonIndex {
-}
+type PersonIndex = int;
 
 class PersonMatch {
   public FaceMatchList $face_matches;
   public PersonDetail $person;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'face_matches' => FaceMatchList,
+  ?'person' => PersonDetail,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->face_matches = $face_matches ?? ;
+    $this->person = $person ?? ;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class PersonMatches {
-}
+type PersonMatches = vec<PersonMatch>;
 
-class PersonTrackingSortBy {
-}
+type PersonTrackingSortBy = string;
 
 class Point {
   public Float $x;
   public Float $y;
+
+  public function __construct(shape(
+  ?'x' => Float,
+  ?'y' => Float,
+  ) $s = shape()) {
+    $this->x = $x ?? ;
+    $this->y = $y ?? ;
+  }
 }
 
-class Polygon {
-}
+type Polygon = vec<Point>;
 
 class Pose {
   public Degree $pitch;
   public Degree $roll;
   public Degree $yaw;
+
+  public function __construct(shape(
+  ?'pitch' => Degree,
+  ?'roll' => Degree,
+  ?'yaw' => Degree,
+  ) $s = shape()) {
+    $this->pitch = $pitch ?? ;
+    $this->roll = $roll ?? ;
+    $this->yaw = $yaw ?? ;
+  }
 }
 
-class ProjectArn {
-}
+type ProjectArn = string;
 
 class ProjectDescription {
   public DateTime $creation_timestamp;
   public ProjectArn $project_arn;
   public ProjectStatus $status;
+
+  public function __construct(shape(
+  ?'creation_timestamp' => DateTime,
+  ?'project_arn' => ProjectArn,
+  ?'status' => ProjectStatus,
+  ) $s = shape()) {
+    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->project_arn = $project_arn ?? "";
+    $this->status = $status ?? ;
+  }
 }
 
-class ProjectDescriptions {
-}
+type ProjectDescriptions = vec<ProjectDescription>;
 
-class ProjectName {
-}
+type ProjectName = string;
 
-class ProjectStatus {
-}
+type ProjectStatus = string;
 
-class ProjectVersionArn {
-}
+type ProjectVersionArn = string;
 
 class ProjectVersionDescription {
   public ULong $billable_training_time_in_seconds;
@@ -972,87 +2018,150 @@ class ProjectVersionDescription {
   public TestingDataResult $testing_data_result;
   public TrainingDataResult $training_data_result;
   public DateTime $training_end_timestamp;
+
+  public function __construct(shape(
+  ?'billable_training_time_in_seconds' => ULong,
+  ?'creation_timestamp' => DateTime,
+  ?'evaluation_result' => EvaluationResult,
+  ?'min_inference_units' => InferenceUnits,
+  ?'output_config' => OutputConfig,
+  ?'project_version_arn' => ProjectVersionArn,
+  ?'status' => ProjectVersionStatus,
+  ?'status_message' => StatusMessage,
+  ?'testing_data_result' => TestingDataResult,
+  ?'training_data_result' => TrainingDataResult,
+  ?'training_end_timestamp' => DateTime,
+  ) $s = shape()) {
+    $this->billable_training_time_in_seconds = $billable_training_time_in_seconds ?? ;
+    $this->creation_timestamp = $creation_timestamp ?? ;
+    $this->evaluation_result = $evaluation_result ?? null;
+    $this->min_inference_units = $min_inference_units ?? ;
+    $this->output_config = $output_config ?? null;
+    $this->project_version_arn = $project_version_arn ?? "";
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->testing_data_result = $testing_data_result ?? null;
+    $this->training_data_result = $training_data_result ?? null;
+    $this->training_end_timestamp = $training_end_timestamp ?? ;
+  }
 }
 
-class ProjectVersionDescriptions {
-}
+type ProjectVersionDescriptions = vec<ProjectVersionDescription>;
 
-class ProjectVersionStatus {
-}
+type ProjectVersionStatus = string;
 
-class ProjectVersionsPageSize {
-}
+type ProjectVersionsPageSize = int;
 
-class ProjectsPageSize {
-}
+type ProjectsPageSize = int;
 
 class ProvisionedThroughputExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class QualityFilter {
-}
+type QualityFilter = string;
 
-class Reason {
-}
+type Reason = string;
 
-class Reasons {
-}
+type Reasons = vec<Reason>;
 
 class RecognizeCelebritiesRequest {
   public Image $image;
+
+  public function __construct(shape(
+  ?'image' => Image,
+  ) $s = shape()) {
+    $this->image = $image ?? null;
+  }
 }
 
 class RecognizeCelebritiesResponse {
   public CelebrityList $celebrity_faces;
   public OrientationCorrection $orientation_correction;
   public ComparedFaceList $unrecognized_faces;
+
+  public function __construct(shape(
+  ?'celebrity_faces' => CelebrityList,
+  ?'orientation_correction' => OrientationCorrection,
+  ?'unrecognized_faces' => ComparedFaceList,
+  ) $s = shape()) {
+    $this->celebrity_faces = $celebrity_faces ?? ;
+    $this->orientation_correction = $orientation_correction ?? "";
+    $this->unrecognized_faces = $unrecognized_faces ?? ;
+  }
 }
 
 class RegionOfInterest {
   public BoundingBox $bounding_box;
+
+  public function __construct(shape(
+  ?'bounding_box' => BoundingBox,
+  ) $s = shape()) {
+    $this->bounding_box = $bounding_box ?? null;
+  }
 }
 
-class RegionsOfInterest {
-}
+type RegionsOfInterest = vec<RegionOfInterest>;
 
-class RekognitionUniqueId {
-}
+type RekognitionUniqueId = string;
 
 class ResourceAlreadyExistsException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceInUseException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceNotReadyException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class RoleArn {
-}
+type RoleArn = string;
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3KeyPrefix {
-}
+type S3KeyPrefix = string;
 
 class S3Object {
   public S3Bucket $bucket;
   public S3ObjectName $name;
   public S3ObjectVersion $version;
+
+  public function __construct(shape(
+  ?'bucket' => S3Bucket,
+  ?'name' => S3ObjectName,
+  ?'version' => S3ObjectVersion,
+  ) $s = shape()) {
+    $this->bucket = $bucket ?? ;
+    $this->name = $name ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class S3ObjectName {
-}
+type S3ObjectName = string;
 
-class S3ObjectVersion {
-}
+type S3ObjectVersion = string;
 
-class SNSTopicArn {
-}
+type SNSTopicArn = string;
 
 class SearchFacesByImageRequest {
   public CollectionId $collection_id;
@@ -1060,6 +2169,20 @@ class SearchFacesByImageRequest {
   public Image $image;
   public MaxFaces $max_faces;
   public QualityFilter $quality_filter;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'face_match_threshold' => Percent,
+  ?'image' => Image,
+  ?'max_faces' => MaxFaces,
+  ?'quality_filter' => QualityFilter,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->image = $image ?? null;
+    $this->max_faces = $max_faces ?? 0;
+    $this->quality_filter = $quality_filter ?? "";
+  }
 }
 
 class SearchFacesByImageResponse {
@@ -1067,6 +2190,18 @@ class SearchFacesByImageResponse {
   public string $face_model_version;
   public BoundingBox $searched_face_bounding_box;
   public Percent $searched_face_confidence;
+
+  public function __construct(shape(
+  ?'face_matches' => FaceMatchList,
+  ?'face_model_version' => string,
+  ?'searched_face_bounding_box' => BoundingBox,
+  ?'searched_face_confidence' => Percent,
+  ) $s = shape()) {
+    $this->face_matches = $face_matches ?? ;
+    $this->face_model_version = $face_model_version ?? ;
+    $this->searched_face_bounding_box = $searched_face_bounding_box ?? ;
+    $this->searched_face_confidence = $searched_face_confidence ?? ;
+  }
 }
 
 class SearchFacesRequest {
@@ -1074,17 +2209,47 @@ class SearchFacesRequest {
   public FaceId $face_id;
   public Percent $face_match_threshold;
   public MaxFaces $max_faces;
+
+  public function __construct(shape(
+  ?'collection_id' => CollectionId,
+  ?'face_id' => FaceId,
+  ?'face_match_threshold' => Percent,
+  ?'max_faces' => MaxFaces,
+  ) $s = shape()) {
+    $this->collection_id = $collection_id ?? "";
+    $this->face_id = $face_id ?? "";
+    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->max_faces = $max_faces ?? 0;
+  }
 }
 
 class SearchFacesResponse {
   public FaceMatchList $face_matches;
   public string $face_model_version;
   public FaceId $searched_face_id;
+
+  public function __construct(shape(
+  ?'face_matches' => FaceMatchList,
+  ?'face_model_version' => string,
+  ?'searched_face_id' => FaceId,
+  ) $s = shape()) {
+    $this->face_matches = $face_matches ?? ;
+    $this->face_model_version = $face_model_version ?? ;
+    $this->searched_face_id = $searched_face_id ?? ;
+  }
 }
 
 class Smile {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class StartCelebrityRecognitionRequest {
@@ -1092,10 +2257,28 @@ class StartCelebrityRecognitionRequest {
   public JobTag $job_tag;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'job_tag' => JobTag,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->job_tag = $job_tag ?? "";
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartCelebrityRecognitionResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartContentModerationRequest {
@@ -1104,10 +2287,30 @@ class StartContentModerationRequest {
   public Percent $min_confidence;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'job_tag' => JobTag,
+  ?'min_confidence' => Percent,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->job_tag = $job_tag ?? "";
+    $this->min_confidence = $min_confidence ?? ;
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartContentModerationResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartFaceDetectionRequest {
@@ -1116,10 +2319,30 @@ class StartFaceDetectionRequest {
   public JobTag $job_tag;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'face_attributes' => FaceAttributes,
+  ?'job_tag' => JobTag,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->face_attributes = $face_attributes ?? "";
+    $this->job_tag = $job_tag ?? "";
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartFaceDetectionResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartFaceSearchRequest {
@@ -1129,10 +2352,32 @@ class StartFaceSearchRequest {
   public JobTag $job_tag;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'collection_id' => CollectionId,
+  ?'face_match_threshold' => Percent,
+  ?'job_tag' => JobTag,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->collection_id = $collection_id ?? "";
+    $this->face_match_threshold = $face_match_threshold ?? ;
+    $this->job_tag = $job_tag ?? "";
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartFaceSearchResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartLabelDetectionRequest {
@@ -1141,10 +2386,30 @@ class StartLabelDetectionRequest {
   public Percent $min_confidence;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'job_tag' => JobTag,
+  ?'min_confidence' => Percent,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->job_tag = $job_tag ?? "";
+    $this->min_confidence = $min_confidence ?? ;
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartLabelDetectionResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartPersonTrackingRequest {
@@ -1152,31 +2417,81 @@ class StartPersonTrackingRequest {
   public JobTag $job_tag;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'job_tag' => JobTag,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->job_tag = $job_tag ?? "";
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartPersonTrackingResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
 class StartProjectVersionRequest {
   public InferenceUnits $min_inference_units;
   public ProjectVersionArn $project_version_arn;
+
+  public function __construct(shape(
+  ?'min_inference_units' => InferenceUnits,
+  ?'project_version_arn' => ProjectVersionArn,
+  ) $s = shape()) {
+    $this->min_inference_units = $min_inference_units ?? ;
+    $this->project_version_arn = $project_version_arn ?? "";
+  }
 }
 
 class StartProjectVersionResponse {
   public ProjectVersionStatus $status;
+
+  public function __construct(shape(
+  ?'status' => ProjectVersionStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class StartStreamProcessorRequest {
   public StreamProcessorName $name;
+
+  public function __construct(shape(
+  ?'name' => StreamProcessorName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class StartStreamProcessorResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StartTextDetectionFilters {
   public RegionsOfInterest $regions_of_interest;
   public DetectionFilter $word_filter;
+
+  public function __construct(shape(
+  ?'regions_of_interest' => RegionsOfInterest,
+  ?'word_filter' => DetectionFilter,
+  ) $s = shape()) {
+    $this->regions_of_interest = $regions_of_interest ?? [];
+    $this->word_filter = $word_filter ?? ;
+  }
 }
 
 class StartTextDetectionRequest {
@@ -1185,79 +2500,171 @@ class StartTextDetectionRequest {
   public JobTag $job_tag;
   public NotificationChannel $notification_channel;
   public Video $video;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'filters' => StartTextDetectionFilters,
+  ?'job_tag' => JobTag,
+  ?'notification_channel' => NotificationChannel,
+  ?'video' => Video,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? "";
+    $this->filters = $filters ?? ;
+    $this->job_tag = $job_tag ?? "";
+    $this->notification_channel = $notification_channel ?? null;
+    $this->video = $video ?? null;
+  }
 }
 
 class StartTextDetectionResponse {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? "";
+  }
 }
 
-class StatusMessage {
-}
+type StatusMessage = string;
 
 class StopProjectVersionRequest {
   public ProjectVersionArn $project_version_arn;
+
+  public function __construct(shape(
+  ?'project_version_arn' => ProjectVersionArn,
+  ) $s = shape()) {
+    $this->project_version_arn = $project_version_arn ?? "";
+  }
 }
 
 class StopProjectVersionResponse {
   public ProjectVersionStatus $status;
+
+  public function __construct(shape(
+  ?'status' => ProjectVersionStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class StopStreamProcessorRequest {
   public StreamProcessorName $name;
+
+  public function __construct(shape(
+  ?'name' => StreamProcessorName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class StopStreamProcessorResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StreamProcessor {
   public StreamProcessorName $name;
   public StreamProcessorStatus $status;
+
+  public function __construct(shape(
+  ?'name' => StreamProcessorName,
+  ?'status' => StreamProcessorStatus,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class StreamProcessorArn {
-}
+type StreamProcessorArn = string;
 
 class StreamProcessorInput {
   public KinesisVideoStream $kinesis_video_stream;
+
+  public function __construct(shape(
+  ?'kinesis_video_stream' => KinesisVideoStream,
+  ) $s = shape()) {
+    $this->kinesis_video_stream = $kinesis_video_stream ?? null;
+  }
 }
 
-class StreamProcessorList {
-}
+type StreamProcessorList = vec<StreamProcessor>;
 
-class StreamProcessorName {
-}
+type StreamProcessorName = string;
 
 class StreamProcessorOutput {
   public KinesisDataStream $kinesis_data_stream;
+
+  public function __construct(shape(
+  ?'kinesis_data_stream' => KinesisDataStream,
+  ) $s = shape()) {
+    $this->kinesis_data_stream = $kinesis_data_stream ?? null;
+  }
 }
 
 class StreamProcessorSettings {
   public FaceSearchSettings $face_search;
+
+  public function __construct(shape(
+  ?'face_search' => FaceSearchSettings,
+  ) $s = shape()) {
+    $this->face_search = $face_search ?? ;
+  }
 }
 
-class StreamProcessorStatus {
-}
+type StreamProcessorStatus = string;
 
-class String {
-}
+type String = string;
 
 class Summary {
   public S3Object $s_3_object;
+
+  public function __construct(shape(
+  ?'s_3_object' => S3Object,
+  ) $s = shape()) {
+    $this->s_3_object = $s_3_object ?? null;
+  }
 }
 
 class Sunglasses {
   public Percent $confidence;
   public boolean $value;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'value' => boolean,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class TestingData {
   public Assets $assets;
   public boolean $auto_create;
+
+  public function __construct(shape(
+  ?'assets' => Assets,
+  ?'auto_create' => boolean,
+  ) $s = shape()) {
+    $this->assets = $assets ?? [];
+    $this->auto_create = $auto_create ?? ;
+  }
 }
 
 class TestingDataResult {
   public TestingData $input;
   public TestingData $output;
+
+  public function __construct(shape(
+  ?'input' => TestingData,
+  ?'output' => TestingData,
+  ) $s = shape()) {
+    $this->input = $input ?? ;
+    $this->output = $output ?? ;
+  }
 }
 
 class TextDetection {
@@ -1267,69 +2674,113 @@ class TextDetection {
   public UInteger $id;
   public UInteger $parent_id;
   public TextTypes $type;
+
+  public function __construct(shape(
+  ?'confidence' => Percent,
+  ?'detected_text' => string,
+  ?'geometry' => Geometry,
+  ?'id' => UInteger,
+  ?'parent_id' => UInteger,
+  ?'type' => TextTypes,
+  ) $s = shape()) {
+    $this->confidence = $confidence ?? ;
+    $this->detected_text = $detected_text ?? ;
+    $this->geometry = $geometry ?? null;
+    $this->id = $id ?? ;
+    $this->parent_id = $parent_id ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class TextDetectionList {
-}
+type TextDetectionList = vec<TextDetection>;
 
 class TextDetectionResult {
   public TextDetection $text_detection;
   public Timestamp $timestamp;
+
+  public function __construct(shape(
+  ?'text_detection' => TextDetection,
+  ?'timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->text_detection = $text_detection ?? null;
+    $this->timestamp = $timestamp ?? 0;
+  }
 }
 
-class TextDetectionResults {
-}
+type TextDetectionResults = vec<TextDetectionResult>;
 
-class TextTypes {
-}
+type TextTypes = string;
 
 class ThrottlingException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Timestamp {
-}
+type Timestamp = int;
 
 class TrainingData {
   public Assets $assets;
+
+  public function __construct(shape(
+  ?'assets' => Assets,
+  ) $s = shape()) {
+    $this->assets = $assets ?? [];
+  }
 }
 
 class TrainingDataResult {
   public TrainingData $input;
   public TrainingData $output;
+
+  public function __construct(shape(
+  ?'input' => TrainingData,
+  ?'output' => TrainingData,
+  ) $s = shape()) {
+    $this->input = $input ?? ;
+    $this->output = $output ?? ;
+  }
 }
 
-class UInteger {
-}
+type UInteger = int;
 
-class ULong {
-}
+type ULong = int;
 
 class UnindexedFace {
   public FaceDetail $face_detail;
   public Reasons $reasons;
+
+  public function __construct(shape(
+  ?'face_detail' => FaceDetail,
+  ?'reasons' => Reasons,
+  ) $s = shape()) {
+    $this->face_detail = $face_detail ?? null;
+    $this->reasons = $reasons ?? [];
+  }
 }
 
-class UnindexedFaces {
-}
+type UnindexedFaces = vec<UnindexedFace>;
 
-class Url {
-}
+type Url = string;
 
-class Urls {
-}
+type Urls = vec<Url>;
 
-class VersionName {
-}
+type VersionName = string;
 
-class VersionNames {
-}
+type VersionNames = vec<VersionName>;
 
 class Video {
   public S3Object $s_3_object;
+
+  public function __construct(shape(
+  ?'s_3_object' => S3Object,
+  ) $s = shape()) {
+    $this->s_3_object = $s_3_object ?? null;
+  }
 }
 
-class VideoJobStatus {
-}
+type VideoJobStatus = string;
 
 class VideoMetadata {
   public string $codec;
@@ -1338,8 +2789,28 @@ class VideoMetadata {
   public ULong $frame_height;
   public Float $frame_rate;
   public ULong $frame_width;
+
+  public function __construct(shape(
+  ?'codec' => string,
+  ?'duration_millis' => ULong,
+  ?'format' => string,
+  ?'frame_height' => ULong,
+  ?'frame_rate' => Float,
+  ?'frame_width' => ULong,
+  ) $s = shape()) {
+    $this->codec = $codec ?? ;
+    $this->duration_millis = $duration_millis ?? ;
+    $this->format = $format ?? ;
+    $this->frame_height = $frame_height ?? ;
+    $this->frame_rate = $frame_rate ?? ;
+    $this->frame_width = $frame_width ?? ;
+  }
 }
 
 class VideoTooLargeException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 

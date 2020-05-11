@@ -44,75 +44,137 @@ interface RoboMaker {
   public function UpdateSimulationApplication(UpdateSimulationApplicationRequest): Awaitable<Errors\Result<UpdateSimulationApplicationResponse>>;
 }
 
-class Architecture {
-}
+type Architecture = string;
 
-class Arn {
-}
+type Arn = string;
 
-class Arns {
-}
+type Arns = vec<Arn>;
 
 class BatchDescribeSimulationJobRequest {
   public Arns $jobs;
+
+  public function __construct(shape(
+  ?'jobs' => Arns,
+  ) $s = shape()) {
+    $this->jobs = $jobs ?? ;
+  }
 }
 
 class BatchDescribeSimulationJobResponse {
   public SimulationJobs $jobs;
   public Arns $unprocessed_jobs;
+
+  public function __construct(shape(
+  ?'jobs' => SimulationJobs,
+  ?'unprocessed_jobs' => Arns,
+  ) $s = shape()) {
+    $this->jobs = $jobs ?? ;
+    $this->unprocessed_jobs = $unprocessed_jobs ?? ;
+  }
 }
 
 class BatchPolicy {
   public MaxConcurrency $max_concurrency;
   public BatchTimeoutInSeconds $timeout_in_seconds;
+
+  public function __construct(shape(
+  ?'max_concurrency' => MaxConcurrency,
+  ?'timeout_in_seconds' => BatchTimeoutInSeconds,
+  ) $s = shape()) {
+    $this->max_concurrency = $max_concurrency ?? ;
+    $this->timeout_in_seconds = $timeout_in_seconds ?? ;
+  }
 }
 
-class BatchTimeoutInSeconds {
-}
+type BatchTimeoutInSeconds = int;
 
-class Boolean {
-}
+type Boolean = bool;
 
-class BoxedBoolean {
-}
+type BoxedBoolean = bool;
 
 class CancelDeploymentJobRequest {
   public Arn $job;
+
+  public function __construct(shape(
+  ?'job' => Arn,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class CancelDeploymentJobResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CancelSimulationJobBatchRequest {
   public Arn $batch;
+
+  public function __construct(shape(
+  ?'batch' => Arn,
+  ) $s = shape()) {
+    $this->batch = $batch ?? ;
+  }
 }
 
 class CancelSimulationJobBatchResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CancelSimulationJobRequest {
   public Arn $job;
+
+  public function __construct(shape(
+  ?'job' => Arn,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class CancelSimulationJobResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class ClientRequestToken {
-}
+type ClientRequestToken = string;
 
-class Command {
-}
+type Command = string;
 
 class Compute {
   public SimulationUnit $simulation_unit_limit;
+
+  public function __construct(shape(
+  ?'simulation_unit_limit' => SimulationUnit,
+  ) $s = shape()) {
+    $this->simulation_unit_limit = $simulation_unit_limit ?? ;
+  }
 }
 
 class ComputeResponse {
   public SimulationUnit $simulation_unit_limit;
+
+  public function __construct(shape(
+  ?'simulation_unit_limit' => SimulationUnit,
+  ) $s = shape()) {
+    $this->simulation_unit_limit = $simulation_unit_limit ?? ;
+  }
 }
 
 class ConcurrentDeploymentException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class CreateDeploymentJobRequest {
@@ -121,6 +183,20 @@ class CreateDeploymentJobRequest {
   public DeploymentConfig $deployment_config;
   public Arn $fleet;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'deployment_application_configs' => DeploymentApplicationConfigs,
+  ?'deployment_config' => DeploymentConfig,
+  ?'fleet' => Arn,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? ;
+    $this->deployment_application_configs = $deployment_application_configs ?? ;
+    $this->deployment_config = $deployment_config ?? ;
+    $this->fleet = $fleet ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateDeploymentJobResponse {
@@ -133,11 +209,41 @@ class CreateDeploymentJobResponse {
   public Arn $fleet;
   public DeploymentStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'deployment_application_configs' => DeploymentApplicationConfigs,
+  ?'deployment_config' => DeploymentConfig,
+  ?'failure_code' => DeploymentJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'fleet' => Arn,
+  ?'status' => DeploymentStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->deployment_application_configs = $deployment_application_configs ?? ;
+    $this->deployment_config = $deployment_config ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->fleet = $fleet ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateFleetRequest {
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateFleetResponse {
@@ -145,6 +251,18 @@ class CreateFleetResponse {
   public CreatedAt $created_at;
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->name = $name ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateRobotApplicationRequest {
@@ -152,6 +270,18 @@ class CreateRobotApplicationRequest {
   public RobotSoftwareSuite $robot_software_suite;
   public SourceConfigs $sources;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => SourceConfigs,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateRobotApplicationResponse {
@@ -163,11 +293,39 @@ class CreateRobotApplicationResponse {
   public Sources $sources;
   public TagMap $tags;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => Sources,
+  ?'tags' => TagMap,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class CreateRobotApplicationVersionRequest {
   public Arn $application;
   public RevisionId $current_revision_id;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'current_revision_id' => RevisionId,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->current_revision_id = $current_revision_id ?? ;
+  }
 }
 
 class CreateRobotApplicationVersionResponse {
@@ -178,6 +336,24 @@ class CreateRobotApplicationVersionResponse {
   public RobotSoftwareSuite $robot_software_suite;
   public Sources $sources;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => Sources,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class CreateRobotRequest {
@@ -185,6 +361,18 @@ class CreateRobotRequest {
   public Id $greengrass_group_id;
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'greengrass_group_id' => Id,
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->greengrass_group_id = $greengrass_group_id ?? ;
+    $this->name = $name ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateRobotResponse {
@@ -194,6 +382,22 @@ class CreateRobotResponse {
   public Id $greengrass_group_id;
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'greengrass_group_id' => Id,
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->greengrass_group_id = $greengrass_group_id ?? ;
+    $this->name = $name ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateSimulationApplicationRequest {
@@ -203,6 +407,22 @@ class CreateSimulationApplicationRequest {
   public SimulationSoftwareSuite $simulation_software_suite;
   public SourceConfigs $sources;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'rendering_engine' => RenderingEngine,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => SourceConfigs,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateSimulationApplicationResponse {
@@ -216,11 +436,43 @@ class CreateSimulationApplicationResponse {
   public Sources $sources;
   public TagMap $tags;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'rendering_engine' => RenderingEngine,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => Sources,
+  ?'tags' => TagMap,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class CreateSimulationApplicationVersionRequest {
   public Arn $application;
   public RevisionId $current_revision_id;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'current_revision_id' => RevisionId,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->current_revision_id = $current_revision_id ?? ;
+  }
 }
 
 class CreateSimulationApplicationVersionResponse {
@@ -233,6 +485,28 @@ class CreateSimulationApplicationVersionResponse {
   public SimulationSoftwareSuite $simulation_software_suite;
   public Sources $sources;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'rendering_engine' => RenderingEngine,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => Sources,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class CreateSimulationJobRequest {
@@ -248,10 +522,37 @@ class CreateSimulationJobRequest {
   public SimulationApplicationConfigs $simulation_applications;
   public TagMap $tags;
   public VPCConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'compute' => Compute,
+  ?'data_sources' => DataSourceConfigs,
+  ?'failure_behavior' => FailureBehavior,
+  ?'iam_role' => IamRole,
+  ?'logging_config' => LoggingConfig,
+  ?'max_job_duration_in_seconds' => JobDuration,
+  ?'output_location' => OutputLocation,
+  ?'robot_applications' => RobotApplicationConfigs,
+  ?'simulation_applications' => SimulationApplicationConfigs,
+  ?'tags' => TagMap,
+  ?'vpc_config' => VPCConfig,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? ;
+    $this->compute = $compute ?? ;
+    $this->data_sources = $data_sources ?? ;
+    $this->failure_behavior = $failure_behavior ?? ;
+    $this->iam_role = $iam_role ?? ;
+    $this->logging_config = $logging_config ?? ;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
+    $this->output_location = $output_location ?? ;
+    $this->robot_applications = $robot_applications ?? ;
+    $this->simulation_applications = $simulation_applications ?? ;
+    $this->tags = $tags ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
-class CreateSimulationJobRequests {
-}
+type CreateSimulationJobRequests = vec<SimulationJobRequest>;
 
 class CreateSimulationJobResponse {
   public Arn $arn;
@@ -272,76 +573,197 @@ class CreateSimulationJobResponse {
   public SimulationJobStatus $status;
   public TagMap $tags;
   public VPCConfigResponse $vpc_config;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'client_request_token' => ClientRequestToken,
+  ?'compute' => ComputeResponse,
+  ?'data_sources' => DataSources,
+  ?'failure_behavior' => FailureBehavior,
+  ?'failure_code' => SimulationJobErrorCode,
+  ?'iam_role' => IamRole,
+  ?'last_started_at' => LastStartedAt,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'logging_config' => LoggingConfig,
+  ?'max_job_duration_in_seconds' => JobDuration,
+  ?'output_location' => OutputLocation,
+  ?'robot_applications' => RobotApplicationConfigs,
+  ?'simulation_applications' => SimulationApplicationConfigs,
+  ?'simulation_time_millis' => SimulationTimeMillis,
+  ?'status' => SimulationJobStatus,
+  ?'tags' => TagMap,
+  ?'vpc_config' => VPCConfigResponse,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->compute = $compute ?? ;
+    $this->data_sources = $data_sources ?? ;
+    $this->failure_behavior = $failure_behavior ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->iam_role = $iam_role ?? ;
+    $this->last_started_at = $last_started_at ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->logging_config = $logging_config ?? ;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
+    $this->output_location = $output_location ?? ;
+    $this->robot_applications = $robot_applications ?? ;
+    $this->simulation_applications = $simulation_applications ?? ;
+    $this->simulation_time_millis = $simulation_time_millis ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
-class CreatedAt {
-}
+type CreatedAt = int;
 
 class DataSource {
   public Name $name;
   public S3Bucket $s_3_bucket;
   public S3KeyOutputs $s_3_keys;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_keys' => S3KeyOutputs,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->s_3_keys = $s_3_keys ?? ;
+  }
 }
 
 class DataSourceConfig {
   public Name $name;
   public S3Bucket $s_3_bucket;
   public S3Keys $s_3_keys;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_keys' => S3Keys,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->s_3_keys = $s_3_keys ?? ;
+  }
 }
 
-class DataSourceConfigs {
-}
+type DataSourceConfigs = vec<DataSourceConfig>;
 
-class DataSourceNames {
-}
+type DataSourceNames = vec<Name>;
 
-class DataSources {
-}
+type DataSources = vec<DataSource>;
 
 class DeleteFleetRequest {
   public Arn $fleet;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+  }
 }
 
 class DeleteFleetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteRobotApplicationRequest {
   public Arn $application;
   public Version $application_version;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+  }
 }
 
 class DeleteRobotApplicationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteRobotRequest {
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->robot = $robot ?? ;
+  }
 }
 
 class DeleteRobotResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteSimulationApplicationRequest {
   public Arn $application;
   public Version $application_version;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+  }
 }
 
 class DeleteSimulationApplicationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeploymentApplicationConfig {
   public Arn $application;
   public DeploymentVersion $application_version;
   public DeploymentLaunchConfig $launch_config;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => DeploymentVersion,
+  ?'launch_config' => DeploymentLaunchConfig,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+    $this->launch_config = $launch_config ?? ;
+  }
 }
 
-class DeploymentApplicationConfigs {
-}
+type DeploymentApplicationConfigs = vec<DeploymentApplicationConfig>;
 
 class DeploymentConfig {
   public Percentage $concurrent_deployment_percentage;
   public S3Object $download_condition_file;
   public Percentage $failure_threshold_percentage;
   public DeploymentTimeout $robot_deployment_timeout_in_seconds;
+
+  public function __construct(shape(
+  ?'concurrent_deployment_percentage' => Percentage,
+  ?'download_condition_file' => S3Object,
+  ?'failure_threshold_percentage' => Percentage,
+  ?'robot_deployment_timeout_in_seconds' => DeploymentTimeout,
+  ) $s = shape()) {
+    $this->concurrent_deployment_percentage = $concurrent_deployment_percentage ?? ;
+    $this->download_condition_file = $download_condition_file ?? ;
+    $this->failure_threshold_percentage = $failure_threshold_percentage ?? ;
+    $this->robot_deployment_timeout_in_seconds = $robot_deployment_timeout_in_seconds ?? ;
+  }
 }
 
 class DeploymentJob {
@@ -353,13 +775,31 @@ class DeploymentJob {
   public GenericString $failure_reason;
   public Arn $fleet;
   public DeploymentStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'deployment_application_configs' => DeploymentApplicationConfigs,
+  ?'deployment_config' => DeploymentConfig,
+  ?'failure_code' => DeploymentJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'fleet' => Arn,
+  ?'status' => DeploymentStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->deployment_application_configs = $deployment_application_configs ?? ;
+    $this->deployment_config = $deployment_config ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->fleet = $fleet ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class DeploymentJobErrorCode {
-}
+type DeploymentJobErrorCode = string;
 
-class DeploymentJobs {
-}
+type DeploymentJobs = vec<DeploymentJob>;
 
 class DeploymentLaunchConfig {
   public EnvironmentVariableMap $environment_variables;
@@ -367,29 +807,62 @@ class DeploymentLaunchConfig {
   public Command $package_name;
   public Path $post_launch_file;
   public Path $pre_launch_file;
+
+  public function __construct(shape(
+  ?'environment_variables' => EnvironmentVariableMap,
+  ?'launch_file' => Command,
+  ?'package_name' => Command,
+  ?'post_launch_file' => Path,
+  ?'pre_launch_file' => Path,
+  ) $s = shape()) {
+    $this->environment_variables = $environment_variables ?? ;
+    $this->launch_file = $launch_file ?? ;
+    $this->package_name = $package_name ?? ;
+    $this->post_launch_file = $post_launch_file ?? ;
+    $this->pre_launch_file = $pre_launch_file ?? ;
+  }
 }
 
-class DeploymentStatus {
-}
+type DeploymentStatus = string;
 
-class DeploymentTimeout {
-}
+type DeploymentTimeout = int;
 
-class DeploymentVersion {
-}
+type DeploymentVersion = string;
 
 class DeregisterRobotRequest {
   public Arn $fleet;
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+    $this->robot = $robot ?? ;
+  }
 }
 
 class DeregisterRobotResponse {
   public Arn $fleet;
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+    $this->robot = $robot ?? ;
+  }
 }
 
 class DescribeDeploymentJobRequest {
   public Arn $job;
+
+  public function __construct(shape(
+  ?'job' => Arn,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class DescribeDeploymentJobResponse {
@@ -403,10 +876,40 @@ class DescribeDeploymentJobResponse {
   public RobotDeploymentSummary $robot_deployment_summary;
   public DeploymentStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'deployment_application_configs' => DeploymentApplicationConfigs,
+  ?'deployment_config' => DeploymentConfig,
+  ?'failure_code' => DeploymentJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'fleet' => Arn,
+  ?'robot_deployment_summary' => RobotDeploymentSummary,
+  ?'status' => DeploymentStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->deployment_application_configs = $deployment_application_configs ?? ;
+    $this->deployment_config = $deployment_config ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->fleet = $fleet ?? ;
+    $this->robot_deployment_summary = $robot_deployment_summary ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DescribeFleetRequest {
   public Arn $fleet;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+  }
 }
 
 class DescribeFleetResponse {
@@ -418,11 +921,39 @@ class DescribeFleetResponse {
   public Name $name;
   public Robots $robots;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'last_deployment_job' => Arn,
+  ?'last_deployment_status' => DeploymentStatus,
+  ?'last_deployment_time' => CreatedAt,
+  ?'name' => Name,
+  ?'robots' => Robots,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->last_deployment_job = $last_deployment_job ?? ;
+    $this->last_deployment_status = $last_deployment_status ?? ;
+    $this->last_deployment_time = $last_deployment_time ?? ;
+    $this->name = $name ?? ;
+    $this->robots = $robots ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DescribeRobotApplicationRequest {
   public Arn $application;
   public Version $application_version;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+  }
 }
 
 class DescribeRobotApplicationResponse {
@@ -434,10 +965,36 @@ class DescribeRobotApplicationResponse {
   public Sources $sources;
   public TagMap $tags;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => Sources,
+  ?'tags' => TagMap,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class DescribeRobotRequest {
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->robot = $robot ?? ;
+  }
 }
 
 class DescribeRobotResponse {
@@ -451,11 +1008,43 @@ class DescribeRobotResponse {
   public Name $name;
   public RobotStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'fleet_arn' => Arn,
+  ?'greengrass_group_id' => Id,
+  ?'last_deployment_job' => Arn,
+  ?'last_deployment_time' => CreatedAt,
+  ?'name' => Name,
+  ?'status' => RobotStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->fleet_arn = $fleet_arn ?? ;
+    $this->greengrass_group_id = $greengrass_group_id ?? ;
+    $this->last_deployment_job = $last_deployment_job ?? ;
+    $this->last_deployment_time = $last_deployment_time ?? ;
+    $this->name = $name ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DescribeSimulationApplicationRequest {
   public Arn $application;
   public Version $application_version;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+  }
 }
 
 class DescribeSimulationApplicationResponse {
@@ -469,10 +1058,40 @@ class DescribeSimulationApplicationResponse {
   public Sources $sources;
   public TagMap $tags;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'rendering_engine' => RenderingEngine,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => Sources,
+  ?'tags' => TagMap,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->tags = $tags ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class DescribeSimulationJobBatchRequest {
   public Arn $batch;
+
+  public function __construct(shape(
+  ?'batch' => Arn,
+  ) $s = shape()) {
+    $this->batch = $batch ?? ;
+  }
 }
 
 class DescribeSimulationJobBatchResponse {
@@ -488,10 +1107,44 @@ class DescribeSimulationJobBatchResponse {
   public CreateSimulationJobRequests $pending_requests;
   public SimulationJobBatchStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'batch_policy' => BatchPolicy,
+  ?'client_request_token' => ClientRequestToken,
+  ?'created_at' => CreatedAt,
+  ?'created_requests' => SimulationJobSummaries,
+  ?'failed_requests' => FailedCreateSimulationJobRequests,
+  ?'failure_code' => SimulationJobBatchErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'pending_requests' => CreateSimulationJobRequests,
+  ?'status' => SimulationJobBatchStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->batch_policy = $batch_policy ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->created_requests = $created_requests ?? ;
+    $this->failed_requests = $failed_requests ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->pending_requests = $pending_requests ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DescribeSimulationJobRequest {
   public Arn $job;
+
+  public function __construct(shape(
+  ?'job' => Arn,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class DescribeSimulationJobResponse {
@@ -516,43 +1169,101 @@ class DescribeSimulationJobResponse {
   public SimulationJobStatus $status;
   public TagMap $tags;
   public VPCConfigResponse $vpc_config;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'client_request_token' => ClientRequestToken,
+  ?'compute' => ComputeResponse,
+  ?'data_sources' => DataSources,
+  ?'failure_behavior' => FailureBehavior,
+  ?'failure_code' => SimulationJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'iam_role' => IamRole,
+  ?'last_started_at' => LastStartedAt,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'logging_config' => LoggingConfig,
+  ?'max_job_duration_in_seconds' => JobDuration,
+  ?'name' => Name,
+  ?'network_interface' => NetworkInterface,
+  ?'output_location' => OutputLocation,
+  ?'robot_applications' => RobotApplicationConfigs,
+  ?'simulation_applications' => SimulationApplicationConfigs,
+  ?'simulation_time_millis' => SimulationTimeMillis,
+  ?'status' => SimulationJobStatus,
+  ?'tags' => TagMap,
+  ?'vpc_config' => VPCConfigResponse,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->compute = $compute ?? ;
+    $this->data_sources = $data_sources ?? ;
+    $this->failure_behavior = $failure_behavior ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->iam_role = $iam_role ?? ;
+    $this->last_started_at = $last_started_at ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->logging_config = $logging_config ?? ;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
+    $this->name = $name ?? ;
+    $this->network_interface = $network_interface ?? ;
+    $this->output_location = $output_location ?? ;
+    $this->robot_applications = $robot_applications ?? ;
+    $this->simulation_applications = $simulation_applications ?? ;
+    $this->simulation_time_millis = $simulation_time_millis ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
-class EnvironmentVariableKey {
-}
+type EnvironmentVariableKey = string;
 
-class EnvironmentVariableMap {
-}
+type EnvironmentVariableMap = dict<EnvironmentVariableKey, EnvironmentVariableValue>;
 
-class EnvironmentVariableValue {
-}
+type EnvironmentVariableValue = string;
 
-class FailedAt {
-}
+type FailedAt = int;
 
 class FailedCreateSimulationJobRequest {
   public FailedAt $failed_at;
   public SimulationJobErrorCode $failure_code;
   public GenericString $failure_reason;
   public SimulationJobRequest $request;
+
+  public function __construct(shape(
+  ?'failed_at' => FailedAt,
+  ?'failure_code' => SimulationJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'request' => SimulationJobRequest,
+  ) $s = shape()) {
+    $this->failed_at = $failed_at ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->request = $request ?? ;
+  }
 }
 
-class FailedCreateSimulationJobRequests {
-}
+type FailedCreateSimulationJobRequests = vec<FailedCreateSimulationJobRequest>;
 
-class FailureBehavior {
-}
+type FailureBehavior = string;
 
 class Filter {
   public Name $name;
   public FilterValues $values;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'values' => FilterValues,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class FilterValues {
-}
+type FilterValues = vec<Name>;
 
-class Filters {
-}
+type Filters = vec<Filter>;
 
 class Fleet {
   public Arn $arn;
@@ -561,46 +1272,71 @@ class Fleet {
   public DeploymentStatus $last_deployment_status;
   public CreatedAt $last_deployment_time;
   public Name $name;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'last_deployment_job' => Arn,
+  ?'last_deployment_status' => DeploymentStatus,
+  ?'last_deployment_time' => CreatedAt,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->last_deployment_job = $last_deployment_job ?? ;
+    $this->last_deployment_status = $last_deployment_status ?? ;
+    $this->last_deployment_time = $last_deployment_time ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class Fleets {
-}
+type Fleets = vec<Fleet>;
 
-class GenericInteger {
-}
+type GenericInteger = int;
 
-class GenericString {
-}
+type GenericString = string;
 
-class IamRole {
-}
+type IamRole = string;
 
-class Id {
-}
+type Id = string;
 
 class IdempotentParameterMismatchException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Integer {
-}
+type Integer = int;
 
 class InternalServerException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class JobDuration {
-}
+type JobDuration = int;
 
-class LastStartedAt {
-}
+type LastStartedAt = int;
 
-class LastUpdatedAt {
-}
+type LastUpdatedAt = int;
 
 class LaunchConfig {
   public EnvironmentVariableMap $environment_variables;
@@ -608,32 +1344,88 @@ class LaunchConfig {
   public Command $package_name;
   public PortForwardingConfig $port_forwarding_config;
   public boolean $stream_ui;
+
+  public function __construct(shape(
+  ?'environment_variables' => EnvironmentVariableMap,
+  ?'launch_file' => Command,
+  ?'package_name' => Command,
+  ?'port_forwarding_config' => PortForwardingConfig,
+  ?'stream_ui' => boolean,
+  ) $s = shape()) {
+    $this->environment_variables = $environment_variables ?? ;
+    $this->launch_file = $launch_file ?? ;
+    $this->package_name = $package_name ?? ;
+    $this->port_forwarding_config = $port_forwarding_config ?? ;
+    $this->stream_ui = $stream_ui ?? ;
+  }
 }
 
 class LimitExceededException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListDeploymentJobsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDeploymentJobsResponse {
   public DeploymentJobs $deployment_jobs;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'deployment_jobs' => DeploymentJobs,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->deployment_jobs = $deployment_jobs ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFleetsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFleetsResponse {
   public Fleets $fleet_details;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'fleet_details' => Fleets,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->fleet_details = $fleet_details ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListRobotApplicationsRequest {
@@ -641,22 +1433,60 @@ class ListRobotApplicationsRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public VersionQualifier $version_qualifier;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'version_qualifier' => VersionQualifier,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->version_qualifier = $version_qualifier ?? ;
+  }
 }
 
 class ListRobotApplicationsResponse {
   public PaginationToken $next_token;
   public RobotApplicationSummaries $robot_application_summaries;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'robot_application_summaries' => RobotApplicationSummaries,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->robot_application_summaries = $robot_application_summaries ?? ;
+  }
 }
 
 class ListRobotsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListRobotsResponse {
   public PaginationToken $next_token;
   public Robots $robots;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'robots' => Robots,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->robots = $robots ?? ;
+  }
 }
 
 class ListSimulationApplicationsRequest {
@@ -664,146 +1494,298 @@ class ListSimulationApplicationsRequest {
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public VersionQualifier $version_qualifier;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'version_qualifier' => VersionQualifier,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->version_qualifier = $version_qualifier ?? ;
+  }
 }
 
 class ListSimulationApplicationsResponse {
   public PaginationToken $next_token;
   public SimulationApplicationSummaries $simulation_application_summaries;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'simulation_application_summaries' => SimulationApplicationSummaries,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->simulation_application_summaries = $simulation_application_summaries ?? ;
+  }
 }
 
 class ListSimulationJobBatchesRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListSimulationJobBatchesResponse {
   public PaginationToken $next_token;
   public SimulationJobBatchSummaries $simulation_job_batch_summaries;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'simulation_job_batch_summaries' => SimulationJobBatchSummaries,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->simulation_job_batch_summaries = $simulation_job_batch_summaries ?? ;
+  }
 }
 
 class ListSimulationJobsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListSimulationJobsResponse {
   public PaginationToken $next_token;
   public SimulationJobSummaries $simulation_job_summaries;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'simulation_job_summaries' => SimulationJobSummaries,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->simulation_job_summaries = $simulation_job_summaries ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public Arn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+  }
 }
 
 class LoggingConfig {
   public BoxedBoolean $record_all_ros_topics;
+
+  public function __construct(shape(
+  ?'record_all_ros_topics' => BoxedBoolean,
+  ) $s = shape()) {
+    $this->record_all_ros_topics = $record_all_ros_topics ?? ;
+  }
 }
 
-class MaxConcurrency {
-}
+type MaxConcurrency = int;
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class Name {
-}
+type Name = string;
 
 class NetworkInterface {
   public GenericString $network_interface_id;
   public GenericString $private_ip_address;
   public GenericString $public_ip_address;
+
+  public function __construct(shape(
+  ?'network_interface_id' => GenericString,
+  ?'private_ip_address' => GenericString,
+  ?'public_ip_address' => GenericString,
+  ) $s = shape()) {
+    $this->network_interface_id = $network_interface_id ?? ;
+    $this->private_ip_address = $private_ip_address ?? ;
+    $this->public_ip_address = $public_ip_address ?? ;
+  }
 }
 
-class NonEmptyString {
-}
+type NonEmptyString = string;
 
-class NonSystemPort {
-}
+type NonSystemPort = int;
 
 class OutputLocation {
   public S3Bucket $s_3_bucket;
   public S3Key $s_3_prefix;
+
+  public function __construct(shape(
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_prefix' => S3Key,
+  ) $s = shape()) {
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->s_3_prefix = $s_3_prefix ?? ;
+  }
 }
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
-class Path {
-}
+type Path = string;
 
-class PercentDone {
-}
+type PercentDone = float;
 
-class Percentage {
-}
+type Percentage = int;
 
-class Port {
-}
+type Port = int;
 
 class PortForwardingConfig {
   public PortMappingList $port_mappings;
+
+  public function __construct(shape(
+  ?'port_mappings' => PortMappingList,
+  ) $s = shape()) {
+    $this->port_mappings = $port_mappings ?? ;
+  }
 }
 
 class PortMapping {
   public NonSystemPort $application_port;
   public boolean $enable_on_public_ip;
   public Port $job_port;
+
+  public function __construct(shape(
+  ?'application_port' => NonSystemPort,
+  ?'enable_on_public_ip' => boolean,
+  ?'job_port' => Port,
+  ) $s = shape()) {
+    $this->application_port = $application_port ?? ;
+    $this->enable_on_public_ip = $enable_on_public_ip ?? ;
+    $this->job_port = $job_port ?? ;
+  }
 }
 
-class PortMappingList {
-}
+type PortMappingList = vec<PortMapping>;
 
 class ProgressDetail {
   public RobotDeploymentStep $current_progress;
   public GenericInteger $estimated_time_remaining_seconds;
   public PercentDone $percent_done;
   public GenericString $target_resource;
+
+  public function __construct(shape(
+  ?'current_progress' => RobotDeploymentStep,
+  ?'estimated_time_remaining_seconds' => GenericInteger,
+  ?'percent_done' => PercentDone,
+  ?'target_resource' => GenericString,
+  ) $s = shape()) {
+    $this->current_progress = $current_progress ?? ;
+    $this->estimated_time_remaining_seconds = $estimated_time_remaining_seconds ?? ;
+    $this->percent_done = $percent_done ?? ;
+    $this->target_resource = $target_resource ?? ;
+  }
 }
 
 class RegisterRobotRequest {
   public Arn $fleet;
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+    $this->robot = $robot ?? ;
+  }
 }
 
 class RegisterRobotResponse {
   public Arn $fleet;
   public Arn $robot;
+
+  public function __construct(shape(
+  ?'fleet' => Arn,
+  ?'robot' => Arn,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? ;
+    $this->robot = $robot ?? ;
+  }
 }
 
 class RenderingEngine {
   public RenderingEngineType $name;
   public RenderingEngineVersionType $version;
+
+  public function __construct(shape(
+  ?'name' => RenderingEngineType,
+  ?'version' => RenderingEngineVersionType,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class RenderingEngineType {
-}
+type RenderingEngineType = string;
 
-class RenderingEngineVersionType {
-}
+type RenderingEngineVersionType = string;
 
 class ResourceAlreadyExistsException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RestartSimulationJobRequest {
   public Arn $job;
+
+  public function __construct(shape(
+  ?'job' => Arn,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class RestartSimulationJobResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class RevisionId {
-}
+type RevisionId = string;
 
 class Robot {
   public Architecture $architecture;
@@ -815,22 +1797,51 @@ class Robot {
   public CreatedAt $last_deployment_time;
   public Name $name;
   public RobotStatus $status;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'fleet_arn' => Arn,
+  ?'green_grass_group_id' => Id,
+  ?'last_deployment_job' => Arn,
+  ?'last_deployment_time' => CreatedAt,
+  ?'name' => Name,
+  ?'status' => RobotStatus,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->fleet_arn = $fleet_arn ?? ;
+    $this->green_grass_group_id = $green_grass_group_id ?? ;
+    $this->last_deployment_job = $last_deployment_job ?? ;
+    $this->last_deployment_time = $last_deployment_time ?? ;
+    $this->name = $name ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class RobotApplicationConfig {
   public Arn $application;
   public Version $application_version;
   public LaunchConfig $launch_config;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ?'launch_config' => LaunchConfig,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+    $this->launch_config = $launch_config ?? ;
+  }
 }
 
-class RobotApplicationConfigs {
-}
+type RobotApplicationConfigs = vec<RobotApplicationConfig>;
 
-class RobotApplicationNames {
-}
+type RobotApplicationNames = vec<Name>;
 
-class RobotApplicationSummaries {
-}
+type RobotApplicationSummaries = vec<RobotApplicationSummary>;
 
 class RobotApplicationSummary {
   public Arn $arn;
@@ -838,6 +1849,20 @@ class RobotApplicationSummary {
   public Name $name;
   public RobotSoftwareSuite $robot_software_suite;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class RobotDeployment {
@@ -848,78 +1873,123 @@ class RobotDeployment {
   public GenericString $failure_reason;
   public ProgressDetail $progress_detail;
   public RobotStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'deployment_finish_time' => CreatedAt,
+  ?'deployment_start_time' => CreatedAt,
+  ?'failure_code' => DeploymentJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'progress_detail' => ProgressDetail,
+  ?'status' => RobotStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->deployment_finish_time = $deployment_finish_time ?? ;
+    $this->deployment_start_time = $deployment_start_time ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->progress_detail = $progress_detail ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class RobotDeploymentStep {
-}
+type RobotDeploymentStep = string;
 
-class RobotDeploymentSummary {
-}
+type RobotDeploymentSummary = vec<RobotDeployment>;
 
 class RobotSoftwareSuite {
   public RobotSoftwareSuiteType $name;
   public RobotSoftwareSuiteVersionType $version;
+
+  public function __construct(shape(
+  ?'name' => RobotSoftwareSuiteType,
+  ?'version' => RobotSoftwareSuiteVersionType,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class RobotSoftwareSuiteType {
-}
+type RobotSoftwareSuiteType = string;
 
-class RobotSoftwareSuiteVersionType {
-}
+type RobotSoftwareSuiteVersionType = string;
 
-class RobotStatus {
-}
+type RobotStatus = string;
 
-class Robots {
-}
+type Robots = vec<Robot>;
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3Etag {
-}
+type S3Etag = string;
 
-class S3Key {
-}
+type S3Key = string;
 
 class S3KeyOutput {
   public S3Etag $etag;
   public S3Key $s_3_key;
+
+  public function __construct(shape(
+  ?'etag' => S3Etag,
+  ?'s_3_key' => S3Key,
+  ) $s = shape()) {
+    $this->etag = $etag ?? ;
+    $this->s_3_key = $s_3_key ?? ;
+  }
 }
 
-class S3KeyOutputs {
-}
+type S3KeyOutputs = vec<S3KeyOutput>;
 
-class S3Keys {
-}
+type S3Keys = vec<S3Key>;
 
 class S3Object {
   public S3Bucket $bucket;
   public S3Etag $etag;
   public S3Key $key;
+
+  public function __construct(shape(
+  ?'bucket' => S3Bucket,
+  ?'etag' => S3Etag,
+  ?'key' => S3Key,
+  ) $s = shape()) {
+    $this->bucket = $bucket ?? ;
+    $this->etag = $etag ?? ;
+    $this->key = $key ?? ;
+  }
 }
 
-class SecurityGroups {
-}
+type SecurityGroups = vec<NonEmptyString>;
 
 class ServiceUnavailableException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class SimulationApplicationConfig {
   public Arn $application;
   public Version $application_version;
   public LaunchConfig $launch_config;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'application_version' => Version,
+  ?'launch_config' => LaunchConfig,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->application_version = $application_version ?? ;
+    $this->launch_config = $launch_config ?? ;
+  }
 }
 
-class SimulationApplicationConfigs {
-}
+type SimulationApplicationConfigs = vec<SimulationApplicationConfig>;
 
-class SimulationApplicationNames {
-}
+type SimulationApplicationNames = vec<Name>;
 
-class SimulationApplicationSummaries {
-}
+type SimulationApplicationSummaries = vec<SimulationApplicationSummary>;
 
 class SimulationApplicationSummary {
   public Arn $arn;
@@ -928,6 +1998,22 @@ class SimulationApplicationSummary {
   public RobotSoftwareSuite $robot_software_suite;
   public SimulationSoftwareSuite $simulation_software_suite;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class SimulationJob {
@@ -952,16 +2038,59 @@ class SimulationJob {
   public SimulationJobStatus $status;
   public TagMap $tags;
   public VPCConfigResponse $vpc_config;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'client_request_token' => ClientRequestToken,
+  ?'compute' => ComputeResponse,
+  ?'data_sources' => DataSources,
+  ?'failure_behavior' => FailureBehavior,
+  ?'failure_code' => SimulationJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'iam_role' => IamRole,
+  ?'last_started_at' => LastStartedAt,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'logging_config' => LoggingConfig,
+  ?'max_job_duration_in_seconds' => JobDuration,
+  ?'name' => Name,
+  ?'network_interface' => NetworkInterface,
+  ?'output_location' => OutputLocation,
+  ?'robot_applications' => RobotApplicationConfigs,
+  ?'simulation_applications' => SimulationApplicationConfigs,
+  ?'simulation_time_millis' => SimulationTimeMillis,
+  ?'status' => SimulationJobStatus,
+  ?'tags' => TagMap,
+  ?'vpc_config' => VPCConfigResponse,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->compute = $compute ?? ;
+    $this->data_sources = $data_sources ?? ;
+    $this->failure_behavior = $failure_behavior ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->iam_role = $iam_role ?? ;
+    $this->last_started_at = $last_started_at ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->logging_config = $logging_config ?? ;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
+    $this->name = $name ?? ;
+    $this->network_interface = $network_interface ?? ;
+    $this->output_location = $output_location ?? ;
+    $this->robot_applications = $robot_applications ?? ;
+    $this->simulation_applications = $simulation_applications ?? ;
+    $this->simulation_time_millis = $simulation_time_millis ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
-class SimulationJobBatchErrorCode {
-}
+type SimulationJobBatchErrorCode = string;
 
-class SimulationJobBatchStatus {
-}
+type SimulationJobBatchStatus = string;
 
-class SimulationJobBatchSummaries {
-}
+type SimulationJobBatchSummaries = vec<SimulationJobBatchSummary>;
 
 class SimulationJobBatchSummary {
   public Arn $arn;
@@ -971,10 +2100,27 @@ class SimulationJobBatchSummary {
   public LastUpdatedAt $last_updated_at;
   public int $pending_request_count;
   public SimulationJobBatchStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'created_request_count' => int,
+  ?'failed_request_count' => int,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'pending_request_count' => int,
+  ?'status' => SimulationJobBatchStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->created_request_count = $created_request_count ?? ;
+    $this->failed_request_count = $failed_request_count ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->pending_request_count = $pending_request_count ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class SimulationJobErrorCode {
-}
+type SimulationJobErrorCode = string;
 
 class SimulationJobRequest {
   public Compute $compute;
@@ -989,13 +2135,39 @@ class SimulationJobRequest {
   public TagMap $tags;
   public BoxedBoolean $use_default_applications;
   public VPCConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'compute' => Compute,
+  ?'data_sources' => DataSourceConfigs,
+  ?'failure_behavior' => FailureBehavior,
+  ?'iam_role' => IamRole,
+  ?'logging_config' => LoggingConfig,
+  ?'max_job_duration_in_seconds' => JobDuration,
+  ?'output_location' => OutputLocation,
+  ?'robot_applications' => RobotApplicationConfigs,
+  ?'simulation_applications' => SimulationApplicationConfigs,
+  ?'tags' => TagMap,
+  ?'use_default_applications' => BoxedBoolean,
+  ?'vpc_config' => VPCConfig,
+  ) $s = shape()) {
+    $this->compute = $compute ?? ;
+    $this->data_sources = $data_sources ?? ;
+    $this->failure_behavior = $failure_behavior ?? ;
+    $this->iam_role = $iam_role ?? ;
+    $this->logging_config = $logging_config ?? ;
+    $this->max_job_duration_in_seconds = $max_job_duration_in_seconds ?? ;
+    $this->output_location = $output_location ?? ;
+    $this->robot_applications = $robot_applications ?? ;
+    $this->simulation_applications = $simulation_applications ?? ;
+    $this->tags = $tags ?? ;
+    $this->use_default_applications = $use_default_applications ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
-class SimulationJobStatus {
-}
+type SimulationJobStatus = string;
 
-class SimulationJobSummaries {
-}
+type SimulationJobSummaries = vec<SimulationJobSummary>;
 
 class SimulationJobSummary {
   public Arn $arn;
@@ -1005,52 +2177,105 @@ class SimulationJobSummary {
   public RobotApplicationNames $robot_application_names;
   public SimulationApplicationNames $simulation_application_names;
   public SimulationJobStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'data_source_names' => DataSourceNames,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'robot_application_names' => RobotApplicationNames,
+  ?'simulation_application_names' => SimulationApplicationNames,
+  ?'status' => SimulationJobStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->data_source_names = $data_source_names ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->robot_application_names = $robot_application_names ?? ;
+    $this->simulation_application_names = $simulation_application_names ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class SimulationJobs {
-}
+type SimulationJobs = vec<SimulationJob>;
 
 class SimulationSoftwareSuite {
   public SimulationSoftwareSuiteType $name;
   public SimulationSoftwareSuiteVersionType $version;
+
+  public function __construct(shape(
+  ?'name' => SimulationSoftwareSuiteType,
+  ?'version' => SimulationSoftwareSuiteVersionType,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class SimulationSoftwareSuiteType {
-}
+type SimulationSoftwareSuiteType = string;
 
-class SimulationSoftwareSuiteVersionType {
-}
+type SimulationSoftwareSuiteVersionType = string;
 
-class SimulationTimeMillis {
-}
+type SimulationTimeMillis = int;
 
-class SimulationUnit {
-}
+type SimulationUnit = int;
 
 class Source {
   public Architecture $architecture;
   public S3Etag $etag;
   public S3Bucket $s_3_bucket;
   public S3Key $s_3_key;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'etag' => S3Etag,
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key' => S3Key,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->etag = $etag ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->s_3_key = $s_3_key ?? ;
+  }
 }
 
 class SourceConfig {
   public Architecture $architecture;
   public S3Bucket $s_3_bucket;
   public S3Key $s_3_key;
+
+  public function __construct(shape(
+  ?'architecture' => Architecture,
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key' => S3Key,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->s_3_key = $s_3_key ?? ;
+  }
 }
 
-class SourceConfigs {
-}
+type SourceConfigs = vec<SourceConfig>;
 
-class Sources {
-}
+type Sources = vec<Source>;
 
 class StartSimulationJobBatchRequest {
   public BatchPolicy $batch_policy;
   public ClientRequestToken $client_request_token;
   public CreateSimulationJobRequests $create_simulation_job_requests;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'batch_policy' => BatchPolicy,
+  ?'client_request_token' => ClientRequestToken,
+  ?'create_simulation_job_requests' => CreateSimulationJobRequests,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->batch_policy = $batch_policy ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->create_simulation_job_requests = $create_simulation_job_requests ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class StartSimulationJobBatchResponse {
@@ -1065,14 +2290,47 @@ class StartSimulationJobBatchResponse {
   public CreateSimulationJobRequests $pending_requests;
   public SimulationJobBatchStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'batch_policy' => BatchPolicy,
+  ?'client_request_token' => ClientRequestToken,
+  ?'created_at' => CreatedAt,
+  ?'created_requests' => SimulationJobSummaries,
+  ?'failed_requests' => FailedCreateSimulationJobRequests,
+  ?'failure_code' => SimulationJobBatchErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'pending_requests' => CreateSimulationJobRequests,
+  ?'status' => SimulationJobBatchStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->batch_policy = $batch_policy ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->created_requests = $created_requests ?? ;
+    $this->failed_requests = $failed_requests ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->pending_requests = $pending_requests ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
-class Subnets {
-}
+type Subnets = vec<NonEmptyString>;
 
 class SyncDeploymentJobRequest {
   public ClientRequestToken $client_request_token;
   public Arn $fleet;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'fleet' => Arn,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? ;
+    $this->fleet = $fleet ?? ;
+  }
 }
 
 class SyncDeploymentJobResponse {
@@ -1084,38 +2342,84 @@ class SyncDeploymentJobResponse {
   public GenericString $failure_reason;
   public Arn $fleet;
   public DeploymentStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'created_at' => CreatedAt,
+  ?'deployment_application_configs' => DeploymentApplicationConfigs,
+  ?'deployment_config' => DeploymentConfig,
+  ?'failure_code' => DeploymentJobErrorCode,
+  ?'failure_reason' => GenericString,
+  ?'fleet' => Arn,
+  ?'status' => DeploymentStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->deployment_application_configs = $deployment_application_configs ?? ;
+    $this->deployment_config = $deployment_config ?? ;
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->fleet = $fleet ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagMap {
-}
+type TagMap = dict<TagKey, TagValue>;
 
 class TagResourceRequest {
   public Arn $resource_arn;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
 class ThrottlingException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagResourceRequest {
   public Arn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateRobotApplicationRequest {
@@ -1123,6 +2427,18 @@ class UpdateRobotApplicationRequest {
   public RevisionId $current_revision_id;
   public RobotSoftwareSuite $robot_software_suite;
   public SourceConfigs $sources;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'current_revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => SourceConfigs,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->current_revision_id = $current_revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+  }
 }
 
 class UpdateRobotApplicationResponse {
@@ -1133,6 +2449,24 @@ class UpdateRobotApplicationResponse {
   public RobotSoftwareSuite $robot_software_suite;
   public Sources $sources;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'sources' => Sources,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class UpdateSimulationApplicationRequest {
@@ -1142,6 +2476,22 @@ class UpdateSimulationApplicationRequest {
   public RobotSoftwareSuite $robot_software_suite;
   public SimulationSoftwareSuite $simulation_software_suite;
   public SourceConfigs $sources;
+
+  public function __construct(shape(
+  ?'application' => Arn,
+  ?'current_revision_id' => RevisionId,
+  ?'rendering_engine' => RenderingEngine,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => SourceConfigs,
+  ) $s = shape()) {
+    $this->application = $application ?? ;
+    $this->current_revision_id = $current_revision_id ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+  }
 }
 
 class UpdateSimulationApplicationResponse {
@@ -1154,12 +2504,44 @@ class UpdateSimulationApplicationResponse {
   public SimulationSoftwareSuite $simulation_software_suite;
   public Sources $sources;
   public Version $version;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'last_updated_at' => LastUpdatedAt,
+  ?'name' => Name,
+  ?'rendering_engine' => RenderingEngine,
+  ?'revision_id' => RevisionId,
+  ?'robot_software_suite' => RobotSoftwareSuite,
+  ?'simulation_software_suite' => SimulationSoftwareSuite,
+  ?'sources' => Sources,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->last_updated_at = $last_updated_at ?? ;
+    $this->name = $name ?? ;
+    $this->rendering_engine = $rendering_engine ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->robot_software_suite = $robot_software_suite ?? ;
+    $this->simulation_software_suite = $simulation_software_suite ?? ;
+    $this->sources = $sources ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class VPCConfig {
   public boolean $assign_public_ip;
   public SecurityGroups $security_groups;
   public Subnets $subnets;
+
+  public function __construct(shape(
+  ?'assign_public_ip' => boolean,
+  ?'security_groups' => SecurityGroups,
+  ?'subnets' => Subnets,
+  ) $s = shape()) {
+    $this->assign_public_ip = $assign_public_ip ?? ;
+    $this->security_groups = $security_groups ?? ;
+    $this->subnets = $subnets ?? ;
+  }
 }
 
 class VPCConfigResponse {
@@ -1167,14 +2549,23 @@ class VPCConfigResponse {
   public SecurityGroups $security_groups;
   public Subnets $subnets;
   public GenericString $vpc_id;
+
+  public function __construct(shape(
+  ?'assign_public_ip' => boolean,
+  ?'security_groups' => SecurityGroups,
+  ?'subnets' => Subnets,
+  ?'vpc_id' => GenericString,
+  ) $s = shape()) {
+    $this->assign_public_ip = $assign_public_ip ?? ;
+    $this->security_groups = $security_groups ?? ;
+    $this->subnets = $subnets ?? ;
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
-class Version {
-}
+type Version = string;
 
-class VersionQualifier {
-}
+type VersionQualifier = string;
 
-class errorMessage {
-}
+type errorMessage = string;
 

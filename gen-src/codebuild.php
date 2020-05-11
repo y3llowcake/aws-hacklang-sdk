@@ -39,67 +39,136 @@ interface CodeBuild {
 }
 
 class AccountLimitExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class ArtifactNamespace {
-}
+type ArtifactNamespace = string;
 
-class ArtifactPackaging {
-}
+type ArtifactPackaging = string;
 
-class ArtifactsType {
-}
+type ArtifactsType = string;
 
-class AuthType {
-}
+type AuthType = string;
 
 class BatchDeleteBuildsInput {
   public BuildIds $ids;
+
+  public function __construct(shape(
+  ?'ids' => BuildIds,
+  ) $s = shape()) {
+    $this->ids = $ids ?? ;
+  }
 }
 
 class BatchDeleteBuildsOutput {
   public BuildIds $builds_deleted;
   public BuildsNotDeleted $builds_not_deleted;
+
+  public function __construct(shape(
+  ?'builds_deleted' => BuildIds,
+  ?'builds_not_deleted' => BuildsNotDeleted,
+  ) $s = shape()) {
+    $this->builds_deleted = $builds_deleted ?? ;
+    $this->builds_not_deleted = $builds_not_deleted ?? ;
+  }
 }
 
 class BatchGetBuildsInput {
   public BuildIds $ids;
+
+  public function __construct(shape(
+  ?'ids' => BuildIds,
+  ) $s = shape()) {
+    $this->ids = $ids ?? ;
+  }
 }
 
 class BatchGetBuildsOutput {
   public Builds $builds;
   public BuildIds $builds_not_found;
+
+  public function __construct(shape(
+  ?'builds' => Builds,
+  ?'builds_not_found' => BuildIds,
+  ) $s = shape()) {
+    $this->builds = $builds ?? ;
+    $this->builds_not_found = $builds_not_found ?? ;
+  }
 }
 
 class BatchGetProjectsInput {
   public ProjectNames $names;
+
+  public function __construct(shape(
+  ?'names' => ProjectNames,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+  }
 }
 
 class BatchGetProjectsOutput {
   public Projects $projects;
   public ProjectNames $projects_not_found;
+
+  public function __construct(shape(
+  ?'projects' => Projects,
+  ?'projects_not_found' => ProjectNames,
+  ) $s = shape()) {
+    $this->projects = $projects ?? ;
+    $this->projects_not_found = $projects_not_found ?? ;
+  }
 }
 
 class BatchGetReportGroupsInput {
   public ReportGroupArns $report_group_arns;
+
+  public function __construct(shape(
+  ?'report_group_arns' => ReportGroupArns,
+  ) $s = shape()) {
+    $this->report_group_arns = $report_group_arns ?? ;
+  }
 }
 
 class BatchGetReportGroupsOutput {
   public ReportGroups $report_groups;
   public ReportGroupArns $report_groups_not_found;
+
+  public function __construct(shape(
+  ?'report_groups' => ReportGroups,
+  ?'report_groups_not_found' => ReportGroupArns,
+  ) $s = shape()) {
+    $this->report_groups = $report_groups ?? ;
+    $this->report_groups_not_found = $report_groups_not_found ?? ;
+  }
 }
 
 class BatchGetReportsInput {
   public ReportArns $report_arns;
+
+  public function __construct(shape(
+  ?'report_arns' => ReportArns,
+  ) $s = shape()) {
+    $this->report_arns = $report_arns ?? ;
+  }
 }
 
 class BatchGetReportsOutput {
   public Reports $reports;
   public ReportArns $reports_not_found;
+
+  public function __construct(shape(
+  ?'reports' => Reports,
+  ?'reports_not_found' => ReportArns,
+  ) $s = shape()) {
+    $this->reports = $reports ?? ;
+    $this->reports_not_found = $reports_not_found ?? ;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
 class Build {
   public NonEmptyString $arn;
@@ -132,6 +201,70 @@ class Build {
   public Timestamp $start_time;
   public WrapperInt $timeout_in_minutes;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ?'artifacts' => BuildArtifacts,
+  ?'build_complete' => boolean,
+  ?'build_number' => WrapperLong,
+  ?'build_status' => StatusType,
+  ?'cache' => ProjectCache,
+  ?'current_phase' => string,
+  ?'encryption_key' => NonEmptyString,
+  ?'end_time' => Timestamp,
+  ?'environment' => ProjectEnvironment,
+  ?'exported_environment_variables' => ExportedEnvironmentVariables,
+  ?'file_system_locations' => ProjectFileSystemLocations,
+  ?'id' => NonEmptyString,
+  ?'initiator' => string,
+  ?'logs' => LogsLocation,
+  ?'network_interface' => NetworkInterface,
+  ?'phases' => BuildPhases,
+  ?'project_name' => NonEmptyString,
+  ?'queued_timeout_in_minutes' => WrapperInt,
+  ?'report_arns' => BuildReportArns,
+  ?'resolved_source_version' => NonEmptyString,
+  ?'secondary_artifacts' => BuildArtifactsList,
+  ?'secondary_source_versions' => ProjectSecondarySourceVersions,
+  ?'secondary_sources' => ProjectSources,
+  ?'service_role' => NonEmptyString,
+  ?'source' => ProjectSource,
+  ?'source_version' => NonEmptyString,
+  ?'start_time' => Timestamp,
+  ?'timeout_in_minutes' => WrapperInt,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->artifacts = $artifacts ?? ;
+    $this->build_complete = $build_complete ?? ;
+    $this->build_number = $build_number ?? ;
+    $this->build_status = $build_status ?? ;
+    $this->cache = $cache ?? ;
+    $this->current_phase = $current_phase ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->end_time = $end_time ?? ;
+    $this->environment = $environment ?? ;
+    $this->exported_environment_variables = $exported_environment_variables ?? ;
+    $this->file_system_locations = $file_system_locations ?? ;
+    $this->id = $id ?? ;
+    $this->initiator = $initiator ?? ;
+    $this->logs = $logs ?? ;
+    $this->network_interface = $network_interface ?? ;
+    $this->phases = $phases ?? ;
+    $this->project_name = $project_name ?? ;
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
+    $this->report_arns = $report_arns ?? ;
+    $this->resolved_source_version = $resolved_source_version ?? ;
+    $this->secondary_artifacts = $secondary_artifacts ?? ;
+    $this->secondary_source_versions = $secondary_source_versions ?? ;
+    $this->secondary_sources = $secondary_sources ?? ;
+    $this->service_role = $service_role ?? ;
+    $this->source = $source ?? ;
+    $this->source_version = $source_version ?? ;
+    $this->start_time = $start_time ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
 class BuildArtifacts {
@@ -141,17 +274,39 @@ class BuildArtifacts {
   public string $md_5_sum;
   public WrapperBoolean $override_artifact_name;
   public string $sha_256_sum;
+
+  public function __construct(shape(
+  ?'artifact_identifier' => string,
+  ?'encryption_disabled' => WrapperBoolean,
+  ?'location' => string,
+  ?'md_5_sum' => string,
+  ?'override_artifact_name' => WrapperBoolean,
+  ?'sha_256_sum' => string,
+  ) $s = shape()) {
+    $this->artifact_identifier = $artifact_identifier ?? ;
+    $this->encryption_disabled = $encryption_disabled ?? ;
+    $this->location = $location ?? ;
+    $this->md_5_sum = $md_5_sum ?? ;
+    $this->override_artifact_name = $override_artifact_name ?? ;
+    $this->sha_256_sum = $sha_256_sum ?? ;
+  }
 }
 
-class BuildArtifactsList {
-}
+type BuildArtifactsList = vec<BuildArtifacts>;
 
-class BuildIds {
-}
+type BuildIds = vec<NonEmptyString>;
 
 class BuildNotDeleted {
   public NonEmptyString $id;
   public string $status_code;
+
+  public function __construct(shape(
+  ?'id' => NonEmptyString,
+  ?'status_code' => string,
+  ) $s = shape()) {
+    $this->id = $id ?? ;
+    $this->status_code = $status_code ?? ;
+  }
 }
 
 class BuildPhase {
@@ -161,37 +316,55 @@ class BuildPhase {
   public StatusType $phase_status;
   public BuildPhaseType $phase_type;
   public Timestamp $start_time;
+
+  public function __construct(shape(
+  ?'contexts' => PhaseContexts,
+  ?'duration_in_seconds' => WrapperLong,
+  ?'end_time' => Timestamp,
+  ?'phase_status' => StatusType,
+  ?'phase_type' => BuildPhaseType,
+  ?'start_time' => Timestamp,
+  ) $s = shape()) {
+    $this->contexts = $contexts ?? ;
+    $this->duration_in_seconds = $duration_in_seconds ?? ;
+    $this->end_time = $end_time ?? ;
+    $this->phase_status = $phase_status ?? ;
+    $this->phase_type = $phase_type ?? ;
+    $this->start_time = $start_time ?? ;
+  }
 }
 
-class BuildPhaseType {
-}
+type BuildPhaseType = string;
 
-class BuildPhases {
-}
+type BuildPhases = vec<BuildPhase>;
 
-class BuildReportArns {
-}
+type BuildReportArns = vec<String>;
 
-class Builds {
-}
+type Builds = vec<Build>;
 
-class BuildsNotDeleted {
-}
+type BuildsNotDeleted = vec<BuildNotDeleted>;
 
-class CacheMode {
-}
+type CacheMode = string;
 
-class CacheType {
-}
+type CacheType = string;
 
 class CloudWatchLogsConfig {
   public string $group_name;
   public LogsConfigStatusType $status;
   public string $stream_name;
+
+  public function __construct(shape(
+  ?'group_name' => string,
+  ?'status' => LogsConfigStatusType,
+  ?'stream_name' => string,
+  ) $s = shape()) {
+    $this->group_name = $group_name ?? ;
+    $this->status = $status ?? ;
+    $this->stream_name = $stream_name ?? ;
+  }
 }
 
-class ComputeType {
-}
+type ComputeType = string;
 
 class CreateProjectInput {
   public ProjectArtifacts $artifacts;
@@ -213,76 +386,217 @@ class CreateProjectInput {
   public TagList $tags;
   public TimeOut $timeout_in_minutes;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'artifacts' => ProjectArtifacts,
+  ?'badge_enabled' => WrapperBoolean,
+  ?'cache' => ProjectCache,
+  ?'description' => ProjectDescription,
+  ?'encryption_key' => NonEmptyString,
+  ?'environment' => ProjectEnvironment,
+  ?'file_system_locations' => ProjectFileSystemLocations,
+  ?'logs_config' => LogsConfig,
+  ?'name' => ProjectName,
+  ?'queued_timeout_in_minutes' => TimeOut,
+  ?'secondary_artifacts' => ProjectArtifactsList,
+  ?'secondary_source_versions' => ProjectSecondarySourceVersions,
+  ?'secondary_sources' => ProjectSources,
+  ?'service_role' => NonEmptyString,
+  ?'source' => ProjectSource,
+  ?'source_version' => string,
+  ?'tags' => TagList,
+  ?'timeout_in_minutes' => TimeOut,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->artifacts = $artifacts ?? ;
+    $this->badge_enabled = $badge_enabled ?? ;
+    $this->cache = $cache ?? ;
+    $this->description = $description ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->environment = $environment ?? ;
+    $this->file_system_locations = $file_system_locations ?? ;
+    $this->logs_config = $logs_config ?? ;
+    $this->name = $name ?? ;
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
+    $this->secondary_artifacts = $secondary_artifacts ?? ;
+    $this->secondary_source_versions = $secondary_source_versions ?? ;
+    $this->secondary_sources = $secondary_sources ?? ;
+    $this->service_role = $service_role ?? ;
+    $this->source = $source ?? ;
+    $this->source_version = $source_version ?? ;
+    $this->tags = $tags ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
 class CreateProjectOutput {
   public Project $project;
+
+  public function __construct(shape(
+  ?'project' => Project,
+  ) $s = shape()) {
+    $this->project = $project ?? ;
+  }
 }
 
 class CreateReportGroupInput {
   public ReportExportConfig $export_config;
   public ReportGroupName $name;
   public ReportType $type;
+
+  public function __construct(shape(
+  ?'export_config' => ReportExportConfig,
+  ?'name' => ReportGroupName,
+  ?'type' => ReportType,
+  ) $s = shape()) {
+    $this->export_config = $export_config ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class CreateReportGroupOutput {
   public ReportGroup $report_group;
+
+  public function __construct(shape(
+  ?'report_group' => ReportGroup,
+  ) $s = shape()) {
+    $this->report_group = $report_group ?? ;
+  }
 }
 
 class CreateWebhookInput {
   public string $branch_filter;
   public FilterGroups $filter_groups;
   public ProjectName $project_name;
+
+  public function __construct(shape(
+  ?'branch_filter' => string,
+  ?'filter_groups' => FilterGroups,
+  ?'project_name' => ProjectName,
+  ) $s = shape()) {
+    $this->branch_filter = $branch_filter ?? ;
+    $this->filter_groups = $filter_groups ?? ;
+    $this->project_name = $project_name ?? ;
+  }
 }
 
 class CreateWebhookOutput {
   public Webhook $webhook;
+
+  public function __construct(shape(
+  ?'webhook' => Webhook,
+  ) $s = shape()) {
+    $this->webhook = $webhook ?? ;
+  }
 }
 
-class CredentialProviderType {
-}
+type CredentialProviderType = string;
 
 class DeleteProjectInput {
   public NonEmptyString $name;
+
+  public function __construct(shape(
+  ?'name' => NonEmptyString,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DeleteProjectOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteReportGroupInput {
   public NonEmptyString $arn;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteReportGroupOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteReportInput {
   public NonEmptyString $arn;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteReportOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteResourcePolicyInput {
   public NonEmptyString $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class DeleteResourcePolicyOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteSourceCredentialsInput {
   public NonEmptyString $arn;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteSourceCredentialsOutput {
   public NonEmptyString $arn;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteWebhookInput {
   public ProjectName $project_name;
+
+  public function __construct(shape(
+  ?'project_name' => ProjectName,
+  ) $s = shape()) {
+    $this->project_name = $project_name ?? ;
+  }
 }
 
 class DeleteWebhookOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeTestCasesInput {
@@ -290,90 +604,159 @@ class DescribeTestCasesInput {
   public PageSize $max_results;
   public string $next_token;
   public string $report_arn;
+
+  public function __construct(shape(
+  ?'filter' => TestCaseFilter,
+  ?'max_results' => PageSize,
+  ?'next_token' => string,
+  ?'report_arn' => string,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->report_arn = $report_arn ?? ;
+  }
 }
 
 class DescribeTestCasesOutput {
   public string $next_token;
   public TestCases $test_cases;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'test_cases' => TestCases,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->test_cases = $test_cases ?? ;
+  }
 }
 
 class EnvironmentImage {
   public string $description;
   public string $name;
   public ImageVersions $versions;
+
+  public function __construct(shape(
+  ?'description' => string,
+  ?'name' => string,
+  ?'versions' => ImageVersions,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+    $this->versions = $versions ?? ;
+  }
 }
 
-class EnvironmentImages {
-}
+type EnvironmentImages = vec<EnvironmentImage>;
 
 class EnvironmentLanguage {
   public EnvironmentImages $images;
   public LanguageType $language;
+
+  public function __construct(shape(
+  ?'images' => EnvironmentImages,
+  ?'language' => LanguageType,
+  ) $s = shape()) {
+    $this->images = $images ?? ;
+    $this->language = $language ?? ;
+  }
 }
 
-class EnvironmentLanguages {
-}
+type EnvironmentLanguages = vec<EnvironmentLanguage>;
 
 class EnvironmentPlatform {
   public EnvironmentLanguages $languages;
   public PlatformType $platform;
+
+  public function __construct(shape(
+  ?'languages' => EnvironmentLanguages,
+  ?'platform' => PlatformType,
+  ) $s = shape()) {
+    $this->languages = $languages ?? ;
+    $this->platform = $platform ?? ;
+  }
 }
 
-class EnvironmentPlatforms {
-}
+type EnvironmentPlatforms = vec<EnvironmentPlatform>;
 
-class EnvironmentType {
-}
+type EnvironmentType = string;
 
 class EnvironmentVariable {
   public NonEmptyString $name;
   public EnvironmentVariableType $type;
   public string $value;
+
+  public function __construct(shape(
+  ?'name' => NonEmptyString,
+  ?'type' => EnvironmentVariableType,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class EnvironmentVariableType {
-}
+type EnvironmentVariableType = string;
 
-class EnvironmentVariables {
-}
+type EnvironmentVariables = vec<EnvironmentVariable>;
 
 class ExportedEnvironmentVariable {
   public NonEmptyString $name;
   public string $value;
+
+  public function __construct(shape(
+  ?'name' => NonEmptyString,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ExportedEnvironmentVariables {
-}
+type ExportedEnvironmentVariables = vec<ExportedEnvironmentVariable>;
 
-class FileSystemType {
-}
+type FileSystemType = string;
 
-class FilterGroup {
-}
+type FilterGroup = vec<WebhookFilter>;
 
-class FilterGroups {
-}
+type FilterGroups = vec<FilterGroup>;
 
 class GetResourcePolicyInput {
   public NonEmptyString $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class GetResourcePolicyOutput {
   public NonEmptyString $policy;
+
+  public function __construct(shape(
+  ?'policy' => NonEmptyString,
+  ) $s = shape()) {
+    $this->policy = $policy ?? ;
+  }
 }
 
-class GitCloneDepth {
-}
+type GitCloneDepth = int;
 
 class GitSubmodulesConfig {
   public WrapperBoolean $fetch_submodules;
+
+  public function __construct(shape(
+  ?'fetch_submodules' => WrapperBoolean,
+  ) $s = shape()) {
+    $this->fetch_submodules = $fetch_submodules ?? ;
+  }
 }
 
-class ImagePullCredentialsType {
-}
+type ImagePullCredentialsType = string;
 
-class ImageVersions {
-}
+type ImageVersions = vec<String>;
 
 class ImportSourceCredentialsInput {
   public AuthType $auth_type;
@@ -381,65 +764,159 @@ class ImportSourceCredentialsInput {
   public WrapperBoolean $should_overwrite;
   public SensitiveNonEmptyString $token;
   public NonEmptyString $username;
+
+  public function __construct(shape(
+  ?'auth_type' => AuthType,
+  ?'server_type' => ServerType,
+  ?'should_overwrite' => WrapperBoolean,
+  ?'token' => SensitiveNonEmptyString,
+  ?'username' => NonEmptyString,
+  ) $s = shape()) {
+    $this->auth_type = $auth_type ?? ;
+    $this->server_type = $server_type ?? ;
+    $this->should_overwrite = $should_overwrite ?? ;
+    $this->token = $token ?? ;
+    $this->username = $username ?? ;
+  }
 }
 
 class ImportSourceCredentialsOutput {
   public NonEmptyString $arn;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class InvalidInputException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidateProjectCacheInput {
   public NonEmptyString $project_name;
+
+  public function __construct(shape(
+  ?'project_name' => NonEmptyString,
+  ) $s = shape()) {
+    $this->project_name = $project_name ?? ;
+  }
 }
 
 class InvalidateProjectCacheOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class KeyInput {
-}
+type KeyInput = string;
 
-class LanguageType {
-}
+type LanguageType = string;
 
 class ListBuildsForProjectInput {
   public string $next_token;
   public NonEmptyString $project_name;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'project_name' => NonEmptyString,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->project_name = $project_name ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListBuildsForProjectOutput {
   public BuildIds $ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'ids' => BuildIds,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->ids = $ids ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListBuildsInput {
   public string $next_token;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListBuildsOutput {
   public BuildIds $ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'ids' => BuildIds,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->ids = $ids ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListCuratedEnvironmentImagesInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListCuratedEnvironmentImagesOutput {
   public EnvironmentPlatforms $platforms;
+
+  public function __construct(shape(
+  ?'platforms' => EnvironmentPlatforms,
+  ) $s = shape()) {
+    $this->platforms = $platforms ?? ;
+  }
 }
 
 class ListProjectsInput {
   public NonEmptyString $next_token;
   public ProjectSortByType $sort_by;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'next_token' => NonEmptyString,
+  ?'sort_by' => ProjectSortByType,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListProjectsOutput {
   public string $next_token;
   public ProjectNames $projects;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'projects' => ProjectNames,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->projects = $projects ?? ;
+  }
 }
 
 class ListReportGroupsInput {
@@ -447,11 +924,31 @@ class ListReportGroupsInput {
   public string $next_token;
   public ReportGroupSortByType $sort_by;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'max_results' => PageSize,
+  ?'next_token' => string,
+  ?'sort_by' => ReportGroupSortByType,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListReportGroupsOutput {
   public string $next_token;
   public ReportGroupArns $report_groups;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'report_groups' => ReportGroupArns,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->report_groups = $report_groups ?? ;
+  }
 }
 
 class ListReportsForReportGroupInput {
@@ -460,11 +957,33 @@ class ListReportsForReportGroupInput {
   public string $next_token;
   public string $report_group_arn;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'filter' => ReportFilter,
+  ?'max_results' => PageSize,
+  ?'next_token' => string,
+  ?'report_group_arn' => string,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->report_group_arn = $report_group_arn ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListReportsForReportGroupOutput {
   public string $next_token;
   public ReportArns $reports;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'reports' => ReportArns,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->reports = $reports ?? ;
+  }
 }
 
 class ListReportsInput {
@@ -472,11 +991,31 @@ class ListReportsInput {
   public PageSize $max_results;
   public string $next_token;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'filter' => ReportFilter,
+  ?'max_results' => PageSize,
+  ?'next_token' => string,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListReportsOutput {
   public string $next_token;
   public ReportArns $reports;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'reports' => ReportArns,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->reports = $reports ?? ;
+  }
 }
 
 class ListSharedProjectsInput {
@@ -484,11 +1023,31 @@ class ListSharedProjectsInput {
   public NonEmptyString $next_token;
   public SharedResourceSortByType $sort_by;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'max_results' => PageSize,
+  ?'next_token' => NonEmptyString,
+  ?'sort_by' => SharedResourceSortByType,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListSharedProjectsOutput {
   public string $next_token;
   public ProjectArns $projects;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'projects' => ProjectArns,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->projects = $projects ?? ;
+  }
 }
 
 class ListSharedReportGroupsInput {
@@ -496,27 +1055,64 @@ class ListSharedReportGroupsInput {
   public string $next_token;
   public SharedResourceSortByType $sort_by;
   public SortOrderType $sort_order;
+
+  public function __construct(shape(
+  ?'max_results' => PageSize,
+  ?'next_token' => string,
+  ?'sort_by' => SharedResourceSortByType,
+  ?'sort_order' => SortOrderType,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
 class ListSharedReportGroupsOutput {
   public string $next_token;
   public ReportGroupArns $report_groups;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'report_groups' => ReportGroupArns,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->report_groups = $report_groups ?? ;
+  }
 }
 
 class ListSourceCredentialsInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListSourceCredentialsOutput {
   public SourceCredentialsInfos $source_credentials_infos;
+
+  public function __construct(shape(
+  ?'source_credentials_infos' => SourceCredentialsInfos,
+  ) $s = shape()) {
+    $this->source_credentials_infos = $source_credentials_infos ?? ;
+  }
 }
 
 class LogsConfig {
   public CloudWatchLogsConfig $cloud_watch_logs;
   public S3LogsConfig $s_3_logs;
+
+  public function __construct(shape(
+  ?'cloud_watch_logs' => CloudWatchLogsConfig,
+  ?'s_3_logs' => S3LogsConfig,
+  ) $s = shape()) {
+    $this->cloud_watch_logs = $cloud_watch_logs ?? ;
+    $this->s_3_logs = $s_3_logs ?? ;
+  }
 }
 
-class LogsConfigStatusType {
-}
+type LogsConfigStatusType = string;
 
 class LogsLocation {
   public CloudWatchLogsConfig $cloud_watch_logs;
@@ -527,32 +1123,68 @@ class LogsLocation {
   public S3LogsConfig $s_3_logs;
   public string $s_3_logs_arn;
   public string $stream_name;
+
+  public function __construct(shape(
+  ?'cloud_watch_logs' => CloudWatchLogsConfig,
+  ?'cloud_watch_logs_arn' => string,
+  ?'deep_link' => string,
+  ?'group_name' => string,
+  ?'s_3_deep_link' => string,
+  ?'s_3_logs' => S3LogsConfig,
+  ?'s_3_logs_arn' => string,
+  ?'stream_name' => string,
+  ) $s = shape()) {
+    $this->cloud_watch_logs = $cloud_watch_logs ?? ;
+    $this->cloud_watch_logs_arn = $cloud_watch_logs_arn ?? ;
+    $this->deep_link = $deep_link ?? ;
+    $this->group_name = $group_name ?? ;
+    $this->s_3_deep_link = $s_3_deep_link ?? ;
+    $this->s_3_logs = $s_3_logs ?? ;
+    $this->s_3_logs_arn = $s_3_logs_arn ?? ;
+    $this->stream_name = $stream_name ?? ;
+  }
 }
 
 class NetworkInterface {
   public NonEmptyString $network_interface_id;
   public NonEmptyString $subnet_id;
+
+  public function __construct(shape(
+  ?'network_interface_id' => NonEmptyString,
+  ?'subnet_id' => NonEmptyString,
+  ) $s = shape()) {
+    $this->network_interface_id = $network_interface_id ?? ;
+    $this->subnet_id = $subnet_id ?? ;
+  }
 }
 
-class NonEmptyString {
-}
+type NonEmptyString = string;
 
 class OAuthProviderException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class PageSize {
-}
+type PageSize = int;
 
 class PhaseContext {
   public string $message;
   public string $status_code;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'status_code' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->status_code = $status_code ?? ;
+  }
 }
 
-class PhaseContexts {
-}
+type PhaseContexts = vec<PhaseContext>;
 
-class PlatformType {
-}
+type PlatformType = string;
 
 class Project {
   public string $arn;
@@ -578,10 +1210,59 @@ class Project {
   public TimeOut $timeout_in_minutes;
   public VpcConfig $vpc_config;
   public Webhook $webhook;
+
+  public function __construct(shape(
+  ?'arn' => string,
+  ?'artifacts' => ProjectArtifacts,
+  ?'badge' => ProjectBadge,
+  ?'cache' => ProjectCache,
+  ?'created' => Timestamp,
+  ?'description' => ProjectDescription,
+  ?'encryption_key' => NonEmptyString,
+  ?'environment' => ProjectEnvironment,
+  ?'file_system_locations' => ProjectFileSystemLocations,
+  ?'last_modified' => Timestamp,
+  ?'logs_config' => LogsConfig,
+  ?'name' => ProjectName,
+  ?'queued_timeout_in_minutes' => TimeOut,
+  ?'secondary_artifacts' => ProjectArtifactsList,
+  ?'secondary_source_versions' => ProjectSecondarySourceVersions,
+  ?'secondary_sources' => ProjectSources,
+  ?'service_role' => NonEmptyString,
+  ?'source' => ProjectSource,
+  ?'source_version' => string,
+  ?'tags' => TagList,
+  ?'timeout_in_minutes' => TimeOut,
+  ?'vpc_config' => VpcConfig,
+  ?'webhook' => Webhook,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->artifacts = $artifacts ?? ;
+    $this->badge = $badge ?? ;
+    $this->cache = $cache ?? ;
+    $this->created = $created ?? ;
+    $this->description = $description ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->environment = $environment ?? ;
+    $this->file_system_locations = $file_system_locations ?? ;
+    $this->last_modified = $last_modified ?? ;
+    $this->logs_config = $logs_config ?? ;
+    $this->name = $name ?? ;
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
+    $this->secondary_artifacts = $secondary_artifacts ?? ;
+    $this->secondary_source_versions = $secondary_source_versions ?? ;
+    $this->secondary_sources = $secondary_sources ?? ;
+    $this->service_role = $service_role ?? ;
+    $this->source = $source ?? ;
+    $this->source_version = $source_version ?? ;
+    $this->tags = $tags ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+    $this->webhook = $webhook ?? ;
+  }
 }
 
-class ProjectArns {
-}
+type ProjectArns = vec<NonEmptyString>;
 
 class ProjectArtifacts {
   public string $artifact_identifier;
@@ -593,27 +1274,64 @@ class ProjectArtifacts {
   public ArtifactPackaging $packaging;
   public string $path;
   public ArtifactsType $type;
+
+  public function __construct(shape(
+  ?'artifact_identifier' => string,
+  ?'encryption_disabled' => WrapperBoolean,
+  ?'location' => string,
+  ?'name' => string,
+  ?'namespace_type' => ArtifactNamespace,
+  ?'override_artifact_name' => WrapperBoolean,
+  ?'packaging' => ArtifactPackaging,
+  ?'path' => string,
+  ?'type' => ArtifactsType,
+  ) $s = shape()) {
+    $this->artifact_identifier = $artifact_identifier ?? ;
+    $this->encryption_disabled = $encryption_disabled ?? ;
+    $this->location = $location ?? ;
+    $this->name = $name ?? ;
+    $this->namespace_type = $namespace_type ?? ;
+    $this->override_artifact_name = $override_artifact_name ?? ;
+    $this->packaging = $packaging ?? ;
+    $this->path = $path ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ProjectArtifactsList {
-}
+type ProjectArtifactsList = vec<ProjectArtifacts>;
 
 class ProjectBadge {
   public boolean $badge_enabled;
   public string $badge_request_url;
+
+  public function __construct(shape(
+  ?'badge_enabled' => boolean,
+  ?'badge_request_url' => string,
+  ) $s = shape()) {
+    $this->badge_enabled = $badge_enabled ?? ;
+    $this->badge_request_url = $badge_request_url ?? ;
+  }
 }
 
 class ProjectCache {
   public string $location;
   public ProjectCacheModes $modes;
   public CacheType $type;
+
+  public function __construct(shape(
+  ?'location' => string,
+  ?'modes' => ProjectCacheModes,
+  ?'type' => CacheType,
+  ) $s = shape()) {
+    $this->location = $location ?? ;
+    $this->modes = $modes ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ProjectCacheModes {
-}
+type ProjectCacheModes = vec<CacheMode>;
 
-class ProjectDescription {
-}
+type ProjectDescription = string;
 
 class ProjectEnvironment {
   public string $certificate;
@@ -624,6 +1342,26 @@ class ProjectEnvironment {
   public WrapperBoolean $privileged_mode;
   public RegistryCredential $registry_credential;
   public EnvironmentType $type;
+
+  public function __construct(shape(
+  ?'certificate' => string,
+  ?'compute_type' => ComputeType,
+  ?'environment_variables' => EnvironmentVariables,
+  ?'image' => NonEmptyString,
+  ?'image_pull_credentials_type' => ImagePullCredentialsType,
+  ?'privileged_mode' => WrapperBoolean,
+  ?'registry_credential' => RegistryCredential,
+  ?'type' => EnvironmentType,
+  ) $s = shape()) {
+    $this->certificate = $certificate ?? ;
+    $this->compute_type = $compute_type ?? ;
+    $this->environment_variables = $environment_variables ?? ;
+    $this->image = $image ?? ;
+    $this->image_pull_credentials_type = $image_pull_credentials_type ?? ;
+    $this->privileged_mode = $privileged_mode ?? ;
+    $this->registry_credential = $registry_credential ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ProjectFileSystemLocation {
@@ -632,22 +1370,31 @@ class ProjectFileSystemLocation {
   public string $mount_options;
   public string $mount_point;
   public FileSystemType $type;
+
+  public function __construct(shape(
+  ?'identifier' => string,
+  ?'location' => string,
+  ?'mount_options' => string,
+  ?'mount_point' => string,
+  ?'type' => FileSystemType,
+  ) $s = shape()) {
+    $this->identifier = $identifier ?? ;
+    $this->location = $location ?? ;
+    $this->mount_options = $mount_options ?? ;
+    $this->mount_point = $mount_point ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ProjectFileSystemLocations {
-}
+type ProjectFileSystemLocations = vec<ProjectFileSystemLocation>;
 
-class ProjectName {
-}
+type ProjectName = string;
 
-class ProjectNames {
-}
+type ProjectNames = vec<NonEmptyString>;
 
-class ProjectSecondarySourceVersions {
-}
+type ProjectSecondarySourceVersions = vec<ProjectSourceVersion>;
 
-class ProjectSortByType {
-}
+type ProjectSortByType = string;
 
 class ProjectSource {
   public SourceAuth $auth;
@@ -659,31 +1406,81 @@ class ProjectSource {
   public WrapperBoolean $report_build_status;
   public string $source_identifier;
   public SourceType $type;
+
+  public function __construct(shape(
+  ?'auth' => SourceAuth,
+  ?'buildspec' => string,
+  ?'git_clone_depth' => GitCloneDepth,
+  ?'git_submodules_config' => GitSubmodulesConfig,
+  ?'insecure_ssl' => WrapperBoolean,
+  ?'location' => string,
+  ?'report_build_status' => WrapperBoolean,
+  ?'source_identifier' => string,
+  ?'type' => SourceType,
+  ) $s = shape()) {
+    $this->auth = $auth ?? ;
+    $this->buildspec = $buildspec ?? ;
+    $this->git_clone_depth = $git_clone_depth ?? ;
+    $this->git_submodules_config = $git_submodules_config ?? ;
+    $this->insecure_ssl = $insecure_ssl ?? ;
+    $this->location = $location ?? ;
+    $this->report_build_status = $report_build_status ?? ;
+    $this->source_identifier = $source_identifier ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ProjectSourceVersion {
   public string $source_identifier;
   public string $source_version;
+
+  public function __construct(shape(
+  ?'source_identifier' => string,
+  ?'source_version' => string,
+  ) $s = shape()) {
+    $this->source_identifier = $source_identifier ?? ;
+    $this->source_version = $source_version ?? ;
+  }
 }
 
-class ProjectSources {
-}
+type ProjectSources = vec<ProjectSource>;
 
-class Projects {
-}
+type Projects = vec<Project>;
 
 class PutResourcePolicyInput {
   public NonEmptyString $policy;
   public NonEmptyString $resource_arn;
+
+  public function __construct(shape(
+  ?'policy' => NonEmptyString,
+  ?'resource_arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->policy = $policy ?? ;
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class PutResourcePolicyOutput {
   public NonEmptyString $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => NonEmptyString,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class RegistryCredential {
   public NonEmptyString $credential;
   public CredentialProviderType $credential_provider;
+
+  public function __construct(shape(
+  ?'credential' => NonEmptyString,
+  ?'credential_provider' => CredentialProviderType,
+  ) $s = shape()) {
+    $this->credential = $credential ?? ;
+    $this->credential_provider = $credential_provider ?? ;
+  }
 }
 
 class Report {
@@ -698,21 +1495,59 @@ class Report {
   public TestReportSummary $test_summary;
   public WrapperBoolean $truncated;
   public ReportType $type;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ?'created' => Timestamp,
+  ?'execution_id' => string,
+  ?'expired' => Timestamp,
+  ?'export_config' => ReportExportConfig,
+  ?'name' => string,
+  ?'report_group_arn' => NonEmptyString,
+  ?'status' => ReportStatusType,
+  ?'test_summary' => TestReportSummary,
+  ?'truncated' => WrapperBoolean,
+  ?'type' => ReportType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created = $created ?? ;
+    $this->execution_id = $execution_id ?? ;
+    $this->expired = $expired ?? ;
+    $this->export_config = $export_config ?? ;
+    $this->name = $name ?? ;
+    $this->report_group_arn = $report_group_arn ?? ;
+    $this->status = $status ?? ;
+    $this->test_summary = $test_summary ?? ;
+    $this->truncated = $truncated ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ReportArns {
-}
+type ReportArns = vec<NonEmptyString>;
 
 class ReportExportConfig {
   public ReportExportConfigType $export_config_type;
   public S3ReportExportConfig $s_3_destination;
+
+  public function __construct(shape(
+  ?'export_config_type' => ReportExportConfigType,
+  ?'s_3_destination' => S3ReportExportConfig,
+  ) $s = shape()) {
+    $this->export_config_type = $export_config_type ?? ;
+    $this->s_3_destination = $s_3_destination ?? ;
+  }
 }
 
-class ReportExportConfigType {
-}
+type ReportExportConfigType = string;
 
 class ReportFilter {
   public ReportStatusType $status;
+
+  public function __construct(shape(
+  ?'status' => ReportStatusType,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class ReportGroup {
@@ -722,45 +1557,70 @@ class ReportGroup {
   public Timestamp $last_modified;
   public ReportGroupName $name;
   public ReportType $type;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ?'created' => Timestamp,
+  ?'export_config' => ReportExportConfig,
+  ?'last_modified' => Timestamp,
+  ?'name' => ReportGroupName,
+  ?'type' => ReportType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created = $created ?? ;
+    $this->export_config = $export_config ?? ;
+    $this->last_modified = $last_modified ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ReportGroupArns {
-}
+type ReportGroupArns = vec<NonEmptyString>;
 
-class ReportGroupName {
-}
+type ReportGroupName = string;
 
-class ReportGroupSortByType {
-}
+type ReportGroupSortByType = string;
 
-class ReportGroups {
-}
+type ReportGroups = vec<ReportGroup>;
 
-class ReportPackagingType {
-}
+type ReportPackagingType = string;
 
-class ReportStatusCounts {
-}
+type ReportStatusCounts = dict<String, WrapperInt>;
 
-class ReportStatusType {
-}
+type ReportStatusType = string;
 
-class ReportType {
-}
+type ReportType = string;
 
-class Reports {
-}
+type Reports = vec<Report>;
 
 class ResourceAlreadyExistsException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class S3LogsConfig {
   public WrapperBoolean $encryption_disabled;
   public string $location;
   public LogsConfigStatusType $status;
+
+  public function __construct(shape(
+  ?'encryption_disabled' => WrapperBoolean,
+  ?'location' => string,
+  ?'status' => LogsConfigStatusType,
+  ) $s = shape()) {
+    $this->encryption_disabled = $encryption_disabled ?? ;
+    $this->location = $location ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class S3ReportExportConfig {
@@ -769,42 +1629,66 @@ class S3ReportExportConfig {
   public NonEmptyString $encryption_key;
   public ReportPackagingType $packaging;
   public string $path;
+
+  public function __construct(shape(
+  ?'bucket' => NonEmptyString,
+  ?'encryption_disabled' => WrapperBoolean,
+  ?'encryption_key' => NonEmptyString,
+  ?'packaging' => ReportPackagingType,
+  ?'path' => string,
+  ) $s = shape()) {
+    $this->bucket = $bucket ?? ;
+    $this->encryption_disabled = $encryption_disabled ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->packaging = $packaging ?? ;
+    $this->path = $path ?? ;
+  }
 }
 
-class SecurityGroupIds {
-}
+type SecurityGroupIds = vec<NonEmptyString>;
 
-class SensitiveNonEmptyString {
-}
+type SensitiveNonEmptyString = string;
 
-class ServerType {
-}
+type ServerType = string;
 
-class SharedResourceSortByType {
-}
+type SharedResourceSortByType = string;
 
-class SortOrderType {
-}
+type SortOrderType = string;
 
 class SourceAuth {
   public string $resource;
   public SourceAuthType $type;
+
+  public function __construct(shape(
+  ?'resource' => string,
+  ?'type' => SourceAuthType,
+  ) $s = shape()) {
+    $this->resource = $resource ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class SourceAuthType {
-}
+type SourceAuthType = string;
 
 class SourceCredentialsInfo {
   public NonEmptyString $arn;
   public AuthType $auth_type;
   public ServerType $server_type;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ?'auth_type' => AuthType,
+  ?'server_type' => ServerType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->auth_type = $auth_type ?? ;
+    $this->server_type = $server_type ?? ;
+  }
 }
 
-class SourceCredentialsInfos {
-}
+type SourceCredentialsInfos = vec<SourceCredentialsInfo>;
 
-class SourceType {
-}
+type SourceType = string;
 
 class StartBuildInput {
   public ProjectArtifacts $artifacts_override;
@@ -836,36 +1720,120 @@ class StartBuildInput {
   public SourceType $source_type_override;
   public string $source_version;
   public TimeOut $timeout_in_minutes_override;
+
+  public function __construct(shape(
+  ?'artifacts_override' => ProjectArtifacts,
+  ?'buildspec_override' => string,
+  ?'cache_override' => ProjectCache,
+  ?'certificate_override' => string,
+  ?'compute_type_override' => ComputeType,
+  ?'encryption_key_override' => NonEmptyString,
+  ?'environment_type_override' => EnvironmentType,
+  ?'environment_variables_override' => EnvironmentVariables,
+  ?'git_clone_depth_override' => GitCloneDepth,
+  ?'git_submodules_config_override' => GitSubmodulesConfig,
+  ?'idempotency_token' => string,
+  ?'image_override' => NonEmptyString,
+  ?'image_pull_credentials_type_override' => ImagePullCredentialsType,
+  ?'insecure_ssl_override' => WrapperBoolean,
+  ?'logs_config_override' => LogsConfig,
+  ?'privileged_mode_override' => WrapperBoolean,
+  ?'project_name' => NonEmptyString,
+  ?'queued_timeout_in_minutes_override' => TimeOut,
+  ?'registry_credential_override' => RegistryCredential,
+  ?'report_build_status_override' => WrapperBoolean,
+  ?'secondary_artifacts_override' => ProjectArtifactsList,
+  ?'secondary_sources_override' => ProjectSources,
+  ?'secondary_sources_version_override' => ProjectSecondarySourceVersions,
+  ?'service_role_override' => NonEmptyString,
+  ?'source_auth_override' => SourceAuth,
+  ?'source_location_override' => string,
+  ?'source_type_override' => SourceType,
+  ?'source_version' => string,
+  ?'timeout_in_minutes_override' => TimeOut,
+  ) $s = shape()) {
+    $this->artifacts_override = $artifacts_override ?? ;
+    $this->buildspec_override = $buildspec_override ?? ;
+    $this->cache_override = $cache_override ?? ;
+    $this->certificate_override = $certificate_override ?? ;
+    $this->compute_type_override = $compute_type_override ?? ;
+    $this->encryption_key_override = $encryption_key_override ?? ;
+    $this->environment_type_override = $environment_type_override ?? ;
+    $this->environment_variables_override = $environment_variables_override ?? ;
+    $this->git_clone_depth_override = $git_clone_depth_override ?? ;
+    $this->git_submodules_config_override = $git_submodules_config_override ?? ;
+    $this->idempotency_token = $idempotency_token ?? ;
+    $this->image_override = $image_override ?? ;
+    $this->image_pull_credentials_type_override = $image_pull_credentials_type_override ?? ;
+    $this->insecure_ssl_override = $insecure_ssl_override ?? ;
+    $this->logs_config_override = $logs_config_override ?? ;
+    $this->privileged_mode_override = $privileged_mode_override ?? ;
+    $this->project_name = $project_name ?? ;
+    $this->queued_timeout_in_minutes_override = $queued_timeout_in_minutes_override ?? ;
+    $this->registry_credential_override = $registry_credential_override ?? ;
+    $this->report_build_status_override = $report_build_status_override ?? ;
+    $this->secondary_artifacts_override = $secondary_artifacts_override ?? ;
+    $this->secondary_sources_override = $secondary_sources_override ?? ;
+    $this->secondary_sources_version_override = $secondary_sources_version_override ?? ;
+    $this->service_role_override = $service_role_override ?? ;
+    $this->source_auth_override = $source_auth_override ?? ;
+    $this->source_location_override = $source_location_override ?? ;
+    $this->source_type_override = $source_type_override ?? ;
+    $this->source_version = $source_version ?? ;
+    $this->timeout_in_minutes_override = $timeout_in_minutes_override ?? ;
+  }
 }
 
 class StartBuildOutput {
   public Build $build;
+
+  public function __construct(shape(
+  ?'build' => Build,
+  ) $s = shape()) {
+    $this->build = $build ?? ;
+  }
 }
 
-class StatusType {
-}
+type StatusType = string;
 
 class StopBuildInput {
   public NonEmptyString $id;
+
+  public function __construct(shape(
+  ?'id' => NonEmptyString,
+  ) $s = shape()) {
+    $this->id = $id ?? ;
+  }
 }
 
 class StopBuildOutput {
   public Build $build;
+
+  public function __construct(shape(
+  ?'build' => Build,
+  ) $s = shape()) {
+    $this->build = $build ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
-class Subnets {
-}
+type Subnets = vec<NonEmptyString>;
 
 class Tag {
   public KeyInput $key;
   public ValueInput $value;
+
+  public function __construct(shape(
+  ?'key' => KeyInput,
+  ?'value' => ValueInput,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TestCase {
   public WrapperLong $duration_in_nano_seconds;
@@ -876,26 +1844,59 @@ class TestCase {
   public NonEmptyString $report_arn;
   public string $status;
   public string $test_raw_data_path;
+
+  public function __construct(shape(
+  ?'duration_in_nano_seconds' => WrapperLong,
+  ?'expired' => Timestamp,
+  ?'message' => string,
+  ?'name' => string,
+  ?'prefix' => string,
+  ?'report_arn' => NonEmptyString,
+  ?'status' => string,
+  ?'test_raw_data_path' => string,
+  ) $s = shape()) {
+    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? ;
+    $this->expired = $expired ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->prefix = $prefix ?? ;
+    $this->report_arn = $report_arn ?? ;
+    $this->status = $status ?? ;
+    $this->test_raw_data_path = $test_raw_data_path ?? ;
+  }
 }
 
 class TestCaseFilter {
   public string $status;
+
+  public function __construct(shape(
+  ?'status' => string,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
-class TestCases {
-}
+type TestCases = vec<TestCase>;
 
 class TestReportSummary {
   public WrapperLong $duration_in_nano_seconds;
   public ReportStatusCounts $status_counts;
   public WrapperInt $total;
+
+  public function __construct(shape(
+  ?'duration_in_nano_seconds' => WrapperLong,
+  ?'status_counts' => ReportStatusCounts,
+  ?'total' => WrapperInt,
+  ) $s = shape()) {
+    $this->duration_in_nano_seconds = $duration_in_nano_seconds ?? ;
+    $this->status_counts = $status_counts ?? ;
+    $this->total = $total ?? ;
+  }
 }
 
-class TimeOut {
-}
+type TimeOut = int;
 
-class Timestamp {
-}
+type Timestamp = int;
 
 class UpdateProjectInput {
   public ProjectArtifacts $artifacts;
@@ -917,19 +1918,81 @@ class UpdateProjectInput {
   public TagList $tags;
   public TimeOut $timeout_in_minutes;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'artifacts' => ProjectArtifacts,
+  ?'badge_enabled' => WrapperBoolean,
+  ?'cache' => ProjectCache,
+  ?'description' => ProjectDescription,
+  ?'encryption_key' => NonEmptyString,
+  ?'environment' => ProjectEnvironment,
+  ?'file_system_locations' => ProjectFileSystemLocations,
+  ?'logs_config' => LogsConfig,
+  ?'name' => NonEmptyString,
+  ?'queued_timeout_in_minutes' => TimeOut,
+  ?'secondary_artifacts' => ProjectArtifactsList,
+  ?'secondary_source_versions' => ProjectSecondarySourceVersions,
+  ?'secondary_sources' => ProjectSources,
+  ?'service_role' => NonEmptyString,
+  ?'source' => ProjectSource,
+  ?'source_version' => string,
+  ?'tags' => TagList,
+  ?'timeout_in_minutes' => TimeOut,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->artifacts = $artifacts ?? ;
+    $this->badge_enabled = $badge_enabled ?? ;
+    $this->cache = $cache ?? ;
+    $this->description = $description ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->environment = $environment ?? ;
+    $this->file_system_locations = $file_system_locations ?? ;
+    $this->logs_config = $logs_config ?? ;
+    $this->name = $name ?? ;
+    $this->queued_timeout_in_minutes = $queued_timeout_in_minutes ?? ;
+    $this->secondary_artifacts = $secondary_artifacts ?? ;
+    $this->secondary_source_versions = $secondary_source_versions ?? ;
+    $this->secondary_sources = $secondary_sources ?? ;
+    $this->service_role = $service_role ?? ;
+    $this->source = $source ?? ;
+    $this->source_version = $source_version ?? ;
+    $this->tags = $tags ?? ;
+    $this->timeout_in_minutes = $timeout_in_minutes ?? ;
+    $this->vpc_config = $vpc_config ?? ;
+  }
 }
 
 class UpdateProjectOutput {
   public Project $project;
+
+  public function __construct(shape(
+  ?'project' => Project,
+  ) $s = shape()) {
+    $this->project = $project ?? ;
+  }
 }
 
 class UpdateReportGroupInput {
   public NonEmptyString $arn;
   public ReportExportConfig $export_config;
+
+  public function __construct(shape(
+  ?'arn' => NonEmptyString,
+  ?'export_config' => ReportExportConfig,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->export_config = $export_config ?? ;
+  }
 }
 
 class UpdateReportGroupOutput {
   public ReportGroup $report_group;
+
+  public function __construct(shape(
+  ?'report_group' => ReportGroup,
+  ) $s = shape()) {
+    $this->report_group = $report_group ?? ;
+  }
 }
 
 class UpdateWebhookInput {
@@ -937,19 +2000,46 @@ class UpdateWebhookInput {
   public FilterGroups $filter_groups;
   public ProjectName $project_name;
   public boolean $rotate_secret;
+
+  public function __construct(shape(
+  ?'branch_filter' => string,
+  ?'filter_groups' => FilterGroups,
+  ?'project_name' => ProjectName,
+  ?'rotate_secret' => boolean,
+  ) $s = shape()) {
+    $this->branch_filter = $branch_filter ?? ;
+    $this->filter_groups = $filter_groups ?? ;
+    $this->project_name = $project_name ?? ;
+    $this->rotate_secret = $rotate_secret ?? ;
+  }
 }
 
 class UpdateWebhookOutput {
   public Webhook $webhook;
+
+  public function __construct(shape(
+  ?'webhook' => Webhook,
+  ) $s = shape()) {
+    $this->webhook = $webhook ?? ;
+  }
 }
 
-class ValueInput {
-}
+type ValueInput = string;
 
 class VpcConfig {
   public SecurityGroupIds $security_group_ids;
   public Subnets $subnets;
   public NonEmptyString $vpc_id;
+
+  public function __construct(shape(
+  ?'security_group_ids' => SecurityGroupIds,
+  ?'subnets' => Subnets,
+  ?'vpc_id' => NonEmptyString,
+  ) $s = shape()) {
+    $this->security_group_ids = $security_group_ids ?? ;
+    $this->subnets = $subnets ?? ;
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
 class Webhook {
@@ -959,23 +2049,45 @@ class Webhook {
   public NonEmptyString $payload_url;
   public NonEmptyString $secret;
   public NonEmptyString $url;
+
+  public function __construct(shape(
+  ?'branch_filter' => string,
+  ?'filter_groups' => FilterGroups,
+  ?'last_modified_secret' => Timestamp,
+  ?'payload_url' => NonEmptyString,
+  ?'secret' => NonEmptyString,
+  ?'url' => NonEmptyString,
+  ) $s = shape()) {
+    $this->branch_filter = $branch_filter ?? ;
+    $this->filter_groups = $filter_groups ?? ;
+    $this->last_modified_secret = $last_modified_secret ?? ;
+    $this->payload_url = $payload_url ?? ;
+    $this->secret = $secret ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
 class WebhookFilter {
   public WrapperBoolean $exclude_matched_pattern;
   public string $pattern;
   public WebhookFilterType $type;
+
+  public function __construct(shape(
+  ?'exclude_matched_pattern' => WrapperBoolean,
+  ?'pattern' => string,
+  ?'type' => WebhookFilterType,
+  ) $s = shape()) {
+    $this->exclude_matched_pattern = $exclude_matched_pattern ?? ;
+    $this->pattern = $pattern ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class WebhookFilterType {
-}
+type WebhookFilterType = string;
 
-class WrapperBoolean {
-}
+type WrapperBoolean = bool;
 
-class WrapperInt {
-}
+type WrapperInt = int;
 
-class WrapperLong {
-}
+type WrapperLong = int;
 

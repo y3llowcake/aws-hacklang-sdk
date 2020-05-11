@@ -10,93 +10,194 @@ interface  {
 
 class ConflictException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class DeleteThingShadowRequest {
   public ThingName $thing_name;
+
+  public function __construct(shape(
+  ?'thing_name' => ThingName,
+  ) $s = shape()) {
+    $this->thing_name = $thing_name ?? ;
+  }
 }
 
 class DeleteThingShadowResponse {
   public JsonDocument $payload;
+
+  public function __construct(shape(
+  ?'payload' => JsonDocument,
+  ) $s = shape()) {
+    $this->payload = $payload ?? ;
+  }
 }
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class GetThingShadowRequest {
   public ThingName $thing_name;
+
+  public function __construct(shape(
+  ?'thing_name' => ThingName,
+  ) $s = shape()) {
+    $this->thing_name = $thing_name ?? ;
+  }
 }
 
 class GetThingShadowResponse {
   public JsonDocument $payload;
+
+  public function __construct(shape(
+  ?'payload' => JsonDocument,
+  ) $s = shape()) {
+    $this->payload = $payload ?? ;
+  }
 }
 
 class InternalFailureException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRequestException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class JsonDocument {
-}
+type JsonDocument = string;
 
 class MethodNotAllowedException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Payload {
-}
+type Payload = string;
 
 class PublishRequest {
   public Payload $payload;
   public Qos $qos;
   public Topic $topic;
+
+  public function __construct(shape(
+  ?'payload' => Payload,
+  ?'qos' => Qos,
+  ?'topic' => Topic,
+  ) $s = shape()) {
+    $this->payload = $payload ?? ;
+    $this->qos = $qos ?? ;
+    $this->topic = $topic ?? ;
+  }
 }
 
-class Qos {
-}
+type Qos = int;
 
 class RequestEntityTooLargeException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ServiceUnavailableException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ThingName {
-}
+type ThingName = string;
 
 class ThrottlingException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Topic {
-}
+type Topic = string;
 
 class UnauthorizedException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UnsupportedDocumentEncodingException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UpdateThingShadowRequest {
   public JsonDocument $payload;
   public ThingName $thing_name;
+
+  public function __construct(shape(
+  ?'payload' => JsonDocument,
+  ?'thing_name' => ThingName,
+  ) $s = shape()) {
+    $this->payload = $payload ?? ;
+    $this->thing_name = $thing_name ?? ;
+  }
 }
 
 class UpdateThingShadowResponse {
   public JsonDocument $payload;
+
+  public function __construct(shape(
+  ?'payload' => JsonDocument,
+  ) $s = shape()) {
+    $this->payload = $payload ?? ;
+  }
 }
 
-class errorMessage {
-}
+type errorMessage = string;
 

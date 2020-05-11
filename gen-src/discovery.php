@@ -33,16 +33,23 @@ class AgentConfigurationStatus {
   public string $agent_id;
   public string $description;
   public boolean $operation_succeeded;
+
+  public function __construct(shape(
+  ?'agent_id' => string,
+  ?'description' => string,
+  ?'operation_succeeded' => boolean,
+  ) $s = shape()) {
+    $this->agent_id = $agent_id ?? ;
+    $this->description = $description ?? ;
+    $this->operation_succeeded = $operation_succeeded ?? ;
+  }
 }
 
-class AgentConfigurationStatusList {
-}
+type AgentConfigurationStatusList = vec<AgentConfigurationStatus>;
 
-class AgentId {
-}
+type AgentId = string;
 
-class AgentIds {
-}
+type AgentIds = vec<AgentId>;
 
 class AgentInfo {
   public AgentId $agent_id;
@@ -55,86 +62,142 @@ class AgentInfo {
   public string $last_health_ping_time;
   public string $registered_time;
   public string $version;
+
+  public function __construct(shape(
+  ?'agent_id' => AgentId,
+  ?'agent_network_info_list' => AgentNetworkInfoList,
+  ?'agent_type' => string,
+  ?'collection_status' => string,
+  ?'connector_id' => string,
+  ?'health' => AgentStatus,
+  ?'host_name' => string,
+  ?'last_health_ping_time' => string,
+  ?'registered_time' => string,
+  ?'version' => string,
+  ) $s = shape()) {
+    $this->agent_id = $agent_id ?? ;
+    $this->agent_network_info_list = $agent_network_info_list ?? ;
+    $this->agent_type = $agent_type ?? ;
+    $this->collection_status = $collection_status ?? ;
+    $this->connector_id = $connector_id ?? ;
+    $this->health = $health ?? ;
+    $this->host_name = $host_name ?? ;
+    $this->last_health_ping_time = $last_health_ping_time ?? ;
+    $this->registered_time = $registered_time ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class AgentNetworkInfo {
   public string $ip_address;
   public string $mac_address;
+
+  public function __construct(shape(
+  ?'ip_address' => string,
+  ?'mac_address' => string,
+  ) $s = shape()) {
+    $this->ip_address = $ip_address ?? ;
+    $this->mac_address = $mac_address ?? ;
+  }
 }
 
-class AgentNetworkInfoList {
-}
+type AgentNetworkInfoList = vec<AgentNetworkInfo>;
 
-class AgentStatus {
-}
+type AgentStatus = string;
 
-class AgentsInfo {
-}
+type AgentsInfo = vec<AgentInfo>;
 
-class ApplicationId {
-}
+type ApplicationId = string;
 
-class ApplicationIdsList {
-}
+type ApplicationIdsList = vec<ApplicationId>;
 
 class AssociateConfigurationItemsToApplicationRequest {
   public ApplicationId $application_configuration_id;
   public ConfigurationIdList $configuration_ids;
+
+  public function __construct(shape(
+  ?'application_configuration_id' => ApplicationId,
+  ?'configuration_ids' => ConfigurationIdList,
+  ) $s = shape()) {
+    $this->application_configuration_id = $application_configuration_id ?? ;
+    $this->configuration_ids = $configuration_ids ?? ;
+  }
 }
 
 class AssociateConfigurationItemsToApplicationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AuthorizationErrorException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class BatchDeleteImportDataError {
   public BatchDeleteImportDataErrorCode $error_code;
   public BatchDeleteImportDataErrorDescription $error_description;
   public ImportTaskIdentifier $import_task_id;
+
+  public function __construct(shape(
+  ?'error_code' => BatchDeleteImportDataErrorCode,
+  ?'error_description' => BatchDeleteImportDataErrorDescription,
+  ?'import_task_id' => ImportTaskIdentifier,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_description = $error_description ?? ;
+    $this->import_task_id = $import_task_id ?? ;
+  }
 }
 
-class BatchDeleteImportDataErrorCode {
-}
+type BatchDeleteImportDataErrorCode = string;
 
-class BatchDeleteImportDataErrorDescription {
-}
+type BatchDeleteImportDataErrorDescription = string;
 
-class BatchDeleteImportDataErrorList {
-}
+type BatchDeleteImportDataErrorList = vec<BatchDeleteImportDataError>;
 
 class BatchDeleteImportDataRequest {
   public ToDeleteIdentifierList $import_task_ids;
+
+  public function __construct(shape(
+  ?'import_task_ids' => ToDeleteIdentifierList,
+  ) $s = shape()) {
+    $this->import_task_ids = $import_task_ids ?? ;
+  }
 }
 
 class BatchDeleteImportDataResponse {
   public BatchDeleteImportDataErrorList $errors;
+
+  public function __construct(shape(
+  ?'errors' => BatchDeleteImportDataErrorList,
+  ) $s = shape()) {
+    $this->errors = $errors ?? ;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
-class BoxedInteger {
-}
+type BoxedInteger = int;
 
-class ClientRequestToken {
-}
+type ClientRequestToken = string;
 
-class Condition {
-}
+type Condition = string;
 
-class Configuration {
-}
+type Configuration = dict<String, String>;
 
-class ConfigurationId {
-}
+type ConfigurationId = string;
 
-class ConfigurationIdList {
-}
+type ConfigurationIdList = vec<ConfigurationId>;
 
-class ConfigurationItemType {
-}
+type ConfigurationItemType = string;
 
 class ConfigurationTag {
   public ConfigurationId $configuration_id;
@@ -142,22 +205,38 @@ class ConfigurationTag {
   public TagKey $key;
   public TimeStamp $time_of_creation;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'configuration_id' => ConfigurationId,
+  ?'configuration_type' => ConfigurationItemType,
+  ?'key' => TagKey,
+  ?'time_of_creation' => TimeStamp,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->configuration_id = $configuration_id ?? ;
+    $this->configuration_type = $configuration_type ?? ;
+    $this->key = $key ?? ;
+    $this->time_of_creation = $time_of_creation ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ConfigurationTagSet {
-}
+type ConfigurationTagSet = vec<ConfigurationTag>;
 
-class Configurations {
-}
+type Configurations = vec<Configuration>;
 
-class ConfigurationsDownloadUrl {
-}
+type ConfigurationsDownloadUrl = string;
 
-class ConfigurationsExportId {
-}
+type ConfigurationsExportId = string;
 
 class ConflictErrorException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ContinuousExportDescription {
@@ -169,32 +248,75 @@ class ContinuousExportDescription {
   public ContinuousExportStatus $status;
   public StringMax255 $status_detail;
   public TimeStamp $stop_time;
+
+  public function __construct(shape(
+  ?'data_source' => DataSource,
+  ?'export_id' => ConfigurationsExportId,
+  ?'s_3_bucket' => S3Bucket,
+  ?'schema_storage_config' => SchemaStorageConfig,
+  ?'start_time' => TimeStamp,
+  ?'status' => ContinuousExportStatus,
+  ?'status_detail' => StringMax255,
+  ?'stop_time' => TimeStamp,
+  ) $s = shape()) {
+    $this->data_source = $data_source ?? ;
+    $this->export_id = $export_id ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->schema_storage_config = $schema_storage_config ?? ;
+    $this->start_time = $start_time ?? ;
+    $this->status = $status ?? ;
+    $this->status_detail = $status_detail ?? ;
+    $this->stop_time = $stop_time ?? ;
+  }
 }
 
-class ContinuousExportDescriptions {
-}
+type ContinuousExportDescriptions = vec<ContinuousExportDescription>;
 
-class ContinuousExportIds {
-}
+type ContinuousExportIds = vec<ConfigurationsExportId>;
 
-class ContinuousExportStatus {
-}
+type ContinuousExportStatus = string;
 
 class CreateApplicationRequest {
   public string $description;
   public string $name;
+
+  public function __construct(shape(
+  ?'description' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class CreateApplicationResponse {
   public string $configuration_id;
+
+  public function __construct(shape(
+  ?'configuration_id' => string,
+  ) $s = shape()) {
+    $this->configuration_id = $configuration_id ?? ;
+  }
 }
 
 class CreateTagsRequest {
   public ConfigurationIdList $configuration_ids;
   public TagSet $tags;
+
+  public function __construct(shape(
+  ?'configuration_ids' => ConfigurationIdList,
+  ?'tags' => TagSet,
+  ) $s = shape()) {
+    $this->configuration_ids = $configuration_ids ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateTagsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CustomerAgentInfo {
@@ -205,6 +327,24 @@ class CustomerAgentInfo {
   public int $total_agents;
   public int $unhealthy_agents;
   public int $unknown_agents;
+
+  public function __construct(shape(
+  ?'active_agents' => int,
+  ?'black_listed_agents' => int,
+  ?'healthy_agents' => int,
+  ?'shutdown_agents' => int,
+  ?'total_agents' => int,
+  ?'unhealthy_agents' => int,
+  ?'unknown_agents' => int,
+  ) $s = shape()) {
+    $this->active_agents = $active_agents ?? ;
+    $this->black_listed_agents = $black_listed_agents ?? ;
+    $this->healthy_agents = $healthy_agents ?? ;
+    $this->shutdown_agents = $shutdown_agents ?? ;
+    $this->total_agents = $total_agents ?? ;
+    $this->unhealthy_agents = $unhealthy_agents ?? ;
+    $this->unknown_agents = $unknown_agents ?? ;
+  }
 }
 
 class CustomerConnectorInfo {
@@ -215,27 +355,65 @@ class CustomerConnectorInfo {
   public int $total_connectors;
   public int $unhealthy_connectors;
   public int $unknown_connectors;
+
+  public function __construct(shape(
+  ?'active_connectors' => int,
+  ?'black_listed_connectors' => int,
+  ?'healthy_connectors' => int,
+  ?'shutdown_connectors' => int,
+  ?'total_connectors' => int,
+  ?'unhealthy_connectors' => int,
+  ?'unknown_connectors' => int,
+  ) $s = shape()) {
+    $this->active_connectors = $active_connectors ?? ;
+    $this->black_listed_connectors = $black_listed_connectors ?? ;
+    $this->healthy_connectors = $healthy_connectors ?? ;
+    $this->shutdown_connectors = $shutdown_connectors ?? ;
+    $this->total_connectors = $total_connectors ?? ;
+    $this->unhealthy_connectors = $unhealthy_connectors ?? ;
+    $this->unknown_connectors = $unknown_connectors ?? ;
+  }
 }
 
-class DataSource {
-}
+type DataSource = string;
 
-class DatabaseName {
-}
+type DatabaseName = string;
 
 class DeleteApplicationsRequest {
   public ApplicationIdsList $configuration_ids;
+
+  public function __construct(shape(
+  ?'configuration_ids' => ApplicationIdsList,
+  ) $s = shape()) {
+    $this->configuration_ids = $configuration_ids ?? ;
+  }
 }
 
 class DeleteApplicationsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteTagsRequest {
   public ConfigurationIdList $configuration_ids;
   public TagSet $tags;
+
+  public function __construct(shape(
+  ?'configuration_ids' => ConfigurationIdList,
+  ?'tags' => TagSet,
+  ) $s = shape()) {
+    $this->configuration_ids = $configuration_ids ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DeleteTagsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeAgentsRequest {
@@ -243,50 +421,115 @@ class DescribeAgentsRequest {
   public Filters $filters;
   public int $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'agent_ids' => AgentIds,
+  ?'filters' => Filters,
+  ?'max_results' => int,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->agent_ids = $agent_ids ?? ;
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeAgentsResponse {
   public AgentsInfo $agents_info;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'agents_info' => AgentsInfo,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->agents_info = $agents_info ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
-class DescribeConfigurationsAttribute {
-}
+type DescribeConfigurationsAttribute = dict<String, String>;
 
-class DescribeConfigurationsAttributes {
-}
+type DescribeConfigurationsAttributes = vec<DescribeConfigurationsAttribute>;
 
 class DescribeConfigurationsRequest {
   public ConfigurationIdList $configuration_ids;
+
+  public function __construct(shape(
+  ?'configuration_ids' => ConfigurationIdList,
+  ) $s = shape()) {
+    $this->configuration_ids = $configuration_ids ?? ;
+  }
 }
 
 class DescribeConfigurationsResponse {
   public DescribeConfigurationsAttributes $configurations;
+
+  public function __construct(shape(
+  ?'configurations' => DescribeConfigurationsAttributes,
+  ) $s = shape()) {
+    $this->configurations = $configurations ?? ;
+  }
 }
 
-class DescribeContinuousExportsMaxResults {
-}
+type DescribeContinuousExportsMaxResults = int;
 
 class DescribeContinuousExportsRequest {
   public ContinuousExportIds $export_ids;
   public DescribeContinuousExportsMaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'export_ids' => ContinuousExportIds,
+  ?'max_results' => DescribeContinuousExportsMaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->export_ids = $export_ids ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeContinuousExportsResponse {
   public ContinuousExportDescriptions $descriptions;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'descriptions' => ContinuousExportDescriptions,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->descriptions = $descriptions ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeExportConfigurationsRequest {
   public ExportIds $export_ids;
   public int $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'export_ids' => ExportIds,
+  ?'max_results' => int,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->export_ids = $export_ids ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeExportConfigurationsResponse {
   public ExportsInfo $exports_info;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'exports_info' => ExportsInfo,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->exports_info = $exports_info ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeExportTasksRequest {
@@ -294,70 +537,148 @@ class DescribeExportTasksRequest {
   public ExportFilters $filters;
   public int $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'export_ids' => ExportIds,
+  ?'filters' => ExportFilters,
+  ?'max_results' => int,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->export_ids = $export_ids ?? ;
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeExportTasksResponse {
   public ExportsInfo $exports_info;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'exports_info' => ExportsInfo,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->exports_info = $exports_info ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
-class DescribeImportTasksFilterList {
-}
+type DescribeImportTasksFilterList = vec<ImportTaskFilter>;
 
-class DescribeImportTasksMaxResults {
-}
+type DescribeImportTasksMaxResults = int;
 
 class DescribeImportTasksRequest {
   public DescribeImportTasksFilterList $filters;
   public DescribeImportTasksMaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => DescribeImportTasksFilterList,
+  ?'max_results' => DescribeImportTasksMaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeImportTasksResponse {
   public NextToken $next_token;
   public ImportTaskList $tasks;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'tasks' => ImportTaskList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->tasks = $tasks ?? ;
+  }
 }
 
 class DescribeTagsRequest {
   public TagFilters $filters;
   public int $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => TagFilters,
+  ?'max_results' => int,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeTagsResponse {
   public NextToken $next_token;
   public ConfigurationTagSet $tags;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'tags' => ConfigurationTagSet,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class DisassociateConfigurationItemsFromApplicationRequest {
   public ApplicationId $application_configuration_id;
   public ConfigurationIdList $configuration_ids;
+
+  public function __construct(shape(
+  ?'application_configuration_id' => ApplicationId,
+  ?'configuration_ids' => ConfigurationIdList,
+  ) $s = shape()) {
+    $this->application_configuration_id = $application_configuration_id ?? ;
+    $this->configuration_ids = $configuration_ids ?? ;
+  }
 }
 
 class DisassociateConfigurationItemsFromApplicationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ExportConfigurationsResponse {
   public ConfigurationsExportId $export_id;
+
+  public function __construct(shape(
+  ?'export_id' => ConfigurationsExportId,
+  ) $s = shape()) {
+    $this->export_id = $export_id ?? ;
+  }
 }
 
-class ExportDataFormat {
-}
+type ExportDataFormat = string;
 
-class ExportDataFormats {
-}
+type ExportDataFormats = vec<ExportDataFormat>;
 
 class ExportFilter {
   public Condition $condition;
   public FilterName $name;
   public FilterValues $values;
+
+  public function __construct(shape(
+  ?'condition' => Condition,
+  ?'name' => FilterName,
+  ?'values' => FilterValues,
+  ) $s = shape()) {
+    $this->condition = $condition ?? ;
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class ExportFilters {
-}
+type ExportFilters = vec<ExportFilter>;
 
-class ExportIds {
-}
+type ExportIds = vec<ConfigurationsExportId>;
 
 class ExportInfo {
   public ConfigurationsDownloadUrl $configurations_download_url;
@@ -368,39 +689,65 @@ class ExportInfo {
   public TimeStamp $requested_end_time;
   public TimeStamp $requested_start_time;
   public ExportStatusMessage $status_message;
+
+  public function __construct(shape(
+  ?'configurations_download_url' => ConfigurationsDownloadUrl,
+  ?'export_id' => ConfigurationsExportId,
+  ?'export_request_time' => ExportRequestTime,
+  ?'export_status' => ExportStatus,
+  ?'is_truncated' => boolean,
+  ?'requested_end_time' => TimeStamp,
+  ?'requested_start_time' => TimeStamp,
+  ?'status_message' => ExportStatusMessage,
+  ) $s = shape()) {
+    $this->configurations_download_url = $configurations_download_url ?? ;
+    $this->export_id = $export_id ?? ;
+    $this->export_request_time = $export_request_time ?? ;
+    $this->export_status = $export_status ?? ;
+    $this->is_truncated = $is_truncated ?? ;
+    $this->requested_end_time = $requested_end_time ?? ;
+    $this->requested_start_time = $requested_start_time ?? ;
+    $this->status_message = $status_message ?? ;
+  }
 }
 
-class ExportRequestTime {
-}
+type ExportRequestTime = int;
 
-class ExportStatus {
-}
+type ExportStatus = string;
 
-class ExportStatusMessage {
-}
+type ExportStatusMessage = string;
 
-class ExportsInfo {
-}
+type ExportsInfo = vec<ExportInfo>;
 
 class Filter {
   public Condition $condition;
   public string $name;
   public FilterValues $values;
+
+  public function __construct(shape(
+  ?'condition' => Condition,
+  ?'name' => string,
+  ?'values' => FilterValues,
+  ) $s = shape()) {
+    $this->condition = $condition ?? ;
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class FilterName {
-}
+type FilterName = string;
 
-class FilterValue {
-}
+type FilterValue = string;
 
-class FilterValues {
-}
+type FilterValues = vec<FilterValue>;
 
-class Filters {
-}
+type Filters = vec<Filter>;
 
 class GetDiscoverySummaryRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetDiscoverySummaryResponse {
@@ -410,14 +757,35 @@ class GetDiscoverySummaryResponse {
   public Long $servers;
   public Long $servers_mapped_to_applications;
   public Long $servers_mappedto_tags;
+
+  public function __construct(shape(
+  ?'agent_summary' => CustomerAgentInfo,
+  ?'applications' => Long,
+  ?'connector_summary' => CustomerConnectorInfo,
+  ?'servers' => Long,
+  ?'servers_mapped_to_applications' => Long,
+  ?'servers_mappedto_tags' => Long,
+  ) $s = shape()) {
+    $this->agent_summary = $agent_summary ?? ;
+    $this->applications = $applications ?? ;
+    $this->connector_summary = $connector_summary ?? ;
+    $this->servers = $servers ?? ;
+    $this->servers_mapped_to_applications = $servers_mapped_to_applications ?? ;
+    $this->servers_mappedto_tags = $servers_mappedto_tags ?? ;
+  }
 }
 
 class HomeRegionNotSetException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ImportStatus {
-}
+type ImportStatus = string;
 
 class ImportTask {
   public int $application_import_failure;
@@ -433,43 +801,85 @@ class ImportTask {
   public int $server_import_failure;
   public int $server_import_success;
   public ImportStatus $status;
+
+  public function __construct(shape(
+  ?'application_import_failure' => int,
+  ?'application_import_success' => int,
+  ?'client_request_token' => ClientRequestToken,
+  ?'errors_and_failed_entries_zip' => S3PresignedUrl,
+  ?'import_completion_time' => TimeStamp,
+  ?'import_deleted_time' => TimeStamp,
+  ?'import_request_time' => TimeStamp,
+  ?'import_task_id' => ImportTaskIdentifier,
+  ?'import_url' => ImportURL,
+  ?'name' => ImportTaskName,
+  ?'server_import_failure' => int,
+  ?'server_import_success' => int,
+  ?'status' => ImportStatus,
+  ) $s = shape()) {
+    $this->application_import_failure = $application_import_failure ?? ;
+    $this->application_import_success = $application_import_success ?? ;
+    $this->client_request_token = $client_request_token ?? ;
+    $this->errors_and_failed_entries_zip = $errors_and_failed_entries_zip ?? ;
+    $this->import_completion_time = $import_completion_time ?? ;
+    $this->import_deleted_time = $import_deleted_time ?? ;
+    $this->import_request_time = $import_request_time ?? ;
+    $this->import_task_id = $import_task_id ?? ;
+    $this->import_url = $import_url ?? ;
+    $this->name = $name ?? ;
+    $this->server_import_failure = $server_import_failure ?? ;
+    $this->server_import_success = $server_import_success ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class ImportTaskFilter {
   public ImportTaskFilterName $name;
   public ImportTaskFilterValueList $values;
+
+  public function __construct(shape(
+  ?'name' => ImportTaskFilterName,
+  ?'values' => ImportTaskFilterValueList,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class ImportTaskFilterName {
-}
+type ImportTaskFilterName = string;
 
-class ImportTaskFilterValue {
-}
+type ImportTaskFilterValue = string;
 
-class ImportTaskFilterValueList {
-}
+type ImportTaskFilterValueList = vec<ImportTaskFilterValue>;
 
-class ImportTaskIdentifier {
-}
+type ImportTaskIdentifier = string;
 
-class ImportTaskList {
-}
+type ImportTaskList = vec<ImportTask>;
 
-class ImportTaskName {
-}
+type ImportTaskName = string;
 
-class ImportURL {
-}
+type ImportURL = string;
 
-class Integer {
-}
+type Integer = int;
 
 class InvalidParameterException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterValueException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListConfigurationsRequest {
@@ -478,11 +888,33 @@ class ListConfigurationsRequest {
   public int $max_results;
   public NextToken $next_token;
   public OrderByList $order_by;
+
+  public function __construct(shape(
+  ?'configuration_type' => ConfigurationItemType,
+  ?'filters' => Filters,
+  ?'max_results' => int,
+  ?'next_token' => NextToken,
+  ?'order_by' => OrderByList,
+  ) $s = shape()) {
+    $this->configuration_type = $configuration_type ?? ;
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->order_by = $order_by ?? ;
+  }
 }
 
 class ListConfigurationsResponse {
   public Configurations $configurations;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'configurations' => Configurations,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->configurations = $configurations ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListServerNeighborsRequest {
@@ -491,19 +923,41 @@ class ListServerNeighborsRequest {
   public ConfigurationIdList $neighbor_configuration_ids;
   public string $next_token;
   public boolean $port_information_needed;
+
+  public function __construct(shape(
+  ?'configuration_id' => ConfigurationId,
+  ?'max_results' => int,
+  ?'neighbor_configuration_ids' => ConfigurationIdList,
+  ?'next_token' => string,
+  ?'port_information_needed' => boolean,
+  ) $s = shape()) {
+    $this->configuration_id = $configuration_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->neighbor_configuration_ids = $neighbor_configuration_ids ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->port_information_needed = $port_information_needed ?? ;
+  }
 }
 
 class ListServerNeighborsResponse {
   public Long $known_dependency_count;
   public NeighborDetailsList $neighbors;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'known_dependency_count' => Long,
+  ?'neighbors' => NeighborDetailsList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->known_dependency_count = $known_dependency_count ?? ;
+    $this->neighbors = $neighbors ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
-class Long {
-}
+type Long = int;
 
-class Message {
-}
+type Message = string;
 
 class NeighborConnectionDetail {
   public Long $connections_count;
@@ -511,48 +965,92 @@ class NeighborConnectionDetail {
   public ConfigurationId $destination_server_id;
   public ConfigurationId $source_server_id;
   public string $transport_protocol;
+
+  public function __construct(shape(
+  ?'connections_count' => Long,
+  ?'destination_port' => BoxedInteger,
+  ?'destination_server_id' => ConfigurationId,
+  ?'source_server_id' => ConfigurationId,
+  ?'transport_protocol' => string,
+  ) $s = shape()) {
+    $this->connections_count = $connections_count ?? ;
+    $this->destination_port = $destination_port ?? ;
+    $this->destination_server_id = $destination_server_id ?? ;
+    $this->source_server_id = $source_server_id ?? ;
+    $this->transport_protocol = $transport_protocol ?? ;
+  }
 }
 
-class NeighborDetailsList {
-}
+type NeighborDetailsList = vec<NeighborConnectionDetail>;
 
-class NextToken {
-}
+type NextToken = string;
 
 class OperationNotPermittedException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class OrderByElement {
   public string $field_name;
   public orderString $sort_order;
+
+  public function __construct(shape(
+  ?'field_name' => string,
+  ?'sort_order' => orderString,
+  ) $s = shape()) {
+    $this->field_name = $field_name ?? ;
+    $this->sort_order = $sort_order ?? ;
+  }
 }
 
-class OrderByList {
-}
+type OrderByList = vec<OrderByElement>;
 
 class ResourceInUseException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3PresignedUrl {
-}
+type S3PresignedUrl = string;
 
-class SchemaStorageConfig {
-}
+type SchemaStorageConfig = dict<DatabaseName, String>;
 
 class ServerInternalErrorException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class StartContinuousExportRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StartContinuousExportResponse {
@@ -561,14 +1059,40 @@ class StartContinuousExportResponse {
   public S3Bucket $s_3_bucket;
   public SchemaStorageConfig $schema_storage_config;
   public TimeStamp $start_time;
+
+  public function __construct(shape(
+  ?'data_source' => DataSource,
+  ?'export_id' => ConfigurationsExportId,
+  ?'s_3_bucket' => S3Bucket,
+  ?'schema_storage_config' => SchemaStorageConfig,
+  ?'start_time' => TimeStamp,
+  ) $s = shape()) {
+    $this->data_source = $data_source ?? ;
+    $this->export_id = $export_id ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? ;
+    $this->schema_storage_config = $schema_storage_config ?? ;
+    $this->start_time = $start_time ?? ;
+  }
 }
 
 class StartDataCollectionByAgentIdsRequest {
   public AgentIds $agent_ids;
+
+  public function __construct(shape(
+  ?'agent_ids' => AgentIds,
+  ) $s = shape()) {
+    $this->agent_ids = $agent_ids ?? ;
+  }
 }
 
 class StartDataCollectionByAgentIdsResponse {
   public AgentConfigurationStatusList $agents_configuration_status;
+
+  public function __construct(shape(
+  ?'agents_configuration_status' => AgentConfigurationStatusList,
+  ) $s = shape()) {
+    $this->agents_configuration_status = $agents_configuration_status ?? ;
+  }
 }
 
 class StartExportTaskRequest {
@@ -576,82 +1100,163 @@ class StartExportTaskRequest {
   public ExportDataFormats $export_data_format;
   public ExportFilters $filters;
   public TimeStamp $start_time;
+
+  public function __construct(shape(
+  ?'end_time' => TimeStamp,
+  ?'export_data_format' => ExportDataFormats,
+  ?'filters' => ExportFilters,
+  ?'start_time' => TimeStamp,
+  ) $s = shape()) {
+    $this->end_time = $end_time ?? ;
+    $this->export_data_format = $export_data_format ?? ;
+    $this->filters = $filters ?? ;
+    $this->start_time = $start_time ?? ;
+  }
 }
 
 class StartExportTaskResponse {
   public ConfigurationsExportId $export_id;
+
+  public function __construct(shape(
+  ?'export_id' => ConfigurationsExportId,
+  ) $s = shape()) {
+    $this->export_id = $export_id ?? ;
+  }
 }
 
 class StartImportTaskRequest {
   public ClientRequestToken $client_request_token;
   public ImportURL $import_url;
   public ImportTaskName $name;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'import_url' => ImportURL,
+  ?'name' => ImportTaskName,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? ;
+    $this->import_url = $import_url ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class StartImportTaskResponse {
   public ImportTask $task;
+
+  public function __construct(shape(
+  ?'task' => ImportTask,
+  ) $s = shape()) {
+    $this->task = $task ?? ;
+  }
 }
 
 class StopContinuousExportRequest {
   public ConfigurationsExportId $export_id;
+
+  public function __construct(shape(
+  ?'export_id' => ConfigurationsExportId,
+  ) $s = shape()) {
+    $this->export_id = $export_id ?? ;
+  }
 }
 
 class StopContinuousExportResponse {
   public TimeStamp $start_time;
   public TimeStamp $stop_time;
+
+  public function __construct(shape(
+  ?'start_time' => TimeStamp,
+  ?'stop_time' => TimeStamp,
+  ) $s = shape()) {
+    $this->start_time = $start_time ?? ;
+    $this->stop_time = $stop_time ?? ;
+  }
 }
 
 class StopDataCollectionByAgentIdsRequest {
   public AgentIds $agent_ids;
+
+  public function __construct(shape(
+  ?'agent_ids' => AgentIds,
+  ) $s = shape()) {
+    $this->agent_ids = $agent_ids ?? ;
+  }
 }
 
 class StopDataCollectionByAgentIdsResponse {
   public AgentConfigurationStatusList $agents_configuration_status;
+
+  public function __construct(shape(
+  ?'agents_configuration_status' => AgentConfigurationStatusList,
+  ) $s = shape()) {
+    $this->agents_configuration_status = $agents_configuration_status ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
-class StringMax255 {
-}
+type StringMax255 = string;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class TagFilter {
   public FilterName $name;
   public FilterValues $values;
+
+  public function __construct(shape(
+  ?'name' => FilterName,
+  ?'values' => FilterValues,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class TagFilters {
-}
+type TagFilters = vec<TagFilter>;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagSet {
-}
+type TagSet = vec<Tag>;
 
-class TagValue {
-}
+type TagValue = string;
 
-class TimeStamp {
-}
+type TimeStamp = int;
 
-class ToDeleteIdentifierList {
-}
+type ToDeleteIdentifierList = vec<ImportTaskIdentifier>;
 
 class UpdateApplicationRequest {
   public ApplicationId $configuration_id;
   public string $description;
   public string $name;
+
+  public function __construct(shape(
+  ?'configuration_id' => ApplicationId,
+  ?'description' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->configuration_id = $configuration_id ?? ;
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateApplicationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class orderString {
-}
+type orderString = string;
 

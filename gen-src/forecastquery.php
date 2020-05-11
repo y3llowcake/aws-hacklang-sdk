@@ -5,53 +5,76 @@ interface forecastquery {
   public function QueryForecast(QueryForecastRequest): Awaitable<Errors\Result<QueryForecastResponse>>;
 }
 
-class Arn {
-}
+type Arn = string;
 
-class AttributeName {
-}
+type AttributeName = string;
 
-class AttributeValue {
-}
+type AttributeValue = string;
 
 class DataPoint {
   public Timestamp $timestamp;
   public Double $value;
+
+  public function __construct(shape(
+  ?'timestamp' => Timestamp,
+  ?'value' => Double,
+  ) $s = shape()) {
+    $this->timestamp = $timestamp ?? "";
+    $this->value = $value ?? ;
+  }
 }
 
-class DateTime {
-}
+type DateTime = string;
 
-class Double {
-}
+type Double = float;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
-class Filters {
-}
+type Filters = dict<AttributeName, AttributeValue>;
 
 class Forecast {
   public Predictions $predictions;
+
+  public function __construct(shape(
+  ?'predictions' => Predictions,
+  ) $s = shape()) {
+    $this->predictions = $predictions ?? [];
+  }
 }
 
 class InvalidInputException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidNextTokenException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LimitExceededException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class NextToken {
-}
+type NextToken = string;
 
-class Predictions {
-}
+type Predictions = dict<Statistic, TimeSeries>;
 
 class QueryForecastRequest {
   public DateTime $end_date;
@@ -59,26 +82,55 @@ class QueryForecastRequest {
   public Arn $forecast_arn;
   public NextToken $next_token;
   public DateTime $start_date;
+
+  public function __construct(shape(
+  ?'end_date' => DateTime,
+  ?'filters' => Filters,
+  ?'forecast_arn' => Arn,
+  ?'next_token' => NextToken,
+  ?'start_date' => DateTime,
+  ) $s = shape()) {
+    $this->end_date = $end_date ?? ;
+    $this->filters = $filters ?? [];
+    $this->forecast_arn = $forecast_arn ?? ;
+    $this->next_token = $next_token ?? "";
+    $this->start_date = $start_date ?? ;
+  }
 }
 
 class QueryForecastResponse {
   public Forecast $forecast;
+
+  public function __construct(shape(
+  ?'forecast' => Forecast,
+  ) $s = shape()) {
+    $this->forecast = $forecast ?? null;
+  }
 }
 
 class ResourceInUseException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Statistic {
-}
+type Statistic = string;
 
-class TimeSeries {
-}
+type TimeSeries = vec<DataPoint>;
 
-class Timestamp {
-}
+type Timestamp = string;
 

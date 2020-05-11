@@ -8,11 +8,9 @@ interface  {
   public function ListStreams(ListStreamsInput): Awaitable<Errors\Result<ListStreamsOutput>>;
 }
 
-class AttributeMap {
-}
+type AttributeMap = dict<AttributeName, AttributeValue>;
 
-class AttributeName {
-}
+type AttributeName = string;
 
 class AttributeValue {
   public BinaryAttributeValue $b;
@@ -25,45 +23,102 @@ class AttributeValue {
   public NullAttributeValue $null;
   public StringAttributeValue $s;
   public StringSetAttributeValue $ss;
+
+  public function __construct(shape(
+  ?'b' => BinaryAttributeValue,
+  ?'bool' => BooleanAttributeValue,
+  ?'bs' => BinarySetAttributeValue,
+  ?'l' => ListAttributeValue,
+  ?'m' => MapAttributeValue,
+  ?'n' => NumberAttributeValue,
+  ?'ns' => NumberSetAttributeValue,
+  ?'null' => NullAttributeValue,
+  ?'s' => StringAttributeValue,
+  ?'ss' => StringSetAttributeValue,
+  ) $s = shape()) {
+    $this->b = $b ?? ;
+    $this->bool = $bool ?? ;
+    $this->bs = $bs ?? ;
+    $this->l = $l ?? ;
+    $this->m = $m ?? ;
+    $this->n = $n ?? ;
+    $this->ns = $ns ?? ;
+    $this->null = $null ?? ;
+    $this->s = $s ?? ;
+    $this->ss = $ss ?? ;
+  }
 }
 
-class BinaryAttributeValue {
-}
+type BinaryAttributeValue = string;
 
-class BinarySetAttributeValue {
-}
+type BinarySetAttributeValue = vec<BinaryAttributeValue>;
 
-class BooleanAttributeValue {
-}
+type BooleanAttributeValue = bool;
 
-class Date {
-}
+type Date = int;
 
 class DescribeStreamInput {
   public ShardId $exclusive_start_shard_id;
   public PositiveIntegerObject $limit;
   public StreamArn $stream_arn;
+
+  public function __construct(shape(
+  ?'exclusive_start_shard_id' => ShardId,
+  ?'limit' => PositiveIntegerObject,
+  ?'stream_arn' => StreamArn,
+  ) $s = shape()) {
+    $this->exclusive_start_shard_id = $exclusive_start_shard_id ?? ;
+    $this->limit = $limit ?? ;
+    $this->stream_arn = $stream_arn ?? "";
+  }
 }
 
 class DescribeStreamOutput {
   public StreamDescription $stream_description;
+
+  public function __construct(shape(
+  ?'stream_description' => StreamDescription,
+  ) $s = shape()) {
+    $this->stream_description = $stream_description ?? null;
+  }
 }
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class ExpiredIteratorException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class GetRecordsInput {
   public PositiveIntegerObject $limit;
   public ShardIterator $shard_iterator;
+
+  public function __construct(shape(
+  ?'limit' => PositiveIntegerObject,
+  ?'shard_iterator' => ShardIterator,
+  ) $s = shape()) {
+    $this->limit = $limit ?? ;
+    $this->shard_iterator = $shard_iterator ?? "";
+  }
 }
 
 class GetRecordsOutput {
   public ShardIterator $next_shard_iterator;
   public RecordList $records;
+
+  public function __construct(shape(
+  ?'next_shard_iterator' => ShardIterator,
+  ?'records' => RecordList,
+  ) $s = shape()) {
+    $this->next_shard_iterator = $next_shard_iterator ?? ;
+    $this->records = $records ?? ;
+  }
 }
 
 class GetShardIteratorInput {
@@ -71,73 +126,126 @@ class GetShardIteratorInput {
   public ShardId $shard_id;
   public ShardIteratorType $shard_iterator_type;
   public StreamArn $stream_arn;
+
+  public function __construct(shape(
+  ?'sequence_number' => SequenceNumber,
+  ?'shard_id' => ShardId,
+  ?'shard_iterator_type' => ShardIteratorType,
+  ?'stream_arn' => StreamArn,
+  ) $s = shape()) {
+    $this->sequence_number = $sequence_number ?? "";
+    $this->shard_id = $shard_id ?? "";
+    $this->shard_iterator_type = $shard_iterator_type ?? "";
+    $this->stream_arn = $stream_arn ?? "";
+  }
 }
 
 class GetShardIteratorOutput {
   public ShardIterator $shard_iterator;
+
+  public function __construct(shape(
+  ?'shard_iterator' => ShardIterator,
+  ) $s = shape()) {
+    $this->shard_iterator = $shard_iterator ?? "";
+  }
 }
 
 class Identity {
   public string $principal_id;
   public string $type;
+
+  public function __construct(shape(
+  ?'principal_id' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->principal_id = $principal_id ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class InternalServerError {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class KeySchema {
-}
+type KeySchema = vec<KeySchemaElement>;
 
-class KeySchemaAttributeName {
-}
+type KeySchemaAttributeName = string;
 
 class KeySchemaElement {
   public KeySchemaAttributeName $attribute_name;
   public KeyType $key_type;
+
+  public function __construct(shape(
+  ?'attribute_name' => KeySchemaAttributeName,
+  ?'key_type' => KeyType,
+  ) $s = shape()) {
+    $this->attribute_name = $attribute_name ?? "";
+    $this->key_type = $key_type ?? "";
+  }
 }
 
-class KeyType {
-}
+type KeyType = string;
 
 class LimitExceededException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ListAttributeValue {
-}
+type ListAttributeValue = vec<AttributeValue>;
 
 class ListStreamsInput {
   public StreamArn $exclusive_start_stream_arn;
   public PositiveIntegerObject $limit;
   public TableName $table_name;
+
+  public function __construct(shape(
+  ?'exclusive_start_stream_arn' => StreamArn,
+  ?'limit' => PositiveIntegerObject,
+  ?'table_name' => TableName,
+  ) $s = shape()) {
+    $this->exclusive_start_stream_arn = $exclusive_start_stream_arn ?? ;
+    $this->limit = $limit ?? ;
+    $this->table_name = $table_name ?? "";
+  }
 }
 
 class ListStreamsOutput {
   public StreamArn $last_evaluated_stream_arn;
   public StreamList $streams;
+
+  public function __construct(shape(
+  ?'last_evaluated_stream_arn' => StreamArn,
+  ?'streams' => StreamList,
+  ) $s = shape()) {
+    $this->last_evaluated_stream_arn = $last_evaluated_stream_arn ?? ;
+    $this->streams = $streams ?? ;
+  }
 }
 
-class MapAttributeValue {
-}
+type MapAttributeValue = dict<AttributeName, AttributeValue>;
 
-class NullAttributeValue {
-}
+type NullAttributeValue = bool;
 
-class NumberAttributeValue {
-}
+type NumberAttributeValue = string;
 
-class NumberSetAttributeValue {
-}
+type NumberSetAttributeValue = vec<NumberAttributeValue>;
 
-class OperationType {
-}
+type OperationType = string;
 
-class PositiveIntegerObject {
-}
+type PositiveIntegerObject = int;
 
-class PositiveLongObject {
-}
+type PositiveLongObject = int;
 
 class Record {
   public string $aws_region;
@@ -147,49 +255,94 @@ class Record {
   public string $event_source;
   public string $event_version;
   public Identity $user_identity;
+
+  public function __construct(shape(
+  ?'aws_region' => string,
+  ?'dynamodb' => StreamRecord,
+  ?'event_id' => string,
+  ?'event_name' => OperationType,
+  ?'event_source' => string,
+  ?'event_version' => string,
+  ?'user_identity' => Identity,
+  ) $s = shape()) {
+    $this->aws_region = $aws_region ?? ;
+    $this->dynamodb = $dynamodb ?? ;
+    $this->event_id = $event_id ?? ;
+    $this->event_name = $event_name ?? ;
+    $this->event_source = $event_source ?? ;
+    $this->event_version = $event_version ?? ;
+    $this->user_identity = $user_identity ?? ;
+  }
 }
 
-class RecordList {
-}
+type RecordList = vec<Record>;
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class SequenceNumber {
-}
+type SequenceNumber = string;
 
 class SequenceNumberRange {
   public SequenceNumber $ending_sequence_number;
   public SequenceNumber $starting_sequence_number;
+
+  public function __construct(shape(
+  ?'ending_sequence_number' => SequenceNumber,
+  ?'starting_sequence_number' => SequenceNumber,
+  ) $s = shape()) {
+    $this->ending_sequence_number = $ending_sequence_number ?? ;
+    $this->starting_sequence_number = $starting_sequence_number ?? ;
+  }
 }
 
 class Shard {
   public ShardId $parent_shard_id;
   public SequenceNumberRange $sequence_number_range;
   public ShardId $shard_id;
+
+  public function __construct(shape(
+  ?'parent_shard_id' => ShardId,
+  ?'sequence_number_range' => SequenceNumberRange,
+  ?'shard_id' => ShardId,
+  ) $s = shape()) {
+    $this->parent_shard_id = $parent_shard_id ?? ;
+    $this->sequence_number_range = $sequence_number_range ?? null;
+    $this->shard_id = $shard_id ?? "";
+  }
 }
 
-class ShardDescriptionList {
-}
+type ShardDescriptionList = vec<Shard>;
 
-class ShardId {
-}
+type ShardId = string;
 
-class ShardIterator {
-}
+type ShardIterator = string;
 
-class ShardIteratorType {
-}
+type ShardIteratorType = string;
 
 class Stream {
   public StreamArn $stream_arn;
   public string $stream_label;
   public TableName $table_name;
+
+  public function __construct(shape(
+  ?'stream_arn' => StreamArn,
+  ?'stream_label' => string,
+  ?'table_name' => TableName,
+  ) $s = shape()) {
+    $this->stream_arn = $stream_arn ?? "";
+    $this->stream_label = $stream_label ?? ;
+    $this->table_name = $table_name ?? "";
+  }
 }
 
-class StreamArn {
-}
+type StreamArn = string;
 
 class StreamDescription {
   public Date $creation_request_date_time;
@@ -201,10 +354,31 @@ class StreamDescription {
   public StreamStatus $stream_status;
   public StreamViewType $stream_view_type;
   public TableName $table_name;
+
+  public function __construct(shape(
+  ?'creation_request_date_time' => Date,
+  ?'key_schema' => KeySchema,
+  ?'last_evaluated_shard_id' => ShardId,
+  ?'shards' => ShardDescriptionList,
+  ?'stream_arn' => StreamArn,
+  ?'stream_label' => string,
+  ?'stream_status' => StreamStatus,
+  ?'stream_view_type' => StreamViewType,
+  ?'table_name' => TableName,
+  ) $s = shape()) {
+    $this->creation_request_date_time = $creation_request_date_time ?? ;
+    $this->key_schema = $key_schema ?? [];
+    $this->last_evaluated_shard_id = $last_evaluated_shard_id ?? ;
+    $this->shards = $shards ?? ;
+    $this->stream_arn = $stream_arn ?? "";
+    $this->stream_label = $stream_label ?? ;
+    $this->stream_status = $stream_status ?? "";
+    $this->stream_view_type = $stream_view_type ?? "";
+    $this->table_name = $table_name ?? "";
+  }
 }
 
-class StreamList {
-}
+type StreamList = vec<Stream>;
 
 class StreamRecord {
   public Date $approximate_creation_date_time;
@@ -214,27 +388,45 @@ class StreamRecord {
   public SequenceNumber $sequence_number;
   public PositiveLongObject $size_bytes;
   public StreamViewType $stream_view_type;
+
+  public function __construct(shape(
+  ?'approximate_creation_date_time' => Date,
+  ?'keys' => AttributeMap,
+  ?'new_image' => AttributeMap,
+  ?'old_image' => AttributeMap,
+  ?'sequence_number' => SequenceNumber,
+  ?'size_bytes' => PositiveLongObject,
+  ?'stream_view_type' => StreamViewType,
+  ) $s = shape()) {
+    $this->approximate_creation_date_time = $approximate_creation_date_time ?? ;
+    $this->keys = $keys ?? ;
+    $this->new_image = $new_image ?? ;
+    $this->old_image = $old_image ?? ;
+    $this->sequence_number = $sequence_number ?? "";
+    $this->size_bytes = $size_bytes ?? ;
+    $this->stream_view_type = $stream_view_type ?? "";
+  }
 }
 
-class StreamStatus {
-}
+type StreamStatus = string;
 
-class StreamViewType {
-}
+type StreamViewType = string;
 
-class String {
-}
+type String = string;
 
-class StringAttributeValue {
-}
+type StringAttributeValue = string;
 
-class StringSetAttributeValue {
-}
+type StringSetAttributeValue = vec<StringAttributeValue>;
 
-class TableName {
-}
+type TableName = string;
 
 class TrimmedDataAccessException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 

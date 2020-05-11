@@ -59,15 +59,36 @@ class AccountLimit {
   public int $concurrent_executions;
   public Long $total_code_size;
   public UnreservedConcurrentExecutions $unreserved_concurrent_executions;
+
+  public function __construct(shape(
+  ?'code_size_unzipped' => Long,
+  ?'code_size_zipped' => Long,
+  ?'concurrent_executions' => int,
+  ?'total_code_size' => Long,
+  ?'unreserved_concurrent_executions' => UnreservedConcurrentExecutions,
+  ) $s = shape()) {
+    $this->code_size_unzipped = $code_size_unzipped ?? ;
+    $this->code_size_zipped = $code_size_zipped ?? ;
+    $this->concurrent_executions = $concurrent_executions ?? ;
+    $this->total_code_size = $total_code_size ?? ;
+    $this->unreserved_concurrent_executions = $unreserved_concurrent_executions ?? 0;
+  }
 }
 
 class AccountUsage {
   public Long $function_count;
   public Long $total_code_size;
+
+  public function __construct(shape(
+  ?'function_count' => Long,
+  ?'total_code_size' => Long,
+  ) $s = shape()) {
+    $this->function_count = $function_count ?? ;
+    $this->total_code_size = $total_code_size ?? ;
+  }
 }
 
-class Action {
-}
+type Action = string;
 
 class AddLayerVersionPermissionRequest {
   public LayerPermissionAllowedAction $action;
@@ -77,11 +98,37 @@ class AddLayerVersionPermissionRequest {
   public string $revision_id;
   public StatementId $statement_id;
   public LayerVersionNumber $version_number;
+
+  public function __construct(shape(
+  ?'action' => LayerPermissionAllowedAction,
+  ?'layer_name' => LayerName,
+  ?'organization_id' => OrganizationId,
+  ?'principal' => LayerPermissionAllowedPrincipal,
+  ?'revision_id' => string,
+  ?'statement_id' => StatementId,
+  ?'version_number' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->action = $action ?? "";
+    $this->layer_name = $layer_name ?? "";
+    $this->organization_id = $organization_id ?? "";
+    $this->principal = $principal ?? "";
+    $this->revision_id = $revision_id ?? ;
+    $this->statement_id = $statement_id ?? "";
+    $this->version_number = $version_number ?? ;
+  }
 }
 
 class AddLayerVersionPermissionResponse {
   public string $revision_id;
   public string $statement;
+
+  public function __construct(shape(
+  ?'revision_id' => string,
+  ?'statement' => string,
+  ) $s = shape()) {
+    $this->revision_id = $revision_id ?? ;
+    $this->statement = $statement ?? ;
+  }
 }
 
 class AddPermissionRequest {
@@ -94,20 +141,45 @@ class AddPermissionRequest {
   public SourceOwner $source_account;
   public Arn $source_arn;
   public StatementId $statement_id;
+
+  public function __construct(shape(
+  ?'action' => Action,
+  ?'event_source_token' => EventSourceToken,
+  ?'function_name' => FunctionName,
+  ?'principal' => Principal,
+  ?'qualifier' => Qualifier,
+  ?'revision_id' => string,
+  ?'source_account' => SourceOwner,
+  ?'source_arn' => Arn,
+  ?'statement_id' => StatementId,
+  ) $s = shape()) {
+    $this->action = $action ?? "";
+    $this->event_source_token = $event_source_token ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->principal = $principal ?? "";
+    $this->qualifier = $qualifier ?? "";
+    $this->revision_id = $revision_id ?? ;
+    $this->source_account = $source_account ?? ;
+    $this->source_arn = $source_arn ?? ;
+    $this->statement_id = $statement_id ?? "";
+  }
 }
 
 class AddPermissionResponse {
   public string $statement;
+
+  public function __construct(shape(
+  ?'statement' => string,
+  ) $s = shape()) {
+    $this->statement = $statement ?? ;
+  }
 }
 
-class AdditionalVersion {
-}
+type AdditionalVersion = string;
 
-class AdditionalVersionWeights {
-}
+type AdditionalVersionWeights = dict<AdditionalVersion, Weight>;
 
-class Alias {
-}
+type Alias = string;
 
 class AliasConfiguration {
   public FunctionArn $alias_arn;
@@ -116,43 +188,71 @@ class AliasConfiguration {
   public Alias $name;
   public string $revision_id;
   public AliasRoutingConfiguration $routing_config;
+
+  public function __construct(shape(
+  ?'alias_arn' => FunctionArn,
+  ?'description' => Description,
+  ?'function_version' => Version,
+  ?'name' => Alias,
+  ?'revision_id' => string,
+  ?'routing_config' => AliasRoutingConfiguration,
+  ) $s = shape()) {
+    $this->alias_arn = $alias_arn ?? ;
+    $this->description = $description ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->routing_config = $routing_config ?? ;
+  }
 }
 
-class AliasList {
-}
+type AliasList = vec<AliasConfiguration>;
 
 class AliasRoutingConfiguration {
   public AdditionalVersionWeights $additional_version_weights;
+
+  public function __construct(shape(
+  ?'additional_version_weights' => AdditionalVersionWeights,
+  ) $s = shape()) {
+    $this->additional_version_weights = $additional_version_weights ?? [];
+  }
 }
 
-class Arn {
-}
+type Arn = string;
 
-class BatchSize {
-}
+type BatchSize = int;
 
-class BisectBatchOnFunctionError {
-}
+type BisectBatchOnFunctionError = bool;
 
-class Blob {
-}
+type Blob = string;
 
-class BlobStream {
-}
+type BlobStream = string;
 
-class Boolean {
-}
+type Boolean = bool;
 
 class CodeStorageExceededException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class CompatibleRuntimes {
-}
+type CompatibleRuntimes = vec<Runtime>;
 
 class Concurrency {
   public ReservedConcurrentExecutions $reserved_concurrent_executions;
+
+  public function __construct(shape(
+  ?'reserved_concurrent_executions' => ReservedConcurrentExecutions,
+  ) $s = shape()) {
+    $this->reserved_concurrent_executions = $reserved_concurrent_executions ?? 0;
+  }
 }
 
 class CreateAliasRequest {
@@ -161,6 +261,20 @@ class CreateAliasRequest {
   public Version $function_version;
   public Alias $name;
   public AliasRoutingConfiguration $routing_config;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'function_name' => FunctionName,
+  ?'function_version' => Version,
+  ?'name' => Alias,
+  ?'routing_config' => AliasRoutingConfiguration,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? ;
+    $this->routing_config = $routing_config ?? ;
+  }
 }
 
 class CreateEventSourceMappingRequest {
@@ -176,6 +290,34 @@ class CreateEventSourceMappingRequest {
   public ParallelizationFactor $parallelization_factor;
   public EventSourcePosition $starting_position;
   public Date $starting_position_timestamp;
+
+  public function __construct(shape(
+  ?'batch_size' => BatchSize,
+  ?'bisect_batch_on_function_error' => BisectBatchOnFunctionError,
+  ?'destination_config' => DestinationConfig,
+  ?'enabled' => Enabled,
+  ?'event_source_arn' => Arn,
+  ?'function_name' => FunctionName,
+  ?'maximum_batching_window_in_seconds' => MaximumBatchingWindowInSeconds,
+  ?'maximum_record_age_in_seconds' => MaximumRecordAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttemptsEventSourceMapping,
+  ?'parallelization_factor' => ParallelizationFactor,
+  ?'starting_position' => EventSourcePosition,
+  ?'starting_position_timestamp' => Date,
+  ) $s = shape()) {
+    $this->batch_size = $batch_size ?? 0;
+    $this->bisect_batch_on_function_error = $bisect_batch_on_function_error ?? false;
+    $this->destination_config = $destination_config ?? null;
+    $this->enabled = $enabled ?? false;
+    $this->event_source_arn = $event_source_arn ?? ;
+    $this->function_name = $function_name ?? "";
+    $this->maximum_batching_window_in_seconds = $maximum_batching_window_in_seconds ?? 0;
+    $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+    $this->parallelization_factor = $parallelization_factor ?? 0;
+    $this->starting_position = $starting_position ?? ;
+    $this->starting_position_timestamp = $starting_position_timestamp ?? ;
+  }
 }
 
 class CreateFunctionRequest {
@@ -195,105 +337,256 @@ class CreateFunctionRequest {
   public Timeout $timeout;
   public TracingConfig $tracing_config;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'code' => FunctionCode,
+  ?'dead_letter_config' => DeadLetterConfig,
+  ?'description' => Description,
+  ?'environment' => Environment,
+  ?'function_name' => FunctionName,
+  ?'handler' => Handler,
+  ?'kms_key_arn' => KMSKeyArn,
+  ?'layers' => LayerList,
+  ?'memory_size' => MemorySize,
+  ?'publish' => boolean,
+  ?'role' => RoleArn,
+  ?'runtime' => Runtime,
+  ?'tags' => Tags,
+  ?'timeout' => Timeout,
+  ?'tracing_config' => TracingConfig,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->dead_letter_config = $dead_letter_config ?? null;
+    $this->description = $description ?? "";
+    $this->environment = $environment ?? null;
+    $this->function_name = $function_name ?? "";
+    $this->handler = $handler ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->layers = $layers ?? ;
+    $this->memory_size = $memory_size ?? 0;
+    $this->publish = $publish ?? ;
+    $this->role = $role ?? ;
+    $this->runtime = $runtime ?? "";
+    $this->tags = $tags ?? [];
+    $this->timeout = $timeout ?? 0;
+    $this->tracing_config = $tracing_config ?? null;
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
-class Date {
-}
+type Date = int;
 
 class DeadLetterConfig {
   public ResourceArn $target_arn;
+
+  public function __construct(shape(
+  ?'target_arn' => ResourceArn,
+  ) $s = shape()) {
+    $this->target_arn = $target_arn ?? ;
+  }
 }
 
 class DeleteAliasRequest {
   public FunctionName $function_name;
   public Alias $name;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'name' => Alias,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class DeleteEventSourceMappingRequest {
   public string $uuid;
+
+  public function __construct(shape(
+  ?'uuid' => string,
+  ) $s = shape()) {
+    $this->uuid = $uuid ?? ;
+  }
 }
 
 class DeleteFunctionConcurrencyRequest {
   public FunctionName $function_name;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+  }
 }
 
 class DeleteFunctionEventInvokeConfigRequest {
   public FunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class DeleteFunctionRequest {
   public FunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class DeleteLayerVersionRequest {
   public LayerName $layer_name;
   public LayerVersionNumber $version_number;
+
+  public function __construct(shape(
+  ?'layer_name' => LayerName,
+  ?'version_number' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->layer_name = $layer_name ?? "";
+    $this->version_number = $version_number ?? ;
+  }
 }
 
 class DeleteProvisionedConcurrencyConfigRequest {
   public FunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
-class Description {
-}
+type Description = string;
 
-class DestinationArn {
-}
+type DestinationArn = string;
 
 class DestinationConfig {
   public OnFailure $on_failure;
   public OnSuccess $on_success;
+
+  public function __construct(shape(
+  ?'on_failure' => OnFailure,
+  ?'on_success' => OnSuccess,
+  ) $s = shape()) {
+    $this->on_failure = $on_failure ?? null;
+    $this->on_success = $on_success ?? null;
+  }
 }
 
 class EC2AccessDeniedException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class EC2ThrottledException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class EC2UnexpectedException {
   public string $ec_2_error_code;
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'ec_2_error_code' => string,
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->ec_2_error_code = $ec_2_error_code ?? ;
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ENILimitReachedException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class Enabled {
-}
+type Enabled = bool;
 
 class Environment {
   public EnvironmentVariables $variables;
+
+  public function __construct(shape(
+  ?'variables' => EnvironmentVariables,
+  ) $s = shape()) {
+    $this->variables = $variables ?? ;
+  }
 }
 
 class EnvironmentError {
   public string $error_code;
   public SensitiveString $message;
+
+  public function __construct(shape(
+  ?'error_code' => string,
+  ?'message' => SensitiveString,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class EnvironmentResponse {
   public EnvironmentError $error;
   public EnvironmentVariables $variables;
+
+  public function __construct(shape(
+  ?'error' => EnvironmentError,
+  ?'variables' => EnvironmentVariables,
+  ) $s = shape()) {
+    $this->error = $error ?? ;
+    $this->variables = $variables ?? ;
+  }
 }
 
-class EnvironmentVariableName {
-}
+type EnvironmentVariableName = string;
 
-class EnvironmentVariableValue {
-}
+type EnvironmentVariableValue = string;
 
-class EnvironmentVariables {
-}
+type EnvironmentVariables = dict<EnvironmentVariableName, EnvironmentVariableValue>;
 
 class EventSourceMappingConfiguration {
   public BatchSize $batch_size;
@@ -310,30 +603,78 @@ class EventSourceMappingConfiguration {
   public string $state;
   public string $state_transition_reason;
   public string $uuid;
+
+  public function __construct(shape(
+  ?'batch_size' => BatchSize,
+  ?'bisect_batch_on_function_error' => BisectBatchOnFunctionError,
+  ?'destination_config' => DestinationConfig,
+  ?'event_source_arn' => Arn,
+  ?'function_arn' => FunctionArn,
+  ?'last_modified' => Date,
+  ?'last_processing_result' => string,
+  ?'maximum_batching_window_in_seconds' => MaximumBatchingWindowInSeconds,
+  ?'maximum_record_age_in_seconds' => MaximumRecordAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttemptsEventSourceMapping,
+  ?'parallelization_factor' => ParallelizationFactor,
+  ?'state' => string,
+  ?'state_transition_reason' => string,
+  ?'uuid' => string,
+  ) $s = shape()) {
+    $this->batch_size = $batch_size ?? 0;
+    $this->bisect_batch_on_function_error = $bisect_batch_on_function_error ?? false;
+    $this->destination_config = $destination_config ?? null;
+    $this->event_source_arn = $event_source_arn ?? ;
+    $this->function_arn = $function_arn ?? "";
+    $this->last_modified = $last_modified ?? ;
+    $this->last_processing_result = $last_processing_result ?? ;
+    $this->maximum_batching_window_in_seconds = $maximum_batching_window_in_seconds ?? 0;
+    $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+    $this->parallelization_factor = $parallelization_factor ?? 0;
+    $this->state = $state ?? "";
+    $this->state_transition_reason = $state_transition_reason ?? ;
+    $this->uuid = $uuid ?? ;
+  }
 }
 
-class EventSourceMappingsList {
-}
+type EventSourceMappingsList = vec<EventSourceMappingConfiguration>;
 
-class EventSourcePosition {
-}
+type EventSourcePosition = string;
 
-class EventSourceToken {
-}
+type EventSourceToken = string;
 
-class FunctionArn {
-}
+type FunctionArn = string;
 
 class FunctionCode {
   public S3Bucket $s_3_bucket;
   public S3Key $s_3_key;
   public S3ObjectVersion $s_3_object_version;
   public Blob $zip_file;
+
+  public function __construct(shape(
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key' => S3Key,
+  ?'s_3_object_version' => S3ObjectVersion,
+  ?'zip_file' => Blob,
+  ) $s = shape()) {
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
+    $this->s_3_object_version = $s_3_object_version ?? "";
+    $this->zip_file = $zip_file ?? ;
+  }
 }
 
 class FunctionCodeLocation {
   public string $location;
   public string $repository_type;
+
+  public function __construct(shape(
+  ?'location' => string,
+  ?'repository_type' => string,
+  ) $s = shape()) {
+    $this->location = $location ?? ;
+    $this->repository_type = $repository_type ?? ;
+  }
 }
 
 class FunctionConfiguration {
@@ -363,6 +704,62 @@ class FunctionConfiguration {
   public TracingConfigResponse $tracing_config;
   public Version $version;
   public VpcConfigResponse $vpc_config;
+
+  public function __construct(shape(
+  ?'code_sha_256' => string,
+  ?'code_size' => Long,
+  ?'dead_letter_config' => DeadLetterConfig,
+  ?'description' => Description,
+  ?'environment' => EnvironmentResponse,
+  ?'function_arn' => NameSpacedFunctionArn,
+  ?'function_name' => NamespacedFunctionName,
+  ?'handler' => Handler,
+  ?'kms_key_arn' => KMSKeyArn,
+  ?'last_modified' => Timestamp,
+  ?'last_update_status' => LastUpdateStatus,
+  ?'last_update_status_reason' => LastUpdateStatusReason,
+  ?'last_update_status_reason_code' => LastUpdateStatusReasonCode,
+  ?'layers' => LayersReferenceList,
+  ?'master_arn' => FunctionArn,
+  ?'memory_size' => MemorySize,
+  ?'revision_id' => string,
+  ?'role' => RoleArn,
+  ?'runtime' => Runtime,
+  ?'state' => State,
+  ?'state_reason' => StateReason,
+  ?'state_reason_code' => StateReasonCode,
+  ?'timeout' => Timeout,
+  ?'tracing_config' => TracingConfigResponse,
+  ?'version' => Version,
+  ?'vpc_config' => VpcConfigResponse,
+  ) $s = shape()) {
+    $this->code_sha_256 = $code_sha_256 ?? ;
+    $this->code_size = $code_size ?? ;
+    $this->dead_letter_config = $dead_letter_config ?? null;
+    $this->description = $description ?? "";
+    $this->environment = $environment ?? null;
+    $this->function_arn = $function_arn ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->handler = $handler ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->last_modified = $last_modified ?? ;
+    $this->last_update_status = $last_update_status ?? "";
+    $this->last_update_status_reason = $last_update_status_reason ?? "";
+    $this->last_update_status_reason_code = $last_update_status_reason_code ?? "";
+    $this->layers = $layers ?? ;
+    $this->master_arn = $master_arn ?? ;
+    $this->memory_size = $memory_size ?? 0;
+    $this->revision_id = $revision_id ?? ;
+    $this->role = $role ?? ;
+    $this->runtime = $runtime ?? "";
+    $this->state = $state ?? "";
+    $this->state_reason = $state_reason ?? "";
+    $this->state_reason_code = $state_reason_code ?? "";
+    $this->timeout = $timeout ?? 0;
+    $this->tracing_config = $tracing_config ?? null;
+    $this->version = $version ?? "";
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
 class FunctionEventInvokeConfig {
@@ -371,58 +768,130 @@ class FunctionEventInvokeConfig {
   public Date $last_modified;
   public MaximumEventAgeInSeconds $maximum_event_age_in_seconds;
   public MaximumRetryAttempts $maximum_retry_attempts;
+
+  public function __construct(shape(
+  ?'destination_config' => DestinationConfig,
+  ?'function_arn' => FunctionArn,
+  ?'last_modified' => Date,
+  ?'maximum_event_age_in_seconds' => MaximumEventAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttempts,
+  ) $s = shape()) {
+    $this->destination_config = $destination_config ?? null;
+    $this->function_arn = $function_arn ?? "";
+    $this->last_modified = $last_modified ?? ;
+    $this->maximum_event_age_in_seconds = $maximum_event_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+  }
 }
 
-class FunctionEventInvokeConfigList {
-}
+type FunctionEventInvokeConfigList = vec<FunctionEventInvokeConfig>;
 
-class FunctionList {
-}
+type FunctionList = vec<FunctionConfiguration>;
 
-class FunctionName {
-}
+type FunctionName = string;
 
-class FunctionVersion {
-}
+type FunctionVersion = string;
 
 class GetAccountSettingsRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetAccountSettingsResponse {
   public AccountLimit $account_limit;
   public AccountUsage $account_usage;
+
+  public function __construct(shape(
+  ?'account_limit' => AccountLimit,
+  ?'account_usage' => AccountUsage,
+  ) $s = shape()) {
+    $this->account_limit = $account_limit ?? null;
+    $this->account_usage = $account_usage ?? null;
+  }
 }
 
 class GetAliasRequest {
   public FunctionName $function_name;
   public Alias $name;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'name' => Alias,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class GetEventSourceMappingRequest {
   public string $uuid;
+
+  public function __construct(shape(
+  ?'uuid' => string,
+  ) $s = shape()) {
+    $this->uuid = $uuid ?? ;
+  }
 }
 
 class GetFunctionConcurrencyRequest {
   public FunctionName $function_name;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+  }
 }
 
 class GetFunctionConcurrencyResponse {
   public ReservedConcurrentExecutions $reserved_concurrent_executions;
+
+  public function __construct(shape(
+  ?'reserved_concurrent_executions' => ReservedConcurrentExecutions,
+  ) $s = shape()) {
+    $this->reserved_concurrent_executions = $reserved_concurrent_executions ?? 0;
+  }
 }
 
 class GetFunctionConfigurationRequest {
   public NamespacedFunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => NamespacedFunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class GetFunctionEventInvokeConfigRequest {
   public FunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class GetFunctionRequest {
   public NamespacedFunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => NamespacedFunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class GetFunctionResponse {
@@ -430,25 +899,67 @@ class GetFunctionResponse {
   public Concurrency $concurrency;
   public FunctionConfiguration $configuration;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'code' => FunctionCodeLocation,
+  ?'concurrency' => Concurrency,
+  ?'configuration' => FunctionConfiguration,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->concurrency = $concurrency ?? null;
+    $this->configuration = $configuration ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class GetLayerVersionByArnRequest {
   public LayerVersionArn $arn;
+
+  public function __construct(shape(
+  ?'arn' => LayerVersionArn,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+  }
 }
 
 class GetLayerVersionPolicyRequest {
   public LayerName $layer_name;
   public LayerVersionNumber $version_number;
+
+  public function __construct(shape(
+  ?'layer_name' => LayerName,
+  ?'version_number' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->layer_name = $layer_name ?? "";
+    $this->version_number = $version_number ?? ;
+  }
 }
 
 class GetLayerVersionPolicyResponse {
   public string $policy;
   public string $revision_id;
+
+  public function __construct(shape(
+  ?'policy' => string,
+  ?'revision_id' => string,
+  ) $s = shape()) {
+    $this->policy = $policy ?? ;
+    $this->revision_id = $revision_id ?? ;
+  }
 }
 
 class GetLayerVersionRequest {
   public LayerName $layer_name;
   public LayerVersionNumber $version_number;
+
+  public function __construct(shape(
+  ?'layer_name' => LayerName,
+  ?'version_number' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->layer_name = $layer_name ?? "";
+    $this->version_number = $version_number ?? ;
+  }
 }
 
 class GetLayerVersionResponse {
@@ -460,21 +971,65 @@ class GetLayerVersionResponse {
   public LayerVersionArn $layer_version_arn;
   public LicenseInfo $license_info;
   public LayerVersionNumber $version;
+
+  public function __construct(shape(
+  ?'compatible_runtimes' => CompatibleRuntimes,
+  ?'content' => LayerVersionContentOutput,
+  ?'created_date' => Timestamp,
+  ?'description' => Description,
+  ?'layer_arn' => LayerArn,
+  ?'layer_version_arn' => LayerVersionArn,
+  ?'license_info' => LicenseInfo,
+  ?'version' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->compatible_runtimes = $compatible_runtimes ?? [];
+    $this->content = $content ?? ;
+    $this->created_date = $created_date ?? ;
+    $this->description = $description ?? "";
+    $this->layer_arn = $layer_arn ?? "";
+    $this->layer_version_arn = $layer_version_arn ?? "";
+    $this->license_info = $license_info ?? "";
+    $this->version = $version ?? "";
+  }
 }
 
 class GetPolicyRequest {
   public NamespacedFunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => NamespacedFunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class GetPolicyResponse {
   public string $policy;
   public string $revision_id;
+
+  public function __construct(shape(
+  ?'policy' => string,
+  ?'revision_id' => string,
+  ) $s = shape()) {
+    $this->policy = $policy ?? ;
+    $this->revision_id = $revision_id ?? ;
+  }
 }
 
 class GetProvisionedConcurrencyConfigRequest {
   public FunctionName $function_name;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class GetProvisionedConcurrencyConfigResponse {
@@ -484,45 +1039,106 @@ class GetProvisionedConcurrencyConfigResponse {
   public PositiveInteger $requested_provisioned_concurrent_executions;
   public ProvisionedConcurrencyStatusEnum $status;
   public string $status_reason;
+
+  public function __construct(shape(
+  ?'allocated_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'available_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'last_modified' => Timestamp,
+  ?'requested_provisioned_concurrent_executions' => PositiveInteger,
+  ?'status' => ProvisionedConcurrencyStatusEnum,
+  ?'status_reason' => string,
+  ) $s = shape()) {
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
+    $this->last_modified = $last_modified ?? ;
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
+    $this->status = $status ?? ;
+    $this->status_reason = $status_reason ?? ;
+  }
 }
 
-class Handler {
-}
+type Handler = string;
 
-class HttpStatus {
-}
+type HttpStatus = int;
 
-class Integer {
-}
+type Integer = int;
 
 class InvalidParameterValueException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRequestContentException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRuntimeException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class InvalidSecurityGroupIDException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class InvalidSubnetIDException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class InvalidZipFileException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class InvocationRequest {
@@ -532,6 +1148,22 @@ class InvocationRequest {
   public LogType $log_type;
   public Blob $payload;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'client_context' => string,
+  ?'function_name' => NamespacedFunctionName,
+  ?'invocation_type' => InvocationType,
+  ?'log_type' => LogType,
+  ?'payload' => Blob,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->client_context = $client_context ?? ;
+    $this->function_name = $function_name ?? "";
+    $this->invocation_type = $invocation_type ?? "";
+    $this->log_type = $log_type ?? "";
+    $this->payload = $payload ?? ;
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class InvocationResponse {
@@ -540,93 +1172,170 @@ class InvocationResponse {
   public string $log_result;
   public Blob $payload;
   public int $status_code;
+
+  public function __construct(shape(
+  ?'executed_version' => Version,
+  ?'function_error' => string,
+  ?'log_result' => string,
+  ?'payload' => Blob,
+  ?'status_code' => int,
+  ) $s = shape()) {
+    $this->executed_version = $executed_version ?? ;
+    $this->function_error = $function_error ?? ;
+    $this->log_result = $log_result ?? ;
+    $this->payload = $payload ?? ;
+    $this->status_code = $status_code ?? ;
+  }
 }
 
-class InvocationType {
-}
+type InvocationType = string;
 
 class InvokeAsyncRequest {
   public NamespacedFunctionName $function_name;
   public BlobStream $invoke_args;
+
+  public function __construct(shape(
+  ?'function_name' => NamespacedFunctionName,
+  ?'invoke_args' => BlobStream,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->invoke_args = $invoke_args ?? ;
+  }
 }
 
 class InvokeAsyncResponse {
   public HttpStatus $status;
+
+  public function __construct(shape(
+  ?'status' => HttpStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class KMSAccessDeniedException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class KMSDisabledException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class KMSInvalidStateException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class KMSKeyArn {
-}
+type KMSKeyArn = string;
 
 class KMSNotFoundException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class LastUpdateStatus {
-}
+type LastUpdateStatus = string;
 
-class LastUpdateStatusReason {
-}
+type LastUpdateStatusReason = string;
 
-class LastUpdateStatusReasonCode {
-}
+type LastUpdateStatusReasonCode = string;
 
 class Layer {
   public LayerVersionArn $arn;
   public Long $code_size;
+
+  public function __construct(shape(
+  ?'arn' => LayerVersionArn,
+  ?'code_size' => Long,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->code_size = $code_size ?? ;
+  }
 }
 
-class LayerArn {
-}
+type LayerArn = string;
 
-class LayerList {
-}
+type LayerList = vec<LayerVersionArn>;
 
-class LayerName {
-}
+type LayerName = string;
 
-class LayerPermissionAllowedAction {
-}
+type LayerPermissionAllowedAction = string;
 
-class LayerPermissionAllowedPrincipal {
-}
+type LayerPermissionAllowedPrincipal = string;
 
-class LayerVersionArn {
-}
+type LayerVersionArn = string;
 
 class LayerVersionContentInput {
   public S3Bucket $s_3_bucket;
   public S3Key $s_3_key;
   public S3ObjectVersion $s_3_object_version;
   public Blob $zip_file;
+
+  public function __construct(shape(
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key' => S3Key,
+  ?'s_3_object_version' => S3ObjectVersion,
+  ?'zip_file' => Blob,
+  ) $s = shape()) {
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
+    $this->s_3_object_version = $s_3_object_version ?? "";
+    $this->zip_file = $zip_file ?? ;
+  }
 }
 
 class LayerVersionContentOutput {
   public string $code_sha_256;
   public Long $code_size;
   public string $location;
+
+  public function __construct(shape(
+  ?'code_sha_256' => string,
+  ?'code_size' => Long,
+  ?'location' => string,
+  ) $s = shape()) {
+    $this->code_sha_256 = $code_sha_256 ?? ;
+    $this->code_size = $code_size ?? ;
+    $this->location = $location ?? ;
+  }
 }
 
-class LayerVersionNumber {
-}
+type LayerVersionNumber = int;
 
-class LayerVersionsList {
-}
+type LayerVersionsList = vec<LayerVersionsListItem>;
 
 class LayerVersionsListItem {
   public CompatibleRuntimes $compatible_runtimes;
@@ -635,33 +1344,76 @@ class LayerVersionsListItem {
   public LayerVersionArn $layer_version_arn;
   public LicenseInfo $license_info;
   public LayerVersionNumber $version;
+
+  public function __construct(shape(
+  ?'compatible_runtimes' => CompatibleRuntimes,
+  ?'created_date' => Timestamp,
+  ?'description' => Description,
+  ?'layer_version_arn' => LayerVersionArn,
+  ?'license_info' => LicenseInfo,
+  ?'version' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->compatible_runtimes = $compatible_runtimes ?? [];
+    $this->created_date = $created_date ?? ;
+    $this->description = $description ?? "";
+    $this->layer_version_arn = $layer_version_arn ?? "";
+    $this->license_info = $license_info ?? "";
+    $this->version = $version ?? "";
+  }
 }
 
-class LayersList {
-}
+type LayersList = vec<LayersListItem>;
 
 class LayersListItem {
   public LayerVersionsListItem $latest_matching_version;
   public LayerArn $layer_arn;
   public LayerName $layer_name;
+
+  public function __construct(shape(
+  ?'latest_matching_version' => LayerVersionsListItem,
+  ?'layer_arn' => LayerArn,
+  ?'layer_name' => LayerName,
+  ) $s = shape()) {
+    $this->latest_matching_version = $latest_matching_version ?? ;
+    $this->layer_arn = $layer_arn ?? "";
+    $this->layer_name = $layer_name ?? "";
+  }
 }
 
-class LayersReferenceList {
-}
+type LayersReferenceList = vec<Layer>;
 
-class LicenseInfo {
-}
+type LicenseInfo = string;
 
 class ListAliasesRequest {
   public FunctionName $function_name;
   public Version $function_version;
   public string $marker;
   public MaxListItems $max_items;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'function_version' => Version,
+  ?'marker' => string,
+  ?'max_items' => MaxListItems,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListAliasesResponse {
   public AliasList $aliases;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'aliases' => AliasList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->aliases = $aliases ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListEventSourceMappingsRequest {
@@ -669,22 +1421,60 @@ class ListEventSourceMappingsRequest {
   public FunctionName $function_name;
   public string $marker;
   public MaxListItems $max_items;
+
+  public function __construct(shape(
+  ?'event_source_arn' => Arn,
+  ?'function_name' => FunctionName,
+  ?'marker' => string,
+  ?'max_items' => MaxListItems,
+  ) $s = shape()) {
+    $this->event_source_arn = $event_source_arn ?? ;
+    $this->function_name = $function_name ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListEventSourceMappingsResponse {
   public EventSourceMappingsList $event_source_mappings;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'event_source_mappings' => EventSourceMappingsList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->event_source_mappings = $event_source_mappings ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListFunctionEventInvokeConfigsRequest {
   public FunctionName $function_name;
   public string $marker;
   public MaxFunctionEventInvokeConfigListItems $max_items;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'marker' => string,
+  ?'max_items' => MaxFunctionEventInvokeConfigListItems,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListFunctionEventInvokeConfigsResponse {
   public FunctionEventInvokeConfigList $function_event_invoke_configs;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'function_event_invoke_configs' => FunctionEventInvokeConfigList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->function_event_invoke_configs = $function_event_invoke_configs ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListFunctionsRequest {
@@ -692,11 +1482,31 @@ class ListFunctionsRequest {
   public string $marker;
   public MasterRegion $master_region;
   public MaxListItems $max_items;
+
+  public function __construct(shape(
+  ?'function_version' => FunctionVersion,
+  ?'marker' => string,
+  ?'master_region' => MasterRegion,
+  ?'max_items' => MaxListItems,
+  ) $s = shape()) {
+    $this->function_version = $function_version ?? "";
+    $this->marker = $marker ?? ;
+    $this->master_region = $master_region ?? "";
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListFunctionsResponse {
   public FunctionList $functions;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'functions' => FunctionList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->functions = $functions ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListLayerVersionsRequest {
@@ -704,137 +1514,229 @@ class ListLayerVersionsRequest {
   public LayerName $layer_name;
   public string $marker;
   public MaxLayerListItems $max_items;
+
+  public function __construct(shape(
+  ?'compatible_runtime' => Runtime,
+  ?'layer_name' => LayerName,
+  ?'marker' => string,
+  ?'max_items' => MaxLayerListItems,
+  ) $s = shape()) {
+    $this->compatible_runtime = $compatible_runtime ?? ;
+    $this->layer_name = $layer_name ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListLayerVersionsResponse {
   public LayerVersionsList $layer_versions;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'layer_versions' => LayerVersionsList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->layer_versions = $layer_versions ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListLayersRequest {
   public Runtime $compatible_runtime;
   public string $marker;
   public MaxLayerListItems $max_items;
+
+  public function __construct(shape(
+  ?'compatible_runtime' => Runtime,
+  ?'marker' => string,
+  ?'max_items' => MaxLayerListItems,
+  ) $s = shape()) {
+    $this->compatible_runtime = $compatible_runtime ?? ;
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListLayersResponse {
   public LayersList $layers;
   public string $next_marker;
+
+  public function __construct(shape(
+  ?'layers' => LayersList,
+  ?'next_marker' => string,
+  ) $s = shape()) {
+    $this->layers = $layers ?? ;
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListProvisionedConcurrencyConfigsRequest {
   public FunctionName $function_name;
   public string $marker;
   public MaxProvisionedConcurrencyConfigListItems $max_items;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'marker' => string,
+  ?'max_items' => MaxProvisionedConcurrencyConfigListItems,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListProvisionedConcurrencyConfigsResponse {
   public string $next_marker;
   public ProvisionedConcurrencyConfigList $provisioned_concurrency_configs;
+
+  public function __construct(shape(
+  ?'next_marker' => string,
+  ?'provisioned_concurrency_configs' => ProvisionedConcurrencyConfigList,
+  ) $s = shape()) {
+    $this->next_marker = $next_marker ?? ;
+    $this->provisioned_concurrency_configs = $provisioned_concurrency_configs ?? ;
+  }
 }
 
 class ListTagsRequest {
   public FunctionArn $resource;
+
+  public function __construct(shape(
+  ?'resource' => FunctionArn,
+  ) $s = shape()) {
+    $this->resource = $resource ?? ;
+  }
 }
 
 class ListTagsResponse {
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->tags = $tags ?? [];
+  }
 }
 
 class ListVersionsByFunctionRequest {
   public NamespacedFunctionName $function_name;
   public string $marker;
   public MaxListItems $max_items;
+
+  public function __construct(shape(
+  ?'function_name' => NamespacedFunctionName,
+  ?'marker' => string,
+  ?'max_items' => MaxListItems,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->marker = $marker ?? ;
+    $this->max_items = $max_items ?? ;
+  }
 }
 
 class ListVersionsByFunctionResponse {
   public string $next_marker;
   public FunctionList $versions;
+
+  public function __construct(shape(
+  ?'next_marker' => string,
+  ?'versions' => FunctionList,
+  ) $s = shape()) {
+    $this->next_marker = $next_marker ?? ;
+    $this->versions = $versions ?? ;
+  }
 }
 
-class LogType {
-}
+type LogType = string;
 
-class Long {
-}
+type Long = int;
 
-class MasterRegion {
-}
+type MasterRegion = string;
 
-class MaxFunctionEventInvokeConfigListItems {
-}
+type MaxFunctionEventInvokeConfigListItems = int;
 
-class MaxLayerListItems {
-}
+type MaxLayerListItems = int;
 
-class MaxListItems {
-}
+type MaxListItems = int;
 
-class MaxProvisionedConcurrencyConfigListItems {
-}
+type MaxProvisionedConcurrencyConfigListItems = int;
 
-class MaximumBatchingWindowInSeconds {
-}
+type MaximumBatchingWindowInSeconds = int;
 
-class MaximumEventAgeInSeconds {
-}
+type MaximumEventAgeInSeconds = int;
 
-class MaximumRecordAgeInSeconds {
-}
+type MaximumRecordAgeInSeconds = int;
 
-class MaximumRetryAttempts {
-}
+type MaximumRetryAttempts = int;
 
-class MaximumRetryAttemptsEventSourceMapping {
-}
+type MaximumRetryAttemptsEventSourceMapping = int;
 
-class MemorySize {
-}
+type MemorySize = int;
 
-class NameSpacedFunctionArn {
-}
+type NameSpacedFunctionArn = string;
 
-class NamespacedFunctionName {
-}
+type NamespacedFunctionName = string;
 
-class NamespacedStatementId {
-}
+type NamespacedStatementId = string;
 
-class NonNegativeInteger {
-}
+type NonNegativeInteger = int;
 
 class OnFailure {
   public DestinationArn $destination;
+
+  public function __construct(shape(
+  ?'destination' => DestinationArn,
+  ) $s = shape()) {
+    $this->destination = $destination ?? ;
+  }
 }
 
 class OnSuccess {
   public DestinationArn $destination;
+
+  public function __construct(shape(
+  ?'destination' => DestinationArn,
+  ) $s = shape()) {
+    $this->destination = $destination ?? ;
+  }
 }
 
-class OrganizationId {
-}
+type OrganizationId = string;
 
-class ParallelizationFactor {
-}
+type ParallelizationFactor = int;
 
 class PolicyLengthExceededException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class PositiveInteger {
-}
+type PositiveInteger = int;
 
 class PreconditionFailedException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class Principal {
-}
+type Principal = string;
 
-class ProvisionedConcurrencyConfigList {
-}
+type ProvisionedConcurrencyConfigList = vec<ProvisionedConcurrencyConfigListItem>;
 
 class ProvisionedConcurrencyConfigListItem {
   public NonNegativeInteger $allocated_provisioned_concurrent_executions;
@@ -844,15 +1746,40 @@ class ProvisionedConcurrencyConfigListItem {
   public PositiveInteger $requested_provisioned_concurrent_executions;
   public ProvisionedConcurrencyStatusEnum $status;
   public string $status_reason;
+
+  public function __construct(shape(
+  ?'allocated_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'available_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'function_arn' => FunctionArn,
+  ?'last_modified' => Timestamp,
+  ?'requested_provisioned_concurrent_executions' => PositiveInteger,
+  ?'status' => ProvisionedConcurrencyStatusEnum,
+  ?'status_reason' => string,
+  ) $s = shape()) {
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
+    $this->function_arn = $function_arn ?? "";
+    $this->last_modified = $last_modified ?? ;
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
+    $this->status = $status ?? ;
+    $this->status_reason = $status_reason ?? ;
+  }
 }
 
 class ProvisionedConcurrencyConfigNotFoundException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class ProvisionedConcurrencyStatusEnum {
-}
+type ProvisionedConcurrencyStatusEnum = string;
 
 class PublishLayerVersionRequest {
   public CompatibleRuntimes $compatible_runtimes;
@@ -860,6 +1787,20 @@ class PublishLayerVersionRequest {
   public Description $description;
   public LayerName $layer_name;
   public LicenseInfo $license_info;
+
+  public function __construct(shape(
+  ?'compatible_runtimes' => CompatibleRuntimes,
+  ?'content' => LayerVersionContentInput,
+  ?'description' => Description,
+  ?'layer_name' => LayerName,
+  ?'license_info' => LicenseInfo,
+  ) $s = shape()) {
+    $this->compatible_runtimes = $compatible_runtimes ?? [];
+    $this->content = $content ?? ;
+    $this->description = $description ?? "";
+    $this->layer_name = $layer_name ?? "";
+    $this->license_info = $license_info ?? "";
+  }
 }
 
 class PublishLayerVersionResponse {
@@ -871,6 +1812,26 @@ class PublishLayerVersionResponse {
   public LayerVersionArn $layer_version_arn;
   public LicenseInfo $license_info;
   public LayerVersionNumber $version;
+
+  public function __construct(shape(
+  ?'compatible_runtimes' => CompatibleRuntimes,
+  ?'content' => LayerVersionContentOutput,
+  ?'created_date' => Timestamp,
+  ?'description' => Description,
+  ?'layer_arn' => LayerArn,
+  ?'layer_version_arn' => LayerVersionArn,
+  ?'license_info' => LicenseInfo,
+  ?'version' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->compatible_runtimes = $compatible_runtimes ?? [];
+    $this->content = $content ?? ;
+    $this->created_date = $created_date ?? ;
+    $this->description = $description ?? "";
+    $this->layer_arn = $layer_arn ?? "";
+    $this->layer_version_arn = $layer_version_arn ?? "";
+    $this->license_info = $license_info ?? "";
+    $this->version = $version ?? "";
+  }
 }
 
 class PublishVersionRequest {
@@ -878,11 +1839,31 @@ class PublishVersionRequest {
   public Description $description;
   public FunctionName $function_name;
   public string $revision_id;
+
+  public function __construct(shape(
+  ?'code_sha_256' => string,
+  ?'description' => Description,
+  ?'function_name' => FunctionName,
+  ?'revision_id' => string,
+  ) $s = shape()) {
+    $this->code_sha_256 = $code_sha_256 ?? ;
+    $this->description = $description ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->revision_id = $revision_id ?? ;
+  }
 }
 
 class PutFunctionConcurrencyRequest {
   public FunctionName $function_name;
   public ReservedConcurrentExecutions $reserved_concurrent_executions;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'reserved_concurrent_executions' => ReservedConcurrentExecutions,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->reserved_concurrent_executions = $reserved_concurrent_executions ?? 0;
+  }
 }
 
 class PutFunctionEventInvokeConfigRequest {
@@ -891,12 +1872,36 @@ class PutFunctionEventInvokeConfigRequest {
   public MaximumEventAgeInSeconds $maximum_event_age_in_seconds;
   public MaximumRetryAttempts $maximum_retry_attempts;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'destination_config' => DestinationConfig,
+  ?'function_name' => FunctionName,
+  ?'maximum_event_age_in_seconds' => MaximumEventAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttempts,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->destination_config = $destination_config ?? null;
+    $this->function_name = $function_name ?? "";
+    $this->maximum_event_age_in_seconds = $maximum_event_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class PutProvisionedConcurrencyConfigRequest {
   public FunctionName $function_name;
   public PositiveInteger $provisioned_concurrent_executions;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'provisioned_concurrent_executions' => PositiveInteger,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->provisioned_concurrent_executions = $provisioned_concurrent_executions ?? ;
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
 class PutProvisionedConcurrencyConfigResponse {
@@ -906,16 +1911,43 @@ class PutProvisionedConcurrencyConfigResponse {
   public PositiveInteger $requested_provisioned_concurrent_executions;
   public ProvisionedConcurrencyStatusEnum $status;
   public string $status_reason;
+
+  public function __construct(shape(
+  ?'allocated_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'available_provisioned_concurrent_executions' => NonNegativeInteger,
+  ?'last_modified' => Timestamp,
+  ?'requested_provisioned_concurrent_executions' => PositiveInteger,
+  ?'status' => ProvisionedConcurrencyStatusEnum,
+  ?'status_reason' => string,
+  ) $s = shape()) {
+    $this->allocated_provisioned_concurrent_executions = $allocated_provisioned_concurrent_executions ?? ;
+    $this->available_provisioned_concurrent_executions = $available_provisioned_concurrent_executions ?? ;
+    $this->last_modified = $last_modified ?? ;
+    $this->requested_provisioned_concurrent_executions = $requested_provisioned_concurrent_executions ?? ;
+    $this->status = $status ?? ;
+    $this->status_reason = $status_reason ?? ;
+  }
 }
 
-class Qualifier {
-}
+type Qualifier = string;
 
 class RemoveLayerVersionPermissionRequest {
   public LayerName $layer_name;
   public string $revision_id;
   public StatementId $statement_id;
   public LayerVersionNumber $version_number;
+
+  public function __construct(shape(
+  ?'layer_name' => LayerName,
+  ?'revision_id' => string,
+  ?'statement_id' => StatementId,
+  ?'version_number' => LayerVersionNumber,
+  ) $s = shape()) {
+    $this->layer_name = $layer_name ?? "";
+    $this->revision_id = $revision_id ?? ;
+    $this->statement_id = $statement_id ?? "";
+    $this->version_number = $version_number ?? ;
+  }
 }
 
 class RemovePermissionRequest {
@@ -923,152 +1955,241 @@ class RemovePermissionRequest {
   public Qualifier $qualifier;
   public string $revision_id;
   public NamespacedStatementId $statement_id;
+
+  public function __construct(shape(
+  ?'function_name' => FunctionName,
+  ?'qualifier' => Qualifier,
+  ?'revision_id' => string,
+  ?'statement_id' => NamespacedStatementId,
+  ) $s = shape()) {
+    $this->function_name = $function_name ?? "";
+    $this->qualifier = $qualifier ?? "";
+    $this->revision_id = $revision_id ?? ;
+    $this->statement_id = $statement_id ?? "";
+  }
 }
 
 class RequestTooLargeException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class ReservedConcurrentExecutions {
-}
+type ReservedConcurrentExecutions = int;
 
-class ResourceArn {
-}
+type ResourceArn = string;
 
 class ResourceConflictException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceInUseException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ResourceNotReadyException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class RoleArn {
-}
+type RoleArn = string;
 
-class Runtime {
-}
+type Runtime = string;
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3Key {
-}
+type S3Key = string;
 
-class S3ObjectVersion {
-}
+type S3ObjectVersion = string;
 
-class SecurityGroupId {
-}
+type SecurityGroupId = string;
 
-class SecurityGroupIds {
-}
+type SecurityGroupIds = vec<SecurityGroupId>;
 
-class SensitiveString {
-}
+type SensitiveString = string;
 
 class ServiceException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class SourceOwner {
-}
+type SourceOwner = string;
 
-class State {
-}
+type State = string;
 
-class StateReason {
-}
+type StateReason = string;
 
-class StateReasonCode {
-}
+type StateReasonCode = string;
 
-class StatementId {
-}
+type StatementId = string;
 
-class String {
-}
+type String = string;
 
 class SubnetIPAddressLimitReachedException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class SubnetId {
-}
+type SubnetId = string;
 
-class SubnetIds {
-}
+type SubnetIds = vec<SubnetId>;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
 class TagResourceRequest {
   public FunctionArn $resource;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'resource' => FunctionArn,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->resource = $resource ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = dict<TagKey, TagValue>;
 
-class ThrottleReason {
-}
+type ThrottleReason = string;
 
-class Timeout {
-}
+type Timeout = int;
 
-class Timestamp {
-}
+type Timestamp = string;
 
 class TooManyRequestsException {
   public ThrottleReason $reason;
   public string $type;
   public string $message;
   public string $retry_after_seconds;
+
+  public function __construct(shape(
+  ?'reason' => ThrottleReason,
+  ?'type' => string,
+  ?'message' => string,
+  ?'retry_after_seconds' => string,
+  ) $s = shape()) {
+    $this->reason = $reason ?? ;
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+    $this->retry_after_seconds = $retry_after_seconds ?? ;
+  }
 }
 
 class TracingConfig {
   public TracingMode $mode;
+
+  public function __construct(shape(
+  ?'mode' => TracingMode,
+  ) $s = shape()) {
+    $this->mode = $mode ?? ;
+  }
 }
 
 class TracingConfigResponse {
   public TracingMode $mode;
+
+  public function __construct(shape(
+  ?'mode' => TracingMode,
+  ) $s = shape()) {
+    $this->mode = $mode ?? ;
+  }
 }
 
-class TracingMode {
-}
+type TracingMode = string;
 
-class UnreservedConcurrentExecutions {
-}
+type UnreservedConcurrentExecutions = int;
 
 class UnsupportedMediaTypeException {
   public string $type;
   public string $message;
+
+  public function __construct(shape(
+  ?'type' => string,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagResourceRequest {
   public FunctionArn $resource;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource' => FunctionArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource = $resource ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UpdateAliasRequest {
@@ -1078,6 +2199,22 @@ class UpdateAliasRequest {
   public Alias $name;
   public string $revision_id;
   public AliasRoutingConfiguration $routing_config;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'function_name' => FunctionName,
+  ?'function_version' => Version,
+  ?'name' => Alias,
+  ?'revision_id' => string,
+  ?'routing_config' => AliasRoutingConfiguration,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->function_name = $function_name ?? "";
+    $this->function_version = $function_version ?? "";
+    $this->name = $name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->routing_config = $routing_config ?? ;
+  }
 }
 
 class UpdateEventSourceMappingRequest {
@@ -1091,6 +2228,30 @@ class UpdateEventSourceMappingRequest {
   public MaximumRetryAttemptsEventSourceMapping $maximum_retry_attempts;
   public ParallelizationFactor $parallelization_factor;
   public string $uuid;
+
+  public function __construct(shape(
+  ?'batch_size' => BatchSize,
+  ?'bisect_batch_on_function_error' => BisectBatchOnFunctionError,
+  ?'destination_config' => DestinationConfig,
+  ?'enabled' => Enabled,
+  ?'function_name' => FunctionName,
+  ?'maximum_batching_window_in_seconds' => MaximumBatchingWindowInSeconds,
+  ?'maximum_record_age_in_seconds' => MaximumRecordAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttemptsEventSourceMapping,
+  ?'parallelization_factor' => ParallelizationFactor,
+  ?'uuid' => string,
+  ) $s = shape()) {
+    $this->batch_size = $batch_size ?? 0;
+    $this->bisect_batch_on_function_error = $bisect_batch_on_function_error ?? false;
+    $this->destination_config = $destination_config ?? null;
+    $this->enabled = $enabled ?? false;
+    $this->function_name = $function_name ?? "";
+    $this->maximum_batching_window_in_seconds = $maximum_batching_window_in_seconds ?? 0;
+    $this->maximum_record_age_in_seconds = $maximum_record_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+    $this->parallelization_factor = $parallelization_factor ?? 0;
+    $this->uuid = $uuid ?? ;
+  }
 }
 
 class UpdateFunctionCodeRequest {
@@ -1102,6 +2263,26 @@ class UpdateFunctionCodeRequest {
   public S3Key $s_3_key;
   public S3ObjectVersion $s_3_object_version;
   public Blob $zip_file;
+
+  public function __construct(shape(
+  ?'dry_run' => boolean,
+  ?'function_name' => FunctionName,
+  ?'publish' => boolean,
+  ?'revision_id' => string,
+  ?'s_3_bucket' => S3Bucket,
+  ?'s_3_key' => S3Key,
+  ?'s_3_object_version' => S3ObjectVersion,
+  ?'zip_file' => Blob,
+  ) $s = shape()) {
+    $this->dry_run = $dry_run ?? ;
+    $this->function_name = $function_name ?? "";
+    $this->publish = $publish ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->s_3_bucket = $s_3_bucket ?? "";
+    $this->s_3_key = $s_3_key ?? "";
+    $this->s_3_object_version = $s_3_object_version ?? "";
+    $this->zip_file = $zip_file ?? ;
+  }
 }
 
 class UpdateFunctionConfigurationRequest {
@@ -1119,6 +2300,38 @@ class UpdateFunctionConfigurationRequest {
   public Timeout $timeout;
   public TracingConfig $tracing_config;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'dead_letter_config' => DeadLetterConfig,
+  ?'description' => Description,
+  ?'environment' => Environment,
+  ?'function_name' => FunctionName,
+  ?'handler' => Handler,
+  ?'kms_key_arn' => KMSKeyArn,
+  ?'layers' => LayerList,
+  ?'memory_size' => MemorySize,
+  ?'revision_id' => string,
+  ?'role' => RoleArn,
+  ?'runtime' => Runtime,
+  ?'timeout' => Timeout,
+  ?'tracing_config' => TracingConfig,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->dead_letter_config = $dead_letter_config ?? null;
+    $this->description = $description ?? "";
+    $this->environment = $environment ?? null;
+    $this->function_name = $function_name ?? "";
+    $this->handler = $handler ?? "";
+    $this->kms_key_arn = $kms_key_arn ?? "";
+    $this->layers = $layers ?? ;
+    $this->memory_size = $memory_size ?? 0;
+    $this->revision_id = $revision_id ?? ;
+    $this->role = $role ?? ;
+    $this->runtime = $runtime ?? "";
+    $this->timeout = $timeout ?? 0;
+    $this->tracing_config = $tracing_config ?? null;
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
 class UpdateFunctionEventInvokeConfigRequest {
@@ -1127,25 +2340,54 @@ class UpdateFunctionEventInvokeConfigRequest {
   public MaximumEventAgeInSeconds $maximum_event_age_in_seconds;
   public MaximumRetryAttempts $maximum_retry_attempts;
   public Qualifier $qualifier;
+
+  public function __construct(shape(
+  ?'destination_config' => DestinationConfig,
+  ?'function_name' => FunctionName,
+  ?'maximum_event_age_in_seconds' => MaximumEventAgeInSeconds,
+  ?'maximum_retry_attempts' => MaximumRetryAttempts,
+  ?'qualifier' => Qualifier,
+  ) $s = shape()) {
+    $this->destination_config = $destination_config ?? null;
+    $this->function_name = $function_name ?? "";
+    $this->maximum_event_age_in_seconds = $maximum_event_age_in_seconds ?? 0;
+    $this->maximum_retry_attempts = $maximum_retry_attempts ?? 0;
+    $this->qualifier = $qualifier ?? "";
+  }
 }
 
-class Version {
-}
+type Version = string;
 
 class VpcConfig {
   public SecurityGroupIds $security_group_ids;
   public SubnetIds $subnet_ids;
+
+  public function __construct(shape(
+  ?'security_group_ids' => SecurityGroupIds,
+  ?'subnet_ids' => SubnetIds,
+  ) $s = shape()) {
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
+  }
 }
 
 class VpcConfigResponse {
   public SecurityGroupIds $security_group_ids;
   public SubnetIds $subnet_ids;
   public VpcId $vpc_id;
+
+  public function __construct(shape(
+  ?'security_group_ids' => SecurityGroupIds,
+  ?'subnet_ids' => SubnetIds,
+  ?'vpc_id' => VpcId,
+  ) $s = shape()) {
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->subnet_ids = $subnet_ids ?? [];
+    $this->vpc_id = $vpc_id ?? "";
+  }
 }
 
-class VpcId {
-}
+type VpcId = string;
 
-class Weight {
-}
+type Weight = float;
 

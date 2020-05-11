@@ -33,55 +33,103 @@ interface ECR {
   public function UploadLayerPart(UploadLayerPartRequest): Awaitable<Errors\Result<UploadLayerPartResponse>>;
 }
 
-class Arn {
-}
+type Arn = string;
 
 class Attribute {
   public AttributeKey $key;
   public AttributeValue $value;
+
+  public function __construct(shape(
+  ?'key' => AttributeKey,
+  ?'value' => AttributeValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class AttributeKey {
-}
+type AttributeKey = string;
 
-class AttributeList {
-}
+type AttributeList = vec<Attribute>;
 
-class AttributeValue {
-}
+type AttributeValue = string;
 
 class AuthorizationData {
   public Base64 $authorization_token;
   public ExpirationTimestamp $expires_at;
   public ProxyEndpoint $proxy_endpoint;
+
+  public function __construct(shape(
+  ?'authorization_token' => Base64,
+  ?'expires_at' => ExpirationTimestamp,
+  ?'proxy_endpoint' => ProxyEndpoint,
+  ) $s = shape()) {
+    $this->authorization_token = $authorization_token ?? ;
+    $this->expires_at = $expires_at ?? ;
+    $this->proxy_endpoint = $proxy_endpoint ?? ;
+  }
 }
 
-class AuthorizationDataList {
-}
+type AuthorizationDataList = vec<AuthorizationData>;
 
-class Base64 {
-}
+type Base64 = string;
 
 class BatchCheckLayerAvailabilityRequest {
   public BatchedOperationLayerDigestList $layer_digests;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'layer_digests' => BatchedOperationLayerDigestList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->layer_digests = $layer_digests ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class BatchCheckLayerAvailabilityResponse {
   public LayerFailureList $failures;
   public LayerList $layers;
+
+  public function __construct(shape(
+  ?'failures' => LayerFailureList,
+  ?'layers' => LayerList,
+  ) $s = shape()) {
+    $this->failures = $failures ?? ;
+    $this->layers = $layers ?? ;
+  }
 }
 
 class BatchDeleteImageRequest {
   public ImageIdentifierList $image_ids;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_ids' => ImageIdentifierList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_ids = $image_ids ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class BatchDeleteImageResponse {
   public ImageFailureList $failures;
   public ImageIdentifierList $image_ids;
+
+  public function __construct(shape(
+  ?'failures' => ImageFailureList,
+  ?'image_ids' => ImageIdentifierList,
+  ) $s = shape()) {
+    $this->failures = $failures ?? ;
+    $this->image_ids = $image_ids ?? ;
+  }
 }
 
 class BatchGetImageRequest {
@@ -89,24 +137,54 @@ class BatchGetImageRequest {
   public ImageIdentifierList $image_ids;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'accepted_media_types' => MediaTypeList,
+  ?'image_ids' => ImageIdentifierList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->accepted_media_types = $accepted_media_types ?? ;
+    $this->image_ids = $image_ids ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class BatchGetImageResponse {
   public ImageFailureList $failures;
   public ImageList $images;
+
+  public function __construct(shape(
+  ?'failures' => ImageFailureList,
+  ?'images' => ImageList,
+  ) $s = shape()) {
+    $this->failures = $failures ?? ;
+    $this->images = $images ?? ;
+  }
 }
 
-class BatchedOperationLayerDigest {
-}
+type BatchedOperationLayerDigest = string;
 
-class BatchedOperationLayerDigestList {
-}
+type BatchedOperationLayerDigestList = vec<BatchedOperationLayerDigest>;
 
 class CompleteLayerUploadRequest {
   public LayerDigestList $layer_digests;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'layer_digests' => LayerDigestList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->layer_digests = $layer_digests ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class CompleteLayerUploadResponse {
@@ -114,6 +192,18 @@ class CompleteLayerUploadResponse {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'layer_digest' => LayerDigest,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->layer_digest = $layer_digest ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class CreateRepositoryRequest {
@@ -121,18 +211,43 @@ class CreateRepositoryRequest {
   public ImageTagMutability $image_tag_mutability;
   public RepositoryName $repository_name;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'image_scanning_configuration' => ImageScanningConfiguration,
+  ?'image_tag_mutability' => ImageTagMutability,
+  ?'repository_name' => RepositoryName,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
+    $this->image_tag_mutability = $image_tag_mutability ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateRepositoryResponse {
   public Repository $repository;
+
+  public function __construct(shape(
+  ?'repository' => Repository,
+  ) $s = shape()) {
+    $this->repository = $repository ?? ;
+  }
 }
 
-class CreationTimestamp {
-}
+type CreationTimestamp = int;
 
 class DeleteLifecyclePolicyRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DeleteLifecyclePolicyResponse {
@@ -140,27 +255,73 @@ class DeleteLifecyclePolicyResponse {
   public LifecyclePolicyText $lifecycle_policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'last_evaluated_at' => EvaluationTimestamp,
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->last_evaluated_at = $last_evaluated_at ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DeleteRepositoryPolicyRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DeleteRepositoryPolicyResponse {
   public RepositoryPolicyText $policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'policy_text' => RepositoryPolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->policy_text = $policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DeleteRepositoryRequest {
   public ForceFlag $force;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'force' => ForceFlag,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->force = $force ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DeleteRepositoryResponse {
   public Repository $repository;
+
+  public function __construct(shape(
+  ?'repository' => Repository,
+  ) $s = shape()) {
+    $this->repository = $repository ?? ;
+  }
 }
 
 class DescribeImageScanFindingsRequest {
@@ -169,6 +330,20 @@ class DescribeImageScanFindingsRequest {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_id' => ImageIdentifier,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_id = $image_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DescribeImageScanFindingsResponse {
@@ -178,10 +353,32 @@ class DescribeImageScanFindingsResponse {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_id' => ImageIdentifier,
+  ?'image_scan_findings' => ImageScanFindings,
+  ?'image_scan_status' => ImageScanStatus,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_id = $image_id ?? ;
+    $this->image_scan_findings = $image_scan_findings ?? ;
+    $this->image_scan_status = $image_scan_status ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DescribeImagesFilter {
   public TagStatus $tag_status;
+
+  public function __construct(shape(
+  ?'tag_status' => TagStatus,
+  ) $s = shape()) {
+    $this->tag_status = $tag_status ?? ;
+  }
 }
 
 class DescribeImagesRequest {
@@ -191,11 +388,35 @@ class DescribeImagesRequest {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'filter' => DescribeImagesFilter,
+  ?'image_ids' => ImageIdentifierList,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->image_ids = $image_ids ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class DescribeImagesResponse {
   public ImageDetailList $image_details;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'image_details' => ImageDetailList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->image_details = $image_details ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeRepositoriesRequest {
@@ -203,61 +424,108 @@ class DescribeRepositoriesRequest {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryNameList $repository_names;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_names' => RepositoryNameList,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_names = $repository_names ?? ;
+  }
 }
 
 class DescribeRepositoriesResponse {
   public NextToken $next_token;
   public RepositoryList $repositories;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'repositories' => RepositoryList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->repositories = $repositories ?? ;
+  }
 }
 
 class EmptyUploadException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class EvaluationTimestamp {
-}
+type EvaluationTimestamp = int;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
-class ExpirationTimestamp {
-}
+type ExpirationTimestamp = int;
 
-class FindingDescription {
-}
+type FindingDescription = string;
 
-class FindingName {
-}
+type FindingName = string;
 
-class FindingSeverity {
-}
+type FindingSeverity = string;
 
-class FindingSeverityCounts {
-}
+type FindingSeverityCounts = dict<FindingSeverity, SeverityCount>;
 
-class ForceFlag {
-}
+type ForceFlag = bool;
 
-class GetAuthorizationTokenRegistryIdList {
-}
+type GetAuthorizationTokenRegistryIdList = vec<RegistryId>;
 
 class GetAuthorizationTokenRequest {
   public GetAuthorizationTokenRegistryIdList $registry_ids;
+
+  public function __construct(shape(
+  ?'registry_ids' => GetAuthorizationTokenRegistryIdList,
+  ) $s = shape()) {
+    $this->registry_ids = $registry_ids ?? ;
+  }
 }
 
 class GetAuthorizationTokenResponse {
   public AuthorizationDataList $authorization_data;
+
+  public function __construct(shape(
+  ?'authorization_data' => AuthorizationDataList,
+  ) $s = shape()) {
+    $this->authorization_data = $authorization_data ?? ;
+  }
 }
 
 class GetDownloadUrlForLayerRequest {
   public LayerDigest $layer_digest;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'layer_digest' => LayerDigest,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->layer_digest = $layer_digest ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class GetDownloadUrlForLayerResponse {
   public Url $download_url;
   public LayerDigest $layer_digest;
+
+  public function __construct(shape(
+  ?'download_url' => Url,
+  ?'layer_digest' => LayerDigest,
+  ) $s = shape()) {
+    $this->download_url = $download_url ?? ;
+    $this->layer_digest = $layer_digest ?? ;
+  }
 }
 
 class GetLifecyclePolicyPreviewRequest {
@@ -267,6 +535,22 @@ class GetLifecyclePolicyPreviewRequest {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'filter' => LifecyclePolicyPreviewFilter,
+  ?'image_ids' => ImageIdentifierList,
+  ?'max_results' => LifecyclePreviewMaxResults,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->image_ids = $image_ids ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class GetLifecyclePolicyPreviewResponse {
@@ -277,11 +561,37 @@ class GetLifecyclePolicyPreviewResponse {
   public RepositoryName $repository_name;
   public LifecyclePolicyPreviewStatus $status;
   public LifecyclePolicyPreviewSummary $summary;
+
+  public function __construct(shape(
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'next_token' => NextToken,
+  ?'preview_results' => LifecyclePolicyPreviewResultList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'status' => LifecyclePolicyPreviewStatus,
+  ?'summary' => LifecyclePolicyPreviewSummary,
+  ) $s = shape()) {
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->preview_results = $preview_results ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->status = $status ?? ;
+    $this->summary = $summary ?? ;
+  }
 }
 
 class GetLifecyclePolicyRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class GetLifecyclePolicyResponse {
@@ -289,17 +599,47 @@ class GetLifecyclePolicyResponse {
   public LifecyclePolicyText $lifecycle_policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'last_evaluated_at' => EvaluationTimestamp,
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->last_evaluated_at = $last_evaluated_at ?? ;
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class GetRepositoryPolicyRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class GetRepositoryPolicyResponse {
   public RepositoryPolicyText $policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'policy_text' => RepositoryPolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->policy_text = $policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class Image {
@@ -307,17 +647,33 @@ class Image {
   public ImageManifest $image_manifest;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_id' => ImageIdentifier,
+  ?'image_manifest' => ImageManifest,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_id = $image_id ?? ;
+    $this->image_manifest = $image_manifest ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
-class ImageActionType {
-}
+type ImageActionType = string;
 
 class ImageAlreadyExistsException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ImageCount {
-}
+type ImageCount = int;
 
 class ImageDetail {
   public ImageDigest $image_digest;
@@ -328,45 +684,81 @@ class ImageDetail {
   public ImageTagList $image_tags;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_digest' => ImageDigest,
+  ?'image_pushed_at' => PushTimestamp,
+  ?'image_scan_findings_summary' => ImageScanFindingsSummary,
+  ?'image_scan_status' => ImageScanStatus,
+  ?'image_size_in_bytes' => ImageSizeInBytes,
+  ?'image_tags' => ImageTagList,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_digest = $image_digest ?? ;
+    $this->image_pushed_at = $image_pushed_at ?? ;
+    $this->image_scan_findings_summary = $image_scan_findings_summary ?? ;
+    $this->image_scan_status = $image_scan_status ?? ;
+    $this->image_size_in_bytes = $image_size_in_bytes ?? ;
+    $this->image_tags = $image_tags ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
-class ImageDetailList {
-}
+type ImageDetailList = vec<ImageDetail>;
 
-class ImageDigest {
-}
+type ImageDigest = string;
 
 class ImageFailure {
   public ImageFailureCode $failure_code;
   public ImageFailureReason $failure_reason;
   public ImageIdentifier $image_id;
+
+  public function __construct(shape(
+  ?'failure_code' => ImageFailureCode,
+  ?'failure_reason' => ImageFailureReason,
+  ?'image_id' => ImageIdentifier,
+  ) $s = shape()) {
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->image_id = $image_id ?? ;
+  }
 }
 
-class ImageFailureCode {
-}
+type ImageFailureCode = string;
 
-class ImageFailureList {
-}
+type ImageFailureList = vec<ImageFailure>;
 
-class ImageFailureReason {
-}
+type ImageFailureReason = string;
 
 class ImageIdentifier {
   public ImageDigest $image_digest;
   public ImageTag $image_tag;
+
+  public function __construct(shape(
+  ?'image_digest' => ImageDigest,
+  ?'image_tag' => ImageTag,
+  ) $s = shape()) {
+    $this->image_digest = $image_digest ?? ;
+    $this->image_tag = $image_tag ?? ;
+  }
 }
 
-class ImageIdentifierList {
-}
+type ImageIdentifierList = vec<ImageIdentifier>;
 
-class ImageList {
-}
+type ImageList = vec<Image>;
 
-class ImageManifest {
-}
+type ImageManifest = string;
 
 class ImageNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ImageScanFinding {
@@ -375,61 +767,134 @@ class ImageScanFinding {
   public FindingName $name;
   public FindingSeverity $severity;
   public Url $uri;
+
+  public function __construct(shape(
+  ?'attributes' => AttributeList,
+  ?'description' => FindingDescription,
+  ?'name' => FindingName,
+  ?'severity' => FindingSeverity,
+  ?'uri' => Url,
+  ) $s = shape()) {
+    $this->attributes = $attributes ?? ;
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+    $this->severity = $severity ?? ;
+    $this->uri = $uri ?? ;
+  }
 }
 
-class ImageScanFindingList {
-}
+type ImageScanFindingList = vec<ImageScanFinding>;
 
 class ImageScanFindings {
   public FindingSeverityCounts $finding_severity_counts;
   public ImageScanFindingList $findings;
   public ScanTimestamp $image_scan_completed_at;
   public VulnerabilitySourceUpdateTimestamp $vulnerability_source_updated_at;
+
+  public function __construct(shape(
+  ?'finding_severity_counts' => FindingSeverityCounts,
+  ?'findings' => ImageScanFindingList,
+  ?'image_scan_completed_at' => ScanTimestamp,
+  ?'vulnerability_source_updated_at' => VulnerabilitySourceUpdateTimestamp,
+  ) $s = shape()) {
+    $this->finding_severity_counts = $finding_severity_counts ?? ;
+    $this->findings = $findings ?? ;
+    $this->image_scan_completed_at = $image_scan_completed_at ?? ;
+    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? ;
+  }
 }
 
 class ImageScanFindingsSummary {
   public FindingSeverityCounts $finding_severity_counts;
   public ScanTimestamp $image_scan_completed_at;
   public VulnerabilitySourceUpdateTimestamp $vulnerability_source_updated_at;
+
+  public function __construct(shape(
+  ?'finding_severity_counts' => FindingSeverityCounts,
+  ?'image_scan_completed_at' => ScanTimestamp,
+  ?'vulnerability_source_updated_at' => VulnerabilitySourceUpdateTimestamp,
+  ) $s = shape()) {
+    $this->finding_severity_counts = $finding_severity_counts ?? ;
+    $this->image_scan_completed_at = $image_scan_completed_at ?? ;
+    $this->vulnerability_source_updated_at = $vulnerability_source_updated_at ?? ;
+  }
 }
 
 class ImageScanStatus {
   public ScanStatusDescription $description;
   public ScanStatus $status;
+
+  public function __construct(shape(
+  ?'description' => ScanStatusDescription,
+  ?'status' => ScanStatus,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class ImageScanningConfiguration {
   public ScanOnPushFlag $scan_on_push;
+
+  public function __construct(shape(
+  ?'scan_on_push' => ScanOnPushFlag,
+  ) $s = shape()) {
+    $this->scan_on_push = $scan_on_push ?? ;
+  }
 }
 
-class ImageSizeInBytes {
-}
+type ImageSizeInBytes = int;
 
-class ImageTag {
-}
+type ImageTag = string;
 
 class ImageTagAlreadyExistsException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ImageTagList {
-}
+type ImageTagList = vec<ImageTag>;
 
-class ImageTagMutability {
-}
+type ImageTagMutability = string;
 
 class InitiateLayerUploadRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class InitiateLayerUploadResponse {
   public PartSize $part_size;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'part_size' => PartSize,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->part_size = $part_size ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class InvalidLayerException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidLayerPartException {
@@ -438,14 +903,40 @@ class InvalidLayerPartException {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'last_valid_byte_received' => PartSize,
+  ?'message' => ExceptionMessage,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->last_valid_byte_received = $last_valid_byte_received ?? ;
+    $this->message = $message ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class InvalidParameterException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidTagParameterException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Layer {
@@ -453,71 +944,132 @@ class Layer {
   public LayerDigest $layer_digest;
   public LayerSizeInBytes $layer_size;
   public MediaType $media_type;
+
+  public function __construct(shape(
+  ?'layer_availability' => LayerAvailability,
+  ?'layer_digest' => LayerDigest,
+  ?'layer_size' => LayerSizeInBytes,
+  ?'media_type' => MediaType,
+  ) $s = shape()) {
+    $this->layer_availability = $layer_availability ?? ;
+    $this->layer_digest = $layer_digest ?? ;
+    $this->layer_size = $layer_size ?? ;
+    $this->media_type = $media_type ?? ;
+  }
 }
 
 class LayerAlreadyExistsException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class LayerAvailability {
-}
+type LayerAvailability = string;
 
-class LayerDigest {
-}
+type LayerDigest = string;
 
-class LayerDigestList {
-}
+type LayerDigestList = vec<LayerDigest>;
 
 class LayerFailure {
   public LayerFailureCode $failure_code;
   public LayerFailureReason $failure_reason;
   public BatchedOperationLayerDigest $layer_digest;
+
+  public function __construct(shape(
+  ?'failure_code' => LayerFailureCode,
+  ?'failure_reason' => LayerFailureReason,
+  ?'layer_digest' => BatchedOperationLayerDigest,
+  ) $s = shape()) {
+    $this->failure_code = $failure_code ?? ;
+    $this->failure_reason = $failure_reason ?? ;
+    $this->layer_digest = $layer_digest ?? ;
+  }
 }
 
-class LayerFailureCode {
-}
+type LayerFailureCode = string;
 
-class LayerFailureList {
-}
+type LayerFailureList = vec<LayerFailure>;
 
-class LayerFailureReason {
-}
+type LayerFailureReason = string;
 
 class LayerInaccessibleException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class LayerList {
-}
+type LayerList = vec<Layer>;
 
-class LayerPartBlob {
-}
+type LayerPartBlob = string;
 
 class LayerPartTooSmallException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class LayerSizeInBytes {
-}
+type LayerSizeInBytes = int;
 
 class LayersNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LifecyclePolicyNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LifecyclePolicyPreviewFilter {
   public TagStatus $tag_status;
+
+  public function __construct(shape(
+  ?'tag_status' => TagStatus,
+  ) $s = shape()) {
+    $this->tag_status = $tag_status ?? ;
+  }
 }
 
 class LifecyclePolicyPreviewInProgressException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LifecyclePolicyPreviewNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LifecyclePolicyPreviewResult {
@@ -526,37 +1078,70 @@ class LifecyclePolicyPreviewResult {
   public ImageDigest $image_digest;
   public PushTimestamp $image_pushed_at;
   public ImageTagList $image_tags;
+
+  public function __construct(shape(
+  ?'action' => LifecyclePolicyRuleAction,
+  ?'applied_rule_priority' => LifecyclePolicyRulePriority,
+  ?'image_digest' => ImageDigest,
+  ?'image_pushed_at' => PushTimestamp,
+  ?'image_tags' => ImageTagList,
+  ) $s = shape()) {
+    $this->action = $action ?? ;
+    $this->applied_rule_priority = $applied_rule_priority ?? ;
+    $this->image_digest = $image_digest ?? ;
+    $this->image_pushed_at = $image_pushed_at ?? ;
+    $this->image_tags = $image_tags ?? ;
+  }
 }
 
-class LifecyclePolicyPreviewResultList {
-}
+type LifecyclePolicyPreviewResultList = vec<LifecyclePolicyPreviewResult>;
 
-class LifecyclePolicyPreviewStatus {
-}
+type LifecyclePolicyPreviewStatus = string;
 
 class LifecyclePolicyPreviewSummary {
   public ImageCount $expiring_image_total_count;
+
+  public function __construct(shape(
+  ?'expiring_image_total_count' => ImageCount,
+  ) $s = shape()) {
+    $this->expiring_image_total_count = $expiring_image_total_count ?? ;
+  }
 }
 
 class LifecyclePolicyRuleAction {
   public ImageActionType $type;
+
+  public function __construct(shape(
+  ?'type' => ImageActionType,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+  }
 }
 
-class LifecyclePolicyRulePriority {
-}
+type LifecyclePolicyRulePriority = int;
 
-class LifecyclePolicyText {
-}
+type LifecyclePolicyText = string;
 
-class LifecyclePreviewMaxResults {
-}
+type LifecyclePreviewMaxResults = int;
 
 class LimitExceededException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListImagesFilter {
   public TagStatus $tag_status;
+
+  public function __construct(shape(
+  ?'tag_status' => TagStatus,
+  ) $s = shape()) {
+    $this->tag_status = $tag_status ?? ;
+  }
 }
 
 class ListImagesRequest {
@@ -565,91 +1150,195 @@ class ListImagesRequest {
   public NextToken $next_token;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'filter' => ListImagesFilter,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class ListImagesResponse {
   public ImageIdentifierList $image_ids;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'image_ids' => ImageIdentifierList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->image_ids = $image_ids ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public Arn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class MediaType {
-}
+type MediaType = string;
 
-class MediaTypeList {
-}
+type MediaTypeList = vec<MediaType>;
 
-class NextToken {
-}
+type NextToken = string;
 
-class PartSize {
-}
+type PartSize = int;
 
-class ProxyEndpoint {
-}
+type ProxyEndpoint = string;
 
-class PushTimestamp {
-}
+type PushTimestamp = int;
 
 class PutImageRequest {
   public ImageManifest $image_manifest;
   public ImageTag $image_tag;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_manifest' => ImageManifest,
+  ?'image_tag' => ImageTag,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_manifest = $image_manifest ?? ;
+    $this->image_tag = $image_tag ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutImageResponse {
   public Image $image;
+
+  public function __construct(shape(
+  ?'image' => Image,
+  ) $s = shape()) {
+    $this->image = $image ?? ;
+  }
 }
 
 class PutImageScanningConfigurationRequest {
   public ImageScanningConfiguration $image_scanning_configuration;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_scanning_configuration' => ImageScanningConfiguration,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutImageScanningConfigurationResponse {
   public ImageScanningConfiguration $image_scanning_configuration;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_scanning_configuration' => ImageScanningConfiguration,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutImageTagMutabilityRequest {
   public ImageTagMutability $image_tag_mutability;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_tag_mutability' => ImageTagMutability,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_tag_mutability = $image_tag_mutability ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutImageTagMutabilityResponse {
   public ImageTagMutability $image_tag_mutability;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_tag_mutability' => ImageTagMutability,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_tag_mutability = $image_tag_mutability ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutLifecyclePolicyRequest {
   public LifecyclePolicyText $lifecycle_policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class PutLifecyclePolicyResponse {
   public LifecyclePolicyText $lifecycle_policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
-class RegistryId {
-}
+type RegistryId = string;
 
 class Repository {
   public CreationTimestamp $created_at;
@@ -659,54 +1348,100 @@ class Repository {
   public Arn $repository_arn;
   public RepositoryName $repository_name;
   public Url $repository_uri;
+
+  public function __construct(shape(
+  ?'created_at' => CreationTimestamp,
+  ?'image_scanning_configuration' => ImageScanningConfiguration,
+  ?'image_tag_mutability' => ImageTagMutability,
+  ?'registry_id' => RegistryId,
+  ?'repository_arn' => Arn,
+  ?'repository_name' => RepositoryName,
+  ?'repository_uri' => Url,
+  ) $s = shape()) {
+    $this->created_at = $created_at ?? ;
+    $this->image_scanning_configuration = $image_scanning_configuration ?? ;
+    $this->image_tag_mutability = $image_tag_mutability ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_arn = $repository_arn ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->repository_uri = $repository_uri ?? ;
+  }
 }
 
 class RepositoryAlreadyExistsException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class RepositoryList {
-}
+type RepositoryList = vec<Repository>;
 
-class RepositoryName {
-}
+type RepositoryName = string;
 
-class RepositoryNameList {
-}
+type RepositoryNameList = vec<RepositoryName>;
 
 class RepositoryNotEmptyException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RepositoryNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RepositoryPolicyNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class RepositoryPolicyText {
-}
+type RepositoryPolicyText = string;
 
 class ScanNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ScanOnPushFlag {
-}
+type ScanOnPushFlag = bool;
 
-class ScanStatus {
-}
+type ScanStatus = string;
 
-class ScanStatusDescription {
-}
+type ScanStatusDescription = string;
 
-class ScanTimestamp {
-}
+type ScanTimestamp = int;
 
 class ServerException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class SetRepositoryPolicyRequest {
@@ -714,21 +1449,52 @@ class SetRepositoryPolicyRequest {
   public RepositoryPolicyText $policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'force' => ForceFlag,
+  ?'policy_text' => RepositoryPolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->force = $force ?? ;
+    $this->policy_text = $policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class SetRepositoryPolicyResponse {
   public RepositoryPolicyText $policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'policy_text' => RepositoryPolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->policy_text = $policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
-class SeverityCount {
-}
+type SeverityCount = int;
 
 class StartImageScanRequest {
   public ImageIdentifier $image_id;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_id' => ImageIdentifier,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_id = $image_id ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class StartImageScanResponse {
@@ -736,12 +1502,34 @@ class StartImageScanResponse {
   public ImageScanStatus $image_scan_status;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'image_id' => ImageIdentifier,
+  ?'image_scan_status' => ImageScanStatus,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->image_id = $image_id ?? ;
+    $this->image_scan_status = $image_scan_status ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class StartLifecyclePolicyPreviewRequest {
   public LifecyclePolicyText $lifecycle_policy_text;
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
+
+  public function __construct(shape(
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ) $s = shape()) {
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+  }
 }
 
 class StartLifecyclePolicyPreviewResponse {
@@ -749,50 +1537,94 @@ class StartLifecyclePolicyPreviewResponse {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public LifecyclePolicyPreviewStatus $status;
+
+  public function __construct(shape(
+  ?'lifecycle_policy_text' => LifecyclePolicyText,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'status' => LifecyclePolicyPreviewStatus,
+  ) $s = shape()) {
+    $this->lifecycle_policy_text = $lifecycle_policy_text ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TagResourceRequest {
   public Arn $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagStatus {
-}
+type TagStatus = string;
 
-class TagValue {
-}
+type TagValue = string;
 
 class TooManyTagsException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagResourceRequest {
   public Arn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class UploadId {
-}
+type UploadId = string;
 
 class UploadLayerPartRequest {
   public LayerPartBlob $layer_part_blob;
@@ -801,6 +1633,22 @@ class UploadLayerPartRequest {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'layer_part_blob' => LayerPartBlob,
+  ?'part_first_byte' => PartSize,
+  ?'part_last_byte' => PartSize,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->layer_part_blob = $layer_part_blob ?? ;
+    $this->part_first_byte = $part_first_byte ?? ;
+    $this->part_last_byte = $part_last_byte ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class UploadLayerPartResponse {
@@ -808,15 +1656,31 @@ class UploadLayerPartResponse {
   public RegistryId $registry_id;
   public RepositoryName $repository_name;
   public UploadId $upload_id;
+
+  public function __construct(shape(
+  ?'last_byte_received' => PartSize,
+  ?'registry_id' => RegistryId,
+  ?'repository_name' => RepositoryName,
+  ?'upload_id' => UploadId,
+  ) $s = shape()) {
+    $this->last_byte_received = $last_byte_received ?? ;
+    $this->registry_id = $registry_id ?? ;
+    $this->repository_name = $repository_name ?? ;
+    $this->upload_id = $upload_id ?? ;
+  }
 }
 
 class UploadNotFoundException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Url {
-}
+type Url = string;
 
-class VulnerabilitySourceUpdateTimestamp {
-}
+type VulnerabilitySourceUpdateTimestamp = int;
 

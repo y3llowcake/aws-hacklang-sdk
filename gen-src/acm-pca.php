@@ -39,34 +39,57 @@ class ASN1Subject {
   public String128 $state;
   public String40 $surname;
   public String64 $title;
+
+  public function __construct(shape(
+  ?'common_name' => String64,
+  ?'country' => CountryCodeString,
+  ?'distinguished_name_qualifier' => DistinguishedNameQualifierString,
+  ?'generation_qualifier' => String3,
+  ?'given_name' => String16,
+  ?'initials' => String5,
+  ?'locality' => String128,
+  ?'organization' => String64,
+  ?'organizational_unit' => String64,
+  ?'pseudonym' => String128,
+  ?'serial_number' => String64,
+  ?'state' => String128,
+  ?'surname' => String40,
+  ?'title' => String64,
+  ) $s = shape()) {
+    $this->common_name = $common_name ?? ;
+    $this->country = $country ?? ;
+    $this->distinguished_name_qualifier = $distinguished_name_qualifier ?? ;
+    $this->generation_qualifier = $generation_qualifier ?? ;
+    $this->given_name = $given_name ?? ;
+    $this->initials = $initials ?? ;
+    $this->locality = $locality ?? ;
+    $this->organization = $organization ?? ;
+    $this->organizational_unit = $organizational_unit ?? ;
+    $this->pseudonym = $pseudonym ?? ;
+    $this->serial_number = $serial_number ?? ;
+    $this->state = $state ?? ;
+    $this->surname = $surname ?? ;
+    $this->title = $title ?? ;
+  }
 }
 
-class AccountId {
-}
+type AccountId = string;
 
-class ActionList {
-}
+type ActionList = vec<ActionType>;
 
-class ActionType {
-}
+type ActionType = string;
 
-class Arn {
-}
+type Arn = string;
 
-class AuditReportId {
-}
+type AuditReportId = string;
 
-class AuditReportResponseFormat {
-}
+type AuditReportResponseFormat = string;
 
-class AuditReportStatus {
-}
+type AuditReportStatus = string;
 
-class Boolean {
-}
+type Boolean = bool;
 
-class CertificateAuthorities {
-}
+type CertificateAuthorities = vec<CertificateAuthority>;
 
 class CertificateAuthority {
   public Arn $arn;
@@ -81,52 +104,113 @@ class CertificateAuthority {
   public string $serial;
   public CertificateAuthorityStatus $status;
   public CertificateAuthorityType $type;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'certificate_authority_configuration' => CertificateAuthorityConfiguration,
+  ?'created_at' => TStamp,
+  ?'failure_reason' => FailureReason,
+  ?'last_state_change_at' => TStamp,
+  ?'not_after' => TStamp,
+  ?'not_before' => TStamp,
+  ?'restorable_until' => TStamp,
+  ?'revocation_configuration' => RevocationConfiguration,
+  ?'serial' => string,
+  ?'status' => CertificateAuthorityStatus,
+  ?'type' => CertificateAuthorityType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->certificate_authority_configuration = $certificate_authority_configuration ?? null;
+    $this->created_at = $created_at ?? ;
+    $this->failure_reason = $failure_reason ?? "";
+    $this->last_state_change_at = $last_state_change_at ?? ;
+    $this->not_after = $not_after ?? ;
+    $this->not_before = $not_before ?? ;
+    $this->restorable_until = $restorable_until ?? ;
+    $this->revocation_configuration = $revocation_configuration ?? null;
+    $this->serial = $serial ?? ;
+    $this->status = $status ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class CertificateAuthorityConfiguration {
   public KeyAlgorithm $key_algorithm;
   public SigningAlgorithm $signing_algorithm;
   public ASN1Subject $subject;
+
+  public function __construct(shape(
+  ?'key_algorithm' => KeyAlgorithm,
+  ?'signing_algorithm' => SigningAlgorithm,
+  ?'subject' => ASN1Subject,
+  ) $s = shape()) {
+    $this->key_algorithm = $key_algorithm ?? "";
+    $this->signing_algorithm = $signing_algorithm ?? "";
+    $this->subject = $subject ?? ;
+  }
 }
 
-class CertificateAuthorityStatus {
-}
+type CertificateAuthorityStatus = string;
 
-class CertificateAuthorityType {
-}
+type CertificateAuthorityType = string;
 
-class CertificateBody {
-}
+type CertificateBody = string;
 
-class CertificateBodyBlob {
-}
+type CertificateBodyBlob = string;
 
-class CertificateChain {
-}
+type CertificateChain = string;
 
-class CertificateChainBlob {
-}
+type CertificateChainBlob = string;
 
 class CertificateMismatchException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ConcurrentModificationException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class CountryCodeString {
-}
+type CountryCodeString = string;
 
 class CreateCertificateAuthorityAuditReportRequest {
   public AuditReportResponseFormat $audit_report_response_format;
   public Arn $certificate_authority_arn;
   public string $s_3_bucket_name;
+
+  public function __construct(shape(
+  ?'audit_report_response_format' => AuditReportResponseFormat,
+  ?'certificate_authority_arn' => Arn,
+  ?'s_3_bucket_name' => string,
+  ) $s = shape()) {
+    $this->audit_report_response_format = $audit_report_response_format ?? "";
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+  }
 }
 
 class CreateCertificateAuthorityAuditReportResponse {
   public AuditReportId $audit_report_id;
   public string $s_3_key;
+
+  public function __construct(shape(
+  ?'audit_report_id' => AuditReportId,
+  ?'s_3_key' => string,
+  ) $s = shape()) {
+    $this->audit_report_id = $audit_report_id ?? "";
+    $this->s_3_key = $s_3_key ?? ;
+  }
 }
 
 class CreateCertificateAuthorityRequest {
@@ -135,10 +219,30 @@ class CreateCertificateAuthorityRequest {
   public IdempotencyToken $idempotency_token;
   public RevocationConfiguration $revocation_configuration;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'certificate_authority_configuration' => CertificateAuthorityConfiguration,
+  ?'certificate_authority_type' => CertificateAuthorityType,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'revocation_configuration' => RevocationConfiguration,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->certificate_authority_configuration = $certificate_authority_configuration ?? null;
+    $this->certificate_authority_type = $certificate_authority_type ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->revocation_configuration = $revocation_configuration ?? null;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateCertificateAuthorityResponse {
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class CreatePermissionRequest {
@@ -146,6 +250,18 @@ class CreatePermissionRequest {
   public Arn $certificate_authority_arn;
   public Principal $principal;
   public AccountId $source_account;
+
+  public function __construct(shape(
+  ?'actions' => ActionList,
+  ?'certificate_authority_arn' => Arn,
+  ?'principal' => Principal,
+  ?'source_account' => AccountId,
+  ) $s = shape()) {
+    $this->actions = $actions ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->principal = $principal ?? "";
+    $this->source_account = $source_account ?? ;
+  }
 }
 
 class CrlConfiguration {
@@ -153,28 +269,64 @@ class CrlConfiguration {
   public boolean $enabled;
   public Integer1To5000 $expiration_in_days;
   public String3To255 $s_3_bucket_name;
+
+  public function __construct(shape(
+  ?'custom_cname' => String253,
+  ?'enabled' => boolean,
+  ?'expiration_in_days' => Integer1To5000,
+  ?'s_3_bucket_name' => String3To255,
+  ) $s = shape()) {
+    $this->custom_cname = $custom_cname ?? ;
+    $this->enabled = $enabled ?? ;
+    $this->expiration_in_days = $expiration_in_days ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+  }
 }
 
-class CsrBlob {
-}
+type CsrBlob = string;
 
-class CsrBody {
-}
+type CsrBody = string;
 
 class DeleteCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
   public PermanentDeletionTimeInDays $permanent_deletion_time_in_days;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'permanent_deletion_time_in_days' => PermanentDeletionTimeInDays,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->permanent_deletion_time_in_days = $permanent_deletion_time_in_days ?? 0;
+  }
 }
 
 class DeletePermissionRequest {
   public Arn $certificate_authority_arn;
   public Principal $principal;
   public AccountId $source_account;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'principal' => Principal,
+  ?'source_account' => AccountId,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->principal = $principal ?? "";
+    $this->source_account = $source_account ?? ;
+  }
 }
 
 class DescribeCertificateAuthorityAuditReportRequest {
   public AuditReportId $audit_report_id;
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'audit_report_id' => AuditReportId,
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->audit_report_id = $audit_report_id ?? "";
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class DescribeCertificateAuthorityAuditReportResponse {
@@ -182,87 +334,201 @@ class DescribeCertificateAuthorityAuditReportResponse {
   public TStamp $created_at;
   public string $s_3_bucket_name;
   public string $s_3_key;
+
+  public function __construct(shape(
+  ?'audit_report_status' => AuditReportStatus,
+  ?'created_at' => TStamp,
+  ?'s_3_bucket_name' => string,
+  ?'s_3_key' => string,
+  ) $s = shape()) {
+    $this->audit_report_status = $audit_report_status ?? "";
+    $this->created_at = $created_at ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->s_3_key = $s_3_key ?? ;
+  }
 }
 
 class DescribeCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class DescribeCertificateAuthorityResponse {
   public CertificateAuthority $certificate_authority;
+
+  public function __construct(shape(
+  ?'certificate_authority' => CertificateAuthority,
+  ) $s = shape()) {
+    $this->certificate_authority = $certificate_authority ?? null;
+  }
 }
 
-class DistinguishedNameQualifierString {
-}
+type DistinguishedNameQualifierString = string;
 
-class FailureReason {
-}
+type FailureReason = string;
 
 class GetCertificateAuthorityCertificateRequest {
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class GetCertificateAuthorityCertificateResponse {
   public CertificateBody $certificate;
   public CertificateChain $certificate_chain;
+
+  public function __construct(shape(
+  ?'certificate' => CertificateBody,
+  ?'certificate_chain' => CertificateChain,
+  ) $s = shape()) {
+    $this->certificate = $certificate ?? ;
+    $this->certificate_chain = $certificate_chain ?? "";
+  }
 }
 
 class GetCertificateAuthorityCsrRequest {
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class GetCertificateAuthorityCsrResponse {
   public CsrBody $csr;
+
+  public function __construct(shape(
+  ?'csr' => CsrBody,
+  ) $s = shape()) {
+    $this->csr = $csr ?? ;
+  }
 }
 
 class GetCertificateRequest {
   public Arn $certificate_arn;
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_arn' => Arn,
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_arn = $certificate_arn ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class GetCertificateResponse {
   public CertificateBody $certificate;
   public CertificateChain $certificate_chain;
+
+  public function __construct(shape(
+  ?'certificate' => CertificateBody,
+  ?'certificate_chain' => CertificateChain,
+  ) $s = shape()) {
+    $this->certificate = $certificate ?? ;
+    $this->certificate_chain = $certificate_chain ?? "";
+  }
 }
 
-class IdempotencyToken {
-}
+type IdempotencyToken = string;
 
 class ImportCertificateAuthorityCertificateRequest {
   public CertificateBodyBlob $certificate;
   public Arn $certificate_authority_arn;
   public CertificateChainBlob $certificate_chain;
+
+  public function __construct(shape(
+  ?'certificate' => CertificateBodyBlob,
+  ?'certificate_authority_arn' => Arn,
+  ?'certificate_chain' => CertificateChainBlob,
+  ) $s = shape()) {
+    $this->certificate = $certificate ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_chain = $certificate_chain ?? "";
+  }
 }
 
-class Integer1To5000 {
-}
+type Integer1To5000 = int;
 
 class InvalidArgsException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidArnException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidNextTokenException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidPolicyException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRequestException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidStateException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidTagException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class IssueCertificateRequest {
@@ -272,67 +538,155 @@ class IssueCertificateRequest {
   public SigningAlgorithm $signing_algorithm;
   public Arn $template_arn;
   public Validity $validity;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'csr' => CsrBlob,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'signing_algorithm' => SigningAlgorithm,
+  ?'template_arn' => Arn,
+  ?'validity' => Validity,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->csr = $csr ?? ;
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->signing_algorithm = $signing_algorithm ?? "";
+    $this->template_arn = $template_arn ?? ;
+    $this->validity = $validity ?? null;
+  }
 }
 
 class IssueCertificateResponse {
   public Arn $certificate_arn;
+
+  public function __construct(shape(
+  ?'certificate_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_arn = $certificate_arn ?? ;
+  }
 }
 
-class KeyAlgorithm {
-}
+type KeyAlgorithm = string;
 
 class LimitExceededException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListCertificateAuthoritiesRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListCertificateAuthoritiesResponse {
   public CertificateAuthorities $certificate_authorities;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'certificate_authorities' => CertificateAuthorities,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->certificate_authorities = $certificate_authorities ?? [];
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListPermissionsRequest {
   public Arn $certificate_authority_arn;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListPermissionsResponse {
   public NextToken $next_token;
   public PermissionList $permissions;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'permissions' => PermissionList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? "";
+    $this->permissions = $permissions ?? ;
+  }
 }
 
 class ListTagsRequest {
   public Arn $certificate_authority_arn;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListTagsResponse {
   public NextToken $next_token;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? ;
+  }
 }
 
 class MalformedCSRException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class MalformedCertificateException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class NextToken {
-}
+type NextToken = string;
 
-class PermanentDeletionTimeInDays {
-}
+type PermanentDeletionTimeInDays = int;
 
 class Permission {
   public ActionList $actions;
@@ -341,126 +695,223 @@ class Permission {
   public string $policy;
   public string $principal;
   public string $source_account;
+
+  public function __construct(shape(
+  ?'actions' => ActionList,
+  ?'certificate_authority_arn' => Arn,
+  ?'created_at' => TStamp,
+  ?'policy' => string,
+  ?'principal' => string,
+  ?'source_account' => string,
+  ) $s = shape()) {
+    $this->actions = $actions ?? ;
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->policy = $policy ?? ;
+    $this->principal = $principal ?? "";
+    $this->source_account = $source_account ?? ;
+  }
 }
 
 class PermissionAlreadyExistsException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class PermissionList {
-}
+type PermissionList = vec<Permission>;
 
-class PositiveLong {
-}
+type PositiveLong = int;
 
-class Principal {
-}
+type Principal = string;
 
 class RequestAlreadyProcessedException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RequestFailedException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RequestInProgressException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class RestoreCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+  }
 }
 
 class RevocationConfiguration {
   public CrlConfiguration $crl_configuration;
+
+  public function __construct(shape(
+  ?'crl_configuration' => CrlConfiguration,
+  ) $s = shape()) {
+    $this->crl_configuration = $crl_configuration ?? null;
+  }
 }
 
-class RevocationReason {
-}
+type RevocationReason = string;
 
 class RevokeCertificateRequest {
   public Arn $certificate_authority_arn;
   public String128 $certificate_serial;
   public RevocationReason $revocation_reason;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'certificate_serial' => String128,
+  ?'revocation_reason' => RevocationReason,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->certificate_serial = $certificate_serial ?? ;
+    $this->revocation_reason = $revocation_reason ?? "";
+  }
 }
 
-class SigningAlgorithm {
-}
+type SigningAlgorithm = string;
 
-class String {
-}
+type String = string;
 
-class String128 {
-}
+type String128 = string;
 
-class String16 {
-}
+type String16 = string;
 
-class String253 {
-}
+type String253 = string;
 
-class String3 {
-}
+type String3 = string;
 
-class String3To255 {
-}
+type String3To255 = string;
 
-class String40 {
-}
+type String40 = string;
 
-class String5 {
-}
+type String5 = string;
 
-class String64 {
-}
+type String64 = string;
 
-class TStamp {
-}
+type TStamp = int;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class TagCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
-class TagValue {
-}
+type TagValue = string;
 
 class TooManyTagsException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class UpdateCertificateAuthorityRequest {
   public Arn $certificate_authority_arn;
   public RevocationConfiguration $revocation_configuration;
   public CertificateAuthorityStatus $status;
+
+  public function __construct(shape(
+  ?'certificate_authority_arn' => Arn,
+  ?'revocation_configuration' => RevocationConfiguration,
+  ?'status' => CertificateAuthorityStatus,
+  ) $s = shape()) {
+    $this->certificate_authority_arn = $certificate_authority_arn ?? ;
+    $this->revocation_configuration = $revocation_configuration ?? null;
+    $this->status = $status ?? ;
+  }
 }
 
 class Validity {
   public ValidityPeriodType $type;
   public PositiveLong $value;
+
+  public function __construct(shape(
+  ?'type' => ValidityPeriodType,
+  ?'value' => PositiveLong,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ValidityPeriodType {
-}
+type ValidityPeriodType = string;
 

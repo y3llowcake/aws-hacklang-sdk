@@ -36,12 +36,41 @@ func main() {
 	}
 }
 
+type (
+	named struct {
+		defaultValue string
+	}
+	namespace map[string]named
+)
+
+func defaultValue(t string) string {
+	switch t {
+	case "string", "blob":
+		return `""`
+	case "boolean":
+		return "false"
+	case "integer", "long":
+		return "0"
+	case "double", "float":
+		return "0.0"
+	case "structure":
+		return "null"
+	case "list", "map":
+		return "[]"
+	case "timestamp":
+		return "0"
+	default:
+		panic(fmt.Sprintf("unable to determine default value for type: %v", t))
+	}
+}
+
 func genModel(m *Model, w *writer) {
 	w.p("<?hh // strict")
 	w.p("namespace slack\\aws\\%s;", m.Metadata.EndpointPrefix)
 	w.ln()
 	w.p("interface %s {", m.Metadata.ServiceID)
 
+	// Operations
 	sorted := []string{}
 	for k, _ := range m.Operations {
 		sorted = append(sorted, k)
@@ -61,59 +90,123 @@ func genModel(m *Model, w *writer) {
 	w.p("}")
 	w.ln()
 
+	// Shapes
+	ns := namespace{}
 	sorted = []string{}
-	for k, _ := range m.Shapes {
+	for k, s := range m.Shapes {
+		ns[k] = named{defaultValue(s.Type)}
 		sorted = append(sorted, k)
 	}
 	sort.Strings(sorted)
 
 	for _, name := range sorted {
 		shape := m.Shapes[name]
-		genTopLevelShape(name, shape, w)
-		w.ln()
+		genTopLevelShape(name, shape, ns, w)
 	}
 }
 
-func genTopLevelShape(name string, s Shape, w *writer) {
-	if s.Flattened {
-		return
+func genTopLevelShape(name string, s Shape, ns namespace, w *writer) {
+	switch s.Type {
+	case "structure":
+		genTopLevelStructure(name, s, ns, w)
+	case "string", "blob":
+		w.p("type %s = string;", name)
+		w.ln()
+	case "integer", "timestamp", "long":
+		w.p("type %s = int;", name)
+		w.ln()
+	case "double", "float":
+		w.p("type %s = float;", name)
+		w.ln()
+	case "boolean":
+		w.p("type %s = bool;", name)
+		w.ln()
+	case "list":
+		w.p("type %s = vec<%s>;", name, s.Member.Shape)
+		w.ln()
+	case "map":
+		w.p("type %s = dict<%s, %s>;", name, s.Key.Shape, s.Value.Shape)
+		w.ln()
+	default:
+		panic(fmt.Sprintf("unable to determine type for shape: %v", s.Type))
 	}
-	w.p("class %s {", name)
+}
+
+func memberShapeToHackType(t string) string {
+	switch t {
+	case "String":
+		return "string"
+	case "Boolean":
+		return "boolean"
+	case "Integer":
+		return "int"
+	default:
+		return t
+	}
+}
+
+type member struct {
+	name     string
+	varName  string
+	typeName string
+}
+
+func (s Shape) sortedMembers() []member {
 	sorted := []string{}
 	for k, _ := range s.Members {
 		sorted = append(sorted, k)
 	}
 	sort.Strings(sorted)
 
+	members := []member{}
 	for _, mname := range sorted {
-		member := s.Members[mname]
-		ttype := member.Shape
-		switch member.Shape {
-		case "String":
-			ttype = "string"
-		case "Boolean":
-			ttype = "boolean"
-		case "Integer":
-			ttype = "int"
-		default:
-		}
-		mname := strcase.ToSnake(mname)
-		w.p("public %s $%s;", ttype, mname)
+		members = append(members, member{
+			mname,
+			strcase.ToSnake(mname),
+			memberShapeToHackType(s.Members[mname].Shape),
+		})
+	}
+	return members
+}
+
+func genTopLevelStructure(name string, s Shape, ns namespace, w *writer) {
+	members := s.sortedMembers()
+	w.p("class %s {", name)
+	for _, m := range members {
+		w.p("public %s $%s;", m.typeName, m.varName)
+	}
+	w.ln()
+	w.p("public function __construct(shape(")
+	for _, m := range members {
+		w.p("?'%s' => %s,", m.varName, m.typeName)
+	}
+	w.p(") $s = shape()) {")
+	for _, m := range members {
+		w.p("$this->%s = $%s ?? %s;", m.varName, m.varName, ns[m.name].defaultValue)
 	}
 	w.p("}")
+
+	w.p("}")
+	w.ln()
 }
 
 type (
 	Shape struct {
 		Type     string   `json:"type"`
 		Required []string `json:"required"`
-		Member   struct {
+		Member   struct { // type = list
 			Shape        string `json:"shape"`
 			LocationName string `json:"locationName"`
 		} `json:"member"`
-		Members map[string]struct {
+		Members map[string]struct { // type = structure
 			Shape string `json:"shape"`
 		} `json:"members"`
+		Key struct { // type = map
+			Shape string `json:"shape"`
+		} `json:"key"`
+		Value struct { // type = map
+			Shape string `json:"shape"`
+		} `json:"value"`
 		Error struct {
 			Code           string `json:"code"`
 			HTTPStatusCode int    `json:"httpStatusCode"`

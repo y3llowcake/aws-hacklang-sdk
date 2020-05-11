@@ -87,56 +87,80 @@ interface Service Catalog {
   public function UpdateTagOption(UpdateTagOptionInput): Awaitable<Errors\Result<UpdateTagOptionOutput>>;
 }
 
-class AcceptLanguage {
-}
+type AcceptLanguage = string;
 
 class AcceptPortfolioShareInput {
   public AcceptLanguage $accept_language;
   public Id $portfolio_id;
   public PortfolioShareType $portfolio_share_type;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'portfolio_share_type' => PortfolioShareType,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_share_type = $portfolio_share_type ?? "";
+  }
 }
 
 class AcceptPortfolioShareOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AccessLevelFilter {
   public AccessLevelFilterKey $key;
   public AccessLevelFilterValue $value;
+
+  public function __construct(shape(
+  ?'key' => AccessLevelFilterKey,
+  ?'value' => AccessLevelFilterValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class AccessLevelFilterKey {
-}
+type AccessLevelFilterKey = string;
 
-class AccessLevelFilterValue {
-}
+type AccessLevelFilterValue = string;
 
-class AccessStatus {
-}
+type AccessStatus = string;
 
-class AccountId {
-}
+type AccountId = string;
 
-class AccountIds {
-}
+type AccountIds = vec<AccountId>;
 
-class AddTags {
-}
+type AddTags = vec<Tag>;
 
-class AllowedValue {
-}
+type AllowedValue = string;
 
-class AllowedValues {
-}
+type AllowedValues = vec<AllowedValue>;
 
-class ApproximateCount {
-}
+type ApproximateCount = int;
 
 class AssociateBudgetWithResourceInput {
   public BudgetName $budget_name;
   public Id $resource_id;
+
+  public function __construct(shape(
+  ?'budget_name' => BudgetName,
+  ?'resource_id' => Id,
+  ) $s = shape()) {
+    $this->budget_name = $budget_name ?? "";
+    $this->resource_id = $resource_id ?? "";
+  }
 }
 
 class AssociateBudgetWithResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AssociatePrincipalWithPortfolioInput {
@@ -144,9 +168,25 @@ class AssociatePrincipalWithPortfolioInput {
   public Id $portfolio_id;
   public PrincipalARN $principal_arn;
   public PrincipalType $principal_type;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'principal_arn' => PrincipalARN,
+  ?'principal_type' => PrincipalType,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->principal_arn = $principal_arn ?? "";
+    $this->principal_type = $principal_type ?? "";
+  }
 }
 
 class AssociatePrincipalWithPortfolioOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AssociateProductWithPortfolioInput {
@@ -154,9 +194,25 @@ class AssociateProductWithPortfolioInput {
   public Id $portfolio_id;
   public Id $product_id;
   public Id $source_portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'product_id' => Id,
+  ?'source_portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->source_portfolio_id = $source_portfolio_id ?? ;
+  }
 }
 
 class AssociateProductWithPortfolioOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AssociateServiceActionWithProvisioningArtifactInput {
@@ -164,68 +220,128 @@ class AssociateServiceActionWithProvisioningArtifactInput {
   public Id $product_id;
   public Id $provisioning_artifact_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
 class AssociateServiceActionWithProvisioningArtifactOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AssociateTagOptionWithResourceInput {
   public ResourceId $resource_id;
   public TagOptionId $tag_option_id;
+
+  public function __construct(shape(
+  ?'resource_id' => ResourceId,
+  ?'tag_option_id' => TagOptionId,
+  ) $s = shape()) {
+    $this->resource_id = $resource_id ?? "";
+    $this->tag_option_id = $tag_option_id ?? "";
+  }
 }
 
 class AssociateTagOptionWithResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class AttributeValue {
-}
+type AttributeValue = string;
 
 class BatchAssociateServiceActionWithProvisioningArtifactInput {
   public AcceptLanguage $accept_language;
   public ServiceActionAssociations $service_action_associations;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'service_action_associations' => ServiceActionAssociations,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->service_action_associations = $service_action_associations ?? [];
+  }
 }
 
 class BatchAssociateServiceActionWithProvisioningArtifactOutput {
   public FailedServiceActionAssociations $failed_service_action_associations;
+
+  public function __construct(shape(
+  ?'failed_service_action_associations' => FailedServiceActionAssociations,
+  ) $s = shape()) {
+    $this->failed_service_action_associations = $failed_service_action_associations ?? [];
+  }
 }
 
 class BatchDisassociateServiceActionFromProvisioningArtifactInput {
   public AcceptLanguage $accept_language;
   public ServiceActionAssociations $service_action_associations;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'service_action_associations' => ServiceActionAssociations,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->service_action_associations = $service_action_associations ?? [];
+  }
 }
 
 class BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   public FailedServiceActionAssociations $failed_service_action_associations;
+
+  public function __construct(shape(
+  ?'failed_service_action_associations' => FailedServiceActionAssociations,
+  ) $s = shape()) {
+    $this->failed_service_action_associations = $failed_service_action_associations ?? [];
+  }
 }
 
 class BudgetDetail {
   public BudgetName $budget_name;
+
+  public function __construct(shape(
+  ?'budget_name' => BudgetName,
+  ) $s = shape()) {
+    $this->budget_name = $budget_name ?? "";
+  }
 }
 
-class BudgetName {
-}
+type BudgetName = string;
 
-class Budgets {
-}
+type Budgets = vec<BudgetDetail>;
 
-class CausingEntity {
-}
+type CausingEntity = string;
 
-class ChangeAction {
-}
+type ChangeAction = string;
 
 class CloudWatchDashboard {
   public CloudWatchDashboardName $name;
+
+  public function __construct(shape(
+  ?'name' => CloudWatchDashboardName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
-class CloudWatchDashboardName {
-}
+type CloudWatchDashboardName = string;
 
-class CloudWatchDashboards {
-}
+type CloudWatchDashboards = vec<CloudWatchDashboard>;
 
-class ConstraintDescription {
-}
+type ConstraintDescription = string;
 
 class ConstraintDetail {
   public Id $constraint_id;
@@ -234,30 +350,48 @@ class ConstraintDetail {
   public Id $portfolio_id;
   public Id $product_id;
   public ConstraintType $type;
+
+  public function __construct(shape(
+  ?'constraint_id' => Id,
+  ?'description' => ConstraintDescription,
+  ?'owner' => AccountId,
+  ?'portfolio_id' => Id,
+  ?'product_id' => Id,
+  ?'type' => ConstraintType,
+  ) $s = shape()) {
+    $this->constraint_id = $constraint_id ?? ;
+    $this->description = $description ?? "";
+    $this->owner = $owner ?? ;
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ConstraintDetails {
-}
+type ConstraintDetails = vec<ConstraintDetail>;
 
-class ConstraintParameters {
-}
+type ConstraintParameters = string;
 
-class ConstraintSummaries {
-}
+type ConstraintSummaries = vec<ConstraintSummary>;
 
 class ConstraintSummary {
   public ConstraintDescription $description;
   public ConstraintType $type;
+
+  public function __construct(shape(
+  ?'description' => ConstraintDescription,
+  ?'type' => ConstraintType,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->type = $type ?? ;
+  }
 }
 
-class ConstraintType {
-}
+type ConstraintType = string;
 
-class CopyOption {
-}
+type CopyOption = string;
 
-class CopyOptions {
-}
+type CopyOptions = vec<CopyOption>;
 
 class CopyProductInput {
   public AcceptLanguage $accept_language;
@@ -267,14 +401,37 @@ class CopyProductInput {
   public SourceProvisioningArtifactProperties $source_provisioning_artifact_identifiers;
   public Id $target_product_id;
   public ProductViewName $target_product_name;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'copy_options' => CopyOptions,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'source_product_arn' => ProductArn,
+  ?'source_provisioning_artifact_identifiers' => SourceProvisioningArtifactProperties,
+  ?'target_product_id' => Id,
+  ?'target_product_name' => ProductViewName,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->copy_options = $copy_options ?? [];
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->source_product_arn = $source_product_arn ?? ;
+    $this->source_provisioning_artifact_identifiers = $source_provisioning_artifact_identifiers ?? ;
+    $this->target_product_id = $target_product_id ?? ;
+    $this->target_product_name = $target_product_name ?? ;
+  }
 }
 
 class CopyProductOutput {
   public Id $copy_product_token;
+
+  public function __construct(shape(
+  ?'copy_product_token' => Id,
+  ) $s = shape()) {
+    $this->copy_product_token = $copy_product_token ?? ;
+  }
 }
 
-class CopyProductStatus {
-}
+type CopyProductStatus = string;
 
 class CreateConstraintInput {
   public AcceptLanguage $accept_language;
@@ -284,12 +441,40 @@ class CreateConstraintInput {
   public Id $portfolio_id;
   public Id $product_id;
   public ConstraintType $type;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'description' => ConstraintDescription,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'parameters' => ConstraintParameters,
+  ?'portfolio_id' => Id,
+  ?'product_id' => Id,
+  ?'type' => ConstraintType,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->description = $description ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->parameters = $parameters ?? ;
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class CreateConstraintOutput {
   public ConstraintDetail $constraint_detail;
   public ConstraintParameters $constraint_parameters;
   public Status $status;
+
+  public function __construct(shape(
+  ?'constraint_detail' => ConstraintDetail,
+  ?'constraint_parameters' => ConstraintParameters,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->constraint_detail = $constraint_detail ?? null;
+    $this->constraint_parameters = $constraint_parameters ?? "";
+    $this->status = $status ?? "";
+  }
 }
 
 class CreatePortfolioInput {
@@ -299,11 +484,35 @@ class CreatePortfolioInput {
   public IdempotencyToken $idempotency_token;
   public ProviderName $provider_name;
   public AddTags $tags;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'description' => PortfolioDescription,
+  ?'display_name' => PortfolioDisplayName,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'provider_name' => ProviderName,
+  ?'tags' => AddTags,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? ;
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreatePortfolioOutput {
   public PortfolioDetail $portfolio_detail;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'portfolio_detail' => PortfolioDetail,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->portfolio_detail = $portfolio_detail ?? null;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreatePortfolioShareInput {
@@ -311,10 +520,28 @@ class CreatePortfolioShareInput {
   public AccountId $account_id;
   public OrganizationNode $organization_node;
   public Id $portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'account_id' => AccountId,
+  ?'organization_node' => OrganizationNode,
+  ?'portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->account_id = $account_id ?? "";
+    $this->organization_node = $organization_node ?? null;
+    $this->portfolio_id = $portfolio_id ?? ;
+  }
 }
 
 class CreatePortfolioShareOutput {
   public Id $portfolio_share_token;
+
+  public function __construct(shape(
+  ?'portfolio_share_token' => Id,
+  ) $s = shape()) {
+    $this->portfolio_share_token = $portfolio_share_token ?? ;
+  }
 }
 
 class CreateProductInput {
@@ -330,12 +557,50 @@ class CreateProductInput {
   public SupportEmail $support_email;
   public SupportUrl $support_url;
   public AddTags $tags;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'description' => ProductViewShortDescription,
+  ?'distributor' => ProductViewOwner,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'name' => ProductViewName,
+  ?'owner' => ProductViewOwner,
+  ?'product_type' => ProductType,
+  ?'provisioning_artifact_parameters' => ProvisioningArtifactProperties,
+  ?'support_description' => SupportDescription,
+  ?'support_email' => SupportEmail,
+  ?'support_url' => SupportUrl,
+  ?'tags' => AddTags,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->description = $description ?? "";
+    $this->distributor = $distributor ?? ;
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->name = $name ?? ;
+    $this->owner = $owner ?? ;
+    $this->product_type = $product_type ?? "";
+    $this->provisioning_artifact_parameters = $provisioning_artifact_parameters ?? [];
+    $this->support_description = $support_description ?? "";
+    $this->support_email = $support_email ?? "";
+    $this->support_url = $support_url ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateProductOutput {
   public ProductViewDetail $product_view_detail;
   public ProvisioningArtifactDetail $provisioning_artifact_detail;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'product_view_detail' => ProductViewDetail,
+  ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->product_view_detail = $product_view_detail ?? null;
+    $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateProvisionedProductPlanInput {
@@ -350,6 +615,32 @@ class CreateProvisionedProductPlanInput {
   public Id $provisioning_artifact_id;
   public UpdateProvisioningParameters $provisioning_parameters;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'notification_arns' => NotificationArns,
+  ?'path_id' => Id,
+  ?'plan_name' => ProvisionedProductPlanName,
+  ?'plan_type' => ProvisionedProductPlanType,
+  ?'product_id' => Id,
+  ?'provisioned_product_name' => ProvisionedProductName,
+  ?'provisioning_artifact_id' => Id,
+  ?'provisioning_parameters' => UpdateProvisioningParameters,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->notification_arns = $notification_arns ?? [];
+    $this->path_id = $path_id ?? ;
+    $this->plan_name = $plan_name ?? ;
+    $this->plan_type = $plan_type ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_parameters = $provisioning_parameters ?? [];
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateProvisionedProductPlanOutput {
@@ -358,6 +649,20 @@ class CreateProvisionedProductPlanOutput {
   public Id $provision_product_id;
   public ProvisionedProductName $provisioned_product_name;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'plan_id' => Id,
+  ?'plan_name' => ProvisionedProductPlanName,
+  ?'provision_product_id' => Id,
+  ?'provisioned_product_name' => ProvisionedProductName,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->plan_id = $plan_id ?? ;
+    $this->plan_name = $plan_name ?? ;
+    $this->provision_product_id = $provision_product_id ?? ;
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
 class CreateProvisioningArtifactInput {
@@ -365,12 +670,34 @@ class CreateProvisioningArtifactInput {
   public IdempotencyToken $idempotency_token;
   public ProvisioningArtifactProperties $parameters;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'parameters' => ProvisioningArtifactProperties,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->parameters = $parameters ?? ;
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class CreateProvisioningArtifactOutput {
   public ProvisioningArtifactInfo $info;
   public ProvisioningArtifactDetail $provisioning_artifact_detail;
   public Status $status;
+
+  public function __construct(shape(
+  ?'info' => ProvisioningArtifactInfo,
+  ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->info = $info ?? ;
+    $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
+    $this->status = $status ?? "";
+  }
 }
 
 class CreateServiceActionInput {
@@ -380,44 +707,101 @@ class CreateServiceActionInput {
   public ServiceActionDescription $description;
   public IdempotencyToken $idempotency_token;
   public ServiceActionName $name;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'definition' => ServiceActionDefinitionMap,
+  ?'definition_type' => ServiceActionDefinitionType,
+  ?'description' => ServiceActionDescription,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'name' => ServiceActionName,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->definition = $definition ?? ;
+    $this->definition_type = $definition_type ?? ;
+    $this->description = $description ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class CreateServiceActionOutput {
   public ServiceActionDetail $service_action_detail;
+
+  public function __construct(shape(
+  ?'service_action_detail' => ServiceActionDetail,
+  ) $s = shape()) {
+    $this->service_action_detail = $service_action_detail ?? null;
+  }
 }
 
 class CreateTagOptionInput {
   public TagOptionKey $key;
   public TagOptionValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagOptionKey,
+  ?'value' => TagOptionValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class CreateTagOptionOutput {
   public TagOptionDetail $tag_option_detail;
+
+  public function __construct(shape(
+  ?'tag_option_detail' => TagOptionDetail,
+  ) $s = shape()) {
+    $this->tag_option_detail = $tag_option_detail ?? null;
+  }
 }
 
-class CreatedTime {
-}
+type CreatedTime = int;
 
-class CreationTime {
-}
+type CreationTime = int;
 
-class DefaultValue {
-}
+type DefaultValue = string;
 
 class DeleteConstraintInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DeleteConstraintOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeletePortfolioInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DeletePortfolioOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeletePortfolioShareInput {
@@ -425,78 +809,202 @@ class DeletePortfolioShareInput {
   public AccountId $account_id;
   public OrganizationNode $organization_node;
   public Id $portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'account_id' => AccountId,
+  ?'organization_node' => OrganizationNode,
+  ?'portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->account_id = $account_id ?? "";
+    $this->organization_node = $organization_node ?? null;
+    $this->portfolio_id = $portfolio_id ?? ;
+  }
 }
 
 class DeletePortfolioShareOutput {
   public Id $portfolio_share_token;
+
+  public function __construct(shape(
+  ?'portfolio_share_token' => Id,
+  ) $s = shape()) {
+    $this->portfolio_share_token = $portfolio_share_token ?? ;
+  }
 }
 
 class DeleteProductInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DeleteProductOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteProvisionedProductPlanInput {
   public AcceptLanguage $accept_language;
   public IgnoreErrors $ignore_errors;
   public Id $plan_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'ignore_errors' => IgnoreErrors,
+  ?'plan_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->ignore_errors = $ignore_errors ?? false;
+    $this->plan_id = $plan_id ?? ;
+  }
 }
 
 class DeleteProvisionedProductPlanOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteProvisioningArtifactInput {
   public AcceptLanguage $accept_language;
   public Id $product_id;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
 class DeleteProvisioningArtifactOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteServiceActionInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DeleteServiceActionOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteTagOptionInput {
   public TagOptionId $id;
+
+  public function __construct(shape(
+  ?'id' => TagOptionId,
+  ) $s = shape()) {
+    $this->id = $id ?? "";
+  }
 }
 
 class DeleteTagOptionOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeConstraintInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeConstraintOutput {
   public ConstraintDetail $constraint_detail;
   public ConstraintParameters $constraint_parameters;
   public Status $status;
+
+  public function __construct(shape(
+  ?'constraint_detail' => ConstraintDetail,
+  ?'constraint_parameters' => ConstraintParameters,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->constraint_detail = $constraint_detail ?? null;
+    $this->constraint_parameters = $constraint_parameters ?? "";
+    $this->status = $status ?? "";
+  }
 }
 
 class DescribeCopyProductStatusInput {
   public AcceptLanguage $accept_language;
   public Id $copy_product_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'copy_product_token' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->copy_product_token = $copy_product_token ?? ;
+  }
 }
 
 class DescribeCopyProductStatusOutput {
   public CopyProductStatus $copy_product_status;
   public StatusDetail $status_detail;
   public Id $target_product_id;
+
+  public function __construct(shape(
+  ?'copy_product_status' => CopyProductStatus,
+  ?'status_detail' => StatusDetail,
+  ?'target_product_id' => Id,
+  ) $s = shape()) {
+    $this->copy_product_status = $copy_product_status ?? "";
+    $this->status_detail = $status_detail ?? "";
+    $this->target_product_id = $target_product_id ?? ;
+  }
 }
 
 class DescribePortfolioInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribePortfolioOutput {
@@ -504,10 +1012,28 @@ class DescribePortfolioOutput {
   public PortfolioDetail $portfolio_detail;
   public TagOptionDetails $tag_options;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'budgets' => Budgets,
+  ?'portfolio_detail' => PortfolioDetail,
+  ?'tag_options' => TagOptionDetails,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->budgets = $budgets ?? [];
+    $this->portfolio_detail = $portfolio_detail ?? null;
+    $this->tag_options = $tag_options ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class DescribePortfolioShareStatusInput {
   public Id $portfolio_share_token;
+
+  public function __construct(shape(
+  ?'portfolio_share_token' => Id,
+  ) $s = shape()) {
+    $this->portfolio_share_token = $portfolio_share_token ?? ;
+  }
 }
 
 class DescribePortfolioShareStatusOutput {
@@ -516,11 +1042,33 @@ class DescribePortfolioShareStatusOutput {
   public Id $portfolio_share_token;
   public ShareDetails $share_details;
   public ShareStatus $status;
+
+  public function __construct(shape(
+  ?'organization_node_value' => OrganizationNodeValue,
+  ?'portfolio_id' => Id,
+  ?'portfolio_share_token' => Id,
+  ?'share_details' => ShareDetails,
+  ?'status' => ShareStatus,
+  ) $s = shape()) {
+    $this->organization_node_value = $organization_node_value ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_share_token = $portfolio_share_token ?? ;
+    $this->share_details = $share_details ?? null;
+    $this->status = $status ?? "";
+  }
 }
 
 class DescribeProductAsAdminInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeProductAsAdminOutput {
@@ -529,37 +1077,101 @@ class DescribeProductAsAdminOutput {
   public ProvisioningArtifactSummaries $provisioning_artifact_summaries;
   public TagOptionDetails $tag_options;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'budgets' => Budgets,
+  ?'product_view_detail' => ProductViewDetail,
+  ?'provisioning_artifact_summaries' => ProvisioningArtifactSummaries,
+  ?'tag_options' => TagOptionDetails,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->budgets = $budgets ?? [];
+    $this->product_view_detail = $product_view_detail ?? null;
+    $this->provisioning_artifact_summaries = $provisioning_artifact_summaries ?? [];
+    $this->tag_options = $tag_options ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class DescribeProductInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeProductOutput {
   public Budgets $budgets;
   public ProductViewSummary $product_view_summary;
   public ProvisioningArtifacts $provisioning_artifacts;
+
+  public function __construct(shape(
+  ?'budgets' => Budgets,
+  ?'product_view_summary' => ProductViewSummary,
+  ?'provisioning_artifacts' => ProvisioningArtifacts,
+  ) $s = shape()) {
+    $this->budgets = $budgets ?? [];
+    $this->product_view_summary = $product_view_summary ?? null;
+    $this->provisioning_artifacts = $provisioning_artifacts ?? [];
+  }
 }
 
 class DescribeProductViewInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeProductViewOutput {
   public ProductViewSummary $product_view_summary;
   public ProvisioningArtifacts $provisioning_artifacts;
+
+  public function __construct(shape(
+  ?'product_view_summary' => ProductViewSummary,
+  ?'provisioning_artifacts' => ProvisioningArtifacts,
+  ) $s = shape()) {
+    $this->product_view_summary = $product_view_summary ?? null;
+    $this->provisioning_artifacts = $provisioning_artifacts ?? [];
+  }
 }
 
 class DescribeProvisionedProductInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeProvisionedProductOutput {
   public CloudWatchDashboards $cloud_watch_dashboards;
   public ProvisionedProductDetail $provisioned_product_detail;
+
+  public function __construct(shape(
+  ?'cloud_watch_dashboards' => CloudWatchDashboards,
+  ?'provisioned_product_detail' => ProvisionedProductDetail,
+  ) $s = shape()) {
+    $this->cloud_watch_dashboards = $cloud_watch_dashboards ?? [];
+    $this->provisioned_product_detail = $provisioned_product_detail ?? null;
+  }
 }
 
 class DescribeProvisionedProductPlanInput {
@@ -567,12 +1179,34 @@ class DescribeProvisionedProductPlanInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $plan_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'plan_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->plan_id = $plan_id ?? ;
+  }
 }
 
 class DescribeProvisionedProductPlanOutput {
   public PageToken $next_page_token;
   public ProvisionedProductPlanDetails $provisioned_product_plan_details;
   public ResourceChanges $resource_changes;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioned_product_plan_details' => ProvisionedProductPlanDetails,
+  ?'resource_changes' => ResourceChanges,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioned_product_plan_details = $provisioned_product_plan_details ?? null;
+    $this->resource_changes = $resource_changes ?? [];
+  }
 }
 
 class DescribeProvisioningArtifactInput {
@@ -580,12 +1214,34 @@ class DescribeProvisioningArtifactInput {
   public Id $product_id;
   public Id $provisioning_artifact_id;
   public Verbose $verbose;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'verbose' => Verbose,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->verbose = $verbose ?? false;
+  }
 }
 
 class DescribeProvisioningArtifactOutput {
   public ProvisioningArtifactInfo $info;
   public ProvisioningArtifactDetail $provisioning_artifact_detail;
   public Status $status;
+
+  public function __construct(shape(
+  ?'info' => ProvisioningArtifactInfo,
+  ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->info = $info ?? ;
+    $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
+    $this->status = $status ?? "";
+  }
 }
 
 class DescribeProvisioningParametersInput {
@@ -593,6 +1249,18 @@ class DescribeProvisioningParametersInput {
   public Id $path_id;
   public Id $product_id;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'path_id' => Id,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->path_id = $path_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
 class DescribeProvisioningParametersOutput {
@@ -601,6 +1269,20 @@ class DescribeProvisioningParametersOutput {
   public ProvisioningArtifactPreferences $provisioning_artifact_preferences;
   public TagOptionSummaries $tag_options;
   public UsageInstructions $usage_instructions;
+
+  public function __construct(shape(
+  ?'constraint_summaries' => ConstraintSummaries,
+  ?'provisioning_artifact_parameters' => ProvisioningArtifactParameters,
+  ?'provisioning_artifact_preferences' => ProvisioningArtifactPreferences,
+  ?'tag_options' => TagOptionSummaries,
+  ?'usage_instructions' => UsageInstructions,
+  ) $s = shape()) {
+    $this->constraint_summaries = $constraint_summaries ?? [];
+    $this->provisioning_artifact_parameters = $provisioning_artifact_parameters ?? [];
+    $this->provisioning_artifact_preferences = $provisioning_artifact_preferences ?? null;
+    $this->tag_options = $tag_options ?? ;
+    $this->usage_instructions = $usage_instructions ?? [];
+  }
 }
 
 class DescribeRecordInput {
@@ -608,77 +1290,187 @@ class DescribeRecordInput {
   public Id $id;
   public PageSize $page_size;
   public PageToken $page_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+  }
 }
 
 class DescribeRecordOutput {
   public PageToken $next_page_token;
   public RecordDetail $record_detail;
   public RecordOutputs $record_outputs;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'record_detail' => RecordDetail,
+  ?'record_outputs' => RecordOutputs,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->record_detail = $record_detail ?? null;
+    $this->record_outputs = $record_outputs ?? [];
+  }
 }
 
 class DescribeServiceActionExecutionParametersInput {
   public AcceptLanguage $accept_language;
   public Id $provisioned_product_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'provisioned_product_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
 class DescribeServiceActionExecutionParametersOutput {
   public ExecutionParameters $service_action_parameters;
+
+  public function __construct(shape(
+  ?'service_action_parameters' => ExecutionParameters,
+  ) $s = shape()) {
+    $this->service_action_parameters = $service_action_parameters ?? ;
+  }
 }
 
 class DescribeServiceActionInput {
   public AcceptLanguage $accept_language;
   public Id $id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeServiceActionOutput {
   public ServiceActionDetail $service_action_detail;
+
+  public function __construct(shape(
+  ?'service_action_detail' => ServiceActionDetail,
+  ) $s = shape()) {
+    $this->service_action_detail = $service_action_detail ?? null;
+  }
 }
 
 class DescribeTagOptionInput {
   public TagOptionId $id;
+
+  public function __construct(shape(
+  ?'id' => TagOptionId,
+  ) $s = shape()) {
+    $this->id = $id ?? "";
+  }
 }
 
 class DescribeTagOptionOutput {
   public TagOptionDetail $tag_option_detail;
+
+  public function __construct(shape(
+  ?'tag_option_detail' => TagOptionDetail,
+  ) $s = shape()) {
+    $this->tag_option_detail = $tag_option_detail ?? null;
+  }
 }
 
-class Description {
-}
+type Description = string;
 
 class DisableAWSOrganizationsAccessInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisableAWSOrganizationsAccessOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class DisableTemplateValidation {
-}
+type DisableTemplateValidation = bool;
 
 class DisassociateBudgetFromResourceInput {
   public BudgetName $budget_name;
   public Id $resource_id;
+
+  public function __construct(shape(
+  ?'budget_name' => BudgetName,
+  ?'resource_id' => Id,
+  ) $s = shape()) {
+    $this->budget_name = $budget_name ?? "";
+    $this->resource_id = $resource_id ?? "";
+  }
 }
 
 class DisassociateBudgetFromResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociatePrincipalFromPortfolioInput {
   public AcceptLanguage $accept_language;
   public Id $portfolio_id;
   public PrincipalARN $principal_arn;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'principal_arn' => PrincipalARN,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->principal_arn = $principal_arn ?? "";
+  }
 }
 
 class DisassociatePrincipalFromPortfolioOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateProductFromPortfolioInput {
   public AcceptLanguage $accept_language;
   public Id $portfolio_id;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class DisassociateProductFromPortfolioOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateServiceActionFromProvisioningArtifactInput {
@@ -686,48 +1478,100 @@ class DisassociateServiceActionFromProvisioningArtifactInput {
   public Id $product_id;
   public Id $provisioning_artifact_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
 class DisassociateServiceActionFromProvisioningArtifactOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateTagOptionFromResourceInput {
   public ResourceId $resource_id;
   public TagOptionId $tag_option_id;
+
+  public function __construct(shape(
+  ?'resource_id' => ResourceId,
+  ?'tag_option_id' => TagOptionId,
+  ) $s = shape()) {
+    $this->resource_id = $resource_id ?? "";
+    $this->tag_option_id = $tag_option_id ?? "";
+  }
 }
 
 class DisassociateTagOptionFromResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DuplicateResourceException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class EnableAWSOrganizationsAccessInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class EnableAWSOrganizationsAccessOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Error {
-}
+type Error = string;
 
-class ErrorCode {
-}
+type ErrorCode = string;
 
-class ErrorDescription {
-}
+type ErrorDescription = string;
 
-class EvaluationType {
-}
+type EvaluationType = string;
 
 class ExecuteProvisionedProductPlanInput {
   public AcceptLanguage $accept_language;
   public IdempotencyToken $idempotency_token;
   public Id $plan_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'plan_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->plan_id = $plan_id ?? ;
+  }
 }
 
 class ExecuteProvisionedProductPlanOutput {
   public RecordDetail $record_detail;
+
+  public function __construct(shape(
+  ?'record_detail' => RecordDetail,
+  ) $s = shape()) {
+    $this->record_detail = $record_detail ?? null;
+  }
 }
 
 class ExecuteProvisionedProductServiceActionInput {
@@ -736,35 +1580,59 @@ class ExecuteProvisionedProductServiceActionInput {
   public ExecutionParameterMap $parameters;
   public Id $provisioned_product_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'execute_token' => IdempotencyToken,
+  ?'parameters' => ExecutionParameterMap,
+  ?'provisioned_product_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->execute_token = $execute_token ?? ;
+    $this->parameters = $parameters ?? ;
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
 class ExecuteProvisionedProductServiceActionOutput {
   public RecordDetail $record_detail;
+
+  public function __construct(shape(
+  ?'record_detail' => RecordDetail,
+  ) $s = shape()) {
+    $this->record_detail = $record_detail ?? null;
+  }
 }
 
 class ExecutionParameter {
   public ExecutionParameterValueList $default_values;
   public ExecutionParameterKey $name;
   public ExecutionParameterType $type;
+
+  public function __construct(shape(
+  ?'default_values' => ExecutionParameterValueList,
+  ?'name' => ExecutionParameterKey,
+  ?'type' => ExecutionParameterType,
+  ) $s = shape()) {
+    $this->default_values = $default_values ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ExecutionParameterKey {
-}
+type ExecutionParameterKey = string;
 
-class ExecutionParameterMap {
-}
+type ExecutionParameterMap = dict<ExecutionParameterKey, ExecutionParameterValueList>;
 
-class ExecutionParameterType {
-}
+type ExecutionParameterType = string;
 
-class ExecutionParameterValue {
-}
+type ExecutionParameterValue = string;
 
-class ExecutionParameterValueList {
-}
+type ExecutionParameterValueList = vec<ExecutionParameterValue>;
 
-class ExecutionParameters {
-}
+type ExecutionParameters = vec<ExecutionParameter>;
 
 class FailedServiceActionAssociation {
   public ServiceActionAssociationErrorCode $error_code;
@@ -772,56 +1640,95 @@ class FailedServiceActionAssociation {
   public Id $product_id;
   public Id $provisioning_artifact_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'error_code' => ServiceActionAssociationErrorCode,
+  ?'error_message' => ServiceActionAssociationErrorMessage,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
-class FailedServiceActionAssociations {
-}
+type FailedServiceActionAssociations = vec<FailedServiceActionAssociation>;
 
 class GetAWSOrganizationsAccessStatusInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetAWSOrganizationsAccessStatusOutput {
   public AccessStatus $access_status;
+
+  public function __construct(shape(
+  ?'access_status' => AccessStatus,
+  ) $s = shape()) {
+    $this->access_status = $access_status ?? "";
+  }
 }
 
-class HasDefaultPath {
-}
+type HasDefaultPath = bool;
 
-class Id {
-}
+type Id = string;
 
-class IdempotencyToken {
-}
+type IdempotencyToken = string;
 
-class IgnoreErrors {
-}
+type IgnoreErrors = bool;
 
-class InstructionType {
-}
+type InstructionType = string;
 
-class InstructionValue {
-}
+type InstructionValue = string;
 
 class InvalidParametersException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidStateException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class LastRequestId {
-}
+type LastRequestId = string;
 
-class LaunchPathSummaries {
-}
+type LaunchPathSummaries = vec<LaunchPathSummary>;
 
 class LaunchPathSummary {
   public ConstraintSummaries $constraint_summaries;
   public Id $id;
   public PortfolioName $name;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'constraint_summaries' => ConstraintSummaries,
+  ?'id' => Id,
+  ?'name' => PortfolioName,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->constraint_summaries = $constraint_summaries ?? [];
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class LimitExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListAcceptedPortfolioSharesInput {
@@ -829,11 +1736,31 @@ class ListAcceptedPortfolioSharesInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public PortfolioShareType $portfolio_share_type;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_share_type' => PortfolioShareType,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_share_type = $portfolio_share_type ?? "";
+  }
 }
 
 class ListAcceptedPortfolioSharesOutput {
   public PageToken $next_page_token;
   public PortfolioDetails $portfolio_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'portfolio_details' => PortfolioDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->portfolio_details = $portfolio_details ?? [];
+  }
 }
 
 class ListBudgetsForResourceInput {
@@ -841,11 +1768,31 @@ class ListBudgetsForResourceInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $resource_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'resource_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->resource_id = $resource_id ?? "";
+  }
 }
 
 class ListBudgetsForResourceOutput {
   public Budgets $budgets;
   public PageToken $next_page_token;
+
+  public function __construct(shape(
+  ?'budgets' => Budgets,
+  ?'next_page_token' => PageToken,
+  ) $s = shape()) {
+    $this->budgets = $budgets ?? [];
+    $this->next_page_token = $next_page_token ?? ;
+  }
 }
 
 class ListConstraintsForPortfolioInput {
@@ -854,11 +1801,33 @@ class ListConstraintsForPortfolioInput {
   public PageToken $page_token;
   public Id $portfolio_id;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_id' => Id,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class ListConstraintsForPortfolioOutput {
   public ConstraintDetails $constraint_details;
   public PageToken $next_page_token;
+
+  public function __construct(shape(
+  ?'constraint_details' => ConstraintDetails,
+  ?'next_page_token' => PageToken,
+  ) $s = shape()) {
+    $this->constraint_details = $constraint_details ?? [];
+    $this->next_page_token = $next_page_token ?? ;
+  }
 }
 
 class ListLaunchPathsInput {
@@ -866,11 +1835,31 @@ class ListLaunchPathsInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class ListLaunchPathsOutput {
   public LaunchPathSummaries $launch_path_summaries;
   public PageToken $next_page_token;
+
+  public function __construct(shape(
+  ?'launch_path_summaries' => LaunchPathSummaries,
+  ?'next_page_token' => PageToken,
+  ) $s = shape()) {
+    $this->launch_path_summaries = $launch_path_summaries ?? [];
+    $this->next_page_token = $next_page_token ?? ;
+  }
 }
 
 class ListOrganizationPortfolioAccessInput {
@@ -879,11 +1868,33 @@ class ListOrganizationPortfolioAccessInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'organization_node_type' => OrganizationNodeType,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->organization_node_type = $organization_node_type ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+  }
 }
 
 class ListOrganizationPortfolioAccessOutput {
   public PageToken $next_page_token;
   public OrganizationNodes $organization_nodes;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'organization_nodes' => OrganizationNodes,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->organization_nodes = $organization_nodes ?? [];
+  }
 }
 
 class ListPortfolioAccessInput {
@@ -892,11 +1903,33 @@ class ListPortfolioAccessInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'organization_parent_id' => Id,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->organization_parent_id = $organization_parent_id ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+  }
 }
 
 class ListPortfolioAccessOutput {
   public AccountIds $account_ids;
   public PageToken $next_page_token;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'next_page_token' => PageToken,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->next_page_token = $next_page_token ?? ;
+  }
 }
 
 class ListPortfoliosForProductInput {
@@ -904,22 +1937,60 @@ class ListPortfoliosForProductInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class ListPortfoliosForProductOutput {
   public PageToken $next_page_token;
   public PortfolioDetails $portfolio_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'portfolio_details' => PortfolioDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->portfolio_details = $portfolio_details ?? [];
+  }
 }
 
 class ListPortfoliosInput {
   public AcceptLanguage $accept_language;
   public PageSize $page_size;
   public PageToken $page_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+  }
 }
 
 class ListPortfoliosOutput {
   public PageToken $next_page_token;
   public PortfolioDetails $portfolio_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'portfolio_details' => PortfolioDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->portfolio_details = $portfolio_details ?? [];
+  }
 }
 
 class ListPrincipalsForPortfolioInput {
@@ -927,11 +1998,31 @@ class ListPrincipalsForPortfolioInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $portfolio_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+  }
 }
 
 class ListPrincipalsForPortfolioOutput {
   public PageToken $next_page_token;
   public Principals $principals;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'principals' => Principals,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->principals = $principals ?? [];
+  }
 }
 
 class ListProvisionedProductPlansInput {
@@ -940,11 +2031,33 @@ class ListProvisionedProductPlansInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $provision_product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'access_level_filter' => AccessLevelFilter,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'provision_product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->access_level_filter = $access_level_filter ?? null;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->provision_product_id = $provision_product_id ?? ;
+  }
 }
 
 class ListProvisionedProductPlansOutput {
   public PageToken $next_page_token;
   public ProvisionedProductPlans $provisioned_product_plans;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioned_product_plans' => ProvisionedProductPlans,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioned_product_plans = $provisioned_product_plans ?? [];
+  }
 }
 
 class ListProvisioningArtifactsForServiceActionInput {
@@ -952,21 +2065,57 @@ class ListProvisioningArtifactsForServiceActionInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
 class ListProvisioningArtifactsForServiceActionOutput {
   public PageToken $next_page_token;
   public ProvisioningArtifactViews $provisioning_artifact_views;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioning_artifact_views' => ProvisioningArtifactViews,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioning_artifact_views = $provisioning_artifact_views ?? [];
+  }
 }
 
 class ListProvisioningArtifactsInput {
   public AcceptLanguage $accept_language;
   public Id $product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->product_id = $product_id ?? ;
+  }
 }
 
 class ListProvisioningArtifactsOutput {
   public PageToken $next_page_token;
   public ProvisioningArtifactDetails $provisioning_artifact_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioning_artifact_details' => ProvisioningArtifactDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioning_artifact_details = $provisioning_artifact_details ?? [];
+  }
 }
 
 class ListRecordHistoryInput {
@@ -975,16 +2124,46 @@ class ListRecordHistoryInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public ListRecordHistorySearchFilter $search_filter;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'access_level_filter' => AccessLevelFilter,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'search_filter' => ListRecordHistorySearchFilter,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->access_level_filter = $access_level_filter ?? null;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->search_filter = $search_filter ?? ;
+  }
 }
 
 class ListRecordHistoryOutput {
   public PageToken $next_page_token;
   public RecordDetails $record_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'record_details' => RecordDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->record_details = $record_details ?? [];
+  }
 }
 
 class ListRecordHistorySearchFilter {
   public SearchFilterKey $key;
   public SearchFilterValue $value;
+
+  public function __construct(shape(
+  ?'key' => SearchFilterKey,
+  ?'value' => SearchFilterValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class ListResourcesForTagOptionInput {
@@ -992,11 +2171,31 @@ class ListResourcesForTagOptionInput {
   public PageToken $page_token;
   public ResourceType $resource_type;
   public TagOptionId $tag_option_id;
+
+  public function __construct(shape(
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'resource_type' => ResourceType,
+  ?'tag_option_id' => TagOptionId,
+  ) $s = shape()) {
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->tag_option_id = $tag_option_id ?? "";
+  }
 }
 
 class ListResourcesForTagOptionOutput {
   public PageToken $page_token;
   public ResourceDetails $resource_details;
+
+  public function __construct(shape(
+  ?'page_token' => PageToken,
+  ?'resource_details' => ResourceDetails,
+  ) $s = shape()) {
+    $this->page_token = $page_token ?? "";
+    $this->resource_details = $resource_details ?? [];
+  }
 }
 
 class ListServiceActionsForProvisioningArtifactInput {
@@ -1005,22 +2204,62 @@ class ListServiceActionsForProvisioningArtifactInput {
   public PageToken $page_token;
   public Id $product_id;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
 class ListServiceActionsForProvisioningArtifactOutput {
   public PageToken $next_page_token;
   public ServiceActionSummaries $service_action_summaries;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'service_action_summaries' => ServiceActionSummaries,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->service_action_summaries = $service_action_summaries ?? [];
+  }
 }
 
 class ListServiceActionsInput {
   public AcceptLanguage $accept_language;
   public PageSize $page_size;
   public PageToken $page_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+  }
 }
 
 class ListServiceActionsOutput {
   public PageToken $next_page_token;
   public ServiceActionSummaries $service_action_summaries;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'service_action_summaries' => ServiceActionSummaries,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->service_action_summaries = $service_action_summaries ?? [];
+  }
 }
 
 class ListStackInstancesForProvisionedProductInput {
@@ -1028,101 +2267,147 @@ class ListStackInstancesForProvisionedProductInput {
   public PageSize $page_size;
   public PageToken $page_token;
   public Id $provisioned_product_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'provisioned_product_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+  }
 }
 
 class ListStackInstancesForProvisionedProductOutput {
   public PageToken $next_page_token;
   public StackInstances $stack_instances;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'stack_instances' => StackInstances,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->stack_instances = $stack_instances ?? [];
+  }
 }
 
 class ListTagOptionsFilters {
   public TagOptionActive $active;
   public TagOptionKey $key;
   public TagOptionValue $value;
+
+  public function __construct(shape(
+  ?'active' => TagOptionActive,
+  ?'key' => TagOptionKey,
+  ?'value' => TagOptionValue,
+  ) $s = shape()) {
+    $this->active = $active ?? ;
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class ListTagOptionsInput {
   public ListTagOptionsFilters $filters;
   public PageSize $page_size;
   public PageToken $page_token;
+
+  public function __construct(shape(
+  ?'filters' => ListTagOptionsFilters,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+  }
 }
 
 class ListTagOptionsOutput {
   public PageToken $page_token;
   public TagOptionDetails $tag_option_details;
+
+  public function __construct(shape(
+  ?'page_token' => PageToken,
+  ?'tag_option_details' => TagOptionDetails,
+  ) $s = shape()) {
+    $this->page_token = $page_token ?? "";
+    $this->tag_option_details = $tag_option_details ?? [];
+  }
 }
 
-class LogicalResourceId {
-}
+type LogicalResourceId = string;
 
-class Message {
-}
+type Message = string;
 
-class Namespaces {
-}
+type Namespaces = vec<AccountId>;
 
-class NoEcho {
-}
+type NoEcho = bool;
 
-class NotificationArn {
-}
+type NotificationArn = string;
 
-class NotificationArns {
-}
+type NotificationArns = vec<NotificationArn>;
 
 class OperationNotSupportedException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class OrganizationNode {
   public OrganizationNodeType $type;
   public OrganizationNodeValue $value;
+
+  public function __construct(shape(
+  ?'type' => OrganizationNodeType,
+  ?'value' => OrganizationNodeValue,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class OrganizationNodeType {
-}
+type OrganizationNodeType = string;
 
-class OrganizationNodeValue {
-}
+type OrganizationNodeValue = string;
 
-class OrganizationNodes {
-}
+type OrganizationNodes = vec<OrganizationNode>;
 
-class OutputKey {
-}
+type OutputKey = string;
 
-class OutputValue {
-}
+type OutputValue = string;
 
-class PageSize {
-}
+type PageSize = int;
 
-class PageToken {
-}
+type PageToken = string;
 
 class ParameterConstraints {
   public AllowedValues $allowed_values;
+
+  public function __construct(shape(
+  ?'allowed_values' => AllowedValues,
+  ) $s = shape()) {
+    $this->allowed_values = $allowed_values ?? [];
+  }
 }
 
-class ParameterKey {
-}
+type ParameterKey = string;
 
-class ParameterType {
-}
+type ParameterType = string;
 
-class ParameterValue {
-}
+type ParameterValue = string;
 
-class PhysicalId {
-}
+type PhysicalId = string;
 
-class PhysicalResourceId {
-}
+type PhysicalResourceId = string;
 
-class PlanResourceType {
-}
+type PlanResourceType = string;
 
-class PortfolioDescription {
-}
+type PortfolioDescription = string;
 
 class PortfolioDetail {
   public ResourceARN $arn;
@@ -1131,96 +2416,116 @@ class PortfolioDetail {
   public PortfolioDisplayName $display_name;
   public Id $id;
   public ProviderName $provider_name;
+
+  public function __construct(shape(
+  ?'arn' => ResourceARN,
+  ?'created_time' => CreationTime,
+  ?'description' => PortfolioDescription,
+  ?'display_name' => PortfolioDisplayName,
+  ?'id' => Id,
+  ?'provider_name' => ProviderName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? ;
+    $this->id = $id ?? "";
+    $this->provider_name = $provider_name ?? "";
+  }
 }
 
-class PortfolioDetails {
-}
+type PortfolioDetails = vec<PortfolioDetail>;
 
-class PortfolioDisplayName {
-}
+type PortfolioDisplayName = string;
 
-class PortfolioName {
-}
+type PortfolioName = string;
 
-class PortfolioShareType {
-}
+type PortfolioShareType = string;
 
 class Principal {
   public PrincipalARN $principal_arn;
   public PrincipalType $principal_type;
+
+  public function __construct(shape(
+  ?'principal_arn' => PrincipalARN,
+  ?'principal_type' => PrincipalType,
+  ) $s = shape()) {
+    $this->principal_arn = $principal_arn ?? "";
+    $this->principal_type = $principal_type ?? "";
+  }
 }
 
-class PrincipalARN {
-}
+type PrincipalARN = string;
 
-class PrincipalType {
-}
+type PrincipalType = string;
 
-class Principals {
-}
+type Principals = vec<Principal>;
 
-class ProductArn {
-}
+type ProductArn = string;
 
-class ProductSource {
-}
+type ProductSource = string;
 
-class ProductType {
-}
+type ProductType = string;
 
-class ProductViewAggregationType {
-}
+type ProductViewAggregationType = string;
 
 class ProductViewAggregationValue {
   public ApproximateCount $approximate_count;
   public AttributeValue $value;
+
+  public function __construct(shape(
+  ?'approximate_count' => ApproximateCount,
+  ?'value' => AttributeValue,
+  ) $s = shape()) {
+    $this->approximate_count = $approximate_count ?? 0;
+    $this->value = $value ?? ;
+  }
 }
 
-class ProductViewAggregationValues {
-}
+type ProductViewAggregationValues = vec<ProductViewAggregationValue>;
 
-class ProductViewAggregations {
-}
+type ProductViewAggregations = dict<ProductViewAggregationType, ProductViewAggregationValues>;
 
 class ProductViewDetail {
   public CreatedTime $created_time;
   public ResourceARN $product_arn;
   public ProductViewSummary $product_view_summary;
   public Status $status;
+
+  public function __construct(shape(
+  ?'created_time' => CreatedTime,
+  ?'product_arn' => ResourceARN,
+  ?'product_view_summary' => ProductViewSummary,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? 0;
+    $this->product_arn = $product_arn ?? ;
+    $this->product_view_summary = $product_view_summary ?? null;
+    $this->status = $status ?? "";
+  }
 }
 
-class ProductViewDetails {
-}
+type ProductViewDetails = vec<ProductViewDetail>;
 
-class ProductViewDistributor {
-}
+type ProductViewDistributor = string;
 
-class ProductViewFilterBy {
-}
+type ProductViewFilterBy = string;
 
-class ProductViewFilterValue {
-}
+type ProductViewFilterValue = string;
 
-class ProductViewFilterValues {
-}
+type ProductViewFilterValues = vec<ProductViewFilterValue>;
 
-class ProductViewFilters {
-}
+type ProductViewFilters = dict<ProductViewFilterBy, ProductViewFilterValues>;
 
-class ProductViewName {
-}
+type ProductViewName = string;
 
-class ProductViewOwner {
-}
+type ProductViewOwner = string;
 
-class ProductViewShortDescription {
-}
+type ProductViewShortDescription = string;
 
-class ProductViewSortBy {
-}
+type ProductViewSortBy = string;
 
-class ProductViewSummaries {
-}
+type ProductViewSummaries = vec<ProductViewSummary>;
 
 class ProductViewSummary {
   public ProductViewDistributor $distributor;
@@ -1234,19 +2539,41 @@ class ProductViewSummary {
   public SupportEmail $support_email;
   public SupportUrl $support_url;
   public ProductType $type;
+
+  public function __construct(shape(
+  ?'distributor' => ProductViewDistributor,
+  ?'has_default_path' => HasDefaultPath,
+  ?'id' => Id,
+  ?'name' => ProductViewName,
+  ?'owner' => ProductViewOwner,
+  ?'product_id' => Id,
+  ?'short_description' => ProductViewShortDescription,
+  ?'support_description' => SupportDescription,
+  ?'support_email' => SupportEmail,
+  ?'support_url' => SupportUrl,
+  ?'type' => ProductType,
+  ) $s = shape()) {
+    $this->distributor = $distributor ?? ;
+    $this->has_default_path = $has_default_path ?? false;
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+    $this->owner = $owner ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->short_description = $short_description ?? ;
+    $this->support_description = $support_description ?? "";
+    $this->support_email = $support_email ?? "";
+    $this->support_url = $support_url ?? "";
+    $this->type = $type ?? ;
+  }
 }
 
-class PropertyKey {
-}
+type PropertyKey = string;
 
-class PropertyName {
-}
+type PropertyName = string;
 
-class PropertyValue {
-}
+type PropertyValue = string;
 
-class ProviderName {
-}
+type ProviderName = string;
 
 class ProvisionProductInput {
   public AcceptLanguage $accept_language;
@@ -1259,10 +2586,40 @@ class ProvisionProductInput {
   public ProvisioningParameters $provisioning_parameters;
   public ProvisioningPreferences $provisioning_preferences;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'notification_arns' => NotificationArns,
+  ?'path_id' => Id,
+  ?'product_id' => Id,
+  ?'provision_token' => IdempotencyToken,
+  ?'provisioned_product_name' => ProvisionedProductName,
+  ?'provisioning_artifact_id' => Id,
+  ?'provisioning_parameters' => ProvisioningParameters,
+  ?'provisioning_preferences' => ProvisioningPreferences,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->notification_arns = $notification_arns ?? [];
+    $this->path_id = $path_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provision_token = $provision_token ?? ;
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_parameters = $provisioning_parameters ?? [];
+    $this->provisioning_preferences = $provisioning_preferences ?? null;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class ProvisionProductOutput {
   public RecordDetail $record_detail;
+
+  public function __construct(shape(
+  ?'record_detail' => RecordDetail,
+  ) $s = shape()) {
+    $this->record_detail = $record_detail ?? null;
+  }
 }
 
 class ProvisionedProductAttribute {
@@ -1281,10 +2638,43 @@ class ProvisionedProductAttribute {
   public ProvisionedProductType $type;
   public UserArn $user_arn;
   public UserArnSession $user_arn_session;
+
+  public function __construct(shape(
+  ?'arn' => ProvisionedProductNameOrArn,
+  ?'created_time' => CreatedTime,
+  ?'id' => Id,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'last_record_id' => Id,
+  ?'name' => ProvisionedProductNameOrArn,
+  ?'physical_id' => PhysicalId,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'status' => ProvisionedProductStatus,
+  ?'status_message' => ProvisionedProductStatusMessage,
+  ?'tags' => Tags,
+  ?'type' => ProvisionedProductType,
+  ?'user_arn' => UserArn,
+  ?'user_arn_session' => UserArnSession,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->id = $id ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->last_record_id = $last_record_id ?? ;
+    $this->name = $name ?? ;
+    $this->physical_id = $physical_id ?? "";
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->tags = $tags ?? [];
+    $this->type = $type ?? ;
+    $this->user_arn = $user_arn ?? "";
+    $this->user_arn_session = $user_arn_session ?? "";
+  }
 }
 
-class ProvisionedProductAttributes {
-}
+type ProvisionedProductAttributes = vec<ProvisionedProductAttribute>;
 
 class ProvisionedProductDetail {
   public ProvisionedProductNameOrArn $arn;
@@ -1298,22 +2688,43 @@ class ProvisionedProductDetail {
   public ProvisionedProductStatus $status;
   public ProvisionedProductStatusMessage $status_message;
   public ProvisionedProductType $type;
+
+  public function __construct(shape(
+  ?'arn' => ProvisionedProductNameOrArn,
+  ?'created_time' => CreatedTime,
+  ?'id' => ProvisionedProductId,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'last_record_id' => LastRequestId,
+  ?'name' => ProvisionedProductNameOrArn,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'status' => ProvisionedProductStatus,
+  ?'status_message' => ProvisionedProductStatusMessage,
+  ?'type' => ProvisionedProductType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->id = $id ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->last_record_id = $last_record_id ?? ;
+    $this->name = $name ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->type = $type ?? ;
+  }
 }
 
-class ProvisionedProductDetails {
-}
+type ProvisionedProductDetails = vec<ProvisionedProductDetail>;
 
-class ProvisionedProductFilters {
-}
+type ProvisionedProductFilters = dict<ProvisionedProductViewFilterBy, ProvisionedProductViewFilterValues>;
 
-class ProvisionedProductId {
-}
+type ProvisionedProductId = string;
 
-class ProvisionedProductName {
-}
+type ProvisionedProductName = string;
 
-class ProvisionedProductNameOrArn {
-}
+type ProvisionedProductNameOrArn = string;
 
 class ProvisionedProductPlanDetails {
   public CreatedTime $created_time;
@@ -1331,13 +2742,45 @@ class ProvisionedProductPlanDetails {
   public StatusMessage $status_message;
   public Tags $tags;
   public UpdatedTime $updated_time;
+
+  public function __construct(shape(
+  ?'created_time' => CreatedTime,
+  ?'notification_arns' => NotificationArns,
+  ?'path_id' => Id,
+  ?'plan_id' => Id,
+  ?'plan_name' => ProvisionedProductPlanName,
+  ?'plan_type' => ProvisionedProductPlanType,
+  ?'product_id' => Id,
+  ?'provision_product_id' => Id,
+  ?'provision_product_name' => ProvisionedProductName,
+  ?'provisioning_artifact_id' => Id,
+  ?'provisioning_parameters' => UpdateProvisioningParameters,
+  ?'status' => ProvisionedProductPlanStatus,
+  ?'status_message' => StatusMessage,
+  ?'tags' => Tags,
+  ?'updated_time' => UpdatedTime,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? 0;
+    $this->notification_arns = $notification_arns ?? [];
+    $this->path_id = $path_id ?? ;
+    $this->plan_id = $plan_id ?? ;
+    $this->plan_name = $plan_name ?? ;
+    $this->plan_type = $plan_type ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provision_product_id = $provision_product_id ?? ;
+    $this->provision_product_name = $provision_product_name ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_parameters = $provisioning_parameters ?? [];
+    $this->status = $status ?? "";
+    $this->status_message = $status_message ?? "";
+    $this->tags = $tags ?? [];
+    $this->updated_time = $updated_time ?? 0;
+  }
 }
 
-class ProvisionedProductPlanName {
-}
+type ProvisionedProductPlanName = string;
 
-class ProvisionedProductPlanStatus {
-}
+type ProvisionedProductPlanStatus = string;
 
 class ProvisionedProductPlanSummary {
   public Id $plan_id;
@@ -1346,34 +2789,41 @@ class ProvisionedProductPlanSummary {
   public Id $provision_product_id;
   public ProvisionedProductName $provision_product_name;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'plan_id' => Id,
+  ?'plan_name' => ProvisionedProductPlanName,
+  ?'plan_type' => ProvisionedProductPlanType,
+  ?'provision_product_id' => Id,
+  ?'provision_product_name' => ProvisionedProductName,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->plan_id = $plan_id ?? ;
+    $this->plan_name = $plan_name ?? ;
+    $this->plan_type = $plan_type ?? ;
+    $this->provision_product_id = $provision_product_id ?? ;
+    $this->provision_product_name = $provision_product_name ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
-class ProvisionedProductPlanType {
-}
+type ProvisionedProductPlanType = string;
 
-class ProvisionedProductPlans {
-}
+type ProvisionedProductPlans = vec<ProvisionedProductPlanSummary>;
 
-class ProvisionedProductProperties {
-}
+type ProvisionedProductProperties = dict<PropertyKey, PropertyValue>;
 
-class ProvisionedProductStatus {
-}
+type ProvisionedProductStatus = string;
 
-class ProvisionedProductStatusMessage {
-}
+type ProvisionedProductStatusMessage = string;
 
-class ProvisionedProductType {
-}
+type ProvisionedProductType = string;
 
-class ProvisionedProductViewFilterBy {
-}
+type ProvisionedProductViewFilterBy = string;
 
-class ProvisionedProductViewFilterValue {
-}
+type ProvisionedProductViewFilterValue = string;
 
-class ProvisionedProductViewFilterValues {
-}
+type ProvisionedProductViewFilterValues = vec<ProvisionedProductViewFilterValue>;
 
 class ProvisioningArtifact {
   public ProvisioningArtifactCreatedTime $created_time;
@@ -1381,16 +2831,27 @@ class ProvisioningArtifact {
   public ProvisioningArtifactGuidance $guidance;
   public Id $id;
   public ProvisioningArtifactName $name;
+
+  public function __construct(shape(
+  ?'created_time' => ProvisioningArtifactCreatedTime,
+  ?'description' => ProvisioningArtifactDescription,
+  ?'guidance' => ProvisioningArtifactGuidance,
+  ?'id' => Id,
+  ?'name' => ProvisioningArtifactName,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->guidance = $guidance ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
-class ProvisioningArtifactActive {
-}
+type ProvisioningArtifactActive = bool;
 
-class ProvisioningArtifactCreatedTime {
-}
+type ProvisioningArtifactCreatedTime = int;
 
-class ProvisioningArtifactDescription {
-}
+type ProvisioningArtifactDescription = string;
 
 class ProvisioningArtifactDetail {
   public ProvisioningArtifactActive $active;
@@ -1400,25 +2861,37 @@ class ProvisioningArtifactDetail {
   public Id $id;
   public ProvisioningArtifactName $name;
   public ProvisioningArtifactType $type;
+
+  public function __construct(shape(
+  ?'active' => ProvisioningArtifactActive,
+  ?'created_time' => CreationTime,
+  ?'description' => ProvisioningArtifactName,
+  ?'guidance' => ProvisioningArtifactGuidance,
+  ?'id' => Id,
+  ?'name' => ProvisioningArtifactName,
+  ?'type' => ProvisioningArtifactType,
+  ) $s = shape()) {
+    $this->active = $active ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->guidance = $guidance ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ProvisioningArtifactDetails {
-}
+type ProvisioningArtifactDetails = vec<ProvisioningArtifactDetail>;
 
-class ProvisioningArtifactGuidance {
-}
+type ProvisioningArtifactGuidance = string;
 
-class ProvisioningArtifactInfo {
-}
+type ProvisioningArtifactInfo = dict<ProvisioningArtifactInfoKey, ProvisioningArtifactInfoValue>;
 
-class ProvisioningArtifactInfoKey {
-}
+type ProvisioningArtifactInfoKey = string;
 
-class ProvisioningArtifactInfoValue {
-}
+type ProvisioningArtifactInfoValue = string;
 
-class ProvisioningArtifactName {
-}
+type ProvisioningArtifactName = string;
 
 class ProvisioningArtifactParameter {
   public DefaultValue $default_value;
@@ -1427,14 +2900,37 @@ class ProvisioningArtifactParameter {
   public ParameterConstraints $parameter_constraints;
   public ParameterKey $parameter_key;
   public ParameterType $parameter_type;
+
+  public function __construct(shape(
+  ?'default_value' => DefaultValue,
+  ?'description' => Description,
+  ?'is_no_echo' => NoEcho,
+  ?'parameter_constraints' => ParameterConstraints,
+  ?'parameter_key' => ParameterKey,
+  ?'parameter_type' => ParameterType,
+  ) $s = shape()) {
+    $this->default_value = $default_value ?? "";
+    $this->description = $description ?? "";
+    $this->is_no_echo = $is_no_echo ?? ;
+    $this->parameter_constraints = $parameter_constraints ?? null;
+    $this->parameter_key = $parameter_key ?? "";
+    $this->parameter_type = $parameter_type ?? "";
+  }
 }
 
-class ProvisioningArtifactParameters {
-}
+type ProvisioningArtifactParameters = vec<ProvisioningArtifactParameter>;
 
 class ProvisioningArtifactPreferences {
   public StackSetAccounts $stack_set_accounts;
   public StackSetRegions $stack_set_regions;
+
+  public function __construct(shape(
+  ?'stack_set_accounts' => StackSetAccounts,
+  ?'stack_set_regions' => StackSetRegions,
+  ) $s = shape()) {
+    $this->stack_set_accounts = $stack_set_accounts ?? [];
+    $this->stack_set_regions = $stack_set_regions ?? [];
+  }
 }
 
 class ProvisioningArtifactProperties {
@@ -1443,16 +2939,27 @@ class ProvisioningArtifactProperties {
   public ProvisioningArtifactInfo $info;
   public ProvisioningArtifactName $name;
   public ProvisioningArtifactType $type;
+
+  public function __construct(shape(
+  ?'description' => ProvisioningArtifactDescription,
+  ?'disable_template_validation' => DisableTemplateValidation,
+  ?'info' => ProvisioningArtifactInfo,
+  ?'name' => ProvisioningArtifactName,
+  ?'type' => ProvisioningArtifactType,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->disable_template_validation = $disable_template_validation ?? false;
+    $this->info = $info ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ProvisioningArtifactPropertyName {
-}
+type ProvisioningArtifactPropertyName = string;
 
-class ProvisioningArtifactPropertyValue {
-}
+type ProvisioningArtifactPropertyValue = string;
 
-class ProvisioningArtifactSummaries {
-}
+type ProvisioningArtifactSummaries = vec<ProvisioningArtifactSummary>;
 
 class ProvisioningArtifactSummary {
   public ProvisioningArtifactCreatedTime $created_time;
@@ -1460,29 +2967,55 @@ class ProvisioningArtifactSummary {
   public Id $id;
   public ProvisioningArtifactName $name;
   public ProvisioningArtifactInfo $provisioning_artifact_metadata;
+
+  public function __construct(shape(
+  ?'created_time' => ProvisioningArtifactCreatedTime,
+  ?'description' => ProvisioningArtifactDescription,
+  ?'id' => Id,
+  ?'name' => ProvisioningArtifactName,
+  ?'provisioning_artifact_metadata' => ProvisioningArtifactInfo,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+    $this->provisioning_artifact_metadata = $provisioning_artifact_metadata ?? ;
+  }
 }
 
-class ProvisioningArtifactType {
-}
+type ProvisioningArtifactType = string;
 
 class ProvisioningArtifactView {
   public ProductViewSummary $product_view_summary;
   public ProvisioningArtifact $provisioning_artifact;
+
+  public function __construct(shape(
+  ?'product_view_summary' => ProductViewSummary,
+  ?'provisioning_artifact' => ProvisioningArtifact,
+  ) $s = shape()) {
+    $this->product_view_summary = $product_view_summary ?? null;
+    $this->provisioning_artifact = $provisioning_artifact ?? null;
+  }
 }
 
-class ProvisioningArtifactViews {
-}
+type ProvisioningArtifactViews = vec<ProvisioningArtifactView>;
 
-class ProvisioningArtifacts {
-}
+type ProvisioningArtifacts = vec<ProvisioningArtifact>;
 
 class ProvisioningParameter {
   public ParameterKey $key;
   public ParameterValue $value;
+
+  public function __construct(shape(
+  ?'key' => ParameterKey,
+  ?'value' => ParameterValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ProvisioningParameters {
-}
+type ProvisioningParameters = vec<ProvisioningParameter>;
 
 class ProvisioningPreferences {
   public StackSetAccounts $stack_set_accounts;
@@ -1491,6 +3024,22 @@ class ProvisioningPreferences {
   public StackSetMaxConcurrencyCount $stack_set_max_concurrency_count;
   public StackSetMaxConcurrencyPercentage $stack_set_max_concurrency_percentage;
   public StackSetRegions $stack_set_regions;
+
+  public function __construct(shape(
+  ?'stack_set_accounts' => StackSetAccounts,
+  ?'stack_set_failure_tolerance_count' => StackSetFailureToleranceCount,
+  ?'stack_set_failure_tolerance_percentage' => StackSetFailureTolerancePercentage,
+  ?'stack_set_max_concurrency_count' => StackSetMaxConcurrencyCount,
+  ?'stack_set_max_concurrency_percentage' => StackSetMaxConcurrencyPercentage,
+  ?'stack_set_regions' => StackSetRegions,
+  ) $s = shape()) {
+    $this->stack_set_accounts = $stack_set_accounts ?? [];
+    $this->stack_set_failure_tolerance_count = $stack_set_failure_tolerance_count ?? 0;
+    $this->stack_set_failure_tolerance_percentage = $stack_set_failure_tolerance_percentage ?? 0;
+    $this->stack_set_max_concurrency_count = $stack_set_max_concurrency_count ?? 0;
+    $this->stack_set_max_concurrency_percentage = $stack_set_max_concurrency_percentage ?? 0;
+    $this->stack_set_regions = $stack_set_regions ?? [];
+  }
 }
 
 class RecordDetail {
@@ -1507,71 +3056,128 @@ class RecordDetail {
   public RecordType $record_type;
   public RecordStatus $status;
   public UpdatedTime $updated_time;
+
+  public function __construct(shape(
+  ?'created_time' => CreatedTime,
+  ?'path_id' => Id,
+  ?'product_id' => Id,
+  ?'provisioned_product_id' => Id,
+  ?'provisioned_product_name' => ProvisionedProductName,
+  ?'provisioned_product_type' => ProvisionedProductType,
+  ?'provisioning_artifact_id' => Id,
+  ?'record_errors' => RecordErrors,
+  ?'record_id' => Id,
+  ?'record_tags' => RecordTags,
+  ?'record_type' => RecordType,
+  ?'status' => RecordStatus,
+  ?'updated_time' => UpdatedTime,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? 0;
+    $this->path_id = $path_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->provisioned_product_type = $provisioned_product_type ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->record_errors = $record_errors ?? [];
+    $this->record_id = $record_id ?? ;
+    $this->record_tags = $record_tags ?? [];
+    $this->record_type = $record_type ?? "";
+    $this->status = $status ?? "";
+    $this->updated_time = $updated_time ?? 0;
+  }
 }
 
-class RecordDetails {
-}
+type RecordDetails = vec<RecordDetail>;
 
 class RecordError {
   public ErrorCode $code;
   public ErrorDescription $description;
+
+  public function __construct(shape(
+  ?'code' => ErrorCode,
+  ?'description' => ErrorDescription,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->description = $description ?? "";
+  }
 }
 
-class RecordErrors {
-}
+type RecordErrors = vec<RecordError>;
 
 class RecordOutput {
   public Description $description;
   public OutputKey $output_key;
   public OutputValue $output_value;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'output_key' => OutputKey,
+  ?'output_value' => OutputValue,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->output_key = $output_key ?? "";
+    $this->output_value = $output_value ?? "";
+  }
 }
 
-class RecordOutputs {
-}
+type RecordOutputs = vec<RecordOutput>;
 
-class RecordStatus {
-}
+type RecordStatus = string;
 
 class RecordTag {
   public RecordTagKey $key;
   public RecordTagValue $value;
+
+  public function __construct(shape(
+  ?'key' => RecordTagKey,
+  ?'value' => RecordTagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class RecordTagKey {
-}
+type RecordTagKey = string;
 
-class RecordTagValue {
-}
+type RecordTagValue = string;
 
-class RecordTags {
-}
+type RecordTags = vec<RecordTag>;
 
-class RecordType {
-}
+type RecordType = string;
 
-class Region {
-}
+type Region = string;
 
 class RejectPortfolioShareInput {
   public AcceptLanguage $accept_language;
   public Id $portfolio_id;
   public PortfolioShareType $portfolio_share_type;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'portfolio_id' => Id,
+  ?'portfolio_share_type' => PortfolioShareType,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->portfolio_share_type = $portfolio_share_type ?? "";
+  }
 }
 
 class RejectPortfolioShareOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Replacement {
-}
+type Replacement = string;
 
-class RequiresRecreation {
-}
+type RequiresRecreation = string;
 
-class ResourceARN {
-}
+type ResourceARN = string;
 
-class ResourceAttribute {
-}
+type ResourceAttribute = string;
 
 class ResourceChange {
   public ChangeAction $action;
@@ -1581,19 +3187,45 @@ class ResourceChange {
   public Replacement $replacement;
   public PlanResourceType $resource_type;
   public Scope $scope;
+
+  public function __construct(shape(
+  ?'action' => ChangeAction,
+  ?'details' => ResourceChangeDetails,
+  ?'logical_resource_id' => LogicalResourceId,
+  ?'physical_resource_id' => PhysicalResourceId,
+  ?'replacement' => Replacement,
+  ?'resource_type' => PlanResourceType,
+  ?'scope' => Scope,
+  ) $s = shape()) {
+    $this->action = $action ?? ;
+    $this->details = $details ?? ;
+    $this->logical_resource_id = $logical_resource_id ?? "";
+    $this->physical_resource_id = $physical_resource_id ?? "";
+    $this->replacement = $replacement ?? "";
+    $this->resource_type = $resource_type ?? "";
+    $this->scope = $scope ?? [];
+  }
 }
 
 class ResourceChangeDetail {
   public CausingEntity $causing_entity;
   public EvaluationType $evaluation;
   public ResourceTargetDefinition $target;
+
+  public function __construct(shape(
+  ?'causing_entity' => CausingEntity,
+  ?'evaluation' => EvaluationType,
+  ?'target' => ResourceTargetDefinition,
+  ) $s = shape()) {
+    $this->causing_entity = $causing_entity ?? "";
+    $this->evaluation = $evaluation ?? ;
+    $this->target = $target ?? ;
+  }
 }
 
-class ResourceChangeDetails {
-}
+type ResourceChangeDetails = vec<ResourceChangeDetail>;
 
-class ResourceChanges {
-}
+type ResourceChanges = vec<ResourceChange>;
 
 class ResourceDetail {
   public ResourceDetailARN $arn;
@@ -1601,64 +3233,105 @@ class ResourceDetail {
   public ResourceDetailDescription $description;
   public ResourceDetailId $id;
   public ResourceDetailName $name;
+
+  public function __construct(shape(
+  ?'arn' => ResourceDetailARN,
+  ?'created_time' => ResourceDetailCreatedTime,
+  ?'description' => ResourceDetailDescription,
+  ?'id' => ResourceDetailId,
+  ?'name' => ResourceDetailName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created_time = $created_time ?? 0;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
-class ResourceDetailARN {
-}
+type ResourceDetailARN = string;
 
-class ResourceDetailCreatedTime {
-}
+type ResourceDetailCreatedTime = int;
 
-class ResourceDetailDescription {
-}
+type ResourceDetailDescription = string;
 
-class ResourceDetailId {
-}
+type ResourceDetailId = string;
 
-class ResourceDetailName {
-}
+type ResourceDetailName = string;
 
-class ResourceDetails {
-}
+type ResourceDetails = vec<ResourceDetail>;
 
-class ResourceId {
-}
+type ResourceId = string;
 
 class ResourceInUseException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceTargetDefinition {
   public ResourceAttribute $attribute;
   public PropertyName $name;
   public RequiresRecreation $requires_recreation;
+
+  public function __construct(shape(
+  ?'attribute' => ResourceAttribute,
+  ?'name' => PropertyName,
+  ?'requires_recreation' => RequiresRecreation,
+  ) $s = shape()) {
+    $this->attribute = $attribute ?? ;
+    $this->name = $name ?? ;
+    $this->requires_recreation = $requires_recreation ?? "";
+  }
 }
 
-class ResourceType {
-}
+type ResourceType = string;
 
 class ScanProvisionedProductsInput {
   public AcceptLanguage $accept_language;
   public AccessLevelFilter $access_level_filter;
   public PageSize $page_size;
   public PageToken $page_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'access_level_filter' => AccessLevelFilter,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->access_level_filter = $access_level_filter ?? null;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+  }
 }
 
 class ScanProvisionedProductsOutput {
   public PageToken $next_page_token;
   public ProvisionedProductDetails $provisioned_products;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioned_products' => ProvisionedProductDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioned_products = $provisioned_products ?? ;
+  }
 }
 
-class Scope {
-}
+type Scope = vec<ResourceAttribute>;
 
-class SearchFilterKey {
-}
+type SearchFilterKey = string;
 
-class SearchFilterValue {
-}
+type SearchFilterValue = string;
 
 class SearchProductsAsAdminInput {
   public AcceptLanguage $accept_language;
@@ -1669,11 +3342,39 @@ class SearchProductsAsAdminInput {
   public ProductSource $product_source;
   public ProductViewSortBy $sort_by;
   public SortOrder $sort_order;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'filters' => ProductViewFilters,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'portfolio_id' => Id,
+  ?'product_source' => ProductSource,
+  ?'sort_by' => ProductViewSortBy,
+  ?'sort_order' => SortOrder,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->filters = $filters ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->portfolio_id = $portfolio_id ?? ;
+    $this->product_source = $product_source ?? "";
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? "";
+  }
 }
 
 class SearchProductsAsAdminOutput {
   public PageToken $next_page_token;
   public ProductViewDetails $product_view_details;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'product_view_details' => ProductViewDetails,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->product_view_details = $product_view_details ?? [];
+  }
 }
 
 class SearchProductsInput {
@@ -1683,12 +3384,38 @@ class SearchProductsInput {
   public PageToken $page_token;
   public ProductViewSortBy $sort_by;
   public SortOrder $sort_order;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'filters' => ProductViewFilters,
+  ?'page_size' => PageSize,
+  ?'page_token' => PageToken,
+  ?'sort_by' => ProductViewSortBy,
+  ?'sort_order' => SortOrder,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->filters = $filters ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? "";
+  }
 }
 
 class SearchProductsOutput {
   public PageToken $next_page_token;
   public ProductViewAggregations $product_view_aggregations;
   public ProductViewSummaries $product_view_summaries;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'product_view_aggregations' => ProductViewAggregations,
+  ?'product_view_summaries' => ProductViewSummaries,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->product_view_aggregations = $product_view_aggregations ?? [];
+    $this->product_view_summaries = $product_view_summaries ?? [];
+  }
 }
 
 class SearchProvisionedProductsInput {
@@ -1699,200 +3426,274 @@ class SearchProvisionedProductsInput {
   public PageToken $page_token;
   public SortField $sort_by;
   public SortOrder $sort_order;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'access_level_filter' => AccessLevelFilter,
+  ?'filters' => ProvisionedProductFilters,
+  ?'page_size' => SearchProvisionedProductsPageSize,
+  ?'page_token' => PageToken,
+  ?'sort_by' => SortField,
+  ?'sort_order' => SortOrder,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->access_level_filter = $access_level_filter ?? null;
+    $this->filters = $filters ?? ;
+    $this->page_size = $page_size ?? 0;
+    $this->page_token = $page_token ?? "";
+    $this->sort_by = $sort_by ?? ;
+    $this->sort_order = $sort_order ?? "";
+  }
 }
 
 class SearchProvisionedProductsOutput {
   public PageToken $next_page_token;
   public ProvisionedProductAttributes $provisioned_products;
   public TotalResultsCount $total_results_count;
+
+  public function __construct(shape(
+  ?'next_page_token' => PageToken,
+  ?'provisioned_products' => ProvisionedProductAttributes,
+  ?'total_results_count' => TotalResultsCount,
+  ) $s = shape()) {
+    $this->next_page_token = $next_page_token ?? ;
+    $this->provisioned_products = $provisioned_products ?? ;
+    $this->total_results_count = $total_results_count ?? 0;
+  }
 }
 
-class SearchProvisionedProductsPageSize {
-}
+type SearchProvisionedProductsPageSize = int;
 
 class ServiceActionAssociation {
   public Id $product_id;
   public Id $provisioning_artifact_id;
   public Id $service_action_id;
+
+  public function __construct(shape(
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ?'service_action_id' => Id,
+  ) $s = shape()) {
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->service_action_id = $service_action_id ?? ;
+  }
 }
 
-class ServiceActionAssociationErrorCode {
-}
+type ServiceActionAssociationErrorCode = string;
 
-class ServiceActionAssociationErrorMessage {
-}
+type ServiceActionAssociationErrorMessage = string;
 
-class ServiceActionAssociations {
-}
+type ServiceActionAssociations = vec<ServiceActionAssociation>;
 
-class ServiceActionDefinitionKey {
-}
+type ServiceActionDefinitionKey = string;
 
-class ServiceActionDefinitionMap {
-}
+type ServiceActionDefinitionMap = dict<ServiceActionDefinitionKey, ServiceActionDefinitionValue>;
 
-class ServiceActionDefinitionType {
-}
+type ServiceActionDefinitionType = string;
 
-class ServiceActionDefinitionValue {
-}
+type ServiceActionDefinitionValue = string;
 
-class ServiceActionDescription {
-}
+type ServiceActionDescription = string;
 
 class ServiceActionDetail {
   public ServiceActionDefinitionMap $definition;
   public ServiceActionSummary $service_action_summary;
+
+  public function __construct(shape(
+  ?'definition' => ServiceActionDefinitionMap,
+  ?'service_action_summary' => ServiceActionSummary,
+  ) $s = shape()) {
+    $this->definition = $definition ?? ;
+    $this->service_action_summary = $service_action_summary ?? null;
+  }
 }
 
-class ServiceActionName {
-}
+type ServiceActionName = string;
 
-class ServiceActionSummaries {
-}
+type ServiceActionSummaries = vec<ServiceActionSummary>;
 
 class ServiceActionSummary {
   public ServiceActionDefinitionType $definition_type;
   public ServiceActionDescription $description;
   public Id $id;
   public ServiceActionName $name;
+
+  public function __construct(shape(
+  ?'definition_type' => ServiceActionDefinitionType,
+  ?'description' => ServiceActionDescription,
+  ?'id' => Id,
+  ?'name' => ServiceActionName,
+  ) $s = shape()) {
+    $this->definition_type = $definition_type ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class ShareDetails {
   public ShareErrors $share_errors;
   public SuccessfulShares $successful_shares;
+
+  public function __construct(shape(
+  ?'share_errors' => ShareErrors,
+  ?'successful_shares' => SuccessfulShares,
+  ) $s = shape()) {
+    $this->share_errors = $share_errors ?? [];
+    $this->successful_shares = $successful_shares ?? [];
+  }
 }
 
 class ShareError {
   public Namespaces $accounts;
   public Error $error;
   public Message $message;
+
+  public function __construct(shape(
+  ?'accounts' => Namespaces,
+  ?'error' => Error,
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->accounts = $accounts ?? ;
+    $this->error = $error ?? "";
+    $this->message = $message ?? "";
+  }
 }
 
-class ShareErrors {
-}
+type ShareErrors = vec<ShareError>;
 
-class ShareStatus {
-}
+type ShareStatus = string;
 
-class SortField {
-}
+type SortField = string;
 
-class SortOrder {
-}
+type SortOrder = string;
 
-class SourceProvisioningArtifactProperties {
-}
+type SourceProvisioningArtifactProperties = vec<SourceProvisioningArtifactPropertiesMap>;
 
-class SourceProvisioningArtifactPropertiesMap {
-}
+type SourceProvisioningArtifactPropertiesMap = dict<ProvisioningArtifactPropertyName, ProvisioningArtifactPropertyValue>;
 
 class StackInstance {
   public AccountId $account;
   public Region $region;
   public StackInstanceStatus $stack_instance_status;
+
+  public function __construct(shape(
+  ?'account' => AccountId,
+  ?'region' => Region,
+  ?'stack_instance_status' => StackInstanceStatus,
+  ) $s = shape()) {
+    $this->account = $account ?? ;
+    $this->region = $region ?? "";
+    $this->stack_instance_status = $stack_instance_status ?? "";
+  }
 }
 
-class StackInstanceStatus {
-}
+type StackInstanceStatus = string;
 
-class StackInstances {
-}
+type StackInstances = vec<StackInstance>;
 
-class StackSetAccounts {
-}
+type StackSetAccounts = vec<AccountId>;
 
-class StackSetFailureToleranceCount {
-}
+type StackSetFailureToleranceCount = int;
 
-class StackSetFailureTolerancePercentage {
-}
+type StackSetFailureTolerancePercentage = int;
 
-class StackSetMaxConcurrencyCount {
-}
+type StackSetMaxConcurrencyCount = int;
 
-class StackSetMaxConcurrencyPercentage {
-}
+type StackSetMaxConcurrencyPercentage = int;
 
-class StackSetOperationType {
-}
+type StackSetOperationType = string;
 
-class StackSetRegions {
-}
+type StackSetRegions = vec<Region>;
 
-class Status {
-}
+type Status = string;
 
-class StatusDetail {
-}
+type StatusDetail = string;
 
-class StatusMessage {
-}
+type StatusMessage = string;
 
-class SuccessfulShares {
-}
+type SuccessfulShares = vec<AccountId>;
 
-class SupportDescription {
-}
+type SupportDescription = string;
 
-class SupportEmail {
-}
+type SupportEmail = string;
 
-class SupportUrl {
-}
+type SupportUrl = string;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeys {
-}
+type TagKeys = vec<TagKey>;
 
-class TagOptionActive {
-}
+type TagOptionActive = bool;
 
 class TagOptionDetail {
   public TagOptionActive $active;
   public TagOptionId $id;
   public TagOptionKey $key;
   public TagOptionValue $value;
+
+  public function __construct(shape(
+  ?'active' => TagOptionActive,
+  ?'id' => TagOptionId,
+  ?'key' => TagOptionKey,
+  ?'value' => TagOptionValue,
+  ) $s = shape()) {
+    $this->active = $active ?? ;
+    $this->id = $id ?? "";
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagOptionDetails {
-}
+type TagOptionDetails = vec<TagOptionDetail>;
 
-class TagOptionId {
-}
+type TagOptionId = string;
 
-class TagOptionKey {
-}
+type TagOptionKey = string;
 
 class TagOptionNotMigratedException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagOptionSummaries {
-}
+type TagOptionSummaries = vec<TagOptionSummary>;
 
 class TagOptionSummary {
   public TagOptionKey $key;
   public TagOptionValues $values;
+
+  public function __construct(shape(
+  ?'key' => TagOptionKey,
+  ?'values' => TagOptionValues,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class TagOptionValue {
-}
+type TagOptionValue = string;
 
-class TagOptionValues {
-}
+type TagOptionValues = vec<TagOptionValue>;
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = vec<Tag>;
 
 class TerminateProvisionedProductInput {
   public AcceptLanguage $accept_language;
@@ -1900,26 +3701,67 @@ class TerminateProvisionedProductInput {
   public Id $provisioned_product_id;
   public ProvisionedProductNameOrArn $provisioned_product_name;
   public IdempotencyToken $terminate_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'ignore_errors' => IgnoreErrors,
+  ?'provisioned_product_id' => Id,
+  ?'provisioned_product_name' => ProvisionedProductNameOrArn,
+  ?'terminate_token' => IdempotencyToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->ignore_errors = $ignore_errors ?? false;
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->terminate_token = $terminate_token ?? ;
+  }
 }
 
 class TerminateProvisionedProductOutput {
   public RecordDetail $record_detail;
+
+  public function __construct(shape(
+  ?'record_detail' => RecordDetail,
+  ) $s = shape()) {
+    $this->record_detail = $record_detail ?? null;
+  }
 }
 
-class TotalResultsCount {
-}
+type TotalResultsCount = int;
 
 class UpdateConstraintInput {
   public AcceptLanguage $accept_language;
   public ConstraintDescription $description;
   public Id $id;
   public ConstraintParameters $parameters;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'description' => ConstraintDescription,
+  ?'id' => Id,
+  ?'parameters' => ConstraintParameters,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->parameters = $parameters ?? ;
+  }
 }
 
 class UpdateConstraintOutput {
   public ConstraintDetail $constraint_detail;
   public ConstraintParameters $constraint_parameters;
   public Status $status;
+
+  public function __construct(shape(
+  ?'constraint_detail' => ConstraintDetail,
+  ?'constraint_parameters' => ConstraintParameters,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->constraint_detail = $constraint_detail ?? null;
+    $this->constraint_parameters = $constraint_parameters ?? "";
+    $this->status = $status ?? "";
+  }
 }
 
 class UpdatePortfolioInput {
@@ -1930,11 +3772,37 @@ class UpdatePortfolioInput {
   public Id $id;
   public ProviderName $provider_name;
   public TagKeys $remove_tags;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'add_tags' => AddTags,
+  ?'description' => PortfolioDescription,
+  ?'display_name' => PortfolioDisplayName,
+  ?'id' => Id,
+  ?'provider_name' => ProviderName,
+  ?'remove_tags' => TagKeys,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->add_tags = $add_tags ?? [];
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? ;
+    $this->id = $id ?? "";
+    $this->provider_name = $provider_name ?? "";
+    $this->remove_tags = $remove_tags ?? ;
+  }
 }
 
 class UpdatePortfolioOutput {
   public PortfolioDetail $portfolio_detail;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'portfolio_detail' => PortfolioDetail,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->portfolio_detail = $portfolio_detail ?? null;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class UpdateProductInput {
@@ -1949,11 +3817,45 @@ class UpdateProductInput {
   public SupportDescription $support_description;
   public SupportEmail $support_email;
   public SupportUrl $support_url;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'add_tags' => AddTags,
+  ?'description' => ProductViewShortDescription,
+  ?'distributor' => ProductViewOwner,
+  ?'id' => Id,
+  ?'name' => ProductViewName,
+  ?'owner' => ProductViewOwner,
+  ?'remove_tags' => TagKeys,
+  ?'support_description' => SupportDescription,
+  ?'support_email' => SupportEmail,
+  ?'support_url' => SupportUrl,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->add_tags = $add_tags ?? [];
+    $this->description = $description ?? "";
+    $this->distributor = $distributor ?? ;
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+    $this->owner = $owner ?? ;
+    $this->remove_tags = $remove_tags ?? ;
+    $this->support_description = $support_description ?? "";
+    $this->support_email = $support_email ?? "";
+    $this->support_url = $support_url ?? "";
+  }
 }
 
 class UpdateProductOutput {
   public ProductViewDetail $product_view_detail;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'product_view_detail' => ProductViewDetail,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->product_view_detail = $product_view_detail ?? null;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class UpdateProvisionedProductInput {
@@ -1967,10 +3869,40 @@ class UpdateProvisionedProductInput {
   public UpdateProvisioningPreferences $provisioning_preferences;
   public Tags $tags;
   public IdempotencyToken $update_token;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'path_id' => Id,
+  ?'product_id' => Id,
+  ?'provisioned_product_id' => Id,
+  ?'provisioned_product_name' => ProvisionedProductNameOrArn,
+  ?'provisioning_artifact_id' => Id,
+  ?'provisioning_parameters' => UpdateProvisioningParameters,
+  ?'provisioning_preferences' => UpdateProvisioningPreferences,
+  ?'tags' => Tags,
+  ?'update_token' => IdempotencyToken,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->path_id = $path_id ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->provisioned_product_name = $provisioned_product_name ?? "";
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+    $this->provisioning_parameters = $provisioning_parameters ?? [];
+    $this->provisioning_preferences = $provisioning_preferences ?? null;
+    $this->tags = $tags ?? [];
+    $this->update_token = $update_token ?? ;
+  }
 }
 
 class UpdateProvisionedProductOutput {
   public RecordDetail $record_detail;
+
+  public function __construct(shape(
+  ?'record_detail' => RecordDetail,
+  ) $s = shape()) {
+    $this->record_detail = $record_detail ?? null;
+  }
 }
 
 class UpdateProvisionedProductPropertiesInput {
@@ -1978,6 +3910,18 @@ class UpdateProvisionedProductPropertiesInput {
   public IdempotencyToken $idempotency_token;
   public Id $provisioned_product_id;
   public ProvisionedProductProperties $provisioned_product_properties;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'idempotency_token' => IdempotencyToken,
+  ?'provisioned_product_id' => Id,
+  ?'provisioned_product_properties' => ProvisionedProductProperties,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->idempotency_token = $idempotency_token ?? "";
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->provisioned_product_properties = $provisioned_product_properties ?? [];
+  }
 }
 
 class UpdateProvisionedProductPropertiesOutput {
@@ -1985,6 +3929,18 @@ class UpdateProvisionedProductPropertiesOutput {
   public ProvisionedProductProperties $provisioned_product_properties;
   public Id $record_id;
   public RecordStatus $status;
+
+  public function __construct(shape(
+  ?'provisioned_product_id' => Id,
+  ?'provisioned_product_properties' => ProvisionedProductProperties,
+  ?'record_id' => Id,
+  ?'status' => RecordStatus,
+  ) $s = shape()) {
+    $this->provisioned_product_id = $provisioned_product_id ?? "";
+    $this->provisioned_product_properties = $provisioned_product_properties ?? [];
+    $this->record_id = $record_id ?? ;
+    $this->status = $status ?? "";
+  }
 }
 
 class UpdateProvisioningArtifactInput {
@@ -1995,22 +3951,59 @@ class UpdateProvisioningArtifactInput {
   public ProvisioningArtifactName $name;
   public Id $product_id;
   public Id $provisioning_artifact_id;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'active' => ProvisioningArtifactActive,
+  ?'description' => ProvisioningArtifactDescription,
+  ?'guidance' => ProvisioningArtifactGuidance,
+  ?'name' => ProvisioningArtifactName,
+  ?'product_id' => Id,
+  ?'provisioning_artifact_id' => Id,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->active = $active ?? ;
+    $this->description = $description ?? "";
+    $this->guidance = $guidance ?? ;
+    $this->name = $name ?? ;
+    $this->product_id = $product_id ?? ;
+    $this->provisioning_artifact_id = $provisioning_artifact_id ?? ;
+  }
 }
 
 class UpdateProvisioningArtifactOutput {
   public ProvisioningArtifactInfo $info;
   public ProvisioningArtifactDetail $provisioning_artifact_detail;
   public Status $status;
+
+  public function __construct(shape(
+  ?'info' => ProvisioningArtifactInfo,
+  ?'provisioning_artifact_detail' => ProvisioningArtifactDetail,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->info = $info ?? ;
+    $this->provisioning_artifact_detail = $provisioning_artifact_detail ?? null;
+    $this->status = $status ?? "";
+  }
 }
 
 class UpdateProvisioningParameter {
   public ParameterKey $key;
   public UsePreviousValue $use_previous_value;
   public ParameterValue $value;
+
+  public function __construct(shape(
+  ?'key' => ParameterKey,
+  ?'use_previous_value' => UsePreviousValue,
+  ?'value' => ParameterValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->use_previous_value = $use_previous_value ?? false;
+    $this->value = $value ?? ;
+  }
 }
 
-class UpdateProvisioningParameters {
-}
+type UpdateProvisioningParameters = vec<UpdateProvisioningParameter>;
 
 class UpdateProvisioningPreferences {
   public StackSetAccounts $stack_set_accounts;
@@ -2020,6 +4013,24 @@ class UpdateProvisioningPreferences {
   public StackSetMaxConcurrencyPercentage $stack_set_max_concurrency_percentage;
   public StackSetOperationType $stack_set_operation_type;
   public StackSetRegions $stack_set_regions;
+
+  public function __construct(shape(
+  ?'stack_set_accounts' => StackSetAccounts,
+  ?'stack_set_failure_tolerance_count' => StackSetFailureToleranceCount,
+  ?'stack_set_failure_tolerance_percentage' => StackSetFailureTolerancePercentage,
+  ?'stack_set_max_concurrency_count' => StackSetMaxConcurrencyCount,
+  ?'stack_set_max_concurrency_percentage' => StackSetMaxConcurrencyPercentage,
+  ?'stack_set_operation_type' => StackSetOperationType,
+  ?'stack_set_regions' => StackSetRegions,
+  ) $s = shape()) {
+    $this->stack_set_accounts = $stack_set_accounts ?? [];
+    $this->stack_set_failure_tolerance_count = $stack_set_failure_tolerance_count ?? 0;
+    $this->stack_set_failure_tolerance_percentage = $stack_set_failure_tolerance_percentage ?? 0;
+    $this->stack_set_max_concurrency_count = $stack_set_max_concurrency_count ?? 0;
+    $this->stack_set_max_concurrency_percentage = $stack_set_max_concurrency_percentage ?? 0;
+    $this->stack_set_operation_type = $stack_set_operation_type ?? "";
+    $this->stack_set_regions = $stack_set_regions ?? [];
+  }
 }
 
 class UpdateServiceActionInput {
@@ -2028,42 +4039,80 @@ class UpdateServiceActionInput {
   public ServiceActionDescription $description;
   public Id $id;
   public ServiceActionName $name;
+
+  public function __construct(shape(
+  ?'accept_language' => AcceptLanguage,
+  ?'definition' => ServiceActionDefinitionMap,
+  ?'description' => ServiceActionDescription,
+  ?'id' => Id,
+  ?'name' => ServiceActionName,
+  ) $s = shape()) {
+    $this->accept_language = $accept_language ?? "";
+    $this->definition = $definition ?? ;
+    $this->description = $description ?? "";
+    $this->id = $id ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateServiceActionOutput {
   public ServiceActionDetail $service_action_detail;
+
+  public function __construct(shape(
+  ?'service_action_detail' => ServiceActionDetail,
+  ) $s = shape()) {
+    $this->service_action_detail = $service_action_detail ?? null;
+  }
 }
 
 class UpdateTagOptionInput {
   public TagOptionActive $active;
   public TagOptionId $id;
   public TagOptionValue $value;
+
+  public function __construct(shape(
+  ?'active' => TagOptionActive,
+  ?'id' => TagOptionId,
+  ?'value' => TagOptionValue,
+  ) $s = shape()) {
+    $this->active = $active ?? ;
+    $this->id = $id ?? "";
+    $this->value = $value ?? ;
+  }
 }
 
 class UpdateTagOptionOutput {
   public TagOptionDetail $tag_option_detail;
+
+  public function __construct(shape(
+  ?'tag_option_detail' => TagOptionDetail,
+  ) $s = shape()) {
+    $this->tag_option_detail = $tag_option_detail ?? null;
+  }
 }
 
-class UpdatedTime {
-}
+type UpdatedTime = int;
 
 class UsageInstruction {
   public InstructionType $type;
   public InstructionValue $value;
+
+  public function __construct(shape(
+  ?'type' => InstructionType,
+  ?'value' => InstructionValue,
+  ) $s = shape()) {
+    $this->type = $type ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class UsageInstructions {
-}
+type UsageInstructions = vec<UsageInstruction>;
 
-class UsePreviousValue {
-}
+type UsePreviousValue = bool;
 
-class UserArn {
-}
+type UserArn = string;
 
-class UserArnSession {
-}
+type UserArnSession = string;
 
-class Verbose {
-}
+type Verbose = bool;
 

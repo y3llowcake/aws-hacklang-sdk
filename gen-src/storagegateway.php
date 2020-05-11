@@ -91,61 +91,155 @@ class ActivateGatewayInput {
   public MediumChangerType $medium_changer_type;
   public Tags $tags;
   public TapeDriveType $tape_drive_type;
+
+  public function __construct(shape(
+  ?'activation_key' => ActivationKey,
+  ?'gateway_name' => GatewayName,
+  ?'gateway_region' => RegionId,
+  ?'gateway_timezone' => GatewayTimezone,
+  ?'gateway_type' => GatewayType,
+  ?'medium_changer_type' => MediumChangerType,
+  ?'tags' => Tags,
+  ?'tape_drive_type' => TapeDriveType,
+  ) $s = shape()) {
+    $this->activation_key = $activation_key ?? "";
+    $this->gateway_name = $gateway_name ?? "";
+    $this->gateway_region = $gateway_region ?? ;
+    $this->gateway_timezone = $gateway_timezone ?? "";
+    $this->gateway_type = $gateway_type ?? "";
+    $this->medium_changer_type = $medium_changer_type ?? "";
+    $this->tags = $tags ?? [];
+    $this->tape_drive_type = $tape_drive_type ?? "";
+  }
 }
 
 class ActivateGatewayOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class ActivationKey {
-}
+type ActivationKey = string;
 
-class ActiveDirectoryStatus {
-}
+type ActiveDirectoryStatus = string;
 
 class AddCacheInput {
   public DiskIds $disk_ids;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AddCacheOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AddTagsToResourceInput {
   public ResourceARN $resource_arn;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceARN,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class AddTagsToResourceOutput {
   public ResourceARN $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceARN,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? "";
+  }
 }
 
 class AddUploadBufferInput {
   public DiskIds $disk_ids;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AddUploadBufferOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AddWorkingStorageInput {
   public DiskIds $disk_ids;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AddWorkingStorageOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class AssignTapePoolInput {
   public PoolId $pool_id;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'pool_id' => PoolId,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->pool_id = $pool_id ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class AssignTapePoolOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class AttachVolumeInput {
@@ -154,51 +248,84 @@ class AttachVolumeInput {
   public NetworkInterfaceId $network_interface_id;
   public TargetName $target_name;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'disk_id' => DiskId,
+  ?'gateway_arn' => GatewayARN,
+  ?'network_interface_id' => NetworkInterfaceId,
+  ?'target_name' => TargetName,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->disk_id = $disk_id ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->target_name = $target_name ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class AttachVolumeOutput {
   public TargetARN $target_arn;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'target_arn' => TargetARN,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->target_arn = $target_arn ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
-class AuditDestinationARN {
-}
+type AuditDestinationARN = string;
 
-class Authentication {
-}
+type Authentication = string;
 
 class AutomaticTapeCreationPolicyInfo {
   public AutomaticTapeCreationRules $automatic_tape_creation_rules;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'automatic_tape_creation_rules' => AutomaticTapeCreationRules,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->automatic_tape_creation_rules = $automatic_tape_creation_rules ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class AutomaticTapeCreationPolicyInfos {
-}
+type AutomaticTapeCreationPolicyInfos = vec<AutomaticTapeCreationPolicyInfo>;
 
 class AutomaticTapeCreationRule {
   public MinimumNumTapes $minimum_num_tapes;
   public PoolId $pool_id;
   public TapeBarcodePrefix $tape_barcode_prefix;
   public TapeSize $tape_size_in_bytes;
+
+  public function __construct(shape(
+  ?'minimum_num_tapes' => MinimumNumTapes,
+  ?'pool_id' => PoolId,
+  ?'tape_barcode_prefix' => TapeBarcodePrefix,
+  ?'tape_size_in_bytes' => TapeSize,
+  ) $s = shape()) {
+    $this->minimum_num_tapes = $minimum_num_tapes ?? 0;
+    $this->pool_id = $pool_id ?? "";
+    $this->tape_barcode_prefix = $tape_barcode_prefix ?? "";
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+  }
 }
 
-class AutomaticTapeCreationRules {
-}
+type AutomaticTapeCreationRules = vec<AutomaticTapeCreationRule>;
 
-class AvailabilityMonitorTestStatus {
-}
+type AvailabilityMonitorTestStatus = string;
 
-class BandwidthDownloadRateLimit {
-}
+type BandwidthDownloadRateLimit = int;
 
-class BandwidthType {
-}
+type BandwidthType = string;
 
-class BandwidthUploadRateLimit {
-}
+type BandwidthUploadRateLimit = int;
 
-class Boolean {
-}
+type Boolean = bool;
 
 class CachediSCSIVolume {
   public CreatedDate $created_date;
@@ -214,47 +341,112 @@ class CachediSCSIVolume {
   public VolumeType $volume_type;
   public VolumeUsedInBytes $volume_used_in_bytes;
   public VolumeiSCSIAttributes $volumei_scsi_attributes;
+
+  public function __construct(shape(
+  ?'created_date' => CreatedDate,
+  ?'kms_key' => KMSKey,
+  ?'source_snapshot_id' => SnapshotId,
+  ?'target_name' => TargetName,
+  ?'volume_arn' => VolumeARN,
+  ?'volume_attachment_status' => VolumeAttachmentStatus,
+  ?'volume_id' => VolumeId,
+  ?'volume_progress' => DoubleObject,
+  ?'volume_size_in_bytes' => long,
+  ?'volume_status' => VolumeStatus,
+  ?'volume_type' => VolumeType,
+  ?'volume_used_in_bytes' => VolumeUsedInBytes,
+  ?'volumei_scsi_attributes' => VolumeiSCSIAttributes,
+  ) $s = shape()) {
+    $this->created_date = $created_date ?? 0;
+    $this->kms_key = $kms_key ?? "";
+    $this->source_snapshot_id = $source_snapshot_id ?? ;
+    $this->target_name = $target_name ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_attachment_status = $volume_attachment_status ?? "";
+    $this->volume_id = $volume_id ?? "";
+    $this->volume_progress = $volume_progress ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_status = $volume_status ?? "";
+    $this->volume_type = $volume_type ?? "";
+    $this->volume_used_in_bytes = $volume_used_in_bytes ?? 0;
+    $this->volumei_scsi_attributes = $volumei_scsi_attributes ?? null;
+  }
 }
 
-class CachediSCSIVolumes {
-}
+type CachediSCSIVolumes = vec<CachediSCSIVolume>;
 
 class CancelArchivalInput {
   public GatewayARN $gateway_arn;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class CancelArchivalOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class CancelRetrievalInput {
   public GatewayARN $gateway_arn;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class CancelRetrievalOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
-class ChapCredentials {
-}
+type ChapCredentials = vec<ChapInfo>;
 
 class ChapInfo {
   public IqnName $initiator_name;
   public ChapSecret $secret_to_authenticate_initiator;
   public ChapSecret $secret_to_authenticate_target;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'initiator_name' => IqnName,
+  ?'secret_to_authenticate_initiator' => ChapSecret,
+  ?'secret_to_authenticate_target' => ChapSecret,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->initiator_name = $initiator_name ?? ;
+    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? ;
+    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
-class ChapSecret {
-}
+type ChapSecret = string;
 
-class ClientToken {
-}
+type ClientToken = string;
 
-class CloudWatchLogGroupARN {
-}
+type CloudWatchLogGroupARN = string;
 
 class CreateCachediSCSIVolumeInput {
   public ClientToken $client_token;
@@ -267,11 +459,43 @@ class CreateCachediSCSIVolumeInput {
   public Tags $tags;
   public TargetName $target_name;
   public long $volume_size_in_bytes;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'gateway_arn' => GatewayARN,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'network_interface_id' => NetworkInterfaceId,
+  ?'snapshot_id' => SnapshotId,
+  ?'source_volume_arn' => VolumeARN,
+  ?'tags' => Tags,
+  ?'target_name' => TargetName,
+  ?'volume_size_in_bytes' => long,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->source_volume_arn = $source_volume_arn ?? ;
+    $this->tags = $tags ?? [];
+    $this->target_name = $target_name ?? "";
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+  }
 }
 
 class CreateCachediSCSIVolumeOutput {
   public TargetARN $target_arn;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'target_arn' => TargetARN,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->target_arn = $target_arn ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class CreateNFSFileShareInput {
@@ -290,10 +514,50 @@ class CreateNFSFileShareInput {
   public Role $role;
   public Squash $squash;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'client_list' => FileShareClientList,
+  ?'client_token' => ClientToken,
+  ?'default_storage_class' => StorageClass,
+  ?'gateway_arn' => GatewayARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'location_arn' => LocationARN,
+  ?'nfs_file_share_defaults' => NFSFileShareDefaults,
+  ?'object_acl' => ObjectACL,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'role' => Role,
+  ?'squash' => Squash,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->client_list = $client_list ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->location_arn = $location_arn ?? "";
+    $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
+    $this->object_acl = $object_acl ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->role = $role ?? "";
+    $this->squash = $squash ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateNFSFileShareOutput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class CreateSMBFileShareInput {
@@ -315,33 +579,117 @@ class CreateSMBFileShareInput {
   public boolean $smbacl_enabled;
   public Tags $tags;
   public FileShareUserList $valid_user_list;
+
+  public function __construct(shape(
+  ?'admin_user_list' => FileShareUserList,
+  ?'audit_destination_arn' => AuditDestinationARN,
+  ?'authentication' => Authentication,
+  ?'client_token' => ClientToken,
+  ?'default_storage_class' => StorageClass,
+  ?'gateway_arn' => GatewayARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'invalid_user_list' => FileShareUserList,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'location_arn' => LocationARN,
+  ?'object_acl' => ObjectACL,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'role' => Role,
+  ?'smbacl_enabled' => boolean,
+  ?'tags' => Tags,
+  ?'valid_user_list' => FileShareUserList,
+  ) $s = shape()) {
+    $this->admin_user_list = $admin_user_list ?? ;
+    $this->audit_destination_arn = $audit_destination_arn ?? "";
+    $this->authentication = $authentication ?? "";
+    $this->client_token = $client_token ?? "";
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->invalid_user_list = $invalid_user_list ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->location_arn = $location_arn ?? "";
+    $this->object_acl = $object_acl ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->role = $role ?? "";
+    $this->smbacl_enabled = $smbacl_enabled ?? ;
+    $this->tags = $tags ?? [];
+    $this->valid_user_list = $valid_user_list ?? ;
+  }
 }
 
 class CreateSMBFileShareOutput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class CreateSnapshotFromVolumeRecoveryPointInput {
   public SnapshotDescription $snapshot_description;
   public Tags $tags;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'snapshot_description' => SnapshotDescription,
+  ?'tags' => Tags,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->snapshot_description = $snapshot_description ?? "";
+    $this->tags = $tags ?? [];
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class CreateSnapshotFromVolumeRecoveryPointOutput {
   public SnapshotId $snapshot_id;
   public VolumeARN $volume_arn;
   public string $volume_recovery_point_time;
+
+  public function __construct(shape(
+  ?'snapshot_id' => SnapshotId,
+  ?'volume_arn' => VolumeARN,
+  ?'volume_recovery_point_time' => string,
+  ) $s = shape()) {
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_recovery_point_time = $volume_recovery_point_time ?? ;
+  }
 }
 
 class CreateSnapshotInput {
   public SnapshotDescription $snapshot_description;
   public Tags $tags;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'snapshot_description' => SnapshotDescription,
+  ?'tags' => Tags,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->snapshot_description = $snapshot_description ?? "";
+    $this->tags = $tags ?? [];
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class CreateSnapshotOutput {
   public SnapshotId $snapshot_id;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'snapshot_id' => SnapshotId,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class CreateStorediSCSIVolumeInput {
@@ -354,12 +702,44 @@ class CreateStorediSCSIVolumeInput {
   public SnapshotId $snapshot_id;
   public Tags $tags;
   public TargetName $target_name;
+
+  public function __construct(shape(
+  ?'disk_id' => DiskId,
+  ?'gateway_arn' => GatewayARN,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'network_interface_id' => NetworkInterfaceId,
+  ?'preserve_existing_data' => boolean,
+  ?'snapshot_id' => SnapshotId,
+  ?'tags' => Tags,
+  ?'target_name' => TargetName,
+  ) $s = shape()) {
+    $this->disk_id = $disk_id ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->preserve_existing_data = $preserve_existing_data ?? ;
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->target_name = $target_name ?? "";
+  }
 }
 
 class CreateStorediSCSIVolumeOutput {
   public TargetARN $target_arn;
   public VolumeARN $volume_arn;
   public long $volume_size_in_bytes;
+
+  public function __construct(shape(
+  ?'target_arn' => TargetARN,
+  ?'volume_arn' => VolumeARN,
+  ?'volume_size_in_bytes' => long,
+  ) $s = shape()) {
+    $this->target_arn = $target_arn ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+  }
 }
 
 class CreateTapeWithBarcodeInput {
@@ -370,10 +750,34 @@ class CreateTapeWithBarcodeInput {
   public Tags $tags;
   public TapeBarcode $tape_barcode;
   public TapeSize $tape_size_in_bytes;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'pool_id' => PoolId,
+  ?'tags' => Tags,
+  ?'tape_barcode' => TapeBarcode,
+  ?'tape_size_in_bytes' => TapeSize,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->pool_id = $pool_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->tape_barcode = $tape_barcode ?? "";
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+  }
 }
 
 class CreateTapeWithBarcodeOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class CreateTapesInput {
@@ -386,120 +790,301 @@ class CreateTapesInput {
   public Tags $tags;
   public TapeBarcodePrefix $tape_barcode_prefix;
   public TapeSize $tape_size_in_bytes;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'gateway_arn' => GatewayARN,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'num_tapes_to_create' => NumTapesToCreate,
+  ?'pool_id' => PoolId,
+  ?'tags' => Tags,
+  ?'tape_barcode_prefix' => TapeBarcodePrefix,
+  ?'tape_size_in_bytes' => TapeSize,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->num_tapes_to_create = $num_tapes_to_create ?? 0;
+    $this->pool_id = $pool_id ?? "";
+    $this->tags = $tags ?? [];
+    $this->tape_barcode_prefix = $tape_barcode_prefix ?? "";
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+  }
 }
 
 class CreateTapesOutput {
   public TapeARNs $tape_ar_ns;
+
+  public function __construct(shape(
+  ?'tape_ar_ns' => TapeARNs,
+  ) $s = shape()) {
+    $this->tape_ar_ns = $tape_ar_ns ?? [];
+  }
 }
 
-class CreatedDate {
-}
+type CreatedDate = int;
 
-class DayOfMonth {
-}
+type DayOfMonth = int;
 
-class DayOfWeek {
-}
+type DayOfWeek = int;
 
 class DeleteAutomaticTapeCreationPolicyInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteAutomaticTapeCreationPolicyOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteBandwidthRateLimitInput {
   public BandwidthType $bandwidth_type;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'bandwidth_type' => BandwidthType,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->bandwidth_type = $bandwidth_type ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteBandwidthRateLimitOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteChapCredentialsInput {
   public IqnName $initiator_name;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'initiator_name' => IqnName,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->initiator_name = $initiator_name ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class DeleteChapCredentialsOutput {
   public IqnName $initiator_name;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'initiator_name' => IqnName,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->initiator_name = $initiator_name ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class DeleteFileShareInput {
   public FileShareARN $file_share_arn;
   public boolean $force_delete;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ?'force_delete' => boolean,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->force_delete = $force_delete ?? ;
+  }
 }
 
 class DeleteFileShareOutput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class DeleteGatewayInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteGatewayOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DeleteSnapshotScheduleInput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DeleteSnapshotScheduleOutput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DeleteTapeArchiveInput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class DeleteTapeArchiveOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class DeleteTapeInput {
   public GatewayARN $gateway_arn;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class DeleteTapeOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class DeleteVolumeInput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DeleteVolumeOutput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DescribeAvailabilityMonitorTestInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeAvailabilityMonitorTestOutput {
   public GatewayARN $gateway_arn;
   public Time $start_time;
   public AvailabilityMonitorTestStatus $status;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'start_time' => Time,
+  ?'status' => AvailabilityMonitorTestStatus,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->start_time = $start_time ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class DescribeBandwidthRateLimitInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeBandwidthRateLimitOutput {
   public BandwidthDownloadRateLimit $average_download_rate_limit_in_bits_per_sec;
   public BandwidthUploadRateLimit $average_upload_rate_limit_in_bits_per_sec;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'average_download_rate_limit_in_bits_per_sec' => BandwidthDownloadRateLimit,
+  ?'average_upload_rate_limit_in_bits_per_sec' => BandwidthUploadRateLimit,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? ;
+    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? ;
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeCacheInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeCacheOutput {
@@ -510,26 +1095,74 @@ class DescribeCacheOutput {
   public double $cache_used_percentage;
   public DiskIds $disk_ids;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'cache_allocated_in_bytes' => long,
+  ?'cache_dirty_percentage' => double,
+  ?'cache_hit_percentage' => double,
+  ?'cache_miss_percentage' => double,
+  ?'cache_used_percentage' => double,
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->cache_allocated_in_bytes = $cache_allocated_in_bytes ?? ;
+    $this->cache_dirty_percentage = $cache_dirty_percentage ?? ;
+    $this->cache_hit_percentage = $cache_hit_percentage ?? ;
+    $this->cache_miss_percentage = $cache_miss_percentage ?? ;
+    $this->cache_used_percentage = $cache_used_percentage ?? ;
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeCachediSCSIVolumesInput {
   public VolumeARNs $volume_ar_ns;
+
+  public function __construct(shape(
+  ?'volume_ar_ns' => VolumeARNs,
+  ) $s = shape()) {
+    $this->volume_ar_ns = $volume_ar_ns ?? [];
+  }
 }
 
 class DescribeCachediSCSIVolumesOutput {
   public CachediSCSIVolumes $cachedi_scsi_volumes;
+
+  public function __construct(shape(
+  ?'cachedi_scsi_volumes' => CachediSCSIVolumes,
+  ) $s = shape()) {
+    $this->cachedi_scsi_volumes = $cachedi_scsi_volumes ?? [];
+  }
 }
 
 class DescribeChapCredentialsInput {
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class DescribeChapCredentialsOutput {
   public ChapCredentials $chap_credentials;
+
+  public function __construct(shape(
+  ?'chap_credentials' => ChapCredentials,
+  ) $s = shape()) {
+    $this->chap_credentials = $chap_credentials ?? [];
+  }
 }
 
 class DescribeGatewayInformationInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeGatewayInformationOutput {
@@ -548,10 +1181,50 @@ class DescribeGatewayInformationOutput {
   public NextUpdateAvailabilityDate $next_update_availability_date;
   public Tags $tags;
   public string $vpc_endpoint;
+
+  public function __construct(shape(
+  ?'cloud_watch_log_group_arn' => CloudWatchLogGroupARN,
+  ?'ec_2_instance_id' => Ec2InstanceId,
+  ?'ec_2_instance_region' => Ec2InstanceRegion,
+  ?'gateway_arn' => GatewayARN,
+  ?'gateway_id' => GatewayId,
+  ?'gateway_name' => string,
+  ?'gateway_network_interfaces' => GatewayNetworkInterfaces,
+  ?'gateway_state' => GatewayState,
+  ?'gateway_timezone' => GatewayTimezone,
+  ?'gateway_type' => GatewayType,
+  ?'host_environment' => HostEnvironment,
+  ?'last_software_update' => LastSoftwareUpdate,
+  ?'next_update_availability_date' => NextUpdateAvailabilityDate,
+  ?'tags' => Tags,
+  ?'vpc_endpoint' => string,
+  ) $s = shape()) {
+    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? "";
+    $this->ec_2_instance_id = $ec_2_instance_id ?? "";
+    $this->ec_2_instance_region = $ec_2_instance_region ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->gateway_id = $gateway_id ?? "";
+    $this->gateway_name = $gateway_name ?? "";
+    $this->gateway_network_interfaces = $gateway_network_interfaces ?? [];
+    $this->gateway_state = $gateway_state ?? "";
+    $this->gateway_timezone = $gateway_timezone ?? "";
+    $this->gateway_type = $gateway_type ?? "";
+    $this->host_environment = $host_environment ?? "";
+    $this->last_software_update = $last_software_update ?? "";
+    $this->next_update_availability_date = $next_update_availability_date ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_endpoint = $vpc_endpoint ?? ;
+  }
 }
 
 class DescribeMaintenanceStartTimeInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeMaintenanceStartTimeOutput {
@@ -561,26 +1234,72 @@ class DescribeMaintenanceStartTimeOutput {
   public HourOfDay $hour_of_day;
   public MinuteOfHour $minute_of_hour;
   public GatewayTimezone $timezone;
+
+  public function __construct(shape(
+  ?'day_of_month' => DayOfMonth,
+  ?'day_of_week' => DayOfWeek,
+  ?'gateway_arn' => GatewayARN,
+  ?'hour_of_day' => HourOfDay,
+  ?'minute_of_hour' => MinuteOfHour,
+  ?'timezone' => GatewayTimezone,
+  ) $s = shape()) {
+    $this->day_of_month = $day_of_month ?? 0;
+    $this->day_of_week = $day_of_week ?? 0;
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->hour_of_day = $hour_of_day ?? 0;
+    $this->minute_of_hour = $minute_of_hour ?? 0;
+    $this->timezone = $timezone ?? ;
+  }
 }
 
 class DescribeNFSFileSharesInput {
   public FileShareARNList $file_share_arn_list;
+
+  public function __construct(shape(
+  ?'file_share_arn_list' => FileShareARNList,
+  ) $s = shape()) {
+    $this->file_share_arn_list = $file_share_arn_list ?? [];
+  }
 }
 
 class DescribeNFSFileSharesOutput {
   public NFSFileShareInfoList $nfs_file_share_info_list;
+
+  public function __construct(shape(
+  ?'nfs_file_share_info_list' => NFSFileShareInfoList,
+  ) $s = shape()) {
+    $this->nfs_file_share_info_list = $nfs_file_share_info_list ?? [];
+  }
 }
 
 class DescribeSMBFileSharesInput {
   public FileShareARNList $file_share_arn_list;
+
+  public function __construct(shape(
+  ?'file_share_arn_list' => FileShareARNList,
+  ) $s = shape()) {
+    $this->file_share_arn_list = $file_share_arn_list ?? [];
+  }
 }
 
 class DescribeSMBFileSharesOutput {
   public SMBFileShareInfoList $smb_file_share_info_list;
+
+  public function __construct(shape(
+  ?'smb_file_share_info_list' => SMBFileShareInfoList,
+  ) $s = shape()) {
+    $this->smb_file_share_info_list = $smb_file_share_info_list ?? [];
+  }
 }
 
 class DescribeSMBSettingsInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeSMBSettingsOutput {
@@ -589,10 +1308,30 @@ class DescribeSMBSettingsOutput {
   public GatewayARN $gateway_arn;
   public boolean $smb_guest_password_set;
   public SMBSecurityStrategy $smb_security_strategy;
+
+  public function __construct(shape(
+  ?'active_directory_status' => ActiveDirectoryStatus,
+  ?'domain_name' => DomainName,
+  ?'gateway_arn' => GatewayARN,
+  ?'smb_guest_password_set' => boolean,
+  ?'smb_security_strategy' => SMBSecurityStrategy,
+  ) $s = shape()) {
+    $this->active_directory_status = $active_directory_status ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->smb_guest_password_set = $smb_guest_password_set ?? ;
+    $this->smb_security_strategy = $smb_security_strategy ?? "";
+  }
 }
 
 class DescribeSnapshotScheduleInput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DescribeSnapshotScheduleOutput {
@@ -602,37 +1341,103 @@ class DescribeSnapshotScheduleOutput {
   public Tags $tags;
   public GatewayTimezone $timezone;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'recurrence_in_hours' => RecurrenceInHours,
+  ?'start_at' => HourOfDay,
+  ?'tags' => Tags,
+  ?'timezone' => GatewayTimezone,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->recurrence_in_hours = $recurrence_in_hours ?? 0;
+    $this->start_at = $start_at ?? ;
+    $this->tags = $tags ?? [];
+    $this->timezone = $timezone ?? ;
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DescribeStorediSCSIVolumesInput {
   public VolumeARNs $volume_ar_ns;
+
+  public function __construct(shape(
+  ?'volume_ar_ns' => VolumeARNs,
+  ) $s = shape()) {
+    $this->volume_ar_ns = $volume_ar_ns ?? [];
+  }
 }
 
 class DescribeStorediSCSIVolumesOutput {
   public StorediSCSIVolumes $storedi_scsi_volumes;
+
+  public function __construct(shape(
+  ?'storedi_scsi_volumes' => StorediSCSIVolumes,
+  ) $s = shape()) {
+    $this->storedi_scsi_volumes = $storedi_scsi_volumes ?? [];
+  }
 }
 
 class DescribeTapeArchivesInput {
   public PositiveIntObject $limit;
   public Marker $marker;
   public TapeARNs $tape_ar_ns;
+
+  public function __construct(shape(
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ?'tape_ar_ns' => TapeARNs,
+  ) $s = shape()) {
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+    $this->tape_ar_ns = $tape_ar_ns ?? [];
+  }
 }
 
 class DescribeTapeArchivesOutput {
   public Marker $marker;
   public TapeArchives $tape_archives;
+
+  public function __construct(shape(
+  ?'marker' => Marker,
+  ?'tape_archives' => TapeArchives,
+  ) $s = shape()) {
+    $this->marker = $marker ?? "";
+    $this->tape_archives = $tape_archives ?? [];
+  }
 }
 
 class DescribeTapeRecoveryPointsInput {
   public GatewayARN $gateway_arn;
   public PositiveIntObject $limit;
   public Marker $marker;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+  }
 }
 
 class DescribeTapeRecoveryPointsOutput {
   public GatewayARN $gateway_arn;
   public Marker $marker;
   public TapeRecoveryPointInfos $tape_recovery_point_infos;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'marker' => Marker,
+  ?'tape_recovery_point_infos' => TapeRecoveryPointInfos,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->marker = $marker ?? "";
+    $this->tape_recovery_point_infos = $tape_recovery_point_infos ?? [];
+  }
 }
 
 class DescribeTapesInput {
@@ -640,15 +1445,41 @@ class DescribeTapesInput {
   public PositiveIntObject $limit;
   public Marker $marker;
   public TapeARNs $tape_ar_ns;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ?'tape_ar_ns' => TapeARNs,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+    $this->tape_ar_ns = $tape_ar_ns ?? [];
+  }
 }
 
 class DescribeTapesOutput {
   public Marker $marker;
   public Tapes $tapes;
+
+  public function __construct(shape(
+  ?'marker' => Marker,
+  ?'tapes' => Tapes,
+  ) $s = shape()) {
+    $this->marker = $marker ?? "";
+    $this->tapes = $tapes ?? [];
+  }
 }
 
 class DescribeUploadBufferInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeUploadBufferOutput {
@@ -656,6 +1487,18 @@ class DescribeUploadBufferOutput {
   public GatewayARN $gateway_arn;
   public long $upload_buffer_allocated_in_bytes;
   public long $upload_buffer_used_in_bytes;
+
+  public function __construct(shape(
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ?'upload_buffer_allocated_in_bytes' => long,
+  ?'upload_buffer_used_in_bytes' => long,
+  ) $s = shape()) {
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->upload_buffer_allocated_in_bytes = $upload_buffer_allocated_in_bytes ?? ;
+    $this->upload_buffer_used_in_bytes = $upload_buffer_used_in_bytes ?? ;
+  }
 }
 
 class DescribeVTLDevicesInput {
@@ -663,16 +1506,44 @@ class DescribeVTLDevicesInput {
   public PositiveIntObject $limit;
   public Marker $marker;
   public VTLDeviceARNs $vtl_device_ar_ns;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ?'vtl_device_ar_ns' => VTLDeviceARNs,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+    $this->vtl_device_ar_ns = $vtl_device_ar_ns ?? [];
+  }
 }
 
 class DescribeVTLDevicesOutput {
   public GatewayARN $gateway_arn;
   public Marker $marker;
   public VTLDevices $vtl_devices;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'marker' => Marker,
+  ?'vtl_devices' => VTLDevices,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->marker = $marker ?? "";
+    $this->vtl_devices = $vtl_devices ?? [];
+  }
 }
 
 class DescribeWorkingStorageInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DescribeWorkingStorageOutput {
@@ -680,36 +1551,84 @@ class DescribeWorkingStorageOutput {
   public GatewayARN $gateway_arn;
   public long $working_storage_allocated_in_bytes;
   public long $working_storage_used_in_bytes;
+
+  public function __construct(shape(
+  ?'disk_ids' => DiskIds,
+  ?'gateway_arn' => GatewayARN,
+  ?'working_storage_allocated_in_bytes' => long,
+  ?'working_storage_used_in_bytes' => long,
+  ) $s = shape()) {
+    $this->disk_ids = $disk_ids ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->working_storage_allocated_in_bytes = $working_storage_allocated_in_bytes ?? ;
+    $this->working_storage_used_in_bytes = $working_storage_used_in_bytes ?? ;
+  }
 }
 
-class Description {
-}
+type Description = string;
 
 class DetachVolumeInput {
   public boolean $force_detach;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'force_detach' => boolean,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->force_detach = $force_detach ?? ;
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class DetachVolumeOutput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
-class DeviceType {
-}
+type DeviceType = string;
 
 class DeviceiSCSIAttributes {
   public boolean $chap_enabled;
   public NetworkInterfaceId $network_interface_id;
   public integer $network_interface_port;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'chap_enabled' => boolean,
+  ?'network_interface_id' => NetworkInterfaceId,
+  ?'network_interface_port' => integer,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->chap_enabled = $chap_enabled ?? ;
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->network_interface_port = $network_interface_port ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class DisableGatewayInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class DisableGatewayOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class Disk {
@@ -721,58 +1640,61 @@ class Disk {
   public string $disk_path;
   public long $disk_size_in_bytes;
   public string $disk_status;
+
+  public function __construct(shape(
+  ?'disk_allocation_resource' => string,
+  ?'disk_allocation_type' => DiskAllocationType,
+  ?'disk_attribute_list' => DiskAttributeList,
+  ?'disk_id' => DiskId,
+  ?'disk_node' => string,
+  ?'disk_path' => string,
+  ?'disk_size_in_bytes' => long,
+  ?'disk_status' => string,
+  ) $s = shape()) {
+    $this->disk_allocation_resource = $disk_allocation_resource ?? ;
+    $this->disk_allocation_type = $disk_allocation_type ?? "";
+    $this->disk_attribute_list = $disk_attribute_list ?? [];
+    $this->disk_id = $disk_id ?? "";
+    $this->disk_node = $disk_node ?? ;
+    $this->disk_path = $disk_path ?? ;
+    $this->disk_size_in_bytes = $disk_size_in_bytes ?? ;
+    $this->disk_status = $disk_status ?? ;
+  }
 }
 
-class DiskAllocationType {
-}
+type DiskAllocationType = string;
 
-class DiskAttribute {
-}
+type DiskAttribute = string;
 
-class DiskAttributeList {
-}
+type DiskAttributeList = vec<DiskAttribute>;
 
-class DiskId {
-}
+type DiskId = string;
 
-class DiskIds {
-}
+type DiskIds = vec<DiskId>;
 
-class Disks {
-}
+type Disks = vec<Disk>;
 
-class DomainName {
-}
+type DomainName = string;
 
-class DomainUserName {
-}
+type DomainUserName = string;
 
-class DomainUserPassword {
-}
+type DomainUserPassword = string;
 
-class DoubleObject {
-}
+type DoubleObject = float;
 
-class Ec2InstanceId {
-}
+type Ec2InstanceId = string;
 
-class Ec2InstanceRegion {
-}
+type Ec2InstanceRegion = string;
 
-class ErrorCode {
-}
+type ErrorCode = string;
 
-class FileShareARN {
-}
+type FileShareARN = string;
 
-class FileShareARNList {
-}
+type FileShareARNList = vec<FileShareARN>;
 
-class FileShareClientList {
-}
+type FileShareClientList = vec<IPV4AddressCIDR>;
 
-class FileShareId {
-}
+type FileShareId = string;
 
 class FileShareInfo {
   public FileShareARN $file_share_arn;
@@ -780,34 +1702,39 @@ class FileShareInfo {
   public FileShareStatus $file_share_status;
   public FileShareType $file_share_type;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ?'file_share_id' => FileShareId,
+  ?'file_share_status' => FileShareStatus,
+  ?'file_share_type' => FileShareType,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->file_share_id = $file_share_id ?? "";
+    $this->file_share_status = $file_share_status ?? "";
+    $this->file_share_type = $file_share_type ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class FileShareInfoList {
-}
+type FileShareInfoList = vec<FileShareInfo>;
 
-class FileShareStatus {
-}
+type FileShareStatus = string;
 
-class FileShareType {
-}
+type FileShareType = string;
 
-class FileShareUser {
-}
+type FileShareUser = string;
 
-class FileShareUserList {
-}
+type FileShareUserList = vec<FileShareUser>;
 
-class Folder {
-}
+type Folder = string;
 
-class FolderList {
-}
+type FolderList = vec<Folder>;
 
-class GatewayARN {
-}
+type GatewayARN = string;
 
-class GatewayId {
-}
+type GatewayId = string;
 
 class GatewayInfo {
   public Ec2InstanceId $ec_2_instance_id;
@@ -817,62 +1744,81 @@ class GatewayInfo {
   public string $gateway_name;
   public GatewayOperationalState $gateway_operational_state;
   public GatewayType $gateway_type;
+
+  public function __construct(shape(
+  ?'ec_2_instance_id' => Ec2InstanceId,
+  ?'ec_2_instance_region' => Ec2InstanceRegion,
+  ?'gateway_arn' => GatewayARN,
+  ?'gateway_id' => GatewayId,
+  ?'gateway_name' => string,
+  ?'gateway_operational_state' => GatewayOperationalState,
+  ?'gateway_type' => GatewayType,
+  ) $s = shape()) {
+    $this->ec_2_instance_id = $ec_2_instance_id ?? "";
+    $this->ec_2_instance_region = $ec_2_instance_region ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->gateway_id = $gateway_id ?? "";
+    $this->gateway_name = $gateway_name ?? "";
+    $this->gateway_operational_state = $gateway_operational_state ?? "";
+    $this->gateway_type = $gateway_type ?? "";
+  }
 }
 
-class GatewayName {
-}
+type GatewayName = string;
 
-class GatewayNetworkInterfaces {
-}
+type GatewayNetworkInterfaces = vec<NetworkInterface>;
 
-class GatewayOperationalState {
-}
+type GatewayOperationalState = string;
 
-class GatewayState {
-}
+type GatewayState = string;
 
-class GatewayTimezone {
-}
+type GatewayTimezone = string;
 
-class GatewayType {
-}
+type GatewayType = string;
 
-class Gateways {
-}
+type Gateways = vec<GatewayInfo>;
 
-class Host {
-}
+type Host = string;
 
-class HostEnvironment {
-}
+type HostEnvironment = string;
 
-class Hosts {
-}
+type Hosts = vec<Host>;
 
-class HourOfDay {
-}
+type HourOfDay = int;
 
-class IPV4AddressCIDR {
-}
+type IPV4AddressCIDR = string;
 
-class Initiator {
-}
+type Initiator = string;
 
-class Initiators {
-}
+type Initiators = vec<Initiator>;
 
 class InternalServerError {
   public StorageGatewayError $error;
   public string $message;
+
+  public function __construct(shape(
+  ?'error' => StorageGatewayError,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->error = $error ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidGatewayRequestException {
   public StorageGatewayError $error;
   public string $message;
+
+  public function __construct(shape(
+  ?'error' => StorageGatewayError,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->error = $error ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class IqnName {
-}
+type IqnName = string;
 
 class JoinDomainInput {
   public Hosts $domain_controllers;
@@ -882,133 +1828,309 @@ class JoinDomainInput {
   public DomainUserPassword $password;
   public TimeoutInSeconds $timeout_in_seconds;
   public DomainUserName $user_name;
+
+  public function __construct(shape(
+  ?'domain_controllers' => Hosts,
+  ?'domain_name' => DomainName,
+  ?'gateway_arn' => GatewayARN,
+  ?'organizational_unit' => OrganizationalUnit,
+  ?'password' => DomainUserPassword,
+  ?'timeout_in_seconds' => TimeoutInSeconds,
+  ?'user_name' => DomainUserName,
+  ) $s = shape()) {
+    $this->domain_controllers = $domain_controllers ?? ;
+    $this->domain_name = $domain_name ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->organizational_unit = $organizational_unit ?? "";
+    $this->password = $password ?? ;
+    $this->timeout_in_seconds = $timeout_in_seconds ?? 0;
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class JoinDomainOutput {
   public ActiveDirectoryStatus $active_directory_status;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'active_directory_status' => ActiveDirectoryStatus,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->active_directory_status = $active_directory_status ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class KMSKey {
-}
+type KMSKey = string;
 
-class LastSoftwareUpdate {
-}
+type LastSoftwareUpdate = string;
 
 class ListAutomaticTapeCreationPoliciesInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ListAutomaticTapeCreationPoliciesOutput {
   public AutomaticTapeCreationPolicyInfos $automatic_tape_creation_policy_infos;
+
+  public function __construct(shape(
+  ?'automatic_tape_creation_policy_infos' => AutomaticTapeCreationPolicyInfos,
+  ) $s = shape()) {
+    $this->automatic_tape_creation_policy_infos = $automatic_tape_creation_policy_infos ?? [];
+  }
 }
 
 class ListFileSharesInput {
   public GatewayARN $gateway_arn;
   public PositiveIntObject $limit;
   public Marker $marker;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+  }
 }
 
 class ListFileSharesOutput {
   public FileShareInfoList $file_share_info_list;
   public Marker $marker;
   public Marker $next_marker;
+
+  public function __construct(shape(
+  ?'file_share_info_list' => FileShareInfoList,
+  ?'marker' => Marker,
+  ?'next_marker' => Marker,
+  ) $s = shape()) {
+    $this->file_share_info_list = $file_share_info_list ?? [];
+    $this->marker = $marker ?? "";
+    $this->next_marker = $next_marker ?? ;
+  }
 }
 
 class ListGatewaysInput {
   public PositiveIntObject $limit;
   public Marker $marker;
+
+  public function __construct(shape(
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ) $s = shape()) {
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+  }
 }
 
 class ListGatewaysOutput {
   public Gateways $gateways;
   public Marker $marker;
+
+  public function __construct(shape(
+  ?'gateways' => Gateways,
+  ?'marker' => Marker,
+  ) $s = shape()) {
+    $this->gateways = $gateways ?? [];
+    $this->marker = $marker ?? "";
+  }
 }
 
 class ListLocalDisksInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ListLocalDisksOutput {
   public Disks $disks;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'disks' => Disks,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->disks = $disks ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ListTagsForResourceInput {
   public PositiveIntObject $limit;
   public Marker $marker;
   public ResourceARN $resource_arn;
+
+  public function __construct(shape(
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ?'resource_arn' => ResourceARN,
+  ) $s = shape()) {
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+  }
 }
 
 class ListTagsForResourceOutput {
   public Marker $marker;
   public ResourceARN $resource_arn;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'marker' => Marker,
+  ?'resource_arn' => ResourceARN,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->marker = $marker ?? "";
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class ListTapesInput {
   public PositiveIntObject $limit;
   public Marker $marker;
   public TapeARNs $tape_ar_ns;
+
+  public function __construct(shape(
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ?'tape_ar_ns' => TapeARNs,
+  ) $s = shape()) {
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+    $this->tape_ar_ns = $tape_ar_ns ?? [];
+  }
 }
 
 class ListTapesOutput {
   public Marker $marker;
   public TapeInfos $tape_infos;
+
+  public function __construct(shape(
+  ?'marker' => Marker,
+  ?'tape_infos' => TapeInfos,
+  ) $s = shape()) {
+    $this->marker = $marker ?? "";
+    $this->tape_infos = $tape_infos ?? [];
+  }
 }
 
 class ListVolumeInitiatorsInput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class ListVolumeInitiatorsOutput {
   public Initiators $initiators;
+
+  public function __construct(shape(
+  ?'initiators' => Initiators,
+  ) $s = shape()) {
+    $this->initiators = $initiators ?? [];
+  }
 }
 
 class ListVolumeRecoveryPointsInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ListVolumeRecoveryPointsOutput {
   public GatewayARN $gateway_arn;
   public VolumeRecoveryPointInfos $volume_recovery_point_infos;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'volume_recovery_point_infos' => VolumeRecoveryPointInfos,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->volume_recovery_point_infos = $volume_recovery_point_infos ?? [];
+  }
 }
 
 class ListVolumesInput {
   public GatewayARN $gateway_arn;
   public PositiveIntObject $limit;
   public Marker $marker;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'limit' => PositiveIntObject,
+  ?'marker' => Marker,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->limit = $limit ?? ;
+    $this->marker = $marker ?? "";
+  }
 }
 
 class ListVolumesOutput {
   public GatewayARN $gateway_arn;
   public Marker $marker;
   public VolumeInfos $volume_infos;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'marker' => Marker,
+  ?'volume_infos' => VolumeInfos,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->marker = $marker ?? "";
+    $this->volume_infos = $volume_infos ?? [];
+  }
 }
 
-class LocalConsolePassword {
-}
+type LocalConsolePassword = string;
 
-class LocationARN {
-}
+type LocationARN = string;
 
-class Marker {
-}
+type Marker = string;
 
-class MediumChangerType {
-}
+type MediumChangerType = string;
 
-class MinimumNumTapes {
-}
+type MinimumNumTapes = int;
 
-class MinuteOfHour {
-}
+type MinuteOfHour = int;
 
 class NFSFileShareDefaults {
   public PermissionMode $directory_mode;
   public PermissionMode $file_mode;
   public PermissionId $group_id;
   public PermissionId $owner_id;
+
+  public function __construct(shape(
+  ?'directory_mode' => PermissionMode,
+  ?'file_mode' => PermissionMode,
+  ?'group_id' => PermissionId,
+  ?'owner_id' => PermissionId,
+  ) $s = shape()) {
+    $this->directory_mode = $directory_mode ?? ;
+    $this->file_mode = $file_mode ?? ;
+    $this->group_id = $group_id ?? ;
+    $this->owner_id = $owner_id ?? ;
+  }
 }
 
 class NFSFileShareInfo {
@@ -1030,116 +2152,236 @@ class NFSFileShareInfo {
   public Role $role;
   public Squash $squash;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'client_list' => FileShareClientList,
+  ?'default_storage_class' => StorageClass,
+  ?'file_share_arn' => FileShareARN,
+  ?'file_share_id' => FileShareId,
+  ?'file_share_status' => FileShareStatus,
+  ?'gateway_arn' => GatewayARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'location_arn' => LocationARN,
+  ?'nfs_file_share_defaults' => NFSFileShareDefaults,
+  ?'object_acl' => ObjectACL,
+  ?'path' => Path,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'role' => Role,
+  ?'squash' => Squash,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->client_list = $client_list ?? ;
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->file_share_id = $file_share_id ?? "";
+    $this->file_share_status = $file_share_status ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->location_arn = $location_arn ?? "";
+    $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
+    $this->object_acl = $object_acl ?? "";
+    $this->path = $path ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->role = $role ?? "";
+    $this->squash = $squash ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
-class NFSFileShareInfoList {
-}
+type NFSFileShareInfoList = vec<NFSFileShareInfo>;
 
 class NetworkInterface {
   public string $ipv_4_address;
   public string $ipv_6_address;
   public string $mac_address;
+
+  public function __construct(shape(
+  ?'ipv_4_address' => string,
+  ?'ipv_6_address' => string,
+  ?'mac_address' => string,
+  ) $s = shape()) {
+    $this->ipv_4_address = $ipv_4_address ?? ;
+    $this->ipv_6_address = $ipv_6_address ?? ;
+    $this->mac_address = $mac_address ?? ;
+  }
 }
 
-class NetworkInterfaceId {
-}
+type NetworkInterfaceId = string;
 
-class NextUpdateAvailabilityDate {
-}
+type NextUpdateAvailabilityDate = string;
 
-class NotificationId {
-}
+type NotificationId = string;
 
 class NotifyWhenUploadedInput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class NotifyWhenUploadedOutput {
   public FileShareARN $file_share_arn;
   public NotificationId $notification_id;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ?'notification_id' => NotificationId,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->notification_id = $notification_id ?? "";
+  }
 }
 
-class NumTapesToCreate {
-}
+type NumTapesToCreate = int;
 
-class ObjectACL {
-}
+type ObjectACL = string;
 
-class OrganizationalUnit {
-}
+type OrganizationalUnit = string;
 
-class Path {
-}
+type Path = string;
 
-class PermissionId {
-}
+type PermissionId = int;
 
-class PermissionMode {
-}
+type PermissionMode = string;
 
-class PoolId {
-}
+type PoolId = string;
 
-class PositiveIntObject {
-}
+type PositiveIntObject = int;
 
-class RecurrenceInHours {
-}
+type RecurrenceInHours = int;
 
 class RefreshCacheInput {
   public FileShareARN $file_share_arn;
   public FolderList $folder_list;
   public boolean $recursive;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ?'folder_list' => FolderList,
+  ?'recursive' => boolean,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->folder_list = $folder_list ?? [];
+    $this->recursive = $recursive ?? ;
+  }
 }
 
 class RefreshCacheOutput {
   public FileShareARN $file_share_arn;
   public NotificationId $notification_id;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ?'notification_id' => NotificationId,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->notification_id = $notification_id ?? "";
+  }
 }
 
-class RegionId {
-}
+type RegionId = string;
 
 class RemoveTagsFromResourceInput {
   public ResourceARN $resource_arn;
   public TagKeys $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceARN,
+  ?'tag_keys' => TagKeys,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tag_keys = $tag_keys ?? [];
+  }
 }
 
 class RemoveTagsFromResourceOutput {
   public ResourceARN $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceARN,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? "";
+  }
 }
 
 class ResetCacheInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ResetCacheOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class ResourceARN {
-}
+type ResourceARN = string;
 
 class RetrieveTapeArchiveInput {
   public GatewayARN $gateway_arn;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class RetrieveTapeArchiveOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class RetrieveTapeRecoveryPointInput {
   public GatewayARN $gateway_arn;
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
 class RetrieveTapeRecoveryPointOutput {
   public TapeARN $tape_arn;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+  }
 }
 
-class Role {
-}
+type Role = string;
 
 class SMBFileShareInfo {
   public FileShareUserList $admin_user_list;
@@ -1163,79 +2405,198 @@ class SMBFileShareInfo {
   public boolean $smbacl_enabled;
   public Tags $tags;
   public FileShareUserList $valid_user_list;
+
+  public function __construct(shape(
+  ?'admin_user_list' => FileShareUserList,
+  ?'audit_destination_arn' => AuditDestinationARN,
+  ?'authentication' => Authentication,
+  ?'default_storage_class' => StorageClass,
+  ?'file_share_arn' => FileShareARN,
+  ?'file_share_id' => FileShareId,
+  ?'file_share_status' => FileShareStatus,
+  ?'gateway_arn' => GatewayARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'invalid_user_list' => FileShareUserList,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'location_arn' => LocationARN,
+  ?'object_acl' => ObjectACL,
+  ?'path' => Path,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'role' => Role,
+  ?'smbacl_enabled' => boolean,
+  ?'tags' => Tags,
+  ?'valid_user_list' => FileShareUserList,
+  ) $s = shape()) {
+    $this->admin_user_list = $admin_user_list ?? ;
+    $this->audit_destination_arn = $audit_destination_arn ?? "";
+    $this->authentication = $authentication ?? "";
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->file_share_id = $file_share_id ?? "";
+    $this->file_share_status = $file_share_status ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->invalid_user_list = $invalid_user_list ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->location_arn = $location_arn ?? "";
+    $this->object_acl = $object_acl ?? "";
+    $this->path = $path ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->role = $role ?? "";
+    $this->smbacl_enabled = $smbacl_enabled ?? ;
+    $this->tags = $tags ?? [];
+    $this->valid_user_list = $valid_user_list ?? ;
+  }
 }
 
-class SMBFileShareInfoList {
-}
+type SMBFileShareInfoList = vec<SMBFileShareInfo>;
 
-class SMBGuestPassword {
-}
+type SMBGuestPassword = string;
 
-class SMBSecurityStrategy {
-}
+type SMBSecurityStrategy = string;
 
 class ServiceUnavailableError {
   public StorageGatewayError $error;
   public string $message;
+
+  public function __construct(shape(
+  ?'error' => StorageGatewayError,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->error = $error ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class SetLocalConsolePasswordInput {
   public GatewayARN $gateway_arn;
   public LocalConsolePassword $local_console_password;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'local_console_password' => LocalConsolePassword,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->local_console_password = $local_console_password ?? "";
+  }
 }
 
 class SetLocalConsolePasswordOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class SetSMBGuestPasswordInput {
   public GatewayARN $gateway_arn;
   public SMBGuestPassword $password;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'password' => SMBGuestPassword,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->password = $password ?? ;
+  }
 }
 
 class SetSMBGuestPasswordOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ShutdownGatewayInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class ShutdownGatewayOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class SnapshotDescription {
-}
+type SnapshotDescription = string;
 
-class SnapshotId {
-}
+type SnapshotId = string;
 
-class Squash {
-}
+type Squash = string;
 
 class StartAvailabilityMonitorTestInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class StartAvailabilityMonitorTestOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class StartGatewayInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class StartGatewayOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
-class StorageClass {
-}
+type StorageClass = string;
 
 class StorageGatewayError {
   public ErrorCode $error_code;
   public errorDetails $error_details;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'error_details' => errorDetails,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_details = $error_details ?? [];
+  }
 }
 
 class StorediSCSIVolume {
@@ -1254,27 +2615,64 @@ class StorediSCSIVolume {
   public VolumeType $volume_type;
   public VolumeUsedInBytes $volume_used_in_bytes;
   public VolumeiSCSIAttributes $volumei_scsi_attributes;
+
+  public function __construct(shape(
+  ?'created_date' => CreatedDate,
+  ?'kms_key' => KMSKey,
+  ?'preserved_existing_data' => boolean,
+  ?'source_snapshot_id' => SnapshotId,
+  ?'target_name' => TargetName,
+  ?'volume_arn' => VolumeARN,
+  ?'volume_attachment_status' => VolumeAttachmentStatus,
+  ?'volume_disk_id' => DiskId,
+  ?'volume_id' => VolumeId,
+  ?'volume_progress' => DoubleObject,
+  ?'volume_size_in_bytes' => long,
+  ?'volume_status' => VolumeStatus,
+  ?'volume_type' => VolumeType,
+  ?'volume_used_in_bytes' => VolumeUsedInBytes,
+  ?'volumei_scsi_attributes' => VolumeiSCSIAttributes,
+  ) $s = shape()) {
+    $this->created_date = $created_date ?? 0;
+    $this->kms_key = $kms_key ?? "";
+    $this->preserved_existing_data = $preserved_existing_data ?? ;
+    $this->source_snapshot_id = $source_snapshot_id ?? ;
+    $this->target_name = $target_name ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_attachment_status = $volume_attachment_status ?? "";
+    $this->volume_disk_id = $volume_disk_id ?? ;
+    $this->volume_id = $volume_id ?? "";
+    $this->volume_progress = $volume_progress ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_status = $volume_status ?? "";
+    $this->volume_type = $volume_type ?? "";
+    $this->volume_used_in_bytes = $volume_used_in_bytes ?? 0;
+    $this->volumei_scsi_attributes = $volumei_scsi_attributes ?? null;
+  }
 }
 
-class StorediSCSIVolumes {
-}
+type StorediSCSIVolumes = vec<StorediSCSIVolume>;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeys {
-}
+type TagKeys = vec<TagKey>;
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = vec<Tag>;
 
 class Tape {
   public KMSKey $kms_key;
@@ -1287,13 +2685,35 @@ class Tape {
   public TapeStatus $tape_status;
   public TapeUsage $tape_used_in_bytes;
   public VTLDeviceARN $vtl_device;
+
+  public function __construct(shape(
+  ?'kms_key' => KMSKey,
+  ?'pool_id' => PoolId,
+  ?'progress' => DoubleObject,
+  ?'tape_arn' => TapeARN,
+  ?'tape_barcode' => TapeBarcode,
+  ?'tape_created_date' => Time,
+  ?'tape_size_in_bytes' => TapeSize,
+  ?'tape_status' => TapeStatus,
+  ?'tape_used_in_bytes' => TapeUsage,
+  ?'vtl_device' => VTLDeviceARN,
+  ) $s = shape()) {
+    $this->kms_key = $kms_key ?? "";
+    $this->pool_id = $pool_id ?? "";
+    $this->progress = $progress ?? ;
+    $this->tape_arn = $tape_arn ?? "";
+    $this->tape_barcode = $tape_barcode ?? "";
+    $this->tape_created_date = $tape_created_date ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_status = $tape_status ?? "";
+    $this->tape_used_in_bytes = $tape_used_in_bytes ?? ;
+    $this->vtl_device = $vtl_device ?? null;
+  }
 }
 
-class TapeARN {
-}
+type TapeARN = string;
 
-class TapeARNs {
-}
+type TapeARNs = vec<TapeARN>;
 
 class TapeArchive {
   public Time $completion_time;
@@ -1306,22 +2726,41 @@ class TapeArchive {
   public TapeSize $tape_size_in_bytes;
   public TapeArchiveStatus $tape_status;
   public TapeUsage $tape_used_in_bytes;
+
+  public function __construct(shape(
+  ?'completion_time' => Time,
+  ?'kms_key' => KMSKey,
+  ?'pool_id' => PoolId,
+  ?'retrieved_to' => GatewayARN,
+  ?'tape_arn' => TapeARN,
+  ?'tape_barcode' => TapeBarcode,
+  ?'tape_created_date' => Time,
+  ?'tape_size_in_bytes' => TapeSize,
+  ?'tape_status' => TapeArchiveStatus,
+  ?'tape_used_in_bytes' => TapeUsage,
+  ) $s = shape()) {
+    $this->completion_time = $completion_time ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->pool_id = $pool_id ?? "";
+    $this->retrieved_to = $retrieved_to ?? ;
+    $this->tape_arn = $tape_arn ?? "";
+    $this->tape_barcode = $tape_barcode ?? "";
+    $this->tape_created_date = $tape_created_date ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_status = $tape_status ?? "";
+    $this->tape_used_in_bytes = $tape_used_in_bytes ?? ;
+  }
 }
 
-class TapeArchiveStatus {
-}
+type TapeArchiveStatus = string;
 
-class TapeArchives {
-}
+type TapeArchives = vec<TapeArchive>;
 
-class TapeBarcode {
-}
+type TapeBarcode = string;
 
-class TapeBarcodePrefix {
-}
+type TapeBarcodePrefix = string;
 
-class TapeDriveType {
-}
+type TapeDriveType = string;
 
 class TapeInfo {
   public GatewayARN $gateway_arn;
@@ -1330,65 +2769,112 @@ class TapeInfo {
   public TapeBarcode $tape_barcode;
   public TapeSize $tape_size_in_bytes;
   public TapeStatus $tape_status;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'pool_id' => PoolId,
+  ?'tape_arn' => TapeARN,
+  ?'tape_barcode' => TapeBarcode,
+  ?'tape_size_in_bytes' => TapeSize,
+  ?'tape_status' => TapeStatus,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->pool_id = $pool_id ?? "";
+    $this->tape_arn = $tape_arn ?? "";
+    $this->tape_barcode = $tape_barcode ?? "";
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_status = $tape_status ?? "";
+  }
 }
 
-class TapeInfos {
-}
+type TapeInfos = vec<TapeInfo>;
 
 class TapeRecoveryPointInfo {
   public TapeARN $tape_arn;
   public Time $tape_recovery_point_time;
   public TapeSize $tape_size_in_bytes;
   public TapeRecoveryPointStatus $tape_status;
+
+  public function __construct(shape(
+  ?'tape_arn' => TapeARN,
+  ?'tape_recovery_point_time' => Time,
+  ?'tape_size_in_bytes' => TapeSize,
+  ?'tape_status' => TapeRecoveryPointStatus,
+  ) $s = shape()) {
+    $this->tape_arn = $tape_arn ?? "";
+    $this->tape_recovery_point_time = $tape_recovery_point_time ?? ;
+    $this->tape_size_in_bytes = $tape_size_in_bytes ?? ;
+    $this->tape_status = $tape_status ?? "";
+  }
 }
 
-class TapeRecoveryPointInfos {
-}
+type TapeRecoveryPointInfos = vec<TapeRecoveryPointInfo>;
 
-class TapeRecoveryPointStatus {
-}
+type TapeRecoveryPointStatus = string;
 
-class TapeSize {
-}
+type TapeSize = int;
 
-class TapeStatus {
-}
+type TapeStatus = string;
 
-class TapeUsage {
-}
+type TapeUsage = int;
 
-class Tapes {
-}
+type Tapes = vec<Tape>;
 
-class TargetARN {
-}
+type TargetARN = string;
 
-class TargetName {
-}
+type TargetName = string;
 
-class Time {
-}
+type Time = int;
 
-class TimeoutInSeconds {
-}
+type TimeoutInSeconds = int;
 
 class UpdateAutomaticTapeCreationPolicyInput {
   public AutomaticTapeCreationRules $automatic_tape_creation_rules;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'automatic_tape_creation_rules' => AutomaticTapeCreationRules,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->automatic_tape_creation_rules = $automatic_tape_creation_rules ?? [];
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateAutomaticTapeCreationPolicyOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateBandwidthRateLimitInput {
   public BandwidthDownloadRateLimit $average_download_rate_limit_in_bits_per_sec;
   public BandwidthUploadRateLimit $average_upload_rate_limit_in_bits_per_sec;
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'average_download_rate_limit_in_bits_per_sec' => BandwidthDownloadRateLimit,
+  ?'average_upload_rate_limit_in_bits_per_sec' => BandwidthUploadRateLimit,
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->average_download_rate_limit_in_bits_per_sec = $average_download_rate_limit_in_bits_per_sec ?? ;
+    $this->average_upload_rate_limit_in_bits_per_sec = $average_upload_rate_limit_in_bits_per_sec ?? ;
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateBandwidthRateLimitOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateChapCredentialsInput {
@@ -1396,11 +2882,31 @@ class UpdateChapCredentialsInput {
   public ChapSecret $secret_to_authenticate_initiator;
   public ChapSecret $secret_to_authenticate_target;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'initiator_name' => IqnName,
+  ?'secret_to_authenticate_initiator' => ChapSecret,
+  ?'secret_to_authenticate_target' => ChapSecret,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->initiator_name = $initiator_name ?? ;
+    $this->secret_to_authenticate_initiator = $secret_to_authenticate_initiator ?? ;
+    $this->secret_to_authenticate_target = $secret_to_authenticate_target ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class UpdateChapCredentialsOutput {
   public IqnName $initiator_name;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'initiator_name' => IqnName,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->initiator_name = $initiator_name ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
 class UpdateGatewayInformationInput {
@@ -1408,19 +2914,51 @@ class UpdateGatewayInformationInput {
   public GatewayARN $gateway_arn;
   public GatewayName $gateway_name;
   public GatewayTimezone $gateway_timezone;
+
+  public function __construct(shape(
+  ?'cloud_watch_log_group_arn' => CloudWatchLogGroupARN,
+  ?'gateway_arn' => GatewayARN,
+  ?'gateway_name' => GatewayName,
+  ?'gateway_timezone' => GatewayTimezone,
+  ) $s = shape()) {
+    $this->cloud_watch_log_group_arn = $cloud_watch_log_group_arn ?? "";
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->gateway_name = $gateway_name ?? "";
+    $this->gateway_timezone = $gateway_timezone ?? "";
+  }
 }
 
 class UpdateGatewayInformationOutput {
   public GatewayARN $gateway_arn;
   public string $gateway_name;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'gateway_name' => string,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->gateway_name = $gateway_name ?? "";
+  }
 }
 
 class UpdateGatewaySoftwareNowInput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateGatewaySoftwareNowOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateMaintenanceStartTimeInput {
@@ -1429,10 +2967,30 @@ class UpdateMaintenanceStartTimeInput {
   public GatewayARN $gateway_arn;
   public HourOfDay $hour_of_day;
   public MinuteOfHour $minute_of_hour;
+
+  public function __construct(shape(
+  ?'day_of_month' => DayOfMonth,
+  ?'day_of_week' => DayOfWeek,
+  ?'gateway_arn' => GatewayARN,
+  ?'hour_of_day' => HourOfDay,
+  ?'minute_of_hour' => MinuteOfHour,
+  ) $s = shape()) {
+    $this->day_of_month = $day_of_month ?? 0;
+    $this->day_of_week = $day_of_week ?? 0;
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->hour_of_day = $hour_of_day ?? 0;
+    $this->minute_of_hour = $minute_of_hour ?? 0;
+  }
 }
 
 class UpdateMaintenanceStartTimeOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateNFSFileShareInput {
@@ -1447,10 +3005,42 @@ class UpdateNFSFileShareInput {
   public boolean $read_only;
   public boolean $requester_pays;
   public Squash $squash;
+
+  public function __construct(shape(
+  ?'client_list' => FileShareClientList,
+  ?'default_storage_class' => StorageClass,
+  ?'file_share_arn' => FileShareARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'nfs_file_share_defaults' => NFSFileShareDefaults,
+  ?'object_acl' => ObjectACL,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'squash' => Squash,
+  ) $s = shape()) {
+    $this->client_list = $client_list ?? ;
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->nfs_file_share_defaults = $nfs_file_share_defaults ?? null;
+    $this->object_acl = $object_acl ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->squash = $squash ?? "";
+  }
 }
 
 class UpdateNFSFileShareOutput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class UpdateSMBFileShareInput {
@@ -1467,19 +3057,69 @@ class UpdateSMBFileShareInput {
   public boolean $requester_pays;
   public boolean $smbacl_enabled;
   public FileShareUserList $valid_user_list;
+
+  public function __construct(shape(
+  ?'admin_user_list' => FileShareUserList,
+  ?'audit_destination_arn' => AuditDestinationARN,
+  ?'default_storage_class' => StorageClass,
+  ?'file_share_arn' => FileShareARN,
+  ?'guess_mime_type_enabled' => boolean,
+  ?'invalid_user_list' => FileShareUserList,
+  ?'kms_encrypted' => boolean,
+  ?'kms_key' => KMSKey,
+  ?'object_acl' => ObjectACL,
+  ?'read_only' => boolean,
+  ?'requester_pays' => boolean,
+  ?'smbacl_enabled' => boolean,
+  ?'valid_user_list' => FileShareUserList,
+  ) $s = shape()) {
+    $this->admin_user_list = $admin_user_list ?? ;
+    $this->audit_destination_arn = $audit_destination_arn ?? "";
+    $this->default_storage_class = $default_storage_class ?? ;
+    $this->file_share_arn = $file_share_arn ?? "";
+    $this->guess_mime_type_enabled = $guess_mime_type_enabled ?? ;
+    $this->invalid_user_list = $invalid_user_list ?? ;
+    $this->kms_encrypted = $kms_encrypted ?? ;
+    $this->kms_key = $kms_key ?? "";
+    $this->object_acl = $object_acl ?? "";
+    $this->read_only = $read_only ?? ;
+    $this->requester_pays = $requester_pays ?? ;
+    $this->smbacl_enabled = $smbacl_enabled ?? ;
+    $this->valid_user_list = $valid_user_list ?? ;
+  }
 }
 
 class UpdateSMBFileShareOutput {
   public FileShareARN $file_share_arn;
+
+  public function __construct(shape(
+  ?'file_share_arn' => FileShareARN,
+  ) $s = shape()) {
+    $this->file_share_arn = $file_share_arn ?? "";
+  }
 }
 
 class UpdateSMBSecurityStrategyInput {
   public GatewayARN $gateway_arn;
   public SMBSecurityStrategy $smb_security_strategy;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'smb_security_strategy' => SMBSecurityStrategy,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->smb_security_strategy = $smb_security_strategy ?? "";
+  }
 }
 
 class UpdateSMBSecurityStrategyOutput {
   public GatewayARN $gateway_arn;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+  }
 }
 
 class UpdateSnapshotScheduleInput {
@@ -1488,19 +3128,53 @@ class UpdateSnapshotScheduleInput {
   public HourOfDay $start_at;
   public Tags $tags;
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'recurrence_in_hours' => RecurrenceInHours,
+  ?'start_at' => HourOfDay,
+  ?'tags' => Tags,
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->recurrence_in_hours = $recurrence_in_hours ?? 0;
+    $this->start_at = $start_at ?? ;
+    $this->tags = $tags ?? [];
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class UpdateSnapshotScheduleOutput {
   public VolumeARN $volume_arn;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+  }
 }
 
 class UpdateVTLDeviceTypeInput {
   public DeviceType $device_type;
   public VTLDeviceARN $vtl_device_arn;
+
+  public function __construct(shape(
+  ?'device_type' => DeviceType,
+  ?'vtl_device_arn' => VTLDeviceARN,
+  ) $s = shape()) {
+    $this->device_type = $device_type ?? "";
+    $this->vtl_device_arn = $vtl_device_arn ?? "";
+  }
 }
 
 class UpdateVTLDeviceTypeOutput {
   public VTLDeviceARN $vtl_device_arn;
+
+  public function __construct(shape(
+  ?'vtl_device_arn' => VTLDeviceARN,
+  ) $s = shape()) {
+    $this->vtl_device_arn = $vtl_device_arn ?? "";
+  }
 }
 
 class VTLDevice {
@@ -1509,37 +3183,41 @@ class VTLDevice {
   public VTLDeviceProductIdentifier $vtl_device_product_identifier;
   public VTLDeviceType $vtl_device_type;
   public VTLDeviceVendor $vtl_device_vendor;
+
+  public function __construct(shape(
+  ?'devicei_scsi_attributes' => DeviceiSCSIAttributes,
+  ?'vtl_device_arn' => VTLDeviceARN,
+  ?'vtl_device_product_identifier' => VTLDeviceProductIdentifier,
+  ?'vtl_device_type' => VTLDeviceType,
+  ?'vtl_device_vendor' => VTLDeviceVendor,
+  ) $s = shape()) {
+    $this->devicei_scsi_attributes = $devicei_scsi_attributes ?? null;
+    $this->vtl_device_arn = $vtl_device_arn ?? "";
+    $this->vtl_device_product_identifier = $vtl_device_product_identifier ?? "";
+    $this->vtl_device_type = $vtl_device_type ?? "";
+    $this->vtl_device_vendor = $vtl_device_vendor ?? "";
+  }
 }
 
-class VTLDeviceARN {
-}
+type VTLDeviceARN = string;
 
-class VTLDeviceARNs {
-}
+type VTLDeviceARNs = vec<VTLDeviceARN>;
 
-class VTLDeviceProductIdentifier {
-}
+type VTLDeviceProductIdentifier = string;
 
-class VTLDeviceType {
-}
+type VTLDeviceType = string;
 
-class VTLDeviceVendor {
-}
+type VTLDeviceVendor = string;
 
-class VTLDevices {
-}
+type VTLDevices = vec<VTLDevice>;
 
-class VolumeARN {
-}
+type VolumeARN = string;
 
-class VolumeARNs {
-}
+type VolumeARNs = vec<VolumeARN>;
 
-class VolumeAttachmentStatus {
-}
+type VolumeAttachmentStatus = string;
 
-class VolumeId {
-}
+type VolumeId = string;
 
 class VolumeInfo {
   public GatewayARN $gateway_arn;
@@ -1549,29 +3227,54 @@ class VolumeInfo {
   public VolumeId $volume_id;
   public long $volume_size_in_bytes;
   public VolumeType $volume_type;
+
+  public function __construct(shape(
+  ?'gateway_arn' => GatewayARN,
+  ?'gateway_id' => GatewayId,
+  ?'volume_arn' => VolumeARN,
+  ?'volume_attachment_status' => VolumeAttachmentStatus,
+  ?'volume_id' => VolumeId,
+  ?'volume_size_in_bytes' => long,
+  ?'volume_type' => VolumeType,
+  ) $s = shape()) {
+    $this->gateway_arn = $gateway_arn ?? "";
+    $this->gateway_id = $gateway_id ?? "";
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_attachment_status = $volume_attachment_status ?? "";
+    $this->volume_id = $volume_id ?? "";
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_type = $volume_type ?? "";
+  }
 }
 
-class VolumeInfos {
-}
+type VolumeInfos = vec<VolumeInfo>;
 
 class VolumeRecoveryPointInfo {
   public VolumeARN $volume_arn;
   public string $volume_recovery_point_time;
   public long $volume_size_in_bytes;
   public long $volume_usage_in_bytes;
+
+  public function __construct(shape(
+  ?'volume_arn' => VolumeARN,
+  ?'volume_recovery_point_time' => string,
+  ?'volume_size_in_bytes' => long,
+  ?'volume_usage_in_bytes' => long,
+  ) $s = shape()) {
+    $this->volume_arn = $volume_arn ?? "";
+    $this->volume_recovery_point_time = $volume_recovery_point_time ?? ;
+    $this->volume_size_in_bytes = $volume_size_in_bytes ?? ;
+    $this->volume_usage_in_bytes = $volume_usage_in_bytes ?? ;
+  }
 }
 
-class VolumeRecoveryPointInfos {
-}
+type VolumeRecoveryPointInfos = vec<VolumeRecoveryPointInfo>;
 
-class VolumeStatus {
-}
+type VolumeStatus = string;
 
-class VolumeType {
-}
+type VolumeType = string;
 
-class VolumeUsedInBytes {
-}
+type VolumeUsedInBytes = int;
 
 class VolumeiSCSIAttributes {
   public boolean $chap_enabled;
@@ -1579,23 +3282,31 @@ class VolumeiSCSIAttributes {
   public NetworkInterfaceId $network_interface_id;
   public integer $network_interface_port;
   public TargetARN $target_arn;
+
+  public function __construct(shape(
+  ?'chap_enabled' => boolean,
+  ?'lun_number' => PositiveIntObject,
+  ?'network_interface_id' => NetworkInterfaceId,
+  ?'network_interface_port' => integer,
+  ?'target_arn' => TargetARN,
+  ) $s = shape()) {
+    $this->chap_enabled = $chap_enabled ?? ;
+    $this->lun_number = $lun_number ?? ;
+    $this->network_interface_id = $network_interface_id ?? "";
+    $this->network_interface_port = $network_interface_port ?? ;
+    $this->target_arn = $target_arn ?? "";
+  }
 }
 
-class boolean {
-}
+type boolean = bool;
 
-class double {
-}
+type double = float;
 
-class errorDetails {
-}
+type errorDetails = dict<string, string>;
 
-class integer {
-}
+type integer = int;
 
-class long {
-}
+type long = int;
 
-class string {
-}
+type string = string;
 

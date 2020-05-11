@@ -40,39 +40,89 @@ class BatchCreateVariableError {
   public integer $code;
   public string $message;
   public string $name;
+
+  public function __construct(shape(
+  ?'code' => integer,
+  ?'message' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class BatchCreateVariableErrorList {
-}
+type BatchCreateVariableErrorList = vec<BatchCreateVariableError>;
 
 class BatchCreateVariableRequest {
   public VariableEntryList $variable_entries;
+
+  public function __construct(shape(
+  ?'variable_entries' => VariableEntryList,
+  ) $s = shape()) {
+    $this->variable_entries = $variable_entries ?? ;
+  }
 }
 
 class BatchCreateVariableResult {
   public BatchCreateVariableErrorList $errors;
+
+  public function __construct(shape(
+  ?'errors' => BatchCreateVariableErrorList,
+  ) $s = shape()) {
+    $this->errors = $errors ?? ;
+  }
 }
 
 class BatchGetVariableError {
   public integer $code;
   public string $message;
   public string $name;
+
+  public function __construct(shape(
+  ?'code' => integer,
+  ?'message' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class BatchGetVariableErrorList {
-}
+type BatchGetVariableErrorList = vec<BatchGetVariableError>;
 
 class BatchGetVariableRequest {
   public NameList $names;
+
+  public function __construct(shape(
+  ?'names' => NameList,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+  }
 }
 
 class BatchGetVariableResult {
   public BatchGetVariableErrorList $errors;
   public VariableList $variables;
+
+  public function __construct(shape(
+  ?'errors' => BatchGetVariableErrorList,
+  ?'variables' => VariableList,
+  ) $s = shape()) {
+    $this->errors = $errors ?? ;
+    $this->variables = $variables ?? ;
+  }
 }
 
 class ConflictException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class CreateDetectorVersionRequest {
@@ -82,18 +132,54 @@ class CreateDetectorVersionRequest {
   public ListOfModelVersions $model_versions;
   public RuleExecutionMode $rule_execution_mode;
   public RuleList $rules;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'external_model_endpoints' => ListOfStrings,
+  ?'model_versions' => ListOfModelVersions,
+  ?'rule_execution_mode' => RuleExecutionMode,
+  ?'rules' => RuleList,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->external_model_endpoints = $external_model_endpoints ?? ;
+    $this->model_versions = $model_versions ?? ;
+    $this->rule_execution_mode = $rule_execution_mode ?? ;
+    $this->rules = $rules ?? ;
+  }
 }
 
 class CreateDetectorVersionResult {
   public identifier $detector_id;
   public nonEmptyString $detector_version_id;
   public DetectorVersionStatus $status;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ?'status' => DetectorVersionStatus,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class CreateModelVersionRequest {
   public description $description;
   public identifier $model_id;
   public ModelTypeEnum $model_type;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+  }
 }
 
 class CreateModelVersionResult {
@@ -101,6 +187,18 @@ class CreateModelVersionResult {
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
   public string $status;
+
+  public function __construct(shape(
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ?'status' => string,
+  ) $s = shape()) {
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class CreateRuleRequest {
@@ -110,10 +208,32 @@ class CreateRuleRequest {
   public Language $language;
   public NonEmptyListOfStrings $outcomes;
   public identifier $rule_id;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'expression' => ruleExpression,
+  ?'language' => Language,
+  ?'outcomes' => NonEmptyListOfStrings,
+  ?'rule_id' => identifier,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->expression = $expression ?? ;
+    $this->language = $language ?? ;
+    $this->outcomes = $outcomes ?? ;
+    $this->rule_id = $rule_id ?? ;
+  }
 }
 
 class CreateRuleResult {
   public Rule $rule;
+
+  public function __construct(shape(
+  ?'rule' => Rule,
+  ) $s = shape()) {
+    $this->rule = $rule ?? ;
+  }
 }
 
 class CreateVariableRequest {
@@ -123,61 +243,144 @@ class CreateVariableRequest {
   public string $description;
   public string $name;
   public string $variable_type;
+
+  public function __construct(shape(
+  ?'data_source' => DataSource,
+  ?'data_type' => DataType,
+  ?'default_value' => string,
+  ?'description' => string,
+  ?'name' => string,
+  ?'variable_type' => string,
+  ) $s = shape()) {
+    $this->data_source = $data_source ?? ;
+    $this->data_type = $data_type ?? ;
+    $this->default_value = $default_value ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? ;
+    $this->variable_type = $variable_type ?? ;
+  }
 }
 
 class CreateVariableResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class CsvIndexToVariableMap {
-}
+type CsvIndexToVariableMap = dict<string, string>;
 
-class DataSource {
-}
+type DataSource = string;
 
-class DataType {
-}
+type DataType = string;
 
 class DeleteDetectorRequest {
   public identifier $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+  }
 }
 
 class DeleteDetectorResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteDetectorVersionRequest {
   public identifier $detector_id;
   public nonEmptyString $detector_version_id;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+  }
 }
 
 class DeleteDetectorVersionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteEventRequest {
   public string $event_id;
+
+  public function __construct(shape(
+  ?'event_id' => string,
+  ) $s = shape()) {
+    $this->event_id = $event_id ?? ;
+  }
 }
 
 class DeleteEventResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteRuleVersionRequest {
   public identifier $detector_id;
   public identifier $rule_id;
   public nonEmptyString $rule_version;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'rule_id' => identifier,
+  ?'rule_version' => nonEmptyString,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->rule_id = $rule_id ?? ;
+    $this->rule_version = $rule_version ?? ;
+  }
 }
 
 class DeleteRuleVersionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeDetectorRequest {
   public identifier $detector_id;
   public DetectorVersionMaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'max_results' => DetectorVersionMaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeDetectorResult {
   public identifier $detector_id;
   public DetectorVersionSummaryList $detector_version_summaries;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'detector_version_summaries' => DetectorVersionSummaryList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_summaries = $detector_version_summaries ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeModelVersionsRequest {
@@ -186,11 +389,33 @@ class DescribeModelVersionsRequest {
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeModelVersionsResult {
   public ModelVersionDetailList $model_version_details;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'model_version_details' => ModelVersionDetailList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->model_version_details = $model_version_details ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class Detector {
@@ -198,32 +423,50 @@ class Detector {
   public description $description;
   public identifier $detector_id;
   public time $last_updated_time;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'last_updated_time' => time,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+  }
 }
 
-class DetectorList {
-}
+type DetectorList = vec<Detector>;
 
-class DetectorVersionMaxResults {
-}
+type DetectorVersionMaxResults = int;
 
-class DetectorVersionStatus {
-}
+type DetectorVersionStatus = string;
 
 class DetectorVersionSummary {
   public description $description;
   public nonEmptyString $detector_version_id;
   public time $last_updated_time;
   public DetectorVersionStatus $status;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_version_id' => nonEmptyString,
+  ?'last_updated_time' => time,
+  ?'status' => DetectorVersionStatus,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class DetectorVersionSummaryList {
-}
+type DetectorVersionSummaryList = vec<DetectorVersionSummary>;
 
-class DetectorsMaxResults {
-}
+type DetectorsMaxResults = int;
 
-class EventAttributeMap {
-}
+type EventAttributeMap = dict<attributeKey, attributeValue>;
 
 class ExternalModel {
   public time $created_time;
@@ -234,20 +477,45 @@ class ExternalModel {
   public ModelSource $model_source;
   public ModelOutputConfiguration $output_configuration;
   public Role $role;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'input_configuration' => ModelInputConfiguration,
+  ?'last_updated_time' => time,
+  ?'model_endpoint' => string,
+  ?'model_endpoint_status' => ModelEndpointStatus,
+  ?'model_source' => ModelSource,
+  ?'output_configuration' => ModelOutputConfiguration,
+  ?'role' => Role,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->input_configuration = $input_configuration ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->model_endpoint = $model_endpoint ?? ;
+    $this->model_endpoint_status = $model_endpoint_status ?? ;
+    $this->model_source = $model_source ?? ;
+    $this->output_configuration = $output_configuration ?? ;
+    $this->role = $role ?? ;
+  }
 }
 
-class ExternalModelEndpointDataBlobMap {
-}
+type ExternalModelEndpointDataBlobMap = dict<string, ModelEndpointDataBlob>;
 
-class ExternalModelList {
-}
+type ExternalModelList = vec<ExternalModel>;
 
-class ExternalModelsMaxResults {
-}
+type ExternalModelsMaxResults = int;
 
 class GetDetectorVersionRequest {
   public identifier $detector_id;
   public nonEmptyString $detector_version_id;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+  }
 }
 
 class GetDetectorVersionResult {
@@ -261,34 +529,104 @@ class GetDetectorVersionResult {
   public RuleExecutionMode $rule_execution_mode;
   public RuleList $rules;
   public DetectorVersionStatus $status;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ?'external_model_endpoints' => ListOfStrings,
+  ?'last_updated_time' => time,
+  ?'model_versions' => ListOfModelVersions,
+  ?'rule_execution_mode' => RuleExecutionMode,
+  ?'rules' => RuleList,
+  ?'status' => DetectorVersionStatus,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->external_model_endpoints = $external_model_endpoints ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->model_versions = $model_versions ?? ;
+    $this->rule_execution_mode = $rule_execution_mode ?? ;
+    $this->rules = $rules ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class GetDetectorsRequest {
   public identifier $detector_id;
   public DetectorsMaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'max_results' => DetectorsMaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetDetectorsResult {
   public DetectorList $detectors;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detectors' => DetectorList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detectors = $detectors ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetExternalModelsRequest {
   public ExternalModelsMaxResults $max_results;
   public string $model_endpoint;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => ExternalModelsMaxResults,
+  ?'model_endpoint' => string,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->model_endpoint = $model_endpoint ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetExternalModelsResult {
   public ExternalModelList $external_models;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'external_models' => ExternalModelList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->external_models = $external_models ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetModelVersionRequest {
   public identifier $model_id;
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
+
+  public function __construct(shape(
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ) $s = shape()) {
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+  }
 }
 
 class GetModelVersionResult {
@@ -297,6 +635,20 @@ class GetModelVersionResult {
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
   public string $status;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ?'status' => string,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class GetModelsRequest {
@@ -304,22 +656,60 @@ class GetModelsRequest {
   public identifier $model_id;
   public ModelTypeEnum $model_type;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetModelsResult {
   public ModelList $models;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'models' => ModelList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->models = $models ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetOutcomesRequest {
   public OutcomesMaxResults $max_results;
   public identifier $name;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => OutcomesMaxResults,
+  ?'name' => identifier,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->name = $name ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetOutcomesResult {
   public string $next_token;
   public OutcomeList $outcomes;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'outcomes' => OutcomeList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->outcomes = $outcomes ?? ;
+  }
 }
 
 class GetPredictionRequest {
@@ -328,12 +718,36 @@ class GetPredictionRequest {
   public EventAttributeMap $event_attributes;
   public string $event_id;
   public ExternalModelEndpointDataBlobMap $external_model_endpoint_data_blobs;
+
+  public function __construct(shape(
+  ?'detector_id' => string,
+  ?'detector_version_id' => string,
+  ?'event_attributes' => EventAttributeMap,
+  ?'event_id' => string,
+  ?'external_model_endpoint_data_blobs' => ExternalModelEndpointDataBlobMap,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->event_attributes = $event_attributes ?? ;
+    $this->event_id = $event_id ?? ;
+    $this->external_model_endpoint_data_blobs = $external_model_endpoint_data_blobs ?? ;
+  }
 }
 
 class GetPredictionResult {
   public ListOfModelScores $model_scores;
   public ListOfStrings $outcomes;
   public ListOfRuleResults $rule_results;
+
+  public function __construct(shape(
+  ?'model_scores' => ListOfModelScores,
+  ?'outcomes' => ListOfStrings,
+  ?'rule_results' => ListOfRuleResults,
+  ) $s = shape()) {
+    $this->model_scores = $model_scores ?? ;
+    $this->outcomes = $outcomes ?? ;
+    $this->rule_results = $rule_results ?? ;
+  }
 }
 
 class GetRulesRequest {
@@ -342,62 +756,106 @@ class GetRulesRequest {
   public string $next_token;
   public identifier $rule_id;
   public nonEmptyString $rule_version;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'max_results' => RulesMaxResults,
+  ?'next_token' => string,
+  ?'rule_id' => identifier,
+  ?'rule_version' => nonEmptyString,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->rule_id = $rule_id ?? ;
+    $this->rule_version = $rule_version ?? ;
+  }
 }
 
 class GetRulesResult {
   public string $next_token;
   public RuleDetailList $rule_details;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'rule_details' => RuleDetailList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->rule_details = $rule_details ?? ;
+  }
 }
 
 class GetVariablesRequest {
   public VariablesMaxResults $max_results;
   public string $name;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => VariablesMaxResults,
+  ?'name' => string,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->name = $name ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetVariablesResult {
   public string $next_token;
   public VariableList $variables;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'variables' => VariableList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->variables = $variables ?? ;
+  }
 }
 
 class InternalServerException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class IsOpaque {
-}
+type IsOpaque = bool;
 
-class JsonKeyToVariableMap {
-}
+type JsonKeyToVariableMap = dict<string, string>;
 
-class LabelMapper {
-}
+type LabelMapper = dict<string, ListOfStrings>;
 
 class LabelSchema {
   public string $label_key;
   public LabelMapper $label_mapper;
+
+  public function __construct(shape(
+  ?'label_key' => string,
+  ?'label_mapper' => LabelMapper,
+  ) $s = shape()) {
+    $this->label_key = $label_key ?? ;
+    $this->label_mapper = $label_mapper ?? ;
+  }
 }
 
-class Language {
-}
+type Language = string;
 
-class ListOfModelScores {
-}
+type ListOfModelScores = vec<ModelScores>;
 
-class ListOfModelVersions {
-}
+type ListOfModelVersions = vec<ModelVersion>;
 
-class ListOfRuleResults {
-}
+type ListOfRuleResults = vec<RuleResult>;
 
-class ListOfStrings {
-}
+type ListOfStrings = vec<string>;
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class MetricsMap {
-}
+type MetricsMap = dict<string, string>;
 
 class Model {
   public time $created_time;
@@ -408,67 +866,134 @@ class Model {
   public ModelTypeEnum $model_type;
   public ModelVariablesList $model_variables;
   public TrainingDataSource $training_data_source;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'label_schema' => LabelSchema,
+  ?'last_updated_time' => time,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_variables' => ModelVariablesList,
+  ?'training_data_source' => TrainingDataSource,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->label_schema = $label_schema ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_variables = $model_variables ?? ;
+    $this->training_data_source = $training_data_source ?? ;
+  }
 }
 
 class ModelEndpointDataBlob {
   public blob $byte_buffer;
   public contentType $content_type;
+
+  public function __construct(shape(
+  ?'byte_buffer' => blob,
+  ?'content_type' => contentType,
+  ) $s = shape()) {
+    $this->byte_buffer = $byte_buffer ?? ;
+    $this->content_type = $content_type ?? "";
+  }
 }
 
-class ModelEndpointStatus {
-}
+type ModelEndpointStatus = string;
 
 class ModelInputConfiguration {
   public string $csv_input_template;
   public ModelInputDataFormat $format;
   public IsOpaque $is_opaque;
   public string $json_input_template;
+
+  public function __construct(shape(
+  ?'csv_input_template' => string,
+  ?'format' => ModelInputDataFormat,
+  ?'is_opaque' => IsOpaque,
+  ?'json_input_template' => string,
+  ) $s = shape()) {
+    $this->csv_input_template = $csv_input_template ?? ;
+    $this->format = $format ?? ;
+    $this->is_opaque = $is_opaque ?? ;
+    $this->json_input_template = $json_input_template ?? ;
+  }
 }
 
-class ModelInputDataFormat {
-}
+type ModelInputDataFormat = string;
 
-class ModelList {
-}
+type ModelList = vec<Model>;
 
 class ModelOutputConfiguration {
   public CsvIndexToVariableMap $csv_index_to_variable_map;
   public ModelOutputDataFormat $format;
   public JsonKeyToVariableMap $json_key_to_variable_map;
+
+  public function __construct(shape(
+  ?'csv_index_to_variable_map' => CsvIndexToVariableMap,
+  ?'format' => ModelOutputDataFormat,
+  ?'json_key_to_variable_map' => JsonKeyToVariableMap,
+  ) $s = shape()) {
+    $this->csv_index_to_variable_map = $csv_index_to_variable_map ?? ;
+    $this->format = $format ?? ;
+    $this->json_key_to_variable_map = $json_key_to_variable_map ?? ;
+  }
 }
 
-class ModelOutputDataFormat {
-}
+type ModelOutputDataFormat = string;
 
-class ModelPredictionMap {
-}
+type ModelPredictionMap = dict<string, float>;
 
 class ModelScores {
   public ModelVersion $model_version;
   public ModelPredictionMap $scores;
+
+  public function __construct(shape(
+  ?'model_version' => ModelVersion,
+  ?'scores' => ModelPredictionMap,
+  ) $s = shape()) {
+    $this->model_version = $model_version ?? ;
+    $this->scores = $scores ?? ;
+  }
 }
 
-class ModelSource {
-}
+type ModelSource = string;
 
-class ModelTypeEnum {
-}
+type ModelTypeEnum = string;
 
 class ModelVariable {
   public ModelVariableIndex $index;
   public string $name;
+
+  public function __construct(shape(
+  ?'index' => ModelVariableIndex,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->index = $index ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class ModelVariableIndex {
-}
+type ModelVariableIndex = int;
 
-class ModelVariablesList {
-}
+type ModelVariablesList = vec<ModelVariable>;
 
 class ModelVersion {
   public identifier $model_id;
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
+
+  public function __construct(shape(
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ) $s = shape()) {
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+  }
 }
 
 class ModelVersionDetail {
@@ -484,39 +1009,85 @@ class ModelVersionDetail {
   public TrainingDataSource $training_data_source;
   public MetricsMap $training_metrics;
   public MetricsMap $validation_metrics;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'label_schema' => LabelSchema,
+  ?'last_updated_time' => time,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_variables' => ModelVariablesList,
+  ?'model_version_number' => nonEmptyString,
+  ?'status' => string,
+  ?'training_data_source' => TrainingDataSource,
+  ?'training_metrics' => MetricsMap,
+  ?'validation_metrics' => MetricsMap,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->label_schema = $label_schema ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_variables = $model_variables ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+    $this->status = $status ?? ;
+    $this->training_data_source = $training_data_source ?? ;
+    $this->training_metrics = $training_metrics ?? ;
+    $this->validation_metrics = $validation_metrics ?? ;
+  }
 }
 
-class ModelVersionDetailList {
-}
+type ModelVersionDetailList = vec<ModelVersionDetail>;
 
-class ModelVersionStatus {
-}
+type ModelVersionStatus = string;
 
-class NameList {
-}
+type NameList = vec<string>;
 
-class NonEmptyListOfStrings {
-}
+type NonEmptyListOfStrings = vec<string>;
 
 class Outcome {
   public time $created_time;
   public description $description;
   public time $last_updated_time;
   public identifier $name;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'last_updated_time' => time,
+  ?'name' => identifier,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class OutcomeList {
-}
+type OutcomeList = vec<Outcome>;
 
-class OutcomesMaxResults {
-}
+type OutcomesMaxResults = int;
 
 class PutDetectorRequest {
   public description $description;
   public identifier $detector_id;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+  }
 }
 
 class PutDetectorResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PutExternalModelRequest {
@@ -526,9 +1097,29 @@ class PutExternalModelRequest {
   public ModelSource $model_source;
   public ModelOutputConfiguration $output_configuration;
   public Role $role;
+
+  public function __construct(shape(
+  ?'input_configuration' => ModelInputConfiguration,
+  ?'model_endpoint' => string,
+  ?'model_endpoint_status' => ModelEndpointStatus,
+  ?'model_source' => ModelSource,
+  ?'output_configuration' => ModelOutputConfiguration,
+  ?'role' => Role,
+  ) $s = shape()) {
+    $this->input_configuration = $input_configuration ?? ;
+    $this->model_endpoint = $model_endpoint ?? ;
+    $this->model_endpoint_status = $model_endpoint_status ?? ;
+    $this->model_source = $model_source ?? ;
+    $this->output_configuration = $output_configuration ?? ;
+    $this->role = $role ?? ;
+  }
 }
 
 class PutExternalModelResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PutModelRequest {
@@ -538,32 +1129,88 @@ class PutModelRequest {
   public ModelTypeEnum $model_type;
   public ModelVariablesList $model_variables;
   public TrainingDataSource $training_data_source;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'label_schema' => LabelSchema,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_variables' => ModelVariablesList,
+  ?'training_data_source' => TrainingDataSource,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->label_schema = $label_schema ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_variables = $model_variables ?? ;
+    $this->training_data_source = $training_data_source ?? ;
+  }
 }
 
 class PutModelResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PutOutcomeRequest {
   public description $description;
   public identifier $name;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'name' => identifier,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->name = $name ?? ;
+  }
 }
 
 class PutOutcomeResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ResourceNotFoundException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Role {
   public string $arn;
   public string $name;
+
+  public function __construct(shape(
+  ?'arn' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class Rule {
   public identifier $detector_id;
   public identifier $rule_id;
   public nonEmptyString $rule_version;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'rule_id' => identifier,
+  ?'rule_version' => nonEmptyString,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->rule_id = $rule_id ?? ;
+    $this->rule_version = $rule_version ?? ;
+  }
 }
 
 class RuleDetail {
@@ -576,41 +1223,95 @@ class RuleDetail {
   public NonEmptyListOfStrings $outcomes;
   public identifier $rule_id;
   public nonEmptyString $rule_version;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'expression' => ruleExpression,
+  ?'language' => Language,
+  ?'last_updated_time' => time,
+  ?'outcomes' => NonEmptyListOfStrings,
+  ?'rule_id' => identifier,
+  ?'rule_version' => nonEmptyString,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->expression = $expression ?? ;
+    $this->language = $language ?? ;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->outcomes = $outcomes ?? ;
+    $this->rule_id = $rule_id ?? ;
+    $this->rule_version = $rule_version ?? ;
+  }
 }
 
-class RuleDetailList {
-}
+type RuleDetailList = vec<RuleDetail>;
 
-class RuleExecutionMode {
-}
+type RuleExecutionMode = string;
 
-class RuleList {
-}
+type RuleList = vec<Rule>;
 
 class RuleResult {
   public ListOfStrings $outcomes;
   public string $rule_id;
+
+  public function __construct(shape(
+  ?'outcomes' => ListOfStrings,
+  ?'rule_id' => string,
+  ) $s = shape()) {
+    $this->outcomes = $outcomes ?? ;
+    $this->rule_id = $rule_id ?? ;
+  }
 }
 
-class RulesMaxResults {
-}
+type RulesMaxResults = int;
 
 class ThrottlingException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class TrainingDataSource {
   public iamRoleArn $data_access_role_arn;
   public s3BucketLocation $data_location;
+
+  public function __construct(shape(
+  ?'data_access_role_arn' => iamRoleArn,
+  ?'data_location' => s3BucketLocation,
+  ) $s = shape()) {
+    $this->data_access_role_arn = $data_access_role_arn ?? ;
+    $this->data_location = $data_location ?? ;
+  }
 }
 
 class UpdateDetectorVersionMetadataRequest {
   public description $description;
   public identifier $detector_id;
   public nonEmptyString $detector_version_id;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+  }
 }
 
 class UpdateDetectorVersionMetadataResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateDetectorVersionRequest {
@@ -621,18 +1322,54 @@ class UpdateDetectorVersionRequest {
   public ListOfModelVersions $model_versions;
   public RuleExecutionMode $rule_execution_mode;
   public RuleList $rules;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ?'external_model_endpoints' => ListOfStrings,
+  ?'model_versions' => ListOfModelVersions,
+  ?'rule_execution_mode' => RuleExecutionMode,
+  ?'rules' => RuleList,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->external_model_endpoints = $external_model_endpoints ?? ;
+    $this->model_versions = $model_versions ?? ;
+    $this->rule_execution_mode = $rule_execution_mode ?? ;
+    $this->rules = $rules ?? ;
+  }
 }
 
 class UpdateDetectorVersionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateDetectorVersionStatusRequest {
   public identifier $detector_id;
   public nonEmptyString $detector_version_id;
   public DetectorVersionStatus $status;
+
+  public function __construct(shape(
+  ?'detector_id' => identifier,
+  ?'detector_version_id' => nonEmptyString,
+  ?'status' => DetectorVersionStatus,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? ;
+    $this->detector_version_id = $detector_version_id ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class UpdateDetectorVersionStatusResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateModelVersionRequest {
@@ -641,17 +1378,47 @@ class UpdateModelVersionRequest {
   public ModelTypeEnum $model_type;
   public nonEmptyString $model_version_number;
   public ModelVersionStatus $status;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'model_id' => identifier,
+  ?'model_type' => ModelTypeEnum,
+  ?'model_version_number' => nonEmptyString,
+  ?'status' => ModelVersionStatus,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->model_id = $model_id ?? ;
+    $this->model_type = $model_type ?? ;
+    $this->model_version_number = $model_version_number ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class UpdateModelVersionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateRuleMetadataRequest {
   public description $description;
   public Rule $rule;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'rule' => Rule,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->rule = $rule ?? ;
+  }
 }
 
 class UpdateRuleMetadataResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateRuleVersionRequest {
@@ -660,10 +1427,30 @@ class UpdateRuleVersionRequest {
   public Language $language;
   public NonEmptyListOfStrings $outcomes;
   public Rule $rule;
+
+  public function __construct(shape(
+  ?'description' => description,
+  ?'expression' => ruleExpression,
+  ?'language' => Language,
+  ?'outcomes' => NonEmptyListOfStrings,
+  ?'rule' => Rule,
+  ) $s = shape()) {
+    $this->description = $description ?? "";
+    $this->expression = $expression ?? ;
+    $this->language = $language ?? ;
+    $this->outcomes = $outcomes ?? ;
+    $this->rule = $rule ?? ;
+  }
 }
 
 class UpdateRuleVersionResult {
   public Rule $rule;
+
+  public function __construct(shape(
+  ?'rule' => Rule,
+  ) $s = shape()) {
+    $this->rule = $rule ?? ;
+  }
 }
 
 class UpdateVariableRequest {
@@ -671,13 +1458,35 @@ class UpdateVariableRequest {
   public string $description;
   public string $name;
   public string $variable_type;
+
+  public function __construct(shape(
+  ?'default_value' => string,
+  ?'description' => string,
+  ?'name' => string,
+  ?'variable_type' => string,
+  ) $s = shape()) {
+    $this->default_value = $default_value ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? ;
+    $this->variable_type = $variable_type ?? ;
+  }
 }
 
 class UpdateVariableResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ValidationException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Variable {
@@ -689,6 +1498,26 @@ class Variable {
   public time $last_updated_time;
   public string $name;
   public string $variable_type;
+
+  public function __construct(shape(
+  ?'created_time' => time,
+  ?'data_source' => DataSource,
+  ?'data_type' => DataType,
+  ?'default_value' => string,
+  ?'description' => string,
+  ?'last_updated_time' => time,
+  ?'name' => string,
+  ?'variable_type' => string,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->data_source = $data_source ?? ;
+    $this->data_type = $data_type ?? ;
+    $this->default_value = $default_value ?? ;
+    $this->description = $description ?? "";
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->name = $name ?? ;
+    $this->variable_type = $variable_type ?? ;
+  }
 }
 
 class VariableEntry {
@@ -698,56 +1527,55 @@ class VariableEntry {
   public string $description;
   public string $name;
   public string $variable_type;
+
+  public function __construct(shape(
+  ?'data_source' => string,
+  ?'data_type' => string,
+  ?'default_value' => string,
+  ?'description' => string,
+  ?'name' => string,
+  ?'variable_type' => string,
+  ) $s = shape()) {
+    $this->data_source = $data_source ?? ;
+    $this->data_type = $data_type ?? ;
+    $this->default_value = $default_value ?? ;
+    $this->description = $description ?? "";
+    $this->name = $name ?? ;
+    $this->variable_type = $variable_type ?? ;
+  }
 }
 
-class VariableEntryList {
-}
+type VariableEntryList = vec<VariableEntry>;
 
-class VariableList {
-}
+type VariableList = vec<Variable>;
 
-class VariablesMaxResults {
-}
+type VariablesMaxResults = int;
 
-class attributeKey {
-}
+type attributeKey = string;
 
-class attributeValue {
-}
+type attributeValue = string;
 
-class blob {
-}
+type blob = string;
 
-class contentType {
-}
+type contentType = string;
 
-class description {
-}
+type description = string;
 
-class float {
-}
+type float = float;
 
-class iamRoleArn {
-}
+type iamRoleArn = string;
 
-class identifier {
-}
+type identifier = string;
 
-class integer {
-}
+type integer = int;
 
-class nonEmptyString {
-}
+type nonEmptyString = string;
 
-class ruleExpression {
-}
+type ruleExpression = string;
 
-class s3BucketLocation {
-}
+type s3BucketLocation = string;
 
-class string {
-}
+type string = string;
 
-class time {
-}
+type time = string;
 

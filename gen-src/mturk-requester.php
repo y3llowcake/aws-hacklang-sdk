@@ -46,18 +46,44 @@ interface MTurk {
 class AcceptQualificationRequestRequest {
   public int $integer_value;
   public string $qualification_request_id;
+
+  public function __construct(shape(
+  ?'integer_value' => int,
+  ?'qualification_request_id' => string,
+  ) $s = shape()) {
+    $this->integer_value = $integer_value ?? ;
+    $this->qualification_request_id = $qualification_request_id ?? ;
+  }
 }
 
 class AcceptQualificationRequestResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ApproveAssignmentRequest {
   public EntityId $assignment_id;
   public boolean $override_rejection;
   public string $requester_feedback;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'override_rejection' => boolean,
+  ?'requester_feedback' => string,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->override_rejection = $override_rejection ?? ;
+    $this->requester_feedback = $requester_feedback ?? ;
+  }
 }
 
 class ApproveAssignmentResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class Assignment {
@@ -73,25 +99,66 @@ class Assignment {
   public string $requester_feedback;
   public Timestamp $submit_time;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'accept_time' => Timestamp,
+  ?'answer' => string,
+  ?'approval_time' => Timestamp,
+  ?'assignment_id' => EntityId,
+  ?'assignment_status' => AssignmentStatus,
+  ?'auto_approval_time' => Timestamp,
+  ?'deadline' => Timestamp,
+  ?'hit_id' => EntityId,
+  ?'rejection_time' => Timestamp,
+  ?'requester_feedback' => string,
+  ?'submit_time' => Timestamp,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->accept_time = $accept_time ?? ;
+    $this->answer = $answer ?? ;
+    $this->approval_time = $approval_time ?? ;
+    $this->assignment_id = $assignment_id ?? ;
+    $this->assignment_status = $assignment_status ?? "";
+    $this->auto_approval_time = $auto_approval_time ?? ;
+    $this->deadline = $deadline ?? ;
+    $this->hit_id = $hit_id ?? ;
+    $this->rejection_time = $rejection_time ?? ;
+    $this->requester_feedback = $requester_feedback ?? ;
+    $this->submit_time = $submit_time ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class AssignmentList {
-}
+type AssignmentList = vec<Assignment>;
 
-class AssignmentStatus {
-}
+type AssignmentStatus = string;
 
-class AssignmentStatusList {
-}
+type AssignmentStatusList = vec<AssignmentStatus>;
 
 class AssociateQualificationWithWorkerRequest {
   public int $integer_value;
   public EntityId $qualification_type_id;
   public boolean $send_notification;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'integer_value' => int,
+  ?'qualification_type_id' => EntityId,
+  ?'send_notification' => boolean,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->integer_value = $integer_value ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->send_notification = $send_notification ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class AssociateQualificationWithWorkerResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class BonusPayment {
@@ -100,27 +167,51 @@ class BonusPayment {
   public Timestamp $grant_time;
   public string $reason;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'bonus_amount' => CurrencyAmount,
+  ?'grant_time' => Timestamp,
+  ?'reason' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->bonus_amount = $bonus_amount ?? ;
+    $this->grant_time = $grant_time ?? ;
+    $this->reason = $reason ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class BonusPaymentList {
-}
+type BonusPaymentList = vec<BonusPayment>;
 
-class Boolean {
-}
+type Boolean = bool;
 
-class Comparator {
-}
+type Comparator = string;
 
-class CountryParameters {
-}
+type CountryParameters = string;
 
 class CreateAdditionalAssignmentsForHITRequest {
   public EntityId $hit_id;
   public int $number_of_additional_assignments;
   public IdempotencyToken $unique_request_token;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ?'number_of_additional_assignments' => int,
+  ?'unique_request_token' => IdempotencyToken,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+    $this->number_of_additional_assignments = $number_of_additional_assignments ?? ;
+    $this->unique_request_token = $unique_request_token ?? ;
+  }
 }
 
 class CreateAdditionalAssignmentsForHITResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateHITRequest {
@@ -140,10 +231,52 @@ class CreateHITRequest {
   public CurrencyAmount $reward;
   public string $title;
   public IdempotencyToken $unique_request_token;
+
+  public function __construct(shape(
+  ?'assignment_duration_in_seconds' => Long,
+  ?'assignment_review_policy' => ReviewPolicy,
+  ?'auto_approval_delay_in_seconds' => Long,
+  ?'description' => string,
+  ?'hit_layout_id' => EntityId,
+  ?'hit_layout_parameters' => HITLayoutParameterList,
+  ?'hit_review_policy' => ReviewPolicy,
+  ?'keywords' => string,
+  ?'lifetime_in_seconds' => Long,
+  ?'max_assignments' => int,
+  ?'qualification_requirements' => QualificationRequirementList,
+  ?'question' => string,
+  ?'requester_annotation' => string,
+  ?'reward' => CurrencyAmount,
+  ?'title' => string,
+  ?'unique_request_token' => IdempotencyToken,
+  ) $s = shape()) {
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
+    $this->assignment_review_policy = $assignment_review_policy ?? ;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
+    $this->description = $description ?? ;
+    $this->hit_layout_id = $hit_layout_id ?? ;
+    $this->hit_layout_parameters = $hit_layout_parameters ?? ;
+    $this->hit_review_policy = $hit_review_policy ?? ;
+    $this->keywords = $keywords ?? ;
+    $this->lifetime_in_seconds = $lifetime_in_seconds ?? ;
+    $this->max_assignments = $max_assignments ?? ;
+    $this->qualification_requirements = $qualification_requirements ?? ;
+    $this->question = $question ?? ;
+    $this->requester_annotation = $requester_annotation ?? ;
+    $this->reward = $reward ?? ;
+    $this->title = $title ?? ;
+    $this->unique_request_token = $unique_request_token ?? ;
+  }
 }
 
 class CreateHITResponse {
   public HIT $hit;
+
+  public function __construct(shape(
+  ?'hit' => HIT,
+  ) $s = shape()) {
+    $this->hit = $hit ?? null;
+  }
 }
 
 class CreateHITTypeRequest {
@@ -154,10 +287,34 @@ class CreateHITTypeRequest {
   public QualificationRequirementList $qualification_requirements;
   public CurrencyAmount $reward;
   public string $title;
+
+  public function __construct(shape(
+  ?'assignment_duration_in_seconds' => Long,
+  ?'auto_approval_delay_in_seconds' => Long,
+  ?'description' => string,
+  ?'keywords' => string,
+  ?'qualification_requirements' => QualificationRequirementList,
+  ?'reward' => CurrencyAmount,
+  ?'title' => string,
+  ) $s = shape()) {
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
+    $this->description = $description ?? ;
+    $this->keywords = $keywords ?? ;
+    $this->qualification_requirements = $qualification_requirements ?? ;
+    $this->reward = $reward ?? ;
+    $this->title = $title ?? ;
+  }
 }
 
 class CreateHITTypeResponse {
   public EntityId $hit_type_id;
+
+  public function __construct(shape(
+  ?'hit_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->hit_type_id = $hit_type_id ?? ;
+  }
 }
 
 class CreateHITWithHITTypeRequest {
@@ -171,10 +328,40 @@ class CreateHITWithHITTypeRequest {
   public string $question;
   public string $requester_annotation;
   public IdempotencyToken $unique_request_token;
+
+  public function __construct(shape(
+  ?'assignment_review_policy' => ReviewPolicy,
+  ?'hit_layout_id' => EntityId,
+  ?'hit_layout_parameters' => HITLayoutParameterList,
+  ?'hit_review_policy' => ReviewPolicy,
+  ?'hit_type_id' => EntityId,
+  ?'lifetime_in_seconds' => Long,
+  ?'max_assignments' => int,
+  ?'question' => string,
+  ?'requester_annotation' => string,
+  ?'unique_request_token' => IdempotencyToken,
+  ) $s = shape()) {
+    $this->assignment_review_policy = $assignment_review_policy ?? ;
+    $this->hit_layout_id = $hit_layout_id ?? ;
+    $this->hit_layout_parameters = $hit_layout_parameters ?? ;
+    $this->hit_review_policy = $hit_review_policy ?? ;
+    $this->hit_type_id = $hit_type_id ?? ;
+    $this->lifetime_in_seconds = $lifetime_in_seconds ?? ;
+    $this->max_assignments = $max_assignments ?? ;
+    $this->question = $question ?? ;
+    $this->requester_annotation = $requester_annotation ?? ;
+    $this->unique_request_token = $unique_request_token ?? ;
+  }
 }
 
 class CreateHITWithHITTypeResponse {
   public HIT $hit;
+
+  public function __construct(shape(
+  ?'hit' => HIT,
+  ) $s = shape()) {
+    $this->hit = $hit ?? null;
+  }
 }
 
 class CreateQualificationTypeRequest {
@@ -188,121 +375,280 @@ class CreateQualificationTypeRequest {
   public Long $retry_delay_in_seconds;
   public string $test;
   public Long $test_duration_in_seconds;
+
+  public function __construct(shape(
+  ?'answer_key' => string,
+  ?'auto_granted' => boolean,
+  ?'auto_granted_value' => int,
+  ?'description' => string,
+  ?'keywords' => string,
+  ?'name' => string,
+  ?'qualification_type_status' => QualificationTypeStatus,
+  ?'retry_delay_in_seconds' => Long,
+  ?'test' => string,
+  ?'test_duration_in_seconds' => Long,
+  ) $s = shape()) {
+    $this->answer_key = $answer_key ?? ;
+    $this->auto_granted = $auto_granted ?? ;
+    $this->auto_granted_value = $auto_granted_value ?? ;
+    $this->description = $description ?? ;
+    $this->keywords = $keywords ?? ;
+    $this->name = $name ?? ;
+    $this->qualification_type_status = $qualification_type_status ?? "";
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
+    $this->test = $test ?? ;
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+  }
 }
 
 class CreateQualificationTypeResponse {
   public QualificationType $qualification_type;
+
+  public function __construct(shape(
+  ?'qualification_type' => QualificationType,
+  ) $s = shape()) {
+    $this->qualification_type = $qualification_type ?? null;
+  }
 }
 
 class CreateWorkerBlockRequest {
   public string $reason;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'reason' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->reason = $reason ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class CreateWorkerBlockResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class CurrencyAmount {
-}
+type CurrencyAmount = string;
 
-class CustomerId {
-}
+type CustomerId = string;
 
-class CustomerIdList {
-}
+type CustomerIdList = vec<CustomerId>;
 
 class DeleteHITRequest {
   public EntityId $hit_id;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+  }
 }
 
 class DeleteHITResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteQualificationTypeRequest {
   public EntityId $qualification_type_id;
+
+  public function __construct(shape(
+  ?'qualification_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->qualification_type_id = $qualification_type_id ?? ;
+  }
 }
 
 class DeleteQualificationTypeResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteWorkerBlockRequest {
   public string $reason;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'reason' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->reason = $reason ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class DeleteWorkerBlockResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateQualificationFromWorkerRequest {
   public EntityId $qualification_type_id;
   public string $reason;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'qualification_type_id' => EntityId,
+  ?'reason' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->reason = $reason ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class DisassociateQualificationFromWorkerResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class EntityId {
-}
+type EntityId = string;
 
-class EventType {
-}
+type EventType = string;
 
-class EventTypeList {
-}
+type EventTypeList = vec<EventType>;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
 class GetAccountBalanceRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetAccountBalanceResponse {
   public CurrencyAmount $available_balance;
   public CurrencyAmount $on_hold_balance;
+
+  public function __construct(shape(
+  ?'available_balance' => CurrencyAmount,
+  ?'on_hold_balance' => CurrencyAmount,
+  ) $s = shape()) {
+    $this->available_balance = $available_balance ?? ;
+    $this->on_hold_balance = $on_hold_balance ?? ;
+  }
 }
 
 class GetAssignmentRequest {
   public EntityId $assignment_id;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+  }
 }
 
 class GetAssignmentResponse {
   public Assignment $assignment;
   public HIT $hit;
+
+  public function __construct(shape(
+  ?'assignment' => Assignment,
+  ?'hit' => HIT,
+  ) $s = shape()) {
+    $this->assignment = $assignment ?? null;
+    $this->hit = $hit ?? null;
+  }
 }
 
 class GetFileUploadURLRequest {
   public EntityId $assignment_id;
   public string $question_identifier;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'question_identifier' => string,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->question_identifier = $question_identifier ?? ;
+  }
 }
 
 class GetFileUploadURLResponse {
   public string $file_upload_url;
+
+  public function __construct(shape(
+  ?'file_upload_url' => string,
+  ) $s = shape()) {
+    $this->file_upload_url = $file_upload_url ?? ;
+  }
 }
 
 class GetHITRequest {
   public EntityId $hit_id;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+  }
 }
 
 class GetHITResponse {
   public HIT $hit;
+
+  public function __construct(shape(
+  ?'hit' => HIT,
+  ) $s = shape()) {
+    $this->hit = $hit ?? null;
+  }
 }
 
 class GetQualificationScoreRequest {
   public EntityId $qualification_type_id;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'qualification_type_id' => EntityId,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class GetQualificationScoreResponse {
   public Qualification $qualification;
+
+  public function __construct(shape(
+  ?'qualification' => Qualification,
+  ) $s = shape()) {
+    $this->qualification = $qualification ?? null;
+  }
 }
 
 class GetQualificationTypeRequest {
   public EntityId $qualification_type_id;
+
+  public function __construct(shape(
+  ?'qualification_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->qualification_type_id = $qualification_type_id ?? ;
+  }
 }
 
 class GetQualificationTypeResponse {
   public QualificationType $qualification_type;
+
+  public function __construct(shape(
+  ?'qualification_type' => QualificationType,
+  ) $s = shape()) {
+    $this->qualification_type = $qualification_type ?? null;
+  }
 }
 
 class HIT {
@@ -327,48 +673,116 @@ class HIT {
   public string $requester_annotation;
   public CurrencyAmount $reward;
   public string $title;
+
+  public function __construct(shape(
+  ?'assignment_duration_in_seconds' => Long,
+  ?'auto_approval_delay_in_seconds' => Long,
+  ?'creation_time' => Timestamp,
+  ?'description' => string,
+  ?'expiration' => Timestamp,
+  ?'hit_group_id' => EntityId,
+  ?'hit_id' => EntityId,
+  ?'hit_layout_id' => EntityId,
+  ?'hit_review_status' => HITReviewStatus,
+  ?'hit_status' => HITStatus,
+  ?'hit_type_id' => EntityId,
+  ?'keywords' => string,
+  ?'max_assignments' => int,
+  ?'number_of_assignments_available' => int,
+  ?'number_of_assignments_completed' => int,
+  ?'number_of_assignments_pending' => int,
+  ?'qualification_requirements' => QualificationRequirementList,
+  ?'question' => string,
+  ?'requester_annotation' => string,
+  ?'reward' => CurrencyAmount,
+  ?'title' => string,
+  ) $s = shape()) {
+    $this->assignment_duration_in_seconds = $assignment_duration_in_seconds ?? ;
+    $this->auto_approval_delay_in_seconds = $auto_approval_delay_in_seconds ?? ;
+    $this->creation_time = $creation_time ?? ;
+    $this->description = $description ?? ;
+    $this->expiration = $expiration ?? ;
+    $this->hit_group_id = $hit_group_id ?? ;
+    $this->hit_id = $hit_id ?? ;
+    $this->hit_layout_id = $hit_layout_id ?? ;
+    $this->hit_review_status = $hit_review_status ?? "";
+    $this->hit_status = $hit_status ?? "";
+    $this->hit_type_id = $hit_type_id ?? ;
+    $this->keywords = $keywords ?? ;
+    $this->max_assignments = $max_assignments ?? ;
+    $this->number_of_assignments_available = $number_of_assignments_available ?? ;
+    $this->number_of_assignments_completed = $number_of_assignments_completed ?? ;
+    $this->number_of_assignments_pending = $number_of_assignments_pending ?? ;
+    $this->qualification_requirements = $qualification_requirements ?? ;
+    $this->question = $question ?? ;
+    $this->requester_annotation = $requester_annotation ?? ;
+    $this->reward = $reward ?? ;
+    $this->title = $title ?? ;
+  }
 }
 
-class HITAccessActions {
-}
+type HITAccessActions = string;
 
 class HITLayoutParameter {
   public string $name;
   public string $value;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class HITLayoutParameterList {
-}
+type HITLayoutParameterList = vec<HITLayoutParameter>;
 
-class HITList {
-}
+type HITList = vec<HIT>;
 
-class HITReviewStatus {
-}
+type HITReviewStatus = string;
 
-class HITStatus {
-}
+type HITStatus = string;
 
-class IdempotencyToken {
-}
+type IdempotencyToken = string;
 
-class Integer {
-}
+type Integer = int;
 
-class IntegerList {
-}
+type IntegerList = vec<Integer>;
 
 class ListAssignmentsForHITRequest {
   public AssignmentStatusList $assignment_statuses;
   public EntityId $hit_id;
   public ResultSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'assignment_statuses' => AssignmentStatusList,
+  ?'hit_id' => EntityId,
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->assignment_statuses = $assignment_statuses ?? ;
+    $this->hit_id = $hit_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListAssignmentsForHITResponse {
   public AssignmentList $assignments;
   public PaginationToken $next_token;
   public int $num_results;
+
+  public function __construct(shape(
+  ?'assignments' => AssignmentList,
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ) $s = shape()) {
+    $this->assignments = $assignments ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+  }
 }
 
 class ListBonusPaymentsRequest {
@@ -376,47 +790,127 @@ class ListBonusPaymentsRequest {
   public EntityId $hit_id;
   public ResultSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'hit_id' => EntityId,
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->hit_id = $hit_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListBonusPaymentsResponse {
   public BonusPaymentList $bonus_payments;
   public PaginationToken $next_token;
   public int $num_results;
+
+  public function __construct(shape(
+  ?'bonus_payments' => BonusPaymentList,
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ) $s = shape()) {
+    $this->bonus_payments = $bonus_payments ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+  }
 }
 
 class ListHITsForQualificationTypeRequest {
   public ResultSize $max_results;
   public PaginationToken $next_token;
   public EntityId $qualification_type_id;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ?'qualification_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+  }
 }
 
 class ListHITsForQualificationTypeResponse {
   public HITList $hi_ts;
   public PaginationToken $next_token;
   public int $num_results;
+
+  public function __construct(shape(
+  ?'hi_ts' => HITList,
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ) $s = shape()) {
+    $this->hi_ts = $hi_ts ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+  }
 }
 
 class ListHITsRequest {
   public ResultSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListHITsResponse {
   public HITList $hi_ts;
   public PaginationToken $next_token;
   public int $num_results;
+
+  public function __construct(shape(
+  ?'hi_ts' => HITList,
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ) $s = shape()) {
+    $this->hi_ts = $hi_ts ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+  }
 }
 
 class ListQualificationRequestsRequest {
   public ResultSize $max_results;
   public PaginationToken $next_token;
   public EntityId $qualification_type_id;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ?'qualification_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+  }
 }
 
 class ListQualificationRequestsResponse {
   public PaginationToken $next_token;
   public int $num_results;
   public QualificationRequestList $qualification_requests;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ?'qualification_requests' => QualificationRequestList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+    $this->qualification_requests = $qualification_requests ?? ;
+  }
 }
 
 class ListQualificationTypesRequest {
@@ -425,12 +919,36 @@ class ListQualificationTypesRequest {
   public boolean $must_be_requestable;
   public PaginationToken $next_token;
   public string $query;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'must_be_owned_by_caller' => boolean,
+  ?'must_be_requestable' => boolean,
+  ?'next_token' => PaginationToken,
+  ?'query' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->must_be_owned_by_caller = $must_be_owned_by_caller ?? ;
+    $this->must_be_requestable = $must_be_requestable ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->query = $query ?? ;
+  }
 }
 
 class ListQualificationTypesResponse {
   public PaginationToken $next_token;
   public int $num_results;
   public QualificationTypeList $qualification_types;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ?'qualification_types' => QualificationTypeList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+    $this->qualification_types = $qualification_types ?? ;
+  }
 }
 
 class ListReviewPolicyResultsForHITRequest {
@@ -440,6 +958,22 @@ class ListReviewPolicyResultsForHITRequest {
   public ReviewPolicyLevelList $policy_levels;
   public boolean $retrieve_actions;
   public boolean $retrieve_results;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ?'policy_levels' => ReviewPolicyLevelList,
+  ?'retrieve_actions' => boolean,
+  ?'retrieve_results' => boolean,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->policy_levels = $policy_levels ?? ;
+    $this->retrieve_actions = $retrieve_actions ?? ;
+    $this->retrieve_results = $retrieve_results ?? ;
+  }
 }
 
 class ListReviewPolicyResultsForHITResponse {
@@ -449,6 +983,22 @@ class ListReviewPolicyResultsForHITResponse {
   public ReviewPolicy $hit_review_policy;
   public ReviewReport $hit_review_report;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'assignment_review_policy' => ReviewPolicy,
+  ?'assignment_review_report' => ReviewReport,
+  ?'hit_id' => EntityId,
+  ?'hit_review_policy' => ReviewPolicy,
+  ?'hit_review_report' => ReviewReport,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->assignment_review_policy = $assignment_review_policy ?? ;
+    $this->assignment_review_report = $assignment_review_report ?? ;
+    $this->hit_id = $hit_id ?? ;
+    $this->hit_review_policy = $hit_review_policy ?? ;
+    $this->hit_review_report = $hit_review_report ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListReviewableHITsRequest {
@@ -456,23 +1006,63 @@ class ListReviewableHITsRequest {
   public ResultSize $max_results;
   public PaginationToken $next_token;
   public ReviewableHITStatus $status;
+
+  public function __construct(shape(
+  ?'hit_type_id' => EntityId,
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ?'status' => ReviewableHITStatus,
+  ) $s = shape()) {
+    $this->hit_type_id = $hit_type_id ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class ListReviewableHITsResponse {
   public HITList $hi_ts;
   public PaginationToken $next_token;
   public int $num_results;
+
+  public function __construct(shape(
+  ?'hi_ts' => HITList,
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ) $s = shape()) {
+    $this->hi_ts = $hi_ts ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+  }
 }
 
 class ListWorkerBlocksRequest {
   public ResultSize $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListWorkerBlocksResponse {
   public PaginationToken $next_token;
   public int $num_results;
   public WorkerBlockList $worker_blocks;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ?'worker_blocks' => WorkerBlockList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+    $this->worker_blocks = $worker_blocks ?? ;
+  }
 }
 
 class ListWorkersWithQualificationTypeRequest {
@@ -480,76 +1070,154 @@ class ListWorkersWithQualificationTypeRequest {
   public PaginationToken $next_token;
   public EntityId $qualification_type_id;
   public QualificationStatus $status;
+
+  public function __construct(shape(
+  ?'max_results' => ResultSize,
+  ?'next_token' => PaginationToken,
+  ?'qualification_type_id' => EntityId,
+  ?'status' => QualificationStatus,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class ListWorkersWithQualificationTypeResponse {
   public PaginationToken $next_token;
   public int $num_results;
   public QualificationList $qualifications;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'num_results' => int,
+  ?'qualifications' => QualificationList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->num_results = $num_results ?? ;
+    $this->qualifications = $qualifications ?? ;
+  }
 }
 
 class Locale {
   public CountryParameters $country;
   public CountryParameters $subdivision;
+
+  public function __construct(shape(
+  ?'country' => CountryParameters,
+  ?'subdivision' => CountryParameters,
+  ) $s = shape()) {
+    $this->country = $country ?? ;
+    $this->subdivision = $subdivision ?? ;
+  }
 }
 
-class LocaleList {
-}
+type LocaleList = vec<Locale>;
 
-class Long {
-}
+type Long = int;
 
 class NotificationSpecification {
   public string $destination;
   public EventTypeList $event_types;
   public NotificationTransport $transport;
   public string $version;
+
+  public function __construct(shape(
+  ?'destination' => string,
+  ?'event_types' => EventTypeList,
+  ?'transport' => NotificationTransport,
+  ?'version' => string,
+  ) $s = shape()) {
+    $this->destination = $destination ?? ;
+    $this->event_types = $event_types ?? ;
+    $this->transport = $transport ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class NotificationTransport {
-}
+type NotificationTransport = string;
 
-class NotifyWorkersFailureCode {
-}
+type NotifyWorkersFailureCode = string;
 
 class NotifyWorkersFailureStatus {
   public NotifyWorkersFailureCode $notify_workers_failure_code;
   public string $notify_workers_failure_message;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'notify_workers_failure_code' => NotifyWorkersFailureCode,
+  ?'notify_workers_failure_message' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->notify_workers_failure_code = $notify_workers_failure_code ?? "";
+    $this->notify_workers_failure_message = $notify_workers_failure_message ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class NotifyWorkersFailureStatusList {
-}
+type NotifyWorkersFailureStatusList = vec<NotifyWorkersFailureStatus>;
 
 class NotifyWorkersRequest {
   public string $message_text;
   public string $subject;
   public CustomerIdList $worker_ids;
+
+  public function __construct(shape(
+  ?'message_text' => string,
+  ?'subject' => string,
+  ?'worker_ids' => CustomerIdList,
+  ) $s = shape()) {
+    $this->message_text = $message_text ?? ;
+    $this->subject = $subject ?? ;
+    $this->worker_ids = $worker_ids ?? ;
+  }
 }
 
 class NotifyWorkersResponse {
   public NotifyWorkersFailureStatusList $notify_workers_failure_statuses;
+
+  public function __construct(shape(
+  ?'notify_workers_failure_statuses' => NotifyWorkersFailureStatusList,
+  ) $s = shape()) {
+    $this->notify_workers_failure_statuses = $notify_workers_failure_statuses ?? ;
+  }
 }
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
 class ParameterMapEntry {
   public string $key;
   public StringList $values;
+
+  public function __construct(shape(
+  ?'key' => string,
+  ?'values' => StringList,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class ParameterMapEntryList {
-}
+type ParameterMapEntryList = vec<ParameterMapEntry>;
 
 class PolicyParameter {
   public string $key;
   public ParameterMapEntryList $map_entries;
   public StringList $values;
+
+  public function __construct(shape(
+  ?'key' => string,
+  ?'map_entries' => ParameterMapEntryList,
+  ?'values' => StringList,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->map_entries = $map_entries ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class PolicyParameterList {
-}
+type PolicyParameterList = vec<PolicyParameter>;
 
 class Qualification {
   public Timestamp $grant_time;
@@ -558,10 +1226,25 @@ class Qualification {
   public EntityId $qualification_type_id;
   public QualificationStatus $status;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'grant_time' => Timestamp,
+  ?'integer_value' => int,
+  ?'locale_value' => Locale,
+  ?'qualification_type_id' => EntityId,
+  ?'status' => QualificationStatus,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->grant_time = $grant_time ?? ;
+    $this->integer_value = $integer_value ?? ;
+    $this->locale_value = $locale_value ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->status = $status ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class QualificationList {
-}
+type QualificationList = vec<Qualification>;
 
 class QualificationRequest {
   public string $answer;
@@ -570,10 +1253,25 @@ class QualificationRequest {
   public Timestamp $submit_time;
   public string $test;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'answer' => string,
+  ?'qualification_request_id' => string,
+  ?'qualification_type_id' => EntityId,
+  ?'submit_time' => Timestamp,
+  ?'test' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->answer = $answer ?? ;
+    $this->qualification_request_id = $qualification_request_id ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->submit_time = $submit_time ?? ;
+    $this->test = $test ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class QualificationRequestList {
-}
+type QualificationRequestList = vec<QualificationRequest>;
 
 class QualificationRequirement {
   public HITAccessActions $actions_guarded;
@@ -582,13 +1280,27 @@ class QualificationRequirement {
   public LocaleList $locale_values;
   public string $qualification_type_id;
   public boolean $required_to_preview;
+
+  public function __construct(shape(
+  ?'actions_guarded' => HITAccessActions,
+  ?'comparator' => Comparator,
+  ?'integer_values' => IntegerList,
+  ?'locale_values' => LocaleList,
+  ?'qualification_type_id' => string,
+  ?'required_to_preview' => boolean,
+  ) $s = shape()) {
+    $this->actions_guarded = $actions_guarded ?? ;
+    $this->comparator = $comparator ?? "";
+    $this->integer_values = $integer_values ?? ;
+    $this->locale_values = $locale_values ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->required_to_preview = $required_to_preview ?? ;
+  }
 }
 
-class QualificationRequirementList {
-}
+type QualificationRequirementList = vec<QualificationRequirement>;
 
-class QualificationStatus {
-}
+type QualificationStatus = string;
 
 class QualificationType {
   public string $answer_key;
@@ -604,37 +1316,96 @@ class QualificationType {
   public Long $retry_delay_in_seconds;
   public string $test;
   public Long $test_duration_in_seconds;
+
+  public function __construct(shape(
+  ?'answer_key' => string,
+  ?'auto_granted' => boolean,
+  ?'auto_granted_value' => int,
+  ?'creation_time' => Timestamp,
+  ?'description' => string,
+  ?'is_requestable' => boolean,
+  ?'keywords' => string,
+  ?'name' => string,
+  ?'qualification_type_id' => EntityId,
+  ?'qualification_type_status' => QualificationTypeStatus,
+  ?'retry_delay_in_seconds' => Long,
+  ?'test' => string,
+  ?'test_duration_in_seconds' => Long,
+  ) $s = shape()) {
+    $this->answer_key = $answer_key ?? ;
+    $this->auto_granted = $auto_granted ?? ;
+    $this->auto_granted_value = $auto_granted_value ?? ;
+    $this->creation_time = $creation_time ?? ;
+    $this->description = $description ?? ;
+    $this->is_requestable = $is_requestable ?? ;
+    $this->keywords = $keywords ?? ;
+    $this->name = $name ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->qualification_type_status = $qualification_type_status ?? "";
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
+    $this->test = $test ?? ;
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+  }
 }
 
-class QualificationTypeList {
-}
+type QualificationTypeList = vec<QualificationType>;
 
-class QualificationTypeStatus {
-}
+type QualificationTypeStatus = string;
 
 class RejectAssignmentRequest {
   public EntityId $assignment_id;
   public string $requester_feedback;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'requester_feedback' => string,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->requester_feedback = $requester_feedback ?? ;
+  }
 }
 
 class RejectAssignmentResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class RejectQualificationRequestRequest {
   public string $qualification_request_id;
   public string $reason;
+
+  public function __construct(shape(
+  ?'qualification_request_id' => string,
+  ?'reason' => string,
+  ) $s = shape()) {
+    $this->qualification_request_id = $qualification_request_id ?? ;
+    $this->reason = $reason ?? ;
+  }
 }
 
 class RejectQualificationRequestResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class RequestError {
   public ExceptionMessage $message;
   public TurkErrorCode $turk_error_code;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'turk_error_code' => TurkErrorCode,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->turk_error_code = $turk_error_code ?? "";
+  }
 }
 
-class ResultSize {
-}
+type ResultSize = int;
 
 class ReviewActionDetail {
   public EntityId $action_id;
@@ -645,28 +1416,60 @@ class ReviewActionDetail {
   public ReviewActionStatus $status;
   public EntityId $target_id;
   public string $target_type;
+
+  public function __construct(shape(
+  ?'action_id' => EntityId,
+  ?'action_name' => string,
+  ?'complete_time' => Timestamp,
+  ?'error_code' => string,
+  ?'result' => string,
+  ?'status' => ReviewActionStatus,
+  ?'target_id' => EntityId,
+  ?'target_type' => string,
+  ) $s = shape()) {
+    $this->action_id = $action_id ?? ;
+    $this->action_name = $action_name ?? ;
+    $this->complete_time = $complete_time ?? ;
+    $this->error_code = $error_code ?? ;
+    $this->result = $result ?? ;
+    $this->status = $status ?? ;
+    $this->target_id = $target_id ?? ;
+    $this->target_type = $target_type ?? ;
+  }
 }
 
-class ReviewActionDetailList {
-}
+type ReviewActionDetailList = vec<ReviewActionDetail>;
 
-class ReviewActionStatus {
-}
+type ReviewActionStatus = string;
 
 class ReviewPolicy {
   public PolicyParameterList $parameters;
   public string $policy_name;
+
+  public function __construct(shape(
+  ?'parameters' => PolicyParameterList,
+  ?'policy_name' => string,
+  ) $s = shape()) {
+    $this->parameters = $parameters ?? ;
+    $this->policy_name = $policy_name ?? ;
+  }
 }
 
-class ReviewPolicyLevel {
-}
+type ReviewPolicyLevel = string;
 
-class ReviewPolicyLevelList {
-}
+type ReviewPolicyLevelList = vec<ReviewPolicyLevel>;
 
 class ReviewReport {
   public ReviewActionDetailList $review_actions;
   public ReviewResultDetailList $review_results;
+
+  public function __construct(shape(
+  ?'review_actions' => ReviewActionDetailList,
+  ?'review_results' => ReviewResultDetailList,
+  ) $s = shape()) {
+    $this->review_actions = $review_actions ?? ;
+    $this->review_results = $review_results ?? ;
+  }
 }
 
 class ReviewResultDetail {
@@ -676,13 +1479,27 @@ class ReviewResultDetail {
   public EntityId $subject_id;
   public string $subject_type;
   public string $value;
+
+  public function __construct(shape(
+  ?'action_id' => EntityId,
+  ?'key' => string,
+  ?'question_id' => EntityId,
+  ?'subject_id' => EntityId,
+  ?'subject_type' => string,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->action_id = $action_id ?? ;
+    $this->key = $key ?? ;
+    $this->question_id = $question_id ?? ;
+    $this->subject_id = $subject_id ?? ;
+    $this->subject_type = $subject_type ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ReviewResultDetailList {
-}
+type ReviewResultDetailList = vec<ReviewResultDetail>;
 
-class ReviewableHITStatus {
-}
+type ReviewableHITStatus = string;
 
 class SendBonusRequest {
   public EntityId $assignment_id;
@@ -690,67 +1507,151 @@ class SendBonusRequest {
   public string $reason;
   public IdempotencyToken $unique_request_token;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'assignment_id' => EntityId,
+  ?'bonus_amount' => CurrencyAmount,
+  ?'reason' => string,
+  ?'unique_request_token' => IdempotencyToken,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->assignment_id = $assignment_id ?? ;
+    $this->bonus_amount = $bonus_amount ?? ;
+    $this->reason = $reason ?? ;
+    $this->unique_request_token = $unique_request_token ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
 class SendBonusResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class SendTestEventNotificationRequest {
   public NotificationSpecification $notification;
   public EventType $test_event_type;
+
+  public function __construct(shape(
+  ?'notification' => NotificationSpecification,
+  ?'test_event_type' => EventType,
+  ) $s = shape()) {
+    $this->notification = $notification ?? ;
+    $this->test_event_type = $test_event_type ?? ;
+  }
 }
 
 class SendTestEventNotificationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ServiceFault {
   public ExceptionMessage $message;
   public TurkErrorCode $turk_error_code;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'turk_error_code' => TurkErrorCode,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->turk_error_code = $turk_error_code ?? "";
+  }
 }
 
-class String {
-}
+type String = string;
 
-class StringList {
-}
+type StringList = vec<String>;
 
-class Timestamp {
-}
+type Timestamp = int;
 
-class TurkErrorCode {
-}
+type TurkErrorCode = string;
 
 class UpdateExpirationForHITRequest {
   public Timestamp $expire_at;
   public EntityId $hit_id;
+
+  public function __construct(shape(
+  ?'expire_at' => Timestamp,
+  ?'hit_id' => EntityId,
+  ) $s = shape()) {
+    $this->expire_at = $expire_at ?? ;
+    $this->hit_id = $hit_id ?? ;
+  }
 }
 
 class UpdateExpirationForHITResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateHITReviewStatusRequest {
   public EntityId $hit_id;
   public boolean $revert;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ?'revert' => boolean,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+    $this->revert = $revert ?? ;
+  }
 }
 
 class UpdateHITReviewStatusResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateHITTypeOfHITRequest {
   public EntityId $hit_id;
   public EntityId $hit_type_id;
+
+  public function __construct(shape(
+  ?'hit_id' => EntityId,
+  ?'hit_type_id' => EntityId,
+  ) $s = shape()) {
+    $this->hit_id = $hit_id ?? ;
+    $this->hit_type_id = $hit_type_id ?? ;
+  }
 }
 
 class UpdateHITTypeOfHITResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateNotificationSettingsRequest {
   public boolean $active;
   public EntityId $hit_type_id;
   public NotificationSpecification $notification;
+
+  public function __construct(shape(
+  ?'active' => boolean,
+  ?'hit_type_id' => EntityId,
+  ?'notification' => NotificationSpecification,
+  ) $s = shape()) {
+    $this->active = $active ?? ;
+    $this->hit_type_id = $hit_type_id ?? ;
+    $this->notification = $notification ?? ;
+  }
 }
 
 class UpdateNotificationSettingsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateQualificationTypeRequest {
@@ -763,17 +1664,52 @@ class UpdateQualificationTypeRequest {
   public Long $retry_delay_in_seconds;
   public string $test;
   public Long $test_duration_in_seconds;
+
+  public function __construct(shape(
+  ?'answer_key' => string,
+  ?'auto_granted' => boolean,
+  ?'auto_granted_value' => int,
+  ?'description' => string,
+  ?'qualification_type_id' => EntityId,
+  ?'qualification_type_status' => QualificationTypeStatus,
+  ?'retry_delay_in_seconds' => Long,
+  ?'test' => string,
+  ?'test_duration_in_seconds' => Long,
+  ) $s = shape()) {
+    $this->answer_key = $answer_key ?? ;
+    $this->auto_granted = $auto_granted ?? ;
+    $this->auto_granted_value = $auto_granted_value ?? ;
+    $this->description = $description ?? ;
+    $this->qualification_type_id = $qualification_type_id ?? ;
+    $this->qualification_type_status = $qualification_type_status ?? "";
+    $this->retry_delay_in_seconds = $retry_delay_in_seconds ?? ;
+    $this->test = $test ?? ;
+    $this->test_duration_in_seconds = $test_duration_in_seconds ?? ;
+  }
 }
 
 class UpdateQualificationTypeResponse {
   public QualificationType $qualification_type;
+
+  public function __construct(shape(
+  ?'qualification_type' => QualificationType,
+  ) $s = shape()) {
+    $this->qualification_type = $qualification_type ?? null;
+  }
 }
 
 class WorkerBlock {
   public string $reason;
   public CustomerId $worker_id;
+
+  public function __construct(shape(
+  ?'reason' => string,
+  ?'worker_id' => CustomerId,
+  ) $s = shape()) {
+    $this->reason = $reason ?? ;
+    $this->worker_id = $worker_id ?? ;
+  }
 }
 
-class WorkerBlockList {
-}
+type WorkerBlockList = vec<WorkerBlock>;
 

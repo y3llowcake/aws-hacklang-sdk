@@ -63,9 +63,23 @@ class AcceptInvitationRequest {
   public DetectorId $detector_id;
   public string $invitation_id;
   public string $master_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'invitation_id' => string,
+  ?'master_id' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->invitation_id = $invitation_id ?? ;
+    $this->master_id = $master_id ?? ;
+  }
 }
 
 class AcceptInvitationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AccessKeyDetails {
@@ -73,21 +87,38 @@ class AccessKeyDetails {
   public string $principal_id;
   public string $user_name;
   public string $user_type;
+
+  public function __construct(shape(
+  ?'access_key_id' => string,
+  ?'principal_id' => string,
+  ?'user_name' => string,
+  ?'user_type' => string,
+  ) $s = shape()) {
+    $this->access_key_id = $access_key_id ?? ;
+    $this->principal_id = $principal_id ?? ;
+    $this->user_name = $user_name ?? ;
+    $this->user_type = $user_type ?? ;
+  }
 }
 
 class AccountDetail {
   public AccountId $account_id;
   public Email $email;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'email' => Email,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->email = $email ?? "";
+  }
 }
 
-class AccountDetails {
-}
+type AccountDetails = vec<AccountDetail>;
 
-class AccountId {
-}
+type AccountId = string;
 
-class AccountIds {
-}
+type AccountIds = vec<AccountId>;
 
 class Action {
   public string $action_type;
@@ -95,25 +126,57 @@ class Action {
   public DnsRequestAction $dns_request_action;
   public NetworkConnectionAction $network_connection_action;
   public PortProbeAction $port_probe_action;
+
+  public function __construct(shape(
+  ?'action_type' => string,
+  ?'aws_api_call_action' => AwsApiCallAction,
+  ?'dns_request_action' => DnsRequestAction,
+  ?'network_connection_action' => NetworkConnectionAction,
+  ?'port_probe_action' => PortProbeAction,
+  ) $s = shape()) {
+    $this->action_type = $action_type ?? ;
+    $this->aws_api_call_action = $aws_api_call_action ?? null;
+    $this->dns_request_action = $dns_request_action ?? null;
+    $this->network_connection_action = $network_connection_action ?? null;
+    $this->port_probe_action = $port_probe_action ?? null;
+  }
 }
 
 class AdminAccount {
   public string $admin_account_id;
   public AdminStatus $admin_status;
+
+  public function __construct(shape(
+  ?'admin_account_id' => string,
+  ?'admin_status' => AdminStatus,
+  ) $s = shape()) {
+    $this->admin_account_id = $admin_account_id ?? ;
+    $this->admin_status = $admin_status ?? "";
+  }
 }
 
-class AdminAccounts {
-}
+type AdminAccounts = vec<AdminAccount>;
 
-class AdminStatus {
-}
+type AdminStatus = string;
 
 class ArchiveFindingsRequest {
   public DetectorId $detector_id;
   public FindingIds $finding_ids;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_ids' => FindingIds,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_ids = $finding_ids ?? [];
+  }
 }
 
 class ArchiveFindingsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class AwsApiCallAction {
@@ -122,22 +185,48 @@ class AwsApiCallAction {
   public DomainDetails $domain_details;
   public RemoteIpDetails $remote_ip_details;
   public string $service_name;
+
+  public function __construct(shape(
+  ?'api' => string,
+  ?'caller_type' => string,
+  ?'domain_details' => DomainDetails,
+  ?'remote_ip_details' => RemoteIpDetails,
+  ?'service_name' => string,
+  ) $s = shape()) {
+    $this->api = $api ?? ;
+    $this->caller_type = $caller_type ?? ;
+    $this->domain_details = $domain_details ?? null;
+    $this->remote_ip_details = $remote_ip_details ?? null;
+    $this->service_name = $service_name ?? ;
+  }
 }
 
 class BadRequestException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
 class City {
   public string $city_name;
+
+  public function __construct(shape(
+  ?'city_name' => string,
+  ) $s = shape()) {
+    $this->city_name = $city_name ?? ;
+  }
 }
 
-class ClientToken {
-}
+type ClientToken = string;
 
 class Condition {
   public Eq $eq;
@@ -152,14 +241,49 @@ class Condition {
   public int $lte;
   public Neq $neq;
   public NotEquals $not_equals;
+
+  public function __construct(shape(
+  ?'eq' => Eq,
+  ?'equals' => Equals,
+  ?'greater_than' => Long,
+  ?'greater_than_or_equal' => Long,
+  ?'gt' => int,
+  ?'gte' => int,
+  ?'less_than' => Long,
+  ?'less_than_or_equal' => Long,
+  ?'lt' => int,
+  ?'lte' => int,
+  ?'neq' => Neq,
+  ?'not_equals' => NotEquals,
+  ) $s = shape()) {
+    $this->eq = $eq ?? [];
+    $this->equals = $equals ?? [];
+    $this->greater_than = $greater_than ?? ;
+    $this->greater_than_or_equal = $greater_than_or_equal ?? ;
+    $this->gt = $gt ?? ;
+    $this->gte = $gte ?? ;
+    $this->less_than = $less_than ?? ;
+    $this->less_than_or_equal = $less_than_or_equal ?? ;
+    $this->lt = $lt ?? ;
+    $this->lte = $lte ?? ;
+    $this->neq = $neq ?? [];
+    $this->not_equals = $not_equals ?? [];
+  }
 }
 
-class CountBySeverity {
-}
+type CountBySeverity = dict<String, Integer>;
 
 class Country {
   public string $country_code;
   public string $country_name;
+
+  public function __construct(shape(
+  ?'country_code' => string,
+  ?'country_name' => string,
+  ) $s = shape()) {
+    $this->country_code = $country_code ?? ;
+    $this->country_name = $country_name ?? ;
+  }
 }
 
 class CreateDetectorRequest {
@@ -167,10 +291,28 @@ class CreateDetectorRequest {
   public boolean $enable;
   public FindingPublishingFrequency $finding_publishing_frequency;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'enable' => boolean,
+  ?'finding_publishing_frequency' => FindingPublishingFrequency,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? "";
+    $this->enable = $enable ?? ;
+    $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateDetectorResponse {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class CreateFilterRequest {
@@ -182,10 +324,36 @@ class CreateFilterRequest {
   public FilterName $name;
   public FilterRank $rank;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'action' => FilterAction,
+  ?'client_token' => ClientToken,
+  ?'description' => FilterDescription,
+  ?'detector_id' => DetectorId,
+  ?'finding_criteria' => FindingCriteria,
+  ?'name' => FilterName,
+  ?'rank' => FilterRank,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->action = $action ?? null;
+    $this->client_token = $client_token ?? "";
+    $this->description = $description ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_criteria = $finding_criteria ?? null;
+    $this->name = $name ?? "";
+    $this->rank = $rank ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateFilterResponse {
   public FilterName $name;
+
+  public function __construct(shape(
+  ?'name' => FilterName,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class CreateIPSetRequest {
@@ -196,19 +364,57 @@ class CreateIPSetRequest {
   public Location $location;
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'activate' => boolean,
+  ?'client_token' => ClientToken,
+  ?'detector_id' => DetectorId,
+  ?'format' => IpSetFormat,
+  ?'location' => Location,
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->activate = $activate ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->detector_id = $detector_id ?? "";
+    $this->format = $format ?? ;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateIPSetResponse {
   public string $ip_set_id;
+
+  public function __construct(shape(
+  ?'ip_set_id' => string,
+  ) $s = shape()) {
+    $this->ip_set_id = $ip_set_id ?? ;
+  }
 }
 
 class CreateMembersRequest {
   public AccountDetails $account_details;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_details' => AccountDetails,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_details = $account_details ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class CreateMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class CreatePublishingDestinationRequest {
@@ -216,18 +422,48 @@ class CreatePublishingDestinationRequest {
   public DestinationProperties $destination_properties;
   public DestinationType $destination_type;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'destination_properties' => DestinationProperties,
+  ?'destination_type' => DestinationType,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? "";
+    $this->destination_properties = $destination_properties ?? null;
+    $this->destination_type = $destination_type ?? "";
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class CreatePublishingDestinationResponse {
   public string $destination_id;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+  }
 }
 
 class CreateSampleFindingsRequest {
   public DetectorId $detector_id;
   public FindingTypes $finding_types;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_types' => FindingTypes,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_types = $finding_types ?? [];
+  }
 }
 
 class CreateSampleFindingsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateThreatIntelSetRequest {
@@ -238,91 +474,232 @@ class CreateThreatIntelSetRequest {
   public Location $location;
   public Name $name;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'activate' => boolean,
+  ?'client_token' => ClientToken,
+  ?'detector_id' => DetectorId,
+  ?'format' => ThreatIntelSetFormat,
+  ?'location' => Location,
+  ?'name' => Name,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->activate = $activate ?? ;
+    $this->client_token = $client_token ?? "";
+    $this->detector_id = $detector_id ?? "";
+    $this->format = $format ?? ;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+  }
 }
 
 class CreateThreatIntelSetResponse {
   public string $threat_intel_set_id;
+
+  public function __construct(shape(
+  ?'threat_intel_set_id' => string,
+  ) $s = shape()) {
+    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+  }
 }
 
-class Criterion {
-}
+type Criterion = dict<String, Condition>;
 
 class DeclineInvitationsRequest {
   public AccountIds $account_ids;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+  }
 }
 
 class DeclineInvitationsResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class DeleteDetectorRequest {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DeleteDetectorResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteFilterRequest {
   public DetectorId $detector_id;
   public string $filter_name;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'filter_name' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->filter_name = $filter_name ?? "";
+  }
 }
 
 class DeleteFilterResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteIPSetRequest {
   public DetectorId $detector_id;
   public string $ip_set_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'ip_set_id' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->ip_set_id = $ip_set_id ?? ;
+  }
 }
 
 class DeleteIPSetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteInvitationsRequest {
   public AccountIds $account_ids;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+  }
 }
 
 class DeleteInvitationsResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class DeleteMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DeleteMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class DeletePublishingDestinationRequest {
   public string $destination_id;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DeletePublishingDestinationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteThreatIntelSetRequest {
   public DetectorId $detector_id;
   public string $threat_intel_set_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'threat_intel_set_id' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+  }
 }
 
 class DeleteThreatIntelSetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeOrganizationConfigurationRequest {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DescribeOrganizationConfigurationResponse {
   public boolean $auto_enable;
   public boolean $member_account_limit_reached;
+
+  public function __construct(shape(
+  ?'auto_enable' => boolean,
+  ?'member_account_limit_reached' => boolean,
+  ) $s = shape()) {
+    $this->auto_enable = $auto_enable ?? ;
+    $this->member_account_limit_reached = $member_account_limit_reached ?? ;
+  }
 }
 
 class DescribePublishingDestinationRequest {
   public string $destination_id;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DescribePublishingDestinationResponse {
@@ -331,105 +708,184 @@ class DescribePublishingDestinationResponse {
   public DestinationType $destination_type;
   public Long $publishing_failure_start_timestamp;
   public PublishingStatus $status;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ?'destination_properties' => DestinationProperties,
+  ?'destination_type' => DestinationType,
+  ?'publishing_failure_start_timestamp' => Long,
+  ?'status' => PublishingStatus,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+    $this->destination_properties = $destination_properties ?? null;
+    $this->destination_type = $destination_type ?? "";
+    $this->publishing_failure_start_timestamp = $publishing_failure_start_timestamp ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class Destination {
   public string $destination_id;
   public DestinationType $destination_type;
   public PublishingStatus $status;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ?'destination_type' => DestinationType,
+  ?'status' => PublishingStatus,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+    $this->destination_type = $destination_type ?? "";
+    $this->status = $status ?? ;
+  }
 }
 
 class DestinationProperties {
   public string $destination_arn;
   public string $kms_key_arn;
+
+  public function __construct(shape(
+  ?'destination_arn' => string,
+  ?'kms_key_arn' => string,
+  ) $s = shape()) {
+    $this->destination_arn = $destination_arn ?? ;
+    $this->kms_key_arn = $kms_key_arn ?? ;
+  }
 }
 
-class DestinationType {
-}
+type DestinationType = string;
 
-class Destinations {
-}
+type Destinations = vec<Destination>;
 
-class DetectorId {
-}
+type DetectorId = string;
 
-class DetectorIds {
-}
+type DetectorIds = vec<DetectorId>;
 
-class DetectorStatus {
-}
+type DetectorStatus = string;
 
 class DisableOrganizationAdminAccountRequest {
   public string $admin_account_id;
+
+  public function __construct(shape(
+  ?'admin_account_id' => string,
+  ) $s = shape()) {
+    $this->admin_account_id = $admin_account_id ?? ;
+  }
 }
 
 class DisableOrganizationAdminAccountResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateFromMasterAccountRequest {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DisassociateFromMasterAccountResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class DisassociateMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class DnsRequestAction {
   public string $domain;
+
+  public function __construct(shape(
+  ?'domain' => string,
+  ) $s = shape()) {
+    $this->domain = $domain ?? ;
+  }
 }
 
 class DomainDetails {
   public string $domain;
+
+  public function __construct(shape(
+  ?'domain' => string,
+  ) $s = shape()) {
+    $this->domain = $domain ?? ;
+  }
 }
 
-class Double {
-}
+type Double = float;
 
-class Email {
-}
+type Email = string;
 
 class EnableOrganizationAdminAccountRequest {
   public string $admin_account_id;
+
+  public function __construct(shape(
+  ?'admin_account_id' => string,
+  ) $s = shape()) {
+    $this->admin_account_id = $admin_account_id ?? ;
+  }
 }
 
 class EnableOrganizationAdminAccountResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Eq {
-}
+type Eq = vec<String>;
 
-class Equals {
-}
+type Equals = vec<String>;
 
 class Evidence {
   public ThreatIntelligenceDetails $threat_intelligence_details;
+
+  public function __construct(shape(
+  ?'threat_intelligence_details' => ThreatIntelligenceDetails,
+  ) $s = shape()) {
+    $this->threat_intelligence_details = $threat_intelligence_details ?? [];
+  }
 }
 
-class Feedback {
-}
+type Feedback = string;
 
-class FilterAction {
-}
+type FilterAction = string;
 
-class FilterDescription {
-}
+type FilterDescription = string;
 
-class FilterName {
-}
+type FilterName = string;
 
-class FilterNames {
-}
+type FilterNames = vec<FilterName>;
 
-class FilterRank {
-}
+type FilterRank = int;
 
 class Finding {
   public string $account_id;
@@ -447,47 +903,99 @@ class Finding {
   public string $title;
   public FindingType $type;
   public string $updated_at;
+
+  public function __construct(shape(
+  ?'account_id' => string,
+  ?'arn' => string,
+  ?'confidence' => Double,
+  ?'created_at' => string,
+  ?'description' => string,
+  ?'id' => string,
+  ?'partition' => string,
+  ?'region' => string,
+  ?'resource' => Resource,
+  ?'schema_version' => string,
+  ?'service' => Service,
+  ?'severity' => Double,
+  ?'title' => string,
+  ?'type' => FindingType,
+  ?'updated_at' => string,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->arn = $arn ?? ;
+    $this->confidence = $confidence ?? ;
+    $this->created_at = $created_at ?? ;
+    $this->description = $description ?? ;
+    $this->id = $id ?? ;
+    $this->partition = $partition ?? ;
+    $this->region = $region ?? ;
+    $this->resource = $resource ?? null;
+    $this->schema_version = $schema_version ?? ;
+    $this->service = $service ?? null;
+    $this->severity = $severity ?? ;
+    $this->title = $title ?? ;
+    $this->type = $type ?? ;
+    $this->updated_at = $updated_at ?? ;
+  }
 }
 
 class FindingCriteria {
   public Criterion $criterion;
+
+  public function __construct(shape(
+  ?'criterion' => Criterion,
+  ) $s = shape()) {
+    $this->criterion = $criterion ?? [];
+  }
 }
 
-class FindingId {
-}
+type FindingId = string;
 
-class FindingIds {
-}
+type FindingIds = vec<FindingId>;
 
-class FindingPublishingFrequency {
-}
+type FindingPublishingFrequency = string;
 
-class FindingStatisticType {
-}
+type FindingStatisticType = string;
 
-class FindingStatisticTypes {
-}
+type FindingStatisticTypes = vec<FindingStatisticType>;
 
 class FindingStatistics {
   public CountBySeverity $count_by_severity;
+
+  public function __construct(shape(
+  ?'count_by_severity' => CountBySeverity,
+  ) $s = shape()) {
+    $this->count_by_severity = $count_by_severity ?? [];
+  }
 }
 
-class FindingType {
-}
+type FindingType = string;
 
-class FindingTypes {
-}
+type FindingTypes = vec<FindingType>;
 
-class Findings {
-}
+type Findings = vec<Finding>;
 
 class GeoLocation {
   public Double $lat;
   public Double $lon;
+
+  public function __construct(shape(
+  ?'lat' => Double,
+  ?'lon' => Double,
+  ) $s = shape()) {
+    $this->lat = $lat ?? ;
+    $this->lon = $lon ?? ;
+  }
 }
 
 class GetDetectorRequest {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class GetDetectorResponse {
@@ -497,11 +1005,35 @@ class GetDetectorResponse {
   public DetectorStatus $status;
   public TagMap $tags;
   public string $updated_at;
+
+  public function __construct(shape(
+  ?'created_at' => string,
+  ?'finding_publishing_frequency' => FindingPublishingFrequency,
+  ?'service_role' => string,
+  ?'status' => DetectorStatus,
+  ?'tags' => TagMap,
+  ?'updated_at' => string,
+  ) $s = shape()) {
+    $this->created_at = $created_at ?? ;
+    $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
+    $this->service_role = $service_role ?? ;
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? [];
+    $this->updated_at = $updated_at ?? ;
+  }
 }
 
 class GetFilterRequest {
   public DetectorId $detector_id;
   public string $filter_name;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'filter_name' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->filter_name = $filter_name ?? "";
+  }
 }
 
 class GetFilterResponse {
@@ -511,31 +1043,87 @@ class GetFilterResponse {
   public FilterName $name;
   public FilterRank $rank;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'action' => FilterAction,
+  ?'description' => FilterDescription,
+  ?'finding_criteria' => FindingCriteria,
+  ?'name' => FilterName,
+  ?'rank' => FilterRank,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->action = $action ?? null;
+    $this->description = $description ?? ;
+    $this->finding_criteria = $finding_criteria ?? null;
+    $this->name = $name ?? "";
+    $this->rank = $rank ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class GetFindingsRequest {
   public DetectorId $detector_id;
   public FindingIds $finding_ids;
   public SortCriteria $sort_criteria;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_ids' => FindingIds,
+  ?'sort_criteria' => SortCriteria,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_ids = $finding_ids ?? [];
+    $this->sort_criteria = $sort_criteria ?? null;
+  }
 }
 
 class GetFindingsResponse {
   public Findings $findings;
+
+  public function __construct(shape(
+  ?'findings' => Findings,
+  ) $s = shape()) {
+    $this->findings = $findings ?? [];
+  }
 }
 
 class GetFindingsStatisticsRequest {
   public DetectorId $detector_id;
   public FindingCriteria $finding_criteria;
   public FindingStatisticTypes $finding_statistic_types;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_criteria' => FindingCriteria,
+  ?'finding_statistic_types' => FindingStatisticTypes,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_criteria = $finding_criteria ?? null;
+    $this->finding_statistic_types = $finding_statistic_types ?? [];
+  }
 }
 
 class GetFindingsStatisticsResponse {
   public FindingStatistics $finding_statistics;
+
+  public function __construct(shape(
+  ?'finding_statistics' => FindingStatistics,
+  ) $s = shape()) {
+    $this->finding_statistics = $finding_statistics ?? null;
+  }
 }
 
 class GetIPSetRequest {
   public DetectorId $detector_id;
   public string $ip_set_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'ip_set_id' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->ip_set_id = $ip_set_id ?? ;
+  }
 }
 
 class GetIPSetResponse {
@@ -544,36 +1132,96 @@ class GetIPSetResponse {
   public Name $name;
   public IpSetStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'format' => IpSetFormat,
+  ?'location' => Location,
+  ?'name' => Name,
+  ?'status' => IpSetStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->format = $format ?? ;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class GetInvitationsCountRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetInvitationsCountResponse {
   public int $invitations_count;
+
+  public function __construct(shape(
+  ?'invitations_count' => int,
+  ) $s = shape()) {
+    $this->invitations_count = $invitations_count ?? ;
+  }
 }
 
 class GetMasterAccountRequest {
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class GetMasterAccountResponse {
   public Master $master;
+
+  public function __construct(shape(
+  ?'master' => Master,
+  ) $s = shape()) {
+    $this->master = $master ?? null;
+  }
 }
 
 class GetMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class GetMembersResponse {
   public Members $members;
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'members' => Members,
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->members = $members ?? [];
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class GetThreatIntelSetRequest {
   public DetectorId $detector_id;
   public string $threat_intel_set_id;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'threat_intel_set_id' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+  }
 }
 
 class GetThreatIntelSetResponse {
@@ -582,14 +1230,35 @@ class GetThreatIntelSetResponse {
   public Name $name;
   public ThreatIntelSetStatus $status;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'format' => ThreatIntelSetFormat,
+  ?'location' => Location,
+  ?'name' => Name,
+  ?'status' => ThreatIntelSetStatus,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->format = $format ?? ;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->status = $status ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
-class GuardDutyArn {
-}
+type GuardDutyArn = string;
 
 class IamInstanceProfile {
   public string $arn;
   public string $id;
+
+  public function __construct(shape(
+  ?'arn' => string,
+  ?'id' => string,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->id = $id ?? ;
+  }
 }
 
 class InstanceDetails {
@@ -606,14 +1275,51 @@ class InstanceDetails {
   public string $platform;
   public ProductCodes $product_codes;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'availability_zone' => string,
+  ?'iam_instance_profile' => IamInstanceProfile,
+  ?'image_description' => string,
+  ?'image_id' => string,
+  ?'instance_id' => string,
+  ?'instance_state' => string,
+  ?'instance_type' => string,
+  ?'launch_time' => string,
+  ?'network_interfaces' => NetworkInterfaces,
+  ?'outpost_arn' => string,
+  ?'platform' => string,
+  ?'product_codes' => ProductCodes,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->availability_zone = $availability_zone ?? ;
+    $this->iam_instance_profile = $iam_instance_profile ?? null;
+    $this->image_description = $image_description ?? ;
+    $this->image_id = $image_id ?? ;
+    $this->instance_id = $instance_id ?? ;
+    $this->instance_state = $instance_state ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->launch_time = $launch_time ?? ;
+    $this->network_interfaces = $network_interfaces ?? [];
+    $this->outpost_arn = $outpost_arn ?? ;
+    $this->platform = $platform ?? ;
+    $this->product_codes = $product_codes ?? [];
+    $this->tags = $tags ?? [];
+  }
 }
 
-class Integer {
-}
+type Integer = int;
 
 class InternalServerErrorException {
   public string $message;
   public string $type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class Invitation {
@@ -621,53 +1327,112 @@ class Invitation {
   public string $invitation_id;
   public string $invited_at;
   public string $relationship_status;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'invitation_id' => string,
+  ?'invited_at' => string,
+  ?'relationship_status' => string,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->invitation_id = $invitation_id ?? ;
+    $this->invited_at = $invited_at ?? ;
+    $this->relationship_status = $relationship_status ?? ;
+  }
 }
 
-class Invitations {
-}
+type Invitations = vec<Invitation>;
 
 class InviteMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
   public boolean $disable_email_notification;
   public string $message;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ?'disable_email_notification' => boolean,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+    $this->disable_email_notification = $disable_email_notification ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InviteMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
-class IpSetFormat {
-}
+type IpSetFormat = string;
 
-class IpSetIds {
-}
+type IpSetIds = vec<String>;
 
-class IpSetStatus {
-}
+type IpSetStatus = string;
 
-class Ipv6Addresses {
-}
+type Ipv6Addresses = vec<String>;
 
 class ListDetectorsRequest {
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDetectorsResponse {
   public DetectorIds $detector_ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_ids' => DetectorIds,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_ids = $detector_ids ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFiltersRequest {
   public DetectorId $detector_id;
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFiltersResponse {
   public FilterNames $filter_names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'filter_names' => FilterNames,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->filter_names = $filter_names ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListFindingsRequest {
@@ -676,32 +1441,88 @@ class ListFindingsRequest {
   public MaxResults $max_results;
   public string $next_token;
   public SortCriteria $sort_criteria;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_criteria' => FindingCriteria,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ?'sort_criteria' => SortCriteria,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_criteria = $finding_criteria ?? null;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->sort_criteria = $sort_criteria ?? null;
+  }
 }
 
 class ListFindingsResponse {
   public FindingIds $finding_ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'finding_ids' => FindingIds,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->finding_ids = $finding_ids ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListIPSetsRequest {
   public DetectorId $detector_id;
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListIPSetsResponse {
   public IpSetIds $ip_set_ids;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'ip_set_ids' => IpSetIds,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->ip_set_ids = $ip_set_ids ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListInvitationsRequest {
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListInvitationsResponse {
   public Invitations $invitations;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'invitations' => Invitations,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->invitations = $invitations ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListMembersRequest {
@@ -709,77 +1530,184 @@ class ListMembersRequest {
   public MaxResults $max_results;
   public string $next_token;
   public string $only_associated;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ?'only_associated' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->only_associated = $only_associated ?? ;
+  }
 }
 
 class ListMembersResponse {
   public Members $members;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'members' => Members,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->members = $members ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOrganizationAdminAccountsRequest {
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOrganizationAdminAccountsResponse {
   public AdminAccounts $admin_accounts;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'admin_accounts' => AdminAccounts,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->admin_accounts = $admin_accounts ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListPublishingDestinationsRequest {
   public DetectorId $detector_id;
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListPublishingDestinationsResponse {
   public Destinations $destinations;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'destinations' => Destinations,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->destinations = $destinations ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public GuardDutyArn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => GuardDutyArn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->tags = $tags ?? [];
+  }
 }
 
 class ListThreatIntelSetsRequest {
   public DetectorId $detector_id;
   public MaxResults $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListThreatIntelSetsResponse {
   public string $next_token;
   public ThreatIntelSetIds $threat_intel_set_ids;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'threat_intel_set_ids' => ThreatIntelSetIds,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->threat_intel_set_ids = $threat_intel_set_ids ?? [];
+  }
 }
 
 class LocalIpDetails {
   public string $ip_address_v_4;
+
+  public function __construct(shape(
+  ?'ip_address_v_4' => string,
+  ) $s = shape()) {
+    $this->ip_address_v_4 = $ip_address_v_4 ?? ;
+  }
 }
 
 class LocalPortDetails {
   public int $port;
   public string $port_name;
+
+  public function __construct(shape(
+  ?'port' => int,
+  ?'port_name' => string,
+  ) $s = shape()) {
+    $this->port = $port ?? ;
+    $this->port_name = $port_name ?? ;
+  }
 }
 
-class Location {
-}
+type Location = string;
 
-class Long {
-}
+type Long = int;
 
 class Master {
   public AccountId $account_id;
   public string $invitation_id;
   public string $invited_at;
   public string $relationship_status;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'invitation_id' => string,
+  ?'invited_at' => string,
+  ?'relationship_status' => string,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->invitation_id = $invitation_id ?? ;
+    $this->invited_at = $invited_at ?? ;
+    $this->relationship_status = $relationship_status ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
 class Member {
   public AccountId $account_id;
@@ -789,16 +1717,31 @@ class Member {
   public string $master_id;
   public string $relationship_status;
   public string $updated_at;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'detector_id' => DetectorId,
+  ?'email' => Email,
+  ?'invited_at' => string,
+  ?'master_id' => string,
+  ?'relationship_status' => string,
+  ?'updated_at' => string,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->detector_id = $detector_id ?? "";
+    $this->email = $email ?? "";
+    $this->invited_at = $invited_at ?? ;
+    $this->master_id = $master_id ?? ;
+    $this->relationship_status = $relationship_status ?? ;
+    $this->updated_at = $updated_at ?? ;
+  }
 }
 
-class Members {
-}
+type Members = vec<Member>;
 
-class Name {
-}
+type Name = string;
 
-class Neq {
-}
+type Neq = vec<String>;
 
 class NetworkConnectionAction {
   public boolean $blocked;
@@ -808,6 +1751,24 @@ class NetworkConnectionAction {
   public string $protocol;
   public RemoteIpDetails $remote_ip_details;
   public RemotePortDetails $remote_port_details;
+
+  public function __construct(shape(
+  ?'blocked' => boolean,
+  ?'connection_direction' => string,
+  ?'local_ip_details' => LocalIpDetails,
+  ?'local_port_details' => LocalPortDetails,
+  ?'protocol' => string,
+  ?'remote_ip_details' => RemoteIpDetails,
+  ?'remote_port_details' => RemotePortDetails,
+  ) $s = shape()) {
+    $this->blocked = $blocked ?? ;
+    $this->connection_direction = $connection_direction ?? ;
+    $this->local_ip_details = $local_ip_details ?? null;
+    $this->local_port_details = $local_port_details ?? null;
+    $this->protocol = $protocol ?? ;
+    $this->remote_ip_details = $remote_ip_details ?? null;
+    $this->remote_port_details = $remote_port_details ?? null;
+  }
 }
 
 class NetworkInterface {
@@ -821,56 +1782,119 @@ class NetworkInterface {
   public SecurityGroups $security_groups;
   public string $subnet_id;
   public string $vpc_id;
+
+  public function __construct(shape(
+  ?'ipv_6_addresses' => Ipv6Addresses,
+  ?'network_interface_id' => string,
+  ?'private_dns_name' => string,
+  ?'private_ip_address' => string,
+  ?'private_ip_addresses' => PrivateIpAddresses,
+  ?'public_dns_name' => string,
+  ?'public_ip' => string,
+  ?'security_groups' => SecurityGroups,
+  ?'subnet_id' => string,
+  ?'vpc_id' => string,
+  ) $s = shape()) {
+    $this->ipv_6_addresses = $ipv_6_addresses ?? [];
+    $this->network_interface_id = $network_interface_id ?? ;
+    $this->private_dns_name = $private_dns_name ?? ;
+    $this->private_ip_address = $private_ip_address ?? ;
+    $this->private_ip_addresses = $private_ip_addresses ?? [];
+    $this->public_dns_name = $public_dns_name ?? ;
+    $this->public_ip = $public_ip ?? ;
+    $this->security_groups = $security_groups ?? [];
+    $this->subnet_id = $subnet_id ?? ;
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
-class NetworkInterfaces {
-}
+type NetworkInterfaces = vec<NetworkInterface>;
 
-class NotEquals {
-}
+type NotEquals = vec<String>;
 
-class OrderBy {
-}
+type OrderBy = string;
 
 class Organization {
   public string $asn;
   public string $asn_org;
   public string $isp;
   public string $org;
+
+  public function __construct(shape(
+  ?'asn' => string,
+  ?'asn_org' => string,
+  ?'isp' => string,
+  ?'org' => string,
+  ) $s = shape()) {
+    $this->asn = $asn ?? ;
+    $this->asn_org = $asn_org ?? ;
+    $this->isp = $isp ?? ;
+    $this->org = $org ?? ;
+  }
 }
 
 class PortProbeAction {
   public boolean $blocked;
   public PortProbeDetails $port_probe_details;
+
+  public function __construct(shape(
+  ?'blocked' => boolean,
+  ?'port_probe_details' => PortProbeDetails,
+  ) $s = shape()) {
+    $this->blocked = $blocked ?? ;
+    $this->port_probe_details = $port_probe_details ?? [];
+  }
 }
 
 class PortProbeDetail {
   public LocalIpDetails $local_ip_details;
   public LocalPortDetails $local_port_details;
   public RemoteIpDetails $remote_ip_details;
+
+  public function __construct(shape(
+  ?'local_ip_details' => LocalIpDetails,
+  ?'local_port_details' => LocalPortDetails,
+  ?'remote_ip_details' => RemoteIpDetails,
+  ) $s = shape()) {
+    $this->local_ip_details = $local_ip_details ?? null;
+    $this->local_port_details = $local_port_details ?? null;
+    $this->remote_ip_details = $remote_ip_details ?? null;
+  }
 }
 
-class PortProbeDetails {
-}
+type PortProbeDetails = vec<PortProbeDetail>;
 
 class PrivateIpAddressDetails {
   public string $private_dns_name;
   public string $private_ip_address;
+
+  public function __construct(shape(
+  ?'private_dns_name' => string,
+  ?'private_ip_address' => string,
+  ) $s = shape()) {
+    $this->private_dns_name = $private_dns_name ?? ;
+    $this->private_ip_address = $private_ip_address ?? ;
+  }
 }
 
-class PrivateIpAddresses {
-}
+type PrivateIpAddresses = vec<PrivateIpAddressDetails>;
 
 class ProductCode {
   public string $code;
   public string $product_type;
+
+  public function __construct(shape(
+  ?'code' => string,
+  ?'product_type' => string,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->product_type = $product_type ?? ;
+  }
 }
 
-class ProductCodes {
-}
+type ProductCodes = vec<ProductCode>;
 
-class PublishingStatus {
-}
+type PublishingStatus = string;
 
 class RemoteIpDetails {
   public City $city;
@@ -878,26 +1902,65 @@ class RemoteIpDetails {
   public GeoLocation $geo_location;
   public string $ip_address_v_4;
   public Organization $organization;
+
+  public function __construct(shape(
+  ?'city' => City,
+  ?'country' => Country,
+  ?'geo_location' => GeoLocation,
+  ?'ip_address_v_4' => string,
+  ?'organization' => Organization,
+  ) $s = shape()) {
+    $this->city = $city ?? null;
+    $this->country = $country ?? null;
+    $this->geo_location = $geo_location ?? null;
+    $this->ip_address_v_4 = $ip_address_v_4 ?? ;
+    $this->organization = $organization ?? null;
+  }
 }
 
 class RemotePortDetails {
   public int $port;
   public string $port_name;
+
+  public function __construct(shape(
+  ?'port' => int,
+  ?'port_name' => string,
+  ) $s = shape()) {
+    $this->port = $port ?? ;
+    $this->port_name = $port_name ?? ;
+  }
 }
 
 class Resource {
   public AccessKeyDetails $access_key_details;
   public InstanceDetails $instance_details;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'access_key_details' => AccessKeyDetails,
+  ?'instance_details' => InstanceDetails,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->access_key_details = $access_key_details ?? null;
+    $this->instance_details = $instance_details ?? null;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class SecurityGroup {
   public string $group_id;
   public string $group_name;
+
+  public function __construct(shape(
+  ?'group_id' => string,
+  ?'group_name' => string,
+  ) $s = shape()) {
+    $this->group_id = $group_id ?? ;
+    $this->group_name = $group_name ?? ;
+  }
 }
 
-class SecurityGroups {
-}
+type SecurityGroups = vec<SecurityGroup>;
 
 class Service {
   public Action $action;
@@ -910,113 +1973,235 @@ class Service {
   public string $resource_role;
   public string $service_name;
   public string $user_feedback;
+
+  public function __construct(shape(
+  ?'action' => Action,
+  ?'archived' => boolean,
+  ?'count' => int,
+  ?'detector_id' => DetectorId,
+  ?'event_first_seen' => string,
+  ?'event_last_seen' => string,
+  ?'evidence' => Evidence,
+  ?'resource_role' => string,
+  ?'service_name' => string,
+  ?'user_feedback' => string,
+  ) $s = shape()) {
+    $this->action = $action ?? null;
+    $this->archived = $archived ?? ;
+    $this->count = $count ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->event_first_seen = $event_first_seen ?? ;
+    $this->event_last_seen = $event_last_seen ?? ;
+    $this->evidence = $evidence ?? null;
+    $this->resource_role = $resource_role ?? ;
+    $this->service_name = $service_name ?? ;
+    $this->user_feedback = $user_feedback ?? ;
+  }
 }
 
 class SortCriteria {
   public string $attribute_name;
   public OrderBy $order_by;
+
+  public function __construct(shape(
+  ?'attribute_name' => string,
+  ?'order_by' => OrderBy,
+  ) $s = shape()) {
+    $this->attribute_name = $attribute_name ?? ;
+    $this->order_by = $order_by ?? "";
+  }
 }
 
 class StartMonitoringMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class StartMonitoringMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
 class StopMonitoringMembersRequest {
   public AccountIds $account_ids;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'account_ids' => AccountIds,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->account_ids = $account_ids ?? [];
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class StopMonitoringMembersResponse {
   public UnprocessedAccounts $unprocessed_accounts;
+
+  public function __construct(shape(
+  ?'unprocessed_accounts' => UnprocessedAccounts,
+  ) $s = shape()) {
+    $this->unprocessed_accounts = $unprocessed_accounts ?? [];
+  }
 }
 
-class String {
-}
+type String = string;
 
 class Tag {
   public string $key;
   public string $value;
+
+  public function __construct(shape(
+  ?'key' => string,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagMap {
-}
+type TagMap = dict<TagKey, TagValue>;
 
 class TagResourceRequest {
   public GuardDutyArn $resource_arn;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => GuardDutyArn,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = vec<Tag>;
 
-class ThreatIntelSetFormat {
-}
+type ThreatIntelSetFormat = string;
 
-class ThreatIntelSetIds {
-}
+type ThreatIntelSetIds = vec<String>;
 
-class ThreatIntelSetStatus {
-}
+type ThreatIntelSetStatus = string;
 
 class ThreatIntelligenceDetail {
   public string $threat_list_name;
   public ThreatNames $threat_names;
+
+  public function __construct(shape(
+  ?'threat_list_name' => string,
+  ?'threat_names' => ThreatNames,
+  ) $s = shape()) {
+    $this->threat_list_name = $threat_list_name ?? ;
+    $this->threat_names = $threat_names ?? [];
+  }
 }
 
-class ThreatIntelligenceDetails {
-}
+type ThreatIntelligenceDetails = vec<ThreatIntelligenceDetail>;
 
-class ThreatNames {
-}
+type ThreatNames = vec<String>;
 
 class UnarchiveFindingsRequest {
   public DetectorId $detector_id;
   public FindingIds $finding_ids;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'finding_ids' => FindingIds,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->finding_ids = $finding_ids ?? [];
+  }
 }
 
 class UnarchiveFindingsResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UnprocessedAccount {
   public AccountId $account_id;
   public string $result;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'result' => string,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->result = $result ?? ;
+  }
 }
 
-class UnprocessedAccounts {
-}
+type UnprocessedAccounts = vec<UnprocessedAccount>;
 
 class UntagResourceRequest {
   public GuardDutyArn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => GuardDutyArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateDetectorRequest {
   public DetectorId $detector_id;
   public boolean $enable;
   public FindingPublishingFrequency $finding_publishing_frequency;
+
+  public function __construct(shape(
+  ?'detector_id' => DetectorId,
+  ?'enable' => boolean,
+  ?'finding_publishing_frequency' => FindingPublishingFrequency,
+  ) $s = shape()) {
+    $this->detector_id = $detector_id ?? "";
+    $this->enable = $enable ?? ;
+    $this->finding_publishing_frequency = $finding_publishing_frequency ?? "";
+  }
 }
 
 class UpdateDetectorResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateFilterRequest {
@@ -1026,10 +2211,32 @@ class UpdateFilterRequest {
   public string $filter_name;
   public FindingCriteria $finding_criteria;
   public FilterRank $rank;
+
+  public function __construct(shape(
+  ?'action' => FilterAction,
+  ?'description' => FilterDescription,
+  ?'detector_id' => DetectorId,
+  ?'filter_name' => string,
+  ?'finding_criteria' => FindingCriteria,
+  ?'rank' => FilterRank,
+  ) $s = shape()) {
+    $this->action = $action ?? null;
+    $this->description = $description ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->filter_name = $filter_name ?? "";
+    $this->finding_criteria = $finding_criteria ?? null;
+    $this->rank = $rank ?? ;
+  }
 }
 
 class UpdateFilterResponse {
   public FilterName $name;
+
+  public function __construct(shape(
+  ?'name' => FilterName,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class UpdateFindingsFeedbackRequest {
@@ -1037,9 +2244,25 @@ class UpdateFindingsFeedbackRequest {
   public DetectorId $detector_id;
   public Feedback $feedback;
   public FindingIds $finding_ids;
+
+  public function __construct(shape(
+  ?'comments' => string,
+  ?'detector_id' => DetectorId,
+  ?'feedback' => Feedback,
+  ?'finding_ids' => FindingIds,
+  ) $s = shape()) {
+    $this->comments = $comments ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->feedback = $feedback ?? "";
+    $this->finding_ids = $finding_ids ?? [];
+  }
 }
 
 class UpdateFindingsFeedbackResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateIPSetRequest {
@@ -1048,26 +2271,70 @@ class UpdateIPSetRequest {
   public string $ip_set_id;
   public Location $location;
   public Name $name;
+
+  public function __construct(shape(
+  ?'activate' => boolean,
+  ?'detector_id' => DetectorId,
+  ?'ip_set_id' => string,
+  ?'location' => Location,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->activate = $activate ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->ip_set_id = $ip_set_id ?? ;
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+  }
 }
 
 class UpdateIPSetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateOrganizationConfigurationRequest {
   public boolean $auto_enable;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'auto_enable' => boolean,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->auto_enable = $auto_enable ?? ;
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class UpdateOrganizationConfigurationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdatePublishingDestinationRequest {
   public string $destination_id;
   public DestinationProperties $destination_properties;
   public DetectorId $detector_id;
+
+  public function __construct(shape(
+  ?'destination_id' => string,
+  ?'destination_properties' => DestinationProperties,
+  ?'detector_id' => DetectorId,
+  ) $s = shape()) {
+    $this->destination_id = $destination_id ?? ;
+    $this->destination_properties = $destination_properties ?? null;
+    $this->detector_id = $detector_id ?? "";
+  }
 }
 
 class UpdatePublishingDestinationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateThreatIntelSetRequest {
@@ -1076,8 +2343,26 @@ class UpdateThreatIntelSetRequest {
   public Location $location;
   public Name $name;
   public string $threat_intel_set_id;
+
+  public function __construct(shape(
+  ?'activate' => boolean,
+  ?'detector_id' => DetectorId,
+  ?'location' => Location,
+  ?'name' => Name,
+  ?'threat_intel_set_id' => string,
+  ) $s = shape()) {
+    $this->activate = $activate ?? ;
+    $this->detector_id = $detector_id ?? "";
+    $this->location = $location ?? "";
+    $this->name = $name ?? "";
+    $this->threat_intel_set_id = $threat_intel_set_id ?? ;
+  }
 }
 
 class UpdateThreatIntelSetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 

@@ -7,10 +7,15 @@ interface  {
 
 class BadRequestException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Double {
-}
+type Double = float;
 
 class Event {
   public MapOfStringToString $attributes;
@@ -19,27 +24,48 @@ class Event {
   public Session $session;
   public ISO8601Timestamp $timestamp;
   public String10Chars $version;
+
+  public function __construct(shape(
+  ?'attributes' => MapOfStringToString,
+  ?'event_type' => String50Chars,
+  ?'metrics' => MapOfStringToNumber,
+  ?'session' => Session,
+  ?'timestamp' => ISO8601Timestamp,
+  ?'version' => String10Chars,
+  ) $s = shape()) {
+    $this->attributes = $attributes ?? ;
+    $this->event_type = $event_type ?? ;
+    $this->metrics = $metrics ?? ;
+    $this->session = $session ?? ;
+    $this->timestamp = $timestamp ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class EventListDefinition {
-}
+type EventListDefinition = vec<Event>;
 
-class ISO8601Timestamp {
-}
+type ISO8601Timestamp = string;
 
-class Long {
-}
+type Long = int;
 
-class MapOfStringToNumber {
-}
+type MapOfStringToNumber = dict<String50Chars, Double>;
 
-class MapOfStringToString {
-}
+type MapOfStringToString = dict<String50Chars, String0to1000Chars>;
 
 class PutEventsInput {
   public string $client_context;
   public string $client_context_encoding;
   public EventListDefinition $events;
+
+  public function __construct(shape(
+  ?'client_context' => string,
+  ?'client_context_encoding' => string,
+  ?'events' => EventListDefinition,
+  ) $s = shape()) {
+    $this->client_context = $client_context ?? ;
+    $this->client_context_encoding = $client_context_encoding ?? ;
+    $this->events = $events ?? ;
+  }
 }
 
 class Session {
@@ -47,17 +73,25 @@ class Session {
   public String50Chars $id;
   public ISO8601Timestamp $start_timestamp;
   public ISO8601Timestamp $stop_timestamp;
+
+  public function __construct(shape(
+  ?'duration' => Long,
+  ?'id' => String50Chars,
+  ?'start_timestamp' => ISO8601Timestamp,
+  ?'stop_timestamp' => ISO8601Timestamp,
+  ) $s = shape()) {
+    $this->duration = $duration ?? ;
+    $this->id = $id ?? ;
+    $this->start_timestamp = $start_timestamp ?? ;
+    $this->stop_timestamp = $stop_timestamp ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
-class String0to1000Chars {
-}
+type String0to1000Chars = string;
 
-class String10Chars {
-}
+type String10Chars = string;
 
-class String50Chars {
-}
+type String50Chars = string;
 

@@ -81,8 +81,7 @@ interface Device Farm {
   public function UpdateVPCEConfiguration(UpdateVPCEConfigurationRequest): Awaitable<Errors\Result<UpdateVPCEConfigurationResult>>;
 }
 
-class AWSAccountNumber {
-}
+type AWSAccountNumber = string;
 
 class AccountSettings {
   public AWSAccountNumber $aws_account_number;
@@ -93,25 +92,46 @@ class AccountSettings {
   public TrialMinutes $trial_minutes;
   public PurchasedDevicesMap $unmetered_devices;
   public PurchasedDevicesMap $unmetered_remote_access_devices;
+
+  public function __construct(shape(
+  ?'aws_account_number' => AWSAccountNumber,
+  ?'default_job_timeout_minutes' => JobTimeoutMinutes,
+  ?'max_job_timeout_minutes' => JobTimeoutMinutes,
+  ?'max_slots' => MaxSlotMap,
+  ?'skip_app_resign' => SkipAppResign,
+  ?'trial_minutes' => TrialMinutes,
+  ?'unmetered_devices' => PurchasedDevicesMap,
+  ?'unmetered_remote_access_devices' => PurchasedDevicesMap,
+  ) $s = shape()) {
+    $this->aws_account_number = $aws_account_number ?? ;
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
+    $this->max_job_timeout_minutes = $max_job_timeout_minutes ?? ;
+    $this->max_slots = $max_slots ?? ;
+    $this->skip_app_resign = $skip_app_resign ?? ;
+    $this->trial_minutes = $trial_minutes ?? ;
+    $this->unmetered_devices = $unmetered_devices ?? ;
+    $this->unmetered_remote_access_devices = $unmetered_remote_access_devices ?? ;
+  }
 }
 
-class AccountsCleanup {
-}
+type AccountsCleanup = bool;
 
-class AmazonResourceName {
-}
+type AmazonResourceName = string;
 
-class AmazonResourceNames {
-}
+type AmazonResourceNames = vec<AmazonResourceName>;
 
-class AndroidPaths {
-}
+type AndroidPaths = vec<String>;
 
-class AppPackagesCleanup {
-}
+type AppPackagesCleanup = bool;
 
 class ArgumentException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Artifact {
@@ -120,38 +140,61 @@ class Artifact {
   public Name $name;
   public ArtifactType $type;
   public URL $url;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'extension' => string,
+  ?'name' => Name,
+  ?'type' => ArtifactType,
+  ?'url' => URL,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->extension = $extension ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
-class ArtifactCategory {
-}
+type ArtifactCategory = string;
 
-class ArtifactType {
-}
+type ArtifactType = string;
 
-class Artifacts {
-}
+type Artifacts = vec<Artifact>;
 
-class BillingMethod {
-}
+type BillingMethod = string;
 
-class Boolean {
-}
+type Boolean = bool;
 
 class CPU {
   public string $architecture;
   public Double $clock;
   public string $frequency;
+
+  public function __construct(shape(
+  ?'architecture' => string,
+  ?'clock' => Double,
+  ?'frequency' => string,
+  ) $s = shape()) {
+    $this->architecture = $architecture ?? ;
+    $this->clock = $clock ?? ;
+    $this->frequency = $frequency ?? ;
+  }
 }
 
 class CannotDeleteException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ClientId {
-}
+type ClientId = string;
 
-class ContentType {
-}
+type ContentType = string;
 
 class Counters {
   public int $errored;
@@ -161,6 +204,24 @@ class Counters {
   public int $stopped;
   public int $total;
   public int $warned;
+
+  public function __construct(shape(
+  ?'errored' => int,
+  ?'failed' => int,
+  ?'passed' => int,
+  ?'skipped' => int,
+  ?'stopped' => int,
+  ?'total' => int,
+  ?'warned' => int,
+  ) $s = shape()) {
+    $this->errored = $errored ?? ;
+    $this->failed = $failed ?? ;
+    $this->passed = $passed ?? ;
+    $this->skipped = $skipped ?? ;
+    $this->stopped = $stopped ?? ;
+    $this->total = $total ?? ;
+    $this->warned = $warned ?? ;
+  }
 }
 
 class CreateDevicePoolRequest {
@@ -169,10 +230,30 @@ class CreateDevicePoolRequest {
   public Name $name;
   public AmazonResourceName $project_arn;
   public Rules $rules;
+
+  public function __construct(shape(
+  ?'description' => Message,
+  ?'max_devices' => int,
+  ?'name' => Name,
+  ?'project_arn' => AmazonResourceName,
+  ?'rules' => Rules,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->max_devices = $max_devices ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->rules = $rules ?? ;
+  }
 }
 
 class CreateDevicePoolResult {
   public DevicePool $device_pool;
+
+  public function __construct(shape(
+  ?'device_pool' => DevicePool,
+  ) $s = shape()) {
+    $this->device_pool = $device_pool ?? ;
+  }
 }
 
 class CreateInstanceProfileRequest {
@@ -181,10 +262,30 @@ class CreateInstanceProfileRequest {
   public Name $name;
   public boolean $package_cleanup;
   public boolean $reboot_after_use;
+
+  public function __construct(shape(
+  ?'description' => Message,
+  ?'exclude_app_packages_from_cleanup' => PackageIds,
+  ?'name' => Name,
+  ?'package_cleanup' => boolean,
+  ?'reboot_after_use' => boolean,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
+    $this->name = $name ?? ;
+    $this->package_cleanup = $package_cleanup ?? ;
+    $this->reboot_after_use = $reboot_after_use ?? ;
+  }
 }
 
 class CreateInstanceProfileResult {
   public InstanceProfile $instance_profile;
+
+  public function __construct(shape(
+  ?'instance_profile' => InstanceProfile,
+  ) $s = shape()) {
+    $this->instance_profile = $instance_profile ?? ;
+  }
 }
 
 class CreateNetworkProfileRequest {
@@ -200,24 +301,80 @@ class CreateNetworkProfileRequest {
   public Long $uplink_delay_ms;
   public Long $uplink_jitter_ms;
   public PercentInteger $uplink_loss_percent;
+
+  public function __construct(shape(
+  ?'description' => Message,
+  ?'downlink_bandwidth_bits' => Long,
+  ?'downlink_delay_ms' => Long,
+  ?'downlink_jitter_ms' => Long,
+  ?'downlink_loss_percent' => PercentInteger,
+  ?'name' => Name,
+  ?'project_arn' => AmazonResourceName,
+  ?'type' => NetworkProfileType,
+  ?'uplink_bandwidth_bits' => Long,
+  ?'uplink_delay_ms' => Long,
+  ?'uplink_jitter_ms' => Long,
+  ?'uplink_loss_percent' => PercentInteger,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->type = $type ?? ;
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+  }
 }
 
 class CreateNetworkProfileResult {
   public NetworkProfile $network_profile;
+
+  public function __construct(shape(
+  ?'network_profile' => NetworkProfile,
+  ) $s = shape()) {
+    $this->network_profile = $network_profile ?? ;
+  }
 }
 
 class CreateProjectRequest {
   public JobTimeoutMinutes $default_job_timeout_minutes;
   public Name $name;
+
+  public function __construct(shape(
+  ?'default_job_timeout_minutes' => JobTimeoutMinutes,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class CreateProjectResult {
   public Project $project;
+
+  public function __construct(shape(
+  ?'project' => Project,
+  ) $s = shape()) {
+    $this->project = $project ?? ;
+  }
 }
 
 class CreateRemoteAccessSessionConfiguration {
   public BillingMethod $billing_method;
   public AmazonResourceNames $vpce_configuration_arns;
+
+  public function __construct(shape(
+  ?'billing_method' => BillingMethod,
+  ?'vpce_configuration_arns' => AmazonResourceNames,
+  ) $s = shape()) {
+    $this->billing_method = $billing_method ?? ;
+    $this->vpce_configuration_arns = $vpce_configuration_arns ?? ;
+  }
 }
 
 class CreateRemoteAccessSessionRequest {
@@ -233,29 +390,93 @@ class CreateRemoteAccessSessionRequest {
   public boolean $remote_record_enabled;
   public boolean $skip_app_resign;
   public SshPublicKey $ssh_public_key;
+
+  public function __construct(shape(
+  ?'client_id' => ClientId,
+  ?'configuration' => CreateRemoteAccessSessionConfiguration,
+  ?'device_arn' => AmazonResourceName,
+  ?'instance_arn' => AmazonResourceName,
+  ?'interaction_mode' => InteractionMode,
+  ?'name' => Name,
+  ?'project_arn' => AmazonResourceName,
+  ?'remote_debug_enabled' => boolean,
+  ?'remote_record_app_arn' => AmazonResourceName,
+  ?'remote_record_enabled' => boolean,
+  ?'skip_app_resign' => boolean,
+  ?'ssh_public_key' => SshPublicKey,
+  ) $s = shape()) {
+    $this->client_id = $client_id ?? ;
+    $this->configuration = $configuration ?? ;
+    $this->device_arn = $device_arn ?? ;
+    $this->instance_arn = $instance_arn ?? ;
+    $this->interaction_mode = $interaction_mode ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
+    $this->remote_record_app_arn = $remote_record_app_arn ?? ;
+    $this->remote_record_enabled = $remote_record_enabled ?? ;
+    $this->skip_app_resign = $skip_app_resign ?? ;
+    $this->ssh_public_key = $ssh_public_key ?? ;
+  }
 }
 
 class CreateRemoteAccessSessionResult {
   public RemoteAccessSession $remote_access_session;
+
+  public function __construct(shape(
+  ?'remote_access_session' => RemoteAccessSession,
+  ) $s = shape()) {
+    $this->remote_access_session = $remote_access_session ?? ;
+  }
 }
 
 class CreateTestGridProjectRequest {
   public ResourceDescription $description;
   public ResourceName $name;
+
+  public function __construct(shape(
+  ?'description' => ResourceDescription,
+  ?'name' => ResourceName,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class CreateTestGridProjectResult {
   public TestGridProject $test_grid_project;
+
+  public function __construct(shape(
+  ?'test_grid_project' => TestGridProject,
+  ) $s = shape()) {
+    $this->test_grid_project = $test_grid_project ?? ;
+  }
 }
 
 class CreateTestGridUrlRequest {
   public TestGridUrlExpiresInSecondsInput $expires_in_seconds;
   public DeviceFarmArn $project_arn;
+
+  public function __construct(shape(
+  ?'expires_in_seconds' => TestGridUrlExpiresInSecondsInput,
+  ?'project_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->expires_in_seconds = $expires_in_seconds ?? ;
+    $this->project_arn = $project_arn ?? ;
+  }
 }
 
 class CreateTestGridUrlResult {
   public DateTime $expires;
   public string $url;
+
+  public function __construct(shape(
+  ?'expires' => DateTime,
+  ?'url' => string,
+  ) $s = shape()) {
+    $this->expires = $expires ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
 class CreateUploadRequest {
@@ -263,10 +484,28 @@ class CreateUploadRequest {
   public Name $name;
   public AmazonResourceName $project_arn;
   public UploadType $type;
+
+  public function __construct(shape(
+  ?'content_type' => ContentType,
+  ?'name' => Name,
+  ?'project_arn' => AmazonResourceName,
+  ?'type' => UploadType,
+  ) $s = shape()) {
+    $this->content_type = $content_type ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class CreateUploadResult {
   public Upload $upload;
+
+  public function __construct(shape(
+  ?'upload' => Upload,
+  ) $s = shape()) {
+    $this->upload = $upload ?? ;
+  }
 }
 
 class CreateVPCEConfigurationRequest {
@@ -274,85 +513,201 @@ class CreateVPCEConfigurationRequest {
   public VPCEConfigurationDescription $vpce_configuration_description;
   public VPCEConfigurationName $vpce_configuration_name;
   public VPCEServiceName $vpce_service_name;
+
+  public function __construct(shape(
+  ?'service_dns_name' => ServiceDnsName,
+  ?'vpce_configuration_description' => VPCEConfigurationDescription,
+  ?'vpce_configuration_name' => VPCEConfigurationName,
+  ?'vpce_service_name' => VPCEServiceName,
+  ) $s = shape()) {
+    $this->service_dns_name = $service_dns_name ?? ;
+    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
+    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
+    $this->vpce_service_name = $vpce_service_name ?? ;
+  }
 }
 
 class CreateVPCEConfigurationResult {
   public VPCEConfiguration $vpce_configuration;
+
+  public function __construct(shape(
+  ?'vpce_configuration' => VPCEConfiguration,
+  ) $s = shape()) {
+    $this->vpce_configuration = $vpce_configuration ?? ;
+  }
 }
 
-class CurrencyCode {
-}
+type CurrencyCode = string;
 
 class CustomerArtifactPaths {
   public AndroidPaths $android_paths;
   public DeviceHostPaths $device_host_paths;
   public IosPaths $ios_paths;
+
+  public function __construct(shape(
+  ?'android_paths' => AndroidPaths,
+  ?'device_host_paths' => DeviceHostPaths,
+  ?'ios_paths' => IosPaths,
+  ) $s = shape()) {
+    $this->android_paths = $android_paths ?? ;
+    $this->device_host_paths = $device_host_paths ?? ;
+    $this->ios_paths = $ios_paths ?? ;
+  }
 }
 
-class DateTime {
-}
+type DateTime = int;
 
 class DeleteDevicePoolRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteDevicePoolResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteInstanceProfileRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteInstanceProfileResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteNetworkProfileRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteNetworkProfileResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteProjectRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteProjectResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteRemoteAccessSessionRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteRemoteAccessSessionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteRunRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteRunResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteTestGridProjectRequest {
   public DeviceFarmArn $project_arn;
+
+  public function __construct(shape(
+  ?'project_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->project_arn = $project_arn ?? ;
+  }
 }
 
 class DeleteTestGridProjectResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteUploadRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteUploadResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteVPCEConfigurationRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class DeleteVPCEConfigurationResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class Device {
@@ -377,37 +732,85 @@ class Device {
   public boolean $remote_access_enabled;
   public boolean $remote_debug_enabled;
   public Resolution $resolution;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'availability' => DeviceAvailability,
+  ?'carrier' => string,
+  ?'cpu' => CPU,
+  ?'fleet_name' => string,
+  ?'fleet_type' => string,
+  ?'form_factor' => DeviceFormFactor,
+  ?'heap_size' => Long,
+  ?'image' => string,
+  ?'instances' => DeviceInstances,
+  ?'manufacturer' => string,
+  ?'memory' => Long,
+  ?'model' => string,
+  ?'model_id' => string,
+  ?'name' => Name,
+  ?'os' => string,
+  ?'platform' => DevicePlatform,
+  ?'radio' => string,
+  ?'remote_access_enabled' => boolean,
+  ?'remote_debug_enabled' => boolean,
+  ?'resolution' => Resolution,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->availability = $availability ?? ;
+    $this->carrier = $carrier ?? ;
+    $this->cpu = $cpu ?? ;
+    $this->fleet_name = $fleet_name ?? ;
+    $this->fleet_type = $fleet_type ?? ;
+    $this->form_factor = $form_factor ?? ;
+    $this->heap_size = $heap_size ?? ;
+    $this->image = $image ?? ;
+    $this->instances = $instances ?? ;
+    $this->manufacturer = $manufacturer ?? ;
+    $this->memory = $memory ?? ;
+    $this->model = $model ?? ;
+    $this->model_id = $model_id ?? ;
+    $this->name = $name ?? ;
+    $this->os = $os ?? ;
+    $this->platform = $platform ?? ;
+    $this->radio = $radio ?? ;
+    $this->remote_access_enabled = $remote_access_enabled ?? ;
+    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
+    $this->resolution = $resolution ?? ;
+  }
 }
 
-class DeviceAttribute {
-}
+type DeviceAttribute = string;
 
-class DeviceAvailability {
-}
+type DeviceAvailability = string;
 
-class DeviceFarmArn {
-}
+type DeviceFarmArn = string;
 
 class DeviceFilter {
   public DeviceFilterAttribute $attribute;
   public RuleOperator $operator;
   public DeviceFilterValues $values;
+
+  public function __construct(shape(
+  ?'attribute' => DeviceFilterAttribute,
+  ?'operator' => RuleOperator,
+  ?'values' => DeviceFilterValues,
+  ) $s = shape()) {
+    $this->attribute = $attribute ?? ;
+    $this->operator = $operator ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class DeviceFilterAttribute {
-}
+type DeviceFilterAttribute = string;
 
-class DeviceFilterValues {
-}
+type DeviceFilterValues = vec<String>;
 
-class DeviceFilters {
-}
+type DeviceFilters = vec<DeviceFilter>;
 
-class DeviceFormFactor {
-}
+type DeviceFormFactor = string;
 
-class DeviceHostPaths {
-}
+type DeviceHostPaths = vec<String>;
 
 class DeviceInstance {
   public AmazonResourceName $arn;
@@ -416,19 +819,43 @@ class DeviceInstance {
   public InstanceLabels $labels;
   public InstanceStatus $status;
   public string $udid;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'device_arn' => AmazonResourceName,
+  ?'instance_profile' => InstanceProfile,
+  ?'labels' => InstanceLabels,
+  ?'status' => InstanceStatus,
+  ?'udid' => string,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->device_arn = $device_arn ?? ;
+    $this->instance_profile = $instance_profile ?? ;
+    $this->labels = $labels ?? ;
+    $this->status = $status ?? ;
+    $this->udid = $udid ?? ;
+  }
 }
 
-class DeviceInstances {
-}
+type DeviceInstances = vec<DeviceInstance>;
 
 class DeviceMinutes {
   public Double $metered;
   public Double $total;
   public Double $unmetered;
+
+  public function __construct(shape(
+  ?'metered' => Double,
+  ?'total' => Double,
+  ?'unmetered' => Double,
+  ) $s = shape()) {
+    $this->metered = $metered ?? ;
+    $this->total = $total ?? ;
+    $this->unmetered = $unmetered ?? ;
+  }
 }
 
-class DevicePlatform {
-}
+type DevicePlatform = string;
 
 class DevicePool {
   public AmazonResourceName $arn;
@@ -437,42 +864,80 @@ class DevicePool {
   public Name $name;
   public Rules $rules;
   public DevicePoolType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'description' => Message,
+  ?'max_devices' => int,
+  ?'name' => Name,
+  ?'rules' => Rules,
+  ?'type' => DevicePoolType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->max_devices = $max_devices ?? ;
+    $this->name = $name ?? ;
+    $this->rules = $rules ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class DevicePoolCompatibilityResult {
   public boolean $compatible;
   public Device $device;
   public IncompatibilityMessages $incompatibility_messages;
+
+  public function __construct(shape(
+  ?'compatible' => boolean,
+  ?'device' => Device,
+  ?'incompatibility_messages' => IncompatibilityMessages,
+  ) $s = shape()) {
+    $this->compatible = $compatible ?? ;
+    $this->device = $device ?? ;
+    $this->incompatibility_messages = $incompatibility_messages ?? ;
+  }
 }
 
-class DevicePoolCompatibilityResults {
-}
+type DevicePoolCompatibilityResults = vec<DevicePoolCompatibilityResult>;
 
-class DevicePoolType {
-}
+type DevicePoolType = string;
 
-class DevicePools {
-}
+type DevicePools = vec<DevicePool>;
 
 class DeviceSelectionConfiguration {
   public DeviceFilters $filters;
   public int $max_devices;
+
+  public function __construct(shape(
+  ?'filters' => DeviceFilters,
+  ?'max_devices' => int,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_devices = $max_devices ?? ;
+  }
 }
 
 class DeviceSelectionResult {
   public DeviceFilters $filters;
   public int $matched_devices_count;
   public int $max_devices;
+
+  public function __construct(shape(
+  ?'filters' => DeviceFilters,
+  ?'matched_devices_count' => int,
+  ?'max_devices' => int,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->matched_devices_count = $matched_devices_count ?? ;
+    $this->max_devices = $max_devices ?? ;
+  }
 }
 
-class Devices {
-}
+type Devices = vec<Device>;
 
-class Double {
-}
+type Double = float;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
 class ExecutionConfiguration {
   public AccountsCleanup $accounts_cleanup;
@@ -480,33 +945,65 @@ class ExecutionConfiguration {
   public JobTimeoutMinutes $job_timeout_minutes;
   public SkipAppResign $skip_app_resign;
   public VideoCapture $video_capture;
+
+  public function __construct(shape(
+  ?'accounts_cleanup' => AccountsCleanup,
+  ?'app_packages_cleanup' => AppPackagesCleanup,
+  ?'job_timeout_minutes' => JobTimeoutMinutes,
+  ?'skip_app_resign' => SkipAppResign,
+  ?'video_capture' => VideoCapture,
+  ) $s = shape()) {
+    $this->accounts_cleanup = $accounts_cleanup ?? ;
+    $this->app_packages_cleanup = $app_packages_cleanup ?? ;
+    $this->job_timeout_minutes = $job_timeout_minutes ?? ;
+    $this->skip_app_resign = $skip_app_resign ?? ;
+    $this->video_capture = $video_capture ?? ;
+  }
 }
 
-class ExecutionResult {
-}
+type ExecutionResult = string;
 
-class ExecutionResultCode {
-}
+type ExecutionResultCode = string;
 
-class ExecutionStatus {
-}
+type ExecutionStatus = string;
 
-class Filter {
-}
+type Filter = string;
 
 class GetAccountSettingsRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class GetAccountSettingsResult {
   public AccountSettings $account_settings;
+
+  public function __construct(shape(
+  ?'account_settings' => AccountSettings,
+  ) $s = shape()) {
+    $this->account_settings = $account_settings ?? ;
+  }
 }
 
 class GetDeviceInstanceRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetDeviceInstanceResult {
   public DeviceInstance $device_instance;
+
+  public function __construct(shape(
+  ?'device_instance' => DeviceInstance,
+  ) $s = shape()) {
+    $this->device_instance = $device_instance ?? ;
+  }
 }
 
 class GetDevicePoolCompatibilityRequest {
@@ -515,163 +1012,398 @@ class GetDevicePoolCompatibilityRequest {
   public AmazonResourceName $device_pool_arn;
   public ScheduleRunTest $test;
   public TestType $test_type;
+
+  public function __construct(shape(
+  ?'app_arn' => AmazonResourceName,
+  ?'configuration' => ScheduleRunConfiguration,
+  ?'device_pool_arn' => AmazonResourceName,
+  ?'test' => ScheduleRunTest,
+  ?'test_type' => TestType,
+  ) $s = shape()) {
+    $this->app_arn = $app_arn ?? ;
+    $this->configuration = $configuration ?? ;
+    $this->device_pool_arn = $device_pool_arn ?? ;
+    $this->test = $test ?? ;
+    $this->test_type = $test_type ?? ;
+  }
 }
 
 class GetDevicePoolCompatibilityResult {
   public DevicePoolCompatibilityResults $compatible_devices;
   public DevicePoolCompatibilityResults $incompatible_devices;
+
+  public function __construct(shape(
+  ?'compatible_devices' => DevicePoolCompatibilityResults,
+  ?'incompatible_devices' => DevicePoolCompatibilityResults,
+  ) $s = shape()) {
+    $this->compatible_devices = $compatible_devices ?? ;
+    $this->incompatible_devices = $incompatible_devices ?? ;
+  }
 }
 
 class GetDevicePoolRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetDevicePoolResult {
   public DevicePool $device_pool;
+
+  public function __construct(shape(
+  ?'device_pool' => DevicePool,
+  ) $s = shape()) {
+    $this->device_pool = $device_pool ?? ;
+  }
 }
 
 class GetDeviceRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetDeviceResult {
   public Device $device;
+
+  public function __construct(shape(
+  ?'device' => Device,
+  ) $s = shape()) {
+    $this->device = $device ?? ;
+  }
 }
 
 class GetInstanceProfileRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetInstanceProfileResult {
   public InstanceProfile $instance_profile;
+
+  public function __construct(shape(
+  ?'instance_profile' => InstanceProfile,
+  ) $s = shape()) {
+    $this->instance_profile = $instance_profile ?? ;
+  }
 }
 
 class GetJobRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetJobResult {
   public Job $job;
+
+  public function __construct(shape(
+  ?'job' => Job,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class GetNetworkProfileRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetNetworkProfileResult {
   public NetworkProfile $network_profile;
+
+  public function __construct(shape(
+  ?'network_profile' => NetworkProfile,
+  ) $s = shape()) {
+    $this->network_profile = $network_profile ?? ;
+  }
 }
 
 class GetOfferingStatusRequest {
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetOfferingStatusResult {
   public OfferingStatusMap $current;
   public OfferingStatusMap $next_period;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'current' => OfferingStatusMap,
+  ?'next_period' => OfferingStatusMap,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->current = $current ?? ;
+    $this->next_period = $next_period ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class GetProjectRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetProjectResult {
   public Project $project;
+
+  public function __construct(shape(
+  ?'project' => Project,
+  ) $s = shape()) {
+    $this->project = $project ?? ;
+  }
 }
 
 class GetRemoteAccessSessionRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetRemoteAccessSessionResult {
   public RemoteAccessSession $remote_access_session;
+
+  public function __construct(shape(
+  ?'remote_access_session' => RemoteAccessSession,
+  ) $s = shape()) {
+    $this->remote_access_session = $remote_access_session ?? ;
+  }
 }
 
 class GetRunRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetRunResult {
   public Run $run;
+
+  public function __construct(shape(
+  ?'run' => Run,
+  ) $s = shape()) {
+    $this->run = $run ?? ;
+  }
 }
 
 class GetSuiteRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetSuiteResult {
   public Suite $suite;
+
+  public function __construct(shape(
+  ?'suite' => Suite,
+  ) $s = shape()) {
+    $this->suite = $suite ?? ;
+  }
 }
 
 class GetTestGridProjectRequest {
   public DeviceFarmArn $project_arn;
+
+  public function __construct(shape(
+  ?'project_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->project_arn = $project_arn ?? ;
+  }
 }
 
 class GetTestGridProjectResult {
   public TestGridProject $test_grid_project;
+
+  public function __construct(shape(
+  ?'test_grid_project' => TestGridProject,
+  ) $s = shape()) {
+    $this->test_grid_project = $test_grid_project ?? ;
+  }
 }
 
 class GetTestGridSessionRequest {
   public DeviceFarmArn $project_arn;
   public DeviceFarmArn $session_arn;
   public ResourceId $session_id;
+
+  public function __construct(shape(
+  ?'project_arn' => DeviceFarmArn,
+  ?'session_arn' => DeviceFarmArn,
+  ?'session_id' => ResourceId,
+  ) $s = shape()) {
+    $this->project_arn = $project_arn ?? ;
+    $this->session_arn = $session_arn ?? ;
+    $this->session_id = $session_id ?? ;
+  }
 }
 
 class GetTestGridSessionResult {
   public TestGridSession $test_grid_session;
+
+  public function __construct(shape(
+  ?'test_grid_session' => TestGridSession,
+  ) $s = shape()) {
+    $this->test_grid_session = $test_grid_session ?? ;
+  }
 }
 
 class GetTestRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetTestResult {
   public Test $test;
+
+  public function __construct(shape(
+  ?'test' => Test,
+  ) $s = shape()) {
+    $this->test = $test ?? ;
+  }
 }
 
 class GetUploadRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetUploadResult {
   public Upload $upload;
+
+  public function __construct(shape(
+  ?'upload' => Upload,
+  ) $s = shape()) {
+    $this->upload = $upload ?? ;
+  }
 }
 
 class GetVPCEConfigurationRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class GetVPCEConfigurationResult {
   public VPCEConfiguration $vpce_configuration;
+
+  public function __construct(shape(
+  ?'vpce_configuration' => VPCEConfiguration,
+  ) $s = shape()) {
+    $this->vpce_configuration = $vpce_configuration ?? ;
+  }
 }
 
-class HostAddress {
-}
+type HostAddress = string;
 
 class IdempotencyException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class IncompatibilityMessage {
   public Message $message;
   public DeviceAttribute $type;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ?'type' => DeviceAttribute,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class IncompatibilityMessages {
-}
+type IncompatibilityMessages = vec<IncompatibilityMessage>;
 
 class InstallToRemoteAccessSessionRequest {
   public AmazonResourceName $app_arn;
   public AmazonResourceName $remote_access_session_arn;
+
+  public function __construct(shape(
+  ?'app_arn' => AmazonResourceName,
+  ?'remote_access_session_arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->app_arn = $app_arn ?? ;
+    $this->remote_access_session_arn = $remote_access_session_arn ?? ;
+  }
 }
 
 class InstallToRemoteAccessSessionResult {
   public Upload $app_upload;
+
+  public function __construct(shape(
+  ?'app_upload' => Upload,
+  ) $s = shape()) {
+    $this->app_upload = $app_upload ?? ;
+  }
 }
 
-class InstanceLabels {
-}
+type InstanceLabels = vec<String>;
 
 class InstanceProfile {
   public AmazonResourceName $arn;
@@ -680,30 +1412,53 @@ class InstanceProfile {
   public Name $name;
   public boolean $package_cleanup;
   public boolean $reboot_after_use;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'description' => Message,
+  ?'exclude_app_packages_from_cleanup' => PackageIds,
+  ?'name' => Name,
+  ?'package_cleanup' => boolean,
+  ?'reboot_after_use' => boolean,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
+    $this->name = $name ?? ;
+    $this->package_cleanup = $package_cleanup ?? ;
+    $this->reboot_after_use = $reboot_after_use ?? ;
+  }
 }
 
-class InstanceProfiles {
-}
+type InstanceProfiles = vec<InstanceProfile>;
 
-class InstanceStatus {
-}
+type InstanceStatus = string;
 
-class Integer {
-}
+type Integer = int;
 
-class InteractionMode {
-}
+type InteractionMode = string;
 
 class InternalServiceException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidOperationException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class IosPaths {
-}
+type IosPaths = vec<String>;
 
 class Job {
   public AmazonResourceName $arn;
@@ -721,196 +1476,522 @@ class Job {
   public TestType $type;
   public VideoCapture $video_capture;
   public string $video_endpoint;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'counters' => Counters,
+  ?'created' => DateTime,
+  ?'device' => Device,
+  ?'device_minutes' => DeviceMinutes,
+  ?'instance_arn' => AmazonResourceName,
+  ?'message' => Message,
+  ?'name' => Name,
+  ?'result' => ExecutionResult,
+  ?'started' => DateTime,
+  ?'status' => ExecutionStatus,
+  ?'stopped' => DateTime,
+  ?'type' => TestType,
+  ?'video_capture' => VideoCapture,
+  ?'video_endpoint' => string,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->counters = $counters ?? ;
+    $this->created = $created ?? ;
+    $this->device = $device ?? ;
+    $this->device_minutes = $device_minutes ?? ;
+    $this->instance_arn = $instance_arn ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->result = $result ?? ;
+    $this->started = $started ?? ;
+    $this->status = $status ?? ;
+    $this->stopped = $stopped ?? ;
+    $this->type = $type ?? ;
+    $this->video_capture = $video_capture ?? ;
+    $this->video_endpoint = $video_endpoint ?? ;
+  }
 }
 
-class JobTimeoutMinutes {
-}
+type JobTimeoutMinutes = int;
 
-class Jobs {
-}
+type Jobs = vec<Job>;
 
 class LimitExceededException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListArtifactsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
   public ArtifactCategory $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ?'type' => ArtifactCategory,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ListArtifactsResult {
   public Artifacts $artifacts;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'artifacts' => Artifacts,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->artifacts = $artifacts ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDeviceInstancesRequest {
   public int $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => int,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDeviceInstancesResult {
   public DeviceInstances $device_instances;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'device_instances' => DeviceInstances,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->device_instances = $device_instances ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDevicePoolsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
   public DevicePoolType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ?'type' => DevicePoolType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ListDevicePoolsResult {
   public DevicePools $device_pools;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'device_pools' => DevicePools,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->device_pools = $device_pools ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDevicesRequest {
   public AmazonResourceName $arn;
   public DeviceFilters $filters;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'filters' => DeviceFilters,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->filters = $filters ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListDevicesResult {
   public Devices $devices;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'devices' => Devices,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->devices = $devices ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListInstanceProfilesRequest {
   public int $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => int,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListInstanceProfilesResult {
   public InstanceProfiles $instance_profiles;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'instance_profiles' => InstanceProfiles,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->instance_profiles = $instance_profiles ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListJobsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListJobsResult {
   public Jobs $jobs;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'jobs' => Jobs,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->jobs = $jobs ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListNetworkProfilesRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
   public NetworkProfileType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ?'type' => NetworkProfileType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ListNetworkProfilesResult {
   public NetworkProfiles $network_profiles;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'network_profiles' => NetworkProfiles,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->network_profiles = $network_profiles ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOfferingPromotionsRequest {
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOfferingPromotionsResult {
   public PaginationToken $next_token;
   public OfferingPromotions $offering_promotions;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'offering_promotions' => OfferingPromotions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->offering_promotions = $offering_promotions ?? ;
+  }
 }
 
 class ListOfferingTransactionsRequest {
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOfferingTransactionsResult {
   public PaginationToken $next_token;
   public OfferingTransactions $offering_transactions;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'offering_transactions' => OfferingTransactions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->offering_transactions = $offering_transactions ?? ;
+  }
 }
 
 class ListOfferingsRequest {
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListOfferingsResult {
   public PaginationToken $next_token;
   public Offerings $offerings;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'offerings' => Offerings,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->offerings = $offerings ?? ;
+  }
 }
 
 class ListProjectsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListProjectsResult {
   public PaginationToken $next_token;
   public Projects $projects;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'projects' => Projects,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->projects = $projects ?? ;
+  }
 }
 
 class ListRemoteAccessSessionsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListRemoteAccessSessionsResult {
   public PaginationToken $next_token;
   public RemoteAccessSessions $remote_access_sessions;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'remote_access_sessions' => RemoteAccessSessions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->remote_access_sessions = $remote_access_sessions ?? ;
+  }
 }
 
 class ListRunsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListRunsResult {
   public PaginationToken $next_token;
   public Runs $runs;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'runs' => Runs,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->runs = $runs ?? ;
+  }
 }
 
 class ListSamplesRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListSamplesResult {
   public PaginationToken $next_token;
   public Samples $samples;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'samples' => Samples,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->samples = $samples ?? ;
+  }
 }
 
 class ListSuitesRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListSuitesResult {
   public PaginationToken $next_token;
   public Suites $suites;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'suites' => Suites,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->suites = $suites ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public DeviceFarmArn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+  }
 }
 
 class ListTestGridProjectsRequest {
   public MaxPageSize $max_result;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_result' => MaxPageSize,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_result = $max_result ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTestGridProjectsResult {
   public PaginationToken $next_token;
   public TestGridProjects $test_grid_projects;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'test_grid_projects' => TestGridProjects,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->test_grid_projects = $test_grid_projects ?? ;
+  }
 }
 
 class ListTestGridSessionActionsRequest {
   public MaxPageSize $max_result;
   public PaginationToken $next_token;
   public DeviceFarmArn $session_arn;
+
+  public function __construct(shape(
+  ?'max_result' => MaxPageSize,
+  ?'next_token' => PaginationToken,
+  ?'session_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->max_result = $max_result ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->session_arn = $session_arn ?? ;
+  }
 }
 
 class ListTestGridSessionActionsResult {
   public TestGridSessionActions $actions;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'actions' => TestGridSessionActions,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->actions = $actions ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTestGridSessionArtifactsRequest {
@@ -918,11 +1999,31 @@ class ListTestGridSessionArtifactsRequest {
   public PaginationToken $next_token;
   public DeviceFarmArn $session_arn;
   public TestGridSessionArtifactCategory $type;
+
+  public function __construct(shape(
+  ?'max_result' => MaxPageSize,
+  ?'next_token' => PaginationToken,
+  ?'session_arn' => DeviceFarmArn,
+  ?'type' => TestGridSessionArtifactCategory,
+  ) $s = shape()) {
+    $this->max_result = $max_result ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->session_arn = $session_arn ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ListTestGridSessionArtifactsResult {
   public TestGridSessionArtifacts $artifacts;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'artifacts' => TestGridSessionArtifacts,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->artifacts = $artifacts ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTestGridSessionsRequest {
@@ -934,81 +2035,185 @@ class ListTestGridSessionsRequest {
   public PaginationToken $next_token;
   public DeviceFarmArn $project_arn;
   public TestGridSessionStatus $status;
+
+  public function __construct(shape(
+  ?'creation_time_after' => DateTime,
+  ?'creation_time_before' => DateTime,
+  ?'end_time_after' => DateTime,
+  ?'end_time_before' => DateTime,
+  ?'max_result' => MaxPageSize,
+  ?'next_token' => PaginationToken,
+  ?'project_arn' => DeviceFarmArn,
+  ?'status' => TestGridSessionStatus,
+  ) $s = shape()) {
+    $this->creation_time_after = $creation_time_after ?? ;
+    $this->creation_time_before = $creation_time_before ?? ;
+    $this->end_time_after = $end_time_after ?? ;
+    $this->end_time_before = $end_time_before ?? ;
+    $this->max_result = $max_result ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class ListTestGridSessionsResult {
   public PaginationToken $next_token;
   public TestGridSessions $test_grid_sessions;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'test_grid_sessions' => TestGridSessions,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->test_grid_sessions = $test_grid_sessions ?? ;
+  }
 }
 
 class ListTestsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTestsResult {
   public PaginationToken $next_token;
   public Tests $tests;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'tests' => Tests,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->tests = $tests ?? ;
+  }
 }
 
 class ListUniqueProblemsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListUniqueProblemsResult {
   public PaginationToken $next_token;
   public UniqueProblemsByExecutionResultMap $unique_problems;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'unique_problems' => UniqueProblemsByExecutionResultMap,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->unique_problems = $unique_problems ?? ;
+  }
 }
 
 class ListUploadsRequest {
   public AmazonResourceName $arn;
   public PaginationToken $next_token;
   public UploadType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'next_token' => PaginationToken,
+  ?'type' => UploadType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ListUploadsResult {
   public PaginationToken $next_token;
   public Uploads $uploads;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'uploads' => Uploads,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->uploads = $uploads ?? ;
+  }
 }
 
 class ListVPCEConfigurationsRequest {
   public int $max_results;
   public PaginationToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => int,
+  ?'next_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListVPCEConfigurationsResult {
   public PaginationToken $next_token;
   public VPCEConfigurations $vpce_configurations;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'vpce_configurations' => VPCEConfigurations,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->vpce_configurations = $vpce_configurations ?? ;
+  }
 }
 
 class Location {
   public Double $latitude;
   public Double $longitude;
+
+  public function __construct(shape(
+  ?'latitude' => Double,
+  ?'longitude' => Double,
+  ) $s = shape()) {
+    $this->latitude = $latitude ?? ;
+    $this->longitude = $longitude ?? ;
+  }
 }
 
-class Long {
-}
+type Long = int;
 
-class MaxPageSize {
-}
+type MaxPageSize = int;
 
-class MaxSlotMap {
-}
+type MaxSlotMap = dict<String, Integer>;
 
-class Message {
-}
+type Message = string;
 
-class Metadata {
-}
+type Metadata = string;
 
 class MonetaryAmount {
   public Double $amount;
   public CurrencyCode $currency_code;
+
+  public function __construct(shape(
+  ?'amount' => Double,
+  ?'currency_code' => CurrencyCode,
+  ) $s = shape()) {
+    $this->amount = $amount ?? ;
+    $this->currency_code = $currency_code ?? ;
+  }
 }
 
-class Name {
-}
+type Name = string;
 
 class NetworkProfile {
   public AmazonResourceName $arn;
@@ -1023,20 +2228,58 @@ class NetworkProfile {
   public Long $uplink_delay_ms;
   public Long $uplink_jitter_ms;
   public PercentInteger $uplink_loss_percent;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'description' => Message,
+  ?'downlink_bandwidth_bits' => Long,
+  ?'downlink_delay_ms' => Long,
+  ?'downlink_jitter_ms' => Long,
+  ?'downlink_loss_percent' => PercentInteger,
+  ?'name' => Name,
+  ?'type' => NetworkProfileType,
+  ?'uplink_bandwidth_bits' => Long,
+  ?'uplink_delay_ms' => Long,
+  ?'uplink_jitter_ms' => Long,
+  ?'uplink_loss_percent' => PercentInteger,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+  }
 }
 
-class NetworkProfileType {
-}
+type NetworkProfileType = string;
 
-class NetworkProfiles {
-}
+type NetworkProfiles = vec<NetworkProfile>;
 
 class NotEligibleException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class NotFoundException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Offering {
@@ -1045,31 +2288,61 @@ class Offering {
   public DevicePlatform $platform;
   public RecurringCharges $recurring_charges;
   public OfferingType $type;
+
+  public function __construct(shape(
+  ?'description' => Message,
+  ?'id' => OfferingIdentifier,
+  ?'platform' => DevicePlatform,
+  ?'recurring_charges' => RecurringCharges,
+  ?'type' => OfferingType,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->id = $id ?? ;
+    $this->platform = $platform ?? ;
+    $this->recurring_charges = $recurring_charges ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class OfferingIdentifier {
-}
+type OfferingIdentifier = string;
 
 class OfferingPromotion {
   public Message $description;
   public OfferingPromotionIdentifier $id;
+
+  public function __construct(shape(
+  ?'description' => Message,
+  ?'id' => OfferingPromotionIdentifier,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->id = $id ?? ;
+  }
 }
 
-class OfferingPromotionIdentifier {
-}
+type OfferingPromotionIdentifier = string;
 
-class OfferingPromotions {
-}
+type OfferingPromotions = vec<OfferingPromotion>;
 
 class OfferingStatus {
   public DateTime $effective_on;
   public Offering $offering;
   public int $quantity;
   public OfferingTransactionType $type;
+
+  public function __construct(shape(
+  ?'effective_on' => DateTime,
+  ?'offering' => Offering,
+  ?'quantity' => int,
+  ?'type' => OfferingTransactionType,
+  ) $s = shape()) {
+    $this->effective_on = $effective_on ?? ;
+    $this->offering = $offering ?? ;
+    $this->quantity = $quantity ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class OfferingStatusMap {
-}
+type OfferingStatusMap = dict<OfferingIdentifier, OfferingStatus>;
 
 class OfferingTransaction {
   public MonetaryAmount $cost;
@@ -1077,28 +2350,35 @@ class OfferingTransaction {
   public OfferingPromotionIdentifier $offering_promotion_id;
   public OfferingStatus $offering_status;
   public TransactionIdentifier $transaction_id;
+
+  public function __construct(shape(
+  ?'cost' => MonetaryAmount,
+  ?'created_on' => DateTime,
+  ?'offering_promotion_id' => OfferingPromotionIdentifier,
+  ?'offering_status' => OfferingStatus,
+  ?'transaction_id' => TransactionIdentifier,
+  ) $s = shape()) {
+    $this->cost = $cost ?? ;
+    $this->created_on = $created_on ?? ;
+    $this->offering_promotion_id = $offering_promotion_id ?? ;
+    $this->offering_status = $offering_status ?? ;
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
-class OfferingTransactionType {
-}
+type OfferingTransactionType = string;
 
-class OfferingTransactions {
-}
+type OfferingTransactions = vec<OfferingTransaction>;
 
-class OfferingType {
-}
+type OfferingType = string;
 
-class Offerings {
-}
+type Offerings = vec<Offering>;
 
-class PackageIds {
-}
+type PackageIds = vec<String>;
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
-class PercentInteger {
-}
+type PercentInteger = int;
 
 class Problem {
   public Device $device;
@@ -1108,56 +2388,125 @@ class Problem {
   public ProblemDetail $run;
   public ProblemDetail $suite;
   public ProblemDetail $test;
+
+  public function __construct(shape(
+  ?'device' => Device,
+  ?'job' => ProblemDetail,
+  ?'message' => Message,
+  ?'result' => ExecutionResult,
+  ?'run' => ProblemDetail,
+  ?'suite' => ProblemDetail,
+  ?'test' => ProblemDetail,
+  ) $s = shape()) {
+    $this->device = $device ?? ;
+    $this->job = $job ?? ;
+    $this->message = $message ?? ;
+    $this->result = $result ?? ;
+    $this->run = $run ?? ;
+    $this->suite = $suite ?? ;
+    $this->test = $test ?? ;
+  }
 }
 
 class ProblemDetail {
   public AmazonResourceName $arn;
   public Name $name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class Problems {
-}
+type Problems = vec<Problem>;
 
 class Project {
   public AmazonResourceName $arn;
   public DateTime $created;
   public JobTimeoutMinutes $default_job_timeout_minutes;
   public Name $name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'created' => DateTime,
+  ?'default_job_timeout_minutes' => JobTimeoutMinutes,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created = $created ?? ;
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class Projects {
-}
+type Projects = vec<Project>;
 
 class PurchaseOfferingRequest {
   public OfferingIdentifier $offering_id;
   public OfferingPromotionIdentifier $offering_promotion_id;
   public int $quantity;
+
+  public function __construct(shape(
+  ?'offering_id' => OfferingIdentifier,
+  ?'offering_promotion_id' => OfferingPromotionIdentifier,
+  ?'quantity' => int,
+  ) $s = shape()) {
+    $this->offering_id = $offering_id ?? ;
+    $this->offering_promotion_id = $offering_promotion_id ?? ;
+    $this->quantity = $quantity ?? ;
+  }
 }
 
 class PurchaseOfferingResult {
   public OfferingTransaction $offering_transaction;
+
+  public function __construct(shape(
+  ?'offering_transaction' => OfferingTransaction,
+  ) $s = shape()) {
+    $this->offering_transaction = $offering_transaction ?? ;
+  }
 }
 
-class PurchasedDevicesMap {
-}
+type PurchasedDevicesMap = dict<DevicePlatform, Integer>;
 
 class Radios {
   public boolean $bluetooth;
   public boolean $gps;
   public boolean $nfc;
   public boolean $wifi;
+
+  public function __construct(shape(
+  ?'bluetooth' => boolean,
+  ?'gps' => boolean,
+  ?'nfc' => boolean,
+  ?'wifi' => boolean,
+  ) $s = shape()) {
+    $this->bluetooth = $bluetooth ?? ;
+    $this->gps = $gps ?? ;
+    $this->nfc = $nfc ?? ;
+    $this->wifi = $wifi ?? ;
+  }
 }
 
 class RecurringCharge {
   public MonetaryAmount $cost;
   public RecurringChargeFrequency $frequency;
+
+  public function __construct(shape(
+  ?'cost' => MonetaryAmount,
+  ?'frequency' => RecurringChargeFrequency,
+  ) $s = shape()) {
+    $this->cost = $cost ?? ;
+    $this->frequency = $frequency ?? ;
+  }
 }
 
-class RecurringChargeFrequency {
-}
+type RecurringChargeFrequency = string;
 
-class RecurringCharges {
-}
+type RecurringCharges = vec<RecurringCharge>;
 
 class RemoteAccessSession {
   public AmazonResourceName $arn;
@@ -1181,45 +2530,117 @@ class RemoteAccessSession {
   public DateTime $started;
   public ExecutionStatus $status;
   public DateTime $stopped;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'billing_method' => BillingMethod,
+  ?'client_id' => ClientId,
+  ?'created' => DateTime,
+  ?'device' => Device,
+  ?'device_minutes' => DeviceMinutes,
+  ?'device_udid' => string,
+  ?'endpoint' => string,
+  ?'host_address' => HostAddress,
+  ?'instance_arn' => AmazonResourceName,
+  ?'interaction_mode' => InteractionMode,
+  ?'message' => Message,
+  ?'name' => Name,
+  ?'remote_debug_enabled' => boolean,
+  ?'remote_record_app_arn' => AmazonResourceName,
+  ?'remote_record_enabled' => boolean,
+  ?'result' => ExecutionResult,
+  ?'skip_app_resign' => SkipAppResign,
+  ?'started' => DateTime,
+  ?'status' => ExecutionStatus,
+  ?'stopped' => DateTime,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->billing_method = $billing_method ?? ;
+    $this->client_id = $client_id ?? ;
+    $this->created = $created ?? ;
+    $this->device = $device ?? ;
+    $this->device_minutes = $device_minutes ?? ;
+    $this->device_udid = $device_udid ?? ;
+    $this->endpoint = $endpoint ?? ;
+    $this->host_address = $host_address ?? ;
+    $this->instance_arn = $instance_arn ?? ;
+    $this->interaction_mode = $interaction_mode ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->remote_debug_enabled = $remote_debug_enabled ?? ;
+    $this->remote_record_app_arn = $remote_record_app_arn ?? ;
+    $this->remote_record_enabled = $remote_record_enabled ?? ;
+    $this->result = $result ?? ;
+    $this->skip_app_resign = $skip_app_resign ?? ;
+    $this->started = $started ?? ;
+    $this->status = $status ?? ;
+    $this->stopped = $stopped ?? ;
+  }
 }
 
-class RemoteAccessSessions {
-}
+type RemoteAccessSessions = vec<RemoteAccessSession>;
 
 class RenewOfferingRequest {
   public OfferingIdentifier $offering_id;
   public int $quantity;
+
+  public function __construct(shape(
+  ?'offering_id' => OfferingIdentifier,
+  ?'quantity' => int,
+  ) $s = shape()) {
+    $this->offering_id = $offering_id ?? ;
+    $this->quantity = $quantity ?? ;
+  }
 }
 
 class RenewOfferingResult {
   public OfferingTransaction $offering_transaction;
+
+  public function __construct(shape(
+  ?'offering_transaction' => OfferingTransaction,
+  ) $s = shape()) {
+    $this->offering_transaction = $offering_transaction ?? ;
+  }
 }
 
 class Resolution {
   public int $height;
   public int $width;
+
+  public function __construct(shape(
+  ?'height' => int,
+  ?'width' => int,
+  ) $s = shape()) {
+    $this->height = $height ?? ;
+    $this->width = $width ?? ;
+  }
 }
 
-class ResourceDescription {
-}
+type ResourceDescription = string;
 
-class ResourceId {
-}
+type ResourceId = string;
 
-class ResourceName {
-}
+type ResourceName = string;
 
 class Rule {
   public DeviceAttribute $attribute;
   public RuleOperator $operator;
   public string $value;
+
+  public function __construct(shape(
+  ?'attribute' => DeviceAttribute,
+  ?'operator' => RuleOperator,
+  ?'value' => string,
+  ) $s = shape()) {
+    $this->attribute = $attribute ?? ;
+    $this->operator = $operator ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class RuleOperator {
-}
+type RuleOperator = string;
 
-class Rules {
-}
+type Rules = vec<Rule>;
 
 class Run {
   public AmazonResourceName $app_upload;
@@ -1253,22 +2674,95 @@ class Run {
   public int $total_jobs;
   public TestType $type;
   public string $web_url;
+
+  public function __construct(shape(
+  ?'app_upload' => AmazonResourceName,
+  ?'arn' => AmazonResourceName,
+  ?'billing_method' => BillingMethod,
+  ?'completed_jobs' => int,
+  ?'counters' => Counters,
+  ?'created' => DateTime,
+  ?'customer_artifact_paths' => CustomerArtifactPaths,
+  ?'device_minutes' => DeviceMinutes,
+  ?'device_pool_arn' => AmazonResourceName,
+  ?'device_selection_result' => DeviceSelectionResult,
+  ?'event_count' => int,
+  ?'job_timeout_minutes' => JobTimeoutMinutes,
+  ?'locale' => string,
+  ?'location' => Location,
+  ?'message' => Message,
+  ?'name' => Name,
+  ?'network_profile' => NetworkProfile,
+  ?'parsing_result_url' => string,
+  ?'platform' => DevicePlatform,
+  ?'radios' => Radios,
+  ?'result' => ExecutionResult,
+  ?'result_code' => ExecutionResultCode,
+  ?'seed' => int,
+  ?'skip_app_resign' => SkipAppResign,
+  ?'started' => DateTime,
+  ?'status' => ExecutionStatus,
+  ?'stopped' => DateTime,
+  ?'test_spec_arn' => AmazonResourceName,
+  ?'total_jobs' => int,
+  ?'type' => TestType,
+  ?'web_url' => string,
+  ) $s = shape()) {
+    $this->app_upload = $app_upload ?? ;
+    $this->arn = $arn ?? ;
+    $this->billing_method = $billing_method ?? ;
+    $this->completed_jobs = $completed_jobs ?? ;
+    $this->counters = $counters ?? ;
+    $this->created = $created ?? ;
+    $this->customer_artifact_paths = $customer_artifact_paths ?? ;
+    $this->device_minutes = $device_minutes ?? ;
+    $this->device_pool_arn = $device_pool_arn ?? ;
+    $this->device_selection_result = $device_selection_result ?? ;
+    $this->event_count = $event_count ?? ;
+    $this->job_timeout_minutes = $job_timeout_minutes ?? ;
+    $this->locale = $locale ?? ;
+    $this->location = $location ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->network_profile = $network_profile ?? ;
+    $this->parsing_result_url = $parsing_result_url ?? ;
+    $this->platform = $platform ?? ;
+    $this->radios = $radios ?? ;
+    $this->result = $result ?? ;
+    $this->result_code = $result_code ?? ;
+    $this->seed = $seed ?? ;
+    $this->skip_app_resign = $skip_app_resign ?? ;
+    $this->started = $started ?? ;
+    $this->status = $status ?? ;
+    $this->stopped = $stopped ?? ;
+    $this->test_spec_arn = $test_spec_arn ?? ;
+    $this->total_jobs = $total_jobs ?? ;
+    $this->type = $type ?? ;
+    $this->web_url = $web_url ?? ;
+  }
 }
 
-class Runs {
-}
+type Runs = vec<Run>;
 
 class Sample {
   public AmazonResourceName $arn;
   public SampleType $type;
   public URL $url;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'type' => SampleType,
+  ?'url' => URL,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->type = $type ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
-class SampleType {
-}
+type SampleType = string;
 
-class Samples {
-}
+type Samples = vec<Sample>;
 
 class ScheduleRunConfiguration {
   public AmazonResourceNames $auxiliary_apps;
@@ -1280,6 +2774,28 @@ class ScheduleRunConfiguration {
   public AmazonResourceName $network_profile_arn;
   public Radios $radios;
   public AmazonResourceNames $vpce_configuration_arns;
+
+  public function __construct(shape(
+  ?'auxiliary_apps' => AmazonResourceNames,
+  ?'billing_method' => BillingMethod,
+  ?'customer_artifact_paths' => CustomerArtifactPaths,
+  ?'extra_data_package_arn' => AmazonResourceName,
+  ?'locale' => string,
+  ?'location' => Location,
+  ?'network_profile_arn' => AmazonResourceName,
+  ?'radios' => Radios,
+  ?'vpce_configuration_arns' => AmazonResourceNames,
+  ) $s = shape()) {
+    $this->auxiliary_apps = $auxiliary_apps ?? ;
+    $this->billing_method = $billing_method ?? ;
+    $this->customer_artifact_paths = $customer_artifact_paths ?? ;
+    $this->extra_data_package_arn = $extra_data_package_arn ?? ;
+    $this->locale = $locale ?? ;
+    $this->location = $location ?? ;
+    $this->network_profile_arn = $network_profile_arn ?? ;
+    $this->radios = $radios ?? ;
+    $this->vpce_configuration_arns = $vpce_configuration_arns ?? ;
+  }
 }
 
 class ScheduleRunRequest {
@@ -1291,10 +2807,36 @@ class ScheduleRunRequest {
   public Name $name;
   public AmazonResourceName $project_arn;
   public ScheduleRunTest $test;
+
+  public function __construct(shape(
+  ?'app_arn' => AmazonResourceName,
+  ?'configuration' => ScheduleRunConfiguration,
+  ?'device_pool_arn' => AmazonResourceName,
+  ?'device_selection_configuration' => DeviceSelectionConfiguration,
+  ?'execution_configuration' => ExecutionConfiguration,
+  ?'name' => Name,
+  ?'project_arn' => AmazonResourceName,
+  ?'test' => ScheduleRunTest,
+  ) $s = shape()) {
+    $this->app_arn = $app_arn ?? ;
+    $this->configuration = $configuration ?? ;
+    $this->device_pool_arn = $device_pool_arn ?? ;
+    $this->device_selection_configuration = $device_selection_configuration ?? ;
+    $this->execution_configuration = $execution_configuration ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+    $this->test = $test ?? ;
+  }
 }
 
 class ScheduleRunResult {
   public Run $run;
+
+  public function __construct(shape(
+  ?'run' => Run,
+  ) $s = shape()) {
+    $this->run = $run ?? ;
+  }
 }
 
 class ScheduleRunTest {
@@ -1303,47 +2845,99 @@ class ScheduleRunTest {
   public AmazonResourceName $test_package_arn;
   public AmazonResourceName $test_spec_arn;
   public TestType $type;
+
+  public function __construct(shape(
+  ?'filter' => Filter,
+  ?'parameters' => TestParameters,
+  ?'test_package_arn' => AmazonResourceName,
+  ?'test_spec_arn' => AmazonResourceName,
+  ?'type' => TestType,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->parameters = $parameters ?? ;
+    $this->test_package_arn = $test_package_arn ?? ;
+    $this->test_spec_arn = $test_spec_arn ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class ServiceAccountException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ServiceDnsName {
-}
+type ServiceDnsName = string;
 
-class SkipAppResign {
-}
+type SkipAppResign = bool;
 
-class SshPublicKey {
-}
+type SshPublicKey = string;
 
 class StopJobRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class StopJobResult {
   public Job $job;
+
+  public function __construct(shape(
+  ?'job' => Job,
+  ) $s = shape()) {
+    $this->job = $job ?? ;
+  }
 }
 
 class StopRemoteAccessSessionRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class StopRemoteAccessSessionResult {
   public RemoteAccessSession $remote_access_session;
+
+  public function __construct(shape(
+  ?'remote_access_session' => RemoteAccessSession,
+  ) $s = shape()) {
+    $this->remote_access_session = $remote_access_session ?? ;
+  }
 }
 
 class StopRunRequest {
   public AmazonResourceName $arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+  }
 }
 
 class StopRunResult {
   public Run $run;
+
+  public function __construct(shape(
+  ?'run' => Run,
+  ) $s = shape()) {
+    $this->run = $run ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
 class Suite {
   public AmazonResourceName $arn;
@@ -1357,45 +2951,102 @@ class Suite {
   public ExecutionStatus $status;
   public DateTime $stopped;
   public TestType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'counters' => Counters,
+  ?'created' => DateTime,
+  ?'device_minutes' => DeviceMinutes,
+  ?'message' => Message,
+  ?'name' => Name,
+  ?'result' => ExecutionResult,
+  ?'started' => DateTime,
+  ?'status' => ExecutionStatus,
+  ?'stopped' => DateTime,
+  ?'type' => TestType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->counters = $counters ?? ;
+    $this->created = $created ?? ;
+    $this->device_minutes = $device_minutes ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->result = $result ?? ;
+    $this->started = $started ?? ;
+    $this->status = $status ?? ;
+    $this->stopped = $stopped ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class Suites {
-}
+type Suites = vec<Suite>;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TagOperationException {
   public ExceptionMessage $message;
   public AmazonResourceName $resource_name;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'resource_name' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? ;
+  }
 }
 
 class TagPolicyException {
   public ExceptionMessage $message;
   public AmazonResourceName $resource_name;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'resource_name' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? ;
+  }
 }
 
 class TagResourceRequest {
   public DeviceFarmArn $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => DeviceFarmArn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
 class Test {
   public AmazonResourceName $arn;
@@ -1409,6 +3060,32 @@ class Test {
   public ExecutionStatus $status;
   public DateTime $stopped;
   public TestType $type;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'counters' => Counters,
+  ?'created' => DateTime,
+  ?'device_minutes' => DeviceMinutes,
+  ?'message' => Message,
+  ?'name' => Name,
+  ?'result' => ExecutionResult,
+  ?'started' => DateTime,
+  ?'status' => ExecutionStatus,
+  ?'stopped' => DateTime,
+  ?'type' => TestType,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->counters = $counters ?? ;
+    $this->created = $created ?? ;
+    $this->device_minutes = $device_minutes ?? ;
+    $this->message = $message ?? ;
+    $this->name = $name ?? ;
+    $this->result = $result ?? ;
+    $this->started = $started ?? ;
+    $this->status = $status ?? ;
+    $this->stopped = $stopped ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class TestGridProject {
@@ -1416,10 +3093,21 @@ class TestGridProject {
   public DateTime $created;
   public string $description;
   public string $name;
+
+  public function __construct(shape(
+  ?'arn' => DeviceFarmArn,
+  ?'created' => DateTime,
+  ?'description' => string,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->created = $created ?? ;
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
-class TestGridProjects {
-}
+type TestGridProjects = vec<TestGridProject>;
 
 class TestGridSession {
   public DeviceFarmArn $arn;
@@ -1428,6 +3116,22 @@ class TestGridSession {
   public DateTime $ended;
   public string $selenium_properties;
   public TestGridSessionStatus $status;
+
+  public function __construct(shape(
+  ?'arn' => DeviceFarmArn,
+  ?'billing_minutes' => Double,
+  ?'created' => DateTime,
+  ?'ended' => DateTime,
+  ?'selenium_properties' => string,
+  ?'status' => TestGridSessionStatus,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->billing_minutes = $billing_minutes ?? ;
+    $this->created = $created ?? ;
+    $this->ended = $ended ?? ;
+    $this->selenium_properties = $selenium_properties ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
 class TestGridSessionAction {
@@ -1436,87 +3140,149 @@ class TestGridSessionAction {
   public string $request_method;
   public DateTime $started;
   public string $status_code;
+
+  public function __construct(shape(
+  ?'action' => string,
+  ?'duration' => Long,
+  ?'request_method' => string,
+  ?'started' => DateTime,
+  ?'status_code' => string,
+  ) $s = shape()) {
+    $this->action = $action ?? ;
+    $this->duration = $duration ?? ;
+    $this->request_method = $request_method ?? ;
+    $this->started = $started ?? ;
+    $this->status_code = $status_code ?? ;
+  }
 }
 
-class TestGridSessionActions {
-}
+type TestGridSessionActions = vec<TestGridSessionAction>;
 
 class TestGridSessionArtifact {
   public string $filename;
   public TestGridSessionArtifactType $type;
   public string $url;
+
+  public function __construct(shape(
+  ?'filename' => string,
+  ?'type' => TestGridSessionArtifactType,
+  ?'url' => string,
+  ) $s = shape()) {
+    $this->filename = $filename ?? ;
+    $this->type = $type ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
-class TestGridSessionArtifactCategory {
-}
+type TestGridSessionArtifactCategory = string;
 
-class TestGridSessionArtifactType {
-}
+type TestGridSessionArtifactType = string;
 
-class TestGridSessionArtifacts {
-}
+type TestGridSessionArtifacts = vec<TestGridSessionArtifact>;
 
-class TestGridSessionStatus {
-}
+type TestGridSessionStatus = string;
 
-class TestGridSessions {
-}
+type TestGridSessions = vec<TestGridSession>;
 
-class TestGridUrlExpiresInSecondsInput {
-}
+type TestGridUrlExpiresInSecondsInput = int;
 
-class TestParameters {
-}
+type TestParameters = dict<String, String>;
 
-class TestType {
-}
+type TestType = string;
 
-class Tests {
-}
+type Tests = vec<Test>;
 
 class TooManyTagsException {
   public ExceptionMessage $message;
   public AmazonResourceName $resource_name;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'resource_name' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_name = $resource_name ?? ;
+  }
 }
 
-class TransactionIdentifier {
-}
+type TransactionIdentifier = string;
 
 class TrialMinutes {
   public Double $remaining;
   public Double $total;
+
+  public function __construct(shape(
+  ?'remaining' => Double,
+  ?'total' => Double,
+  ) $s = shape()) {
+    $this->remaining = $remaining ?? ;
+    $this->total = $total ?? ;
+  }
 }
 
-class URL {
-}
+type URL = string;
 
 class UniqueProblem {
   public Message $message;
   public Problems $problems;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ?'problems' => Problems,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->problems = $problems ?? ;
+  }
 }
 
-class UniqueProblems {
-}
+type UniqueProblems = vec<UniqueProblem>;
 
-class UniqueProblemsByExecutionResultMap {
-}
+type UniqueProblemsByExecutionResultMap = dict<ExecutionResult, UniqueProblems>;
 
 class UntagResourceRequest {
   public DeviceFarmArn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => DeviceFarmArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateDeviceInstanceRequest {
   public AmazonResourceName $arn;
   public InstanceLabels $labels;
   public AmazonResourceName $profile_arn;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'labels' => InstanceLabels,
+  ?'profile_arn' => AmazonResourceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->labels = $labels ?? ;
+    $this->profile_arn = $profile_arn ?? ;
+  }
 }
 
 class UpdateDeviceInstanceResult {
   public DeviceInstance $device_instance;
+
+  public function __construct(shape(
+  ?'device_instance' => DeviceInstance,
+  ) $s = shape()) {
+    $this->device_instance = $device_instance ?? ;
+  }
 }
 
 class UpdateDevicePoolRequest {
@@ -1526,10 +3292,32 @@ class UpdateDevicePoolRequest {
   public int $max_devices;
   public Name $name;
   public Rules $rules;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'clear_max_devices' => boolean,
+  ?'description' => Message,
+  ?'max_devices' => int,
+  ?'name' => Name,
+  ?'rules' => Rules,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->clear_max_devices = $clear_max_devices ?? ;
+    $this->description = $description ?? ;
+    $this->max_devices = $max_devices ?? ;
+    $this->name = $name ?? ;
+    $this->rules = $rules ?? ;
+  }
 }
 
 class UpdateDevicePoolResult {
   public DevicePool $device_pool;
+
+  public function __construct(shape(
+  ?'device_pool' => DevicePool,
+  ) $s = shape()) {
+    $this->device_pool = $device_pool ?? ;
+  }
 }
 
 class UpdateInstanceProfileRequest {
@@ -1539,10 +3327,32 @@ class UpdateInstanceProfileRequest {
   public Name $name;
   public boolean $package_cleanup;
   public boolean $reboot_after_use;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'description' => Message,
+  ?'exclude_app_packages_from_cleanup' => PackageIds,
+  ?'name' => Name,
+  ?'package_cleanup' => boolean,
+  ?'reboot_after_use' => boolean,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->exclude_app_packages_from_cleanup = $exclude_app_packages_from_cleanup ?? ;
+    $this->name = $name ?? ;
+    $this->package_cleanup = $package_cleanup ?? ;
+    $this->reboot_after_use = $reboot_after_use ?? ;
+  }
 }
 
 class UpdateInstanceProfileResult {
   public InstanceProfile $instance_profile;
+
+  public function __construct(shape(
+  ?'instance_profile' => InstanceProfile,
+  ) $s = shape()) {
+    $this->instance_profile = $instance_profile ?? ;
+  }
 }
 
 class UpdateNetworkProfileRequest {
@@ -1558,30 +3368,96 @@ class UpdateNetworkProfileRequest {
   public Long $uplink_delay_ms;
   public Long $uplink_jitter_ms;
   public PercentInteger $uplink_loss_percent;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'description' => Message,
+  ?'downlink_bandwidth_bits' => Long,
+  ?'downlink_delay_ms' => Long,
+  ?'downlink_jitter_ms' => Long,
+  ?'downlink_loss_percent' => PercentInteger,
+  ?'name' => Name,
+  ?'type' => NetworkProfileType,
+  ?'uplink_bandwidth_bits' => Long,
+  ?'uplink_delay_ms' => Long,
+  ?'uplink_jitter_ms' => Long,
+  ?'uplink_loss_percent' => PercentInteger,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->description = $description ?? ;
+    $this->downlink_bandwidth_bits = $downlink_bandwidth_bits ?? ;
+    $this->downlink_delay_ms = $downlink_delay_ms ?? ;
+    $this->downlink_jitter_ms = $downlink_jitter_ms ?? ;
+    $this->downlink_loss_percent = $downlink_loss_percent ?? ;
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+    $this->uplink_bandwidth_bits = $uplink_bandwidth_bits ?? ;
+    $this->uplink_delay_ms = $uplink_delay_ms ?? ;
+    $this->uplink_jitter_ms = $uplink_jitter_ms ?? ;
+    $this->uplink_loss_percent = $uplink_loss_percent ?? ;
+  }
 }
 
 class UpdateNetworkProfileResult {
   public NetworkProfile $network_profile;
+
+  public function __construct(shape(
+  ?'network_profile' => NetworkProfile,
+  ) $s = shape()) {
+    $this->network_profile = $network_profile ?? ;
+  }
 }
 
 class UpdateProjectRequest {
   public AmazonResourceName $arn;
   public JobTimeoutMinutes $default_job_timeout_minutes;
   public Name $name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'default_job_timeout_minutes' => JobTimeoutMinutes,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->default_job_timeout_minutes = $default_job_timeout_minutes ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateProjectResult {
   public Project $project;
+
+  public function __construct(shape(
+  ?'project' => Project,
+  ) $s = shape()) {
+    $this->project = $project ?? ;
+  }
 }
 
 class UpdateTestGridProjectRequest {
   public ResourceDescription $description;
   public ResourceName $name;
   public DeviceFarmArn $project_arn;
+
+  public function __construct(shape(
+  ?'description' => ResourceDescription,
+  ?'name' => ResourceName,
+  ?'project_arn' => DeviceFarmArn,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->name = $name ?? ;
+    $this->project_arn = $project_arn ?? ;
+  }
 }
 
 class UpdateTestGridProjectResult {
   public TestGridProject $test_grid_project;
+
+  public function __construct(shape(
+  ?'test_grid_project' => TestGridProject,
+  ) $s = shape()) {
+    $this->test_grid_project = $test_grid_project ?? ;
+  }
 }
 
 class UpdateUploadRequest {
@@ -1589,10 +3465,28 @@ class UpdateUploadRequest {
   public ContentType $content_type;
   public boolean $edit_content;
   public Name $name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'content_type' => ContentType,
+  ?'edit_content' => boolean,
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->content_type = $content_type ?? ;
+    $this->edit_content = $edit_content ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class UpdateUploadResult {
   public Upload $upload;
+
+  public function __construct(shape(
+  ?'upload' => Upload,
+  ) $s = shape()) {
+    $this->upload = $upload ?? ;
+  }
 }
 
 class UpdateVPCEConfigurationRequest {
@@ -1601,10 +3495,30 @@ class UpdateVPCEConfigurationRequest {
   public VPCEConfigurationDescription $vpce_configuration_description;
   public VPCEConfigurationName $vpce_configuration_name;
   public VPCEServiceName $vpce_service_name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'service_dns_name' => ServiceDnsName,
+  ?'vpce_configuration_description' => VPCEConfigurationDescription,
+  ?'vpce_configuration_name' => VPCEConfigurationName,
+  ?'vpce_service_name' => VPCEServiceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->service_dns_name = $service_dns_name ?? ;
+    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
+    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
+    $this->vpce_service_name = $vpce_service_name ?? ;
+  }
 }
 
 class UpdateVPCEConfigurationResult {
   public VPCEConfiguration $vpce_configuration;
+
+  public function __construct(shape(
+  ?'vpce_configuration' => VPCEConfiguration,
+  ) $s = shape()) {
+    $this->vpce_configuration = $vpce_configuration ?? ;
+  }
 }
 
 class Upload {
@@ -1618,19 +3532,39 @@ class Upload {
   public UploadStatus $status;
   public UploadType $type;
   public URL $url;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'category' => UploadCategory,
+  ?'content_type' => ContentType,
+  ?'created' => DateTime,
+  ?'message' => Message,
+  ?'metadata' => Metadata,
+  ?'name' => Name,
+  ?'status' => UploadStatus,
+  ?'type' => UploadType,
+  ?'url' => URL,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->category = $category ?? ;
+    $this->content_type = $content_type ?? ;
+    $this->created = $created ?? ;
+    $this->message = $message ?? ;
+    $this->metadata = $metadata ?? ;
+    $this->name = $name ?? ;
+    $this->status = $status ?? ;
+    $this->type = $type ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
-class UploadCategory {
-}
+type UploadCategory = string;
 
-class UploadStatus {
-}
+type UploadStatus = string;
 
-class UploadType {
-}
+type UploadType = string;
 
-class Uploads {
-}
+type Uploads = vec<Upload>;
 
 class VPCEConfiguration {
   public AmazonResourceName $arn;
@@ -1638,20 +3572,29 @@ class VPCEConfiguration {
   public VPCEConfigurationDescription $vpce_configuration_description;
   public VPCEConfigurationName $vpce_configuration_name;
   public VPCEServiceName $vpce_service_name;
+
+  public function __construct(shape(
+  ?'arn' => AmazonResourceName,
+  ?'service_dns_name' => ServiceDnsName,
+  ?'vpce_configuration_description' => VPCEConfigurationDescription,
+  ?'vpce_configuration_name' => VPCEConfigurationName,
+  ?'vpce_service_name' => VPCEServiceName,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->service_dns_name = $service_dns_name ?? ;
+    $this->vpce_configuration_description = $vpce_configuration_description ?? ;
+    $this->vpce_configuration_name = $vpce_configuration_name ?? ;
+    $this->vpce_service_name = $vpce_service_name ?? ;
+  }
 }
 
-class VPCEConfigurationDescription {
-}
+type VPCEConfigurationDescription = string;
 
-class VPCEConfigurationName {
-}
+type VPCEConfigurationName = string;
 
-class VPCEConfigurations {
-}
+type VPCEConfigurations = vec<VPCEConfiguration>;
 
-class VPCEServiceName {
-}
+type VPCEServiceName = string;
 
-class VideoCapture {
-}
+type VideoCapture = bool;
 

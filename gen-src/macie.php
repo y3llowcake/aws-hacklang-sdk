@@ -11,166 +11,334 @@ interface Macie {
   public function UpdateS3Resources(UpdateS3ResourcesRequest): Awaitable<Errors\Result<UpdateS3ResourcesResult>>;
 }
 
-class AWSAccountId {
-}
+type AWSAccountId = string;
 
 class AccessDeniedException {
   public ExceptionMessage $message;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class AssociateMemberAccountRequest {
   public AWSAccountId $member_account_id;
+
+  public function __construct(shape(
+  ?'member_account_id' => AWSAccountId,
+  ) $s = shape()) {
+    $this->member_account_id = $member_account_id ?? ;
+  }
 }
 
 class AssociateS3ResourcesRequest {
   public AWSAccountId $member_account_id;
   public S3ResourcesClassification $s_3_resources;
+
+  public function __construct(shape(
+  ?'member_account_id' => AWSAccountId,
+  ?'s_3_resources' => S3ResourcesClassification,
+  ) $s = shape()) {
+    $this->member_account_id = $member_account_id ?? ;
+    $this->s_3_resources = $s_3_resources ?? ;
+  }
 }
 
 class AssociateS3ResourcesResult {
   public FailedS3Resources $failed_s_3_resources;
+
+  public function __construct(shape(
+  ?'failed_s_3_resources' => FailedS3Resources,
+  ) $s = shape()) {
+    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+  }
 }
 
-class BucketName {
-}
+type BucketName = string;
 
 class ClassificationType {
   public S3ContinuousClassificationType $continuous;
   public S3OneTimeClassificationType $one_time;
+
+  public function __construct(shape(
+  ?'continuous' => S3ContinuousClassificationType,
+  ?'one_time' => S3OneTimeClassificationType,
+  ) $s = shape()) {
+    $this->continuous = $continuous ?? ;
+    $this->one_time = $one_time ?? ;
+  }
 }
 
 class ClassificationTypeUpdate {
   public S3ContinuousClassificationType $continuous;
   public S3OneTimeClassificationType $one_time;
+
+  public function __construct(shape(
+  ?'continuous' => S3ContinuousClassificationType,
+  ?'one_time' => S3OneTimeClassificationType,
+  ) $s = shape()) {
+    $this->continuous = $continuous ?? ;
+    $this->one_time = $one_time ?? ;
+  }
 }
 
 class DisassociateMemberAccountRequest {
   public AWSAccountId $member_account_id;
+
+  public function __construct(shape(
+  ?'member_account_id' => AWSAccountId,
+  ) $s = shape()) {
+    $this->member_account_id = $member_account_id ?? ;
+  }
 }
 
 class DisassociateS3ResourcesRequest {
   public S3Resources $associated_s_3_resources;
   public AWSAccountId $member_account_id;
+
+  public function __construct(shape(
+  ?'associated_s_3_resources' => S3Resources,
+  ?'member_account_id' => AWSAccountId,
+  ) $s = shape()) {
+    $this->associated_s_3_resources = $associated_s_3_resources ?? ;
+    $this->member_account_id = $member_account_id ?? ;
+  }
 }
 
 class DisassociateS3ResourcesResult {
   public FailedS3Resources $failed_s_3_resources;
+
+  public function __construct(shape(
+  ?'failed_s_3_resources' => FailedS3Resources,
+  ) $s = shape()) {
+    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+  }
 }
 
-class ErrorCode {
-}
+type ErrorCode = string;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
 class FailedS3Resource {
   public ErrorCode $error_code;
   public ExceptionMessage $error_message;
   public S3Resource $failed_item;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'error_message' => ExceptionMessage,
+  ?'failed_item' => S3Resource,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? ;
+    $this->failed_item = $failed_item ?? ;
+  }
 }
 
-class FailedS3Resources {
-}
+type FailedS3Resources = vec<FailedS3Resource>;
 
-class FieldName {
-}
+type FieldName = string;
 
 class InternalException {
   public ErrorCode $error_code;
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidInputException {
   public ErrorCode $error_code;
   public FieldName $field_name;
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'field_name' => FieldName,
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->field_name = $field_name ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class LimitExceededException {
   public ErrorCode $error_code;
   public ExceptionMessage $message;
   public ResourceType $resource_type;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'message' => ExceptionMessage,
+  ?'resource_type' => ResourceType,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class ListMemberAccountsRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListMemberAccountsResult {
   public MemberAccounts $member_accounts;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'member_accounts' => MemberAccounts,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->member_accounts = $member_accounts ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListS3ResourcesRequest {
   public MaxResults $max_results;
   public AWSAccountId $member_account_id;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'member_account_id' => AWSAccountId,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->member_account_id = $member_account_id ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListS3ResourcesResult {
   public NextToken $next_token;
   public S3ResourcesClassification $s_3_resources;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'s_3_resources' => S3ResourcesClassification,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->s_3_resources = $s_3_resources ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
 class MemberAccount {
   public AWSAccountId $account_id;
+
+  public function __construct(shape(
+  ?'account_id' => AWSAccountId,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? ;
+  }
 }
 
-class MemberAccounts {
-}
+type MemberAccounts = vec<MemberAccount>;
 
-class NextToken {
-}
+type NextToken = string;
 
-class Prefix {
-}
+type Prefix = string;
 
-class ResourceType {
-}
+type ResourceType = string;
 
-class S3ContinuousClassificationType {
-}
+type S3ContinuousClassificationType = string;
 
-class S3OneTimeClassificationType {
-}
+type S3OneTimeClassificationType = string;
 
 class S3Resource {
   public BucketName $bucket_name;
   public Prefix $prefix;
+
+  public function __construct(shape(
+  ?'bucket_name' => BucketName,
+  ?'prefix' => Prefix,
+  ) $s = shape()) {
+    $this->bucket_name = $bucket_name ?? ;
+    $this->prefix = $prefix ?? ;
+  }
 }
 
 class S3ResourceClassification {
   public BucketName $bucket_name;
   public ClassificationType $classification_type;
   public Prefix $prefix;
+
+  public function __construct(shape(
+  ?'bucket_name' => BucketName,
+  ?'classification_type' => ClassificationType,
+  ?'prefix' => Prefix,
+  ) $s = shape()) {
+    $this->bucket_name = $bucket_name ?? ;
+    $this->classification_type = $classification_type ?? ;
+    $this->prefix = $prefix ?? ;
+  }
 }
 
 class S3ResourceClassificationUpdate {
   public BucketName $bucket_name;
   public ClassificationTypeUpdate $classification_type_update;
   public Prefix $prefix;
+
+  public function __construct(shape(
+  ?'bucket_name' => BucketName,
+  ?'classification_type_update' => ClassificationTypeUpdate,
+  ?'prefix' => Prefix,
+  ) $s = shape()) {
+    $this->bucket_name = $bucket_name ?? ;
+    $this->classification_type_update = $classification_type_update ?? ;
+    $this->prefix = $prefix ?? ;
+  }
 }
 
-class S3Resources {
-}
+type S3Resources = vec<S3Resource>;
 
-class S3ResourcesClassification {
-}
+type S3ResourcesClassification = vec<S3ResourceClassification>;
 
-class S3ResourcesClassificationUpdate {
-}
+type S3ResourcesClassificationUpdate = vec<S3ResourceClassificationUpdate>;
 
 class UpdateS3ResourcesRequest {
   public AWSAccountId $member_account_id;
   public S3ResourcesClassificationUpdate $s_3_resources_update;
+
+  public function __construct(shape(
+  ?'member_account_id' => AWSAccountId,
+  ?'s_3_resources_update' => S3ResourcesClassificationUpdate,
+  ) $s = shape()) {
+    $this->member_account_id = $member_account_id ?? ;
+    $this->s_3_resources_update = $s_3_resources_update ?? ;
+  }
 }
 
 class UpdateS3ResourcesResult {
   public FailedS3Resources $failed_s_3_resources;
+
+  public function __construct(shape(
+  ?'failed_s_3_resources' => FailedS3Resources,
+  ) $s = shape()) {
+    $this->failed_s_3_resources = $failed_s_3_resources ?? ;
+  }
 }
 

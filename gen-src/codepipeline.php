@@ -41,52 +41,92 @@ interface CodePipeline {
   public function UpdatePipeline(UpdatePipelineInput): Awaitable<Errors\Result<UpdatePipelineOutput>>;
 }
 
-class AWSRegionName {
-}
+type AWSRegionName = string;
 
 class AWSSessionCredentials {
   public AccessKeyId $access_key_id;
   public SecretAccessKey $secret_access_key;
   public SessionToken $session_token;
+
+  public function __construct(shape(
+  ?'access_key_id' => AccessKeyId,
+  ?'secret_access_key' => SecretAccessKey,
+  ?'session_token' => SessionToken,
+  ) $s = shape()) {
+    $this->access_key_id = $access_key_id ?? ;
+    $this->secret_access_key = $secret_access_key ?? ;
+    $this->session_token = $session_token ?? ;
+  }
 }
 
-class AccessKeyId {
-}
+type AccessKeyId = string;
 
-class AccountId {
-}
+type AccountId = string;
 
 class AcknowledgeJobInput {
   public JobId $job_id;
   public Nonce $nonce;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ?'nonce' => Nonce,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? ;
+    $this->nonce = $nonce ?? ;
+  }
 }
 
 class AcknowledgeJobOutput {
   public JobStatus $status;
+
+  public function __construct(shape(
+  ?'status' => JobStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
 class AcknowledgeThirdPartyJobInput {
   public ClientToken $client_token;
   public ThirdPartyJobId $job_id;
   public Nonce $nonce;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'job_id' => ThirdPartyJobId,
+  ?'nonce' => Nonce,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? ;
+    $this->job_id = $job_id ?? ;
+    $this->nonce = $nonce ?? ;
+  }
 }
 
 class AcknowledgeThirdPartyJobOutput {
   public JobStatus $status;
+
+  public function __construct(shape(
+  ?'status' => JobStatus,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+  }
 }
 
-class ActionCategory {
-}
+type ActionCategory = string;
 
 class ActionConfiguration {
   public ActionConfigurationMap $configuration;
+
+  public function __construct(shape(
+  ?'configuration' => ActionConfigurationMap,
+  ) $s = shape()) {
+    $this->configuration = $configuration ?? ;
+  }
 }
 
-class ActionConfigurationKey {
-}
+type ActionConfigurationKey = string;
 
-class ActionConfigurationMap {
-}
+type ActionConfigurationMap = dict<ActionConfigurationKey, ActionConfigurationValue>;
 
 class ActionConfigurationProperty {
   public Description $description;
@@ -96,23 +136,45 @@ class ActionConfigurationProperty {
   public boolean $required;
   public boolean $secret;
   public ActionConfigurationPropertyType $type;
+
+  public function __construct(shape(
+  ?'description' => Description,
+  ?'key' => boolean,
+  ?'name' => ActionConfigurationKey,
+  ?'queryable' => boolean,
+  ?'required' => boolean,
+  ?'secret' => boolean,
+  ?'type' => ActionConfigurationPropertyType,
+  ) $s = shape()) {
+    $this->description = $description ?? ;
+    $this->key = $key ?? ;
+    $this->name = $name ?? ;
+    $this->queryable = $queryable ?? ;
+    $this->required = $required ?? ;
+    $this->secret = $secret ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ActionConfigurationPropertyList {
-}
+type ActionConfigurationPropertyList = vec<ActionConfigurationProperty>;
 
-class ActionConfigurationPropertyType {
-}
+type ActionConfigurationPropertyType = string;
 
-class ActionConfigurationQueryableValue {
-}
+type ActionConfigurationQueryableValue = string;
 
-class ActionConfigurationValue {
-}
+type ActionConfigurationValue = string;
 
 class ActionContext {
   public ActionExecutionId $action_execution_id;
   public ActionName $name;
+
+  public function __construct(shape(
+  ?'action_execution_id' => ActionExecutionId,
+  ?'name' => ActionName,
+  ) $s = shape()) {
+    $this->action_execution_id = $action_execution_id ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class ActionDeclaration {
@@ -125,6 +187,28 @@ class ActionDeclaration {
   public AWSRegionName $region;
   public RoleArn $role_arn;
   public ActionRunOrder $run_order;
+
+  public function __construct(shape(
+  ?'action_type_id' => ActionTypeId,
+  ?'configuration' => ActionConfigurationMap,
+  ?'input_artifacts' => InputArtifactList,
+  ?'name' => ActionName,
+  ?'namespace' => ActionNamespace,
+  ?'output_artifacts' => OutputArtifactList,
+  ?'region' => AWSRegionName,
+  ?'role_arn' => RoleArn,
+  ?'run_order' => ActionRunOrder,
+  ) $s = shape()) {
+    $this->action_type_id = $action_type_id ?? ;
+    $this->configuration = $configuration ?? ;
+    $this->input_artifacts = $input_artifacts ?? ;
+    $this->name = $name ?? ;
+    $this->namespace = $namespace ?? ;
+    $this->output_artifacts = $output_artifacts ?? ;
+    $this->region = $region ?? ;
+    $this->role_arn = $role_arn ?? ;
+    $this->run_order = $run_order ?? ;
+  }
 }
 
 class ActionExecution {
@@ -137,6 +221,28 @@ class ActionExecution {
   public ActionExecutionStatus $status;
   public ExecutionSummary $summary;
   public ActionExecutionToken $token;
+
+  public function __construct(shape(
+  ?'error_details' => ErrorDetails,
+  ?'external_execution_id' => ExecutionId,
+  ?'external_execution_url' => Url,
+  ?'last_status_change' => Timestamp,
+  ?'last_updated_by' => LastUpdatedBy,
+  ?'percent_complete' => Percentage,
+  ?'status' => ActionExecutionStatus,
+  ?'summary' => ExecutionSummary,
+  ?'token' => ActionExecutionToken,
+  ) $s = shape()) {
+    $this->error_details = $error_details ?? ;
+    $this->external_execution_id = $external_execution_id ?? ;
+    $this->external_execution_url = $external_execution_url ?? ;
+    $this->last_status_change = $last_status_change ?? ;
+    $this->last_updated_by = $last_updated_by ?? ;
+    $this->percent_complete = $percent_complete ?? ;
+    $this->status = $status ?? ;
+    $this->summary = $summary ?? ;
+    $this->token = $token ?? ;
+  }
 }
 
 class ActionExecutionDetail {
@@ -150,17 +256,45 @@ class ActionExecutionDetail {
   public StageName $stage_name;
   public Timestamp $start_time;
   public ActionExecutionStatus $status;
+
+  public function __construct(shape(
+  ?'action_execution_id' => ActionExecutionId,
+  ?'action_name' => ActionName,
+  ?'input' => ActionExecutionInput,
+  ?'last_update_time' => Timestamp,
+  ?'output' => ActionExecutionOutput,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_version' => PipelineVersion,
+  ?'stage_name' => StageName,
+  ?'start_time' => Timestamp,
+  ?'status' => ActionExecutionStatus,
+  ) $s = shape()) {
+    $this->action_execution_id = $action_execution_id ?? ;
+    $this->action_name = $action_name ?? ;
+    $this->input = $input ?? ;
+    $this->last_update_time = $last_update_time ?? ;
+    $this->output = $output ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_version = $pipeline_version ?? ;
+    $this->stage_name = $stage_name ?? ;
+    $this->start_time = $start_time ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class ActionExecutionDetailList {
-}
+type ActionExecutionDetailList = vec<ActionExecutionDetail>;
 
 class ActionExecutionFilter {
   public PipelineExecutionId $pipeline_execution_id;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+  }
 }
 
-class ActionExecutionId {
-}
+type ActionExecutionId = string;
 
 class ActionExecutionInput {
   public ActionTypeId $action_type_id;
@@ -170,49 +304,94 @@ class ActionExecutionInput {
   public AWSRegionName $region;
   public ResolvedActionConfigurationMap $resolved_configuration;
   public RoleArn $role_arn;
+
+  public function __construct(shape(
+  ?'action_type_id' => ActionTypeId,
+  ?'configuration' => ActionConfigurationMap,
+  ?'input_artifacts' => ArtifactDetailList,
+  ?'namespace' => ActionNamespace,
+  ?'region' => AWSRegionName,
+  ?'resolved_configuration' => ResolvedActionConfigurationMap,
+  ?'role_arn' => RoleArn,
+  ) $s = shape()) {
+    $this->action_type_id = $action_type_id ?? ;
+    $this->configuration = $configuration ?? ;
+    $this->input_artifacts = $input_artifacts ?? ;
+    $this->namespace = $namespace ?? ;
+    $this->region = $region ?? ;
+    $this->resolved_configuration = $resolved_configuration ?? ;
+    $this->role_arn = $role_arn ?? ;
+  }
 }
 
 class ActionExecutionOutput {
   public ActionExecutionResult $execution_result;
   public ArtifactDetailList $output_artifacts;
   public OutputVariablesMap $output_variables;
+
+  public function __construct(shape(
+  ?'execution_result' => ActionExecutionResult,
+  ?'output_artifacts' => ArtifactDetailList,
+  ?'output_variables' => OutputVariablesMap,
+  ) $s = shape()) {
+    $this->execution_result = $execution_result ?? ;
+    $this->output_artifacts = $output_artifacts ?? ;
+    $this->output_variables = $output_variables ?? ;
+  }
 }
 
 class ActionExecutionResult {
   public ExternalExecutionId $external_execution_id;
   public ExternalExecutionSummary $external_execution_summary;
   public Url $external_execution_url;
+
+  public function __construct(shape(
+  ?'external_execution_id' => ExternalExecutionId,
+  ?'external_execution_summary' => ExternalExecutionSummary,
+  ?'external_execution_url' => Url,
+  ) $s = shape()) {
+    $this->external_execution_id = $external_execution_id ?? ;
+    $this->external_execution_summary = $external_execution_summary ?? ;
+    $this->external_execution_url = $external_execution_url ?? ;
+  }
 }
 
-class ActionExecutionStatus {
-}
+type ActionExecutionStatus = string;
 
-class ActionExecutionToken {
-}
+type ActionExecutionToken = string;
 
-class ActionName {
-}
+type ActionName = string;
 
-class ActionNamespace {
-}
+type ActionNamespace = string;
 
 class ActionNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class ActionOwner {
-}
+type ActionOwner = string;
 
-class ActionProvider {
-}
+type ActionProvider = string;
 
 class ActionRevision {
   public Timestamp $created;
   public RevisionChangeIdentifier $revision_change_id;
   public Revision $revision_id;
+
+  public function __construct(shape(
+  ?'created' => Timestamp,
+  ?'revision_change_id' => RevisionChangeIdentifier,
+  ?'revision_id' => Revision,
+  ) $s = shape()) {
+    $this->created = $created ?? ;
+    $this->revision_change_id = $revision_change_id ?? ;
+    $this->revision_id = $revision_id ?? ;
+  }
 }
 
-class ActionRunOrder {
-}
+type ActionRunOrder = int;
 
 class ActionState {
   public ActionName $action_name;
@@ -220,10 +399,23 @@ class ActionState {
   public Url $entity_url;
   public ActionExecution $latest_execution;
   public Url $revision_url;
+
+  public function __construct(shape(
+  ?'action_name' => ActionName,
+  ?'current_revision' => ActionRevision,
+  ?'entity_url' => Url,
+  ?'latest_execution' => ActionExecution,
+  ?'revision_url' => Url,
+  ) $s = shape()) {
+    $this->action_name = $action_name ?? ;
+    $this->current_revision = $current_revision ?? ;
+    $this->entity_url = $entity_url ?? ;
+    $this->latest_execution = $latest_execution ?? ;
+    $this->revision_url = $revision_url ?? ;
+  }
 }
 
-class ActionStateList {
-}
+type ActionStateList = vec<ActionState>;
 
 class ActionType {
   public ActionConfigurationPropertyList $action_configuration_properties;
@@ -231,6 +423,20 @@ class ActionType {
   public ArtifactDetails $input_artifact_details;
   public ArtifactDetails $output_artifact_details;
   public ActionTypeSettings $settings;
+
+  public function __construct(shape(
+  ?'action_configuration_properties' => ActionConfigurationPropertyList,
+  ?'id' => ActionTypeId,
+  ?'input_artifact_details' => ArtifactDetails,
+  ?'output_artifact_details' => ArtifactDetails,
+  ?'settings' => ActionTypeSettings,
+  ) $s = shape()) {
+    $this->action_configuration_properties = $action_configuration_properties ?? ;
+    $this->id = $id ?? ;
+    $this->input_artifact_details = $input_artifact_details ?? ;
+    $this->output_artifact_details = $output_artifact_details ?? ;
+    $this->settings = $settings ?? ;
+  }
 }
 
 class ActionTypeId {
@@ -238,12 +444,27 @@ class ActionTypeId {
   public ActionOwner $owner;
   public ActionProvider $provider;
   public Version $version;
+
+  public function __construct(shape(
+  ?'category' => ActionCategory,
+  ?'owner' => ActionOwner,
+  ?'provider' => ActionProvider,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->category = $category ?? ;
+    $this->owner = $owner ?? ;
+    $this->provider = $provider ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class ActionTypeList {
-}
+type ActionTypeList = vec<ActionType>;
 
 class ActionTypeNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ActionTypeSettings {
@@ -251,57 +472,108 @@ class ActionTypeSettings {
   public UrlTemplate $execution_url_template;
   public UrlTemplate $revision_url_template;
   public Url $third_party_configuration_url;
+
+  public function __construct(shape(
+  ?'entity_url_template' => UrlTemplate,
+  ?'execution_url_template' => UrlTemplate,
+  ?'revision_url_template' => UrlTemplate,
+  ?'third_party_configuration_url' => Url,
+  ) $s = shape()) {
+    $this->entity_url_template = $entity_url_template ?? ;
+    $this->execution_url_template = $execution_url_template ?? ;
+    $this->revision_url_template = $revision_url_template ?? ;
+    $this->third_party_configuration_url = $third_party_configuration_url ?? ;
+  }
 }
 
 class ApprovalAlreadyCompletedException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ApprovalResult {
   public ApprovalStatus $status;
   public ApprovalSummary $summary;
+
+  public function __construct(shape(
+  ?'status' => ApprovalStatus,
+  ?'summary' => ApprovalSummary,
+  ) $s = shape()) {
+    $this->status = $status ?? ;
+    $this->summary = $summary ?? ;
+  }
 }
 
-class ApprovalStatus {
-}
+type ApprovalStatus = string;
 
-class ApprovalSummary {
-}
+type ApprovalSummary = string;
 
-class ApprovalToken {
-}
+type ApprovalToken = string;
 
 class Artifact {
   public ArtifactLocation $location;
   public ArtifactName $name;
   public Revision $revision;
+
+  public function __construct(shape(
+  ?'location' => ArtifactLocation,
+  ?'name' => ArtifactName,
+  ?'revision' => Revision,
+  ) $s = shape()) {
+    $this->location = $location ?? ;
+    $this->name = $name ?? ;
+    $this->revision = $revision ?? ;
+  }
 }
 
 class ArtifactDetail {
   public ArtifactName $name;
   public S3Location $s_3_location;
+
+  public function __construct(shape(
+  ?'name' => ArtifactName,
+  ?'s_3_location' => S3Location,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->s_3_location = $s_3_location ?? ;
+  }
 }
 
-class ArtifactDetailList {
-}
+type ArtifactDetailList = vec<ArtifactDetail>;
 
 class ArtifactDetails {
   public MaximumArtifactCount $maximum_count;
   public MinimumArtifactCount $minimum_count;
+
+  public function __construct(shape(
+  ?'maximum_count' => MaximumArtifactCount,
+  ?'minimum_count' => MinimumArtifactCount,
+  ) $s = shape()) {
+    $this->maximum_count = $maximum_count ?? ;
+    $this->minimum_count = $minimum_count ?? ;
+  }
 }
 
-class ArtifactList {
-}
+type ArtifactList = vec<Artifact>;
 
 class ArtifactLocation {
   public S3ArtifactLocation $s_3_location;
   public ArtifactLocationType $type;
+
+  public function __construct(shape(
+  ?'s_3_location' => S3ArtifactLocation,
+  ?'type' => ArtifactLocationType,
+  ) $s = shape()) {
+    $this->s_3_location = $s_3_location ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ArtifactLocationType {
-}
+type ArtifactLocationType = string;
 
-class ArtifactName {
-}
+type ArtifactName = string;
 
 class ArtifactRevision {
   public Timestamp $created;
@@ -310,58 +582,86 @@ class ArtifactRevision {
   public Revision $revision_id;
   public RevisionSummary $revision_summary;
   public Url $revision_url;
+
+  public function __construct(shape(
+  ?'created' => Timestamp,
+  ?'name' => ArtifactName,
+  ?'revision_change_identifier' => RevisionChangeIdentifier,
+  ?'revision_id' => Revision,
+  ?'revision_summary' => RevisionSummary,
+  ?'revision_url' => Url,
+  ) $s = shape()) {
+    $this->created = $created ?? ;
+    $this->name = $name ?? ;
+    $this->revision_change_identifier = $revision_change_identifier ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->revision_summary = $revision_summary ?? ;
+    $this->revision_url = $revision_url ?? ;
+  }
 }
 
-class ArtifactRevisionList {
-}
+type ArtifactRevisionList = vec<ArtifactRevision>;
 
 class ArtifactStore {
   public EncryptionKey $encryption_key;
   public ArtifactStoreLocation $location;
   public ArtifactStoreType $type;
+
+  public function __construct(shape(
+  ?'encryption_key' => EncryptionKey,
+  ?'location' => ArtifactStoreLocation,
+  ?'type' => ArtifactStoreType,
+  ) $s = shape()) {
+    $this->encryption_key = $encryption_key ?? ;
+    $this->location = $location ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class ArtifactStoreLocation {
-}
+type ArtifactStoreLocation = string;
 
-class ArtifactStoreMap {
-}
+type ArtifactStoreMap = dict<AWSRegionName, ArtifactStore>;
 
-class ArtifactStoreType {
-}
+type ArtifactStoreType = string;
 
 class BlockerDeclaration {
   public BlockerName $name;
   public BlockerType $type;
+
+  public function __construct(shape(
+  ?'name' => BlockerName,
+  ?'type' => BlockerType,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class BlockerName {
-}
+type BlockerName = string;
 
-class BlockerType {
-}
+type BlockerType = string;
 
-class Boolean {
-}
+type Boolean = bool;
 
-class ClientId {
-}
+type ClientId = string;
 
-class ClientRequestToken {
-}
+type ClientRequestToken = string;
 
-class ClientToken {
-}
+type ClientToken = string;
 
-class Code {
-}
+type Code = string;
 
 class ConcurrentModificationException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ContinuationToken {
-}
+type ContinuationToken = string;
 
 class CreateCustomActionTypeInput {
   public ActionCategory $category;
@@ -372,21 +672,65 @@ class CreateCustomActionTypeInput {
   public ActionTypeSettings $settings;
   public TagList $tags;
   public Version $version;
+
+  public function __construct(shape(
+  ?'category' => ActionCategory,
+  ?'configuration_properties' => ActionConfigurationPropertyList,
+  ?'input_artifact_details' => ArtifactDetails,
+  ?'output_artifact_details' => ArtifactDetails,
+  ?'provider' => ActionProvider,
+  ?'settings' => ActionTypeSettings,
+  ?'tags' => TagList,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->category = $category ?? ;
+    $this->configuration_properties = $configuration_properties ?? ;
+    $this->input_artifact_details = $input_artifact_details ?? ;
+    $this->output_artifact_details = $output_artifact_details ?? ;
+    $this->provider = $provider ?? ;
+    $this->settings = $settings ?? ;
+    $this->tags = $tags ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class CreateCustomActionTypeOutput {
   public ActionType $action_type;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'action_type' => ActionType,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->action_type = $action_type ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreatePipelineInput {
   public PipelineDeclaration $pipeline;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'pipeline' => PipelineDeclaration,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->pipeline = $pipeline ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreatePipelineOutput {
   public PipelineDeclaration $pipeline;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'pipeline' => PipelineDeclaration,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->pipeline = $pipeline ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CurrentRevision {
@@ -394,135 +738,293 @@ class CurrentRevision {
   public Time $created;
   public Revision $revision;
   public RevisionSummary $revision_summary;
+
+  public function __construct(shape(
+  ?'change_identifier' => RevisionChangeIdentifier,
+  ?'created' => Time,
+  ?'revision' => Revision,
+  ?'revision_summary' => RevisionSummary,
+  ) $s = shape()) {
+    $this->change_identifier = $change_identifier ?? ;
+    $this->created = $created ?? ;
+    $this->revision = $revision ?? ;
+    $this->revision_summary = $revision_summary ?? ;
+  }
 }
 
 class DeleteCustomActionTypeInput {
   public ActionCategory $category;
   public ActionProvider $provider;
   public Version $version;
+
+  public function __construct(shape(
+  ?'category' => ActionCategory,
+  ?'provider' => ActionProvider,
+  ?'version' => Version,
+  ) $s = shape()) {
+    $this->category = $category ?? ;
+    $this->provider = $provider ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class DeletePipelineInput {
   public PipelineName $name;
+
+  public function __construct(shape(
+  ?'name' => PipelineName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DeleteWebhookInput {
   public WebhookName $name;
+
+  public function __construct(shape(
+  ?'name' => WebhookName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class DeleteWebhookOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeregisterWebhookWithThirdPartyInput {
   public WebhookName $webhook_name;
+
+  public function __construct(shape(
+  ?'webhook_name' => WebhookName,
+  ) $s = shape()) {
+    $this->webhook_name = $webhook_name ?? ;
+  }
 }
 
 class DeregisterWebhookWithThirdPartyOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Description {
-}
+type Description = string;
 
 class DisableStageTransitionInput {
   public PipelineName $pipeline_name;
   public DisabledReason $reason;
   public StageName $stage_name;
   public StageTransitionType $transition_type;
+
+  public function __construct(shape(
+  ?'pipeline_name' => PipelineName,
+  ?'reason' => DisabledReason,
+  ?'stage_name' => StageName,
+  ?'transition_type' => StageTransitionType,
+  ) $s = shape()) {
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->reason = $reason ?? ;
+    $this->stage_name = $stage_name ?? ;
+    $this->transition_type = $transition_type ?? ;
+  }
 }
 
-class DisabledReason {
-}
+type DisabledReason = string;
 
 class DuplicatedStopRequestException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class EnableStageTransitionInput {
   public PipelineName $pipeline_name;
   public StageName $stage_name;
   public StageTransitionType $transition_type;
+
+  public function __construct(shape(
+  ?'pipeline_name' => PipelineName,
+  ?'stage_name' => StageName,
+  ?'transition_type' => StageTransitionType,
+  ) $s = shape()) {
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->stage_name = $stage_name ?? ;
+    $this->transition_type = $transition_type ?? ;
+  }
 }
 
-class Enabled {
-}
+type Enabled = bool;
 
 class EncryptionKey {
   public EncryptionKeyId $id;
   public EncryptionKeyType $type;
+
+  public function __construct(shape(
+  ?'id' => EncryptionKeyId,
+  ?'type' => EncryptionKeyType,
+  ) $s = shape()) {
+    $this->id = $id ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class EncryptionKeyId {
-}
+type EncryptionKeyId = string;
 
-class EncryptionKeyType {
-}
+type EncryptionKeyType = string;
 
 class ErrorDetails {
   public Code $code;
   public Message $message;
+
+  public function __construct(shape(
+  ?'code' => Code,
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class ExecutionDetails {
   public ExecutionId $external_execution_id;
   public Percentage $percent_complete;
   public ExecutionSummary $summary;
+
+  public function __construct(shape(
+  ?'external_execution_id' => ExecutionId,
+  ?'percent_complete' => Percentage,
+  ?'summary' => ExecutionSummary,
+  ) $s = shape()) {
+    $this->external_execution_id = $external_execution_id ?? ;
+    $this->percent_complete = $percent_complete ?? ;
+    $this->summary = $summary ?? ;
+  }
 }
 
-class ExecutionId {
-}
+type ExecutionId = string;
 
-class ExecutionSummary {
-}
+type ExecutionSummary = string;
 
 class ExecutionTrigger {
   public TriggerDetail $trigger_detail;
   public TriggerType $trigger_type;
+
+  public function __construct(shape(
+  ?'trigger_detail' => TriggerDetail,
+  ?'trigger_type' => TriggerType,
+  ) $s = shape()) {
+    $this->trigger_detail = $trigger_detail ?? ;
+    $this->trigger_type = $trigger_type ?? ;
+  }
 }
 
-class ExternalExecutionId {
-}
+type ExternalExecutionId = string;
 
-class ExternalExecutionSummary {
-}
+type ExternalExecutionSummary = string;
 
 class FailureDetails {
   public ExecutionId $external_execution_id;
   public Message $message;
   public FailureType $type;
+
+  public function __construct(shape(
+  ?'external_execution_id' => ExecutionId,
+  ?'message' => Message,
+  ?'type' => FailureType,
+  ) $s = shape()) {
+    $this->external_execution_id = $external_execution_id ?? ;
+    $this->message = $message ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class FailureType {
-}
+type FailureType = string;
 
 class GetJobDetailsInput {
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class GetJobDetailsOutput {
   public JobDetails $job_details;
+
+  public function __construct(shape(
+  ?'job_details' => JobDetails,
+  ) $s = shape()) {
+    $this->job_details = $job_details ?? ;
+  }
 }
 
 class GetPipelineExecutionInput {
   public PipelineExecutionId $pipeline_execution_id;
   public PipelineName $pipeline_name;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_name' => PipelineName,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+  }
 }
 
 class GetPipelineExecutionOutput {
   public PipelineExecution $pipeline_execution;
+
+  public function __construct(shape(
+  ?'pipeline_execution' => PipelineExecution,
+  ) $s = shape()) {
+    $this->pipeline_execution = $pipeline_execution ?? ;
+  }
 }
 
 class GetPipelineInput {
   public PipelineName $name;
   public PipelineVersion $version;
+
+  public function __construct(shape(
+  ?'name' => PipelineName,
+  ?'version' => PipelineVersion,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class GetPipelineOutput {
   public PipelineMetadata $metadata;
   public PipelineDeclaration $pipeline;
+
+  public function __construct(shape(
+  ?'metadata' => PipelineMetadata,
+  ?'pipeline' => PipelineDeclaration,
+  ) $s = shape()) {
+    $this->metadata = $metadata ?? ;
+    $this->pipeline = $pipeline ?? ;
+  }
 }
 
 class GetPipelineStateInput {
   public PipelineName $name;
+
+  public function __construct(shape(
+  ?'name' => PipelineName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class GetPipelineStateOutput {
@@ -531,66 +1033,159 @@ class GetPipelineStateOutput {
   public PipelineVersion $pipeline_version;
   public StageStateList $stage_states;
   public Timestamp $updated;
+
+  public function __construct(shape(
+  ?'created' => Timestamp,
+  ?'pipeline_name' => PipelineName,
+  ?'pipeline_version' => PipelineVersion,
+  ?'stage_states' => StageStateList,
+  ?'updated' => Timestamp,
+  ) $s = shape()) {
+    $this->created = $created ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_version = $pipeline_version ?? ;
+    $this->stage_states = $stage_states ?? ;
+    $this->updated = $updated ?? ;
+  }
 }
 
 class GetThirdPartyJobDetailsInput {
   public ClientToken $client_token;
   public ThirdPartyJobId $job_id;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'job_id' => ThirdPartyJobId,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? ;
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class GetThirdPartyJobDetailsOutput {
   public ThirdPartyJobDetails $job_details;
+
+  public function __construct(shape(
+  ?'job_details' => ThirdPartyJobDetails,
+  ) $s = shape()) {
+    $this->job_details = $job_details ?? ;
+  }
 }
 
 class InputArtifact {
   public ArtifactName $name;
+
+  public function __construct(shape(
+  ?'name' => ArtifactName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
-class InputArtifactList {
-}
+type InputArtifactList = vec<InputArtifact>;
 
 class InvalidActionDeclarationException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidApprovalTokenException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidArnException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidBlockerDeclarationException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidClientTokenException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidJobException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidJobStateException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidNextTokenException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidNonceException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidStageDeclarationException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidStructureException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidTagsException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidWebhookAuthenticationParametersException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class InvalidWebhookFilterPatternException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class Job {
@@ -598,6 +1193,18 @@ class Job {
   public JobData $data;
   public JobId $id;
   public Nonce $nonce;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'data' => JobData,
+  ?'id' => JobId,
+  ?'nonce' => Nonce,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? ;
+    $this->data = $data ?? ;
+    $this->id = $id ?? ;
+    $this->nonce = $nonce ?? ;
+  }
 }
 
 class JobData {
@@ -609,39 +1216,70 @@ class JobData {
   public ArtifactList $input_artifacts;
   public ArtifactList $output_artifacts;
   public PipelineContext $pipeline_context;
+
+  public function __construct(shape(
+  ?'action_configuration' => ActionConfiguration,
+  ?'action_type_id' => ActionTypeId,
+  ?'artifact_credentials' => AWSSessionCredentials,
+  ?'continuation_token' => ContinuationToken,
+  ?'encryption_key' => EncryptionKey,
+  ?'input_artifacts' => ArtifactList,
+  ?'output_artifacts' => ArtifactList,
+  ?'pipeline_context' => PipelineContext,
+  ) $s = shape()) {
+    $this->action_configuration = $action_configuration ?? ;
+    $this->action_type_id = $action_type_id ?? ;
+    $this->artifact_credentials = $artifact_credentials ?? ;
+    $this->continuation_token = $continuation_token ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->input_artifacts = $input_artifacts ?? ;
+    $this->output_artifacts = $output_artifacts ?? ;
+    $this->pipeline_context = $pipeline_context ?? ;
+  }
 }
 
 class JobDetails {
   public AccountId $account_id;
   public JobData $data;
   public JobId $id;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'data' => JobData,
+  ?'id' => JobId,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? ;
+    $this->data = $data ?? ;
+    $this->id = $id ?? ;
+  }
 }
 
-class JobId {
-}
+type JobId = string;
 
-class JobList {
-}
+type JobList = vec<Job>;
 
 class JobNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class JobStatus {
-}
+type JobStatus = string;
 
-class JsonPath {
-}
+type JsonPath = string;
 
-class LastChangedAt {
-}
+type LastChangedAt = int;
 
-class LastChangedBy {
-}
+type LastChangedBy = string;
 
-class LastUpdatedBy {
-}
+type LastUpdatedBy = string;
 
 class LimitExceededException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ListActionExecutionsInput {
@@ -649,52 +1287,138 @@ class ListActionExecutionsInput {
   public MaxResults $max_results;
   public NextToken $next_token;
   public PipelineName $pipeline_name;
+
+  public function __construct(shape(
+  ?'filter' => ActionExecutionFilter,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'pipeline_name' => PipelineName,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+  }
 }
 
 class ListActionExecutionsOutput {
   public ActionExecutionDetailList $action_execution_details;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'action_execution_details' => ActionExecutionDetailList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->action_execution_details = $action_execution_details ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListActionTypesInput {
   public ActionOwner $action_owner_filter;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'action_owner_filter' => ActionOwner,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->action_owner_filter = $action_owner_filter ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListActionTypesOutput {
   public ActionTypeList $action_types;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'action_types' => ActionTypeList,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->action_types = $action_types ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListPipelineExecutionsInput {
   public MaxResults $max_results;
   public NextToken $next_token;
   public PipelineName $pipeline_name;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'pipeline_name' => PipelineName,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+  }
 }
 
 class ListPipelineExecutionsOutput {
   public NextToken $next_token;
   public PipelineExecutionSummaryList $pipeline_execution_summaries;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'pipeline_execution_summaries' => PipelineExecutionSummaryList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->pipeline_execution_summaries = $pipeline_execution_summaries ?? ;
+  }
 }
 
 class ListPipelinesInput {
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListPipelinesOutput {
   public NextToken $next_token;
   public PipelineList $pipelines;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'pipelines' => PipelineList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->pipelines = $pipelines ?? ;
+  }
 }
 
 class ListTagsForResourceInput {
   public MaxResults $max_results;
   public NextToken $next_token;
   public ResourceArn $resource_arn;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resource_arn' => ResourceArn,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceOutput {
   public NextToken $next_token;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class ListWebhookItem {
@@ -705,70 +1429,106 @@ class ListWebhookItem {
   public WebhookLastTriggered $last_triggered;
   public TagList $tags;
   public WebhookUrl $url;
+
+  public function __construct(shape(
+  ?'arn' => WebhookArn,
+  ?'definition' => WebhookDefinition,
+  ?'error_code' => WebhookErrorCode,
+  ?'error_message' => WebhookErrorMessage,
+  ?'last_triggered' => WebhookLastTriggered,
+  ?'tags' => TagList,
+  ?'url' => WebhookUrl,
+  ) $s = shape()) {
+    $this->arn = $arn ?? ;
+    $this->definition = $definition ?? ;
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? ;
+    $this->last_triggered = $last_triggered ?? ;
+    $this->tags = $tags ?? ;
+    $this->url = $url ?? ;
+  }
 }
 
 class ListWebhooksInput {
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListWebhooksOutput {
   public NextToken $next_token;
   public WebhookList $webhooks;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'webhooks' => WebhookList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? "";
+    $this->webhooks = $webhooks ?? ;
+  }
 }
 
-class MatchEquals {
-}
+type MatchEquals = string;
 
-class MaxBatchSize {
-}
+type MaxBatchSize = int;
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class MaximumArtifactCount {
-}
+type MaximumArtifactCount = int;
 
-class Message {
-}
+type Message = string;
 
-class MinimumArtifactCount {
-}
+type MinimumArtifactCount = int;
 
-class NextToken {
-}
+type NextToken = string;
 
-class Nonce {
-}
+type Nonce = string;
 
 class NotLatestPipelineExecutionException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class OutputArtifact {
   public ArtifactName $name;
+
+  public function __construct(shape(
+  ?'name' => ArtifactName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
-class OutputArtifactList {
-}
+type OutputArtifactList = vec<OutputArtifact>;
 
-class OutputVariablesKey {
-}
+type OutputVariablesKey = string;
 
-class OutputVariablesMap {
-}
+type OutputVariablesMap = dict<OutputVariablesKey, OutputVariablesValue>;
 
 class OutputVariablesSizeExceededException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class OutputVariablesValue {
-}
+type OutputVariablesValue = string;
 
-class Percentage {
-}
+type Percentage = int;
 
-class PipelineArn {
-}
+type PipelineArn = string;
 
 class PipelineContext {
   public ActionContext $action;
@@ -776,6 +1536,20 @@ class PipelineContext {
   public PipelineExecutionId $pipeline_execution_id;
   public PipelineName $pipeline_name;
   public StageContext $stage;
+
+  public function __construct(shape(
+  ?'action' => ActionContext,
+  ?'pipeline_arn' => PipelineArn,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_name' => PipelineName,
+  ?'stage' => StageContext,
+  ) $s = shape()) {
+    $this->action = $action ?? ;
+    $this->pipeline_arn = $pipeline_arn ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->stage = $stage ?? ;
+  }
 }
 
 class PipelineDeclaration {
@@ -785,6 +1559,22 @@ class PipelineDeclaration {
   public RoleArn $role_arn;
   public PipelineStageDeclarationList $stages;
   public PipelineVersion $version;
+
+  public function __construct(shape(
+  ?'artifact_store' => ArtifactStore,
+  ?'artifact_stores' => ArtifactStoreMap,
+  ?'name' => PipelineName,
+  ?'role_arn' => RoleArn,
+  ?'stages' => PipelineStageDeclarationList,
+  ?'version' => PipelineVersion,
+  ) $s = shape()) {
+    $this->artifact_store = $artifact_store ?? ;
+    $this->artifact_stores = $artifact_stores ?? ;
+    $this->name = $name ?? ;
+    $this->role_arn = $role_arn ?? ;
+    $this->stages = $stages ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
 class PipelineExecution {
@@ -793,20 +1583,42 @@ class PipelineExecution {
   public PipelineName $pipeline_name;
   public PipelineVersion $pipeline_version;
   public PipelineExecutionStatus $status;
+
+  public function __construct(shape(
+  ?'artifact_revisions' => ArtifactRevisionList,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_name' => PipelineName,
+  ?'pipeline_version' => PipelineVersion,
+  ?'status' => PipelineExecutionStatus,
+  ) $s = shape()) {
+    $this->artifact_revisions = $artifact_revisions ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->pipeline_version = $pipeline_version ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class PipelineExecutionId {
-}
+type PipelineExecutionId = string;
 
 class PipelineExecutionNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PipelineExecutionNotStoppableException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class PipelineExecutionStatus {
-}
+type PipelineExecutionStatus = string;
 
 class PipelineExecutionSummary {
   public Timestamp $last_update_time;
@@ -816,62 +1628,139 @@ class PipelineExecutionSummary {
   public PipelineExecutionStatus $status;
   public StopExecutionTrigger $stop_trigger;
   public ExecutionTrigger $trigger;
+
+  public function __construct(shape(
+  ?'last_update_time' => Timestamp,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'source_revisions' => SourceRevisionList,
+  ?'start_time' => Timestamp,
+  ?'status' => PipelineExecutionStatus,
+  ?'stop_trigger' => StopExecutionTrigger,
+  ?'trigger' => ExecutionTrigger,
+  ) $s = shape()) {
+    $this->last_update_time = $last_update_time ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->source_revisions = $source_revisions ?? ;
+    $this->start_time = $start_time ?? ;
+    $this->status = $status ?? ;
+    $this->stop_trigger = $stop_trigger ?? ;
+    $this->trigger = $trigger ?? ;
+  }
 }
 
-class PipelineExecutionSummaryList {
-}
+type PipelineExecutionSummaryList = vec<PipelineExecutionSummary>;
 
-class PipelineList {
-}
+type PipelineList = vec<PipelineSummary>;
 
 class PipelineMetadata {
   public Timestamp $created;
   public PipelineArn $pipeline_arn;
   public Timestamp $updated;
+
+  public function __construct(shape(
+  ?'created' => Timestamp,
+  ?'pipeline_arn' => PipelineArn,
+  ?'updated' => Timestamp,
+  ) $s = shape()) {
+    $this->created = $created ?? ;
+    $this->pipeline_arn = $pipeline_arn ?? ;
+    $this->updated = $updated ?? ;
+  }
 }
 
-class PipelineName {
-}
+type PipelineName = string;
 
 class PipelineNameInUseException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PipelineNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class PipelineStageDeclarationList {
-}
+type PipelineStageDeclarationList = vec<StageDeclaration>;
 
 class PipelineSummary {
   public Timestamp $created;
   public PipelineName $name;
   public Timestamp $updated;
   public PipelineVersion $version;
+
+  public function __construct(shape(
+  ?'created' => Timestamp,
+  ?'name' => PipelineName,
+  ?'updated' => Timestamp,
+  ?'version' => PipelineVersion,
+  ) $s = shape()) {
+    $this->created = $created ?? ;
+    $this->name = $name ?? ;
+    $this->updated = $updated ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class PipelineVersion {
-}
+type PipelineVersion = int;
 
 class PipelineVersionNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class PollForJobsInput {
   public ActionTypeId $action_type_id;
   public MaxBatchSize $max_batch_size;
   public QueryParamMap $query_param;
+
+  public function __construct(shape(
+  ?'action_type_id' => ActionTypeId,
+  ?'max_batch_size' => MaxBatchSize,
+  ?'query_param' => QueryParamMap,
+  ) $s = shape()) {
+    $this->action_type_id = $action_type_id ?? ;
+    $this->max_batch_size = $max_batch_size ?? ;
+    $this->query_param = $query_param ?? ;
+  }
 }
 
 class PollForJobsOutput {
   public JobList $jobs;
+
+  public function __construct(shape(
+  ?'jobs' => JobList,
+  ) $s = shape()) {
+    $this->jobs = $jobs ?? ;
+  }
 }
 
 class PollForThirdPartyJobsInput {
   public ActionTypeId $action_type_id;
   public MaxBatchSize $max_batch_size;
+
+  public function __construct(shape(
+  ?'action_type_id' => ActionTypeId,
+  ?'max_batch_size' => MaxBatchSize,
+  ) $s = shape()) {
+    $this->action_type_id = $action_type_id ?? ;
+    $this->max_batch_size = $max_batch_size ?? ;
+  }
 }
 
 class PollForThirdPartyJobsOutput {
   public ThirdPartyJobList $jobs;
+
+  public function __construct(shape(
+  ?'jobs' => ThirdPartyJobList,
+  ) $s = shape()) {
+    $this->jobs = $jobs ?? ;
+  }
 }
 
 class PutActionRevisionInput {
@@ -879,11 +1768,31 @@ class PutActionRevisionInput {
   public ActionRevision $action_revision;
   public PipelineName $pipeline_name;
   public StageName $stage_name;
+
+  public function __construct(shape(
+  ?'action_name' => ActionName,
+  ?'action_revision' => ActionRevision,
+  ?'pipeline_name' => PipelineName,
+  ?'stage_name' => StageName,
+  ) $s = shape()) {
+    $this->action_name = $action_name ?? ;
+    $this->action_revision = $action_revision ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->stage_name = $stage_name ?? ;
+  }
 }
 
 class PutActionRevisionOutput {
   public boolean $new_revision;
   public PipelineExecutionId $pipeline_execution_id;
+
+  public function __construct(shape(
+  ?'new_revision' => boolean,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ) $s = shape()) {
+    $this->new_revision = $new_revision ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+  }
 }
 
 class PutApprovalResultInput {
@@ -892,15 +1801,43 @@ class PutApprovalResultInput {
   public ApprovalResult $result;
   public StageName $stage_name;
   public ApprovalToken $token;
+
+  public function __construct(shape(
+  ?'action_name' => ActionName,
+  ?'pipeline_name' => PipelineName,
+  ?'result' => ApprovalResult,
+  ?'stage_name' => StageName,
+  ?'token' => ApprovalToken,
+  ) $s = shape()) {
+    $this->action_name = $action_name ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->result = $result ?? ;
+    $this->stage_name = $stage_name ?? ;
+    $this->token = $token ?? ;
+  }
 }
 
 class PutApprovalResultOutput {
   public Timestamp $approved_at;
+
+  public function __construct(shape(
+  ?'approved_at' => Timestamp,
+  ) $s = shape()) {
+    $this->approved_at = $approved_at ?? ;
+  }
 }
 
 class PutJobFailureResultInput {
   public FailureDetails $failure_details;
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'failure_details' => FailureDetails,
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->failure_details = $failure_details ?? ;
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class PutJobSuccessResultInput {
@@ -909,12 +1846,36 @@ class PutJobSuccessResultInput {
   public ExecutionDetails $execution_details;
   public JobId $job_id;
   public OutputVariablesMap $output_variables;
+
+  public function __construct(shape(
+  ?'continuation_token' => ContinuationToken,
+  ?'current_revision' => CurrentRevision,
+  ?'execution_details' => ExecutionDetails,
+  ?'job_id' => JobId,
+  ?'output_variables' => OutputVariablesMap,
+  ) $s = shape()) {
+    $this->continuation_token = $continuation_token ?? ;
+    $this->current_revision = $current_revision ?? ;
+    $this->execution_details = $execution_details ?? ;
+    $this->job_id = $job_id ?? ;
+    $this->output_variables = $output_variables ?? ;
+  }
 }
 
 class PutThirdPartyJobFailureResultInput {
   public ClientToken $client_token;
   public FailureDetails $failure_details;
   public ThirdPartyJobId $job_id;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'failure_details' => FailureDetails,
+  ?'job_id' => ThirdPartyJobId,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? ;
+    $this->failure_details = $failure_details ?? ;
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class PutThirdPartyJobSuccessResultInput {
@@ -923,34 +1884,73 @@ class PutThirdPartyJobSuccessResultInput {
   public CurrentRevision $current_revision;
   public ExecutionDetails $execution_details;
   public ThirdPartyJobId $job_id;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'continuation_token' => ContinuationToken,
+  ?'current_revision' => CurrentRevision,
+  ?'execution_details' => ExecutionDetails,
+  ?'job_id' => ThirdPartyJobId,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? ;
+    $this->continuation_token = $continuation_token ?? ;
+    $this->current_revision = $current_revision ?? ;
+    $this->execution_details = $execution_details ?? ;
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class PutWebhookInput {
   public TagList $tags;
   public WebhookDefinition $webhook;
+
+  public function __construct(shape(
+  ?'tags' => TagList,
+  ?'webhook' => WebhookDefinition,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+    $this->webhook = $webhook ?? ;
+  }
 }
 
 class PutWebhookOutput {
   public ListWebhookItem $webhook;
+
+  public function __construct(shape(
+  ?'webhook' => ListWebhookItem,
+  ) $s = shape()) {
+    $this->webhook = $webhook ?? ;
+  }
 }
 
-class QueryParamMap {
-}
+type QueryParamMap = dict<ActionConfigurationKey, ActionConfigurationQueryableValue>;
 
 class RegisterWebhookWithThirdPartyInput {
   public WebhookName $webhook_name;
+
+  public function __construct(shape(
+  ?'webhook_name' => WebhookName,
+  ) $s = shape()) {
+    $this->webhook_name = $webhook_name ?? ;
+  }
 }
 
 class RegisterWebhookWithThirdPartyOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class ResolvedActionConfigurationMap {
-}
+type ResolvedActionConfigurationMap = dict<String, String>;
 
-class ResourceArn {
-}
+type ResourceArn = string;
 
 class ResourceNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class RetryStageExecutionInput {
@@ -958,122 +1958,214 @@ class RetryStageExecutionInput {
   public PipelineName $pipeline_name;
   public StageRetryMode $retry_mode;
   public StageName $stage_name;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_name' => PipelineName,
+  ?'retry_mode' => StageRetryMode,
+  ?'stage_name' => StageName,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->retry_mode = $retry_mode ?? ;
+    $this->stage_name = $stage_name ?? ;
+  }
 }
 
 class RetryStageExecutionOutput {
   public PipelineExecutionId $pipeline_execution_id;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+  }
 }
 
-class Revision {
-}
+type Revision = string;
 
-class RevisionChangeIdentifier {
-}
+type RevisionChangeIdentifier = string;
 
-class RevisionSummary {
-}
+type RevisionSummary = string;
 
-class RoleArn {
-}
+type RoleArn = string;
 
 class S3ArtifactLocation {
   public S3BucketName $bucket_name;
   public S3ObjectKey $object_key;
+
+  public function __construct(shape(
+  ?'bucket_name' => S3BucketName,
+  ?'object_key' => S3ObjectKey,
+  ) $s = shape()) {
+    $this->bucket_name = $bucket_name ?? ;
+    $this->object_key = $object_key ?? ;
+  }
 }
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3BucketName {
-}
+type S3BucketName = string;
 
-class S3Key {
-}
+type S3Key = string;
 
 class S3Location {
   public S3Bucket $bucket;
   public S3Key $key;
+
+  public function __construct(shape(
+  ?'bucket' => S3Bucket,
+  ?'key' => S3Key,
+  ) $s = shape()) {
+    $this->bucket = $bucket ?? ;
+    $this->key = $key ?? ;
+  }
 }
 
-class S3ObjectKey {
-}
+type S3ObjectKey = string;
 
-class SecretAccessKey {
-}
+type SecretAccessKey = string;
 
-class SessionToken {
-}
+type SessionToken = string;
 
 class SourceRevision {
   public ActionName $action_name;
   public Revision $revision_id;
   public RevisionSummary $revision_summary;
   public Url $revision_url;
+
+  public function __construct(shape(
+  ?'action_name' => ActionName,
+  ?'revision_id' => Revision,
+  ?'revision_summary' => RevisionSummary,
+  ?'revision_url' => Url,
+  ) $s = shape()) {
+    $this->action_name = $action_name ?? ;
+    $this->revision_id = $revision_id ?? ;
+    $this->revision_summary = $revision_summary ?? ;
+    $this->revision_url = $revision_url ?? ;
+  }
 }
 
-class SourceRevisionList {
-}
+type SourceRevisionList = vec<SourceRevision>;
 
-class StageActionDeclarationList {
-}
+type StageActionDeclarationList = vec<ActionDeclaration>;
 
-class StageBlockerDeclarationList {
-}
+type StageBlockerDeclarationList = vec<BlockerDeclaration>;
 
 class StageContext {
   public StageName $name;
+
+  public function __construct(shape(
+  ?'name' => StageName,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+  }
 }
 
 class StageDeclaration {
   public StageActionDeclarationList $actions;
   public StageBlockerDeclarationList $blockers;
   public StageName $name;
+
+  public function __construct(shape(
+  ?'actions' => StageActionDeclarationList,
+  ?'blockers' => StageBlockerDeclarationList,
+  ?'name' => StageName,
+  ) $s = shape()) {
+    $this->actions = $actions ?? ;
+    $this->blockers = $blockers ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class StageExecution {
   public PipelineExecutionId $pipeline_execution_id;
   public StageExecutionStatus $status;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'status' => StageExecutionStatus,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->status = $status ?? ;
+  }
 }
 
-class StageExecutionStatus {
-}
+type StageExecutionStatus = string;
 
-class StageName {
-}
+type StageName = string;
 
 class StageNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StageNotRetryableException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class StageRetryMode {
-}
+type StageRetryMode = string;
 
 class StageState {
   public ActionStateList $action_states;
   public TransitionState $inbound_transition_state;
   public StageExecution $latest_execution;
   public StageName $stage_name;
+
+  public function __construct(shape(
+  ?'action_states' => ActionStateList,
+  ?'inbound_transition_state' => TransitionState,
+  ?'latest_execution' => StageExecution,
+  ?'stage_name' => StageName,
+  ) $s = shape()) {
+    $this->action_states = $action_states ?? ;
+    $this->inbound_transition_state = $inbound_transition_state ?? ;
+    $this->latest_execution = $latest_execution ?? ;
+    $this->stage_name = $stage_name ?? ;
+  }
 }
 
-class StageStateList {
-}
+type StageStateList = vec<StageState>;
 
-class StageTransitionType {
-}
+type StageTransitionType = string;
 
 class StartPipelineExecutionInput {
   public ClientRequestToken $client_request_token;
   public PipelineName $name;
+
+  public function __construct(shape(
+  ?'client_request_token' => ClientRequestToken,
+  ?'name' => PipelineName,
+  ) $s = shape()) {
+    $this->client_request_token = $client_request_token ?? ;
+    $this->name = $name ?? ;
+  }
 }
 
 class StartPipelineExecutionOutput {
   public PipelineExecutionId $pipeline_execution_id;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+  }
 }
 
 class StopExecutionTrigger {
   public StopPipelineExecutionReason $reason;
+
+  public function __construct(shape(
+  ?'reason' => StopPipelineExecutionReason,
+  ) $s = shape()) {
+    $this->reason = $reason ?? ;
+  }
 }
 
 class StopPipelineExecutionInput {
@@ -1081,46 +2173,86 @@ class StopPipelineExecutionInput {
   public PipelineExecutionId $pipeline_execution_id;
   public PipelineName $pipeline_name;
   public StopPipelineExecutionReason $reason;
+
+  public function __construct(shape(
+  ?'abandon' => boolean,
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ?'pipeline_name' => PipelineName,
+  ?'reason' => StopPipelineExecutionReason,
+  ) $s = shape()) {
+    $this->abandon = $abandon ?? ;
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+    $this->pipeline_name = $pipeline_name ?? ;
+    $this->reason = $reason ?? ;
+  }
 }
 
 class StopPipelineExecutionOutput {
   public PipelineExecutionId $pipeline_execution_id;
+
+  public function __construct(shape(
+  ?'pipeline_execution_id' => PipelineExecutionId,
+  ) $s = shape()) {
+    $this->pipeline_execution_id = $pipeline_execution_id ?? ;
+  }
 }
 
-class StopPipelineExecutionReason {
-}
+type StopPipelineExecutionReason = string;
 
-class String {
-}
+type String = string;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TagResourceInput {
   public ResourceArn $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceArn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
 class ThirdPartyJob {
   public ClientId $client_id;
   public JobId $job_id;
+
+  public function __construct(shape(
+  ?'client_id' => ClientId,
+  ?'job_id' => JobId,
+  ) $s = shape()) {
+    $this->client_id = $client_id ?? ;
+    $this->job_id = $job_id ?? ;
+  }
 }
 
 class ThirdPartyJobData {
@@ -1132,28 +2264,60 @@ class ThirdPartyJobData {
   public ArtifactList $input_artifacts;
   public ArtifactList $output_artifacts;
   public PipelineContext $pipeline_context;
+
+  public function __construct(shape(
+  ?'action_configuration' => ActionConfiguration,
+  ?'action_type_id' => ActionTypeId,
+  ?'artifact_credentials' => AWSSessionCredentials,
+  ?'continuation_token' => ContinuationToken,
+  ?'encryption_key' => EncryptionKey,
+  ?'input_artifacts' => ArtifactList,
+  ?'output_artifacts' => ArtifactList,
+  ?'pipeline_context' => PipelineContext,
+  ) $s = shape()) {
+    $this->action_configuration = $action_configuration ?? ;
+    $this->action_type_id = $action_type_id ?? ;
+    $this->artifact_credentials = $artifact_credentials ?? ;
+    $this->continuation_token = $continuation_token ?? ;
+    $this->encryption_key = $encryption_key ?? ;
+    $this->input_artifacts = $input_artifacts ?? ;
+    $this->output_artifacts = $output_artifacts ?? ;
+    $this->pipeline_context = $pipeline_context ?? ;
+  }
 }
 
 class ThirdPartyJobDetails {
   public ThirdPartyJobData $data;
   public ThirdPartyJobId $id;
   public Nonce $nonce;
+
+  public function __construct(shape(
+  ?'data' => ThirdPartyJobData,
+  ?'id' => ThirdPartyJobId,
+  ?'nonce' => Nonce,
+  ) $s = shape()) {
+    $this->data = $data ?? ;
+    $this->id = $id ?? ;
+    $this->nonce = $nonce ?? ;
+  }
 }
 
-class ThirdPartyJobId {
-}
+type ThirdPartyJobId = string;
 
-class ThirdPartyJobList {
-}
+type ThirdPartyJobList = vec<ThirdPartyJob>;
 
-class Time {
-}
+type Time = int;
 
-class Timestamp {
-}
+type Timestamp = int;
 
 class TooManyTagsException {
   public Message $message;
+
+  public function __construct(shape(
+  ?'message' => Message,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class TransitionState {
@@ -1161,58 +2325,97 @@ class TransitionState {
   public Enabled $enabled;
   public LastChangedAt $last_changed_at;
   public LastChangedBy $last_changed_by;
+
+  public function __construct(shape(
+  ?'disabled_reason' => DisabledReason,
+  ?'enabled' => Enabled,
+  ?'last_changed_at' => LastChangedAt,
+  ?'last_changed_by' => LastChangedBy,
+  ) $s = shape()) {
+    $this->disabled_reason = $disabled_reason ?? ;
+    $this->enabled = $enabled ?? ;
+    $this->last_changed_at = $last_changed_at ?? ;
+    $this->last_changed_by = $last_changed_by ?? ;
+  }
 }
 
-class TriggerDetail {
-}
+type TriggerDetail = string;
 
-class TriggerType {
-}
+type TriggerType = string;
 
 class UntagResourceInput {
   public ResourceArn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => ResourceArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdatePipelineInput {
   public PipelineDeclaration $pipeline;
+
+  public function __construct(shape(
+  ?'pipeline' => PipelineDeclaration,
+  ) $s = shape()) {
+    $this->pipeline = $pipeline ?? ;
+  }
 }
 
 class UpdatePipelineOutput {
   public PipelineDeclaration $pipeline;
+
+  public function __construct(shape(
+  ?'pipeline' => PipelineDeclaration,
+  ) $s = shape()) {
+    $this->pipeline = $pipeline ?? ;
+  }
 }
 
-class Url {
-}
+type Url = string;
 
-class UrlTemplate {
-}
+type UrlTemplate = string;
 
 class ValidationException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Version {
-}
+type Version = string;
 
-class WebhookArn {
-}
+type WebhookArn = string;
 
 class WebhookAuthConfiguration {
   public WebhookAuthConfigurationAllowedIPRange $allowed_ip_range;
   public WebhookAuthConfigurationSecretToken $secret_token;
+
+  public function __construct(shape(
+  ?'allowed_ip_range' => WebhookAuthConfigurationAllowedIPRange,
+  ?'secret_token' => WebhookAuthConfigurationSecretToken,
+  ) $s = shape()) {
+    $this->allowed_ip_range = $allowed_ip_range ?? ;
+    $this->secret_token = $secret_token ?? ;
+  }
 }
 
-class WebhookAuthConfigurationAllowedIPRange {
-}
+type WebhookAuthConfigurationAllowedIPRange = string;
 
-class WebhookAuthConfigurationSecretToken {
-}
+type WebhookAuthConfigurationSecretToken = string;
 
-class WebhookAuthenticationType {
-}
+type WebhookAuthenticationType = string;
 
 class WebhookDefinition {
   public WebhookAuthenticationType $authentication;
@@ -1221,34 +2424,55 @@ class WebhookDefinition {
   public WebhookName $name;
   public ActionName $target_action;
   public PipelineName $target_pipeline;
+
+  public function __construct(shape(
+  ?'authentication' => WebhookAuthenticationType,
+  ?'authentication_configuration' => WebhookAuthConfiguration,
+  ?'filters' => WebhookFilters,
+  ?'name' => WebhookName,
+  ?'target_action' => ActionName,
+  ?'target_pipeline' => PipelineName,
+  ) $s = shape()) {
+    $this->authentication = $authentication ?? ;
+    $this->authentication_configuration = $authentication_configuration ?? ;
+    $this->filters = $filters ?? ;
+    $this->name = $name ?? ;
+    $this->target_action = $target_action ?? ;
+    $this->target_pipeline = $target_pipeline ?? ;
+  }
 }
 
-class WebhookErrorCode {
-}
+type WebhookErrorCode = string;
 
-class WebhookErrorMessage {
-}
+type WebhookErrorMessage = string;
 
 class WebhookFilterRule {
   public JsonPath $json_path;
   public MatchEquals $match_equals;
+
+  public function __construct(shape(
+  ?'json_path' => JsonPath,
+  ?'match_equals' => MatchEquals,
+  ) $s = shape()) {
+    $this->json_path = $json_path ?? ;
+    $this->match_equals = $match_equals ?? ;
+  }
 }
 
-class WebhookFilters {
-}
+type WebhookFilters = vec<WebhookFilterRule>;
 
-class WebhookLastTriggered {
-}
+type WebhookLastTriggered = int;
 
-class WebhookList {
-}
+type WebhookList = vec<ListWebhookItem>;
 
-class WebhookName {
-}
+type WebhookName = string;
 
 class WebhookNotFoundException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class WebhookUrl {
-}
+type WebhookUrl = string;
 

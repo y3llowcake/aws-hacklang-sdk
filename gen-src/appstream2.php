@@ -54,22 +54,25 @@ interface AppStream {
 class AccessEndpoint {
   public AccessEndpointType $endpoint_type;
   public string $vpce_id;
+
+  public function __construct(shape(
+  ?'endpoint_type' => AccessEndpointType,
+  ?'vpce_id' => string,
+  ) $s = shape()) {
+    $this->endpoint_type = $endpoint_type ?? ;
+    $this->vpce_id = $vpce_id ?? ;
+  }
 }
 
-class AccessEndpointList {
-}
+type AccessEndpointList = vec<AccessEndpoint>;
 
-class AccessEndpointType {
-}
+type AccessEndpointType = string;
 
-class AccountName {
-}
+type AccountName = string;
 
-class AccountPassword {
-}
+type AccountPassword = string;
 
-class Action {
-}
+type Action = string;
 
 class Application {
   public string $display_name;
@@ -79,72 +82,141 @@ class Application {
   public string $launch_path;
   public Metadata $metadata;
   public string $name;
+
+  public function __construct(shape(
+  ?'display_name' => string,
+  ?'enabled' => boolean,
+  ?'icon_url' => string,
+  ?'launch_parameters' => string,
+  ?'launch_path' => string,
+  ?'metadata' => Metadata,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->display_name = $display_name ?? "";
+    $this->enabled = $enabled ?? ;
+    $this->icon_url = $icon_url ?? ;
+    $this->launch_parameters = $launch_parameters ?? ;
+    $this->launch_path = $launch_path ?? ;
+    $this->metadata = $metadata ?? [];
+    $this->name = $name ?? "";
+  }
 }
 
 class ApplicationSettings {
   public boolean $enabled;
   public SettingsGroup $settings_group;
+
+  public function __construct(shape(
+  ?'enabled' => boolean,
+  ?'settings_group' => SettingsGroup,
+  ) $s = shape()) {
+    $this->enabled = $enabled ?? ;
+    $this->settings_group = $settings_group ?? "";
+  }
 }
 
 class ApplicationSettingsResponse {
   public boolean $enabled;
   public string $s_3_bucket_name;
   public SettingsGroup $settings_group;
+
+  public function __construct(shape(
+  ?'enabled' => boolean,
+  ?'s_3_bucket_name' => string,
+  ?'settings_group' => SettingsGroup,
+  ) $s = shape()) {
+    $this->enabled = $enabled ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->settings_group = $settings_group ?? "";
+  }
 }
 
-class Applications {
-}
+type Applications = vec<Application>;
 
-class AppstreamAgentVersion {
-}
+type AppstreamAgentVersion = string;
 
-class Arn {
-}
+type Arn = string;
 
-class ArnList {
-}
+type ArnList = vec<Arn>;
 
 class AssociateFleetRequest {
   public string $fleet_name;
   public string $stack_name;
+
+  public function __construct(shape(
+  ?'fleet_name' => string,
+  ?'stack_name' => string,
+  ) $s = shape()) {
+    $this->fleet_name = $fleet_name ?? ;
+    $this->stack_name = $stack_name ?? ;
+  }
 }
 
 class AssociateFleetResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class AuthenticationType {
-}
+type AuthenticationType = string;
 
-class AwsAccountId {
-}
+type AwsAccountId = string;
 
-class AwsAccountIdList {
-}
+type AwsAccountIdList = vec<AwsAccountId>;
 
 class BatchAssociateUserStackRequest {
   public UserStackAssociationList $user_stack_associations;
+
+  public function __construct(shape(
+  ?'user_stack_associations' => UserStackAssociationList,
+  ) $s = shape()) {
+    $this->user_stack_associations = $user_stack_associations ?? ;
+  }
 }
 
 class BatchAssociateUserStackResult {
   public UserStackAssociationErrorList $errors;
+
+  public function __construct(shape(
+  ?'errors' => UserStackAssociationErrorList,
+  ) $s = shape()) {
+    $this->errors = $errors ?? ;
+  }
 }
 
 class BatchDisassociateUserStackRequest {
   public UserStackAssociationList $user_stack_associations;
+
+  public function __construct(shape(
+  ?'user_stack_associations' => UserStackAssociationList,
+  ) $s = shape()) {
+    $this->user_stack_associations = $user_stack_associations ?? ;
+  }
 }
 
 class BatchDisassociateUserStackResult {
   public UserStackAssociationErrorList $errors;
+
+  public function __construct(shape(
+  ?'errors' => UserStackAssociationErrorList,
+  ) $s = shape()) {
+    $this->errors = $errors ?? ;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
-class BooleanObject {
-}
+type BooleanObject = bool;
 
 class ComputeCapacity {
   public int $desired_instances;
+
+  public function __construct(shape(
+  ?'desired_instances' => int,
+  ) $s = shape()) {
+    $this->desired_instances = $desired_instances ?? ;
+  }
 }
 
 class ComputeCapacityStatus {
@@ -152,10 +224,28 @@ class ComputeCapacityStatus {
   public int $desired;
   public int $in_use;
   public int $running;
+
+  public function __construct(shape(
+  ?'available' => int,
+  ?'desired' => int,
+  ?'in_use' => int,
+  ?'running' => int,
+  ) $s = shape()) {
+    $this->available = $available ?? ;
+    $this->desired = $desired ?? ;
+    $this->in_use = $in_use ?? ;
+    $this->running = $running ?? ;
+  }
 }
 
 class ConcurrentModificationException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class CopyImageRequest {
@@ -163,20 +253,54 @@ class CopyImageRequest {
   public Name $destination_image_name;
   public RegionName $destination_region;
   public Name $source_image_name;
+
+  public function __construct(shape(
+  ?'destination_image_description' => Description,
+  ?'destination_image_name' => Name,
+  ?'destination_region' => RegionName,
+  ?'source_image_name' => Name,
+  ) $s = shape()) {
+    $this->destination_image_description = $destination_image_description ?? ;
+    $this->destination_image_name = $destination_image_name ?? ;
+    $this->destination_region = $destination_region ?? ;
+    $this->source_image_name = $source_image_name ?? ;
+  }
 }
 
 class CopyImageResponse {
   public Name $destination_image_name;
+
+  public function __construct(shape(
+  ?'destination_image_name' => Name,
+  ) $s = shape()) {
+    $this->destination_image_name = $destination_image_name ?? ;
+  }
 }
 
 class CreateDirectoryConfigRequest {
   public DirectoryName $directory_name;
   public OrganizationalUnitDistinguishedNamesList $organizational_unit_distinguished_names;
   public ServiceAccountCredentials $service_account_credentials;
+
+  public function __construct(shape(
+  ?'directory_name' => DirectoryName,
+  ?'organizational_unit_distinguished_names' => OrganizationalUnitDistinguishedNamesList,
+  ?'service_account_credentials' => ServiceAccountCredentials,
+  ) $s = shape()) {
+    $this->directory_name = $directory_name ?? "";
+    $this->organizational_unit_distinguished_names = $organizational_unit_distinguished_names ?? ;
+    $this->service_account_credentials = $service_account_credentials ?? null;
+  }
 }
 
 class CreateDirectoryConfigResult {
   public DirectoryConfig $directory_config;
+
+  public function __construct(shape(
+  ?'directory_config' => DirectoryConfig,
+  ) $s = shape()) {
+    $this->directory_config = $directory_config ?? null;
+  }
 }
 
 class CreateFleetRequest {
@@ -196,10 +320,52 @@ class CreateFleetRequest {
   public Name $name;
   public Tags $tags;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'compute_capacity' => ComputeCapacity,
+  ?'description' => Description,
+  ?'disconnect_timeout_in_seconds' => int,
+  ?'display_name' => DisplayName,
+  ?'domain_join_info' => DomainJoinInfo,
+  ?'enable_default_internet_access' => BooleanObject,
+  ?'fleet_type' => FleetType,
+  ?'iam_role_arn' => Arn,
+  ?'idle_disconnect_timeout_in_seconds' => int,
+  ?'image_arn' => Arn,
+  ?'image_name' => string,
+  ?'instance_type' => string,
+  ?'max_user_duration_in_seconds' => int,
+  ?'name' => Name,
+  ?'tags' => Tags,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->compute_capacity = $compute_capacity ?? null;
+    $this->description = $description ?? "";
+    $this->disconnect_timeout_in_seconds = $disconnect_timeout_in_seconds ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->domain_join_info = $domain_join_info ?? null;
+    $this->enable_default_internet_access = $enable_default_internet_access ?? ;
+    $this->fleet_type = $fleet_type ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->idle_disconnect_timeout_in_seconds = $idle_disconnect_timeout_in_seconds ?? ;
+    $this->image_arn = $image_arn ?? ;
+    $this->image_name = $image_name ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->max_user_duration_in_seconds = $max_user_duration_in_seconds ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
 class CreateFleetResult {
   public Fleet $fleet;
+
+  public function __construct(shape(
+  ?'fleet' => Fleet,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? null;
+  }
 }
 
 class CreateImageBuilderRequest {
@@ -216,20 +382,72 @@ class CreateImageBuilderRequest {
   public Name $name;
   public Tags $tags;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'access_endpoints' => AccessEndpointList,
+  ?'appstream_agent_version' => AppstreamAgentVersion,
+  ?'description' => Description,
+  ?'display_name' => DisplayName,
+  ?'domain_join_info' => DomainJoinInfo,
+  ?'enable_default_internet_access' => BooleanObject,
+  ?'iam_role_arn' => Arn,
+  ?'image_arn' => Arn,
+  ?'image_name' => string,
+  ?'instance_type' => string,
+  ?'name' => Name,
+  ?'tags' => Tags,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->access_endpoints = $access_endpoints ?? ;
+    $this->appstream_agent_version = $appstream_agent_version ?? "";
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->domain_join_info = $domain_join_info ?? null;
+    $this->enable_default_internet_access = $enable_default_internet_access ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->image_arn = $image_arn ?? ;
+    $this->image_name = $image_name ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->name = $name ?? "";
+    $this->tags = $tags ?? [];
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
 class CreateImageBuilderResult {
   public ImageBuilder $image_builder;
+
+  public function __construct(shape(
+  ?'image_builder' => ImageBuilder,
+  ) $s = shape()) {
+    $this->image_builder = $image_builder ?? null;
+  }
 }
 
 class CreateImageBuilderStreamingURLRequest {
   public string $name;
   public Long $validity;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ?'validity' => Long,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->validity = $validity ?? ;
+  }
 }
 
 class CreateImageBuilderStreamingURLResult {
   public Timestamp $expires;
   public string $streaming_url;
+
+  public function __construct(shape(
+  ?'expires' => Timestamp,
+  ?'streaming_url' => string,
+  ) $s = shape()) {
+    $this->expires = $expires ?? ;
+    $this->streaming_url = $streaming_url ?? ;
+  }
 }
 
 class CreateStackRequest {
@@ -244,10 +462,42 @@ class CreateStackRequest {
   public StorageConnectorList $storage_connectors;
   public Tags $tags;
   public UserSettingList $user_settings;
+
+  public function __construct(shape(
+  ?'access_endpoints' => AccessEndpointList,
+  ?'application_settings' => ApplicationSettings,
+  ?'description' => Description,
+  ?'display_name' => DisplayName,
+  ?'embed_host_domains' => EmbedHostDomains,
+  ?'feedback_url' => FeedbackURL,
+  ?'name' => Name,
+  ?'redirect_url' => RedirectURL,
+  ?'storage_connectors' => StorageConnectorList,
+  ?'tags' => Tags,
+  ?'user_settings' => UserSettingList,
+  ) $s = shape()) {
+    $this->access_endpoints = $access_endpoints ?? ;
+    $this->application_settings = $application_settings ?? null;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->embed_host_domains = $embed_host_domains ?? [];
+    $this->feedback_url = $feedback_url ?? "";
+    $this->name = $name ?? "";
+    $this->redirect_url = $redirect_url ?? "";
+    $this->storage_connectors = $storage_connectors ?? ;
+    $this->tags = $tags ?? [];
+    $this->user_settings = $user_settings ?? ;
+  }
 }
 
 class CreateStackResult {
   public Stack $stack;
+
+  public function __construct(shape(
+  ?'stack' => Stack,
+  ) $s = shape()) {
+    $this->stack = $stack ?? null;
+  }
 }
 
 class CreateStreamingURLRequest {
@@ -257,19 +507,55 @@ class CreateStreamingURLRequest {
   public string $stack_name;
   public StreamingUrlUserId $user_id;
   public Long $validity;
+
+  public function __construct(shape(
+  ?'application_id' => string,
+  ?'fleet_name' => string,
+  ?'session_context' => string,
+  ?'stack_name' => string,
+  ?'user_id' => StreamingUrlUserId,
+  ?'validity' => Long,
+  ) $s = shape()) {
+    $this->application_id = $application_id ?? ;
+    $this->fleet_name = $fleet_name ?? ;
+    $this->session_context = $session_context ?? ;
+    $this->stack_name = $stack_name ?? ;
+    $this->user_id = $user_id ?? "";
+    $this->validity = $validity ?? ;
+  }
 }
 
 class CreateStreamingURLResult {
   public Timestamp $expires;
   public string $streaming_url;
+
+  public function __construct(shape(
+  ?'expires' => Timestamp,
+  ?'streaming_url' => string,
+  ) $s = shape()) {
+    $this->expires = $expires ?? ;
+    $this->streaming_url = $streaming_url ?? ;
+  }
 }
 
 class CreateUsageReportSubscriptionRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateUsageReportSubscriptionResult {
   public string $s_3_bucket_name;
   public UsageReportSchedule $schedule;
+
+  public function __construct(shape(
+  ?'s_3_bucket_name' => string,
+  ?'schedule' => UsageReportSchedule,
+  ) $s = shape()) {
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->schedule = $schedule ?? ;
+  }
 }
 
 class CreateUserRequest {
@@ -278,100 +564,256 @@ class CreateUserRequest {
   public UserAttributeValue $last_name;
   public MessageAction $message_action;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'first_name' => UserAttributeValue,
+  ?'last_name' => UserAttributeValue,
+  ?'message_action' => MessageAction,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->first_name = $first_name ?? ;
+    $this->last_name = $last_name ?? ;
+    $this->message_action = $message_action ?? "";
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class CreateUserResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteDirectoryConfigRequest {
   public DirectoryName $directory_name;
+
+  public function __construct(shape(
+  ?'directory_name' => DirectoryName,
+  ) $s = shape()) {
+    $this->directory_name = $directory_name ?? "";
+  }
 }
 
 class DeleteDirectoryConfigResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteFleetRequest {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class DeleteFleetResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteImageBuilderRequest {
   public Name $name;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class DeleteImageBuilderResult {
   public ImageBuilder $image_builder;
+
+  public function __construct(shape(
+  ?'image_builder' => ImageBuilder,
+  ) $s = shape()) {
+    $this->image_builder = $image_builder ?? null;
+  }
 }
 
 class DeleteImagePermissionsRequest {
   public Name $name;
   public AwsAccountId $shared_account_id;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'shared_account_id' => AwsAccountId,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->shared_account_id = $shared_account_id ?? ;
+  }
 }
 
 class DeleteImagePermissionsResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteImageRequest {
   public Name $name;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class DeleteImageResult {
   public Image $image;
+
+  public function __construct(shape(
+  ?'image' => Image,
+  ) $s = shape()) {
+    $this->image = $image ?? null;
+  }
 }
 
 class DeleteStackRequest {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class DeleteStackResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteUsageReportSubscriptionRequest {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteUsageReportSubscriptionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteUserRequest {
   public AuthenticationType $authentication_type;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class DeleteUserResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeDirectoryConfigsRequest {
   public DirectoryNameList $directory_names;
   public int $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'directory_names' => DirectoryNameList,
+  ?'max_results' => int,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->directory_names = $directory_names ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeDirectoryConfigsResult {
   public DirectoryConfigList $directory_configs;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'directory_configs' => DirectoryConfigList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->directory_configs = $directory_configs ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeFleetsRequest {
   public StringList $names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeFleetsResult {
   public FleetList $fleets;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'fleets' => FleetList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->fleets = $fleets ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeImageBuildersRequest {
   public int $max_results;
   public StringList $names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => int,
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeImageBuildersResult {
   public ImageBuilderList $image_builders;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'image_builders' => ImageBuilderList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->image_builders = $image_builders ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeImagePermissionsRequest {
@@ -379,16 +821,37 @@ class DescribeImagePermissionsRequest {
   public Name $name;
   public string $next_token;
   public AwsAccountIdList $shared_aws_account_ids;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'name' => Name,
+  ?'next_token' => string,
+  ?'shared_aws_account_ids' => AwsAccountIdList,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? ;
+    $this->shared_aws_account_ids = $shared_aws_account_ids ?? ;
+  }
 }
 
 class DescribeImagePermissionsResult {
   public Name $name;
   public string $next_token;
   public SharedImagePermissionsList $shared_image_permissions_list;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'next_token' => string,
+  ?'shared_image_permissions_list' => SharedImagePermissionsList,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->next_token = $next_token ?? ;
+    $this->shared_image_permissions_list = $shared_image_permissions_list ?? [];
+  }
 }
 
-class DescribeImagesMaxResults {
-}
+type DescribeImagesMaxResults = int;
 
 class DescribeImagesRequest {
   public ArnList $arns;
@@ -396,11 +859,33 @@ class DescribeImagesRequest {
   public StringList $names;
   public string $next_token;
   public VisibilityType $type;
+
+  public function __construct(shape(
+  ?'arns' => ArnList,
+  ?'max_results' => DescribeImagesMaxResults,
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ?'type' => VisibilityType,
+  ) $s = shape()) {
+    $this->arns = $arns ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
 class DescribeImagesResult {
   public ImageList $images;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'images' => ImageList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->images = $images ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeSessionsRequest {
@@ -410,31 +895,87 @@ class DescribeSessionsRequest {
   public string $next_token;
   public string $stack_name;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'fleet_name' => string,
+  ?'limit' => int,
+  ?'next_token' => string,
+  ?'stack_name' => string,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->fleet_name = $fleet_name ?? ;
+    $this->limit = $limit ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->stack_name = $stack_name ?? ;
+    $this->user_id = $user_id ?? "";
+  }
 }
 
 class DescribeSessionsResult {
   public string $next_token;
   public SessionList $sessions;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'sessions' => SessionList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->sessions = $sessions ?? ;
+  }
 }
 
 class DescribeStacksRequest {
   public StringList $names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeStacksResult {
   public string $next_token;
   public StackList $stacks;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'stacks' => StackList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->stacks = $stacks ?? ;
+  }
 }
 
 class DescribeUsageReportSubscriptionsRequest {
   public int $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'max_results' => int,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeUsageReportSubscriptionsResult {
   public string $next_token;
   public UsageReportSubscriptionList $usage_report_subscriptions;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'usage_report_subscriptions' => UsageReportSubscriptionList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->usage_report_subscriptions = $usage_report_subscriptions ?? ;
+  }
 }
 
 class DescribeUserStackAssociationsRequest {
@@ -443,99 +984,194 @@ class DescribeUserStackAssociationsRequest {
   public string $next_token;
   public string $stack_name;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'max_results' => MaxResults,
+  ?'next_token' => string,
+  ?'stack_name' => string,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->stack_name = $stack_name ?? ;
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class DescribeUserStackAssociationsResult {
   public string $next_token;
   public UserStackAssociationList $user_stack_associations;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'user_stack_associations' => UserStackAssociationList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->user_stack_associations = $user_stack_associations ?? ;
+  }
 }
 
 class DescribeUsersRequest {
   public AuthenticationType $authentication_type;
   public int $max_results;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'max_results' => int,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeUsersResult {
   public string $next_token;
   public UserList $users;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'users' => UserList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->users = $users ?? ;
+  }
 }
 
-class Description {
-}
+type Description = string;
 
 class DirectoryConfig {
   public Timestamp $created_time;
   public DirectoryName $directory_name;
   public OrganizationalUnitDistinguishedNamesList $organizational_unit_distinguished_names;
   public ServiceAccountCredentials $service_account_credentials;
+
+  public function __construct(shape(
+  ?'created_time' => Timestamp,
+  ?'directory_name' => DirectoryName,
+  ?'organizational_unit_distinguished_names' => OrganizationalUnitDistinguishedNamesList,
+  ?'service_account_credentials' => ServiceAccountCredentials,
+  ) $s = shape()) {
+    $this->created_time = $created_time ?? ;
+    $this->directory_name = $directory_name ?? "";
+    $this->organizational_unit_distinguished_names = $organizational_unit_distinguished_names ?? ;
+    $this->service_account_credentials = $service_account_credentials ?? null;
+  }
 }
 
-class DirectoryConfigList {
-}
+type DirectoryConfigList = vec<DirectoryConfig>;
 
-class DirectoryName {
-}
+type DirectoryName = string;
 
-class DirectoryNameList {
-}
+type DirectoryNameList = vec<DirectoryName>;
 
 class DisableUserRequest {
   public AuthenticationType $authentication_type;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class DisableUserResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DisassociateFleetRequest {
   public string $fleet_name;
   public string $stack_name;
+
+  public function __construct(shape(
+  ?'fleet_name' => string,
+  ?'stack_name' => string,
+  ) $s = shape()) {
+    $this->fleet_name = $fleet_name ?? ;
+    $this->stack_name = $stack_name ?? ;
+  }
 }
 
 class DisassociateFleetResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class DisplayName {
-}
+type DisplayName = string;
 
-class Domain {
-}
+type Domain = string;
 
 class DomainJoinInfo {
   public DirectoryName $directory_name;
   public OrganizationalUnitDistinguishedName $organizational_unit_distinguished_name;
+
+  public function __construct(shape(
+  ?'directory_name' => DirectoryName,
+  ?'organizational_unit_distinguished_name' => OrganizationalUnitDistinguishedName,
+  ) $s = shape()) {
+    $this->directory_name = $directory_name ?? "";
+    $this->organizational_unit_distinguished_name = $organizational_unit_distinguished_name ?? "";
+  }
 }
 
-class DomainList {
-}
+type DomainList = vec<Domain>;
 
-class EmbedHostDomain {
-}
+type EmbedHostDomain = string;
 
-class EmbedHostDomains {
-}
+type EmbedHostDomains = vec<EmbedHostDomain>;
 
 class EnableUserRequest {
   public AuthenticationType $authentication_type;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class EnableUserResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class ExpireSessionRequest {
   public string $session_id;
+
+  public function __construct(shape(
+  ?'session_id' => string,
+  ) $s = shape()) {
+    $this->session_id = $session_id ?? ;
+  }
 }
 
 class ExpireSessionResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class FeedbackURL {
-}
+type FeedbackURL = string;
 
 class Fleet {
   public Arn $arn;
@@ -557,33 +1193,76 @@ class Fleet {
   public string $name;
   public FleetState $state;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'compute_capacity_status' => ComputeCapacityStatus,
+  ?'created_time' => Timestamp,
+  ?'description' => string,
+  ?'disconnect_timeout_in_seconds' => int,
+  ?'display_name' => string,
+  ?'domain_join_info' => DomainJoinInfo,
+  ?'enable_default_internet_access' => BooleanObject,
+  ?'fleet_errors' => FleetErrors,
+  ?'fleet_type' => FleetType,
+  ?'iam_role_arn' => Arn,
+  ?'idle_disconnect_timeout_in_seconds' => int,
+  ?'image_arn' => Arn,
+  ?'image_name' => string,
+  ?'instance_type' => string,
+  ?'max_user_duration_in_seconds' => int,
+  ?'name' => string,
+  ?'state' => FleetState,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->compute_capacity_status = $compute_capacity_status ?? null;
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->disconnect_timeout_in_seconds = $disconnect_timeout_in_seconds ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->domain_join_info = $domain_join_info ?? null;
+    $this->enable_default_internet_access = $enable_default_internet_access ?? ;
+    $this->fleet_errors = $fleet_errors ?? [];
+    $this->fleet_type = $fleet_type ?? "";
+    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->idle_disconnect_timeout_in_seconds = $idle_disconnect_timeout_in_seconds ?? ;
+    $this->image_arn = $image_arn ?? ;
+    $this->image_name = $image_name ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->max_user_duration_in_seconds = $max_user_duration_in_seconds ?? ;
+    $this->name = $name ?? "";
+    $this->state = $state ?? ;
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
-class FleetAttribute {
-}
+type FleetAttribute = string;
 
-class FleetAttributes {
-}
+type FleetAttributes = vec<FleetAttribute>;
 
 class FleetError {
   public FleetErrorCode $error_code;
   public string $error_message;
+
+  public function __construct(shape(
+  ?'error_code' => FleetErrorCode,
+  ?'error_message' => string,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? "";
+  }
 }
 
-class FleetErrorCode {
-}
+type FleetErrorCode = string;
 
-class FleetErrors {
-}
+type FleetErrors = vec<FleetError>;
 
-class FleetList {
-}
+type FleetList = vec<Fleet>;
 
-class FleetState {
-}
+type FleetState = string;
 
-class FleetType {
-}
+type FleetType = string;
 
 class Image {
   public Applications $applications;
@@ -602,6 +1281,42 @@ class Image {
   public ImageState $state;
   public ImageStateChangeReason $state_change_reason;
   public VisibilityType $visibility;
+
+  public function __construct(shape(
+  ?'applications' => Applications,
+  ?'appstream_agent_version' => AppstreamAgentVersion,
+  ?'arn' => Arn,
+  ?'base_image_arn' => Arn,
+  ?'created_time' => Timestamp,
+  ?'description' => string,
+  ?'display_name' => string,
+  ?'image_builder_name' => string,
+  ?'image_builder_supported' => boolean,
+  ?'image_permissions' => ImagePermissions,
+  ?'name' => string,
+  ?'platform' => PlatformType,
+  ?'public_base_image_released_date' => Timestamp,
+  ?'state' => ImageState,
+  ?'state_change_reason' => ImageStateChangeReason,
+  ?'visibility' => VisibilityType,
+  ) $s = shape()) {
+    $this->applications = $applications ?? [];
+    $this->appstream_agent_version = $appstream_agent_version ?? "";
+    $this->arn = $arn ?? "";
+    $this->base_image_arn = $base_image_arn ?? ;
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->image_builder_name = $image_builder_name ?? ;
+    $this->image_builder_supported = $image_builder_supported ?? ;
+    $this->image_permissions = $image_permissions ?? null;
+    $this->name = $name ?? "";
+    $this->platform = $platform ?? ;
+    $this->public_base_image_released_date = $public_base_image_released_date ?? ;
+    $this->state = $state ?? ;
+    $this->state_change_reason = $state_change_reason ?? ;
+    $this->visibility = $visibility ?? ;
+  }
 }
 
 class ImageBuilder {
@@ -623,176 +1338,356 @@ class ImageBuilder {
   public ImageBuilderState $state;
   public ImageBuilderStateChangeReason $state_change_reason;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'access_endpoints' => AccessEndpointList,
+  ?'appstream_agent_version' => AppstreamAgentVersion,
+  ?'arn' => Arn,
+  ?'created_time' => Timestamp,
+  ?'description' => string,
+  ?'display_name' => string,
+  ?'domain_join_info' => DomainJoinInfo,
+  ?'enable_default_internet_access' => BooleanObject,
+  ?'iam_role_arn' => Arn,
+  ?'image_arn' => Arn,
+  ?'image_builder_errors' => ResourceErrors,
+  ?'instance_type' => string,
+  ?'name' => string,
+  ?'network_access_configuration' => NetworkAccessConfiguration,
+  ?'platform' => PlatformType,
+  ?'state' => ImageBuilderState,
+  ?'state_change_reason' => ImageBuilderStateChangeReason,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->access_endpoints = $access_endpoints ?? ;
+    $this->appstream_agent_version = $appstream_agent_version ?? "";
+    $this->arn = $arn ?? "";
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->domain_join_info = $domain_join_info ?? null;
+    $this->enable_default_internet_access = $enable_default_internet_access ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->image_arn = $image_arn ?? ;
+    $this->image_builder_errors = $image_builder_errors ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->name = $name ?? "";
+    $this->network_access_configuration = $network_access_configuration ?? null;
+    $this->platform = $platform ?? ;
+    $this->state = $state ?? ;
+    $this->state_change_reason = $state_change_reason ?? ;
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
-class ImageBuilderList {
-}
+type ImageBuilderList = vec<ImageBuilder>;
 
-class ImageBuilderState {
-}
+type ImageBuilderState = string;
 
 class ImageBuilderStateChangeReason {
   public ImageBuilderStateChangeReasonCode $code;
   public string $message;
+
+  public function __construct(shape(
+  ?'code' => ImageBuilderStateChangeReasonCode,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class ImageBuilderStateChangeReasonCode {
-}
+type ImageBuilderStateChangeReasonCode = string;
 
-class ImageList {
-}
+type ImageList = vec<Image>;
 
 class ImagePermissions {
   public BooleanObject $allow_fleet;
   public BooleanObject $allow_image_builder;
+
+  public function __construct(shape(
+  ?'allow_fleet' => BooleanObject,
+  ?'allow_image_builder' => BooleanObject,
+  ) $s = shape()) {
+    $this->allow_fleet = $allow_fleet ?? ;
+    $this->allow_image_builder = $allow_image_builder ?? ;
+  }
 }
 
-class ImageState {
-}
+type ImageState = string;
 
 class ImageStateChangeReason {
   public ImageStateChangeReasonCode $code;
   public string $message;
+
+  public function __construct(shape(
+  ?'code' => ImageStateChangeReasonCode,
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->code = $code ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class ImageStateChangeReasonCode {
-}
+type ImageStateChangeReasonCode = string;
 
 class IncompatibleImageException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Integer {
-}
+type Integer = int;
 
 class InvalidAccountStatusException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterCombinationException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRoleException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LastReportGenerationExecutionError {
   public UsageReportExecutionErrorCode $error_code;
   public string $error_message;
+
+  public function __construct(shape(
+  ?'error_code' => UsageReportExecutionErrorCode,
+  ?'error_message' => string,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? "";
+  }
 }
 
-class LastReportGenerationExecutionErrors {
-}
+type LastReportGenerationExecutionErrors = vec<LastReportGenerationExecutionError>;
 
 class LimitExceededException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ListAssociatedFleetsRequest {
   public string $next_token;
   public string $stack_name;
+
+  public function __construct(shape(
+  ?'next_token' => string,
+  ?'stack_name' => string,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->stack_name = $stack_name ?? ;
+  }
 }
 
 class ListAssociatedFleetsResult {
   public StringList $names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListAssociatedStacksRequest {
   public string $fleet_name;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'fleet_name' => string,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->fleet_name = $fleet_name ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListAssociatedStacksResult {
   public StringList $names;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'names' => StringList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->names = $names ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class ListTagsForResourceRequest {
   public Arn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->tags = $tags ?? [];
+  }
 }
 
-class Long {
-}
+type Long = int;
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class MessageAction {
-}
+type MessageAction = string;
 
-class Metadata {
-}
+type Metadata = dict<String, String>;
 
-class Name {
-}
+type Name = string;
 
 class NetworkAccessConfiguration {
   public string $eni_id;
   public string $eni_private_ip_address;
+
+  public function __construct(shape(
+  ?'eni_id' => string,
+  ?'eni_private_ip_address' => string,
+  ) $s = shape()) {
+    $this->eni_id = $eni_id ?? ;
+    $this->eni_private_ip_address = $eni_private_ip_address ?? ;
+  }
 }
 
 class OperationNotPermittedException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class OrganizationalUnitDistinguishedName {
-}
+type OrganizationalUnitDistinguishedName = string;
 
-class OrganizationalUnitDistinguishedNamesList {
-}
+type OrganizationalUnitDistinguishedNamesList = vec<OrganizationalUnitDistinguishedName>;
 
-class Permission {
-}
+type Permission = string;
 
-class PlatformType {
-}
+type PlatformType = string;
 
-class RedirectURL {
-}
+type RedirectURL = string;
 
-class RegionName {
-}
+type RegionName = string;
 
 class ResourceAlreadyExistsException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceError {
   public FleetErrorCode $error_code;
   public string $error_message;
   public Timestamp $error_timestamp;
+
+  public function __construct(shape(
+  ?'error_code' => FleetErrorCode,
+  ?'error_message' => string,
+  ?'error_timestamp' => Timestamp,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->error_timestamp = $error_timestamp ?? ;
+  }
 }
 
-class ResourceErrors {
-}
+type ResourceErrors = vec<ResourceError>;
 
-class ResourceIdentifier {
-}
+type ResourceIdentifier = string;
 
 class ResourceInUseException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotAvailableException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class SecurityGroupIdList {
-}
+type SecurityGroupIdList = vec<String>;
 
 class ServiceAccountCredentials {
   public AccountName $account_name;
   public AccountPassword $account_password;
+
+  public function __construct(shape(
+  ?'account_name' => AccountName,
+  ?'account_password' => AccountPassword,
+  ) $s = shape()) {
+    $this->account_name = $account_name ?? "";
+    $this->account_password = $account_password ?? "";
+  }
 }
 
 class Session {
@@ -806,27 +1701,54 @@ class Session {
   public Timestamp $start_time;
   public SessionState $state;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'connection_state' => SessionConnectionState,
+  ?'fleet_name' => string,
+  ?'id' => string,
+  ?'max_expiration_time' => Timestamp,
+  ?'network_access_configuration' => NetworkAccessConfiguration,
+  ?'stack_name' => string,
+  ?'start_time' => Timestamp,
+  ?'state' => SessionState,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->connection_state = $connection_state ?? ;
+    $this->fleet_name = $fleet_name ?? ;
+    $this->id = $id ?? ;
+    $this->max_expiration_time = $max_expiration_time ?? ;
+    $this->network_access_configuration = $network_access_configuration ?? null;
+    $this->stack_name = $stack_name ?? ;
+    $this->start_time = $start_time ?? ;
+    $this->state = $state ?? ;
+    $this->user_id = $user_id ?? "";
+  }
 }
 
-class SessionConnectionState {
-}
+type SessionConnectionState = string;
 
-class SessionList {
-}
+type SessionList = vec<Session>;
 
-class SessionState {
-}
+type SessionState = string;
 
-class SettingsGroup {
-}
+type SettingsGroup = string;
 
 class SharedImagePermissions {
   public ImagePermissions $image_permissions;
   public AwsAccountId $shared_account_id;
+
+  public function __construct(shape(
+  ?'image_permissions' => ImagePermissions,
+  ?'shared_account_id' => AwsAccountId,
+  ) $s = shape()) {
+    $this->image_permissions = $image_permissions ?? ;
+    $this->shared_account_id = $shared_account_id ?? ;
+  }
 }
 
-class SharedImagePermissionsList {
-}
+type SharedImagePermissionsList = vec<SharedImagePermissions>;
 
 class Stack {
   public AccessEndpointList $access_endpoints;
@@ -842,122 +1764,240 @@ class Stack {
   public StackErrors $stack_errors;
   public StorageConnectorList $storage_connectors;
   public UserSettingList $user_settings;
+
+  public function __construct(shape(
+  ?'access_endpoints' => AccessEndpointList,
+  ?'application_settings' => ApplicationSettingsResponse,
+  ?'arn' => Arn,
+  ?'created_time' => Timestamp,
+  ?'description' => string,
+  ?'display_name' => string,
+  ?'embed_host_domains' => EmbedHostDomains,
+  ?'feedback_url' => FeedbackURL,
+  ?'name' => string,
+  ?'redirect_url' => RedirectURL,
+  ?'stack_errors' => StackErrors,
+  ?'storage_connectors' => StorageConnectorList,
+  ?'user_settings' => UserSettingList,
+  ) $s = shape()) {
+    $this->access_endpoints = $access_endpoints ?? ;
+    $this->application_settings = $application_settings ?? null;
+    $this->arn = $arn ?? "";
+    $this->created_time = $created_time ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->embed_host_domains = $embed_host_domains ?? [];
+    $this->feedback_url = $feedback_url ?? "";
+    $this->name = $name ?? "";
+    $this->redirect_url = $redirect_url ?? "";
+    $this->stack_errors = $stack_errors ?? [];
+    $this->storage_connectors = $storage_connectors ?? ;
+    $this->user_settings = $user_settings ?? ;
+  }
 }
 
-class StackAttribute {
-}
+type StackAttribute = string;
 
-class StackAttributes {
-}
+type StackAttributes = vec<StackAttribute>;
 
 class StackError {
   public StackErrorCode $error_code;
   public string $error_message;
+
+  public function __construct(shape(
+  ?'error_code' => StackErrorCode,
+  ?'error_message' => string,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? "";
+  }
 }
 
-class StackErrorCode {
-}
+type StackErrorCode = string;
 
-class StackErrors {
-}
+type StackErrors = vec<StackError>;
 
-class StackList {
-}
+type StackList = vec<Stack>;
 
 class StartFleetRequest {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class StartFleetResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StartImageBuilderRequest {
   public AppstreamAgentVersion $appstream_agent_version;
   public string $name;
+
+  public function __construct(shape(
+  ?'appstream_agent_version' => AppstreamAgentVersion,
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->appstream_agent_version = $appstream_agent_version ?? "";
+    $this->name = $name ?? "";
+  }
 }
 
 class StartImageBuilderResult {
   public ImageBuilder $image_builder;
+
+  public function __construct(shape(
+  ?'image_builder' => ImageBuilder,
+  ) $s = shape()) {
+    $this->image_builder = $image_builder ?? null;
+  }
 }
 
 class StopFleetRequest {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class StopFleetResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class StopImageBuilderRequest {
   public string $name;
+
+  public function __construct(shape(
+  ?'name' => string,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+  }
 }
 
 class StopImageBuilderResult {
   public ImageBuilder $image_builder;
+
+  public function __construct(shape(
+  ?'image_builder' => ImageBuilder,
+  ) $s = shape()) {
+    $this->image_builder = $image_builder ?? null;
+  }
 }
 
 class StorageConnector {
   public StorageConnectorType $connector_type;
   public DomainList $domains;
   public ResourceIdentifier $resource_identifier;
+
+  public function __construct(shape(
+  ?'connector_type' => StorageConnectorType,
+  ?'domains' => DomainList,
+  ?'resource_identifier' => ResourceIdentifier,
+  ) $s = shape()) {
+    $this->connector_type = $connector_type ?? ;
+    $this->domains = $domains ?? ;
+    $this->resource_identifier = $resource_identifier ?? "";
+  }
 }
 
-class StorageConnectorList {
-}
+type StorageConnectorList = vec<StorageConnector>;
 
-class StorageConnectorType {
-}
+type StorageConnectorType = string;
 
-class StreamingUrlUserId {
-}
+type StreamingUrlUserId = string;
 
-class String {
-}
+type String = string;
 
-class StringList {
-}
+type StringList = vec<String>;
 
-class SubnetIdList {
-}
+type SubnetIdList = vec<String>;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
 class TagResourceRequest {
   public Arn $resource_arn;
   public Tags $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tags' => Tags,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? [];
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class Tags {
-}
+type Tags = dict<TagKey, TagValue>;
 
-class Timestamp {
-}
+type Timestamp = int;
 
 class UntagResourceRequest {
   public Arn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateDirectoryConfigRequest {
   public DirectoryName $directory_name;
   public OrganizationalUnitDistinguishedNamesList $organizational_unit_distinguished_names;
   public ServiceAccountCredentials $service_account_credentials;
+
+  public function __construct(shape(
+  ?'directory_name' => DirectoryName,
+  ?'organizational_unit_distinguished_names' => OrganizationalUnitDistinguishedNamesList,
+  ?'service_account_credentials' => ServiceAccountCredentials,
+  ) $s = shape()) {
+    $this->directory_name = $directory_name ?? "";
+    $this->organizational_unit_distinguished_names = $organizational_unit_distinguished_names ?? ;
+    $this->service_account_credentials = $service_account_credentials ?? null;
+  }
 }
 
 class UpdateDirectoryConfigResult {
   public DirectoryConfig $directory_config;
+
+  public function __construct(shape(
+  ?'directory_config' => DirectoryConfig,
+  ) $s = shape()) {
+    $this->directory_config = $directory_config ?? null;
+  }
 }
 
 class UpdateFleetRequest {
@@ -977,19 +2017,75 @@ class UpdateFleetRequest {
   public int $max_user_duration_in_seconds;
   public string $name;
   public VpcConfig $vpc_config;
+
+  public function __construct(shape(
+  ?'attributes_to_delete' => FleetAttributes,
+  ?'compute_capacity' => ComputeCapacity,
+  ?'delete_vpc_config' => boolean,
+  ?'description' => Description,
+  ?'disconnect_timeout_in_seconds' => int,
+  ?'display_name' => DisplayName,
+  ?'domain_join_info' => DomainJoinInfo,
+  ?'enable_default_internet_access' => BooleanObject,
+  ?'iam_role_arn' => Arn,
+  ?'idle_disconnect_timeout_in_seconds' => int,
+  ?'image_arn' => Arn,
+  ?'image_name' => string,
+  ?'instance_type' => string,
+  ?'max_user_duration_in_seconds' => int,
+  ?'name' => string,
+  ?'vpc_config' => VpcConfig,
+  ) $s = shape()) {
+    $this->attributes_to_delete = $attributes_to_delete ?? ;
+    $this->compute_capacity = $compute_capacity ?? null;
+    $this->delete_vpc_config = $delete_vpc_config ?? ;
+    $this->description = $description ?? "";
+    $this->disconnect_timeout_in_seconds = $disconnect_timeout_in_seconds ?? ;
+    $this->display_name = $display_name ?? "";
+    $this->domain_join_info = $domain_join_info ?? null;
+    $this->enable_default_internet_access = $enable_default_internet_access ?? ;
+    $this->iam_role_arn = $iam_role_arn ?? ;
+    $this->idle_disconnect_timeout_in_seconds = $idle_disconnect_timeout_in_seconds ?? ;
+    $this->image_arn = $image_arn ?? ;
+    $this->image_name = $image_name ?? ;
+    $this->instance_type = $instance_type ?? ;
+    $this->max_user_duration_in_seconds = $max_user_duration_in_seconds ?? ;
+    $this->name = $name ?? "";
+    $this->vpc_config = $vpc_config ?? null;
+  }
 }
 
 class UpdateFleetResult {
   public Fleet $fleet;
+
+  public function __construct(shape(
+  ?'fleet' => Fleet,
+  ) $s = shape()) {
+    $this->fleet = $fleet ?? null;
+  }
 }
 
 class UpdateImagePermissionsRequest {
   public ImagePermissions $image_permissions;
   public Name $name;
   public AwsAccountId $shared_account_id;
+
+  public function __construct(shape(
+  ?'image_permissions' => ImagePermissions,
+  ?'name' => Name,
+  ?'shared_account_id' => AwsAccountId,
+  ) $s = shape()) {
+    $this->image_permissions = $image_permissions ?? null;
+    $this->name = $name ?? "";
+    $this->shared_account_id = $shared_account_id ?? ;
+  }
 }
 
 class UpdateImagePermissionsResult {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateStackRequest {
@@ -1005,27 +2101,70 @@ class UpdateStackRequest {
   public RedirectURL $redirect_url;
   public StorageConnectorList $storage_connectors;
   public UserSettingList $user_settings;
+
+  public function __construct(shape(
+  ?'access_endpoints' => AccessEndpointList,
+  ?'application_settings' => ApplicationSettings,
+  ?'attributes_to_delete' => StackAttributes,
+  ?'delete_storage_connectors' => boolean,
+  ?'description' => Description,
+  ?'display_name' => DisplayName,
+  ?'embed_host_domains' => EmbedHostDomains,
+  ?'feedback_url' => FeedbackURL,
+  ?'name' => string,
+  ?'redirect_url' => RedirectURL,
+  ?'storage_connectors' => StorageConnectorList,
+  ?'user_settings' => UserSettingList,
+  ) $s = shape()) {
+    $this->access_endpoints = $access_endpoints ?? ;
+    $this->application_settings = $application_settings ?? null;
+    $this->attributes_to_delete = $attributes_to_delete ?? ;
+    $this->delete_storage_connectors = $delete_storage_connectors ?? ;
+    $this->description = $description ?? "";
+    $this->display_name = $display_name ?? "";
+    $this->embed_host_domains = $embed_host_domains ?? [];
+    $this->feedback_url = $feedback_url ?? "";
+    $this->name = $name ?? "";
+    $this->redirect_url = $redirect_url ?? "";
+    $this->storage_connectors = $storage_connectors ?? ;
+    $this->user_settings = $user_settings ?? ;
+  }
 }
 
 class UpdateStackResult {
   public Stack $stack;
+
+  public function __construct(shape(
+  ?'stack' => Stack,
+  ) $s = shape()) {
+    $this->stack = $stack ?? null;
+  }
 }
 
-class UsageReportExecutionErrorCode {
-}
+type UsageReportExecutionErrorCode = string;
 
-class UsageReportSchedule {
-}
+type UsageReportSchedule = string;
 
 class UsageReportSubscription {
   public Timestamp $last_generated_report_date;
   public string $s_3_bucket_name;
   public UsageReportSchedule $schedule;
   public LastReportGenerationExecutionErrors $subscription_errors;
+
+  public function __construct(shape(
+  ?'last_generated_report_date' => Timestamp,
+  ?'s_3_bucket_name' => string,
+  ?'schedule' => UsageReportSchedule,
+  ?'subscription_errors' => LastReportGenerationExecutionErrors,
+  ) $s = shape()) {
+    $this->last_generated_report_date = $last_generated_report_date ?? ;
+    $this->s_3_bucket_name = $s_3_bucket_name ?? ;
+    $this->schedule = $schedule ?? ;
+    $this->subscription_errors = $subscription_errors ?? ;
+  }
 }
 
-class UsageReportSubscriptionList {
-}
+type UsageReportSubscriptionList = vec<UsageReportSubscription>;
 
 class User {
   public Arn $arn;
@@ -1036,55 +2175,104 @@ class User {
   public UserAttributeValue $last_name;
   public string $status;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'authentication_type' => AuthenticationType,
+  ?'created_time' => Timestamp,
+  ?'enabled' => boolean,
+  ?'first_name' => UserAttributeValue,
+  ?'last_name' => UserAttributeValue,
+  ?'status' => string,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->authentication_type = $authentication_type ?? "";
+    $this->created_time = $created_time ?? ;
+    $this->enabled = $enabled ?? ;
+    $this->first_name = $first_name ?? ;
+    $this->last_name = $last_name ?? ;
+    $this->status = $status ?? ;
+    $this->user_name = $user_name ?? ;
+  }
 }
 
-class UserAttributeValue {
-}
+type UserAttributeValue = string;
 
-class UserId {
-}
+type UserId = string;
 
-class UserList {
-}
+type UserList = vec<User>;
 
 class UserSetting {
   public Action $action;
   public Permission $permission;
+
+  public function __construct(shape(
+  ?'action' => Action,
+  ?'permission' => Permission,
+  ) $s = shape()) {
+    $this->action = $action ?? "";
+    $this->permission = $permission ?? "";
+  }
 }
 
-class UserSettingList {
-}
+type UserSettingList = vec<UserSetting>;
 
 class UserStackAssociation {
   public AuthenticationType $authentication_type;
   public boolean $send_email_notification;
   public string $stack_name;
   public Username $user_name;
+
+  public function __construct(shape(
+  ?'authentication_type' => AuthenticationType,
+  ?'send_email_notification' => boolean,
+  ?'stack_name' => string,
+  ?'user_name' => Username,
+  ) $s = shape()) {
+    $this->authentication_type = $authentication_type ?? "";
+    $this->send_email_notification = $send_email_notification ?? ;
+    $this->stack_name = $stack_name ?? ;
+    $this->user_name = $user_name ?? ;
+  }
 }
 
 class UserStackAssociationError {
   public UserStackAssociationErrorCode $error_code;
   public string $error_message;
   public UserStackAssociation $user_stack_association;
+
+  public function __construct(shape(
+  ?'error_code' => UserStackAssociationErrorCode,
+  ?'error_message' => string,
+  ?'user_stack_association' => UserStackAssociation,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? ;
+    $this->error_message = $error_message ?? "";
+    $this->user_stack_association = $user_stack_association ?? null;
+  }
 }
 
-class UserStackAssociationErrorCode {
-}
+type UserStackAssociationErrorCode = string;
 
-class UserStackAssociationErrorList {
-}
+type UserStackAssociationErrorList = vec<UserStackAssociationError>;
 
-class UserStackAssociationList {
-}
+type UserStackAssociationList = vec<UserStackAssociation>;
 
-class Username {
-}
+type Username = string;
 
-class VisibilityType {
-}
+type VisibilityType = string;
 
 class VpcConfig {
   public SecurityGroupIdList $security_group_ids;
   public SubnetIdList $subnet_ids;
+
+  public function __construct(shape(
+  ?'security_group_ids' => SecurityGroupIdList,
+  ?'subnet_ids' => SubnetIdList,
+  ) $s = shape()) {
+    $this->security_group_ids = $security_group_ids ?? ;
+    $this->subnet_ids = $subnet_ids ?? ;
+  }
 }
 

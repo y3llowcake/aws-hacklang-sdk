@@ -9,10 +9,17 @@ interface PI {
 class DataPoint {
   public ISOTimestamp $timestamp;
   public Double $value;
+
+  public function __construct(shape(
+  ?'timestamp' => ISOTimestamp,
+  ?'value' => Double,
+  ) $s = shape()) {
+    $this->timestamp = $timestamp ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class DataPointsList {
-}
+type DataPointsList = vec<DataPoint>;
 
 class DescribeDimensionKeysRequest {
   public ISOTimestamp $end_time;
@@ -26,6 +33,32 @@ class DescribeDimensionKeysRequest {
   public int $period_in_seconds;
   public ServiceType $service_type;
   public ISOTimestamp $start_time;
+
+  public function __construct(shape(
+  ?'end_time' => ISOTimestamp,
+  ?'filter' => MetricQueryFilterMap,
+  ?'group_by' => DimensionGroup,
+  ?'identifier' => string,
+  ?'max_results' => MaxResults,
+  ?'metric' => string,
+  ?'next_token' => string,
+  ?'partition_by' => DimensionGroup,
+  ?'period_in_seconds' => int,
+  ?'service_type' => ServiceType,
+  ?'start_time' => ISOTimestamp,
+  ) $s = shape()) {
+    $this->end_time = $end_time ?? ;
+    $this->filter = $filter ?? ;
+    $this->group_by = $group_by ?? ;
+    $this->identifier = $identifier ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->metric = $metric ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->partition_by = $partition_by ?? ;
+    $this->period_in_seconds = $period_in_seconds ?? ;
+    $this->service_type = $service_type ?? "";
+    $this->start_time = $start_time ?? ;
+  }
 }
 
 class DescribeDimensionKeysResponse {
@@ -34,28 +67,59 @@ class DescribeDimensionKeysResponse {
   public DimensionKeyDescriptionList $keys;
   public string $next_token;
   public ResponsePartitionKeyList $partition_keys;
+
+  public function __construct(shape(
+  ?'aligned_end_time' => ISOTimestamp,
+  ?'aligned_start_time' => ISOTimestamp,
+  ?'keys' => DimensionKeyDescriptionList,
+  ?'next_token' => string,
+  ?'partition_keys' => ResponsePartitionKeyList,
+  ) $s = shape()) {
+    $this->aligned_end_time = $aligned_end_time ?? ;
+    $this->aligned_start_time = $aligned_start_time ?? ;
+    $this->keys = $keys ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->partition_keys = $partition_keys ?? ;
+  }
 }
 
 class DimensionGroup {
   public StringList $dimensions;
   public string $group;
   public Limit $limit;
+
+  public function __construct(shape(
+  ?'dimensions' => StringList,
+  ?'group' => string,
+  ?'limit' => Limit,
+  ) $s = shape()) {
+    $this->dimensions = $dimensions ?? ;
+    $this->group = $group ?? ;
+    $this->limit = $limit ?? 0;
+  }
 }
 
 class DimensionKeyDescription {
   public DimensionMap $dimensions;
   public MetricValuesList $partitions;
   public Double $total;
+
+  public function __construct(shape(
+  ?'dimensions' => DimensionMap,
+  ?'partitions' => MetricValuesList,
+  ?'total' => Double,
+  ) $s = shape()) {
+    $this->dimensions = $dimensions ?? ;
+    $this->partitions = $partitions ?? ;
+    $this->total = $total ?? ;
+  }
 }
 
-class DimensionKeyDescriptionList {
-}
+type DimensionKeyDescriptionList = vec<DimensionKeyDescription>;
 
-class DimensionMap {
-}
+type DimensionMap = dict<String, String>;
 
-class Double {
-}
+type Double = float;
 
 class GetResourceMetricsRequest {
   public ISOTimestamp $end_time;
@@ -66,6 +130,26 @@ class GetResourceMetricsRequest {
   public int $period_in_seconds;
   public ServiceType $service_type;
   public ISOTimestamp $start_time;
+
+  public function __construct(shape(
+  ?'end_time' => ISOTimestamp,
+  ?'identifier' => string,
+  ?'max_results' => MaxResults,
+  ?'metric_queries' => MetricQueryList,
+  ?'next_token' => string,
+  ?'period_in_seconds' => int,
+  ?'service_type' => ServiceType,
+  ?'start_time' => ISOTimestamp,
+  ) $s = shape()) {
+    $this->end_time = $end_time ?? ;
+    $this->identifier = $identifier ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->metric_queries = $metric_queries ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->period_in_seconds = $period_in_seconds ?? ;
+    $this->service_type = $service_type ?? "";
+    $this->start_time = $start_time ?? ;
+  }
 }
 
 class GetResourceMetricsResponse {
@@ -74,73 +158,125 @@ class GetResourceMetricsResponse {
   public string $identifier;
   public MetricKeyDataPointsList $metric_list;
   public string $next_token;
+
+  public function __construct(shape(
+  ?'aligned_end_time' => ISOTimestamp,
+  ?'aligned_start_time' => ISOTimestamp,
+  ?'identifier' => string,
+  ?'metric_list' => MetricKeyDataPointsList,
+  ?'next_token' => string,
+  ) $s = shape()) {
+    $this->aligned_end_time = $aligned_end_time ?? ;
+    $this->aligned_start_time = $aligned_start_time ?? ;
+    $this->identifier = $identifier ?? ;
+    $this->metric_list = $metric_list ?? ;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
-class ISOTimestamp {
-}
+type ISOTimestamp = int;
 
-class Integer {
-}
+type Integer = int;
 
 class InternalServiceError {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidArgumentException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Limit {
-}
+type Limit = int;
 
-class MaxResults {
-}
+type MaxResults = int;
 
 class MetricKeyDataPoints {
   public DataPointsList $data_points;
   public ResponseResourceMetricKey $key;
+
+  public function __construct(shape(
+  ?'data_points' => DataPointsList,
+  ?'key' => ResponseResourceMetricKey,
+  ) $s = shape()) {
+    $this->data_points = $data_points ?? ;
+    $this->key = $key ?? ;
+  }
 }
 
-class MetricKeyDataPointsList {
-}
+type MetricKeyDataPointsList = vec<MetricKeyDataPoints>;
 
 class MetricQuery {
   public MetricQueryFilterMap $filter;
   public DimensionGroup $group_by;
   public string $metric;
+
+  public function __construct(shape(
+  ?'filter' => MetricQueryFilterMap,
+  ?'group_by' => DimensionGroup,
+  ?'metric' => string,
+  ) $s = shape()) {
+    $this->filter = $filter ?? ;
+    $this->group_by = $group_by ?? ;
+    $this->metric = $metric ?? ;
+  }
 }
 
-class MetricQueryFilterMap {
-}
+type MetricQueryFilterMap = dict<String, String>;
 
-class MetricQueryList {
-}
+type MetricQueryList = vec<MetricQuery>;
 
-class MetricValuesList {
-}
+type MetricValuesList = vec<Double>;
 
 class NotAuthorizedException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResponsePartitionKey {
   public DimensionMap $dimensions;
+
+  public function __construct(shape(
+  ?'dimensions' => DimensionMap,
+  ) $s = shape()) {
+    $this->dimensions = $dimensions ?? ;
+  }
 }
 
-class ResponsePartitionKeyList {
-}
+type ResponsePartitionKeyList = vec<ResponsePartitionKey>;
 
 class ResponseResourceMetricKey {
   public DimensionMap $dimensions;
   public string $metric;
+
+  public function __construct(shape(
+  ?'dimensions' => DimensionMap,
+  ?'metric' => string,
+  ) $s = shape()) {
+    $this->dimensions = $dimensions ?? ;
+    $this->metric = $metric ?? ;
+  }
 }
 
-class ServiceType {
-}
+type ServiceType = string;
 
-class String {
-}
+type String = string;
 
-class StringList {
-}
+type StringList = vec<String>;
 

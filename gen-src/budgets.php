@@ -20,10 +20,15 @@ interface Budgets {
 
 class AccessDeniedException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class AccountId {
-}
+type AccountId = string;
 
 class Budget {
   public Spend $budget_limit;
@@ -36,10 +41,33 @@ class Budget {
   public PlannedBudgetLimits $planned_budget_limits;
   public TimePeriod $time_period;
   public TimeUnit $time_unit;
+
+  public function __construct(shape(
+  ?'budget_limit' => Spend,
+  ?'budget_name' => BudgetName,
+  ?'budget_type' => BudgetType,
+  ?'calculated_spend' => CalculatedSpend,
+  ?'cost_filters' => CostFilters,
+  ?'cost_types' => CostTypes,
+  ?'last_updated_time' => GenericTimestamp,
+  ?'planned_budget_limits' => PlannedBudgetLimits,
+  ?'time_period' => TimePeriod,
+  ?'time_unit' => TimeUnit,
+  ) $s = shape()) {
+    $this->budget_limit = $budget_limit ?? ;
+    $this->budget_name = $budget_name ?? "";
+    $this->budget_type = $budget_type ?? "";
+    $this->calculated_spend = $calculated_spend ?? null;
+    $this->cost_filters = $cost_filters ?? [];
+    $this->cost_types = $cost_types ?? null;
+    $this->last_updated_time = $last_updated_time ?? ;
+    $this->planned_budget_limits = $planned_budget_limits ?? [];
+    $this->time_period = $time_period ?? null;
+    $this->time_unit = $time_unit ?? "";
+  }
 }
 
-class BudgetName {
-}
+type BudgetName = string;
 
 class BudgetPerformanceHistory {
   public BudgetName $budget_name;
@@ -48,33 +76,62 @@ class BudgetPerformanceHistory {
   public CostFilters $cost_filters;
   public CostTypes $cost_types;
   public TimeUnit $time_unit;
+
+  public function __construct(shape(
+  ?'budget_name' => BudgetName,
+  ?'budget_type' => BudgetType,
+  ?'budgeted_and_actual_amounts_list' => BudgetedAndActualAmountsList,
+  ?'cost_filters' => CostFilters,
+  ?'cost_types' => CostTypes,
+  ?'time_unit' => TimeUnit,
+  ) $s = shape()) {
+    $this->budget_name = $budget_name ?? "";
+    $this->budget_type = $budget_type ?? "";
+    $this->budgeted_and_actual_amounts_list = $budgeted_and_actual_amounts_list ?? [];
+    $this->cost_filters = $cost_filters ?? [];
+    $this->cost_types = $cost_types ?? null;
+    $this->time_unit = $time_unit ?? "";
+  }
 }
 
-class BudgetType {
-}
+type BudgetType = string;
 
 class BudgetedAndActualAmounts {
   public Spend $actual_amount;
   public Spend $budgeted_amount;
   public TimePeriod $time_period;
+
+  public function __construct(shape(
+  ?'actual_amount' => Spend,
+  ?'budgeted_amount' => Spend,
+  ?'time_period' => TimePeriod,
+  ) $s = shape()) {
+    $this->actual_amount = $actual_amount ?? ;
+    $this->budgeted_amount = $budgeted_amount ?? ;
+    $this->time_period = $time_period ?? null;
+  }
 }
 
-class BudgetedAndActualAmountsList {
-}
+type BudgetedAndActualAmountsList = vec<BudgetedAndActualAmounts>;
 
-class Budgets {
-}
+type Budgets = vec<Budget>;
 
 class CalculatedSpend {
   public Spend $actual_spend;
   public Spend $forecasted_spend;
+
+  public function __construct(shape(
+  ?'actual_spend' => Spend,
+  ?'forecasted_spend' => Spend,
+  ) $s = shape()) {
+    $this->actual_spend = $actual_spend ?? ;
+    $this->forecasted_spend = $forecasted_spend ?? ;
+  }
 }
 
-class ComparisonOperator {
-}
+type ComparisonOperator = string;
 
-class CostFilters {
-}
+type CostFilters = dict<GenericString, DimensionValues>;
 
 class CostTypes {
   public NullableBoolean $include_credit;
@@ -88,15 +145,55 @@ class CostTypes {
   public NullableBoolean $include_upfront;
   public NullableBoolean $use_amortized;
   public NullableBoolean $use_blended;
+
+  public function __construct(shape(
+  ?'include_credit' => NullableBoolean,
+  ?'include_discount' => NullableBoolean,
+  ?'include_other_subscription' => NullableBoolean,
+  ?'include_recurring' => NullableBoolean,
+  ?'include_refund' => NullableBoolean,
+  ?'include_subscription' => NullableBoolean,
+  ?'include_support' => NullableBoolean,
+  ?'include_tax' => NullableBoolean,
+  ?'include_upfront' => NullableBoolean,
+  ?'use_amortized' => NullableBoolean,
+  ?'use_blended' => NullableBoolean,
+  ) $s = shape()) {
+    $this->include_credit = $include_credit ?? ;
+    $this->include_discount = $include_discount ?? ;
+    $this->include_other_subscription = $include_other_subscription ?? ;
+    $this->include_recurring = $include_recurring ?? ;
+    $this->include_refund = $include_refund ?? ;
+    $this->include_subscription = $include_subscription ?? ;
+    $this->include_support = $include_support ?? ;
+    $this->include_tax = $include_tax ?? ;
+    $this->include_upfront = $include_upfront ?? ;
+    $this->use_amortized = $use_amortized ?? ;
+    $this->use_blended = $use_blended ?? ;
+  }
 }
 
 class CreateBudgetRequest {
   public AccountId $account_id;
   public Budget $budget;
   public NotificationWithSubscribersList $notifications_with_subscribers;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget' => Budget,
+  ?'notifications_with_subscribers' => NotificationWithSubscribersList,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget = $budget ?? null;
+    $this->notifications_with_subscribers = $notifications_with_subscribers ?? ;
+  }
 }
 
 class CreateBudgetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateNotificationRequest {
@@ -104,9 +201,25 @@ class CreateNotificationRequest {
   public BudgetName $budget_name;
   public Notification $notification;
   public Subscribers $subscribers;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'notification' => Notification,
+  ?'subscribers' => Subscribers,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->notification = $notification ?? null;
+    $this->subscribers = $subscribers ?? [];
+  }
 }
 
 class CreateNotificationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreateSubscriberRequest {
@@ -114,30 +227,78 @@ class CreateSubscriberRequest {
   public BudgetName $budget_name;
   public Notification $notification;
   public Subscriber $subscriber;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'notification' => Notification,
+  ?'subscriber' => Subscriber,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->notification = $notification ?? null;
+    $this->subscriber = $subscriber ?? null;
+  }
 }
 
 class CreateSubscriberResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class CreationLimitExceededException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class DeleteBudgetRequest {
   public AccountId $account_id;
   public BudgetName $budget_name;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+  }
 }
 
 class DeleteBudgetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteNotificationRequest {
   public AccountId $account_id;
   public BudgetName $budget_name;
   public Notification $notification;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'notification' => Notification,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->notification = $notification ?? null;
+  }
 }
 
 class DeleteNotificationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DeleteSubscriberRequest {
@@ -145,9 +306,25 @@ class DeleteSubscriberRequest {
   public BudgetName $budget_name;
   public Notification $notification;
   public Subscriber $subscriber;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'notification' => Notification,
+  ?'subscriber' => Subscriber,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->notification = $notification ?? null;
+    $this->subscriber = $subscriber ?? null;
+  }
 }
 
 class DeleteSubscriberResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeBudgetPerformanceHistoryRequest {
@@ -156,31 +333,85 @@ class DescribeBudgetPerformanceHistoryRequest {
   public MaxResults $max_results;
   public GenericString $next_token;
   public TimePeriod $time_period;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'max_results' => MaxResults,
+  ?'next_token' => GenericString,
+  ?'time_period' => TimePeriod,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->time_period = $time_period ?? null;
+  }
 }
 
 class DescribeBudgetPerformanceHistoryResponse {
   public BudgetPerformanceHistory $budget_performance_history;
   public GenericString $next_token;
+
+  public function __construct(shape(
+  ?'budget_performance_history' => BudgetPerformanceHistory,
+  ?'next_token' => GenericString,
+  ) $s = shape()) {
+    $this->budget_performance_history = $budget_performance_history ?? null;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeBudgetRequest {
   public AccountId $account_id;
   public BudgetName $budget_name;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+  }
 }
 
 class DescribeBudgetResponse {
   public Budget $budget;
+
+  public function __construct(shape(
+  ?'budget' => Budget,
+  ) $s = shape()) {
+    $this->budget = $budget ?? null;
+  }
 }
 
 class DescribeBudgetsRequest {
   public AccountId $account_id;
   public MaxResults $max_results;
   public GenericString $next_token;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => GenericString,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeBudgetsResponse {
   public Budgets $budgets;
   public GenericString $next_token;
+
+  public function __construct(shape(
+  ?'budgets' => Budgets,
+  ?'next_token' => GenericString,
+  ) $s = shape()) {
+    $this->budgets = $budgets ?? [];
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeNotificationsForBudgetRequest {
@@ -188,11 +419,31 @@ class DescribeNotificationsForBudgetRequest {
   public BudgetName $budget_name;
   public MaxResults $max_results;
   public GenericString $next_token;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'max_results' => MaxResults,
+  ?'next_token' => GenericString,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+  }
 }
 
 class DescribeNotificationsForBudgetResponse {
   public GenericString $next_token;
   public Notifications $notifications;
+
+  public function __construct(shape(
+  ?'next_token' => GenericString,
+  ?'notifications' => Notifications,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->notifications = $notifications ?? [];
+  }
 }
 
 class DescribeSubscribersForNotificationRequest {
@@ -201,47 +452,101 @@ class DescribeSubscribersForNotificationRequest {
   public MaxResults $max_results;
   public GenericString $next_token;
   public Notification $notification;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'max_results' => MaxResults,
+  ?'next_token' => GenericString,
+  ?'notification' => Notification,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->notification = $notification ?? null;
+  }
 }
 
 class DescribeSubscribersForNotificationResponse {
   public GenericString $next_token;
   public Subscribers $subscribers;
+
+  public function __construct(shape(
+  ?'next_token' => GenericString,
+  ?'subscribers' => Subscribers,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->subscribers = $subscribers ?? [];
+  }
 }
 
-class DimensionValues {
-}
+type DimensionValues = vec<GenericString>;
 
 class DuplicateRecordException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ExpiredNextTokenException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class GenericString {
-}
+type GenericString = string;
 
-class GenericTimestamp {
-}
+type GenericTimestamp = int;
 
 class InternalErrorException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidNextTokenException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
 class NotFoundException {
   public errorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => errorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class Notification {
@@ -250,76 +555,120 @@ class Notification {
   public NotificationType $notification_type;
   public NotificationThreshold $threshold;
   public ThresholdType $threshold_type;
+
+  public function __construct(shape(
+  ?'comparison_operator' => ComparisonOperator,
+  ?'notification_state' => NotificationState,
+  ?'notification_type' => NotificationType,
+  ?'threshold' => NotificationThreshold,
+  ?'threshold_type' => ThresholdType,
+  ) $s = shape()) {
+    $this->comparison_operator = $comparison_operator ?? "";
+    $this->notification_state = $notification_state ?? "";
+    $this->notification_type = $notification_type ?? "";
+    $this->threshold = $threshold ?? ;
+    $this->threshold_type = $threshold_type ?? "";
+  }
 }
 
-class NotificationState {
-}
+type NotificationState = string;
 
-class NotificationThreshold {
-}
+type NotificationThreshold = float;
 
-class NotificationType {
-}
+type NotificationType = string;
 
 class NotificationWithSubscribers {
   public Notification $notification;
   public Subscribers $subscribers;
+
+  public function __construct(shape(
+  ?'notification' => Notification,
+  ?'subscribers' => Subscribers,
+  ) $s = shape()) {
+    $this->notification = $notification ?? null;
+    $this->subscribers = $subscribers ?? [];
+  }
 }
 
-class NotificationWithSubscribersList {
-}
+type NotificationWithSubscribersList = vec<NotificationWithSubscribers>;
 
-class Notifications {
-}
+type Notifications = vec<Notification>;
 
-class NullableBoolean {
-}
+type NullableBoolean = bool;
 
-class NumericValue {
-}
+type NumericValue = string;
 
-class PlannedBudgetLimits {
-}
+type PlannedBudgetLimits = dict<GenericString, Spend>;
 
 class Spend {
   public NumericValue $amount;
   public UnitValue $unit;
+
+  public function __construct(shape(
+  ?'amount' => NumericValue,
+  ?'unit' => UnitValue,
+  ) $s = shape()) {
+    $this->amount = $amount ?? ;
+    $this->unit = $unit ?? ;
+  }
 }
 
 class Subscriber {
   public SubscriberAddress $address;
   public SubscriptionType $subscription_type;
+
+  public function __construct(shape(
+  ?'address' => SubscriberAddress,
+  ?'subscription_type' => SubscriptionType,
+  ) $s = shape()) {
+    $this->address = $address ?? ;
+    $this->subscription_type = $subscription_type ?? "";
+  }
 }
 
-class SubscriberAddress {
-}
+type SubscriberAddress = string;
 
-class Subscribers {
-}
+type Subscribers = vec<Subscriber>;
 
-class SubscriptionType {
-}
+type SubscriptionType = string;
 
-class ThresholdType {
-}
+type ThresholdType = string;
 
 class TimePeriod {
   public GenericTimestamp $end;
   public GenericTimestamp $start;
+
+  public function __construct(shape(
+  ?'end' => GenericTimestamp,
+  ?'start' => GenericTimestamp,
+  ) $s = shape()) {
+    $this->end = $end ?? ;
+    $this->start = $start ?? ;
+  }
 }
 
-class TimeUnit {
-}
+type TimeUnit = string;
 
-class UnitValue {
-}
+type UnitValue = string;
 
 class UpdateBudgetRequest {
   public AccountId $account_id;
   public Budget $new_budget;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'new_budget' => Budget,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->new_budget = $new_budget ?? ;
+  }
 }
 
 class UpdateBudgetResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateNotificationRequest {
@@ -327,9 +676,25 @@ class UpdateNotificationRequest {
   public BudgetName $budget_name;
   public Notification $new_notification;
   public Notification $old_notification;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'new_notification' => Notification,
+  ?'old_notification' => Notification,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->new_notification = $new_notification ?? ;
+    $this->old_notification = $old_notification ?? ;
+  }
 }
 
 class UpdateNotificationResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateSubscriberRequest {
@@ -338,11 +703,28 @@ class UpdateSubscriberRequest {
   public Subscriber $new_subscriber;
   public Notification $notification;
   public Subscriber $old_subscriber;
+
+  public function __construct(shape(
+  ?'account_id' => AccountId,
+  ?'budget_name' => BudgetName,
+  ?'new_subscriber' => Subscriber,
+  ?'notification' => Notification,
+  ?'old_subscriber' => Subscriber,
+  ) $s = shape()) {
+    $this->account_id = $account_id ?? "";
+    $this->budget_name = $budget_name ?? "";
+    $this->new_subscriber = $new_subscriber ?? ;
+    $this->notification = $notification ?? null;
+    $this->old_subscriber = $old_subscriber ?? ;
+  }
 }
 
 class UpdateSubscriberResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class errorMessage {
-}
+type errorMessage = string;
 

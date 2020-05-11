@@ -10,11 +10,9 @@ interface RDS Data {
   public function RollbackTransaction(RollbackTransactionRequest): Awaitable<Errors\Result<RollbackTransactionResponse>>;
 }
 
-class Arn {
-}
+type Arn = string;
 
-class ArrayOfArray {
-}
+type ArrayOfArray = vec<ArrayValue>;
 
 class ArrayValue {
   public ArrayOfArray $array_values;
@@ -22,13 +20,32 @@ class ArrayValue {
   public DoubleArray $double_values;
   public LongArray $long_values;
   public StringArray $string_values;
+
+  public function __construct(shape(
+  ?'array_values' => ArrayOfArray,
+  ?'boolean_values' => BooleanArray,
+  ?'double_values' => DoubleArray,
+  ?'long_values' => LongArray,
+  ?'string_values' => StringArray,
+  ) $s = shape()) {
+    $this->array_values = $array_values ?? ;
+    $this->boolean_values = $boolean_values ?? ;
+    $this->double_values = $double_values ?? ;
+    $this->long_values = $long_values ?? ;
+    $this->string_values = $string_values ?? ;
+  }
 }
 
-class ArrayValueList {
-}
+type ArrayValueList = vec<Value>;
 
 class BadRequestException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class BatchExecuteStatementRequest {
@@ -39,10 +56,34 @@ class BatchExecuteStatementRequest {
   public Arn $secret_arn;
   public SqlStatement $sql;
   public Id $transaction_id;
+
+  public function __construct(shape(
+  ?'database' => DbName,
+  ?'parameter_sets' => SqlParameterSets,
+  ?'resource_arn' => Arn,
+  ?'schema' => DbName,
+  ?'secret_arn' => Arn,
+  ?'sql' => SqlStatement,
+  ?'transaction_id' => Id,
+  ) $s = shape()) {
+    $this->database = $database ?? ;
+    $this->parameter_sets = $parameter_sets ?? ;
+    $this->resource_arn = $resource_arn ?? ;
+    $this->schema = $schema ?? ;
+    $this->secret_arn = $secret_arn ?? ;
+    $this->sql = $sql ?? ;
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
 class BatchExecuteStatementResponse {
   public UpdateResults $update_results;
+
+  public function __construct(shape(
+  ?'update_results' => UpdateResults,
+  ) $s = shape()) {
+    $this->update_results = $update_results ?? ;
+  }
 }
 
 class BeginTransactionRequest {
@@ -50,35 +91,45 @@ class BeginTransactionRequest {
   public Arn $resource_arn;
   public DbName $schema;
   public Arn $secret_arn;
+
+  public function __construct(shape(
+  ?'database' => DbName,
+  ?'resource_arn' => Arn,
+  ?'schema' => DbName,
+  ?'secret_arn' => Arn,
+  ) $s = shape()) {
+    $this->database = $database ?? ;
+    $this->resource_arn = $resource_arn ?? ;
+    $this->schema = $schema ?? ;
+    $this->secret_arn = $secret_arn ?? ;
+  }
 }
 
 class BeginTransactionResponse {
   public Id $transaction_id;
+
+  public function __construct(shape(
+  ?'transaction_id' => Id,
+  ) $s = shape()) {
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
-class Blob {
-}
+type Blob = string;
 
-class Boolean {
-}
+type Boolean = bool;
 
-class BooleanArray {
-}
+type BooleanArray = vec<BoxedBoolean>;
 
-class BoxedBoolean {
-}
+type BoxedBoolean = bool;
 
-class BoxedDouble {
-}
+type BoxedDouble = float;
 
-class BoxedFloat {
-}
+type BoxedFloat = float;
 
-class BoxedInteger {
-}
+type BoxedInteger = int;
 
-class BoxedLong {
-}
+type BoxedLong = int;
 
 class ColumnMetadata {
   public int $array_base_column_type;
@@ -95,29 +146,73 @@ class ColumnMetadata {
   public string $table_name;
   public int $type;
   public string $type_name;
+
+  public function __construct(shape(
+  ?'array_base_column_type' => int,
+  ?'is_auto_increment' => boolean,
+  ?'is_case_sensitive' => boolean,
+  ?'is_currency' => boolean,
+  ?'is_signed' => boolean,
+  ?'label' => string,
+  ?'name' => string,
+  ?'nullable' => int,
+  ?'precision' => int,
+  ?'scale' => int,
+  ?'schema_name' => string,
+  ?'table_name' => string,
+  ?'type' => int,
+  ?'type_name' => string,
+  ) $s = shape()) {
+    $this->array_base_column_type = $array_base_column_type ?? ;
+    $this->is_auto_increment = $is_auto_increment ?? ;
+    $this->is_case_sensitive = $is_case_sensitive ?? ;
+    $this->is_currency = $is_currency ?? ;
+    $this->is_signed = $is_signed ?? ;
+    $this->label = $label ?? ;
+    $this->name = $name ?? ;
+    $this->nullable = $nullable ?? ;
+    $this->precision = $precision ?? ;
+    $this->scale = $scale ?? ;
+    $this->schema_name = $schema_name ?? ;
+    $this->table_name = $table_name ?? ;
+    $this->type = $type ?? ;
+    $this->type_name = $type_name ?? ;
+  }
 }
 
 class CommitTransactionRequest {
   public Arn $resource_arn;
   public Arn $secret_arn;
   public Id $transaction_id;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'secret_arn' => Arn,
+  ?'transaction_id' => Id,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->secret_arn = $secret_arn ?? ;
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
 class CommitTransactionResponse {
   public TransactionStatus $transaction_status;
+
+  public function __construct(shape(
+  ?'transaction_status' => TransactionStatus,
+  ) $s = shape()) {
+    $this->transaction_status = $transaction_status ?? ;
+  }
 }
 
-class DbName {
-}
+type DbName = string;
 
-class DecimalReturnType {
-}
+type DecimalReturnType = string;
 
-class DoubleArray {
-}
+type DoubleArray = vec<BoxedDouble>;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class ExecuteSqlRequest {
   public Arn $aws_secret_store_arn;
@@ -125,10 +220,30 @@ class ExecuteSqlRequest {
   public Arn $db_cluster_or_instance_arn;
   public DbName $schema;
   public SqlStatement $sql_statements;
+
+  public function __construct(shape(
+  ?'aws_secret_store_arn' => Arn,
+  ?'database' => DbName,
+  ?'db_cluster_or_instance_arn' => Arn,
+  ?'schema' => DbName,
+  ?'sql_statements' => SqlStatement,
+  ) $s = shape()) {
+    $this->aws_secret_store_arn = $aws_secret_store_arn ?? ;
+    $this->database = $database ?? ;
+    $this->db_cluster_or_instance_arn = $db_cluster_or_instance_arn ?? ;
+    $this->schema = $schema ?? ;
+    $this->sql_statements = $sql_statements ?? ;
+  }
 }
 
 class ExecuteSqlResponse {
   public SqlStatementResults $sql_statement_results;
+
+  public function __construct(shape(
+  ?'sql_statement_results' => SqlStatementResults,
+  ) $s = shape()) {
+    $this->sql_statement_results = $sql_statement_results ?? ;
+  }
 }
 
 class ExecuteStatementRequest {
@@ -142,6 +257,30 @@ class ExecuteStatementRequest {
   public Arn $secret_arn;
   public SqlStatement $sql;
   public Id $transaction_id;
+
+  public function __construct(shape(
+  ?'continue_after_timeout' => boolean,
+  ?'database' => DbName,
+  ?'include_result_metadata' => boolean,
+  ?'parameters' => SqlParametersList,
+  ?'resource_arn' => Arn,
+  ?'result_set_options' => ResultSetOptions,
+  ?'schema' => DbName,
+  ?'secret_arn' => Arn,
+  ?'sql' => SqlStatement,
+  ?'transaction_id' => Id,
+  ) $s = shape()) {
+    $this->continue_after_timeout = $continue_after_timeout ?? ;
+    $this->database = $database ?? ;
+    $this->include_result_metadata = $include_result_metadata ?? ;
+    $this->parameters = $parameters ?? ;
+    $this->resource_arn = $resource_arn ?? ;
+    $this->result_set_options = $result_set_options ?? ;
+    $this->schema = $schema ?? ;
+    $this->secret_arn = $secret_arn ?? ;
+    $this->sql = $sql ?? ;
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
 class ExecuteStatementResponse {
@@ -149,6 +288,18 @@ class ExecuteStatementResponse {
   public FieldList $generated_fields;
   public RecordsUpdated $number_of_records_updated;
   public SqlRecords $records;
+
+  public function __construct(shape(
+  ?'column_metadata' => Metadata,
+  ?'generated_fields' => FieldList,
+  ?'number_of_records_updated' => RecordsUpdated,
+  ?'records' => SqlRecords,
+  ) $s = shape()) {
+    $this->column_metadata = $column_metadata ?? ;
+    $this->generated_fields = $generated_fields ?? ;
+    $this->number_of_records_updated = $number_of_records_updated ?? ;
+    $this->records = $records ?? ;
+  }
 }
 
 class Field {
@@ -159,133 +310,233 @@ class Field {
   public BoxedBoolean $is_null;
   public BoxedLong $long_value;
   public string $string_value;
+
+  public function __construct(shape(
+  ?'array_value' => ArrayValue,
+  ?'blob_value' => Blob,
+  ?'boolean_value' => BoxedBoolean,
+  ?'double_value' => BoxedDouble,
+  ?'is_null' => BoxedBoolean,
+  ?'long_value' => BoxedLong,
+  ?'string_value' => string,
+  ) $s = shape()) {
+    $this->array_value = $array_value ?? ;
+    $this->blob_value = $blob_value ?? ;
+    $this->boolean_value = $boolean_value ?? ;
+    $this->double_value = $double_value ?? ;
+    $this->is_null = $is_null ?? ;
+    $this->long_value = $long_value ?? ;
+    $this->string_value = $string_value ?? ;
+  }
 }
 
-class FieldList {
-}
+type FieldList = vec<Field>;
 
 class ForbiddenException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Id {
-}
+type Id = string;
 
-class Integer {
-}
+type Integer = int;
 
 class InternalServerErrorException {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Long {
-}
+type Long = int;
 
-class LongArray {
-}
+type LongArray = vec<BoxedLong>;
 
-class Metadata {
-}
+type Metadata = vec<ColumnMetadata>;
 
 class NotFoundException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ParameterName {
-}
+type ParameterName = string;
 
 class Record {
   public Row $values;
+
+  public function __construct(shape(
+  ?'values' => Row,
+  ) $s = shape()) {
+    $this->values = $values ?? ;
+  }
 }
 
-class Records {
-}
+type Records = vec<Record>;
 
-class RecordsUpdated {
-}
+type RecordsUpdated = int;
 
 class ResultFrame {
   public Records $records;
   public ResultSetMetadata $result_set_metadata;
+
+  public function __construct(shape(
+  ?'records' => Records,
+  ?'result_set_metadata' => ResultSetMetadata,
+  ) $s = shape()) {
+    $this->records = $records ?? ;
+    $this->result_set_metadata = $result_set_metadata ?? ;
+  }
 }
 
 class ResultSetMetadata {
   public Long $column_count;
   public Metadata $column_metadata;
+
+  public function __construct(shape(
+  ?'column_count' => Long,
+  ?'column_metadata' => Metadata,
+  ) $s = shape()) {
+    $this->column_count = $column_count ?? ;
+    $this->column_metadata = $column_metadata ?? ;
+  }
 }
 
 class ResultSetOptions {
   public DecimalReturnType $decimal_return_type;
+
+  public function __construct(shape(
+  ?'decimal_return_type' => DecimalReturnType,
+  ) $s = shape()) {
+    $this->decimal_return_type = $decimal_return_type ?? ;
+  }
 }
 
 class RollbackTransactionRequest {
   public Arn $resource_arn;
   public Arn $secret_arn;
   public Id $transaction_id;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'secret_arn' => Arn,
+  ?'transaction_id' => Id,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->secret_arn = $secret_arn ?? ;
+    $this->transaction_id = $transaction_id ?? ;
+  }
 }
 
 class RollbackTransactionResponse {
   public TransactionStatus $transaction_status;
+
+  public function __construct(shape(
+  ?'transaction_status' => TransactionStatus,
+  ) $s = shape()) {
+    $this->transaction_status = $transaction_status ?? ;
+  }
 }
 
-class Row {
-}
+type Row = vec<Value>;
 
 class ServiceUnavailableError {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class SqlParameter {
   public ParameterName $name;
   public TypeHint $type_hint;
   public Field $value;
+
+  public function __construct(shape(
+  ?'name' => ParameterName,
+  ?'type_hint' => TypeHint,
+  ?'value' => Field,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->type_hint = $type_hint ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class SqlParameterSets {
-}
+type SqlParameterSets = vec<SqlParametersList>;
 
-class SqlParametersList {
-}
+type SqlParametersList = vec<SqlParameter>;
 
-class SqlRecords {
-}
+type SqlRecords = vec<FieldList>;
 
-class SqlStatement {
-}
+type SqlStatement = string;
 
 class SqlStatementResult {
   public RecordsUpdated $number_of_records_updated;
   public ResultFrame $result_frame;
+
+  public function __construct(shape(
+  ?'number_of_records_updated' => RecordsUpdated,
+  ?'result_frame' => ResultFrame,
+  ) $s = shape()) {
+    $this->number_of_records_updated = $number_of_records_updated ?? ;
+    $this->result_frame = $result_frame ?? ;
+  }
 }
 
-class SqlStatementResults {
-}
+type SqlStatementResults = vec<SqlStatementResult>;
 
 class StatementTimeoutException {
   public Long $db_connection_id;
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'db_connection_id' => Long,
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->db_connection_id = $db_connection_id ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
-class StringArray {
-}
+type StringArray = vec<String>;
 
 class StructValue {
   public ArrayValueList $attributes;
+
+  public function __construct(shape(
+  ?'attributes' => ArrayValueList,
+  ) $s = shape()) {
+    $this->attributes = $attributes ?? ;
+  }
 }
 
-class TransactionStatus {
-}
+type TransactionStatus = string;
 
-class TypeHint {
-}
+type TypeHint = string;
 
 class UpdateResult {
   public FieldList $generated_fields;
+
+  public function __construct(shape(
+  ?'generated_fields' => FieldList,
+  ) $s = shape()) {
+    $this->generated_fields = $generated_fields ?? ;
+  }
 }
 
-class UpdateResults {
-}
+type UpdateResults = vec<UpdateResult>;
 
 class Value {
   public ArrayValueList $array_values;
@@ -298,5 +549,29 @@ class Value {
   public BoxedFloat $real_value;
   public string $string_value;
   public StructValue $struct_value;
+
+  public function __construct(shape(
+  ?'array_values' => ArrayValueList,
+  ?'big_int_value' => BoxedLong,
+  ?'bit_value' => BoxedBoolean,
+  ?'blob_value' => Blob,
+  ?'double_value' => BoxedDouble,
+  ?'int_value' => BoxedInteger,
+  ?'is_null' => BoxedBoolean,
+  ?'real_value' => BoxedFloat,
+  ?'string_value' => string,
+  ?'struct_value' => StructValue,
+  ) $s = shape()) {
+    $this->array_values = $array_values ?? ;
+    $this->big_int_value = $big_int_value ?? ;
+    $this->bit_value = $bit_value ?? ;
+    $this->blob_value = $blob_value ?? ;
+    $this->double_value = $double_value ?? ;
+    $this->int_value = $int_value ?? ;
+    $this->is_null = $is_null ?? ;
+    $this->real_value = $real_value ?? ;
+    $this->string_value = $string_value ?? ;
+    $this->struct_value = $struct_value ?? ;
+  }
 }
 

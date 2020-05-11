@@ -9,54 +9,81 @@ interface Lex Runtime Service {
   public function PutSession(PutSessionRequest): Awaitable<Errors\Result<PutSessionResponse>>;
 }
 
-class Accept {
-}
+type Accept = string;
 
-class AttributesString {
-}
+type AttributesString = string;
 
 class BadGatewayException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class BadRequestException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class BlobStream {
-}
+type BlobStream = string;
 
-class BotAlias {
-}
+type BotAlias = string;
 
-class BotName {
-}
+type BotName = string;
 
 class Button {
   public ButtonTextStringWithLength $text;
   public ButtonValueStringWithLength $value;
+
+  public function __construct(shape(
+  ?'text' => ButtonTextStringWithLength,
+  ?'value' => ButtonValueStringWithLength,
+  ) $s = shape()) {
+    $this->text = $text ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class ButtonTextStringWithLength {
-}
+type ButtonTextStringWithLength = string;
 
-class ButtonValueStringWithLength {
-}
+type ButtonValueStringWithLength = string;
 
-class ConfirmationStatus {
-}
+type ConfirmationStatus = string;
 
 class ConflictException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class ContentType {
-}
+type ContentType = string;
 
 class DeleteSessionRequest {
   public BotAlias $bot_alias;
   public BotName $bot_name;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class DeleteSessionResponse {
@@ -64,10 +91,28 @@ class DeleteSessionResponse {
   public BotName $bot_name;
   public string $session_id;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'session_id' => string,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->session_id = $session_id ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class DependencyFailedException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class DialogAction {
@@ -78,19 +123,33 @@ class DialogAction {
   public string $slot_to_elicit;
   public StringMap $slots;
   public DialogActionType $type;
+
+  public function __construct(shape(
+  ?'fulfillment_state' => FulfillmentState,
+  ?'intent_name' => IntentName,
+  ?'message' => Text,
+  ?'message_format' => MessageFormatType,
+  ?'slot_to_elicit' => string,
+  ?'slots' => StringMap,
+  ?'type' => DialogActionType,
+  ) $s = shape()) {
+    $this->fulfillment_state = $fulfillment_state ?? ;
+    $this->intent_name = $intent_name ?? ;
+    $this->message = $message ?? ;
+    $this->message_format = $message_format ?? ;
+    $this->slot_to_elicit = $slot_to_elicit ?? ;
+    $this->slots = $slots ?? ;
+    $this->type = $type ?? ;
+  }
 }
 
-class DialogActionType {
-}
+type DialogActionType = string;
 
-class DialogState {
-}
+type DialogState = string;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
-class FulfillmentState {
-}
+type FulfillmentState = string;
 
 class GenericAttachment {
   public StringUrlWithLength $attachment_link_url;
@@ -98,6 +157,20 @@ class GenericAttachment {
   public StringUrlWithLength $image_url;
   public StringWithLength $sub_title;
   public StringWithLength $title;
+
+  public function __construct(shape(
+  ?'attachment_link_url' => StringUrlWithLength,
+  ?'buttons' => listOfButtons,
+  ?'image_url' => StringUrlWithLength,
+  ?'sub_title' => StringWithLength,
+  ?'title' => StringWithLength,
+  ) $s = shape()) {
+    $this->attachment_link_url = $attachment_link_url ?? ;
+    $this->buttons = $buttons ?? ;
+    $this->image_url = $image_url ?? ;
+    $this->sub_title = $sub_title ?? ;
+    $this->title = $title ?? ;
+  }
 }
 
 class GetSessionRequest {
@@ -105,6 +178,18 @@ class GetSessionRequest {
   public BotName $bot_name;
   public IntentSummaryCheckpointLabel $checkpoint_label_filter;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'checkpoint_label_filter' => IntentSummaryCheckpointLabel,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->checkpoint_label_filter = $checkpoint_label_filter ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class GetSessionResponse {
@@ -112,13 +197,23 @@ class GetSessionResponse {
   public IntentSummaryList $recent_intent_summary_view;
   public StringMap $session_attributes;
   public string $session_id;
+
+  public function __construct(shape(
+  ?'dialog_action' => DialogAction,
+  ?'recent_intent_summary_view' => IntentSummaryList,
+  ?'session_attributes' => StringMap,
+  ?'session_id' => string,
+  ) $s = shape()) {
+    $this->dialog_action = $dialog_action ?? ;
+    $this->recent_intent_summary_view = $recent_intent_summary_view ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->session_id = $session_id ?? ;
+  }
 }
 
-class HttpContentType {
-}
+type HttpContentType = string;
 
-class IntentName {
-}
+type IntentName = string;
 
 class IntentSummary {
   public IntentSummaryCheckpointLabel $checkpoint_label;
@@ -128,36 +223,83 @@ class IntentSummary {
   public IntentName $intent_name;
   public string $slot_to_elicit;
   public StringMap $slots;
+
+  public function __construct(shape(
+  ?'checkpoint_label' => IntentSummaryCheckpointLabel,
+  ?'confirmation_status' => ConfirmationStatus,
+  ?'dialog_action_type' => DialogActionType,
+  ?'fulfillment_state' => FulfillmentState,
+  ?'intent_name' => IntentName,
+  ?'slot_to_elicit' => string,
+  ?'slots' => StringMap,
+  ) $s = shape()) {
+    $this->checkpoint_label = $checkpoint_label ?? ;
+    $this->confirmation_status = $confirmation_status ?? ;
+    $this->dialog_action_type = $dialog_action_type ?? ;
+    $this->fulfillment_state = $fulfillment_state ?? ;
+    $this->intent_name = $intent_name ?? ;
+    $this->slot_to_elicit = $slot_to_elicit ?? ;
+    $this->slots = $slots ?? ;
+  }
 }
 
-class IntentSummaryCheckpointLabel {
-}
+type IntentSummaryCheckpointLabel = string;
 
-class IntentSummaryList {
-}
+type IntentSummaryList = vec<IntentSummary>;
 
 class InternalFailureException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class LimitExceededException {
   public string $message;
   public string $retry_after_seconds;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'retry_after_seconds' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->retry_after_seconds = $retry_after_seconds ?? ;
+  }
 }
 
 class LoopDetectedException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class MessageFormatType {
-}
+type MessageFormatType = string;
 
 class NotAcceptableException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class NotFoundException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class PostContentRequest {
@@ -169,6 +311,26 @@ class PostContentRequest {
   public AttributesString $request_attributes;
   public AttributesString $session_attributes;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'accept' => Accept,
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'content_type' => HttpContentType,
+  ?'input_stream' => BlobStream,
+  ?'request_attributes' => AttributesString,
+  ?'session_attributes' => AttributesString,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->accept = $accept ?? ;
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->content_type = $content_type ?? ;
+    $this->input_stream = $input_stream ?? ;
+    $this->request_attributes = $request_attributes ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class PostContentResponse {
@@ -184,6 +346,34 @@ class PostContentResponse {
   public string $session_id;
   public string $slot_to_elicit;
   public string $slots;
+
+  public function __construct(shape(
+  ?'audio_stream' => BlobStream,
+  ?'content_type' => HttpContentType,
+  ?'dialog_state' => DialogState,
+  ?'input_transcript' => string,
+  ?'intent_name' => IntentName,
+  ?'message' => Text,
+  ?'message_format' => MessageFormatType,
+  ?'sentiment_response' => string,
+  ?'session_attributes' => string,
+  ?'session_id' => string,
+  ?'slot_to_elicit' => string,
+  ?'slots' => string,
+  ) $s = shape()) {
+    $this->audio_stream = $audio_stream ?? ;
+    $this->content_type = $content_type ?? ;
+    $this->dialog_state = $dialog_state ?? ;
+    $this->input_transcript = $input_transcript ?? ;
+    $this->intent_name = $intent_name ?? ;
+    $this->message = $message ?? ;
+    $this->message_format = $message_format ?? ;
+    $this->sentiment_response = $sentiment_response ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->session_id = $session_id ?? ;
+    $this->slot_to_elicit = $slot_to_elicit ?? ;
+    $this->slots = $slots ?? ;
+  }
 }
 
 class PostTextRequest {
@@ -193,6 +383,22 @@ class PostTextRequest {
   public StringMap $request_attributes;
   public StringMap $session_attributes;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'input_text' => Text,
+  ?'request_attributes' => StringMap,
+  ?'session_attributes' => StringMap,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->input_text = $input_text ?? ;
+    $this->request_attributes = $request_attributes ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class PostTextResponse {
@@ -206,6 +412,30 @@ class PostTextResponse {
   public string $session_id;
   public string $slot_to_elicit;
   public StringMap $slots;
+
+  public function __construct(shape(
+  ?'dialog_state' => DialogState,
+  ?'intent_name' => IntentName,
+  ?'message' => Text,
+  ?'message_format' => MessageFormatType,
+  ?'response_card' => ResponseCard,
+  ?'sentiment_response' => SentimentResponse,
+  ?'session_attributes' => StringMap,
+  ?'session_id' => string,
+  ?'slot_to_elicit' => string,
+  ?'slots' => StringMap,
+  ) $s = shape()) {
+    $this->dialog_state = $dialog_state ?? ;
+    $this->intent_name = $intent_name ?? ;
+    $this->message = $message ?? ;
+    $this->message_format = $message_format ?? ;
+    $this->response_card = $response_card ?? ;
+    $this->sentiment_response = $sentiment_response ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->session_id = $session_id ?? ;
+    $this->slot_to_elicit = $slot_to_elicit ?? ;
+    $this->slots = $slots ?? ;
+  }
 }
 
 class PutSessionRequest {
@@ -216,6 +446,24 @@ class PutSessionRequest {
   public IntentSummaryList $recent_intent_summary_view;
   public StringMap $session_attributes;
   public UserId $user_id;
+
+  public function __construct(shape(
+  ?'accept' => Accept,
+  ?'bot_alias' => BotAlias,
+  ?'bot_name' => BotName,
+  ?'dialog_action' => DialogAction,
+  ?'recent_intent_summary_view' => IntentSummaryList,
+  ?'session_attributes' => StringMap,
+  ?'user_id' => UserId,
+  ) $s = shape()) {
+    $this->accept = $accept ?? ;
+    $this->bot_alias = $bot_alias ?? ;
+    $this->bot_name = $bot_name ?? ;
+    $this->dialog_action = $dialog_action ?? ;
+    $this->recent_intent_summary_view = $recent_intent_summary_view ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->user_id = $user_id ?? ;
+  }
 }
 
 class PutSessionResponse {
@@ -229,54 +477,98 @@ class PutSessionResponse {
   public string $session_id;
   public string $slot_to_elicit;
   public string $slots;
+
+  public function __construct(shape(
+  ?'audio_stream' => BlobStream,
+  ?'content_type' => HttpContentType,
+  ?'dialog_state' => DialogState,
+  ?'intent_name' => IntentName,
+  ?'message' => Text,
+  ?'message_format' => MessageFormatType,
+  ?'session_attributes' => string,
+  ?'session_id' => string,
+  ?'slot_to_elicit' => string,
+  ?'slots' => string,
+  ) $s = shape()) {
+    $this->audio_stream = $audio_stream ?? ;
+    $this->content_type = $content_type ?? ;
+    $this->dialog_state = $dialog_state ?? ;
+    $this->intent_name = $intent_name ?? ;
+    $this->message = $message ?? ;
+    $this->message_format = $message_format ?? ;
+    $this->session_attributes = $session_attributes ?? ;
+    $this->session_id = $session_id ?? ;
+    $this->slot_to_elicit = $slot_to_elicit ?? ;
+    $this->slots = $slots ?? ;
+  }
 }
 
 class RequestTimeoutException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ResponseCard {
   public ContentType $content_type;
   public genericAttachmentList $generic_attachments;
   public string $version;
+
+  public function __construct(shape(
+  ?'content_type' => ContentType,
+  ?'generic_attachments' => genericAttachmentList,
+  ?'version' => string,
+  ) $s = shape()) {
+    $this->content_type = $content_type ?? ;
+    $this->generic_attachments = $generic_attachments ?? ;
+    $this->version = $version ?? ;
+  }
 }
 
-class SentimentLabel {
-}
+type SentimentLabel = string;
 
 class SentimentResponse {
   public SentimentLabel $sentiment_label;
   public SentimentScore $sentiment_score;
+
+  public function __construct(shape(
+  ?'sentiment_label' => SentimentLabel,
+  ?'sentiment_score' => SentimentScore,
+  ) $s = shape()) {
+    $this->sentiment_label = $sentiment_label ?? ;
+    $this->sentiment_score = $sentiment_score ?? ;
+  }
 }
 
-class SentimentScore {
-}
+type SentimentScore = string;
 
-class String {
-}
+type String = string;
 
-class StringMap {
-}
+type StringMap = dict<String, String>;
 
-class StringUrlWithLength {
-}
+type StringUrlWithLength = string;
 
-class StringWithLength {
-}
+type StringWithLength = string;
 
-class Text {
-}
+type Text = string;
 
 class UnsupportedMediaTypeException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class UserId {
-}
+type UserId = string;
 
-class genericAttachmentList {
-}
+type genericAttachmentList = vec<GenericAttachment>;
 
-class listOfButtons {
-}
+type listOfButtons = vec<Button>;
 

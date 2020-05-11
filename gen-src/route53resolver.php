@@ -26,33 +26,60 @@ interface Route53Resolver {
   public function UpdateResolverRule(UpdateResolverRuleRequest): Awaitable<Errors\Result<UpdateResolverRuleResponse>>;
 }
 
-class AccountId {
-}
+type AccountId = string;
 
-class Arn {
-}
+type Arn = string;
 
 class AssociateResolverEndpointIpAddressRequest {
   public IpAddressUpdate $ip_address;
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'ip_address' => IpAddressUpdate,
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->ip_address = $ip_address ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class AssociateResolverEndpointIpAddressResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class AssociateResolverRuleRequest {
   public Name $name;
   public ResourceId $resolver_rule_id;
   public ResourceId $vpc_id;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'resolver_rule_id' => ResourceId,
+  ?'vpc_id' => ResourceId,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
 class AssociateResolverRuleResponse {
   public ResolverRuleAssociation $resolver_rule_association;
+
+  public function __construct(shape(
+  ?'resolver_rule_association' => ResolverRuleAssociation,
+  ) $s = shape()) {
+    $this->resolver_rule_association = $resolver_rule_association ?? null;
+  }
 }
 
-class Boolean {
-}
+type Boolean = bool;
 
 class CreateResolverEndpointRequest {
   public CreatorRequestId $creator_request_id;
@@ -61,10 +88,32 @@ class CreateResolverEndpointRequest {
   public Name $name;
   public SecurityGroupIds $security_group_ids;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'creator_request_id' => CreatorRequestId,
+  ?'direction' => ResolverEndpointDirection,
+  ?'ip_addresses' => IpAddressesRequest,
+  ?'name' => Name,
+  ?'security_group_ids' => SecurityGroupIds,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->direction = $direction ?? ;
+    $this->ip_addresses = $ip_addresses ?? ;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->tags = $tags ?? ;
+  }
 }
 
 class CreateResolverEndpointResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class CreateResolverRuleRequest {
@@ -75,138 +124,307 @@ class CreateResolverRuleRequest {
   public RuleTypeOption $rule_type;
   public TagList $tags;
   public TargetList $target_ips;
+
+  public function __construct(shape(
+  ?'creator_request_id' => CreatorRequestId,
+  ?'domain_name' => DomainName,
+  ?'name' => Name,
+  ?'resolver_endpoint_id' => ResourceId,
+  ?'rule_type' => RuleTypeOption,
+  ?'tags' => TagList,
+  ?'target_ips' => TargetList,
+  ) $s = shape()) {
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->name = $name ?? "";
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->rule_type = $rule_type ?? ;
+    $this->tags = $tags ?? ;
+    $this->target_ips = $target_ips ?? ;
+  }
 }
 
 class CreateResolverRuleResponse {
   public ResolverRule $resolver_rule;
+
+  public function __construct(shape(
+  ?'resolver_rule' => ResolverRule,
+  ) $s = shape()) {
+    $this->resolver_rule = $resolver_rule ?? null;
+  }
 }
 
-class CreatorRequestId {
-}
+type CreatorRequestId = string;
 
 class DeleteResolverEndpointRequest {
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class DeleteResolverEndpointResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class DeleteResolverRuleRequest {
   public ResourceId $resolver_rule_id;
+
+  public function __construct(shape(
+  ?'resolver_rule_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+  }
 }
 
 class DeleteResolverRuleResponse {
   public ResolverRule $resolver_rule;
+
+  public function __construct(shape(
+  ?'resolver_rule' => ResolverRule,
+  ) $s = shape()) {
+    $this->resolver_rule = $resolver_rule ?? null;
+  }
 }
 
 class DisassociateResolverEndpointIpAddressRequest {
   public IpAddressUpdate $ip_address;
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'ip_address' => IpAddressUpdate,
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->ip_address = $ip_address ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class DisassociateResolverEndpointIpAddressResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class DisassociateResolverRuleRequest {
   public ResourceId $resolver_rule_id;
   public ResourceId $vpc_id;
+
+  public function __construct(shape(
+  ?'resolver_rule_id' => ResourceId,
+  ?'vpc_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
 class DisassociateResolverRuleResponse {
   public ResolverRuleAssociation $resolver_rule_association;
+
+  public function __construct(shape(
+  ?'resolver_rule_association' => ResolverRuleAssociation,
+  ) $s = shape()) {
+    $this->resolver_rule_association = $resolver_rule_association ?? null;
+  }
 }
 
-class DomainName {
-}
+type DomainName = string;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
 class Filter {
   public FilterName $name;
   public FilterValues $values;
+
+  public function __construct(shape(
+  ?'name' => FilterName,
+  ?'values' => FilterValues,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->values = $values ?? ;
+  }
 }
 
-class FilterName {
-}
+type FilterName = string;
 
-class FilterValue {
-}
+type FilterValue = string;
 
-class FilterValues {
-}
+type FilterValues = vec<FilterValue>;
 
-class Filters {
-}
+type Filters = vec<Filter>;
 
 class GetResolverEndpointRequest {
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class GetResolverEndpointResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class GetResolverRuleAssociationRequest {
   public ResourceId $resolver_rule_association_id;
+
+  public function __construct(shape(
+  ?'resolver_rule_association_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_rule_association_id = $resolver_rule_association_id ?? ;
+  }
 }
 
 class GetResolverRuleAssociationResponse {
   public ResolverRuleAssociation $resolver_rule_association;
+
+  public function __construct(shape(
+  ?'resolver_rule_association' => ResolverRuleAssociation,
+  ) $s = shape()) {
+    $this->resolver_rule_association = $resolver_rule_association ?? null;
+  }
 }
 
 class GetResolverRulePolicyRequest {
   public Arn $arn;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+  }
 }
 
 class GetResolverRulePolicyResponse {
   public ResolverRulePolicy $resolver_rule_policy;
+
+  public function __construct(shape(
+  ?'resolver_rule_policy' => ResolverRulePolicy,
+  ) $s = shape()) {
+    $this->resolver_rule_policy = $resolver_rule_policy ?? "";
+  }
 }
 
 class GetResolverRuleRequest {
   public ResourceId $resolver_rule_id;
+
+  public function __construct(shape(
+  ?'resolver_rule_id' => ResourceId,
+  ) $s = shape()) {
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+  }
 }
 
 class GetResolverRuleResponse {
   public ResolverRule $resolver_rule;
+
+  public function __construct(shape(
+  ?'resolver_rule' => ResolverRule,
+  ) $s = shape()) {
+    $this->resolver_rule = $resolver_rule ?? null;
+  }
 }
 
 class InternalServiceErrorException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidNextTokenException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterException {
   public string $field_name;
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'field_name' => string,
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->field_name = $field_name ?? ;
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidPolicyDocument {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidRequestException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidTagException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Ip {
-}
+type Ip = string;
 
-class IpAddressCount {
-}
+type IpAddressCount = int;
 
 class IpAddressRequest {
   public Ip $ip;
   public SubnetId $subnet_id;
+
+  public function __construct(shape(
+  ?'ip' => Ip,
+  ?'subnet_id' => SubnetId,
+  ) $s = shape()) {
+    $this->ip = $ip ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+  }
 }
 
 class IpAddressResponse {
@@ -217,106 +435,247 @@ class IpAddressResponse {
   public IpAddressStatus $status;
   public StatusMessage $status_message;
   public SubnetId $subnet_id;
+
+  public function __construct(shape(
+  ?'creation_time' => Rfc3339TimeString,
+  ?'ip' => Ip,
+  ?'ip_id' => ResourceId,
+  ?'modification_time' => Rfc3339TimeString,
+  ?'status' => IpAddressStatus,
+  ?'status_message' => StatusMessage,
+  ?'subnet_id' => SubnetId,
+  ) $s = shape()) {
+    $this->creation_time = $creation_time ?? ;
+    $this->ip = $ip ?? "";
+    $this->ip_id = $ip_id ?? ;
+    $this->modification_time = $modification_time ?? ;
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->subnet_id = $subnet_id ?? "";
+  }
 }
 
-class IpAddressStatus {
-}
+type IpAddressStatus = string;
 
 class IpAddressUpdate {
   public Ip $ip;
   public ResourceId $ip_id;
   public SubnetId $subnet_id;
+
+  public function __construct(shape(
+  ?'ip' => Ip,
+  ?'ip_id' => ResourceId,
+  ?'subnet_id' => SubnetId,
+  ) $s = shape()) {
+    $this->ip = $ip ?? "";
+    $this->ip_id = $ip_id ?? ;
+    $this->subnet_id = $subnet_id ?? "";
+  }
 }
 
-class IpAddressesRequest {
-}
+type IpAddressesRequest = vec<IpAddressRequest>;
 
-class IpAddressesResponse {
-}
+type IpAddressesResponse = vec<IpAddressResponse>;
 
 class LimitExceededException {
   public string $message;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class ListResolverEndpointIpAddressesRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class ListResolverEndpointIpAddressesResponse {
   public IpAddressesResponse $ip_addresses;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'ip_addresses' => IpAddressesResponse,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->ip_addresses = $ip_addresses ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListResolverEndpointsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListResolverEndpointsResponse {
   public MaxResults $max_results;
   public NextToken $next_token;
   public ResolverEndpoints $resolver_endpoints;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resolver_endpoints' => ResolverEndpoints,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resolver_endpoints = $resolver_endpoints ?? [];
+  }
 }
 
 class ListResolverRuleAssociationsRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListResolverRuleAssociationsResponse {
   public MaxResults $max_results;
   public NextToken $next_token;
   public ResolverRuleAssociations $resolver_rule_associations;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resolver_rule_associations' => ResolverRuleAssociations,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resolver_rule_associations = $resolver_rule_associations ?? [];
+  }
 }
 
 class ListResolverRulesRequest {
   public Filters $filters;
   public MaxResults $max_results;
   public NextToken $next_token;
+
+  public function __construct(shape(
+  ?'filters' => Filters,
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ) $s = shape()) {
+    $this->filters = $filters ?? [];
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+  }
 }
 
 class ListResolverRulesResponse {
   public MaxResults $max_results;
   public NextToken $next_token;
   public ResolverRules $resolver_rules;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resolver_rules' => ResolverRules,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resolver_rules = $resolver_rules ?? [];
+  }
 }
 
 class ListTagsForResourceRequest {
   public MaxResults $max_results;
   public NextToken $next_token;
   public Arn $resource_arn;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => NextToken,
+  ?'resource_arn' => Arn,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? "";
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public NextToken $next_token;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'next_token' => NextToken,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? "";
+    $this->tags = $tags ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class Name {
-}
+type Name = string;
 
-class NextToken {
-}
+type NextToken = string;
 
-class Port {
-}
+type Port = int;
 
 class PutResolverRulePolicyRequest {
   public Arn $arn;
   public ResolverRulePolicy $resolver_rule_policy;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'resolver_rule_policy' => ResolverRulePolicy,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->resolver_rule_policy = $resolver_rule_policy ?? "";
+  }
 }
 
 class PutResolverRulePolicyResponse {
   public boolean $return_value;
+
+  public function __construct(shape(
+  ?'return_value' => boolean,
+  ) $s = shape()) {
+    $this->return_value = $return_value ?? ;
+  }
 }
 
 class ResolverEndpoint {
@@ -332,16 +691,41 @@ class ResolverEndpoint {
   public SecurityGroupIds $security_group_ids;
   public ResolverEndpointStatus $status;
   public StatusMessage $status_message;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'creation_time' => Rfc3339TimeString,
+  ?'creator_request_id' => CreatorRequestId,
+  ?'direction' => ResolverEndpointDirection,
+  ?'host_vpc_id' => ResourceId,
+  ?'id' => ResourceId,
+  ?'ip_address_count' => IpAddressCount,
+  ?'modification_time' => Rfc3339TimeString,
+  ?'name' => Name,
+  ?'security_group_ids' => SecurityGroupIds,
+  ?'status' => ResolverEndpointStatus,
+  ?'status_message' => StatusMessage,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->creation_time = $creation_time ?? ;
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->direction = $direction ?? ;
+    $this->host_vpc_id = $host_vpc_id ?? ;
+    $this->id = $id ?? ;
+    $this->ip_address_count = $ip_address_count ?? 0;
+    $this->modification_time = $modification_time ?? ;
+    $this->name = $name ?? "";
+    $this->security_group_ids = $security_group_ids ?? [];
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+  }
 }
 
-class ResolverEndpointDirection {
-}
+type ResolverEndpointDirection = string;
 
-class ResolverEndpointStatus {
-}
+type ResolverEndpointStatus = string;
 
-class ResolverEndpoints {
-}
+type ResolverEndpoints = vec<ResolverEndpoint>;
 
 class ResolverRule {
   public Arn $arn;
@@ -356,6 +740,34 @@ class ResolverRule {
   public ResolverRuleStatus $status;
   public StatusMessage $status_message;
   public TargetList $target_ips;
+
+  public function __construct(shape(
+  ?'arn' => Arn,
+  ?'creator_request_id' => CreatorRequestId,
+  ?'domain_name' => DomainName,
+  ?'id' => ResourceId,
+  ?'name' => Name,
+  ?'owner_id' => AccountId,
+  ?'resolver_endpoint_id' => ResourceId,
+  ?'rule_type' => RuleTypeOption,
+  ?'share_status' => ShareStatus,
+  ?'status' => ResolverRuleStatus,
+  ?'status_message' => StatusMessage,
+  ?'target_ips' => TargetList,
+  ) $s = shape()) {
+    $this->arn = $arn ?? "";
+    $this->creator_request_id = $creator_request_id ?? "";
+    $this->domain_name = $domain_name ?? "";
+    $this->id = $id ?? ;
+    $this->name = $name ?? "";
+    $this->owner_id = $owner_id ?? ;
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->rule_type = $rule_type ?? ;
+    $this->share_status = $share_status ?? "";
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->target_ips = $target_ips ?? ;
+  }
 }
 
 class ResolverRuleAssociation {
@@ -365,137 +777,257 @@ class ResolverRuleAssociation {
   public ResolverRuleAssociationStatus $status;
   public StatusMessage $status_message;
   public ResourceId $vpc_id;
+
+  public function __construct(shape(
+  ?'id' => ResourceId,
+  ?'name' => Name,
+  ?'resolver_rule_id' => ResourceId,
+  ?'status' => ResolverRuleAssociationStatus,
+  ?'status_message' => StatusMessage,
+  ?'vpc_id' => ResourceId,
+  ) $s = shape()) {
+    $this->id = $id ?? ;
+    $this->name = $name ?? "";
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+    $this->status = $status ?? ;
+    $this->status_message = $status_message ?? "";
+    $this->vpc_id = $vpc_id ?? ;
+  }
 }
 
-class ResolverRuleAssociationStatus {
-}
+type ResolverRuleAssociationStatus = string;
 
-class ResolverRuleAssociations {
-}
+type ResolverRuleAssociations = vec<ResolverRuleAssociation>;
 
 class ResolverRuleConfig {
   public Name $name;
   public ResourceId $resolver_endpoint_id;
   public TargetList $target_ips;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'resolver_endpoint_id' => ResourceId,
+  ?'target_ips' => TargetList,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+    $this->target_ips = $target_ips ?? ;
+  }
 }
 
-class ResolverRulePolicy {
-}
+type ResolverRulePolicy = string;
 
-class ResolverRuleStatus {
-}
+type ResolverRuleStatus = string;
 
-class ResolverRules {
-}
+type ResolverRules = vec<ResolverRule>;
 
 class ResourceExistsException {
   public string $message;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
-class ResourceId {
-}
+type ResourceId = string;
 
 class ResourceInUseException {
   public string $message;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class ResourceNotFoundException {
   public string $message;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
 class ResourceUnavailableException {
   public string $message;
   public string $resource_type;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ?'resource_type' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->resource_type = $resource_type ?? ;
+  }
 }
 
-class Rfc3339TimeString {
-}
+type Rfc3339TimeString = string;
 
-class RuleTypeOption {
-}
+type RuleTypeOption = string;
 
-class SecurityGroupIds {
-}
+type SecurityGroupIds = vec<ResourceId>;
 
-class ShareStatus {
-}
+type ShareStatus = string;
 
-class StatusMessage {
-}
+type StatusMessage = string;
 
-class String {
-}
+type String = string;
 
-class SubnetId {
-}
+type SubnetId = string;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
 class TagResourceRequest {
   public Arn $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
 class TargetAddress {
   public Ip $ip;
   public Port $port;
+
+  public function __construct(shape(
+  ?'ip' => Ip,
+  ?'port' => Port,
+  ) $s = shape()) {
+    $this->ip = $ip ?? "";
+    $this->port = $port ?? 0;
+  }
 }
 
-class TargetList {
-}
+type TargetList = vec<TargetAddress>;
 
 class ThrottlingException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UnknownResourceException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagResourceRequest {
   public Arn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => Arn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class UpdateResolverEndpointRequest {
   public Name $name;
   public ResourceId $resolver_endpoint_id;
+
+  public function __construct(shape(
+  ?'name' => Name,
+  ?'resolver_endpoint_id' => ResourceId,
+  ) $s = shape()) {
+    $this->name = $name ?? "";
+    $this->resolver_endpoint_id = $resolver_endpoint_id ?? ;
+  }
 }
 
 class UpdateResolverEndpointResponse {
   public ResolverEndpoint $resolver_endpoint;
+
+  public function __construct(shape(
+  ?'resolver_endpoint' => ResolverEndpoint,
+  ) $s = shape()) {
+    $this->resolver_endpoint = $resolver_endpoint ?? null;
+  }
 }
 
 class UpdateResolverRuleRequest {
   public ResolverRuleConfig $config;
   public ResourceId $resolver_rule_id;
+
+  public function __construct(shape(
+  ?'config' => ResolverRuleConfig,
+  ?'resolver_rule_id' => ResourceId,
+  ) $s = shape()) {
+    $this->config = $config ?? ;
+    $this->resolver_rule_id = $resolver_rule_id ?? ;
+  }
 }
 
 class UpdateResolverRuleResponse {
   public ResolverRule $resolver_rule;
+
+  public function __construct(shape(
+  ?'resolver_rule' => ResolverRule,
+  ) $s = shape()) {
+    $this->resolver_rule = $resolver_rule ?? null;
+  }
 }
 

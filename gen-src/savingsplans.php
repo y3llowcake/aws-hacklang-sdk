@@ -12,11 +12,9 @@ interface savingsplans {
   public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
 }
 
-class Amount {
-}
+type Amount = string;
 
-class ClientToken {
-}
+type ClientToken = string;
 
 class CreateSavingsPlanRequest {
   public ClientToken $client_token;
@@ -24,29 +22,69 @@ class CreateSavingsPlanRequest {
   public SavingsPlanOfferingId $savings_plan_offering_id;
   public TagMap $tags;
   public Amount $upfront_payment_amount;
+
+  public function __construct(shape(
+  ?'client_token' => ClientToken,
+  ?'commitment' => Amount,
+  ?'savings_plan_offering_id' => SavingsPlanOfferingId,
+  ?'tags' => TagMap,
+  ?'upfront_payment_amount' => Amount,
+  ) $s = shape()) {
+    $this->client_token = $client_token ?? ;
+    $this->commitment = $commitment ?? ;
+    $this->savings_plan_offering_id = $savings_plan_offering_id ?? ;
+    $this->tags = $tags ?? ;
+    $this->upfront_payment_amount = $upfront_payment_amount ?? ;
+  }
 }
 
 class CreateSavingsPlanResponse {
   public SavingsPlanId $savings_plan_id;
+
+  public function __construct(shape(
+  ?'savings_plan_id' => SavingsPlanId,
+  ) $s = shape()) {
+    $this->savings_plan_id = $savings_plan_id ?? ;
+  }
 }
 
-class CurrencyCode {
-}
+type CurrencyCode = string;
 
-class CurrencyList {
-}
+type CurrencyList = vec<CurrencyCode>;
 
 class DescribeSavingsPlanRatesRequest {
   public SavingsPlanRateFilterList $filters;
   public MaxResults $max_results;
   public PaginationToken $next_token;
   public SavingsPlanId $savings_plan_id;
+
+  public function __construct(shape(
+  ?'filters' => SavingsPlanRateFilterList,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'savings_plan_id' => SavingsPlanId,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->savings_plan_id = $savings_plan_id ?? ;
+  }
 }
 
 class DescribeSavingsPlanRatesResponse {
   public PaginationToken $next_token;
   public SavingsPlanId $savings_plan_id;
   public SavingsPlanRateList $search_results;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'savings_plan_id' => SavingsPlanId,
+  ?'search_results' => SavingsPlanRateList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->savings_plan_id = $savings_plan_id ?? ;
+    $this->search_results = $search_results ?? ;
+  }
 }
 
 class DescribeSavingsPlansOfferingRatesRequest {
@@ -60,11 +98,43 @@ class DescribeSavingsPlansOfferingRatesRequest {
   public SavingsPlanTypeList $savings_plan_types;
   public SavingsPlanRateServiceCodeList $service_codes;
   public SavingsPlanRateUsageTypeList $usage_types;
+
+  public function __construct(shape(
+  ?'filters' => SavingsPlanOfferingRateFiltersList,
+  ?'max_results' => PageSize,
+  ?'next_token' => PaginationToken,
+  ?'operations' => SavingsPlanRateOperationList,
+  ?'products' => SavingsPlanProductTypeList,
+  ?'savings_plan_offering_ids' => UUIDs,
+  ?'savings_plan_payment_options' => SavingsPlanPaymentOptionList,
+  ?'savings_plan_types' => SavingsPlanTypeList,
+  ?'service_codes' => SavingsPlanRateServiceCodeList,
+  ?'usage_types' => SavingsPlanRateUsageTypeList,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->operations = $operations ?? ;
+    $this->products = $products ?? ;
+    $this->savings_plan_offering_ids = $savings_plan_offering_ids ?? ;
+    $this->savings_plan_payment_options = $savings_plan_payment_options ?? ;
+    $this->savings_plan_types = $savings_plan_types ?? ;
+    $this->service_codes = $service_codes ?? ;
+    $this->usage_types = $usage_types ?? ;
+  }
 }
 
 class DescribeSavingsPlansOfferingRatesResponse {
   public PaginationToken $next_token;
   public SavingsPlanOfferingRatesList $search_results;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'search_results' => SavingsPlanOfferingRatesList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->search_results = $search_results ?? ;
+  }
 }
 
 class DescribeSavingsPlansOfferingsRequest {
@@ -81,11 +151,49 @@ class DescribeSavingsPlansOfferingsRequest {
   public SavingsPlanProductType $product_type;
   public SavingsPlanServiceCodeList $service_codes;
   public SavingsPlanUsageTypeList $usage_types;
+
+  public function __construct(shape(
+  ?'currencies' => CurrencyList,
+  ?'descriptions' => SavingsPlanDescriptionsList,
+  ?'durations' => DurationsList,
+  ?'filters' => SavingsPlanOfferingFiltersList,
+  ?'max_results' => PageSize,
+  ?'next_token' => PaginationToken,
+  ?'offering_ids' => UUIDs,
+  ?'operations' => SavingsPlanOperationList,
+  ?'payment_options' => SavingsPlanPaymentOptionList,
+  ?'plan_types' => SavingsPlanTypeList,
+  ?'product_type' => SavingsPlanProductType,
+  ?'service_codes' => SavingsPlanServiceCodeList,
+  ?'usage_types' => SavingsPlanUsageTypeList,
+  ) $s = shape()) {
+    $this->currencies = $currencies ?? ;
+    $this->descriptions = $descriptions ?? ;
+    $this->durations = $durations ?? ;
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->offering_ids = $offering_ids ?? ;
+    $this->operations = $operations ?? ;
+    $this->payment_options = $payment_options ?? ;
+    $this->plan_types = $plan_types ?? ;
+    $this->product_type = $product_type ?? ;
+    $this->service_codes = $service_codes ?? ;
+    $this->usage_types = $usage_types ?? ;
+  }
 }
 
 class DescribeSavingsPlansOfferingsResponse {
   public PaginationToken $next_token;
   public SavingsPlanOfferingsList $search_results;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'search_results' => SavingsPlanOfferingsList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->search_results = $search_results ?? ;
+  }
 }
 
 class DescribeSavingsPlansRequest {
@@ -95,48 +203,82 @@ class DescribeSavingsPlansRequest {
   public SavingsPlanArnList $savings_plan_arns;
   public SavingsPlanIdList $savings_plan_ids;
   public SavingsPlanStateList $states;
+
+  public function __construct(shape(
+  ?'filters' => SavingsPlanFilterList,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PaginationToken,
+  ?'savings_plan_arns' => SavingsPlanArnList,
+  ?'savings_plan_ids' => SavingsPlanIdList,
+  ?'states' => SavingsPlanStateList,
+  ) $s = shape()) {
+    $this->filters = $filters ?? ;
+    $this->max_results = $max_results ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->savings_plan_arns = $savings_plan_arns ?? ;
+    $this->savings_plan_ids = $savings_plan_ids ?? ;
+    $this->states = $states ?? ;
+  }
 }
 
 class DescribeSavingsPlansResponse {
   public PaginationToken $next_token;
   public SavingsPlanList $savings_plans;
+
+  public function __construct(shape(
+  ?'next_token' => PaginationToken,
+  ?'savings_plans' => SavingsPlanList,
+  ) $s = shape()) {
+    $this->next_token = $next_token ?? ;
+    $this->savings_plans = $savings_plans ?? ;
+  }
 }
 
-class DurationsList {
-}
+type DurationsList = vec<SavingsPlansDuration>;
 
-class EC2InstanceFamily {
-}
+type EC2InstanceFamily = string;
 
-class FilterValuesList {
-}
+type FilterValuesList = vec<JsonSafeFilterValueString>;
 
 class InternalServerException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class JsonSafeFilterValueString {
-}
+type JsonSafeFilterValueString = string;
 
-class ListOfStrings {
-}
+type ListOfStrings = vec<String>;
 
 class ListTagsForResourceRequest {
   public SavingsPlanArn $resource_arn;
+
+  public function __construct(shape(
+  ?'resource_arn' => SavingsPlanArn,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+  }
 }
 
 class ListTagsForResourceResponse {
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->tags = $tags ?? ;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class PageSize {
-}
+type PageSize = int;
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
 class ParentSavingsPlanOffering {
   public CurrencyCode $currency;
@@ -145,13 +287,34 @@ class ParentSavingsPlanOffering {
   public SavingsPlanPaymentOption $payment_option;
   public SavingsPlanDescription $plan_description;
   public SavingsPlanType $plan_type;
+
+  public function __construct(shape(
+  ?'currency' => CurrencyCode,
+  ?'duration_seconds' => SavingsPlansDuration,
+  ?'offering_id' => UUID,
+  ?'payment_option' => SavingsPlanPaymentOption,
+  ?'plan_description' => SavingsPlanDescription,
+  ?'plan_type' => SavingsPlanType,
+  ) $s = shape()) {
+    $this->currency = $currency ?? ;
+    $this->duration_seconds = $duration_seconds ?? ;
+    $this->offering_id = $offering_id ?? ;
+    $this->payment_option = $payment_option ?? ;
+    $this->plan_description = $plan_description ?? ;
+    $this->plan_type = $plan_type ?? ;
+  }
 }
 
-class Region {
-}
+type Region = string;
 
 class ResourceNotFoundException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class SavingsPlan {
@@ -173,36 +336,76 @@ class SavingsPlan {
   public TagMap $tags;
   public TermDurationInSeconds $term_duration_in_seconds;
   public Amount $upfront_payment_amount;
+
+  public function __construct(shape(
+  ?'commitment' => Amount,
+  ?'currency' => CurrencyCode,
+  ?'description' => string,
+  ?'ec_2_instance_family' => EC2InstanceFamily,
+  ?'end' => string,
+  ?'offering_id' => SavingsPlanOfferingId,
+  ?'payment_option' => SavingsPlanPaymentOption,
+  ?'product_types' => SavingsPlanProductTypeList,
+  ?'recurring_payment_amount' => Amount,
+  ?'region' => Region,
+  ?'savings_plan_arn' => SavingsPlanArn,
+  ?'savings_plan_id' => SavingsPlanId,
+  ?'savings_plan_type' => SavingsPlanType,
+  ?'start' => string,
+  ?'state' => SavingsPlanState,
+  ?'tags' => TagMap,
+  ?'term_duration_in_seconds' => TermDurationInSeconds,
+  ?'upfront_payment_amount' => Amount,
+  ) $s = shape()) {
+    $this->commitment = $commitment ?? ;
+    $this->currency = $currency ?? ;
+    $this->description = $description ?? ;
+    $this->ec_2_instance_family = $ec_2_instance_family ?? ;
+    $this->end = $end ?? ;
+    $this->offering_id = $offering_id ?? ;
+    $this->payment_option = $payment_option ?? ;
+    $this->product_types = $product_types ?? ;
+    $this->recurring_payment_amount = $recurring_payment_amount ?? ;
+    $this->region = $region ?? ;
+    $this->savings_plan_arn = $savings_plan_arn ?? ;
+    $this->savings_plan_id = $savings_plan_id ?? ;
+    $this->savings_plan_type = $savings_plan_type ?? ;
+    $this->start = $start ?? ;
+    $this->state = $state ?? ;
+    $this->tags = $tags ?? ;
+    $this->term_duration_in_seconds = $term_duration_in_seconds ?? ;
+    $this->upfront_payment_amount = $upfront_payment_amount ?? ;
+  }
 }
 
-class SavingsPlanArn {
-}
+type SavingsPlanArn = string;
 
-class SavingsPlanArnList {
-}
+type SavingsPlanArnList = vec<SavingsPlanArn>;
 
-class SavingsPlanDescription {
-}
+type SavingsPlanDescription = string;
 
-class SavingsPlanDescriptionsList {
-}
+type SavingsPlanDescriptionsList = vec<SavingsPlanDescription>;
 
 class SavingsPlanFilter {
   public SavingsPlansFilterName $name;
   public ListOfStrings $values;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlansFilterName,
+  ?'values' => ListOfStrings,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class SavingsPlanFilterList {
-}
+type SavingsPlanFilterList = vec<SavingsPlanFilter>;
 
-class SavingsPlanId {
-}
+type SavingsPlanId = string;
 
-class SavingsPlanIdList {
-}
+type SavingsPlanIdList = vec<SavingsPlanId>;
 
-class SavingsPlanList {
-}
+type SavingsPlanList = vec<SavingsPlan>;
 
 class SavingsPlanOffering {
   public CurrencyCode $currency;
@@ -216,32 +419,69 @@ class SavingsPlanOffering {
   public SavingsPlanOfferingPropertyList $properties;
   public SavingsPlanServiceCode $service_code;
   public SavingsPlanUsageType $usage_type;
+
+  public function __construct(shape(
+  ?'currency' => CurrencyCode,
+  ?'description' => SavingsPlanDescription,
+  ?'duration_seconds' => SavingsPlansDuration,
+  ?'offering_id' => UUID,
+  ?'operation' => SavingsPlanOperation,
+  ?'payment_option' => SavingsPlanPaymentOption,
+  ?'plan_type' => SavingsPlanType,
+  ?'product_types' => SavingsPlanProductTypeList,
+  ?'properties' => SavingsPlanOfferingPropertyList,
+  ?'service_code' => SavingsPlanServiceCode,
+  ?'usage_type' => SavingsPlanUsageType,
+  ) $s = shape()) {
+    $this->currency = $currency ?? ;
+    $this->description = $description ?? ;
+    $this->duration_seconds = $duration_seconds ?? ;
+    $this->offering_id = $offering_id ?? ;
+    $this->operation = $operation ?? ;
+    $this->payment_option = $payment_option ?? ;
+    $this->plan_type = $plan_type ?? ;
+    $this->product_types = $product_types ?? ;
+    $this->properties = $properties ?? ;
+    $this->service_code = $service_code ?? ;
+    $this->usage_type = $usage_type ?? ;
+  }
 }
 
-class SavingsPlanOfferingFilterAttribute {
-}
+type SavingsPlanOfferingFilterAttribute = string;
 
 class SavingsPlanOfferingFilterElement {
   public SavingsPlanOfferingFilterAttribute $name;
   public FilterValuesList $values;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlanOfferingFilterAttribute,
+  ?'values' => FilterValuesList,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class SavingsPlanOfferingFiltersList {
-}
+type SavingsPlanOfferingFiltersList = vec<SavingsPlanOfferingFilterElement>;
 
-class SavingsPlanOfferingId {
-}
+type SavingsPlanOfferingId = string;
 
 class SavingsPlanOfferingProperty {
   public SavingsPlanOfferingPropertyKey $name;
   public JsonSafeFilterValueString $value;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlanOfferingPropertyKey,
+  ?'value' => JsonSafeFilterValueString,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class SavingsPlanOfferingPropertyKey {
-}
+type SavingsPlanOfferingPropertyKey = string;
 
-class SavingsPlanOfferingPropertyList {
-}
+type SavingsPlanOfferingPropertyList = vec<SavingsPlanOfferingProperty>;
 
 class SavingsPlanOfferingRate {
   public SavingsPlanRateOperation $operation;
@@ -252,47 +492,73 @@ class SavingsPlanOfferingRate {
   public SavingsPlanRateServiceCode $service_code;
   public SavingsPlanRateUnit $unit;
   public SavingsPlanRateUsageType $usage_type;
+
+  public function __construct(shape(
+  ?'operation' => SavingsPlanRateOperation,
+  ?'product_type' => SavingsPlanProductType,
+  ?'properties' => SavingsPlanOfferingRatePropertyList,
+  ?'rate' => SavingsPlanRatePricePerUnit,
+  ?'savings_plan_offering' => ParentSavingsPlanOffering,
+  ?'service_code' => SavingsPlanRateServiceCode,
+  ?'unit' => SavingsPlanRateUnit,
+  ?'usage_type' => SavingsPlanRateUsageType,
+  ) $s = shape()) {
+    $this->operation = $operation ?? ;
+    $this->product_type = $product_type ?? ;
+    $this->properties = $properties ?? ;
+    $this->rate = $rate ?? ;
+    $this->savings_plan_offering = $savings_plan_offering ?? ;
+    $this->service_code = $service_code ?? ;
+    $this->unit = $unit ?? ;
+    $this->usage_type = $usage_type ?? ;
+  }
 }
 
 class SavingsPlanOfferingRateFilterElement {
   public SavingsPlanRateFilterAttribute $name;
   public FilterValuesList $values;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlanRateFilterAttribute,
+  ?'values' => FilterValuesList,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class SavingsPlanOfferingRateFiltersList {
-}
+type SavingsPlanOfferingRateFiltersList = vec<SavingsPlanOfferingRateFilterElement>;
 
 class SavingsPlanOfferingRateProperty {
   public JsonSafeFilterValueString $name;
   public JsonSafeFilterValueString $value;
+
+  public function __construct(shape(
+  ?'name' => JsonSafeFilterValueString,
+  ?'value' => JsonSafeFilterValueString,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class SavingsPlanOfferingRatePropertyList {
-}
+type SavingsPlanOfferingRatePropertyList = vec<SavingsPlanOfferingRateProperty>;
 
-class SavingsPlanOfferingRatesList {
-}
+type SavingsPlanOfferingRatesList = vec<SavingsPlanOfferingRate>;
 
-class SavingsPlanOfferingsList {
-}
+type SavingsPlanOfferingsList = vec<SavingsPlanOffering>;
 
-class SavingsPlanOperation {
-}
+type SavingsPlanOperation = string;
 
-class SavingsPlanOperationList {
-}
+type SavingsPlanOperationList = vec<SavingsPlanOperation>;
 
-class SavingsPlanPaymentOption {
-}
+type SavingsPlanPaymentOption = string;
 
-class SavingsPlanPaymentOptionList {
-}
+type SavingsPlanPaymentOptionList = vec<SavingsPlanPaymentOption>;
 
-class SavingsPlanProductType {
-}
+type SavingsPlanProductType = string;
 
-class SavingsPlanProductTypeList {
-}
+type SavingsPlanProductTypeList = vec<SavingsPlanProductType>;
 
 class SavingsPlanRate {
   public CurrencyCode $currency;
@@ -303,135 +569,175 @@ class SavingsPlanRate {
   public SavingsPlanRateServiceCode $service_code;
   public SavingsPlanRateUnit $unit;
   public SavingsPlanRateUsageType $usage_type;
+
+  public function __construct(shape(
+  ?'currency' => CurrencyCode,
+  ?'operation' => SavingsPlanRateOperation,
+  ?'product_type' => SavingsPlanProductType,
+  ?'properties' => SavingsPlanRatePropertyList,
+  ?'rate' => Amount,
+  ?'service_code' => SavingsPlanRateServiceCode,
+  ?'unit' => SavingsPlanRateUnit,
+  ?'usage_type' => SavingsPlanRateUsageType,
+  ) $s = shape()) {
+    $this->currency = $currency ?? ;
+    $this->operation = $operation ?? ;
+    $this->product_type = $product_type ?? ;
+    $this->properties = $properties ?? ;
+    $this->rate = $rate ?? ;
+    $this->service_code = $service_code ?? ;
+    $this->unit = $unit ?? ;
+    $this->usage_type = $usage_type ?? ;
+  }
 }
 
 class SavingsPlanRateFilter {
   public SavingsPlanRateFilterName $name;
   public ListOfStrings $values;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlanRateFilterName,
+  ?'values' => ListOfStrings,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class SavingsPlanRateFilterAttribute {
-}
+type SavingsPlanRateFilterAttribute = string;
 
-class SavingsPlanRateFilterList {
-}
+type SavingsPlanRateFilterList = vec<SavingsPlanRateFilter>;
 
-class SavingsPlanRateFilterName {
-}
+type SavingsPlanRateFilterName = string;
 
-class SavingsPlanRateList {
-}
+type SavingsPlanRateList = vec<SavingsPlanRate>;
 
-class SavingsPlanRateOperation {
-}
+type SavingsPlanRateOperation = string;
 
-class SavingsPlanRateOperationList {
-}
+type SavingsPlanRateOperationList = vec<SavingsPlanRateOperation>;
 
-class SavingsPlanRatePricePerUnit {
-}
+type SavingsPlanRatePricePerUnit = string;
 
 class SavingsPlanRateProperty {
   public SavingsPlanRatePropertyKey $name;
   public JsonSafeFilterValueString $value;
+
+  public function __construct(shape(
+  ?'name' => SavingsPlanRatePropertyKey,
+  ?'value' => JsonSafeFilterValueString,
+  ) $s = shape()) {
+    $this->name = $name ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
-class SavingsPlanRatePropertyKey {
-}
+type SavingsPlanRatePropertyKey = string;
 
-class SavingsPlanRatePropertyList {
-}
+type SavingsPlanRatePropertyList = vec<SavingsPlanRateProperty>;
 
-class SavingsPlanRateServiceCode {
-}
+type SavingsPlanRateServiceCode = string;
 
-class SavingsPlanRateServiceCodeList {
-}
+type SavingsPlanRateServiceCodeList = vec<SavingsPlanRateServiceCode>;
 
-class SavingsPlanRateUnit {
-}
+type SavingsPlanRateUnit = string;
 
-class SavingsPlanRateUsageType {
-}
+type SavingsPlanRateUsageType = string;
 
-class SavingsPlanRateUsageTypeList {
-}
+type SavingsPlanRateUsageTypeList = vec<SavingsPlanRateUsageType>;
 
-class SavingsPlanServiceCode {
-}
+type SavingsPlanServiceCode = string;
 
-class SavingsPlanServiceCodeList {
-}
+type SavingsPlanServiceCodeList = vec<SavingsPlanServiceCode>;
 
-class SavingsPlanState {
-}
+type SavingsPlanState = string;
 
-class SavingsPlanStateList {
-}
+type SavingsPlanStateList = vec<SavingsPlanState>;
 
-class SavingsPlanType {
-}
+type SavingsPlanType = string;
 
-class SavingsPlanTypeList {
-}
+type SavingsPlanTypeList = vec<SavingsPlanType>;
 
-class SavingsPlanUsageType {
-}
+type SavingsPlanUsageType = string;
 
-class SavingsPlanUsageTypeList {
-}
+type SavingsPlanUsageTypeList = vec<SavingsPlanUsageType>;
 
-class SavingsPlansDuration {
-}
+type SavingsPlansDuration = int;
 
-class SavingsPlansFilterName {
-}
+type SavingsPlansFilterName = string;
 
 class ServiceQuotaExceededException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class String {
-}
+type String = string;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagMap {
-}
+type TagMap = dict<TagKey, TagValue>;
 
 class TagResourceRequest {
   public SavingsPlanArn $resource_arn;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'resource_arn' => SavingsPlanArn,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class TermDurationInSeconds {
-}
+type TermDurationInSeconds = int;
 
-class UUID {
-}
+type UUID = string;
 
-class UUIDs {
-}
+type UUIDs = vec<UUID>;
 
 class UntagResourceRequest {
   public SavingsPlanArn $resource_arn;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn' => SavingsPlanArn,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->resource_arn = $resource_arn ?? ;
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourceResponse {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class ValidationException {
   public string $message;
+
+  public function __construct(shape(
+  ?'message' => string,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 

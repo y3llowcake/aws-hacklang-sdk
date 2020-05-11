@@ -10,48 +10,66 @@ interface EBS {
 class Block {
   public BlockIndex $block_index;
   public BlockToken $block_token;
+
+  public function __construct(shape(
+  ?'block_index' => BlockIndex,
+  ?'block_token' => BlockToken,
+  ) $s = shape()) {
+    $this->block_index = $block_index ?? 0;
+    $this->block_token = $block_token ?? "";
+  }
 }
 
-class BlockData {
-}
+type BlockData = string;
 
-class BlockIndex {
-}
+type BlockIndex = int;
 
-class BlockSize {
-}
+type BlockSize = int;
 
-class BlockToken {
-}
+type BlockToken = string;
 
-class Blocks {
-}
+type Blocks = vec<Block>;
 
 class ChangedBlock {
   public BlockIndex $block_index;
   public BlockToken $first_block_token;
   public BlockToken $second_block_token;
+
+  public function __construct(shape(
+  ?'block_index' => BlockIndex,
+  ?'first_block_token' => BlockToken,
+  ?'second_block_token' => BlockToken,
+  ) $s = shape()) {
+    $this->block_index = $block_index ?? 0;
+    $this->first_block_token = $first_block_token ?? ;
+    $this->second_block_token = $second_block_token ?? ;
+  }
 }
 
-class ChangedBlocks {
-}
+type ChangedBlocks = vec<ChangedBlock>;
 
-class Checksum {
-}
+type Checksum = string;
 
-class ChecksumAlgorithm {
-}
+type ChecksumAlgorithm = string;
 
-class DataLength {
-}
+type DataLength = int;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
 class GetSnapshotBlockRequest {
   public BlockIndex $block_index;
   public BlockToken $block_token;
   public SnapshotId $snapshot_id;
+
+  public function __construct(shape(
+  ?'block_index' => BlockIndex,
+  ?'block_token' => BlockToken,
+  ?'snapshot_id' => SnapshotId,
+  ) $s = shape()) {
+    $this->block_index = $block_index ?? 0;
+    $this->block_token = $block_token ?? "";
+    $this->snapshot_id = $snapshot_id ?? "";
+  }
 }
 
 class GetSnapshotBlockResponse {
@@ -59,6 +77,18 @@ class GetSnapshotBlockResponse {
   public Checksum $checksum;
   public ChecksumAlgorithm $checksum_algorithm;
   public DataLength $data_length;
+
+  public function __construct(shape(
+  ?'block_data' => BlockData,
+  ?'checksum' => Checksum,
+  ?'checksum_algorithm' => ChecksumAlgorithm,
+  ?'data_length' => DataLength,
+  ) $s = shape()) {
+    $this->block_data = $block_data ?? "";
+    $this->checksum = $checksum ?? "";
+    $this->checksum_algorithm = $checksum_algorithm ?? "";
+    $this->data_length = $data_length ?? 0;
+  }
 }
 
 class ListChangedBlocksRequest {
@@ -67,6 +97,20 @@ class ListChangedBlocksRequest {
   public PageToken $next_token;
   public SnapshotId $second_snapshot_id;
   public BlockIndex $starting_block_index;
+
+  public function __construct(shape(
+  ?'first_snapshot_id' => SnapshotId,
+  ?'max_results' => MaxResults,
+  ?'next_token' => PageToken,
+  ?'second_snapshot_id' => SnapshotId,
+  ?'starting_block_index' => BlockIndex,
+  ) $s = shape()) {
+    $this->first_snapshot_id = $first_snapshot_id ?? ;
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->second_snapshot_id = $second_snapshot_id ?? ;
+    $this->starting_block_index = $starting_block_index ?? ;
+  }
 }
 
 class ListChangedBlocksResponse {
@@ -75,6 +119,20 @@ class ListChangedBlocksResponse {
   public TimeStamp $expiry_time;
   public PageToken $next_token;
   public VolumeSize $volume_size;
+
+  public function __construct(shape(
+  ?'block_size' => BlockSize,
+  ?'changed_blocks' => ChangedBlocks,
+  ?'expiry_time' => TimeStamp,
+  ?'next_token' => PageToken,
+  ?'volume_size' => VolumeSize,
+  ) $s = shape()) {
+    $this->block_size = $block_size ?? 0;
+    $this->changed_blocks = $changed_blocks ?? [];
+    $this->expiry_time = $expiry_time ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->volume_size = $volume_size ?? 0;
+  }
 }
 
 class ListSnapshotBlocksRequest {
@@ -82,6 +140,18 @@ class ListSnapshotBlocksRequest {
   public PageToken $next_token;
   public SnapshotId $snapshot_id;
   public BlockIndex $starting_block_index;
+
+  public function __construct(shape(
+  ?'max_results' => MaxResults,
+  ?'next_token' => PageToken,
+  ?'snapshot_id' => SnapshotId,
+  ?'starting_block_index' => BlockIndex,
+  ) $s = shape()) {
+    $this->max_results = $max_results ?? 0;
+    $this->next_token = $next_token ?? ;
+    $this->snapshot_id = $snapshot_id ?? "";
+    $this->starting_block_index = $starting_block_index ?? ;
+  }
 }
 
 class ListSnapshotBlocksResponse {
@@ -90,32 +160,54 @@ class ListSnapshotBlocksResponse {
   public TimeStamp $expiry_time;
   public PageToken $next_token;
   public VolumeSize $volume_size;
+
+  public function __construct(shape(
+  ?'block_size' => BlockSize,
+  ?'blocks' => Blocks,
+  ?'expiry_time' => TimeStamp,
+  ?'next_token' => PageToken,
+  ?'volume_size' => VolumeSize,
+  ) $s = shape()) {
+    $this->block_size = $block_size ?? 0;
+    $this->blocks = $blocks ?? [];
+    $this->expiry_time = $expiry_time ?? ;
+    $this->next_token = $next_token ?? ;
+    $this->volume_size = $volume_size ?? 0;
+  }
 }
 
-class MaxResults {
-}
+type MaxResults = int;
 
-class PageToken {
-}
+type PageToken = string;
 
 class ResourceNotFoundException {
   public ErrorMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class SnapshotId {
-}
+type SnapshotId = string;
 
-class TimeStamp {
-}
+type TimeStamp = int;
 
 class ValidationException {
   public ErrorMessage $message;
   public ValidationExceptionReason $reason;
+
+  public function __construct(shape(
+  ?'message' => ErrorMessage,
+  ?'reason' => ValidationExceptionReason,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+    $this->reason = $reason ?? ;
+  }
 }
 
-class ValidationExceptionReason {
-}
+type ValidationExceptionReason = string;
 
-class VolumeSize {
-}
+type VolumeSize = int;
 

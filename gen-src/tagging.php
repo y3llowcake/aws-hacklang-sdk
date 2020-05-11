@@ -12,54 +12,93 @@ interface Resource Groups Tagging API {
   public function UntagResources(UntagResourcesInput): Awaitable<Errors\Result<UntagResourcesOutput>>;
 }
 
-class AmazonResourceType {
-}
+type AmazonResourceType = string;
 
 class ComplianceDetails {
   public ComplianceStatus $compliance_status;
   public TagKeyList $keys_with_noncompliant_values;
   public TagKeyList $noncompliant_keys;
+
+  public function __construct(shape(
+  ?'compliance_status' => ComplianceStatus,
+  ?'keys_with_noncompliant_values' => TagKeyList,
+  ?'noncompliant_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->compliance_status = $compliance_status ?? false;
+    $this->keys_with_noncompliant_values = $keys_with_noncompliant_values ?? ;
+    $this->noncompliant_keys = $noncompliant_keys ?? ;
+  }
 }
 
-class ComplianceStatus {
-}
+type ComplianceStatus = bool;
 
 class ConcurrentModificationException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class ConstraintViolationException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class DescribeReportCreationInput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
 class DescribeReportCreationOutput {
   public ErrorMessage $error_message;
   public S3Location $s_3_location;
   public Status $status;
+
+  public function __construct(shape(
+  ?'error_message' => ErrorMessage,
+  ?'s_3_location' => S3Location,
+  ?'status' => Status,
+  ) $s = shape()) {
+    $this->error_message = $error_message ?? "";
+    $this->s_3_location = $s_3_location ?? "";
+    $this->status = $status ?? "";
+  }
 }
 
-class ErrorCode {
-}
+type ErrorCode = string;
 
-class ErrorMessage {
-}
+type ErrorMessage = string;
 
-class ExceptionMessage {
-}
+type ExceptionMessage = string;
 
-class ExcludeCompliantResources {
-}
+type ExcludeCompliantResources = bool;
 
-class FailedResourcesMap {
-}
+type FailedResourcesMap = dict<ResourceARN, FailureInfo>;
 
 class FailureInfo {
   public ErrorCode $error_code;
   public ErrorMessage $error_message;
   public StatusCode $status_code;
+
+  public function __construct(shape(
+  ?'error_code' => ErrorCode,
+  ?'error_message' => ErrorMessage,
+  ?'status_code' => StatusCode,
+  ) $s = shape()) {
+    $this->error_code = $error_code ?? "";
+    $this->error_message = $error_message ?? "";
+    $this->status_code = $status_code ?? 0;
+  }
 }
 
 class GetComplianceSummaryInput {
@@ -70,11 +109,37 @@ class GetComplianceSummaryInput {
   public ResourceTypeFilterList $resource_type_filters;
   public TagKeyFilterList $tag_key_filters;
   public TargetIdFilterList $target_id_filters;
+
+  public function __construct(shape(
+  ?'group_by' => GroupBy,
+  ?'max_results' => MaxResultsGetComplianceSummary,
+  ?'pagination_token' => PaginationToken,
+  ?'region_filters' => RegionFilterList,
+  ?'resource_type_filters' => ResourceTypeFilterList,
+  ?'tag_key_filters' => TagKeyFilterList,
+  ?'target_id_filters' => TargetIdFilterList,
+  ) $s = shape()) {
+    $this->group_by = $group_by ?? [];
+    $this->max_results = $max_results ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->region_filters = $region_filters ?? ;
+    $this->resource_type_filters = $resource_type_filters ?? ;
+    $this->tag_key_filters = $tag_key_filters ?? ;
+    $this->target_id_filters = $target_id_filters ?? ;
+  }
 }
 
 class GetComplianceSummaryOutput {
   public PaginationToken $pagination_token;
   public SummaryList $summary_list;
+
+  public function __construct(shape(
+  ?'pagination_token' => PaginationToken,
+  ?'summary_list' => SummaryList,
+  ) $s = shape()) {
+    $this->pagination_token = $pagination_token ?? "";
+    $this->summary_list = $summary_list ?? [];
+  }
 }
 
 class GetResourcesInput {
@@ -85,110 +150,186 @@ class GetResourcesInput {
   public ResourcesPerPage $resources_per_page;
   public TagFilterList $tag_filters;
   public TagsPerPage $tags_per_page;
+
+  public function __construct(shape(
+  ?'exclude_compliant_resources' => ExcludeCompliantResources,
+  ?'include_compliance_details' => IncludeComplianceDetails,
+  ?'pagination_token' => PaginationToken,
+  ?'resource_type_filters' => ResourceTypeFilterList,
+  ?'resources_per_page' => ResourcesPerPage,
+  ?'tag_filters' => TagFilterList,
+  ?'tags_per_page' => TagsPerPage,
+  ) $s = shape()) {
+    $this->exclude_compliant_resources = $exclude_compliant_resources ?? false;
+    $this->include_compliance_details = $include_compliance_details ?? false;
+    $this->pagination_token = $pagination_token ?? "";
+    $this->resource_type_filters = $resource_type_filters ?? ;
+    $this->resources_per_page = $resources_per_page ?? 0;
+    $this->tag_filters = $tag_filters ?? ;
+    $this->tags_per_page = $tags_per_page ?? 0;
+  }
 }
 
 class GetResourcesOutput {
   public PaginationToken $pagination_token;
   public ResourceTagMappingList $resource_tag_mapping_list;
+
+  public function __construct(shape(
+  ?'pagination_token' => PaginationToken,
+  ?'resource_tag_mapping_list' => ResourceTagMappingList,
+  ) $s = shape()) {
+    $this->pagination_token = $pagination_token ?? "";
+    $this->resource_tag_mapping_list = $resource_tag_mapping_list ?? [];
+  }
 }
 
 class GetTagKeysInput {
   public PaginationToken $pagination_token;
+
+  public function __construct(shape(
+  ?'pagination_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->pagination_token = $pagination_token ?? "";
+  }
 }
 
 class GetTagKeysOutput {
   public PaginationToken $pagination_token;
   public TagKeyList $tag_keys;
+
+  public function __construct(shape(
+  ?'pagination_token' => PaginationToken,
+  ?'tag_keys' => TagKeyList,
+  ) $s = shape()) {
+    $this->pagination_token = $pagination_token ?? "";
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class GetTagValuesInput {
   public TagKey $key;
   public PaginationToken $pagination_token;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'pagination_token' => PaginationToken,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->pagination_token = $pagination_token ?? "";
+  }
 }
 
 class GetTagValuesOutput {
   public PaginationToken $pagination_token;
   public TagValuesOutputList $tag_values;
+
+  public function __construct(shape(
+  ?'pagination_token' => PaginationToken,
+  ?'tag_values' => TagValuesOutputList,
+  ) $s = shape()) {
+    $this->pagination_token = $pagination_token ?? "";
+    $this->tag_values = $tag_values ?? ;
+  }
 }
 
-class GroupBy {
-}
+type GroupBy = vec<GroupByAttribute>;
 
-class GroupByAttribute {
-}
+type GroupByAttribute = string;
 
-class IncludeComplianceDetails {
-}
+type IncludeComplianceDetails = bool;
 
 class InternalServiceException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class InvalidParameterException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class LastUpdated {
-}
+type LastUpdated = string;
 
-class MaxResultsGetComplianceSummary {
-}
+type MaxResultsGetComplianceSummary = int;
 
-class NonCompliantResources {
-}
+type NonCompliantResources = int;
 
-class PaginationToken {
-}
+type PaginationToken = string;
 
 class PaginationTokenExpiredException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
-class Region {
-}
+type Region = string;
 
-class RegionFilterList {
-}
+type RegionFilterList = vec<Region>;
 
-class ResourceARN {
-}
+type ResourceARN = string;
 
-class ResourceARNList {
-}
+type ResourceARNList = vec<ResourceARN>;
 
 class ResourceTagMapping {
   public ComplianceDetails $compliance_details;
   public ResourceARN $resource_arn;
   public TagList $tags;
+
+  public function __construct(shape(
+  ?'compliance_details' => ComplianceDetails,
+  ?'resource_arn' => ResourceARN,
+  ?'tags' => TagList,
+  ) $s = shape()) {
+    $this->compliance_details = $compliance_details ?? null;
+    $this->resource_arn = $resource_arn ?? "";
+    $this->tags = $tags ?? ;
+  }
 }
 
-class ResourceTagMappingList {
-}
+type ResourceTagMappingList = vec<ResourceTagMapping>;
 
-class ResourceTypeFilterList {
-}
+type ResourceTypeFilterList = vec<AmazonResourceType>;
 
-class ResourcesPerPage {
-}
+type ResourcesPerPage = int;
 
-class S3Bucket {
-}
+type S3Bucket = string;
 
-class S3Location {
-}
+type S3Location = string;
 
 class StartReportCreationInput {
   public S3Bucket $s_3_bucket;
+
+  public function __construct(shape(
+  ?'s_3_bucket' => S3Bucket,
+  ) $s = shape()) {
+    $this->s_3_bucket = $s_3_bucket ?? "";
+  }
 }
 
 class StartReportCreationOutput {
+
+  public function __construct(shape(
+  ) $s = shape()) {
+  }
 }
 
-class Status {
-}
+type Status = string;
 
-class StatusCode {
-}
+type StatusCode = int;
 
 class Summary {
   public LastUpdated $last_updated;
@@ -197,82 +338,133 @@ class Summary {
   public AmazonResourceType $resource_type;
   public TargetId $target_id;
   public TargetIdType $target_id_type;
+
+  public function __construct(shape(
+  ?'last_updated' => LastUpdated,
+  ?'non_compliant_resources' => NonCompliantResources,
+  ?'region' => Region,
+  ?'resource_type' => AmazonResourceType,
+  ?'target_id' => TargetId,
+  ?'target_id_type' => TargetIdType,
+  ) $s = shape()) {
+    $this->last_updated = $last_updated ?? "";
+    $this->non_compliant_resources = $non_compliant_resources ?? 0;
+    $this->region = $region ?? "";
+    $this->resource_type = $resource_type ?? ;
+    $this->target_id = $target_id ?? "";
+    $this->target_id_type = $target_id_type ?? "";
+  }
 }
 
-class SummaryList {
-}
+type SummaryList = vec<Summary>;
 
 class Tag {
   public TagKey $key;
   public TagValue $value;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'value' => TagValue,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->value = $value ?? ;
+  }
 }
 
 class TagFilter {
   public TagKey $key;
   public TagValueList $values;
+
+  public function __construct(shape(
+  ?'key' => TagKey,
+  ?'values' => TagValueList,
+  ) $s = shape()) {
+    $this->key = $key ?? ;
+    $this->values = $values ?? ;
+  }
 }
 
-class TagFilterList {
-}
+type TagFilterList = vec<TagFilter>;
 
-class TagKey {
-}
+type TagKey = string;
 
-class TagKeyFilterList {
-}
+type TagKeyFilterList = vec<TagKey>;
 
-class TagKeyList {
-}
+type TagKeyList = vec<TagKey>;
 
-class TagKeyListForUntag {
-}
+type TagKeyListForUntag = vec<TagKey>;
 
-class TagList {
-}
+type TagList = vec<Tag>;
 
-class TagMap {
-}
+type TagMap = dict<TagKey, TagValue>;
 
 class TagResourcesInput {
   public ResourceARNList $resource_arn_list;
   public TagMap $tags;
+
+  public function __construct(shape(
+  ?'resource_arn_list' => ResourceARNList,
+  ?'tags' => TagMap,
+  ) $s = shape()) {
+    $this->resource_arn_list = $resource_arn_list ?? [];
+    $this->tags = $tags ?? ;
+  }
 }
 
 class TagResourcesOutput {
   public FailedResourcesMap $failed_resources_map;
+
+  public function __construct(shape(
+  ?'failed_resources_map' => FailedResourcesMap,
+  ) $s = shape()) {
+    $this->failed_resources_map = $failed_resources_map ?? [];
+  }
 }
 
-class TagValue {
-}
+type TagValue = string;
 
-class TagValueList {
-}
+type TagValueList = vec<TagValue>;
 
-class TagValuesOutputList {
-}
+type TagValuesOutputList = vec<TagValue>;
 
-class TagsPerPage {
-}
+type TagsPerPage = int;
 
-class TargetId {
-}
+type TargetId = string;
 
-class TargetIdFilterList {
-}
+type TargetIdFilterList = vec<TargetId>;
 
-class TargetIdType {
-}
+type TargetIdType = string;
 
 class ThrottledException {
   public ExceptionMessage $message;
+
+  public function __construct(shape(
+  ?'message' => ExceptionMessage,
+  ) $s = shape()) {
+    $this->message = $message ?? ;
+  }
 }
 
 class UntagResourcesInput {
   public ResourceARNList $resource_arn_list;
   public TagKeyListForUntag $tag_keys;
+
+  public function __construct(shape(
+  ?'resource_arn_list' => ResourceARNList,
+  ?'tag_keys' => TagKeyListForUntag,
+  ) $s = shape()) {
+    $this->resource_arn_list = $resource_arn_list ?? [];
+    $this->tag_keys = $tag_keys ?? ;
+  }
 }
 
 class UntagResourcesOutput {
   public FailedResourcesMap $failed_resources_map;
+
+  public function __construct(shape(
+  ?'failed_resources_map' => FailedResourcesMap,
+  ) $s = shape()) {
+    $this->failed_resources_map = $failed_resources_map ?? [];
+  }
 }
 
