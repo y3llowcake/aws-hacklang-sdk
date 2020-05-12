@@ -33,6 +33,7 @@ func main() {
 		genModel(m, w)
 		fname := fmt.Sprintf("./gen-src/%s.php", m.Metadata.EndpointPrefix)
 		check(ioutil.WriteFile(fname, buf.Bytes(), 0660))
+		// break
 	}
 }
 
@@ -46,7 +47,7 @@ type (
 func defaultValue(t string) string {
 	switch t {
 	case "string", "blob":
-		return `""`
+		return `''`
 	case "boolean":
 		return "false"
 	case "integer", "long":
@@ -55,8 +56,10 @@ func defaultValue(t string) string {
 		return "0.0"
 	case "structure":
 		return "null"
-	case "list", "map":
-		return "[]"
+	case "list":
+		return "vec[]"
+	case "map":
+		return "dict[]"
 	case "timestamp":
 		return "0"
 	default:
@@ -68,7 +71,7 @@ func genModel(m *Model, w *writer) {
 	w.p("<?hh // strict")
 	w.p("namespace slack\\aws\\%s;", m.Metadata.EndpointPrefix)
 	w.ln()
-	w.p("interface %s {", m.Metadata.ServiceID)
+	w.p("interface %s {", strings.Replace(m.Metadata.ServiceID, " ", "", -1))
 
 	// Operations
 	sorted := []string{}
@@ -81,11 +84,11 @@ func genModel(m *Model, w *writer) {
 		op := m.Operations[k]
 		out := op.Output.Shape
 		if out == "" {
-			out = "Awaitable<Errors\\Error>"
+			out = "Awaitable<\\Errors\\Error>"
 		} else {
-			out = fmt.Sprintf("Awaitable<Errors\\Result<%s>>", out)
+			out = fmt.Sprintf("Awaitable<\\Errors\\Result<%s>>", out)
 		}
-		w.p("public function %s(%s): %s;", op.Name, op.Input.Shape, out)
+		w.p("public function %s(%s $in): %s;", op.Name, op.Input.Shape, out)
 	}
 	w.p("}")
 	w.ln()
@@ -137,11 +140,11 @@ func memberShapeToHackType(t string) string {
 	case "String":
 		return "string"
 	case "Boolean":
-		return "boolean"
+		return "bool"
 	case "Integer":
 		return "int"
 	default:
-		return t
+		return "?" + t
 	}
 }
 
@@ -177,12 +180,14 @@ func genTopLevelStructure(name string, s Shape, ns namespace, w *writer) {
 	}
 	w.ln()
 	w.p("public function __construct(shape(")
+	w.i++
 	for _, m := range members {
 		w.p("?'%s' => %s,", m.varName, m.hackTypeName)
 	}
+	w.i--
 	w.p(") $s = shape()) {")
 	for _, m := range members {
-		w.p("$this->%s = $%s ?? %s;", m.varName, m.varName, ns[m.shapeName].defaultValue)
+		w.p("$this->%s = $s['%s'] ?? %s;", m.varName, m.varName, ns[m.shapeName].defaultValue)
 	}
 	w.p("}")
 

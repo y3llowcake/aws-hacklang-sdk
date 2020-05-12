@@ -2,85 +2,85 @@
 namespace slack\aws\workmail;
 
 interface WorkMail {
-  public function AssociateDelegateToResource(AssociateDelegateToResourceRequest): Awaitable<Errors\Result<AssociateDelegateToResourceResponse>>;
-  public function AssociateMemberToGroup(AssociateMemberToGroupRequest): Awaitable<Errors\Result<AssociateMemberToGroupResponse>>;
-  public function CreateAlias(CreateAliasRequest): Awaitable<Errors\Result<CreateAliasResponse>>;
-  public function CreateGroup(CreateGroupRequest): Awaitable<Errors\Result<CreateGroupResponse>>;
-  public function CreateResource(CreateResourceRequest): Awaitable<Errors\Result<CreateResourceResponse>>;
-  public function CreateUser(CreateUserRequest): Awaitable<Errors\Result<CreateUserResponse>>;
-  public function DeleteAccessControlRule(DeleteAccessControlRuleRequest): Awaitable<Errors\Result<DeleteAccessControlRuleResponse>>;
-  public function DeleteAlias(DeleteAliasRequest): Awaitable<Errors\Result<DeleteAliasResponse>>;
-  public function DeleteGroup(DeleteGroupRequest): Awaitable<Errors\Result<DeleteGroupResponse>>;
-  public function DeleteMailboxPermissions(DeleteMailboxPermissionsRequest): Awaitable<Errors\Result<DeleteMailboxPermissionsResponse>>;
-  public function DeleteResource(DeleteResourceRequest): Awaitable<Errors\Result<DeleteResourceResponse>>;
-  public function DeleteUser(DeleteUserRequest): Awaitable<Errors\Result<DeleteUserResponse>>;
-  public function DeregisterFromWorkMail(DeregisterFromWorkMailRequest): Awaitable<Errors\Result<DeregisterFromWorkMailResponse>>;
-  public function DescribeGroup(DescribeGroupRequest): Awaitable<Errors\Result<DescribeGroupResponse>>;
-  public function DescribeOrganization(DescribeOrganizationRequest): Awaitable<Errors\Result<DescribeOrganizationResponse>>;
-  public function DescribeResource(DescribeResourceRequest): Awaitable<Errors\Result<DescribeResourceResponse>>;
-  public function DescribeUser(DescribeUserRequest): Awaitable<Errors\Result<DescribeUserResponse>>;
-  public function DisassociateDelegateFromResource(DisassociateDelegateFromResourceRequest): Awaitable<Errors\Result<DisassociateDelegateFromResourceResponse>>;
-  public function DisassociateMemberFromGroup(DisassociateMemberFromGroupRequest): Awaitable<Errors\Result<DisassociateMemberFromGroupResponse>>;
-  public function GetAccessControlEffect(GetAccessControlEffectRequest): Awaitable<Errors\Result<GetAccessControlEffectResponse>>;
-  public function GetMailboxDetails(GetMailboxDetailsRequest): Awaitable<Errors\Result<GetMailboxDetailsResponse>>;
-  public function ListAccessControlRules(ListAccessControlRulesRequest): Awaitable<Errors\Result<ListAccessControlRulesResponse>>;
-  public function ListAliases(ListAliasesRequest): Awaitable<Errors\Result<ListAliasesResponse>>;
-  public function ListGroupMembers(ListGroupMembersRequest): Awaitable<Errors\Result<ListGroupMembersResponse>>;
-  public function ListGroups(ListGroupsRequest): Awaitable<Errors\Result<ListGroupsResponse>>;
-  public function ListMailboxPermissions(ListMailboxPermissionsRequest): Awaitable<Errors\Result<ListMailboxPermissionsResponse>>;
-  public function ListOrganizations(ListOrganizationsRequest): Awaitable<Errors\Result<ListOrganizationsResponse>>;
-  public function ListResourceDelegates(ListResourceDelegatesRequest): Awaitable<Errors\Result<ListResourceDelegatesResponse>>;
-  public function ListResources(ListResourcesRequest): Awaitable<Errors\Result<ListResourcesResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function ListUsers(ListUsersRequest): Awaitable<Errors\Result<ListUsersResponse>>;
-  public function PutAccessControlRule(PutAccessControlRuleRequest): Awaitable<Errors\Result<PutAccessControlRuleResponse>>;
-  public function PutMailboxPermissions(PutMailboxPermissionsRequest): Awaitable<Errors\Result<PutMailboxPermissionsResponse>>;
-  public function RegisterToWorkMail(RegisterToWorkMailRequest): Awaitable<Errors\Result<RegisterToWorkMailResponse>>;
-  public function ResetPassword(ResetPasswordRequest): Awaitable<Errors\Result<ResetPasswordResponse>>;
-  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdateMailboxQuota(UpdateMailboxQuotaRequest): Awaitable<Errors\Result<UpdateMailboxQuotaResponse>>;
-  public function UpdatePrimaryEmailAddress(UpdatePrimaryEmailAddressRequest): Awaitable<Errors\Result<UpdatePrimaryEmailAddressResponse>>;
-  public function UpdateResource(UpdateResourceRequest): Awaitable<Errors\Result<UpdateResourceResponse>>;
+  public function AssociateDelegateToResource(AssociateDelegateToResourceRequest $in): Awaitable<\Errors\Result<AssociateDelegateToResourceResponse>>;
+  public function AssociateMemberToGroup(AssociateMemberToGroupRequest $in): Awaitable<\Errors\Result<AssociateMemberToGroupResponse>>;
+  public function CreateAlias(CreateAliasRequest $in): Awaitable<\Errors\Result<CreateAliasResponse>>;
+  public function CreateGroup(CreateGroupRequest $in): Awaitable<\Errors\Result<CreateGroupResponse>>;
+  public function CreateResource(CreateResourceRequest $in): Awaitable<\Errors\Result<CreateResourceResponse>>;
+  public function CreateUser(CreateUserRequest $in): Awaitable<\Errors\Result<CreateUserResponse>>;
+  public function DeleteAccessControlRule(DeleteAccessControlRuleRequest $in): Awaitable<\Errors\Result<DeleteAccessControlRuleResponse>>;
+  public function DeleteAlias(DeleteAliasRequest $in): Awaitable<\Errors\Result<DeleteAliasResponse>>;
+  public function DeleteGroup(DeleteGroupRequest $in): Awaitable<\Errors\Result<DeleteGroupResponse>>;
+  public function DeleteMailboxPermissions(DeleteMailboxPermissionsRequest $in): Awaitable<\Errors\Result<DeleteMailboxPermissionsResponse>>;
+  public function DeleteResource(DeleteResourceRequest $in): Awaitable<\Errors\Result<DeleteResourceResponse>>;
+  public function DeleteUser(DeleteUserRequest $in): Awaitable<\Errors\Result<DeleteUserResponse>>;
+  public function DeregisterFromWorkMail(DeregisterFromWorkMailRequest $in): Awaitable<\Errors\Result<DeregisterFromWorkMailResponse>>;
+  public function DescribeGroup(DescribeGroupRequest $in): Awaitable<\Errors\Result<DescribeGroupResponse>>;
+  public function DescribeOrganization(DescribeOrganizationRequest $in): Awaitable<\Errors\Result<DescribeOrganizationResponse>>;
+  public function DescribeResource(DescribeResourceRequest $in): Awaitable<\Errors\Result<DescribeResourceResponse>>;
+  public function DescribeUser(DescribeUserRequest $in): Awaitable<\Errors\Result<DescribeUserResponse>>;
+  public function DisassociateDelegateFromResource(DisassociateDelegateFromResourceRequest $in): Awaitable<\Errors\Result<DisassociateDelegateFromResourceResponse>>;
+  public function DisassociateMemberFromGroup(DisassociateMemberFromGroupRequest $in): Awaitable<\Errors\Result<DisassociateMemberFromGroupResponse>>;
+  public function GetAccessControlEffect(GetAccessControlEffectRequest $in): Awaitable<\Errors\Result<GetAccessControlEffectResponse>>;
+  public function GetMailboxDetails(GetMailboxDetailsRequest $in): Awaitable<\Errors\Result<GetMailboxDetailsResponse>>;
+  public function ListAccessControlRules(ListAccessControlRulesRequest $in): Awaitable<\Errors\Result<ListAccessControlRulesResponse>>;
+  public function ListAliases(ListAliasesRequest $in): Awaitable<\Errors\Result<ListAliasesResponse>>;
+  public function ListGroupMembers(ListGroupMembersRequest $in): Awaitable<\Errors\Result<ListGroupMembersResponse>>;
+  public function ListGroups(ListGroupsRequest $in): Awaitable<\Errors\Result<ListGroupsResponse>>;
+  public function ListMailboxPermissions(ListMailboxPermissionsRequest $in): Awaitable<\Errors\Result<ListMailboxPermissionsResponse>>;
+  public function ListOrganizations(ListOrganizationsRequest $in): Awaitable<\Errors\Result<ListOrganizationsResponse>>;
+  public function ListResourceDelegates(ListResourceDelegatesRequest $in): Awaitable<\Errors\Result<ListResourceDelegatesResponse>>;
+  public function ListResources(ListResourcesRequest $in): Awaitable<\Errors\Result<ListResourcesResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest $in): Awaitable<\Errors\Result<ListTagsForResourceResponse>>;
+  public function ListUsers(ListUsersRequest $in): Awaitable<\Errors\Result<ListUsersResponse>>;
+  public function PutAccessControlRule(PutAccessControlRuleRequest $in): Awaitable<\Errors\Result<PutAccessControlRuleResponse>>;
+  public function PutMailboxPermissions(PutMailboxPermissionsRequest $in): Awaitable<\Errors\Result<PutMailboxPermissionsResponse>>;
+  public function RegisterToWorkMail(RegisterToWorkMailRequest $in): Awaitable<\Errors\Result<RegisterToWorkMailResponse>>;
+  public function ResetPassword(ResetPasswordRequest $in): Awaitable<\Errors\Result<ResetPasswordResponse>>;
+  public function TagResource(TagResourceRequest $in): Awaitable<\Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest $in): Awaitable<\Errors\Result<UntagResourceResponse>>;
+  public function UpdateMailboxQuota(UpdateMailboxQuotaRequest $in): Awaitable<\Errors\Result<UpdateMailboxQuotaResponse>>;
+  public function UpdatePrimaryEmailAddress(UpdatePrimaryEmailAddressRequest $in): Awaitable<\Errors\Result<UpdatePrimaryEmailAddressResponse>>;
+  public function UpdateResource(UpdateResourceRequest $in): Awaitable<\Errors\Result<UpdateResourceResponse>>;
 }
 
 class AccessControlRule {
-  public ActionsList $actions;
-  public Timestamp $date_created;
-  public Timestamp $date_modified;
-  public AccessControlRuleDescription $description;
-  public AccessControlRuleEffect $effect;
-  public IpRangeList $ip_ranges;
-  public AccessControlRuleName $name;
-  public ActionsList $not_actions;
-  public IpRangeList $not_ip_ranges;
-  public UserIdList $not_user_ids;
-  public UserIdList $user_ids;
+  public ?ActionsList $actions;
+  public ?Timestamp $date_created;
+  public ?Timestamp $date_modified;
+  public ?AccessControlRuleDescription $description;
+  public ?AccessControlRuleEffect $effect;
+  public ?IpRangeList $ip_ranges;
+  public ?AccessControlRuleName $name;
+  public ?ActionsList $not_actions;
+  public ?IpRangeList $not_ip_ranges;
+  public ?UserIdList $not_user_ids;
+  public ?UserIdList $user_ids;
 
   public function __construct(shape(
-  ?'actions' => ActionsList,
-  ?'date_created' => Timestamp,
-  ?'date_modified' => Timestamp,
-  ?'description' => AccessControlRuleDescription,
-  ?'effect' => AccessControlRuleEffect,
-  ?'ip_ranges' => IpRangeList,
-  ?'name' => AccessControlRuleName,
-  ?'not_actions' => ActionsList,
-  ?'not_ip_ranges' => IpRangeList,
-  ?'not_user_ids' => UserIdList,
-  ?'user_ids' => UserIdList,
+    ?'actions' => ?ActionsList,
+    ?'date_created' => ?Timestamp,
+    ?'date_modified' => ?Timestamp,
+    ?'description' => ?AccessControlRuleDescription,
+    ?'effect' => ?AccessControlRuleEffect,
+    ?'ip_ranges' => ?IpRangeList,
+    ?'name' => ?AccessControlRuleName,
+    ?'not_actions' => ?ActionsList,
+    ?'not_ip_ranges' => ?IpRangeList,
+    ?'not_user_ids' => ?UserIdList,
+    ?'user_ids' => ?UserIdList,
   ) $s = shape()) {
-    $this->actions = $actions ?? [];
-    $this->date_created = $date_created ?? 0;
-    $this->date_modified = $date_modified ?? 0;
-    $this->description = $description ?? "";
-    $this->effect = $effect ?? "";
-    $this->ip_ranges = $ip_ranges ?? [];
-    $this->name = $name ?? "";
-    $this->not_actions = $not_actions ?? [];
-    $this->not_ip_ranges = $not_ip_ranges ?? [];
-    $this->not_user_ids = $not_user_ids ?? [];
-    $this->user_ids = $user_ids ?? [];
+    $this->actions = $s['actions'] ?? vec[];
+    $this->date_created = $s['date_created'] ?? 0;
+    $this->date_modified = $s['date_modified'] ?? 0;
+    $this->description = $s['description'] ?? '';
+    $this->effect = $s['effect'] ?? '';
+    $this->ip_ranges = $s['ip_ranges'] ?? vec[];
+    $this->name = $s['name'] ?? '';
+    $this->not_actions = $s['not_actions'] ?? vec[];
+    $this->not_ip_ranges = $s['not_ip_ranges'] ?? vec[];
+    $this->not_user_ids = $s['not_user_ids'] ?? vec[];
+    $this->user_ids = $s['user_ids'] ?? vec[];
   }
 }
 
@@ -103,18 +103,18 @@ type Aliases = vec<EmailAddress>;
 type AmazonResourceName = string;
 
 class AssociateDelegateToResourceRequest {
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
-  public ResourceId $resource_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => ResourceId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
@@ -126,18 +126,18 @@ class AssociateDelegateToResourceResponse {
 }
 
 class AssociateMemberToGroupRequest {
-  public WorkMailIdentifier $group_id;
-  public WorkMailIdentifier $member_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $group_id;
+  public ?WorkMailIdentifier $member_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
-  ?'member_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'member_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
-    $this->member_id = $member_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
+    $this->member_id = $s['member_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -149,36 +149,36 @@ class AssociateMemberToGroupResponse {
 }
 
 class BookingOptions {
-  public boolean $auto_accept_requests;
-  public boolean $auto_decline_conflicting_requests;
-  public boolean $auto_decline_recurring_requests;
+  public bool $auto_accept_requests;
+  public bool $auto_decline_conflicting_requests;
+  public bool $auto_decline_recurring_requests;
 
   public function __construct(shape(
-  ?'auto_accept_requests' => boolean,
-  ?'auto_decline_conflicting_requests' => boolean,
-  ?'auto_decline_recurring_requests' => boolean,
+    ?'auto_accept_requests' => bool,
+    ?'auto_decline_conflicting_requests' => bool,
+    ?'auto_decline_recurring_requests' => bool,
   ) $s = shape()) {
-    $this->auto_accept_requests = $auto_accept_requests ?? false;
-    $this->auto_decline_conflicting_requests = $auto_decline_conflicting_requests ?? false;
-    $this->auto_decline_recurring_requests = $auto_decline_recurring_requests ?? false;
+    $this->auto_accept_requests = $s['auto_accept_requests'] ?? false;
+    $this->auto_decline_conflicting_requests = $s['auto_decline_conflicting_requests'] ?? false;
+    $this->auto_decline_recurring_requests = $s['auto_decline_recurring_requests'] ?? false;
   }
 }
 
 type Boolean = bool;
 
 class CreateAliasRequest {
-  public EmailAddress $alias;
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
+  public ?EmailAddress $alias;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'alias' => EmailAddress,
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'alias' => ?EmailAddress,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->alias = $alias ?? "";
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->alias = $s['alias'] ?? '';
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -190,106 +190,106 @@ class CreateAliasResponse {
 }
 
 class CreateGroupRequest {
-  public GroupName $name;
-  public OrganizationId $organization_id;
+  public ?GroupName $name;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'name' => GroupName,
-  ?'organization_id' => OrganizationId,
+    ?'name' => ?GroupName,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->name = $name ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->name = $s['name'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class CreateGroupResponse {
-  public WorkMailIdentifier $group_id;
+  public ?WorkMailIdentifier $group_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
+    ?'group_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
   }
 }
 
 class CreateResourceRequest {
-  public ResourceName $name;
-  public OrganizationId $organization_id;
-  public ResourceType $type;
+  public ?ResourceName $name;
+  public ?OrganizationId $organization_id;
+  public ?ResourceType $type;
 
   public function __construct(shape(
-  ?'name' => ResourceName,
-  ?'organization_id' => OrganizationId,
-  ?'type' => ResourceType,
+    ?'name' => ?ResourceName,
+    ?'organization_id' => ?OrganizationId,
+    ?'type' => ?ResourceType,
   ) $s = shape()) {
-    $this->name = $name ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->type = $type ?? "";
+    $this->name = $s['name'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
 class CreateResourceResponse {
-  public ResourceId $resource_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'resource_id' => ResourceId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? "";
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
 class CreateUserRequest {
   public string $display_name;
-  public UserName $name;
-  public OrganizationId $organization_id;
-  public Password $password;
+  public ?UserName $name;
+  public ?OrganizationId $organization_id;
+  public ?Password $password;
 
   public function __construct(shape(
-  ?'display_name' => string,
-  ?'name' => UserName,
-  ?'organization_id' => OrganizationId,
-  ?'password' => Password,
+    ?'display_name' => string,
+    ?'name' => ?UserName,
+    ?'organization_id' => ?OrganizationId,
+    ?'password' => ?Password,
   ) $s = shape()) {
-    $this->display_name = $display_name ?? "";
-    $this->name = $name ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->password = $password ?? "";
+    $this->display_name = $s['display_name'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->password = $s['password'] ?? '';
   }
 }
 
 class CreateUserResponse {
-  public WorkMailIdentifier $user_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'user_id' => WorkMailIdentifier,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->user_id = $user_id ?? "";
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
 class Delegate {
   public string $id;
-  public MemberType $type;
+  public ?MemberType $type;
 
   public function __construct(shape(
-  ?'id' => string,
-  ?'type' => MemberType,
+    ?'id' => string,
+    ?'type' => ?MemberType,
   ) $s = shape()) {
-    $this->id = $id ?? "";
-    $this->type = $type ?? "";
+    $this->id = $s['id'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
 class DeleteAccessControlRuleRequest {
-  public AccessControlRuleName $name;
-  public OrganizationId $organization_id;
+  public ?AccessControlRuleName $name;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'name' => AccessControlRuleName,
-  ?'organization_id' => OrganizationId,
+    ?'name' => ?AccessControlRuleName,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->name = $name ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->name = $s['name'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -301,18 +301,18 @@ class DeleteAccessControlRuleResponse {
 }
 
 class DeleteAliasRequest {
-  public EmailAddress $alias;
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
+  public ?EmailAddress $alias;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'alias' => EmailAddress,
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'alias' => ?EmailAddress,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->alias = $alias ?? "";
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->alias = $s['alias'] ?? '';
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -324,15 +324,15 @@ class DeleteAliasResponse {
 }
 
 class DeleteGroupRequest {
-  public WorkMailIdentifier $group_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $group_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -344,18 +344,18 @@ class DeleteGroupResponse {
 }
 
 class DeleteMailboxPermissionsRequest {
-  public WorkMailIdentifier $entity_id;
-  public WorkMailIdentifier $grantee_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?WorkMailIdentifier $grantee_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'grantee_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'grantee_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->grantee_id = $grantee_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->grantee_id = $s['grantee_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -367,15 +367,15 @@ class DeleteMailboxPermissionsResponse {
 }
 
 class DeleteResourceRequest {
-  public OrganizationId $organization_id;
-  public ResourceId $resource_id;
+  public ?OrganizationId $organization_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => ResourceId,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
@@ -387,15 +387,15 @@ class DeleteResourceResponse {
 }
 
 class DeleteUserRequest {
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $user_id;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'user_id' => WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
@@ -407,15 +407,15 @@ class DeleteUserResponse {
 }
 
 class DeregisterFromWorkMailRequest {
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -427,172 +427,172 @@ class DeregisterFromWorkMailResponse {
 }
 
 class DescribeGroupRequest {
-  public WorkMailIdentifier $group_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $group_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class DescribeGroupResponse {
-  public Timestamp $disabled_date;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public WorkMailIdentifier $group_id;
-  public GroupName $name;
-  public EntityState $state;
+  public ?Timestamp $disabled_date;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?WorkMailIdentifier $group_id;
+  public ?GroupName $name;
+  public ?EntityState $state;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'group_id' => WorkMailIdentifier,
-  ?'name' => GroupName,
-  ?'state' => EntityState,
+    ?'disabled_date' => ?Timestamp,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'name' => ?GroupName,
+    ?'state' => ?EntityState,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->group_id = $group_id ?? "";
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->group_id = $s['group_id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
   }
 }
 
 class DescribeOrganizationRequest {
-  public OrganizationId $organization_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class DescribeOrganizationResponse {
-  public AmazonResourceName $arn;
-  public OrganizationName $alias;
-  public Timestamp $completed_date;
+  public ?AmazonResourceName $arn;
+  public ?OrganizationName $alias;
+  public ?Timestamp $completed_date;
   public string $default_mail_domain;
   public string $directory_id;
   public string $directory_type;
   public string $error_message;
-  public OrganizationId $organization_id;
+  public ?OrganizationId $organization_id;
   public string $state;
 
   public function __construct(shape(
-  ?'arn' => AmazonResourceName,
-  ?'alias' => OrganizationName,
-  ?'completed_date' => Timestamp,
-  ?'default_mail_domain' => string,
-  ?'directory_id' => string,
-  ?'directory_type' => string,
-  ?'error_message' => string,
-  ?'organization_id' => OrganizationId,
-  ?'state' => string,
+    ?'arn' => ?AmazonResourceName,
+    ?'alias' => ?OrganizationName,
+    ?'completed_date' => ?Timestamp,
+    ?'default_mail_domain' => string,
+    ?'directory_id' => string,
+    ?'directory_type' => string,
+    ?'error_message' => string,
+    ?'organization_id' => ?OrganizationId,
+    ?'state' => string,
   ) $s = shape()) {
-    $this->arn = $arn ?? "";
-    $this->alias = $alias ?? "";
-    $this->completed_date = $completed_date ?? 0;
-    $this->default_mail_domain = $default_mail_domain ?? "";
-    $this->directory_id = $directory_id ?? "";
-    $this->directory_type = $directory_type ?? "";
-    $this->error_message = $error_message ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->state = $state ?? "";
+    $this->arn = $s['arn'] ?? '';
+    $this->alias = $s['alias'] ?? '';
+    $this->completed_date = $s['completed_date'] ?? 0;
+    $this->default_mail_domain = $s['default_mail_domain'] ?? '';
+    $this->directory_id = $s['directory_id'] ?? '';
+    $this->directory_type = $s['directory_type'] ?? '';
+    $this->error_message = $s['error_message'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->state = $s['state'] ?? '';
   }
 }
 
 class DescribeResourceRequest {
-  public OrganizationId $organization_id;
-  public ResourceId $resource_id;
+  public ?OrganizationId $organization_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => ResourceId,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
 class DescribeResourceResponse {
-  public BookingOptions $booking_options;
-  public Timestamp $disabled_date;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public ResourceName $name;
-  public ResourceId $resource_id;
-  public EntityState $state;
-  public ResourceType $type;
+  public ?BookingOptions $booking_options;
+  public ?Timestamp $disabled_date;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?ResourceName $name;
+  public ?ResourceId $resource_id;
+  public ?EntityState $state;
+  public ?ResourceType $type;
 
   public function __construct(shape(
-  ?'booking_options' => BookingOptions,
-  ?'disabled_date' => Timestamp,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'name' => ResourceName,
-  ?'resource_id' => ResourceId,
-  ?'state' => EntityState,
-  ?'type' => ResourceType,
+    ?'booking_options' => ?BookingOptions,
+    ?'disabled_date' => ?Timestamp,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'name' => ?ResourceName,
+    ?'resource_id' => ?ResourceId,
+    ?'state' => ?EntityState,
+    ?'type' => ?ResourceType,
   ) $s = shape()) {
-    $this->booking_options = $booking_options ?? null;
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->name = $name ?? "";
-    $this->resource_id = $resource_id ?? "";
-    $this->state = $state ?? "";
-    $this->type = $type ?? "";
+    $this->booking_options = $s['booking_options'] ?? null;
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->name = $s['name'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
+    $this->state = $s['state'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
 class DescribeUserRequest {
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $user_id;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'user_id' => WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
 class DescribeUserResponse {
-  public Timestamp $disabled_date;
+  public ?Timestamp $disabled_date;
   public string $display_name;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public UserName $name;
-  public EntityState $state;
-  public WorkMailIdentifier $user_id;
-  public UserRole $user_role;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?UserName $name;
+  public ?EntityState $state;
+  public ?WorkMailIdentifier $user_id;
+  public ?UserRole $user_role;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'display_name' => string,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'name' => UserName,
-  ?'state' => EntityState,
-  ?'user_id' => WorkMailIdentifier,
-  ?'user_role' => UserRole,
+    ?'disabled_date' => ?Timestamp,
+    ?'display_name' => string,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'name' => ?UserName,
+    ?'state' => ?EntityState,
+    ?'user_id' => ?WorkMailIdentifier,
+    ?'user_role' => ?UserRole,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->display_name = $display_name ?? "";
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
-    $this->user_id = $user_id ?? "";
-    $this->user_role = $user_role ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->display_name = $s['display_name'] ?? '';
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
+    $this->user_role = $s['user_role'] ?? '';
   }
 }
 
@@ -600,9 +600,9 @@ class DirectoryServiceAuthenticationFailedException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -610,25 +610,25 @@ class DirectoryUnavailableException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class DisassociateDelegateFromResourceRequest {
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
-  public ResourceId $resource_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => ResourceId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
@@ -640,18 +640,18 @@ class DisassociateDelegateFromResourceResponse {
 }
 
 class DisassociateMemberFromGroupRequest {
-  public WorkMailIdentifier $group_id;
-  public WorkMailIdentifier $member_id;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $group_id;
+  public ?WorkMailIdentifier $member_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
-  ?'member_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'member_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
-    $this->member_id = $member_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
+    $this->member_id = $s['member_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -668,9 +668,9 @@ class EmailAddressInUseException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -678,9 +678,9 @@ class EntityAlreadyRegisteredException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -688,9 +688,9 @@ class EntityNotFoundException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -700,92 +700,92 @@ class EntityStateException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class GetAccessControlEffectRequest {
-  public AccessControlRuleAction $action;
-  public IpAddress $ip_address;
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $user_id;
+  public ?AccessControlRuleAction $action;
+  public ?IpAddress $ip_address;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'action' => AccessControlRuleAction,
-  ?'ip_address' => IpAddress,
-  ?'organization_id' => OrganizationId,
-  ?'user_id' => WorkMailIdentifier,
+    ?'action' => ?AccessControlRuleAction,
+    ?'ip_address' => ?IpAddress,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->action = $action ?? "";
-    $this->ip_address = $ip_address ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->action = $s['action'] ?? '';
+    $this->ip_address = $s['ip_address'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
 class GetAccessControlEffectResponse {
-  public AccessControlRuleEffect $effect;
-  public AccessControlRuleNameList $matched_rules;
+  public ?AccessControlRuleEffect $effect;
+  public ?AccessControlRuleNameList $matched_rules;
 
   public function __construct(shape(
-  ?'effect' => AccessControlRuleEffect,
-  ?'matched_rules' => AccessControlRuleNameList,
+    ?'effect' => ?AccessControlRuleEffect,
+    ?'matched_rules' => ?AccessControlRuleNameList,
   ) $s = shape()) {
-    $this->effect = $effect ?? "";
-    $this->matched_rules = $matched_rules ?? [];
+    $this->effect = $s['effect'] ?? '';
+    $this->matched_rules = $s['matched_rules'] ?? vec[];
   }
 }
 
 class GetMailboxDetailsRequest {
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $user_id;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'user_id' => WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
 class GetMailboxDetailsResponse {
-  public MailboxQuota $mailbox_quota;
-  public MailboxSize $mailbox_size;
+  public ?MailboxQuota $mailbox_quota;
+  public ?MailboxSize $mailbox_size;
 
   public function __construct(shape(
-  ?'mailbox_quota' => MailboxQuota,
-  ?'mailbox_size' => MailboxSize,
+    ?'mailbox_quota' => ?MailboxQuota,
+    ?'mailbox_size' => ?MailboxSize,
   ) $s = shape()) {
-    $this->mailbox_quota = $mailbox_quota ?? 0;
-    $this->mailbox_size = $mailbox_size ?? 0.0;
+    $this->mailbox_quota = $s['mailbox_quota'] ?? 0;
+    $this->mailbox_size = $s['mailbox_size'] ?? 0.0;
   }
 }
 
 class Group {
-  public Timestamp $disabled_date;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public WorkMailIdentifier $id;
-  public GroupName $name;
-  public EntityState $state;
+  public ?Timestamp $disabled_date;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?WorkMailIdentifier $id;
+  public ?GroupName $name;
+  public ?EntityState $state;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'id' => WorkMailIdentifier,
-  ?'name' => GroupName,
-  ?'state' => EntityState,
+    ?'disabled_date' => ?Timestamp,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'id' => ?WorkMailIdentifier,
+    ?'name' => ?GroupName,
+    ?'state' => ?EntityState,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->id = $id ?? "";
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
   }
 }
 
@@ -797,9 +797,9 @@ class InvalidConfigurationException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -807,9 +807,9 @@ class InvalidParameterException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -817,9 +817,9 @@ class InvalidPasswordException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -833,290 +833,290 @@ class LimitExceededException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class ListAccessControlRulesRequest {
-  public OrganizationId $organization_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListAccessControlRulesResponse {
-  public AccessControlRulesList $rules;
+  public ?AccessControlRulesList $rules;
 
   public function __construct(shape(
-  ?'rules' => AccessControlRulesList,
+    ?'rules' => ?AccessControlRulesList,
   ) $s = shape()) {
-    $this->rules = $rules ?? [];
+    $this->rules = $s['rules'] ?? vec[];
   }
 }
 
 class ListAliasesRequest {
-  public WorkMailIdentifier $entity_id;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListAliasesResponse {
-  public Aliases $aliases;
-  public NextToken $next_token;
+  public ?Aliases $aliases;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'aliases' => Aliases,
-  ?'next_token' => NextToken,
+    ?'aliases' => ?Aliases,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->aliases = $aliases ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->aliases = $s['aliases'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListGroupMembersRequest {
-  public WorkMailIdentifier $group_id;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $group_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'group_id' => WorkMailIdentifier,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'group_id' => ?WorkMailIdentifier,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->group_id = $group_id ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->group_id = $s['group_id'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListGroupMembersResponse {
-  public Members $members;
-  public NextToken $next_token;
+  public ?Members $members;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'members' => Members,
-  ?'next_token' => NextToken,
+    ?'members' => ?Members,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->members = $members ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->members = $s['members'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListGroupsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListGroupsResponse {
-  public Groups $groups;
-  public NextToken $next_token;
+  public ?Groups $groups;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'groups' => Groups,
-  ?'next_token' => NextToken,
+    ?'groups' => ?Groups,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->groups = $groups ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->groups = $s['groups'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListMailboxPermissionsRequest {
-  public WorkMailIdentifier $entity_id;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?WorkMailIdentifier $entity_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListMailboxPermissionsResponse {
-  public NextToken $next_token;
-  public Permissions $permissions;
+  public ?NextToken $next_token;
+  public ?Permissions $permissions;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'permissions' => Permissions,
+    ?'next_token' => ?NextToken,
+    ?'permissions' => ?Permissions,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->permissions = $permissions ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->permissions = $s['permissions'] ?? vec[];
   }
 }
 
 class ListOrganizationsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListOrganizationsResponse {
-  public NextToken $next_token;
-  public OrganizationSummaries $organization_summaries;
+  public ?NextToken $next_token;
+  public ?OrganizationSummaries $organization_summaries;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'organization_summaries' => OrganizationSummaries,
+    ?'next_token' => ?NextToken,
+    ?'organization_summaries' => ?OrganizationSummaries,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->organization_summaries = $organization_summaries ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_summaries = $s['organization_summaries'] ?? vec[];
   }
 }
 
 class ListResourceDelegatesRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $resource_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $resource_id;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => WorkMailIdentifier,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
 class ListResourceDelegatesResponse {
-  public ResourceDelegates $delegates;
-  public NextToken $next_token;
+  public ?ResourceDelegates $delegates;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'delegates' => ResourceDelegates,
-  ?'next_token' => NextToken,
+    ?'delegates' => ?ResourceDelegates,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->delegates = $delegates ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->delegates = $s['delegates'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListResourcesRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListResourcesResponse {
-  public NextToken $next_token;
-  public Resources $resources;
+  public ?NextToken $next_token;
+  public ?Resources $resources;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'resources' => Resources,
+    ?'next_token' => ?NextToken,
+    ?'resources' => ?Resources,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->resources = $resources ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->resources = $s['resources'] ?? vec[];
   }
 }
 
 class ListTagsForResourceRequest {
-  public AmazonResourceName $resource_arn;
+  public ?AmazonResourceName $resource_arn;
 
   public function __construct(shape(
-  ?'resource_arn' => AmazonResourceName,
+    ?'resource_arn' => ?AmazonResourceName,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_arn = $s['resource_arn'] ?? '';
   }
 }
 
 class ListTagsForResourceResponse {
-  public TagList $tags;
+  public ?TagList $tags;
 
   public function __construct(shape(
-  ?'tags' => TagList,
+    ?'tags' => ?TagList,
   ) $s = shape()) {
-    $this->tags = $tags ?? [];
+    $this->tags = $s['tags'] ?? vec[];
   }
 }
 
 class ListUsersRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public OrganizationId $organization_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'organization_id' => OrganizationId,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
 class ListUsersResponse {
-  public NextToken $next_token;
-  public Users $users;
+  public ?NextToken $next_token;
+  public ?Users $users;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'users' => Users,
+    ?'next_token' => ?NextToken,
+    ?'users' => ?Users,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->users = $users ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->users = $s['users'] ?? vec[];
   }
 }
 
@@ -1124,9 +1124,9 @@ class MailDomainNotFoundException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1134,9 +1134,9 @@ class MailDomainStateException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1147,27 +1147,27 @@ type MailboxSize = float;
 type MaxResults = int;
 
 class Member {
-  public Timestamp $disabled_date;
-  public Timestamp $enabled_date;
+  public ?Timestamp $disabled_date;
+  public ?Timestamp $enabled_date;
   public string $id;
   public string $name;
-  public EntityState $state;
-  public MemberType $type;
+  public ?EntityState $state;
+  public ?MemberType $type;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'enabled_date' => Timestamp,
-  ?'id' => string,
-  ?'name' => string,
-  ?'state' => EntityState,
-  ?'type' => MemberType,
+    ?'disabled_date' => ?Timestamp,
+    ?'enabled_date' => ?Timestamp,
+    ?'id' => string,
+    ?'name' => string,
+    ?'state' => ?EntityState,
+    ?'type' => ?MemberType,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->id = $id ?? "";
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
-    $this->type = $type ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
@@ -1179,9 +1179,9 @@ class NameAvailabilityException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1195,9 +1195,9 @@ class OrganizationNotFoundException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1205,48 +1205,48 @@ class OrganizationStateException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 type OrganizationSummaries = vec<OrganizationSummary>;
 
 class OrganizationSummary {
-  public OrganizationName $alias;
+  public ?OrganizationName $alias;
   public string $error_message;
-  public OrganizationId $organization_id;
+  public ?OrganizationId $organization_id;
   public string $state;
 
   public function __construct(shape(
-  ?'alias' => OrganizationName,
-  ?'error_message' => string,
-  ?'organization_id' => OrganizationId,
-  ?'state' => string,
+    ?'alias' => ?OrganizationName,
+    ?'error_message' => string,
+    ?'organization_id' => ?OrganizationId,
+    ?'state' => string,
   ) $s = shape()) {
-    $this->alias = $alias ?? "";
-    $this->error_message = $error_message ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->state = $state ?? "";
+    $this->alias = $s['alias'] ?? '';
+    $this->error_message = $s['error_message'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->state = $s['state'] ?? '';
   }
 }
 
 type Password = string;
 
 class Permission {
-  public WorkMailIdentifier $grantee_id;
-  public MemberType $grantee_type;
-  public PermissionValues $permission_values;
+  public ?WorkMailIdentifier $grantee_id;
+  public ?MemberType $grantee_type;
+  public ?PermissionValues $permission_values;
 
   public function __construct(shape(
-  ?'grantee_id' => WorkMailIdentifier,
-  ?'grantee_type' => MemberType,
-  ?'permission_values' => PermissionValues,
+    ?'grantee_id' => ?WorkMailIdentifier,
+    ?'grantee_type' => ?MemberType,
+    ?'permission_values' => ?PermissionValues,
   ) $s = shape()) {
-    $this->grantee_id = $grantee_id ?? "";
-    $this->grantee_type = $grantee_type ?? "";
-    $this->permission_values = $permission_values ?? [];
+    $this->grantee_id = $s['grantee_id'] ?? '';
+    $this->grantee_type = $s['grantee_type'] ?? '';
+    $this->permission_values = $s['permission_values'] ?? vec[];
   }
 }
 
@@ -1257,39 +1257,39 @@ type PermissionValues = vec<PermissionType>;
 type Permissions = vec<Permission>;
 
 class PutAccessControlRuleRequest {
-  public ActionsList $actions;
-  public AccessControlRuleDescription $description;
-  public AccessControlRuleEffect $effect;
-  public IpRangeList $ip_ranges;
-  public AccessControlRuleName $name;
-  public ActionsList $not_actions;
-  public IpRangeList $not_ip_ranges;
-  public UserIdList $not_user_ids;
-  public OrganizationId $organization_id;
-  public UserIdList $user_ids;
+  public ?ActionsList $actions;
+  public ?AccessControlRuleDescription $description;
+  public ?AccessControlRuleEffect $effect;
+  public ?IpRangeList $ip_ranges;
+  public ?AccessControlRuleName $name;
+  public ?ActionsList $not_actions;
+  public ?IpRangeList $not_ip_ranges;
+  public ?UserIdList $not_user_ids;
+  public ?OrganizationId $organization_id;
+  public ?UserIdList $user_ids;
 
   public function __construct(shape(
-  ?'actions' => ActionsList,
-  ?'description' => AccessControlRuleDescription,
-  ?'effect' => AccessControlRuleEffect,
-  ?'ip_ranges' => IpRangeList,
-  ?'name' => AccessControlRuleName,
-  ?'not_actions' => ActionsList,
-  ?'not_ip_ranges' => IpRangeList,
-  ?'not_user_ids' => UserIdList,
-  ?'organization_id' => OrganizationId,
-  ?'user_ids' => UserIdList,
+    ?'actions' => ?ActionsList,
+    ?'description' => ?AccessControlRuleDescription,
+    ?'effect' => ?AccessControlRuleEffect,
+    ?'ip_ranges' => ?IpRangeList,
+    ?'name' => ?AccessControlRuleName,
+    ?'not_actions' => ?ActionsList,
+    ?'not_ip_ranges' => ?IpRangeList,
+    ?'not_user_ids' => ?UserIdList,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_ids' => ?UserIdList,
   ) $s = shape()) {
-    $this->actions = $actions ?? [];
-    $this->description = $description ?? "";
-    $this->effect = $effect ?? "";
-    $this->ip_ranges = $ip_ranges ?? [];
-    $this->name = $name ?? "";
-    $this->not_actions = $not_actions ?? [];
-    $this->not_ip_ranges = $not_ip_ranges ?? [];
-    $this->not_user_ids = $not_user_ids ?? [];
-    $this->organization_id = $organization_id ?? "";
-    $this->user_ids = $user_ids ?? [];
+    $this->actions = $s['actions'] ?? vec[];
+    $this->description = $s['description'] ?? '';
+    $this->effect = $s['effect'] ?? '';
+    $this->ip_ranges = $s['ip_ranges'] ?? vec[];
+    $this->name = $s['name'] ?? '';
+    $this->not_actions = $s['not_actions'] ?? vec[];
+    $this->not_ip_ranges = $s['not_ip_ranges'] ?? vec[];
+    $this->not_user_ids = $s['not_user_ids'] ?? vec[];
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_ids = $s['user_ids'] ?? vec[];
   }
 }
 
@@ -1301,21 +1301,21 @@ class PutAccessControlRuleResponse {
 }
 
 class PutMailboxPermissionsRequest {
-  public WorkMailIdentifier $entity_id;
-  public WorkMailIdentifier $grantee_id;
-  public OrganizationId $organization_id;
-  public PermissionValues $permission_values;
+  public ?WorkMailIdentifier $entity_id;
+  public ?WorkMailIdentifier $grantee_id;
+  public ?OrganizationId $organization_id;
+  public ?PermissionValues $permission_values;
 
   public function __construct(shape(
-  ?'entity_id' => WorkMailIdentifier,
-  ?'grantee_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
-  ?'permission_values' => PermissionValues,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'grantee_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'permission_values' => ?PermissionValues,
   ) $s = shape()) {
-    $this->entity_id = $entity_id ?? "";
-    $this->grantee_id = $grantee_id ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->permission_values = $permission_values ?? [];
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->grantee_id = $s['grantee_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->permission_values = $s['permission_values'] ?? vec[];
   }
 }
 
@@ -1327,18 +1327,18 @@ class PutMailboxPermissionsResponse {
 }
 
 class RegisterToWorkMailRequest {
-  public EmailAddress $email;
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
+  public ?EmailAddress $email;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'email' => EmailAddress,
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'email' => ?EmailAddress,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->email = $email ?? "";
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->email = $s['email'] ?? '';
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -1353,25 +1353,25 @@ class ReservedNameException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class ResetPasswordRequest {
-  public OrganizationId $organization_id;
-  public Password $password;
-  public WorkMailIdentifier $user_id;
+  public ?OrganizationId $organization_id;
+  public ?Password $password;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'organization_id' => OrganizationId,
-  ?'password' => Password,
-  ?'user_id' => WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
+    ?'password' => ?Password,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->organization_id = $organization_id ?? "";
-    $this->password = $password ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->password = $s['password'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
@@ -1383,30 +1383,30 @@ class ResetPasswordResponse {
 }
 
 class Resource {
-  public Timestamp $disabled_date;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public WorkMailIdentifier $id;
-  public ResourceName $name;
-  public EntityState $state;
-  public ResourceType $type;
+  public ?Timestamp $disabled_date;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?WorkMailIdentifier $id;
+  public ?ResourceName $name;
+  public ?EntityState $state;
+  public ?ResourceType $type;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'id' => WorkMailIdentifier,
-  ?'name' => ResourceName,
-  ?'state' => EntityState,
-  ?'type' => ResourceType,
+    ?'disabled_date' => ?Timestamp,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'id' => ?WorkMailIdentifier,
+    ?'name' => ?ResourceName,
+    ?'state' => ?EntityState,
+    ?'type' => ?ResourceType,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->id = $id ?? "";
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
-    $this->type = $type ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
@@ -1420,9 +1420,9 @@ class ResourceNotFoundException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1433,15 +1433,15 @@ type Resources = vec<Resource>;
 type String = string;
 
 class Tag {
-  public TagKey $key;
-  public TagValue $value;
+  public ?TagKey $key;
+  public ?TagValue $value;
 
   public function __construct(shape(
-  ?'key' => TagKey,
-  ?'value' => TagValue,
+    ?'key' => ?TagKey,
+    ?'value' => ?TagValue,
   ) $s = shape()) {
-    $this->key = $key ?? "";
-    $this->value = $value ?? "";
+    $this->key = $s['key'] ?? '';
+    $this->value = $s['value'] ?? '';
   }
 }
 
@@ -1452,15 +1452,15 @@ type TagKeyList = vec<TagKey>;
 type TagList = vec<Tag>;
 
 class TagResourceRequest {
-  public AmazonResourceName $resource_arn;
-  public TagList $tags;
+  public ?AmazonResourceName $resource_arn;
+  public ?TagList $tags;
 
   public function __construct(shape(
-  ?'resource_arn' => AmazonResourceName,
-  ?'tags' => TagList,
+    ?'resource_arn' => ?AmazonResourceName,
+    ?'tags' => ?TagList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? [];
+    $this->resource_arn = $s['resource_arn'] ?? '';
+    $this->tags = $s['tags'] ?? vec[];
   }
 }
 
@@ -1479,9 +1479,9 @@ class TooManyTagsException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -1489,22 +1489,22 @@ class UnsupportedOperationException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class UntagResourceRequest {
-  public AmazonResourceName $resource_arn;
-  public TagKeyList $tag_keys;
+  public ?AmazonResourceName $resource_arn;
+  public ?TagKeyList $tag_keys;
 
   public function __construct(shape(
-  ?'resource_arn' => AmazonResourceName,
-  ?'tag_keys' => TagKeyList,
+    ?'resource_arn' => ?AmazonResourceName,
+    ?'tag_keys' => ?TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? [];
+    $this->resource_arn = $s['resource_arn'] ?? '';
+    $this->tag_keys = $s['tag_keys'] ?? vec[];
   }
 }
 
@@ -1516,18 +1516,18 @@ class UntagResourceResponse {
 }
 
 class UpdateMailboxQuotaRequest {
-  public MailboxQuota $mailbox_quota;
-  public OrganizationId $organization_id;
-  public WorkMailIdentifier $user_id;
+  public ?MailboxQuota $mailbox_quota;
+  public ?OrganizationId $organization_id;
+  public ?WorkMailIdentifier $user_id;
 
   public function __construct(shape(
-  ?'mailbox_quota' => MailboxQuota,
-  ?'organization_id' => OrganizationId,
-  ?'user_id' => WorkMailIdentifier,
+    ?'mailbox_quota' => ?MailboxQuota,
+    ?'organization_id' => ?OrganizationId,
+    ?'user_id' => ?WorkMailIdentifier,
   ) $s = shape()) {
-    $this->mailbox_quota = $mailbox_quota ?? 0;
-    $this->organization_id = $organization_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->mailbox_quota = $s['mailbox_quota'] ?? 0;
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 
@@ -1539,18 +1539,18 @@ class UpdateMailboxQuotaResponse {
 }
 
 class UpdatePrimaryEmailAddressRequest {
-  public EmailAddress $email;
-  public WorkMailIdentifier $entity_id;
-  public OrganizationId $organization_id;
+  public ?EmailAddress $email;
+  public ?WorkMailIdentifier $entity_id;
+  public ?OrganizationId $organization_id;
 
   public function __construct(shape(
-  ?'email' => EmailAddress,
-  ?'entity_id' => WorkMailIdentifier,
-  ?'organization_id' => OrganizationId,
+    ?'email' => ?EmailAddress,
+    ?'entity_id' => ?WorkMailIdentifier,
+    ?'organization_id' => ?OrganizationId,
   ) $s = shape()) {
-    $this->email = $email ?? "";
-    $this->entity_id = $entity_id ?? "";
-    $this->organization_id = $organization_id ?? "";
+    $this->email = $s['email'] ?? '';
+    $this->entity_id = $s['entity_id'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
   }
 }
 
@@ -1562,21 +1562,21 @@ class UpdatePrimaryEmailAddressResponse {
 }
 
 class UpdateResourceRequest {
-  public BookingOptions $booking_options;
-  public ResourceName $name;
-  public OrganizationId $organization_id;
-  public ResourceId $resource_id;
+  public ?BookingOptions $booking_options;
+  public ?ResourceName $name;
+  public ?OrganizationId $organization_id;
+  public ?ResourceId $resource_id;
 
   public function __construct(shape(
-  ?'booking_options' => BookingOptions,
-  ?'name' => ResourceName,
-  ?'organization_id' => OrganizationId,
-  ?'resource_id' => ResourceId,
+    ?'booking_options' => ?BookingOptions,
+    ?'name' => ?ResourceName,
+    ?'organization_id' => ?OrganizationId,
+    ?'resource_id' => ?ResourceId,
   ) $s = shape()) {
-    $this->booking_options = $booking_options ?? null;
-    $this->name = $name ?? "";
-    $this->organization_id = $organization_id ?? "";
-    $this->resource_id = $resource_id ?? "";
+    $this->booking_options = $s['booking_options'] ?? null;
+    $this->name = $s['name'] ?? '';
+    $this->organization_id = $s['organization_id'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
   }
 }
 
@@ -1588,33 +1588,33 @@ class UpdateResourceResponse {
 }
 
 class User {
-  public Timestamp $disabled_date;
+  public ?Timestamp $disabled_date;
   public string $display_name;
-  public EmailAddress $email;
-  public Timestamp $enabled_date;
-  public WorkMailIdentifier $id;
-  public UserName $name;
-  public EntityState $state;
-  public UserRole $user_role;
+  public ?EmailAddress $email;
+  public ?Timestamp $enabled_date;
+  public ?WorkMailIdentifier $id;
+  public ?UserName $name;
+  public ?EntityState $state;
+  public ?UserRole $user_role;
 
   public function __construct(shape(
-  ?'disabled_date' => Timestamp,
-  ?'display_name' => string,
-  ?'email' => EmailAddress,
-  ?'enabled_date' => Timestamp,
-  ?'id' => WorkMailIdentifier,
-  ?'name' => UserName,
-  ?'state' => EntityState,
-  ?'user_role' => UserRole,
+    ?'disabled_date' => ?Timestamp,
+    ?'display_name' => string,
+    ?'email' => ?EmailAddress,
+    ?'enabled_date' => ?Timestamp,
+    ?'id' => ?WorkMailIdentifier,
+    ?'name' => ?UserName,
+    ?'state' => ?EntityState,
+    ?'user_role' => ?UserRole,
   ) $s = shape()) {
-    $this->disabled_date = $disabled_date ?? 0;
-    $this->display_name = $display_name ?? "";
-    $this->email = $email ?? "";
-    $this->enabled_date = $enabled_date ?? 0;
-    $this->id = $id ?? "";
-    $this->name = $name ?? "";
-    $this->state = $state ?? "";
-    $this->user_role = $user_role ?? "";
+    $this->disabled_date = $s['disabled_date'] ?? 0;
+    $this->display_name = $s['display_name'] ?? '';
+    $this->email = $s['email'] ?? '';
+    $this->enabled_date = $s['enabled_date'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->state = $s['state'] ?? '';
+    $this->user_role = $s['user_role'] ?? '';
   }
 }
 

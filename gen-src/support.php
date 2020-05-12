@@ -2,158 +2,158 @@
 namespace slack\aws\support;
 
 interface Support {
-  public function AddAttachmentsToSet(AddAttachmentsToSetRequest): Awaitable<Errors\Result<AddAttachmentsToSetResponse>>;
-  public function AddCommunicationToCase(AddCommunicationToCaseRequest): Awaitable<Errors\Result<AddCommunicationToCaseResponse>>;
-  public function CreateCase(CreateCaseRequest): Awaitable<Errors\Result<CreateCaseResponse>>;
-  public function DescribeAttachment(DescribeAttachmentRequest): Awaitable<Errors\Result<DescribeAttachmentResponse>>;
-  public function DescribeCases(DescribeCasesRequest): Awaitable<Errors\Result<DescribeCasesResponse>>;
-  public function DescribeCommunications(DescribeCommunicationsRequest): Awaitable<Errors\Result<DescribeCommunicationsResponse>>;
-  public function DescribeServices(DescribeServicesRequest): Awaitable<Errors\Result<DescribeServicesResponse>>;
-  public function DescribeSeverityLevels(DescribeSeverityLevelsRequest): Awaitable<Errors\Result<DescribeSeverityLevelsResponse>>;
-  public function DescribeTrustedAdvisorCheckRefreshStatuses(DescribeTrustedAdvisorCheckRefreshStatusesRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckRefreshStatusesResponse>>;
-  public function DescribeTrustedAdvisorCheckResult(DescribeTrustedAdvisorCheckResultRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckResultResponse>>;
-  public function DescribeTrustedAdvisorCheckSummaries(DescribeTrustedAdvisorCheckSummariesRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorCheckSummariesResponse>>;
-  public function DescribeTrustedAdvisorChecks(DescribeTrustedAdvisorChecksRequest): Awaitable<Errors\Result<DescribeTrustedAdvisorChecksResponse>>;
-  public function RefreshTrustedAdvisorCheck(RefreshTrustedAdvisorCheckRequest): Awaitable<Errors\Result<RefreshTrustedAdvisorCheckResponse>>;
-  public function ResolveCase(ResolveCaseRequest): Awaitable<Errors\Result<ResolveCaseResponse>>;
+  public function AddAttachmentsToSet(AddAttachmentsToSetRequest $in): Awaitable<\Errors\Result<AddAttachmentsToSetResponse>>;
+  public function AddCommunicationToCase(AddCommunicationToCaseRequest $in): Awaitable<\Errors\Result<AddCommunicationToCaseResponse>>;
+  public function CreateCase(CreateCaseRequest $in): Awaitable<\Errors\Result<CreateCaseResponse>>;
+  public function DescribeAttachment(DescribeAttachmentRequest $in): Awaitable<\Errors\Result<DescribeAttachmentResponse>>;
+  public function DescribeCases(DescribeCasesRequest $in): Awaitable<\Errors\Result<DescribeCasesResponse>>;
+  public function DescribeCommunications(DescribeCommunicationsRequest $in): Awaitable<\Errors\Result<DescribeCommunicationsResponse>>;
+  public function DescribeServices(DescribeServicesRequest $in): Awaitable<\Errors\Result<DescribeServicesResponse>>;
+  public function DescribeSeverityLevels(DescribeSeverityLevelsRequest $in): Awaitable<\Errors\Result<DescribeSeverityLevelsResponse>>;
+  public function DescribeTrustedAdvisorCheckRefreshStatuses(DescribeTrustedAdvisorCheckRefreshStatusesRequest $in): Awaitable<\Errors\Result<DescribeTrustedAdvisorCheckRefreshStatusesResponse>>;
+  public function DescribeTrustedAdvisorCheckResult(DescribeTrustedAdvisorCheckResultRequest $in): Awaitable<\Errors\Result<DescribeTrustedAdvisorCheckResultResponse>>;
+  public function DescribeTrustedAdvisorCheckSummaries(DescribeTrustedAdvisorCheckSummariesRequest $in): Awaitable<\Errors\Result<DescribeTrustedAdvisorCheckSummariesResponse>>;
+  public function DescribeTrustedAdvisorChecks(DescribeTrustedAdvisorChecksRequest $in): Awaitable<\Errors\Result<DescribeTrustedAdvisorChecksResponse>>;
+  public function RefreshTrustedAdvisorCheck(RefreshTrustedAdvisorCheckRequest $in): Awaitable<\Errors\Result<RefreshTrustedAdvisorCheckResponse>>;
+  public function ResolveCase(ResolveCaseRequest $in): Awaitable<\Errors\Result<ResolveCaseResponse>>;
 }
 
 class AddAttachmentsToSetRequest {
-  public AttachmentSetId $attachment_set_id;
-  public Attachments $attachments;
+  public ?AttachmentSetId $attachment_set_id;
+  public ?Attachments $attachments;
 
   public function __construct(shape(
-  ?'attachment_set_id' => AttachmentSetId,
-  ?'attachments' => Attachments,
+    ?'attachment_set_id' => ?AttachmentSetId,
+    ?'attachments' => ?Attachments,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? "";
-    $this->attachments = $attachments ?? [];
+    $this->attachment_set_id = $s['attachment_set_id'] ?? '';
+    $this->attachments = $s['attachments'] ?? vec[];
   }
 }
 
 class AddAttachmentsToSetResponse {
-  public AttachmentSetId $attachment_set_id;
-  public ExpiryTime $expiry_time;
+  public ?AttachmentSetId $attachment_set_id;
+  public ?ExpiryTime $expiry_time;
 
   public function __construct(shape(
-  ?'attachment_set_id' => AttachmentSetId,
-  ?'expiry_time' => ExpiryTime,
+    ?'attachment_set_id' => ?AttachmentSetId,
+    ?'expiry_time' => ?ExpiryTime,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? "";
-    $this->expiry_time = $expiry_time ?? "";
+    $this->attachment_set_id = $s['attachment_set_id'] ?? '';
+    $this->expiry_time = $s['expiry_time'] ?? '';
   }
 }
 
 class AddCommunicationToCaseRequest {
-  public AttachmentSetId $attachment_set_id;
-  public CaseId $case_id;
-  public CcEmailAddressList $cc_email_addresses;
-  public CommunicationBody $communication_body;
+  public ?AttachmentSetId $attachment_set_id;
+  public ?CaseId $case_id;
+  public ?CcEmailAddressList $cc_email_addresses;
+  public ?CommunicationBody $communication_body;
 
   public function __construct(shape(
-  ?'attachment_set_id' => AttachmentSetId,
-  ?'case_id' => CaseId,
-  ?'cc_email_addresses' => CcEmailAddressList,
-  ?'communication_body' => CommunicationBody,
+    ?'attachment_set_id' => ?AttachmentSetId,
+    ?'case_id' => ?CaseId,
+    ?'cc_email_addresses' => ?CcEmailAddressList,
+    ?'communication_body' => ?CommunicationBody,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? "";
-    $this->case_id = $case_id ?? "";
-    $this->cc_email_addresses = $cc_email_addresses ?? [];
-    $this->communication_body = $communication_body ?? "";
+    $this->attachment_set_id = $s['attachment_set_id'] ?? '';
+    $this->case_id = $s['case_id'] ?? '';
+    $this->cc_email_addresses = $s['cc_email_addresses'] ?? vec[];
+    $this->communication_body = $s['communication_body'] ?? '';
   }
 }
 
 class AddCommunicationToCaseResponse {
-  public Result $result;
+  public ?Result $result;
 
   public function __construct(shape(
-  ?'result' => Result,
+    ?'result' => ?Result,
   ) $s = shape()) {
-    $this->result = $result ?? false;
+    $this->result = $s['result'] ?? false;
   }
 }
 
 type AfterTime = string;
 
 class Attachment {
-  public Data $data;
-  public FileName $file_name;
+  public ?Data $data;
+  public ?FileName $file_name;
 
   public function __construct(shape(
-  ?'data' => Data,
-  ?'file_name' => FileName,
+    ?'data' => ?Data,
+    ?'file_name' => ?FileName,
   ) $s = shape()) {
-    $this->data = $data ?? "";
-    $this->file_name = $file_name ?? "";
+    $this->data = $s['data'] ?? '';
+    $this->file_name = $s['file_name'] ?? '';
   }
 }
 
 class AttachmentDetails {
-  public AttachmentId $attachment_id;
-  public FileName $file_name;
+  public ?AttachmentId $attachment_id;
+  public ?FileName $file_name;
 
   public function __construct(shape(
-  ?'attachment_id' => AttachmentId,
-  ?'file_name' => FileName,
+    ?'attachment_id' => ?AttachmentId,
+    ?'file_name' => ?FileName,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? "";
-    $this->file_name = $file_name ?? "";
+    $this->attachment_id = $s['attachment_id'] ?? '';
+    $this->file_name = $s['file_name'] ?? '';
   }
 }
 
 type AttachmentId = string;
 
 class AttachmentIdNotFound {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class AttachmentLimitExceeded {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 type AttachmentSet = vec<AttachmentDetails>;
 
 class AttachmentSetExpired {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 type AttachmentSetId = string;
 
 class AttachmentSetIdNotFound {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class AttachmentSetSizeLimitExceeded {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -164,55 +164,55 @@ type BeforeTime = string;
 type Boolean = bool;
 
 class CaseCreationLimitExceeded {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class CaseDetails {
-  public CaseId $case_id;
-  public CategoryCode $category_code;
-  public CcEmailAddressList $cc_email_addresses;
-  public DisplayId $display_id;
-  public Language $language;
-  public RecentCaseCommunications $recent_communications;
-  public ServiceCode $service_code;
-  public SeverityCode $severity_code;
-  public Status $status;
-  public Subject $subject;
-  public SubmittedBy $submitted_by;
-  public TimeCreated $time_created;
+  public ?CaseId $case_id;
+  public ?CategoryCode $category_code;
+  public ?CcEmailAddressList $cc_email_addresses;
+  public ?DisplayId $display_id;
+  public ?Language $language;
+  public ?RecentCaseCommunications $recent_communications;
+  public ?ServiceCode $service_code;
+  public ?SeverityCode $severity_code;
+  public ?Status $status;
+  public ?Subject $subject;
+  public ?SubmittedBy $submitted_by;
+  public ?TimeCreated $time_created;
 
   public function __construct(shape(
-  ?'case_id' => CaseId,
-  ?'category_code' => CategoryCode,
-  ?'cc_email_addresses' => CcEmailAddressList,
-  ?'display_id' => DisplayId,
-  ?'language' => Language,
-  ?'recent_communications' => RecentCaseCommunications,
-  ?'service_code' => ServiceCode,
-  ?'severity_code' => SeverityCode,
-  ?'status' => Status,
-  ?'subject' => Subject,
-  ?'submitted_by' => SubmittedBy,
-  ?'time_created' => TimeCreated,
+    ?'case_id' => ?CaseId,
+    ?'category_code' => ?CategoryCode,
+    ?'cc_email_addresses' => ?CcEmailAddressList,
+    ?'display_id' => ?DisplayId,
+    ?'language' => ?Language,
+    ?'recent_communications' => ?RecentCaseCommunications,
+    ?'service_code' => ?ServiceCode,
+    ?'severity_code' => ?SeverityCode,
+    ?'status' => ?Status,
+    ?'subject' => ?Subject,
+    ?'submitted_by' => ?SubmittedBy,
+    ?'time_created' => ?TimeCreated,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? "";
-    $this->category_code = $category_code ?? "";
-    $this->cc_email_addresses = $cc_email_addresses ?? [];
-    $this->display_id = $display_id ?? "";
-    $this->language = $language ?? "";
-    $this->recent_communications = $recent_communications ?? null;
-    $this->service_code = $service_code ?? "";
-    $this->severity_code = $severity_code ?? "";
-    $this->status = $status ?? "";
-    $this->subject = $subject ?? "";
-    $this->submitted_by = $submitted_by ?? "";
-    $this->time_created = $time_created ?? "";
+    $this->case_id = $s['case_id'] ?? '';
+    $this->category_code = $s['category_code'] ?? '';
+    $this->cc_email_addresses = $s['cc_email_addresses'] ?? vec[];
+    $this->display_id = $s['display_id'] ?? '';
+    $this->language = $s['language'] ?? '';
+    $this->recent_communications = $s['recent_communications'] ?? null;
+    $this->service_code = $s['service_code'] ?? '';
+    $this->severity_code = $s['severity_code'] ?? '';
+    $this->status = $s['status'] ?? '';
+    $this->subject = $s['subject'] ?? '';
+    $this->submitted_by = $s['submitted_by'] ?? '';
+    $this->time_created = $s['time_created'] ?? '';
   }
 }
 
@@ -221,12 +221,12 @@ type CaseId = string;
 type CaseIdList = vec<CaseId>;
 
 class CaseIdNotFound {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -235,15 +235,15 @@ type CaseList = vec<CaseDetails>;
 type CaseStatus = string;
 
 class Category {
-  public CategoryCode $code;
-  public CategoryName $name;
+  public ?CategoryCode $code;
+  public ?CategoryName $name;
 
   public function __construct(shape(
-  ?'code' => CategoryCode,
-  ?'name' => CategoryName,
+    ?'code' => ?CategoryCode,
+    ?'name' => ?CategoryName,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->name = $name ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -258,24 +258,24 @@ type CcEmailAddress = string;
 type CcEmailAddressList = vec<CcEmailAddress>;
 
 class Communication {
-  public AttachmentSet $attachment_set;
-  public CommunicationBody $body;
-  public CaseId $case_id;
-  public SubmittedBy $submitted_by;
-  public TimeCreated $time_created;
+  public ?AttachmentSet $attachment_set;
+  public ?CommunicationBody $body;
+  public ?CaseId $case_id;
+  public ?SubmittedBy $submitted_by;
+  public ?TimeCreated $time_created;
 
   public function __construct(shape(
-  ?'attachment_set' => AttachmentSet,
-  ?'body' => CommunicationBody,
-  ?'case_id' => CaseId,
-  ?'submitted_by' => SubmittedBy,
-  ?'time_created' => TimeCreated,
+    ?'attachment_set' => ?AttachmentSet,
+    ?'body' => ?CommunicationBody,
+    ?'case_id' => ?CaseId,
+    ?'submitted_by' => ?SubmittedBy,
+    ?'time_created' => ?TimeCreated,
   ) $s = shape()) {
-    $this->attachment_set = $attachment_set ?? [];
-    $this->body = $body ?? "";
-    $this->case_id = $case_id ?? "";
-    $this->submitted_by = $submitted_by ?? "";
-    $this->time_created = $time_created ?? "";
+    $this->attachment_set = $s['attachment_set'] ?? vec[];
+    $this->body = $s['body'] ?? '';
+    $this->case_id = $s['case_id'] ?? '';
+    $this->submitted_by = $s['submitted_by'] ?? '';
+    $this->time_created = $s['time_created'] ?? '';
   }
 }
 
@@ -284,223 +284,223 @@ type CommunicationBody = string;
 type CommunicationList = vec<Communication>;
 
 class CreateCaseRequest {
-  public AttachmentSetId $attachment_set_id;
-  public CategoryCode $category_code;
-  public CcEmailAddressList $cc_email_addresses;
-  public CommunicationBody $communication_body;
-  public IssueType $issue_type;
-  public Language $language;
-  public ServiceCode $service_code;
-  public SeverityCode $severity_code;
-  public Subject $subject;
+  public ?AttachmentSetId $attachment_set_id;
+  public ?CategoryCode $category_code;
+  public ?CcEmailAddressList $cc_email_addresses;
+  public ?CommunicationBody $communication_body;
+  public ?IssueType $issue_type;
+  public ?Language $language;
+  public ?ServiceCode $service_code;
+  public ?SeverityCode $severity_code;
+  public ?Subject $subject;
 
   public function __construct(shape(
-  ?'attachment_set_id' => AttachmentSetId,
-  ?'category_code' => CategoryCode,
-  ?'cc_email_addresses' => CcEmailAddressList,
-  ?'communication_body' => CommunicationBody,
-  ?'issue_type' => IssueType,
-  ?'language' => Language,
-  ?'service_code' => ServiceCode,
-  ?'severity_code' => SeverityCode,
-  ?'subject' => Subject,
+    ?'attachment_set_id' => ?AttachmentSetId,
+    ?'category_code' => ?CategoryCode,
+    ?'cc_email_addresses' => ?CcEmailAddressList,
+    ?'communication_body' => ?CommunicationBody,
+    ?'issue_type' => ?IssueType,
+    ?'language' => ?Language,
+    ?'service_code' => ?ServiceCode,
+    ?'severity_code' => ?SeverityCode,
+    ?'subject' => ?Subject,
   ) $s = shape()) {
-    $this->attachment_set_id = $attachment_set_id ?? "";
-    $this->category_code = $category_code ?? "";
-    $this->cc_email_addresses = $cc_email_addresses ?? [];
-    $this->communication_body = $communication_body ?? "";
-    $this->issue_type = $issue_type ?? "";
-    $this->language = $language ?? "";
-    $this->service_code = $service_code ?? "";
-    $this->severity_code = $severity_code ?? "";
-    $this->subject = $subject ?? "";
+    $this->attachment_set_id = $s['attachment_set_id'] ?? '';
+    $this->category_code = $s['category_code'] ?? '';
+    $this->cc_email_addresses = $s['cc_email_addresses'] ?? vec[];
+    $this->communication_body = $s['communication_body'] ?? '';
+    $this->issue_type = $s['issue_type'] ?? '';
+    $this->language = $s['language'] ?? '';
+    $this->service_code = $s['service_code'] ?? '';
+    $this->severity_code = $s['severity_code'] ?? '';
+    $this->subject = $s['subject'] ?? '';
   }
 }
 
 class CreateCaseResponse {
-  public CaseId $case_id;
+  public ?CaseId $case_id;
 
   public function __construct(shape(
-  ?'case_id' => CaseId,
+    ?'case_id' => ?CaseId,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? "";
+    $this->case_id = $s['case_id'] ?? '';
   }
 }
 
 type Data = string;
 
 class DescribeAttachmentLimitExceeded {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class DescribeAttachmentRequest {
-  public AttachmentId $attachment_id;
+  public ?AttachmentId $attachment_id;
 
   public function __construct(shape(
-  ?'attachment_id' => AttachmentId,
+    ?'attachment_id' => ?AttachmentId,
   ) $s = shape()) {
-    $this->attachment_id = $attachment_id ?? "";
+    $this->attachment_id = $s['attachment_id'] ?? '';
   }
 }
 
 class DescribeAttachmentResponse {
-  public Attachment $attachment;
+  public ?Attachment $attachment;
 
   public function __construct(shape(
-  ?'attachment' => Attachment,
+    ?'attachment' => ?Attachment,
   ) $s = shape()) {
-    $this->attachment = $attachment ?? null;
+    $this->attachment = $s['attachment'] ?? null;
   }
 }
 
 class DescribeCasesRequest {
-  public AfterTime $after_time;
-  public BeforeTime $before_time;
-  public CaseIdList $case_id_list;
-  public DisplayId $display_id;
-  public IncludeCommunications $include_communications;
-  public IncludeResolvedCases $include_resolved_cases;
-  public Language $language;
-  public MaxResults $max_results;
-  public NextToken $next_token;
+  public ?AfterTime $after_time;
+  public ?BeforeTime $before_time;
+  public ?CaseIdList $case_id_list;
+  public ?DisplayId $display_id;
+  public ?IncludeCommunications $include_communications;
+  public ?IncludeResolvedCases $include_resolved_cases;
+  public ?Language $language;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'after_time' => AfterTime,
-  ?'before_time' => BeforeTime,
-  ?'case_id_list' => CaseIdList,
-  ?'display_id' => DisplayId,
-  ?'include_communications' => IncludeCommunications,
-  ?'include_resolved_cases' => IncludeResolvedCases,
-  ?'language' => Language,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
+    ?'after_time' => ?AfterTime,
+    ?'before_time' => ?BeforeTime,
+    ?'case_id_list' => ?CaseIdList,
+    ?'display_id' => ?DisplayId,
+    ?'include_communications' => ?IncludeCommunications,
+    ?'include_resolved_cases' => ?IncludeResolvedCases,
+    ?'language' => ?Language,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->after_time = $after_time ?? "";
-    $this->before_time = $before_time ?? "";
-    $this->case_id_list = $case_id_list ?? [];
-    $this->display_id = $display_id ?? "";
-    $this->include_communications = $include_communications ?? false;
-    $this->include_resolved_cases = $include_resolved_cases ?? false;
-    $this->language = $language ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
+    $this->after_time = $s['after_time'] ?? '';
+    $this->before_time = $s['before_time'] ?? '';
+    $this->case_id_list = $s['case_id_list'] ?? vec[];
+    $this->display_id = $s['display_id'] ?? '';
+    $this->include_communications = $s['include_communications'] ?? false;
+    $this->include_resolved_cases = $s['include_resolved_cases'] ?? false;
+    $this->language = $s['language'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class DescribeCasesResponse {
-  public CaseList $cases;
-  public NextToken $next_token;
+  public ?CaseList $cases;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'cases' => CaseList,
-  ?'next_token' => NextToken,
+    ?'cases' => ?CaseList,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->cases = $cases ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->cases = $s['cases'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class DescribeCommunicationsRequest {
-  public AfterTime $after_time;
-  public BeforeTime $before_time;
-  public CaseId $case_id;
-  public MaxResults $max_results;
-  public NextToken $next_token;
+  public ?AfterTime $after_time;
+  public ?BeforeTime $before_time;
+  public ?CaseId $case_id;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'after_time' => AfterTime,
-  ?'before_time' => BeforeTime,
-  ?'case_id' => CaseId,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
+    ?'after_time' => ?AfterTime,
+    ?'before_time' => ?BeforeTime,
+    ?'case_id' => ?CaseId,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->after_time = $after_time ?? "";
-    $this->before_time = $before_time ?? "";
-    $this->case_id = $case_id ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
+    $this->after_time = $s['after_time'] ?? '';
+    $this->before_time = $s['before_time'] ?? '';
+    $this->case_id = $s['case_id'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class DescribeCommunicationsResponse {
-  public CommunicationList $communications;
-  public NextToken $next_token;
+  public ?CommunicationList $communications;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'communications' => CommunicationList,
-  ?'next_token' => NextToken,
+    ?'communications' => ?CommunicationList,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->communications = $communications ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->communications = $s['communications'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class DescribeServicesRequest {
-  public Language $language;
-  public ServiceCodeList $service_code_list;
+  public ?Language $language;
+  public ?ServiceCodeList $service_code_list;
 
   public function __construct(shape(
-  ?'language' => Language,
-  ?'service_code_list' => ServiceCodeList,
+    ?'language' => ?Language,
+    ?'service_code_list' => ?ServiceCodeList,
   ) $s = shape()) {
-    $this->language = $language ?? "";
-    $this->service_code_list = $service_code_list ?? [];
+    $this->language = $s['language'] ?? '';
+    $this->service_code_list = $s['service_code_list'] ?? vec[];
   }
 }
 
 class DescribeServicesResponse {
-  public ServiceList $services;
+  public ?ServiceList $services;
 
   public function __construct(shape(
-  ?'services' => ServiceList,
+    ?'services' => ?ServiceList,
   ) $s = shape()) {
-    $this->services = $services ?? [];
+    $this->services = $s['services'] ?? vec[];
   }
 }
 
 class DescribeSeverityLevelsRequest {
-  public Language $language;
+  public ?Language $language;
 
   public function __construct(shape(
-  ?'language' => Language,
+    ?'language' => ?Language,
   ) $s = shape()) {
-    $this->language = $language ?? "";
+    $this->language = $s['language'] ?? '';
   }
 }
 
 class DescribeSeverityLevelsResponse {
-  public SeverityLevelsList $severity_levels;
+  public ?SeverityLevelsList $severity_levels;
 
   public function __construct(shape(
-  ?'severity_levels' => SeverityLevelsList,
+    ?'severity_levels' => ?SeverityLevelsList,
   ) $s = shape()) {
-    $this->severity_levels = $severity_levels ?? [];
+    $this->severity_levels = $s['severity_levels'] ?? vec[];
   }
 }
 
 class DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  public StringList $check_ids;
+  public ?StringList $check_ids;
 
   public function __construct(shape(
-  ?'check_ids' => StringList,
+    ?'check_ids' => ?StringList,
   ) $s = shape()) {
-    $this->check_ids = $check_ids ?? [];
+    $this->check_ids = $s['check_ids'] ?? vec[];
   }
 }
 
 class DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  public TrustedAdvisorCheckRefreshStatusList $statuses;
+  public ?TrustedAdvisorCheckRefreshStatusList $statuses;
 
   public function __construct(shape(
-  ?'statuses' => TrustedAdvisorCheckRefreshStatusList,
+    ?'statuses' => ?TrustedAdvisorCheckRefreshStatusList,
   ) $s = shape()) {
-    $this->statuses = $statuses ?? [];
+    $this->statuses = $s['statuses'] ?? vec[];
   }
 }
 
@@ -509,41 +509,41 @@ class DescribeTrustedAdvisorCheckResultRequest {
   public string $language;
 
   public function __construct(shape(
-  ?'check_id' => string,
-  ?'language' => string,
+    ?'check_id' => string,
+    ?'language' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? "";
-    $this->language = $language ?? "";
+    $this->check_id = $s['check_id'] ?? '';
+    $this->language = $s['language'] ?? '';
   }
 }
 
 class DescribeTrustedAdvisorCheckResultResponse {
-  public TrustedAdvisorCheckResult $result;
+  public ?TrustedAdvisorCheckResult $result;
 
   public function __construct(shape(
-  ?'result' => TrustedAdvisorCheckResult,
+    ?'result' => ?TrustedAdvisorCheckResult,
   ) $s = shape()) {
-    $this->result = $result ?? null;
+    $this->result = $s['result'] ?? null;
   }
 }
 
 class DescribeTrustedAdvisorCheckSummariesRequest {
-  public StringList $check_ids;
+  public ?StringList $check_ids;
 
   public function __construct(shape(
-  ?'check_ids' => StringList,
+    ?'check_ids' => ?StringList,
   ) $s = shape()) {
-    $this->check_ids = $check_ids ?? [];
+    $this->check_ids = $s['check_ids'] ?? vec[];
   }
 }
 
 class DescribeTrustedAdvisorCheckSummariesResponse {
-  public TrustedAdvisorCheckSummaryList $summaries;
+  public ?TrustedAdvisorCheckSummaryList $summaries;
 
   public function __construct(shape(
-  ?'summaries' => TrustedAdvisorCheckSummaryList,
+    ?'summaries' => ?TrustedAdvisorCheckSummaryList,
   ) $s = shape()) {
-    $this->summaries = $summaries ?? [];
+    $this->summaries = $s['summaries'] ?? vec[];
   }
 }
 
@@ -551,19 +551,19 @@ class DescribeTrustedAdvisorChecksRequest {
   public string $language;
 
   public function __construct(shape(
-  ?'language' => string,
+    ?'language' => string,
   ) $s = shape()) {
-    $this->language = $language ?? "";
+    $this->language = $s['language'] ?? '';
   }
 }
 
 class DescribeTrustedAdvisorChecksResponse {
-  public TrustedAdvisorCheckList $checks;
+  public ?TrustedAdvisorCheckList $checks;
 
   public function __construct(shape(
-  ?'checks' => TrustedAdvisorCheckList,
+    ?'checks' => ?TrustedAdvisorCheckList,
   ) $s = shape()) {
-    $this->checks = $checks ?? [];
+    $this->checks = $s['checks'] ?? vec[];
   }
 }
 
@@ -582,12 +582,12 @@ type IncludeCommunications = bool;
 type IncludeResolvedCases = bool;
 
 class InternalServerError {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -602,15 +602,15 @@ type MaxResults = int;
 type NextToken = string;
 
 class RecentCaseCommunications {
-  public CommunicationList $communications;
-  public NextToken $next_token;
+  public ?CommunicationList $communications;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'communications' => CommunicationList,
-  ?'next_token' => NextToken,
+    ?'communications' => ?CommunicationList,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->communications = $communications ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->communications = $s['communications'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
@@ -618,60 +618,60 @@ class RefreshTrustedAdvisorCheckRequest {
   public string $check_id;
 
   public function __construct(shape(
-  ?'check_id' => string,
+    ?'check_id' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? "";
+    $this->check_id = $s['check_id'] ?? '';
   }
 }
 
 class RefreshTrustedAdvisorCheckResponse {
-  public TrustedAdvisorCheckRefreshStatus $status;
+  public ?TrustedAdvisorCheckRefreshStatus $status;
 
   public function __construct(shape(
-  ?'status' => TrustedAdvisorCheckRefreshStatus,
+    ?'status' => ?TrustedAdvisorCheckRefreshStatus,
   ) $s = shape()) {
-    $this->status = $status ?? null;
+    $this->status = $s['status'] ?? null;
   }
 }
 
 class ResolveCaseRequest {
-  public CaseId $case_id;
+  public ?CaseId $case_id;
 
   public function __construct(shape(
-  ?'case_id' => CaseId,
+    ?'case_id' => ?CaseId,
   ) $s = shape()) {
-    $this->case_id = $case_id ?? "";
+    $this->case_id = $s['case_id'] ?? '';
   }
 }
 
 class ResolveCaseResponse {
-  public CaseStatus $final_case_status;
-  public CaseStatus $initial_case_status;
+  public ?CaseStatus $final_case_status;
+  public ?CaseStatus $initial_case_status;
 
   public function __construct(shape(
-  ?'final_case_status' => CaseStatus,
-  ?'initial_case_status' => CaseStatus,
+    ?'final_case_status' => ?CaseStatus,
+    ?'initial_case_status' => ?CaseStatus,
   ) $s = shape()) {
-    $this->final_case_status = $final_case_status ?? "";
-    $this->initial_case_status = $initial_case_status ?? "";
+    $this->final_case_status = $s['final_case_status'] ?? '';
+    $this->initial_case_status = $s['initial_case_status'] ?? '';
   }
 }
 
 type Result = bool;
 
 class Service {
-  public CategoryList $categories;
-  public ServiceCode $code;
-  public ServiceName $name;
+  public ?CategoryList $categories;
+  public ?ServiceCode $code;
+  public ?ServiceName $name;
 
   public function __construct(shape(
-  ?'categories' => CategoryList,
-  ?'code' => ServiceCode,
-  ?'name' => ServiceName,
+    ?'categories' => ?CategoryList,
+    ?'code' => ?ServiceCode,
+    ?'name' => ?ServiceName,
   ) $s = shape()) {
-    $this->categories = $categories ?? [];
-    $this->code = $code ?? "";
-    $this->name = $name ?? "";
+    $this->categories = $s['categories'] ?? vec[];
+    $this->code = $s['code'] ?? '';
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -686,15 +686,15 @@ type ServiceName = string;
 type SeverityCode = string;
 
 class SeverityLevel {
-  public SeverityLevelCode $code;
-  public SeverityLevelName $name;
+  public ?SeverityLevelCode $code;
+  public ?SeverityLevelName $name;
 
   public function __construct(shape(
-  ?'code' => SeverityLevelCode,
-  ?'name' => SeverityLevelName,
+    ?'code' => ?SeverityLevelCode,
+    ?'name' => ?SeverityLevelName,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->name = $name ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -717,12 +717,12 @@ type SubmittedBy = string;
 type TimeCreated = string;
 
 class TrustedAdvisorCategorySpecificSummary {
-  public TrustedAdvisorCostOptimizingSummary $cost_optimizing;
+  public ?TrustedAdvisorCostOptimizingSummary $cost_optimizing;
 
   public function __construct(shape(
-  ?'cost_optimizing' => TrustedAdvisorCostOptimizingSummary,
+    ?'cost_optimizing' => ?TrustedAdvisorCostOptimizingSummary,
   ) $s = shape()) {
-    $this->cost_optimizing = $cost_optimizing ?? null;
+    $this->cost_optimizing = $s['cost_optimizing'] ?? null;
   }
 }
 
@@ -730,21 +730,21 @@ class TrustedAdvisorCheckDescription {
   public string $category;
   public string $description;
   public string $id;
-  public StringList $metadata;
+  public ?StringList $metadata;
   public string $name;
 
   public function __construct(shape(
-  ?'category' => string,
-  ?'description' => string,
-  ?'id' => string,
-  ?'metadata' => StringList,
-  ?'name' => string,
+    ?'category' => string,
+    ?'description' => string,
+    ?'id' => string,
+    ?'metadata' => ?StringList,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->category = $category ?? "";
-    $this->description = $description ?? "";
-    $this->id = $id ?? "";
-    $this->metadata = $metadata ?? [];
-    $this->name = $name ?? "";
+    $this->category = $s['category'] ?? '';
+    $this->description = $s['description'] ?? '';
+    $this->id = $s['id'] ?? '';
+    $this->metadata = $s['metadata'] ?? vec[];
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -752,127 +752,127 @@ type TrustedAdvisorCheckList = vec<TrustedAdvisorCheckDescription>;
 
 class TrustedAdvisorCheckRefreshStatus {
   public string $check_id;
-  public Long $millis_until_next_refreshable;
+  public ?Long $millis_until_next_refreshable;
   public string $status;
 
   public function __construct(shape(
-  ?'check_id' => string,
-  ?'millis_until_next_refreshable' => Long,
-  ?'status' => string,
+    ?'check_id' => string,
+    ?'millis_until_next_refreshable' => ?Long,
+    ?'status' => string,
   ) $s = shape()) {
-    $this->check_id = $check_id ?? "";
-    $this->millis_until_next_refreshable = $millis_until_next_refreshable ?? 0;
-    $this->status = $status ?? "";
+    $this->check_id = $s['check_id'] ?? '';
+    $this->millis_until_next_refreshable = $s['millis_until_next_refreshable'] ?? 0;
+    $this->status = $s['status'] ?? '';
   }
 }
 
 type TrustedAdvisorCheckRefreshStatusList = vec<TrustedAdvisorCheckRefreshStatus>;
 
 class TrustedAdvisorCheckResult {
-  public TrustedAdvisorCategorySpecificSummary $category_specific_summary;
+  public ?TrustedAdvisorCategorySpecificSummary $category_specific_summary;
   public string $check_id;
-  public TrustedAdvisorResourceDetailList $flagged_resources;
-  public TrustedAdvisorResourcesSummary $resources_summary;
+  public ?TrustedAdvisorResourceDetailList $flagged_resources;
+  public ?TrustedAdvisorResourcesSummary $resources_summary;
   public string $status;
   public string $timestamp;
 
   public function __construct(shape(
-  ?'category_specific_summary' => TrustedAdvisorCategorySpecificSummary,
-  ?'check_id' => string,
-  ?'flagged_resources' => TrustedAdvisorResourceDetailList,
-  ?'resources_summary' => TrustedAdvisorResourcesSummary,
-  ?'status' => string,
-  ?'timestamp' => string,
+    ?'category_specific_summary' => ?TrustedAdvisorCategorySpecificSummary,
+    ?'check_id' => string,
+    ?'flagged_resources' => ?TrustedAdvisorResourceDetailList,
+    ?'resources_summary' => ?TrustedAdvisorResourcesSummary,
+    ?'status' => string,
+    ?'timestamp' => string,
   ) $s = shape()) {
-    $this->category_specific_summary = $category_specific_summary ?? null;
-    $this->check_id = $check_id ?? "";
-    $this->flagged_resources = $flagged_resources ?? [];
-    $this->resources_summary = $resources_summary ?? null;
-    $this->status = $status ?? "";
-    $this->timestamp = $timestamp ?? "";
+    $this->category_specific_summary = $s['category_specific_summary'] ?? null;
+    $this->check_id = $s['check_id'] ?? '';
+    $this->flagged_resources = $s['flagged_resources'] ?? vec[];
+    $this->resources_summary = $s['resources_summary'] ?? null;
+    $this->status = $s['status'] ?? '';
+    $this->timestamp = $s['timestamp'] ?? '';
   }
 }
 
 class TrustedAdvisorCheckSummary {
-  public TrustedAdvisorCategorySpecificSummary $category_specific_summary;
+  public ?TrustedAdvisorCategorySpecificSummary $category_specific_summary;
   public string $check_id;
-  public boolean $has_flagged_resources;
-  public TrustedAdvisorResourcesSummary $resources_summary;
+  public bool $has_flagged_resources;
+  public ?TrustedAdvisorResourcesSummary $resources_summary;
   public string $status;
   public string $timestamp;
 
   public function __construct(shape(
-  ?'category_specific_summary' => TrustedAdvisorCategorySpecificSummary,
-  ?'check_id' => string,
-  ?'has_flagged_resources' => boolean,
-  ?'resources_summary' => TrustedAdvisorResourcesSummary,
-  ?'status' => string,
-  ?'timestamp' => string,
+    ?'category_specific_summary' => ?TrustedAdvisorCategorySpecificSummary,
+    ?'check_id' => string,
+    ?'has_flagged_resources' => bool,
+    ?'resources_summary' => ?TrustedAdvisorResourcesSummary,
+    ?'status' => string,
+    ?'timestamp' => string,
   ) $s = shape()) {
-    $this->category_specific_summary = $category_specific_summary ?? null;
-    $this->check_id = $check_id ?? "";
-    $this->has_flagged_resources = $has_flagged_resources ?? false;
-    $this->resources_summary = $resources_summary ?? null;
-    $this->status = $status ?? "";
-    $this->timestamp = $timestamp ?? "";
+    $this->category_specific_summary = $s['category_specific_summary'] ?? null;
+    $this->check_id = $s['check_id'] ?? '';
+    $this->has_flagged_resources = $s['has_flagged_resources'] ?? false;
+    $this->resources_summary = $s['resources_summary'] ?? null;
+    $this->status = $s['status'] ?? '';
+    $this->timestamp = $s['timestamp'] ?? '';
   }
 }
 
 type TrustedAdvisorCheckSummaryList = vec<TrustedAdvisorCheckSummary>;
 
 class TrustedAdvisorCostOptimizingSummary {
-  public Double $estimated_monthly_savings;
-  public Double $estimated_percent_monthly_savings;
+  public ?Double $estimated_monthly_savings;
+  public ?Double $estimated_percent_monthly_savings;
 
   public function __construct(shape(
-  ?'estimated_monthly_savings' => Double,
-  ?'estimated_percent_monthly_savings' => Double,
+    ?'estimated_monthly_savings' => ?Double,
+    ?'estimated_percent_monthly_savings' => ?Double,
   ) $s = shape()) {
-    $this->estimated_monthly_savings = $estimated_monthly_savings ?? 0.0;
-    $this->estimated_percent_monthly_savings = $estimated_percent_monthly_savings ?? 0.0;
+    $this->estimated_monthly_savings = $s['estimated_monthly_savings'] ?? 0.0;
+    $this->estimated_percent_monthly_savings = $s['estimated_percent_monthly_savings'] ?? 0.0;
   }
 }
 
 class TrustedAdvisorResourceDetail {
-  public boolean $is_suppressed;
-  public StringList $metadata;
+  public bool $is_suppressed;
+  public ?StringList $metadata;
   public string $region;
   public string $resource_id;
   public string $status;
 
   public function __construct(shape(
-  ?'is_suppressed' => boolean,
-  ?'metadata' => StringList,
-  ?'region' => string,
-  ?'resource_id' => string,
-  ?'status' => string,
+    ?'is_suppressed' => bool,
+    ?'metadata' => ?StringList,
+    ?'region' => string,
+    ?'resource_id' => string,
+    ?'status' => string,
   ) $s = shape()) {
-    $this->is_suppressed = $is_suppressed ?? false;
-    $this->metadata = $metadata ?? [];
-    $this->region = $region ?? "";
-    $this->resource_id = $resource_id ?? "";
-    $this->status = $status ?? "";
+    $this->is_suppressed = $s['is_suppressed'] ?? false;
+    $this->metadata = $s['metadata'] ?? vec[];
+    $this->region = $s['region'] ?? '';
+    $this->resource_id = $s['resource_id'] ?? '';
+    $this->status = $s['status'] ?? '';
   }
 }
 
 type TrustedAdvisorResourceDetailList = vec<TrustedAdvisorResourceDetail>;
 
 class TrustedAdvisorResourcesSummary {
-  public Long $resources_flagged;
-  public Long $resources_ignored;
-  public Long $resources_processed;
-  public Long $resources_suppressed;
+  public ?Long $resources_flagged;
+  public ?Long $resources_ignored;
+  public ?Long $resources_processed;
+  public ?Long $resources_suppressed;
 
   public function __construct(shape(
-  ?'resources_flagged' => Long,
-  ?'resources_ignored' => Long,
-  ?'resources_processed' => Long,
-  ?'resources_suppressed' => Long,
+    ?'resources_flagged' => ?Long,
+    ?'resources_ignored' => ?Long,
+    ?'resources_processed' => ?Long,
+    ?'resources_suppressed' => ?Long,
   ) $s = shape()) {
-    $this->resources_flagged = $resources_flagged ?? 0;
-    $this->resources_ignored = $resources_ignored ?? 0;
-    $this->resources_processed = $resources_processed ?? 0;
-    $this->resources_suppressed = $resources_suppressed ?? 0;
+    $this->resources_flagged = $s['resources_flagged'] ?? 0;
+    $this->resources_ignored = $s['resources_ignored'] ?? 0;
+    $this->resources_processed = $s['resources_processed'] ?? 0;
+    $this->resources_suppressed = $s['resources_suppressed'] ?? 0;
   }
 }
 

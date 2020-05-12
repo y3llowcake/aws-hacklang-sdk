@@ -2,36 +2,36 @@
 namespace slack\aws\cloudtrail;
 
 interface CloudTrail {
-  public function AddTags(AddTagsRequest): Awaitable<Errors\Result<AddTagsResponse>>;
-  public function CreateTrail(CreateTrailRequest): Awaitable<Errors\Result<CreateTrailResponse>>;
-  public function DeleteTrail(DeleteTrailRequest): Awaitable<Errors\Result<DeleteTrailResponse>>;
-  public function DescribeTrails(DescribeTrailsRequest): Awaitable<Errors\Result<DescribeTrailsResponse>>;
-  public function GetEventSelectors(GetEventSelectorsRequest): Awaitable<Errors\Result<GetEventSelectorsResponse>>;
-  public function GetInsightSelectors(GetInsightSelectorsRequest): Awaitable<Errors\Result<GetInsightSelectorsResponse>>;
-  public function GetTrail(GetTrailRequest): Awaitable<Errors\Result<GetTrailResponse>>;
-  public function GetTrailStatus(GetTrailStatusRequest): Awaitable<Errors\Result<GetTrailStatusResponse>>;
-  public function ListPublicKeys(ListPublicKeysRequest): Awaitable<Errors\Result<ListPublicKeysResponse>>;
-  public function ListTags(ListTagsRequest): Awaitable<Errors\Result<ListTagsResponse>>;
-  public function ListTrails(ListTrailsRequest): Awaitable<Errors\Result<ListTrailsResponse>>;
-  public function LookupEvents(LookupEventsRequest): Awaitable<Errors\Result<LookupEventsResponse>>;
-  public function PutEventSelectors(PutEventSelectorsRequest): Awaitable<Errors\Result<PutEventSelectorsResponse>>;
-  public function PutInsightSelectors(PutInsightSelectorsRequest): Awaitable<Errors\Result<PutInsightSelectorsResponse>>;
-  public function RemoveTags(RemoveTagsRequest): Awaitable<Errors\Result<RemoveTagsResponse>>;
-  public function StartLogging(StartLoggingRequest): Awaitable<Errors\Result<StartLoggingResponse>>;
-  public function StopLogging(StopLoggingRequest): Awaitable<Errors\Result<StopLoggingResponse>>;
-  public function UpdateTrail(UpdateTrailRequest): Awaitable<Errors\Result<UpdateTrailResponse>>;
+  public function AddTags(AddTagsRequest $in): Awaitable<\Errors\Result<AddTagsResponse>>;
+  public function CreateTrail(CreateTrailRequest $in): Awaitable<\Errors\Result<CreateTrailResponse>>;
+  public function DeleteTrail(DeleteTrailRequest $in): Awaitable<\Errors\Result<DeleteTrailResponse>>;
+  public function DescribeTrails(DescribeTrailsRequest $in): Awaitable<\Errors\Result<DescribeTrailsResponse>>;
+  public function GetEventSelectors(GetEventSelectorsRequest $in): Awaitable<\Errors\Result<GetEventSelectorsResponse>>;
+  public function GetInsightSelectors(GetInsightSelectorsRequest $in): Awaitable<\Errors\Result<GetInsightSelectorsResponse>>;
+  public function GetTrail(GetTrailRequest $in): Awaitable<\Errors\Result<GetTrailResponse>>;
+  public function GetTrailStatus(GetTrailStatusRequest $in): Awaitable<\Errors\Result<GetTrailStatusResponse>>;
+  public function ListPublicKeys(ListPublicKeysRequest $in): Awaitable<\Errors\Result<ListPublicKeysResponse>>;
+  public function ListTags(ListTagsRequest $in): Awaitable<\Errors\Result<ListTagsResponse>>;
+  public function ListTrails(ListTrailsRequest $in): Awaitable<\Errors\Result<ListTrailsResponse>>;
+  public function LookupEvents(LookupEventsRequest $in): Awaitable<\Errors\Result<LookupEventsResponse>>;
+  public function PutEventSelectors(PutEventSelectorsRequest $in): Awaitable<\Errors\Result<PutEventSelectorsResponse>>;
+  public function PutInsightSelectors(PutInsightSelectorsRequest $in): Awaitable<\Errors\Result<PutInsightSelectorsResponse>>;
+  public function RemoveTags(RemoveTagsRequest $in): Awaitable<\Errors\Result<RemoveTagsResponse>>;
+  public function StartLogging(StartLoggingRequest $in): Awaitable<\Errors\Result<StartLoggingResponse>>;
+  public function StopLogging(StopLoggingRequest $in): Awaitable<\Errors\Result<StopLoggingResponse>>;
+  public function UpdateTrail(UpdateTrailRequest $in): Awaitable<\Errors\Result<UpdateTrailResponse>>;
 }
 
 class AddTagsRequest {
   public string $resource_id;
-  public TagsList $tags_list;
+  public ?TagsList $tags_list;
 
   public function __construct(shape(
-  ?'resource_id' => string,
-  ?'tags_list' => TagsList,
+    ?'resource_id' => string,
+    ?'tags_list' => ?TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? "";
-    $this->tags_list = $tags_list ?? [];
+    $this->resource_id = $s['resource_id'] ?? '';
+    $this->tags_list = $s['tags_list'] ?? vec[];
   }
 }
 
@@ -70,54 +70,54 @@ class CloudWatchLogsDeliveryUnavailableException {
 class CreateTrailRequest {
   public string $cloud_watch_logs_log_group_arn;
   public string $cloud_watch_logs_role_arn;
-  public boolean $enable_log_file_validation;
-  public boolean $include_global_service_events;
-  public boolean $is_multi_region_trail;
-  public boolean $is_organization_trail;
+  public bool $enable_log_file_validation;
+  public bool $include_global_service_events;
+  public bool $is_multi_region_trail;
+  public bool $is_organization_trail;
   public string $kms_key_id;
   public string $name;
   public string $s_3_bucket_name;
   public string $s_3_key_prefix;
   public string $sns_topic_name;
-  public TagsList $tags_list;
+  public ?TagsList $tags_list;
 
   public function __construct(shape(
-  ?'cloud_watch_logs_log_group_arn' => string,
-  ?'cloud_watch_logs_role_arn' => string,
-  ?'enable_log_file_validation' => boolean,
-  ?'include_global_service_events' => boolean,
-  ?'is_multi_region_trail' => boolean,
-  ?'is_organization_trail' => boolean,
-  ?'kms_key_id' => string,
-  ?'name' => string,
-  ?'s_3_bucket_name' => string,
-  ?'s_3_key_prefix' => string,
-  ?'sns_topic_name' => string,
-  ?'tags_list' => TagsList,
+    ?'cloud_watch_logs_log_group_arn' => string,
+    ?'cloud_watch_logs_role_arn' => string,
+    ?'enable_log_file_validation' => bool,
+    ?'include_global_service_events' => bool,
+    ?'is_multi_region_trail' => bool,
+    ?'is_organization_trail' => bool,
+    ?'kms_key_id' => string,
+    ?'name' => string,
+    ?'s_3_bucket_name' => string,
+    ?'s_3_key_prefix' => string,
+    ?'sns_topic_name' => string,
+    ?'tags_list' => ?TagsList,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
-    $this->enable_log_file_validation = $enable_log_file_validation ?? false;
-    $this->include_global_service_events = $include_global_service_events ?? false;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
-    $this->is_organization_trail = $is_organization_trail ?? false;
-    $this->kms_key_id = $kms_key_id ?? "";
-    $this->name = $name ?? "";
-    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
-    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
-    $this->sns_topic_name = $sns_topic_name ?? "";
-    $this->tags_list = $tags_list ?? [];
+    $this->cloud_watch_logs_log_group_arn = $s['cloud_watch_logs_log_group_arn'] ?? '';
+    $this->cloud_watch_logs_role_arn = $s['cloud_watch_logs_role_arn'] ?? '';
+    $this->enable_log_file_validation = $s['enable_log_file_validation'] ?? false;
+    $this->include_global_service_events = $s['include_global_service_events'] ?? false;
+    $this->is_multi_region_trail = $s['is_multi_region_trail'] ?? false;
+    $this->is_organization_trail = $s['is_organization_trail'] ?? false;
+    $this->kms_key_id = $s['kms_key_id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->s_3_bucket_name = $s['s_3_bucket_name'] ?? '';
+    $this->s_3_key_prefix = $s['s_3_key_prefix'] ?? '';
+    $this->sns_topic_name = $s['sns_topic_name'] ?? '';
+    $this->tags_list = $s['tags_list'] ?? vec[];
   }
 }
 
 class CreateTrailResponse {
   public string $cloud_watch_logs_log_group_arn;
   public string $cloud_watch_logs_role_arn;
-  public boolean $include_global_service_events;
-  public boolean $is_multi_region_trail;
-  public boolean $is_organization_trail;
+  public bool $include_global_service_events;
+  public bool $is_multi_region_trail;
+  public bool $is_organization_trail;
   public string $kms_key_id;
-  public boolean $log_file_validation_enabled;
+  public bool $log_file_validation_enabled;
   public string $name;
   public string $s_3_bucket_name;
   public string $s_3_key_prefix;
@@ -126,46 +126,46 @@ class CreateTrailResponse {
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'cloud_watch_logs_log_group_arn' => string,
-  ?'cloud_watch_logs_role_arn' => string,
-  ?'include_global_service_events' => boolean,
-  ?'is_multi_region_trail' => boolean,
-  ?'is_organization_trail' => boolean,
-  ?'kms_key_id' => string,
-  ?'log_file_validation_enabled' => boolean,
-  ?'name' => string,
-  ?'s_3_bucket_name' => string,
-  ?'s_3_key_prefix' => string,
-  ?'sns_topic_arn' => string,
-  ?'sns_topic_name' => string,
-  ?'trail_arn' => string,
+    ?'cloud_watch_logs_log_group_arn' => string,
+    ?'cloud_watch_logs_role_arn' => string,
+    ?'include_global_service_events' => bool,
+    ?'is_multi_region_trail' => bool,
+    ?'is_organization_trail' => bool,
+    ?'kms_key_id' => string,
+    ?'log_file_validation_enabled' => bool,
+    ?'name' => string,
+    ?'s_3_bucket_name' => string,
+    ?'s_3_key_prefix' => string,
+    ?'sns_topic_arn' => string,
+    ?'sns_topic_name' => string,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
-    $this->include_global_service_events = $include_global_service_events ?? false;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
-    $this->is_organization_trail = $is_organization_trail ?? false;
-    $this->kms_key_id = $kms_key_id ?? "";
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
-    $this->name = $name ?? "";
-    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
-    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
-    $this->sns_topic_arn = $sns_topic_arn ?? "";
-    $this->sns_topic_name = $sns_topic_name ?? "";
-    $this->trail_arn = $trail_arn ?? "";
+    $this->cloud_watch_logs_log_group_arn = $s['cloud_watch_logs_log_group_arn'] ?? '';
+    $this->cloud_watch_logs_role_arn = $s['cloud_watch_logs_role_arn'] ?? '';
+    $this->include_global_service_events = $s['include_global_service_events'] ?? false;
+    $this->is_multi_region_trail = $s['is_multi_region_trail'] ?? false;
+    $this->is_organization_trail = $s['is_organization_trail'] ?? false;
+    $this->kms_key_id = $s['kms_key_id'] ?? '';
+    $this->log_file_validation_enabled = $s['log_file_validation_enabled'] ?? false;
+    $this->name = $s['name'] ?? '';
+    $this->s_3_bucket_name = $s['s_3_bucket_name'] ?? '';
+    $this->s_3_key_prefix = $s['s_3_key_prefix'] ?? '';
+    $this->sns_topic_arn = $s['sns_topic_arn'] ?? '';
+    $this->sns_topic_name = $s['sns_topic_name'] ?? '';
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
 class DataResource {
   public string $type;
-  public DataResourceValues $values;
+  public ?DataResourceValues $values;
 
   public function __construct(shape(
-  ?'type' => string,
-  ?'values' => DataResourceValues,
+    ?'type' => string,
+    ?'values' => ?DataResourceValues,
   ) $s = shape()) {
-    $this->type = $type ?? "";
-    $this->values = $values ?? [];
+    $this->type = $s['type'] ?? '';
+    $this->values = $s['values'] ?? vec[];
   }
 }
 
@@ -179,9 +179,9 @@ class DeleteTrailRequest {
   public string $name;
 
   public function __construct(shape(
-  ?'name' => string,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? "";
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -193,25 +193,25 @@ class DeleteTrailResponse {
 }
 
 class DescribeTrailsRequest {
-  public boolean $include_shadow_trails;
-  public TrailNameList $trail_name_list;
+  public bool $include_shadow_trails;
+  public ?TrailNameList $trail_name_list;
 
   public function __construct(shape(
-  ?'include_shadow_trails' => boolean,
-  ?'trail_name_list' => TrailNameList,
+    ?'include_shadow_trails' => bool,
+    ?'trail_name_list' => ?TrailNameList,
   ) $s = shape()) {
-    $this->include_shadow_trails = $include_shadow_trails ?? false;
-    $this->trail_name_list = $trail_name_list ?? [];
+    $this->include_shadow_trails = $s['include_shadow_trails'] ?? false;
+    $this->trail_name_list = $s['trail_name_list'] ?? vec[];
   }
 }
 
 class DescribeTrailsResponse {
-  public TrailList $trail_list;
+  public ?TrailList $trail_list;
 
   public function __construct(shape(
-  ?'trail_list' => TrailList,
+    ?'trail_list' => ?TrailList,
   ) $s = shape()) {
-    $this->trail_list = $trail_list ?? [];
+    $this->trail_list = $s['trail_list'] ?? vec[];
   }
 }
 
@@ -221,52 +221,52 @@ class Event {
   public string $event_id;
   public string $event_name;
   public string $event_source;
-  public Date $event_time;
+  public ?Date $event_time;
   public string $read_only;
-  public ResourceList $resources;
+  public ?ResourceList $resources;
   public string $username;
 
   public function __construct(shape(
-  ?'access_key_id' => string,
-  ?'cloud_trail_event' => string,
-  ?'event_id' => string,
-  ?'event_name' => string,
-  ?'event_source' => string,
-  ?'event_time' => Date,
-  ?'read_only' => string,
-  ?'resources' => ResourceList,
-  ?'username' => string,
+    ?'access_key_id' => string,
+    ?'cloud_trail_event' => string,
+    ?'event_id' => string,
+    ?'event_name' => string,
+    ?'event_source' => string,
+    ?'event_time' => ?Date,
+    ?'read_only' => string,
+    ?'resources' => ?ResourceList,
+    ?'username' => string,
   ) $s = shape()) {
-    $this->access_key_id = $access_key_id ?? "";
-    $this->cloud_trail_event = $cloud_trail_event ?? "";
-    $this->event_id = $event_id ?? "";
-    $this->event_name = $event_name ?? "";
-    $this->event_source = $event_source ?? "";
-    $this->event_time = $event_time ?? 0;
-    $this->read_only = $read_only ?? "";
-    $this->resources = $resources ?? [];
-    $this->username = $username ?? "";
+    $this->access_key_id = $s['access_key_id'] ?? '';
+    $this->cloud_trail_event = $s['cloud_trail_event'] ?? '';
+    $this->event_id = $s['event_id'] ?? '';
+    $this->event_name = $s['event_name'] ?? '';
+    $this->event_source = $s['event_source'] ?? '';
+    $this->event_time = $s['event_time'] ?? 0;
+    $this->read_only = $s['read_only'] ?? '';
+    $this->resources = $s['resources'] ?? vec[];
+    $this->username = $s['username'] ?? '';
   }
 }
 
 type EventCategory = string;
 
 class EventSelector {
-  public DataResources $data_resources;
-  public ExcludeManagementEventSources $exclude_management_event_sources;
-  public boolean $include_management_events;
-  public ReadWriteType $read_write_type;
+  public ?DataResources $data_resources;
+  public ?ExcludeManagementEventSources $exclude_management_event_sources;
+  public bool $include_management_events;
+  public ?ReadWriteType $read_write_type;
 
   public function __construct(shape(
-  ?'data_resources' => DataResources,
-  ?'exclude_management_event_sources' => ExcludeManagementEventSources,
-  ?'include_management_events' => boolean,
-  ?'read_write_type' => ReadWriteType,
+    ?'data_resources' => ?DataResources,
+    ?'exclude_management_event_sources' => ?ExcludeManagementEventSources,
+    ?'include_management_events' => bool,
+    ?'read_write_type' => ?ReadWriteType,
   ) $s = shape()) {
-    $this->data_resources = $data_resources ?? [];
-    $this->exclude_management_event_sources = $exclude_management_event_sources ?? [];
-    $this->include_management_events = $include_management_events ?? false;
-    $this->read_write_type = $read_write_type ?? "";
+    $this->data_resources = $s['data_resources'] ?? vec[];
+    $this->exclude_management_event_sources = $s['exclude_management_event_sources'] ?? vec[];
+    $this->include_management_events = $s['include_management_events'] ?? false;
+    $this->read_write_type = $s['read_write_type'] ?? '';
   }
 }
 
@@ -280,22 +280,22 @@ class GetEventSelectorsRequest {
   public string $trail_name;
 
   public function __construct(shape(
-  ?'trail_name' => string,
+    ?'trail_name' => string,
   ) $s = shape()) {
-    $this->trail_name = $trail_name ?? "";
+    $this->trail_name = $s['trail_name'] ?? '';
   }
 }
 
 class GetEventSelectorsResponse {
-  public EventSelectors $event_selectors;
+  public ?EventSelectors $event_selectors;
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'event_selectors' => EventSelectors,
-  ?'trail_arn' => string,
+    ?'event_selectors' => ?EventSelectors,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->event_selectors = $event_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? "";
+    $this->event_selectors = $s['event_selectors'] ?? vec[];
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
@@ -303,22 +303,22 @@ class GetInsightSelectorsRequest {
   public string $trail_name;
 
   public function __construct(shape(
-  ?'trail_name' => string,
+    ?'trail_name' => string,
   ) $s = shape()) {
-    $this->trail_name = $trail_name ?? "";
+    $this->trail_name = $s['trail_name'] ?? '';
   }
 }
 
 class GetInsightSelectorsResponse {
-  public InsightSelectors $insight_selectors;
+  public ?InsightSelectors $insight_selectors;
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'insight_selectors' => InsightSelectors,
-  ?'trail_arn' => string,
+    ?'insight_selectors' => ?InsightSelectors,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? "";
+    $this->insight_selectors = $s['insight_selectors'] ?? vec[];
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
@@ -326,19 +326,19 @@ class GetTrailRequest {
   public string $name;
 
   public function __construct(shape(
-  ?'name' => string,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? "";
+    $this->name = $s['name'] ?? '';
   }
 }
 
 class GetTrailResponse {
-  public Trail $trail;
+  public ?Trail $trail;
 
   public function __construct(shape(
-  ?'trail' => Trail,
+    ?'trail' => ?Trail,
   ) $s = shape()) {
-    $this->trail = $trail ?? null;
+    $this->trail = $s['trail'] ?? null;
   }
 }
 
@@ -346,67 +346,67 @@ class GetTrailStatusRequest {
   public string $name;
 
   public function __construct(shape(
-  ?'name' => string,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? "";
+    $this->name = $s['name'] ?? '';
   }
 }
 
 class GetTrailStatusResponse {
-  public boolean $is_logging;
+  public bool $is_logging;
   public string $latest_cloud_watch_logs_delivery_error;
-  public Date $latest_cloud_watch_logs_delivery_time;
+  public ?Date $latest_cloud_watch_logs_delivery_time;
   public string $latest_delivery_attempt_succeeded;
   public string $latest_delivery_attempt_time;
   public string $latest_delivery_error;
-  public Date $latest_delivery_time;
+  public ?Date $latest_delivery_time;
   public string $latest_digest_delivery_error;
-  public Date $latest_digest_delivery_time;
+  public ?Date $latest_digest_delivery_time;
   public string $latest_notification_attempt_succeeded;
   public string $latest_notification_attempt_time;
   public string $latest_notification_error;
-  public Date $latest_notification_time;
-  public Date $start_logging_time;
-  public Date $stop_logging_time;
+  public ?Date $latest_notification_time;
+  public ?Date $start_logging_time;
+  public ?Date $stop_logging_time;
   public string $time_logging_started;
   public string $time_logging_stopped;
 
   public function __construct(shape(
-  ?'is_logging' => boolean,
-  ?'latest_cloud_watch_logs_delivery_error' => string,
-  ?'latest_cloud_watch_logs_delivery_time' => Date,
-  ?'latest_delivery_attempt_succeeded' => string,
-  ?'latest_delivery_attempt_time' => string,
-  ?'latest_delivery_error' => string,
-  ?'latest_delivery_time' => Date,
-  ?'latest_digest_delivery_error' => string,
-  ?'latest_digest_delivery_time' => Date,
-  ?'latest_notification_attempt_succeeded' => string,
-  ?'latest_notification_attempt_time' => string,
-  ?'latest_notification_error' => string,
-  ?'latest_notification_time' => Date,
-  ?'start_logging_time' => Date,
-  ?'stop_logging_time' => Date,
-  ?'time_logging_started' => string,
-  ?'time_logging_stopped' => string,
+    ?'is_logging' => bool,
+    ?'latest_cloud_watch_logs_delivery_error' => string,
+    ?'latest_cloud_watch_logs_delivery_time' => ?Date,
+    ?'latest_delivery_attempt_succeeded' => string,
+    ?'latest_delivery_attempt_time' => string,
+    ?'latest_delivery_error' => string,
+    ?'latest_delivery_time' => ?Date,
+    ?'latest_digest_delivery_error' => string,
+    ?'latest_digest_delivery_time' => ?Date,
+    ?'latest_notification_attempt_succeeded' => string,
+    ?'latest_notification_attempt_time' => string,
+    ?'latest_notification_error' => string,
+    ?'latest_notification_time' => ?Date,
+    ?'start_logging_time' => ?Date,
+    ?'stop_logging_time' => ?Date,
+    ?'time_logging_started' => string,
+    ?'time_logging_stopped' => string,
   ) $s = shape()) {
-    $this->is_logging = $is_logging ?? false;
-    $this->latest_cloud_watch_logs_delivery_error = $latest_cloud_watch_logs_delivery_error ?? "";
-    $this->latest_cloud_watch_logs_delivery_time = $latest_cloud_watch_logs_delivery_time ?? 0;
-    $this->latest_delivery_attempt_succeeded = $latest_delivery_attempt_succeeded ?? "";
-    $this->latest_delivery_attempt_time = $latest_delivery_attempt_time ?? "";
-    $this->latest_delivery_error = $latest_delivery_error ?? "";
-    $this->latest_delivery_time = $latest_delivery_time ?? 0;
-    $this->latest_digest_delivery_error = $latest_digest_delivery_error ?? "";
-    $this->latest_digest_delivery_time = $latest_digest_delivery_time ?? 0;
-    $this->latest_notification_attempt_succeeded = $latest_notification_attempt_succeeded ?? "";
-    $this->latest_notification_attempt_time = $latest_notification_attempt_time ?? "";
-    $this->latest_notification_error = $latest_notification_error ?? "";
-    $this->latest_notification_time = $latest_notification_time ?? 0;
-    $this->start_logging_time = $start_logging_time ?? 0;
-    $this->stop_logging_time = $stop_logging_time ?? 0;
-    $this->time_logging_started = $time_logging_started ?? "";
-    $this->time_logging_stopped = $time_logging_stopped ?? "";
+    $this->is_logging = $s['is_logging'] ?? false;
+    $this->latest_cloud_watch_logs_delivery_error = $s['latest_cloud_watch_logs_delivery_error'] ?? '';
+    $this->latest_cloud_watch_logs_delivery_time = $s['latest_cloud_watch_logs_delivery_time'] ?? 0;
+    $this->latest_delivery_attempt_succeeded = $s['latest_delivery_attempt_succeeded'] ?? '';
+    $this->latest_delivery_attempt_time = $s['latest_delivery_attempt_time'] ?? '';
+    $this->latest_delivery_error = $s['latest_delivery_error'] ?? '';
+    $this->latest_delivery_time = $s['latest_delivery_time'] ?? 0;
+    $this->latest_digest_delivery_error = $s['latest_digest_delivery_error'] ?? '';
+    $this->latest_digest_delivery_time = $s['latest_digest_delivery_time'] ?? 0;
+    $this->latest_notification_attempt_succeeded = $s['latest_notification_attempt_succeeded'] ?? '';
+    $this->latest_notification_attempt_time = $s['latest_notification_attempt_time'] ?? '';
+    $this->latest_notification_error = $s['latest_notification_error'] ?? '';
+    $this->latest_notification_time = $s['latest_notification_time'] ?? 0;
+    $this->start_logging_time = $s['start_logging_time'] ?? 0;
+    $this->stop_logging_time = $s['stop_logging_time'] ?? 0;
+    $this->time_logging_started = $s['time_logging_started'] ?? '';
+    $this->time_logging_stopped = $s['time_logging_stopped'] ?? '';
   }
 }
 
@@ -418,12 +418,12 @@ class InsightNotEnabledException {
 }
 
 class InsightSelector {
-  public InsightType $insight_type;
+  public ?InsightType $insight_type;
 
   public function __construct(shape(
-  ?'insight_type' => InsightType,
+    ?'insight_type' => ?InsightType,
   ) $s = shape()) {
-    $this->insight_type = $insight_type ?? "";
+    $this->insight_type = $s['insight_type'] ?? '';
   }
 }
 
@@ -607,57 +607,57 @@ class KmsKeyNotFoundException {
 }
 
 class ListPublicKeysRequest {
-  public Date $end_time;
+  public ?Date $end_time;
   public string $next_token;
-  public Date $start_time;
+  public ?Date $start_time;
 
   public function __construct(shape(
-  ?'end_time' => Date,
-  ?'next_token' => string,
-  ?'start_time' => Date,
+    ?'end_time' => ?Date,
+    ?'next_token' => string,
+    ?'start_time' => ?Date,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->start_time = $start_time ?? 0;
+    $this->end_time = $s['end_time'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->start_time = $s['start_time'] ?? 0;
   }
 }
 
 class ListPublicKeysResponse {
   public string $next_token;
-  public PublicKeyList $public_key_list;
+  public ?PublicKeyList $public_key_list;
 
   public function __construct(shape(
-  ?'next_token' => string,
-  ?'public_key_list' => PublicKeyList,
+    ?'next_token' => string,
+    ?'public_key_list' => ?PublicKeyList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->public_key_list = $public_key_list ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->public_key_list = $s['public_key_list'] ?? vec[];
   }
 }
 
 class ListTagsRequest {
   public string $next_token;
-  public ResourceIdList $resource_id_list;
+  public ?ResourceIdList $resource_id_list;
 
   public function __construct(shape(
-  ?'next_token' => string,
-  ?'resource_id_list' => ResourceIdList,
+    ?'next_token' => string,
+    ?'resource_id_list' => ?ResourceIdList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->resource_id_list = $resource_id_list ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->resource_id_list = $s['resource_id_list'] ?? vec[];
   }
 }
 
 class ListTagsResponse {
   public string $next_token;
-  public ResourceTagList $resource_tag_list;
+  public ?ResourceTagList $resource_tag_list;
 
   public function __construct(shape(
-  ?'next_token' => string,
-  ?'resource_tag_list' => ResourceTagList,
+    ?'next_token' => string,
+    ?'resource_tag_list' => ?ResourceTagList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->resource_tag_list = $resource_tag_list ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->resource_tag_list = $s['resource_tag_list'] ?? vec[];
   }
 }
 
@@ -665,35 +665,35 @@ class ListTrailsRequest {
   public string $next_token;
 
   public function __construct(shape(
-  ?'next_token' => string,
+    ?'next_token' => string,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListTrailsResponse {
   public string $next_token;
-  public Trails $trails;
+  public ?Trails $trails;
 
   public function __construct(shape(
-  ?'next_token' => string,
-  ?'trails' => Trails,
+    ?'next_token' => string,
+    ?'trails' => ?Trails,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->trails = $trails ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->trails = $s['trails'] ?? vec[];
   }
 }
 
 class LookupAttribute {
-  public LookupAttributeKey $attribute_key;
+  public ?LookupAttributeKey $attribute_key;
   public string $attribute_value;
 
   public function __construct(shape(
-  ?'attribute_key' => LookupAttributeKey,
-  ?'attribute_value' => string,
+    ?'attribute_key' => ?LookupAttributeKey,
+    ?'attribute_value' => string,
   ) $s = shape()) {
-    $this->attribute_key = $attribute_key ?? "";
-    $this->attribute_value = $attribute_value ?? "";
+    $this->attribute_key = $s['attribute_key'] ?? '';
+    $this->attribute_value = $s['attribute_value'] ?? '';
   }
 }
 
@@ -702,40 +702,40 @@ type LookupAttributeKey = string;
 type LookupAttributesList = vec<LookupAttribute>;
 
 class LookupEventsRequest {
-  public Date $end_time;
-  public EventCategory $event_category;
-  public LookupAttributesList $lookup_attributes;
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public Date $start_time;
+  public ?Date $end_time;
+  public ?EventCategory $event_category;
+  public ?LookupAttributesList $lookup_attributes;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?Date $start_time;
 
   public function __construct(shape(
-  ?'end_time' => Date,
-  ?'event_category' => EventCategory,
-  ?'lookup_attributes' => LookupAttributesList,
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'start_time' => Date,
+    ?'end_time' => ?Date,
+    ?'event_category' => ?EventCategory,
+    ?'lookup_attributes' => ?LookupAttributesList,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'start_time' => ?Date,
   ) $s = shape()) {
-    $this->end_time = $end_time ?? 0;
-    $this->event_category = $event_category ?? "";
-    $this->lookup_attributes = $lookup_attributes ?? [];
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->start_time = $start_time ?? 0;
+    $this->end_time = $s['end_time'] ?? 0;
+    $this->event_category = $s['event_category'] ?? '';
+    $this->lookup_attributes = $s['lookup_attributes'] ?? vec[];
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->start_time = $s['start_time'] ?? 0;
   }
 }
 
 class LookupEventsResponse {
-  public EventsList $events;
-  public NextToken $next_token;
+  public ?EventsList $events;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'events' => EventsList,
-  ?'next_token' => NextToken,
+    ?'events' => ?EventsList,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->events = $events ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->events = $s['events'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
@@ -780,74 +780,74 @@ class OrganizationsNotInUseException {
 
 class PublicKey {
   public string $fingerprint;
-  public Date $validity_end_time;
-  public Date $validity_start_time;
-  public ByteBuffer $value;
+  public ?Date $validity_end_time;
+  public ?Date $validity_start_time;
+  public ?ByteBuffer $value;
 
   public function __construct(shape(
-  ?'fingerprint' => string,
-  ?'validity_end_time' => Date,
-  ?'validity_start_time' => Date,
-  ?'value' => ByteBuffer,
+    ?'fingerprint' => string,
+    ?'validity_end_time' => ?Date,
+    ?'validity_start_time' => ?Date,
+    ?'value' => ?ByteBuffer,
   ) $s = shape()) {
-    $this->fingerprint = $fingerprint ?? "";
-    $this->validity_end_time = $validity_end_time ?? 0;
-    $this->validity_start_time = $validity_start_time ?? 0;
-    $this->value = $value ?? "";
+    $this->fingerprint = $s['fingerprint'] ?? '';
+    $this->validity_end_time = $s['validity_end_time'] ?? 0;
+    $this->validity_start_time = $s['validity_start_time'] ?? 0;
+    $this->value = $s['value'] ?? '';
   }
 }
 
 type PublicKeyList = vec<PublicKey>;
 
 class PutEventSelectorsRequest {
-  public EventSelectors $event_selectors;
+  public ?EventSelectors $event_selectors;
   public string $trail_name;
 
   public function __construct(shape(
-  ?'event_selectors' => EventSelectors,
-  ?'trail_name' => string,
+    ?'event_selectors' => ?EventSelectors,
+    ?'trail_name' => string,
   ) $s = shape()) {
-    $this->event_selectors = $event_selectors ?? [];
-    $this->trail_name = $trail_name ?? "";
+    $this->event_selectors = $s['event_selectors'] ?? vec[];
+    $this->trail_name = $s['trail_name'] ?? '';
   }
 }
 
 class PutEventSelectorsResponse {
-  public EventSelectors $event_selectors;
+  public ?EventSelectors $event_selectors;
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'event_selectors' => EventSelectors,
-  ?'trail_arn' => string,
+    ?'event_selectors' => ?EventSelectors,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->event_selectors = $event_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? "";
+    $this->event_selectors = $s['event_selectors'] ?? vec[];
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
 class PutInsightSelectorsRequest {
-  public InsightSelectors $insight_selectors;
+  public ?InsightSelectors $insight_selectors;
   public string $trail_name;
 
   public function __construct(shape(
-  ?'insight_selectors' => InsightSelectors,
-  ?'trail_name' => string,
+    ?'insight_selectors' => ?InsightSelectors,
+    ?'trail_name' => string,
   ) $s = shape()) {
-    $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_name = $trail_name ?? "";
+    $this->insight_selectors = $s['insight_selectors'] ?? vec[];
+    $this->trail_name = $s['trail_name'] ?? '';
   }
 }
 
 class PutInsightSelectorsResponse {
-  public InsightSelectors $insight_selectors;
+  public ?InsightSelectors $insight_selectors;
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'insight_selectors' => InsightSelectors,
-  ?'trail_arn' => string,
+    ?'insight_selectors' => ?InsightSelectors,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->insight_selectors = $insight_selectors ?? [];
-    $this->trail_arn = $trail_arn ?? "";
+    $this->insight_selectors = $s['insight_selectors'] ?? vec[];
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
@@ -855,14 +855,14 @@ type ReadWriteType = string;
 
 class RemoveTagsRequest {
   public string $resource_id;
-  public TagsList $tags_list;
+  public ?TagsList $tags_list;
 
   public function __construct(shape(
-  ?'resource_id' => string,
-  ?'tags_list' => TagsList,
+    ?'resource_id' => string,
+    ?'tags_list' => ?TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? "";
-    $this->tags_list = $tags_list ?? [];
+    $this->resource_id = $s['resource_id'] ?? '';
+    $this->tags_list = $s['tags_list'] ?? vec[];
   }
 }
 
@@ -878,11 +878,11 @@ class Resource {
   public string $resource_type;
 
   public function __construct(shape(
-  ?'resource_name' => string,
-  ?'resource_type' => string,
+    ?'resource_name' => string,
+    ?'resource_type' => string,
   ) $s = shape()) {
-    $this->resource_name = $resource_name ?? "";
-    $this->resource_type = $resource_type ?? "";
+    $this->resource_name = $s['resource_name'] ?? '';
+    $this->resource_type = $s['resource_type'] ?? '';
   }
 }
 
@@ -899,14 +899,14 @@ class ResourceNotFoundException {
 
 class ResourceTag {
   public string $resource_id;
-  public TagsList $tags_list;
+  public ?TagsList $tags_list;
 
   public function __construct(shape(
-  ?'resource_id' => string,
-  ?'tags_list' => TagsList,
+    ?'resource_id' => string,
+    ?'tags_list' => ?TagsList,
   ) $s = shape()) {
-    $this->resource_id = $resource_id ?? "";
-    $this->tags_list = $tags_list ?? [];
+    $this->resource_id = $s['resource_id'] ?? '';
+    $this->tags_list = $s['tags_list'] ?? vec[];
   }
 }
 
@@ -930,9 +930,9 @@ class StartLoggingRequest {
   public string $name;
 
   public function __construct(shape(
-  ?'name' => string,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? "";
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -947,9 +947,9 @@ class StopLoggingRequest {
   public string $name;
 
   public function __construct(shape(
-  ?'name' => string,
+    ?'name' => string,
   ) $s = shape()) {
-    $this->name = $name ?? "";
+    $this->name = $s['name'] ?? '';
   }
 }
 
@@ -967,11 +967,11 @@ class Tag {
   public string $value;
 
   public function __construct(shape(
-  ?'key' => string,
-  ?'value' => string,
+    ?'key' => string,
+    ?'value' => string,
   ) $s = shape()) {
-    $this->key = $key ?? "";
-    $this->value = $value ?? "";
+    $this->key = $s['key'] ?? '';
+    $this->value = $s['value'] ?? '';
   }
 }
 
@@ -987,14 +987,14 @@ type TagsList = vec<Tag>;
 class Trail {
   public string $cloud_watch_logs_log_group_arn;
   public string $cloud_watch_logs_role_arn;
-  public boolean $has_custom_event_selectors;
-  public boolean $has_insight_selectors;
+  public bool $has_custom_event_selectors;
+  public bool $has_insight_selectors;
   public string $home_region;
-  public boolean $include_global_service_events;
-  public boolean $is_multi_region_trail;
-  public boolean $is_organization_trail;
+  public bool $include_global_service_events;
+  public bool $is_multi_region_trail;
+  public bool $is_organization_trail;
   public string $kms_key_id;
-  public boolean $log_file_validation_enabled;
+  public bool $log_file_validation_enabled;
   public string $name;
   public string $s_3_bucket_name;
   public string $s_3_key_prefix;
@@ -1003,39 +1003,39 @@ class Trail {
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'cloud_watch_logs_log_group_arn' => string,
-  ?'cloud_watch_logs_role_arn' => string,
-  ?'has_custom_event_selectors' => boolean,
-  ?'has_insight_selectors' => boolean,
-  ?'home_region' => string,
-  ?'include_global_service_events' => boolean,
-  ?'is_multi_region_trail' => boolean,
-  ?'is_organization_trail' => boolean,
-  ?'kms_key_id' => string,
-  ?'log_file_validation_enabled' => boolean,
-  ?'name' => string,
-  ?'s_3_bucket_name' => string,
-  ?'s_3_key_prefix' => string,
-  ?'sns_topic_arn' => string,
-  ?'sns_topic_name' => string,
-  ?'trail_arn' => string,
+    ?'cloud_watch_logs_log_group_arn' => string,
+    ?'cloud_watch_logs_role_arn' => string,
+    ?'has_custom_event_selectors' => bool,
+    ?'has_insight_selectors' => bool,
+    ?'home_region' => string,
+    ?'include_global_service_events' => bool,
+    ?'is_multi_region_trail' => bool,
+    ?'is_organization_trail' => bool,
+    ?'kms_key_id' => string,
+    ?'log_file_validation_enabled' => bool,
+    ?'name' => string,
+    ?'s_3_bucket_name' => string,
+    ?'s_3_key_prefix' => string,
+    ?'sns_topic_arn' => string,
+    ?'sns_topic_name' => string,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
-    $this->has_custom_event_selectors = $has_custom_event_selectors ?? false;
-    $this->has_insight_selectors = $has_insight_selectors ?? false;
-    $this->home_region = $home_region ?? "";
-    $this->include_global_service_events = $include_global_service_events ?? false;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
-    $this->is_organization_trail = $is_organization_trail ?? false;
-    $this->kms_key_id = $kms_key_id ?? "";
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
-    $this->name = $name ?? "";
-    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
-    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
-    $this->sns_topic_arn = $sns_topic_arn ?? "";
-    $this->sns_topic_name = $sns_topic_name ?? "";
-    $this->trail_arn = $trail_arn ?? "";
+    $this->cloud_watch_logs_log_group_arn = $s['cloud_watch_logs_log_group_arn'] ?? '';
+    $this->cloud_watch_logs_role_arn = $s['cloud_watch_logs_role_arn'] ?? '';
+    $this->has_custom_event_selectors = $s['has_custom_event_selectors'] ?? false;
+    $this->has_insight_selectors = $s['has_insight_selectors'] ?? false;
+    $this->home_region = $s['home_region'] ?? '';
+    $this->include_global_service_events = $s['include_global_service_events'] ?? false;
+    $this->is_multi_region_trail = $s['is_multi_region_trail'] ?? false;
+    $this->is_organization_trail = $s['is_organization_trail'] ?? false;
+    $this->kms_key_id = $s['kms_key_id'] ?? '';
+    $this->log_file_validation_enabled = $s['log_file_validation_enabled'] ?? false;
+    $this->name = $s['name'] ?? '';
+    $this->s_3_bucket_name = $s['s_3_bucket_name'] ?? '';
+    $this->s_3_key_prefix = $s['s_3_key_prefix'] ?? '';
+    $this->sns_topic_arn = $s['sns_topic_arn'] ?? '';
+    $this->sns_topic_name = $s['sns_topic_name'] ?? '';
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
@@ -1052,13 +1052,13 @@ class TrailInfo {
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'home_region' => string,
-  ?'name' => string,
-  ?'trail_arn' => string,
+    ?'home_region' => string,
+    ?'name' => string,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->home_region = $home_region ?? "";
-    $this->name = $name ?? "";
-    $this->trail_arn = $trail_arn ?? "";
+    $this->home_region = $s['home_region'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 
@@ -1092,10 +1092,10 @@ class UnsupportedOperationException {
 class UpdateTrailRequest {
   public string $cloud_watch_logs_log_group_arn;
   public string $cloud_watch_logs_role_arn;
-  public boolean $enable_log_file_validation;
-  public boolean $include_global_service_events;
-  public boolean $is_multi_region_trail;
-  public boolean $is_organization_trail;
+  public bool $enable_log_file_validation;
+  public bool $include_global_service_events;
+  public bool $is_multi_region_trail;
+  public bool $is_organization_trail;
   public string $kms_key_id;
   public string $name;
   public string $s_3_bucket_name;
@@ -1103,40 +1103,40 @@ class UpdateTrailRequest {
   public string $sns_topic_name;
 
   public function __construct(shape(
-  ?'cloud_watch_logs_log_group_arn' => string,
-  ?'cloud_watch_logs_role_arn' => string,
-  ?'enable_log_file_validation' => boolean,
-  ?'include_global_service_events' => boolean,
-  ?'is_multi_region_trail' => boolean,
-  ?'is_organization_trail' => boolean,
-  ?'kms_key_id' => string,
-  ?'name' => string,
-  ?'s_3_bucket_name' => string,
-  ?'s_3_key_prefix' => string,
-  ?'sns_topic_name' => string,
+    ?'cloud_watch_logs_log_group_arn' => string,
+    ?'cloud_watch_logs_role_arn' => string,
+    ?'enable_log_file_validation' => bool,
+    ?'include_global_service_events' => bool,
+    ?'is_multi_region_trail' => bool,
+    ?'is_organization_trail' => bool,
+    ?'kms_key_id' => string,
+    ?'name' => string,
+    ?'s_3_bucket_name' => string,
+    ?'s_3_key_prefix' => string,
+    ?'sns_topic_name' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
-    $this->enable_log_file_validation = $enable_log_file_validation ?? false;
-    $this->include_global_service_events = $include_global_service_events ?? false;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
-    $this->is_organization_trail = $is_organization_trail ?? false;
-    $this->kms_key_id = $kms_key_id ?? "";
-    $this->name = $name ?? "";
-    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
-    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
-    $this->sns_topic_name = $sns_topic_name ?? "";
+    $this->cloud_watch_logs_log_group_arn = $s['cloud_watch_logs_log_group_arn'] ?? '';
+    $this->cloud_watch_logs_role_arn = $s['cloud_watch_logs_role_arn'] ?? '';
+    $this->enable_log_file_validation = $s['enable_log_file_validation'] ?? false;
+    $this->include_global_service_events = $s['include_global_service_events'] ?? false;
+    $this->is_multi_region_trail = $s['is_multi_region_trail'] ?? false;
+    $this->is_organization_trail = $s['is_organization_trail'] ?? false;
+    $this->kms_key_id = $s['kms_key_id'] ?? '';
+    $this->name = $s['name'] ?? '';
+    $this->s_3_bucket_name = $s['s_3_bucket_name'] ?? '';
+    $this->s_3_key_prefix = $s['s_3_key_prefix'] ?? '';
+    $this->sns_topic_name = $s['sns_topic_name'] ?? '';
   }
 }
 
 class UpdateTrailResponse {
   public string $cloud_watch_logs_log_group_arn;
   public string $cloud_watch_logs_role_arn;
-  public boolean $include_global_service_events;
-  public boolean $is_multi_region_trail;
-  public boolean $is_organization_trail;
+  public bool $include_global_service_events;
+  public bool $is_multi_region_trail;
+  public bool $is_organization_trail;
   public string $kms_key_id;
-  public boolean $log_file_validation_enabled;
+  public bool $log_file_validation_enabled;
   public string $name;
   public string $s_3_bucket_name;
   public string $s_3_key_prefix;
@@ -1145,33 +1145,33 @@ class UpdateTrailResponse {
   public string $trail_arn;
 
   public function __construct(shape(
-  ?'cloud_watch_logs_log_group_arn' => string,
-  ?'cloud_watch_logs_role_arn' => string,
-  ?'include_global_service_events' => boolean,
-  ?'is_multi_region_trail' => boolean,
-  ?'is_organization_trail' => boolean,
-  ?'kms_key_id' => string,
-  ?'log_file_validation_enabled' => boolean,
-  ?'name' => string,
-  ?'s_3_bucket_name' => string,
-  ?'s_3_key_prefix' => string,
-  ?'sns_topic_arn' => string,
-  ?'sns_topic_name' => string,
-  ?'trail_arn' => string,
+    ?'cloud_watch_logs_log_group_arn' => string,
+    ?'cloud_watch_logs_role_arn' => string,
+    ?'include_global_service_events' => bool,
+    ?'is_multi_region_trail' => bool,
+    ?'is_organization_trail' => bool,
+    ?'kms_key_id' => string,
+    ?'log_file_validation_enabled' => bool,
+    ?'name' => string,
+    ?'s_3_bucket_name' => string,
+    ?'s_3_key_prefix' => string,
+    ?'sns_topic_arn' => string,
+    ?'sns_topic_name' => string,
+    ?'trail_arn' => string,
   ) $s = shape()) {
-    $this->cloud_watch_logs_log_group_arn = $cloud_watch_logs_log_group_arn ?? "";
-    $this->cloud_watch_logs_role_arn = $cloud_watch_logs_role_arn ?? "";
-    $this->include_global_service_events = $include_global_service_events ?? false;
-    $this->is_multi_region_trail = $is_multi_region_trail ?? false;
-    $this->is_organization_trail = $is_organization_trail ?? false;
-    $this->kms_key_id = $kms_key_id ?? "";
-    $this->log_file_validation_enabled = $log_file_validation_enabled ?? false;
-    $this->name = $name ?? "";
-    $this->s_3_bucket_name = $s_3_bucket_name ?? "";
-    $this->s_3_key_prefix = $s_3_key_prefix ?? "";
-    $this->sns_topic_arn = $sns_topic_arn ?? "";
-    $this->sns_topic_name = $sns_topic_name ?? "";
-    $this->trail_arn = $trail_arn ?? "";
+    $this->cloud_watch_logs_log_group_arn = $s['cloud_watch_logs_log_group_arn'] ?? '';
+    $this->cloud_watch_logs_role_arn = $s['cloud_watch_logs_role_arn'] ?? '';
+    $this->include_global_service_events = $s['include_global_service_events'] ?? false;
+    $this->is_multi_region_trail = $s['is_multi_region_trail'] ?? false;
+    $this->is_organization_trail = $s['is_organization_trail'] ?? false;
+    $this->kms_key_id = $s['kms_key_id'] ?? '';
+    $this->log_file_validation_enabled = $s['log_file_validation_enabled'] ?? false;
+    $this->name = $s['name'] ?? '';
+    $this->s_3_bucket_name = $s['s_3_bucket_name'] ?? '';
+    $this->s_3_key_prefix = $s['s_3_key_prefix'] ?? '';
+    $this->sns_topic_arn = $s['sns_topic_arn'] ?? '';
+    $this->sns_topic_name = $s['sns_topic_name'] ?? '';
+    $this->trail_arn = $s['trail_arn'] ?? '';
   }
 }
 

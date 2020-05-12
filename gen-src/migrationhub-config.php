@@ -1,96 +1,96 @@
 <?hh // strict
 namespace slack\aws\migrationhub-config;
 
-interface MigrationHub Config {
-  public function CreateHomeRegionControl(CreateHomeRegionControlRequest): Awaitable<Errors\Result<CreateHomeRegionControlResult>>;
-  public function DescribeHomeRegionControls(DescribeHomeRegionControlsRequest): Awaitable<Errors\Result<DescribeHomeRegionControlsResult>>;
-  public function GetHomeRegion(GetHomeRegionRequest): Awaitable<Errors\Result<GetHomeRegionResult>>;
+interface MigrationHubConfig {
+  public function CreateHomeRegionControl(CreateHomeRegionControlRequest $in): Awaitable<\Errors\Result<CreateHomeRegionControlResult>>;
+  public function DescribeHomeRegionControls(DescribeHomeRegionControlsRequest $in): Awaitable<\Errors\Result<DescribeHomeRegionControlsResult>>;
+  public function GetHomeRegion(GetHomeRegionRequest $in): Awaitable<\Errors\Result<GetHomeRegionResult>>;
 }
 
 class AccessDeniedException {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 type ControlId = string;
 
 class CreateHomeRegionControlRequest {
-  public DryRun $dry_run;
-  public HomeRegion $home_region;
-  public Target $target;
+  public ?DryRun $dry_run;
+  public ?HomeRegion $home_region;
+  public ?Target $target;
 
   public function __construct(shape(
-  ?'dry_run' => DryRun,
-  ?'home_region' => HomeRegion,
-  ?'target' => Target,
+    ?'dry_run' => ?DryRun,
+    ?'home_region' => ?HomeRegion,
+    ?'target' => ?Target,
   ) $s = shape()) {
-    $this->dry_run = $dry_run ?? false;
-    $this->home_region = $home_region ?? "";
-    $this->target = $target ?? null;
+    $this->dry_run = $s['dry_run'] ?? false;
+    $this->home_region = $s['home_region'] ?? '';
+    $this->target = $s['target'] ?? null;
   }
 }
 
 class CreateHomeRegionControlResult {
-  public HomeRegionControl $home_region_control;
+  public ?HomeRegionControl $home_region_control;
 
   public function __construct(shape(
-  ?'home_region_control' => HomeRegionControl,
+    ?'home_region_control' => ?HomeRegionControl,
   ) $s = shape()) {
-    $this->home_region_control = $home_region_control ?? null;
+    $this->home_region_control = $s['home_region_control'] ?? null;
   }
 }
 
 type DescribeHomeRegionControlsMaxResults = int;
 
 class DescribeHomeRegionControlsRequest {
-  public ControlId $control_id;
-  public HomeRegion $home_region;
-  public DescribeHomeRegionControlsMaxResults $max_results;
-  public Token $next_token;
-  public Target $target;
+  public ?ControlId $control_id;
+  public ?HomeRegion $home_region;
+  public ?DescribeHomeRegionControlsMaxResults $max_results;
+  public ?Token $next_token;
+  public ?Target $target;
 
   public function __construct(shape(
-  ?'control_id' => ControlId,
-  ?'home_region' => HomeRegion,
-  ?'max_results' => DescribeHomeRegionControlsMaxResults,
-  ?'next_token' => Token,
-  ?'target' => Target,
+    ?'control_id' => ?ControlId,
+    ?'home_region' => ?HomeRegion,
+    ?'max_results' => ?DescribeHomeRegionControlsMaxResults,
+    ?'next_token' => ?Token,
+    ?'target' => ?Target,
   ) $s = shape()) {
-    $this->control_id = $control_id ?? "";
-    $this->home_region = $home_region ?? "";
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->target = $target ?? null;
+    $this->control_id = $s['control_id'] ?? '';
+    $this->home_region = $s['home_region'] ?? '';
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->target = $s['target'] ?? null;
   }
 }
 
 class DescribeHomeRegionControlsResult {
-  public HomeRegionControls $home_region_controls;
-  public Token $next_token;
+  public ?HomeRegionControls $home_region_controls;
+  public ?Token $next_token;
 
   public function __construct(shape(
-  ?'home_region_controls' => HomeRegionControls,
-  ?'next_token' => Token,
+    ?'home_region_controls' => ?HomeRegionControls,
+    ?'next_token' => ?Token,
   ) $s = shape()) {
-    $this->home_region_controls = $home_region_controls ?? [];
-    $this->next_token = $next_token ?? "";
+    $this->home_region_controls = $s['home_region_controls'] ?? vec[];
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 type DryRun = bool;
 
 class DryRunOperation {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -104,55 +104,55 @@ class GetHomeRegionRequest {
 }
 
 class GetHomeRegionResult {
-  public HomeRegion $home_region;
+  public ?HomeRegion $home_region;
 
   public function __construct(shape(
-  ?'home_region' => HomeRegion,
+    ?'home_region' => ?HomeRegion,
   ) $s = shape()) {
-    $this->home_region = $home_region ?? "";
+    $this->home_region = $s['home_region'] ?? '';
   }
 }
 
 type HomeRegion = string;
 
 class HomeRegionControl {
-  public ControlId $control_id;
-  public HomeRegion $home_region;
-  public RequestedTime $requested_time;
-  public Target $target;
+  public ?ControlId $control_id;
+  public ?HomeRegion $home_region;
+  public ?RequestedTime $requested_time;
+  public ?Target $target;
 
   public function __construct(shape(
-  ?'control_id' => ControlId,
-  ?'home_region' => HomeRegion,
-  ?'requested_time' => RequestedTime,
-  ?'target' => Target,
+    ?'control_id' => ?ControlId,
+    ?'home_region' => ?HomeRegion,
+    ?'requested_time' => ?RequestedTime,
+    ?'target' => ?Target,
   ) $s = shape()) {
-    $this->control_id = $control_id ?? "";
-    $this->home_region = $home_region ?? "";
-    $this->requested_time = $requested_time ?? 0;
-    $this->target = $target ?? null;
+    $this->control_id = $s['control_id'] ?? '';
+    $this->home_region = $s['home_region'] ?? '';
+    $this->requested_time = $s['requested_time'] ?? 0;
+    $this->target = $s['target'] ?? null;
   }
 }
 
 type HomeRegionControls = vec<HomeRegionControl>;
 
 class InternalServerError {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class InvalidInputException {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -161,25 +161,25 @@ type RequestedTime = int;
 type RetryAfterSeconds = int;
 
 class ServiceUnavailableException {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class Target {
-  public TargetId $id;
-  public TargetType $type;
+  public ?TargetId $id;
+  public ?TargetType $type;
 
   public function __construct(shape(
-  ?'id' => TargetId,
-  ?'type' => TargetType,
+    ?'id' => ?TargetId,
+    ?'type' => ?TargetType,
   ) $s = shape()) {
-    $this->id = $id ?? "";
-    $this->type = $type ?? "";
+    $this->id = $s['id'] ?? '';
+    $this->type = $s['type'] ?? '';
   }
 }
 
@@ -188,15 +188,15 @@ type TargetId = string;
 type TargetType = string;
 
 class ThrottlingException {
-  public ErrorMessage $message;
-  public RetryAfterSeconds $retry_after_seconds;
+  public ?ErrorMessage $message;
+  public ?RetryAfterSeconds $retry_after_seconds;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
-  ?'retry_after_seconds' => RetryAfterSeconds,
+    ?'message' => ?ErrorMessage,
+    ?'retry_after_seconds' => ?RetryAfterSeconds,
   ) $s = shape()) {
-    $this->message = $message ?? "";
-    $this->retry_after_seconds = $retry_after_seconds ?? 0;
+    $this->message = $s['message'] ?? '';
+    $this->retry_after_seconds = $s['retry_after_seconds'] ?? 0;
   }
 }
 

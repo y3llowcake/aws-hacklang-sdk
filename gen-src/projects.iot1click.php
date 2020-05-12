@@ -1,41 +1,41 @@
 <?hh // strict
 namespace slack\aws\projects.iot1click;
 
-interface IoT 1Click Projects {
-  public function AssociateDeviceWithPlacement(AssociateDeviceWithPlacementRequest): Awaitable<Errors\Result<AssociateDeviceWithPlacementResponse>>;
-  public function CreatePlacement(CreatePlacementRequest): Awaitable<Errors\Result<CreatePlacementResponse>>;
-  public function CreateProject(CreateProjectRequest): Awaitable<Errors\Result<CreateProjectResponse>>;
-  public function DeletePlacement(DeletePlacementRequest): Awaitable<Errors\Result<DeletePlacementResponse>>;
-  public function DeleteProject(DeleteProjectRequest): Awaitable<Errors\Result<DeleteProjectResponse>>;
-  public function DescribePlacement(DescribePlacementRequest): Awaitable<Errors\Result<DescribePlacementResponse>>;
-  public function DescribeProject(DescribeProjectRequest): Awaitable<Errors\Result<DescribeProjectResponse>>;
-  public function DisassociateDeviceFromPlacement(DisassociateDeviceFromPlacementRequest): Awaitable<Errors\Result<DisassociateDeviceFromPlacementResponse>>;
-  public function GetDevicesInPlacement(GetDevicesInPlacementRequest): Awaitable<Errors\Result<GetDevicesInPlacementResponse>>;
-  public function ListPlacements(ListPlacementsRequest): Awaitable<Errors\Result<ListPlacementsResponse>>;
-  public function ListProjects(ListProjectsRequest): Awaitable<Errors\Result<ListProjectsResponse>>;
-  public function ListTagsForResource(ListTagsForResourceRequest): Awaitable<Errors\Result<ListTagsForResourceResponse>>;
-  public function TagResource(TagResourceRequest): Awaitable<Errors\Result<TagResourceResponse>>;
-  public function UntagResource(UntagResourceRequest): Awaitable<Errors\Result<UntagResourceResponse>>;
-  public function UpdatePlacement(UpdatePlacementRequest): Awaitable<Errors\Result<UpdatePlacementResponse>>;
-  public function UpdateProject(UpdateProjectRequest): Awaitable<Errors\Result<UpdateProjectResponse>>;
+interface IoT1ClickProjects {
+  public function AssociateDeviceWithPlacement(AssociateDeviceWithPlacementRequest $in): Awaitable<\Errors\Result<AssociateDeviceWithPlacementResponse>>;
+  public function CreatePlacement(CreatePlacementRequest $in): Awaitable<\Errors\Result<CreatePlacementResponse>>;
+  public function CreateProject(CreateProjectRequest $in): Awaitable<\Errors\Result<CreateProjectResponse>>;
+  public function DeletePlacement(DeletePlacementRequest $in): Awaitable<\Errors\Result<DeletePlacementResponse>>;
+  public function DeleteProject(DeleteProjectRequest $in): Awaitable<\Errors\Result<DeleteProjectResponse>>;
+  public function DescribePlacement(DescribePlacementRequest $in): Awaitable<\Errors\Result<DescribePlacementResponse>>;
+  public function DescribeProject(DescribeProjectRequest $in): Awaitable<\Errors\Result<DescribeProjectResponse>>;
+  public function DisassociateDeviceFromPlacement(DisassociateDeviceFromPlacementRequest $in): Awaitable<\Errors\Result<DisassociateDeviceFromPlacementResponse>>;
+  public function GetDevicesInPlacement(GetDevicesInPlacementRequest $in): Awaitable<\Errors\Result<GetDevicesInPlacementResponse>>;
+  public function ListPlacements(ListPlacementsRequest $in): Awaitable<\Errors\Result<ListPlacementsResponse>>;
+  public function ListProjects(ListProjectsRequest $in): Awaitable<\Errors\Result<ListProjectsResponse>>;
+  public function ListTagsForResource(ListTagsForResourceRequest $in): Awaitable<\Errors\Result<ListTagsForResourceResponse>>;
+  public function TagResource(TagResourceRequest $in): Awaitable<\Errors\Result<TagResourceResponse>>;
+  public function UntagResource(UntagResourceRequest $in): Awaitable<\Errors\Result<UntagResourceResponse>>;
+  public function UpdatePlacement(UpdatePlacementRequest $in): Awaitable<\Errors\Result<UpdatePlacementResponse>>;
+  public function UpdateProject(UpdateProjectRequest $in): Awaitable<\Errors\Result<UpdateProjectResponse>>;
 }
 
 class AssociateDeviceWithPlacementRequest {
-  public DeviceId $device_id;
-  public DeviceTemplateName $device_template_name;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?DeviceId $device_id;
+  public ?DeviceTemplateName $device_template_name;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'device_id' => DeviceId,
-  ?'device_template_name' => DeviceTemplateName,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'device_id' => ?DeviceId,
+    ?'device_template_name' => ?DeviceTemplateName,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->device_id = $device_id ?? "";
-    $this->device_template_name = $device_template_name ?? "";
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->device_id = $s['device_id'] ?? '';
+    $this->device_template_name = $s['device_template_name'] ?? '';
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -55,18 +55,18 @@ type AttributeValue = string;
 type Code = string;
 
 class CreatePlacementRequest {
-  public PlacementAttributeMap $attributes;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?PlacementAttributeMap $attributes;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'attributes' => PlacementAttributeMap,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'attributes' => ?PlacementAttributeMap,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -78,21 +78,21 @@ class CreatePlacementResponse {
 }
 
 class CreateProjectRequest {
-  public Description $description;
-  public PlacementTemplate $placement_template;
-  public ProjectName $project_name;
-  public TagMap $tags;
+  public ?Description $description;
+  public ?PlacementTemplate $placement_template;
+  public ?ProjectName $project_name;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'description' => Description,
-  ?'placement_template' => PlacementTemplate,
-  ?'project_name' => ProjectName,
-  ?'tags' => TagMap,
+    ?'description' => ?Description,
+    ?'placement_template' => ?PlacementTemplate,
+    ?'project_name' => ?ProjectName,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->description = $description ?? "";
-    $this->placement_template = $placement_template ?? null;
-    $this->project_name = $project_name ?? "";
-    $this->tags = $tags ?? [];
+    $this->description = $s['description'] ?? '';
+    $this->placement_template = $s['placement_template'] ?? null;
+    $this->project_name = $s['project_name'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -106,15 +106,15 @@ class CreateProjectResponse {
 type DefaultPlacementAttributeMap = dict<AttributeName, AttributeDefaultValue>;
 
 class DeletePlacementRequest {
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -126,12 +126,12 @@ class DeletePlacementResponse {
 }
 
 class DeleteProjectRequest {
-  public ProjectName $project_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'project_name' => ProjectName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? "";
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -143,45 +143,45 @@ class DeleteProjectResponse {
 }
 
 class DescribePlacementRequest {
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
 class DescribePlacementResponse {
-  public PlacementDescription $placement;
+  public ?PlacementDescription $placement;
 
   public function __construct(shape(
-  ?'placement' => PlacementDescription,
+    ?'placement' => ?PlacementDescription,
   ) $s = shape()) {
-    $this->placement = $placement ?? null;
+    $this->placement = $s['placement'] ?? null;
   }
 }
 
 class DescribeProjectRequest {
-  public ProjectName $project_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'project_name' => ProjectName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->project_name = $project_name ?? "";
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
 class DescribeProjectResponse {
-  public ProjectDescription $project;
+  public ?ProjectDescription $project;
 
   public function __construct(shape(
-  ?'project' => ProjectDescription,
+    ?'project' => ?ProjectDescription,
   ) $s = shape()) {
-    $this->project = $project ?? null;
+    $this->project = $s['project'] ?? null;
   }
 }
 
@@ -198,15 +198,15 @@ type DeviceId = string;
 type DeviceMap = dict<DeviceTemplateName, DeviceId>;
 
 class DeviceTemplate {
-  public DeviceCallbackOverrideMap $callback_overrides;
-  public DeviceType $device_type;
+  public ?DeviceCallbackOverrideMap $callback_overrides;
+  public ?DeviceType $device_type;
 
   public function __construct(shape(
-  ?'callback_overrides' => DeviceCallbackOverrideMap,
-  ?'device_type' => DeviceType,
+    ?'callback_overrides' => ?DeviceCallbackOverrideMap,
+    ?'device_type' => ?DeviceType,
   ) $s = shape()) {
-    $this->callback_overrides = $callback_overrides ?? [];
-    $this->device_type = $device_type ?? "";
+    $this->callback_overrides = $s['callback_overrides'] ?? dict[];
+    $this->device_type = $s['device_type'] ?? '';
   }
 }
 
@@ -217,18 +217,18 @@ type DeviceTemplateName = string;
 type DeviceType = string;
 
 class DisassociateDeviceFromPlacementRequest {
-  public DeviceTemplateName $device_template_name;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?DeviceTemplateName $device_template_name;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'device_template_name' => DeviceTemplateName,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'device_template_name' => ?DeviceTemplateName,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->device_template_name = $device_template_name ?? "";
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->device_template_name = $s['device_template_name'] ?? '';
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -240,126 +240,126 @@ class DisassociateDeviceFromPlacementResponse {
 }
 
 class GetDevicesInPlacementRequest {
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
 class GetDevicesInPlacementResponse {
-  public DeviceMap $devices;
+  public ?DeviceMap $devices;
 
   public function __construct(shape(
-  ?'devices' => DeviceMap,
+    ?'devices' => ?DeviceMap,
   ) $s = shape()) {
-    $this->devices = $devices ?? [];
+    $this->devices = $s['devices'] ?? dict[];
   }
 }
 
 class InternalFailureException {
-  public Code $code;
-  public Message $message;
+  public ?Code $code;
+  public ?Message $message;
 
   public function __construct(shape(
-  ?'code' => Code,
-  ?'message' => Message,
+    ?'code' => ?Code,
+    ?'message' => ?Message,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->message = $message ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class InvalidRequestException {
-  public Code $code;
-  public Message $message;
+  public ?Code $code;
+  public ?Message $message;
 
   public function __construct(shape(
-  ?'code' => Code,
-  ?'message' => Message,
+    ?'code' => ?Code,
+    ?'message' => ?Message,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->message = $message ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class ListPlacementsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
-  public ProjectName $project_name;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
-  ?'project_name' => ProjectName,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
 class ListPlacementsResponse {
-  public NextToken $next_token;
-  public PlacementSummaryList $placements;
+  public ?NextToken $next_token;
+  public ?PlacementSummaryList $placements;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'placements' => PlacementSummaryList,
+    ?'next_token' => ?NextToken,
+    ?'placements' => ?PlacementSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->placements = $placements ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->placements = $s['placements'] ?? vec[];
   }
 }
 
 class ListProjectsRequest {
-  public MaxResults $max_results;
-  public NextToken $next_token;
+  public ?MaxResults $max_results;
+  public ?NextToken $next_token;
 
   public function __construct(shape(
-  ?'max_results' => MaxResults,
-  ?'next_token' => NextToken,
+    ?'max_results' => ?MaxResults,
+    ?'next_token' => ?NextToken,
   ) $s = shape()) {
-    $this->max_results = $max_results ?? 0;
-    $this->next_token = $next_token ?? "";
+    $this->max_results = $s['max_results'] ?? 0;
+    $this->next_token = $s['next_token'] ?? '';
   }
 }
 
 class ListProjectsResponse {
-  public NextToken $next_token;
-  public ProjectSummaryList $projects;
+  public ?NextToken $next_token;
+  public ?ProjectSummaryList $projects;
 
   public function __construct(shape(
-  ?'next_token' => NextToken,
-  ?'projects' => ProjectSummaryList,
+    ?'next_token' => ?NextToken,
+    ?'projects' => ?ProjectSummaryList,
   ) $s = shape()) {
-    $this->next_token = $next_token ?? "";
-    $this->projects = $projects ?? [];
+    $this->next_token = $s['next_token'] ?? '';
+    $this->projects = $s['projects'] ?? vec[];
   }
 }
 
 class ListTagsForResourceRequest {
-  public ProjectArn $resource_arn;
+  public ?ProjectArn $resource_arn;
 
   public function __construct(shape(
-  ?'resource_arn' => ProjectArn,
+    ?'resource_arn' => ?ProjectArn,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
+    $this->resource_arn = $s['resource_arn'] ?? '';
   }
 }
 
 class ListTagsForResourceResponse {
-  public TagMap $tags;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'tags' => TagMap,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? [];
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -372,142 +372,142 @@ type NextToken = string;
 type PlacementAttributeMap = dict<AttributeName, AttributeValue>;
 
 class PlacementDescription {
-  public PlacementAttributeMap $attributes;
-  public Time $created_date;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
-  public Time $updated_date;
+  public ?PlacementAttributeMap $attributes;
+  public ?Time $created_date;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
+  public ?Time $updated_date;
 
   public function __construct(shape(
-  ?'attributes' => PlacementAttributeMap,
-  ?'created_date' => Time,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
-  ?'updated_date' => Time,
+    ?'attributes' => ?PlacementAttributeMap,
+    ?'created_date' => ?Time,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
+    ?'updated_date' => ?Time,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->created_date = $created_date ?? 0;
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
-    $this->updated_date = $updated_date ?? 0;
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->created_date = $s['created_date'] ?? 0;
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
+    $this->updated_date = $s['updated_date'] ?? 0;
   }
 }
 
 type PlacementName = string;
 
 class PlacementSummary {
-  public Time $created_date;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
-  public Time $updated_date;
+  public ?Time $created_date;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
+  public ?Time $updated_date;
 
   public function __construct(shape(
-  ?'created_date' => Time,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
-  ?'updated_date' => Time,
+    ?'created_date' => ?Time,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
+    ?'updated_date' => ?Time,
   ) $s = shape()) {
-    $this->created_date = $created_date ?? 0;
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
-    $this->updated_date = $updated_date ?? 0;
+    $this->created_date = $s['created_date'] ?? 0;
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
+    $this->updated_date = $s['updated_date'] ?? 0;
   }
 }
 
 type PlacementSummaryList = vec<PlacementSummary>;
 
 class PlacementTemplate {
-  public DefaultPlacementAttributeMap $default_attributes;
-  public DeviceTemplateMap $device_templates;
+  public ?DefaultPlacementAttributeMap $default_attributes;
+  public ?DeviceTemplateMap $device_templates;
 
   public function __construct(shape(
-  ?'default_attributes' => DefaultPlacementAttributeMap,
-  ?'device_templates' => DeviceTemplateMap,
+    ?'default_attributes' => ?DefaultPlacementAttributeMap,
+    ?'device_templates' => ?DeviceTemplateMap,
   ) $s = shape()) {
-    $this->default_attributes = $default_attributes ?? [];
-    $this->device_templates = $device_templates ?? [];
+    $this->default_attributes = $s['default_attributes'] ?? dict[];
+    $this->device_templates = $s['device_templates'] ?? dict[];
   }
 }
 
 type ProjectArn = string;
 
 class ProjectDescription {
-  public ProjectArn $arn;
-  public Time $created_date;
-  public Description $description;
-  public PlacementTemplate $placement_template;
-  public ProjectName $project_name;
-  public TagMap $tags;
-  public Time $updated_date;
+  public ?ProjectArn $arn;
+  public ?Time $created_date;
+  public ?Description $description;
+  public ?PlacementTemplate $placement_template;
+  public ?ProjectName $project_name;
+  public ?TagMap $tags;
+  public ?Time $updated_date;
 
   public function __construct(shape(
-  ?'arn' => ProjectArn,
-  ?'created_date' => Time,
-  ?'description' => Description,
-  ?'placement_template' => PlacementTemplate,
-  ?'project_name' => ProjectName,
-  ?'tags' => TagMap,
-  ?'updated_date' => Time,
+    ?'arn' => ?ProjectArn,
+    ?'created_date' => ?Time,
+    ?'description' => ?Description,
+    ?'placement_template' => ?PlacementTemplate,
+    ?'project_name' => ?ProjectName,
+    ?'tags' => ?TagMap,
+    ?'updated_date' => ?Time,
   ) $s = shape()) {
-    $this->arn = $arn ?? "";
-    $this->created_date = $created_date ?? 0;
-    $this->description = $description ?? "";
-    $this->placement_template = $placement_template ?? null;
-    $this->project_name = $project_name ?? "";
-    $this->tags = $tags ?? [];
-    $this->updated_date = $updated_date ?? 0;
+    $this->arn = $s['arn'] ?? '';
+    $this->created_date = $s['created_date'] ?? 0;
+    $this->description = $s['description'] ?? '';
+    $this->placement_template = $s['placement_template'] ?? null;
+    $this->project_name = $s['project_name'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
+    $this->updated_date = $s['updated_date'] ?? 0;
   }
 }
 
 type ProjectName = string;
 
 class ProjectSummary {
-  public ProjectArn $arn;
-  public Time $created_date;
-  public ProjectName $project_name;
-  public TagMap $tags;
-  public Time $updated_date;
+  public ?ProjectArn $arn;
+  public ?Time $created_date;
+  public ?ProjectName $project_name;
+  public ?TagMap $tags;
+  public ?Time $updated_date;
 
   public function __construct(shape(
-  ?'arn' => ProjectArn,
-  ?'created_date' => Time,
-  ?'project_name' => ProjectName,
-  ?'tags' => TagMap,
-  ?'updated_date' => Time,
+    ?'arn' => ?ProjectArn,
+    ?'created_date' => ?Time,
+    ?'project_name' => ?ProjectName,
+    ?'tags' => ?TagMap,
+    ?'updated_date' => ?Time,
   ) $s = shape()) {
-    $this->arn = $arn ?? "";
-    $this->created_date = $created_date ?? 0;
-    $this->project_name = $project_name ?? "";
-    $this->tags = $tags ?? [];
-    $this->updated_date = $updated_date ?? 0;
+    $this->arn = $s['arn'] ?? '';
+    $this->created_date = $s['created_date'] ?? 0;
+    $this->project_name = $s['project_name'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
+    $this->updated_date = $s['updated_date'] ?? 0;
   }
 }
 
 type ProjectSummaryList = vec<ProjectSummary>;
 
 class ResourceConflictException {
-  public Code $code;
-  public Message $message;
+  public ?Code $code;
+  public ?Message $message;
 
   public function __construct(shape(
-  ?'code' => Code,
-  ?'message' => Message,
+    ?'code' => ?Code,
+    ?'message' => ?Message,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->message = $message ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class ResourceNotFoundException {
-  public Code $code;
-  public Message $message;
+  public ?Code $code;
+  public ?Message $message;
 
   public function __construct(shape(
-  ?'code' => Code,
-  ?'message' => Message,
+    ?'code' => ?Code,
+    ?'message' => ?Message,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->message = $message ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->message = $s['message'] ?? '';
   }
 }
 
@@ -518,15 +518,15 @@ type TagKeyList = vec<TagKey>;
 type TagMap = dict<TagKey, TagValue>;
 
 class TagResourceRequest {
-  public ProjectArn $resource_arn;
-  public TagMap $tags;
+  public ?ProjectArn $resource_arn;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'resource_arn' => ProjectArn,
-  ?'tags' => TagMap,
+    ?'resource_arn' => ?ProjectArn,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
-    $this->tags = $tags ?? [];
+    $this->resource_arn = $s['resource_arn'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -542,28 +542,28 @@ type TagValue = string;
 type Time = int;
 
 class TooManyRequestsException {
-  public Code $code;
-  public Message $message;
+  public ?Code $code;
+  public ?Message $message;
 
   public function __construct(shape(
-  ?'code' => Code,
-  ?'message' => Message,
+    ?'code' => ?Code,
+    ?'message' => ?Message,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->message = $message ?? "";
+    $this->code = $s['code'] ?? '';
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class UntagResourceRequest {
-  public ProjectArn $resource_arn;
-  public TagKeyList $tag_keys;
+  public ?ProjectArn $resource_arn;
+  public ?TagKeyList $tag_keys;
 
   public function __construct(shape(
-  ?'resource_arn' => ProjectArn,
-  ?'tag_keys' => TagKeyList,
+    ?'resource_arn' => ?ProjectArn,
+    ?'tag_keys' => ?TagKeyList,
   ) $s = shape()) {
-    $this->resource_arn = $resource_arn ?? "";
-    $this->tag_keys = $tag_keys ?? [];
+    $this->resource_arn = $s['resource_arn'] ?? '';
+    $this->tag_keys = $s['tag_keys'] ?? vec[];
   }
 }
 
@@ -575,18 +575,18 @@ class UntagResourceResponse {
 }
 
 class UpdatePlacementRequest {
-  public PlacementAttributeMap $attributes;
-  public PlacementName $placement_name;
-  public ProjectName $project_name;
+  public ?PlacementAttributeMap $attributes;
+  public ?PlacementName $placement_name;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'attributes' => PlacementAttributeMap,
-  ?'placement_name' => PlacementName,
-  ?'project_name' => ProjectName,
+    ?'attributes' => ?PlacementAttributeMap,
+    ?'placement_name' => ?PlacementName,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->placement_name = $placement_name ?? "";
-    $this->project_name = $project_name ?? "";
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->placement_name = $s['placement_name'] ?? '';
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 
@@ -598,18 +598,18 @@ class UpdatePlacementResponse {
 }
 
 class UpdateProjectRequest {
-  public Description $description;
-  public PlacementTemplate $placement_template;
-  public ProjectName $project_name;
+  public ?Description $description;
+  public ?PlacementTemplate $placement_template;
+  public ?ProjectName $project_name;
 
   public function __construct(shape(
-  ?'description' => Description,
-  ?'placement_template' => PlacementTemplate,
-  ?'project_name' => ProjectName,
+    ?'description' => ?Description,
+    ?'placement_template' => ?PlacementTemplate,
+    ?'project_name' => ?ProjectName,
   ) $s = shape()) {
-    $this->description = $description ?? "";
-    $this->placement_template = $placement_template ?? null;
-    $this->project_name = $project_name ?? "";
+    $this->description = $s['description'] ?? '';
+    $this->placement_template = $s['placement_template'] ?? null;
+    $this->project_name = $s['project_name'] ?? '';
   }
 }
 

@@ -2,26 +2,26 @@
 namespace slack\aws\sqs;
 
 interface SQS {
-  public function AddPermission(AddPermissionRequest): Awaitable<Errors\Error>;
-  public function ChangeMessageVisibility(ChangeMessageVisibilityRequest): Awaitable<Errors\Error>;
-  public function ChangeMessageVisibilityBatch(ChangeMessageVisibilityBatchRequest): Awaitable<Errors\Result<ChangeMessageVisibilityBatchResult>>;
-  public function CreateQueue(CreateQueueRequest): Awaitable<Errors\Result<CreateQueueResult>>;
-  public function DeleteMessage(DeleteMessageRequest): Awaitable<Errors\Error>;
-  public function DeleteMessageBatch(DeleteMessageBatchRequest): Awaitable<Errors\Result<DeleteMessageBatchResult>>;
-  public function DeleteQueue(DeleteQueueRequest): Awaitable<Errors\Error>;
-  public function GetQueueAttributes(GetQueueAttributesRequest): Awaitable<Errors\Result<GetQueueAttributesResult>>;
-  public function GetQueueUrl(GetQueueUrlRequest): Awaitable<Errors\Result<GetQueueUrlResult>>;
-  public function ListDeadLetterSourceQueues(ListDeadLetterSourceQueuesRequest): Awaitable<Errors\Result<ListDeadLetterSourceQueuesResult>>;
-  public function ListQueueTags(ListQueueTagsRequest): Awaitable<Errors\Result<ListQueueTagsResult>>;
-  public function ListQueues(ListQueuesRequest): Awaitable<Errors\Result<ListQueuesResult>>;
-  public function PurgeQueue(PurgeQueueRequest): Awaitable<Errors\Error>;
-  public function ReceiveMessage(ReceiveMessageRequest): Awaitable<Errors\Result<ReceiveMessageResult>>;
-  public function RemovePermission(RemovePermissionRequest): Awaitable<Errors\Error>;
-  public function SendMessage(SendMessageRequest): Awaitable<Errors\Result<SendMessageResult>>;
-  public function SendMessageBatch(SendMessageBatchRequest): Awaitable<Errors\Result<SendMessageBatchResult>>;
-  public function SetQueueAttributes(SetQueueAttributesRequest): Awaitable<Errors\Error>;
-  public function TagQueue(TagQueueRequest): Awaitable<Errors\Error>;
-  public function UntagQueue(UntagQueueRequest): Awaitable<Errors\Error>;
+  public function AddPermission(AddPermissionRequest $in): Awaitable<\Errors\Error>;
+  public function ChangeMessageVisibility(ChangeMessageVisibilityRequest $in): Awaitable<\Errors\Error>;
+  public function ChangeMessageVisibilityBatch(ChangeMessageVisibilityBatchRequest $in): Awaitable<\Errors\Result<ChangeMessageVisibilityBatchResult>>;
+  public function CreateQueue(CreateQueueRequest $in): Awaitable<\Errors\Result<CreateQueueResult>>;
+  public function DeleteMessage(DeleteMessageRequest $in): Awaitable<\Errors\Error>;
+  public function DeleteMessageBatch(DeleteMessageBatchRequest $in): Awaitable<\Errors\Result<DeleteMessageBatchResult>>;
+  public function DeleteQueue(DeleteQueueRequest $in): Awaitable<\Errors\Error>;
+  public function GetQueueAttributes(GetQueueAttributesRequest $in): Awaitable<\Errors\Result<GetQueueAttributesResult>>;
+  public function GetQueueUrl(GetQueueUrlRequest $in): Awaitable<\Errors\Result<GetQueueUrlResult>>;
+  public function ListDeadLetterSourceQueues(ListDeadLetterSourceQueuesRequest $in): Awaitable<\Errors\Result<ListDeadLetterSourceQueuesResult>>;
+  public function ListQueueTags(ListQueueTagsRequest $in): Awaitable<\Errors\Result<ListQueueTagsResult>>;
+  public function ListQueues(ListQueuesRequest $in): Awaitable<\Errors\Result<ListQueuesResult>>;
+  public function PurgeQueue(PurgeQueueRequest $in): Awaitable<\Errors\Error>;
+  public function ReceiveMessage(ReceiveMessageRequest $in): Awaitable<\Errors\Result<ReceiveMessageResult>>;
+  public function RemovePermission(RemovePermissionRequest $in): Awaitable<\Errors\Error>;
+  public function SendMessage(SendMessageRequest $in): Awaitable<\Errors\Result<SendMessageResult>>;
+  public function SendMessageBatch(SendMessageBatchRequest $in): Awaitable<\Errors\Result<SendMessageBatchResult>>;
+  public function SetQueueAttributes(SetQueueAttributesRequest $in): Awaitable<\Errors\Error>;
+  public function TagQueue(TagQueueRequest $in): Awaitable<\Errors\Error>;
+  public function UntagQueue(UntagQueueRequest $in): Awaitable<\Errors\Error>;
 }
 
 type AWSAccountIdList = vec<String>;
@@ -29,21 +29,21 @@ type AWSAccountIdList = vec<String>;
 type ActionNameList = vec<String>;
 
 class AddPermissionRequest {
-  public AWSAccountIdList $aws_account_ids;
-  public ActionNameList $actions;
+  public ?AWSAccountIdList $aws_account_ids;
+  public ?ActionNameList $actions;
   public string $label;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'aws_account_ids' => AWSAccountIdList,
-  ?'actions' => ActionNameList,
-  ?'label' => string,
-  ?'queue_url' => string,
+    ?'aws_account_ids' => ?AWSAccountIdList,
+    ?'actions' => ?ActionNameList,
+    ?'label' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->aws_account_ids = $aws_account_ids ?? [];
-    $this->actions = $actions ?? [];
-    $this->label = $label ?? "";
-    $this->queue_url = $queue_url ?? "";
+    $this->aws_account_ids = $s['aws_account_ids'] ?? vec[];
+    $this->actions = $s['actions'] ?? vec[];
+    $this->label = $s['label'] ?? '';
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -67,18 +67,18 @@ class BatchResultErrorEntry {
   public string $code;
   public string $id;
   public string $message;
-  public boolean $sender_fault;
+  public bool $sender_fault;
 
   public function __construct(shape(
-  ?'code' => string,
-  ?'id' => string,
-  ?'message' => string,
-  ?'sender_fault' => boolean,
+    ?'code' => string,
+    ?'id' => string,
+    ?'message' => string,
+    ?'sender_fault' => bool,
   ) $s = shape()) {
-    $this->code = $code ?? "";
-    $this->id = $id ?? "";
-    $this->message = $message ?? "";
-    $this->sender_fault = $sender_fault ?? false;
+    $this->code = $s['code'] ?? '';
+    $this->id = $s['id'] ?? '';
+    $this->message = $s['message'] ?? '';
+    $this->sender_fault = $s['sender_fault'] ?? false;
   }
 }
 
@@ -91,15 +91,15 @@ type BinaryList = vec<Binary>;
 type Boolean = bool;
 
 class ChangeMessageVisibilityBatchRequest {
-  public ChangeMessageVisibilityBatchRequestEntryList $entries;
+  public ?ChangeMessageVisibilityBatchRequestEntryList $entries;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'entries' => ChangeMessageVisibilityBatchRequestEntryList,
-  ?'queue_url' => string,
+    ?'entries' => ?ChangeMessageVisibilityBatchRequestEntryList,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->entries = $s['entries'] ?? vec[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -109,28 +109,28 @@ class ChangeMessageVisibilityBatchRequestEntry {
   public int $visibility_timeout;
 
   public function __construct(shape(
-  ?'id' => string,
-  ?'receipt_handle' => string,
-  ?'visibility_timeout' => int,
+    ?'id' => string,
+    ?'receipt_handle' => string,
+    ?'visibility_timeout' => int,
   ) $s = shape()) {
-    $this->id = $id ?? "";
-    $this->receipt_handle = $receipt_handle ?? "";
-    $this->visibility_timeout = $visibility_timeout ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->receipt_handle = $s['receipt_handle'] ?? '';
+    $this->visibility_timeout = $s['visibility_timeout'] ?? 0;
   }
 }
 
 type ChangeMessageVisibilityBatchRequestEntryList = vec<ChangeMessageVisibilityBatchRequestEntry>;
 
 class ChangeMessageVisibilityBatchResult {
-  public BatchResultErrorEntryList $failed;
-  public ChangeMessageVisibilityBatchResultEntryList $successful;
+  public ?BatchResultErrorEntryList $failed;
+  public ?ChangeMessageVisibilityBatchResultEntryList $successful;
 
   public function __construct(shape(
-  ?'failed' => BatchResultErrorEntryList,
-  ?'successful' => ChangeMessageVisibilityBatchResultEntryList,
+    ?'failed' => ?BatchResultErrorEntryList,
+    ?'successful' => ?ChangeMessageVisibilityBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? [];
-    $this->successful = $successful ?? [];
+    $this->failed = $s['failed'] ?? vec[];
+    $this->successful = $s['successful'] ?? vec[];
   }
 }
 
@@ -138,9 +138,9 @@ class ChangeMessageVisibilityBatchResultEntry {
   public string $id;
 
   public function __construct(shape(
-  ?'id' => string,
+    ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? "";
+    $this->id = $s['id'] ?? '';
   }
 }
 
@@ -152,29 +152,29 @@ class ChangeMessageVisibilityRequest {
   public int $visibility_timeout;
 
   public function __construct(shape(
-  ?'queue_url' => string,
-  ?'receipt_handle' => string,
-  ?'visibility_timeout' => int,
+    ?'queue_url' => string,
+    ?'receipt_handle' => string,
+    ?'visibility_timeout' => int,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
-    $this->receipt_handle = $receipt_handle ?? "";
-    $this->visibility_timeout = $visibility_timeout ?? 0;
+    $this->queue_url = $s['queue_url'] ?? '';
+    $this->receipt_handle = $s['receipt_handle'] ?? '';
+    $this->visibility_timeout = $s['visibility_timeout'] ?? 0;
   }
 }
 
 class CreateQueueRequest {
-  public QueueAttributeMap $attributes;
+  public ?QueueAttributeMap $attributes;
   public string $queue_name;
-  public TagMap $tags;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'attributes' => QueueAttributeMap,
-  ?'queue_name' => string,
-  ?'tags' => TagMap,
+    ?'attributes' => ?QueueAttributeMap,
+    ?'queue_name' => string,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->queue_name = $queue_name ?? "";
-    $this->tags = $tags ?? [];
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->queue_name = $s['queue_name'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -182,22 +182,22 @@ class CreateQueueResult {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class DeleteMessageBatchRequest {
-  public DeleteMessageBatchRequestEntryList $entries;
+  public ?DeleteMessageBatchRequestEntryList $entries;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'entries' => DeleteMessageBatchRequestEntryList,
-  ?'queue_url' => string,
+    ?'entries' => ?DeleteMessageBatchRequestEntryList,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->entries = $s['entries'] ?? vec[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -206,26 +206,26 @@ class DeleteMessageBatchRequestEntry {
   public string $receipt_handle;
 
   public function __construct(shape(
-  ?'id' => string,
-  ?'receipt_handle' => string,
+    ?'id' => string,
+    ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->id = $id ?? "";
-    $this->receipt_handle = $receipt_handle ?? "";
+    $this->id = $s['id'] ?? '';
+    $this->receipt_handle = $s['receipt_handle'] ?? '';
   }
 }
 
 type DeleteMessageBatchRequestEntryList = vec<DeleteMessageBatchRequestEntry>;
 
 class DeleteMessageBatchResult {
-  public BatchResultErrorEntryList $failed;
-  public DeleteMessageBatchResultEntryList $successful;
+  public ?BatchResultErrorEntryList $failed;
+  public ?DeleteMessageBatchResultEntryList $successful;
 
   public function __construct(shape(
-  ?'failed' => BatchResultErrorEntryList,
-  ?'successful' => DeleteMessageBatchResultEntryList,
+    ?'failed' => ?BatchResultErrorEntryList,
+    ?'successful' => ?DeleteMessageBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? [];
-    $this->successful = $successful ?? [];
+    $this->failed = $s['failed'] ?? vec[];
+    $this->successful = $s['successful'] ?? vec[];
   }
 }
 
@@ -233,9 +233,9 @@ class DeleteMessageBatchResultEntry {
   public string $id;
 
   public function __construct(shape(
-  ?'id' => string,
+    ?'id' => string,
   ) $s = shape()) {
-    $this->id = $id ?? "";
+    $this->id = $s['id'] ?? '';
   }
 }
 
@@ -246,11 +246,11 @@ class DeleteMessageRequest {
   public string $receipt_handle;
 
   public function __construct(shape(
-  ?'queue_url' => string,
-  ?'receipt_handle' => string,
+    ?'queue_url' => string,
+    ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
-    $this->receipt_handle = $receipt_handle ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
+    $this->receipt_handle = $s['receipt_handle'] ?? '';
   }
 }
 
@@ -258,9 +258,9 @@ class DeleteQueueRequest {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -272,25 +272,25 @@ class EmptyBatchRequest {
 }
 
 class GetQueueAttributesRequest {
-  public AttributeNameList $attribute_names;
+  public ?AttributeNameList $attribute_names;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'attribute_names' => AttributeNameList,
-  ?'queue_url' => string,
+    ?'attribute_names' => ?AttributeNameList,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->attribute_names = $s['attribute_names'] ?? vec[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class GetQueueAttributesResult {
-  public QueueAttributeMap $attributes;
+  public ?QueueAttributeMap $attributes;
 
   public function __construct(shape(
-  ?'attributes' => QueueAttributeMap,
+    ?'attributes' => ?QueueAttributeMap,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
+    $this->attributes = $s['attributes'] ?? dict[];
   }
 }
 
@@ -299,11 +299,11 @@ class GetQueueUrlRequest {
   public string $queue_owner_aws_account_id;
 
   public function __construct(shape(
-  ?'queue_name' => string,
-  ?'queue_owner_aws_account_id' => string,
+    ?'queue_name' => string,
+    ?'queue_owner_aws_account_id' => string,
   ) $s = shape()) {
-    $this->queue_name = $queue_name ?? "";
-    $this->queue_owner_aws_account_id = $queue_owner_aws_account_id ?? "";
+    $this->queue_name = $s['queue_name'] ?? '';
+    $this->queue_owner_aws_account_id = $s['queue_owner_aws_account_id'] ?? '';
   }
 }
 
@@ -311,9 +311,9 @@ class GetQueueUrlResult {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -351,19 +351,19 @@ class ListDeadLetterSourceQueuesRequest {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class ListDeadLetterSourceQueuesResult {
-  public QueueUrlList $queue_urls;
+  public ?QueueUrlList $queue_urls;
 
   public function __construct(shape(
-  ?'queue_urls' => QueueUrlList,
+    ?'queue_urls' => ?QueueUrlList,
   ) $s = shape()) {
-    $this->queue_urls = $queue_urls ?? [];
+    $this->queue_urls = $s['queue_urls'] ?? vec[];
   }
 }
 
@@ -371,19 +371,19 @@ class ListQueueTagsRequest {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class ListQueueTagsResult {
-  public TagMap $tags;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'tags' => TagMap,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->tags = $tags ?? [];
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -391,47 +391,47 @@ class ListQueuesRequest {
   public string $queue_name_prefix;
 
   public function __construct(shape(
-  ?'queue_name_prefix' => string,
+    ?'queue_name_prefix' => string,
   ) $s = shape()) {
-    $this->queue_name_prefix = $queue_name_prefix ?? "";
+    $this->queue_name_prefix = $s['queue_name_prefix'] ?? '';
   }
 }
 
 class ListQueuesResult {
-  public QueueUrlList $queue_urls;
+  public ?QueueUrlList $queue_urls;
 
   public function __construct(shape(
-  ?'queue_urls' => QueueUrlList,
+    ?'queue_urls' => ?QueueUrlList,
   ) $s = shape()) {
-    $this->queue_urls = $queue_urls ?? [];
+    $this->queue_urls = $s['queue_urls'] ?? vec[];
   }
 }
 
 class Message {
-  public MessageSystemAttributeMap $attributes;
+  public ?MessageSystemAttributeMap $attributes;
   public string $body;
   public string $md_5_of_body;
   public string $md_5_of_message_attributes;
-  public MessageBodyAttributeMap $message_attributes;
+  public ?MessageBodyAttributeMap $message_attributes;
   public string $message_id;
   public string $receipt_handle;
 
   public function __construct(shape(
-  ?'attributes' => MessageSystemAttributeMap,
-  ?'body' => string,
-  ?'md_5_of_body' => string,
-  ?'md_5_of_message_attributes' => string,
-  ?'message_attributes' => MessageBodyAttributeMap,
-  ?'message_id' => string,
-  ?'receipt_handle' => string,
+    ?'attributes' => ?MessageSystemAttributeMap,
+    ?'body' => string,
+    ?'md_5_of_body' => string,
+    ?'md_5_of_message_attributes' => string,
+    ?'message_attributes' => ?MessageBodyAttributeMap,
+    ?'message_id' => string,
+    ?'receipt_handle' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->body = $body ?? "";
-    $this->md_5_of_body = $md_5_of_body ?? "";
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
-    $this->message_attributes = $message_attributes ?? [];
-    $this->message_id = $message_id ?? "";
-    $this->receipt_handle = $receipt_handle ?? "";
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->body = $s['body'] ?? '';
+    $this->md_5_of_body = $s['md_5_of_body'] ?? '';
+    $this->md_5_of_message_attributes = $s['md_5_of_message_attributes'] ?? '';
+    $this->message_attributes = $s['message_attributes'] ?? dict[];
+    $this->message_id = $s['message_id'] ?? '';
+    $this->receipt_handle = $s['receipt_handle'] ?? '';
   }
 }
 
@@ -440,24 +440,24 @@ type MessageAttributeName = string;
 type MessageAttributeNameList = vec<MessageAttributeName>;
 
 class MessageAttributeValue {
-  public BinaryList $binary_list_values;
-  public Binary $binary_value;
+  public ?BinaryList $binary_list_values;
+  public ?Binary $binary_value;
   public string $data_type;
-  public StringList $string_list_values;
+  public ?StringList $string_list_values;
   public string $string_value;
 
   public function __construct(shape(
-  ?'binary_list_values' => BinaryList,
-  ?'binary_value' => Binary,
-  ?'data_type' => string,
-  ?'string_list_values' => StringList,
-  ?'string_value' => string,
+    ?'binary_list_values' => ?BinaryList,
+    ?'binary_value' => ?Binary,
+    ?'data_type' => string,
+    ?'string_list_values' => ?StringList,
+    ?'string_value' => string,
   ) $s = shape()) {
-    $this->binary_list_values = $binary_list_values ?? [];
-    $this->binary_value = $binary_value ?? "";
-    $this->data_type = $data_type ?? "";
-    $this->string_list_values = $string_list_values ?? [];
-    $this->string_value = $string_value ?? "";
+    $this->binary_list_values = $s['binary_list_values'] ?? vec[];
+    $this->binary_value = $s['binary_value'] ?? '';
+    $this->data_type = $s['data_type'] ?? '';
+    $this->string_list_values = $s['string_list_values'] ?? vec[];
+    $this->string_value = $s['string_value'] ?? '';
   }
 }
 
@@ -481,24 +481,24 @@ type MessageSystemAttributeName = string;
 type MessageSystemAttributeNameForSends = string;
 
 class MessageSystemAttributeValue {
-  public BinaryList $binary_list_values;
-  public Binary $binary_value;
+  public ?BinaryList $binary_list_values;
+  public ?Binary $binary_value;
   public string $data_type;
-  public StringList $string_list_values;
+  public ?StringList $string_list_values;
   public string $string_value;
 
   public function __construct(shape(
-  ?'binary_list_values' => BinaryList,
-  ?'binary_value' => Binary,
-  ?'data_type' => string,
-  ?'string_list_values' => StringList,
-  ?'string_value' => string,
+    ?'binary_list_values' => ?BinaryList,
+    ?'binary_value' => ?Binary,
+    ?'data_type' => string,
+    ?'string_list_values' => ?StringList,
+    ?'string_value' => string,
   ) $s = shape()) {
-    $this->binary_list_values = $binary_list_values ?? [];
-    $this->binary_value = $binary_value ?? "";
-    $this->data_type = $data_type ?? "";
-    $this->string_list_values = $string_list_values ?? [];
-    $this->string_value = $string_value ?? "";
+    $this->binary_list_values = $s['binary_list_values'] ?? vec[];
+    $this->binary_value = $s['binary_value'] ?? '';
+    $this->data_type = $s['data_type'] ?? '';
+    $this->string_list_values = $s['string_list_values'] ?? vec[];
+    $this->string_value = $s['string_value'] ?? '';
   }
 }
 
@@ -520,9 +520,9 @@ class PurgeQueueRequest {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'queue_url' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -561,40 +561,40 @@ class ReceiptHandleIsInvalid {
 }
 
 class ReceiveMessageRequest {
-  public AttributeNameList $attribute_names;
+  public ?AttributeNameList $attribute_names;
   public int $max_number_of_messages;
-  public MessageAttributeNameList $message_attribute_names;
+  public ?MessageAttributeNameList $message_attribute_names;
   public string $queue_url;
   public string $receive_request_attempt_id;
   public int $visibility_timeout;
   public int $wait_time_seconds;
 
   public function __construct(shape(
-  ?'attribute_names' => AttributeNameList,
-  ?'max_number_of_messages' => int,
-  ?'message_attribute_names' => MessageAttributeNameList,
-  ?'queue_url' => string,
-  ?'receive_request_attempt_id' => string,
-  ?'visibility_timeout' => int,
-  ?'wait_time_seconds' => int,
+    ?'attribute_names' => ?AttributeNameList,
+    ?'max_number_of_messages' => int,
+    ?'message_attribute_names' => ?MessageAttributeNameList,
+    ?'queue_url' => string,
+    ?'receive_request_attempt_id' => string,
+    ?'visibility_timeout' => int,
+    ?'wait_time_seconds' => int,
   ) $s = shape()) {
-    $this->attribute_names = $attribute_names ?? [];
-    $this->max_number_of_messages = $max_number_of_messages ?? 0;
-    $this->message_attribute_names = $message_attribute_names ?? [];
-    $this->queue_url = $queue_url ?? "";
-    $this->receive_request_attempt_id = $receive_request_attempt_id ?? "";
-    $this->visibility_timeout = $visibility_timeout ?? 0;
-    $this->wait_time_seconds = $wait_time_seconds ?? 0;
+    $this->attribute_names = $s['attribute_names'] ?? vec[];
+    $this->max_number_of_messages = $s['max_number_of_messages'] ?? 0;
+    $this->message_attribute_names = $s['message_attribute_names'] ?? vec[];
+    $this->queue_url = $s['queue_url'] ?? '';
+    $this->receive_request_attempt_id = $s['receive_request_attempt_id'] ?? '';
+    $this->visibility_timeout = $s['visibility_timeout'] ?? 0;
+    $this->wait_time_seconds = $s['wait_time_seconds'] ?? 0;
   }
 }
 
 class ReceiveMessageResult {
-  public MessageList $messages;
+  public ?MessageList $messages;
 
   public function __construct(shape(
-  ?'messages' => MessageList,
+    ?'messages' => ?MessageList,
   ) $s = shape()) {
-    $this->messages = $messages ?? [];
+    $this->messages = $s['messages'] ?? vec[];
   }
 }
 
@@ -603,67 +603,67 @@ class RemovePermissionRequest {
   public string $queue_url;
 
   public function __construct(shape(
-  ?'label' => string,
-  ?'queue_url' => string,
+    ?'label' => string,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->label = $label ?? "";
-    $this->queue_url = $queue_url ?? "";
+    $this->label = $s['label'] ?? '';
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class SendMessageBatchRequest {
-  public SendMessageBatchRequestEntryList $entries;
+  public ?SendMessageBatchRequestEntryList $entries;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'entries' => SendMessageBatchRequestEntryList,
-  ?'queue_url' => string,
+    ?'entries' => ?SendMessageBatchRequestEntryList,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->entries = $entries ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->entries = $s['entries'] ?? vec[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
 class SendMessageBatchRequestEntry {
   public int $delay_seconds;
   public string $id;
-  public MessageBodyAttributeMap $message_attributes;
+  public ?MessageBodyAttributeMap $message_attributes;
   public string $message_body;
   public string $message_deduplication_id;
   public string $message_group_id;
-  public MessageBodySystemAttributeMap $message_system_attributes;
+  public ?MessageBodySystemAttributeMap $message_system_attributes;
 
   public function __construct(shape(
-  ?'delay_seconds' => int,
-  ?'id' => string,
-  ?'message_attributes' => MessageBodyAttributeMap,
-  ?'message_body' => string,
-  ?'message_deduplication_id' => string,
-  ?'message_group_id' => string,
-  ?'message_system_attributes' => MessageBodySystemAttributeMap,
+    ?'delay_seconds' => int,
+    ?'id' => string,
+    ?'message_attributes' => ?MessageBodyAttributeMap,
+    ?'message_body' => string,
+    ?'message_deduplication_id' => string,
+    ?'message_group_id' => string,
+    ?'message_system_attributes' => ?MessageBodySystemAttributeMap,
   ) $s = shape()) {
-    $this->delay_seconds = $delay_seconds ?? 0;
-    $this->id = $id ?? "";
-    $this->message_attributes = $message_attributes ?? [];
-    $this->message_body = $message_body ?? "";
-    $this->message_deduplication_id = $message_deduplication_id ?? "";
-    $this->message_group_id = $message_group_id ?? "";
-    $this->message_system_attributes = $message_system_attributes ?? [];
+    $this->delay_seconds = $s['delay_seconds'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->message_attributes = $s['message_attributes'] ?? dict[];
+    $this->message_body = $s['message_body'] ?? '';
+    $this->message_deduplication_id = $s['message_deduplication_id'] ?? '';
+    $this->message_group_id = $s['message_group_id'] ?? '';
+    $this->message_system_attributes = $s['message_system_attributes'] ?? dict[];
   }
 }
 
 type SendMessageBatchRequestEntryList = vec<SendMessageBatchRequestEntry>;
 
 class SendMessageBatchResult {
-  public BatchResultErrorEntryList $failed;
-  public SendMessageBatchResultEntryList $successful;
+  public ?BatchResultErrorEntryList $failed;
+  public ?SendMessageBatchResultEntryList $successful;
 
   public function __construct(shape(
-  ?'failed' => BatchResultErrorEntryList,
-  ?'successful' => SendMessageBatchResultEntryList,
+    ?'failed' => ?BatchResultErrorEntryList,
+    ?'successful' => ?SendMessageBatchResultEntryList,
   ) $s = shape()) {
-    $this->failed = $failed ?? [];
-    $this->successful = $successful ?? [];
+    $this->failed = $s['failed'] ?? vec[];
+    $this->successful = $s['successful'] ?? vec[];
   }
 }
 
@@ -676,19 +676,19 @@ class SendMessageBatchResultEntry {
   public string $sequence_number;
 
   public function __construct(shape(
-  ?'id' => string,
-  ?'md_5_of_message_attributes' => string,
-  ?'md_5_of_message_body' => string,
-  ?'md_5_of_message_system_attributes' => string,
-  ?'message_id' => string,
-  ?'sequence_number' => string,
+    ?'id' => string,
+    ?'md_5_of_message_attributes' => string,
+    ?'md_5_of_message_body' => string,
+    ?'md_5_of_message_system_attributes' => string,
+    ?'message_id' => string,
+    ?'sequence_number' => string,
   ) $s = shape()) {
-    $this->id = $id ?? "";
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
-    $this->md_5_of_message_body = $md_5_of_message_body ?? "";
-    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? "";
-    $this->message_id = $message_id ?? "";
-    $this->sequence_number = $sequence_number ?? "";
+    $this->id = $s['id'] ?? '';
+    $this->md_5_of_message_attributes = $s['md_5_of_message_attributes'] ?? '';
+    $this->md_5_of_message_body = $s['md_5_of_message_body'] ?? '';
+    $this->md_5_of_message_system_attributes = $s['md_5_of_message_system_attributes'] ?? '';
+    $this->message_id = $s['message_id'] ?? '';
+    $this->sequence_number = $s['sequence_number'] ?? '';
   }
 }
 
@@ -696,29 +696,29 @@ type SendMessageBatchResultEntryList = vec<SendMessageBatchResultEntry>;
 
 class SendMessageRequest {
   public int $delay_seconds;
-  public MessageBodyAttributeMap $message_attributes;
+  public ?MessageBodyAttributeMap $message_attributes;
   public string $message_body;
   public string $message_deduplication_id;
   public string $message_group_id;
-  public MessageBodySystemAttributeMap $message_system_attributes;
+  public ?MessageBodySystemAttributeMap $message_system_attributes;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'delay_seconds' => int,
-  ?'message_attributes' => MessageBodyAttributeMap,
-  ?'message_body' => string,
-  ?'message_deduplication_id' => string,
-  ?'message_group_id' => string,
-  ?'message_system_attributes' => MessageBodySystemAttributeMap,
-  ?'queue_url' => string,
+    ?'delay_seconds' => int,
+    ?'message_attributes' => ?MessageBodyAttributeMap,
+    ?'message_body' => string,
+    ?'message_deduplication_id' => string,
+    ?'message_group_id' => string,
+    ?'message_system_attributes' => ?MessageBodySystemAttributeMap,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->delay_seconds = $delay_seconds ?? 0;
-    $this->message_attributes = $message_attributes ?? [];
-    $this->message_body = $message_body ?? "";
-    $this->message_deduplication_id = $message_deduplication_id ?? "";
-    $this->message_group_id = $message_group_id ?? "";
-    $this->message_system_attributes = $message_system_attributes ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->delay_seconds = $s['delay_seconds'] ?? 0;
+    $this->message_attributes = $s['message_attributes'] ?? dict[];
+    $this->message_body = $s['message_body'] ?? '';
+    $this->message_deduplication_id = $s['message_deduplication_id'] ?? '';
+    $this->message_group_id = $s['message_group_id'] ?? '';
+    $this->message_system_attributes = $s['message_system_attributes'] ?? dict[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -730,30 +730,30 @@ class SendMessageResult {
   public string $sequence_number;
 
   public function __construct(shape(
-  ?'md_5_of_message_attributes' => string,
-  ?'md_5_of_message_body' => string,
-  ?'md_5_of_message_system_attributes' => string,
-  ?'message_id' => string,
-  ?'sequence_number' => string,
+    ?'md_5_of_message_attributes' => string,
+    ?'md_5_of_message_body' => string,
+    ?'md_5_of_message_system_attributes' => string,
+    ?'message_id' => string,
+    ?'sequence_number' => string,
   ) $s = shape()) {
-    $this->md_5_of_message_attributes = $md_5_of_message_attributes ?? "";
-    $this->md_5_of_message_body = $md_5_of_message_body ?? "";
-    $this->md_5_of_message_system_attributes = $md_5_of_message_system_attributes ?? "";
-    $this->message_id = $message_id ?? "";
-    $this->sequence_number = $sequence_number ?? "";
+    $this->md_5_of_message_attributes = $s['md_5_of_message_attributes'] ?? '';
+    $this->md_5_of_message_body = $s['md_5_of_message_body'] ?? '';
+    $this->md_5_of_message_system_attributes = $s['md_5_of_message_system_attributes'] ?? '';
+    $this->message_id = $s['message_id'] ?? '';
+    $this->sequence_number = $s['sequence_number'] ?? '';
   }
 }
 
 class SetQueueAttributesRequest {
-  public QueueAttributeMap $attributes;
+  public ?QueueAttributeMap $attributes;
   public string $queue_url;
 
   public function __construct(shape(
-  ?'attributes' => QueueAttributeMap,
-  ?'queue_url' => string,
+    ?'attributes' => ?QueueAttributeMap,
+    ?'queue_url' => string,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->queue_url = $queue_url ?? "";
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->queue_url = $s['queue_url'] ?? '';
   }
 }
 
@@ -769,14 +769,14 @@ type TagMap = dict<TagKey, TagValue>;
 
 class TagQueueRequest {
   public string $queue_url;
-  public TagMap $tags;
+  public ?TagMap $tags;
 
   public function __construct(shape(
-  ?'queue_url' => string,
-  ?'tags' => TagMap,
+    ?'queue_url' => string,
+    ?'tags' => ?TagMap,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
-    $this->tags = $tags ?? [];
+    $this->queue_url = $s['queue_url'] ?? '';
+    $this->tags = $s['tags'] ?? dict[];
   }
 }
 
@@ -798,14 +798,14 @@ class UnsupportedOperation {
 
 class UntagQueueRequest {
   public string $queue_url;
-  public TagKeyList $tag_keys;
+  public ?TagKeyList $tag_keys;
 
   public function __construct(shape(
-  ?'queue_url' => string,
-  ?'tag_keys' => TagKeyList,
+    ?'queue_url' => string,
+    ?'tag_keys' => ?TagKeyList,
   ) $s = shape()) {
-    $this->queue_url = $queue_url ?? "";
-    $this->tag_keys = $tag_keys ?? [];
+    $this->queue_url = $s['queue_url'] ?? '';
+    $this->tag_keys = $s['tag_keys'] ?? vec[];
   }
 }
 

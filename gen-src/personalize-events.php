@@ -1,8 +1,8 @@
 <?hh // strict
 namespace slack\aws\personalize-events;
 
-interface Personalize Events {
-  public function PutEvents(PutEventsRequest): Awaitable<Errors\Error>;
+interface PersonalizeEvents {
+  public function PutEvents(PutEventsRequest $in): Awaitable<\Errors\Error>;
 }
 
 type Date = int;
@@ -10,21 +10,21 @@ type Date = int;
 type ErrorMessage = string;
 
 class Event {
-  public StringType $event_id;
-  public StringType $event_type;
-  public EventPropertiesJSON $properties;
-  public Date $sent_at;
+  public ?StringType $event_id;
+  public ?StringType $event_type;
+  public ?EventPropertiesJSON $properties;
+  public ?Date $sent_at;
 
   public function __construct(shape(
-  ?'event_id' => StringType,
-  ?'event_type' => StringType,
-  ?'properties' => EventPropertiesJSON,
-  ?'sent_at' => Date,
+    ?'event_id' => ?StringType,
+    ?'event_type' => ?StringType,
+    ?'properties' => ?EventPropertiesJSON,
+    ?'sent_at' => ?Date,
   ) $s = shape()) {
-    $this->event_id = $event_id ?? "";
-    $this->event_type = $event_type ?? "";
-    $this->properties = $properties ?? "";
-    $this->sent_at = $sent_at ?? 0;
+    $this->event_id = $s['event_id'] ?? '';
+    $this->event_type = $s['event_type'] ?? '';
+    $this->properties = $s['properties'] ?? '';
+    $this->sent_at = $s['sent_at'] ?? 0;
   }
 }
 
@@ -33,31 +33,31 @@ type EventList = vec<Event>;
 type EventPropertiesJSON = string;
 
 class InvalidInputException {
-  public ErrorMessage $message;
+  public ?ErrorMessage $message;
 
   public function __construct(shape(
-  ?'message' => ErrorMessage,
+    ?'message' => ?ErrorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 class PutEventsRequest {
-  public EventList $event_list;
-  public StringType $session_id;
-  public StringType $tracking_id;
-  public UserId $user_id;
+  public ?EventList $event_list;
+  public ?StringType $session_id;
+  public ?StringType $tracking_id;
+  public ?UserId $user_id;
 
   public function __construct(shape(
-  ?'event_list' => EventList,
-  ?'session_id' => StringType,
-  ?'tracking_id' => StringType,
-  ?'user_id' => UserId,
+    ?'event_list' => ?EventList,
+    ?'session_id' => ?StringType,
+    ?'tracking_id' => ?StringType,
+    ?'user_id' => ?UserId,
   ) $s = shape()) {
-    $this->event_list = $event_list ?? [];
-    $this->session_id = $session_id ?? "";
-    $this->tracking_id = $tracking_id ?? "";
-    $this->user_id = $user_id ?? "";
+    $this->event_list = $s['event_list'] ?? vec[];
+    $this->session_id = $s['session_id'] ?? '';
+    $this->tracking_id = $s['tracking_id'] ?? '';
+    $this->user_id = $s['user_id'] ?? '';
   }
 }
 

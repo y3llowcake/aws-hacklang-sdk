@@ -2,36 +2,36 @@
 namespace slack\aws\workmailmessageflow;
 
 interface WorkMailMessageFlow {
-  public function GetRawMessageContent(GetRawMessageContentRequest): Awaitable<Errors\Result<GetRawMessageContentResponse>>;
+  public function GetRawMessageContent(GetRawMessageContentRequest $in): Awaitable<\Errors\Result<GetRawMessageContentResponse>>;
 }
 
 class GetRawMessageContentRequest {
-  public messageIdType $message_id;
+  public ?messageIdType $message_id;
 
   public function __construct(shape(
-  ?'message_id' => messageIdType,
+    ?'message_id' => ?messageIdType,
   ) $s = shape()) {
-    $this->message_id = $message_id ?? "";
+    $this->message_id = $s['message_id'] ?? '';
   }
 }
 
 class GetRawMessageContentResponse {
-  public messageContentBlob $message_content;
+  public ?messageContentBlob $message_content;
 
   public function __construct(shape(
-  ?'message_content' => messageContentBlob,
+    ?'message_content' => ?messageContentBlob,
   ) $s = shape()) {
-    $this->message_content = $message_content ?? "";
+    $this->message_content = $s['message_content'] ?? '';
   }
 }
 
 class ResourceNotFoundException {
-  public errorMessage $message;
+  public ?errorMessage $message;
 
   public function __construct(shape(
-  ?'message' => errorMessage,
+    ?'message' => ?errorMessage,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 

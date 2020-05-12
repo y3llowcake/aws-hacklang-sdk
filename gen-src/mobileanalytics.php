@@ -2,43 +2,43 @@
 namespace slack\aws\mobileanalytics;
 
 interface  {
-  public function PutEvents(PutEventsInput): Awaitable<Errors\Error>;
+  public function PutEvents(PutEventsInput $in): Awaitable<\Errors\Error>;
 }
 
 class BadRequestException {
   public string $message;
 
   public function __construct(shape(
-  ?'message' => string,
+    ?'message' => string,
   ) $s = shape()) {
-    $this->message = $message ?? "";
+    $this->message = $s['message'] ?? '';
   }
 }
 
 type Double = float;
 
 class Event {
-  public MapOfStringToString $attributes;
-  public String50Chars $event_type;
-  public MapOfStringToNumber $metrics;
-  public Session $session;
-  public ISO8601Timestamp $timestamp;
-  public String10Chars $version;
+  public ?MapOfStringToString $attributes;
+  public ?String50Chars $event_type;
+  public ?MapOfStringToNumber $metrics;
+  public ?Session $session;
+  public ?ISO8601Timestamp $timestamp;
+  public ?String10Chars $version;
 
   public function __construct(shape(
-  ?'attributes' => MapOfStringToString,
-  ?'event_type' => String50Chars,
-  ?'metrics' => MapOfStringToNumber,
-  ?'session' => Session,
-  ?'timestamp' => ISO8601Timestamp,
-  ?'version' => String10Chars,
+    ?'attributes' => ?MapOfStringToString,
+    ?'event_type' => ?String50Chars,
+    ?'metrics' => ?MapOfStringToNumber,
+    ?'session' => ?Session,
+    ?'timestamp' => ?ISO8601Timestamp,
+    ?'version' => ?String10Chars,
   ) $s = shape()) {
-    $this->attributes = $attributes ?? [];
-    $this->event_type = $event_type ?? "";
-    $this->metrics = $metrics ?? [];
-    $this->session = $session ?? null;
-    $this->timestamp = $timestamp ?? "";
-    $this->version = $version ?? "";
+    $this->attributes = $s['attributes'] ?? dict[];
+    $this->event_type = $s['event_type'] ?? '';
+    $this->metrics = $s['metrics'] ?? dict[];
+    $this->session = $s['session'] ?? null;
+    $this->timestamp = $s['timestamp'] ?? '';
+    $this->version = $s['version'] ?? '';
   }
 }
 
@@ -55,35 +55,35 @@ type MapOfStringToString = dict<String50Chars, String0to1000Chars>;
 class PutEventsInput {
   public string $client_context;
   public string $client_context_encoding;
-  public EventListDefinition $events;
+  public ?EventListDefinition $events;
 
   public function __construct(shape(
-  ?'client_context' => string,
-  ?'client_context_encoding' => string,
-  ?'events' => EventListDefinition,
+    ?'client_context' => string,
+    ?'client_context_encoding' => string,
+    ?'events' => ?EventListDefinition,
   ) $s = shape()) {
-    $this->client_context = $client_context ?? "";
-    $this->client_context_encoding = $client_context_encoding ?? "";
-    $this->events = $events ?? [];
+    $this->client_context = $s['client_context'] ?? '';
+    $this->client_context_encoding = $s['client_context_encoding'] ?? '';
+    $this->events = $s['events'] ?? vec[];
   }
 }
 
 class Session {
-  public Long $duration;
-  public String50Chars $id;
-  public ISO8601Timestamp $start_timestamp;
-  public ISO8601Timestamp $stop_timestamp;
+  public ?Long $duration;
+  public ?String50Chars $id;
+  public ?ISO8601Timestamp $start_timestamp;
+  public ?ISO8601Timestamp $stop_timestamp;
 
   public function __construct(shape(
-  ?'duration' => Long,
-  ?'id' => String50Chars,
-  ?'start_timestamp' => ISO8601Timestamp,
-  ?'stop_timestamp' => ISO8601Timestamp,
+    ?'duration' => ?Long,
+    ?'id' => ?String50Chars,
+    ?'start_timestamp' => ?ISO8601Timestamp,
+    ?'stop_timestamp' => ?ISO8601Timestamp,
   ) $s = shape()) {
-    $this->duration = $duration ?? 0;
-    $this->id = $id ?? "";
-    $this->start_timestamp = $start_timestamp ?? "";
-    $this->stop_timestamp = $stop_timestamp ?? "";
+    $this->duration = $s['duration'] ?? 0;
+    $this->id = $s['id'] ?? '';
+    $this->start_timestamp = $s['start_timestamp'] ?? '';
+    $this->stop_timestamp = $s['stop_timestamp'] ?? '';
   }
 }
 
