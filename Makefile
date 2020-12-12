@@ -9,4 +9,4 @@ typecheck: gen
 gen:
 	rm -rf ./gen-src
 	mkdir gen-src
-	go run gen.go
+	go run -tags=codegen gen.go

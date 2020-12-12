@@ -2,14 +2,12 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
-	"path/filepath"
-	"sort"
 	"strings"
 
+	"github.com/aws/aws-sdk-go/private/model/api"
 	"github.com/iancoleman/strcase"
 )
 
@@ -20,234 +18,132 @@ func check(err error) {
 }
 
 func main() {
-	paths, err := filepath.Glob("./models/apis/*/*/api-2.json")
+	// https://github.com/aws/aws-sdk-go/blob/v1.36.7/private/model/api/load.go
+	l := &api.Loader{}
+	apis, err := l.Load([]string{"./models/apis/dynamodb/2012-08-10/api-2.json"})
 	check(err)
-	for _, path := range paths {
-		fmt.Printf("generating %s\n", path)
-		b, err := ioutil.ReadFile(path)
-		check(err)
-		m := &Model{}
-		check(json.Unmarshal(b, m))
+	for name, api := range apis {
+		fmt.Printf("generating %s\n", name)
 		buf := bytes.NewBuffer(nil)
 		w := &writer{buf, 0}
-		genModel(m, w)
-		fname := fmt.Sprintf("./gen-src/%s.php", m.Metadata.EndpointPrefix)
+		genApi(name, api, w)
+		fname := fmt.Sprintf("./gen-src/%s.php", name)
 		check(ioutil.WriteFile(fname, buf.Bytes(), 0660))
 		// break
 	}
 }
 
-type (
-	named struct {
-		defaultValue string
-	}
-	namespace map[string]*named
-)
-
-func defaultValue(t string) string {
-	switch t {
-	case "string", "blob":
-		return `''`
-	case "boolean":
-		return "false"
-	case "integer", "long":
-		return "0"
-	case "double", "float":
-		return "0.0"
-	case "structure":
-		return "null"
-	case "list":
-		return "vec[]"
-	case "map":
-		return "dict[]"
-	case "timestamp":
-		return "0"
-	default:
-		panic(fmt.Sprintf("unable to determine default value for type: %v", t))
-	}
-}
-
-func genModel(m *Model, w *writer) {
+// API: https://github.com/aws/aws-sdk-go/blob/v1.36.7/private/model/api/api.go
+// Operations: https://github.com/aws/aws-sdk-go/blob/v1.36.7/private/model/api/operation.go
+// Shapes: https://github.com/aws/aws-sdk-go/blob/v1.36.7/private/model/api/shape.go
+func genApi(apiName string, a *api.API, w *writer) {
 	w.p("<?hh // strict")
-	w.p("namespace slack\\aws\\%s;", m.Metadata.EndpointPrefix)
+	w.p("namespace slack\\aws\\%s;", apiName)
 	w.ln()
-	w.p("interface %s {", strings.Replace(m.Metadata.ServiceID, " ", "", -1))
 
 	// Operations
-	sorted := []string{}
-	for k, _ := range m.Operations {
-		sorted = append(sorted, k)
-	}
-	sort.Strings(sorted)
-
-	for _, k := range sorted {
-		op := m.Operations[k]
-		out := op.Output.Shape
-		if out == "" {
-			out = "Awaitable<\\Errors\\Error>"
-		} else {
-			out = fmt.Sprintf("Awaitable<\\Errors\\Result<%s>>", out)
-		}
-		w.p("public function %s(%s $in): %s;", op.Name, op.Input.Shape, out)
+	w.p("interface %s {", apiName)
+	for _, op := range a.OperationList() {
+		w.p("public function %s(%s $in): %s;", op.Name, op.InputRef.ShapeName, op.OutputRef.ShapeName)
 	}
 	w.p("}")
 	w.ln()
 
 	// Shapes
-	ns := namespace{}
-	sorted = []string{}
-	for k, s := range m.Shapes {
-		ns[k] = &named{defaultValue(s.Type)}
-		sorted = append(sorted, k)
-	}
-	sort.Strings(sorted)
-
-	for _, name := range sorted {
-		shape := m.Shapes[name]
-		genTopLevelShape(name, shape, ns, w)
+	for _, s := range a.ShapeList() {
+		// w.p("// shape: %s is a %s", s.ShapeName, s.Type)
+		if s.Type == "structure" {
+			genStructure(s, w)
+		}
 	}
 }
 
-func genTopLevelShape(name string, s Shape, ns namespace, w *writer) {
-	switch s.Type {
-	case "structure":
-		genTopLevelStructure(name, s, ns, w)
-	case "string", "blob":
-		w.p("type %s = string;", name)
-		w.ln()
-	case "integer", "timestamp", "long":
-		w.p("type %s = int;", name)
-		w.ln()
-	case "double", "float":
-		w.p("type %s = float;", name)
-		w.ln()
-	case "boolean":
-		w.p("type %s = bool;", name)
-		w.ln()
-	case "list":
-		w.p("type %s = vec<%s>;", name, s.Member.Shape)
-		w.ln()
-	case "map":
-		w.p("type %s = dict<%s, %s>;", name, s.Key.Shape, s.Value.Shape)
-		w.ln()
-	default:
-		panic(fmt.Sprintf("unable to determine type for shape: %v", s.Type))
+func genStructure(s *api.Shape, w *writer) {
+	w.p("class %s {", s.ShapeName)
+	members := hackMembers(s)
+
+	for _, m := range members {
+		w.p("public %s%s $%s;", m.nullablePrefix(), hackType(m.ref.Shape), m.name)
 	}
+
+	w.p("public function __construct(shape(")
+	defaultShape := " = shape()"
+	for _, m := range members {
+		if m.required {
+			defaultShape = ""
+		}
+		w.p("%s'%s' => %s,", m.nullablePrefix(), m.name, hackType(m.ref.Shape))
+	}
+	w.p(") $s%s) {", defaultShape) // constructor decl
+	for _, m := range members {
+		nullable := ""
+		if !m.required {
+			nullable = " ?? null"
+		}
+		w.p("$this->%s = $s['%s']%s;", m.name, m.name, nullable)
+	}
+	w.p("}") // constructor
+	w.p("}") // class
+	w.ln()
 }
 
-func memberShapeToHackType(t string) string {
-	switch t {
-	case "String":
-		return "string"
-	case "Boolean":
-		return "bool"
-	case "Integer":
-		return "int"
-	default:
-		return "?" + t
-	}
+func hackMemberName(s string) string {
+	return strcase.ToSnake(s)
 }
 
-type member struct {
-	shapeName    string
-	varName      string
-	hackTypeName string
+type hackMember struct {
+	name     string
+	ref      *api.ShapeRef
+	required bool
 }
 
-func (s Shape) sortedMembers() []member {
-	sorted := []string{}
-	for k, _ := range s.Members {
-		sorted = append(sorted, k)
+func (h hackMember) nullablePrefix() string {
+	if h.required {
+		return ""
 	}
-	sort.Strings(sorted)
+	return "?"
+}
 
-	members := []member{}
-	for _, mname := range sorted {
-		members = append(members, member{
-			s.Members[mname].Shape,
-			strcase.ToSnake(mname),
-			memberShapeToHackType(s.Members[mname].Shape),
+func hackMembers(s *api.Shape) []hackMember {
+	r := []hackMember{}
+	for _, mname := range s.MemberNames() {
+		r = append(r, hackMember{
+			name:     hackMemberName(mname),
+			ref:      s.MemberRefs[mname],
+			required: s.IsRequired(mname),
 		})
 	}
-	return members
+	return r
 }
 
-func genTopLevelStructure(name string, s Shape, ns namespace, w *writer) {
-	members := s.sortedMembers()
-	w.p("class %s {", name)
-	for _, m := range members {
-		w.p("public %s $%s;", m.hackTypeName, m.varName)
+// https://github.com/aws/aws-sdk-go/blob/v1.36.7/private/model/api/shape.go#L372
+func hackType(s *api.Shape) string {
+	switch s.Type {
+	case "structure":
+		return s.ShapeName
+	case "map":
+		return "dict<string, " + hackType(s.ValueRef.Shape) + ">"
+	//case "jsonvalue":
+	//	return "aws.JSONValue"
+	case "list":
+		return "vec<" + hackType(s.MemberRef.Shape) + ">"
+	case "boolean":
+		return "bool"
+	case "string", "character", "blob":
+		return "string"
+	case "byte", "short", "integer", "long":
+		return "int"
+	case "float", "double":
+		return "float"
+	case "timestamp":
+		return "int"
+	//case "timestamp":
+	//	s.API.imports["time"] = true
+	//	return "*time.Time"
+	default:
+		panic("Unsupported shape type: " + s.Type)
 	}
-	w.ln()
-	w.p("public function __construct(shape(")
-	w.i++
-	for _, m := range members {
-		w.p("?'%s' => %s,", m.varName, m.hackTypeName)
-	}
-	w.i--
-	w.p(") $s = shape()) {")
-	for _, m := range members {
-		w.p("$this->%s = $s['%s'] ?? %s;", m.varName, m.varName, ns[m.shapeName].defaultValue)
-	}
-	w.p("}")
-
-	w.p("}")
-	w.ln()
 }
-
-type (
-	Shape struct {
-		Type     string   `json:"type"`
-		Required []string `json:"required"`
-		Member   struct { // type = list
-			Shape        string `json:"shape"`
-			LocationName string `json:"locationName"`
-		} `json:"member"`
-		Members map[string]struct { // type = structure
-			Shape string `json:"shape"`
-		} `json:"members"`
-		Key struct { // type = map
-			Shape string `json:"shape"`
-		} `json:"key"`
-		Value struct { // type = map
-			Shape string `json:"shape"`
-		} `json:"value"`
-		Error struct {
-			Code           string `json:"code"`
-			HTTPStatusCode int    `json:"httpStatusCode"`
-			SenderFault    bool   `json:"senderFault"`
-		} `json:"error"`
-		Flattened bool `json:"flattened"`
-		Exception bool `json:"exception"`
-	}
-
-	Model struct {
-		Metadata struct {
-			EndpointPrefix string `json:"endpointPrefix"`
-			ServiceID      string `json:"serviceId"`
-		} `json:"metadata"`
-		Operations map[string]struct {
-			Name string `json:"name"`
-			Http struct {
-				Method     string `json:"method"`
-				RequestURI string `json:"requestUri"`
-			} `json:"http"`
-			Input struct {
-				Shape string `json:"shape"`
-			} `json:"input"`
-			Output struct {
-				Shape         string `json:"shape"`
-				ResultWrapper string `json:"resultWrapper"`
-			} `json:"output"`
-			Errors []struct {
-				Shape string `json:"shape"`
-			} `json:"errors"`
-		} `json:"operations"`
-		Shapes map[string]Shape `json:"shapes"`
-	}
-)
-
-const genDebug = false
 
 // writer is a little helper for output printing. It indents code
 // appropriately among other things.
@@ -257,7 +153,7 @@ type writer struct {
 }
 
 func (w *writer) p(format string, a ...interface{}) {
-	if strings.HasPrefix(format, "}") {
+	if strings.HasPrefix(format, "}") || strings.HasPrefix(format, ")") {
 		w.i--
 	}
 	i := w.i
@@ -267,7 +163,7 @@ func (w *writer) p(format string, a ...interface{}) {
 	indent := strings.Repeat("  ", i)
 	fmt.Fprintf(w.w, indent+format, a...)
 	w.ln()
-	if strings.HasSuffix(format, "{") {
+	if strings.HasSuffix(format, "{") || strings.HasSuffix(format, "(") {
 		w.i++
 	}
 }
@@ -275,6 +171,8 @@ func (w *writer) p(format string, a ...interface{}) {
 func (w *writer) ln() {
 	fmt.Fprintln(w.w)
 }
+
+const genDebug = false
 
 func (w *writer) pdebug(format string, a ...interface{}) {
 	if !genDebug {
